@@ -487,11 +487,31 @@ export function goldIdentityCss(dark: boolean): string {
 }
 
 /** A root colour token as this scheme paints it (one arm of a `light-dark()`
- *  pair), or `fallback` where no cascade is mounted. */
+ *  pair), or `fallback` where no cascade is mounted.
+ *
+ *  OD19-V3: these tokens are scheme constants, but their callers are colour
+ *  computeds, so an unmemoised read ran `getComputedStyle` once per colour
+ *  frame, after that frame's root `setProperty` writes, forcing a full style
+ *  recalc (839 ms of `getPropertyValue` over one drag). The cascade is read
+ *  once per token per scheme, the tint cache's idiom above: the memo is
+ *  dropped when the scheme flips, stamped from DOM truth (the root `.dark`
+ *  class) as well as the caller's `dark`, so a read that raced the class flip
+ *  self-corrects, and by the probe epoch, so a pre-mount read re-drives. An
+ *  empty read (no cascade mounted yet) is not memoised. */
+const schemeTokenMemo = new Map<string, string>();
+let schemeTokenStamp = "";
 function schemeTokenCss(token: string, dark: boolean, fallback: string): string {
-    const live = typeof document === "undefined"
-        ? ""
-        : getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+    if (typeof document === "undefined") return fallback;
+    const stamp = `${dark}|${document.documentElement.classList.contains("dark")}|${probeEpoch.value}`;
+    if (stamp !== schemeTokenStamp) {
+        schemeTokenMemo.clear();
+        schemeTokenStamp = stamp;
+    }
+    let live = schemeTokenMemo.get(token);
+    if (live === undefined) {
+        live = getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+        if (live) schemeTokenMemo.set(token, live);
+    }
     return lightDarkArm(live, dark) || fallback;
 }
 

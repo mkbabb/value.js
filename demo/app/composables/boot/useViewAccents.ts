@@ -34,11 +34,12 @@
  * the registered `--accent-view` locally).
  *
  * Recompute cadence: the accent seed is the rAF-COALESCED colour (W3-1), so
- * a slider drag costs at most one resolve set per frame — the same clock the
- * aurora/blob derives already ride.
+ * a slider drag costs at most one `--accent-view` resolve per frame — the same
+ * clock the aurora/blob derives already ride; the ramp mint trails the drag
+ * (OD19-V3).
  */
 
-import { computed, watch } from "vue";
+import { computed, onScopeDispose, watch } from "vue";
 import type { ComputedRef } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 
@@ -60,6 +61,11 @@ import {
     GRAPHICS_CONTRAST_FLOOR,
 } from "../../../color-session/ink";
 import { resolveViewAccent } from "../../../color-session/view-accent";
+
+/** OD19-V3: the quiet interval after the last colour frame before the
+ *  Palettes ramps re-mint (well past one frame, well under a reach for the
+ *  view menu). */
+const RAMP_SETTLE_MS = 120;
 
 export interface UseViewAccentsOptions {
     /** The rAF-coalesced live OPAQUE colour — the seal-ink (wax) source. */
@@ -127,7 +133,8 @@ export function useViewAccents(options: UseViewAccentsOptions): void {
     // display-scale pane title at the 3:1 large-text floor
     // (`--palettes-ramp-title-0/1/2`, aliased into the `.palettes-ramp-text`
     // recipe by PalettesPane) — each against ITS OWN surface, one resolver,
-    // per-site CERTIFIED OUTPUTS (never two mints).
+    // per-site CERTIFIED OUTPUTS (never two mints). The ramp mint rides a
+    // trailing settle off this watch (OD19-V3, below), not every frame.
     //
     // VJ-U-F26 (U.W-A11Y) — THE ONE-REFERENT CURE: `--accent-view` certifies
     // against `surfL` (the live-probed RESTING rung the ramp already uses),
@@ -157,38 +164,50 @@ export function useViewAccents(options: UseViewAccentsOptions): void {
         { immediate: true },
     );
 
+    // OD19-V3: `--accent-view` is the trigger/seal's live voice, so it tracks
+    // every colour frame. The two ramps are NOT on screen during a picker
+    // drag (the view menu is closed; the Palettes title is another view), yet
+    // each mint is a WCAG bisection per stop: on the drag clock they cost a
+    // long frame per step. They mint once the input settles (a trailing
+    // timer reading the latest accent + surface, so the settled tokens are
+    // byte-equal to a per-frame mint), and at once on the first run, a view
+    // change or a scheme flip, so the menu and title never open stale.
+    let rampTimer: ReturnType<typeof setTimeout> | undefined;
+    const mintRamps = () => {
+        rampTimer = undefined;
+        const root = document.documentElement.style;
+        const css = safeAccentCss.value;
+        const surfL = surfaceL.value;
+        const menuRamp = resolvePalettesRamp(css, surfL, RAMP_TEXT_CONTRAST_FLOOR);
+        if (menuRamp) {
+            menuRamp.forEach((stop, i) => {
+                root.setProperty(`--palettes-ramp-${i}`, stop);
+            });
+        }
+        const titleRamp = resolvePalettesRamp(css, surfL, RAMP_LARGE_TEXT_CONTRAST_FLOOR);
+        if (titleRamp) {
+            titleRamp.forEach((stop, i) => {
+                root.setProperty(`--palettes-ramp-title-${i}`, stop);
+            });
+        }
+    };
+    onScopeDispose(() => clearTimeout(rampTimer));
+
     watch(
         [
             safeAccentCss,
             surfaceL,
             () => currentConfig.value.accentHueShift,
+            isDark,
         ],
-        ([css, surfL, shift]) => {
-            const root = document.documentElement.style;
+        ([css, surfL, shift, dark], old) => {
             const resolved = resolveViewAccent(css, shift ?? 0, surfL);
             if (resolved) {
-                root.setProperty("--accent-view", resolved);
+                document.documentElement.style.setProperty("--accent-view", resolved);
             }
-            const menuRamp = resolvePalettesRamp(
-                css,
-                surfL,
-                RAMP_TEXT_CONTRAST_FLOOR,
-            );
-            if (menuRamp) {
-                menuRamp.forEach((stop, i) => {
-                    root.setProperty(`--palettes-ramp-${i}`, stop);
-                });
-            }
-            const titleRamp = resolvePalettesRamp(
-                css,
-                surfL,
-                RAMP_LARGE_TEXT_CONTRAST_FLOOR,
-            );
-            if (titleRamp) {
-                titleRamp.forEach((stop, i) => {
-                    root.setProperty(`--palettes-ramp-title-${i}`, stop);
-                });
-            }
+            clearTimeout(rampTimer);
+            if (!old || old[2] !== shift || old[3] !== dark) mintRamps();
+            else rampTimer = setTimeout(mintRamps, RAMP_SETTLE_MS);
         },
         { immediate: true },
     );
