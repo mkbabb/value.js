@@ -4349,3 +4349,53 @@ Source: workflow `x-ci-green` (`wf_c8be8949-52c`, 20 seats, 0 errors). Receipts 
    - then `.d`, `.e`, close (honest-RED on OD-W11-1), check.
    An npm E401/EOTP wall is banked as the owner act.
 9. **Zone gate.** While `zone.log` reads ≥ 13M, a seat's local heavy arm is banked ZONE-REFUSED (ESC-W8i-3, owner reboot owed). The same gate is read from the CI job that runs the identical command on a cold hosted runner at the same sha, cited by run and job id. A local arm is never substituted by `--light`. The darwin-only arms (WebKit, the real-GPU witness) stay owed until a reboot.
+
+## §0gd — 2026-10-19: the constellation read (wf_3eed4b93-1e7) — ESC-W10-h-1 RULED and homed in X-W11; .e gains the ESC census, the RC-P(V) re-read and the owner close report; SS-8 dispatched; records and mail brought to the bytes
+Source: the read-only constellation analysis (7 surface readers and a synthesis; every gap was re-verified by command). The Mac rebooted at 12:10 (zone 2,063), so §0gc.9's ZONE-REFUSED banks are re-witnessed locally.
+1. **§0gc.7(c) is corrected (E-3 erratum).**
+   - ESC-W10-h-1 (`evidence/W10/homed/DISPOSITION.md` §8, E1–E19) was never ruled. §8 gives each row an agent cure path, so E1–E9 are **not** owner-held.
+   - **RULED:** E1–E19 home in X-W11 as orchestrator-granted units **X.W11.h1–h19**, each with exactly the paths and canon clauses §8 names. Locks:
+     - nothing deletes, skips or weakens an assertion;
+     - `test.skip` is never an engine scope;
+     - glass halves go by mail as the next O-rows.
+   - **E2's library half** (`src/color/operations.ts` `safeAccentColor`) rides 4.1.0, so every h-unit lands BEFORE the re-mint.
+   - **E10:** the orchestrator accepts "neither arm; composition as shipped" (§3). Identity atmosphere is kept (§0dm). The single DESIGN.md §2 canon clause names the console veil as the sanctioned in-plate veil fixture (T.W6.5-P).
+   - **E14** (the one attributed darwin golden refresh, including the 390 re-plan, the `not-found` enrolment and RENDERER.json read live) lands after h1–h13. It is the last product-adjacent commit before the re-mint.
+   - **E18** (fourier `web/Dockerfile`, `nginx/fourier.conf`, `docker-compose.prod.yml`: one nginx authority and a stated build context) is granted on fourier `m/w1-bump-migration`. The certbot half is a host read, cited by command.
+   - **Order:** `.ci4 ∥ h-units` (disjoint writable sets; never a path dirty with another seat's hunks) → E14 → re-mint → `.b` → `.c` → `.d` → `.e`.
+2. **Test-written evidence.** Smoke specs `x-w7l-detached` and `scene-action-contract`, the W4 action-bar spec and the c3-o16 probe write into committed, dated evidence (E-3 violation at runtime). Unit **X.W11.ev1** moves every such output under the run's own output dir (`test-results/`) at its root. It then restores the clobbered dated files to their committed bytes, which restores the record and rewrites nothing: the X-W7L a-frames, the W4 action-bar PNGs, `c3-o16-o12-2026-09-22.json` and `probe-share-dark.txt`. `CARRY-LEDGER.md`'s Codex-era hunk is not this unit's, and stays owner-held.
+3. **`.e` gains three steps.**
+   - (a) **ESC census:** every id in `execution/A/census/esc-nohome-2026-10-19.txt` (109 ids found in neither COHESION nor close/) gets a one-line disposition in FINAL's annex: ruled-at, cured-at, honest-RED-with-owner, or superseded-by. No id is silent.
+   - (b) **RC-P(V) re-read** at the published 4.1.0 coordinate. KF.W3 opens, or a record that it does not open, with the measurement.
+   - (c) **The owner close report (§0ao)**, authored by `.e` as `docs/tranches/X/close/OWNER-REPORT.md`: the per-app state, every owner act in one list, and the honest-RED census.
+   - The glass 10.2.0 repin is a BLOCKED-ON re-trigger row (glass `git diff v10.1.0 HEAD -- src` is empty; no cut is imminent). It has a named re-trigger, and the kf half of §0fl.2 rides it.
+4. **SS-8 is dispatched now** (runbook §4.1; beside the tracks, not a wave). A dedicated workflow runs live witnesses of the ~751 UNPROVEN residue items in `V/megatranche/registry/adjudicated/**`, plus the 14-record zero-residue cohort. Statuses travel verbatim; UNPROVEN is upgraded only by a cited live witness. Headless only, through guarded.
+5. **Records brought to the bytes** (LEDGER dated event lines; row cells changed by minimal in-place edits):
+   - X.P.W5 is STOPPED-by-ruling §0by: `.f`/`.g` were superseded by X.P.W6, and `.d`/`.e` are homed in X.P.W7P.
+   - SS-13 is carried by KF.W9 and F.W3/F.W4.
+   - SS-1/SS-2 and KF.W11–13 are executed and CLOSED.
+   - F.REL ESC-FREL-pd-1 was RULED arm (a) at §0fs.
+   - New rows: X-DS (CLOSED 7c0fb2710, tail running) and F.CT (C pipeline at `bf16b1e`; the phase-4 decision is owner-held).
+6. **Mail (E13).** Each item below is to be done:
+   - an I-row for glass `49fd90aef` (O-100 placed);
+   - O-98 and O-99 mirrored to glass BK/coordination;
+   - the value↔glass id map recorded (value O-97 = glass O-98; value O-99 takes a fresh glass id);
+   - glass receipts for O-90/O-91/O-94a/O-97 rowed;
+   - an E-3 erratum at I-45 (`950684768`);
+   - a preamble addendum naming glass `BL/audit/INBOUND.md` (the sweep reads depth ≥ 2);
+   - keyframes' three untracked inbound letters committed.
+7. **Sibling work with no home, now homed:**
+   - kf R-K1-a: at `s===1` the spring settles exactly on its target (`src/**` progress.ts:349-362, falsifier RED→GREEN ×2).
+   - latex-paper: `changeset version`, build and test through guarded, then push master fast-forward and tag v0.3.0. The npm publish is the owner's npm act.
+   - fourier: a read-only re-probe of R-h1.
+   - The 38 untracked fourier DS evidence paths in value.js are committed with the X-DS tail addendum.
+8. **Owner acts, unchanged and de-duplicated:**
+   - OD-W11-1(a)/(b);
+   - G8 Safari.app pass;
+   - R-h1;
+   - npm login/OTP: parse-that 2.0.0 → bbnf-lang 0.2.0 → latex-paper 0.3.0 → the keyframes release semver. value.js uses CI's NPM_TOKEN;
+   - the F.CT phase;
+   - design rulings KF-C3-02, ESC-DS-F10X-C2, DS-F12X-C1, DS-F3R-C4, DS-F6X-T2;
+   - fourier R-4;
+   - the glass session's questions and its 10.2.0 go;
+   - housekeeping: bbnf-lang/parse-that dirty masters, prune of stale worktrees.
