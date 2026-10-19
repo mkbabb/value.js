@@ -1,0 +1,986 @@
+{
+ "light": {
+  "media": {
+   "hover": true,
+   "coarse": false,
+   "prm": false
+  },
+  "titleFont": {
+   "tag": "SPAN",
+   "cls": "palette-specimen__name font-display font-medium text-subheading",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "size": "20.352px",
+   "weight": "500",
+   "ls": "normal"
+  },
+  "field": {
+   "active": false,
+   "selStart": 0,
+   "selEnd": 23,
+   "valueLen": 23,
+   "cursor": "text",
+   "cardCursor": "pointer",
+   "formCursor": "pointer",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "size": "16.4px",
+   "weight": "400",
+   "ls": "normal",
+   "cls": "field-control glass-control-edge flex-1 min-w-0",
+   "aria": "Palette name",
+   "rowH": 50,
+   "rowScrollH": 50,
+   "rowMaxH": "none",
+   "controlHsm": "max(calc(2.25rem * 1),0px)",
+   "inputH": 36,
+   "morphExpanded": "3rem"
+  },
+  "axFocused": {
+   "role": "RootWebArea",
+   "name": "Palettes — Color Picker"
+  },
+  "cursorHovered": "text",
+  "press": {
+   "frames": 76,
+   "maxScaleDeviation": 0,
+   "distinctTransforms": [
+    "none"
+   ],
+   "distinctInline": [
+    "--press-t: 0.0000; --flex-vel: 0.0000;"
+   ]
+  },
+  "errs": []
+ },
+ "dark": {
+  "media": {
+   "hover": true,
+   "coarse": false,
+   "prm": false
+  },
+  "titleFont": {
+   "tag": "SPAN",
+   "cls": "palette-specimen__name font-display font-medium text-subheading",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "size": "20.352px",
+   "weight": "500",
+   "ls": "normal"
+  },
+  "field": {
+   "active": false,
+   "selStart": 0,
+   "selEnd": 23,
+   "valueLen": 23,
+   "cursor": "text",
+   "cardCursor": "pointer",
+   "formCursor": "pointer",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "size": "16.4px",
+   "weight": "400",
+   "ls": "normal",
+   "cls": "field-control glass-control-edge flex-1 min-w-0",
+   "aria": "Palette name",
+   "rowH": 50,
+   "rowScrollH": 50,
+   "rowMaxH": "none",
+   "controlHsm": "max(calc(2.25rem * 1),0px)",
+   "inputH": 36,
+   "morphExpanded": "3rem"
+  },
+  "axFocused": {
+   "role": "RootWebArea",
+   "name": "Palettes — Color Picker"
+  },
+  "cursorHovered": "text",
+  "press": {
+   "frames": 74,
+   "maxScaleDeviation": 0,
+   "distinctTransforms": [
+    "none"
+   ],
+   "distinctInline": [
+    "--press-t: 0.0000; --flex-vel: 0.0000;"
+   ]
+  },
+  "errs": []
+ },
+ "reduce": {
+  "media": {
+   "hover": true,
+   "coarse": false,
+   "prm": true
+  },
+  "titleFont": {
+   "tag": "SPAN",
+   "cls": "palette-specimen__name font-display font-medium text-subheading",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "size": "20.352px",
+   "weight": "500",
+   "ls": "normal"
+  },
+  "field": {
+   "active": false,
+   "selStart": 0,
+   "selEnd": 23,
+   "valueLen": 23,
+   "cursor": "text",
+   "cardCursor": "pointer",
+   "formCursor": "pointer",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "size": "16.4px",
+   "weight": "400",
+   "ls": "normal",
+   "cls": "field-control glass-control-edge flex-1 min-w-0",
+   "aria": "Palette name",
+   "rowH": 50,
+   "rowScrollH": 50,
+   "rowMaxH": "none",
+   "controlHsm": "max(calc(2.25rem * 1),0px)",
+   "inputH": 36,
+   "morphExpanded": "3rem"
+  },
+  "axFocused": {
+   "role": "RootWebArea",
+   "name": "Palettes — Color Picker"
+  },
+  "cursorHovered": "text",
+  "press": {
+   "frames": 158,
+   "maxScaleDeviation": 0,
+   "distinctTransforms": [
+    "none"
+   ],
+   "distinctInline": [
+    "--press-t: 0.0000; --flex-vel: 0.0000;"
+   ]
+  },
+  "errs": []
+ },
+ "coarse": {
+  "media": {
+   "hover": false,
+   "coarse": true,
+   "prm": false
+  },
+  "titleFont": {
+   "tag": "SPAN",
+   "cls": "palette-specimen__name font-display font-medium text-subheading",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "size": "20.352px",
+   "weight": "500",
+   "ls": "normal"
+  },
+  "enterSamples": [
+   {
+    "t": 695.8,
+    "row": {
+     "h": 13.6,
+     "sh": 41,
+     "mh": "0px",
+     "cls": "5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-from vj-morph-enter-active"
+    }
+   },
+   {
+    "t": 698.8,
+    "row": {
+     "h": 13.6,
+     "sh": 41,
+     "mh": "0px",
+     "cls": "5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-from vj-morph-enter-active"
+    }
+   },
+   {
+    "t": 714.4,
+    "row": {
+     "h": 13.6,
+     "sh": 41,
+     "mh": "0px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 717.3,
+    "row": {
+     "h": 13.6,
+     "sh": 41,
+     "mh": "5.16201px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 725,
+    "row": {
+     "h": 13.6,
+     "sh": 41,
+     "mh": "9.42133px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 737.5,
+    "row": {
+     "h": 13.7,
+     "sh": 41,
+     "mh": "12.9737px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 750.2,
+    "row": {
+     "h": 18.5,
+     "sh": 43,
+     "mh": "18.8514px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 766,
+    "row": {
+     "h": 23.4,
+     "sh": 46,
+     "mh": "23.7804px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 779.2,
+    "row": {
+     "h": 25.4,
+     "sh": 47,
+     "mh": "25.6994px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 794.4,
+    "row": {
+     "h": 29.5,
+     "sh": 49,
+     "mh": "29.7564px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 821.6,
+    "row": {
+     "h": 34.3,
+     "sh": 51,
+     "mh": "34.4887px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 837.6,
+    "row": {
+     "h": 35.7,
+     "sh": 52,
+     "mh": "35.8608px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 857,
+    "row": {
+     "h": 39.3,
+     "sh": 54,
+     "mh": "39.364px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 866.6,
+    "row": {
+     "h": 41.1,
+     "sh": 55,
+     "mh": "41.1989px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 874.5,
+    "row": {
+     "h": 42.1,
+     "sh": 55,
+     "mh": "42.1629px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 884.1,
+    "row": {
+     "h": 42.9,
+     "sh": 55,
+     "mh": "42.9222px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 893.6,
+    "row": {
+     "h": 43.6,
+     "sh": 56,
+     "mh": "43.6433px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 903.1,
+    "row": {
+     "h": 44.3,
+     "sh": 56,
+     "mh": "44.2999px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 912.6,
+    "row": {
+     "h": 44.9,
+     "sh": 56,
+     "mh": "44.888px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 930.6,
+    "row": {
+     "h": 45.9,
+     "sh": 57,
+     "mh": "45.8987px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 935.2,
+    "row": {
+     "h": 46.3,
+     "sh": 57,
+     "mh": "46.3197px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 940,
+    "row": {
+     "h": 46.7,
+     "sh": 57,
+     "mh": "46.6602px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 949.1,
+    "row": {
+     "h": 47,
+     "sh": 58,
+     "mh": "47.0097px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 960.2,
+    "row": {
+     "h": 47.3,
+     "sh": 58,
+     "mh": "47.2883px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 968,
+    "row": {
+     "h": 47.5,
+     "sh": 58,
+     "mh": "47.5112px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 975.1,
+    "row": {
+     "h": 47.7,
+     "sh": 58,
+     "mh": "47.6907px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 984.6,
+    "row": {
+     "h": 47.8,
+     "sh": 58,
+     "mh": "47.8281px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 993.4,
+    "row": {
+     "h": 47.9,
+     "sh": 58,
+     "mh": "47.9283px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-enter-active vj-morph-enter-to"
+    }
+   },
+   {
+    "t": 1002.2,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1010.1,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1018.6,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1029.3,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1037.3,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1054.7,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1063.2,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1071.5,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1079.6,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1088.1,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1096.6,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1104.9,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1113.2,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1121.6,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1129.6,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1137.4,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1145.4,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1153.3,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1161.2,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1169.6,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1178.1,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1186,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1193.9,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1201.7,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1209.9,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1218.1,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1226.7,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1234.8,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1242.4,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1250.8,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1259.1,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 1267.3,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   }
+  ],
+  "field": {
+   "active": false,
+   "selStart": 0,
+   "selEnd": 23,
+   "valueLen": 23,
+   "cursor": "text",
+   "cardCursor": "pointer",
+   "formCursor": "pointer",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "size": "14px",
+   "weight": "400",
+   "ls": "normal",
+   "cls": "field-control glass-control-edge flex-1 min-w-0",
+   "aria": "Palette name",
+   "rowH": 68,
+   "rowScrollH": 68,
+   "rowMaxH": "none",
+   "controlHsm": "max(calc(2.25rem * 1.5),2.75rem)",
+   "inputH": 54,
+   "morphExpanded": "3rem"
+  },
+  "axFocused": {
+   "role": "RootWebArea",
+   "name": "Palettes — Color Picker"
+  },
+  "leaveSamples": [
+   {
+    "t": 3,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 12.5,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 20.8,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 29,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 37.3,
+    "row": {
+     "h": 68,
+     "sh": 68,
+     "mh": "none",
+     "cls": "alette-name-input flex items-center gap-1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+    }
+   },
+   {
+    "t": 46.9,
+    "row": {
+     "h": 48,
+     "sh": 58,
+     "mh": "48px",
+     "cls": "5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-from vj-morph-leave-active"
+    }
+   },
+   {
+    "t": 53.8,
+    "row": {
+     "h": 48,
+     "sh": 58,
+     "mh": "48px",
+     "cls": "5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-from vj-morph-leave-active"
+    }
+   },
+   {
+    "t": 64,
+    "row": {
+     "h": 48,
+     "sh": 58,
+     "mh": "48px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 72.4,
+    "row": {
+     "h": 47.8,
+     "sh": 58,
+     "mh": "47.8126px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 81,
+    "row": {
+     "h": 47.3,
+     "sh": 58,
+     "mh": "47.3358px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 90.9,
+    "row": {
+     "h": 46.6,
+     "sh": 57,
+     "mh": "46.5977px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 99.4,
+    "row": {
+     "h": 45.6,
+     "sh": 57,
+     "mh": "45.6595px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 109.6,
+    "row": {
+     "h": 44.4,
+     "sh": 56,
+     "mh": "44.4855px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 120,
+    "row": {
+     "h": 43,
+     "sh": 56,
+     "mh": "43.1786px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 123.5,
+    "row": {
+     "h": 41.5,
+     "sh": 55,
+     "mh": "41.6791px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 129.9,
+    "row": {
+     "h": 40,
+     "sh": 54,
+     "mh": "40.1941px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 139.4,
+    "row": {
+     "h": 38,
+     "sh": 53,
+     "mh": "38.2687px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 149.3,
+    "row": {
+     "h": 36.1,
+     "sh": 52,
+     "mh": "36.3831px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 159.3,
+    "row": {
+     "h": 34.1,
+     "sh": 51,
+     "mh": "34.3825px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 169,
+    "row": {
+     "h": 31.9,
+     "sh": 50,
+     "mh": "32.2483px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 178.6,
+    "row": {
+     "h": 27.4,
+     "sh": 48,
+     "mh": "27.7872px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 198.3,
+    "row": {
+     "h": 22.5,
+     "sh": 45,
+     "mh": "22.8151px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 208,
+    "row": {
+     "h": 20,
+     "sh": 44,
+     "mh": "20.3686px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 218.5,
+    "row": {
+     "h": 17.4,
+     "sh": 43,
+     "mh": "17.7176px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 229.1,
+    "row": {
+     "h": 14.5,
+     "sh": 41,
+     "mh": "14.8183px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 234.7,
+    "row": {
+     "h": 13.7,
+     "sh": 41,
+     "mh": "12.0005px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   },
+   {
+    "t": 247.2,
+    "row": {
+     "h": 13.6,
+     "sh": 41,
+     "mh": "6.29838px",
+     "cls": "1.5 min-w-0 rename-morph px-3 pb-2.5 pt-1 max-w-sm vj-morph-leave-active vj-morph-leave-to"
+    }
+   }
+  ],
+  "errs": []
+ }
+}

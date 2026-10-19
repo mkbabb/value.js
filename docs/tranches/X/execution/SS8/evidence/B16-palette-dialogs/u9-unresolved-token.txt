@@ -1,0 +1,2 @@
+{"type":"urn:contract:session-invalid","title":"Session token required","status":401,"instance":"/palettes"}
+HTTP 401

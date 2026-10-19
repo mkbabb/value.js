@@ -1,0 +1,22 @@
+{
+ "hashBefore": "#/browse",
+ "after": {
+  "hash": "#/palettes",
+  "slugLS": null,
+  "lsKeys": [
+   "color-picker",
+   "color-palettes",
+   "color-picker-ground",
+   "vueuse-color-scheme",
+   "palette-admin-token"
+  ]
+ },
+ "api": [
+  {
+   "m": "GET",
+   "p": "/admin/tags",
+   "mocked": "admin"
+  }
+ ],
+ "errs": []
+}
