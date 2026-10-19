@@ -295,6 +295,11 @@ jobs:
               with:
                   name: lhci-report
                   path: .lighthouseci/
+                  # `.lighthouseci/` is a dot-directory: upload-artifact@v4
+                  # excludes hidden files by default, so without this every
+                  # run logged "No files were found" and the reports that
+                  # explain a red budget were never kept.
+                  include-hidden-files: true
                   retention-days: 7
 
     # ── G-21 · the standing deploy-age check ─────────────────────────────────
