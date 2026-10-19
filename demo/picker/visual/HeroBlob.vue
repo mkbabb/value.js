@@ -117,6 +117,12 @@ function reseedHeroStops(css: string) {
                 stopCount: 4,
                 harmony: "analogous",
                 chromaCeiling: Math.max(0.16, seed.C),
+                // Canon §4.2 C-1 (X.W11.h8, DISPOSITION §8 E8): the body
+                // stop is a data surface, so it holds the seed's OWN L and the
+                // producer's gamut map reaches the buffer's cusp chroma at that
+                // L (the default ramp centres on the seed, landing the body at
+                // L − spread/2, where the cusp chroma is lower).
+                bodyLightness: seed.L,
             }),
         ).map(oklchStopToHex);
     } catch {
