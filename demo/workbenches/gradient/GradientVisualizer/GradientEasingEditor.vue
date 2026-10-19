@@ -379,7 +379,7 @@ async function copyLiteral(index: number, css: string) {
 .rail-caption {
     font-size: var(--text-caption);
     line-height: 1.2;
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-muted);
 }
 
 /* ── Motion, declared only where motion is wanted (X-W6 · X.W6.e — e2) ──

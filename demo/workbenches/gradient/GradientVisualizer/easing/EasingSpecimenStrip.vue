@@ -204,7 +204,7 @@ watch(
 .tile-label {
     font-size: var(--text-caption);
     line-height: 1.2;
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-muted);
 }
 .family-tiles {
     display: flex;

@@ -494,7 +494,7 @@ onMounted(() => {
     line-height: 1.2;
     /* X-DS pass 1 (V1C-03): the schema's own label in sentence case — the
      * original set no uppercase tracking anywhere (value-canon §2 Type). */
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-muted);
 }
 
 /* X.W12U.m · A2-VA-L2-4 — a short viewport folds the title's own margin

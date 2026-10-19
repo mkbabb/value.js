@@ -413,7 +413,7 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
  * CERTIFIED de-emphasis rung — the D6 contract's stamped token — never a
  * post-hoc alpha over an already-resolved ink. */
 .specimen-caption {
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-muted);
 
     /* X-W6.f · X:CSS-1 (f4) — THE BOX IS SIZED BY THE DIGIT POLICY.
      *

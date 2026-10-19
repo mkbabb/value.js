@@ -187,7 +187,7 @@ const { level = 2, titleId } = defineProps<{
  * :root (the plate-caption / parse-echo voice, ≥4.5 on the composited resting
  * plate). Falls back to `--muted-foreground` before the boot writer runs. */
 .pane-header-desc {
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-muted);
 }
 
 .pane-header {

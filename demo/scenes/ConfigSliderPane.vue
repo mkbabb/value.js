@@ -289,7 +289,7 @@ onBeforeUnmount(() => cancelAnimationFrame(snapFrame));
     font-size: var(--type-small);
     line-height: var(--type-leading-small);
     font-variant-numeric: tabular-nums;
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-muted);
 }
 
 /* T.W8-WR-11 (T-59) — THE ONE RHYTHM SOURCE, offered to the config population
