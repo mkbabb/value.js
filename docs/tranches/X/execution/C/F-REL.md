@@ -2990,3 +2990,50 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 ~18:18–18:3
 - ESC-FREL-r4-1 not acted on.
 
 **Residuals:** prod API `79f1a43`; SPA `index-Cze8HIRf.js`; deploy-alert #1 OPEN.
+
+## RESUME 2026-10-19 (h) — Close
+
+Close seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 ~18:20–18:30Z. VERIFY-ONLY; nothing cured. Crash recovery: fourier ⟨`git status --porcelain`⟩ → `?? .worktrees/` only (outside every F.REL set; untouched); value.js this record + `evidence/F-REL/` clean. No npm publish is in F.REL's scope; the relayed npm token was not used and is written to no file.
+
+### Commit roster (⟨`git show --stat`⟩, each unit's writable set)
+| Unit | Commit | Paths | In bounds |
+|---|---|---|---|
+| `.m1` | value.js `0b0ca5018` | this record (+29) · `evidence/F-REL/m1/README.md` · `evidence/F-REL/m1/ci-39292117114-refusal.txt` | yes (no fourier write; ESCALATED) |
+| `.d` | value.js `e0f69d129` | this record (+34) · `evidence/F-REL/d/resit-h-readings.txt` | yes (no fourier write; ESCALATED) |
+
+**Landed-wrong:** none. Fourier unmoved: ⟨`git rev-parse --short HEAD origin/master origin/m/w1-bump-migration`⟩ → `dc30e5e 24a524a dc30e5e`.
+
+### Gates re-run at close (BEFORE = Baseline (h) → AFTER = close reading, 18:23Z)
+| Gate | BEFORE | AFTER (close seat) | State |
+|---|---|---|---|
+| m1 pin sites | `mongo:8.0` ×3 | ⟨`grep -n "image: mongo" .github/workflows/ci.yml docker-compose*.yml`⟩ → `ci.yml:55` `ci.yml:298` `docker-compose.yml:38` all `image: mongo:8.0` (worktree + `origin/master`) | RED (not landed; ESC-FREL-m1-1) |
+| m1 fixed release read | owed | `.m1` evidence README: SERVER-131779 fixVersions `8.0.35, 8.3.14, 9.0.4`; ⟨`curl hub.docker.com/v2/repositories/library/mongo/tags?name=8.0.35`⟩ → `[]` (still unpublished) | read; arm (a) not yet available |
+| m1 CI on kernel ≥ 6.19, mongod healthy | RED | no new run; refusal id `12257600` banked (`evidence/F-REL/m1/ci-39292117114-refusal.txt`) | RED |
+| master CI GREEN ×2 | RED | ⟨`gh run list --branch master --workflow ci.yml -L 3`⟩ → `39292117114` failure · `39292091987` failure (both `24a524a`) | RED |
+| master e2e non-mongo visual-checkpoint (items 1·6·7 / 2 / 8) | RED | unchanged (`39292117114`: 3 failed · 8 flaky · 519 passed) | RED (X-DS `web/`) |
+| off-host poller · hook deploy OK · prod-verify 21/21 ×2 | RED | not run (no deploy; precondition unmet) | RED |
+| deploy-alert #1 | OPEN | ⟨`gh issue list --label deploy-alert --state all`⟩ → `#1 OPEN … 2026-10-19T17:48:27Z` | RED |
+| PD-1 prod | gzip, no ETag | ⟨`curl -D - -H 'Accept-Encoding: gzip' …/api/gallery/cursor?limit=2`⟩ → `200`, `Content-Encoding: gzip`, no `ETag` | RED |
+| health | 200 | ⟨`curl …/api/health`⟩ ×2 → `200 200` | GREEN |
+| pages-smoke ×2 | PASS | ⟨`guarded --light -- bash scripts/pages-smoke.sh`⟩ ×2 → rc 0 `PASS` each (`~/.dev-logs/frel/close-h-smoke-{1,2}.txt`) | GREEN |
+| cert > 14 d | Dec 22 / Jan 4 | `fourier.babb.dev` Dec 22 2026 · `api.fourier.babb.dev` Jan 4 2027 | GREEN |
+| openapi | `42 0.2.0` | `openapi 42 0.2.0` (old API `79f1a43`) | unchanged |
+| host reach (d-5) | rc 1 | ⟨`nc -z -G 8 -w 8 34.197.214.67 1022`⟩ → rc `1` | RED (owner) |
+| admin (r4-1) | 503 | ⟨`curl …/api/admin/verify`⟩ → `503` | RED (owner) |
+| prod ENV recorded | ENV ≠ production | unchanged (`.d` receipt; `main.py:36-37`) | recorded |
+
+### E13
+Paths: value `V/` + `V/coordination`; glass ⟨`ls -t docs/tranches`⟩ → `BL BK BJ` (swept `BK/coordination`, `BL` depth 3, `BL/coordination`); keyframes `V/coordination`; atlas `sci-report/atlas/docs/tranches/P/coordination`. ⟨`find … -newer INBOX.md`⟩ → only glass `BL/FORMATION-PROGRESS.md` (glass's own progress file, not mail). ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`. **0 UNREAD in scope.**
+
+### Escalations (open; named owners)
+- **ESC-FREL-m1-1** (orchestrator / COHESION ruling): no official `mongo` 8.0.x image carries the Ubuntu/azure-kernel fix (SERVER-131779 → 8.0.35, unpublished; `8.0.35` tag query → `[]` at close). Arm (a) wait for `mongo:8.0.35` and pin exactly at `ci.yml:55,298` + `docker-compose.yml:38` (conforming); arm (b) widen the lock to a major, pin `mongo:9.0.4` (FCV stays 8.0). Arm (c) bypasses rejected.
+- **ESC-FREL-d-5** (owner act): host `:1022` unreachable (rc 1 at close); hook `79f1a43` REFUSEs while `FOURIER_DEPLOY_ALERT_WEBHOOK` is unset.
+- **ESC-FREL-r4-1** (owner act): prod `ADMIN_TOKEN` empty (`/api/admin/verify` → 503); prod ENV ≠ production by mechanism.
+
+### Residuals (named owners)
+- Master e2e visual-checkpoint RED (items 1·6·7 / 2 / 8) from the X-DS fourier `web/` passes merged at `24a524a` — X-DS fourier (`web/`), independent of the mongo pin; must be GREEN for master CI ×2.
+- Prod API at `79f1a43`, SPA `index-Cze8HIRf.js`, deploy-alert #1 OPEN, PD-1 RED on prod — `.d` re-sit (Track C) after m1-1 is ruled + landed, master CI GREEN ×2, and the owner's d-5 act.
+- Five drafts on prod — `.r4` re-sit after the owner's r4-1 act.
+
+### State
+Four-verb line **not moved**: F.REL stays OPEN, **BLOCKED-ON ESC-FREL-m1-1 (orchestrator mongo-pin ruling; arm (a) awaits `mongo:8.0.35`) + the X-DS visual-checkpoint RED on master + ESC-FREL-d-5 + ESC-FREL-r4-1 (owner)**. `.m1` and `.d` ESCALATED; no unit IMPLEMENTED this sitting.
