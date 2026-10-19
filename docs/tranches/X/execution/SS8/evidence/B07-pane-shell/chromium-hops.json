@@ -1,0 +1,1262 @@
+[
+ {
+  "vp": "1440x900",
+  "reducedMotion": "no-preference",
+  "kdTotal": {
+   "add": 4,
+   "rem": 0
+  },
+  "hops": [
+   {
+    "to": "/gradient",
+    "settledMs": 944.2,
+    "firstIncomingPresentMs": 465.6,
+    "frames": 59,
+    "leaveFrames": 7,
+    "enterFrames": 20,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 621,
+    "maxContainerH": 879,
+    "maxRegionH": 879,
+    "end": [
+     {
+      "key": "gradient",
+      "kids": 1,
+      "panes": [
+       "GradientPane"
+      ],
+      "h": 879,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 879,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Gradient",
+    "announce": "Gradient view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/mix",
+    "settledMs": 843.2,
+    "firstIncomingPresentMs": 316.5,
+    "frames": 40,
+    "leaveFrames": 10,
+    "enterFrames": 17,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 621,
+    "maxContainerH": 879,
+    "maxRegionH": 879,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 621,
+      "wd": 512
+     },
+     {
+      "key": "mix",
+      "kids": 1,
+      "panes": [
+       "MixPane"
+      ],
+      "h": 621,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Mix",
+    "announce": "Mix view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/extract",
+    "settledMs": 991.1,
+    "firstIncomingPresentMs": 452,
+    "frames": 66,
+    "leaveFrames": 11,
+    "enterFrames": 28,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 556,
+    "maxContainerH": 621,
+    "maxRegionH": 621,
+    "end": [
+     {
+      "key": "extract",
+      "kids": 1,
+      "panes": [
+       "ExtractPane"
+      ],
+      "h": 556,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 556,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Extract",
+    "announce": "Extract view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/generate",
+    "settledMs": 775.8,
+    "firstIncomingPresentMs": 307.1,
+    "frames": 76,
+    "leaveFrames": 12,
+    "enterFrames": 30,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 480,
+    "maxContainerH": 556,
+    "maxRegionH": 556,
+    "end": [
+     {
+      "key": "generate",
+      "kids": 1,
+      "panes": [
+       "GeneratePane"
+      ],
+      "h": 474,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 480,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Generate",
+    "announce": "Generate view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/",
+    "settledMs": 783.6,
+    "firstIncomingPresentMs": 260,
+    "frames": 47,
+    "leaveFrames": 11,
+    "enterFrames": 17,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 474,
+    "maxContainerH": 621,
+    "maxRegionH": 621,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 621,
+      "wd": 512
+     },
+     {
+      "key": "about",
+      "kids": 1,
+      "panes": [
+       "AboutPane"
+      ],
+      "h": 621,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Home",
+    "announce": "Home view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/gradient",
+    "settledMs": 728.7,
+    "firstIncomingPresentMs": 251,
+    "frames": 48,
+    "leaveFrames": 6,
+    "enterFrames": 17,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 621,
+    "maxContainerH": 879,
+    "maxRegionH": 879,
+    "end": [
+     {
+      "key": "gradient",
+      "kids": 1,
+      "panes": [
+       "GradientPane"
+      ],
+      "h": 879,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 879,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Gradient",
+    "announce": "Gradient view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/mix",
+    "settledMs": 883.1,
+    "firstIncomingPresentMs": 305.8,
+    "frames": 32,
+    "leaveFrames": 8,
+    "enterFrames": 12,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 621,
+    "maxContainerH": 879,
+    "maxRegionH": 879,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 621,
+      "wd": 512
+     },
+     {
+      "key": "mix",
+      "kids": 1,
+      "panes": [
+       "MixPane"
+      ],
+      "h": 621,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Mix",
+    "announce": "Mix view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/extract",
+    "settledMs": 889.6,
+    "firstIncomingPresentMs": 324.8,
+    "frames": 57,
+    "leaveFrames": 6,
+    "enterFrames": 18,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 556,
+    "maxContainerH": 621,
+    "maxRegionH": 621,
+    "end": [
+     {
+      "key": "extract",
+      "kids": 1,
+      "panes": [
+       "ExtractPane"
+      ],
+      "h": 556,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 556,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Extract",
+    "announce": "Extract view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/generate",
+    "settledMs": 718.9,
+    "firstIncomingPresentMs": 248.3,
+    "frames": 62,
+    "leaveFrames": 9,
+    "enterFrames": 23,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 480,
+    "maxContainerH": 556,
+    "maxRegionH": 556,
+    "end": [
+     {
+      "key": "generate",
+      "kids": 1,
+      "panes": [
+       "GeneratePane"
+      ],
+      "h": 474,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 480,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Generate",
+    "announce": "Generate view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/",
+    "settledMs": 802.9,
+    "firstIncomingPresentMs": 271.7,
+    "frames": 30,
+    "leaveFrames": 9,
+    "enterFrames": 10,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 474,
+    "maxContainerH": 621,
+    "maxRegionH": 621,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 621,
+      "wd": 512
+     },
+     {
+      "key": "about",
+      "kids": 1,
+      "panes": [
+       "AboutPane"
+      ],
+      "h": 621,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Home",
+    "announce": "Home view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   }
+  ]
+ },
+ {
+  "vp": "390x844",
+  "reducedMotion": "no-preference",
+  "kdTotal": {
+   "add": 4,
+   "rem": 0
+  },
+  "hops": [
+   {
+    "to": "/gradient",
+    "settledMs": 869.6,
+    "firstIncomingPresentMs": 408.7,
+    "frames": 98,
+    "leaveFrames": 24,
+    "enterFrames": 37,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 1374,
+    "maxContainerH": 8146,
+    "maxRegionH": 7593,
+    "end": [
+     {
+      "key": "gradient",
+      "kids": 1,
+      "panes": [
+       "GradientPane"
+      ],
+      "h": 973,
+      "wd": 358
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 385,
+      "wd": 358
+     }
+    ],
+    "stranded": false,
+    "h1": "Gradient",
+    "announce": "Gradient view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/mix",
+    "settledMs": 767.3,
+    "firstIncomingPresentMs": 306.7,
+    "frames": 93,
+    "leaveFrames": 29,
+    "enterFrames": 41,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 938,
+    "maxContainerH": 1374,
+    "maxRegionH": 973,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 537,
+      "wd": 358
+     },
+     {
+      "key": "mix",
+      "kids": 1,
+      "panes": [
+       "MixPane"
+      ],
+      "h": 552,
+      "wd": 358
+     }
+    ],
+    "stranded": false,
+    "h1": "Mix",
+    "announce": "Mix view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/extract",
+    "settledMs": 825.5,
+    "firstIncomingPresentMs": 362.6,
+    "frames": 102,
+    "leaveFrames": 28,
+    "enterFrames": 49,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 938,
+    "maxContainerH": 1105,
+    "maxRegionH": 552,
+    "end": [
+     {
+      "key": "extract",
+      "kids": 1,
+      "panes": [
+       "ExtractPane"
+      ],
+      "h": 537,
+      "wd": 358
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 385,
+      "wd": 358
+     }
+    ],
+    "stranded": false,
+    "h1": "Extract",
+    "announce": "Extract view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/generate",
+    "settledMs": 753.2,
+    "firstIncomingPresentMs": 288.5,
+    "frames": 115,
+    "leaveFrames": 25,
+    "enterFrames": 56,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 827,
+    "maxContainerH": 939,
+    "maxRegionH": 537,
+    "end": [
+     {
+      "key": "generate",
+      "kids": 1,
+      "panes": [
+       "GeneratePane"
+      ],
+      "h": 426,
+      "wd": 358
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 385,
+      "wd": 358
+     }
+    ],
+    "stranded": false,
+    "h1": "Generate",
+    "announce": "Generate view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/",
+    "settledMs": 725.5,
+    "firstIncomingPresentMs": 259.9,
+    "frames": 92,
+    "leaveFrames": 25,
+    "enterFrames": 36,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 827,
+    "maxContainerH": 8146,
+    "maxRegionH": 7593,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 537,
+      "wd": 358
+     },
+     {
+      "key": "about",
+      "kids": 1,
+      "panes": [
+       "AboutPane"
+      ],
+      "h": 7593,
+      "wd": 358
+     }
+    ],
+    "stranded": false,
+    "h1": "Home",
+    "announce": "Home view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/gradient",
+    "settledMs": 731.4,
+    "firstIncomingPresentMs": 255.1,
+    "frames": 90,
+    "leaveFrames": 22,
+    "enterFrames": 37,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 1374,
+    "maxContainerH": 8146,
+    "maxRegionH": 7593,
+    "end": [
+     {
+      "key": "gradient",
+      "kids": 1,
+      "panes": [
+       "GradientPane"
+      ],
+      "h": 973,
+      "wd": 358
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 385,
+      "wd": 358
+     }
+    ],
+    "stranded": false,
+    "h1": "Gradient",
+    "announce": "Gradient view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/mix",
+    "settledMs": 737.4,
+    "firstIncomingPresentMs": 261.2,
+    "frames": 88,
+    "leaveFrames": 24,
+    "enterFrames": 37,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 1105,
+    "maxContainerH": 1374,
+    "maxRegionH": 973,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 537,
+      "wd": 358
+     },
+     {
+      "key": "mix",
+      "kids": 1,
+      "panes": [
+       "MixPane"
+      ],
+      "h": 552,
+      "wd": 358
+     }
+    ],
+    "stranded": false,
+    "h1": "Mix",
+    "announce": "Mix view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/extract",
+    "settledMs": 736.7,
+    "firstIncomingPresentMs": 254.8,
+    "frames": 97,
+    "leaveFrames": 22,
+    "enterFrames": 42,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 939,
+    "maxContainerH": 1105,
+    "maxRegionH": 552,
+    "end": [
+     {
+      "key": "extract",
+      "kids": 1,
+      "panes": [
+       "ExtractPane"
+      ],
+      "h": 537,
+      "wd": 358
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 385,
+      "wd": 358
+     }
+    ],
+    "stranded": false,
+    "h1": "Extract",
+    "announce": "Extract view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/generate",
+    "settledMs": 711,
+    "firstIncomingPresentMs": 239.1,
+    "frames": 114,
+    "leaveFrames": 26,
+    "enterFrames": 55,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 827,
+    "maxContainerH": 939,
+    "maxRegionH": 537,
+    "end": [
+     {
+      "key": "generate",
+      "kids": 1,
+      "panes": [
+       "GeneratePane"
+      ],
+      "h": 426,
+      "wd": 358
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 385,
+      "wd": 358
+     }
+    ],
+    "stranded": false,
+    "h1": "Generate",
+    "announce": "Generate view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/",
+    "settledMs": 728.2,
+    "firstIncomingPresentMs": 251.8,
+    "frames": 95,
+    "leaveFrames": 26,
+    "enterFrames": 38,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 827,
+    "maxContainerH": 8146,
+    "maxRegionH": 7593,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 537,
+      "wd": 358
+     },
+     {
+      "key": "about",
+      "kids": 1,
+      "panes": [
+       "AboutPane"
+      ],
+      "h": 7593,
+      "wd": 358
+     }
+    ],
+    "stranded": false,
+    "h1": "Home",
+    "announce": "Home view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   }
+  ]
+ },
+ {
+  "vp": "1440x900",
+  "reducedMotion": "reduce",
+  "kdTotal": {
+   "add": 4,
+   "rem": 0
+  },
+  "hops": [
+   {
+    "to": "/gradient",
+    "settledMs": 241.3,
+    "firstIncomingPresentMs": 231.6,
+    "frames": 39,
+    "leaveFrames": 3,
+    "enterFrames": 2,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 621,
+    "maxContainerH": 879,
+    "maxRegionH": 879,
+    "end": [
+     {
+      "key": "gradient",
+      "kids": 1,
+      "panes": [
+       "GradientPane"
+      ],
+      "h": 879,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 879,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Gradient",
+    "announce": "Gradient view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/mix",
+    "settledMs": 168.9,
+    "firstIncomingPresentMs": 149.8,
+    "frames": 37,
+    "leaveFrames": 4,
+    "enterFrames": 4,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 621,
+    "maxContainerH": 879,
+    "maxRegionH": 879,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 621,
+      "wd": 512
+     },
+     {
+      "key": "mix",
+      "kids": 1,
+      "panes": [
+       "MixPane"
+      ],
+      "h": 621,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Mix",
+    "announce": "Mix view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/extract",
+    "settledMs": 195.1,
+    "firstIncomingPresentMs": 150.1,
+    "frames": 40,
+    "leaveFrames": 4,
+    "enterFrames": 4,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 556,
+    "maxContainerH": 621,
+    "maxRegionH": 621,
+    "end": [
+     {
+      "key": "extract",
+      "kids": 1,
+      "panes": [
+       "ExtractPane"
+      ],
+      "h": 556,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 556,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Extract",
+    "announce": "Extract view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/generate",
+    "settledMs": 2903.6,
+    "firstIncomingPresentMs": 2886.3,
+    "frames": 377,
+    "leaveFrames": 4,
+    "enterFrames": 6,
+    "zeroChildFrames": 24,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 480,
+    "maxContainerH": 556,
+    "maxRegionH": 556,
+    "end": [
+     {
+      "key": "generate",
+      "kids": 1,
+      "panes": [
+       "GeneratePane"
+      ],
+      "h": 474,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 480,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Generate",
+    "announce": "Generate view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/",
+    "settledMs": 173.8,
+    "firstIncomingPresentMs": 82,
+    "frames": 36,
+    "leaveFrames": 2,
+    "enterFrames": 2,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 474,
+    "maxContainerH": 621,
+    "maxRegionH": 621,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 621,
+      "wd": 512
+     },
+     {
+      "key": "about",
+      "kids": 1,
+      "panes": [
+       "AboutPane"
+      ],
+      "h": 621,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Home",
+    "announce": "Home view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "cold"
+   },
+   {
+    "to": "/gradient",
+    "settledMs": 135.6,
+    "firstIncomingPresentMs": 84.6,
+    "frames": 36,
+    "leaveFrames": 2,
+    "enterFrames": 2,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 621,
+    "maxContainerH": 879,
+    "maxRegionH": 879,
+    "end": [
+     {
+      "key": "gradient",
+      "kids": 1,
+      "panes": [
+       "GradientPane"
+      ],
+      "h": 879,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 879,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Gradient",
+    "announce": "Gradient view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/mix",
+    "settledMs": 187.4,
+    "firstIncomingPresentMs": 74.8,
+    "frames": 36,
+    "leaveFrames": 2,
+    "enterFrames": 2,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 621,
+    "maxContainerH": 879,
+    "maxRegionH": 879,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 621,
+      "wd": 512
+     },
+     {
+      "key": "mix",
+      "kids": 1,
+      "panes": [
+       "MixPane"
+      ],
+      "h": 621,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Mix",
+    "announce": "Mix view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/extract",
+    "settledMs": 156.8,
+    "firstIncomingPresentMs": 75.4,
+    "frames": 37,
+    "leaveFrames": 2,
+    "enterFrames": 2,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 556,
+    "maxContainerH": 621,
+    "maxRegionH": 621,
+    "end": [
+     {
+      "key": "extract",
+      "kids": 1,
+      "panes": [
+       "ExtractPane"
+      ],
+      "h": 556,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 556,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Extract",
+    "announce": "Extract view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/generate",
+    "settledMs": 77.3,
+    "firstIncomingPresentMs": 59.8,
+    "frames": 36,
+    "leaveFrames": 2,
+    "enterFrames": 2,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 480,
+    "maxContainerH": 556,
+    "maxRegionH": 556,
+    "end": [
+     {
+      "key": "generate",
+      "kids": 1,
+      "panes": [
+       "GeneratePane"
+      ],
+      "h": 474,
+      "wd": 512
+     },
+     {
+      "key": "palettes",
+      "kids": 1,
+      "panes": [
+       "PalettesPane"
+      ],
+      "h": 480,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Generate",
+    "announce": "Generate view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   },
+   {
+    "to": "/",
+    "settledMs": 140.1,
+    "firstIncomingPresentMs": 73.6,
+    "frames": 31,
+    "leaveFrames": 2,
+    "enterFrames": 2,
+    "zeroChildFrames": 0,
+    "maxKidsPerRegion": 1,
+    "minContainerH": 474,
+    "maxContainerH": 621,
+    "maxRegionH": 621,
+    "end": [
+     {
+      "key": "color-picker",
+      "kids": 1,
+      "panes": [
+       "ColorPicker"
+      ],
+      "h": 621,
+      "wd": 512
+     },
+     {
+      "key": "about",
+      "kids": 1,
+      "panes": [
+       "AboutPane"
+      ],
+      "h": 621,
+      "wd": 512
+     }
+    ],
+    "stranded": false,
+    "h1": "Home",
+    "announce": "Home view",
+    "kdDelta": {
+     "add": 0,
+     "rem": 0
+    },
+    "round": "warm"
+   }
+  ]
+ }
+]

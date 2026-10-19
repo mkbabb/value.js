@@ -1,0 +1,35 @@
+[
+ {
+  "start": "/",
+  "route": "#/",
+  "heroAnchor": true,
+  "heroCanvas": 1,
+  "rect": {
+   "w": 113,
+   "h": 113
+  },
+  "overtureStamp": null
+ },
+ {
+  "start": "/gradient",
+  "route": "#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+  "heroAnchor": true,
+  "heroCanvas": 1,
+  "rect": {
+   "w": 113,
+   "h": 113
+  },
+  "overtureStamp": null
+ },
+ {
+  "start": "/browse",
+  "route": "#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+  "heroAnchor": true,
+  "heroCanvas": 1,
+  "rect": {
+   "w": 113,
+   "h": 113
+  },
+  "overtureStamp": null
+ }
+]

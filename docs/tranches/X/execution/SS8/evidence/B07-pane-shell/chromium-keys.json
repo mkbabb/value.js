@@ -1,0 +1,80 @@
+[
+ {
+  "arm": "cmdk-home",
+  "pickerFound": true,
+  "pre": {
+   "route": "#/",
+   "pickerInDom": true,
+   "isEditing": false
+  },
+  "post": {
+   "selectOpen": false,
+   "events": [
+    {
+     "key": "Meta",
+     "meta": true,
+     "prevented": false
+    },
+    {
+     "key": "k",
+     "meta": true,
+     "prevented": false
+    }
+   ],
+   "isEditing": false,
+   "editTarget": "null"
+  }
+ },
+ {
+  "arm": "ctrlk-home",
+  "pickerFound": true,
+  "pre": {
+   "route": "#/",
+   "pickerInDom": true,
+   "isEditing": false
+  },
+  "post": {
+   "selectOpen": false,
+   "events": [
+    {
+     "key": "Control",
+     "meta": false,
+     "prevented": false
+    },
+    {
+     "key": "k",
+     "meta": false,
+     "prevented": false
+    }
+   ],
+   "isEditing": false,
+   "editTarget": "null"
+  }
+ },
+ {
+  "arm": "cmdk",
+  "pickerFound": true,
+  "pre": {
+   "route": "#/gradient",
+   "pickerInDom": true,
+   "isEditing": false
+  },
+  "post": {
+   "selectOpen": false,
+   "events": [
+    {
+     "key": "Meta",
+     "meta": true,
+     "prevented": false
+    },
+    {
+     "key": "k",
+     "meta": true,
+     "prevented": false
+    }
+   ],
+   "isEditing": false,
+   "editTarget": "null"
+  }
+ }
+]

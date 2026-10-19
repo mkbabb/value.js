@@ -1,0 +1,92 @@
+[
+ {
+  "vp": "720x450@2x",
+  "route": "/",
+  "titles": [
+   {
+    "title": "About the color spaces, Lab",
+    "fs": "32.928px",
+    "transform": "none",
+    "scale": "none",
+    "left": 41,
+    "right": 679,
+    "w": 638,
+    "overflowX": false,
+    "inViewport": true
+   }
+  ]
+ },
+ {
+  "vp": "720x450@2x",
+  "route": "/gradient",
+  "titles": [
+   {
+    "title": "Gradient",
+    "fs": "32.928px",
+    "transform": "none",
+    "scale": "none",
+    "left": 41,
+    "right": 679,
+    "w": 638,
+    "overflowX": false,
+    "inViewport": true
+   },
+   {
+    "title": "My Palettes",
+    "fs": "32.928px",
+    "transform": "none",
+    "scale": "none",
+    "left": 41,
+    "right": 679,
+    "w": 638,
+    "overflowX": false,
+    "inViewport": true
+   }
+  ]
+ },
+ {
+  "vp": "768x491@2x",
+  "route": "/",
+  "titles": [
+   {
+    "title": "About the color spaces, Lab",
+    "fs": "32.928px",
+    "transform": "none",
+    "scale": "none",
+    "left": 41,
+    "right": 727,
+    "w": 686,
+    "overflowX": false,
+    "inViewport": true
+   }
+  ]
+ },
+ {
+  "vp": "768x491@2x",
+  "route": "/gradient",
+  "titles": [
+   {
+    "title": "Gradient",
+    "fs": "32.928px",
+    "transform": "none",
+    "scale": "none",
+    "left": 41,
+    "right": 727,
+    "w": 686,
+    "overflowX": false,
+    "inViewport": true
+   },
+   {
+    "title": "My Palettes",
+    "fs": "32.928px",
+    "transform": "none",
+    "scale": "none",
+    "left": 41,
+    "right": 727,
+    "w": 686,
+    "overflowX": false,
+    "inViewport": true
+   }
+  ]
+ }
+]

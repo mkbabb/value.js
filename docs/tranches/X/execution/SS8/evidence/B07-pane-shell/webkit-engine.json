@@ -1,0 +1,617 @@
+{
+ "engine": "webkit",
+ "cells": {
+  "arith": [
+   {
+    "vw": 390,
+    "atanScale": "1.619775",
+    "atanLiteral": "0.5",
+    "divScale": "1",
+    "divLiteral": "0.5",
+    "divSupported": true,
+    "contrastColorSupported": true,
+    "typeHeadingPx": "25.888px",
+    "typeDisplay1Px": "25.888px",
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15"
+   },
+   {
+    "vw": 768,
+    "atanScale": "-6.375695",
+    "atanLiteral": "0.5",
+    "divScale": "0.822154",
+    "divLiteral": "0.5",
+    "divSupported": true,
+    "contrastColorSupported": true,
+    "typeHeadingPx": "25.888px",
+    "typeDisplay1Px": "31.487999px",
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15"
+   },
+   {
+    "vw": 1024,
+    "atanScale": "10.868346",
+    "atanLiteral": "0.5",
+    "divScale": "0.727518",
+    "divLiteral": "0.5",
+    "divSupported": true,
+    "contrastColorSupported": true,
+    "typeHeadingPx": "25.888px",
+    "typeDisplay1Px": "35.584px",
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15"
+   },
+   {
+    "vw": 1280,
+    "atanScale": "-7.39094",
+    "atanLiteral": "0.5",
+    "divScale": "0.652419",
+    "divLiteral": "0.5",
+    "divSupported": true,
+    "contrastColorSupported": true,
+    "typeHeadingPx": "25.888px",
+    "typeDisplay1Px": "39.68px",
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15"
+   },
+   {
+    "vw": 1300,
+    "atanScale": "13.171055",
+    "atanLiteral": "0.5",
+    "divScale": "0.6472",
+    "divLiteral": "0.5",
+    "divSupported": true,
+    "contrastColorSupported": true,
+    "typeHeadingPx": "25.888px",
+    "typeDisplay1Px": "40px",
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15"
+   },
+   {
+    "vw": 1440,
+    "atanScale": "0.310808",
+    "atanLiteral": "0.5",
+    "divScale": "0.618029",
+    "divLiteral": "0.5",
+    "divSupported": true,
+    "contrastColorSupported": true,
+    "typeHeadingPx": "25.888px",
+    "typeDisplay1Px": "41.888px",
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15"
+   },
+   {
+    "vw": 1512,
+    "atanScale": "0.310808",
+    "atanLiteral": "0.5",
+    "divScale": "0.618029",
+    "divLiteral": "0.5",
+    "divSupported": true,
+    "contrastColorSupported": true,
+    "typeHeadingPx": "25.888px",
+    "typeDisplay1Px": "41.888px",
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15"
+   }
+  ],
+  "render": [
+   {
+    "vp": "1440x900@1",
+    "route": "/",
+    "rows": [
+     {
+      "y": 0,
+      "titles": [
+       {
+        "title": "About the color spaces, ",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 114
+       }
+      ]
+     },
+     {
+      "y": 64,
+      "titles": [
+       {
+        "title": "About the color spaces, ",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 114
+       }
+      ]
+     },
+     {
+      "y": 120,
+      "titles": [
+       {
+        "title": "About the color spaces, ",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 114
+       }
+      ]
+     },
+     {
+      "y": 300,
+      "titles": [
+       {
+        "title": "About the color spaces, ",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 114
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "vp": "1440x900@1",
+    "route": "/gradient",
+    "rows": [
+     {
+      "y": 0,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 89
+       },
+       {
+        "title": "My Palettes",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 89
+       }
+      ]
+     },
+     {
+      "y": 64,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 25
+       },
+       {
+        "title": "My Palettes",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 25
+       }
+      ]
+     },
+     {
+      "y": 120,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 14
+       },
+       {
+        "title": "My Palettes",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 14
+       }
+      ]
+     },
+     {
+      "y": 300,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 14
+       },
+       {
+        "title": "My Palettes",
+        "fs": "41.888px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 14
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "vp": "1280x720@1",
+    "route": "/gradient",
+    "rows": [
+     {
+      "y": 0,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "39.68px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 89
+       },
+       {
+        "title": "My Palettes",
+        "fs": "39.68px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 89
+       }
+      ]
+     },
+     {
+      "y": 64,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "39.68px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 25
+       },
+       {
+        "title": "My Palettes",
+        "fs": "39.68px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 25
+       }
+      ]
+     },
+     {
+      "y": 120,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "39.68px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": -31
+       },
+       {
+        "title": "My Palettes",
+        "fs": "39.68px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": -31
+       }
+      ]
+     },
+     {
+      "y": 300,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "39.68px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": -158
+       },
+       {
+        "title": "My Palettes",
+        "fs": "39.68px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": -158
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "vp": "1024x768@1",
+    "route": "/",
+    "rows": [
+     {
+      "y": 0,
+      "titles": [
+       {
+        "title": "About the color spaces, ",
+        "fs": "35.584px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 113
+       }
+      ]
+     },
+     {
+      "y": 64,
+      "titles": [
+       {
+        "title": "About the color spaces, ",
+        "fs": "35.584px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 113
+       }
+      ]
+     },
+     {
+      "y": 120,
+      "titles": [
+       {
+        "title": "About the color spaces, ",
+        "fs": "35.584px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 113
+       }
+      ]
+     },
+     {
+      "y": 300,
+      "titles": [
+       {
+        "title": "About the color spaces, ",
+        "fs": "35.584px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 113
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "vp": "720x450@2",
+    "route": "/gradient",
+    "rows": [
+     {
+      "y": 0,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 81
+       },
+       {
+        "title": "My Palettes",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 939
+       }
+      ]
+     },
+     {
+      "y": 64,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 17
+       },
+       {
+        "title": "My Palettes",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 875
+       }
+      ]
+     },
+     {
+      "y": 120,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": -39
+       },
+       {
+        "title": "My Palettes",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 819
+       }
+      ]
+     },
+     {
+      "y": 300,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": -219
+       },
+       {
+        "title": "My Palettes",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 639
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "vp": "768x491@2",
+    "route": "/gradient",
+    "rows": [
+     {
+      "y": 0,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 105
+       },
+       {
+        "title": "My Palettes",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 965
+       }
+      ]
+     },
+     {
+      "y": 64,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 41
+       },
+       {
+        "title": "My Palettes",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 901
+       }
+      ]
+     },
+     {
+      "y": 120,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": -15
+       },
+       {
+        "title": "My Palettes",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 845
+       }
+      ]
+     },
+     {
+      "y": 300,
+      "titles": [
+       {
+        "title": "Gradient",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": -195
+       },
+       {
+        "title": "My Palettes",
+        "fs": "32.928001px",
+        "transform": "none",
+        "scale": "none",
+        "condensed": "false",
+        "veilDisplay": "none",
+        "top": 665
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "backdrop": {
+   "computedBackdrop": "blur(16px)",
+   "meanAbsLumaDelta": 0,
+   "stdNone": 127.5,
+   "stdBlur": 127.5,
+   "px": 36000,
+   "note": "stripes 4px b/w under a transparent probe; live blur collapses luma std toward 0"
+  }
+ }
+}
