@@ -1,0 +1,41 @@
+ Volume fourier-s1-hc_mongo_data Creating 
+ Volume fourier-s1-hc_mongo_data Creating 
+ Network fourier-s1-hc_app-network Creating 
+ Network fourier-s1-hc_app-network Creating 
+ Volume fourier-s1-hc_mongo_data Created 
+ Volume fourier-s1-hc_mongo_data Created 
+ Network fourier-s1-hc_app-network Created 
+ Network fourier-s1-hc_app-network Created 
+ Container fourier-s1-hc-mongo-1 Creating 
+ Container fourier-s1-hc-mongo-1 Created 
+ Container fourier-s1-hc-mongo-1 Starting 
+ Container fourier-s1-hc-mongo-1 Started 
+ Container fourier-s1-hc-mongo-1 Waiting 
+ Container fourier-s1-hc-mongo-1 Healthy 
+[before-hist] wait=60s interval=5s health(last-log-len status streak)=5 healthy 0 memLimitBytes=536870912 authFailedLines=0 authSucceededLines=17
+[before-hist] mongod log msg histogram (attr-free):
+  56 Connection ended
+  56 Connection accepted
+  37 client metadata
+  29 No SSL certificate provided by peer
+  29 Ingress TLS handshake complete
+  20 Connection not authenticating
+  17 Successfully authenticated
+  17 Auth metrics report
+  15 Received first command on ingress connection since session start or auth handshake
+   8 Use of deprecated server parameter name
+   6 Index build: done building
+   4 createCollection
+   4 Listening on
+   4 Killing all outstanding egress activity.
+   3 current featureCompatibilityVersion value
+   3 Updated wire specification
+   3 Multi threading initialized
+   3 Initialized wire specification
+   3 Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set at least one of the related parameters
+   3 Certificate information
+   3 Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+   2 recovery was completed successfully and took 103ms, including 90ms for the log replay, 0ms for the rollback to stable, and 11ms for the checkpoint.
+   2 recovery was completed successfully and took 0ms, including 0ms for the log replay, 0ms for the rollback to stable, and 0ms for the checkpoint.
+   2 mongod startup complete
+   2 WiredTiger recoveryTimestamp

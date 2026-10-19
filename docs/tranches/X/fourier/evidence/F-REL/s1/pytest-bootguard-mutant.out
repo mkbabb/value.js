@@ -1,0 +1,30 @@
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+_____________ test_production_without_admin_token_refuses_to_boot ______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x108fa5350>
+
+    def test_production_without_admin_token_refuses_to_boot(monkeypatch: pytest.MonkeyPatch) -> None:
+        monkeypatch.setenv("ENV", "production")
+        monkeypatch.setattr(settings, "admin_token", "")
+        touched: list[str] = []
+    
+        async def _no_db() -> None:
+            touched.append("connect_db")
+    
+        monkeypatch.setattr(api_main, "connect_db", _no_db)
+    
+        async def _boot() -> None:
+            async with api_main.lifespan(api_main.app):
+                pass
+    
+>       with pytest.raises(RuntimeError, match="ADMIN_TOKEN must be set in production"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'RuntimeError'>
+
+api/tests/test_boot_guard.py:45: Failed
+------------------------------ Captured log call -------------------------------
+WARNING  api.main:main.py:43 ADMIN_TOKEN is not set. Admin endpoints will return 503. Set ADMIN_TOKEN for full functionality.
+=========================== short test summary info ============================
+FAILED api/tests/test_boot_guard.py::test_production_without_admin_token_refuses_to_boot
+1 failed, 1 passed in 5.68s

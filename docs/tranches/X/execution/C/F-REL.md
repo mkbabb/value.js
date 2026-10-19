@@ -3205,3 +3205,79 @@ Groups: `[[F-REL.s1], [F-REL.v3], [F-REL.d]]`.
 | F-REL.d | F-REL.md §Units `.d` (L32-38) + §Gates; ADDENDUM (f) (L78-83); §0fs; §0ge.4; §0gh.1–4; §0gi.1–3; RESUME (h) `.d` receipt | fourier `scripts/**` (prod-verify only); value.js `evidence/F-REL/d/` + this record | off-host health poller before the switch with no non-200 through it; host deploy via its hook → OK, deploy-alert #1 closed; backend runs `ENV=production`; `/api/admin/verify` **401** without a token (not 503) ×2; mongo 8.0.20 + FCV + limit read after (via the backend client, never in-container mongosh); prod-verify 21/21 ×2; PD-1 prod ×2; pages-smoke ×2; cert > 14 d; openapi; health 200 | after `.v3` (master CI GREEN ×2); host reached only over the owner's VPN SSH; host changed only via the deploy path/config; no VPN, firewall, sshd or port change (§0gi.3); backup before any mongo recreate; token never printed |
 
 ## RESUME 2026-10-19 (j) — Unit receipts
+
+### F-REL.s1
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19, ~19:00Z–23:30Z. Most of the elapsed time was `guarded` queueing at load 75–141.
+
+Spec: COHESION §0gi.2 (+ §0gi.1(e), §0gh.3–4); F-REL.md §State L4-6, §Units `.h` L25-30, §Gates L36-37; Baseline (j) rows s1. Evidence: `docs/tranches/X/fourier/evidence/F-REL/s1/README.md`. No secret value, host address or infrastructure detail is in this receipt or the evidence; every token named is a non-secret fixture.
+
+**Crash recovery.**
+- fourier: ⟨`git status --porcelain`⟩ → `?? .worktrees/` only, so nothing was inherited.
+- value.js: `evidence/F-REL/s1/` was absent and this record was clean.
+- During the sitting, a sibling lane (X-OD19: `web/src/components/visualization/*`, `web/e2e/*`) dirtied the fourier tree. It was never staged; both commits are pathspec commits.
+
+**Anchors at the true bytes** (fourier `9519b6f`, after ⟨`git fetch; git pull --ff-only`⟩):
+- `docker-compose.prod.yml:6-8`: the backend `environment` carries only CORS/MONGO_URI.
+- mongo `command` `:131-135` has no cache flag; healthcheck `:163-167` is `mongosh -u -p … --eval ping`; `memory: 512M` `:176`.
+- `docker-compose.yml:44-45`: the dev healthcheck uses the same idiom.
+- `deploy-hook.sh:71`: `COMPOSE=(docker compose -f … -f …)`, with no `--env-file`.
+- `deploy-hook.sh` `switch_stack`/`switch_back`: `up -d --no-recreate --wait mongo`.
+- `api/main.py:36-41`: the guard. `api/dependencies.py:262-270` `admin_required` returns 503 when unset and **403** on a missing or wrong bearer.
+- **Drifted anchor:** the gate text says "401 without token". At the true bytes, a configured admin answers **403** (the `admin_required` contract; `test_crud_lib_errors.py:28` catalogs `admin_forbidden 403`). `api/dependencies.py` is outside the writable set and a separate concern. INTENT recorded: configured means not 503, and a request without the token is rejected. The test asserts 403/403/200. `.d`'s "401 (not 503)" reads as 403 for the same reason.
+
+**Acts in order:**
+1. **Healthcheck diagnosis, before any edit** (`hc-verbose.sh` on a `9519b6f` worktree; mongod verbosity 2; the scheduled check disabled; each candidate run once by hand).
+   - The pre-.s1 idiom opens 4 connections per run. mongod logs the shell's startup probes `buildInfo`, `getParameter` and `aggregate` alongside the authenticated `ping`.
+   - `mongosh --nodb --norc` + `new Mongo(uri)` opens 2 connections, and its only command is the authenticated ping (`saslContinue` → `ping` → `endSessions`). A wrong password exits 1.
+   - `mongosh --norc <uri>` keeps the probes.
+   - **Adopted:** the `--nodb --norc` form. Credentials come from the container's own `MONGO_INITDB_ROOT_*`, so no password is interpolated into the healthcheck definition any more.
+2. **Edits** (fourier):
+   - `docker-compose.prod.yml`:
+     - backend `ENV=production`, and `ADMIN_TOKEN=${ADMIN_TOKEN:?…}`;
+     - mongo `--wiredTigerCacheSizeGB 0.25` and `memory: 1g`. The cache figure is stated: mongod's default at a 1 GiB cgroup limit is max(0.25, 50 % × (1 − 1)) = 0.25 GiB, leaving about 0.75 GiB of headroom;
+     - the healthcheck above.
+   - `docker-compose.yml:44-47`: the dev healthcheck takes the same idiom, without TLS.
+   - `scripts/deploy-hook.sh`:
+     - `COMPOSE` gets `--env-file` for the repo `.env` (when present, kept) and then the host secret store (`FOURIER_SECRET_ENV_FILE`, default `/opt/deploy/.env`, when present). `deploy()` logs that store's **key names only**.
+     - `switch_stack` runs `config --quiet` before building, so an unset required key fails before anything is built or stopped.
+     - **mongo apply path:** measured that `up -d --no-recreate --wait mongo` never applies a changed mongo definition. `mongo_apply` replaces it in both `switch_stack` and `switch_back`. It compares `config --hash mongo` against the container's `com.docker.compose.config-hash`. If they are equal, it does nothing. If the definition changed, it runs `compose stop mongo`, makes a cold `tar` of the `/data/db` volume with a `--network none` throwaway container of the same image into `FOURIER_MONGO_BACKUP_DIR` (newest 3 kept), then `up -d --wait mongo`. A failed backup restarts the unchanged mongo and recreates nothing. No shell ever runs inside mongod's container.
+   - `scripts/deploy-switch-smoke.sh` section **D** proves `mongo_apply`, and the smokes default a NON-SECRET fixture `ADMIN_TOKEN`.
+   - `ci.yml` `prod-compose` job `env: ADMIN_TOKEN: prod-compose-ci-fixture-token` (fixture).
+   - `.env.example`: the key's production note.
+   - New `api/tests/test_boot_guard.py`.
+3. ⟨`git add <8 paths> && git commit … -- <8 paths>`⟩ → **`c83b7ea`**; ⟨`git push`⟩ `9519b6f..c83b7ea`, no force. Dispatched m/w1 CI **`39340000550`**:
+   - api ✓ (`347 passed`), web ✓;
+   - prod-compose **✗** at one of my own checks. D's `tar tzf | grep -q` SIGPIPEd tar under `pipefail` (`tar: stdout: write error`), even though the backup was good and every other A–D check passed.
+4. Instrument cure: the listing is read from a file. **`563814d`**, pushed `c83b7ea..563814d`. Dispatched m/w1 CI **`39340556816`**: api ✓ `347 passed`, web ✓, **prod-compose ✓**.
+   - `[prod-compose-smoke] PASS` ×2, mongod `v8.0.20`.
+   - deploy-switch A/B/C PASS.
+   - **D PASS ×8:** unchanged keeps the same container; at the pre-.s1 512 MiB definition, a change triggers one backup holding `WiredTiger.wt`, then a recreate at 1 GiB, healthy; the marker document survives; the edge failed 0 of 57.
+   - Edge failures 0 of 221.
+   - The e2e job was still running at receipt time. Its visual-checkpoint reds are pre-existing and owned by `.v3` (§0gh.2); `.s1` touches no web path.
+
+**Gates (BEFORE → AFTER, each ×2):**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| compose render | 0 `ENV`/`ADMIN_TOKEN` lines (Baseline j) | ⟨`env -u ADMIN_TOKEN MONGO_PASSWORD=… docker compose --env-file /dev/null -f docker-compose.yml -f docker-compose.prod.yml config`⟩ → rc 1 `required variable ADMIN_TOKEN is missing a value` ×2. With a fixture token: `ENV: production`, `ADMIN_TOKEN: <present>`, mongo `memory: "1073741824"`, `--wiredTigerCacheSizeGB` ×2. **GREEN** |
+| pytest boot guard | absent (0 files) | `2 passed` ×2 locally. Falsifier: guard made dead → `1 failed` (`DID NOT RAISE`). CI ×2 `347 passed`. `/api/admin/verify`: no token 403, wrong token 403, token 200 (drifted anchor: 403, not 401, see above). **GREEN** |
+| mongo headroom | 512 MiB, cache implied | limit `1073741824` read from the live local container ×2; WT cache 0.25 GiB stated in the command and the compose comment. **GREEN** |
+| healthcheck, 60 s = 12 intervals | BEFORE tree: `Checking authorization failed` 0/0, 56/56 connections for 13 runs, 3 startup probes per run | AFTER: 0/0, 32/32 connections for 12 runs, 0 startup probes, `healthy` ×2. **GREEN on the probes; the literal-string leg is NOT reproducible locally** (0 before as well; the host's > 0 is the orchestrator's §0gi read). The host count is owed at `.d`. |
+| api tests ×2 | 345 passed (`39304717107`) | CI `39340000550` + `39340556816`: `347 passed` ×2. **GREEN** |
+| actionlint | 1 (the pre-existing SC2016 info at e2e) | 1, the same finding; shellcheck `deploy-hook.sh` 0→0, `deploy-switch-smoke.sh` 1→1 (SC1091 info, pre-existing), `prod-compose-smoke.sh` 0→0. **GREEN** |
+| m/w1 CI prod-compose + deploy-switch-smoke | `39304717107` A–C | `39340556816` prod-compose ✓, A–D PASS, 0 of 221 edge failures. **GREEN** |
+
+**Adjacent edits:** none. Every path is in the writable set; `docker-compose.yml`'s healthcheck grew from 44-45 to 44-47 for the same idiom.
+
+**Residuals (named owners):**
+- **`.d`:**
+  - The first deploy of `c83b7ea`+ applies the mongo definition change through `mongo_apply`. The cold backup goes to `/opt/deploy/fourier-mongo-backups`. It costs a stop–backup–start window for database-backed requests; `/api/health` stays 200 because it does not touch the database.
+  - `.d` reads the host's mongod log for `Checking authorization failed` after the switch.
+  - `.d` reads `/api/admin/verify` as **403** without a token, which proves the token is wired (503 = not wired).
+  - The host secret store must hold `ADMIN_TOKEN` (orchestrator §0gi.1(e), done). The hook logs its key names.
+- **`.v3`:** merges `563814d` to master; the master CI reading discharges `.s1`'s master leg.
+
+**Escalations:** none.
+
+**Commits (fourier, `m/w1-bump-migration`):** `c83b7ea`, `563814d`. This record and `evidence/F-REL/s1/` are committed by value.js pathspec.
