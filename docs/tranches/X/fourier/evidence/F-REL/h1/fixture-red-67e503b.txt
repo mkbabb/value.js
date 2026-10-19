@@ -1,0 +1,17 @@
+SERVED MODEL: claude-opus-5-5
+## at fourier 67e503b (deploy-hook.sh of 67e503b; deploy-alert.sh absent) with the dc30e5e fixture copied in
+FAIL A webhook unset: require_alert_channel REFUSED
+PASS B webhook set: notify posted to the second sink
+FAIL C0 publish_record served no parseable record
+FAIL C forced failure: no dry-run issue create (rc 127)
+    bash: /Users/mkbabb/.fourier-frel/h1-red/scripts/deploy-alert.sh: No such file or directory
+FAIL D open issue #17: not updated in place (rc 127)
+    bash: /Users/mkbabb/.fourier-frel/h1-red/scripts/deploy-alert.sh: No such file or directory
+FAIL E REFUSED at SHA: no TIMEOUT alert (rc 127)
+    bash: /Users/mkbabb/.fourier-frel/h1-red/scripts/deploy-alert.sh: No such file or directory
+FAIL F no record served: no alert (rc 127)
+    bash: /Users/mkbabb/.fourier-frel/h1-red/scripts/deploy-alert.sh: No such file or directory
+FAIL G OK at SHA: rc 127 or an alert was printed
+    bash: /Users/mkbabb/.fourier-frel/h1-red/scripts/deploy-alert.sh: No such file or directory
+PASS tripwire: no real gh call in any case
+deploy-alert-fixture: RED (7 failing)
