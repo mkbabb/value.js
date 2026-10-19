@@ -284,6 +284,17 @@
      * (`--seal-ink-gold`) and the floating plate (`--ink-gold-floating`,
      * shell.css); `.gold-ink` (utils.css) is the one reader. */
     --ink-gold: var(--color-gold);
+    /* X-DS pass 18 (V18C-01): its glyph rung (the 3:1 graphics floor), stamped
+     * live by `useAtmosphereBoot` and rebound on the same grounds; the word's
+     * gold pre-boot. */
+    --ink-gold-glyph: var(--ink-gold);
+
+    /* ── The resting plate's destructive ink (X-DS pass 18 · V18C-02) ──
+     * glass's `--destructive` with its lightness certified against the
+     * resting plate (the text floor: it carries the plate's error lines and
+     * the error plate's alert glyph), stamped live by `useAtmosphereBoot`;
+     * `shell.css` seats it on the panes. Pre-boot it is glass's red. */
+    --ink-destructive: var(--destructive);
 
     /* ── The modal plate's destructive ink (X-DS pass 16 · V16-01) ──
      * glass's `--destructive` with its lightness certified against the modal

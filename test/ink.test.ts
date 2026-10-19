@@ -18,8 +18,11 @@ import { convertColor, oklch, type AnyColor, type Color } from "@mkbabb/value.js
 import { parseCssColor } from "@mkbabb/value.js/css";
 import {
     CERTIFY_HEADROOM,
+    GRAPHICS_CONTRAST_FLOOR,
+    IDENTITY_CHROMA_HOLD,
     TEXT_CONTRAST_FLOOR,
     certifyAccentInk,
+    certifyIdentityInk,
     contrastInkFor,
     resolveMutedInk,
     resolvePlateInk,
@@ -317,5 +320,36 @@ describe("D6 — the certification headroom (the interim-model tolerance)", () =
     it("is a named, positive constant (dies with the P3/P5 publish swap)", () => {
         expect(CERTIFY_HEADROOM).toBeGreaterThan(0);
         expect(CERTIFY_HEADROOM).toBeLessThan(2);
+    });
+});
+
+describe("X-DS pass 18 (V18C-01) — certifyIdentityInk holds the identity hue", () => {
+    const GOLD = "oklch(0.751 0.147 84.2)";
+    const SURFACES = Array.from({ length: 41 }, (_, i) => 0.1 + i * 0.02);
+    for (const floor of [TEXT_CONTRAST_FLOOR, GRAPHICS_CONTRAST_FLOOR]) {
+        for (const headroom of [CERTIFY_HEADROOM, 0]) {
+            it(`clears the floor and keeps the gold, or speaks the plate ink (floor ${floor}, headroom ${headroom})`, () => {
+                for (const L of SURFACES) {
+                    const dark = L < 0.5;
+                    const ink = certifyIdentityInk(GOLD, L, dark, floor, headroom);
+                    expect(ratioOn(ink, L)).toBeGreaterThanOrEqual(floor - 1e-6);
+                    if (ink === resolvePlateInk(L, dark)) continue;
+                    const { C, H } = parseOklch(ink);
+                    expect(C).toBeGreaterThanOrEqual(IDENTITY_CHROMA_HOLD * 0.147 - 1e-9);
+                    expect(Math.abs(H - 84.2)).toBeLessThan(10);
+                }
+            });
+        }
+    }
+    it("the mid-dark band that drained gold to white now keeps it (owner brown, L 0.5)", () => {
+        const drained = parseOklch(certifyAccentInk(GOLD, 0.5));
+        expect(drained.C).toBeLessThan(0.03);
+        // the word: gold that holds its chroma, or the plate's own ink (never a hueless "gold")
+        const word = certifyIdentityInk(GOLD, 0.5, true, TEXT_CONTRAST_FLOOR);
+        if (word !== resolvePlateInk(0.5, true)) expect(parseOklch(word).C).toBeGreaterThanOrEqual(0.06);
+        // the glyph keeps the gold
+        const glyph = parseOklch(certifyIdentityInk(GOLD, 0.5, true, GRAPHICS_CONTRAST_FLOOR));
+        expect(glyph.C).toBeGreaterThanOrEqual(0.06);
+        expect(Math.abs(glyph.H - 84.2)).toBeLessThan(10);
     });
 });

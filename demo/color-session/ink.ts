@@ -1,5 +1,6 @@
 import {
     convertColor,
+    mapColorToGamut,
     mixColors,
     oklch,
     parseCssColor,
@@ -256,15 +257,109 @@ export function certifyAccentInk(
     css: string,
     surfaceL: number,
     floor: number = TEXT_CONTRAST_FLOOR,
+    headroom: number = CERTIFY_HEADROOM,
 ): string {
     const accent = parseOklch(css);
     if (!accent) return css;
-    const safe = certify(accent, surfaceL, floor);
+    const safe = certify(accent, surfaceL, floor, headroom);
     return safe.channels.every((channel, index) => {
         const source = accent.channels[index];
         return channel === source
             || (typeof channel === "number" && typeof source === "number" && Math.abs(channel - source) < 1e-9);
     }) ? css : serialize(safe);
+}
+
+/**
+ * The share of an identity ink's source chroma its certified walk must keep
+ * for the hue to still read (X-DS pass 18 · V18C-01). Below it the walk has
+ * reached a pole: sRGB holds almost no chroma there, and the hue survives
+ * only as a number in the token. Gold (C 0.147) walked to a pole reads
+ * C ≤ 0.015; its legible light bronzes read C 0.056–0.064. 0.4 (C 0.059)
+ * parts the two: at 0.5 the resting plate's bronze fell back to the plate
+ * ink, and the featured badge lost its mark.
+ */
+export const IDENTITY_CHROMA_HOLD = 0.4;
+
+function chroma(color: Color<"oklch">): number {
+    const C = color.channels[1];
+    return typeof C === "number" ? C : 0;
+}
+
+/** True where `color` already clears `floor` on the surface (the guard
+ *  returns it unwalked). */
+function clearsAt(color: Color<"oklch">, surface: Color<"oklch">, floor: number): boolean {
+    const result = safeAccentColor(color, surface, { minimumRatio: floor, gamut: "srgb" });
+    return result.ok && Math.abs(lightness(result.value) - lightness(color)) < 1e-6;
+}
+
+/**
+ * The most chromatic ink of the accent's hue on the side of the surface
+ * OPPOSITE `walked` that clears `floor`: the clearing lightness nearest the
+ * surface, which is the one furthest from the pole. Null where that side
+ * admits no ink at all.
+ */
+function farSideInk(
+    accent: Color<"oklch">,
+    surfaceL: number,
+    walked: Color<"oklch">,
+    floor: number,
+): Color<"oklch"> | null {
+    const surface = surfaceColor(surfaceL);
+    const pole = lightness(walked) >= surfaceL ? 0 : 1;
+    const hue = accent.channels[2];
+    const at = (L: number): Color<"oklch"> => {
+        const raw = oklch(L, chroma(accent), typeof hue === "number" ? hue : 0, 1);
+        if (!raw.ok) throw new Error(`Ink far-side probe failed: ${raw.error.code}`);
+        const mapped = mapColorToGamut(raw.value, "srgb");
+        if (!mapped.ok) throw new Error(`Ink far-side probe failed: ${mapped.error.code}`);
+        return mapped.value;
+    };
+    if (!clearsAt(at(pole), surface, floor)) return null;
+    let pass = pole;
+    let fail = surfaceL;
+    for (let i = 0; i < 16; i++) {
+        const middle = (pass + fail) / 2;
+        if (clearsAt(at(middle), surface, floor)) pass = middle;
+        else fail = middle;
+    }
+    return at(pass);
+}
+
+/**
+ * THE IDENTITY INK (X-DS pass 18 · V18C-01): an identity hue (the admin
+ * gold) certified on its surface WITHOUT certifying the hue away. §0dm keeps
+ * identity, so a walk that clears the floor by draining the chroma is not a
+ * cure. The ladder:
+ * 1. the house certify (`floor + headroom`), kept where it holds
+ *    `IDENTITY_CHROMA_HOLD` of the source chroma;
+ * 2. else the most chromatic ink on the FAR side of the surface that clears
+ *    the same `floor + headroom`;
+ * 3. else the surface's own plate ink: a word reads in the plate's voice,
+ *    and the identity rides its glyph, certified at the 3:1 floor.
+ * There is no rung that trades the headroom for chroma: on the owner-brown
+ * band a held word below the headroom read 4.31:1 off the frame
+ * (v18-hold-bisect.log), under the floor it was certified to clear.
+ * The headroom stays on every ground, the dock band included: the band's
+ * tint is measured, but the ambient under it is modelled achromatic, and the
+ * frame read a no-headroom glyph at 2.84:1 and its word at 4.23:1 on the
+ * light band (evidence/DS/value/pass-18/c18-2026-10-18/v18-noheadroom.log).
+ */
+export function certifyIdentityInk(
+    css: string,
+    surfaceL: number,
+    dark: boolean,
+    floor: number = TEXT_CONTRAST_FLOOR,
+    headroom: number = CERTIFY_HEADROOM,
+): string {
+    const accent = parseOklch(css);
+    if (!accent) return css;
+    const held = (c: Color<"oklch">) => chroma(c) >= IDENTITY_CHROMA_HOLD * chroma(accent);
+    const preferred = certify(accent, surfaceL, floor, headroom);
+    if (held(preferred)) return certifyAccentInk(css, surfaceL, floor, headroom);
+
+    const far = farSideInk(accent, surfaceL, preferred, floor + headroom);
+    if (far && held(far)) return serialize(far);
+    return resolvePlateInk(surfaceL, dark);
 }
 
 /**

@@ -93,8 +93,11 @@ export function useAtmosphereBoot(
         modalInkCss,
         modalMutedInkCss,
         modalDestructiveInkCss,
+        destructiveInkCss,
         goldInkCss,
         floatingGoldInkCss,
+        goldGlyphInkCss,
+        floatingGoldGlyphInkCss,
     } = useContrastSafeColor(
         atmosphereColor,
         derivedLightness,
@@ -164,6 +167,14 @@ export function useAtmosphereBoot(
         },
         { immediate: true },
     );
+    // X-DS pass 18 (V18C-02): the resting plate's destructive red.
+    watch(
+        destructiveInkCss,
+        (css) => {
+            document.documentElement.style.setProperty("--ink-destructive", css);
+        },
+        { immediate: true },
+    );
     // X-DS pass 15 (V15-01): the certified gold identity ink, same referent.
     watch(
         goldInkCss,
@@ -177,6 +188,15 @@ export function useAtmosphereBoot(
         floatingGoldInkCss,
         (css) => {
             document.documentElement.style.setProperty("--ink-gold-floating", css);
+        },
+        { immediate: true },
+    );
+    // X-DS pass 18 (V18C-01): the glyph rung of both (the 3:1 graphics floor).
+    watch(
+        [goldGlyphInkCss, floatingGoldGlyphInkCss],
+        ([resting, floating]) => {
+            document.documentElement.style.setProperty("--ink-gold-glyph", resting);
+            document.documentElement.style.setProperty("--ink-gold-floating-glyph", floating);
         },
         { immediate: true },
     );

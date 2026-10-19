@@ -723,6 +723,14 @@ Demo accent tokens (`demo/styles/foundation.css`, `@theme`):
   measured tint), the seal's wax on the collapsed seal (`--seal-ink-gold`, `useViewAccents`, the
   3:1 glyph floor), and the floating plate on menus (`--ink-gold-floating`, `shell.css`). The
   `crown-appear` keyframe settles on `--ink-gold` too.
+- **The walk holds the hue (X-DS pass 18, V18C-01).** Every gold twin certifies through
+  `certifyIdentityInk` (`demo/color-session/ink.ts`): a walk that clears the floor by draining
+  the chroma below 0.4 of the source's (gold: C 0.059) is refused (§0dm keeps identity). The ladder is the house
+  certify, then the most chromatic clearing ink on the far side of the ground, and else the
+  ground's own plate ink for the word. The headroom stays on the dock band too: its ambient is
+  modelled, and without it the frame read the glyph at 2.84:1. A gold glyph reads `--ink-gold-glyph` (the 3:1 graphics floor,
+  set on the band and the seal; `svg.gold-ink` in `utils.css`, and the crown's keyframe), so the
+  shield and the crown keep the gold where the word beside them falls back.
 - Gold stays OUT of the measurement chrome (the overlay, the readout, the thumbs). Those read in
   ink and the live colour.
 - `--color-gold-light: #F5E6A3` is the counterpoint tint, consumed only by the `crown-appear`

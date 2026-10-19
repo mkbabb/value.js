@@ -1,12 +1,10 @@
 <template>
-    <PaneShell :description="headerDescription" :gap="3">
-        <!-- A2-VA-L1-1: the one pane shell. -->
-        <template #title>
-            <!-- X-DS pass 15 (V15-02): no count chip beside the title — each
-                 pane's count is said once, where the list speaks (the users
-                 toolbar's "N users", the names tabs' "Pending · N"). -->
-            {{ headerTitle }}
-        </template>
+    <!-- A2-VA-L1-1: the one pane shell. X-DS pass 18 (V18C-03): the title
+         rides the `title` prop (the #title slot existed for the count chip,
+         which V15-02 deleted), so PaneShell seats it as the route's one <h1>
+         and App prints no caption above it. Each pane's count is said once,
+         where the list speaks. -->
+    <PaneShell :title="headerTitle" :description="headerDescription" :gap="3">
             <!-- T.W3-3 (T-12): a field on paper wears paper — the seated
                  register (utils.css `.search-seated`; interim, booked onto
                  the P3 seated rung / ASK-D). -->

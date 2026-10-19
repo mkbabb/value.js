@@ -13,7 +13,8 @@ import { parseColorIn } from "./color-utils";
 import { INK_AMBIENT_KEY } from "./keys";
 import {
     certifyAccentInk,
-    TEXT_CONTRAST_FLOOR,
+    certifyIdentityInk,
+    GRAPHICS_CONTRAST_FLOOR,
     resolveMutedInk,
     resolvePaintedLightness,
     resolvePlateInk,
@@ -404,6 +405,20 @@ export function useContrastSafeColor(
         ),
     );
 
+    // X-DS pass 18 (V18C-02): the destructive red on the RESTING plate, the
+    // modal twin's sibling. The error plate's alert glyph painted glass's raw
+    // red at 80 % (1.77:1 read off the light Not Found frame). The hue is kept
+    // and only the lightness walks. The token also carries the plate's error
+    // LINES (text-destructive inherits it through `.pane-wrapper`), so it is
+    // certified at the text floor, which clears the glyph's 3:1 a fortiori.
+    // The boot writer stamps `--ink-destructive`.
+    const destructiveInkCss = computed(() =>
+        certifyAccentInk(
+            schemeTokenCss("--destructive", isDark.value, "hsl(0 72% 50%)"),
+            restingL.value,
+        ),
+    );
+
     // X-DS pass 15 (V15-01): the GOLD identity ink, certified on the same
     // resting plate. Gold (`--color-gold`, luminance 0.45) can never clear a
     // floor against a light plate raw (its ceiling against white is 2.10:1),
@@ -415,8 +430,11 @@ export function useContrastSafeColor(
     // lighter than a saturated aurora patch under a card: at the graphics
     // floor the frame measured 2.64:1, at the text floor 3.45:1
     // (evidence/DS/value/pass-15/v15.json). The boot writer stamps `--ink-gold`.
+    // X-DS pass 18 (V18C-01): the walk holds the hue (`certifyIdentityInk`):
+    // where clearing the floor would drain gold to a pole, the far side or
+    // the plate's own ink answers instead of a hueless "gold".
     const goldInkCss = computed(() =>
-        certifyAccentInk(goldIdentityCss(isDark.value), restingL.value, TEXT_CONTRAST_FLOOR),
+        certifyIdentityInk(goldIdentityCss(isDark.value), restingL.value, isDark.value),
     );
     // X-DS pass 17 (V17C-01): its floating twin. The view menu's "Admin" row
     // sits on glass's floating plate (portaled to <body>), so it certifies on
@@ -424,7 +442,25 @@ export function useContrastSafeColor(
     // writer stamps `--ink-gold-floating`, and `shell.css` seats it as
     // `--ink-gold` on the floating plate.
     const floatingGoldInkCss = computed(() =>
-        certifyAccentInk(goldIdentityCss(isDark.value), floatingL.value, TEXT_CONTRAST_FLOOR),
+        certifyIdentityInk(goldIdentityCss(isDark.value), floatingL.value, isDark.value),
+    );
+    // X-DS pass 18 (V18C-01): the GLYPH rung of both twins. A glyph keeps the
+    // word's gold wherever that gold holds its chroma: these plates are
+    // MODELLED, and at the 3:1 floor the featured badge's mark read 2.67:1
+    // off the light frame (pass 15 read 2.64), where the word's rung reads
+    // 3.45. Where the word falls back to the plate's ink, the glyph drops to
+    // the graphics floor, so the mark (the badge, the menu's shield) keeps
+    // the gold. The boot writer stamps `--ink-gold-glyph` /
+    // `--ink-gold-floating-glyph`.
+    const glyphRung = (word: string, plate: string, surfaceL: number) =>
+        word !== plate
+            ? word
+            : certifyIdentityInk(goldIdentityCss(isDark.value), surfaceL, isDark.value, GRAPHICS_CONTRAST_FLOOR);
+    const goldGlyphInkCss = computed(() =>
+        glyphRung(goldInkCss.value, plateInkCss.value, restingL.value),
+    );
+    const floatingGoldGlyphInkCss = computed(() =>
+        glyphRung(floatingGoldInkCss.value, floatingInkCss.value, floatingL.value),
     );
 
     return {
@@ -437,8 +473,11 @@ export function useContrastSafeColor(
         modalInkCss,
         modalMutedInkCss,
         modalDestructiveInkCss,
+        destructiveInkCss,
         goldInkCss,
         floatingGoldInkCss,
+        goldGlyphInkCss,
+        floatingGoldGlyphInkCss,
     };
 }
 
@@ -539,7 +578,20 @@ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
         );
     }
 
-    return { safeCss };
+    /** X-DS pass 18 (V18C-01): an identity hue on the band, its chroma held
+     *  (`certifyIdentityInk`). */
+    function identityCss(css: string, floor: number): string | undefined {
+        const el = host.value;
+        if (!el) return undefined;
+        return certifyIdentityInk(
+            css,
+            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+            isDark.value,
+            floor,
+        );
+    }
+
+    return { safeCss, identityCss };
 }
 
 /**

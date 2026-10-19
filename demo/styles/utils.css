@@ -160,6 +160,14 @@
 .gold-ink {
     color: var(--ink-gold);
 }
+/* X-DS pass 18 (V18C-01): a gold GLYPH reads the glyph rung
+ * (`--ink-gold-glyph`, the 3:1 graphics floor, rebound on the same grounds
+ * as the word's), so the shield and the crown keep the gold where the word
+ * beside them falls back to the plate's ink. */
+svg.gold-ink,
+.gold-ink svg {
+    color: var(--ink-gold-glyph);
+}
 
 /* Swatch-row list idiom (R.W4 Lane B / B1) — shared by the three swatch
  * TransitionGroups (CurrentPaletteEditor, MixSourceSelector,

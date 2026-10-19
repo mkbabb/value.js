@@ -170,8 +170,9 @@ const {
 
 /* The featured badge's gold is its glyph, in the certified gold ink (X-DS
  * pass 15, V15-01: raw `--color-gold` read 1.76:1 on the light plate). The
- * lucide glyph strokes `currentColor`. */
+ * lucide glyph strokes `currentColor`. Pass 18 (V18C-01): the glyph rung,
+ * so the mark keeps the gold where the word rung falls back. */
 .featured-badge__icon {
-    color: var(--ink-gold);
+    color: var(--ink-gold-glyph);
 }
 </style>

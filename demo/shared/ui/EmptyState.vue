@@ -8,7 +8,7 @@
         ]"
         role="alert"
     >
-        <CircleAlert class="w-6 h-6 text-destructive/80" aria-hidden="true" />
+        <CircleAlert class="w-6 h-6 text-destructive" aria-hidden="true" />
         <p class="font-display text-subheading text-foreground max-w-[30ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
@@ -118,7 +118,8 @@
  * default AND element, so the idiom cannot regrow.
  * · error — the PLAIN register (Q6: error surfaces DROP the
  * annotations; no ghosts, never a second invitation): a
- * quiet destructive glyph, the Fraunces statement of failure, the
+ * destructive glyph (X-DS pass 18 · V18C-02: the plate's certified red at
+ * full strength, `--ink-destructive`), the Fraunces statement of failure, the
  * machine truth in Fira, and a real Retry in the action slot.
  *
  * X.W12U.h · A2-VA-L3-1 (consumer half): the error statement sits on the

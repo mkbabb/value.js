@@ -25,6 +25,7 @@ import { useDockAdminMode } from "./composables/useDockAdminMode";
 import { injectDockCommands } from "../useSceneActions";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { goldIdentityCss, useChromeAccentFn } from "../../color-session/useContrastSafeColor";
+import { GRAPHICS_CONTRAST_FLOOR, TEXT_CONTRAST_FLOOR } from "../../color-session/ink";
 import type { EditTarget } from "../../color-session/color-model";
 
 const { linkCopied, editTarget } = defineProps<{
@@ -107,9 +108,19 @@ const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>("dockRef");
 // the crown) reads the band's gold: raw gold read 1.09:1 on the light band.
 const dockHost = useTemplateRef<HTMLElement>("dockHost");
 const dockPlate = computed(() => dockHost.value?.querySelector(".dock-plate") ?? null);
-const { safeCss: bandSafeCss } = useChromeAccentFn(dockPlate);
+// X-DS pass 18 (V18C-01): the gold holds its chroma (`certifyIdentityInk`):
+// the word at the text floor, falling back to the band's plate ink where no
+// gold clears it; the glyphs (the view icon, the admin shield, the crown) at
+// the 3:1 graphics floor, as the seal already does. At the text floor plus
+// the headroom, a mid-dark band drained the gold to white.
+const { identityCss: bandIdentityCss } = useChromeAccentFn(dockPlate);
 const { isDark } = useGlobalDark();
-const bandGold = computed(() => bandSafeCss(goldIdentityCss(isDark.value)));
+const bandGoldStyle = computed(() => {
+    const gold = goldIdentityCss(isDark.value);
+    const word = bandIdentityCss(gold, TEXT_CONTRAST_FLOOR);
+    const glyph = bandIdentityCss(gold, GRAPHICS_CONTRAST_FLOOR);
+    return word && glyph ? { "--ink-gold": word, "--ink-gold-glyph": glyph } : undefined;
+});
 
 watch(
     () => dockRef.value?.expanded,
@@ -180,7 +191,7 @@ watch(
     <div
         ref="dockHost"
         :class="dockSettle && 'dock-settle'"
-        :style="bandGold ? { '--ink-gold': bandGold } : undefined"
+        :style="bandGoldStyle"
         @animationend.self="dockSettle = false"
     >
         <GlassDock
@@ -439,6 +450,7 @@ watch(
        the band, so the seal rebinds `--ink-gold` to the wax-certified gold
        (useViewAccents); where none clears the wax, the seal's own ink. */
     --ink-gold: var(--seal-ink-gold, var(--seal-ink, var(--foreground)));
+    --ink-gold-glyph: var(--ink-gold);
 }
 .dock-seal-wax,
 .dock-seal-ink {

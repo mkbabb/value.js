@@ -285,6 +285,10 @@
      * so its seam carries the same rungs: no glass rule is overridden. */
     --on-glass-muted: var(--ink-muted);
     --on-glass-muted-strong: color-mix(in oklab, var(--ink-muted), var(--ink-primary) 38.2%);
+    /* X-DS pass 18 (V18C-02): the destructive red, certified on this plate
+     * (hue kept, lightness walked), the resting twin of the modal seat below:
+     * the error plate's glyph and every in-pane error line read it. */
+    --destructive: var(--ink-destructive);
 }
 
 /* X-DS pass 5 (V5C-05): FIELDS ON GLASS STAY GLASS (the register law,
@@ -330,6 +334,7 @@
     );
     /* X-DS pass 17 (V17C-01): the admin gold, certified on this plate. */
     --ink-gold: var(--ink-gold-floating, var(--color-gold));
+    --ink-gold-glyph: var(--ink-gold-floating-glyph, var(--ink-gold));
 }
 
 /* X-DS pass 16 (V16-01): the same certified pair on the MODAL plate. A dialog
