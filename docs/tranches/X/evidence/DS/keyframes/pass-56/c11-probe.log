@@ -1,0 +1,196 @@
+{
+ "focus-light": {
+  "rest": {
+   "detentT": "0.12",
+   "sheetTop": 723,
+   "portTop": 788,
+   "portBottom": 873,
+   "scrollTop": 0,
+   "overflowY": "hidden",
+   "rotations": {
+    "top": 797,
+    "visible": true
+   },
+   "active": "Cube@mbabb123456Rotations\n    "
+  },
+  "tabbedToEase": true,
+  "afterTab": {
+   "detentT": "0.36",
+   "sheetTop": 426,
+   "portTop": 491,
+   "portBottom": 708,
+   "scrollTop": 151,
+   "overflowY": "auto",
+   "rotations": {
+    "top": 349,
+    "visible": false
+   },
+   "active": "ease-in-out"
+  },
+  "afterEscape": {
+   "detentT": "0.12",
+   "sheetTop": 723,
+   "portTop": 788,
+   "portBottom": 873,
+   "scrollTop": 0,
+   "overflowY": "hidden",
+   "rotations": {
+    "top": 797,
+    "visible": true
+   },
+   "active": "ease-in-out"
+  },
+  "afterScriptFocus": {
+   "detentT": "0.36",
+   "sheetTop": 719,
+   "portTop": 784,
+   "portBottom": 1001,
+   "scrollTop": 383,
+   "overflowY": "auto",
+   "rotations": {
+    "top": 410,
+    "visible": false
+   },
+   "active": "Preview"
+  },
+  "afterBlur": {
+   "detentT": "0.12",
+   "sheetTop": 723,
+   "portTop": 788,
+   "portBottom": 873,
+   "scrollTop": 0,
+   "overflowY": "hidden",
+   "rotations": {
+    "top": 797,
+    "visible": true
+   },
+   "active": "Cube@mbabbScene123456Rotations"
+  }
+ },
+ "focus-dark": {
+  "rest": {
+   "detentT": "0.12",
+   "sheetTop": 723,
+   "portTop": 788,
+   "portBottom": 873,
+   "scrollTop": 0,
+   "overflowY": "hidden",
+   "rotations": {
+    "top": 797,
+    "visible": true
+   },
+   "active": "Cube@mbabb123456Rotations\n    "
+  },
+  "tabbedToEase": true,
+  "afterTab": {
+   "detentT": "0.36",
+   "sheetTop": 426,
+   "portTop": 491,
+   "portBottom": 708,
+   "scrollTop": 151,
+   "overflowY": "auto",
+   "rotations": {
+    "top": 349,
+    "visible": false
+   },
+   "active": "ease-in-out"
+  },
+  "afterEscape": {
+   "detentT": "0.12",
+   "sheetTop": 723,
+   "portTop": 788,
+   "portBottom": 873,
+   "scrollTop": 0,
+   "overflowY": "hidden",
+   "rotations": {
+    "top": 797,
+    "visible": true
+   },
+   "active": "ease-in-out"
+  },
+  "afterScriptFocus": {
+   "detentT": "0.36",
+   "sheetTop": 719,
+   "portTop": 784,
+   "portBottom": 1001,
+   "scrollTop": 383,
+   "overflowY": "auto",
+   "rotations": {
+    "top": 410,
+    "visible": false
+   },
+   "active": "Preview"
+  },
+  "afterBlur": {
+   "detentT": "0.12",
+   "sheetTop": 723,
+   "portTop": 788,
+   "portBottom": 873,
+   "scrollTop": 0,
+   "overflowY": "hidden",
+   "rotations": {
+    "top": 797,
+    "visible": true
+   },
+   "active": "Cube@mbabbScene123456Rotations"
+  }
+ },
+ "legend-1280x800-light": {
+  "swatchLeft": 88,
+  "swatchRight": 136,
+  "runs": [
+   {
+    "text": "0 → 53 % overshoot",
+    "tops": [
+     312
+    ],
+    "lefts": [
+     88
+    ]
+   },
+   {
+    "text": "· set by damping alone",
+    "tops": [
+     330
+    ],
+    "lefts": [
+     142
+    ]
+   }
+  ],
+  "lines": 2,
+  "tops": [
+   312,
+   330
+  ]
+ },
+ "legend-1280x800-dark": {
+  "swatchLeft": 88,
+  "swatchRight": 136,
+  "runs": [
+   {
+    "text": "0 → 53 % overshoot",
+    "tops": [
+     312
+    ],
+    "lefts": [
+     88
+    ]
+   },
+   {
+    "text": "· set by damping alone",
+    "tops": [
+     330
+    ],
+    "lefts": [
+     142
+    ]
+   }
+  ],
+  "lines": 2,
+  "tops": [
+   312,
+   330
+  ]
+ }
+}

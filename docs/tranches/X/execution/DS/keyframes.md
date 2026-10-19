@@ -3715,3 +3715,25 @@ Every capture ran in headless real Chrome (§0ei), with one browser per run and 
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### tail: dead-seat hunks
+
+The dead r8 pass-11 cure seat (critic C11, the eighth redeploy; its probe and frames are in `evidence/DS/keyframes/pass-56/`) left two uncommitted hunks in keyframes.js. Each was read whole and judged against `keyframes-canon.md`, the X-DS canon and its 2026-10-06 addendum, and the C11 finding it answers. Neither hunk touches lighting, adds a component or wrapper, or overrides glass. Both were ADOPTED as written. A third dirty hunk, `KeyframeTimeline.vue` (`panel-content`), belongs to another seat and was not touched.
+
+| hunk | finding | disposition | commit |
+|---|---|---|---|
+| `demo/scenes/spring/SpringHeatmap.vue`: `LEGEND_HEAD` loses its trailing `·`, which now opens `LEGEND_TAIL`; the legend span gains `.spring-heatmap-legend`, a hanging indent of one swatch run (3rem + 0.375rem) | r8 KF-C11-02 (a wrapped legend line ended on the separator, and its continuation sat under the swatch) | **ADOPTED.** The probe at 1280x800, both schemes: line 1 "0 → 53 % overshoot" starts with the swatch at x 88; line 2 "· set by damping alone" starts at x 142, under the first line's text (the swatch ends at 136). The test's `toContain` strings still hold. | keyframes.js `fcb7c481` |
+| `demo/components/instrument/pane/ControlsPaneWrapper.vue`: `ref="paneEl"` on the port, `@focusin` / `@focusout` on the sheet, `onSheetFocusIn`, `onSheetFocusOut`, `restPort`, and a watch that rests the port when the sheet parks (mobile only) | r8 KF-C11-01 (Tab or a tap scrolled the parked peek's clipped port to a mid-form fragment that could not scroll back, with the title row gone) | **ADOPTED.** The probe at 390x844, both schemes: Tab to `ease-in-out` raises the detent to 0.36 (sheet top 426, port scrollable); Escape parks it with `scrollTop` 0 and 'Rotations' visible; script focus on the last control raises the detent; blur parks it at `scrollTop` 0. | keyframes.js `77e2c184` |
+
+**KF-C14-03 (medium), raised against this hunk while it was uncommitted, is now judged.** C14 reached the state "the store says open, the screen shows the peek with a scrolled port". The probe shows the detent does reach 0.36 (`afterScriptFocus`: detent 0.36), but the sheet stays at the top of the peek (719). That is glass SHEET-POSITION (`.glass-floating`'s `position: relative` outranks the sheet's `fixed`; KF-C20-04, KF-C20-G1). It is not a consumer rest fault:
+- The critic's first cure ("activeSnap at the peek rung") is the same condition as `!isControlsPanelOpen`, because `activeSnap`'s getter returns PEEK exactly when the open fact is false. So it changes nothing.
+- The critic's second cure (rest the port after an action while the store says open) would be a local stand-in for glass's rise. It would also fight a correctly risen sheet after the 10.2.0 repin. Under §0ei/O-87 we do not shim it.
+- The row moves to the glass half: it is cited against O-87/O-88 SHEET-POSITION and is honest-RED until the 10.2.0 repin. At that repin the 390 focus path is re-probed with `pass-56/c11-probe.mjs`.
+
+**Gates** (keyframes.js working tree with both hunks; the other seat's `KeyframeTimeline.vue` hunk was present and untouched). Logs are in `evidence/DS/keyframes/tail-dead-seat/`.
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden.
+
+**Disclosures:** the keyframes.js commits are pathspec-only, one file each, and were pushed fast-forward (`35e64f63..77e2c184`). Every run went through `~/.claude/guard/guarded`. No browser was launched by this seat; the frames are the dead seat's headless real-Chrome captures in `pass-56/after/`, committed here as the evidence.
