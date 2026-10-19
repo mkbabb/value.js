@@ -111,6 +111,12 @@ export default defineConfig({
     // (the runtime product is byte-identical to what a user drives); the
     // production bundle is separately proven by the hard-gate `gh-pages ✓ built`.
     workers: 1,
+    // X-W11 §0gc — every browser job in ci.yml uploads `playwright-report/`
+    // `if: always()`, but no reporter wrote it: Playwright's CI default is `dot`
+    // alone, so a red run shipped an empty artifact and its cells were readable
+    // only as `××T` glyphs in the log. CI keeps the `dot` log line AND writes
+    // the HTML report the upload step names. Locally the default is unchanged.
+    reporter: process.env.CI ? [["dot"], ["html", { open: "never" }]] : "list",
     retries: process.env.CI ? 2 : 0,
     timeout: 30000,
     expect: { timeout: 8000 },
