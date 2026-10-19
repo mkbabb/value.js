@@ -253,7 +253,8 @@ test.describe("D4 · a registered target is READY, and dispatches for real", () 
  * assertions are what make the frame worth keeping (a blank dock is not
  * evidence of anything).
  */
-const FRAMES = "docs/tranches/X/waves/evidence/W4";
+// Run output, never committed evidence (COHESION §0gd.2): the dated W4 frames stay as committed.
+const FRAMES = "test-results/scene-action-contract";
 
 test.describe("§8 artefact 8 — the dock action bar's frames (desktop matrix)", () => {
     test("the Mix view's bar, framed", async ({ page }) => {
