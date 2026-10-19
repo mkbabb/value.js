@@ -40,3 +40,28 @@ Evidence: `before/` (PNGs, `motion.json`, `layers.json`, `capTrace.json`, `probe
 - **KF-P4 route swap.** The scene swap commits 451–479 ms after input, with 5–8 frames >34 ms and a worst frame of 119–140 ms. Root: `runSceneSwitch` (useSceneTransition.ts:78-93) serially awaits `loadScene` plus `settleClosingOverlays` (:106-117, the closing Select's exit animation) before `viewTransition()`, then freezes on the old snapshot until `whenSceneReady`. Acts: mark the three segments with performance marks, then cut the dominant ones at root. Warm the target chunk on trigger hover/open (`warmScene`, scenes.ts:132) so `loadScene` is already settled. Stop gating the transition's start on a full exit animation: wait a single frame, so the closed content leaves the old snapshot. Keep the KFA-26 no-double-exposure invariant (verify on the strip). Falsifier (1440/390, light+dark): input→hash ≤200 ms, no frame >50 ms during the swap, and a 5-frame strip with no double exposure.
 
 K1 is in flight with another seat, so it has no packet. K5 and K8 are glass-only (see the sub-rows above).
+
+### KF-P2-pane-controls
+
+Rows OD19-K3, OD19-K4. keyframes.js `eb2b7bc1` (master, fast-forward pushed from `eb4048fe`).
+
+- **K3 (cured, consumer).** `ChannelOptionsForm.vue` has one value-to-lucide glyph table, `OPTION_GLYPHS`. It is typed exhaustively over the engine's `DIRECTIONS` ∪ `FILL_MODES`:
+  - direction: normal → ArrowRight, reverse → ArrowLeft, alternate → ArrowRightLeft, alternate-reverse → ArrowLeftRight
+  - fill mode: none → CircleDashed, forwards → ArrowRightToLine, backwards → ArrowLeftToLine, both → MoveHorizontal
+
+  The glyph leads in the SelectTrigger and in every SelectItem. It uses the curve glyph's box (1.5em × 1em, stroke 1.5, gap-1.5, ps-3). The trigger's `pe-10` puts the producer chevron in the easing chevron's column. Measured live at 1440 on the cured bytes (`chevron-probe.mjs`): each trigger holds 2 svgs (BEFORE 1). The option glyph's right edge is 233.3 px, equal to the easing curve glyph's 233.3 px.
+- **K4 (cured, consumer).** The verb row is gone. The ball track's start disc IS Reverse: ArrowRight, flipped with `scale-x-[-1]` under Reverse, `aria-pressed`, the `.btn-playback` pressed skin. The dashed ghost disc IS the ball Preview toggle: eye / eye-off, `aria-pressed` while shown. Both are named glass Buttons with Tooltips, authored in `PlaybackRibbon.vue` and seated by `AnimationVisualizer.vue`'s `start` / `end` slots, with no wrapper. The discs flank the stage, so the ball never covers a control. Only the stage is aria-hidden. PreviewToggle now wraps the stage alone, and the discs stay. On the short desktop rail (KF-C5-03) the row stays compact: discs at `--control-h-md`, no ball, no eye. That is the same block size as the old verb row, so the scroller budget is unchanged.
+- **Falsifiers.** RED on the pre-cure bytes 5/5, GREEN ×2:
+  - `test/demo/instrument/channel-options-w13x.test.ts` (15) and (16)
+  - `test/demo/instrument/playback-ribbon-contract.test.ts` "OD19-K4": no verb row; Reverse found by role and name, toggling and flipping; the real visualizer seats both discs around its stage; the short rail.
+- **Gates.**
+  - `npm run check` (vue-tsc ×2 + proof:structure): PASS.
+  - Demo vitest ×2: 950/955. The 5 failures are in sibling seats' in-flight files (KF-P3 css-code-editor-seam, keyframes-pane-header, r4panes-artifact-ink; KF-P4 scene-swap-w13x). They are not on this packet's import path.
+  - The 10 ribbon/options/preview files run alone: 89/89.
+  - keyframes.js has no e2e suite.
+- **Adjacent same-concern edits** (outside the modify set; the structure moved and assertions keep their strength):
+  - `test/demo/instrument/preview-toggle.test.ts` (2) and (3) read the new seat.
+  - The AnimationVisualizer stubs in `test/demo/instrument/transport-w13x.test.ts` and `test/demo/scenes/easing-preview-persistence.test.ts` now render the `start` / `end` slots.
+  - No golden was re-baselined.
+- **Glass-rooted (O-102 sub-row, measured).** glass `SelectTrigger`'s chevron carries `in-data-[state=open]:rotate-180`, which compiles to `:where([data-state=open]) .x`. That matches ANY open ancestor. Inside glass's own open `.configurator-layer` / `.configurator-layer-region` (both `data-state=open`, measured), the closed select's chevron points UP. Easing's ChevronDown points down. The scope should be the trigger's own `data-state`. The consumer does not patch it locally. The column alignment is the consumer's and is cured (`pe-10`).
+- **Browser AFTER (1440/390 × light/dark): PENDING.** `after/KF-P2-pane-controls/probe-after.mjs` is queued in `guarded` and was not admitted: machine load was 109–163 against a gate of 36. When it runs it writes `probe-after.json` and the K3/K4 PNGs into the same directory. The vitest falsifiers above carry the verdict until then.
