@@ -1,0 +1,522 @@
+{
+  "engine": "webkit",
+  "version": "26.4",
+  "contrast-1440-light": {
+    "rows": [
+      {
+        "secondary": {
+          "run": [
+            281,
+            341.19464111328125,
+            68.87896728515625,
+            21.5169677734375
+          ],
+          "color": "oklch(0.289468 0.003862 34.629978)",
+          "fs": "16.4px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            366,
+            352
+          ],
+          "ground": [
+            205,
+            95,
+            139
+          ],
+          "cr": 3.8
+        },
+        "primary": {
+          "fs": "16.4px",
+          "ground": [
+            203,
+            93,
+            136
+          ],
+          "cr": 4.55
+        }
+      },
+      {
+        "secondary": {
+          "run": [
+            281,
+            419.06964111328125,
+            68.87896728515625,
+            21.5169677734375
+          ],
+          "color": "oklch(0.289468 0.003862 34.629978)",
+          "fs": "16.4px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            366,
+            430
+          ],
+          "ground": [
+            209,
+            97,
+            141
+          ],
+          "cr": 3.93
+        },
+        "primary": {
+          "fs": "16.4px",
+          "ground": [
+            209,
+            98,
+            141
+          ],
+          "cr": 4.87
+        }
+      },
+      {
+        "secondary": {
+          "run": [
+            281,
+            496.94464111328125,
+            68.87896728515625,
+            21.5169677734375
+          ],
+          "color": "oklch(0.289468 0.003862 34.629978)",
+          "fs": "16.4px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            366,
+            508
+          ],
+          "ground": [
+            204,
+            94,
+            138
+          ],
+          "cr": 3.75
+        },
+        "primary": {
+          "fs": "16.4px",
+          "ground": [
+            206,
+            97,
+            138
+          ],
+          "cr": 4.75
+        }
+      }
+    ],
+    "minSecondaryCR": 3.75,
+    "pageErrors": []
+  },
+  "contrast-1440-dark": {
+    "rows": [
+      {
+        "secondary": {
+          "run": [
+            281,
+            340.75714111328125,
+            68.87896728515625,
+            21.5169677734375
+          ],
+          "color": "oklch(0.712763 0.003822 41.868439)",
+          "fs": "16.4px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            366,
+            352
+          ],
+          "ground": [
+            87,
+            38,
+            51
+          ],
+          "cr": 4.73
+        },
+        "primary": {
+          "fs": "16.4px",
+          "ground": [
+            85,
+            35,
+            49
+          ],
+          "cr": 10.04
+        }
+      },
+      {
+        "secondary": {
+          "run": [
+            281,
+            418.63214111328125,
+            68.87896728515625,
+            21.5169677734375
+          ],
+          "color": "oklch(0.712763 0.003822 41.868439)",
+          "fs": "16.4px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            366,
+            429
+          ],
+          "ground": [
+            87,
+            41,
+            51
+          ],
+          "cr": 4.62
+        },
+        "primary": {
+          "fs": "16.4px",
+          "ground": [
+            87,
+            40,
+            52
+          ],
+          "cr": 9.54
+        }
+      },
+      {
+        "secondary": {
+          "run": [
+            281,
+            496.50714111328125,
+            68.87896728515625,
+            21.5169677734375
+          ],
+          "color": "oklch(0.712763 0.003822 41.868439)",
+          "fs": "16.4px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            366,
+            507
+          ],
+          "ground": [
+            88,
+            39,
+            52
+          ],
+          "cr": 4.66
+        },
+        "primary": {
+          "fs": "16.4px",
+          "ground": [
+            86,
+            37,
+            50
+          ],
+          "cr": 9.83
+        }
+      }
+    ],
+    "minSecondaryCR": 4.62,
+    "pageErrors": []
+  },
+  "contrast-390-light": {
+    "rows": [
+      {
+        "secondary": {
+          "run": [
+            90,
+            330.70654296875,
+            58.799102783203125,
+            18.3681640625
+          ],
+          "color": "oklch(0.289468 0.003862 34.629978)",
+          "fs": "14px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            165,
+            340
+          ],
+          "ground": [
+            205,
+            101,
+            137
+          ],
+          "cr": 3.94
+        },
+        "primary": {
+          "fs": "14px",
+          "ground": [
+            206,
+            104,
+            139
+          ],
+          "cr": 4.98
+        }
+      },
+      {
+        "secondary": {
+          "run": [
+            90,
+            401.89404296875,
+            58.799102783203125,
+            18.3681640625
+          ],
+          "color": "oklch(0.289468 0.003862 34.629978)",
+          "fs": "14px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            165,
+            411
+          ],
+          "ground": [
+            206,
+            97,
+            139
+          ],
+          "cr": 3.87
+        },
+        "primary": {
+          "fs": "14px",
+          "ground": [
+            207,
+            99,
+            139
+          ],
+          "cr": 4.84
+        }
+      },
+      {
+        "secondary": {
+          "run": [
+            90,
+            473.08154296875,
+            58.799102783203125,
+            18.3681640625
+          ],
+          "color": "oklch(0.289468 0.003862 34.629978)",
+          "fs": "14px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            165,
+            482
+          ],
+          "ground": [
+            205,
+            96,
+            138
+          ],
+          "cr": 3.82
+        },
+        "primary": {
+          "fs": "14px",
+          "ground": [
+            204,
+            96,
+            136
+          ],
+          "cr": 4.66
+        }
+      }
+    ],
+    "minSecondaryCR": 3.82,
+    "pageErrors": []
+  },
+  "contrast-390-dark": {
+    "rows": [
+      {
+        "secondary": {
+          "run": [
+            90,
+            330.70654296875,
+            58.799102783203125,
+            18.3681640625
+          ],
+          "color": "oklch(0.712763 0.003822 41.868439)",
+          "fs": "14px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            165,
+            340
+          ],
+          "ground": [
+            89,
+            36,
+            49
+          ],
+          "cr": 4.75
+        },
+        "primary": {
+          "fs": "14px",
+          "ground": [
+            92,
+            40,
+            51
+          ],
+          "cr": 9.28
+        }
+      },
+      {
+        "secondary": {
+          "run": [
+            90,
+            401.89404296875,
+            58.799102783203125,
+            18.3681640625
+          ],
+          "color": "oklch(0.712763 0.003822 41.868439)",
+          "fs": "14px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            165,
+            411
+          ],
+          "ground": [
+            90,
+            44,
+            56
+          ],
+          "cr": 4.42
+        },
+        "primary": {
+          "fs": "14px",
+          "ground": [
+            91,
+            44,
+            54
+          ],
+          "cr": 9.02
+        }
+      },
+      {
+        "secondary": {
+          "run": [
+            90,
+            473.08154296875,
+            58.799102783203125,
+            18.3681640625
+          ],
+          "color": "oklch(0.712763 0.003822 41.868439)",
+          "fs": "14px",
+          "fw": "400",
+          "cls": "text-mono-small text-muted-foreground truncate",
+          "groundAt": [
+            165,
+            482
+          ],
+          "ground": [
+            89,
+            44,
+            55
+          ],
+          "cr": 4.45
+        },
+        "primary": {
+          "fs": "14px",
+          "ground": [
+            86,
+            35,
+            50
+          ],
+          "cr": 9.97
+        }
+      }
+    ],
+    "minSecondaryCR": 4.42,
+    "pageErrors": []
+  },
+  "forced-light": {
+    "fc": true,
+    "row": "oklab(0.216129 0.003491 0.005182 / 0.12)",
+    "body": "rgb(200, 70, 215)",
+    "pageErrors": []
+  },
+  "forced-dark": {
+    "fc": true,
+    "row": "oklab(0.925202 0.002342 0.005724 / 0.12)",
+    "body": "rgb(38, 0, 27)",
+    "pageErrors": []
+  },
+  "text200": {
+    "rootFs": "32px",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "rows": [
+      {
+        "h": 128,
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          false,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      },
+      {
+        "h": 128,
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          false,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      },
+      {
+        "h": 128,
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          false,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      },
+      {
+        "h": 128,
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          false,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      },
+      {
+        "h": 128,
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          false,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      },
+      {
+        "h": 128,
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          true,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      }
+    ],
+    "pageErrors": []
+  }
+}

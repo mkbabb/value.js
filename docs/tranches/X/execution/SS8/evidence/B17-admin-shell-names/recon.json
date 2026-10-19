@@ -1,0 +1,84 @@
+{
+  "names": {
+    "url": "http://localhost:9000/#/admin/names",
+    "h1": "Names",
+    "tabs": [
+      {
+        "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full",
+        "rect": [
+          224,
+          201.56,
+          992,
+          42.61
+        ],
+        "html": "<div data-v-fa50f434=\"\" role=\"tablist\" aria-orientation=\"horizontal\" class=\"segmented-tabs segmented-tabs--pill glass-capsule-track w-full\"><div aria-hidden=\"true\" class=\"segmented-indicator segmented-indicator--js glass-capsule glass-drag-grabbable\" style=\"left: 0px; top: 0px; width: 492.335px; height: 39.7596px; translate: 4.04167px 9.19379px; opacity: 1;\"></div><button type=\"button\" class=\"segmented-tab\" role=\"tab\" tabindex=\"0\" data-active=\"\" aria-selected=\"true\" aria-controls=\"admin-names-pending\">Pending · 6</button><button type=\"button\" class=\"segmented-tab glass-capsule-hover\" role=\"tab\" tabindex=\"-1\" aria-selected=\"false\" aria-controls=\"admin-names-approved\">Approved · 4</button></div>"
+      }
+    ],
+    "rows": [
+      [
+        224,
+        304.17,
+        992,
+        69.94
+      ],
+      [
+        224,
+        382.11,
+        992,
+        69.94
+      ],
+      [
+        224,
+        460.05,
+        992,
+        69.94
+      ],
+      [
+        224,
+        537.98,
+        992,
+        69.94
+      ],
+      [
+        224,
+        615.92,
+        992,
+        69.94
+      ],
+      [
+        224,
+        693.86,
+        992,
+        69.94
+      ]
+    ],
+    "regions": [
+      {
+        "tag": "MAIN",
+        "attrs": "data-v-f13b4d11= class=pane-main aria-labelledby=route-title",
+        "rect": [
+          16,
+          88,
+          1408,
+          804
+        ]
+      },
+      {
+        "tag": "DIV",
+        "attrs": "data-v-f13b4d11= class=pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--stage data-pane=admin-names role=region aria-label=Names style=position: relative; top: 0.0135803px;",
+        "rect": [
+          199,
+          88,
+          1042,
+          804
+        ]
+      }
+    ],
+    "bodyText": "→\nNames\nTools\nadmin\n@mbabb\n\nNames view\n\nNames\n\nReview and approve color names.\n\nPending · 6\nApproved · 4\nProbe Ember\n#e11d48\nHarbor Slate\n#2563eb\nMoss Lantern\n#16a34a\nSaffron Tide\n#f59e0b\nViolet Hour\n#7c3aed\nAn Extraordinarily Long Proposed Colour Name That Must Truncate Somewhere\noklch(62% 0.19 25deg / 85%)",
+    "log": [
+      "/admin/queue?limit=50&offset=0",
+      "/admin/colors/approved?limit=50&offset=0"
+    ],
+    "pageErrors": []
+  }
+}
