@@ -109,7 +109,7 @@ Rows OD19-K3, OD19-K4. keyframes.js `eb2b7bc1` (master, fast-forward pushed from
 
 | measure (run 1 / run 2) | BEFORE | AFTER |
 |---|---|---|
-| input→router push (budget ≤200 ms) | 451–479 ms | **68–70 ms / 37–47 ms**, GREEN ×2 |
+| input→router push (budget ≤200 ms) | 451–479 ms | **68–76 ms / 37–47 ms**, GREEN ×2 |
 | prepare segment | 306–321 ms | 11–46 ms / 8–11 ms |
 | commit segment (frozen old snapshot) | 77–101 ms | 95–111 ms / 66–83 ms |
 | frames >50 ms, 390 | 1 | 1 / 1 (the commit freeze) |
