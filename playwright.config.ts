@@ -272,6 +272,14 @@ export default defineConfig({
             // reason `smoke-safari` omits them — WebKit has its own GL stack.
             name: "oracles-safari",
             testDir: "./e2e/smoke/oracles",
+            // X.W11.h15 (DISPOSITION §8 E15) — instrument scope, not engine
+            // skip. A leg tagged `@chromium-instrument` measures through a
+            // Chromium-only instrument (`browser.startTracing`, a CDP
+            // session); WebKit has no such instrument, so this project does
+            // not enrol it, and the Chromium `smoke` project, which collects
+            // the same files, runs it. The CSSOM halves (O-11 gate 4a) carry
+            // no tag and run here.
+            grepInvert: /@chromium-instrument/,
             use: {
                 baseURL: E2E_ORIGIN,
                 browserName: "webkit",

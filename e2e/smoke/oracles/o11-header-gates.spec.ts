@@ -217,10 +217,16 @@ test("O-11 gate 3 — the swell completes ≤64px; no naked window under the ear
     }
 });
 
-test("O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub", async ({
+// Gate 4 is two legs, split by INSTRUMENT (X.W11.h15 · DISPOSITION §8 E15).
+// 4a, the CSSOM half, is engine-agnostic: it runs in every project that
+// collects this file (Chromium `smoke` and WebKit `oracles-safari`). 4b, the
+// trace half, needs `browser.startTracing`, which exists only in Chromium, so
+// it carries the `@chromium-instrument` tag and the WebKit project does not
+// enrol it (`playwright.config.ts` · `oracles-safari` · `grepInvert`). It is
+// never skipped: it runs in `smoke`.
+test("O-11 gate 4a — compositor-only: pane-* keyframes carry ONLY transform/opacity (CSSOM)", async ({
     page,
-    browser,
-}, testInfo) => {
+}) => {
     test.setTimeout(90_000);
     await page.goto("/");
     await expect(mainPane(page)).toBeVisible();
@@ -261,6 +267,14 @@ test("O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opa
         offenders,
         "layout-channel properties inside pane-* scroll keyframes (the F3 fork resurrected)",
     ).toEqual([]);
+});
+
+test("O-11 gate 4b — compositor-only: the CDP layout track is FLAT under a live scrub (trace)", {
+    tag: "@chromium-instrument",
+}, async ({ page, browser }, testInfo) => {
+    test.setTimeout(90_000);
+    await page.goto("/");
+    await expect(mainPane(page)).toBeVisible();
 
     // Live half: trace a real scrub; the layout track must be flat.
     const scrub = async () => {
