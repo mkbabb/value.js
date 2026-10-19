@@ -1,5 +1,5 @@
 <template>
-    <PaneShell seated bounded :title="headerTitle" :description="headerDescription" :gap="3">
+    <PaneShell bounded :title="headerTitle" :description="headerDescription" :gap="3">
     <!-- A2-VA-L1-1: the one pane shell. X-DS pass 18 (V18C-03): the title
          rides the `title` prop (the #title slot existed for the count chip,
          which V15-02 deleted), so PaneShell seats it as the route's one <h1>

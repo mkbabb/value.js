@@ -149,7 +149,6 @@ onBeforeUnmount(() => cancelAnimationFrame(snapFrame));
 
 <template>
     <PaneShell
-        seated
         follow
         :gutter="false"
         :title="title"

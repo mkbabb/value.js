@@ -9,7 +9,7 @@
          the whole choreography is compositor-only (the F3 layout-animating
          fork is dead — O-11 gate 4). -->
     <!-- A2-VA-L1-2 (X-W12U .k2): the header IS glass's `<CardHeader shrink>`.
-         Inside PaneShell's `.card-scroll-host` it condenses on glass's real-box
+         Under a scroll host above it, it condenses on glass's real-box
          discrete condense (hysteresis threshold + sufficiency gate, the
          padding flip under `[data-condensed]`, the caption hidden; the
          rungs it lands on are this file's, X.W10.d / DESIGN.md §3.2 P-2); the
@@ -77,9 +77,9 @@ const { level = 2, titleId } = defineProps<{
 /* Pane scroll host (D.W4 Lane A §4: colocated from styles/style.css).
  *
  * The `.pane-scroll-fade` host class lives on the ONE scroll owner of every
- * pane (A2-VA-L1-1: PaneShell's `.card-scroll-host`, or its seated FadingScroll
- * port). Because the class is applied by PaneShell, not by a descendant of
- * PaneHeader, the block must be UNSCOPED. It is colocated HERE because
+ * pane (A2-VA-L1-1: PaneShell's FadingScroll port, the header seated above it;
+ * the overlying `.card-scroll-host` branch is retired, X-DS tail). Because
+ * the class is applied by PaneShell, not by a descendant of PaneHeader, the block must be UNSCOPED. It is colocated HERE because
  * PaneHeader owns the only consumer of `--pane-scroll` (the named
  * scroll-timeline defined by this block), so producer + consumer live in one
  * file.

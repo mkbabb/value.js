@@ -1835,3 +1835,26 @@ Critic V20C named five consumer rows (V20C-01 low, -02 low, -03 low, -04 trivial
   - (b) The admin-walk carry and the o23 HSL row still have no owner.
   - (c) If hover feedback on the Users row is wanted, it belongs on the whole bordered row (V20C-02's 'if wanted'). This pass judged the chevron sufficient.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The SegmentedTabs falsifier is ±1 px.
+
+### tail: PaneShell seated prop
+
+Owed by CLOSE.md §4 (V19C note (a); pass 20's note (a)). **CURED, no compat shim.**
+
+- **Definition:** `demo/shell/PaneShell.vue` declared `seated?: boolean` (default false) and two template branches: the seated one (PaneHeader above glass's `FadingScroll` port, then `#footer`) and the overlying one (`.card-scroll-host` with a sticky PaneHeader inside it).
+- **Consumers (grep `<PaneShell`):** there are **10** call sites, not 9. AdminPane joined at pass 19 (V19C-01). Every one passed `seated`: GradientPane, MixPane, GeneratePane, ExtractPane, NotFoundPane, AboutPane, ConfigSliderPane, AdminPane, BrowsePane and PalettesPane. No call site rendered the overlying branch, so that branch was dead code.
+- **Cure at the root:**
+  - The `seated` prop and the overlying branch are deleted. The seated layout is now the shell's only layout.
+  - The desktop bound `(!seated || bounded) && 'pane-shell--bounded'` becomes `bounded && 'pane-shell--bounded'`. Only AdminPane passes `bounded`, and it renders the same bound.
+  - The `seated` attribute is removed at all 10 call sites. `bounded`, `follow`, `gutter`, `gap` and `card-class` are unchanged.
+  - The stale `.card-scroll-host` prose in PaneShell's comment and style block, and in PaneHeader's two comments, now names the one port.
+  - The picker's own `.card-scroll-host` (ColorPicker.vue and header.css) is a separate owner and is untouched.
+- **DOM:** byte-equivalent to the seated path before the change. Each pane renders the same elements and classes, so no frames were needed.
+- **Gates:**
+  - **vue-tsc:** `npm run typecheck` (lib, demo, test, e2e) exits 0.
+  - **vitest:** `--maxWorkers=2` ×2 gives 97 files and **1253/1253** each run.
+  - **e2e smoke** (`--workers=1`, private ports 8197/8198) covers page-load, w12-about-clip, `views/` (browse ×2, companion-pane, gradient, mix), walk and dual-pane-1440.
+    - Run 1: 26/27. `walk.spec.ts` timed out on a view swap. It failed the same way with this change reverted (a baseline run on the HEAD bytes of these 12 files: `locator.click` timeout at walk.spec.ts:134). That makes it a pre-existing timing flake, not this change.
+    - Then **27/27 ×2** on consecutive runs.
+  - **smoke-admin** (admin-populated, route-guard, o10d-admin-title-voice, admin-walk): **8/8 ×2**.
+  - **smoke-mobile** blob-presence-mobile: 2/2.
+- **Files:** `demo/shell/PaneShell.vue`, `demo/shared/ui/PaneHeader.vue` (comments only), and the 10 pane files above.
