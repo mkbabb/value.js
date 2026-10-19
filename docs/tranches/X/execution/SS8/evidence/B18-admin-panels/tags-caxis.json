@@ -1,0 +1,45 @@
+{
+  "c1": {
+    "href": "http://localhost:9000/#/admin/tags",
+    "panes": [
+      "not-found"
+    ],
+    "text": "/admin/tags could not be opened.\n\nNot found\n\nThis address names no view of this app.\n\n/admin/tags\n\nBack to the picker",
+    "adminRequests": [],
+    "pageErrors": []
+  },
+  "c3": {
+    "gets": 2,
+    "finalChips": [
+      "fresh-second"
+    ],
+    "pageErrors": []
+  },
+  "c6": {
+    "form": false,
+    "alert": "Couldn't load tags.\n\nboom\n\nRetry",
+    "pageErrors": []
+  },
+  "c18": {
+    "chips": [
+      {
+        "text": "",
+        "w": 32,
+        "label": "Delete tag "
+      },
+      {
+        "text": "warm",
+        "w": 60.2,
+        "label": "Delete tag warm"
+      },
+      {
+        "text": "",
+        "w": 32,
+        "label": "Delete tag undefined"
+      }
+    ],
+    "boundary": false,
+    "text": "Tags\n\nManage palette tag taxonomy.\n\n3 tags\nAdd tag\nblank\nmood\nwarm\nnameless",
+    "pageErrors": []
+  }
+}

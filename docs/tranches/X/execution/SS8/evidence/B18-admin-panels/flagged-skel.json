@@ -1,0 +1,48 @@
+{
+  "light": {
+    "blockBg": "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+    "blockAnim": "skeleton-breathe-0d5ebb1f",
+    "rowBg": "rgba(0, 0, 0, 0)",
+    "block": [
+      206,
+      94,
+      174
+    ],
+    "row": [
+      224,
+      201.5625,
+      992,
+      54
+    ],
+    "ground": [
+      214,
+      98,
+      181
+    ],
+    "ratio": 1.075,
+    "pageErrors": []
+  },
+  "dark": {
+    "blockBg": "oklab(0.925202 0.00234182 0.00572368 / 0.08)",
+    "blockAnim": "skeleton-breathe-0d5ebb1f",
+    "rowBg": "rgba(0, 0, 0, 0)",
+    "block": [
+      91,
+      34,
+      63
+    ],
+    "row": [
+      224,
+      201.5625,
+      992,
+      54
+    ],
+    "ground": [
+      81,
+      23,
+      56
+    ],
+    "ratio": 1.141,
+    "pageErrors": []
+  }
+}

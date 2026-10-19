@@ -1,0 +1,25 @@
+{
+  "h1": {
+    "console": [],
+    "boundary": [],
+    "pageErrors": []
+  },
+  "h2_names": {
+    "totalAdminRequests": 2,
+    "inQuiet10s": [],
+    "pageErrors": []
+  },
+  "h2_flagged": {
+    "totalAdminRequests": 1,
+    "inQuiet10s": [],
+    "pageErrors": []
+  },
+  "h3": {
+    "href": "http://localhost:9000/?utm=x&q=1#/admin/flagged",
+    "panes": [
+      "admin-flagged"
+    ],
+    "title": "Flagged — Color Picker",
+    "pageErrors": []
+  }
+}

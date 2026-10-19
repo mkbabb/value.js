@@ -1,0 +1,264 @@
+{
+  "pop390": {
+    "vw": 390,
+    "card": [
+      13.3,
+      96.3,
+      363.5,
+      959.6
+    ],
+    "cardCH": 956,
+    "cardSH": 956,
+    "scroller": {
+      "rect": [
+        14.9,
+        197.6,
+        360.9,
+        857.3
+      ],
+      "cw": 356,
+      "sw": 356,
+      "ch": 855,
+      "sh": 855
+    },
+    "rows": [
+      [
+        31.1,
+        237.6,
+        325.2,
+        211.1
+      ],
+      [
+        32.3,
+        458.9,
+        324.9,
+        152.4
+      ],
+      [
+        33.3,
+        621.4,
+        325,
+        181.8
+      ],
+      [
+        34.4,
+        813.4,
+        325.2,
+        213.4
+      ]
+    ],
+    "rowOverflow": [
+      [
+        322,
+        322
+      ],
+      [
+        322,
+        322
+      ],
+      [
+        322,
+        322
+      ],
+      [
+        322,
+        322
+      ]
+    ],
+    "lastContentBottom": 1026.8,
+    "pager": null,
+    "badge": {
+      "cls": "font-semibold [&_svg:not([class*=size-])]:size-[1em] text-secondary-foreground text-mono-small",
+      "fontSize": "14px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallba"
+    },
+    "vars": {
+      "controlText": "14px",
+      "typeSmall": "14px",
+      "typeCaption": "12.179px"
+    },
+    "dismiss": [
+      [
+        247.7,
+        309,
+        62.9,
+        28.4
+      ],
+      [
+        249,
+        530.3,
+        62.9,
+        28.4
+      ]
+    ],
+    "del": [
+      [
+        314.5,
+        308.8,
+        28.2,
+        28.2
+      ],
+      [
+        315.7,
+        530.1,
+        28.2,
+        28.2
+      ]
+    ],
+    "coarse": false,
+    "pageErrors": []
+  },
+  "empty390": {
+    "vw": 390,
+    "card": [
+      16,
+      104,
+      358,
+      308.3
+    ],
+    "cardCH": 306,
+    "cardSH": 306,
+    "scroller": {
+      "rect": [
+        17,
+        205.3,
+        356,
+        206
+      ],
+      "cw": 356,
+      "sw": 356,
+      "ch": 206,
+      "sh": 206
+    },
+    "rows": [],
+    "rowOverflow": [],
+    "lastContentBottom": 383.3,
+    "pager": null,
+    "badge": null,
+    "vars": {
+      "controlText": "14px",
+      "typeSmall": "14px",
+      "typeCaption": "12.179px"
+    },
+    "dismiss": [],
+    "del": [],
+    "coarse": false,
+    "pageErrors": []
+  },
+  "coarse390": {
+    "vw": 390,
+    "card": [
+      16,
+      104,
+      358,
+      1037.5
+    ],
+    "cardCH": 1036,
+    "cardSH": 1036,
+    "scroller": {
+      "rect": [
+        17,
+        205.3,
+        356,
+        935.3
+      ],
+      "cw": 356,
+      "sw": 356,
+      "ch": 935,
+      "sh": 935
+    },
+    "rows": [
+      [
+        33,
+        261.3,
+        324,
+        225.3
+      ],
+      [
+        33,
+        498.5,
+        324,
+        166.5
+      ],
+      [
+        33,
+        677.1,
+        324,
+        195.9
+      ],
+      [
+        33,
+        885,
+        324,
+        227.6
+      ]
+    ],
+    "rowOverflow": [
+      [
+        322,
+        322
+      ],
+      [
+        322,
+        322
+      ],
+      [
+        322,
+        322
+      ],
+      [
+        322,
+        322
+      ]
+    ],
+    "lastContentBottom": 1112.5,
+    "pager": null,
+    "badge": {
+      "cls": "font-semibold [&_svg:not([class*=size-])]:size-[1em] text-secondary-foreground text-mono-small",
+      "fontSize": "14px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallba"
+    },
+    "vars": {
+      "controlText": "21px",
+      "typeSmall": "14px",
+      "typeCaption": "12.179px"
+    },
+    "dismiss": [
+      [
+        210.9,
+        332.4,
+        85.1,
+        44
+      ],
+      [
+        210.9,
+        569.7,
+        85.1,
+        44
+      ]
+    ],
+    "del": [
+      [
+        300,
+        332.4,
+        44,
+        44
+      ],
+      [
+        300,
+        569.7,
+        44,
+        44
+      ]
+    ],
+    "coarse": true,
+    "dismissCS": {
+      "minBlockSize": "44px",
+      "height": "44px",
+      "paddingInline": "8px",
+      "fontSize": "18.2685px",
+      "uiScale": "1.5|1.5"
+    },
+    "pageErrors": []
+  }
+}

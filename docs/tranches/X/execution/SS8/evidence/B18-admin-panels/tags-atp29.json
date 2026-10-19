@@ -1,0 +1,104 @@
+{
+  "back_once": {
+    "steps": [
+      {
+        "r": "admin/audit",
+        "tagGets": 1
+      },
+      {
+        "r": "admin/tags",
+        "tagGets": 1
+      }
+    ],
+    "tagGetsTotal": 1,
+    "pageErrors": []
+  },
+  "all_admin": {
+    "steps": [
+      {
+        "r": "admin/users",
+        "tagGets": 1
+      },
+      {
+        "r": "admin/names",
+        "tagGets": 1
+      },
+      {
+        "r": "admin/audit",
+        "tagGets": 1
+      },
+      {
+        "r": "admin/flagged",
+        "tagGets": 1
+      },
+      {
+        "r": "admin/tags",
+        "tagGets": 1
+      }
+    ],
+    "tagGetsTotal": 1,
+    "pageErrors": []
+  },
+  "every_route": {
+    "steps": [
+      {
+        "r": "",
+        "tagGets": 1
+      },
+      {
+        "r": "palettes",
+        "tagGets": 1
+      },
+      {
+        "r": "browse",
+        "tagGets": 1
+      },
+      {
+        "r": "extract",
+        "tagGets": 1
+      },
+      {
+        "r": "mix",
+        "tagGets": 1
+      },
+      {
+        "r": "generate",
+        "tagGets": 1
+      },
+      {
+        "r": "gradient",
+        "tagGets": 1
+      },
+      {
+        "r": "atmosphere",
+        "tagGets": 1
+      },
+      {
+        "r": "blob",
+        "tagGets": 1
+      },
+      {
+        "r": "admin/users",
+        "tagGets": 1
+      },
+      {
+        "r": "admin/names",
+        "tagGets": 1
+      },
+      {
+        "r": "admin/audit",
+        "tagGets": 1
+      },
+      {
+        "r": "admin/flagged",
+        "tagGets": 1
+      },
+      {
+        "r": "admin/tags",
+        "tagGets": 1
+      }
+    ],
+    "tagGetsTotal": 1,
+    "pageErrors": []
+  }
+}

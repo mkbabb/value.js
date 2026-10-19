@@ -1,0 +1,14 @@
+{
+  "rules": [
+    {
+      "ctx": [
+        "inline",
+        "CSSLayerBlockRule"
+      ],
+      "cssText": ".group-hover\\:opacity-100 {\n  &:is(:where(.group):hover *) {\n  @media (hover: hover) {\n  opacity: 1;\n}\n}\n}"
+    }
+  ],
+  "usersOnTagsRoute": 0,
+  "hoverHover": true,
+  "pageErrors": []
+}

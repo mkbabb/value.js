@@ -1,0 +1,40 @@
+{
+  "dismiss": {
+    "acted": "Dismiss reports on Ember Tide",
+    "at": [
+      1134.9617309570312,
+      276.0956726074219
+    ],
+    "under": {
+      "tag": "DIV"
+    },
+    "requests": [
+      "GET /admin/flagged?limit=20&offset=0",
+      "DELETE /admin/flags/ember-tide",
+      "GET /admin/flagged?limit=20&offset=0"
+    ],
+    "pageErrors": []
+  },
+  "delete": {
+    "acted": "Delete palette Ember Tide",
+    "at": [
+      1189,
+      280.3125
+    ],
+    "underOriginalPoint": {
+      "tag": "DIV"
+    },
+    "confirmAt": [
+      789.156982421875,
+      484.34844970703125
+    ],
+    "underConfirmPoint": {
+      "tag": "DIV"
+    },
+    "requests": [
+      "GET /admin/flagged?limit=20&offset=0",
+      "DELETE /admin/palettes/ember-tide"
+    ],
+    "pageErrors": []
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "light": {
+    "timestamp": {
+      "fgComputed": "oklch(0.292283 0.00386159 34.63)",
+      "fgComposited": [
+        46,
+        43,
+        43
+      ],
+      "bgMedian": [
+        214,
+        99,
+        175
+      ],
+      "ratio": 4.185
+    },
+    "target": {
+      "fgComputed": "oklch(0.292283 0.00386159 34.63)",
+      "fgComposited": [
+        46,
+        43,
+        43
+      ],
+      "bgMedian": [
+        214,
+        113,
+        164
+      ],
+      "ratio": 4.515
+    },
+    "pageErrors": []
+  },
+  "dark": {
+    "timestamp": {
+      "fgComputed": "oklch(0.712763 0.00382185 41.8684)",
+      "fgComposited": [
+        164,
+        162,
+        160
+      ],
+      "bgMedian": [
+        94,
+        23,
+        61
+      ],
+      "ratio": 4.955
+    },
+    "target": {
+      "fgComputed": "oklch(0.712763 0.00382185 41.8684)",
+      "fgComposited": [
+        164,
+        162,
+        160
+      ],
+      "bgMedian": [
+        108,
+        23,
+        54
+      ],
+      "ratio": 4.552
+    },
+    "pageErrors": []
+  }
+}

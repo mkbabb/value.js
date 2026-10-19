@@ -1,0 +1,8 @@
+clean-HEAD vs local dist:
+       0
+clean-HEAD vs published 4.0.0:
+      84
+97d5768456e785e810c84f2ee8cc2f12d5a5662785b579e1bd8b5d01fd4e2a42  /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/atp45/src/dist/subpaths/css.d.ts
+97d5768456e785e810c84f2ee8cc2f12d5a5662785b579e1bd8b5d01fd4e2a42  /Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts
+c81d095213d112c6bdbddf1ddb65da2a1286d6e2ff37f5f0ba40e78a439743d0  /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/atp45/pub/package/dist/subpaths/css.d.ts
+HEAD=a63439fcd built Mon Oct 19 15:00:46 EDT 2026

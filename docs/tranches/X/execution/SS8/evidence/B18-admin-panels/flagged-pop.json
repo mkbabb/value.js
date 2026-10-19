@@ -1,0 +1,451 @@
+{
+  "1024": {
+    "vw": 1024,
+    "card": [
+      16,
+      88.2,
+      992,
+      775.1
+    ],
+    "cardCH": 773,
+    "cardSH": 773,
+    "scroller": {
+      "rect": [
+        17,
+        194,
+        990,
+        668.4
+      ],
+      "cw": 990,
+      "sw": 990,
+      "ch": 668,
+      "sh": 668
+    },
+    "rows": [
+      [
+        41,
+        234,
+        942,
+        179.7
+      ],
+      [
+        41,
+        425.7,
+        942,
+        117.9
+      ],
+      [
+        41,
+        555.6,
+        942,
+        148.8
+      ],
+      [
+        41,
+        716.4,
+        942,
+        117.9
+      ]
+    ],
+    "rowOverflow": [
+      [
+        940,
+        940
+      ],
+      [
+        940,
+        940
+      ],
+      [
+        940,
+        940
+      ],
+      [
+        940,
+        940
+      ]
+    ],
+    "lastContentBottom": 834.3,
+    "pager": null,
+    "badge": {
+      "cls": "font-semibold [&_svg:not([class*=size-])]:size-[1em] text-secondary-foreground text-mono-small",
+      "fontSize": "15.36px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallba"
+    },
+    "vars": {
+      "controlText": "15.36px",
+      "typeSmall": "15.36px",
+      "typeCaption": "13.5104px"
+    },
+    "dismiss": [
+      [
+        870.4,
+        258,
+        67.6,
+        28
+      ],
+      [
+        870.4,
+        449.7,
+        67.6,
+        28
+      ]
+    ],
+    "del": [
+      [
+        942,
+        258,
+        28,
+        28
+      ],
+      [
+        942,
+        449.7,
+        28,
+        28
+      ]
+    ],
+    "coarse": false,
+    "paneCard": {
+      "pane": [
+        16,
+        88,
+        992,
+        804
+      ],
+      "main": [
+        16,
+        88,
+        992,
+        804
+      ],
+      "vw": 1024,
+      "chain": [
+        {
+          "tag": "div",
+          "slot": null,
+          "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--stage",
+          "rect": [
+            16,
+            88,
+            992,
+            804
+          ],
+          "cw": 992,
+          "sw": 1024,
+          "ch": 804,
+          "sh": 807,
+          "ox": "visible"
+        },
+        {
+          "tag": "div",
+          "slot": null,
+          "cls": "pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded",
+          "rect": [
+            16,
+            88,
+            992,
+            775.1
+          ],
+          "cw": 992,
+          "sw": 1024,
+          "ch": 775,
+          "sh": 807,
+          "ox": "visible"
+        },
+        {
+          "tag": "div",
+          "slot": "card",
+          "cls": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w",
+          "rect": [
+            16,
+            88,
+            992,
+            775.1
+          ],
+          "cw": 990,
+          "sw": 990,
+          "ch": 773,
+          "sh": 773,
+          "ox": "hidden"
+        },
+        {
+          "tag": "div",
+          "slot": "card-header",
+          "cls": "card-header card-header--shrink pane-header px-4 sm:px-6 pb-(--pane-header-gap) ",
+          "rect": [
+            17,
+            89,
+            990,
+            104.8
+          ],
+          "cw": 990,
+          "sw": 990,
+          "ch": 105,
+          "sh": 105,
+          "ox": "visible"
+        },
+        {
+          "tag": "h1",
+          "slot": "card-title",
+          "cls": "card-title pane-header-title font-display",
+          "rect": [
+            41,
+            105,
+            942,
+            37.3
+          ],
+          "cw": 942,
+          "sw": 942,
+          "ch": 37,
+          "sh": 40,
+          "ox": "visible"
+        }
+      ]
+    },
+    "pageErrors": []
+  },
+  "1440": {
+    "vw": 1440,
+    "card": [
+      199,
+      88,
+      1042,
+      796.9
+    ],
+    "cardCH": 795,
+    "cardSH": 795,
+    "scroller": {
+      "rect": [
+        200,
+        201.6,
+        1040,
+        682.3
+      ],
+      "cw": 1040,
+      "sw": 1040,
+      "ch": 682,
+      "sh": 682
+    },
+    "rows": [
+      [
+        224,
+        241.6,
+        992,
+        184.6
+      ],
+      [
+        224,
+        438.2,
+        992,
+        120.5
+      ],
+      [
+        224,
+        570.8,
+        992,
+        152.6
+      ],
+      [
+        224,
+        735.3,
+        992,
+        120.5
+      ]
+    ],
+    "rowOverflow": [
+      [
+        990,
+        990
+      ],
+      [
+        990,
+        990
+      ],
+      [
+        990,
+        990
+      ],
+      [
+        990,
+        990
+      ]
+    ],
+    "lastContentBottom": 855.9,
+    "pager": null,
+    "badge": {
+      "cls": "font-semibold [&_svg:not([class*=size-])]:size-[1em] text-secondary-foreground text-mono-small",
+      "fontSize": "16.4px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallba"
+    },
+    "vars": {
+      "controlText": "16.4px",
+      "typeSmall": "16.4px",
+      "typeCaption": "14.384px"
+    },
+    "dismiss": [
+      [
+        1100.2,
+        266.3,
+        70.8,
+        28
+      ],
+      [
+        1100.2,
+        463,
+        70.8,
+        28
+      ]
+    ],
+    "del": [
+      [
+        1175,
+        266.3,
+        28,
+        28
+      ],
+      [
+        1175,
+        463,
+        28,
+        28
+      ]
+    ],
+    "coarse": false,
+    "paneCard": {
+      "pane": [
+        199,
+        88,
+        1042,
+        804
+      ],
+      "main": [
+        16,
+        88,
+        1408,
+        804
+      ],
+      "vw": 1440,
+      "chain": [
+        {
+          "tag": "div",
+          "slot": null,
+          "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--stage",
+          "rect": [
+            199,
+            88,
+            1042,
+            804
+          ],
+          "cw": 1042,
+          "sw": 1074,
+          "ch": 804,
+          "sh": 829,
+          "ox": "visible"
+        },
+        {
+          "tag": "div",
+          "slot": null,
+          "cls": "pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded",
+          "rect": [
+            199,
+            88,
+            1042,
+            796.9
+          ],
+          "cw": 1042,
+          "sw": 1074,
+          "ch": 797,
+          "sh": 829,
+          "ox": "visible"
+        },
+        {
+          "tag": "div",
+          "slot": "card",
+          "cls": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w",
+          "rect": [
+            199,
+            88,
+            1042,
+            796.9
+          ],
+          "cw": 1040,
+          "sw": 1040,
+          "ch": 795,
+          "sh": 795,
+          "ox": "hidden"
+        },
+        {
+          "tag": "div",
+          "slot": "card-header",
+          "cls": "card-header card-header--shrink pane-header px-4 sm:px-6 pb-(--pane-header-gap) ",
+          "rect": [
+            200,
+            89,
+            1040,
+            112.6
+          ],
+          "cw": 1040,
+          "sw": 1040,
+          "ch": 113,
+          "sh": 113,
+          "ox": "visible"
+        },
+        {
+          "tag": "h1",
+          "slot": "card-title",
+          "cls": "card-title pane-header-title font-display",
+          "rect": [
+            224,
+            105,
+            992,
+            44
+          ],
+          "cw": 992,
+          "sw": 992,
+          "ch": 44,
+          "sh": 48,
+          "ox": "visible"
+        }
+      ]
+    },
+    "pageErrors": []
+  },
+  "empty": {
+    "vw": 1440,
+    "card": [
+      199,
+      88,
+      1042,
+      324.1
+    ],
+    "cardCH": 322,
+    "cardSH": 322,
+    "scroller": {
+      "rect": [
+        200,
+        201.6,
+        1040,
+        209.6
+      ],
+      "cw": 1040,
+      "sw": 1040,
+      "ch": 210,
+      "sh": 210
+    },
+    "rows": [],
+    "rowOverflow": [],
+    "lastContentBottom": 383.1,
+    "pager": null,
+    "badge": null,
+    "vars": {
+      "controlText": "16.4px",
+      "typeSmall": "16.4px",
+      "typeCaption": "14.384px"
+    },
+    "dismiss": [],
+    "del": [],
+    "coarse": false,
+    "pageErrors": []
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "coarse390": {
+    "coarse": true,
+    "refresh": [
+      313,
+      267.3,
+      44,
+      44
+    ],
+    "refreshCS": {
+      "minBlockSize": "44px",
+      "height": "44px",
+      "paddingInline": "0px"
+    },
+    "uiScale": "1.5",
+    "toolbar": [
+      33,
+      205.3,
+      324,
+      106
+    ],
+    "action": [
+      33,
+      205.3,
+      128,
+      54
+    ],
+    "target": [
+      169,
+      205.3,
+      188,
+      54
+    ],
+    "count": [
+      229.4,
+      279.5,
+      75.6,
+      19.6
+    ],
+    "pageErrors": []
+  },
+  "fine390": {
+    "coarse": false,
+    "refresh": [
+      329,
+      249.3,
+      28,
+      28
+    ],
+    "refreshCS": {
+      "minBlockSize": "28px",
+      "height": "28px",
+      "paddingInline": "0px"
+    },
+    "uiScale": "1",
+    "toolbar": [
+      33,
+      205.3,
+      324,
+      72
+    ],
+    "action": [
+      33,
+      205.3,
+      128,
+      36
+    ],
+    "target": [
+      169,
+      205.3,
+      188,
+      36
+    ],
+    "count": [
+      245.4,
+      253.5,
+      75.6,
+      19.6
+    ],
+    "pageErrors": []
+  }
+}
