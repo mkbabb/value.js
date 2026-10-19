@@ -2823,3 +2823,56 @@ Seats `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 ~17:10–18:
 **ESC-FREL-d-5 (owner act).** The host still runs `79f1a43`'s hook, which REFUSEs before fetch while `FOURIER_DEPLOY_ALERT_WEBHOOK` is unset. The one lawful unblock is a value for that variable in the host's untracked `hooks.json` for one deploy (`.h1` design (b)), or the owner setting it. Host SSH (`34.197.214.67:1022` and `:22`) is unreachable from this machine (rc 1, 18:03Z; also at the Baseline and `.r4`). Owner: restore SSH reach (or set the variable on the host), then `.d` re-sits after `.k`. The alert issue #1 stays open until a deploy of record reaches OK.
 
 **Residuals:** prod API at `79f1a43`; SPA at `index-Cze8HIRf.js`; five drafts (ESC-FREL-r4-1) unchanged.
+
+## RESUME 2026-10-19 (g) — Close
+
+Close seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 ~18:05–18:20Z. VERIFY-ONLY; nothing cured. Crash recovery: fourier ⟨`git status --porcelain`⟩ → `?? .worktrees/` `?? web/.od19-inv.mjs` (neither in F.REL's writable set; not touched); value.js record and `evidence/F-REL/` clean.
+
+### Commit roster (⟨`git log` / `git show --stat`⟩, each unit's writable set)
+| Unit | Commit | Paths | In bounds |
+|---|---|---|---|
+| `.h1` | fourier `dc30e5e` | `.github/workflows/deploy-alert.yml`, `scripts/deploy-alert.sh`, `scripts/deploy-alert-fixture.sh`, `scripts/deploy-hook.sh`, `.gitignore` (+2, declared adjacent edit) | yes |
+| `.h1` | value.js `cbfb07a4d` | this record + `evidence/F-REL/h1/` (5 files) | yes |
+| `.r4` | value.js `df97486e2` | this record + `evidence/F-REL/r4/README.md` | yes (no fourier write; ESCALATED) |
+| `.d` | fourier `24a524a` | merge `m/w1-bump-migration → master`, parents `67e503b dc30e5e` (37 files: `.h1` + X-DS `web/` passes through `75182fb`), no force | yes (the granted merge) |
+| `.d` | value.js `6f7757c9b` | this record + `evidence/F-REL/d/` (6 files) | yes |
+
+**Landed-wrong:** none. ⟨`git merge-base --is-ancestor dc30e5e origin/master`⟩ → true; ⟨`git rev-list --left-right --count HEAD...origin/m/w1-bump-migration`⟩ → `0 0`.
+
+### Gates re-run at close (BEFORE = this sitting's Baseline → AFTER = close reading)
+| Gate | BEFORE | AFTER (close seat) | State |
+|---|---|---|---|
+| h1 fixture RED→GREEN ×2 | absent | ⟨`guarded --light -- bash scripts/deploy-alert-fixture.sh`⟩ ×2 → rc `0`, `9` PASS, `deploy-alert-fixture: GREEN`, tripwire never invoked (each; `~/.dev-logs/frel/close-fixture-{1,2}.txt`); RED at `67e503b` banked by `.h1` | GREEN |
+| h1 actionlint | rc 1, only `ci.yml:381` SC2016 info | ⟨`actionlint .github/workflows/*.yml`⟩ → rc 1, sole finding `ci.yml:381:9 SC2016:info` (banked, pre-existing); `deploy-alert.yml` clean | GREEN (no new finding) |
+| h1 bash -n + shellcheck -x | — | `deploy-hook.sh` `deploy-alert.sh` `deploy-alert-fixture.sh` → rc 0 ×3 | GREEN |
+| h1 `issues: write` · label | absent | `deploy-alert.yml:41 issues: write`; ⟨`gh label list`⟩ → `deploy-alert … #B60205` | GREEN |
+| h1/.d failed deploy opens the issue | none | ⟨`gh issue list --label deploy-alert --state all`⟩ → `#1 OPEN … 2026-10-19T17:48:27Z` | GREEN (live) |
+| r4 export + hard-delete ×5 | RED | ⟨`curl …/api/admin/verify`⟩ → `503` (admin unconfigured) | RED (ESC-FREL-r4-1) |
+| master contains `.h1` | RED | `origin/master` `24a524a` (parents `67e503b dc30e5e`) | GREEN |
+| master CI GREEN ×2 (pytest/api, web vue-tsc+build, e2e, compose boot) | `67e503b` GREEN ×2 | ⟨`gh run list --branch master`⟩: push `39292091987` **failure** (e2e mongo:8.0 init); dispatch `39292117114` compose-boot **failure**, e2e `in_progress` at 18:06:49Z; `api/tests` + `web` success in both | RED (ESC-FREL-d-4) |
+| API deploy · no outage · prod-verify 21/21 ×2 · PD-1 ×2 | RED | not reached: host hook REFUSEs (ESC-FREL-d-5); ⟨`curl -H 'Accept-Encoding: gzip' …/api/gallery/cursor?limit=2`⟩ → `Content-Encoding: gzip` (edge still `79f1a43`); ⟨`curl …/deploy-record.json`⟩ → `200 text/html` (SPA fallback, no record served) | RED |
+| health (non-regression) | 200 | ⟨`curl …/api/health`⟩ ×2 → `200 200` | GREEN |
+| pages-smoke ×2 | PASS banked | ⟨`guarded --light -- bash scripts/pages-smoke.sh`⟩ ×2 → rc 0, `PASS` each | GREEN |
+| cert > 14 d | Dec 22 / Jan 4 | `fourier.babb.dev` Dec 22 2026, `api.fourier.babb.dev` Jan 4 2027 | GREEN |
+| openapi | `42 0.2.0` | ⟨`curl …/openapi.json \| python3`⟩ → `openapi 42 0.2.0 ['diff','publish','remix','unpublish']` (old API) | unchanged |
+| host reach | `:1022` timeout | ⟨`nc -z -w 8 34.197.214.67 1022`⟩ → rc `1` | RED (owner) |
+
+Local pytest/vitest/e2e were not re-run at close: the wave cannot close on them while master CI and the deploy are RED for causes outside the suites; CI `api/tests` + `web` success ×2 at `24a524a` is the reading cited.
+
+### E13
+Paths: value `V/` + `V/coordination`; glass `BK/coordination`, `BL` (depth 3), `BL/coordination`; keyframes `V/coordination`; atlas (⟨`ls atlas/docs/tranches`⟩ → absent; no `coordination` dir under depth 5). ⟨`find … -newer INBOX.md`⟩ → only glass `BL/FORMATION-PROGRESS.md`, `BL/driver/glass-10.1.1.js`, `BL/audit/INBOUND.md` (glass's own ledger of value.js's outbound O-102a/b, O-103; no mail addressed to value.js/fourier). ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`. **0 UNREAD in scope.**
+
+### Escalations (open; named owners)
+- **ESC-FREL-d-4** (orchestrator/COHESION ruling; proposed unit `.k`): master CI RED because runner images with kernel ≥ 6.19 refuse `mongo:8.0` (SERVER-121912); pins `ci.yml:55,298`, `docker-compose.yml:38` (+ prod compose for parity). Gate: compose-boot + e2e GREEN on a ≥ 6.19 runner ×2.
+- **ESC-FREL-d-5** (owner act): host SSH unreachable (`:1022`, `:22`); host hook `79f1a43` REFUSEs while `FOURIER_DEPLOY_ALERT_WEBHOOK` is unset. Owner restores reach or sets the variable for one deploy; then `.d` re-sits after `.k`.
+- **ESC-FREL-r4-1** (owner act): prod `ADMIN_TOKEN` empty (`/api/admin/verify` → 503); no admin per-slug GET. Arms (a) owner sets the token + checks `ENV=production`, (b) admin GET route, (c) host mongoexport.
+
+### Residuals (named owners)
+- Prod API at `79f1a43`, SPA at `index-Cze8HIRf.js` — `.d` re-sit (Track C, after `.k` + owner host act).
+- deploy-alert issue #1 OPEN — closes when a deploy of record reaches OK (`.d` re-sit).
+- Five drafts on prod — `.r4` re-sit after owner (ESC-FREL-r4-1).
+- Possible `.h`-class finding: prod serves with admin unconfigured (ENV ≠ production or lifespan guard bypassed) — orchestrator to rule.
+- Dispatch CI `39292117114` e2e still in progress at close — reading folds into `.k`.
+
+### State
+Four-verb line **not moved**: F.REL stays OPEN, **BLOCKED-ON ESC-FREL-d-4 (`.k` ruling) + ESC-FREL-d-5 + ESC-FREL-r4-1 (owner)**. `.h1` IMPLEMENTED (its gates GREEN at close); `.r4` and `.d` ESCALATED.
