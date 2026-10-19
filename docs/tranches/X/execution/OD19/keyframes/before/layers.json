@@ -1,0 +1,224 @@
+{
+ "collapsed": [
+  {
+   "el": "glass-dock horizontal shape-pill collapsed fit-c",
+   "w": 56,
+   "h": 56,
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "none",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "",
+   "transform": "none"
+  },
+  {
+   "el": "dock-plate",
+   "w": 56,
+   "h": 56,
+   "radius": "50% calc(0% + 16px) calc(0% + 16px) 50%",
+   "clip": "inset(0px)",
+   "mask": "none",
+   "bf": "blur(16px) saturate(1.3) brigh",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.1)",
+   "inset": "",
+   "transform": "none"
+  },
+  {
+   "el": "dock-plate::after",
+   "w": "54px",
+   "h": "54px",
+   "radius": "50% calc(0% + 16px) calc(0% + 16px) 50%",
+   "clip": "none",
+   "mask": "none",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "0px",
+   "transform": "none"
+  },
+  {
+   "el": "dock-trigger dock-select-trigger dock-label max-::before",
+   "w": "109.656px",
+   "h": "38.5312px",
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "radial-gradient(22% 22%, rgb(0, 0, 0) 0%",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "0px",
+   "transform": "none"
+  },
+  {
+   "el": "menu__trigger dock-trigger dock-dropdown-trigger::before",
+   "w": "105.75px",
+   "h": "38.5312px",
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "radial-gradient(22% 22%, rgb(0, 0, 0) 0%",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "0px",
+   "transform": "none"
+  },
+  {
+   "el": "button tap-squish focus-ring",
+   "w": 36,
+   "h": 36,
+   "radius": "18px",
+   "clip": "none",
+   "mask": "none",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "",
+   "transform": "none"
+  }
+ ],
+ "expanded": [
+  {
+   "el": "glass-dock horizontal shape-pill expanded fit-co",
+   "w": 433,
+   "h": 56,
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "none",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "",
+   "transform": "none"
+  },
+  {
+   "el": "dock-plate",
+   "w": 433,
+   "h": 56,
+   "radius": "9999px",
+   "clip": "inset(0px)",
+   "mask": "none",
+   "bf": "blur(16px) saturate(1.3) brigh",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+   "inset": "",
+   "transform": "none"
+  },
+  {
+   "el": "dock-plate::after",
+   "w": "431.406px",
+   "h": "54px",
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "none",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "0px",
+   "transform": "none"
+  },
+  {
+   "el": "dock-trigger dock-select-trigger dock-label max-::before",
+   "w": "109.656px",
+   "h": "38.5312px",
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "radial-gradient(22% 22%, rgb(0, 0, 0) 0%",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "0px",
+   "transform": "none"
+  },
+  {
+   "el": "menu__trigger dock-trigger dock-dropdown-trigger::before",
+   "w": "105.75px",
+   "h": "38.5312px",
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "radial-gradient(22% 22%, rgb(0, 0, 0) 0%",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "0px",
+   "transform": "none"
+  },
+  {
+   "el": "button tap-squish focus-ring",
+   "w": 36,
+   "h": 36,
+   "radius": "18px",
+   "clip": "none",
+   "mask": "none",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "",
+   "transform": "none"
+  }
+ ],
+ "midCollapse": [
+  {
+   "el": "glass-dock horizontal shape-pill collapsed fit-c",
+   "w": 268,
+   "h": 56,
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "none",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "",
+   "transform": "none"
+  },
+  {
+   "el": "dock-plate",
+   "w": 268,
+   "h": 56,
+   "radius": "9999px",
+   "clip": "inset(0px)",
+   "mask": "none",
+   "bf": "blur(16px) saturate(1.3) brigh",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.122483)",
+   "inset": "",
+   "transform": "none"
+  },
+  {
+   "el": "dock-plate::after",
+   "w": "431px",
+   "h": "54px",
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "none",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "0px",
+   "transform": "none"
+  },
+  {
+   "el": "dock-trigger dock-select-trigger dock-label max-::before",
+   "w": "109.656px",
+   "h": "38.5312px",
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "radial-gradient(22% 22%, rgb(0, 0, 0) 0%",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "0px",
+   "transform": "none"
+  },
+  {
+   "el": "menu__trigger dock-trigger dock-dropdown-trigger::before",
+   "w": "105.75px",
+   "h": "38.5312px",
+   "radius": "9999px",
+   "clip": "none",
+   "mask": "radial-gradient(22% 22%, rgb(0, 0, 0) 0%",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "0px",
+   "transform": "none"
+  },
+  {
+   "el": "button tap-squish focus-ring",
+   "w": 35,
+   "h": 35,
+   "radius": "18px",
+   "clip": "none",
+   "mask": "none",
+   "bf": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "inset": "",
+   "transform": "none"
+  }
+ ]
+}
