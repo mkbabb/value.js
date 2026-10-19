@@ -1792,3 +1792,46 @@ Critic V19C named seven consumer rows (V19C-01 medium, -02 medium, -03 low, -04 
   - (c) The o23 HSL-row failure and the admin-walk empty Names pane are pre-existing at HEAD, and neither has an owner yet.
   - (d) The brown-band view label waits on glass's trigger rest cut (O-87).
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 20 (2026-10-18): critic V20C — every admin glyph has a home, the user row discloses, the nest is two frames
+
+Critic V20C named five consumer rows (V20C-01 low, -02 low, -03 low, -04 trivial, -05 trivial) and one glass row (V20C-G1 low). V20C-01..03 are cured at the root. V20C-04 is held on the owner's VC5-01 call. V20C-05 is accepted as the shared plate grammar. The glass row stays honest-RED on O-87 / O-88, and its measured indicator geometry is now a falsifier in the O-87 relay. Evidence is in `pass-20/c20-2026-10-18/`.
+
+**Commits.** value.js `77798e2c8` (the cure: 3 paths), `152f6a43d` (the O-87 relay addendum) and `385f31822` (frames, witness, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-20/c20-2026-10-18/v20.json`) |
+|---|---|---|---|
+| V20C-01 (low) | **CURED (no new component).** | Flagged: the toolbar row stands only while `total > 0`. Over the empty plate, the EmptyState's `#action` seat carries the same named icon Refresh (the Users empty-plate pattern). Tags: Refresh moves to the end of the create form row, after 'Add tag' (Audit's one action row; on its second line below sm). The count row stands only with a count. | Flagged empty, all 4 cells: one Refresh (28 px, `aria-label` 'Refresh flagged palettes'), under 'No flagged palettes.' (1440 at x 706, y 323, centred under the plate's message), no count row. Tags, empty and populated, all 8 cells: the form's buttons read `['Add tag', 'Refresh tags']`. At 1440 Refresh is at x 1188 at the form's end; at 390 it is on the second line beside 'Add tag'. Populated, the count row reads '3 tags'. Frames `admin-flagged-*`, `admin-tags-*`, `admin-tags-populated-*`. |
+| V20C-02 (low) | **CURED.** | The trigger's `hover:bg-accent/50` capsule and its `transition-colors` are deleted. A `ChevronDown` sits at the trigger's end (`ms-auto`, inside the control it labels), rotated 180° on `[data-state=open]` with a reduced-motion-guarded `rotate` transition: the Browse card's idiom. A 0-palette user, with no trigger, has no chevron. | `users-open-*`: the chevron is a child of the trigger, `rotate: none` closed and `180deg` open. The trigger background is `rgba(0,0,0,0)`. 1440: chevron at x 981 within trigger 225–997. 390: x 328 within 34–344. |
+| V20C-03 (low) | **CURED (tokens and classes only).** | The admin-palette li drops `border border-card-edge`, keeps the `bg-well` tone step, and sets `--specimen-radius` to the plate radius, so the nest is two frames. The specimen's name, in the admin nest only (scoped `:deep(.palette-specimen__name)`), sits on the row-body rung: `--type-small` / `--type-leading-small`, medium. It keeps its display face (the T-15 user-data-name law, O-10d). Below sm, Feature is the star alone (`max-sm:hidden` on the word). Its `aria-label` and `aria-pressed` are unchanged. | li border `0px`. Name 'Fraunces 16.4px 500' against slug 16.4px at 1440, and 14px against 14px at 390, so the name no longer outranks its user. At 390 'Harbor at Dusk' reads whole (not truncated), and Feature is a 30 px star (`aria-label` 'Unfeature Harbor at Dusk', `aria-pressed` true). At 1440 it keeps its word. |
+| V20C-04 (trivial) | **HELD: owner ruling (VC5-01).** | No seat cure without the ruling. | — |
+| V20C-05 (trivial) | **ACCEPTED: the shared plate grammar.** | Not Found speaks the app's one EmptyState register (UIA-V-447, pass 7–8), whose centred trio is the grammar Flagged, Tags and Users also use under a left-seated head. Offsetting this one plate would split the grammar. | — |
+| V20C-G1 (low) | **Glass-owned: honest-RED on O-87 / O-88.** | No local override. The (a) geometry is in the O-87 relay as the falsifier 'the indicator box equals the active tab box, ±1 px' (`152f6a43d`). Re-judge at the 10.2.0 repin. | Census below. |
+
+**Census** (`census-after.json`, `--base http://localhost:9495 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** It is identical to pass 19: glass 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients, max 6 layers on one element, floater max 8.
+- **Consumer:** 0 on every allowance line. This pass added no lighting. It removed one hover fill, which the census does not count.
+
+**Frames.** Headless real Chrome (§0ei). There is one browser per script run and a new context per cell, and both are closed in a `finally`.
+- `v20.mjs` took 16 of 16 cells (admin-flagged, admin-tags, admin-tags-populated and users-open, each at 1440/390 × light/dark) and the witness reads, with the admin API answered by an in-page fetch shim.
+- The guarded dev server on :9495 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** runs 1 and 2 hit plate-mass harness flakes ('Execution context was destroyed'; 'Failed to fetch dynamically imported module …PaletteCardSkeleton.vue' from its :5173 harness server). No pass-20 path is in that harness's import graph. Runs 3 and 4 on the final tree were **1253/1253 ×2**.
+- **e2e** (headless, workers 1, one guarded call per spec):
+  - **GREEN ×2:** w12u-x-admin-tags 6/6, w7-mutation-visibility 16/16, w7-destructive-seats 7/7, o10d-display-voice-census 6/6.
+  - **smoke-admin:** 24/25 ×2. The one failure is admin-walk, the identical pass-18/19 carry (no `h1#route-title` after hash navigation). Its Refresh-by-name rows resolve.
+- No visual golden was re-baselined. At the next visual run, these cells need a named owner-ruling re-baseline (§0ej):
+  - Flagged's empty plate (no toolbar row; Refresh in the plate);
+  - Tags' create row (Refresh at its end; no lone toolbar row);
+  - the Users row (chevron, no hover capsule);
+  - the expanded nest (borderless palette plate, small name, icon-only Feature below sm).
+
+**Loop state.**
+- V20C-01..03 are cured. V20C-04 waits on the owner (VC5-01). V20C-05 is accepted.
+- For the next critic:
+  - (a) Pass 19's note (a) still stands: PaneShell's overlying branch and the `seated` prop can be retired at their 9 call sites.
+  - (b) The admin-walk carry and the o23 HSL row still have no owner.
+  - (c) If hover feedback on the Users row is wanted, it belongs on the whole bordered row (V20C-02's 'if wanted'). This pass judged the chevron sufficient.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The SegmentedTabs falsifier is ±1 px.
