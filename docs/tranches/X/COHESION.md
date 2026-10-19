@@ -4443,3 +4443,20 @@ Owner verbatim, 2026-10-19: *"npm login is done--ratify the rest with your best 
     - parse-that master's 35 dirty paths and value.js `CARRY-LEDGER.md`'s Codex-era hunk are preserved as found; they are not X's.
     - Local worktrees that are clean and whose branch is merged are pruned (`git worktree remove`, which refuses a dirty tree). Remote falsifier branches are kept.
     - `.vite-critic-*` caches are deleted.
+
+## §0gf — 2026-10-19: the owner's live docket (OD19, 25 rows across value, keyframes and fourier) — minted as the X-OD19 wave, dispatched now
+The owner reviewed all three running apps and filed `docs/tranches/X/waves/owner-2026-10-19/DOCKET.md` (verbatim text, 19 frames, 25 rows).
+1. **Every row is in scope and is cured at its root.** Each row is read on the served app, headless, light and dark, at 1440 and 390, with BEFORE/AFTER frames and a falsifier where the row is testable. Identity colours, type and motion are kept (§0dm). KISS and glass-first: a consumer never copies producer behaviour.
+2. **Reversals of §0ge.7 by owner word.**
+   - (a) **VC5-01 / VC4-09:** the route caption ("Home") is removed from view. The `h1#route-title` stays in `<main>` for A5 and labelling, as visually-hidden text, so it no longer occupies or shifts layout. A5's label check reads the DOM, and the e2e `MAIN_PANE` selector holds.
+   - (b) **KF-C3-02:** the "Pause the title animation" control is removed. The motion still stops under `prefers-reduced-motion` and parks when hidden or offscreen (§0ge.7 otherwise stands).
+3. **glass rows** (the dock ellipse layer, in-place dock motion from the centre or side, dropdowns collapsing with the dock, a skeleton shimmer primitive, the integrated-thumb slider) are the owner's ask "fixed in the root glass-ui, too".
+   - glass-ui stays READ-ONLY to this session, and an active glass session owns it.
+   - The rows go to that session NOW as O-102 (letter plus a direct session message), marked owner-priority.
+   - Consumers cure every consumer-side cause, and adopt the glass cure the moment it lands. They never patch glass behaviour locally.
+4. **Loading (OD19-ALL, V5):**
+   - every route of every app gets a cold-load budget read (headless, guarded): route-level code splitting, data prefetch on intent, and the skeleton (V6) in place of the text loader;
+   - the gradient and mix load failures are defects, cured first;
+   - value's boot path is Track A's X.W11.p2 and is not duplicated here: the X-OD19 value lane takes route-level loading, and p2 takes boot.
+5. **Collision law.** Track A (X-W11) is editing the value dock seat (ci4), the boot path (p2) and the design tokens (d1–d3). Track C is editing the fourier deploy. X-OD19 never touches a path dirty with another seat's hunks (stage only your own hunks). It sequences behind a sibling's unit on the same file, and never reverts a sibling's work.
+6. **X-DS tail** (`wf_3f36a4ef-2d8`) is stopped and subsumed. X-OD19 ends with one fresh adversarial critic per app over the whole docket and the X-DS canon, which discharges the tail's stopping rule. The value PaneShell seated-prop retirement is carried into the value lane.
