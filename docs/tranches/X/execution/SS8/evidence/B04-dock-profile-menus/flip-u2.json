@@ -1,0 +1,82 @@
+{
+ "ref": {
+  "light": {
+   "color": "oklch(0.119496 0.0484438 25)",
+   "dark": false
+  },
+  "dark": {
+   "color": "oklch(0.734762 0.16237 25)",
+   "dark": true
+  }
+ },
+ "flips": [
+  {
+   "from": "light",
+   "before": {
+    "color": "oklch(0.119496 0.0484438 25)",
+    "dark": false
+   },
+   "samples": [
+    {
+     "t": "+0",
+     "color": "oklch(0.747749 0.152268 25)",
+     "dark": true
+    },
+    {
+     "t": "+1f",
+     "color": "oklch(0.747749 0.152268 25)",
+     "dark": true
+    },
+    {
+     "t": "+600ms",
+     "color": "oklch(0.747749 0.152268 25)",
+     "dark": true
+    },
+    {
+     "t": "+5s",
+     "color": "oklch(0.747749 0.152268 25)",
+     "dark": true
+    },
+    {
+     "t": "+60s",
+     "color": "oklch(0.734948 0.162224 25)",
+     "dark": true
+    }
+   ]
+  },
+  {
+   "from": "dark",
+   "before": {
+    "color": "oklch(0.734948 0.162224 25)",
+    "dark": true
+   },
+   "samples": [
+    {
+     "t": "+0",
+     "color": "oklch(0.0166754 0.00676022 25)",
+     "dark": false
+    },
+    {
+     "t": "+1f",
+     "color": "oklch(0.0166754 0.00676022 25)",
+     "dark": false
+    },
+    {
+     "t": "+600ms",
+     "color": "oklch(0.0166754 0.00676022 25)",
+     "dark": false
+    },
+    {
+     "t": "+5s",
+     "color": "oklch(0.0166754 0.00676022 25)",
+     "dark": false
+    },
+    {
+     "t": "+60s",
+     "color": "oklch(0.0166754 0.00676022 25)",
+     "dark": false
+    }
+   ]
+  }
+ ]
+}

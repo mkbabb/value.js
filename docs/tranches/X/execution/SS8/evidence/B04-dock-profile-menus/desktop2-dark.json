@@ -1,0 +1,50 @@
+{
+ "errs": [],
+ "blurShipped": {
+  "tag": "shipped",
+  "meanHorizGrad": 4.97
+ },
+ "blurNone": {
+  "tag": "backdrop-filter:none",
+  "meanHorizGrad": 95.66
+ },
+ "focusTrail": [
+  "menu|@mbabb\nShare c",
+  "menuitem|Share color",
+  "menuitem|GitHub"
+ ],
+ "enterOpened": [
+  "https://github.com/mkbabb/value.js"
+ ],
+ "menuOpenAfterEnter": 0,
+ "rightEdgeClickOpened": [
+  "https://github.com/mkbabb/value.js"
+ ],
+ "swap": [
+  {
+   "mb": 288.8,
+   "prGone": 164.7,
+   "mbabbOpen": true
+  },
+  {
+   "mb": 289.7,
+   "prGone": 177.6,
+   "mbabbOpen": true
+  },
+  {
+   "mb": 278.8,
+   "prGone": 170.9,
+   "mbabbOpen": true
+  },
+  {
+   "mb": 265.2,
+   "prGone": 167.2,
+   "mbabbOpen": true
+  },
+  {
+   "mb": 273,
+   "prGone": 208.6,
+   "mbabbOpen": true
+  }
+ ]
+}
