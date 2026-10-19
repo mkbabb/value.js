@@ -86,3 +86,45 @@ Rows OD19-K3, OD19-K4. keyframes.js `eb2b7bc1` (master, fast-forward pushed from
   - vue-tsc `-p tsconfig.json`: clean.
 - **Residuals (outside the modify set, not touched):** `scripts/lib/demo-driver.mjs:941` and `scripts/observe/demo/live-session{,-mobile}.mjs` still read the selected surface from `[data-dock-surface-item][data-selected]` on the dock. The rows now carry that attribute inside the portalled menu, which renders only while the menu is open. These observers need to read `[data-dock-surface-trigger][data-surface]` instead.
 - **Same-concern adjacent lines:** none beyond the five files.
+
+### KF-P4-route-swap
+
+- **Rows:** OD19-ALL (the scene swap). **Verdict:** latency CURED. The frame budget is ESCALATED as two named residuals outside the modify set.
+- **Commit:** keyframes.js `38951f24` on master, pushed fast-forward (`13762e6e..38951f24`).
+- **Root, measured:** this packet added performance marks (`scene-swap:prepare` / `:commit` / `:total`). On the BEFORE code they showed prepare at **306–321 ms**: `settleClosingOverlays` awaited the closing Select's full exit animation before `viewTransition()`. Commit, the frozen old snapshot until `whenSceneReady`, ran 77–101 ms.
+- **Cure (`demo/app/transition/useSceneTransition.ts`):**
+  - After the one frame reka needs to mark the content `data-state="closed"`, the finite exit animations of closed content are `finish()`ed, not awaited. `finish()` fires `animationend` and presence unmounts the content. The cross-dissolve itself is that content's exit.
+  - Infinite animations are left alone.
+  - The three performance marks stay as the swap's segment instrumentation.
+- **`warmScene`, `scenes.ts`:** no change. `loadScene` was not a dominant segment: prepare after the cut is 8–46 ms, bounded by the one rAF. Every chunk is already warmed at idle (`warmScenesAtIdle`) and again when the Scene menu opens (`ChromeDock` `warmScene`). Hover-warming would need `ChromeDock.vue`, which is outside this set and was being edited by a sibling seat.
+- **Falsifier, vitest:** `test/demo/app/scene-swap-w13x.test.ts`. The KFA-26 case is rewritten to the one-frame invariant:
+  - the exit's `finish()` is invoked before `startViewTransition`;
+  - the exit's `finished` (which never settles) is not awaited;
+  - an infinite animation is not finished;
+  - the KFA-25 hold on the update callback is unchanged.
+  - **RED on HEAD** (`startVT` called 0 times): `after/KF-P4-route-swap/vitest-RED.txt`.
+  - **GREEN ×2:** run 1 was the app scene suite, 19 files, 80/80. Run 2 was the falsifier file, 5/5.
+  - The old assertion "no capture while the exit runs" encoded the removed wait. Its invariant (no popover in the old capture) is now asserted as finish-before-capture.
+- **Falsifier, probe:** `after/KF-P4-route-swap/swap-probe.mjs`. Headless chromium, cube→spring through the dock Scene select, 1440/390 × light/dark. The timed pass takes no screenshots; the strip pass is separate.
+
+| measure (run 1 / run 2) | BEFORE | AFTER |
+|---|---|---|
+| input→router push (budget ≤200 ms) | 451–479 ms | **68–70 ms / 37–47 ms**, GREEN ×2 |
+| prepare segment | 306–321 ms | 11–46 ms / 8–11 ms |
+| commit segment (frozen old snapshot) | 77–101 ms | 95–111 ms / 66–83 ms |
+| frames >50 ms, 390 | 1 | 1 / 1 (the commit freeze) |
+| frames >50 ms, 1440 | 4–5 | 4 / 4–6 |
+| 5-frame strip | — | one dissolve, no Select rows over the new scene (`contact-cut{1,2}-*.png`, `strip-cut2-*`) |
+
+- **Frame budget (≤50 ms), ESCALATED.**
+  - **(a) Commit freeze, 66–111 ms, one frame.** A CPU profile (`commit-profile.json`) attributes it to the Spring scene's own mount:
+    - Vue patch/mount: 71–93 ms of samples;
+    - forced layout: `getPropertyValue` and `getBoundingClientRect`, about 45–50 ms;
+    - `demo/components/playback/AnimationVisualizer.vue:73 getMaxX`;
+    - `demo/components/instrument/pane/composables/useFoldLanding.ts:358 land`.
+    - These are consumer-side, owned by the scene and pane packets, not this modify set.
+  - **(b) 1440 cross-fade frames, 65–98 ms.** These are the compositor animating the full-viewport snapshot pair at DPR 2 in headless software raster, with the live scene animating underneath. They are not attributable to the dispatch.
+- **Typecheck and machine:**
+  - vue-tsc `-p tsconfig.json` and `-p tsconfig.test.json`: clean.
+  - One suite rerun hung at 0 % CPU under load 160 and the guard killed it at the 10-minute timeout (rc 124). A concurrent run in the same window failed two tests outside this change (`home-cube-one-mount`, KFA-24) while sibling seats had other app files dirty. Neither is attributed to this cure.
+- **Same-concern adjacent lines:** the test file above (the falsifier for the changed mechanism). Nothing else was touched.

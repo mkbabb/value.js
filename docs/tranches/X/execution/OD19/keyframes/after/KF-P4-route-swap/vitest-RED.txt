@@ -1,0 +1,4 @@
+     × finishes the closing overlay's exit before the capture, without awaiting it, then holds the update callback until the scene is ready 33ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+      Tests  1 failed | 4 passed (5)
