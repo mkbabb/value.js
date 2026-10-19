@@ -2956,3 +2956,37 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19. Spec: orches
 **ESC-FREL-m1-1 (orchestrator ruling).** No official `mongo` 8.0.x (or any 8.x) image yet ships the fix that applies to GitHub's `7.0.0-1017-azure` runners; the 8.0 fix is SERVER-131779 in **8.0.35**, unpublished as of 2026-10-19 (8.0.34 out 10-13/10-17). Arms: **(a)** wait for `mongo:8.0.35`, then pin it exactly at `ci.yml:55,298` + `docker-compose.yml:38` (patch; data + FCV 8.0 unchanged) and run the gates — the conforming arm; **(b)** widen the lock to a major: pin `mongo:9.0.4` (lawful upgrade from 8.0 data; FCV left 8.0 so a binary rollback to 8.0 stays possible; prod mongod becomes 9.0 on the next deploy); **(c)** rejected here: 8.2.x boots only because it lacks the guard (crash risk on 6.19–7.0.13 kernels), and any setParameter/GLIBC_TUNABLES/runner pin is a locked bypass. Independently, master e2e is RED on non-mongo visual-checkpoint items 1·6·7 / 2 / 8 (baseline `39292117114`: `3 failed · 8 flaky · 519 passed`), owned by X-DS web/ — not re-baselined here.
 
 **Adjacent edits:** none. **Evidence:** `docs/tranches/X/fourier/evidence/F-REL/m1/` — `README.md`, `ci-39292117114-refusal.txt`.
+
+### F-REL.d
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 ~18:18–18:30Z. Spec: F-REL.md §Units `.d` (L32-38), ADDENDUM (f) (L78-83), COHESION §0fs, §0ge.4, orchestrator ruling ESC-FREL-d-4 ("then `.d` re-sits"). **Status: ESCALATED (precondition unmet: `.m1` ESCALATED ESC-FREL-m1-1, master CI still RED; ESC-FREL-d-5 re-read and still RED). Nothing deployed; the host, the running container, the hook and fourier `scripts/**` were not touched.**
+
+**Crash recovery.** fourier ⟨`git status --porcelain`⟩ → `?? .worktrees/` only; value.js `evidence/F-REL/d/` + this record clean. No inherited work.
+
+**Acts in order:**
+1. Lock read: the plan's `.d` lock is "after `.m1` only", and the seat brief is "after `.m1`'s master CI GREEN ×2". ⟨`git fetch; git log -1 origin/master`⟩ → `24a524a` (no re-pin landed); ⟨`gh run list --branch master --workflow ci.yml -L 3`⟩ → `39292117114` failure, `39292091987` failure (both `24a524a`). ⟨`grep -n 'm1-1' COHESION.md`⟩ → no hits: ESC-FREL-m1-1 is not ruled. **The precondition fails.** A deploy now would ship a master whose CI is RED. That would be a bypass, so none was triggered, and the poller was not started (it brackets a deploy, and there was none).
+2. ESC-FREL-d-5 re-read: ⟨`nc -z -w 8 34.197.214.67 1022`⟩ → rc `1`; ⟨`nc -z -G 8 -w 8 … 22`⟩ → rc `1` (18:19Z). The host hook (`79f1a43`) still REFUSEs before fetch; no lawful path to its config from this seat.
+3. Read-only prod reads (`evidence/F-REL/d/resit-h-readings.txt`): health, openapi, PD-1 edge, deploy-alert issue, cert, pages-smoke ×2, ENV.
+
+**Gates (BEFORE → AFTER):**
+
+| Gate | BEFORE (Baseline (h)) | AFTER |
+|---|---|---|
+| off-host poller before the deploy; no non-200 through the switch | — | **not run** (no deploy; precondition unmet) |
+| host deploy via its hook reaches OK; issue #1 closed by it | #1 OPEN | **RED**: not triggered; ⟨`gh issue list --label deploy-alert --state all`⟩ → `#1 OPEN` |
+| prod-verify 21/21 ×2 | RED | **RED / not run** (API still `79f1a43`) |
+| PD-1 prod curl ×2 | gzip, no ETag | **RED**: ⟨`curl -D - -H 'Accept-Encoding: gzip' …/api/gallery/cursor?limit=2`⟩ → `Content-Encoding: gzip`, no `ETag` |
+| pages-smoke PASS ×2 | PASS | **GREEN**: ⟨`guarded --light -- bash scripts/pages-smoke.sh`⟩ ×2 → `PASS` `PASS` |
+| cert > 14 d | Dec 22 / Jan 4 | **GREEN**: `fourier.babb.dev` Dec 22 2026, `api.fourier.babb.dev` Jan 4 2027 |
+| openapi read | `42 0.2.0` | **read**: `openapi 42 0.2.0 ['diff','publish','remix','unpublish']` (old API) |
+| health 200 | 200 | **GREEN**: `200 200` |
+| prod ENV read recorded (`main.py:36`) | ENV ≠ production | **recorded**: ⟨`git show origin/master:api/main.py \| sed -n 36,37p`⟩ → `env = os.environ.get("ENV", "development").lower()` / `if env == "production" and not settings.admin_token:`. With health 200 and admin 503, prod runs ENV ≠ production by mechanism; rides ESC-FREL-r4-1 (owner) |
+
+**Adjacent edits:** none. **Commits:** this record + `evidence/F-REL/d/resit-h-readings.txt` (value.js), no fourier commit.
+
+**Escalations (re-ESCALATED by name):**
+- **ESC-FREL-m1-1** (orchestrator): unruled. `.d` cannot re-sit until a mongo pin lands and master CI is GREEN ×2 (arm (a) waits for `mongo:8.0.35`; arm (b) is the `mongo:9.0.4` major).
+- **ESC-FREL-d-5** (owner): host `:1022`/`:22` unreachable (rc 1 ×2, 18:19Z). The hook REFUSEs before fetch while `FOURIER_DEPLOY_ALERT_WEBHOOK` is unset on the host. The owner restores reach or sets the variable for one deploy.
+- ESC-FREL-r4-1 not acted on.
+
+**Residuals:** prod API `79f1a43`; SPA `index-Cze8HIRf.js`; deploy-alert #1 OPEN.

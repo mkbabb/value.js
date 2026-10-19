@@ -1,0 +1,20 @@
+SERVED MODEL: claude-opus-5-5
+F-REL.d re-sit, RESUME 2026-10-19 (h). Read-only readings, 2026-10-19 ~18:19-18:25Z. No deploy attempted (precondition .m1 master CI GREEN x2 not met: .m1 ESCALATED ESC-FREL-m1-1).
+
+<gh run list --branch master --workflow ci.yml -L 3>
+  39292117114 workflow_dispatch failure (24a524a)
+  39292091987 push failure (24a524a)
+  38964317279 workflow_dispatch success (67e503b)
+<git log -1 origin/master> 24a524a (no newer master commit; no mongo re-pin landed)
+<nc -z -w 8 34.197.214.67 1022> rc=1
+<nc -z -G 8 -w 8 34.197.214.67 22> rc=1
+<curl https://api.fourier.babb.dev/api/health> x2 -> 200 200
+<curl .../openapi.json | python3> openapi 42 0.2.0 ['diff', 'publish', 'remix', 'unpublish']  (old API, 79f1a43)
+<curl -D - -H 'Accept-Encoding: gzip' .../api/gallery/cursor?limit=2 | grep -i 'content-encoding|etag'> Content-Encoding: gzip  (no ETag; PD-1 edge cure not deployed)
+<gh issue list --label deploy-alert --state all> #1 OPEN deploy-alert: the fourier API deploy did not reach a healthy OK 2026-10-19T17:48:27Z
+<openssl s_client ... | openssl x509 -enddate> fourier.babb.dev Dec 22 20:13:07 2026 GMT; api.fourier.babb.dev Jan 4 15:19:06 2027 GMT
+<guarded --light -- bash scripts/pages-smoke.sh> x2 -> PASS, PASS
+<git show origin/master:api/main.py | sed -n 36,37p>
+  env = os.environ.get("ENV", "development").lower()
+  if env == "production" and not settings.admin_token:
+  With health 200 and /api/admin/verify 503 (banked at Baseline (h)), prod runs ENV != production by mechanism; rides ESC-FREL-r4-1 (owner).
