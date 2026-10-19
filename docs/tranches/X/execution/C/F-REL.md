@@ -3092,3 +3092,116 @@ Groups: `[[F-REL.m2], [F-REL.v3], [F-REL.d]]`.
 | F-REL.d | F-REL.md §Units `.d` (L32-38); ADDENDUM (f) (L78-83); §0fs; §0ge.4; §0gh.1-4; RESUME (h) `.d` receipt | fourier `scripts/**` (prod-verify only); value.js `evidence/F-REL/d/` + this record | off-host health poller before the switch, no non-200 through it; host deploy via its hook reaches OK and closes deploy-alert #1; mongo 8.0.20 + FCV read after; prod-verify 21/21 ×2; PD-1 prod ×2 (gzip GET → strong ETag → If-Match PATCH 200, stale 412); pages-smoke ×2; cert > 14 d; openapi; health 200 | after `.v3` (master CI GREEN ×2); host reached only over the owner's VPN SSH; host changed only via its deploy path/config, never the running container; no change to VPN, firewall, sshd or published ports (owner's word: security first, routed not acted); backup before any mongo recreate; never `mongosh` in the capped mongo container (§0gh.3 incident) |
 
 ## RESUME 2026-10-19 (i) — Unit receipts
+
+### F-REL.m2
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19, ~18:35–19:50Z.
+
+Spec:
+- COHESION §0gh.1 (arm 4: CI mirrors production);
+- F-REL.md §Units `.h` (prod-compose boot on CI) and §Gates;
+- this sitting's Baseline rows m2.
+
+**Status: DONE at the unit; the master gate is a joint reading at `.v3`'s merge.** Evidence: `docs/tranches/X/fourier/evidence/F-REL/m2/README.md`.
+
+**Crash recovery.**
+- fourier: ⟨`git status --porcelain`⟩ → `?? .worktrees/` only.
+- value.js: `evidence/F-REL/m2/` was absent and this record was clean.
+- No inherited work.
+
+**Acts in order:**
+1. ⟨`git fetch; git pull --ff-only`⟩ on `m/w1-bump-migration` → `Already up to date`; HEAD = `origin/m/w1-bump-migration` = `dc30e5e`.
+   - Anchors at the true bytes: `ci.yml:52/:286/:448 runs-on: ubuntu-latest`, `ci.yml:55/:298 image: mongo:8.0`, `docker-compose.yml:38 image: mongo:8.0`.
+   - `deploy-hook.sh:71` reads `readonly COMPOSE=(docker compose -f docker-compose.yml -f docker-compose.prod.yml)`, and `docker-compose.prod.yml:96 mongo:` carries no `image:`, so production inherits the pin and the prod file was **not** edited.
+   - ⟨`MONGO_PASSWORD=… docker compose -f docker-compose.yml -f docker-compose.prod.yml config --images`⟩ → `mongo:8.0` BEFORE, `mongo:8.0.20` AFTER.
+2. Landed the pins and the label:
+   - `mongo:8.0.20` at the three sites;
+   - `runs-on: ubuntu-22.04` on `api-tests`, `e2e-tests` and `prod-compose`;
+   - one read-only "cell of record" step per mongo job. It prints `uname -r` and the live mongod version: pymongo `server_info()` against the service in api and e2e, and the deploy-hook-composed image's `mongod --version` in prod-compose.
+   - There is one `.m2` comment block on `api-tests`.
+   - Local dry-run:
+     - ⟨`docker pull mongo:8.0.20`⟩ → `Digest: sha256:098862b1339f031900ca66cf8fef799e616d6324fa41b9a263f2ec899552c1ef`;
+     - ⟨`docker run --rm mongo:8.0.20 mongod --version`⟩ → `db version v8.0.20`.
+   - ⟨`actionlint ci.yml | grep -c 'shellcheck\|error'`⟩ → `1` BEFORE (at `dc30e5e`) and `1` AFTER. It is the same pre-existing SC2016 *info* in the e2e `Producer-held manifest` `node -e '…'`, and `.m2` adds none.
+   - Pathspec commit **`a60c542`**, pushed with no force (`dc30e5e..a60c542`).
+3. Dispatched m/w1 CI **`39304476891`** (`a60c542`; push CI is master-only, `on.push.branches: [master]`).
+   - The mongo service booted 8.0.20 on the 22.04 runner.
+   - **prod-compose was GREEN** (kernel `6.8.0-1064-azure`, mongod `v8.0.20`, `[prod-compose-smoke] PASS`, deploy-switch A/B PASS, 0 of 121 edge failures).
+   - **api-tests went RED at `uv sync`:** 22.04's system Python 3.10 is below `requires-python >=3.12`, so uv fetched its newest managed `cpython-3.15.0`, and `ai-edge-litert==2.2.0` has wheels only for cp312/313/314 (exit 2). This is a direct consequence of the runner label, in the same file and the same concern ("CI mirrors production"), so it was cured in-unit, not escalated.
+4. Cure: `api-tests` `env: UV_PYTHON: "3.13"`, production's interpreter (`api/Dockerfile:1 FROM python:3.13-slim`; the local venv is 3.13.5). setup-uv@v3 has no `python-version` input.
+   - `e2e-tests` is not touched: it runs in the `playwright:v1.61.0-noble` job container, whose Python is independent of the runner label.
+   - Commit **`9519b6f`**, pushed (`a60c542..9519b6f`).
+5. Dispatched m/w1 CI **`39304717107`** (`9519b6f`). **api-tests GREEN:** `Image: ubuntu-22.04`, `Using CPython 3.13.16`, `kernel 6.8.0-1070-azure`, `mongod 8.0.20`, `345 passed in 59.96s`, `12257600` ×0.
+
+*[Seat 0, RESUME (j), 2026-10-19 ~19:55Z, crash-recovery note]* This `.m2` receipt stops at act 5, and it and `evidence/F-REL/m2/README.md` (108 lines) were found uncommitted. The `.m2` seat was stopped by the orchestrator's seventh resume after its two fourier commits had landed: ⟨`git log --oneline origin/m/w1-bump-migration -3`⟩ → `9519b6f` `a60c542` `dc30e5e`. Per the resume law, `.m2` is **alreadyDone** (its commits exist) and is not re-dispatched. The seat-0 record commit banks both files exactly as inherited, with no hunk rewritten. The README was scanned for secrets (1 hit: the placeholder `MONGO_PASSWORD=config-read-only` in a `compose config` read). Readings at this note: ⟨`gh run view 39304717107`⟩ → api ✓ · web ✓ · prod-compose ✓ · e2e *in_progress*; `39304476891` (a60c542) still in progress. `.m2`'s master CI ×2 stays a joint reading at `.v3`'s merge, as the (i) plan states.
+
+## RESUME 2026-10-19 (j) (COHESION §0gi + §0gh, Track C RESUME seventh, chassis `b9d7321ca`) — Open
+
+Seat 0 `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 ~19:50–20:05Z. Owner authorization relayed verbatim: 2026-09-17 *"You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything"*; 2026-10-19 *"Continue. Re-deploy all workflows and agents thereof--no exceptions"* and *"npm login is done--ratify the rest with your best judgement"*. The owner's live word relayed by the harness this sitting: *"Ratify what you think is best for the server in totality and for us hereof for the server."* That word is §0gi's own authority.
+
+**Authority:** COHESION §0gi (binding).
+- §0gi.1: the host acts (a) to (e) are the orchestrator's and are DONE, per the orchestrator's note. The DB firewall rule is revoked, root SSH is off, the host is patched and rebooted, and an admin token is in the host secret store `/opt/deploy/.env` (mode 600). Seats read only the key name, never the value.
+- §0gi.2 mints repo unit **`F-REL.s1`**: `ENV=production`; `ADMIN_TOKEN` from the host secret store through the compose env; mongo headroom; a healthcheck with no unauthenticated probes. It ships through the standing deploy path, never by hand-edit.
+- §0gi.3: the VPN-only, key-only SSH stays.
+- Order (orchestrator): `.m2 → .s1 → .v3 → .d`. `.s1` comes strictly after `.m2`, because both touch the compose files.
+- `.d` must now also prove that `ENV=production` boots with the token: `/api/admin/verify` answers 401 without a token, not 503.
+- No secret value, host address or infrastructure detail enters this record (§0gh.4).
+
+### Preconditions (bytes and ledger)
+- LEDGER `F.REL` row (L91) reads **OPEN 2026-09-17 (RESUME (i) …)**, which is not CLOSED, so this is RESUME mode. F.W14V CLOSED; F.CT CLOSED honest-RED, ACCEPTED (§0ge.6).
+- fourier ⟨`git fetch; git rev-parse --short origin/master origin/m/w1-bump-migration`⟩ → `24a524a 9519b6f`. `.m2` landed `a60c542` and `9519b6f`. No `.s1` or `.v3` commit exists.
+
+### Crash recovery
+- fourier main tree: ⟨`git status --porcelain`⟩ → `?? .worktrees/` only.
+- value.js, in seat 0's set: this record has +40 lines (the killed `.m2` receipt), `evidence/F-REL/m2/` is untracked (`.m2`'s), and INBOX.md carries +1 uncommitted line. That line is **O-104, Track D's X.P.W7P `.z` relay row**: a sibling seat's hunk, not ours, and never staged here (§0gf.5).
+- Each item is handled as the note above states.
+
+### E13 mail sweep
+Paths: value `V/` and `V/coordination`; glass ⟨`ls -t docs/tranches`⟩ → `BL BK BJ`, so BK and BL were both swept; keyframes `V/coordination`; atlas `P/coordination`.
+- ⟨`find … -maxdepth 3 -type f -newer INBOX.md`⟩ → 0.
+- ⟨`find … -mmin -120`⟩ → value.js's own outbound letters (`…-x-p-w7p-release-chain.md`, `…-owner-answers.md`, plus its glass BK copy) and glass's own `BL/FORMATION-PROGRESS.md`, `BL/driver/glass-10.1.1.js` and `BL/audit/INBOUND.md`. None is addressed to value.js or fourier.
+- ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`.
+- Result: **0 unrowed · 0 UNREAD.** The dated sweep line is recorded HERE, not in INBOX.md, because INBOX.md is dirty with Track D's O-104 hunk and a pathspec commit of that file would sweep it in.
+
+## RESUME 2026-10-19 (j) — Baseline (BEFORE, read-only)
+
+Host load ⟨`uptime`⟩ → `30.48 32.17 32.04` (up 59 min). Static, network and compose-render reads only; no heavy run.
+
+| Gate | Command | BEFORE |
+|---|---|---|
+| s1 (i) backend `ENV=production` | ⟨`MONGO_PASSWORD=config-read-only docker compose -f docker-compose.yml -f docker-compose.prod.yml config \| grep 'ENV:\|ADMIN_TOKEN'`⟩ | 0 lines: the rendered prod backend carries neither `ENV` nor `ADMIN_TOKEN`; `docker-compose.prod.yml:6-8 environment:` lists only `CORS_ORIGINS` and `MONGO_URI`. So `main.py:36` reads `development`, the boot guard is dormant, and admin returns 503. **RED** |
+| s1 (i) guard falsifier test | ⟨`grep -rln "ADMIN_TOKEN must be set" api/tests`⟩ | 0 files: no api test asserts that `ENV=production` with an empty token raises. **RED** (absent) |
+| s1 (i) how the hook passes env | ⟨`grep -n "COMPOSE=\|cd \|--env-file" scripts/deploy-hook.sh`⟩ | `:70 REPO_DIR=/var/www/fourier-analysis`, `:71 COMPOSE=(docker compose -f docker-compose.yml -f docker-compose.prod.yml)`, `:682 cd "${REPO_DIR}"`; no `--env-file`, so compose reads only the project-dir `.env` and the dispatcher's environment. The host secret store `/opt/deploy/.env` is not wired. **RED** |
+| s1 (ii) mongo headroom | same render, `memory:` | mongo `536870912` (512 MiB, `docker-compose.prod.yml:176`); no `--wiredTigerCacheSizeGB` in `command:` (`:131-135`). The 18:27:48Z cgroup OOM is on record (§0gh.3). **RED** |
+| s1 (iii) mongo healthcheck | `docker-compose.prod.yml:163-167`, `docker-compose.yml:44-45` | `CMD mongosh … --eval db.runCommand('ping').ok`: a full shell whose startup probes run unauthenticated commands on every interval (the host log shows `Checking authorization failed` from 127.0.0.1, per the orchestrator). **RED** |
+| prod admin | ⟨`curl -w %{http_code} https://api.fourier.babb.dev/api/admin/verify`⟩ | `503` (token not wired). **RED** (`.d` needs 401) |
+| prod health | ⟨`curl … /api/health`⟩ | `200` |
+| PD-1 on prod | ⟨`curl -D - -H 'Accept-Encoding: gzip' …/api/gallery/cursor?limit=2`⟩ | `200`, `Content-Encoding: gzip`, no `ETag` (the edge is still the old build). **RED** (`.d`) |
+| m2 / v3 joint master CI | ⟨`gh run list --workflow ci.yml -L 5`⟩ | master `39292117114` / `39292091987` failure (`24a524a`); m/w1 `39304717107` (`9519b6f`): api ✓ web ✓ prod-compose ✓, e2e in progress; `39304476891` (`a60c542`) in progress. **RED** on master |
+| v3 visual-checkpoint | banked, RESUME (i) Baseline row v3 | items 1·6·7 / 2 / 8 RED on `39292117114`. **RED** |
+
+**Green-before-cure:** none.
+
+## RESUME 2026-10-19 (j) — Unit plan
+
+- **alreadyDone** (never re-dispatched): `F-REL.m`, `.c`, `.h`, `.mem`, `.mem2`, `.mem3`, `.w`, `.vb`, `.w2`, `.vb2`, `.x5`, `.g`, `.pd`, `.g2`, `.h1`, `.m1` (superseded, §0gh.1), `.r4` (DISCHARGED, §0gh.3), and **`.m2`** (fourier `a60c542` `9519b6f`). `.d`'s merge `24a524a` stands, and `.d` re-sits its deploy half.
+- **Owed**, every seat Opus 5.5, strictly serial: `.s1 → .v3 → .d`, then the close, then the check.
+  - `.s1` goes first: it touches the compose files after `.m2` and must be on m/w1 before `.v3`'s merge, so that master carries it and `.d` ships it.
+  - `.v3` makes the one merge and reads master CI GREEN ×2. That reading discharges `.m2`'s and `.s1`'s master gate too.
+- **Binding on every unit** (carried from (i)):
+  - `git fetch` + `git pull --ff-only` before every commit and push; never force; pathspec commits; never stage a hunk dirty with another seat's work (§0gf.5).
+  - Headless only. Nothing durable in /tmp. Heavy and browser runs go through `guarded` + `.worktrees/heavy.lock`, with `COMPUTE_CONCURRENCY=1`.
+  - glass is READ-ONLY.
+  - **No secret value, host address or infrastructure detail in any committed file or receipt** (§0gh.4, §0gi). The admin token is read by key name only.
+  - Never run `mongosh` in the capped prod mongo container.
+  - "Thrice check": every gate ×2 at the unit, plus once at the close.
+
+Groups: `[[F-REL.s1], [F-REL.v3], [F-REL.d]]`.
+
+| Unit | Spec section | Writable | Gates | Locks |
+|---|---|---|---|---|
+| F-REL.s1 | COHESION §0gi.2 (+ §0gi.1(e), §0gh.3–4); F-REL.md §State (L4-6 host via deploy path) + §Units `.h` (L25-30) + §Gates (L36-37); Baseline (j) rows s1 | fourier `docker-compose.prod.yml` (backend `environment`; mongo `command`/`healthcheck`/`deploy.resources`); `docker-compose.yml:44-45` (dev healthcheck, same idiom); `scripts/deploy-hook.sh` (env-file wiring; mongo apply path); `scripts/deploy-switch-smoke.sh` + `scripts/prod-compose-smoke*` (fixture token only); `.github/workflows/ci.yml` `prod-compose` job env (non-secret fixture token); `api/tests/test_boot_guard*.py` (new); `.env.example` (key name); value.js `evidence/F-REL/s1/` + this record | compose render: without `ADMIN_TOKEN` → error, with → backend `ENV: production` + token key present ×2; pytest RED→GREEN ×2 (`ENV=production` + empty token raises; with token boots; `/api/admin/verify` 401 no token); mongo limit 1 GiB + WT cache stated; healthcheck: a local prod-compose mongo logs 0 `Checking authorization failed` over ≥ 10 intervals (vs > 0 before) ×2; deploy-switch-smoke + prod-compose GREEN on m/w1 CI; api ×2; actionlint no new finding | after `.m2`; no secret in repo; host never hand-edited; never `mongosh` in prod mongo; no merge to master |
+| F-REL.v3 | COHESION §0gh.2; F-REL.md §Units `.g` (L31) + §Gates; ADDENDUM (d) `.vb2` (L62-66); Baseline (i) row v3 | fourier `web/src/**` (only root-cause files for items 1·6·7, 2, 8, none dirty with X-OD19); `web/e2e/visual-checkpoint.spec.ts-snapshots/**` (one attributed re-baseline, linux in `playwright:v1.61.0-noble` + darwin); `web/e2e/visual-checkpoint.spec.ts` only for a proven instrument defect, with assertions kept verbatim; the m/w1 → master merge; value.js `evidence/F-REL/v3/` + this record | per item, the cause named with its commit (X-DS `24a524a` range); visual-checkpoint 5/5 ×2 in the container + ×2 darwin; vue-tsc rc 0 + vitest ×2; fresh m/w1 CI GREEN (post-`.s1`); merge to master (no force); master CI GREEN ×2 (push + one dispatch; no retry-until-green), which discharges `.m2` + `.s1` | after `.s1`; never a blind re-baseline; no skip/allowlist/manifest row for a consumer red; §0gf.5; glass READ-ONLY |
+| F-REL.d | F-REL.md §Units `.d` (L32-38) + §Gates; ADDENDUM (f) (L78-83); §0fs; §0ge.4; §0gh.1–4; §0gi.1–3; RESUME (h) `.d` receipt | fourier `scripts/**` (prod-verify only); value.js `evidence/F-REL/d/` + this record | off-host health poller before the switch with no non-200 through it; host deploy via its hook → OK, deploy-alert #1 closed; backend runs `ENV=production`; `/api/admin/verify` **401** without a token (not 503) ×2; mongo 8.0.20 + FCV + limit read after (via the backend client, never in-container mongosh); prod-verify 21/21 ×2; PD-1 prod ×2; pages-smoke ×2; cert > 14 d; openapi; health 200 | after `.v3` (master CI GREEN ×2); host reached only over the owner's VPN SSH; host changed only via the deploy path/config; no VPN, firewall, sshd or port change (§0gi.3); backup before any mongo recreate; token never printed |
+
+## RESUME 2026-10-19 (j) — Unit receipts
