@@ -1,0 +1,216 @@
+{
+  "engine": "chromium",
+  "version": "148.0.7778.96",
+  "base": "http://localhost:9000",
+  "at": "2026-10-19T19:11:28.596Z",
+  "emit": {
+    "typed": [
+      {
+        "step": "selected",
+        "hash": "#/?space=rgb&color=rgb(200 50 50)",
+        "dot": "background-color: rgb(200, 50, 50)",
+        "aria": "Color spectrum, saturation 75%, lightness 78%"
+      },
+      {
+        "step": "typed 1 +150ms",
+        "hash": "#/?space=rgb&color=rgb(200 50 50)",
+        "dot": "background-color: rgb(200, 50, 50)",
+        "aria": "Color spectrum, saturation 75%, lightness 78%"
+      },
+      {
+        "step": "typed 2 +150ms",
+        "hash": "#/?space=rgb&color=rgb(200 50 50)",
+        "dot": "background-color: rgb(200, 50, 50)",
+        "aria": "Color spectrum, saturation 75%, lightness 78%"
+      },
+      {
+        "step": "typed 3 +150ms",
+        "hash": "#/?space=rgb&color=rgb(200 50 50)",
+        "dot": "background-color: rgb(200, 50, 50)",
+        "aria": "Color spectrum, saturation 75%, lightness 78%"
+      },
+      {
+        "step": "settle +800ms",
+        "hash": "#/?space=rgb&color=rgb(123+50+50)",
+        "dot": "background-color: rgb(123, 50, 50)",
+        "aria": "Color spectrum, saturation 59%, lightness 48%"
+      }
+    ],
+    "ime": [
+      {
+        "step": "g selected",
+        "hash": "#/?space=rgb&color=rgb(123+50+50)",
+        "dot": "background-color: rgb(123, 50, 50)",
+        "aria": "Color spectrum, saturation 59%, lightness 48%"
+      },
+      {
+        "step": "composing 9 +400ms",
+        "hash": "#/?space=rgb&color=rgb(123+50+50)",
+        "dot": "background-color: rgb(123, 50, 50)",
+        "aria": "Color spectrum, saturation 59%, lightness 48%"
+      },
+      {
+        "step": "composing 90 +400ms",
+        "hash": "#/?space=rgb&color=rgb(123+50+50)",
+        "dot": "background-color: rgb(123, 50, 50)",
+        "aria": "Color spectrum, saturation 59%, lightness 48%"
+      },
+      {
+        "step": "committed 90 +800ms",
+        "hash": "#/?space=rgb&color=rgb(123+50+50)",
+        "dot": "background-color: rgb(123, 90, 50)",
+        "aria": "Color spectrum, saturation 59%, lightness 48%"
+      },
+      {
+        "step": "b composing '2' (uncommitted) +900ms",
+        "hash": "#/?space=rgb&color=rgb(123+90+2)",
+        "dot": "background-color: rgb(123, 90, 2)",
+        "aria": "Color spectrum, saturation 98%, lightness 48%"
+      },
+      {
+        "step": "b composing '25' (uncommitted) +900ms",
+        "hash": "#/?space=rgb&color=rgb(123+90+252)",
+        "dot": "background-color: rgb(123, 90, 252)",
+        "aria": "Color spectrum, saturation 64%, lightness 99%"
+      },
+      {
+        "step": "b committed 250 +900ms",
+        "hash": "#/?space=rgb&color=rgb(123+90+255)",
+        "dot": "background-color: rgb(123, 90, 255)",
+        "aria": "Color spectrum, saturation 65%, lightness 100%"
+      }
+    ]
+  },
+  "air2": [
+    {
+      "viewport": "512x900",
+      "space": "oklch",
+      "color": "oklch(0.6 0.15 30)",
+      "readout": "l=60.0,c=0.1,h=30.0",
+      "readoutH": 30.67,
+      "airAbove": 0,
+      "airBelow": 0,
+      "paintedLines": 1,
+      "minHeight": "30.679px",
+      "fontSize": "27.392px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "512x900",
+      "space": "oklch",
+      "color": "oklch(0.623 0.2 45.1)",
+      "readout": "l=62.3,c=0.2,h=45.1",
+      "readoutH": 30.67,
+      "airAbove": 0,
+      "airBelow": 0,
+      "paintedLines": 1,
+      "minHeight": "30.679px",
+      "fontSize": "27.392px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "512x900",
+      "space": "lab",
+      "color": "lab(40 -100 -100)",
+      "readout": "l=40.0,a=-100.0,b=-100.0",
+      "readoutH": 30.67,
+      "airAbove": 0,
+      "airBelow": 0,
+      "paintedLines": 1,
+      "minHeight": "30.679px",
+      "fontSize": "27.392px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "512x900",
+      "space": "oklab",
+      "color": "oklab(0.6 -0.3 -0.3)",
+      "readout": "l=60.0,a=-0.3,b=-0.3",
+      "readoutH": 30.67,
+      "airAbove": 0,
+      "airBelow": 0,
+      "paintedLines": 1,
+      "minHeight": "30.679px",
+      "fontSize": "27.392px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "512x900",
+      "space": "rgb",
+      "color": "rgb(200 50 50)",
+      "readout": "r=200,g=50,b=50",
+      "readoutH": 30.67,
+      "airAbove": 0,
+      "airBelow": 0,
+      "paintedLines": 1,
+      "minHeight": "30.679px",
+      "fontSize": "27.392px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "390x844",
+      "space": "oklch",
+      "color": "oklch(0.6 0.15 30)",
+      "readout": "l=60.0,c=0.1,h=30.0",
+      "readoutH": 28.98,
+      "airAbove": 0,
+      "airBelow": 0,
+      "paintedLines": 1,
+      "minHeight": "28.9946px",
+      "fontSize": "25.888px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "390x844",
+      "space": "oklch",
+      "color": "oklch(0.623 0.2 45.1)",
+      "readout": "l=62.3,c=0.2,h=45.1",
+      "readoutH": 28.98,
+      "airAbove": 0,
+      "airBelow": 0,
+      "paintedLines": 1,
+      "minHeight": "28.9946px",
+      "fontSize": "25.888px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "390x844",
+      "space": "lab",
+      "color": "lab(40 -100 -100)",
+      "readout": "l=40.0,a=-100.0,b=-100.0",
+      "readoutH": 28.98,
+      "airAbove": 0,
+      "airBelow": 0,
+      "paintedLines": 1,
+      "minHeight": "28.9946px",
+      "fontSize": "25.888px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "390x844",
+      "space": "oklab",
+      "color": "oklab(0.6 -0.3 -0.3)",
+      "readout": "l=60.0,a=-0.3,b=-0.3",
+      "readoutH": 28.98,
+      "airAbove": 0,
+      "airBelow": 0,
+      "paintedLines": 1,
+      "minHeight": "28.9946px",
+      "fontSize": "25.888px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "390x844",
+      "space": "rgb",
+      "color": "rgb(200 50 50)",
+      "readout": "r=200,g=50,b=50",
+      "readoutH": 28.98,
+      "airAbove": 0,
+      "airBelow": 0,
+      "paintedLines": 1,
+      "minHeight": "28.9946px",
+      "fontSize": "25.888px",
+      "linesVar": "1"
+    }
+  ]
+}
