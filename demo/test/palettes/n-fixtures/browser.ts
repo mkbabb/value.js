@@ -7,6 +7,7 @@
  * pipeline and aliases as the shipped demo) and drives it in Playwright's
  * Chromium at the gate's viewport.
  */
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { createServer, type ViteDevServer } from "vite";
 import { chromium, type Browser, type Page } from "@playwright/test";
@@ -18,15 +19,47 @@ export interface HarnessSeat {
     close: () => Promise<void>;
 }
 
-export async function openHarness(viewport = { width: 390, height: 844 }): Promise<HarnessSeat> {
+export interface HarnessOptions {
+    /**
+     * Absolute paths of modules a suite mounts into the page AFTER it loads
+     * (a dynamic `import("/@fs…")`), outside the harness's own entry graph.
+     * Vite's dep scanner crawls only the declared entries, so a bare import
+     * reachable solely through such a module (PaletteCardSkeleton's
+     * `@mkbabb/glass-ui` root) was discovered at runtime on a cold cache: the
+     * optimizer re-bundled and forced a full page reload mid-test, destroying
+     * the evaluate's execution context (X-W11 §0gc, producer-plate-mass).
+     * Declaring them here puts them in the pre-scan, so the optimized dep set
+     * is complete before the first navigation.
+     */
+    mounts?: readonly string[];
+}
+
+/** "" for the bare harness; a stable suffix naming any other entry set. */
+function cacheKey(mounts: readonly string[]): string {
+    if (mounts.length === 0) return "";
+    const set = [...new Set(mounts.map((m) => path.relative(REPO, m)))].sort().join("\n");
+    return `-${createHash("sha256").update(set).digest("hex").slice(0, 12)}`;
+}
+
+export async function openHarness(
+    viewport = { width: 390, height: 844 },
+    { mounts = [] }: HarnessOptions = {},
+): Promise<HarnessSeat> {
     const server: ViteDevServer = await createServer({
         configFile: path.join(REPO, "vite.config.ts"),
         mode: "development",
         root: path.join(import.meta.dirname, "harness"),
         // Its own optimized-deps cache: the harness root optimizes a smaller
         // dep set, and writing it into the shared `node_modules/.vite` broke
-        // the live :9000 dev server's boot (X-DS VC3-01).
-        cacheDir: path.join(REPO, "node_modules/.vite-harness"),
+        // the live :9000 dev server's boot (X-DS VC3-01). Keyed by the entry
+        // set: Vite's dep hash omits `optimizeDeps.entries`, so a seat with
+        // mounts that found a cache written by a seat without them read it as
+        // "Hash is consistent", skipped its own scan, and met the mounts' deps
+        // at runtime (the cold `npm test` reload, X-W11 §0gc).
+        cacheDir: path.join(REPO, `node_modules/.vite-harness${cacheKey(mounts)}`),
+        // `entries` replaces the default (the root's `index.html`), so the
+        // harness page is named alongside the suite's late mounts.
+        optimizeDeps: { entries: ["index.html", ...mounts] },
         server: { port: 0, host: "127.0.0.1", strictPort: false },
         logLevel: "error",
     });
