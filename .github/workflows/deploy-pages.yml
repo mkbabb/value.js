@@ -195,6 +195,24 @@ jobs:
                     echo "::error title=O-25 STALE-PROD::no CF Pages deployment references the built commit ${SHORT} — the deploy did not land as Production (the --branch footgun class). color.babb.dev is stale."
                     exit 1
                   fi
+            # ── G-21 · SERVED-SHA ASSERT (X-W11 · COHESION §0gc.2 (i)). The
+            #    deploy-age check left ci.yml (a gate inside the workflow it
+            #    gates locked the deploy); its post-ship half lives here. The
+            #    run must record the commit it built (github.sha == the built
+            #    sha), and production must serve that build: the served
+            #    index.html's content-hashed asset set equals the built one.
+            #    deploy-age.yml (daily + after every run of this workflow)
+            #    then reads this run's headSha as the deployed commit.
+            - name: "G-21 — assert production serves the build of the deployed commit"
+              env:
+                  BUILT_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+                  RUN_SHA: ${{ github.sha }}
+              run: >-
+                  node scripts/ci/deploy-age-served.mjs
+                  --dist dist/gh-pages
+                  --origin https://color.babb.dev/
+                  --built "$BUILT_SHA"
+                  --run "$RUN_SHA"
             # ── §0eh (b) · PALETTE API SMOKE (X-W11; W11.md ADDENDUM 2026-10-06).
             #    api.color.babb.dev served an EXPIRED certificate 2026-08-26 →
             #    2026-10-06 and every palette fetch failed TLS silently while
