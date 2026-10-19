@@ -4488,3 +4488,19 @@ The owner reviewed all three running apps and filed `docs/tranches/X/waves/owner
    - root key login;
    - production running without its production boot guard or admin token;
    - the mongo memory limit.
+
+## §0gi — 2026-10-19: the owner delegates the production host's hardening in full ("Ratify what you think is best for the server in totality and for us hereof for the server")
+Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in totality and for us hereof for the server."* The host carries only the owner's own sites. Each act below is checked before and after, and the details stay in the private review; this public record names acts, not infrastructure.
+1. **Host acts, now, by the orchestrator:**
+   - (a) Revoke the cloud firewall rule that opens the database ports to the internet. The rule is unused and nothing listens on those ports; it is saved verbatim before it is revoked.
+   - (b) Disable root SSH login (`PermitRootLogin no` as a drop-in). Validate with `sshd -t`, reload, and prove a fresh session before closing the old one.
+   - (c) Apply the pending package upgrades.
+   - (d) Reboot so that 223 days of kernel and libc security patches go live. First record every service and container, and confirm each one is enabled to return. After the reboot, every site answers, every container is healthy, and the database counts are unchanged.
+   - (e) Generate a production admin token. It lives only in the host's deploy secret store (mode 600) and the owner's macOS keychain, and is never in a repo.
+2. **Repo acts (fourier, Track C unit F.REL.s1, before the `.d` deploy):**
+   - production runs `ENV=production`, so the boot guard is live;
+   - the backend reads `ADMIN_TOKEN` from the host secret store through the compose env;
+   - the mongo container gets headroom: a 1 GiB memory limit, or a WiredTiger cache sized to the limit;
+   - the mongo healthcheck stops issuing unauthenticated commands (`ping` without the shell's startup probes).
+   These ship through the standing deploy path; the host is never hand-edited for them.
+3. **Kept as is:** SSH stays reachable only over the VPN, with keys only. The VPN requirement is NOT removed, because it is the stronger posture.
