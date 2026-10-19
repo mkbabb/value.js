@@ -1,0 +1,27 @@
+{
+ "scale": 255,
+ "results": {
+  "oklch": {
+   "usPerOpViaString": 2.05,
+   "usPerOpDirect": 1.48,
+   "ratio": 1.38,
+   "sameOutput": [
+    "oklch(78.651351678643% 0.061032127123 92.517353436795deg)",
+    "oklch(78.651351678643% 0.061032127123 92.517353436795deg)"
+   ]
+  },
+  "hsl": {
+   "usPerOpViaString": 1.78,
+   "usPerOpDirect": 1.23,
+   "ratio": 1.45,
+   "sameOutput": [
+    "hsl(45.51724137931deg 34.117647058824% 66.666666666667%)",
+    "hsl(45.51724137931deg 34.117647058824% 66.666666666667%)"
+   ]
+  }
+ },
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

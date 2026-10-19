@@ -1,0 +1,294 @@
+{
+ "frames": 181,
+ "blankFrames": 4,
+ "blankSpanMs": [
+  396,
+  486
+ ],
+ "changes": [
+  {
+   "t": 13,
+   "zh": 320,
+   "n": 1,
+   "op": [
+    1
+   ],
+   "nat": [
+    "600x1400"
+   ],
+   "cls": [
+    ""
+   ]
+  },
+  {
+   "t": 138,
+   "zh": 320,
+   "n": 1,
+   "op": [
+    1
+   ],
+   "nat": [
+    "600x1400"
+   ],
+   "cls": [
+    "vj-morph-leave-from vj-morph-leave-active"
+   ]
+  },
+  {
+   "t": 201,
+   "zh": 320,
+   "n": 1,
+   "op": [
+    1
+   ],
+   "nat": [
+    "600x1400"
+   ],
+   "cls": [
+    "vj-morph-leave-active vj-morph-leave-to"
+   ]
+  },
+  {
+   "t": 225,
+   "zh": 320,
+   "n": 1,
+   "op": [
+    0.99
+   ],
+   "nat": [
+    "600x1400"
+   ],
+   "cls": [
+    "vj-morph-leave-active vj-morph-leave-to"
+   ]
+  },
+  {
+   "t": 227,
+   "zh": 320,
+   "n": 1,
+   "op": [
+    0.95
+   ],
+   "nat": [
+    "600x1400"
+   ],
+   "cls": [
+    "vj-morph-leave-active vj-morph-leave-to"
+   ]
+  },
+  {
+   "t": 274,
+   "zh": 320,
+   "n": 1,
+   "op": [
+    0.87
+   ],
+   "nat": [
+    "600x1400"
+   ],
+   "cls": [
+    "vj-morph-leave-active vj-morph-leave-to"
+   ]
+  },
+  {
+   "t": 322,
+   "zh": 320,
+   "n": 1,
+   "op": [
+    0.63
+   ],
+   "nat": [
+    "600x1400"
+   ],
+   "cls": [
+    "vj-morph-leave-active vj-morph-leave-to"
+   ]
+  },
+  {
+   "t": 323,
+   "zh": 320,
+   "n": 1,
+   "op": [
+    0.48
+   ],
+   "nat": [
+    "600x1400"
+   ],
+   "cls": [
+    "vj-morph-leave-active vj-morph-leave-to"
+   ]
+  },
+  {
+   "t": 345,
+   "zh": 320,
+   "n": 1,
+   "op": [
+    0.37
+   ],
+   "nat": [
+    "600x1400"
+   ],
+   "cls": [
+    "vj-morph-leave-active vj-morph-leave-to"
+   ]
+  },
+  {
+   "t": 396,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    0
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    "vj-morph-enter-from vj-morph-enter-active"
+   ]
+  },
+  {
+   "t": 441,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    0
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    "vj-morph-enter-active vj-morph-enter-to"
+   ]
+  },
+  {
+   "t": 509,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    0.51
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    "vj-morph-enter-active vj-morph-enter-to"
+   ]
+  },
+  {
+   "t": 531,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    0.69
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    "vj-morph-enter-active vj-morph-enter-to"
+   ]
+  },
+  {
+   "t": 575,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    0.81
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    "vj-morph-enter-active vj-morph-enter-to"
+   ]
+  },
+  {
+   "t": 576,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    0.87
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    "vj-morph-enter-active vj-morph-enter-to"
+   ]
+  },
+  {
+   "t": 595,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    0.92
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    "vj-morph-enter-active vj-morph-enter-to"
+   ]
+  },
+  {
+   "t": 615,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    0.96
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    "vj-morph-enter-active vj-morph-enter-to"
+   ]
+  },
+  {
+   "t": 635,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    0.98
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    "vj-morph-enter-active vj-morph-enter-to"
+   ]
+  },
+  {
+   "t": 654,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    1
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    "vj-morph-enter-active vj-morph-enter-to"
+   ]
+  },
+  {
+   "t": 755,
+   "zh": 180,
+   "n": 1,
+   "op": [
+    1
+   ],
+   "nat": [
+    "1600x500"
+   ],
+   "cls": [
+    ""
+   ]
+  }
+ ],
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

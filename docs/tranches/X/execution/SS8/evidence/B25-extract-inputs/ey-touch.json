@@ -1,0 +1,23 @@
+{
+ "pinnedAddButton": {
+  "x": 248,
+  "y": 218.25,
+  "width": 44,
+  "height": 44,
+  "top": 218.25,
+  "right": 292,
+  "bottom": 262.25,
+  "left": 248
+ },
+ "afterTapAdd": {
+  "hoverLatched": false,
+  "svgTransform": "none",
+  "svgColor": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "hoverMQ": false,
+  "pointerCoarse": true
+ },
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

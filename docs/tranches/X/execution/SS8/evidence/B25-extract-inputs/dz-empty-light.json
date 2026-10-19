@@ -1,0 +1,142 @@
+{
+ "theme": "light",
+ "z": {
+  "cls": "group relative transition-colors flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-pointer dashed-well min-h-[180px] max-h-[min(320px,40dvh)]",
+  "rect": {
+   "x": 224,
+   "y": 201.5625,
+   "width": 462,
+   "height": 180,
+   "top": 201.5625,
+   "right": 686,
+   "bottom": 381.5625,
+   "left": 224
+  },
+  "borderStyle": "dashed",
+  "borderWidth": "1px",
+  "borderColor": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+  "borderBytes": [
+   25,
+   25,
+   25,
+   31
+  ],
+  "bgImage": "none",
+  "outline": "oklch(0.216129 0.00624853 56.0356) none 3px",
+  "texts": [
+   {
+    "text": "Upload image",
+    "family": "Fraunces, \"Fraunces Fallback\", serif",
+    "size": "16.4px",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "bytes": [
+     28,
+     25,
+     23,
+     255
+    ],
+    "rect": {
+     "x": 386.15625,
+     "y": 298.078125,
+     "width": 137.671875,
+     "height": 22.96875,
+     "top": 298.078125,
+     "right": 523.828125,
+     "bottom": 321.046875,
+     "left": 386.15625
+    }
+   }
+  ],
+  "longMonoCopyInPane": []
+ },
+ "edgeMaxVsOutside": {
+  "px": [
+   176,
+   81,
+   147,
+   255
+  ],
+  "r": 1.474
+ },
+ "edgeSample": [
+  [
+   200,
+   94,
+   171,
+   255
+  ],
+  [
+   179,
+   85,
+   151,
+   255
+  ],
+  [
+   179,
+   85,
+   149,
+   255
+  ],
+  [
+   196,
+   90,
+   162,
+   255
+  ],
+  [
+   179,
+   84,
+   145,
+   255
+  ],
+  [
+   179,
+   87,
+   144,
+   255
+  ]
+ ],
+ "outside": [
+  [
+   218,
+   102,
+   181,
+   255
+  ],
+  [
+   213,
+   96,
+   180,
+   255
+  ]
+ ],
+ "inside": [
+  [
+   199,
+   92,
+   169,
+   255
+  ],
+  [
+   200,
+   109,
+   154,
+   255
+  ]
+ ],
+ "borderTokenVsOutside": 5.483,
+ "borderTokenVsInside": 4.632,
+ "promptGround": [
+  [
+   199,
+   94,
+   164,
+   255
+  ]
+ ],
+ "promptInk": 4.635,
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

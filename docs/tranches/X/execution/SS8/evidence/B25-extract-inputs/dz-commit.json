@@ -1,0 +1,41 @@
+{
+ "frames": 220,
+ "changes": [
+  {
+   "t": 15,
+   "tabindex": "0",
+   "label": "Upload image",
+   "ariaDisabled": null,
+   "active": "ZONE",
+   "zoneConnected": true
+  },
+  {
+   "t": 137,
+   "tabindex": "-1",
+   "label": "Upload image",
+   "ariaDisabled": "true",
+   "active": "ZONE",
+   "zoneConnected": true
+  },
+  {
+   "t": 219,
+   "tabindex": "0",
+   "label": "Sample colors from the image",
+   "ariaDisabled": null,
+   "active": "ZONE",
+   "zoneConnected": true
+  }
+ ],
+ "final": {
+  "t": 4014,
+  "tabindex": "0",
+  "label": "Sample colors from the image",
+  "ariaDisabled": null,
+  "active": "ZONE",
+  "zoneConnected": true
+ },
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

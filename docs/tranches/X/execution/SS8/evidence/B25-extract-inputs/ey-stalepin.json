@@ -1,0 +1,70 @@
+{
+ "before": {
+  "t": {
+   "panX": 2.84217e-14,
+   "panY": 184.062,
+   "zoom": 0.2875,
+   "w": 1600,
+   "h": 1000
+  },
+  "loupeCentre": [
+   138,
+   262.25
+  ],
+  "imagePxUnderLoupe": [
+   479,
+   271
+  ],
+  "under": [
+   217,
+   154,
+   142,
+   255
+  ],
+  "loupeCentrePx": [
+   217,
+   154,
+   142,
+   255
+  ],
+  "readout": "oklch(74.4% 0.0782 31.05deg)",
+  "pinned": true
+ },
+ "after": {
+  "t": {
+   "panX": -325.927,
+   "panY": 38.5593,
+   "zoom": 0.578506,
+   "w": 1600,
+   "h": 1000
+  },
+  "loupeCentre": [
+   138,
+   262.25
+  ],
+  "imagePxUnderLoupe": [
+   801,
+   386
+  ],
+  "under": [
+   237,
+   151,
+   87,
+   255
+  ],
+  "loupeCentrePx": [
+   217,
+   154,
+   142,
+   255
+  ],
+  "readout": "oklch(74.4% 0.0782 31.05deg)",
+  "pinned": true
+ },
+ "loupeVsUnderBefore": 0,
+ "loupeVsUnderAfter": 58.6,
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

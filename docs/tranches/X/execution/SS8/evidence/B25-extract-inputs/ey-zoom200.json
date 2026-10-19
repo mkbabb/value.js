@@ -1,0 +1,182 @@
+{
+ "theme": "light",
+ "viewport": {
+  "width": 720,
+  "height": 450
+ },
+ "geo": {
+  "inner": [
+   720,
+   450
+  ],
+  "overlay": {
+   "x": 41,
+   "y": 182.171875,
+   "width": 638,
+   "height": 579.640625,
+   "top": 182.171875,
+   "right": 679,
+   "bottom": 761.8125,
+   "left": 41
+  },
+  "workbenchRoot": {
+   "x": 41,
+   "y": 182.171875,
+   "width": 638,
+   "height": 579.640625,
+   "top": 182.171875,
+   "right": 679,
+   "bottom": 761.8125,
+   "left": 41
+  },
+  "pane": {
+   "x": 16,
+   "y": 80,
+   "width": 688,
+   "height": 698.8125,
+   "top": 80,
+   "right": 704,
+   "bottom": 778.8125,
+   "left": 16
+  },
+  "viewport": {
+   "x": 42,
+   "y": 239.171875,
+   "width": 636,
+   "height": 521.640625,
+   "top": 239.171875,
+   "right": 678,
+   "bottom": 760.8125,
+   "left": 42
+  },
+  "canvasDrawn": {
+   "x": 42,
+   "y": 301.2421875,
+   "width": 636,
+   "height": 397.5,
+   "top": 301.2421875,
+   "right": 678,
+   "bottom": 698.7421875,
+   "left": 42
+  },
+  "transform": {
+   "panX": 0,
+   "panY": 62.0703,
+   "zoom": 0.3975,
+   "w": 1600,
+   "h": 1000
+  },
+  "scroller": null,
+  "docScroll": [
+   1190,
+   450
+  ],
+  "letterbox": {
+   "top": 62.1,
+   "bottom": 62.1,
+   "left": 0,
+   "right": 0
+  }
+ },
+ "contrast": {
+  "readoutVsGround": [
+   3.29,
+   4.532,
+   4.735
+  ],
+  "readoutGround": [
+   [
+    168,
+    99,
+    87,
+    255
+   ],
+   [
+    200,
+    120,
+    98,
+    255
+   ],
+   [
+    206,
+    123,
+    89,
+    255
+   ]
+  ],
+  "iconVsGround": 1.905,
+  "iconGround": [
+   101,
+   60,
+   67,
+   255
+  ],
+  "readout": {
+   "text": "Click to sample",
+   "color": "oklch(0.271003 0.00386159 34.63)",
+   "bytes": [
+    40,
+    38,
+    37,
+    255
+   ],
+   "cls": "text-mono-small text-muted-foreground truncate select-all",
+   "rect": {
+    "x": 159,
+    "y": 200.953125,
+    "width": 131.40625,
+    "height": 20.421875,
+    "top": 200.953125,
+    "right": 290.40625,
+    "bottom": 221.375,
+    "left": 159
+   }
+  },
+  "icon": {
+   "color": "color(srgb 0.11 0.098 0.09 / 0.8)",
+   "bytes": [
+    27,
+    25,
+    22,
+    204
+   ],
+   "rect": {
+    "x": 66,
+    "y": 203.171875,
+    "width": 16,
+    "height": 16,
+    "top": 203.171875,
+    "right": 82,
+    "bottom": 219.171875,
+    "left": 66
+   }
+  }
+ },
+ "hover": {
+  "w": 131.4,
+  "text": "Click to sample"
+ },
+ "pinned": {
+  "w": 131.4,
+  "text": "Click to sample"
+ },
+ "reflowPx": 0,
+ "buttons": [
+  "Close eyedropper"
+ ],
+ "loupe": null,
+ "ring": null,
+ "census": {
+  "tabbableInDocument": 20,
+  "insideOverlay": 1,
+  "outsideOverlay": 19,
+  "inPane": 14,
+  "behindOverlayInPane": 13,
+  "overlayRole": null,
+  "ariaModal": null
+ },
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

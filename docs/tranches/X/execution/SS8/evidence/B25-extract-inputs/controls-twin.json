@@ -1,0 +1,20 @@
+{
+ "extractReadout": {
+  "color": "oklch(0.262021 0.00386159 34.63)",
+  "cls": "text-mono-small plate-ink whitespace-nowrap tabular-nums"
+ },
+ "generateCountReadouts": [
+  {
+   "inExtract": false,
+   "text": "5",
+   "color": "oklch(0.262021 0.00386159 34.63)",
+   "cls": "text-mono-small plate-ink tabular-nums",
+   "o18": false
+  }
+ ],
+ "o18OnGenerate": [],
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}
