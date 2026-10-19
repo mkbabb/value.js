@@ -2761,3 +2761,26 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19. Spec: COHESI
 **Evidence:** `docs/tranches/X/fourier/evidence/F-REL/h1/` — `fixture-red-67e503b.txt`, `fixture-green-1.txt`, `fixture-green-2.txt`, `dry-run-transcript.txt`, `edge-location-probe.txt` (line 1 SERVED MODEL each).
 
 **Residuals:** the workflow's live run is unobserved until `.d` merges `dc30e5e` to master (`workflow_run` workflows fire from the default branch only). Before the bootstrap clears, the first green master CI will open a TIMEOUT `deploy-alert` issue — correct behaviour, not a defect. **Escalations:** none.
+
+### F-REL.r4
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 ~17:00Z. Spec: COHESION §0ge.8 (L4439-4440); RESUME (e) `.d` R-d-1 (L2367). **Status: ESCALATED (ESC-FREL-r4-1). Nothing on prod was touched; no export, no delete.**
+
+**Crash recovery.** fourier ⟨`git status --porcelain`⟩ → `?? .worktrees/` only (HEAD `dc30e5e`, even with origin); value.js ⟨`git status --porcelain | grep F-REL`⟩ → empty. Nothing inherited.
+
+**Where the admin token was looked for (no value printed; none found):**
+1. fourier `.env` ⟨`grep -c '^ADMIN_TOKEN=.' .env`⟩ → `0`; `.env.example:34` → the `dev` sentinel only.
+2. Shell env ⟨`echo ${ADMIN_TOKEN:+set}`⟩ → empty; shell rc files, `~/.fourier-frel`, `~/.dev-logs/frel` → no `ADMIN_TOKEN=`; keychain ⟨`security find-generic-password -s fourier`⟩ → not found; ⟨`gh secret list`⟩ → `CLOUDFLARE_ACCOUNT_ID` `CLOUDFLARE_API_TOKEN` only; fourier `.deploy/` → `edge/README.md` only.
+3. Host ⟨`ssh -p 1022 mbabb@34.197.214.67`⟩ ×2 (25 s connect timeout) → `Operation timed out`; ⟨`nc -z -w 8 34.197.214.67 {1022,22,443}`⟩ → rc `1` / `1` / `0`; the `~/.ssh/config` alias `mbabb.fridayinstitute.net` → `Could not resolve hostname`.
+4. **Decisive, over HTTPS:** ⟨`curl https://api.fourier.babb.dev/api/admin/verify`⟩ → `503` `{"detail":"Admin not configured"}`. At `api/dependencies.py:265` `admin_required` returns that 503 when `settings.admin_token` is empty, before it reads `Authorization` (L266; a wrong token is 403 at L269). **So production runs with no admin token at all**: every `/api/admin/*` call, including `DELETE /api/admin/visualizations/<slug>?hard=true`, is `503` for every caller. Host access would not change that; it would only confirm the env lacks the key.
+5. **A second measured gap:** `api/routers/admin.py` has no per-slug admin GET (`@admin_router.get` → `/verify` `/stats` `/users` `/flagged` `/audit`). The public GET of a private draft is `404` (RESUME (g) Baseline). The gate's "admin GET → JSON export" therefore has no API surface.
+
+**Gates (BEFORE → AFTER):** export ×5 RED → RED (not attempted; the lock is export-strictly-before-delete); DELETE `204` ×5 RED → RED (prod answers `503`); GET `404` after delete: n/a; receipt citing responses: this block plus evidence `docs/tranches/X/fourier/evidence/F-REL/r4/README.md`.
+**Adjacent edits:** none. No `.gitignore` entry was added because no user data was written (`ops/backups/` was not created).
+
+**ESC-FREL-r4-1 (owner + ruling).** The cure needs acts outside r4's bounds. Candidates, measured and not chosen:
+- (a) The owner sets `ADMIN_TOKEN` in the host's deploy env (`/opt/deploy/.env` or the compose env). This is a host config change, which `main.py:36-40` already demands for `ENV=production`. That raises the question of whether prod even runs with `ENV=production`; if it does not, the boot guard is dormant (an `.h`-class finding). Then the API must be re-deployed and r4 re-run. The export still needs (b) or (c).
+- (b) Add an admin per-slug GET route in `api/routers/admin.py` (a code change, so `.c`/`.h`-class files plus a deploy).
+- (c) Do the export and hard-delete at DB level on the host (`mongoexport` then a delete through the hook's container). This needs SSH: port 1022 timed out today, though it was reachable 2026-10-16.
+
+The five slugs stay in production, private and unreachable publicly.
