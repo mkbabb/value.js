@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5
+X.W11.b release battery (r3, re-read at the re-minted local v4.1.0 per COHESION §0gb.6, 2026-10-18) — command 3 of 7
+cmd: npx vue-tsc -p tsconfig.demo.json --noEmit
+tree: 3837596c30b85c9de72f518cd8d08ed04d29db37 (v4.1.0^{commit}, annotated tag 40582c9f8; clean detached worktree: committed bytes only; npm ci from the committed lockfile)
+worktree status: 0 dirty paths
+started: 2026-10-18T22:08:47-0400
+guard: ~/.claude/guard/guarded light
+----- output -----
+----- end output -----
+finished: 2026-10-18T22:08:55-0400
+exit 0
+note: run AFTER command 4 (CI order: ci.yml runs npm run build before npm run typecheck). The r2 residual (with no dist/, tsconfig.demo.json types the demo against the transitive registry 4.0.0) is X-W1's, not re-litigated here.
