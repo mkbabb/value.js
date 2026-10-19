@@ -4399,3 +4399,47 @@ Source: the read-only constellation analysis (7 surface readers and a synthesis;
    - fourier R-4;
    - the glass session's questions and its 10.2.0 go;
    - housekeeping: bbnf-lang/parse-that dirty masters, prune of stale worktrees.
+
+## §0ge — 2026-10-19: the owner delegates every open owner item to the orchestrator ("npm login is done--ratify the rest with your best judgement, based on our heretofore changes and decisions")
+Owner verbatim, 2026-10-19: *"npm login is done--ratify the rest with your best judgement, based on our heretofore changes and decisions."* Every item below was BLOCKED-ON-OWNER and is RULED here. Each ruling cites the earlier ruling or canon it follows.
+1. **OD-W11-1(a), lhci.**
+   - **SOFTWARE-RASTER-BEAD: arm (A).** This follows §0fr.2 (the cell of record is the real-GPU cell) and §0dm (identity motion is kept wherever the device can carry it).
+     - On a software rasterizer (`isSoftwareWebGLRenderer()`), the hero bead paints, then parks, and repaints one frame per register change. Banked patch: `evidence/X-W11-lhci/heroblob-software-raster-tier.patch`.
+     - GPU devices keep the live bead unchanged.
+     - The four specs (w12-picker-blob "bead still moves", webgl-blob-idle gate 1, perf/idle-frame-budget, o12-blob-seat O-12·3) assert liveness on the real-GPU cell (`useRealGpuCell()`). On SwiftShader they assert the tier's contract: painted, parked, and repainted on a register change. Each assertion is re-specified, not weakened.
+   - **CC-036 and LCP-STRUCTURAL: cure at the root.** No budget moves (LCP ≤ 2500, TBT ≤ 300).
+     - (i) The boot mount yields between its phases (the first-paint pane in the first task; registries, workers and the non-visible panes after paint). This continues X-W12U `.o5b`.
+     - (ii) The critical path is cut at its root: KaTeX loads only with its markdown/About consumer; Fraunces italic loads on first use; modulepreloads are pruned to the first-paint graph; the render-blocking CSS splits into critical and deferred parts. No feature is cut, and no first-paint state is deferred.
+     - (iii) **If lhci still reads LCP over budget after (i)+(ii), the build prerenders the static first-view shell** (the picker plate's HTML/CSS emitted at build and hydrated in place).
+   - Unit X.W11.p1–p3, lhci read ×3 on CI.
+2. **OD-W11-1(b), hosted macOS WebKit:** no billing.
+   - The hosted macos-15 VM's GPU is not a user surface (measured: WebGL context lost ×18→129, byte-identical A/B), so under §0fr.2 it is not a cell of record.
+   - `e2e-safari` moves out of `ci.yml` into its own `webkit-hosted.yml`. That workflow runs on the same triggers, keeps every assertion, and reports, but it does not gate `deploy-pages`.
+   - The WebKit cell of record is the darwin real-GPU run (`guarded --exclusive webkit`), banked per release in X-W11 `.d` with its run log.
+   - Unit X.W11.s1.
+3. **G8, the Safari.app pass, is retired.** The machine law (2026-10-14, WindowServer abort) forbids headed browsers, and Safari.app automation is headed. G8 is discharged by the darwin real-GPU headless WebKit witness (2). §0ei.3's Safari.app clause is superseded.
+4. **R-h1, the fourier deploy alert.** The alert sink no longer needs an owner secret: a failed deploy opens or updates a GitHub issue in the fourier repo, labelled `deploy-alert`, through the deploy workflow's own `GITHUB_TOKEN`. `FOURIER_DEPLOY_ALERT_WEBHOOK` becomes an optional second sink. F.REL `.d` re-sits on this. Unit F.REL.h1; its falsifier is a dry-run alert on a forced-failure fixture.
+5. **npm:** the owner logged in (`npm whoami` = mkbabb). The account's 2FA is `auth-and-writes`, so each local publish still takes a fresh one-time password at the moment of publish. The seat stages each publish to its clean, gated tree, and the owner types the one command (`! npm publish … --otp=<code>`); the OTP is never written to a file. Order: parse-that 2.0.0 → bbnf-lang lockfile regen and gates → bbnf-lang 0.2.0 → latex-paper 0.3.0 → keyframes.js. value.js 4.1.0 publishes through CI's `NPM_TOKEN`.
+   - **The keyframes semver** is measured by a public `.d.ts` diff since v6.0.0: any removed or changed export means 7.0.0, additive changes mean 6.1.0, and fixes only mean 6.0.1.
+   - X.P.W7P opens: steps 4–5 (the value.js devDependency move, `.z` re-reads, `gh pr merge` of bbnf-lang PR #1) follow the publishes.
+6. **F.CT:** the C pipeline shipped at fourier `bf16b1e` is ACCEPTED as terminal. Phase 4 does not open (KISS; no measured deficit names it).
+7. **Design rulings, each in the direction of the original styles (the X-DS canon), the a11y floors, and §0dm identity:**
+   - **KF-C3-02:** keyframes' home title wave and hero dots are KEPT as identity motion. They must honour `prefers-reduced-motion` (static under PRM) and park when the page is hidden or the element is offscreen. Unit KF.DS.r1.
+   - **P5-B1: Pole B.** The light ramp re-centres cool: violet 300, rose 350, coral 30. The warm end keeps its chroma voice (C 0.155 against 0.08) at Pole A's own measured contrast, as one resolver change.
+   - **P6-B1 (VC6-04 / V12-01): Pole B.** The original `684c818f` dark stamp returns: `--shadow-color: color-mix(in oklab, var(--foreground) 34%, var(--background))`, opaque, at the same 8/10 px geometry. Only `--shadow-color` / `--shadow-cartoon(-hover)` move.
+   - **VC5-01 / VC4-09 / V20C-04:** the route h1 stays the shell-level caption under the dock, as A5 and `<main>` labelling require. Closed as is.
+   - **Header veil (V2C-15 / V16-07) and VC6-T1/T2:** take the arm that conforms to the X-DS canon and the original styles while holding every contrast floor. Where both arms hold the floor, the flatter arm wins. The seat cites the arm.
+   - Units X.W11.d1–d3 (value).
+   - **fourier:**
+     - ESC-DS-F10X-C2: the gallery KEEPS the shared page gutter, because au1 L3-6's single content edge across routes stands.
+     - DS-F12X-C1's tone arm: REFUSED, because the WCAG 1.4.11 3:1 floor (HLG-37) wins.
+     - DS-F3R-C4: the ℱ glyph stays on both chips (§0dc).
+     - DS-F6X-T2: `auto-fill` is kept.
+     - None of these needs a cure.
+8. **fourier R-4:** the five production drafts are hard-deleted with the admin token, after a durable export of each one (JSON, under fourier `ops/backups/2026-10-19-r4/`, gitignored if it holds user data). The receipt cites the export and the delete responses. Unit F.REL.r4.
+9. **glass:** the orchestrator answers glass's open questions (Q-10, Q-5+Q-15, Q-2+Q-3, Q-13, Q-12, Q-4, R-21) by mail, consistent with §0dm, O-87/O-88 and the rulings above. It relays the owner's go for the 10.2.0 cut once glass's BL loops converge. 10.1.1 (atlas O-99) is glass's call. The repin follows any cut (the X-W11 re-trigger).
+10. **Housekeeping:**
+    - bbnf-lang local master is NEVER touched (standing law).
+    - parse-that master's 35 dirty paths and value.js `CARRY-LEDGER.md`'s Codex-era hunk are preserved as found; they are not X's.
+    - Local worktrees that are clean and whose branch is merged are pruned (`git worktree remove`, which refuses a dirty tree). Remote falsifier branches are kept.
+    - `.vite-critic-*` caches are deleted.
