@@ -1,0 +1,84 @@
+{
+ "rows": 1,
+ "dom": {
+  "html": 7136,
+  "ctl": [
+   {
+    "tag": "svg",
+    "role": "img",
+    "name": "Easing curve 1 → 2",
+    "ti": null,
+    "slot": null
+   },
+   {
+    "tag": "circle",
+    "role": "slider",
+    "name": "Bezier control point 1",
+    "ti": "0",
+    "slot": null
+   },
+   {
+    "tag": "circle",
+    "role": "slider",
+    "name": "Bezier control point 2",
+    "ti": "0",
+    "slot": null
+   },
+   {
+    "tag": "DIV",
+    "role": "group",
+    "name": "Curve mode",
+    "ti": null,
+    "slot": null
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "name": "Bezier",
+    "ti": "0",
+    "slot": null
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "name": "Steps",
+    "ti": "-1",
+    "slot": null
+   },
+   {
+    "tag": "BUTTON",
+    "role": "combobox",
+    "name": "Easing preset",
+    "ti": null,
+    "slot": "select-trigger"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "name": "Copy curve literal",
+    "ti": null,
+    "slot": "button"
+   },
+   {
+    "tag": "SPAN",
+    "role": "status",
+    "name": "",
+    "ti": null,
+    "slot": "easing-copy-status"
+   }
+  ],
+  "slots": [
+   "easing-picker",
+   "easing-curve",
+   "easing-curve-stroke",
+   "easing-curve-stroke",
+   "easing-handles",
+   "easing-controls",
+   "select-trigger",
+   "button",
+   "easing-copy-status"
+  ]
+ },
+ "pageErrors": [],
+ "consoleErrors": []
+}
