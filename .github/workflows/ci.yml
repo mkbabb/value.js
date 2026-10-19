@@ -94,6 +94,9 @@ jobs:
             - run: npx playwright install --with-deps chromium
             - run: npm test
             - run: npm run test:css-equivalence
+            # X.P.W7P step 4: the committed generated grammar tables must match
+            # what the pinned @mkbabb/bbnf-lang `bbnf gen` emits (drift = red).
+            - run: node scripts/gen-grammar.mjs --check
             - name: pack producer bytes
               id: pack
               shell: bash
