@@ -145,6 +145,26 @@ export function leavesGamut(color: PickerColor, space: DisplayColorSpace): boole
     });
 }
 
+/**
+ * The CSS functions whose non-hue channels the parser clamps at parsed-value
+ * time (css-color-4 §7 hsl s l, §8 hwb w b — both [0, 1]). A colour outside that
+ * range is not representable in the function's own grammar.
+ */
+const PARSE_CLAMPED_SPACES: ReadonlySet<PickerColor["space"]> = new Set(["hsl", "hwb"]);
+
+/**
+ * The CSS text would carry a non-hue channel the §7/§8 parse clamp moves. Read
+ * on the budgeted digits the row would print, so float noise at a bound (white's
+ * `l = 1.0000000000002`) never flips the form.
+ */
+function leavesParseClamp(color: PickerColor): boolean {
+    return PICKER_CHANNELS[color.space].some((meta, index) => {
+        if ("hue" in meta && meta.hue) return false;
+        const value = color.channels[index];
+        return typeof value === "number" && (value < meta.min || value > meta.max);
+    });
+}
+
 /** Apply the digit policy to a colour, in its own space, through its own constructors. */
 function budgetDigits(color: PickerColor): PickerColor {
     const metas = PICKER_CHANNELS[color.space];
@@ -190,6 +210,22 @@ export function formatSpecimen(color: PickerColor, space: DisplayColorSpace): Sp
         const channels = converted.channels.map((channel) =>
             typeof channel === "number" ? String(budgetDigitsOf(channel / 255)) : channel);
         return { text: `color(srgb ${channels.join(" ")}${alpha})`, form: "css", outOfGamut };
+    }
+
+    // An hsl/hwb colour whose saturation/lightness or whiteness/blackness leaves
+    // 0..100% cannot be carried by its CSS function at all: css-color-4 §7/§8
+    // clamp those channels to [0, 1] at parsed-value time, so
+    // `hsl(346deg -1295% 103.7%)` is printed honestly and read back as
+    // `hsl(346deg 0% 100%)`. Such a row is spelled in the declared `channels`
+    // form on the % scale, budgeted THERE (the ×100 float noise, as V8C-01 did
+    // for rgb's ÷255), with the mark kept (O23-225).
+    if (PARSE_CLAMPED_SPACES.has(resolved) && leavesParseClamp(budgeted)) {
+        const channels = converted.channels.map((channel, index) => {
+            if (typeof channel !== "number") return channel;
+            const meta = PICKER_CHANNELS[resolved][index];
+            return String(budgetDigitsOf(meta && "hue" in meta && meta.hue ? channel : channel * 100));
+        });
+        return { text: `${resolved} · ${channels.join(" · ")}${alpha}`, form: "channels", outOfGamut };
     }
 
     if (CSS_PICKER_SPACES.has(resolved)) {
