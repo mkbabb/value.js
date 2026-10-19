@@ -1,0 +1,29 @@
+SERVED MODEL: claude-opus-5-5
+## run 1 17:17:05Z
+[pages-smoke] bundle /assets/index-Cze8HIRf.js carries the API base https://api.fourier.babb.dev
+[pages-smoke] health: 200 application/json {"status":"ok"}
+[pages-smoke] CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[pages-smoke] cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[pages-smoke] PASS
+exit=0
+## run 2 17:17:07Z
+[pages-smoke] bundle /assets/index-Cze8HIRf.js carries the API base https://api.fourier.babb.dev
+[pages-smoke] health: 200 application/json {"status":"ok"}
+[pages-smoke] CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[pages-smoke] cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[pages-smoke] PASS
+exit=0
+## run 1 (seat 2) 18:05:07Z
+[pages-smoke] bundle /assets/index-Cze8HIRf.js carries the API base https://api.fourier.babb.dev
+[pages-smoke] health: 200 application/json {"status":"ok"}
+[pages-smoke] CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[pages-smoke] cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[pages-smoke] PASS
+exit=0
+## run 2 (seat 2) 18:05:11Z
+[pages-smoke] bundle /assets/index-Cze8HIRf.js carries the API base https://api.fourier.babb.dev
+[pages-smoke] health: 200 application/json {"status":"ok"}
+[pages-smoke] CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[pages-smoke] cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[pages-smoke] PASS
+exit=0

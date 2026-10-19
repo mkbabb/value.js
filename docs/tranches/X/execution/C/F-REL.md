@@ -2784,3 +2784,42 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 ~17:00Z. Spec
 - (c) Do the export and hard-delete at DB level on the host (`mongoexport` then a delete through the hook's container). This needs SSH: port 1022 timed out today, though it was reachable 2026-10-16.
 
 The five slugs stay in production, private and unreachable publicly.
+
+### F-REL.d
+
+Seats `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 ~17:10–18:10Z (seat 1 killed mid-unit; seat 2 recovered and closes). Spec: COHESION §0ge.4 ("`.d` re-sits on this"); §0fs order; F-REL.md §Units `.d` (L32-38) + ADDENDUM (f). **Status: ESCALATED (ESC-FREL-d-4 master CI RED on a runner-kernel/mongo incompatibility; ESC-FREL-d-5 host bootstrap unreachable). The merge landed; nothing on the host was touched.**
+
+**Crash recovery (seat 2).** fourier ⟨`git status --porcelain`⟩ → `?? .worktrees/` only. value.js ⟨`git status --porcelain -- docs/tranches/X/fourier/evidence/F-REL/d/`⟩ → `??` (seat 1's untracked evidence: `health-poll.sh`, `static-reads-1.txt`, `master-ci-24a524a.txt`, `pages-smoke.txt`); each read whole, each conforms (line 1 SERVED MODEL, no secret), kept and committed here as inherited. Seat 1's logs `~/.dev-logs/frel/d-g/{ci-push,ci-dispatch,health-poll}.log`. No receipt was written by seat 1.
+
+**Acts in order:**
+1. (seat 1) Off-host poller `evidence/F-REL/d/health-poll.sh` started 17:12:05Z (first log line), BEFORE the push (webhook delivery `3849213977131237400` at 17:12:15.762Z, `static-reads-1.txt`).
+2. (seat 1) ⟨`git fetch`; merge `origin/m/w1-bump-migration` into `master`; `git push origin master`⟩ (no force) → fourier **`24a524a`**, ⟨`git log -1 --format='%h %p' origin/master`⟩ → `24a524a 67e503b dc30e5e` (merge commit as `67e503b`; `.h1` `dc30e5e` + X-DS passes through `75182fb`). ⟨`git merge-base --is-ancestor dc30e5e origin/master`⟩ → true.
+3. (seat 1) Master CI: push run `39292091987` → **failure** (e2e job `118195084203`: `Failed to initialize container mongo:8.0`, mongod: "MongoDB cannot start: Linux kernel versions 6.19 and newer has a known incompatibility with this version of MongoDB … SERVER-121912"); `web`, `compose boot + health`, `api/tests` success on runner image `20261012.334.1`, e2e on the newer `20261018.339.1` (`master-ci-24a524a.txt`). Re-dispatch `39292117114` → `compose boot + health` **failure** on runner `20261015.610` with the same mongod fatal (`fourier-prod-smoke-mongo-1 is unhealthy`); `web` + `api/tests` success; e2e still `in_progress` at 18:05Z (`ci-host-reads-2.txt`). So the RED is the GitHub runner-image kernel rollout against the `mongo:8.0` pins (`ci.yml:55`, `ci.yml:298`, `docker-compose.yml:38`), not 24a524a's code; it lands per runner as the rollout reaches it.
+4. deploy-pages `39292566194` (workflow_run) → skipped (CI not success): the SPA did not re-ship; prod still serves `index-Cze8HIRf.js`.
+5. (seat 1) deploy-alert `workflow_run` `39292566130` → skipped (gated on CI success, by design); ⟨`gh workflow run deploy-alert -f sha=24a524a…`⟩ → run `39292952791`: polled 30 s from 17:18Z, "waiting - no deploy-of-record served" (the host still runs `79f1a43`'s hook, which REFUSEs before fetch — the Baseline bootstrap), TIMEOUT at 17:48:27Z → **opened `deploy-alert` issue #1** ⟨`gh issue view 1`⟩ → `deploy-alert: the fourier API deploy did not reach a healthy OK` `OPEN` `[deploy-alert]`; job rc 1 as designed (fixture F's live twin).
+6. (seat 2) Bootstrap unblock (`.h1` design (b): a value for `FOURIER_DEPLOY_ALERT_WEBHOOK` in the host's untracked `hooks.json` for one deploy): ⟨`nc -z -w 8 34.197.214.67 1022`⟩ → rc `1`; `:22` → rc `1` (18:03Z), as at the Baseline and `.r4`. No lawful path to the host's deploy config exists from this seat; the running container and host were not touched. ESCALATED by name (below).
+7. (seat 2) Read-only prod re-reads ×2: pages-smoke, cert, openapi (below).
+
+**Gates (BEFORE → AFTER):**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| master contains `.h1` | `67e503b`, no `.h1` | **GREEN**: `24a524a` (parents `67e503b dc30e5e`), pushed, no force |
+| master CI GREEN ×2 | `67e503b` GREEN ×2 | **RED**: push `39292091987` failure (e2e: mongo:8.0 vs runner kernel ≥ 6.19); dispatch `39292117114` compose-boot failure (same), e2e in progress |
+| off-host poller before the push; no non-200 through the switch | — | poller up 17:12:05Z < push 17:12:15Z; ⟨`awk` over the log⟩ → `737` × `health=200`, `3` × `000` at 17:57:17-21Z with `time_total` ≈ 1 ms (the poller's end, at seat 1's kill; no server answer) (`health-poll-summary.txt`). **No switch occurred** (host REFUSEd), so the gate is vacuous, not GREEN |
+| prod-verify 21/21 ×2 | banked 15/21 ×2 | **RED / not run**: the API never deployed; prod still `79f1a43` |
+| PD-1 prod curl ×2 | prod edge gzips JSON | **RED / not run** (same cause) |
+| pages-smoke PASS ×2 | PASS ×2 banked | **GREEN**: ×2 at 17:17Z (seat 1) + ×2 at 18:05Z (seat 2), `exit=0` ⟨`grep -c PASS pages-smoke.txt`⟩ → `4`; bundle unchanged `index-Cze8HIRf.js` |
+| cert > 14 d | Dec 22 2026 / Jan 4 2027 | **GREEN**: `fourier.babb.dev` Dec 22 2026, `api.fourier.babb.dev` Jan 4 2027 |
+| openapi | `42 0.2.0 [diff, publish, remix, unpublish]` | **GREEN** (unchanged, old API): ⟨`curl …/openapi.json \| python3 …`⟩ → `openapi 42 0.2.0 ['diff', 'publish', 'remix', 'unpublish']` |
+| on a failed deploy the `deploy-alert` issue opens | label only, no issue | **GREEN**: issue #1 opened live by run `39292952791` |
+
+**Adjacent edits:** none. `scripts/**` untouched.
+
+**Evidence:** `docs/tranches/X/fourier/evidence/F-REL/d/` — `health-poll.sh`, `health-poll-summary.txt`, `static-reads-1.txt`, `master-ci-24a524a.txt`, `pages-smoke.txt`, `ci-host-reads-2.txt` (line 1 SERVED MODEL each, except the script).
+
+**ESC-FREL-d-4 (ruling; outside `.d`'s writable set).** Master CI is RED at `24a524a` because GitHub's rolling runner images (`20261015.610`, `20261018.339.1`) boot kernels ≥ 6.19, on which `mongo:8.0` refuses to start (SERVER-121912). The cure is a mongo image pin that starts on 6.19+ (a patched 8.0.x or 8.x), in `.github/workflows/ci.yml:55,298` and `docker-compose.yml:38` (and, for parity, the prod compose's mongo image, since the host kernel will also move). These are CI/compose files and a pin change, not `scripts/**`. Proposed: a unit `.k` (Track C, fourier `ci.yml` + `docker-compose*.yml` mongo pins only) with the gate "compose-boot + e2e GREEN on a ≥ 6.19 runner ×2", then `.d` re-sits. Interim: CI runs on older-image runners still pass, which is luck, not a gate.
+
+**ESC-FREL-d-5 (owner act).** The host still runs `79f1a43`'s hook, which REFUSEs before fetch while `FOURIER_DEPLOY_ALERT_WEBHOOK` is unset. The one lawful unblock is a value for that variable in the host's untracked `hooks.json` for one deploy (`.h1` design (b)), or the owner setting it. Host SSH (`34.197.214.67:1022` and `:22`) is unreachable from this machine (rc 1, 18:03Z; also at the Baseline and `.r4`). Owner: restore SSH reach (or set the variable on the host), then `.d` re-sits after `.k`. The alert issue #1 stays open until a deploy of record reaches OK.
+
+**Residuals:** prod API at `79f1a43`; SPA at `index-Cze8HIRf.js`; five drafts (ESC-FREL-r4-1) unchanged.
