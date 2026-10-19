@@ -4299,3 +4299,53 @@ W11.md ADDENDUM (second, 2026-10-18) carries this ruling.
 5. **The local master merge** is not reset. The new tag commit is merged on top of `7ad18e580`, so master's tree equals the new tag's tree and G6's ancestry holds.
 6. **Order:** `.rel1 → .b re-reads G2 (vitest) at the new tag → .c re-sits whole (tag push → release.yml → artefacts → master merge of v4.1.0^{commit} → deploy → boot-smoke) → .d → .e → close → check`. An npm E401/EOTP wall is banked as the owner act.
 W11.md ADDENDUM (third, 2026-10-18) carries this ruling.
+
+## §0gc — 2026-10-19: CI-GREEN read — four cures land, four escalations RULED, the deploy gate is BLOCKED-ON-OWNER; the release re-sits on cold-green `npm test`
+Source: workflow `x-ci-green` (`wf_c8be8949-52c`, 20 seats, 0 errors). Receipts are under `## CI-GREEN (§0gc)` in `docs/tranches/X/execution/A/X-W11.md`. Real CI runs: 39229786770 (r1 @ `113b00bb1`) and 39251853153 (r2 @ `b675df143`). Both read 4/10 green (producer ×2, api, boot-smoke) and 6 red (oracle slate, lhci, deploy-age, e2e-smoke 23, visual 219, e2e-safari 72–80). r3 (39279012104 @ `dd3a74011`) was still queued when the seat ended. Kernel zone was 13.22M at this ruling (≥ 13M), so `guarded` refuses local heavy runs. The owner has declined a reboot for now (2026-10-19).
+1. **Cured at root, landed:**
+   - **ESC-W11c-RELEASE-PLATE-MASS-RED** CURED `51347e257`. The harness pre-scans late mounts (`optimizeDeps.entries`) and keys its dep cache by mount set. The cold `npm test` is 1253/1253 ×3 locally, and the producer jobs on Node 22 and 24 are GREEN on CI 39191264707 and both later runs. `release.yml` now runs the same test definition (§0gb.1), so the release path is unblocked.
+   - **boot-smoke** CURED `c1fb8958a`. It owns the dev server's whole process tree, which was the Linux 6 h orphan hang. It is GREEN on CI.
+   - **oracle slate ENOBUFS** CURED `f37669ffb`: `maxBuffer: Infinity`, plus a memoized listing.
+   - **Supporting fixes:**
+     - `80734737c` writes the HTML report;
+     - `48c2009c5` makes lhci keep its reports;
+     - `f71767898` moves e2e-safari to `macos-15`, because Linux WPE WebKit wedges once WebGL starts.
+2. **ESC-W11-DEPLOY-AGE-SELF-LOCK RULED arm (A).**
+   - A gate must not sit inside the workflow whose success it gates. `deploy-age` leaves `ci.yml`.
+   - It becomes (i) a post-ship step in `deploy-pages.yml` that verifies the served build is the deployed sha, and (ii) a scheduled workflow (daily, plus `workflow_run` after deploy-pages) that reds when production is older than the newest close.
+   - **Close grammar:** "close" means an annotated tag matching `tranche-*-close` or a release tag `v*`, reachable from `origin/master`. It is never a free-text grep of message bodies.
+   - DR-11/G-21 keep their bar, 0 days stale after a close. Only where the bar is measured moves.
+   - Unit **X.W11.ci1** (granted `.github/workflows/{ci,deploy-pages}.yml`, the new `.github/workflows/deploy-age.yml`, `scripts/ci/deploy-age*`).
+3. **ESC-W11-CI-CADENCE RULED.**
+   - `ci.yml`'s `push` trigger takes `paths-ignore: ['docs/**']`. A receipt-only push cannot cancel a 2.5 h browser run, and docs carry no product bytes.
+   - `cancel-in-progress` stays.
+   - Before landing, the seat proves that no `ci.yml` job reads `docs/**` as input. The oracle slate's tracked-file census is checked specifically. If one does, that job's own trigger is ruled in the receipt, never silently dropped.
+   - This is in unit X.W11.ci1.
+4. **ESC-W11-ORACLE-ORDINAL-R47 RULED: renumber the W6 mints.**
+   - The three 2026-09-19 W6 specs take the next free ordinals, never reusing a shipped T-era one: `o21-space-catalog-truth`, `o22-specimen-legibility` and `o24-specimen-dot-identity`. Their in-file declarations and every live (non-dated) reference move with them.
+   - E-3: dated records are not rewritten. One dated alias table, `docs/tranches/X/waves/W6-ADDENDUM-2026-10-19-ordinals.md` (old → new, with the reason R47/NG-14), resolves the 61–152 historical citations.
+   - Oracle: the slate's D section reads 0, ×2.
+   - Unit **X.W11.ci2** (granted the three spec files and their renames, live references under `e2e/**` and `scripts/ci/**`, and the addendum).
+5. **ESC-W11-ADMIN-PANE-DEV-FRAGMENT RULED: land it.**
+   - X-DS is CLOSED (`7c0fb2710`), so the file is free. Unit **X.W11.ci3** (granted `demo/palettes/admin/AdminPane.vue`) moves the root-level `<!-- A2-VA-L1-1 … -->` comment inside `<PaneShell>`, so the dev root is one element.
+   - Oracle: admin-walk and w7-destructive-seats, read on CI, which is the Linux witness, plus a local darwin read when the zone gate admits one.
+6. **ESC-W11-DOCK-390-OVERFLOW RULED: diagnose and cure at the root.**
+   - Unit **X.W11.ci4** (granted the consumer dock seat under `demo/**`): at 390 the full-layer morph must not widen the document (`scrollWidth == clientWidth`).
+   - A consumer cause is cured in the dock's own layout, never by a page-level clip.
+   - A producer cause is the next O-row (ADOPT-AT-LANDING, INBOX plus BK mirror), with o21:328 held honest-RED on it.
+7. **Owner-held (OD-W11-1). These keep `ci.yml` RED on master, so `deploy-pages` stays skipped. The deploy of record is BLOCKED-ON-OWNER, not substituted.** No `workflow_dispatch`, no `if:` guard, no budget move.
+   - (a) **lhci:**
+     - ESC-W11-LHCI-SOFTWARE-RASTER-BEAD: arms A, B and C. Arm A parks identity motion on GPU-less machines, so it is a §0dm owner ruling. The patch is banked at `docs/tranches/X/evidence/X-W11-lhci/heroblob-software-raster-tier.patch`.
+     - CC-036, the TBT boot floor of 2.7–3.4 s.
+     - ESC-W11-LHCI-LCP-STRUCTURAL: a prerendered first-view shell or a halved critical path, in the Q14 lineage.
+   - (b) **ESC-W11-SAFARI-HOSTED-GPU:** a runner with real GPU WebKit is an owner billing or infrastructure act.
+   - (c) **e2e-smoke's ruled rows:** X-W10 E1–E9, the X-W2 perf bars, and o10.
+   - (d) **visual:** ESC-W11-VISUAL-E14-REPLAN, the single darwin refresh after E1–E13.
+8. **Release order (W11.md ADDENDUM, fourth).** `.ci1 ∥ .ci2 ∥ .ci3 ∥ .ci4` (disjoint writable sets), then:
+   - the LOCAL tag `v4.1.0` is re-minted at the commit carrying them. The tag was never pushed after `.rel1`, so `git tag -d` and an annotated re-mint rewrite nothing that was consumed;
+   - `.b` reads G2 at the tag;
+   - `.c` re-sits whole: tag push → `release.yml` (its `npm test` is the cold witness) → artefacts and the npm coordinate → the §0j.F merge of `v4.1.0^{commit}` on top of local master `7ad18e580` (never reset) → push master → deploy;
+   - **if `ci.yml` on that master push is RED only on OD-W11-1 rows, `.c` banks the deploy as BLOCKED-ON-OWNER (OD-W11-1) and boot-smokes the release artefacts, not production;**
+   - then `.d`, `.e`, close (honest-RED on OD-W11-1), check.
+   An npm E401/EOTP wall is banked as the owner act.
+9. **Zone gate.** While `zone.log` reads ≥ 13M, a seat's local heavy arm is banked ZONE-REFUSED (ESC-W8i-3, owner reboot owed). The same gate is read from the CI job that runs the identical command on a cold hosted runner at the same sha, cited by run and job id. A local arm is never substituted by `--light`. The darwin-only arms (WebKit, the real-GPU witness) stay owed until a reboot.
