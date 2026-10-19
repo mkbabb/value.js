@@ -1,0 +1,146 @@
+{
+ "rule": [
+  [
+   836,
+   "SECTION",
+   "configurator grid min-h-0",
+   132,
+   840,
+   "0px solid rgb(28, 25, 23)",
+   "0px solid rgb(28, 25, 23)",
+   "rgba(0, 0, 0, 0)",
+   "none"
+  ],
+  [
+   837,
+   "SECTION",
+   "configurator grid min-h-0",
+   132,
+   840,
+   "0px solid rgb(28, 25, 23)",
+   "0px solid rgb(28, 25, 23)",
+   "rgba(0, 0, 0, 0)",
+   "none"
+  ],
+  [
+   838,
+   "ASIDE",
+   "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card bor",
+   838,
+   840,
+   "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+   "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+   "color(srgb 0.994 0.96 0.926)",
+   "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0"
+  ],
+  [
+   839,
+   "ASIDE",
+   "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card bor",
+   838,
+   840,
+   "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+   "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+   "color(srgb 0.994 0.96 0.926)",
+   "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0"
+  ],
+  [
+   840,
+   "DIV",
+   "viz-workspace flex flex-col flex-1 min-h-0",
+   76,
+   844,
+   "0px solid rgb(28, 25, 23)",
+   "0px solid rgb(28, 25, 23)",
+   "rgba(0, 0, 0, 0)",
+   "none"
+  ],
+  [
+   841,
+   "DIV",
+   "viz-workspace flex flex-col flex-1 min-h-0",
+   76,
+   844,
+   "0px solid rgb(28, 25, 23)",
+   "0px solid rgb(28, 25, 23)",
+   "rgba(0, 0, 0, 0)",
+   "none"
+  ]
+ ],
+ "eq": [
+  [
+   "SPAN",
+   "katex-display",
+   1800,
+   1800,
+   "visible",
+   "linear-gradient(to right, rgba(0, 0, 0, "
+  ],
+  [
+   "DIV",
+   "",
+   1800,
+   1800,
+   "visible",
+   "none"
+  ],
+  [
+   "DIV",
+   "fading-scroll fading-scroll--x eq-scroll-region",
+   1832,
+   970,
+   "auto",
+   "linear-gradient(to right, rgba(0, 0, 0, "
+  ],
+  [
+   "DIV",
+   "eq-result-root",
+   970,
+   970,
+   "visible",
+   "none"
+  ],
+  [
+   "DIV",
+   "relative eq-card",
+   970,
+   970,
+   "visible",
+   "none"
+  ],
+  [
+   "DIV",
+   "eq-panel-right",
+   970,
+   970,
+   "hidden",
+   "none"
+  ]
+ ],
+ "nf": [
+  [
+   "H1",
+   "card-title",
+   "0px",
+   509
+  ],
+  [
+   "DIV",
+   "card-header",
+   "12px 12px 0px",
+   497
+  ],
+  [
+   "DIV",
+   "glass-resting card w-full max-w-md",
+   "0px",
+   496
+  ],
+  [
+   "DIV",
+   "flex flex-1 items-center justify-center py-4 px-[var(--page-gutter)]",
+   "16px",
+   0
+  ]
+ ]
+}

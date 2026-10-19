@@ -1,0 +1,70 @@
+{
+ "light-1440": {
+  "galleryHref": [],
+  "thm": null,
+  "cite": null
+ },
+ "dark-1440": {
+  "galleryHref": []
+ },
+ "light-390": {
+  "galleryHref": [],
+  "overflow": [],
+  "overflowCount": 0,
+  "land": {
+   "bar": {
+    "x": 16,
+    "y": 72,
+    "width": 812,
+    "height": 64,
+    "top": 72,
+    "right": 828,
+    "bottom": 136,
+    "left": 16
+   },
+   "chev": {
+    "x": 639.609375,
+    "y": 97,
+    "width": 14,
+    "height": 14,
+    "top": 97,
+    "right": 653.609375,
+    "bottom": 111,
+    "left": 639.609375
+   },
+   "title": {
+    "cls": "button tap-squish focus-ring floating-toc-title-btn",
+    "r": {
+     "x": 21,
+     "y": 82,
+     "width": 656.609375,
+     "height": 44,
+     "top": 82,
+     "right": 677.609375,
+     "bottom": 126,
+     "left": 21
+    }
+   },
+   "kids": [
+    {
+     "cls": "button tap-squish focus-ring floating-toc-title-btn",
+     "l": 21,
+     "rr": 678
+    },
+    {
+     "cls": "page-readout fira-code floating-toc-page",
+     "l": 682,
+     "rr": 765
+    },
+    {
+     "cls": "button tap-squish focus-ring floating-toc-search-btn",
+     "l": 769,
+     "rr": 823
+    }
+   ]
+  }
+ },
+ "dark-390": {
+  "galleryHref": []
+ }
+}

@@ -1,0 +1,572 @@
+{
+ "gallery-light-1440": {
+  "card": {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "box": [
+    16,
+    156,
+    272,
+    338
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4",
+   "background-image": "none",
+   "background-color": "oklch(0.953918 0.0148539 67.5222)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.16)",
+   "border-radius": "16px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "18.608px"
+  },
+  "badge": {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([class*=size-])]:size-[1em] [&_svg]:shrink-0 [&_svg]:pointer-events-none badge-atom--outlin",
+   "box": [
+    29,
+    417,
+    88,
+    25
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset",
+   "background-image": "none",
+   "background-color": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "0px solid color(srgb 0.843137 0.207843 0.137255 / 0.3)",
+   "border-radius": "9999px",
+   "color": "rgb(215, 53, 35)",
+   "font-size": "14.384px"
+  }
+ },
+ "morph-light-1440": {
+  "btn": {
+   "cls": "glass-resting morph-button",
+   "box": [
+    160,
+    192,
+    416,
+    416
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px",
+   "background-image": "none",
+   "background-color": "color(srgb 0.994 0.96 0.926)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+   "border-radius": "16px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "18.608px"
+  }
+ },
+ "eq-light-1440": {
+  "compute": null,
+  "play": null,
+  "aside": {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+   "box": [
+    1000,
+    100,
+    424,
+    788
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px",
+   "background-image": "none",
+   "background-color": "color(srgb 0.994 0.96 0.926)",
+   "backdrop-filter": "blur(20px) saturate(1.5)",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+   "border-radius": "16px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "18.608px"
+  },
+  "stage": {
+   "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+   "box": [
+    16,
+    88,
+    972,
+    800
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px",
+   "background-image": "none",
+   "background-color": "color(srgb 0.994 0.96 0.926)",
+   "backdrop-filter": "blur(20px) saturate(1.5)",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+   "border-radius": "16px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "18.608px"
+  },
+  "rail": {
+   "cls": "slider-track track-well",
+   "box": [
+    83,
+    856,
+    822,
+    6
+   ],
+   "box-shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "background-image": "none",
+   "background-color": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "0px solid rgb(28, 25, 23)",
+   "border-radius": "9999px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "18.608px"
+  }
+ },
+ "v-light-1440": {
+  "more": {
+   "cls": "glass-dock horizontal shape-pill expanded fit-content",
+   "box": [
+    641,
+    97,
+    338,
+    56
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px",
+   "background-image": "none",
+   "background-color": "rgba(0, 0, 0, 0)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "0px solid rgb(28, 25, 23)",
+   "border-radius": "9999px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "18.608px"
+  },
+  "docks": [
+   {
+    "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+    "box": [
+     442,
+     12,
+     555,
+     56
+    ],
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) ",
+    "radius": "9999px"
+   },
+   {
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "box": [
+     641,
+     97,
+     338,
+     56
+    ],
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) ",
+    "radius": "9999px"
+   },
+   {
+    "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+    "box": [
+     451,
+     819,
+     102,
+     56
+    ],
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px",
+    "radius": "9999px"
+   }
+  ],
+  "replace": {
+   "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+   "box": [
+    1002,
+    102,
+    420,
+    47
+   ],
+   "box-shadow": "none",
+   "background-image": "none",
+   "background-color": "rgba(0, 0, 0, 0)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "0px solid rgb(28, 25, 23)",
+   "border-radius": "0px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "18.608px"
+  },
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficients201 harmonics · n = ±200"
+  ]
+ },
+ "morph-light-390": {
+  "btn": {
+   "cls": "glass-resting morph-button",
+   "box": [
+    16,
+    82,
+    120,
+    120
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px",
+   "background-image": "none",
+   "background-color": "color(srgb 0.994 0.96 0.926)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+   "border-radius": "16px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "16px"
+  }
+ },
+ "eq-light-390": {
+  "compute": null,
+  "play": null,
+  "aside": {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+   "box": [
+    16,
+    132,
+    358,
+    708
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px",
+   "background-image": "none",
+   "background-color": "color(srgb 0.994 0.96 0.926)",
+   "backdrop-filter": "blur(20px) saturate(1.5)",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+   "border-radius": "16px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "16px"
+  },
+  "stage": {
+   "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+   "box": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px",
+   "background-image": "none",
+   "background-color": "color(srgb 0.994 0.96 0.926)",
+   "backdrop-filter": "blur(20px) saturate(1.5)",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+   "border-radius": "16px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "16px"
+  },
+  "rail": {
+   "cls": "slider-track track-well",
+   "box": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "box-shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "background-image": "none",
+   "background-color": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "0px solid rgb(28, 25, 23)",
+   "border-radius": "9999px",
+   "color": "rgb(28, 25, 23)",
+   "font-size": "16px"
+  }
+ },
+ "gallery-dark-1440": {
+  "card": {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "box": [
+    16,
+    156,
+    272,
+    338
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px ",
+   "background-image": "none",
+   "background-color": "oklch(0.314869 0.0216345 59.1819)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.16)",
+   "border-radius": "16px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "18.608px"
+  },
+  "badge": {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([class*=size-])]:size-[1em] [&_svg]:shrink-0 [&_svg]:pointer-events-none badge-atom--outlin",
+   "box": [
+    29,
+    417,
+    88,
+    25
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.48) 0px 0px 0px 1px inset",
+   "background-image": "none",
+   "background-color": "color(srgb 0.921569 0.45098 0.4 / 0.12)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "0px solid color(srgb 0.921569 0.45098 0.4 / 0.3)",
+   "border-radius": "9999px",
+   "color": "rgb(235, 115, 102)",
+   "font-size": "14.384px"
+  }
+ },
+ "morph-dark-1440": {
+  "btn": {
+   "cls": "glass-resting morph-button",
+   "box": [
+    160,
+    192,
+    416,
+    416
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px",
+   "background-image": "none",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+   "border-radius": "16px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "18.608px"
+  }
+ },
+ "eq-dark-1440": {
+  "compute": null,
+  "play": null,
+  "aside": {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+   "box": [
+    1000,
+    100,
+    424,
+    788
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0p",
+   "background-image": "none",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326)",
+   "backdrop-filter": "blur(20px) saturate(1.5)",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.465229 0.0110701 0.0260825 / 0.6)",
+   "border-radius": "16px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "18.608px"
+  },
+  "stage": {
+   "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+   "box": [
+    16,
+    88,
+    972,
+    800
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0p",
+   "background-image": "none",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326)",
+   "backdrop-filter": "blur(20px) saturate(1.5)",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.465229 0.0110701 0.0260825 / 0.6)",
+   "border-radius": "16px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "18.608px"
+  },
+  "rail": {
+   "cls": "slider-track track-well",
+   "box": [
+    83,
+    856,
+    822,
+    6
+   ],
+   "box-shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "background-image": "none",
+   "background-color": "color(srgb 0.1232 0.10912 0.0968 / 0.5)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "0px solid rgb(233, 230, 226)",
+   "border-radius": "9999px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "18.608px"
+  }
+ },
+ "v-dark-1440": {
+  "more": {
+   "cls": "glass-dock horizontal shape-pill expanded fit-content",
+   "box": [
+    641,
+    97,
+    338,
+    56
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 0px 20px 0px",
+   "background-image": "none",
+   "background-color": "rgba(0, 0, 0, 0)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "0px solid rgb(233, 230, 226)",
+   "border-radius": "9999px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "18.608px"
+  },
+  "docks": [
+   {
+    "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+    "box": [
+     442,
+     12,
+     555,
+     56
+    ],
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)",
+    "radius": "9999px"
+   },
+   {
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "box": [
+     641,
+     97,
+     338,
+     56
+    ],
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)",
+    "radius": "9999px"
+   },
+   {
+    "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+    "box": [
+     451,
+     819,
+     102,
+     56
+    ],
+    "shadow": "color(srgb 0.914 0.9 0.886 / 0.12) 0px 0px 12px 0px",
+    "radius": "9999px"
+   }
+  ],
+  "replace": {
+   "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+   "box": [
+    1002,
+    102,
+    420,
+    47
+   ],
+   "box-shadow": "none",
+   "background-image": "none",
+   "background-color": "rgba(0, 0, 0, 0)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "0px solid rgb(233, 230, 226)",
+   "border-radius": "0px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "18.608px"
+  },
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficients201 harmonics · n = ±200"
+  ]
+ },
+ "morph-dark-390": {
+  "btn": {
+   "cls": "glass-resting morph-button",
+   "box": [
+    16,
+    82,
+    120,
+    120
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px",
+   "background-image": "none",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+   "border-radius": "16px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "16px"
+  }
+ },
+ "eq-dark-390": {
+  "compute": null,
+  "play": null,
+  "aside": {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+   "box": [
+    16,
+    132,
+    358,
+    708
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0p",
+   "background-image": "none",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326)",
+   "backdrop-filter": "blur(20px) saturate(1.5)",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.465229 0.0110701 0.0260825 / 0.6)",
+   "border-radius": "16px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "16px"
+  },
+  "stage": {
+   "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+   "box": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "box-shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0p",
+   "background-image": "none",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326)",
+   "backdrop-filter": "blur(20px) saturate(1.5)",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "1px solid oklab(0.465229 0.0110701 0.0260825 / 0.6)",
+   "border-radius": "16px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "16px"
+  },
+  "rail": {
+   "cls": "slider-track track-well",
+   "box": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "box-shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "background-image": "none",
+   "background-color": "color(srgb 0.1232 0.10912 0.0968 / 0.5)",
+   "backdrop-filter": "none",
+   "filter": "none",
+   "animation-name": "none",
+   "border": "0px solid rgb(233, 230, 226)",
+   "border-radius": "9999px",
+   "color": "rgb(233, 230, 226)",
+   "font-size": "16px"
+  }
+ }
+}

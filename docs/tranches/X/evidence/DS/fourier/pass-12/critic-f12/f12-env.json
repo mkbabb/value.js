@@ -1,0 +1,42 @@
+{
+ "390": [
+  {
+   "sel": ".paper-article .theorem-block",
+   "bl": "3px",
+   "pad": "12px 20px",
+   "margin": "16px 0px",
+   "left": 33,
+   "labelLeft": 56,
+   "labelFont": "16px"
+  },
+  {
+   "sel": ".paper-article .paper-proof-block",
+   "bl": "3px",
+   "pad": "14px 16px",
+   "margin": "16px 0px 20px",
+   "left": 33,
+   "labelLeft": 52,
+   "labelFont": "16px"
+  }
+ ],
+ "1440": [
+  {
+   "sel": ".paper-article .theorem-block",
+   "bl": "3px",
+   "pad": "12px 20px",
+   "margin": "16px 0px",
+   "left": 551,
+   "labelLeft": 574,
+   "labelFont": "18px"
+  },
+  {
+   "sel": ".paper-article .paper-proof-block",
+   "bl": "3px",
+   "pad": "14px 16px",
+   "margin": "16px 0px 20px",
+   "left": 551,
+   "labelLeft": 570,
+   "labelFont": "18px"
+  }
+ ]
+}

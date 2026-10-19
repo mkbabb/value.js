@@ -1,0 +1,132 @@
+{
+ "eq-light": {
+  "compute": {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover compute-btn",
+   "bg": "oklab(0.958891 0.0089115 0.0269842)",
+   "bgi": "none",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+   "bf": "blur(0px) saturate(1.605)",
+   "color": "rgb(28, 25, 23)"
+  },
+  "auto": {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring hue-chip fourier-chip",
+   "bg": "color(srgb 0.843276 0.20841 0.137255 / 0.12)",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "color": "oklab(0.488282 0.130899 0.0775813)"
+  },
+  "rest": [
+   [
+    ".progress-rail",
+    null
+   ],
+   [
+    ".configurator-aside",
+    {
+     "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+     "bg": "color(srgb 0.994 0.96 0.926)",
+     "bgi": "none",
+     "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+     "bf": "blur(20px) saturate(1.5)",
+     "border": "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+     "r": [
+      1000,
+      100,
+      424,
+      788
+     ]
+    }
+   ],
+   [
+    ".eq-legend, .convergence-legend",
+    null
+   ]
+  ]
+ },
+ "w-light": {
+  "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover drop-target-button",
+  "bg": "oklab(0.958891 0.0089115 0.0269842)",
+  "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+  "bf": "blur(0px) saturate(1.605)"
+ },
+ "morph-light": {
+  "select": {
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex cursor-pointer items-center justify-between rounded-pill px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  "input": {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "bg": "rgb(243, 236, 226)",
+   "bgi": "none",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866",
+   "bf": "blur(14px) saturate(1.5)"
+  }
+ },
+ "eq-dark": {
+  "compute": {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover compute-btn",
+   "bg": "oklab(0.31489 0.0117949 0.0248798)",
+   "bgi": "none",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+   "bf": "blur(0px) saturate(1.8)",
+   "color": "rgb(233, 230, 226)"
+  },
+  "auto": {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring hue-chip fourier-chip",
+   "bg": "color(srgb 0.921309 0.450877 0.39841 / 0.12)",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "color": "oklab(0.751049 0.100497 0.0547776)"
+  },
+  "rest": [
+   [
+    ".progress-rail",
+    null
+   ],
+   [
+    ".configurator-aside",
+    {
+     "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+     "bg": "color(srgb 0.2074 0.165013 0.1326)",
+     "bgi": "none",
+     "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+     "bf": "blur(20px) saturate(1.5)",
+     "border": "1px solid oklab(0.465229 0.0110701 0.0260825 / 0.6)",
+     "r": [
+      1000,
+      100,
+      424,
+      788
+     ]
+    }
+   ],
+   [
+    ".eq-legend, .convergence-legend",
+    null
+   ]
+  ]
+ },
+ "w-dark": {
+  "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover drop-target-button",
+  "bg": "oklab(0.31489 0.0117949 0.0248798)",
+  "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+  "bf": "blur(0px) saturate(1.8)"
+ },
+ "morph-dark": {
+  "select": {
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex cursor-pointer items-center justify-between rounded-pill px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, ",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  "input": {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "bg": "rgb(63, 55, 49)",
+   "bgi": "none",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742",
+   "bf": "blur(14px) saturate(1.5)"
+  }
+ }
+}

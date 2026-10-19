@@ -1,0 +1,3 @@
+import { chromium } from "/Users/mkbabb/Programming/fourier-analysis/web/node_modules/playwright/index.mjs";
+const b = await chromium.launch({ channel: "chrome", headless: true });
+try { for (const [t,w] of [["light",1440],["dark",390]]) { const ctx = await b.newContext({viewport:{width:w,height:w>500?900:844}, colorScheme:t, deviceScaleFactor: w>500?1:2, ...(w<500?{isMobile:true,hasTouch:true}:{})}); await ctx.addInitScript((t)=>{try{localStorage.setItem("vueuse-color-scheme",t);localStorage.setItem("theme",t)}catch{}},t); const p = await ctx.newPage(); await p.goto("http://localhost:3148/w"); await p.waitForTimeout(5000); await p.screenshot({path:`run2/wempty-${t}-${w}.png`}); await ctx.close(); } } finally { await b.close(); }

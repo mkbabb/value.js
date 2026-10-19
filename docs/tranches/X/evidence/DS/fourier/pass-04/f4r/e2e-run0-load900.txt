@@ -1,0 +1,960 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 106 tests using 3 workers
+
+[1/106] [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests
+[2/106] [chromium] › e2e/f-w13-radius.spec.ts:56:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 1: the CONTENTS disclosure is a circle and collapses the list
+[3/106] [chromium] › e2e/f-w13-radius.spec.ts:83:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 2: the history control is a circle and navigates back
+[4/106] [chromium] › e2e/f-w13-radius.spec.ts:105:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 5: every visualizer panel is on the card radius
+[5/106] [chromium] › e2e/f-w14-residuals.spec.ts:38:5 › F.W14.r — the desktop ToC (F.W13 `.a` residuals) › G-r1 — scroll-to-top is a glass Button beside the disclosure, and it acts
+[6/106] [chromium] › e2e/f-w14-residuals.spec.ts:63:5 › F.W14.r — the desktop ToC (F.W13 `.a` residuals) › G-r2 — `.sidebar-link` corner is glass's row canon (`--radius-lg`)
+[7/106] [chromium] › e2e/f-w14-residuals.spec.ts:81:5 › F.W14.r — the image sidebar (F.W13 `.c` residuals) › G-c1 — the sidebar enters on the pick, while the upload is still in flight
+[8/106] [chromium] › e2e/f-w14-residuals.spec.ts:133:5 › F.W14.r — the image sidebar (F.W13 `.c` residuals) › G-c2 — a failed upload is the leave path: no sidebar, and no empty column after
+[9/106] [chromium] › e2e/f-w14-residuals.spec.ts:163:5 › F.W14.r — PRM reaches the page (F.W13 `.c` r4) › G-c4 — `contextOptions.reducedMotion` is in force on the page
+[10/106] [chromium] › e2e/f-w14-uia.spec.ts:26:5 › UIA-F-1 — a featured entry renders the strip, not a crash › the pager lives inside its Carousel; no useCarousel pageerror
+[11/106] [chromium] › e2e/f-w14-uia.spec.ts:62:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-2: a cold deep link sends GET /api/visualizations/<slug> and leaves the upload stage
+[12/106] [chromium] › e2e/f-w14-uia.spec.ts:73:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-3: an in-app push /w/ → /v/ stays on /v/ with no orphaned transition
+[13/106] [chromium] › e2e/f-w14-uia.spec.ts:86:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-50: an unknown path renders a titled, noindexed not-found card
+  1) [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.waitForResponse: Test timeout of 30000ms exceeded.
+
+      88 |         await expect(compute).toBeEnabled();
+      89 |
+    > 90 |         const computeResponse = page.waitForResponse(
+         |                                      ^
+      91 |             (r) => COMPUTE_URL.test(new URL(r.url()).pathname) && r.request().method() === "POST",
+      92 |             { timeout: 60_000 },
+      93 |         );
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/equation-interaction.spec.ts:90:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/equation-interaction-S2-—--f2555--the-route-and-its-requests-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/equation-interaction-S2-—--f2555--the-route-and-its-requests-chromium/error-context.md
+
+
+[14/106] [chromium] › e2e/f-w14-uia.spec.ts:107:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-49: the error card's action is labelled, and nothing covers the diagnosis
+[15/106] [chromium] › e2e/f-w14-uia.spec.ts:99:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-4: /v/<unknown> names the failed slug instead of the upload prompt
+[16/106] [chromium] › e2e/f-w14-uia.spec.ts:122:5 › UIA-F-7 — the collapsed dock's position readout paints its fill › the mini readout is a progressbar whose painted fill tracks the clock
+[17/106] [chromium] › e2e/f-w14-uia.spec.ts:163:5 › UIA-F-17 — every export switch changes the PNG › switching Epicycles and Trace path off removes their pixels
+  2) [chromium] › e2e/f-w13-radius.spec.ts:105:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 5: every visualizer panel is on the card radius 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.waitForResponse: Test timeout of 30000ms exceeded.
+
+      104 |
+      105 |     test("frame 5: every visualizer panel is on the card radius", async ({ page }) => {
+    > 106 |         const computed = page.waitForResponse(
+          |                               ^
+      107 |             (r) => r.url().includes("/api/equations/compute") && r.request().method() === "POST",
+      108 |             { timeout: 60_000 },
+      109 |         );
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w13-radius.spec.ts:106:31
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w13-radius-G-a-—-F-W13-r-fbb5f-panel-is-on-the-card-radius-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w13-radius-G-a-—-F-W13-r-fbb5f-panel-is-on-the-card-radius-chromium/error-context.md
+
+
+[18/106] [chromium] › e2e/f-w14-uia.spec.ts:247:5 › UIA-F-16 — Undo enables after a point drag › a drag writes history and the dock's Undo is enabled
+  3) [chromium] › e2e/f-w14-uia.spec.ts:122:5 › UIA-F-7 — the collapsed dock's position readout paints its fill › the mini readout is a progressbar whose painted fill tracks the clock 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      126 |         const bar = page.locator(".mini-progress").first();
+      127 |         await expect(bar).toHaveAttribute("role", "progressbar");
+    > 128 |         await expect.poll(async () => Number(await bar.getAttribute("aria-valuenow")), { timeout: 10_000 }).toBeGreaterThan(0);
+          |                                                                                                             ^
+      129 |         const fill = await bar.evaluate((el) => {
+      130 |             const ind = el.firstElementChild as HTMLElement;
+      131 |             const r = ind.getBoundingClientRect();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:128:109
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-7-—-the-co-5c96b-inted-fill-tracks-the-clock-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-7-—-the-co-5c96b-inted-fill-tracks-the-clock-chromium/error-context.md
+
+
+  4) [chromium] › e2e/f-w14-uia.spec.ts:163:5 › UIA-F-17 — every export switch changes the PNG › switching Epicycles and Trace path off removes their pixels 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0.2
+    Received:   0
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      173 |         await page.goto(`/v/${viz.slug}`);
+      174 |         const bar = page.locator(".mini-progress").first();
+    > 175 |         await expect.poll(async () => Number(await bar.getAttribute("aria-valuenow")), { timeout: 10_000 }).toBeGreaterThan(0.2);
+          |                                                                                                             ^
+      176 |         // Paused by keyboard: a pointer press on a persistent dock control can
+      177 |         // be discarded by the producer's click-integrity guard mid-morph
+      178 |         // (UIA-F-8, glass), which would leave the clock running.
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:175:109
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-17-—-every-30a57-th-off-removes-their-pixels-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-17-—-every-30a57-th-off-removes-their-pixels-chromium/error-context.md
+
+
+[19/106] [chromium] › e2e/f-w14-uia.spec.ts:261:5 › UIA-F-15 — editor shortcuts act only on the editor › Delete works on a picked point; out of edit mode a sidebar field keeps its Backspace
+[20/106] [chromium] › e2e/f-w14-uia.spec.ts:291:5 › UIA-F-18 — one Publish action gives one outcome › a double-click sends one save and shows no false 'Could not save'
+  5) [chromium] › e2e/f-w14-uia.spec.ts:247:5 › UIA-F-16 — Undo enables after a point drag › a drag writes history and the dock's Undo is enabled 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.hover: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      224 |     await page.goto(`/v/${viz.slug}`);
+      225 |     const edit = page.getByRole("button", { name: "Edit contour" }).first();
+    > 226 |     await edit.hover();
+          |                ^
+      227 |     await page.waitForTimeout(600);
+      228 |     await edit.click();
+      229 |     const shell = page.locator(".editor-shell:not(.is-hidden) > .editor-shell").first();
+        at openEditor (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:226:16)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:248:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-16-—-Undo--b79fc--the-dock-s-Undo-is-enabled-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-16-—-Undo--b79fc--the-dock-s-Undo-is-enabled-chromium/error-context.md
+
+
+[21/106] [chromium] › e2e/f-w14-uia.spec.ts:321:5 › UIA-F-19 — one drop, one upload › a file dropped over a loaded image sends exactly one POST /api/images
+[22/106] [chromium] › e2e/f-w14-uia.spec.ts:356:5 › UIA-F-20 — the paper restores its scroll position › a reload returns to the saved section instead of the top
+  6) [chromium] › e2e/f-w14-uia.spec.ts:261:5 › UIA-F-15 — editor shortcuts act only on the editor › Delete works on a picked point; out of edit mode a sidebar field keeps its Backspace 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.hover: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      224 |     await page.goto(`/v/${viz.slug}`);
+      225 |     const edit = page.getByRole("button", { name: "Edit contour" }).first();
+    > 226 |     await edit.hover();
+          |                ^
+      227 |     await page.waitForTimeout(600);
+      228 |     await edit.click();
+      229 |     const shell = page.locator(".editor-shell:not(.is-hidden) > .editor-shell").first();
+        at openEditor (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:226:16)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:262:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-15-—-edito-9bfdc-r-field-keeps-its-Backspace-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-15-—-edito-9bfdc-r-field-keeps-its-Backspace-chromium/error-context.md
+
+
+[23/106] [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen
+[24/106] [chromium] › e2e/f-w14-uia.spec.ts:377:5 › UIA-F-24 — floating ToC chapter rows navigate; the disclosure toggles › tapping a chapter row scrolls to it; the chevron is its own control
+  7) [chromium] › e2e/f-w14-uia.spec.ts:291:5 › UIA-F-18 — one Publish action gives one outcome › a double-click sends one save and shows no false 'Could not save' 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.hover: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      307 |         await page.goto(`/v/${viz.slug}`);
+      308 |         // The canvas dock expands under the pointer (its persistent control).
+    > 309 |         await page.getByRole("button", { name: "Edit contour" }).first().hover();
+          |                                                                          ^
+      310 |         const publish = page.getByRole("button", { name: "Publish to Gallery" }).first();
+      311 |         await expect(publish).toBeVisible();
+      312 |         await page.waitForTimeout(600);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:309:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-18-—-one-P-e5917-ws-no-false-Could-not-save--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-18-—-one-P-e5917-ws-no-false-Could-not-save--chromium/error-context.md
+
+
+[25/106] [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill
+[26/106] [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height
+[27/106] [chromium] › e2e/f-w14-uia.spec.ts:484:5 › UIA-F-48 — the Drafts card sits inside the column gutter › its right edge stays inside its column and the viewport
+[28/106] [chromium] › e2e/f-w14-uia.spec.ts:509:5 › UIA-F-41 — the gallery column never scrolls sideways at 390 (consumer half) › focusing the last admin tab leaves the column at scrollLeft 0
+[29/106] [chromium] › e2e/f-w14-uia.spec.ts:530:5 › UIA-F-45 — focus opens inside the card modal and stays there › initial focus is the dialog's title and Tab never reaches the page behind
+[30/106] [chromium] › e2e/f-w14-uia.spec.ts:546:5 › UIA-F-40 — the admin grid does not wait on admin stats › a slow stats call neither delays the grid request nor shows the empty CTA over entries
+[31/106] [chromium] › e2e/f-w14-uia.spec.ts:567:5 › UIA-F-47 — a published draft leaves the Drafts list › after Publish the draft row is gone, and stays gone on reload
+[32/106] [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card
+[33/106] [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card
+  8) [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      624 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      625 |     const card = page.locator(".eq-card");
+    > 626 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      627 |     return card;
+      628 | }
+      629 |
+        at openEquationCard (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:626:50)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:635:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-33-UIA-F-3-c42ff--nothing-is-cut-by-the-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-33-UIA-F-3-c42ff--nothing-is-cut-by-the-card-chromium/error-context.md
+
+
+  9) [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      624 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      625 |     const card = page.locator(".eq-card");
+    > 626 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      627 |     return card;
+      628 | }
+      629 |
+        at openEquationCard (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:626:50)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:635:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-33-UIA-F-3-e2d51--nothing-is-cut-by-the-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-33-UIA-F-3-e2d51--nothing-is-cut-by-the-card-chromium/error-context.md
+
+
+[34/106] [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor
+[35/106] [chromium] › e2e/f-w14-uia.spec.ts:684:5 › UIA-F-12 — the canvas dock's View options are reachable by keyboard › Enter opens the menu and the keys reach both rows; Enter toggles one
+  10) [chromium] › e2e/f-w14-uia.spec.ts:567:5 › UIA-F-47 — a published draft leaves the Drafts list › after Publish the draft row is gone, and stays gone on reload 
+
+    Error: the workspace's draft carries its contour
+
+    the workspace's draft carries its contour
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+      602 |                 { message: "the workspace's draft carries its contour", timeout: 30_000 },
+      603 |             )
+    > 604 |             .toBe(true);
+          |              ^
+      605 |         await page.goto("/gallery");
+      606 |         await page.getByRole("tab", { name: "Drafts" }).click();
+      607 |         const header = page.getByRole("list", { name: "Drafts" });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:604:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-47-—-a-pub-1691e-ne-and-stays-gone-on-reload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-47-—-a-pub-1691e-ne-and-stays-gone-on-reload-chromium/error-context.md
+
+
+[36/106] [chromium] › e2e/f-w14-uia.spec.ts:712:5 › UIA-F-5 — at 390 every expanded canvas-dock control is visible and hittable › each control's centre hits that control, inside the viewport
+  11) [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      624 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      625 |     const card = page.locator(".eq-card");
+    > 626 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      627 |     return card;
+      628 | }
+      629 |
+        at openEquationCard (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:626:50)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:658:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-32-—-the-c-bc694-over-clipped-by-no-ancestor-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-32-—-the-c-bc694-over-clipped-by-no-ancestor-chromium/error-context.md
+
+
+[37/106] [chromium] › e2e/f-w14-uia.spec.ts:754:5 › UIA-F-28 / UIA-F-29 / UIA-F-30 — the account group fits the dock at 390 › F-28/F-29: the login form opens in a popover; its error wraps in its own line
+[38/106] [chromium] › e2e/f-w14-uia.spec.ts:774:5 › UIA-F-28 / UIA-F-29 / UIA-F-30 — the account group fits the dock at 390 › F-30: logged in, the account is one trigger and the dark-mode toggle stays on the plate
+[39/106] [chromium] › e2e/f-w14-uia.spec.ts:800:5 › UIA-F-22 — mobile paper search: one instance, and a tapped result navigates › one listbox, no duplicate ids, and tapping a result scrolls to it
+[40/106] [chromium] › e2e/f-w14-uia.spec.ts:824:5 › UIA-F-23 — the floating ToC's Close search closes with a query typed › one tap on Close search closes the search and it stays closed
+  12) [chromium] › e2e/f-w14-uia.spec.ts:684:5 › UIA-F-12 — the canvas dock's View options are reachable by keyboard › Enter opens the menu and the keys reach both rows; Enter toggles one 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.hover: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      685 |         const viz = firstSavedViz();
+      686 |         await page.goto(`/v/${viz.slug}`);
+    > 687 |         await page.getByRole("button", { name: "Edit contour" }).first().hover();
+          |                                                                          ^
+      688 |         const view = page.getByRole("button", { name: "View options" }).first();
+      689 |         await expect(view).toBeVisible();
+      690 |         await page.waitForTimeout(600);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:687:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-12-—-the-c-c5c8b-both-rows-Enter-toggles-one-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-12-—-the-c-c5c8b-both-rows-Enter-toggles-one-chromium/error-context.md
+
+
+[41/106] [chromium] › e2e/f-w14u-eq.spec.ts:71:5 › q35 · UIA-F-35 (consumer) — whole harmonics, counted as harmonics › a4 reads -0.0625 at 8 shown; the control and the list count harmonics
+[42/106] [chromium] › e2e/f-w14-uia.spec.ts:841:5 › UIA-F-25 — the search palette has one dismissal owner › no ✕ under Clear, and Esc collapses the palette keeping the query
+[43/106] [chromium] › e2e/f-w14u-eq.spec.ts:95:5 › q112 · UIA-F-112 (consumer) — an invalid f(x) marks its field › aria-invalid + the server's detail under the field; no Retry on a 4xx
+  13) [chromium] › e2e/f-w14-uia.spec.ts:712:5 › UIA-F-5 — at 390 every expanded canvas-dock control is visible and hittable › each control's centre hits that control, inside the viewport 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.hover: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      714 |         await page.goto(`/v/${viz.slug}`);
+      715 |         await page.getByRole("tab", { name: "Canvas" }).click();
+    > 716 |         await page.getByRole("button", { name: "Edit contour" }).first().hover();
+          |                                                                          ^
+      717 |         await expect(page.getByRole("button", { name: "Equation" }).first()).toBeVisible();
+      718 |         await page.waitForTimeout(700);
+      719 |         const res = await page.evaluate(() => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:716:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-5-—-at-390-2a59f-control-inside-the-viewport-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-5-—-at-390-2a59f-control-inside-the-viewport-chromium/error-context.md
+
+
+[44/106] [chromium] › e2e/f-w14u-eq.spec.ts:116:5 › q113 · UIA-F-113 — at 390 the failure shows where the user types › the Controls pane carries the field's error, inside the viewport
+[45/106] [chromium] › e2e/f-w14u-eq.spec.ts:137:5 › q114 · UIA-F-114 ⊕ F-207 — one disclosure idiom; no clipped shadow › three glass ConfiguratorLayers, no local CollapsibleSection, no clipping ancestor
+[46/106] [chromium] › e2e/f-w14u-eq.spec.ts:192:5 › q201 · UIA-F-201 — one variable, one harmonic count › the legend speaks the equation's variable; legend, timeline and field agree on N
+[47/106] [chromium] › e2e/f-w14u-eq.spec.ts:211:5 › q202 · UIA-F-202 — status out of flow; a stale result is marked › a recompute and a transient failure move nothing; the busy mark is glass Progress
+[48/106] [chromium] › e2e/f-w14u-eq.spec.ts:265:5 › q203 · UIA-F-203 — one floating-surface canon › the coefficient popover and the plot tooltip wear the glass popover radius
+[49/106] [chromium] › e2e/f-w14u-eq.spec.ts:290:5 › q204 · UIA-F-204 — single-choice sets are ToggleGroups › Notation and Presets are radiogroups of radios; the current one is checked
+[50/106] [chromium] › e2e/f-w14u-eq.spec.ts:304:5 › q205 · UIA-F-205 — the plot holds its own data › no curve below the plot box; the legend beside the curves
+[51/106] [chromium] › e2e/f-w14u-eq.spec.ts:334:9 › q206 · UIA-F-206 — named type rungs; the Harmonics row keeps its controls (1440) › no consumer text under the caption rung; the Parseval button sits in its row
+[52/106] [chromium] › e2e/f-w14u-eq.spec.ts:334:9 › q206 · UIA-F-206 — named type rungs; the Harmonics row keeps its controls (390) › no consumer text under the caption rung; the Parseval button sits in its row
+[53/106] [chromium] › e2e/f-w14u-eq.spec.ts:379:5 › q253 · UIA-F-253 — the equation's micro-issues › glass Badge for the tier; lucide glyphs on Play (1440)
+[54/106] [chromium] › e2e/f-w14u-eq.spec.ts:391:5 › q253 · UIA-F-253 — the equation's micro-issues › the 390 tab strip is not an opaque band
+[55/106] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (1440) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[56/106] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (390) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[57/106] [chromium] › e2e/f-w14u-vstage.spec.ts:140:5 › F.W14U.vstage — drops and upload failures (1440) › e166 · F-166 ⊕ F-237 — the stage signals, the header band cannot navigate, a rejection says why
+[58/106] [chromium] › e2e/f-w14u-vstage.spec.ts:172:5 › F.W14U.vstage — drops and upload failures (1440) › e167 · F-167 — an upload failure is shown at the drop target; an unknown slug throws nothing
+[59/106] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (1440) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[60/106] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (390) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[61/106] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 light) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[62/106] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 dark) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[63/106] [chromium] › e2e/f-w14u-vstage.spec.ts:258:5 › F.W14U.vstage — upload and publish (1440) › e133 · F-133 (consumer) — the upload button says it is uploading
+[64/106] [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in
+[65/106] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[66/106] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[67/106] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[68/106] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+  14) [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.hover: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      279 |         await page.goto(`/v/${viz.slug}`);
+      280 |         await expect(page.getByRole("button", { name: "Log in" })).toBeVisible({ timeout: 30_000 });
+    > 281 |         await page.getByRole("button", { name: "Edit contour" }).first().hover();
+          |                                                                          ^
+      282 |         const publish = page.getByRole("button", { name: "Publish to Gallery" }).first();
+      283 |         await expect(publish).toBeVisible();
+      284 |         await page.waitForTimeout(600);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:281:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-c40d5-nd-opens-the-inline-sign-in-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-c40d5-nd-opens-the-inline-sign-in-chromium/error-context.md
+
+
+[69/106] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[70/106] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[71/106] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (1440) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[72/106] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (390) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[73/106] [chromium] › e2e/f-w14v-au3.spec.ts:97:5 › X.F.W14V.au3 — equation and morph (1440) › L1-5 · the /visualize equation panel renders through EquationResult
+  15) [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      330 |             // F-169: no Preview layer in the editor.
+      331 |             if (vp.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+    > 332 |             await page.getByRole("button", { name: "Edit contour" }).first().click();
+          |                                                                              ^
+      333 |             if (vp.width < 1024) await page.getByRole("tab", { name: "Controls" }).click();
+      334 |             await page.waitForTimeout(600);
+      335 |             await frame(page, "e169-editor-panel");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:332:78
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-b4fa0-ew-layer-one-amplitude-view-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-b4fa0-ew-layer-one-amplitude-view-chromium/error-context.md
+
+
+[74/106] [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation
+  16) [chromium] › e2e/f-w14v-au3.spec.ts:97:5 › X.F.W14V.au3 — equation and morph (1440) › L1-5 · the /visualize equation panel renders through EquationResult 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.waitForTimeout: Target page, context or browser has been closed
+
+      28 | async function settle(page: Page, ms = 700): Promise<void> {
+      29 |     await page.waitForLoadState("networkidle").catch(() => undefined);
+    > 30 |     await page.waitForTimeout(ms);
+         |                ^
+      31 | }
+      32 |
+      33 | async function openViz(page: Page): Promise<void> {
+        at settle (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:30:16)
+        at openViz (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:36:5)
+        at openEquationPanel (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:40:5)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:98:23
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--1043a-ders-through-EquationResult-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--1043a-ders-through-EquationResult-chromium/error-context.md
+
+
+[75/106] [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /morph, and the class paints nothing
+  17) [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      330 |             // F-169: no Preview layer in the editor.
+      331 |             if (vp.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+    > 332 |             await page.getByRole("button", { name: "Edit contour" }).first().click();
+          |                                                                              ^
+      333 |             if (vp.width < 1024) await page.getByRole("tab", { name: "Controls" }).click();
+      334 |             await page.waitForTimeout(600);
+      335 |             await frame(page, "e169-editor-panel");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:332:78
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-f9a5f-ew-layer-one-amplitude-view-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-f9a5f-ew-layer-one-amplitude-view-chromium/error-context.md
+
+
+[76/106] [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /visualize, and the class paints nothing
+[77/106] [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /equation, and the class paints nothing
+  18) [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /visualize, and the class paints nothing 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.waitForTimeout: Target page, context or browser has been closed
+
+      28 | async function settle(page: Page, ms = 700): Promise<void> {
+      29 |     await page.waitForLoadState("networkidle").catch(() => undefined);
+    > 30 |     await page.waitForTimeout(ms);
+         |                ^
+      31 | }
+      32 |
+      33 | async function openViz(page: Page): Promise<void> {
+        at settle (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:30:16)
+        at openViz (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:36:5)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:149:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--5a7b4-nd-the-class-paints-nothing-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--5a7b4-nd-the-class-paints-nothing-chromium/error-context.md
+
+
+[78/106] [chromium] › e2e/f-w14v-au3.spec.ts:156:5 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · the morph control is a glass Surface, the cards glass Cards
+  19) [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /equation, and the class paints nothing 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      52 | async function openEquation(page: Page): Promise<void> {
+      53 |     await page.goto("/equation");
+    > 54 |     await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                           ^
+      55 |     await settle(page);
+      56 | }
+      57 |
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:54:59)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:148:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--62fde-nd-the-class-paints-nothing-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--62fde-nd-the-class-paints-nothing-chromium/error-context.md
+
+
+[79/106] [chromium] › e2e/f-w14v-eq2.spec.ts:66:5 › X.F.W14V.eq2 — q2 /equation below lg (390) › q2 Controls tab shows the layers and no empty stage box; Canvas tab shows the stage
+[80/106] [chromium] › e2e/f-w14v-eq2.spec.ts:39:5 › X.F.W14V.eq2 — q1 /equation on the detached Configurator (1440) › q1 one detached Configurator: series + plot in #stage, sections as layers in the aside
+  20) [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.waitForTimeout: Target page, context or browser has been closed
+
+      28 | async function settle(page: Page, ms = 700): Promise<void> {
+      29 |     await page.waitForLoadState("networkidle").catch(() => undefined);
+    > 30 |     await page.waitForTimeout(ms);
+         |                ^
+      31 | }
+      32 |
+      33 | async function openViz(page: Page): Promise<void> {
+        at settle (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:30:16)
+        at openViz (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:36:5)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:107:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--a978d-l-on-visualize-and-equation-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--a978d-l-on-visualize-and-equation-chromium/error-context.md
+
+
+[81/106] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 light › frames 1440 light
+  21) [chromium] › e2e/f-w14v-eq2.spec.ts:66:5 › X.F.W14V.eq2 — q2 /equation below lg (390) › q2 Controls tab shows the layers and no empty stage box; Canvas tab shows the stage 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('[data-slot="configurator"][data-layout="detached"]').locator(':scope > .configurator-stage').locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('[data-slot="configurator"][data-layout="detached"]').locator(':scope > .configurator-stage').locator('.eq-card .katex').first()
+
+
+      75 |
+      76 |         await page.getByRole("tab", { name: "Canvas" }).click();
+    > 77 |         await expect(stage.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                                ^
+      78 |         const ab = await aside.boundingBox();
+      79 |         expect(ab === null || ab.height === 0, "the aside is hidden on the Canvas tab").toBe(true);
+      80 |         const vw = page.viewportSize()!.width;
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:77:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-eq2-X-F-W14V-eq2-—--becd7--Canvas-tab-shows-the-stage-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-eq2-X-F-W14V-eq2-—--becd7--Canvas-tab-shows-the-stage-chromium/error-context.md
+
+
+  22) [chromium] › e2e/f-w14v-eq2.spec.ts:39:5 › X.F.W14V.eq2 — q1 /equation on the detached Configurator (1440) › q1 one detached Configurator: series + plot in #stage, sections as layers in the aside 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      29 |     await expect(page.locator(".configurator-layer").first()).toBeVisible({ timeout: LOAD });
+      30 |     if (page.viewportSize()!.width >= 1024) {
+    > 31 |         await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                               ^
+      32 |     }
+      33 |     await page.mouse.move(2, 2);
+      34 |     await page.waitForTimeout(600);
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:31:63)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:40:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-eq2-X-F-W14V-eq2-—--d1df8-ions-as-layers-in-the-aside-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-eq2-X-F-W14V-eq2-—--d1df8-ions-as-layers-in-the-aside-chromium/error-context.md
+
+
+  23) [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 light › frames 1440 light 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      29 |     await expect(page.locator(".configurator-layer").first()).toBeVisible({ timeout: LOAD });
+      30 |     if (page.viewportSize()!.width >= 1024) {
+    > 31 |         await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                               ^
+      32 |     }
+      33 |     await page.mouse.move(2, 2);
+      34 |     await page.waitForTimeout(600);
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:31:63)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:91:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-eq2-X-F-W14V-eq2-—--e54a8-440-light-frames-1440-light-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-eq2-X-F-W14V-eq2-—--e54a8-440-light-frames-1440-light-chromium/error-context.md
+
+
+[82/106] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 light › frames 390 light
+[83/106] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 dark › frames 1440 dark
+[84/106] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 dark › frames 390 dark
+[85/106] [chromium] › e2e/f-w14v-u2.spec.ts:86:9 › e85 · UIA-F-85 ⊕ F-241 — notation hues on the palette tokens; KaTeX glyphs › token inks with fourier's hues kept; KaTeX glyphs (light)
+[86/106] [chromium] › e2e/f-w14v-u2.spec.ts:86:9 › e85 · UIA-F-85 ⊕ F-241 — notation hues on the palette tokens; KaTeX glyphs › token inks with fourier's hues kept; KaTeX glyphs (dark)
+[87/106] [chromium] › e2e/f-w14v-u2.spec.ts:109:5 › e201 · UIA-F-201 (server limb) — Σ is bounded at the displayed N › under Auto and with Auto off, Σ's bound = the Harmonics field = the legend
+[88/106] [chromium] › e2e/f-w14v-u2.spec.ts:132:5 › e253 · UIA-F-253 (server limbs) — expanded hover; an honest tier › a coefficient hover in the expanded form opens the coefficient popover
+[89/106] [chromium] › e2e/f-w14v-u2.spec.ts:142:5 › e253 · UIA-F-253 (server limbs) — expanded hover; an honest tier › the default x(π−x) is Exact, not Conjectured
+[90/106] [chromium] › e2e/f-w14v-u4.spec.ts:109:9 › X.F.W14V.u4 — the stage surface and its readouts › u68 · UIA-F-68 ⊕ F-168 — no cartoon-card stamp inside the stage (1440)
+[91/106] [chromium] › e2e/f-w14v-u4.spec.ts:109:9 › X.F.W14V.u4 — the stage surface and its readouts › u68 · UIA-F-68 ⊕ F-168 — no cartoon-card stamp inside the stage (390)
+[92/106] [chromium] › e2e/f-w14v-u4.spec.ts:130:5 › X.F.W14V.u4 — the stage surface and its readouts › u170 · UIA-F-170 — the legend and the Harmonics readout agree
+[93/106] [chromium] › e2e/f-w14v-u4.spec.ts:150:5 › X.F.W14V.u4 — the stage surface and its readouts › u74 · UIA-F-74 — at 390 a finished upload shows the canvas
+[94/106] [chromium] › e2e/f-w14v-u4.spec.ts:164:9 › X.F.W14V.u4 — the stage surface and its readouts › u71 · UIA-F-71 — the first upload shows one busy mark, in view (1440)
+[95/106] [chromium] › e2e/f-w14v-u4.spec.ts:164:9 › X.F.W14V.u4 — the stage surface and its readouts › u71 · UIA-F-71 — the first upload shows one busy mark, in view (390)
+[96/106] [chromium] › e2e/f-w14v-u4.spec.ts:175:5 › X.F.W14V.u4 — the stage surface and its readouts › u146 · UIA-F-146 — no tooltip on a non-focusable target; no Tooltip as a TransitionGroup child
+[97/106] [chromium] › e2e/f-w14v-u4.spec.ts:194:5 › X.F.W14V.u4 — the stage surface and its readouts › u172 · UIA-F-172 (non-colour limb) — the magnet's state reads in text
+  24) [chromium] › e2e/f-w14v-u4.spec.ts:130:5 › X.F.W14V.u4 — the stage surface and its readouts › u170 · UIA-F-170 — the legend and the Harmonics readout agree 
+
+    Error: the Epicycles legend names what it counts (circles)
+
+    expect(received).toBeTruthy()
+
+    Received: undefined
+
+      143 |         for (const n of ns) expect(n, `a legend "N = ${n}" is not the Harmonics N (${harmonics})`).toBeLessThanOrEqual(harmonics);
+      144 |         const circles = texts.filter((t) => /^\d+ of \d+ circles$/.test(t)).at(-1);
+    > 145 |         expect(circles, "the Epicycles legend names what it counts (circles)").toBeTruthy();
+          |                                                                                ^
+      146 |         const [drawn, total] = /^(\d+) of (\d+) circles$/.exec(circles!)!.slice(1).map(Number);
+      147 |         expect(drawn, "at the end every circle is drawn").toBe(total);
+      148 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-u4.spec.ts:145:80
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-u4-X-F-W14V-u4-—-th-4c9e0-the-Harmonics-readout-agree-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-u4-X-F-W14V-u4-—-th-4c9e0-the-Harmonics-readout-agree-chromium/error-context.md
+
+
+[98/106] [chromium] › e2e/f-w14v-u4.spec.ts:225:5 › X.F.W14V.u4 — the stage surface and its readouts › u238 · UIA-F-238 — reserved compute row, role=status, the tab strip, the header reset, no orphan
+  25) [chromium] › e2e/f-w14v-u4.spec.ts:175:5 › X.F.W14V.u4 — the stage surface and its readouts › u146 · UIA-F-146 — no tooltip on a non-focusable target; no Tooltip as a TransitionGroup child 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      187 |         // Each coefficient row that carries a tooltip is reachable by keyboard.
+      188 |         const rows = page.locator(".coeff-row");
+    > 189 |         expect(await rows.count()).toBeGreaterThan(0);
+          |                                    ^
+      190 |         for (const tab of await rows.evaluateAll((els) => els.map((e) => (e as HTMLElement).tabIndex)))
+      191 |             expect(tab, "a coefficient row is focusable").toBeGreaterThanOrEqual(0);
+      192 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-u4.spec.ts:189:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-u4-X-F-W14V-u4-—-th-403c3--as-a-TransitionGroup-child-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-u4-X-F-W14V-u4-—-th-403c3--as-a-TransitionGroup-child-chromium/error-context.md
+
+
+[99/106] [chromium] › e2e/f-w14v-u4.spec.ts:268:5 › X.F.W14V.u4 — the stage surface and its readouts › u239 · UIA-F-239 — no local GlassTimeline; the caret is glass's floating plate
+[100/106] [chromium] › e2e/f-w14v-u4.spec.ts:294:5 › X.F.W14V.u4 — the stage surface and its readouts › u239b · UIA-F-239 — at 390 the legend is clear of the expanded dock
+  26) [chromium] › e2e/f-w14v-u4.spec.ts:194:5 › X.F.W14V.u4 — the stage surface and its readouts › u172 · UIA-F-172 (non-colour limb) — the magnet's state reads in text 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.hover: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      196 |         await openViz(page);
+      197 |         const edit = page.getByRole("button", { name: "Edit contour" }).first();
+    > 198 |         await edit.hover();
+          |                    ^
+      199 |         await page.waitForTimeout(600);
+      200 |         await edit.click();
+      201 |         await expect(page.locator(".canvas-stage > .editor-shell:not(.is-hidden) svg.editor-svg")).toBeVisible();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-u4.spec.ts:198:20
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-u4-X-F-W14V-u4-—-th-600f2-agnet-s-state-reads-in-text-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-u4-X-F-W14V-u4-—-th-600f2-agnet-s-state-reads-in-text-chromium/error-context.md
+
+
+[101/106] [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap
+[102/106] [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached
+  27) [chromium] › e2e/f-w14v-u4.spec.ts:225:5 › X.F.W14V.u4 — the stage surface and its readouts › u238 · UIA-F-238 — reserved compute row, role=status, the tab strip, the header reset, no orphan 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.boundingBox: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for locator('[data-slot=configurator-layer]').filter({ has: locator('[data-slot=configurator-layer-trigger]').filter({ hasText: /^Basis/ }) }).first()
+
+
+      243 |         await expect(status).toBeHidden({ timeout: 60_000 });
+      244 |         await page.waitForTimeout(800);
+    > 245 |         const after = (await layer.boundingBox())!.y;
+          |                                    ^
+      246 |         expect(Math.abs(after - during), "Basis does not jump when computing ends").toBeLessThanOrEqual(1);
+      247 |         await expect(layer.getByRole("button", { name: "Reset to defaults" }).first()).toBeVisible();
+      248 |         const tops = await layer.locator("[role=radio], [role=group] button").evaluateAll((els) =>
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-u4.spec.ts:245:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-u4-X-F-W14V-u4-—-th-1693d--the-header-reset-no-orphan-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-u4-X-F-W14V-u4-—-th-1693d--the-header-reset-no-orphan-chromium/error-context.md
+
+
+[103/106] [chromium] › e2e/visual-checkpoint.spec.ts:145:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 8 — `text-admin-label`, reached through S1's admin entry
+[104/106] [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it
+[105/106] [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened
+[106/106] [mobile-chromium] › e2e/visual-checkpoint.spec.ts:199:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › @coarse item 4 — the tooltip re-proportion, taken under the coarse project
+  28) [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it 
+
+    Error: expect(locator).toHaveScreenshot(expected) failed
+
+    Locator: locator('.eq-configurator .configurator-aside').first()
+      280 pixels (ratio 0.01 of all image pixels) are different.
+
+      Snapshot: checkpoint-disclosure-body.png
+
+    Call log:
+      - Expect "toHaveScreenshot(checkpoint-disclosure-body.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - waiting for locator('.eq-configurator .configurator-aside').first()
+        - locator resolved to <aside class="configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden">…</aside>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - 280 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - waiting for locator('.eq-configurator .configurator-aside').first()
+        - locator resolved to <aside class="configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden">…</aside>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - captured a stable screenshot
+      - 280 pixels (ratio 0.01 of all image pixels) are different.
+
+
+      194 |         const panel = page.locator(".eq-configurator .configurator-aside").first();
+      195 |         await expect(panel).toBeVisible();
+    > 196 |         await expect(panel).toHaveScreenshot("checkpoint-disclosure-body.png", SHOT);
+          |                             ^
+      197 |     });
+      198 |
+      199 |     test("@coarse item 4 — the tooltip re-proportion, taken under the coarse project", async ({
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:196:29
+
+    attachment #1: checkpoint-disclosure-body (image/png) ──────────────────────────────────────────
+    Expected: e2e/visual-checkpoint.spec.ts-snapshots/checkpoint-disclosure-body-chromium-darwin.png
+    Received: test-results/visual-checkpoint-G-F9-23--8958a-ken-as-the-consumer-sees-it-chromium/checkpoint-disclosure-body-actual.png
+    Diff:     test-results/visual-checkpoint-G-F9-23--8958a-ken-as-the-consumer-sees-it-chromium/checkpoint-disclosure-body-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--8958a-ken-as-the-consumer-sees-it-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--8958a-ken-as-the-consumer-sees-it-chromium/error-context.md
+
+
+  29) [chromium] › e2e/f-w14v-u4.spec.ts:294:5 › X.F.W14V.u4 — the stage surface and its readouts › u239b · UIA-F-239 — at 390 the legend is clear of the expanded dock 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.hover: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      296 |         await recordCanvasText(page);
+      297 |         await openViz(page);
+    > 298 |         await page.getByRole("button", { name: "Edit contour" }).first().hover();
+          |                                                                          ^
+      299 |         await page.waitForTimeout(900);
+      300 |         const mark = (await canvasTexts(page)).length;
+      301 |         await page.waitForTimeout(400);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-u4.spec.ts:298:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-u4-X-F-W14V-u4-—-th-1e4e5--clear-of-the-expanded-dock-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-u4-X-F-W14V-u4-—-th-1e4e5--clear-of-the-expanded-dock-chromium/error-context.md
+
+
+  29 failed
+    [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests 
+    [chromium] › e2e/f-w13-radius.spec.ts:105:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 5: every visualizer panel is on the card radius 
+    [chromium] › e2e/f-w14-uia.spec.ts:122:5 › UIA-F-7 — the collapsed dock's position readout paints its fill › the mini readout is a progressbar whose painted fill tracks the clock 
+    [chromium] › e2e/f-w14-uia.spec.ts:163:5 › UIA-F-17 — every export switch changes the PNG › switching Epicycles and Trace path off removes their pixels 
+    [chromium] › e2e/f-w14-uia.spec.ts:247:5 › UIA-F-16 — Undo enables after a point drag › a drag writes history and the dock's Undo is enabled 
+    [chromium] › e2e/f-w14-uia.spec.ts:261:5 › UIA-F-15 — editor shortcuts act only on the editor › Delete works on a picked point; out of edit mode a sidebar field keeps its Backspace 
+    [chromium] › e2e/f-w14-uia.spec.ts:291:5 › UIA-F-18 — one Publish action gives one outcome › a double-click sends one save and shows no false 'Could not save' 
+    [chromium] › e2e/f-w14-uia.spec.ts:567:5 › UIA-F-47 — a published draft leaves the Drafts list › after Publish the draft row is gone, and stays gone on reload 
+    [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card 
+    [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card 
+    [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor 
+    [chromium] › e2e/f-w14-uia.spec.ts:684:5 › UIA-F-12 — the canvas dock's View options are reachable by keyboard › Enter opens the menu and the keys reach both rows; Enter toggles one 
+    [chromium] › e2e/f-w14-uia.spec.ts:712:5 › UIA-F-5 — at 390 every expanded canvas-dock control is visible and hittable › each control's centre hits that control, inside the viewport 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+    [chromium] › e2e/f-w14v-au3.spec.ts:97:5 › X.F.W14V.au3 — equation and morph (1440) › L1-5 · the /visualize equation panel renders through EquationResult 
+    [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation 
+    [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /equation, and the class paints nothing 
+    [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /visualize, and the class paints nothing 
+    [chromium] › e2e/f-w14v-eq2.spec.ts:39:5 › X.F.W14V.eq2 — q1 /equation on the detached Configurator (1440) › q1 one detached Configurator: series + plot in #stage, sections as layers in the aside 
+    [chromium] › e2e/f-w14v-eq2.spec.ts:66:5 › X.F.W14V.eq2 — q2 /equation below lg (390) › q2 Controls tab shows the layers and no empty stage box; Canvas tab shows the stage 
+    [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 light › frames 1440 light 
+    [chromium] › e2e/f-w14v-u4.spec.ts:130:5 › X.F.W14V.u4 — the stage surface and its readouts › u170 · UIA-F-170 — the legend and the Harmonics readout agree 
+    [chromium] › e2e/f-w14v-u4.spec.ts:175:5 › X.F.W14V.u4 — the stage surface and its readouts › u146 · UIA-F-146 — no tooltip on a non-focusable target; no Tooltip as a TransitionGroup child 
+    [chromium] › e2e/f-w14v-u4.spec.ts:194:5 › X.F.W14V.u4 — the stage surface and its readouts › u172 · UIA-F-172 (non-colour limb) — the magnet's state reads in text 
+    [chromium] › e2e/f-w14v-u4.spec.ts:225:5 › X.F.W14V.u4 — the stage surface and its readouts › u238 · UIA-F-238 — reserved compute row, role=status, the tab strip, the header reset, no orphan 
+    [chromium] › e2e/f-w14v-u4.spec.ts:294:5 › X.F.W14V.u4 — the stage surface and its readouts › u239b · UIA-F-239 — at 390 the legend is clear of the expanded dock 
+    [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it 
+  77 passed (14.6m)
+exit=1

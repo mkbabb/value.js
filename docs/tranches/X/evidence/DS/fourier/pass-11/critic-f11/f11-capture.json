@@ -1,0 +1,934 @@
+{
+ "gallery-light-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  }
+ ],
+ "equation-light-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc("
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc("
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  }
+ ],
+ "w-light-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "div.drop-target-grid.paper-grid",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1"
+  }
+ ],
+ "v-light-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "div.editor-shell",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.11 0.098 0.09 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, color(srgb 0.11 0."
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.glass-capsule.play-control",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.691007 0.123391 0.0739245 / 0.775) 0px, oklab(0.691007 0.123391 0.0739245 / 0.775) cal"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.623835 -0.00916075 -0.112976 / 0.775) 0px, oklab(0.623835 -0.00916075 -0.112976 / 0.77"
+  },
+  {
+   "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md).tap-squish.focus-ring.flex.cursor-pointer.items-center.justify-between.rounded-pill.px-3.py-2.text-dropdown.placeholder:text-muted-foreground.disabled:cursor-not-allowed.disabled:opacity-disabled.[&>span]:line-clamp-1.transition-control.aria-invalid:border-(--destructive).user-invalid:border-(--destructive).focus-visible:aria-invalid:shadow-(--invalid-ring).focus-visible:user-invalid:shadow-(--invalid-ring).w-full",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 0.0769798 / 0.775) 5"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 0.0769798 / 0.775) c"
+  }
+ ],
+ "gallery-light-390": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  }
+ ],
+ "equation-light-390": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc("
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc("
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  }
+ ],
+ "w-light-390": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "div.drop-target-grid.paper-grid",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1"
+  }
+ ],
+ "v-light-390": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.691007 0.123391 0.0739245 / 0.775) 0px, oklab(0.691007 0.123391 0.0739245 / 0.775) cal"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.623835 -0.00916075 -0.112976 / 0.775) 0px, oklab(0.623835 -0.00916075 -0.112976 / 0.77"
+  },
+  {
+   "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md).tap-squish.focus-ring.flex.cursor-pointer.items-center.justify-between.rounded-pill.px-3.py-2.text-dropdown.placeholder:text-muted-foreground.disabled:cursor-not-allowed.disabled:opacity-disabled.[&>span]:line-clamp-1.transition-control.aria-invalid:border-(--destructive).user-invalid:border-(--destructive).focus-visible:aria-invalid:shadow-(--invalid-ring).focus-visible:user-invalid:shadow-(--invalid-ring).w-full",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-grad"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 0.0769798 / 0.775) 5"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 0.0769798 / 0.775) c"
+  }
+ ],
+ "gallery-dark-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  }
+ ],
+ "equation-dark-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.558183 0.0955875 0.0526017 / 0.775) 0px, oklab(0.558183 0.0955875 0.0526017 / 0.775) c"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.558183 0.0955875 0.0526017 / 0.775) 0px, oklab(0.558183 0.0955875 0.0526017 / 0.775) c"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  }
+ ],
+ "w-dark-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "div.drop-target-grid.paper-grid",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9"
+  }
+ ],
+ "v-dark-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "div.editor-shell",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.914 0.9 0.886 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, color(srgb 0.914 0"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.glass-capsule.play-control",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.558328 0.0957182 0.0522984 / 0.775) 0px, oklab(0.558328 0.0957182 0.0522984 / 0.775) c"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.575653 -0.000749313 -0.0733551 / 0.775) 0px, oklab(0.575653 -0.000749313 -0.0733551 / "
+  },
+  {
+   "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md).tap-squish.focus-ring.flex.cursor-pointer.items-center.justify-between.rounded-pill.px-3.py-2.text-dropdown.placeholder:text-muted-foreground.disabled:cursor-not-allowed.disabled:opacity-disabled.[&>span]:line-clamp-1.transition-control.aria-invalid:border-(--destructive).user-invalid:border-(--destructive).focus-visible:aria-invalid:shadow-(--invalid-ring).focus-visible:user-invalid:shadow-(--invalid-ring).w-full",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 0.0776901 / 0.775) 5"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 0.0776901 / 0.775) c"
+  }
+ ],
+ "gallery-dark-390": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  }
+ ],
+ "equation-dark-390": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip.fourier-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.558183 0.0955875 0.0526017 / 0.775) 0px, oklab(0.558183 0.0955875 0.0526017 / 0.775) c"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.558183 0.0955875 0.0526017 / 0.775) 0px, oklab(0.558183 0.0955875 0.0526017 / 0.775) c"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  }
+ ],
+ "w-dark-390": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "div.drop-target-grid.paper-grid",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9"
+  }
+ ],
+ "v-dark-390": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10.pointer-events-none",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9"
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle.dark-mode-toggle",
+   "f": "brightness(1)",
+   "an": null,
+   "g": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover.tap-squish.focus-ring.hue-chip",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.558328 0.0957182 0.0522984 / 0.775) 0px, oklab(0.558328 0.0957182 0.0522984 / 0.775) c"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.575653 -0.000749313 -0.0733551 / 0.775) 0px, oklab(0.575653 -0.000749313 -0.0733551 / "
+  },
+  {
+   "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md).tap-squish.focus-ring.flex.cursor-pointer.items-center.justify-between.rounded-pill.px-3.py-2.text-dropdown.placeholder:text-muted-foreground.disabled:cursor-not-allowed.disabled:opacity-disabled.[&>span]:line-clamp-1.transition-control.aria-invalid:border-(--destructive).user-invalid:border-(--destructive).focus-visible:aria-invalid:shadow-(--invalid-ring).focus-visible:user-invalid:shadow-(--invalid-ring).w-full",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), l"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 0.0776901 / 0.775) 5"
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "f": null,
+   "an": null,
+   "g": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 0.0776901 / 0.775) c"
+  }
+ ]
+}

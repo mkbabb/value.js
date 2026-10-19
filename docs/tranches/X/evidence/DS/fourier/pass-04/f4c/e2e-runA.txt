@@ -1,0 +1,53 @@
+# start 20:36:31 load { 22.21 19.04 18.19 }
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 27 tests using 1 worker
+
+[1/27] [chromium] › e2e/f-w14u-eq.spec.ts:71:5 › q35 · UIA-F-35 (consumer) — whole harmonics, counted as harmonics › a4 reads -0.0625 at 8 shown; the control and the list count harmonics
+[2/27] [chromium] › e2e/f-w14u-eq.spec.ts:95:5 › q112 · UIA-F-112 (consumer) — an invalid f(x) marks its field › aria-invalid + the server's detail under the field; no Retry on a 4xx
+[3/27] [chromium] › e2e/f-w14u-eq.spec.ts:116:5 › q113 · UIA-F-113 — at 390 the failure shows where the user types › the Controls pane carries the field's error, inside the viewport
+[4/27] [chromium] › e2e/f-w14u-eq.spec.ts:137:5 › q114 · UIA-F-114 ⊕ F-207 — one disclosure idiom; no clipped shadow › three glass ConfiguratorLayers, no local CollapsibleSection, no clipping ancestor
+[5/27] [chromium] › e2e/f-w14u-eq.spec.ts:192:5 › q201 · UIA-F-201 — one variable, one harmonic count › the legend speaks the equation's variable; legend, timeline and field agree on N
+[6/27] [chromium] › e2e/f-w14u-eq.spec.ts:211:5 › q202 · UIA-F-202 — status out of flow; a stale result is marked › a recompute and a transient failure move nothing; the busy mark is glass Progress
+[7/27] [chromium] › e2e/f-w14u-eq.spec.ts:265:5 › q203 · UIA-F-203 — one floating-surface canon › the coefficient popover and the plot tooltip wear the glass popover radius
+[8/27] [chromium] › e2e/f-w14u-eq.spec.ts:290:5 › q204 · UIA-F-204 — single-choice sets are ToggleGroups › Notation and Presets are radiogroups of radios; the current one is checked
+[9/27] [chromium] › e2e/f-w14u-eq.spec.ts:304:5 › q205 · UIA-F-205 — the plot holds its own data › no curve below the plot box; the legend beside the curves
+[10/27] [chromium] › e2e/f-w14u-eq.spec.ts:334:9 › q206 · UIA-F-206 — named type rungs; the Harmonics row keeps its controls (1440) › no consumer text under the caption rung; the Parseval button sits in its row
+[11/27] [chromium] › e2e/f-w14u-eq.spec.ts:334:9 › q206 · UIA-F-206 — named type rungs; the Harmonics row keeps its controls (390) › no consumer text under the caption rung; the Parseval button sits in its row
+[12/27] [chromium] › e2e/f-w14u-eq.spec.ts:379:5 › q253 · UIA-F-253 — the equation's micro-issues › glass Badge for the tier; lucide glyphs on Play (1440)
+[13/27] [chromium] › e2e/f-w14u-eq.spec.ts:391:5 › q253 · UIA-F-253 — the equation's micro-issues › the 390 tab strip is not an opaque band
+[14/27] [chromium] › e2e/f-w14v-u2.spec.ts:86:9 › e85 · UIA-F-85 ⊕ F-241 — notation hues on the palette tokens; KaTeX glyphs › token inks with fourier's hues kept; KaTeX glyphs (light)
+[15/27] [chromium] › e2e/f-w14v-u2.spec.ts:86:9 › e85 · UIA-F-85 ⊕ F-241 — notation hues on the palette tokens; KaTeX glyphs › token inks with fourier's hues kept; KaTeX glyphs (dark)
+[16/27] [chromium] › e2e/f-w14v-u2.spec.ts:109:5 › e201 · UIA-F-201 (server limb) — Σ is bounded at the displayed N › under Auto and with Auto off, Σ's bound = the Harmonics field = the legend
+[17/27] [chromium] › e2e/f-w14v-u2.spec.ts:132:5 › e253 · UIA-F-253 (server limbs) — expanded hover; an honest tier › a coefficient hover in the expanded form opens the coefficient popover
+[18/27] [chromium] › e2e/f-w14v-u2.spec.ts:142:5 › e253 · UIA-F-253 (server limbs) — expanded hover; an honest tier › the default x(π−x) is Exact, not Conjectured
+[19/27] [chromium] › e2e/visualization-ux.spec.ts:115:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: workspace default has no serious/critical a11y violations
+[20/27] [chromium] › e2e/visualization-ux.spec.ts:128:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ContourSettings Configurator-open is a11y-clean
+[21/27] [chromium] › e2e/visualization-ux.spec.ts:145:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ExportModal Dialog-open is a11y-clean
+[22/27] [chromium] › e2e/visualization-ux.spec.ts:181:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: AnimationControls dropdown-open is a11y-clean
+[23/27] [chromium] › e2e/visualization-ux.spec.ts:218:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /equation is a11y-clean
+[24/27] [chromium] › e2e/visualization-ux.spec.ts:272:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /paper is a11y-clean
+[25/27] [chromium] › e2e/visualization-ux.spec.ts:284:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /morph is a11y-clean
+[26/27] [chromium] › e2e/visualization-ux.spec.ts:300:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /demo/shape-extractor is a11y-clean
+[27/27] [chromium] › e2e/visualization-ux.spec.ts:332:5 › B.W2 — visualization UX coherence (a11y keystones) › save_contour_then_recompute: the saved contour is recomputed in one pass, the canvas keeps its render
+  27 passed (1.8m)
+rc=0 end 20:46:59

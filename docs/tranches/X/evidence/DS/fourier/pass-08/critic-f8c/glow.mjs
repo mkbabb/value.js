@@ -1,0 +1,5 @@
+import { chromium } from "/Users/mkbabb/Programming/fourier-analysis/web/node_modules/playwright/index.mjs";
+const b = await chromium.launch({ channel: "chrome", headless: true });
+try { const p = await b.newPage({viewport:{width:1440,height:900}}); await p.goto("http://localhost:3148/w/placid-stirring-opal-viper"); await p.waitForSelector("text=Computing the Fourier", {timeout:20000}).catch(()=>console.log("no computing"));
+ const r = await p.evaluate(()=>{ const out=[]; for (const el of document.elementsFromPoint(500,560)) { for (const ps of [null,"::before","::after"]) { const cs=getComputedStyle(el,ps); const bg=cs.backgroundImage, bs=cs.boxShadow, f=cs.filter, bf=cs.backdropFilter, m=cs.maskImage; if ((bg&&bg!=="none")||(bs&&bs!=="none")||(f&&f!=="none")||(bf&&bf!=="none")) out.push({el:el.tagName+"."+[...el.classList].slice(0,4).join("."), ps, bg:bg.slice(0,200), bs:bs.slice(-120), f, bf}); } } return out; });
+ console.log(JSON.stringify(r,null,1)); await p.screenshot({path:"glow.png"}); await p.close(); } finally { await b.close(); }

@@ -1,0 +1,56 @@
+17:08  up 3 days, 22:10, 3 users, load averages: 993.40 940.96 159.16
+
+
+
+
+
+Running 18 tests using 1 worker
+
+[1/18] [chromium] › e2e/f-w13-radius.spec.ts:105:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 5: every visualizer panel is on the card radius
+[2/18] [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card
+[3/18] [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card
+[4/18] [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor
+[5/18] [chromium] › e2e/f-w14u-eq.spec.ts:71:5 › q35 · UIA-F-35 (consumer) — whole harmonics, counted as harmonics › a4 reads -0.0625 at 8 shown; the control and the list count harmonics
+[6/18] [chromium] › e2e/f-w14u-eq.spec.ts:379:5 › q253 · UIA-F-253 — the equation's micro-issues › glass Badge for the tier; lucide glyphs on Play (1440)
+[7/18] [chromium] › e2e/f-w14u-eq.spec.ts:391:5 › q253 · UIA-F-253 — the equation's micro-issues › the 390 tab strip is not an opaque band
+[8/18] [chromium] › e2e/f-w14v-au3.spec.ts:97:5 › X.F.W14V.au3 — equation and morph (1440) › L1-5 · the /visualize equation panel renders through EquationResult
+[9/18] [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation
+[10/18] [chromium] › e2e/f-w14v-eq2.spec.ts:39:5 › X.F.W14V.eq2 — q1 /equation on the detached Configurator (1440) › q1 one detached Configurator: series + plot in #stage, sections as layers in the aside
+[11/18] [chromium] › e2e/f-w14v-eq2.spec.ts:66:5 › X.F.W14V.eq2 — q2 /equation below lg (390) › q2 Controls tab shows the layers and no empty stage box; Canvas tab shows the stage
+[12/18] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 light › frames 1440 light
+[13/18] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 light › frames 390 light
+[14/18] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 dark › frames 1440 dark
+[15/18] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 dark › frames 390 dark
+[16/18] [chromium] › e2e/f-w14v-u2.spec.ts:142:5 › e253 · UIA-F-253 (server limbs) — expanded hover; an honest tier › the default x(π−x) is Exact, not Conjectured
+[17/18] [chromium] › e2e/f-w14v-u4.spec.ts:130:5 › X.F.W14V.u4 — the stage surface and its readouts › u170 · UIA-F-170 — the legend and the Harmonics readout agree
+  1) [chromium] › e2e/f-w14v-u4.spec.ts:130:5 › X.F.W14V.u4 — the stage surface and its readouts › u170 · UIA-F-170 — the legend and the Harmonics readout agree 
+
+    Error: the Epicycles legend names what it counts (circles)
+
+    expect(received).toBeTruthy()
+
+    Received: undefined
+
+      143 |         for (const n of ns) expect(n, `a legend "N = ${n}" is not the Harmonics N (${harmonics})`).toBeLessThanOrEqual(harmonics);
+      144 |         const circles = texts.filter((t) => /^\d+ of \d+ circles$/.test(t)).at(-1);
+    > 145 |         expect(circles, "the Epicycles legend names what it counts (circles)").toBeTruthy();
+          |                                                                                ^
+      146 |         const [drawn, total] = /^(\d+) of (\d+) circles$/.exec(circles!)!.slice(1).map(Number);
+      147 |         expect(drawn, "at the end every circle is drawn").toBe(total);
+      148 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-u4.spec.ts:145:80
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-u4-X-F-W14V-u4-—-th-4c9e0-the-Harmonics-readout-agree-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-u4-X-F-W14V-u4-—-th-4c9e0-the-Harmonics-readout-agree-chromium/error-context.md
+
+
+[18/18] [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it
+  1 failed
+    [chromium] › e2e/f-w14v-u4.spec.ts:130:5 › X.F.W14V.u4 — the stage surface and its readouts › u170 · UIA-F-170 — the legend and the Harmonics readout agree 
+  17 passed (10.7m)
+17:18  up 3 days, 22:21, 3 users, load averages: 303.29 322.39 354.70
+tries=2
+done=1

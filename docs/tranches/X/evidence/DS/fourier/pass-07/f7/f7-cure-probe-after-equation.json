@@ -1,0 +1,42 @@
+{
+ "equation-light-1440": {
+  "computeStatus": 200,
+  "captionWithResult": "f(t)",
+  "aside": {
+   "el": "fading-scroll fading-scroll--y configurator-controls flex-1 ",
+   "scrollTop": 24,
+   "scrollHeight": 810,
+   "clientHeight": 786
+  }
+ },
+ "equation-light-390": {
+  "computeStatus": 200,
+  "captionWithResult": "f(t)",
+  "aside": {
+   "el": "fading-scroll fading-scroll--y configurator-controls flex-1 ",
+   "scrollTop": 260,
+   "scrollHeight": 966,
+   "clientHeight": 706
+  }
+ },
+ "equation-dark-1440": {
+  "computeStatus": 200,
+  "captionWithResult": "f(t)",
+  "aside": {
+   "el": "fading-scroll fading-scroll--y configurator-controls flex-1 ",
+   "scrollTop": 24,
+   "scrollHeight": 810,
+   "clientHeight": 786
+  }
+ },
+ "equation-dark-390": {
+  "computeStatus": 200,
+  "captionWithResult": "f(t)",
+  "aside": {
+   "el": "fading-scroll fading-scroll--y configurator-controls flex-1 ",
+   "scrollTop": 260,
+   "scrollHeight": 966,
+   "clientHeight": 706
+  }
+ }
+}

@@ -1,0 +1,206 @@
+{
+ "paper-light": [
+  "DD. ls=disc disp=block",
+  "DL.paper-description ls=disc disp=block",
+  "DIV. ls=disc disp=block",
+  "DIV.section-body ls=disc disp=block",
+  "SECTION.paper-section ls=disc disp=block",
+  "DIV.paper-window-section.deferred-section ls=disc disp=block"
+ ],
+ "eq-light": {
+  "btns": [
+   {
+    "lab": "Copy LaTeX",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover",
+    "parent": "eq-result-actions",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) ",
+    "bf": "blur(0px) saturate(1.605)",
+    "r": {
+     "x": 939,
+     "y": 98.296875,
+     "width": 40,
+     "height": 40,
+     "top": 98.296875,
+     "right": 979,
+     "bottom": 138.296875,
+     "left": 939
+    }
+   },
+   {
+    "lab": "Copy LaTeX",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover",
+    "parent": "eq-result-actions",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) ",
+    "bf": "blur(0px) saturate(1.605)",
+    "r": {
+     "x": 939,
+     "y": 98.296875,
+     "width": 40,
+     "height": 40,
+     "top": 98.296875,
+     "right": 979,
+     "bottom": 138.296875,
+     "left": 939
+    }
+   },
+   {
+    "lab": "About Fourier analysis",
+    "cls": "dock-trigger dock-dropdown-trigger logo-trigger",
+    "parent": "dock-layer dock-layer--full dock-run is-active",
+    "shadow": "none",
+    "bf": "none",
+    "r": {
+     "x": 453.6875,
+     "y": 20,
+     "width": 171.6875,
+     "height": 40,
+     "top": 20,
+     "right": 625.375,
+     "bottom": 60,
+     "left": 453.6875
+    }
+   }
+  ],
+  "rail": null
+ },
+ "v-light": {
+  "tb": [
+   {
+    "lab": "Dark mode",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-toggle dark-mode-toggle",
+    "parent": "dock-layer dock-layer--full dock-run is-active"
+   },
+   {
+    "lab": "View options",
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger view-layers-trigger",
+    "parent": "dock-layer dock-layer--full dock-run"
+   },
+   {
+    "lab": "Publish to Gallery",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "parent": "dock-layer dock-layer--full dock-run"
+   },
+   {
+    "lab": "Edit contour",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "parent": "dock-persistent dock-persistent-end"
+   }
+  ],
+  "times": {
+   "cls": "metric__unit",
+   "parent": "metric__reading",
+   "r": {
+    "x": 587.09375,
+    "y": 840.796875,
+    "width": 8.640625,
+    "height": 14.390625,
+    "top": 840.796875,
+    "right": 595.734375,
+    "bottom": 855.1875,
+    "left": 587.09375
+   }
+  }
+ },
+ "paper-dark": [
+  "DD. ls=disc disp=block",
+  "DL.paper-description ls=disc disp=block",
+  "DIV. ls=disc disp=block",
+  "DIV.section-body ls=disc disp=block",
+  "SECTION.paper-section ls=disc disp=block",
+  "DIV.paper-window-section.deferred-section ls=disc disp=block"
+ ],
+ "eq-dark": {
+  "btns": [
+   {
+    "lab": "Copy LaTeX",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover",
+    "parent": "eq-result-actions",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)",
+    "bf": "blur(0px) saturate(1.8)",
+    "r": {
+     "x": 939,
+     "y": 98.296875,
+     "width": 40,
+     "height": 40,
+     "top": 98.296875,
+     "right": 979,
+     "bottom": 138.296875,
+     "left": 939
+    }
+   },
+   {
+    "lab": "Copy LaTeX",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover",
+    "parent": "eq-result-actions",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)",
+    "bf": "blur(0px) saturate(1.8)",
+    "r": {
+     "x": 939,
+     "y": 98.296875,
+     "width": 40,
+     "height": 40,
+     "top": 98.296875,
+     "right": 979,
+     "bottom": 138.296875,
+     "left": 939
+    }
+   },
+   {
+    "lab": "About Fourier analysis",
+    "cls": "dock-trigger dock-dropdown-trigger logo-trigger",
+    "parent": "dock-layer dock-layer--full dock-run is-active",
+    "shadow": "none",
+    "bf": "none",
+    "r": {
+     "x": 453.6875,
+     "y": 20,
+     "width": 171.6875,
+     "height": 40,
+     "top": 20,
+     "right": 625.375,
+     "bottom": 60,
+     "left": 453.6875
+    }
+   }
+  ],
+  "rail": null
+ },
+ "v-dark": {
+  "tb": [
+   {
+    "lab": "Dark mode",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-toggle dark-mode-toggle",
+    "parent": "dock-layer dock-layer--full dock-run is-active"
+   },
+   {
+    "lab": "View options",
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger view-layers-trigger",
+    "parent": "dock-layer dock-layer--full dock-run"
+   },
+   {
+    "lab": "Publish to Gallery",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "parent": "dock-layer dock-layer--full dock-run"
+   },
+   {
+    "lab": "Edit contour",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "parent": "dock-persistent dock-persistent-end"
+   }
+  ],
+  "times": {
+   "cls": "metric__unit",
+   "parent": "metric__reading",
+   "r": {
+    "x": 587.09375,
+    "y": 840.796875,
+    "width": 8.640625,
+    "height": 14.390625,
+    "top": 840.796875,
+    "right": 595.734375,
+    "bottom": 855.1875,
+    "left": 587.09375
+   }
+  }
+ }
+}

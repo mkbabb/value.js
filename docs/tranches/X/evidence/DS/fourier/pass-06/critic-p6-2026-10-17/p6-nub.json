@@ -1,0 +1,60 @@
+   "configurator grid min-h-0",
+   ""
+  ],
+  [
+   98,
+   "SECTION",
+   "configurator grid min-h-0",
+   ""
+  ],
+  [
+   99,
+   "SECTION",
+   "configurator grid min-h-0",
+   ""
+  ],
+  [
+   100,
+   "ASIDE",
+   "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+   ""
+  ],
+  [
+   101,
+   "SPAN",
+   "slider-range",
+   ""
+  ],
+  [
+   102,
+   "SPAN",
+   "slider-range",
+   ""
+  ],
+  [
+   103,
+   "SPAN",
+   "slider-range",
+   ""
+  ],
+  [
+   104,
+   "SPAN",
+   "slider-range",
+   ""
+  ],
+  [
+   105,
+   "SPAN",
+   "slider-range",
+   ""
+  ],
+  [
+   106,
+   "SPAN",
+   "slider-range",
+   ""
+  ]
+ ],
+ "fig": null
+}

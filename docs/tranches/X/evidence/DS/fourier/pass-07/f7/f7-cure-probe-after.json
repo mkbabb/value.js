@@ -1,0 +1,98 @@
+{
+ "equation-error-light-1440": {
+  "captionNoResult": "f(t)",
+  "retry": {
+   "label": "Try again",
+   "glyph": "lucide lucide-rotate-ccw",
+   "glyphLeadsLabel": true,
+   "w": 111,
+   "h": 36,
+   "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px"
+  }
+ },
+ "paper-light-1440": {
+  "before": null,
+  "after": null
+ },
+ "gallery-light-1440": {
+  "searchLeft": 201,
+  "searchRight": 713,
+  "searchW": 512,
+  "tabsRight": 185,
+  "cards": 4,
+  "cardW": 272,
+  "filledRight": 1140
+ },
+ "equation-error-light-390": {
+  "captionNoResult": "f(t)",
+  "retry": {
+   "label": "Try again",
+   "glyph": "lucide lucide-rotate-ccw",
+   "glyphLeadsLabel": true,
+   "w": 153,
+   "h": 44,
+   "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px"
+  }
+ },
+ "paper-light-390": {
+  "before": null,
+  "after": null
+ },
+ "gallery-light-390": {
+  "searchLeft": 16,
+  "searchRight": 374,
+  "searchW": 358,
+  "tabsRight": 374,
+  "cards": 4,
+  "cardW": 173,
+  "filledRight": 374
+ },
+ "equation-error-dark-1440": {
+  "captionNoResult": "f(t)",
+  "retry": {
+   "label": "Try again",
+   "glyph": "lucide lucide-rotate-ccw",
+   "glyphLeadsLabel": true,
+   "w": 111,
+   "h": 36,
+   "boxShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px"
+  }
+ },
+ "paper-dark-1440": {
+  "before": null,
+  "after": null
+ },
+ "gallery-dark-1440": {
+  "searchLeft": 201,
+  "searchRight": 713,
+  "searchW": 512,
+  "tabsRight": 185,
+  "cards": 4,
+  "cardW": 272,
+  "filledRight": 1140
+ },
+ "equation-error-dark-390": {
+  "captionNoResult": "f(t)",
+  "retry": {
+   "label": "Try again",
+   "glyph": "lucide lucide-rotate-ccw",
+   "glyphLeadsLabel": true,
+   "w": 153,
+   "h": 44,
+   "boxShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px"
+  }
+ },
+ "paper-dark-390": {
+  "before": null,
+  "after": null
+ },
+ "gallery-dark-390": {
+  "searchLeft": 16,
+  "searchRight": 374,
+  "searchW": 358,
+  "tabsRight": 374,
+  "cards": 4,
+  "cardW": 173,
+  "filledRight": 374
+ }
+}

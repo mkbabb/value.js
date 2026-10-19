@@ -1,0 +1,26 @@
+{
+ "light": {
+  "proof": {
+   "bl": "0px none rgb(28, 25, 23)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "pad": "14px 16px",
+   "left": 551,
+   "cls": "paper-proof-block"
+  },
+  "paraLeft": 551,
+  "quotes": 0,
+  "table": null
+ },
+ "dark": {
+  "proof": {
+   "bl": "0px none rgb(233, 230, 226)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "pad": "14px 16px",
+   "left": 551,
+   "cls": "paper-proof-block"
+  },
+  "paraLeft": 551,
+  "quotes": 0,
+  "table": null
+ }
+}
