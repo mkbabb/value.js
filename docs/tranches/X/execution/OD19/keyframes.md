@@ -65,3 +65,24 @@ Rows OD19-K3, OD19-K4. keyframes.js `eb2b7bc1` (master, fast-forward pushed from
   - No golden was re-baselined.
 - **Glass-rooted (O-102 sub-row, measured).** glass `SelectTrigger`'s chevron carries `in-data-[state=open]:rotate-180`, which compiles to `:where([data-state=open]) .x`. That matches ANY open ancestor. Inside glass's own open `.configurator-layer` / `.configurator-layer-region` (both `data-state=open`, measured), the closed select's chevron points UP. Easing's ChevronDown points down. The scope should be the trigger's own `data-state`. The consumer does not patch it locally. The column alignment is the consumer's and is cured (`pe-10`).
 - **Browser AFTER (1440/390 × light/dark): PENDING.** `after/KF-P2-pane-controls/probe-after.mjs` is queued in `guarded` and was not admitted: machine load was 109–163 against a gate of 36. When it runs it writes `probe-after.json` and the K3/K4 PNGs into the same directory. The vitest falsifiers above carry the verdict until then.
+
+### KF-P1-dock
+**Rows:** OD19-K2 and OD19-K6. **Commit:** keyframes.js `13762e6e` (master, pushed). **Evidence:** `keyframes/after/KF-P1-dock/` (`probe.mjs`, `run-1/results.json`, and 24 frames: `K2-paneopen-*`, `K2-bottom-expanded-*`, `K6-menu-*`, for {light,dark}×{1440,1280,1024,390}).
+
+- **K2 (cured at root).** I deleted ESC-dock-2's stage-column inset: the `.dock-band{left:var(--dock-band-inset-start,0px);transition:left …}` rule in ChromeDock.vue and TransportDock.vue, and its publisher `:root:has(.controls-layout--open…){--dock-band-inset-start:var(--rail-width)}` in AnimationControlsGroup.css. Both bands are now `fixed left-0 right-0`.
+  - AFTER, measured on #/cube with the pane open: top and bottom dock cx = innerWidth/2 exactly (720 / 640 / 512 / 195), collapsed and expanded, in all 8 cells. BEFORE it was 957.6 against 720 at 1440.
+  - The expanded docks do not intersect the desktop pane at 1440, 1280 or 1024 (pane x 71–478 / 66–421 / 28–360).
+  - At 390 the pane is the mobile sheet. Its header row hosts the transport dock by design, and this packet does not touch it (the inset never applied below 1024), so the probe records `botOnSheetHeader` rather than asserting clearance there.
+- **K6 (cured at root).** The four-control DockControl run is now ONE glass `DockTrigger for="dropdown"` (`aria-label="Editor surfaces"`, `aria-haspopup=menu`) plus a glass `DropdownMenu`, the @mbabb pair.
+  - The trigger's face is the selected surface's glyph; failing that, the first live surface's.
+  - Each row is a glyph plus a title from `dockSurfaceItems`. Live: Controls | Keyframes | Timeline | "Matrix: select the Matrix channel" (disabled, so the reason is kept).
+  - Picking a row opens the pane on that surface. Re-picking the row the open pane shows closes the pane.
+  - The blank facet seat (KF-C13-01) has no title, so it gets no row.
+  - The menu rides ChromeDock's popup mutex (dock keepOpen/release) and `useDockEdgeOffset`.
+- **Falsifiers.**
+  - Vitest `dock-surface-items` (5 ChromeDock cases rewritten at equal strength: one trigger, titled rows with glyphs, pick opens, re-pick closes, disabled rows keep their reason, home has no trigger) and `chrome-dock-containment` (1) (`left-0 right-0`, no `dock-band`, no inline left). Both were run against a HEAD export: RED ×2 (6 failed / 8 passed, twice). On the cure: GREEN (14/14).
+  - Playwright probe on headless chromium, one browser, a context per cell, run-1: `fails: []`.
+  - Run-2 of the probe and the second vitest GREEN were queued behind guard admission: load was 100–177 for more than 2 h, and nothing was admitted after 17:29. They are not banked here.
+  - vue-tsc `-p tsconfig.json`: clean.
+- **Residuals (outside the modify set, not touched):** `scripts/lib/demo-driver.mjs:941` and `scripts/observe/demo/live-session{,-mobile}.mjs` still read the selected surface from `[data-dock-surface-item][data-selected]` on the dock. The rows now carry that attribute inside the portalled menu, which renders only while the menu is open. These observers need to read `[data-dock-surface-trigger][data-surface]` instead.
+- **Same-concern adjacent lines:** none beyond the five files.
