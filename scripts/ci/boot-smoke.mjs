@@ -307,16 +307,34 @@ async function waitForServer(origin, deadline) {
     throw new Error(`server never became ready at ${origin} (${lastError})`);
 }
 
-/** Spawn the vite dev server on a COLD dep-optimizer cache. */
+/**
+ * Spawn the vite dev server on a COLD dep-optimizer cache.
+ *
+ * X-W11 §0gc (e2e-visual seat) — THE 6-HOUR HANG. This used to spawn `npx vite`
+ * and stop it with `child.kill("SIGTERM")`. On Linux `npx` dies on SIGTERM and
+ * does NOT take its vite grandchild with it: vite is re-parented to init and
+ * keeps the write ends of the stdout/stderr pipes this process reads, so the
+ * event loop never drains and `node boot-smoke.mjs` never exits. CI measured it
+ * on run 39117135689: "dev: 8/8 seed cases passed" at 09:58:19, then nothing
+ * until GitHub's 6 h job ceiling cancelled the step (and its cleanup reaped the
+ * orphan). macOS hides the defect, which is why every local run exited.
+ *
+ * The cure is ownership of the whole tree: vite's own bin under this Node (no
+ * wrapper process between us and the server), in its own process group, which
+ * `stop` signals as a group and then WAITS for — the step returns only once
+ * the server is gone, never after a fixed sleep.
+ */
 async function startDevServer() {
     const port = 9100 + Math.floor(Math.random() * 400);
     const origin = `http://${HOST}:${port}`;
+    const viteBin = path.join(REPO_ROOT, "node_modules", "vite", "bin", "vite.js");
     const child = spawn(
-        "npx",
-        ["vite", "--force", "--host", HOST, "--port", String(port), "--strictPort"],
+        process.execPath,
+        [viteBin, "--force", "--host", HOST, "--port", String(port), "--strictPort"],
         {
             cwd: REPO_ROOT,
             stdio: ["ignore", "pipe", "pipe"],
+            detached: true,
             // Same-origin VITE_API_URL keeps the optional palette read off the
             // live server, so the gate is hermetic (the e2e webServer posture).
             env: { ...process.env, VITE_API_URL: origin },
@@ -326,26 +344,54 @@ async function startDevServer() {
     child.stdout.on("data", (d) => log.push(String(d)));
     child.stderr.on("data", (d) => log.push(String(d)));
     let exited = false;
-    child.on("exit", (code) => {
-        exited = true;
-        if (code) log.push(`[vite exited code=${code}]`);
-    });
+    const exitedPromise = new Promise((resolve) =>
+        child.on("exit", (code, signal) => {
+            exited = true;
+            if (code) log.push(`[vite exited code=${code}]`);
+            resolve(signal ?? code);
+        }),
+    );
+    /** Signal the whole process group; ESRCH means it is already gone. */
+    const signalGroup = (sig) => {
+        try {
+            process.kill(-child.pid, sig);
+        } catch (err) {
+            if (err?.code !== "ESRCH") throw err;
+        }
+    };
+    const stop = async () => {
+        if (!exited) {
+            signalGroup("SIGTERM");
+            // The grace timer is cancelled once vite exits, so it never holds
+            // the loop open itself.
+            const grace = new AbortController();
+            const settled = await Promise.race([
+                exitedPromise.then(() => true),
+                sleep(5000, false, { signal: grace.signal }).catch(() => true),
+            ]);
+            grace.abort();
+            if (!settled) {
+                signalGroup("SIGKILL");
+                await exitedPromise;
+            }
+        }
+        // Any straggler left in the group (vite's own workers) goes with it,
+        // and the pipe read ends are released so nothing holds the loop.
+        signalGroup("SIGKILL");
+        child.stdout.destroy();
+        child.stderr.destroy();
+    };
     try {
         await waitForServer(origin, Date.now() + SERVER_READY_TIMEOUT_MS);
     } catch (err) {
-        child.kill("SIGKILL");
+        await stop();
         throw new Error(`${err.message}\n--- vite output ---\n${log.join("")}`);
     }
-    if (exited) throw new Error(`vite exited before the smoke run\n${log.join("")}`);
-    return {
-        origin,
-        stop: async () => {
-            if (exited) return;
-            child.kill("SIGTERM");
-            await sleep(1000);
-            if (!exited) child.kill("SIGKILL");
-        },
-    };
+    if (exited) {
+        await stop();
+        throw new Error(`vite exited before the smoke run\n${log.join("")}`);
+    }
+    return { origin, stop };
 }
 
 /** Run `npm run gh-pages` and fail loudly if it does not produce an artifact. */
@@ -643,9 +689,12 @@ async function main() {
         );
     }
 
-    const browser = await chromium.launch({ headless: true });
+    // The launch sits INSIDE the try: a launch that throws must still stop the
+    // server it would otherwise leave holding this process open.
+    let browser = null;
     const cases = [];
     try {
+        browser = await chromium.launch({ headless: true });
         for (const seed of seeds) {
             const record = await probeSeed(browser, origin, seed, timeoutMs);
             cases.push(record);
@@ -676,7 +725,7 @@ async function main() {
             }
         }
     } finally {
-        await browser.close().catch(() => {});
+        await browser?.close().catch(() => {});
         await stop();
     }
 
