@@ -75,3 +75,38 @@
 | 0720 | consumer | None. The coast is the intended shape. EY-41's plain-wheel no-op coast is a separate live row. |
 | 0721 | consumer | EY-12: none (session state survives a breakpoint crossing at HEAD). EY-20 still needs its cure in the EY-CLUSTER: gate `onWheel` while pinned, or re-project the loupe on transform change. |
 | 0722 | consumer | EY-8 → wb-extract-pane XP-9 (X-W4): give the overlay dialog semantics (`role="dialog"`, `aria-modal`, a name) and inert the 13 in-pane focusables behind it, or adopt glass `./dialog`. |
+
+## cures
+
+**Seat:** SS-8 CURE · 2026-10-20 · served model `claude-opus-5-5`. The falsifier file is `demo/test/extract/ss8-b25-cures.test.ts` (6 tests). `C/` = `docs/tranches/X/execution/SS8/evidence/B25-extract-inputs/cure/`. Every run went through `~/.claude/guard/guarded`, with vitest at `--maxWorkers=2`. The registry records are untouched (E-3).
+
+**Witnesses:**
+- **RED before, x2.** The cure was reverse-applied: `git apply -R C/cure.patch C/cure-utils.patch`. `C/cure-utils.patch` holds this seat's one `utils.css` hunk only. The falsifier file was then run twice, and both runs gave `Tests 5 failed | 1 passed (6)` (`C/vitest-red-{1,2}.log`). The five failures:
+  - 0722: no dialog content mounted
+  - 0715: no dialog content
+  - 0721: `expected { x: 100, y: 80 } to deeply equal { x: 160, y: 150 }`, i.e. the loupe stayed at its viewport point
+  - 0705: no `[data-o18="generate-count"] .slider-range`
+  - 0713: `'1.5px dashed var(--card-edge)'`
+
+  The one pass is the Escape lock. The old window listener already unpinned first, so that test holds behaviour the dialog had to keep; it witnesses no defect. The cure was re-applied afterwards.
+- **GREEN after, x2:** `Tests 6 passed (6)` (`C/vitest-green-{1,2}.log`).
+- **Typecheck** (`C/typecheck.log`): `vue-tsc -p tsconfig.demo.json` exits 0 and `-p tsconfig.test.json` exits 0. `tsc -p tsconfig.e2e.json` exits 2, but every error is in another seat's untracked `e2e/smoke/admin/ss8-b17-admin-names.spec.ts`. There are none in `o18-contrast-census.spec.ts`.
+- **Touched suites** (`guarded --timeout 15 -- npx vitest run --maxWorkers=2 demo/test/extract demo/test/generate`, `C/vitest-touched-suites.log`): `Test Files 8 passed (8)`, `Tests 33 passed (33)`.
+- **Live re-read:** see `### live` below.
+
+| SID | verdict carried | cure / disposition | falsifier | commit |
+|---|---|---|---|---|
+| 0696 | REFUTED | **No cure.** The dark chroma-collapse limb is retired. The light-walk green chroma loss (0.2 → 0.052) is an observation, not a defect. | none (no defect) | packet |
+| 0697 | REFUTED | **No cure.** The shared-bias premise is dead: the bias is about 0.15 ratio points. | none | packet |
+| 0700 | REFUTED | **No cure.** V3C-04 removed the subject. EC-43's unit-test proposal is retired. | none | packet |
+| 0705 | REFUTED (colour half); structural half cured | **Cure (EC-16):** `GenerateControls.vue`'s count row now carries `data-o18="generate-count"`. O-18 gains a GRAPHICS leg in both schemes, `o18-contrast-census.spec.ts`, "Generate's count range ≥3:1", which reads `[data-o18="generate-count"] .slider-range` at the same floor as Extract's twin. The census can now fail on the twin. | `SS8-0705`: the hook + range exist (RED x2 → GREEN x2). The e2e leg was **not run** (see live). | `605daabe7` |
+| 0709 | REFUTED (Chromium) | **No cure.** R-1 holds. WebKit stays an SS-13/X-W1 matrix cell. | none | packet |
+| 0710 | REFUTED (the harm) | **No cure.** `aria-disabled` accompanies the flip. The optional tabindex hold was not taken: it would leave a disabled node in the tab order for no witnessed harm. | none | packet |
+| 0713 | REFUTED (2 of 3 limbs); border limb cured | **Cure:** `.dashed-well` (`demo/styles/utils.css`, the ONE well recipe) paints its dashed edge in `--ink-muted`. That is the boot-certified plate rung (text floor ≥4.5, so ≥3:1), not the 12 % `--card-edge` hairline that read 1.47 / 1.71. The token moves, not the instances. The current-palette editor's well, the other consumer, gains the same legible edge. | `SS8-0713`: the rule's border reads `var(--ink-muted)` and not `--card-edge` (RED x2 → GREEN x2) | `605daabe7` |
+| 0715 | REFUTED (amounts); bound cured | **Cure (EY-15's bound):** the eyedropper is now glass's `Dialog`/`DialogContent` (`surface="glass"`, `dismiss="deliberate"`), teleported out of the workbench root. Its content is `fixed`, sized `w-[min(100vw-2rem,64rem)] h-[min(100dvh-2rem,48rem)]`, so the stage is bounded by the viewport, not the root's 714 px. The wider EY-15 composition (the tier roles, the phantom duplicate specimen) is still the X-W7 addendum's. | `SS8-0715`: content is outside the root, `fixed`, with vw/dvh bounds and no `inset-0` (RED x2 → GREEN x2) | `605daabe7` |
+| 0717 | REFUTED (cured at HEAD) | **No cure.** Cured by X-W7 Repair 1 (EY-10). | none | packet |
+| 0720 | REFUTED | **No cure.** The coast is the intended shape. | none | packet |
+| 0721 | REFUTED (EY-12); EY-20 PROVEN, cured | **EY-12: none. EY-20 cure:** a tap-pin records its IMAGE point, `(rx − pan) / zoom`. While pinned, a watch on `panX/panY/zoom` re-projects the loupe to `pan + point × zoom` and redraws it, so the ring keeps marking the pixel it shows. The pinned value stays fixed by design. | `SS8-0721`: pin at (100, 80), then zoom ×2 with pan (−40, −10); the loupe centre reads (160, 150) (RED x2 → GREEN x2) | `605daabe7` |
+| 0722 | REFUTED (counts); structure cured | **Cure (EY-8 ≡ XP-9), the glass-first option:** the overlay adopts glass `./dialog`. The producer owns `role="dialog"`, `aria-modal`, the name (sr-only `DialogTitle` "Eyedropper", plus a `DialogDescription`), focus entry and return, hiding the content behind it, and an Escape scoped to the layer. The window `keydown` listener and its arm/release lifecycle are deleted. `@escape-key-down` releases a pin first. Because the dialog is a teleported controlled popup, `ExtractWorkbench` closes it in `onDeactivated` (A2-VA-L2-11). The `vj-enter` wrapper was replaced by glass's dialog presence motion; no custom keyframe was removed. | `SS8-0722`: role, aria-modal, labelled "Eyedropper", the root behind under `aria-hidden`, focus inside (RED x2 → GREEN x2). `Escape` lock: pinned Esc unpins and keeps the dialog open; the next Esc closes it (GREEN; passes on the old code too) | `605daabe7` |
+
+Files: `demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue` · `demo/workbenches/extract/ExtractWorkbench.vue` · `demo/workbenches/generate/GenerateControls.vue` · `demo/styles/utils.css` (this seat's hunk only; the other seat's SS8-0408 hunk had already landed as `63436369f` when this was staged) · `e2e/smoke/oracles/o18-contrast-census.spec.ts` · `demo/test/extract/ss8-b25-cures.test.ts` · `docs/tranches/X/execution/SS8/probes/B25/probe-cure.mjs` · `C/*`. No `src/**` change and no public API change. glass-ui was consumed, not edited.
