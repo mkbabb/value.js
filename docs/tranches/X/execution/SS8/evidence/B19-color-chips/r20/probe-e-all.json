@@ -1,0 +1,209 @@
+{
+  "widths": {
+    "Preset": {
+      "rem": 16,
+      "menuMinW": "11rem",
+      "elevenRemPx": 176,
+      "shipped": {
+        "minW": "272px",
+        "w": 272
+      },
+      "maxContentPx": 226,
+      "maxContentRem": 14.125,
+      "w11": 176,
+      "wrapsAt11": 0,
+      "clippedAt11": 0,
+      "chipOutAt11": 0,
+      "at11": [
+        {
+          "label": "VibrantHigh chroma, bold ton",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "PastelSoft, light, airy",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "WarmReds, oranges, golds",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "CoolBlues, cyans, purples",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "EarthMuted clay and soil",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "NeonMaximum saturation glow",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "MutedQuiet, understated",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "DarkDeep, moody tones",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "JewelRich sapphire and ruby",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "RandomUnconstrained chaos",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        }
+      ]
+    },
+    "Harmony": {
+      "rem": 16,
+      "menuMinW": "11rem",
+      "elevenRemPx": 176,
+      "shipped": {
+        "minW": "272px",
+        "w": 279.59375
+      },
+      "maxContentPx": 279.594,
+      "maxContentRem": 17.475,
+      "w11": 176,
+      "wrapsAt11": 3,
+      "clippedAt11": 0,
+      "chipOutAt11": 0,
+      "at11": [
+        {
+          "label": "GoldenGolden angle — maximum",
+          "descLines": 2,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "AnalogousTight hue cluster, ",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "ComplementaryOpposing hue pa",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "TriadicThree equidistant hue",
+          "descLines": 2,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "Split complementaryBase + tw",
+          "descLines": 2,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        },
+        {
+          "label": "RandomIndependent random hue",
+          "descLines": 1,
+          "descClipped": false,
+          "chipInside": true,
+          "chipW": 41.875
+        }
+      ]
+    },
+    "pageErrors": []
+  },
+  "timing": {
+    "count12": {
+      "valuenow": "12",
+      "opens": [
+        {
+          "tasks": [],
+          "stampedFirstRow": 12
+        },
+        {
+          "tasks": [],
+          "stampedFirstRow": 12
+        },
+        {
+          "tasks": [],
+          "stampedFirstRow": 12
+        },
+        {
+          "tasks": [],
+          "stampedFirstRow": 12
+        },
+        {
+          "tasks": [],
+          "stampedFirstRow": 12
+        }
+      ]
+    },
+    "count1": {
+      "valuenow": "1",
+      "opens": [
+        {
+          "tasks": [],
+          "stampedFirstRow": 1
+        },
+        {
+          "tasks": [],
+          "stampedFirstRow": 1
+        },
+        {
+          "tasks": [],
+          "stampedFirstRow": 1
+        },
+        {
+          "tasks": [],
+          "stampedFirstRow": 1
+        },
+        {
+          "tasks": [],
+          "stampedFirstRow": 1
+        }
+      ]
+    },
+    "steps": {
+      "tasks": [],
+      "valuenow": "12"
+    },
+    "cpus": 18,
+    "pageErrors": []
+  }
+}

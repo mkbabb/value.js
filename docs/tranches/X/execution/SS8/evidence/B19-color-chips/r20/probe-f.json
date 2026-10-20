@@ -1,0 +1,16 @@
+{
+  "calls": 66528,
+  "threw": 0,
+  "badN": 0,
+  "bad": [],
+  "defaultKeys": [
+    "harmony",
+    "colorEnergy",
+    "zones",
+    "noise",
+    "medium",
+    "motion",
+    "interactivity"
+  ],
+  "pageErrors": []
+}

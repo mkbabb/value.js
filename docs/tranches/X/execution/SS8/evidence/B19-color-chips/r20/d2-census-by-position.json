@@ -1,0 +1,241 @@
+{
+ "light": {
+  "rows": [
+   [
+    "VibrantHigh chro",
+    [
+     2.316,
+     1.516,
+     1.914,
+     1.506,
+     1.488
+    ]
+   ],
+   [
+    "PastelSoft, ligh",
+    [
+     2.631,
+     2.193,
+     2.432,
+     2.187,
+     2.201
+    ]
+   ],
+   [
+    "WarmReds, orange",
+    [
+     1.657,
+     1.146,
+     1.366,
+     1.267,
+     1.133
+    ]
+   ],
+   [
+    "CoolBlues, cyans",
+    [
+     1.494,
+     1.346,
+     1.207,
+     1.437,
+     1.328
+    ]
+   ],
+   [
+    "EarthMuted clay ",
+    [
+     1.232,
+     2.352,
+     1.514,
+     2.517,
+     2.186
+    ]
+   ],
+   [
+    "NeonMaximum satu",
+    [
+     1.723,
+     1.267,
+     1.484,
+     1.279,
+     1.252
+    ]
+   ],
+   [
+    "MutedQuiet, unde",
+    [
+     1.007,
+     1.006,
+     1.013,
+     1.012,
+     1.012
+    ]
+   ],
+   [
+    "DarkDeep, moody ",
+    [
+     1.009,
+     1.001,
+     1.003,
+     1.003,
+     1.007
+    ]
+   ]
+  ],
+  "meanByPos": [
+   1.634,
+   1.478,
+   1.492,
+   1.526,
+   1.451,
+   null,
+   null
+  ]
+ },
+ "dark": {
+  "rows": [
+   [
+    "VibrantHigh chro",
+    [
+     4.201,
+     5.061,
+     2.702,
+     3.729,
+     3.228
+    ]
+   ],
+   [
+    "PastelSoft, ligh",
+    [
+     9.786,
+     10.525,
+     8.153,
+     9.241,
+     8.713
+    ]
+   ],
+   [
+    "WarmReds, orange",
+    [
+     6.062,
+     6.568,
+     3.259,
+     4.518,
+     3.759
+    ]
+   ],
+   [
+    "CoolBlues, cyans",
+    [
+     5.333,
+     6.007,
+     2.662,
+     4.094,
+     3.151
+    ]
+   ],
+   [
+    "EarthMuted clay ",
+    [
+     2.887,
+     3.167,
+     1.659,
+     2.236,
+     1.832
+    ]
+   ],
+   [
+    "NeonMaximum satu",
+    [
+     6.802,
+     7.894,
+     4.632,
+     6.196,
+     5.578
+    ]
+   ],
+   [
+    "MutedQuiet, unde",
+    [
+     1.0,
+     1.0,
+     1.001,
+     1.006,
+     1.006
+    ]
+   ],
+   [
+    "DarkDeep, moody ",
+    [
+     1.007,
+     1.001,
+     1.001,
+     1.002,
+     1.006
+    ]
+   ]
+  ],
+  "meanByPos": [
+   4.635,
+   5.153,
+   3.134,
+   4.003,
+   3.534,
+   null,
+   null
+  ]
+ },
+ "visibleOnly": {
+  "light": {
+   "visibleRows": [
+    "VibrantHigh chro",
+    "PastelSoft, ligh",
+    "WarmReds, orange",
+    "CoolBlues, cyans",
+    "EarthMuted clay ",
+    "NeonMaximum satu"
+   ],
+   "n": 30,
+   "worst": [
+    "WarmReds, orange",
+    4,
+    1.133
+   ],
+   "below1_5": 15,
+   "below1_2": 2,
+   "meanByPos": [
+    1.842,
+    1.637,
+    1.653,
+    1.699,
+    1.598
+   ]
+  },
+  "dark": {
+   "visibleRows": [
+    "VibrantHigh chro",
+    "PastelSoft, ligh",
+    "WarmReds, orange",
+    "CoolBlues, cyans",
+    "EarthMuted clay ",
+    "NeonMaximum satu"
+   ],
+   "n": 30,
+   "worst": [
+    "EarthMuted clay ",
+    2,
+    1.659
+   ],
+   "below1_5": 0,
+   "below1_2": 0,
+   "meanByPos": [
+    5.845,
+    6.537,
+    3.845,
+    5.002,
+    4.377
+   ]
+  }
+ },
+ "note": "rows 7+ are scrolled below the listbox viewport (strip5-menu-*.png); analyze.json D2census includes them and is superseded by visibleOnly"
+}
