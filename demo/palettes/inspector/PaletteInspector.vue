@@ -92,7 +92,7 @@
                         icon-only
                         emphasis="quiet"
                         size="sm"
-                        aria-label="Palette menu"
+                        :aria-label="`Palette menu for ${palette.name}`"
                         class="shrink-0"
                         @focus="onMenuFocusReturned"
                     >

@@ -46,9 +46,11 @@ defineProps<{
 </script>
 
 <style scoped>
-/* CSS containment — isolates layout/paint scope for the card grid (D.W4 Lane A
- * §4: colocated from styles/style.css). */
+/* CSS containment — isolates layout/style scope for the card grid (D.W4 Lane A
+ * §4: colocated from styles/style.css). NOT paint: the grid's box is the
+ * cards' exact width, so paint containment clipped each card's focus ring
+ * (2px outline, 2px offset) on its top/left/right edges (SS8-0442). */
 .palette-card-grid {
-    contain: content;
+    contain: layout style;
 }
 </style>

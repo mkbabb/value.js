@@ -167,3 +167,13 @@ describe("S.W5-7 · never the same string twice (Repair 1, Check 1 M-3)", () => 
         wrapper.unmount();
     });
 });
+
+describe("SS8-0445 (PP U-6) · each card's menu trigger names its palette", () => {
+    it("the overflow trigger is 'Palette menu for <name>', never a bare shared name", () => {
+        const { wrapper } = mountInspector(SAVED);
+        const trigger = wrapper.find('[aria-label^="Palette menu"]');
+        expect(trigger.exists()).toBe(true);
+        expect(trigger.attributes("aria-label")).toBe("Palette menu for Inspector fixture");
+        wrapper.unmount();
+    });
+});
