@@ -10,9 +10,16 @@
         aria-hidden="true"
     >
         <Skeleton class="w-8 h-8 rounded-full shrink-0" />
-        <div class="flex-1 min-w-0 flex flex-col gap-1.5">
-            <Skeleton class="h-3.5 w-36 max-w-[60%] rounded-md" />
-            <Skeleton class="h-3 w-24 max-w-[40%] rounded-md" />
+        <!-- SS8-0487: the column is the live text stack's — one line box of
+             each row type (`text-small` over `text-mono-small`, `gap-0.5`),
+             each bar centred in its own line, so the swap keeps the column. -->
+        <div class="flex-1 min-w-0 flex flex-col gap-0.5">
+            <div class="text-small h-lh flex items-center">
+                <Skeleton class="h-3.5 w-36 max-w-[60%] rounded-md" />
+            </div>
+            <div class="text-mono-small h-lh flex items-center">
+                <Skeleton class="h-3 w-24 max-w-[40%] rounded-md" />
+            </div>
         </div>
         <Skeleton class="h-7 w-14 rounded-full shrink-0" />
     </div>
