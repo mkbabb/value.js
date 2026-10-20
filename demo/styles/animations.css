@@ -227,8 +227,9 @@
  * vs the base family is immaterial.)
  * The former pane-slide/pane-left/pane-right trio collapsed onto
  * `vj-enter`; these DIRECT-CHILD geometry overrides carry only the pane
- * slots' off-canvas slide + cartoon-swagger rotate, opacity pinned (the
- * swap reads as travel, not a fade). Direct-child (`>`) on purpose: an
+ * slots' role offset (OD19-V7: a subtle 1.5rem drift under an opacity-led
+ * swap; the off-canvas slide + swagger rotate it replaced are recorded
+ * below). Direct-child (`>`) on purpose: an
  * inherited `--vj-enter-*` var would leak the pane geometry into nested
  * in-pane transitions. The PaneSlot <Transition> runs `mode="out-in"`
  * (X.W5.d2 — the leave travels out, then the enter travels in; the former
@@ -251,20 +252,28 @@
  *                 `--right` geometry, byte-kept — reachable at every width now).
  *   · action    — a command surface; rises from the block-end edge.
  * Each rule below is the FORWARD reading. The DIRECTION arm follows it. */
+/* OD19-V7 (owner docket 2026-10-19: "the card or pane transition animations
+ * is very janky and slow") — the family is KEPT (roles, direction mirror,
+ * springs), its TRAVEL is cut to a subtle offset. The off-canvas ±110% +
+ * ±2deg swagger made every out-in swap a full-viewport exit and re-entry
+ * (Home→Mix: the inspector left to x1548, moving window 305→1161 ms at
+ * 1440). Now each role offsets 1.5rem on its own side with no rotate, and
+ * the swap is OPACITY-LED: the leaving pane fades over `--duration-fast`
+ * while it drifts, the entering pane fades in while it settles. */
 .pane-wrapper--stage > .vj-enter-enter-from,
 .pane-wrapper--stage > .vj-enter-leave-to {
-    opacity: 1;
-    transform: translateX(-110%) rotate(-2deg);
+    opacity: 0;
+    transform: translateX(-1.5rem);
 }
 .pane-wrapper--inspector > .vj-enter-enter-from,
 .pane-wrapper--inspector > .vj-enter-leave-to {
-    opacity: 1;
-    transform: translateX(110%) rotate(2deg);
+    opacity: 0;
+    transform: translateX(1.5rem);
 }
 .pane-wrapper--action > .vj-enter-enter-from,
 .pane-wrapper--action > .vj-enter-leave-to {
-    opacity: 1;
-    transform: translateY(110%) rotate(0deg);
+    opacity: 0;
+    transform: translateY(1.5rem);
 }
 
 /* X.W5.d · gate D3's direction arm — the scene-direction token.
@@ -278,15 +287,15 @@
  * added, never deleted); this block only adds the mirrored reading. */
 .pane-wrapper--stage > [data-scene-direction="back"].vj-enter-enter-from,
 .pane-wrapper--stage > [data-scene-direction="back"].vj-enter-leave-to {
-    transform: translateX(110%) rotate(2deg);
+    transform: translateX(1.5rem);
 }
 .pane-wrapper--inspector > [data-scene-direction="back"].vj-enter-enter-from,
 .pane-wrapper--inspector > [data-scene-direction="back"].vj-enter-leave-to {
-    transform: translateX(-110%) rotate(-2deg);
+    transform: translateX(-1.5rem);
 }
 .pane-wrapper--action > [data-scene-direction="back"].vj-enter-enter-from,
 .pane-wrapper--action > [data-scene-direction="back"].vj-enter-leave-to {
-    transform: translateY(-110%) rotate(0deg);
+    transform: translateY(-1.5rem);
 }
 
 /* W3-4 (S.W3): promote the pane to its own compositor layer for the
@@ -312,9 +321,8 @@
  * bounded box. The About pane's off-viewport sections keep their
  * `content-visibility: auto` (Markdown.vue) under this containment — it is
  * the reason they stay skipped while travelling, and nothing here overrides
- * it. No motion is removed or retuned: the distance, the rotation, the
- * springs and the direction arm are byte-kept (the preserve-animations
- * edict; P-5a/P-5b REFUSED).
+ * it. The springs and the direction arm are kept; the distance and the
+ * rotation were retuned by the owner's OD19-V7 word (2026-10-19), above.
  * `overflow-clip-margin` keeps the card's cartoon offset shadow unclipped by
  * the paint containment — the plate's widest cast is `--shadow-cartoon`'s
  * 8px reach (foundation.css; no hover stamp exists), and 10px keeps a 2px
@@ -355,6 +363,8 @@
         opacity var(--duration-fast) var(--ease-decelerate),
         transform var(--spring-panel-duration) var(--spring-panel);
 }
+/* OD19-V7 — the leave is OPACITY-LED: the fade owns the exit at
+ * `--duration-fast`; the 1.5rem drift rides the same clock. */
 .pane-wrapper--stage > .vj-enter-leave-active,
 .pane-wrapper--inspector > .vj-enter-leave-active,
 .pane-wrapper--action > .vj-enter-leave-active {

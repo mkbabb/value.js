@@ -88,3 +88,39 @@ P4: Dock.vue:173-182 + :418-420: the `vj-settle` beat (kept, per the preserve-an
   - (2) light-390 still blocks 0.7–1.2 s per drag, so most of the light-cell cost lies outside these two roots.
   - (3) The main-tree runs (`run1/`, `run2/`, against the then-dirty tree, now committed as `143c778a2`) show `HeroBlob.vue:281` `repaintParked` (from the `watch.deep` at :301) at 482 ms inclusive per drag, through `getBoundingClientRect` at 543 ms self. This is the software-raster tier: per-frame forced layout on the headless tier. It was not in either A/B worktree.
   - These three need a follow-up packet (ink certify memo per (colour, surface), or keeping the off-screen `safeCss` consumers off the drag clock, plus the HeroBlob parked repaint). The shared `:9000` dev server, and a fresh one of ours, both hung at about 96 % CPU / 3.2–3.6 GB RSS after repeated loads, so the A/B used fresh servers per run.
+
+### P3
+
+Rows OD19-V5, OD19-V7 and the value half of OD19-ALL. Verdict: **PARTIAL — cured at the consumer roots, measured faster in every cell, and the falsifier's absolute budgets are still RED on two arms** (see residuals). Modify set only: `demo/shell/usePaneRouter.ts`, `demo/shell/dock/DockViewSelect.vue`, `demo/shell/PaneSlot.vue` (contract comment), `demo/styles/animations.css`. Falsifier added: `e2e/smoke/od19-pane-swap.spec.ts`. Probes: `value/probes/p3-warm.mjs`, `p3-swap-timeline.mjs`, `p3-vsfb-loaf.mjs`, `p3-built-ab.sh`.
+
+**Cures**
+- **V5, intent and idle warm.** `usePaneRouter.ts` exports `preloadView(id)`, which starts a view's lazy pane chunks now, and `warmViews(ids)`. One idle queue loads one pane at a time, each in its own `requestIdleCallback` slice (setTimeout hop on Safari; Save-Data warms nothing). `usePaneRouter` queues every lazy pane once, on `onMounted` after the window `load` event. The boot graph is untouched (X.W11.p2). `DockViewSelect.vue` calls `preloadView` on an option's `pointerenter`/`focus` and `warmViews(all options)` when the menu opens. The menu-open warm goes through the queue: a first cut fired every import at once and the view-switch run logged a 1329 ms task. A rejected warm is dropped, and the swap's own load still reports it. Probe `p3-warm.mjs`: on a fresh dev server every lazy pane is requested before the first hop, and the hop issues **0 pane requests** (`coldDuringGradient: []` in every after-run record).
+- **V7, the pane swap.** `mode="out-in"` is kept (ESC-W5t-2). In `animations.css`, the role travel `translateX(±110%) rotate(±2deg)` / `translateY(±110%)` becomes `translateX(±1.5rem)` / `translateY(±1.5rem)` with no rotate. Enter-from and leave-to are `opacity: 0`, so the swap is opacity-led. The leave stays on `--duration-fast` and the enter on `--spring-panel`. The back-direction mirror and the role family are kept, and so are the `will-change` and `contain` windows. An A/B with `will-change` removed was slower at 1440 (gradient title 691–760 ms), so the hint stays.
+
+**Falsifier** `od19-pane-swap.spec.ts` (an in-app hash hop after the page has warmed; rAF trace of the region roots; title is input → destination `main h1`; window is the first → last moving frame; budgets title ≤ 400 ms and window ≤ 450 ms). The ms values are min–max across runs, and every record is in `after/P3/SUMMARY.json`.
+
+| arm | gradient title | gradient window | mix title | mix window |
+|---|---|---|---|---|
+| dev, BEFORE ×2 (`before`) | 1719–4345 | 992–2850 | 334–639 | 749–1323 |
+| dev, AFTER ×5 (`after`) | 258–799 | 408–1268 | 243–435 | 400–817 |
+| built, BEFORE ×2 (`before-built`, HEAD worktree) | 457–925 | 1066–1940 | 329–386 | 867–1025 |
+| built, AFTER ×4 (`after-built` + `final-built`) | 262–806 | 402–1142 | 231–354 | 367–707 |
+
+- Passing: mix title in every AFTER cell, and the gradient title at 390 on the built bundle (262–377 ms).
+- RED: the gradient title at 1440 (435–806 ms built) and the moving window (above 450 ms in most cells, worst at 390 mix).
+- 390 frame budget (≤ 50 ms), recorded and not met. On swiftshader the worst swap frame is 225–351 ms after (BEFORE: 268–449).
+
+**Residuals (measured, outside P3's modify set)**
+1. **Incoming-pane mount and raster frame.** The `p3-swap-timeline` run on the built AFTER bundle at 1440: leave classes at 28–39 ms, the old pane removed and the new one inserted at 236–297 ms, `enter-to` at 377–468 ms. The frame between insert and `enter-to` costs 130–220 ms, which is mount plus style/layout. In the falsifier runs the first frame after input sometimes arrives 435–760 ms late, with no script over 5 ms in the LoAF (`render@…` only). That is a raster/GPU stall on swiftshader, with the 7459 px About pane as the leaving layer. It sets the gradient@1440 title.
+2. **Neighbour shift at 390.** On Home→Mix the stage (Picker) moves −60 px in the first frames, and that opens the 390 mix window at t≈0. This is V4's route caption (packet P1, `App.vue`), not the swap.
+3. The out-in floor is about 200 ms leave + mount + spring settle, so a 450 ms window is not reachable on software GL while `out-in` stands.
+
+**Gates (all through `guarded`)**
+- `npm run typecheck`: lib, demo and test clean. The e2e tsc errors are only in other seats' untracked specs (`ss8-b17-admin-names`, `ss8-b07-pane-shell`, `ss8-b15-palette-cards`); my spec is clean (`after/P3/typecheck.txt`).
+- vitest full (`--maxWorkers=2`): 1279 passed, 2 failed, both in `demo/test/palettes/palette-card-layout.test.ts`, which is dirty with another seat's SS-8 B13 hunks and unrelated to P3.
+- `walk.spec.ts` + `oracles/cold-nav-scene-enter.spec.ts` ×2: 3 passed / 3 passed.
+- `perf/view-switch-frame-budget.spec.ts` on the AFTER built bundle ×2: passed / passed, first frame 8.3 / 9.3 ms (BEFORE 291 / 1166 ms). Software-GL maxTask is 1052–1208 ms against BEFORE's 153–543 ms. The `p3-vsfb-loaf` A/B places that task in the incoming pane's mount, `import.then` / `onanimationend`, present in both arms. Residual 1.
+
+**Escalated** — the gradient@1440 title, the moving-window budget and the 390 frame budget need (a) residual 1's mount/raster cost (the pane's own mount, GradientPane/PalettesPane, outside P3) and (b) P1's V4 cure to land. Or the orchestrator can re-rule the window budget under `out-in`.
+
+**Machine note** — the guard held the BEFORE run for about 3.5 h (load 85–150). The shared `:9000` server stopped answering at 19:48, so every run used private ports (8190/8191/8192), and each server was stopped after its run.

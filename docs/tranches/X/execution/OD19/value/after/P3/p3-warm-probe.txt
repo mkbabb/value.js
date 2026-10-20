@@ -1,0 +1,18 @@
+pane requests before hop: [[38,"/@fs/Users/mkbabb/Programming/value.js/demo/scenes/notfound/NotFoundPane.vue"],[11845,"/@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/AboutPane.vue"],[22511,"/@fs/Users/mkbabb/Programming/value.js/demo/palettes/PalettesPane.vue"],[25863,"/@fs/Users/mkbabb/Programming/value.js/demo/palettes/PalettesPane.vue?vue&type=s"],[26180,"/@fs/Users/mkbabb/Programming/value.js/demo/palettes/BrowsePane.vue"],[26806,"/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/extract/ExtractPane.vue"],[42898,"/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/generate/GeneratePane.vu"],[43144,"/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/gradient/GradientPane.vu"],[43476,"/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/mix/MixPane.vue"],[43661,"/@fs/Users/mkbabb/Programming/value.js/demo/palettes/admin/AdminPane.vue"],[43908,"/@fs/Users/mkbabb/Programming/value.js/demo/scenes/atmosphere/AuroraPane.vue"],[43929,"/@fs/Users/mkbabb/Programming/value.js/demo/scenes/ConfigSliderPane.vue"],[43929,"/@fs/Users/mkbabb/Programming/value.js/demo/scenes/atmosphere/AuroraPane.vue?vue"],[43956,"/@fs/Users/mkbabb/Programming/value.js/demo/scenes/ConfigSliderPane.vue?vue&type"],[44295,"/@fs/Users/mkbabb/Programming/value.js/demo/scenes/blob/BlobPane.vue"]]
+hop: {"title":394,"loaf":[[46287,84,["FrameRequestCallback|shell/PaneSlot.vue|7"]],[46469,55,[]],[46590,121,["TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js?v=9624df0f|98","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js?v=9624df0f|15"]],[46761,57,[]],[46819,57,[]],[46937,57,[]],[46876,59,[]],[46994,57,[]]]}
+pane requests during hop: []
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "http://localhost:8192/#/", waiting until "load"[22m
+
+    at /Users/mkbabb/Programming/value.js/docs/tranches/X/execution/OD19/value/probes/p3-warm.mjs:11:16 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0
+
+[exited with code 0]

@@ -1,0 +1,32 @@
+{
+  "width": 1440,
+  "warmed": true,
+  "coldDuringGradient": [
+    "scenes/blob/BlobPane.vue"
+  ],
+  "gradient": {
+    "title": 771,
+    "firstMove": 771,
+    "lastMove": 1646,
+    "window": 875,
+    "maxFrame": 691,
+    "frames": 10
+  },
+  "home": {
+    "title": 4,
+    "firstMove": 221,
+    "lastMove": 721,
+    "window": 500,
+    "maxFrame": 242,
+    "frames": 12
+  },
+  "mix": {
+    "title": 280,
+    "firstMove": 195,
+    "lastMove": 638,
+    "window": 443,
+    "maxFrame": 168,
+    "frames": 12
+  },
+  "at": "2026-10-20T00:28:44.600Z"
+}

@@ -1,0 +1,81 @@
+{
+  "width": 1440,
+  "warmed": true,
+  "coldDuringGradient": [],
+  "gradient": {
+    "title": 732,
+    "firstMove": 732,
+    "lastMove": 1597,
+    "window": 865,
+    "maxFrame": 690,
+    "frames": 10,
+    "loaf": [
+      [
+        60,
+        71,
+        []
+      ],
+      [
+        908,
+        691,
+        []
+      ]
+    ]
+  },
+  "home": {
+    "title": 3,
+    "firstMove": 202,
+    "lastMove": 719,
+    "window": 517,
+    "maxFrame": 177,
+    "frames": 14,
+    "loaf": [
+      [
+        54,
+        151,
+        []
+      ],
+      [
+        608,
+        65,
+        []
+      ],
+      [
+        498,
+        110,
+        []
+      ]
+    ]
+  },
+  "mix": {
+    "title": 271,
+    "firstMove": 230,
+    "lastMove": 680,
+    "window": 450,
+    "maxFrame": 200,
+    "frames": 11,
+    "loaf": [
+      [
+        56,
+        178,
+        []
+      ],
+      [
+        328,
+        56,
+        []
+      ],
+      [
+        416,
+        65,
+        []
+      ],
+      [
+        482,
+        203,
+        []
+      ]
+    ]
+  },
+  "at": "2026-10-20T00:30:08.625Z"
+}

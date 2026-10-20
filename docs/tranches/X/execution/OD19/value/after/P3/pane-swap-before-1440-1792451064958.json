@@ -1,0 +1,28 @@
+{
+  "width": 1440,
+  "gradient": {
+    "title": 1737,
+    "firstMove": 1737,
+    "lastMove": 2862,
+    "window": 1125,
+    "maxFrame": 833,
+    "frames": 10
+  },
+  "home": {
+    "title": 5,
+    "firstMove": 396,
+    "lastMove": 396,
+    "window": 0,
+    "maxFrame": 342,
+    "frames": 5
+  },
+  "mix": {
+    "title": null,
+    "firstMove": 1443,
+    "lastMove": 2192,
+    "window": 749,
+    "maxFrame": 666,
+    "frames": 12
+  },
+  "at": "2026-10-19T23:04:24.957Z"
+}

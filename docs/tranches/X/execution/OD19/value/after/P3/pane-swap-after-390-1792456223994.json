@@ -1,0 +1,80 @@
+{
+  "width": 390,
+  "warmed": true,
+  "coldDuringGradient": [],
+  "gradient": {
+    "title": 491,
+    "firstMove": 491,
+    "lastMove": 975,
+    "window": 484,
+    "maxFrame": 359,
+    "frames": 10,
+    "loaf": [
+      [
+        0,
+        53,
+        [
+          "FrameRequestCallback|shell/PaneSlot.vue|6"
+        ]
+      ],
+      [
+        54,
+        64,
+        []
+      ]
+    ]
+  },
+  "home": {
+    "title": 0,
+    "firstMove": 183,
+    "lastMove": 717,
+    "window": 534,
+    "maxFrame": 175,
+    "frames": 20,
+    "loaf": [
+      [
+        61,
+        129,
+        []
+      ],
+      [
+        503,
+        70,
+        []
+      ]
+    ]
+  },
+  "mix": {
+    "title": 327,
+    "firstMove": 2,
+    "lastMove": 819,
+    "window": 817,
+    "maxFrame": 342,
+    "frames": 11,
+    "loaf": [
+      [
+        54,
+        172,
+        []
+      ],
+      [
+        227,
+        107,
+        [
+          "TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|24"
+        ]
+      ],
+      [
+        334,
+        89,
+        []
+      ],
+      [
+        484,
+        341,
+        []
+      ]
+    ]
+  },
+  "at": "2026-10-20T00:30:23.994Z"
+}

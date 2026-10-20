@@ -34,9 +34,16 @@
 //
 // ── TRANSITION MODE — `out-in`, and why (fold W5F-04/W5F-05/W5F-07; X.W5.d2) ─
 //
-// The <Transition> below runs `mode="out-in"`: the leaving pane travels out
-// (`--duration-fast`), THEN the incoming pane mounts and travels in
-// (`--spring-panel`). Measured on this file by the out-in co-mount re-probe
+// The <Transition> below runs `mode="out-in"`: the leaving pane fades out
+// (`--duration-fast`, opacity-led, a 1.5rem drift), THEN the incoming pane
+// mounts and settles in (`--spring-panel`). OD19-V7 (owner docket 2026-10-19,
+// "the card or pane transition animations is very janky and slow") kept this
+// contract (ESC-W5t-2) and cut the role travel from an off-canvas ±110% +
+// ±2deg exit to that drift (`animations.css`), so the serialised leave is a
+// short fade, not a full-viewport departure. With the intent and idle warms
+// (`usePaneRouter`'s `preloadView` / `warmLazyPanes`) the incoming chunk has
+// already landed, so the commit below no longer holds on a cold chunk.
+// Measured on this file by the out-in co-mount re-probe
 // (`docs/tranches/V/megatranche/workflows/gates/out-in-reprobe.mjs`, RESULTS
 // under `docs/tranches/X/waves/W5/triumvirate/`):
 //   · The default (simultaneous) mode held TWO in-flow panes in one ordinary
