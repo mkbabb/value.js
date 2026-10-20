@@ -189,3 +189,84 @@ Rows OD19-K7 (consumer half) and OD19-ALL (editor open). keyframes.js commit `be
   - `test/demo/scenes/r4panes-artifact-ink.test.ts`: property names take the `property` rung, and the artifact now carries 5 distinct inks (it has no keyframe stop).
   - Both assertions moved to the new contract at equal or greater strength. Nothing was skipped or deleted, and no golden was re-baselined.
 - **Glass (O-102, unchanged):** StatusDot `success` always draws a check (`.feedback-mark[data-state=success]::after`). The owner's plain dot needs a glyph-less state or prop.
+
+### load
+
+OD19-ALL, the keyframes half: "All loading times for all apps needs to be improved, every page, every app", and route-to-route navigation "smoothly and subtly".
+
+**Cure:** keyframes.js `9439cfb7` (pushed to master).
+
+**Method.**
+- Production build (`vite build --mode gh-pages`) served by `vite preview`. One guarded run (`load/measure-final.sh`), with the servers stopped on exit.
+- Headless Chromium at **CPU 4× (CDP `Emulation.setCPUThrottlingRate`)**, no network throttle (localhost), 1440×900, light. One browser per run and one context per cell.
+- Probe: `load/load-probe.mjs`.
+  - **Cold** = a fresh context per route, deep link `#/<route>`. Content = the scene host holds the scene, with no skeleton and no view transition running.
+  - **Warm** = one context booted on `#/cube` with 3 s idle, then hash navigation route to route (the router → `runSceneSwitch` path the dock takes). It records the `scene-swap:*` measures and rAF frame timing.
+  - **Surf** = a pick from the dock's Editor-surfaces menu.
+- Builds:
+  - BEFORE = `dist/od19-before` (keyframes `be52ee80`, the tree before these cures).
+  - AFTER = `dist/od19-final` (the cured tree, `9439cfb7` content plus `e414a40f`, plus another seat's one-class hunk in KeyframeTimeline.vue). Re-measured ×2, interleaved with the before run on the same machine state (2026-10-20 ~15:30, load ≈ 20).
+- Routes: home, cube, amiga, square, easing, spring, sequence (every scene in `demo/app/scene/scenes.ts`). Keyframes and Timeline are dock surfaces, not routes, and are measured as surf rows.
+
+**Root causes (measured) and cures.**
+1. **A deep link rendered home first.**
+   - The first-load seed ran in the `router.isReady()` microtask, after App's first render. Every cold `#/<scene>` fetched and evaluated the home-only `HeroAurora` chunk (211 KB), mounted the start screen, then switched.
+   - Cure: `useSceneMachineRouterBinding.ts` seeds in setup once the initial navigation has resolved, which happens on every boot. `main.ts` warms the linked scene's chunk beside the engine chunk instead of after mount.
+2. **Each well mount redid the Monaco page work.**
+   - `CSSCodeEditor.vue` kept its boot promise and font-measurement warm in `<script setup>`, so every well mount (one per scene swap, force-mounted hidden) re-registered the `css` grammar and built a second throwaway editor inside the swap.
+   - Cure: both move to module scope.
+3. **Already in place and verified, not re-authored.**
+   - Route-level splitting: every non-home scene is its own chunk. Monaco, three and Aurora load lazily behind their consumers.
+   - Prefetch on intent: opening the Scene list warms every scene chunk (`ChromeDock.vue` `warmScene`), the surfaces menu warms the Monaco pane, and `warmScenesAtIdle` runs after first paint.
+   - The scene fallback is glass `Skeleton` in a glass `Card` (`SceneSkeleton.vue`), with no text loader. "Loading scene" is a polite-region announcement only.
+   - The swap is the untyped glass cross-dissolve plus the shared-element morph, which animates opacity and transform only. The demo carries no `::view-transition-*` CSS of its own.
+
+| cold route | content ms (before → run1 / run2) | JS KB before content | long tasks before content (count / total ms) | Aurora fetched |
+|---|---|---|---|---|
+| home | 577 → **553 / 498** | 1096 → **1096 / 1096** | 2/456 → **2/441 / 2/405** | True → True / True |
+| cube | 833 → **652 / 652** | 1096 → **885 / 885** | 2/701 → **2/540 / 2/552** | True → False / False |
+| amiga | 1113 → **699 / 800** | 1704 → **1424 / 1424** | 3/902 → **3/560 / 3/639** | True → False / False |
+| square | 934 → **729 / 831** | 1111 → **901 / 901** | 3/764 → **3/605 / 3/687** | True → False / False |
+| easing | 1063 → **794 / 936** | 1109 → **898 / 898** | 3/903 → **3/655 / 3/762** | True → False / False |
+| spring | 1059 → **651 / 798** | 1138 → **927 / 927** | 3/860 → **3/520 / 3/625** | True → False / False |
+| sequence | 887 → **577 / 639** | 1105 → **894 / 894** | 3/705 → **3/452 / 3/502** | True → False / False |
+
+| warm swap | total ms (before → run1 / run2) | commit ms | worst frame ms | frames > 50 ms | new KB fetched |
+|---|---|---|---|---|---|
+| cube->amiga | 1371 → **949 / 1031** | 370 → **257 / 285** | 535 → **348 / 363** | 6 → **5 / 5** | 996 → **3466 / 3466** |
+| amiga->square | 740 → **688 / 706** | 322 → **270 / 303** | 359 → **299 / 339** | 4 → **5 / 5** | 0 → **0 / 0** |
+| square->easing | 1080 → **891 / 952** | 528 → **431 / 465** | 582 → **473 / 510** | 6 → **6 / 7** | 0 → **0 / 0** |
+| easing->spring | 848 → **842 / 725** | 322 → **318 / 261** | 370 → **364 / 303** | 6 → **6 / 6** | 0 → **0 / 0** |
+| spring->sequence | 553 → **551 / 547** | 177 → **146 / 147** | 223 → **182 / 183** | 5 → **6 / 6** | 0 → **0 / 0** |
+| sequence->cube | 1304 → **980 / 1110** | 309 → **211 / 245** | 428 → **337 / 446** | 4 → **3 / 4** | 0 → **0 / 0** |
+| cube->home | 500 → **433 / 487** | 66 → **30 / 27** | 154 → **116 / 123** | 6 → **5 / 3** | 0 → **211 / 211** |
+| home->easing | 853 → **823 / 868** | 403 → **413 / 436** | 447 → **453 / 482** | 5 → **4 / 4** | 0 → **0 / 0** |
+
+| editor surface (dock menu pick) | click → content ms | worst frame ms | long tasks |
+|---|---|---|---|
+| Keyframes/idle3s | 856 → **763 / 806** | 231 → **190 / 259** | 4 → **4 / 4** |
+| Keyframes/first | 967 → **862 / 889** | 190 → **184 / 195** | 4 → **4 / 4** |
+| Timeline/idle3s | 100 → **103 / 106** | 167 → **175 / 171** | 3 → **3 / 3** |
+| Timeline/first | 126 → **129 / 130** | 203 → **194 / 196** | 4 → **4 / 4** |
+
+**Falsifiers.**
+- **Committed perf spec:** keyframes.js `scripts/observe/demo/route-load.mjs`. Run it with `KF_PLAYWRIGHT_DIR=<value.js>` (keyframes carries no playwright), and `KF_DIST=<build>`.
+  - Bars per route: cold content ≤ 1500 ms.
+  - JS before content ≤ 960 KB; home ≤ 1150, amiga ≤ 1500.
+  - Aurora is fetched on home only.
+  - Warm swap prepare ≤ 150 ms and commit ≤ 650 ms.
+  - Results:
+    - BEFORE build: **FAIL (12)** (`load/gate-final-before.txt`).
+    - AFTER build: **PASS ×2**, 35/35 checks each (`load/gate-final-{1,2}.txt`).
+  - A run with no resolvable browser now **exits 2**. The first pass of this re-measure exposed a vacuous PASS (`withBrowser` skipped silently), and that path is now a failure.
+- **vitest** (`--maxWorkers=2`): 94/94 across 20 files. These include `test/demo/app/deep-link-first-render.test.ts` (RED 3/3 at HEAD) and `css-code-editor-seam` (0b) (RED at HEAD; `load/vitest-RED.txt`).
+- **vue-tsc** (app + test): clean.
+- No test was deleted, skipped or weakened, and no golden was re-baselined.
+
+**Residuals (named, not hidden).**
+- **Warm swap frames over 50 ms are unchanged (3–7 per swap at 4×).** They sit inside the commit span, where the View Transition holds the frozen old paint while the destination scene mounts. That paint is the captured snapshot, so the visible dissolve is not where the jank lands. The cut is the commit span itself (−5–30 %).
+- **The first warm swap off a cold `#/cube` fetches 3466 KB.** This is the idle warm of the Monaco and three chunks landing inside that swap's window at 4× CPU. Before the cure, the home detour had fetched them earlier. It is latency the user does not wait on: prepare is 66–87 ms against a 150 ms bar.
+- **The Keyframes surface open (click → Monaco lines) is 763–889 ms at 4×, down from 856–967.** Monaco's own evaluation is the floor.
+- **Glass (O-102, unchanged):** `Skeleton` is a breathe, not a shimmer. The owner's "skeleton shimmer" is relayed to glass by the orchestrator (DOCKET), and no local animation is authored.
+
+Evidence: `keyframes/load/` (`final-before.json`, `final-{1,2}.json`, `gate-final-*.txt`, `table.py`, `measure-final.sh`; the earlier seat's `before-*/after-*/profile-*` captures are kept).

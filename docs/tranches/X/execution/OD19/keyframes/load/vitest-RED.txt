@@ -1,0 +1,14 @@
+     × #/spring: the first render reads the linked scene, never the persisted one 17ms
+     × #/easing: the first render reads the linked scene, never the persisted one 2ms
+     × #/sequence: the first render reads the linked scene, never the persisted one 2ms
+     × (0b) OD19-ALL: a second hidden well re-registers no language and makes no second throwaway editor 76ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |demo| test/demo/app/deep-link-first-render.test.ts > OD19-ALL — a deep link's first render is the linked scene > #/spring: the first render reads the linked scene, never the persisted one
+AssertionError: expected 'home' to be 'spring' // Object.is equality
+ FAIL  |demo| test/demo/app/deep-link-first-render.test.ts > OD19-ALL — a deep link's first render is the linked scene > #/easing: the first render reads the linked scene, never the persisted one
+AssertionError: expected 'spring' to be 'easing' // Object.is equality
+ FAIL  |demo| test/demo/app/deep-link-first-render.test.ts > OD19-ALL — a deep link's first render is the linked scene > #/sequence: the first render reads the linked scene, never the persisted one
+AssertionError: expected 'easing' to be 'sequence' // Object.is equality
+ FAIL  |demo| test/demo/instrument/css-code-editor-seam.test.ts > G-KFW12-4 — the Monaco seam > (0b) OD19-ALL: a second hidden well re-registers no language and makes no second throwaway editor
+AssertionError: expected "setMonarchTokensProvider" to not be called at all, but actually been called 1 times
+      Tests  4 failed | 12 passed (16)
