@@ -83,8 +83,11 @@
 /* The house code-plate ink (S.W4-8): ONE hljs token theme — crayon primaries
  * proportioned, Fira, dark via `.dark` — consumed by the docs' build-time
  * TypeScript plates AND the gradient pane's live CSS editor. The former
- * GitHub-css imports + per-component head-injection swaps are dead. */
-@import "./hljs.css";
+ * GitHub-css imports + per-component head-injection swaps are dead.
+ * X.W11.p2 (COHESION §0ge.1(ii)) — it is no longer imported HERE: no code plate
+ * paints at first paint, so the sheet left the render-blocking entry CSS and is
+ * imported by its two consumers (Markdown.vue, GradientCodeEditor.vue), whose
+ * lazy chunks carry it as their deferred part. */
 /* The app-shell LAYOUT surface (W43 · RF-15 §b 5): the dock-atop band grid,
  * pane container/wrappers, [data-layout] witnesses + the T-45 pane-card blur
  * seat, split out of this file. It consumes foundation's layout tokens. */

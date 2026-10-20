@@ -36,6 +36,8 @@ import { Alert, AlertDescription, AlertTitle } from "@mkbabb/glass-ui";
 import { Skeleton } from "@mkbabb/glass-ui";
 import "../../../styles/foundation.css";
 import "../../../styles/utils.css";
+// X.W11.p2 — the code-plate ink rides its consumer (foundation.css no longer imports it).
+import "../../../styles/hljs.css";
 import { computed, onMounted, onUpdated, ref, useTemplateRef } from "vue";
 import type { DocModule } from "./types";
 import { useMarkdownColors } from "./composables/useMarkdownColors";

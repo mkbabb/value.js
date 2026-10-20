@@ -4,6 +4,8 @@ import { debounce } from "../../../shared/debounce";
 
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
+// X.W11.p2 — the house code-plate ink rides its consumer (foundation.css no longer imports it).
+import "../../../styles/hljs.css";
 
 hljs.registerLanguage("css", css);
 
