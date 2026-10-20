@@ -54,3 +54,37 @@ P4: Dock.vue:173-182 + :418-420: the `vj-settle` beat (kept, per the preserve-an
   - Honest limit: none of these hash switches entered `[data-morphing]` (morphingFrames 0 in every trace). The "no host transform while morphing" assertion passes because the host never transforms, and the morph gate was not exercised under a live morph.
 - **Gates.** `vue-tsc -p tsconfig.demo.json` is clean. `tsc -p tsconfig.e2e.json` is clean for the new spec; its remaining errors are in other seats' untracked or dirty specs (ss8-b17, od19-pane-swap, ss8-b07). `vitest demo/test/shell/` passed 8 files / 34 tests (`vitest-shell.txt`). The dock e2e `e2e/smoke/w12-dock.spec.ts` passed 6/6 ×2 (`w12-dock-run-1.txt`, `w12-dock-run-2.txt`); its layer-switch census still waits on the vj-settle `animationend`, which now bubbles from the seat. No golden was re-baselined.
 - **Glass half (O-102, not cured here):** V2-a (the swap/collapse width does not interpolate) and V2-b (start-edge clip-path reveal) are still adopted at the 10.1.1/10.2 repin.
+
+### P2
+
+**Row OD19-V3. Code `61867fc32`. Verdict: PARTIAL.** Both named roots are cured and measured at about zero. The input→paint budget (p50 ≤ 25 / p95 ≤ 50 ms) is **not met**; the residual roots are outside the P2 modify set and are named below.
+
+- **Cure 1** (`demo/color-session/useContrastSafeColor.ts` `schemeTokenCss`). The token is read from the cascade once per token per scheme. The memo is stamped by (caller `dark`, root `.dark` class, probe epoch), the same idiom as the tint cache above it, so a read that raced the class flip self-corrects. Empty reads are not memoised. The callers (the five computeds, `Dock.vue:119`, `useViewAccents` seal gold) are unchanged.
+- **Cure 2** (`demo/app/composables/boot/useViewAccents.ts`). `--accent-view` is still written on every colour frame. The two `resolvePalettesRamp` mints moved off the drag clock. They run as one trailing mint 120 ms after the input settles, reading the latest accent and surface, so the settled tokens are byte-equal to a per-frame mint. They mint at once on the first run, a view change or a scheme flip. No new module, no shim.
+- **Falsifier** `demo/test/color-session/colour-frame-cost.test.ts` (new; the only file outside the modify set). It checks:
+  - (a) 40 colour frames trigger 0 `getComputedStyle` calls once the scheme is primed, and a flip re-reads;
+  - (b) a 21-step drag writes `--accent-view` each frame and leaves the ramps on the pre-drag mint, and after settle the menu and title ramps equal a direct `resolvePalettesRamp` mint byte for byte;
+  - (c) a view change mints at once;
+  - (d) a scheme flip mints at once.
+  - RED ×2 on the parent: 2 failed / 2 passed (`after/P2/vitest-red-{1,2}.txt`). GREEN ×2 on the cure: 4/4 (`vitest-green-{1,2}.txt`).
+- **Gates.**
+  - `vue-tsc` demo + test configs: clean (`typecheck.txt`). eslint on the 3 files: clean.
+  - The tests touching these modules (`view-accents`, `contrast-floor`, the falsifier): 42/42 (`vitest-touched.txt`).
+  - Full vitest: 1262 passed, 1 failed, 8 skipped (`vitest-full.txt`). Both failing files are browser-harness palette tests unrelated to P2. On rerun (`vitest-palettes-rerun.txt`), `plate-mass` passes. `palette-card-layout.test.ts` is a dirty SS-8 B13 born-RED spec owned by another seat.
+  - No e2e spec covers these modules. No golden was re-baselined.
+- **AFTER, clean A/B** (`after/P2/ab/`, `ab.sh`). Detached worktrees at the parent `bf5fcaa91` and the cure `61867fc32` were each served on their own dev server. Order base, cure, base, cure; the same probes (`latency-load.mjs`, `v3-profile.mjs`); dark-1440 and light-390.
+
+| measure | base r1 / r2 | cure r1 / r2 |
+|---|---|---|
+| `getPropertyValue` self | 770 / 892 ms | absent from the top 25 (< 16 ms) ✔ |
+| `resolvePalettesRamp` incl. | 320 / 379 ms | 6 / 7 ms (the settle mint) |
+| dark-1440 picker p50 / p95 | 57.7/115.2 · 66.2/125.7 | 44.4/65.4 · 36.1/60.5 |
+| dark-1440 LoAF n / blocking | 27/345 · 38/568 | 9/7 · 15/9 |
+| light-390 picker p50 / p95 | 105.1/243.6 · 92.8/245.0 | 41.2/157.1 · 48.2/210.3 |
+| light-390 LoAF n / blocking | 24/2379 · 27/2416 | 11/745 · 20/1212 |
+
+- **Residual (budget not met; outside the modify set):**
+  - (1) `certifyAccentInk` stays per frame at 171 ms inclusive per drag (`ink.ts:93/95/201`). It is reached through the live accent guard (`useContrastSafeColor.ts:248`) and the `safeCss` consumers: `ColorNutritionLabel.vue:33`, `useMarkdownColors.ts:24`, `ProfileSection.vue:56`, `useContrastSafeColor.ts:413/445`. These are about-scene and dock-menu inks mounted under the picker.
+  - (2) light-390 still blocks 0.7–1.2 s per drag, so most of the light-cell cost lies outside these two roots.
+  - (3) The main-tree runs (`run1/`, `run2/`, against the then-dirty tree, now committed as `143c778a2`) show `HeroBlob.vue:281` `repaintParked` (from the `watch.deep` at :301) at 482 ms inclusive per drag, through `getBoundingClientRect` at 543 ms self. This is the software-raster tier: per-frame forced layout on the headless tier. It was not in either A/B worktree.
+  - These three need a follow-up packet (ink certify memo per (colour, surface), or keeping the off-screen `safeCss` consumers off the drag clock, plus the HeroBlob parked repaint). The shared `:9000` dev server, and a fresh one of ours, both hung at about 96 % CPU / 3.2–3.6 GB RSS after repeated loads, so the A/B used fresh servers per run.
