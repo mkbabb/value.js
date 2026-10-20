@@ -1,0 +1,46 @@
+
+ RUN  v3.2.4 /Users/mkbabb/Programming/value.js/api
+
+ ✓ src/modules/palette/__tests__/palettes-publish.test.ts (11 tests) 350ms
+ ✓ src/modules/palette/__tests__/palette-write-contract.test.ts (18 tests) 447ms
+stdout | src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-7: the migration backfills payloadHash + revisionNo and re-stamps currentHash
+[x-w3-migration] palettes scanned:        1
+[x-w3-migration] version rows scanned:    2
+[x-w3-migration] payloadHash written:     2
+[x-w3-migration] revisionNo written:      2
+[x-w3-migration] currentHash re-stamped:  1
+[x-w3-migration] unlisted -> private:     0
+[x-w3-migration] moderation clocked:      1
+
+stdout | src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-15: the migration maps at-rest `unlisted` to `private` and clocks moderation
+[x-w3-migration] palettes scanned:        0
+[x-w3-migration] version rows scanned:    0
+[x-w3-migration] payloadHash written:     0
+[x-w3-migration] revisionNo written:      0
+[x-w3-migration] currentHash re-stamped:  0
+[x-w3-migration] unlisted -> private:     1
+[x-w3-migration] moderation clocked:      2
+
+ ✓ src/modules/palette/__tests__/palette-versions.test.ts (12 tests) 241ms
+ ✓ src/modules/palette/__tests__/palette-list.test.ts (4 tests) 295ms
+ ✓ src/modules/palette/__tests__/palette-forks.test.ts (10 tests) 253ms
+ ✓ src/modules/palette/__tests__/palette.test.ts (10 tests) 198ms
+ ✓ src/modules/palette/__tests__/palette-policy.test.ts (13 tests) 239ms
+ ✓ src/modules/palette/__tests__/palettes-forks.test.ts (8 tests) 195ms
+ ✓ src/modules/palette/__tests__/palettes-ownership.test.ts (7 tests) 140ms
+ ✓ src/modules/palette/__tests__/vote.test.ts (8 tests) 185ms
+ ✓ src/modules/palette/__tests__/palette-votes.test.ts (5 tests) 166ms
+ ✓ src/modules/palette/__tests__/palettes-votes-flags.test.ts (7 tests) 187ms
+ ✓ src/modules/palette/__tests__/palette-crud.test.ts (6 tests) 152ms
+ ✓ src/modules/palette/__tests__/palette-color-grammar.test.ts (13 tests) 57ms
+ ✓ src/modules/palette/__tests__/paletteVersion.test.ts (3 tests) 63ms
+ ✓ src/modules/palette/__tests__/palette-flags.test.ts (4 tests) 100ms
+ ✓ src/modules/palette/__tests__/flag.test.ts (4 tests) 82ms
+ ✓ src/modules/palette/__tests__/palettes-patch-readcount.test.ts (1 test) 52ms
+ ✓ src/modules/palette/__tests__/palette-ownership.test.ts (2 tests) 49ms
+
+ Test Files  19 passed (19)
+      Tests  146 passed (146)
+   Start at  17:52:28
+   Duration  8.77s (transform 199ms, setup 0ms, collect 1.41s, tests 3.45s, environment 1ms, prepare 523ms)
+

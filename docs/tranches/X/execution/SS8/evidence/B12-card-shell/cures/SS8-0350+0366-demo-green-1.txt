@@ -1,0 +1,12 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:11762) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/ss8-b12-cures.test.ts (3 tests) 94ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  16:08:35
+   Duration  2.31s (transform 635ms, setup 52ms, collect 1.51s, tests 94ms, environment 407ms, prepare 59ms)
+

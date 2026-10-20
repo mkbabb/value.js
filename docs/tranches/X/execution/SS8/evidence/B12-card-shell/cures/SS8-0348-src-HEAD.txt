@@ -1,0 +1,8 @@
+"rgb(1 2 3 / )" {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":13,"expected":["color"],"actual":"rgb(1 2 3 / 
+"rgb(1 2 3 / )\"/><script>x</script>" {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":34,"expected":["color"],"actual":"rgb(1 2 3 / 
+"rgb(1 2 3 / 0.5)" {"ok":true,"value":{"space":"rgb","channels":[1,2,3],"alpha":0.5},"diagnostics":[]}
+"hsl(1 2% 3% / )" {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":15,"expected":["color"],"actual":"hsl(1 2% 3% 
+"oklch(50% 0.1 20 / )" {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":20,"expected":["color"],"actual":"oklch(50% 0.
+"lab(50% 1 2 / )" {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":15,"expected":["color"],"actual":"lab(50% 1 2 
+"color(srgb 1 0 0 / )" {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":20,"expected":["color"],"actual":"color(srgb 1
+"rgb(1, 2, 3, )" {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":14,"expected":["color"],"actual":"rgb(1, 2, 3,

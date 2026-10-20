@@ -1,0 +1,44 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:10035) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ demo/test/palettes/ss8-b12-cures.test.ts (3 tests | 2 failed) 165ms
+   ✓ SS8-0350 · the card press ignores keydown from its descendants > Space on the card itself drives the press (positive control) 83ms
+   × SS8-0350 · the card press ignores keydown from its descendants > Space typed in an inner input or button never reaches the card's press 70ms
+     → expected "spy" to be called +0 times, but got 5 times
+   × SS8-0366 · one vote per palette in flight > a double press sends ONE toggle; the next press after it settles sends another 9ms
+     → expected "spy" to be called 1 times, but got 2 times
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/ss8-b12-cures.test.ts > SS8-0350 · the card press ignores keydown from its descendants > Space typed in an inner input or button never reaches the card's press
+AssertionError: expected "spy" to be called +0 times, but got 5 times
+ ❯ demo/test/palettes/ss8-b12-cures.test.ts:118:34
+    116|             el.dispatchEvent(new KeyboardEvent("keydown", { key: " ", …
+    117|         }
+    118|         expect(pressSpy.keydown).toHaveBeenCalledTimes(0);
+       |                                  ^
+    119|         w.unmount();
+    120|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  demo/test/palettes/ss8-b12-cures.test.ts > SS8-0366 · one vote per palette in flight > a double press sends ONE toggle; the next press after it settles sends another
+AssertionError: expected "spy" to be called 1 times, but got 2 times
+ ❯ demo/test/palettes/ss8-b12-cures.test.ts:135:33
+    133|         const second = browse.onVote(REMOTE);
+    134|         await flushPromises();
+    135|         expect(api.votePalette).toHaveBeenCalledTimes(1);
+       |                                 ^
+    136|         expect(await second).toBeNull();
+    137| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  16:08:09
+   Duration  2.20s (transform 588ms, setup 54ms, collect 1.31s, tests 165ms, environment 417ms, prepare 59ms)
+

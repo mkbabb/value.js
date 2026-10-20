@@ -1,0 +1,41 @@
+
+ RUN  v3.2.4 /Users/mkbabb/Programming/value.js/api
+
+ ❯ src/modules/palette/__tests__/palette-votes.test.ts (5 tests | 1 failed) 305ms
+   ✓ service.palette.votes > toggleVote increments on first vote and reflects voted=true 57ms
+   ✓ service.palette.votes > toggleVote decrements on second call (toggle off) 48ms
+   ✓ service.palette.votes > toggleVote on missing palette throws NotFoundError 18ms
+   ✓ service.palette.votes > two different users each contribute +1 49ms
+   × service.palette.votes > a race-loser reply counts the vote it reports 36ms
+     → expected { voted: true, voteCount: +0 } to deeply equal { voted: true, voteCount: 1 }
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/modules/palette/__tests__/palette-votes.test.ts > service.palette.votes > a race-loser reply counts the vote it reports
+AssertionError: expected { voted: true, voteCount: +0 } to deeply equal { voted: true, voteCount: 1 }
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  {[22m
+[32m-   "voteCount": 1,[39m
+[31m+   "voteCount": 0,[39m
+[2m    "voted": true,[22m
+[2m  }[22m
+
+ ❯ src/modules/palette/__tests__/palette-votes.test.ts:82:23
+     80|         };
+     81|         const loser = await toggleVote(services, "votable", "alice");
+     82|         expect(loser).toEqual({ voted: true, voteCount: 1 });
+       |                       ^
+     83|     });
+     84| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  16:20:18
+   Duration  1.72s (transform 113ms, setup 0ms, collect 206ms, tests 305ms, environment 0ms, prepare 35ms)
+

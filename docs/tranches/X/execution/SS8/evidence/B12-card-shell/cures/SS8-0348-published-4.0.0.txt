@@ -1,0 +1,4 @@
+published @mkbabb/value.js 4.0.0
+"rgb(1 2 3 / )" {"ok":true,"value":{"space":"rgb","channels":[1,2,3],"alpha":1},"diagnostics":[]}
+"rgb(1 2 3 / )\"/><script>x</script>" {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":34,"expected":["color"],"actual":"rgb(1 2 3 / 
+"rgb(1 2 3 / 0.5)" {"ok":true,"value":{"space":"rgb","channels":[1,2,3],"alpha":0.5},"diagnostics":[]}
