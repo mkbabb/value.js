@@ -1,0 +1,33 @@
+{
+ "at": "2026-10-20T22:31:34.042Z",
+ "results": [
+  {
+   "row": "R-1",
+   "mutant": "KILLED (RED)",
+   "tally": "2 passed",
+   "why": [
+    "toBeGreaterThanOrEqual(expected)",
+    "Expected: >= 4.5",
+    "Received:    1.93",
+    "toBeGreaterThanOrEqual(4.5);"
+   ]
+  },
+  {
+   "row": "R-6",
+   "mutant": "SURVIVED (GREEN)",
+   "tally": "",
+   "why": []
+  },
+  {
+   "row": "R-15",
+   "mutant": "KILLED (RED)",
+   "tally": "",
+   "why": [
+    "Expected: < 1.25",
+    "Received:   1.420249653259362",
+    "toBeGreaterThan(0.8);",
+    "Expected: < 1.25"
+   ]
+  }
+ ]
+}
