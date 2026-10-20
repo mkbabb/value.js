@@ -1,0 +1,694 @@
+{
+ "light-1440": {
+  "K3": {
+   "triggers": [
+    {
+     "text": "alternate",
+     "svgs": 2,
+     "glyph": {
+      "x": 208.7,
+      "right": 233.3,
+      "w": 24.6,
+      "h": 16.4,
+      "rotate": "none"
+     },
+     "chevron": {
+      "x": 399.4,
+      "right": 415.4,
+      "w": 16,
+      "h": 16,
+      "rotate": "180deg"
+     }
+    },
+    {
+     "text": "forwards",
+     "svgs": 2,
+     "glyph": {
+      "x": 208.7,
+      "right": 233.3,
+      "w": 24.6,
+      "h": 16.4,
+      "rotate": "none"
+     },
+     "chevron": {
+      "x": 399.4,
+      "right": 415.4,
+      "w": 16,
+      "h": 16,
+      "rotate": "180deg"
+     }
+    }
+   ],
+   "easing": {
+    "glyph": {
+     "x": 208.7,
+     "right": 233.3,
+     "w": 24.6,
+     "h": 16.4,
+     "rotate": "none"
+    },
+    "chevron": {
+     "x": 399.4,
+     "right": 415.4,
+     "w": 16,
+     "h": 16,
+     "rotate": "none"
+    }
+   },
+   "items": [
+    {
+     "text": "normal",
+     "svgs": 1
+    },
+    {
+     "text": "reverse",
+     "svgs": 1
+    },
+    {
+     "text": "alternate",
+     "svgs": 1
+    },
+    {
+     "text": "alternate-reverse",
+     "svgs": 1
+    }
+   ]
+  },
+  "K4": {
+   "reverse": 1,
+   "eye": 1,
+   "before": {
+    "ribbonChildren": [
+     "param-row",
+     "visualizer-row"
+    ],
+    "row": {
+     "x": 92,
+     "y": 616,
+     "w": 365,
+     "h": 64
+    },
+    "discs": [
+     {
+      "name": "Reverse",
+      "pressed": "false",
+      "x": 92,
+      "y": 624,
+      "w": 48,
+      "h": 48,
+      "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast"
+     },
+     {
+      "name": "Ball preview",
+      "pressed": "true",
+      "x": 409,
+      "y": 624,
+      "w": 48,
+      "h": 48,
+      "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+     }
+    ],
+    "ball": {
+     "x": 148,
+     "y": 624,
+     "w": 48,
+     "h": 48
+    },
+    "stageState": "shown"
+   },
+   "afterReverse": {
+    "name": "Reverse",
+    "pressed": "true",
+    "x": 92,
+    "y": 624,
+    "w": 48,
+    "h": 48,
+    "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast scale-x-[-1]"
+   },
+   "reverseBack": {
+    "name": "Reverse",
+    "pressed": "false",
+    "x": 92,
+    "y": 624,
+    "w": 48,
+    "h": 48,
+    "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast"
+   },
+   "afterEye": {
+    "eye": {
+     "name": "Ball preview",
+     "pressed": "false",
+     "x": 409,
+     "y": 624,
+     "w": 48,
+     "h": 48,
+     "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+    },
+    "stageState": "hidden",
+    "row": {
+     "x": 92,
+     "y": 616,
+     "w": 365,
+     "h": 64
+    }
+   },
+   "eyeBack": {
+    "eye": {
+     "name": "Ball preview",
+     "pressed": "true",
+     "x": 409,
+     "y": 624,
+     "w": 48,
+     "h": 48,
+     "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+    },
+    "stageState": "shown",
+    "row": {
+     "x": 92,
+     "y": 616,
+     "w": 365,
+     "h": 64
+    }
+   }
+  }
+ },
+ "light-390": {
+  "K3": {
+   "triggers": [
+    {
+     "text": "alternate",
+     "svgs": 2,
+     "glyph": {
+      "x": 131.7,
+      "right": 152.7,
+      "w": 21,
+      "h": 14,
+      "rotate": "none"
+     },
+     "chevron": {
+      "x": 299,
+      "right": 315,
+      "w": 16,
+      "h": 16,
+      "rotate": "180deg"
+     }
+    },
+    {
+     "text": "forwards",
+     "svgs": 2,
+     "glyph": {
+      "x": 131.7,
+      "right": 152.7,
+      "w": 21,
+      "h": 14,
+      "rotate": "none"
+     },
+     "chevron": {
+      "x": 299,
+      "right": 315,
+      "w": 16,
+      "h": 16,
+      "rotate": "180deg"
+     }
+    }
+   ],
+   "easing": {
+    "glyph": {
+     "x": 131.7,
+     "right": 152.7,
+     "w": 21,
+     "h": 14,
+     "rotate": "none"
+    },
+    "chevron": {
+     "x": 299,
+     "right": 315,
+     "w": 16,
+     "h": 16,
+     "rotate": "none"
+    }
+   },
+   "items": [
+    {
+     "text": "normal",
+     "svgs": 1
+    },
+    {
+     "text": "reverse",
+     "svgs": 1
+    },
+    {
+     "text": "alternate",
+     "svgs": 1
+    },
+    {
+     "text": "alternate-reverse",
+     "svgs": 1
+    }
+   ]
+  },
+  "K4": {
+   "reverse": 1,
+   "eye": 1,
+   "before": {
+    "ribbonChildren": [
+     "param-row",
+     "visualizer-row"
+    ],
+    "row": {
+     "x": 33,
+     "y": 626,
+     "w": 324,
+     "h": 64
+    },
+    "discs": [
+     {
+      "name": "Reverse",
+      "pressed": "false",
+      "x": 33,
+      "y": 634,
+      "w": 48,
+      "h": 48,
+      "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast"
+     },
+     {
+      "name": "Ball preview",
+      "pressed": "true",
+      "x": 309,
+      "y": 634,
+      "w": 48,
+      "h": 48,
+      "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+     }
+    ],
+    "ball": {
+     "x": 89,
+     "y": 634,
+     "w": 48,
+     "h": 48
+    },
+    "stageState": "shown"
+   },
+   "afterReverse": {
+    "name": "Reverse",
+    "pressed": "true",
+    "x": 33,
+    "y": 634,
+    "w": 48,
+    "h": 48,
+    "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast scale-x-[-1]"
+   },
+   "reverseBack": {
+    "name": "Reverse",
+    "pressed": "false",
+    "x": 33,
+    "y": 634,
+    "w": 48,
+    "h": 48,
+    "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast"
+   },
+   "afterEye": {
+    "eye": {
+     "name": "Ball preview",
+     "pressed": "false",
+     "x": 309,
+     "y": 634,
+     "w": 48,
+     "h": 48,
+     "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+    },
+    "stageState": "hidden",
+    "row": {
+     "x": 33,
+     "y": 626,
+     "w": 324,
+     "h": 64
+    }
+   },
+   "eyeBack": {
+    "eye": {
+     "name": "Ball preview",
+     "pressed": "true",
+     "x": 309,
+     "y": 634,
+     "w": 48,
+     "h": 48,
+     "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+    },
+    "stageState": "shown",
+    "row": {
+     "x": 33,
+     "y": 626,
+     "w": 324,
+     "h": 64
+    }
+   }
+  }
+ },
+ "dark-1440": {
+  "K3": {
+   "triggers": [
+    {
+     "text": "alternate",
+     "svgs": 2,
+     "glyph": {
+      "x": 208.7,
+      "right": 233.3,
+      "w": 24.6,
+      "h": 16.4,
+      "rotate": "none"
+     },
+     "chevron": {
+      "x": 399.4,
+      "right": 415.4,
+      "w": 16,
+      "h": 16,
+      "rotate": "180deg"
+     }
+    },
+    {
+     "text": "forwards",
+     "svgs": 2,
+     "glyph": {
+      "x": 208.7,
+      "right": 233.3,
+      "w": 24.6,
+      "h": 16.4,
+      "rotate": "none"
+     },
+     "chevron": {
+      "x": 399.4,
+      "right": 415.4,
+      "w": 16,
+      "h": 16,
+      "rotate": "180deg"
+     }
+    }
+   ],
+   "easing": {
+    "glyph": {
+     "x": 208.7,
+     "right": 233.3,
+     "w": 24.6,
+     "h": 16.4,
+     "rotate": "none"
+    },
+    "chevron": {
+     "x": 399.4,
+     "right": 415.4,
+     "w": 16,
+     "h": 16,
+     "rotate": "none"
+    }
+   },
+   "items": [
+    {
+     "text": "normal",
+     "svgs": 1
+    },
+    {
+     "text": "reverse",
+     "svgs": 1
+    },
+    {
+     "text": "alternate",
+     "svgs": 1
+    },
+    {
+     "text": "alternate-reverse",
+     "svgs": 1
+    }
+   ]
+  },
+  "K4": {
+   "reverse": 1,
+   "eye": 1,
+   "before": {
+    "ribbonChildren": [
+     "param-row",
+     "visualizer-row"
+    ],
+    "row": {
+     "x": 92,
+     "y": 616,
+     "w": 365,
+     "h": 64
+    },
+    "discs": [
+     {
+      "name": "Reverse",
+      "pressed": "false",
+      "x": 92,
+      "y": 624,
+      "w": 48,
+      "h": 48,
+      "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast"
+     },
+     {
+      "name": "Ball preview",
+      "pressed": "true",
+      "x": 409,
+      "y": 624,
+      "w": 48,
+      "h": 48,
+      "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+     }
+    ],
+    "ball": {
+     "x": 148,
+     "y": 624,
+     "w": 48,
+     "h": 48
+    },
+    "stageState": "shown"
+   },
+   "afterReverse": {
+    "name": "Reverse",
+    "pressed": "true",
+    "x": 92,
+    "y": 624,
+    "w": 48,
+    "h": 48,
+    "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast scale-x-[-1]"
+   },
+   "reverseBack": {
+    "name": "Reverse",
+    "pressed": "false",
+    "x": 92,
+    "y": 624,
+    "w": 48,
+    "h": 48,
+    "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast"
+   },
+   "afterEye": {
+    "eye": {
+     "name": "Ball preview",
+     "pressed": "false",
+     "x": 409,
+     "y": 624,
+     "w": 48,
+     "h": 48,
+     "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+    },
+    "stageState": "hidden",
+    "row": {
+     "x": 92,
+     "y": 616,
+     "w": 365,
+     "h": 64
+    }
+   },
+   "eyeBack": {
+    "eye": {
+     "name": "Ball preview",
+     "pressed": "true",
+     "x": 409,
+     "y": 624,
+     "w": 48,
+     "h": 48,
+     "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+    },
+    "stageState": "shown",
+    "row": {
+     "x": 92,
+     "y": 616,
+     "w": 365,
+     "h": 64
+    }
+   }
+  }
+ },
+ "dark-390": {
+  "K3": {
+   "triggers": [
+    {
+     "text": "alternate",
+     "svgs": 2,
+     "glyph": {
+      "x": 131.7,
+      "right": 152.7,
+      "w": 21,
+      "h": 14,
+      "rotate": "none"
+     },
+     "chevron": {
+      "x": 299,
+      "right": 315,
+      "w": 16,
+      "h": 16,
+      "rotate": "180deg"
+     }
+    },
+    {
+     "text": "forwards",
+     "svgs": 2,
+     "glyph": {
+      "x": 131.7,
+      "right": 152.7,
+      "w": 21,
+      "h": 14,
+      "rotate": "none"
+     },
+     "chevron": {
+      "x": 299,
+      "right": 315,
+      "w": 16,
+      "h": 16,
+      "rotate": "180deg"
+     }
+    }
+   ],
+   "easing": {
+    "glyph": {
+     "x": 131.7,
+     "right": 152.7,
+     "w": 21,
+     "h": 14,
+     "rotate": "none"
+    },
+    "chevron": {
+     "x": 299,
+     "right": 315,
+     "w": 16,
+     "h": 16,
+     "rotate": "none"
+    }
+   },
+   "items": [
+    {
+     "text": "normal",
+     "svgs": 1
+    },
+    {
+     "text": "reverse",
+     "svgs": 1
+    },
+    {
+     "text": "alternate",
+     "svgs": 1
+    },
+    {
+     "text": "alternate-reverse",
+     "svgs": 1
+    }
+   ]
+  },
+  "K4": {
+   "reverse": 1,
+   "eye": 1,
+   "before": {
+    "ribbonChildren": [
+     "param-row",
+     "visualizer-row"
+    ],
+    "row": {
+     "x": 33,
+     "y": 626,
+     "w": 324,
+     "h": 64
+    },
+    "discs": [
+     {
+      "name": "Reverse",
+      "pressed": "false",
+      "x": 33,
+      "y": 634,
+      "w": 48,
+      "h": 48,
+      "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast"
+     },
+     {
+      "name": "Ball preview",
+      "pressed": "true",
+      "x": 309,
+      "y": 634,
+      "w": 48,
+      "h": 48,
+      "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+     }
+    ],
+    "ball": {
+     "x": 89,
+     "y": 634,
+     "w": 48,
+     "h": 48
+    },
+    "stageState": "shown"
+   },
+   "afterReverse": {
+    "name": "Reverse",
+    "pressed": "true",
+    "x": 33,
+    "y": 634,
+    "w": 48,
+    "h": 48,
+    "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast scale-x-[-1]"
+   },
+   "reverseBack": {
+    "name": "Reverse",
+    "pressed": "false",
+    "x": 33,
+    "y": 634,
+    "w": 48,
+    "h": 48,
+    "svgCls": "lucide lucide-arrow-right-icon lucide-arrow-right transition-transform duration-fast"
+   },
+   "afterEye": {
+    "eye": {
+     "name": "Ball preview",
+     "pressed": "false",
+     "x": 309,
+     "y": 634,
+     "w": 48,
+     "h": 48,
+     "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+    },
+    "stageState": "hidden",
+    "row": {
+     "x": 33,
+     "y": 626,
+     "w": 324,
+     "h": 64
+    }
+   },
+   "eyeBack": {
+    "eye": {
+     "name": "Ball preview",
+     "pressed": "true",
+     "x": 309,
+     "y": 634,
+     "w": 48,
+     "h": 48,
+     "svgCls": "lucide lucide-eye-icon lucide-eye preview-eye__glyph"
+    },
+    "stageState": "shown",
+    "row": {
+     "x": 33,
+     "y": 626,
+     "w": 324,
+     "h": 64
+    }
+   }
+  }
+ }
+}
