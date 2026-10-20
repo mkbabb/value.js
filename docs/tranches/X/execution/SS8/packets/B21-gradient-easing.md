@@ -83,3 +83,8 @@ From `docs/tranches/X/execution/SS8/probes/B21/`, run the steps one after anothe
 3. `python3 -I contrast.py ../../evidence/B21-gradient-easing/u1-*.png ../../evidence/B21-gradient-easing/p2-*.png`
 
 Each probe takes a cell list as an argument (for example, `node probe-b.mjs u3_trunc,p4_chunk`). Each probe launches one browser per run and opens a new context per cell, closing it in `finally`.
+
+## cures
+| row | verdict carried | cure | falsifier | commit |
+|---|---|---|---|---|
+| SS8-0612 | **REFUTED** (at HEAD) → CURED (consumer prose) | The stale producer-shape prose on `canvasSvg()` in `demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue` (the claim that the installed producer renders the canvas as `role="group"`) is struck. The selector (`svg[aria-label=<label>]`) is unchanged. It keys on the seat's own accessible name. | `demo/test/gradient/ss8-b21-cures.test.ts`: (a) the source carries no `role="group"` canvas claim. This was RED x2 before the cure and GREEN x2 after (`guarded --light -- npx vitest run --maxWorkers=2 demo/test/gradient/ss8-b21-cures.test.ts`). (b) The role census is a measured fact under jsdom with glass 10.1.0. The mounted stage has exactly **1** `[role="img"]` node, and it is the `svg[aria-label="Easing curve 1 → 2"]` canvas. This was GREEN before and after; it is a lock and was not RED. It agrees with the live recon `E/recon.json`. Type-check: `vue-tsc -p tsconfig.demo.json` and `-p tsconfig.test.json` report 0 errors in the touched files. The 5 pre-existing errors are all in another seat's untracked `demo/test/palettes/ss8-b11-cures.test.ts`. | `08a96102d` |
