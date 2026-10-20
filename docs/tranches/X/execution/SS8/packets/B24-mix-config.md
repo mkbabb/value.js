@@ -76,3 +76,37 @@
 ## Not done / carried
 - R-1 needs the real Safari app under starvation. U-5 needs a spec run that gets past `goto` (the dev server or the playwright webServer, when either is healthy). The colours-mode limb of R-MP12 is also open. U-8 needs an isolated A/B build pair. U-11 needs an owner ruling. R-MP8 needs a named seed.
 - The R-2 "3.277→3.258" pair is unnamed in the record, so it cannot be re-taken until it is named.
+
+## cures
+
+**Seat:** SS-8 CURE · batch B24-mix-config · 2026-10-20 · served model `claude-opus-5-5`. The registry records are unchanged (E-3). Verdict statuses above are unchanged. This section records only what the cure seat did and what it witnessed.
+
+**Apparatus.** `:9000` was down when the seat ran (`curl` returned 000 after 10 s), so the live witness ran against static gh-pages builds served by `probes/B24/cures-probe.mjs` on `:8126`. The probe uses one headless Chromium per run, a fresh context per cell, and closes everything in `finally`. Cells live in `probes/B24/cures.mjs`, with GREEN thresholds declared in its header before any after-run.
+- **BEFORE** = this packet's witness build `ss8-b24-ghp` (pre-cure tree): `guarded --timeout 15 -- node cures-probe.mjs ss8-b24-ghp before`, giving `E/cures/before.out.json` and `before.run.log`.
+- **AFTER** = a fresh build of the cured tree: `VITE_API_URL=http://localhost:3000 guarded --timeout 40 -- npx vite build --mode gh-pages --outDir node_modules/.cache/ss8-b24c-ghp`, log `E/cures/ghp-build.txt`. The bundle built (`✓ built in 51.23s`). The post-bundle `vjs:prerender-shell` hook then failed with ENOENT, because it resolves the outDir from the repo root. The client app is complete; only the prerendered shell is missing. Two runs were taken: `… ss8-b24c-ghp after` (`E/cures/after.out.json`) and `CELLS=MP7-light,MP7-dark,MP4f-forced … after2` (`E/cures/after2-*.out.json`).
+- Both builds include other seats' dirty working-tree hunks, as the witness build did.
+- Forced colours are **EMULATED** (Chromium `forcedColors: "active"`).
+- Unit falsifier: `demo/test/mix/ss8-b24-cures.test.ts`. RED ×2 before the cure (`E/cures/vitest-red-{1,2}.txt`); GREEN ×2 after it (`E/cures/vitest-green-{1,2}.txt`, `demo/test/mix` + `swatch-identity-keys`, 10/10). Run as `guarded --light -- npx vitest run … --maxWorkers=2`. `vue-tsc` passes on `tsconfig.demo.json` and `tsconfig.test.json`.
+
+| sid | row | outcome | what / witness | commit |
+|---|---|---|---|---|
+| SS8-0678 | R-MP7 | **cured** | **Root:** the add slot's ghost stroke was the raw picker colour (`MixSourceSelector.vue`), with no contrast floor. **Cure:** the stroke is now the picker colour certified to the 3:1 graphics floor (`GRAPHICS_CONTRAST_FLOOR`) on the resting plate the slot sits on, using the house walk (`useSafeAccentFn("resting")`); the hue is kept. **MP-4 roster:** `foundation.css` forced-colours tier 1 gains `.add-slot-ghost, .watercolor-swatch[data-variant="ghost"] { forced-color-adjust: auto }`. A ghost is a placeholder affordance, not colour content. **Live:** ring↔ground light was **1.08 before, 3.72 after (twice)**; dark was 4.66 before, 4.73 after (twice). The stroke changed from `oklch(0.73 0.185 2)` to `oklch(0.392 0.158 2)` in light (same hue). Under EMULATED forced colours, slot, dot and stroke went from `forced-color-adjust: none` (stroke `oklch(0.73 0.185 2)`) to **`auto`** (system ink `rgb(0,0,0)`), twice. **Unit:** a picker colour at the plate's own lightness is walked to clear 3:1 and keeps its hue (RED ×2 before, GREEN ×2 after). | `8ab3b8290` (+ `af35c4ddf`) |
+| SS8-0684 | U-1 | **cured** | Same root and witness as SS8-0678 (MSS-20 → X.W4.g). | `8ab3b8290` |
+| SS8-0671 | R-11 | **routed**: X-W6.j / PKT-3 | Tried the record's cure: `<Transition name="vj-celebrate">` with `--vj-celebrate-collapse: 0px / -expanded: 6rem`. **BEFORE (live):** the footer grew 145.4→221.7 px in **one frame**; the verb held (638.9). **AFTER (live, `E/cures/after-R11-swap.out.json`):** the growth spread over 3 frames in 203 ms (+12 · +33.5 · +30.8). The declared GREEN threshold (≤ 24 px per frame) was **not met** at the 8–14 fps the loaded machine delivered. Worse, the verb was displaced **+33.5 px for about 130 ms and then returned**, a new regression for the page's one verb. **Reverted** (the three mix SFCs are back to their pre-batch text). DESIGN.md §5 books the `vj-morph` / `vj-celebrate` max-height collapse legs as **PKT-3-gated** ("a compositor re-cut per the PKT-3 recipe; NEVER retimed on layout properties"), so the cure belongs to that recipe, not to a max-height leg. The 76.3 px one-frame figure stands. | none (reverted) |
+| SS8-0673 | R-MP2 | **routed**: MX-CLUSTER / X-W6.j / PKT-3 | Tried DD-1's two custom properties on both `vj-morph` sites (MixPane plate mount, MixResultDisplay ghost→content swap). **AFTER (live):** the settle went from one +32 px jump to **two one-frame jumps (−56 then +88)**, because a generous max-height cap degenerates into snaps. The **+98.5 px ghost-phase jump (plate 32→130.5 while `ghost`) is untouched in both builds**, so it is not a Transition leg at all; the cause is unknown. **Reverted.** DD-1 needs the PKT-3 compositor re-cut plus reserved result geometry, and an owner for the ghost-phase jump. BEFORE magnitudes reproduce this packet's figures exactly: +31 · +98.5 · +32. | none (reverted) |
+| SS8-0692 | U-9 | **routed**: NO-WAVE-OWNER (W-HYGIENE, rides U-8 / L-13) | The figure is restated as 40 modules / 193,065 B source. The record names no code cure: K-10 killed the payload framing, because the port module already sits in the entry chunk. MSS-29 is a manifest/workspace-split decision, not an edit in this batch's paths. A keys-only split of `usePalettePorts.ts` would touch about 25 importers, four of them dirty with other seats' hunks (PalettesPane, AdminAuditPanel, AdminTagsPanel, Dock), and no figure says it buys any bytes. | none |
+| SS8-0663 | R-3 | no-change | No defect: a measureText artifact (`E/cells-a.out.json` R3-390). | none |
+| SS8-0664 | R-4 | no-change | Reduce is honoured (R4-reduce: every duration 0 s). | none |
+| SS8-0665 | R-5 | no-change | The cure had already landed (R5-*). | none |
+| SS8-0666 | R-6 | no-change | No surviving body lock (R6). MC-15's ownership hole remains a code fact with no symptom. | none |
+| SS8-0667 | R-7 | no-change | The cure had already landed (`E/r7-chunks.json`). | none |
+| SS8-0672 | R-MP1 | no-change | The cure had already landed (MP1-*). | none |
+| SS8-0682 | R-MP11 | no-change | The MX-3 cure had already landed. CI wiring stays with X-W1. | none |
+| SS8-0685 | U-2 | no-change | The cure had already landed (U2-rtl). | none |
+| SS8-0686 | U-3 | no-change | The cure had already landed (U3-*). | none |
+| SS8-0687 | U-4 | no-change | The cure had already landed (U4-disclosure). | none |
+| SS8-0689 | U-6 | no-change | The cure had already landed (MP6-*). | none |
+| SS8-0690 | U-7 | no-change | The cure had already landed (U7-*). | none |
+| SS8-0693 | U-10 | no-change | Closed by the X-W1 visual oracle (`e2347c0e5`). | none |
+
+**Commit hygiene.** `8ab3b8290` staged B24's `foundation.css` hunk as an index blob, but the `-- <paths>` form commits the working-tree file. So it swept in another seat's uncommitted `foundation.css` hunks (@@ 182 · 542 · 566 · 646 · 722). `af35c4ddf` restores the file to HEAD~2 plus only B24's 10-line roster hunk, committed from the index. The other seat's hunks are dirty in the working tree again, unchanged. Net `HEAD~2..af35c4ddf` on `foundation.css` = `@@ -872,6 +872,16 @@` only.

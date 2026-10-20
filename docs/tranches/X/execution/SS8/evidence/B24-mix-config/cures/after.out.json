@@ -1,0 +1,130 @@
+{
+ "label": "after",
+ "base": "http://localhost:8126",
+ "at": "2026-10-20T22:49:15.990Z",
+ "R11-swap": {
+  "frames": 52,
+  "footFirst": 145.4,
+  "footLast": 221.7,
+  "growth": 76.3,
+  "framesWithGrowth": 4,
+  "maxOneFrameFootStep": 41.4,
+  "at": [
+   {
+    "t": 529,
+    "footH": 157.4,
+    "mixTop": 672
+   },
+   {
+    "t": 533.5,
+    "footH": 198.8,
+    "mixTop": 705.5
+   }
+  ],
+  "GREEN": false,
+  "errors": [],
+  "ms": 4314
+ },
+ "MP2-timeline": {
+  "frames": 70,
+  "plateLast": 162.5,
+  "framesWithStep": 4,
+  "steps": [
+   {
+    "t": 1253.8,
+    "d": 31,
+    "ghost": true
+   },
+   {
+    "t": 1469.9,
+    "d": 98.5,
+    "ghost": true
+   },
+   {
+    "t": 2444.8,
+    "d": -56,
+    "ghost": false
+   },
+   {
+    "t": 2506.4,
+    "d": 88,
+    "ghost": false
+   }
+  ],
+  "maxOneFramePlateStep": 98.5,
+  "at": [
+   {
+    "t": 1394.8,
+    "plateH": 32,
+    "ghost": true
+   },
+   {
+    "t": 1469.9,
+    "plateH": 130.5,
+    "ghost": true
+   }
+  ],
+  "GREEN": false,
+  "errors": [],
+  "ms": 6646
+ },
+ "MP7-light": {
+  "ink": {
+   "wc": "oklch(39.243986773305% 0.158451683021 2deg)",
+   "borderColor": "oklch(0.39244 0.158452 2)"
+  },
+  "ground": [
+   213,
+   122,
+   154
+  ],
+  "ring": [
+   123,
+   0,
+   58
+  ],
+  "ringVsGround": 3.72,
+  "GREEN": true,
+  "errors": [],
+  "ms": 2816
+ },
+ "MP7-dark": {
+  "ink": {
+   "wc": "oklch(74.359592008172% 0.167650062812 2deg)",
+   "borderColor": "oklch(0.743596 0.16765 2)"
+  },
+  "ground": [
+   117,
+   25,
+   51
+  ],
+  "ring": [
+   255,
+   133,
+   171
+  ],
+  "ringVsGround": 4.732,
+  "GREEN": true,
+  "errors": [],
+  "ms": 2728
+ },
+ "MP4f-forced": {
+  "EMULATED": true,
+  "mq": true,
+  "slot": {
+   "fca": "auto",
+   "border": "rgb(0, 0, 0)"
+  },
+  "dot": {
+   "fca": "auto",
+   "border": "rgb(0, 0, 0)"
+  },
+  "stroke": {
+   "fca": "auto",
+   "border": "rgb(0, 0, 0)"
+  },
+  "GREEN": true,
+  "errors": [],
+  "ms": 1541
+ }
+}

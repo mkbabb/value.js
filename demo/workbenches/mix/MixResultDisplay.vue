@@ -62,7 +62,7 @@ async function onCopy() {
         <Transition name="vj-morph" mode="out-in">
             <!-- The awaiting well: the convergence target, announced before
                  the drops arrive. Same seed as the landed dot — one shape. -->
-            <div v-if="ghost" key="well" class="mix-plate__face flex items-center gap-3">
+            <div v-if="ghost" key="well" class="flex items-center gap-3">
                 <!-- X.W12.u2: glass 7.0.0's WatercolorDot forwards only
                      class/style, so `data-mix-target` rides a host span the
                      dot fills — the convergence stage (mixStage.ts) reads it. -->
@@ -81,7 +81,7 @@ async function onCopy() {
                 </span>
             </div>
 
-            <div v-else key="content" class="mix-plate__face flex flex-col gap-3">
+            <div v-else key="content" class="flex flex-col gap-3">
                 <!-- Single color result -->
                 <div v-if="result.type === 'color' && result.css" class="flex items-center gap-3">
                     <WatercolorDot
@@ -164,12 +164,5 @@ async function onCopy() {
 }
 .mix-plate--ghost {
     opacity: 0.55;
-}
-/* SS-8 B24 · SS8-0673 (DD-1): the ghost→content swap rides the vj-morph
- * height leg — each face folds from / unfurls to its own height inside the
- * cap, so the settle frame no longer snaps the scroller. */
-.mix-plate__face {
-    --vj-morph-collapse: 0px;
-    --vj-morph-expanded: 16rem;
 }
 </style>

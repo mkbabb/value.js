@@ -1,0 +1,12 @@
+ ✓ demo/test/mix/ss8-b24-cures.test.ts > SS8-0678 / SS8-0684 · MSS-20 — the add slot's ghost stroke has a 3:1 floor > a picker colour at the plate's lightness is walked to clear 3:1 on the resting plate 70ms
+ ✓ demo/test/mix/ss8-b24-cures.test.ts > SS8-0678 / SS8-0684 · MSS-20 — the add slot's ghost stroke has a 3:1 floor > the walk keeps the picker's hue (identity colour, not a neutral stand-in) 9ms
+ ✓ demo/test/palettes/swatch-identity-keys.test.ts > N-5 · useSwatchActions keys are identities, not indices > a non-tail removal keeps every survivor's DOM node 17ms
+ ✓ demo/test/palettes/swatch-identity-keys.test.ts > N-5 · useSwatchActions keys are identities, not indices > a reorder moves nodes rather than re-minting them 2ms
+ ✓ demo/test/palettes/swatch-identity-keys.test.ts > N-5 · useSwatchActions keys are identities, not indices > repeated colours pair in order, and a new colour mints a new node 2ms
+ ✓ demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a non-tail removal keeps every surviving chip's DOM node 78ms
+ ✓ demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a repeated colour pairs in order; a new selection mints a new node 25ms
+ ✓ demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0636 / SS8-0642: deactivation mid-narration releases the store and settles once 25ms
+ ✓ demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0639: a null 2D context settles and releases instead of arming a dead clock 3ms
+ ✓ demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0641: the phase reset releases the canvas-held scroll extent 2ms
+ Test Files  3 passed (3)
+      Tests  10 passed (10)

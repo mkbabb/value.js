@@ -101,14 +101,10 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
                 <!-- Result plate — mounts GHOSTED the moment the mix starts
                      (the announced destination the convergence lands on);
                      inks in on the canvas clock's settle. No spinner row:
-                     the animation IS the progress (Q10). SS-8 B24 ·
-                     SS8-0673 (DD-1): the mount rides the vj-morph height leg
-                     (scoped below), so the scroller grows on the family's
-                     clock, not in one-frame jumps. -->
+                     the animation IS the progress (Q10). -->
                 <Transition name="vj-morph" mode="out-in">
                     <MixResultDisplay
                         v-if="mixResult"
-                        class="mix-result"
                         :result="mixResult"
                         :ghost="animationPhase === 'mixing'"
                         @save="onSave"
@@ -136,13 +132,3 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
         </template>
     </PaneShell>
 </template>
-
-<style scoped>
-/* SS-8 B24 · SS8-0673 (DD-1): the family's own height facility on the plate's
- * mount/unmount — 0 → the plate, capped above the tallest settled plate (a
- * wrapped palette result at 390). Default `none` declined the leg. */
-.mix-result {
-    --vj-morph-collapse: 0px;
-    --vj-morph-expanded: 24rem;
-}
-</style>
