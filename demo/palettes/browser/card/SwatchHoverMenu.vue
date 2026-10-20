@@ -6,8 +6,10 @@
          The trigger is the app's one SwatchButton (A2-VA-L1-15: glass's Button
          with the WatercolorDot face): glass's WatercolorDot forwards only
          class/style, so a trigger bound on the dot itself received neither
-         reka's handlers nor its name. -->
-    <div class="relative">
+         reka's handlers nor its name.
+         SS-8 B13 L-1: the wrapper is a flex container, so the inline-block trigger
+         sits on no line box and reserves no baseline descender under the swatch. -->
+    <div class="relative flex">
         <Popover trigger="hover" :open="open" @update:open="$emit('update:open', $event)">
             <PopoverTrigger as-child>
                 <SwatchButton

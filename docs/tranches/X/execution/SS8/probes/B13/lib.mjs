@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const EVID = resolve(HERE, "../../evidence/B13-card-swatches");
 mkdirSync(EVID, { recursive: true });
-export const BASE = "http://localhost:9000";
+export const BASE = process.env.B13_BASE ?? "http://localhost:9000";
 
 const HUES = [
     "#e11d48", "#2563eb", "#16a34a", "#f59e0b", "#7c3aed", "#0891b2",

@@ -1,0 +1,172 @@
+{
+  "light": {
+    "scheme": "light",
+    "slugRect": [
+      258.96875,
+      472.578125,
+      68.890625,
+      21
+    ],
+    "inkCss": "oklab(0.263192 0.0032972 0.00333585)",
+    "ink": [
+      39,
+      36,
+      35
+    ],
+    "cls": "text-small text-(color:--muted-foreground-strong) truncate max-w-tooltip",
+    "wrappers": [
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          40
+        ],
+        "display": "flex",
+        "reserve": 0
+      },
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          40
+        ],
+        "display": "flex",
+        "reserve": 0
+      },
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          40
+        ],
+        "display": "flex",
+        "reserve": 0
+      },
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          40
+        ],
+        "display": "flex",
+        "reserve": 0
+      },
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          40
+        ],
+        "display": "flex",
+        "reserve": 0
+      }
+    ],
+    "fill": [
+      203,
+      104,
+      163
+    ],
+    "slugCR": 4.44,
+    "pageErrors": []
+  },
+  "dark": {
+    "scheme": "dark",
+    "slugRect": [
+      258.96875,
+      472.578125,
+      68.890625,
+      21
+    ],
+    "inkCss": "oklab(0.852707 0.00265344 0.00376283)",
+    "ink": [
+      209,
+      206,
+      204
+    ],
+    "cls": "text-small text-(color:--muted-foreground-strong) truncate max-w-tooltip",
+    "wrappers": [
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          40
+        ],
+        "display": "flex",
+        "reserve": 0
+      },
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          40
+        ],
+        "display": "flex",
+        "reserve": 0
+      },
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          40
+        ],
+        "display": "flex",
+        "reserve": 0
+      },
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          40
+        ],
+        "display": "flex",
+        "reserve": 0
+      },
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          40
+        ],
+        "display": "flex",
+        "reserve": 0
+      }
+    ],
+    "fill": [
+      115,
+      44,
+      76
+    ],
+    "slugCR": 6.11,
+    "pageErrors": []
+  }
+}
