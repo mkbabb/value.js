@@ -61,6 +61,22 @@ export async function instrumentWebglDraws(page: Page): Promise<void> {
                 return (orig as (...a: unknown[]) => unknown).apply(this, args);
             };
         }
+        // X.W11.p1 (COHESION §0ge.1): the real-GPU cell of record runs the
+        // producer's WebGPU-first renderer, so a frame there is one
+        // `getCurrentTexture()` (the per-frame swap-chain acquire), counted on
+        // the same canvas. A WebGL-only page (the software cells) is unchanged.
+        const gpuProto = (window as unknown as { GPUCanvasContext?: { prototype: Record<string, unknown> } })
+            .GPUCanvasContext?.prototype;
+        const acquire = gpuProto?.getCurrentTexture;
+        if (gpuProto && typeof acquire === "function") {
+            gpuProto.getCurrentTexture = function (this: { canvas: unknown }, ...args: unknown[]) {
+                if (this.canvas instanceof HTMLCanvasElement) {
+                    const c = this.canvas as CountedCanvas;
+                    c.__vjDrawCount = (c.__vjDrawCount ?? 0) + 1;
+                }
+                return (acquire as (...a: unknown[]) => unknown).apply(this, args);
+            };
+        }
     });
 }
 

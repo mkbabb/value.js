@@ -16,6 +16,7 @@ import {
     GOO_BLOB_TESTID,
     lastCanvasDrawCount,
 } from "../fixtures/webgl-appearance";
+import { useRealGpuCell } from "../perf/real-gpu";
 
 /**
  * THE SEAT FORMULA (T.W4-5 · D8) — the e2e mirror of the ONE cqi footprint law
@@ -62,9 +63,28 @@ const BEAD_RATIO = 0.52;
  *   4 · HOVER-ACTIVE BUDGET — sustained-pointermove frame p50 ≤ 20ms (the
  *       NEW §6.2 row; renderer-aware: asserted on real GPU, hang-guarded on
  *       SwiftShader — the idle-frame-budget shape).
+ *
+ * X.W11.p1 (COHESION §0ge.1, OD-W11-1(a) arm A) — THE DEVICE TIER. On a
+ * software WebGL rasteriser (`isSoftwareWebGLRenderer()`) HeroBlob paints the
+ * bead, parks it, and repaints ONE frame per register change; a GPU device
+ * keeps the live bead. O-12·3's "the live bead draws" is therefore asserted
+ * on the real-GPU cell (`useRealGpuCell()`, `W12_REAL_GPU=1`); on a software
+ * renderer O-12·3 asserts the tier's contract in its place — painted (the bead
+ * drew before the window), parked (0 draws over it), repainted on a register
+ * change (a picker click draws ≥ 1 frame) and parked again (0 draws over a
+ * second window) — beside the SOFT_CEIL hang guard, unchanged.
  */
 
 test.use({ viewport: { width: 1440, height: 900 } });
+useRealGpuCell();
+
+/** One register change: a click on the picker surface moves the colour, which re-seeds the hero's ramp. */
+async function changeRegister(page: import("@playwright/test").Page) {
+    const surface = page.locator(".spectrum-picker").first();
+    const b = await surface.boundingBox();
+    if (!b) throw new Error("o12: picker surface not laid out");
+    await page.mouse.click(b.x + b.width * 0.72, b.y + b.height * 0.28);
+}
 
 const BLOB_CANVAS = '[data-testid="goo-blob-canvas"]';
 
@@ -198,7 +218,27 @@ test("O-12 · 3 — idle frame cost at the seat: the live bead draws, at most on
     console.log(
         `[o12-idle-cost] renderer=${soft ? "SOFTWARE-GL" : "REAL-GPU"} window=${WINDOW_MS}ms draws=${draws} frames=${frames.length} p50=${p50.toFixed(1)}ms (gate ≤${GATE.idleP50Ms}ms real-GPU)`,
     );
-    expect(draws, "the idle bead drew nothing — the live hero parked").toBeGreaterThan(0);
+    if (!soft) {
+        expect(draws, "the idle bead drew nothing — the live hero parked").toBeGreaterThan(0);
+    } else {
+        // The software-raster tier (§0ge.1 arm A): painted (polled above),
+        // parked over the window, one repaint per register change, parked again.
+        expect(draws, `the software-tier bead drew ${draws} times over ${WINDOW_MS}ms of idle — it is not parked`).toBe(0);
+        const beforeChange = await lastCanvasDrawCount(page, GOO_BLOB_TESTID);
+        await changeRegister(page);
+        await expect
+            .poll(() => lastCanvasDrawCount(page, GOO_BLOB_TESTID), {
+                timeout: 15_000,
+                message: "the parked bead did not repaint on a register change",
+            })
+            .toBeGreaterThan(beforeChange);
+        await waitMs(page, IDLE_MS);
+        const afterBefore = await lastCanvasDrawCount(page, GOO_BLOB_TESTID);
+        await waitMs(page, WINDOW_MS);
+        const after = (await lastCanvasDrawCount(page, GOO_BLOB_TESTID)) - afterBefore;
+        console.log(`[o12-idle-cost] software tier: register change → ${afterBefore - beforeChange} draws · then window draws=${after}`);
+        expect(after, `the bead drew ${after} times after its repaint — it did not park again`).toBe(0);
+    }
     expect(
         draws,
         `the bead drew ${draws} times over ${frames.length} displayed frames — more than one draw per frame`,
