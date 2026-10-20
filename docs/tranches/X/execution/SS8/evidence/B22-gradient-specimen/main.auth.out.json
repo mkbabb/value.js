@@ -1,0 +1,37 @@
+{
+ "cell": "auth",
+ "ms": 12501,
+ "result": {
+  "stage": {
+   "w": 462,
+   "h": 430
+  },
+  "well": {
+   "w": 462,
+   "h": 430
+  },
+  "wellCls": "easing-authoring",
+  "svg": {
+   "w": 304,
+   "h": 304
+  },
+  "svgRole": "img",
+  "viewBox": "-0.1 -0.1 1.2 1.2",
+  "svgBlockSize": "304px",
+  "svgInline": null,
+  "plot": {
+   "w": 253.3,
+   "h": 253.3
+  },
+  "plotRem": 15.83,
+  "letterboxPct": 16.7,
+  "emptyWellPct": 67.7,
+  "vbRatio": "1",
+  "containerType": "normal",
+  "pageErrors": [],
+  "consoleErrors": [
+   "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "Failed to load resource: net::ERR_FAILED"
+  ]
+ }
+}

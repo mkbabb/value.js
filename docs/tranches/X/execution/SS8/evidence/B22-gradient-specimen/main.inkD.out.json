@@ -1,0 +1,210 @@
+{
+ "cell": "inkD",
+ "ms": 71967,
+ "result": {
+  "ink": [
+   {
+    "gradient": "default",
+    "ink": "oklch(79.340786328539% 0.135485959423 205deg)",
+    "css": "cubic-bezier(0, 0, 1, 1)",
+    "fill": [
+     6.3684844970703125,
+     42.453125,
+     10.368484497070312,
+     46.453125
+    ],
+    "well": [
+     395,
+     4,
+     397,
+     28
+    ],
+    "inkRgb": [
+     0,
+     212,
+     229
+    ],
+    "inkOklch": [
+     0.7938,
+     0.1356,
+     205.1
+    ],
+    "onCapsule": 6.215,
+    "onWell": 5.894,
+    "capsule": [
+     80.4,
+     48.7,
+     66.3
+    ],
+    "wellPx": [
+     104.6,
+     39.8,
+     58.8
+    ]
+   },
+   {
+    "gradient": "linear-gradient(90deg, #ff0000, #0000ff)",
+    "ink": "oklch(82.231194565538% 0.133179790227 316.02deg)",
+    "css": "cubic-bezier(0, 0, 1, 1)",
+    "fill": [
+     6.3684844970703125,
+     42.45313262939453,
+     10.368484497070312,
+     46.45313262939453
+    ],
+    "well": [
+     395,
+     4,
+     397,
+     28
+    ],
+    "inkRgb": [
+     231,
+     169,
+     255
+    ],
+    "inkOklch": [
+     0.822,
+     0.1341,
+     316.3
+    ],
+    "onCapsule": 6.351,
+    "onWell": 5.79,
+    "capsule": [
+     75.2,
+     48.7,
+     65.9
+    ],
+    "wellPx": [
+     107.3,
+     39.8,
+     57.1
+    ]
+   },
+   {
+    "gradient": "linear-gradient(90deg, #ffff00, #ffffff)",
+    "ink": "oklch(98.4% 0.074711857968 109.77deg)",
+    "css": "cubic-bezier(0, 0, 1, 1)",
+    "fill": [
+     6.3684844970703125,
+     42.45313262939453,
+     10.368484497070312,
+     46.45313262939453
+    ],
+    "well": [
+     395,
+     4,
+     397,
+     28
+    ],
+    "inkRgb": [
+     252,
+     255,
+     197
+    ],
+    "inkOklch": [
+     0.9837,
+     0.0742,
+     110.1
+    ],
+    "onCapsule": 11.166,
+    "onWell": 10.181,
+    "capsule": [
+     75.2,
+     48.7,
+     65.9
+    ],
+    "wellPx": [
+     107.3,
+     39.8,
+     57.1
+    ]
+   },
+   {
+    "gradient": "linear-gradient(90deg, #001a33, #000000)",
+    "ink": "oklch(80.670349052513% 0.02972 249.31deg)",
+    "css": "cubic-bezier(0, 0, 1, 1)",
+    "fill": [
+     6.3684844970703125,
+     42.45313262939453,
+     10.368484497070312,
+     46.45313262939453
+    ],
+    "well": [
+     395,
+     4,
+     397,
+     28
+    ],
+    "inkRgb": [
+     178,
+     194,
+     211
+    ],
+    "inkOklch": [
+     0.8072,
+     0.0298,
+     249.8
+    ],
+    "onCapsule": 6.369,
+    "onWell": 5.807,
+    "capsule": [
+     75.2,
+     48.7,
+     65.9
+    ],
+    "wellPx": [
+     107.3,
+     39.8,
+     57.1
+    ]
+   },
+   {
+    "gradient": "linear-gradient(90deg, #00ffff, #00c0c0)",
+    "ink": "oklch(81.84% 0.13969917321 194.77deg)",
+    "css": "cubic-bezier(0, 0, 1, 1)",
+    "fill": [
+     6.3684844970703125,
+     42.45313262939453,
+     10.368484497070312,
+     46.45313262939453
+    ],
+    "well": [
+     395,
+     4,
+     397,
+     28
+    ],
+    "inkRgb": [
+     0,
+     223,
+     223
+    ],
+    "inkOklch": [
+     0.8182,
+     0.1397,
+     194.8
+    ],
+    "onCapsule": 6.959,
+    "onWell": 6.345,
+    "capsule": [
+     75.2,
+     48.7,
+     65.9
+    ],
+    "wellPx": [
+     107.3,
+     39.8,
+     57.1
+    ]
+   }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+   "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "Failed to load resource: net::ERR_FAILED",
+   "[value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: pane chunk not settled after 20000 ms\n    at http://localhost:9022/@fs/Users/mkbabb/Programming/value.js/demo/shell/usePaneRouter.ts?t=1792527114654:126:41",
+   "[value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: pane chunk not settled after 20000 ms\n    at http://localhost:9022/@fs/Users/mkbabb/Programming/value.js/demo/shell/usePaneRouter.ts?t=1792527114654:126:41"
+  ]
+ }
+}

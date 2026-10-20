@@ -1,0 +1,27 @@
+(node:74851) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+  VITE v8.0.16  ready in 596 ms
+
+  ➜  Local:   http://localhost:9022/
+  ➜  Network: http://192.168.1.167:9022/
+  ➜  Network: http://192.168.64.1:9022/
+4:54:57 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:55:52 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:56:20 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:56:33 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:56:41 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:56:45 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:56:56 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:56:57 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/card/SwatchHoverMenu.vue, /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:56:57 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/palettes/inspector/PaletteCardSwatches.vue, /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:56:58 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/card/SwatchHoverMenu.vue, /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:57:01 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:57:10 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:57:12 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/card/SwatchHoverMenu.vue, /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:57:12 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/palettes/inspector/PaletteCardSwatches.vue, /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:57:42 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:58:24 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:58:35 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/dialog/FlagReportDialog.vue, /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:58:35 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/palettes/inspector/PaletteInspector.vue, /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+4:58:35 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/dialog/FlagReportDialog.vue, /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css

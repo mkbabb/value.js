@@ -1,0 +1,96 @@
+{
+ "cell": "arms",
+ "ms": 48063,
+ "result": [
+  {
+   "arm": "desk-1440",
+   "portW": 462,
+   "portH": 472.6,
+   "scrollW": 462,
+   "clientW": 462,
+   "rowDisplay": "grid",
+   "fullyVisible": 27,
+   "tiles": 27,
+   "tileW": 47.26,
+   "labelPx": "14.384px",
+   "docOverflowX": 0,
+   "pageErrors": [],
+   "consoleErrors": [
+    "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+    "Failed to load resource: net::ERR_FAILED"
+   ]
+  },
+  {
+   "arm": "zoom-200",
+   "portW": 638,
+   "portH": 454.3,
+   "scrollW": 638,
+   "clientW": 638,
+   "rowDisplay": "grid",
+   "fullyVisible": 27,
+   "tiles": 27,
+   "tileW": 47.26,
+   "labelPx": "12.872px",
+   "docOverflowX": 0,
+   "pageErrors": [],
+   "consoleErrors": [
+    "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+    "Failed to load resource: net::ERR_FAILED"
+   ]
+  },
+  {
+   "arm": "zoom-400",
+   "portW": 294,
+   "portH": 85.3,
+   "scrollW": 1464,
+   "clientW": 294,
+   "rowDisplay": "inline-flex",
+   "fullyVisible": 5,
+   "tiles": 27,
+   "tileW": 47.26,
+   "labelPx": "12.116px",
+   "docOverflowX": 0,
+   "pageErrors": [],
+   "consoleErrors": [
+    "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+    "Failed to load resource: net::ERR_FAILED"
+   ]
+  },
+  {
+   "arm": "mobile-390",
+   "portW": 324,
+   "portH": 85.4,
+   "scrollW": 1464,
+   "clientW": 324,
+   "rowDisplay": "inline-flex",
+   "fullyVisible": 6,
+   "tiles": 27,
+   "tileW": 47.26,
+   "labelPx": "12.179px",
+   "docOverflowX": 0,
+   "pageErrors": [],
+   "consoleErrors": [
+    "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+    "Failed to load resource: net::ERR_FAILED"
+   ]
+  },
+  {
+   "arm": "mobile-320",
+   "portW": 254,
+   "portH": 86.1,
+   "scrollW": 1464,
+   "clientW": 254,
+   "rowDisplay": "inline-flex",
+   "fullyVisible": 5,
+   "tiles": 27,
+   "tileW": 47.26,
+   "labelPx": "12.032px",
+   "docOverflowX": 0,
+   "pageErrors": [],
+   "consoleErrors": [
+    "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+    "Failed to load resource: net::ERR_FAILED"
+   ]
+  }
+ ]
+}

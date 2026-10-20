@@ -1,0 +1,108 @@
+{
+ "cell": "keep",
+ "ms": 151390,
+ "result": {
+  "trials": [
+   {
+    "before": 0,
+    "after": 1138,
+    "max": 1140,
+    "visible": false,
+    "pressed": true,
+    "id": "step-end",
+    "scrollYDelta": 0
+   },
+   {
+    "before": 0,
+    "after": 1139,
+    "max": 1141,
+    "visible": false,
+    "pressed": true,
+    "id": "step-end",
+    "scrollYDelta": 0
+   },
+   {
+    "before": 0,
+    "after": 1139,
+    "max": 1141,
+    "visible": false,
+    "pressed": true,
+    "id": "step-end",
+    "scrollYDelta": 0
+   },
+   {
+    "before": 0,
+    "after": 1139,
+    "max": 1141,
+    "visible": false,
+    "pressed": true,
+    "id": "step-end",
+    "scrollYDelta": 0
+   },
+   {
+    "before": 0,
+    "after": 1139,
+    "max": 1141,
+    "visible": false,
+    "pressed": true,
+    "id": "step-end",
+    "scrollYDelta": 0
+   },
+   {
+    "before": 0,
+    "after": 1139,
+    "max": 1141,
+    "visible": false,
+    "pressed": true,
+    "id": "step-end",
+    "scrollYDelta": 0
+   },
+   {
+    "before": 0,
+    "after": 1139,
+    "max": 1141,
+    "visible": false,
+    "pressed": true,
+    "id": "step-end",
+    "scrollYDelta": 0
+   },
+   {
+    "before": 0,
+    "after": 1139,
+    "max": 1141,
+    "visible": false,
+    "pressed": true,
+    "id": "step-end",
+    "scrollYDelta": 0
+   },
+   {
+    "before": 0,
+    "after": 1139,
+    "max": 1141,
+    "visible": false,
+    "pressed": true,
+    "id": "step-end",
+    "scrollYDelta": 0
+   },
+   {
+    "before": 0,
+    "after": 1139,
+    "max": 1141,
+    "visible": false,
+    "pressed": true,
+    "id": "step-end",
+    "scrollYDelta": 0
+   }
+  ],
+  "green": 0,
+  "pageErrors": [],
+  "consoleErrors": [
+   "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "Failed to load resource: net::ERR_FAILED",
+   "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "Failed to load resource: net::ERR_FAILED",
+   "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "Failed to load resource: net::ERR_FAILED"
+  ]
+ }
+}

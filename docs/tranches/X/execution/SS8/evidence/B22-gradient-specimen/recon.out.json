@@ -1,0 +1,41 @@
+{
+ "pre": {
+  "rows": 1,
+  "strips": 0,
+  "visibleStrips": 0,
+  "heads": [
+   {
+    "text": "1 → 2linear",
+    "exp": "false"
+   }
+  ],
+  "tiles": 0
+ },
+ "post": {
+  "visible": true,
+  "portW": 452,
+  "portH": 472.59375,
+  "scrollW": 452,
+  "clientW": 452,
+  "stripRowDisplay": "grid",
+  "tiles": 27,
+  "pressed": [
+   "linear"
+  ],
+  "motionAccent": "oklch(28.678697193973% 0.048973056413 205deg)",
+  "tileClass": "glass-chip glass-capsule accent-tone inline-flex items-center justify-center font-sans text-muted-foreground select-none glass-chip--interactive glass-capsule-hover focus-ring cursor-pointer disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-disabled gap-1.5 px-3.5 py-1.5 text-small glass-chip--icon aspect-square p-0 size-10 specimen-tile",
+  "families": [
+   "CSS",
+   "Sine",
+   "Quad",
+   "Cubic",
+   "Expo",
+   "Circ",
+   "Back",
+   "Steps"
+  ],
+  "html0": "<div data-v-0377df5d=\"\" class=\"specimen-cell\"><button data-v-0377df5d=\"\" type=\"button\" aria-pressed=\"true\" data-state=\"on\" aria-label=\"linear\" title=\"linear\" data-specimen=\"linear\" class=\"glass-chip glass-capsule accent-tone inline-flex items-center justify-center font-sans text-muted-foreground select-none glass-chip--interactive glass-capsule-hover focus-ring cursor-pointer disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-disabled gap-1.5 px-3.5 py-1.5 text-small glass-chip--icon aspect-square p-0 size-10 specimen-tile\" data-mode=\"selectable\" data-shape=\"icon\"><svg data-v-0377df5d=\"\" class=\"tile-glyph\" viewBox=\"0 0 1 1\" aria-hidden=\"true\"><path data-v-0377df5d=\"\" d"
+ },
+ "pageErrors": [],
+ "consoleErrors": []
+}

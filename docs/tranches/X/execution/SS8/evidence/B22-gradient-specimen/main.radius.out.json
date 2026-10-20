@@ -1,0 +1,40 @@
+{
+ "cell": "radius",
+ "ms": 34340,
+ "result": {
+  "root": {
+   "--radius": "0.625rem",
+   "--radius-input": "",
+   "--radius-media": "0.625rem",
+   "--radius-strip": "0.75rem",
+   "--radius-md": "6px",
+   "--radius-sm": "4px",
+   "--radius-lg": "0.625rem"
+  },
+  "body": {
+   "--radius": "0.625rem",
+   "--radius-input": "",
+   "--radius-media": "0.625rem",
+   "--radius-strip": "0.75rem",
+   "--radius-md": "6px",
+   "--radius-sm": "4px",
+   "--radius-lg": "0.625rem"
+  },
+  "declarations": [
+   {
+    "t": "--radius",
+    "v": "0.625rem",
+    "sel": ":root, :host",
+    "layer": "theme",
+    "sheet": "inline"
+   }
+  ],
+  "nDecl": 1,
+  "railBtnRadius": "10px",
+  "pageErrors": [],
+  "consoleErrors": [
+   "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "Failed to load resource: net::ERR_FAILED"
+  ]
+ }
+}
