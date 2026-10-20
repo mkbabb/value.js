@@ -88,3 +88,41 @@ Every refutation below is a **cure that already landed at HEAD**. It is not a ne
 ~/.claude/guard/guarded --timeout 15 -- node docs/tranches/X/execution/SS8/probes/B04/extra.mjs        # 0104 live limb, 0093 layer chain
 ~/.claude/guard/guarded --exclusive webkit --timeout 20 -- node docs/tranches/X/execution/SS8/probes/B04/webkit.mjs  # 0087 0097(iPhone) 0105 0112(webkit)
 ```
+
+## cures
+
+Seat: SS-8 CURE, batch B04-dock-profile-menus, 2026-10-20 (served model `claude-opus-5-5`). The verdicts above stay verbatim (E-3). This section records only what the cure seat did with each REFUTED row. Every row's root cure **had already landed at HEAD**, so no product code changed. What this seat added is a falsifier per row that holds the landed shape.
+
+**Falsifier:** `demo/test/shell/dock-profile-menus.test.ts` (13 tests). It mounts both real twins (`ProfileSection.vue`, `MobileMenuDropdown.vue`) with the session port and the ink ambient supplied. The desktop twin sits inside a painted `.dock-plate` (α 0.10), because the G-13 chrome ink throws when it has no band. Menus open through their own `v-model:open`.
+
+**RED witness:** with `SS8_B04_VARIANT=.ss8red`, the suite mounts sibling mutants `<Name>.ss8red.vue`. Each mutant reintroduces one pre-cure shape:
+- the GitHub row as an item wrapping `<a href>` with no `@select`
+- the theme row as a plain item with a lucide Sun/Moon glyph
+- the desktop admin arm as an inert `gold-shimmer` pill with inline `#D4AF37` and no menu
+- the mobile admin arm with no exits
+- Login as glass `Button variant="outline" size="xs"`
+- the twin's slug ink as `floating(page(pick))`, the double certification
+
+The mutants existed only for the RED runs and were deleted before the GREEN runs. The app never imports them.
+
+**Runs** (`E/cure/`, all via `~/.claude/guard/guarded`, vitest `--maxWorkers=2`):
+- RED: `SS8_B04_VARIANT=.ss8red guarded --timeout 10 -- npx vitest run --maxWorkers=2 demo/test/shell/dock-profile-menus.test.ts`. `red-run1.txt` and `red-run2.txt` each show `Tests 10 failed | 3 passed (13)`.
+- GREEN: the same command without the variable, under `--light`, since it is a single unit file. The heavy-slot queue held the non-light attempt for more than 20 min. `green-run1.txt` and `green-run2.txt` each show `Tests 13 passed (13)`.
+- Touched suite: `demo/test/shell` (10 files) shows `Tests 49 passed (49)`.
+
+**Type-check:** `guarded --light -- npx vue-tsc -p tsconfig.test.json --noEmit` reports 0 errors in the new file. The one remaining error is in `demo/test/picker/spectrum-dot-position.test.ts`, which belongs to another seat and was not touched.
+
+| row | cure (root, landed) | falsifier test | RED (x2, mutant) | GREEN (x2, HEAD) |
+|---|---|---|---|---|
+| 0089 MMD L-6 | **Already cured.** The twin certifies the raw pick once, on the floating rung (`MobileMenuDropdown.vue` `menuInk`). Re-certification is idempotent. No drift row remains; the L-6 single-owner carve (X-W8) stays an ownership/naming row. | "SS8-0089 … 7/7 picks paint safeCss_floating(pick), idempotent" (light + dark; the pill's painted ink equals one floating certification to 1e-4 L/C, and re-certifying adds nothing) | dark arm RED: `L: expected 0.00182 to be less than 0.0001` at `oklch(0.62 0.19 25)`. The light arm stays green under the mutant, matching the witnessed zero drift in light. | passed |
+| 0091 MMD dead-zone | **Already cured** (UIA-V-18/22/71, `b41731371`). The GitHub row is the `DropdownMenuItem @select=openRepository`, with no inner anchor. | "SS8-0091 · 0108 · 0097 …" ×2 twins | `expected 1 to be +0` (nested `<a>`), both twins | passed |
+| 0092 MMD D-08 | **Already cured** (UIA-V-21/215/227, `d8b8e063b`). The admin identity is a menu with Switch account and Sign out of admin. Sign out reaches `adminLogout`. | "SS8-0092 …" ×2 twins | desktop: `no open menu` (inert pill). Mobile: `expected [Array(3)] to deeply equal ArrayContaining{…}` (no exits). | passed |
+| 0093 PS U-1 | **Already cured** (X.W12.e/OA-22). Login is glass `DockControl shape="tab"` (`.dock-tab-button`); Profile, admin and @mbabb are `DockTrigger`. No page Button wash capsule. | "SS8-0093 · 0098 … (out/user/admin)": every band `<button>` is `.dock-trigger` or `.dock-tab-button` | out: `expected +0 to be 1` (no DockControl). admin: `expected 1 to be 2`. | passed |
+| 0097 PS U-5 | **Already cured** with the GitHub row: no as-child anchor, so no two-line 48.9 px row. jsdom has no layout, so the falsifier holds the cause (no nested `<a>`, one menuitem), not the pixel height. The iPhone 14 cell stays UNPROVEN (WebKit not admitted, above). | the 0091 test | as 0091 | passed |
+| 0098 PS U-6 | **Already cured** (X.W12.e). Seat height comes from the dock control family's tokens, not a 28 px `--control-h-xs` Button. The falsifier holds the family membership, not pixels. | the 0093 test | as 0093 | passed |
+| 0099 PS U-7 | **Already cured** (UIA-V-254/268, `21aeff087`). Dark mode is `DropdownMenuCheckboxItem` (`menuitemcheckbox`, `aria-checked`), with no sun/moon glyph. | "SS8-0099 …" ×2 twins | `expected 'menuitem' to be 'menuitemcheckbox'`, both twins | passed |
+| 0101 PS U-9 | **No product defect.** Strike the corpus "near-unblurred" artifact as an input to U-10/N-3. No code change. jsdom cannot paint `backdrop-filter`, so the regression witness is the live probe `probes/B04/desktop2.mjs` stripe-field reading (`E/desktop2-{light,dark}.json`: 3.65/4.97 shipped vs 100.15/95.66 forced-none). | none new (live probe banked above) | not constructible (no defect) | probe reading banked above |
+| 0107 PS U-15 | **Already cured** (`bd72e216e`). The admin trigger wears `.gold-ink`, the one reader of the per-ground rebound `--ink-gold`, with no inline gold and no shimmer. | "SS8-0107 …" (trigger classes and inline style) + utils.css `.gold-ink { color: var(--ink-gold); }` | trigger arm: `expected false to be true` (no `.gold-ink`). The utils.css arm was not mutated (static, green in both). | passed |
+| 0108 PS U-16 | **Already cured** (UIA-V-18/22/71). A click on the item, and Enter on the focused item, both call `window.open(REPO, "_blank", "noopener,noreferrer")`. | the 0091 test (click + Enter arms) | as 0091 | passed |
+
+blockedByDirty: none. `demo/shell/dock/menus/*` and this packet were clean, and no product file was edited.

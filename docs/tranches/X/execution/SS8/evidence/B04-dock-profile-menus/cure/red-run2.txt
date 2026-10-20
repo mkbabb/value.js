@@ -1,0 +1,184 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:7994) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ demo/test/shell/dock-profile-menus.test.ts (13 tests | 10 failed) 783ms
+   × SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > ProfileSection: one menuitem, no nested anchor; click and Enter open the repository 214ms
+     → expected 1 to be +0 // Object.is equality
+   × SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > MobileMenuDropdown: one menuitem, no nested anchor; click and Enter open the repository 86ms
+     → expected 1 to be +0 // Object.is equality
+   × SS8-0092 — the admin identity is a menu with its exits > ProfileSection: admin arm offers Switch account + Sign out of admin; sign out reaches adminLogout 9ms
+     → no open menu
+   × SS8-0092 — the admin identity is a menu with its exits > MobileMenuDropdown: admin arm offers Switch account + Sign out of admin; sign out reaches adminLogout 37ms
+     → expected [ Array(3) ] to deeply equal ArrayContaining{…}
+   × SS8-0093 · 0098 — band controls are glass's dock control family > ProfileSection (out): every band seat is a DockTrigger or DockControl 24ms
+     → expected +0 to be 1 // Object.is equality
+   ✓ SS8-0093 · 0098 — band controls are glass's dock control family > ProfileSection (user): every band seat is a DockTrigger or DockControl 13ms
+   × SS8-0093 · 0098 — band controls are glass's dock control family > ProfileSection (admin): every band seat is a DockTrigger or DockControl 11ms
+     → expected 1 to be 2 // Object.is equality
+   × SS8-0099 — the theme row is a checkbox item > ProfileSection: Dark mode is a menuitemcheckbox whose state is aria-checked, no sun/moon glyph 26ms
+     → expected 'menuitem' to be 'menuitemcheckbox' // Object.is equality
+   × SS8-0099 — the theme row is a checkbox item > MobileMenuDropdown: Dark mode is a menuitemcheckbox whose state is aria-checked, no sun/moon glyph 33ms
+     → expected 'menuitem' to be 'menuitemcheckbox' // Object.is equality
+   × SS8-0107 — the admin gold reads the rebound certified ink > ProfileSection: the admin trigger wears .gold-ink, no inline gold, no shimmer 7ms
+     → expected false to be true // Object.is equality
+   ✓ SS8-0107 — the admin gold reads the rebound certified ink > utils.css: .gold-ink is the one reader of --ink-gold 2ms
+   ✓ SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (light): 7/7 picks paint safeCss_floating(pick), idempotent 286ms
+   × SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (dark): 7/7 picks paint safeCss_floating(pick), idempotent 33ms
+     → oklch(0.62 0.19 25) L: expected 0.001823290121409915 to be less than 0.0001
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > ProfileSection: one menuitem, no nested anchor; click and Enter open the repository
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > MobileMenuDropdown: one menuitem, no nested anchor; click and Enter open the repository
+AssertionError: expected 1 to be +0 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 0[39m
+[31m+ 1[39m
+
+ ❯ demo/test/shell/dock-profile-menus.test.ts:167:54
+    165|             expect(row.getAttribute("role")).toBe("menuitem");
+    166|             // The as-child anchor is what left the dead pad and the 4…
+    167|             expect(row.querySelectorAll("a").length).toBe(0);
+       |                                                      ^
+    168|             expect(row.closest("a")).toBeNull();
+    169|             row.click();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0092 — the admin identity is a menu with its exits > ProfileSection: admin arm offers Switch account + Sign out of admin; sign out reaches adminLogout
+Error: no open menu
+ ❯ menu demo/test/shell/dock-profile-menus.test.ts:131:20
+    129| function menu(): HTMLElement {
+    130|     const el = document.body.querySelector<HTMLElement>("[role=menu]");
+    131|     if (!el) throw new Error("no open menu");
+       |                    ^
+    132|     return el;
+    133| }
+ ❯ rowLabels demo/test/shell/dock-profile-menus.test.ts:135:16
+ ❯ demo/test/shell/dock-profile-menus.test.ts:188:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0092 — the admin identity is a menu with its exits > MobileMenuDropdown: admin arm offers Switch account + Sign out of admin; sign out reaches adminLogout
+AssertionError: expected [ Array(3) ] to deeply equal ArrayContaining{…}
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- ArrayContaining [[39m
+[32m-   "Switch account",[39m
+[32m-   "Sign out of admin",[39m
+[31m+ [[39m
+[31m+   "Share color",[39m
+[31m+   "GitHub",[39m
+[31m+   "Dark mode",[39m
+[2m  ][22m
+
+ ❯ demo/test/shell/dock-profile-menus.test.ts:189:28
+    187|             const { w, pm } = await mountTwin(name, "admin", { menu: m…
+    188|             const labels = rowLabels();
+    189|             expect(labels).toEqual(expect.arrayContaining(["Switch acc…
+       |                            ^
+    190|             rowNamed("Sign out of admin").click();
+    191|             await flushPromises();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0093 · 0098 — band controls are glass's dock control family > ProfileSection (out): every band seat is a DockTrigger or DockControl
+AssertionError: expected +0 to be 1 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 1[39m
+[31m+ 0[39m
+
+ ❯ demo/test/shell/dock-profile-menus.test.ts:209:37
+    207|             // @mbabb + (Profile | admin) are dropdown triggers; Login…
+    208|             expect(triggers.length).toBe(arm === "out" ? 1 : 2);
+    209|             expect(controls.length).toBe(arm === "out" ? 1 : 0);
+       |                                     ^
+    210|             // Every button the band renders is one of them: no page B…
+    211|             const seats = w.findAll("button");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0093 · 0098 — band controls are glass's dock control family > ProfileSection (admin): every band seat is a DockTrigger or DockControl
+AssertionError: expected 1 to be 2 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 2[39m
+[31m+ 1[39m
+
+ ❯ demo/test/shell/dock-profile-menus.test.ts:208:37
+    206|             const controls = w.findAllComponents(DockControl);
+    207|             // @mbabb + (Profile | admin) are dropdown triggers; Login…
+    208|             expect(triggers.length).toBe(arm === "out" ? 1 : 2);
+       |                                     ^
+    209|             expect(controls.length).toBe(arm === "out" ? 1 : 0);
+    210|             // Every button the band renders is one of them: no page B…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0099 — the theme row is a checkbox item > ProfileSection: Dark mode is a menuitemcheckbox whose state is aria-checked, no sun/moon glyph
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0099 — the theme row is a checkbox item > MobileMenuDropdown: Dark mode is a menuitemcheckbox whose state is aria-checked, no sun/moon glyph
+AssertionError: expected 'menuitem' to be 'menuitemcheckbox' // Object.is equality
+
+Expected: [32m"menuitem[7mcheckbox[27m"[39m
+Received: [31m"menuitem"[39m
+
+ ❯ demo/test/shell/dock-profile-menus.test.ts:229:46
+    227|             await mountTwin(name, "out", { menu: m });
+    228|             const row = rowNamed("Dark mode");
+    229|             expect(row.getAttribute("role")).toBe("menuitemcheckbox");
+       |                                              ^
+    230|             expect(row.getAttribute("aria-checked")).toBe("false");
+    231|             expect(row.querySelector(".lucide-sun, .lucide-moon, .luci…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0107 — the admin gold reads the rebound certified ink > ProfileSection: the admin trigger wears .gold-ink, no inline gold, no shimmer
+AssertionError: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ demo/test/shell/dock-profile-menus.test.ts:241:53
+    239|         const { w } = await mountTwin("ProfileSection", "admin");
+    240|         const trig = w.get('[data-o18="admin-trigger"]').element as HT…
+    241|         expect(trig.classList.contains("gold-ink")).toBe(true);
+       |                                                     ^
+    242|         expect(trig.classList.contains("gold-shimmer")).toBe(false);
+    243|         expect(trig.style.color).toBe("");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (dark): 7/7 picks paint safeCss_floating(pick), idempotent
+AssertionError: oklch(0.62 0.19 25) L: expected 0.001823290121409915 to be less than 0.0001
+ ❯ expectSameInk demo/test/shell/dock-profile-menus.test.ts:80:51
+     78| function expectSameInk(a: string, b: string, label: string): void {
+     79|     const [x, y] = [lch(a), lch(b)];
+     80|     expect(Math.abs(x[0]! - y[0]!), `${label} L`).toBeLessThan(1e-4);
+       |                                                   ^
+     81|     expect(Math.abs(x[1]! - y[1]!), `${label} C`).toBeLessThan(1e-4);
+     82| }
+ ❯ demo/test/shell/dock-profile-menus.test.ts:270:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  10 failed | 3 passed (13)
+   Start at  14:53:31
+   Duration  2.66s (transform 366ms, setup 63ms, collect 1.01s, tests 783ms, environment 543ms, prepare 80ms)
+
