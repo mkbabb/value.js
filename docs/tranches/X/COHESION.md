@@ -4529,3 +4529,13 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
    - the Release workflow red is the `v0.2.0` tag push's Rust/marketplace job, not a PR gate.
    - Local bbnf-lang master is untouched (`af15f63e`).
 5. **X.P.W7P → CLOSED 2026-10-19** (honest residuals: the O-104 acknowledgements; the quiet-host L-G1 re-read at X.P.W8's close).
+
+## §0gj — 2026-10-19 21:50: kernel-zone hold; ESC-FREL-v3-1 routed; resume order after the reboot
+1. **Hold.** data.kalloc.1024 read 8.38M at 21:44, past the 8M owner-notification mark and climbing about 90k a minute from fleet-wide headless-browser churn, the 2026-10-15 panic signature. value.js stopped SS-8 at 19:55 and X-OD19 and Track A at 21:50. All three resume from their journals after the owner's reboot. Track C is idle-BLOCKED.
+2. **ESC-FREL-v3-1 RULED: the X-OD19 fourier lane owns the cure.**
+   - m/w1 CI 39348303989 is RED on 8 e2e tests introduced by 976a704 (P2 sliders: the `--row-fill` / Terms-track probes) and 2a3651d (P3 route crossfade; od19-p3:98 sees vtFrames 1 on CI; a hover colour is read mid-fade at alpha 0.98). e928541 (P1) has not been read by CI yet.
+   - X-OD19's resume note carries a fourier CI-green unit: each red is cured at its root. A test reads its state after the crossfade settles, not mid-fade. CI's single-frame view transition counts as a lawful arm of the falsifier, which never fakes a frame count.
+   - Then m/w1 CI GREEN.
+3. **Track C after that:** a fresh m/w1 CI GREEN → `merge --no-ff` to master → master CI ×2 → .d deploy. .d reads 403 rather than 503 on `/api/admin/verify` (the token is wired). The first deploy recreates the production mongo once, behind the hook's cold backup.
+   - F.REL.m2 (`a60c542`, `9519b6f`) and .s1 (`c83b7ea`, `563814d`) are landed.
+4. **Resume order after the reboot:** Track A, X-OD19 (with ESC-FREL-v3-1), SS-8, then Track C once m/w1 is green. Never more than 4 concurrently, and each browser run uses one browser.
