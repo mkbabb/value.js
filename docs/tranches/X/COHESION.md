@@ -4504,3 +4504,28 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
    - the mongo healthcheck stops issuing unauthenticated commands (`ping` without the shell's startup probes).
    These ship through the standing deploy path; the host is never hand-edited for them.
 3. **Kept as is:** SSH stays reachable only over the VPN, with keys only. The VPN requirement is NOT removed, because it is the stronger posture.
+
+## ADDENDUM 2026-10-19 — X.P.W7P `.z`: the release chain landed; RES-x-1 and OC-1's speed half GREEN on the published pins; BBNF-TS-TOOLCHAIN discharged (release-chain seat, `claude-opus-5-5`, under §0ge.5)
+1. **The chain (W7P.md steps 1–4).**
+   - `@mkbabb/parse-that@2.0.0` is published (tag `v2.0.0` at parse-that-x-p-w7 `96e68e9`).
+   - bbnf-lang's lockfile was regenerated against it (`5c7411f2c`; vitest 299/299, tsc 0, build).
+   - `@mkbabb/bbnf-lang@0.2.0` is published (tag `v0.2.0`).
+   - value.js `4038dce5a` (ESC-W7v-1): `@mkbabb/bbnf-lang` is an exact `0.2.0` devDependency. The direct `@mkbabb/parse-that` pin is removed, because value.js imports none (grep: comments only). It resolves transitively at 2.0.0, one copy of each package, with lockfile integrity equal to the registry `dist.integrity` for both.
+   - `node scripts/gen-grammar.mjs --check` is a CI step after `test:css-equivalence`. Readings: `--check` current on both tables; vitest 98 files / 1,266 tests; `test:css-equivalence` 19/19 with DEFECTS 0.
+2. **Z-1/Z-2, the bench of record on the published pins** (`bench/records/W7Pz/`, MANIFEST 59 files). This is the `.lg1c3` sitting re-pointed: node read ×2 plus Chromium, WebKit and Firefox at 2 reps; acc, rej, large-eq, acc-eq and rej-eq, with Firefox's whole `parseCssScalar` cell added; 31 rounds; every invocation guarded.
+   - **103/103 cells GREEN** by §0ev.1 (`bootstrap.mjs`, B = 10,000; `bootstrap-read.txt` `07c8c2b1…`, re-derived byte-identically ×2). Per engine: node 15, Chromium 29, WebKit 29, Firefox 30. 0 STRADDLE, 0 RED.
+   - Highest upper bound per engine: node 0.816, Chromium 0.843, WebKit 0.900, Firefox 0.998. The Firefox cell is rej-eq `parseKeyframeSelector` rep 0 (median 0.991; rep 1 0.935). It is the same known-thin cell as `.lg1c3`, where rej read ub 0.994.
+   - **Load is RECORDED, not quiet:** 1-minute load per cell was node 28–43, Chromium 23–32, WebKit 21–45 and Firefox 11–46, with sibling sessions active. The read does not meet W7's quiet-host bar (< 8). It is a confirmatory read: the interleaved paired ratio is common-mode to load. The quiet-window independent re-read stays owed at X.P.W8's close (§0eq).
+   - **The pin move cannot move this read:** both bundles carry 0 parse-that bytes, the retired bundle is byte-identical (`a65bcc4c…`), and the product bundle is HEAD's generated tables (`f729913c…`).
+   - **RES-x-1 → GREEN** (BBNF below the retired hand parser on every entry, every class, every engine). **OC-1's speed half → GREEN** (R-3: faster than the retired parser on every bench entry).
+3. **Z-3.**
+   - **BBNF-TS-TOOLCHAIN → DISCHARGED.** The TypeScript BBNF compiler has a maintained source: bbnf-lang `typescript/`, merged to origin/master. It is published as 0.2.0 on parse-that 2.x (R-2, §0ci).
+   - F-b-1..3 and F-p-EOF are cured at the root (`.v` `3cdd4888`). F-b-4 is accepted as spec-correct (§0ck).
+   - Relays filed: INBOX O-104, `V/coordination/valuejs-outbound-2026-10-19-x-p-w7p-release-chain.md`, covering parse-that T/U (U.W7 retires; VALUEJS-PT-E closed), bbnf-lang SK-V26, and latex-paper (no action). The letter is file-only, so the acknowledgements are owed. Delivery is the orchestrator's.
+4. **Z-4.** bbnf-lang PR #1 was MERGED by `gh pr merge --merge --match-head-commit 5c7411f2c` as `2fe18f9c`. The preflight before the merge:
+   - head `5c7411f2c`, MERGEABLE, 95 files all under `typescript/`;
+   - CI reds were the Rust shards' `preflight — regen check` and `nextest` steps, the same failing steps as on base master `d2b32f6e` (a pre-existing infra red: sccache absent on runners);
+   - the Extension job was GREEN;
+   - the Release workflow red is the `v0.2.0` tag push's Rust/marketplace job, not a PR gate.
+   - Local bbnf-lang master is untouched (`af15f63e`).
+5. **X.P.W7P → CLOSED 2026-10-19** (honest residuals: the O-104 acknowledgements; the quiet-host L-G1 re-read at X.P.W8's close).

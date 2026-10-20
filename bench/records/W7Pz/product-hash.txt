@@ -1,0 +1,6 @@
+SERVED MODEL: claude-opus-5-5
+product bytes = value.js 4038dce5a (X.P.W7P step 4) src tree 97e84d7f9564c5dd04e1f6223919e0b2fdaff946 (worktree src dirty only in src/subpaths/color.ts, another seat's, outside the /css bundle); pins: @mkbabb/bbnf-lang 0.2.0 exact (integrity sha512-AwYSe++yr+zI4…), @mkbabb/parse-that 2.0.0 transitive (integrity sha512-naiByrx1GJC1E…), both = registry dist.integrity; parse-that bytes in product.mjs 0, retired.mjs 0; instrument bench/paired/** unchanged (b45cf83d4)
+f729913c0d0bff3468ac20b385f11d67c3459e4ecba6a7315c1b0773c4da5ac8  bench/paired/_build/product.mjs
+a65bcc4c78e7d1aa72ce23e085895478982b1ac9d4333432604f2a7309efd4b8  bench/paired/_build/retired.mjs
+1ca733e08bfd9dcb3363d9c3245246e42b9870a1a0a996e15169b8fd055f1385  src/css/bbnf/generated/grammar.js
+9787da83289093b06d329d77544071ae909cb72ac3da0651125b272d8518cc5c  src/css/bbnf/generated/color.js
