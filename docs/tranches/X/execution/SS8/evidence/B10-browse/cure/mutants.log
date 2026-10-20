@@ -1,0 +1,44 @@
+round 1 · 0285-strip: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0285 · the colour strip is a colour surface > the strip root carries [data-color-surface] (forced-color-adjust: none, print exact) 10ms
+     × SS8-0285 · the colour strip is a colour surface > the summary (≥100 colours) strip is a colour surface too 19ms
+round 1 · 0277-trigger: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0277: the trigger is the glass sm square — no consumer size, shape or radius 76ms
+round 1 · 0306-name: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0306: an active filter rides the trigger's accessible name 56ms
+round 1 · 0302-sort-column: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0302/0304: Sort is one horizontal toggle row of three — no radio column 185ms
+round 1 · 0303-scroller: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0303: tags are wrapping selectable chips — no checkboxes, no nested scroller 106ms
+round 1 · 0282-fragment: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0282 · the error plate is one element root > variant=error mounts a single element (no fragment anchor) 7ms
+round 1 · 0289-barrel: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0289 · the search barrel carries no admin module > the barrel's names are the browse cluster only 6ms
+round 1 · 0294-variant: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0294 · PaginationBar ships no inert variant attribute > neither button carries a `variant` attribute 11ms
+round 1 · 0291-pager: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0291 · the pager turns one page per load > two synchronous next() calls during one load request ONE page 6ms
+     × SS8-0291 · the pager turns one page per load > mounted: two clicks on Next inside one load turn one page 51ms
+round 1 · 0288-vote: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0288 · the vote button speaks a type rung of its own > the vote button itself carries the canon's text-mono-small rung 10ms
+round 2 · 0285-strip: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0285 · the colour strip is a colour surface > the strip root carries [data-color-surface] (forced-color-adjust: none, print exact) 12ms
+     × SS8-0285 · the colour strip is a colour surface > the summary (≥100 colours) strip is a colour surface too 21ms
+round 2 · 0277-trigger: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0277: the trigger is the glass sm square — no consumer size, shape or radius 70ms
+round 2 · 0306-name: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0306: an active filter rides the trigger's accessible name 44ms
+round 2 · 0302-sort-column: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0302/0304: Sort is one horizontal toggle row of three — no radio column 45ms
+round 2 · 0303-scroller: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0303: tags are wrapping selectable chips — no checkboxes, no nested scroller 48ms
+round 2 · 0282-fragment: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0282 · the error plate is one element root > variant=error mounts a single element (no fragment anchor) 6ms
+round 2 · 0289-barrel: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0289 · the search barrel carries no admin module > the barrel's names are the browse cluster only 6ms
+round 2 · 0294-variant: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0294 · PaginationBar ships no inert variant attribute > neither button carries a `variant` attribute 10ms
+round 2 · 0291-pager: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0291 · the pager turns one page per load > two synchronous next() calls during one load request ONE page 8ms
+     × SS8-0291 · the pager turns one page per load > mounted: two clicks on Next inside one load turn one page 64ms
+round 2 · 0288-vote: RED · ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯ · exit 1
+     × SS8-0288 · the vote button speaks a type rung of its own > the vote button itself carries the canon's text-mono-small rung 37ms

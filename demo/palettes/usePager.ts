@@ -31,6 +31,20 @@ export interface Pager {
 }
 
 export function usePager(pageSize: number, reload: () => unknown): Pager {
+    // SS-8 B10 (SS8-0291): one page turn per load. Two activations inside one
+    // load (a double click, a held key) stepped the page twice and issued two
+    // reads; the turn now waits for its own reload to settle. The buttons stay
+    // enabled (a disabled, focused button drops focus to <body>).
+    let turning = false;
+    async function turn(step: 1 | -1) {
+        turning = true;
+        pager.page += step;
+        try {
+            await reload();
+        } finally {
+            turning = false;
+        }
+    }
     const pager: Pager = reactive({
         page: 1,
         total: 0,
@@ -42,14 +56,12 @@ export function usePager(pageSize: number, reload: () => unknown): Pager {
         hasPrev: computed((): boolean => pager.page > 1),
         offset: computed((): number => (pager.page - 1) * pageSize),
         next() {
-            if (!pager.hasNext) return;
-            pager.page++;
-            void reload();
+            if (!pager.hasNext || turning) return;
+            void turn(1);
         },
         prev() {
-            if (!pager.hasPrev) return;
-            pager.page--;
-            void reload();
+            if (!pager.hasPrev || turning) return;
+            void turn(-1);
         },
         settle(total: number, loadedRows: number): boolean {
             pager.total = Math.max(0, total);

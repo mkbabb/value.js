@@ -1,0 +1,10 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/palettes/ss8-b10-browse.test.ts (13 tests) 258ms
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  15:49:51
+   Duration  2.59s (transform 609ms, setup 51ms, collect 1.50s, tests 258ms, environment 504ms, prepare 63ms)
+
