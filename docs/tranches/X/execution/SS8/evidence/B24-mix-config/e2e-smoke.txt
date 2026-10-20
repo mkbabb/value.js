@@ -1,0 +1,35 @@
+$ npx playwright test e2e/smoke/views/mix.spec.ts --project=smoke --workers=1 (VJS_E2E_PORT=8125 static build)
+exit=1
+
+Running 1 test using 1 worker
+
+  ✘  1 [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget (35.0s)
+
+
+  1) [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:8125/", waiting until "load"[22m
+
+
+      31 |     const consoleErrors = setupEnvNoise(page);
+      32 |
+    > 33 |     await page.goto("/");
+         |                ^
+      34 |     await openView(page, "Mix");
+      35 |
+      36 |     const main = mainPane(page);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/mix.spec.ts:33:16
+
+    Error Context: docs/tranches/X/execution/SS8/evidence/B24-mix-config/e2e-smoke-results/views-mix-mix-flow-converg-60bbb--result-plate-within-budget-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+
+(node:61382) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:61414) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)

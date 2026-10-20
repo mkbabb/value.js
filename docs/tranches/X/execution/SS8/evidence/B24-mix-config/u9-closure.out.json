@@ -1,0 +1,68 @@
+{
+ "full": {
+  "modules": 61,
+  "bytes": 343171
+ },
+ "cut": {
+  "modules": 21,
+  "bytes": 150106
+ },
+ "delta": {
+  "modules": 40,
+  "bytes": 193065
+ },
+ "adminInDelta": [
+  "demo/palettes/api/admin-audit.ts",
+  "demo/palettes/api/admin-colors.ts",
+  "demo/palettes/api/admin-users.ts",
+  "demo/palettes/api/admin-palettes.ts",
+  "demo/palettes/admin/composables/useAdminTags.ts",
+  "demo/palettes/api/admin-call.ts",
+  "demo/platform/auth/useAdminAuth.ts",
+  "demo/palettes/admin/composables/useAdminFlagged.ts",
+  "demo/palettes/admin/composables/useAdminAudit.ts",
+  "demo/palettes/admin/composables/useAdminUsers.ts"
+ ],
+ "deltaList": [
+  "demo/color-session/color-names.ts",
+  "demo/palettes/admin/composables/useAdminAudit.ts",
+  "demo/palettes/admin/composables/useAdminFlagged.ts",
+  "demo/palettes/admin/composables/useAdminTags.ts",
+  "demo/palettes/admin/composables/useAdminUsers.ts",
+  "demo/palettes/api/admin-audit.ts",
+  "demo/palettes/api/admin-call.ts",
+  "demo/palettes/api/admin-colors.ts",
+  "demo/palettes/api/admin-palettes.ts",
+  "demo/palettes/api/admin-users.ts",
+  "demo/palettes/api/colors.ts",
+  "demo/palettes/api/index.ts",
+  "demo/palettes/api/palettes.ts",
+  "demo/palettes/api/preflight.ts",
+  "demo/palettes/api/versions.ts",
+  "demo/palettes/constants.ts",
+  "demo/palettes/useBrowsePalettes.ts",
+  "demo/palettes/useColorNameQueue.ts",
+  "demo/palettes/useFilteredList.ts",
+  "demo/palettes/usePager.ts",
+  "demo/palettes/usePaletteActions.ts",
+  "demo/palettes/usePalettePorts.ts",
+  "demo/palettes/usePaletteStore.ts",
+  "demo/palettes/useSlugMigration.ts",
+  "demo/palettes/useTagEdit.ts",
+  "demo/palettes/useVersionHistory.ts",
+  "demo/palettes/utils.ts",
+  "demo/platform/auth/sessionToken.ts",
+  "demo/platform/auth/sessions.ts",
+  "demo/platform/auth/useAdminAuth.ts",
+  "demo/platform/auth/useSession.ts",
+  "demo/platform/auth/useUserAuth.ts",
+  "demo/platform/storage/useSafeStorage.ts",
+  "demo/platform/transport/api-problem.ts",
+  "demo/platform/transport/availability.ts",
+  "demo/platform/transport/client.ts",
+  "demo/platform/transport/useApiClient.ts",
+  "demo/shared/debounce.ts",
+  "demo/shell/useViewManager.ts",
+  "demo/shell/viewSchema.ts"
+ ]
+}

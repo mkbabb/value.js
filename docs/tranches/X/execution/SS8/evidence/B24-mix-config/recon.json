@@ -1,0 +1,420 @@
+{
+ "r": {
+  "chain": [
+   {
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover h-10 gap-2 font-medium",
+    "bg": "oklab(0.588483 0.019123 0.0656416 / 0.3112)",
+    "bgImg": "none",
+    "ovy": "visible",
+    "h": 40
+   },
+   {
+    "tag": "DIV",
+    "cls": "flex flex-col gap-3",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none",
+    "ovy": "visible",
+    "h": 116.359375
+   },
+   {
+    "tag": "DIV",
+    "cls": "flex-none px-4 sm:px-6 pt-3 pb-4 border-t border-seam",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none",
+    "ovy": "visible",
+    "h": 145.359375
+   },
+   {
+    "tag": "DIV",
+    "cls": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w-full min-w-0 h-full overflow-hidden",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+    "bgImg": "none",
+    "ovy": "hidden",
+    "h": 621.265625
+   },
+   {
+    "tag": "DIV",
+    "cls": "pane-shell relative w-full mx-auto h-full min-w-0 pane-row-follow",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none",
+    "ovy": "visible",
+    "h": 621.265625
+   },
+   {
+    "tag": "DIV",
+    "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--inspector",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none",
+    "ovy": "visible",
+    "h": 621.265625
+   },
+   {
+    "tag": "DIV",
+    "cls": "pane-container",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none",
+    "ovy": "visible",
+    "h": 621.265625
+   },
+   {
+    "tag": "MAIN",
+    "cls": "pane-main",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none",
+    "ovy": "visible",
+    "h": 804
+   },
+   {
+    "tag": "DIV",
+    "cls": "app-layout",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none",
+    "ovy": "visible",
+    "h": 900
+   },
+   {
+    "tag": "DIV",
+    "cls": "",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none",
+    "ovy": "visible",
+    "h": 900
+   },
+   {
+    "tag": "BODY",
+    "cls": "relative",
+    "bg": "rgb(173, 104, 201)",
+    "bgImg": "linear-gradient(135deg, rgb(173, 104, 201) 0%, rgb(248, 116, 193) 33%, rgb(255, ",
+    "ovy": "visible",
+    "h": 900
+   },
+   {
+    "tag": "HTML",
+    "cls": "",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none",
+    "ovy": "visible",
+    "h": 900
+   }
+  ],
+  "tabs": [
+   {
+    "tag": "BUTTON",
+    "cls": "channel-rail-item font-display text-subheading italic",
+    "rect": {
+     "x": 238.125,
+     "y": 522.765625,
+     "width": 24,
+     "height": 24.359375,
+     "top": 522.765625,
+     "right": 262.125,
+     "bottom": 547.125,
+     "left": 238.125
+    },
+    "text": "L",
+    "attrs": "class,data-state,data-grace-area-trigger,type,role,aria-selected,tabindex,aria-label"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "channel-rail-item font-display text-subheading italic",
+    "rect": {
+     "x": 237.46875,
+     "y": 562.59375,
+     "width": 25.3125,
+     "height": 24.359375,
+     "top": 562.59375,
+     "right": 262.78125,
+     "bottom": 586.953125,
+     "left": 237.46875
+    },
+    "text": "C",
+    "attrs": "class,data-state,data-grace-area-trigger,type,role,aria-selected,tabindex,aria-label"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "channel-rail-item font-display text-subheading italic",
+    "rect": {
+     "x": 238.0625,
+     "y": 602.4375,
+     "width": 24.109375,
+     "height": 24.359375,
+     "top": 602.4375,
+     "right": 262.171875,
+     "bottom": 626.796875,
+     "left": 238.0625
+    },
+    "text": "h",
+    "attrs": "class,data-state,data-grace-area-trigger,type,role,aria-selected,tabindex,aria-label"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "channel-rail-item font-display text-subheading italic",
+    "rect": {
+     "x": 237.828125,
+     "y": 642.265625,
+     "width": 24.578125,
+     "height": 25.359375,
+     "top": 642.265625,
+     "right": 262.40625,
+     "bottom": 667.625,
+     "left": 237.828125
+    },
+    "text": "α",
+    "attrs": "class,data-state,data-grace-area-trigger,type,role,aria-selected,tabindex,aria-label"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "segmented-tab",
+    "rect": {
+     "x": 758,
+     "y": 175.171875,
+     "width": 86.1875,
+     "height": 34.609375,
+     "top": 175.171875,
+     "right": 844.1875,
+     "bottom": 209.78125,
+     "left": 758
+    },
+    "text": "Colors",
+    "attrs": "type,class,role,tabindex,data-active,aria-selected,aria-controls"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "segmented-tab glass-capsule-hover",
+    "rect": {
+     "x": 844.1875,
+     "y": 175.171875,
+     "width": 86.1875,
+     "height": 34.609375,
+     "top": 175.171875,
+     "right": 930.375,
+     "bottom": 209.78125,
+     "left": 844.1875
+    },
+    "text": "Palettes",
+    "attrs": "type,class,role,tabindex,aria-selected,aria-controls"
+   }
+  ],
+  "triggers": [
+   {
+    "tag": "BUTTON",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal",
+    "rect": {
+     "x": 692,
+     "y": 24.546875,
+     "width": 88.296875,
+     "height": 32,
+     "top": 24.546875,
+     "right": 780.296875,
+     "bottom": 56.546875,
+     "left": 692
+    },
+    "text": "Mix",
+    "attrs": "data-v-f4747a24,aria-label,class,role,type,aria-controls,aria-expanded,aria-required,aria-autocomplete,dir,data-state,style"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 p",
+    "rect": {
+     "x": 220.46875,
+     "y": 101,
+     "width": 191.171875,
+     "height": 84.96875,
+     "top": 101,
+     "right": 411.640625,
+     "bottom": 185.96875,
+     "left": 220.46875
+    },
+    "text": "OKLCh",
+    "attrs": "data-v-f1e2f8a9,data-slot,aria-label,class,role,type,aria-controls,aria-expanded,aria-required,aria-autocomplete,dir,data-state,style"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded",
+    "rect": {
+     "x": 754,
+     "y": 603.875,
+     "width": 227,
+     "height": 36,
+     "top": 603.875,
+     "right": 981,
+     "bottom": 639.875,
+     "left": 754
+    },
+    "text": "OKLab",
+    "attrs": "data-slot,aria-labelledby,class,role,type,aria-controls,aria-expanded,aria-required,aria-autocomplete,dir,data-state"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded",
+    "rect": {
+     "x": 989,
+     "y": 603.875,
+     "width": 227,
+     "height": 36,
+     "top": 603.875,
+     "right": 1216,
+     "bottom": 639.875,
+     "left": 989
+    },
+    "text": "Shorter",
+    "attrs": "data-slot,aria-labelledby,class,role,type,aria-controls,aria-expanded,aria-required,aria-autocomplete,dir,data-state"
+   }
+  ],
+  "coll": [
+   {
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring disclosure-trigger",
+    "rect": {
+     "x": 1171,
+     "y": 417.015625,
+     "width": 36,
+     "height": 36,
+     "top": 417.015625,
+     "right": 1207,
+     "bottom": 453.015625,
+     "left": 1171
+    },
+    "text": "",
+    "attrs": "data-v-a3e86846,data-slot,data-emphasis,data-tone,data-size,data-icon-only,data-control-target,data-press-armed,type,class,aria-controls,aria-expanded,data-state,data-disclosure,id,aria-label,style"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring disclosure-trigger",
+    "rect": {
+     "x": 1171,
+     "y": 517.546875,
+     "width": 36,
+     "height": 36,
+     "top": 517.546875,
+     "right": 1207,
+     "bottom": 553.546875,
+     "left": 1171
+    },
+    "text": "",
+    "attrs": "data-v-a3e86846,data-slot,data-emphasis,data-tone,data-size,data-icon-only,data-control-target,data-press-armed,type,class,aria-controls,aria-expanded,data-state,data-disclosure,id,aria-label,style"
+   }
+  ],
+  "h3": [
+   {
+    "tag": "H3",
+    "cls": "card-title readout flex h-fit w-fit max-w-full m-0 p-0 flex-wrap items-baseline font-display focus-visible:outline-none",
+    "rect": {
+     "x": 220.46875,
+     "y": 193.125,
+     "width": 319.109375,
+     "height": 46.90625,
+     "top": 193.125,
+     "right": 539.578125,
+     "bottom": 240.03125,
+     "left": 220.46875
+    },
+    "text": "73.0\n%\n,\n0.2\n,\n2.0\ndeg",
+    "attrs": "data-v-045fa993,data-v-2bc1bc2c,data-slot,class,style"
+   },
+   {
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "rect": {
+     "x": 754,
+     "y": 229.78125,
+     "width": 462,
+     "height": 30.53125,
+     "top": 229.78125,
+     "right": 1216,
+     "bottom": 260.3125,
+     "left": 754
+    },
+    "text": "Selected",
+    "attrs": "data-v-a3e86846,class"
+   },
+   {
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "rect": {
+     "x": 754,
+     "y": 330.21875,
+     "width": 462,
+     "height": 30.53125,
+     "top": 330.21875,
+     "right": 1216,
+     "bottom": 360.75,
+     "left": 754
+    },
+    "text": "Saved palettes",
+    "attrs": "data-v-a3e86846,class"
+   }
+  ],
+  "add": [
+   {
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring add-slot-ghost shrink-0 cursor-pointer hover:scale-110 active:scale-95 transition-transform vj-enter-move",
+    "rect": {
+     "x": 841.1962890625,
+     "y": 269.06561279296875,
+     "width": 48.4000244140625,
+     "height": 48.4000244140625,
+     "top": 269.06561279296875,
+     "right": 889.5963134765625,
+     "bottom": 317.46563720703125,
+     "left": 841.1962890625
+    },
+    "text": "",
+    "attrs": "data-v-a3e86846,data-slot,data-emphasis,data-tone,data-size,data-icon-only,data-control-target,data-press-armed,type,class,aria-label,style"
+   }
+  ],
+  "chips": [
+   {
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring mix-chip relative shrink-0 cursor-pointer active:scale-95 transition-transform",
+    "rect": {
+     "x": 754,
+     "y": 268.3125,
+     "width": 44,
+     "height": 44,
+     "top": 268.3125,
+     "right": 798,
+     "bottom": 312.3125,
+     "left": 754
+    },
+    "text": "",
+    "attrs": "data-v-a3e86846,data-slot,data-emphasis,data-tone,data-size,data-icon-only,data-control-target,data-press-armed,type,class,aria-label,style"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring mix-chip relative shrink-0 cursor-pointer active:scale-95 transition-transform",
+    "rect": {
+     "x": 815.8931884765625,
+     "y": 277.26519775390625,
+     "width": 28.213623046875,
+     "height": 28.213653564453125,
+     "top": 277.26519775390625,
+     "right": 844.1068115234375,
+     "bottom": 305.4788513183594,
+     "left": 815.8931884765625
+    },
+    "text": "",
+    "attrs": "data-v-a3e86846,data-slot,data-emphasis,data-tone,data-size,data-icon-only,data-control-target,data-press-armed,type,class,aria-label,style"
+   }
+  ],
+  "mixBtn": {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover h-10 gap-2 font-medium",
+   "rect": {
+    "x": 754,
+    "y": 651.875,
+    "width": 462,
+    "height": 40,
+    "top": 651.875,
+    "right": 1216,
+    "bottom": 691.875,
+    "left": 754
+   },
+   "disabled": false
+  }
+ },
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://127.0.0.1:9000' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

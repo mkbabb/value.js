@@ -1,0 +1,1226 @@
+{
+ "R2-light-no-preference": {
+  "disabled": {
+   "tag": "disabled-before-add",
+   "g": {
+    "r": {
+     "x": 753,
+     "y": 639.265625,
+     "width": 464,
+     "height": 40,
+     "top": 639.265625,
+     "right": 1217,
+     "bottom": 679.265625,
+     "left": 753
+    },
+    "svg": {
+     "x": 957.8125,
+     "y": 651.265625,
+     "width": 16,
+     "height": 16,
+     "top": 651.265625,
+     "right": 973.8125,
+     "bottom": 667.265625,
+     "left": 957.8125
+    },
+    "disabled": true,
+    "opacity": "1",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "border": "0px solid rgb(198, 180, 159)",
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.14) 0px 8px 24px 0px, color(srgb 0.109804 0.0980392 0.0901961 / 0"
+   },
+   "st": {
+    "plate": {
+     "modal": [
+      192,
+      127,
+      122
+     ],
+     "modalShare": 0.016,
+     "maxPx": [
+      187,
+      114,
+      122
+     ],
+     "maxContrast": 1.131,
+     "n": 6240
+    },
+    "card": {
+     "modal": [
+      199,
+      142,
+      133
+     ],
+     "modalShare": 0.006,
+     "maxPx": [
+      191,
+      122,
+      126
+     ],
+     "maxContrast": 1.212,
+     "n": 2784
+    },
+    "cardAbove": {
+     "modal": [
+      213,
+      143,
+      140
+     ],
+     "modalShare": 0.006,
+     "maxPx": [
+      207,
+      125,
+      141
+     ],
+     "maxContrast": 1.167,
+     "n": 2320
+    },
+    "glyph": {
+     "modal": [
+      192,
+      128,
+      123
+     ],
+     "modalShare": 0.047,
+     "maxPx": [
+      27,
+      22,
+      20
+     ],
+     "maxContrast": 5.647,
+     "n": 256
+    }
+   },
+   "plateVsCard": 1.164,
+   "plateVsCardAbove": 1.241,
+   "glyphVsPlate": 5.647
+  },
+  "enabled": {
+   "tag": "enabled",
+   "g": {
+    "r": {
+     "x": 753,
+     "y": 639.265625,
+     "width": 464,
+     "height": 40,
+     "top": 639.265625,
+     "right": 1217,
+     "bottom": 679.265625,
+     "left": 753
+    },
+    "svg": {
+     "x": 957.8125,
+     "y": 651.265625,
+     "width": 16,
+     "height": 16,
+     "top": 651.265625,
+     "right": 973.8125,
+     "bottom": 667.265625,
+     "left": 957.8125
+    },
+    "disabled": false,
+    "opacity": "1",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "border": "0px solid rgb(198, 180, 159)",
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.14) 0px 8px 24px 0px, color(srgb 0.109804 0.0980392 0.0901961 / 0"
+   },
+   "st": {
+    "plate": {
+     "modal": [
+      193,
+      126,
+      125
+     ],
+     "modalShare": 0.02,
+     "maxPx": [
+      187,
+      115,
+      122
+     ],
+     "maxContrast": 1.12,
+     "n": 6240
+    },
+    "card": {
+     "modal": [
+      200,
+      143,
+      134
+     ],
+     "modalShare": 0.005,
+     "maxPx": [
+      191,
+      122,
+      127
+     ],
+     "maxContrast": 1.226,
+     "n": 2784
+    },
+    "cardAbove": {
+     "modal": [
+      213,
+      156,
+      144
+     ],
+     "modalShare": 0.007,
+     "maxPx": [
+      207,
+      126,
+      141
+     ],
+     "maxContrast": 1.28,
+     "n": 2320
+    },
+    "glyph": {
+     "modal": [
+      192,
+      129,
+      124
+     ],
+     "modalShare": 0.051,
+     "maxPx": [
+      27,
+      22,
+      20
+     ],
+     "maxContrast": 5.696,
+     "n": 256
+    }
+   },
+   "plateVsCard": 1.18,
+   "plateVsCardAbove": 1.373,
+   "glyphVsPlate": 5.696
+  },
+  "mq": false,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 3725
+ },
+ "R2-light-more": {
+  "disabled": {
+   "tag": "disabled-before-add",
+   "g": {
+    "r": {
+     "x": 755,
+     "y": 641.265625,
+     "width": 460,
+     "height": 40,
+     "top": 641.265625,
+     "right": 1215,
+     "bottom": 681.265625,
+     "left": 755
+    },
+    "svg": {
+     "x": 957.8125,
+     "y": 653.265625,
+     "width": 16,
+     "height": 16,
+     "top": 653.265625,
+     "right": 973.8125,
+     "bottom": 669.265625,
+     "left": 957.8125
+    },
+    "disabled": true,
+    "opacity": "1",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "border": "0px solid oklab(0.385336 0.00274592 0.00459612)",
+    "boxShadow": "rgba(255, 255, 255, 0.01) 0px 1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.00599998) 0px -1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.00400001) 1px 0px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.14) 0px 8px 24px 0px, color(srgb 0.109804 0.0980392 "
+   },
+   "st": {
+    "plate": {
+     "modal": [
+      240,
+      223,
+      207
+     ],
+     "modalShare": 0.095,
+     "maxPx": [
+      247,
+      231,
+      214
+     ],
+     "maxContrast": 1.074,
+     "n": 6176
+    },
+    "card": {
+     "modal": [
+      221,
+      206,
+      194
+     ],
+     "modalShare": 0.032,
+     "maxPx": [
+      231,
+      218,
+      204
+     ],
+     "maxContrast": 1.118,
+     "n": 2760
+    },
+    "cardAbove": {
+     "modal": [
+      232,
+      216,
+      205
+     ],
+     "modalShare": 0.028,
+     "maxPx": [
+      239,
+      225,
+      211
+     ],
+     "maxContrast": 1.082,
+     "n": 2300
+    },
+    "glyph": {
+     "modal": [
+      240,
+      223,
+      207
+     ],
+     "modalShare": 0.059,
+     "maxPx": [
+      25,
+      22,
+      20
+     ],
+     "maxContrast": 13.858,
+     "n": 256
+    }
+   },
+   "plateVsCard": 1.181,
+   "plateVsCardAbove": 1.068,
+   "glyphVsPlate": 13.858
+  },
+  "enabled": {
+   "tag": "enabled",
+   "g": {
+    "r": {
+     "x": 755,
+     "y": 641.265625,
+     "width": 460,
+     "height": 40,
+     "top": 641.265625,
+     "right": 1215,
+     "bottom": 681.265625,
+     "left": 755
+    },
+    "svg": {
+     "x": 957.8125,
+     "y": 653.265625,
+     "width": 16,
+     "height": 16,
+     "top": 653.265625,
+     "right": 973.8125,
+     "bottom": 669.265625,
+     "left": 957.8125
+    },
+    "disabled": false,
+    "opacity": "1",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "border": "0px solid oklab(0.385336 0.00274592 0.00459612)",
+    "boxShadow": "rgba(255, 255, 255, 0.01) 0px 1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.00599998) 0px -1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.00400001) 1px 0px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.14) 0px 8px 24px 0px, color(srgb 0.109804 0.0980392 "
+   },
+   "st": {
+    "plate": {
+     "modal": [
+      240,
+      223,
+      207
+     ],
+     "modalShare": 0.095,
+     "maxPx": [
+      247,
+      231,
+      214
+     ],
+     "maxContrast": 1.074,
+     "n": 6176
+    },
+    "card": {
+     "modal": [
+      221,
+      206,
+      194
+     ],
+     "modalShare": 0.031,
+     "maxPx": [
+      231,
+      218,
+      204
+     ],
+     "maxContrast": 1.118,
+     "n": 2760
+    },
+    "cardAbove": {
+     "modal": [
+      232,
+      216,
+      205
+     ],
+     "modalShare": 0.028,
+     "maxPx": [
+      239,
+      225,
+      211
+     ],
+     "maxContrast": 1.082,
+     "n": 2300
+    },
+    "glyph": {
+     "modal": [
+      240,
+      223,
+      207
+     ],
+     "modalShare": 0.059,
+     "maxPx": [
+      25,
+      22,
+      20
+     ],
+     "maxContrast": 13.858,
+     "n": 256
+    }
+   },
+   "plateVsCard": 1.181,
+   "plateVsCardAbove": 1.068,
+   "glyphVsPlate": 13.858
+  },
+  "mq": true,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 3429
+ },
+ "R2-dark-no-preference": {
+  "disabled": {
+   "tag": "disabled-before-add",
+   "g": {
+    "r": {
+     "x": 753,
+     "y": 639.265625,
+     "width": 464,
+     "height": 40,
+     "top": 639.265625,
+     "right": 1217,
+     "bottom": 679.265625,
+     "left": 753
+    },
+    "svg": {
+     "x": 957.8125,
+     "y": 651.265625,
+     "width": 16,
+     "height": 16,
+     "top": 651.265625,
+     "right": 973.8125,
+     "bottom": 667.265625,
+     "left": 957.8125
+    },
+    "disabled": true,
+    "opacity": "1",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "border": "0px solid rgb(101, 87, 73)",
+    "boxShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.913725 0.901961 0.886275 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.913725 0.901961 0.886275 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px"
+   },
+   "st": {
+    "plate": {
+     "modal": [
+      113,
+      25,
+      37
+     ],
+     "modalShare": 0.029,
+     "maxPx": [
+      124,
+      31,
+      39
+     ],
+     "maxContrast": 1.115,
+     "n": 6240
+    },
+    "card": {
+     "modal": [
+      125,
+      25,
+      38
+     ],
+     "modalShare": 0.007,
+     "maxPx": [
+      136,
+      36,
+      26
+     ],
+     "maxContrast": 1.135,
+     "n": 2784
+    },
+    "cardAbove": {
+     "modal": [
+      129,
+      23,
+      40
+     ],
+     "modalShare": 0.01,
+     "maxPx": [
+      138,
+      33,
+      27
+     ],
+     "maxContrast": 1.109,
+     "n": 2320
+    },
+    "glyph": {
+     "modal": [
+      235,
+      232,
+      228
+     ],
+     "modalShare": 0.07,
+     "maxPx": [
+      116,
+      21,
+      29
+     ],
+     "maxContrast": 9.207,
+     "n": 256
+    }
+   },
+   "plateVsCard": 1.092,
+   "plateVsCardAbove": 1.117,
+   "glyphVsPlate": 9.207
+  },
+  "enabled": {
+   "tag": "enabled",
+   "g": {
+    "r": {
+     "x": 753,
+     "y": 639.265625,
+     "width": 464,
+     "height": 40,
+     "top": 639.265625,
+     "right": 1217,
+     "bottom": 679.265625,
+     "left": 753
+    },
+    "svg": {
+     "x": 957.8125,
+     "y": 651.265625,
+     "width": 16,
+     "height": 16,
+     "top": 651.265625,
+     "right": 973.8125,
+     "bottom": 667.265625,
+     "left": 957.8125
+    },
+    "disabled": false,
+    "opacity": "1",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "border": "0px solid rgb(101, 87, 73)",
+    "boxShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.913725 0.901961 0.886275 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.913725 0.901961 0.886275 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px"
+   },
+   "st": {
+    "plate": {
+     "modal": [
+      115,
+      25,
+      36
+     ],
+     "modalShare": 0.023,
+     "maxPx": [
+      124,
+      31,
+      39
+     ],
+     "maxContrast": 1.1,
+     "n": 6240
+    },
+    "card": {
+     "modal": [
+      125,
+      25,
+      38
+     ],
+     "modalShare": 0.006,
+     "maxPx": [
+      135,
+      36,
+      22
+     ],
+     "maxContrast": 1.125,
+     "n": 2784
+    },
+    "cardAbove": {
+     "modal": [
+      128,
+      22,
+      39
+     ],
+     "modalShare": 0.008,
+     "maxPx": [
+      139,
+      32,
+      29
+     ],
+     "maxContrast": 1.126,
+     "n": 2320
+    },
+    "glyph": {
+     "modal": [
+      235,
+      232,
+      228
+     ],
+     "modalShare": 0.07,
+     "maxPx": [
+      116,
+      21,
+      29
+     ],
+     "maxContrast": 9.207,
+     "n": 256
+    }
+   },
+   "plateVsCard": 1.077,
+   "plateVsCardAbove": 1.089,
+   "glyphVsPlate": 9.207
+  },
+  "mq": false,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 3229
+ },
+ "R2-dark-more": {
+  "disabled": {
+   "tag": "disabled-before-add",
+   "g": {
+    "r": {
+     "x": 755,
+     "y": 641.265625,
+     "width": 460,
+     "height": 40,
+     "top": 641.265625,
+     "right": 1215,
+     "bottom": 681.265625,
+     "left": 755
+    },
+    "svg": {
+     "x": 957.8125,
+     "y": 653.265625,
+     "width": 16,
+     "height": 16,
+     "top": 653.265625,
+     "right": 973.8125,
+     "bottom": 669.265625,
+     "left": 957.8125
+    },
+    "disabled": true,
+    "opacity": "1",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "border": "0px solid oklab(0.754424 0.0014961 0.00533702)",
+    "boxShadow": "rgba(255, 255, 255, 0.008) 0px 1px 0px 0px inset, color(srgb 0.913725 0.901961 0.886275 / 0.00599998) 0px -1px 0px 0px inset, color(srgb 0.913725 0.901961 0.886275 / 0.00400001) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px"
+   },
+   "st": {
+    "plate": {
+     "modal": [
+      79,
+      59,
+      41
+     ],
+     "modalShare": 0.149,
+     "maxPx": [
+      75,
+      53,
+      36
+     ],
+     "maxContrast": 1.085,
+     "n": 6176
+    },
+    "card": {
+     "modal": [
+      76,
+      55,
+      45
+     ],
+     "modalShare": 0.041,
+     "maxPx": [
+      80,
+      60,
+      48
+     ],
+     "maxContrast": 1.073,
+     "n": 2760
+    },
+    "cardAbove": {
+     "modal": [
+      78,
+      56,
+      47
+     ],
+     "modalShare": 0.045,
+     "maxPx": [
+      73,
+      52,
+      43
+     ],
+     "maxContrast": 1.067,
+     "n": 2300
+    },
+    "glyph": {
+     "modal": [
+      235,
+      232,
+      228
+     ],
+     "modalShare": 0.074,
+     "maxPx": [
+      76,
+      54,
+      37
+     ],
+     "maxContrast": 9.236,
+     "n": 256
+    }
+   },
+   "plateVsCard": 1.052,
+   "plateVsCardAbove": 1.031,
+   "glyphVsPlate": 9.236
+  },
+  "enabled": {
+   "tag": "enabled",
+   "g": {
+    "r": {
+     "x": 755,
+     "y": 641.265625,
+     "width": 460,
+     "height": 40,
+     "top": 641.265625,
+     "right": 1215,
+     "bottom": 681.265625,
+     "left": 755
+    },
+    "svg": {
+     "x": 957.8125,
+     "y": 653.265625,
+     "width": 16,
+     "height": 16,
+     "top": 653.265625,
+     "right": 973.8125,
+     "bottom": 669.265625,
+     "left": 957.8125
+    },
+    "disabled": false,
+    "opacity": "1",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "border": "0px solid oklab(0.754424 0.0014961 0.00533702)",
+    "boxShadow": "rgba(255, 255, 255, 0.008) 0px 1px 0px 0px inset, color(srgb 0.913725 0.901961 0.886275 / 0.00599998) 0px -1px 0px 0px inset, color(srgb 0.913725 0.901961 0.886275 / 0.00400001) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px"
+   },
+   "st": {
+    "plate": {
+     "modal": [
+      79,
+      59,
+      41
+     ],
+     "modalShare": 0.149,
+     "maxPx": [
+      75,
+      53,
+      36
+     ],
+     "maxContrast": 1.085,
+     "n": 6176
+    },
+    "card": {
+     "modal": [
+      76,
+      55,
+      45
+     ],
+     "modalShare": 0.036,
+     "maxPx": [
+      80,
+      60,
+      48
+     ],
+     "maxContrast": 1.073,
+     "n": 2760
+    },
+    "cardAbove": {
+     "modal": [
+      78,
+      56,
+      47
+     ],
+     "modalShare": 0.049,
+     "maxPx": [
+      73,
+      52,
+      43
+     ],
+     "maxContrast": 1.067,
+     "n": 2300
+    },
+    "glyph": {
+     "modal": [
+      235,
+      232,
+      228
+     ],
+     "modalShare": 0.074,
+     "maxPx": [
+      76,
+      54,
+      37
+     ],
+     "maxContrast": 9.236,
+     "n": 256
+    }
+   },
+   "plateVsCard": 1.052,
+   "plateVsCardAbove": 1.031,
+   "glyphVsPlate": 9.236
+  },
+  "mq": true,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 3269
+ },
+ "R3-390": {
+  "trigger": {
+   "w": 159,
+   "h": 36,
+   "pl": "12px",
+   "pr": "12px"
+  },
+  "valueText": "Decreasing",
+  "textW": 74.3125,
+  "spanW": 74.3125,
+  "spanScrollW": 74,
+  "spanClientW": 74,
+  "font": "14px / 21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+  "kids": [
+   {
+    "tag": "SPAN",
+    "w": 74.3125,
+    "sw": 74,
+    "cw": 74,
+    "text": "Decreasing",
+    "ovf": "clip"
+   },
+   {
+    "tag": "svg",
+    "w": 16,
+    "sw": 16,
+    "cw": 16,
+    "text": "",
+    "ovf": "clip"
+   }
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 2752
+ },
+ "R4-reduce": {
+  "prm": true,
+  "mix": {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass",
+   "td": "0s",
+   "tp": "background-color, border-color, box-shadow, color, opacity, scale",
+   "ad": "1e-05s"
+  },
+  "triggers": [
+   {
+    "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+    "td": "0s",
+    "tp": "background-color, color, box-shadow, border-color",
+    "ad": "1e-05s"
+   },
+   {
+    "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+    "td": "0s",
+    "tp": "background-color, color, box-shadow, border-color",
+    "ad": "1e-05s"
+   }
+  ],
+  "tabs": [
+   {
+    "cls": "segmented-tab",
+    "td": "0s",
+    "tp": "color",
+    "ad": "1e-05s"
+   },
+   {
+    "cls": "segmented-tab glass-capsule-hover",
+    "td": "0s",
+    "tp": "color",
+    "ad": "1e-05s"
+   }
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 1796
+ },
+ "R5-fine-1440": {
+  "coarse": false,
+  "triggers": [
+   {
+    "h": 36,
+    "w": 228,
+    "pt": "8px",
+    "pb": "8px"
+   },
+   {
+    "h": 36,
+    "w": 228,
+    "pt": "8px",
+    "pb": "8px"
+   }
+  ],
+  "mixH": 40,
+  "captionFs": 14.5411,
+  "valueFs": 16.4,
+  "captionToValue": 0.887,
+  "labelText": "Color space",
+  "ctrlH": "max(calc(2.25rem * 1),0px)",
+  "textCtl": "calc(clamp(.875rem,.8rem + .25vw,1.25rem) * 1)",
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 1438
+ },
+ "R5-coarse-390": {
+  "coarse": true,
+  "triggers": [
+   {
+    "h": 54,
+    "w": 159,
+    "pt": "8px",
+    "pb": "8px"
+   },
+   {
+    "h": 54,
+    "w": 159,
+    "pt": "8px",
+    "pb": "8px"
+   }
+  ],
+  "mixH": 44,
+  "captionFs": 18.6197,
+  "valueFs": 21,
+  "captionToValue": 0.887,
+  "labelText": "Color space",
+  "ctrlH": "max(calc(2.25rem * 1.5),2.75rem)",
+  "textCtl": "calc(clamp(.875rem,.8rem + .25vw,1.25rem) * 1.5)",
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 1456
+ },
+ "R6": {
+  "open1": {
+   "pe": "none",
+   "ov": "hidden",
+   "style": "pointer-events: none; overflow: hidden;",
+   "listbox": true,
+   "hash": "#/gradient"
+  },
+  "after": {
+   "pe": "auto",
+   "ov": "visible",
+   "style": "",
+   "listbox": false,
+   "hash": "#/mix"
+  },
+  "chipsBefore": 0,
+  "chipsAfter": 1,
+  "clickOk": true,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ "R10-light": {
+  "mq": true,
+  "v": {
+   "tag": "rt-enabled",
+   "g": {
+    "r": {
+     "x": 753,
+     "y": 639.265625,
+     "width": 464,
+     "height": 40,
+     "top": 639.265625,
+     "right": 1217,
+     "bottom": 679.265625,
+     "left": 753
+    },
+    "svg": {
+     "x": 958.09375,
+     "y": 651.265625,
+     "width": 16,
+     "height": 16,
+     "top": 651.265625,
+     "right": 974.09375,
+     "bottom": 667.265625,
+     "left": 958.09375
+    },
+    "disabled": false,
+    "opacity": "1",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "border": "0px solid rgb(198, 180, 159)",
+    "boxShadow": "rgba(255, 255, 255, 0) 0px 1px 0px 0px inset, color(srgb 0 0 0 / 0) 0px -1px 0px 0px inset, color(srgb 0 0 0 / 0) 1px 0px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.14) 0px 8px 24px 0px, color(srgb 0.109804 0.0980392 0.0901961 / 0.05) 0px 0px 0px 0.5px"
+   },
+   "st": {
+    "plate": {
+     "modal": [
+      255,
+      244,
+      230
+     ],
+     "modalShare": 1,
+     "maxPx": [
+      255,
+      244,
+      230
+     ],
+     "maxContrast": 1,
+     "n": 6240
+    },
+    "card": {
+     "modal": [
+      237,
+      230,
+      220
+     ],
+     "modalShare": 0.162,
+     "maxPx": [
+      245,
+      237,
+      228
+     ],
+     "maxContrast": 1.069,
+     "n": 2784
+    },
+    "cardAbove": {
+     "modal": [
+      249,
+      241,
+      232
+     ],
+     "modalShare": 0.382,
+     "maxPx": [
+      252,
+      244,
+      235
+     ],
+     "maxContrast": 1.027,
+     "n": 2320
+    },
+    "glyph": {
+     "modal": [
+      255,
+      244,
+      230
+     ],
+     "modalShare": 0.488,
+     "maxPx": [
+      27,
+      24,
+      22
+     ],
+     "maxContrast": 16.264,
+     "n": 256
+    }
+   },
+   "plateVsCard": 1.14,
+   "plateVsCardAbove": 1.03,
+   "glyphVsPlate": 16.264
+  },
+  "card": [
+   {
+    "cls": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w",
+    "bg": "rgb(253, 245, 236)"
+   },
+   {
+    "cls": "relative",
+    "bg": "rgb(173, 104, 201)"
+   }
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 3488
+ },
+ "R10-dark": {
+  "mq": true,
+  "v": {
+   "tag": "rt-enabled",
+   "g": {
+    "r": {
+     "x": 753,
+     "y": 639.265625,
+     "width": 464,
+     "height": 40,
+     "top": 639.265625,
+     "right": 1217,
+     "bottom": 679.265625,
+     "left": 753
+    },
+    "svg": {
+     "x": 958.09375,
+     "y": 651.265625,
+     "width": 16,
+     "height": 16,
+     "top": 651.265625,
+     "right": 974.09375,
+     "bottom": 667.265625,
+     "left": 958.09375
+    },
+    "disabled": false,
+    "opacity": "1",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "border": "0px solid rgb(101, 87, 73)",
+    "boxShadow": "rgba(255, 255, 255, 0) 0px 1px 0px 0px inset, color(srgb 0 0 0 / 0) 0px -1px 0px 0px inset, color(srgb 0 0 0 / 0) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px"
+   },
+   "st": {
+    "plate": {
+     "modal": [
+      60,
+      41,
+      26
+     ],
+     "modalShare": 1,
+     "maxPx": [
+      60,
+      41,
+      26
+     ],
+     "maxContrast": 1,
+     "n": 6240
+    },
+    "card": {
+     "modal": [
+      51,
+      41,
+      32
+     ],
+     "modalShare": 0.323,
+     "maxPx": [
+      52,
+      42,
+      33
+     ],
+     "maxContrast": 1.014,
+     "n": 2784
+    },
+    "cardAbove": {
+     "modal": [
+      52,
+      41,
+      33
+     ],
+     "modalShare": 0.758,
+     "maxPx": [
+      53,
+      42,
+      34
+     ],
+     "maxContrast": 1.014,
+     "n": 2320
+    },
+    "glyph": {
+     "modal": [
+      60,
+      41,
+      26
+     ],
+     "modalShare": 0.488,
+     "maxPx": [
+      233,
+      230,
+      226
+     ],
+     "maxContrast": 11.076,
+     "n": 256
+    }
+   },
+   "plateVsCard": 1.031,
+   "plateVsCardAbove": 1.026,
+   "glyphVsPlate": 11.076
+  },
+  "card": [
+   {
+    "cls": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w",
+    "bg": "rgb(53, 42, 34)"
+   },
+   {
+    "cls": "relative",
+    "bg": "rgb(36, 0, 32)"
+   }
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 3499
+ },
+ "R11-swap": {
+  "first": {
+   "t": 20.2,
+   "mixTop": 638.9,
+   "footH": 145.4,
+   "sm": false
+  },
+  "last": {
+   "t": 2503.3,
+   "mixTop": 639.3,
+   "footH": 221.7,
+   "sm": true
+  },
+  "frames": 125,
+  "framesWithChange": 2,
+  "maxSingleFrameStep": 76.3,
+  "at": [
+   {
+    "t": 332.1,
+    "mixTop": 638.9,
+    "footH": 145.4,
+    "sm": false
+   },
+   {
+    "t": 386.1,
+    "mixTop": 638.9,
+    "footH": 221.7,
+    "sm": true
+   }
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 4200
+ }
+}

@@ -1,0 +1,845 @@
+{
+ "MP1-light": {
+  "sel": {
+   "r": {
+    "x": 753,
+    "y": 228.46875,
+    "width": 464,
+    "height": 30.53125,
+    "top": 228.46875,
+    "right": 1217,
+    "bottom": 259,
+    "left": 753
+   },
+   "color": "oklch(0.216129 0.00624853 56.0356)",
+   "font": "600 20.352px Fraunces, \"Fraunces Fallback\", serif",
+   "cls": "font-display text-subheading",
+   "st": {
+    "modal": [
+     26,
+     23,
+     21
+    ],
+    "modalShare": 0.008,
+    "maxPx": [
+     219,
+     142,
+     151
+    ],
+    "maxContrast": 7.074,
+    "n": 14508
+   },
+   "inkVsGround": 7.074
+  },
+  "res": {
+   "r": {
+    "x": 769,
+    "y": 593.5,
+    "width": 432,
+    "height": 30.53125,
+    "top": 593.5,
+    "right": 1201,
+    "bottom": 624.03125,
+    "left": 769
+   },
+   "color": "oklch(0.216129 0.00624853 56.0356)",
+   "font": "600 20.352px Fraunces, \"Fraunces Fallback\", serif",
+   "cls": "font-display text-subheading",
+   "st": {
+    "modal": [
+     185,
+     128,
+     129
+    ],
+    "modalShare": 0.007,
+    "maxPx": [
+     26,
+     23,
+     20
+    ],
+    "maxContrast": 5.497,
+    "n": 13516
+   },
+   "inkVsGround": 5.497
+  },
+  "plate": {
+   "r": {
+    "x": 753,
+    "y": 577.5,
+    "width": 464,
+    "height": 162.53125,
+    "top": 577.5,
+    "right": 1217,
+    "bottom": 740.03125,
+    "left": 753
+   },
+   "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)"
+  },
+  "plateModal": {
+   "modal": [
+    255,
+    195,
+    186
+   ],
+   "modalShare": 0.034,
+   "maxPx": [
+    66,
+    52,
+    49
+   ],
+   "maxContrast": 7.79,
+   "n": 7750
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 4628
+ },
+ "MP1-dark": {
+  "sel": {
+   "r": {
+    "x": 753,
+    "y": 228.46875,
+    "width": 464,
+    "height": 30.53125,
+    "top": 228.46875,
+    "right": 1217,
+    "bottom": 259,
+    "left": 753
+   },
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "font": "600 20.352px Fraunces, \"Fraunces Fallback\", serif",
+   "cls": "font-display text-subheading",
+   "st": {
+    "modal": [
+     235,
+     232,
+     228
+    ],
+    "modalShare": 0.02,
+    "maxPx": [
+     103,
+     20,
+     50
+    ],
+    "maxContrast": 9.981,
+    "n": 14508
+   },
+   "inkVsGround": 9.981
+  },
+  "res": {
+   "r": {
+    "x": 769,
+    "y": 593.5,
+    "width": 432,
+    "height": 30.53125,
+    "top": 593.5,
+    "right": 1201,
+    "bottom": 624.03125,
+    "left": 769
+   },
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "font": "600 20.352px Fraunces, \"Fraunces Fallback\", serif",
+   "cls": "font-display text-subheading",
+   "st": {
+    "modal": [
+     235,
+     232,
+     228
+    ],
+    "modalShare": 0.018,
+    "maxPx": [
+     93,
+     26,
+     33
+    ],
+    "maxContrast": 10.516,
+    "n": 13516
+   },
+   "inkVsGround": 10.516
+  },
+  "plate": {
+   "r": {
+    "x": 753,
+    "y": 577.5,
+    "width": 464,
+    "height": 162.53125,
+    "top": 577.5,
+    "right": 1217,
+    "bottom": 740.03125,
+    "left": 753
+   },
+   "bg": "oklab(0.926146 0.00162765 0.00610709 / 0.08)"
+  },
+  "plateModal": {
+   "modal": [
+    115,
+    22,
+    16
+   ],
+   "modalShare": 0.022,
+   "maxPx": [
+    171,
+    134,
+    129
+   ],
+   "maxContrast": 3.489,
+   "n": 7750
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 4196
+ },
+ "MP2-timeline": {
+  "fail": "TypeError: Cannot read properties of undefined (reading 'plateH')",
+  "ms": 5631
+ },
+ "MP3-MP4-forced": {
+  "verb": {
+   "disabled": true,
+   "opacity": "1",
+   "color": "rgb(96, 0, 0)",
+   "bg": "rgba(255, 255, 255, 0)",
+   "border": "0px solid rgb(96, 0, 0)",
+   "fca": "auto"
+  },
+  "rest": {
+   "st": [
+    {
+     "name": "Colors",
+     "sel": "true",
+     "focus": false,
+     "outline": "none 3px rgb(0, 0, 0)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "color": "rgb(0, 0, 0)",
+     "shadow": "none"
+    },
+    {
+     "name": "Palettes",
+     "sel": "false",
+     "focus": false,
+     "outline": "none 3px rgb(0, 0, 0)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "color": "rgb(0, 0, 0)",
+     "shadow": "none"
+    }
+   ],
+   "ind": [
+    {
+     "cls": "segmented-indicator segmented-indicator--js glass-capsule gl",
+     "x": 753,
+     "w": 71,
+     "bg": "rgb(255, 255, 255)",
+     "border": "rgb(0, 0, 0)",
+     "outline": "none"
+    }
+   ]
+  },
+  "focusSelected": {
+   "st": [
+    {
+     "name": "Colors",
+     "sel": "true",
+     "focus": true,
+     "outline": "solid 2px rgba(5, 0, 73, 0.8)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "color": "rgb(0, 0, 0)",
+     "shadow": "none"
+    },
+    {
+     "name": "Palettes",
+     "sel": "false",
+     "focus": false,
+     "outline": "none 3px rgb(0, 0, 0)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "color": "rgb(0, 0, 0)",
+     "shadow": "none"
+    }
+   ],
+   "ind": [
+    {
+     "cls": "segmented-indicator segmented-indicator--js glass-capsule gl",
+     "x": 753,
+     "w": 71,
+     "bg": "rgb(255, 255, 255)",
+     "border": "rgb(0, 0, 0)",
+     "outline": "none"
+    }
+   ]
+  },
+  "focusUnselected": {
+   "st": [
+    {
+     "name": "Colors",
+     "sel": "true",
+     "focus": false,
+     "outline": "none 3px rgb(0, 0, 0)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "color": "rgb(0, 0, 0)",
+     "shadow": "none"
+    },
+    {
+     "name": "Palettes",
+     "sel": "false",
+     "focus": true,
+     "outline": "solid 2px rgba(5, 0, 73, 0.8)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "color": "rgb(0, 0, 0)",
+     "shadow": "none"
+    }
+   ],
+   "ind": [
+    {
+     "cls": "segmented-indicator segmented-indicator--js glass-capsule gl",
+     "x": 753,
+     "w": 71,
+     "bg": "rgb(255, 255, 255)",
+     "border": "rgb(0, 0, 0)",
+     "outline": "none"
+    }
+   ]
+  },
+  "vp": {
+   "width": 1440,
+   "height": 900
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 2432
+ },
+ "MP5-area": {
+  "seats": [
+   [
+    462,
+    91
+   ],
+   [
+    462,
+    91
+   ]
+  ],
+  "seatArea": 83651,
+  "resultParts": [
+   {
+    "tag": "DIV",
+    "cls": "h-4 rounded-full overflow-hidden",
+    "w": 432,
+    "h": 16
+   }
+  ],
+  "dotsN": 5,
+  "plate": [
+   464,
+   175
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 4499
+ },
+ "MP6-fine-1440": {
+  "coarse": false,
+  "tabs": [
+   [
+    70.6,
+    27.9
+   ],
+   [
+    70.6,
+    27.9
+   ]
+  ],
+  "collTriggers": [
+   [
+    36,
+    36
+   ],
+   [
+    36,
+    36
+   ]
+  ],
+  "selectSeats": [
+   [
+    462,
+    90.5
+   ],
+   [
+    462,
+    90.5
+   ]
+  ],
+  "add": [
+   [
+    44,
+    44
+   ]
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 1440
+ },
+ "MP6-coarse-390": {
+  "coarse": true,
+  "tabs": [
+   [
+    60.7,
+    24
+   ],
+   [
+    60.7,
+    24
+   ]
+  ],
+  "collTriggers": [
+   [
+    54,
+    54
+   ],
+   [
+    54,
+    54
+   ]
+  ],
+  "selectSeats": [
+   [
+    324,
+    94
+   ],
+   [
+    324,
+    94
+   ]
+  ],
+  "add": [
+   [
+    66,
+    66
+   ]
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 1462
+ },
+ "MP7-light": {
+  "r": {
+   "x": 753,
+   "y": 266.671875,
+   "width": 44,
+   "height": 44,
+   "top": 266.671875,
+   "right": 797,
+   "bottom": 310.671875,
+   "left": 753
+  },
+  "st": {
+   "all": {
+    "modal": [
+     213,
+     113,
+     160
+    ],
+    "modalShare": 0.021,
+    "maxPx": [
+     58,
+     69,
+     66
+    ],
+    "maxContrast": 3.175,
+    "n": 4624
+   },
+   "ground": {
+    "modal": [
+     213,
+     113,
+     160
+    ],
+    "modalShare": 0.042,
+    "maxPx": [
+     218,
+     120,
+     167
+    ],
+    "maxContrast": 1.079,
+    "n": 544
+   },
+   "ringLeft": {
+    "modal": [
+     215,
+     111,
+     157
+    ],
+    "modalShare": 0.044,
+    "maxPx": [
+     245,
+     103,
+     147
+    ],
+    "maxContrast": 1.089,
+    "n": 180
+   },
+   "center": {
+    "modal": [
+     216,
+     112,
+     158
+    ],
+    "modalShare": 0.068,
+    "maxPx": [
+     58,
+     69,
+     66
+    ],
+    "maxContrast": 3.19,
+    "n": 324
+   }
+  },
+  "ringVsGround": 1.081,
+  "plusVsGround": 3.175,
+  "ink": {
+   "wc": "oklch(73% 0.185 2deg)",
+   "dashed": [
+    {
+     "bs": "dashed",
+     "bc": "oklch(0.73 0.185 2)",
+     "bw": "2px",
+     "sd": "none",
+     "stroke": "none"
+    }
+   ]
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 1519
+ },
+ "MP7-dark": {
+  "r": {
+   "x": 753,
+   "y": 267,
+   "width": 44,
+   "height": 44,
+   "top": 267,
+   "right": 797,
+   "bottom": 311,
+   "left": 753
+  },
+  "st": {
+   "all": {
+    "modal": [
+     108,
+     23,
+     51
+    ],
+    "modalShare": 0.019,
+    "maxPx": [
+     255,
+     123,
+     167
+    ],
+    "maxContrast": 4.781,
+    "n": 4624
+   },
+   "ground": {
+    "modal": [
+     108,
+     24,
+     52
+    ],
+    "modalShare": 0.05,
+    "maxPx": [
+     113,
+     28,
+     56
+    ],
+    "maxContrast": 1.059,
+    "n": 544
+   },
+   "ringLeft": {
+    "modal": [
+     127,
+     38,
+     67
+    ],
+    "modalShare": 0.056,
+    "maxPx": [
+     255,
+     123,
+     167
+    ],
+    "maxContrast": 3.823,
+    "n": 180
+   },
+   "center": {
+    "modal": [
+     128,
+     38,
+     66
+    ],
+    "modalShare": 0.071,
+    "maxPx": [
+     138,
+     169,
+     149
+    ],
+    "maxContrast": 3.602,
+    "n": 324
+   }
+  },
+  "ringVsGround": 4.755,
+  "plusVsGround": 4.505,
+  "ink": {
+   "wc": "oklch(73% 0.185 2deg)",
+   "dashed": [
+    {
+     "bs": "dashed",
+     "bc": "oklch(0.73 0.185 2)",
+     "bw": "2px",
+     "sd": "none",
+     "stroke": "none"
+    }
+   ]
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 1508
+ },
+ "MP9-remix": {
+  "tokens": {
+   "fast": ".2s",
+   "morph": ""
+  },
+  "clickToAnchorMs": [
+   231.3,
+   248.7,
+   232.7
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 9771
+ },
+ "MP10-centroid": {
+  "grads": 205,
+  "lastFrameN": 2,
+  "centroidViewport": [
+   797,
+   665
+  ],
+  "destViewport": [
+   797,
+   664
+  ],
+  "offPx": 1,
+  "tgt": {
+   "t": {
+    "x": 769,
+    "y": 636.03125,
+    "width": 56,
+    "height": 56,
+    "top": 636.03125,
+    "right": 825,
+    "bottom": 692.03125,
+    "left": 769
+   },
+   "cv": {
+    "x": 729,
+    "y": 88,
+    "width": 512,
+    "height": 607,
+    "top": 88,
+    "right": 1241,
+    "bottom": 695,
+    "left": 729
+   },
+   "dpr": 1,
+   "bw": 512,
+   "cw": 512
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 3315
+ },
+ "MP12-R8-bad-css": {
+  "fail": "TimeoutError: locator.isDisabled: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Mix', exact: true }).last()\u001b[22m\n",
+  "ms": 50262
+ },
+ "U3-light": {
+  "before": {
+   "liShadow": "rgb(251, 250, 248) 0px 0px 0px 2px, oklch(0.307762 0.0674957 162) 0px 0px 0px 4px",
+   "btnShadow": "none",
+   "btnOutline": "none 3px",
+   "focusVisible": false,
+   "pressed": "true",
+   "ringVar": "",
+   "ring": "",
+   "colorRing": ""
+  },
+  "after": {
+   "liShadow": "rgb(251, 250, 248) 0px 0px 0px 2px, oklch(0.307762 0.0674957 162) 0px 0px 0px 4px",
+   "btnShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklch(0.216129 0.00624853 56.0356) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "btnOutline": "none 1px",
+   "focusVisible": true,
+   "pressed": "true",
+   "ringVar": "",
+   "ring": "",
+   "colorRing": ""
+  },
+  "diff": {
+   "changedPx": 1097,
+   "maxD": 641,
+   "total": 51840
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 2524
+ },
+ "U3-dark": {
+  "before": {
+   "liShadow": "rgb(11, 10, 9) 0px 0px 0px 2px, oklch(0.821313 0.107264 162) 0px 0px 0px 4px",
+   "btnShadow": "none",
+   "btnOutline": "none 3px",
+   "focusVisible": false,
+   "pressed": "true",
+   "ringVar": "",
+   "ring": "",
+   "colorRing": ""
+  },
+  "after": {
+   "liShadow": "rgb(11, 10, 9) 0px 0px 0px 2px, oklch(0.821313 0.107264 162) 0px 0px 0px 4px",
+   "btnShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklch(0.925202 0.00618423 67.7483) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "btnOutline": "none 1px",
+   "focusVisible": true,
+   "pressed": "true",
+   "ringVar": "",
+   "ring": "",
+   "colorRing": ""
+  },
+  "diff": {
+   "changedPx": 1095,
+   "maxD": 614,
+   "total": 51840
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 2584
+ },
+ "U4-disclosure": {
+  "during": {
+   "state": "open",
+   "cls": "disclosure-content mix-palette__detail",
+   "an": "disclosure-open",
+   "ad": "0.2s",
+   "atf": "linear(0 0%, 0.00629 2.041%, 0.0233 4.082%, 0.0486 6.122%, 0.08016 8.163%, 0.11629 10.204%, 0.15561 12.245%, 0.19697 14.286%, 0.23945 16.327%, 0.28231 18.367%, ",
+   "anims": [
+    {
+     "name": "disclosure-open",
+     "dur": 200,
+     "easing": "linear"
+    }
+   ]
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 1536
+ },
+ "U7-1440": {
+  "vh": 900,
+  "mixTop": 639,
+  "mixBottom": 679,
+  "mixInViewport": true,
+  "triggers": [
+   [
+    591,
+    627
+   ],
+   [
+    591,
+    627
+   ]
+  ],
+  "scroller": {
+   "sh": 2119,
+   "ch": 365,
+   "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min"
+  },
+  "openDetails": 12,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 6032
+ },
+ "U7-390": {
+  "vh": 844,
+  "mixTop": 416,
+  "mixBottom": 460,
+  "mixInViewport": true,
+  "triggers": [
+   [
+    350,
+    404
+   ],
+   [
+    350,
+    404
+   ]
+  ],
+  "scroller": {
+   "sh": 2723,
+   "ch": 2723,
+   "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min"
+  },
+  "openDetails": 12,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 5770
+ },
+ "U2-rtl": {
+  "chip": [
+   643,
+   255,
+   44,
+   44
+  ],
+  "x": [
+   657,
+   269,
+   16,
+   16
+  ],
+  "dx": 0,
+  "dy": 0,
+  "xOpacity": "1",
+  "badge": false,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8124' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ],
+  "ms": 2706
+ }
+}
