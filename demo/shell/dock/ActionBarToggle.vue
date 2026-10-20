@@ -35,12 +35,11 @@ import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
  * native `title` is retired (the control shows its label on desktop and
  * carries aria-label); ArrowRight stays the S.W7-6 layer-swap affordance.
  */
-const { visible, active, isDesktop, icon, label, accent } = defineProps<{
+const { visible, active, icon, label, accent } = defineProps<{
     /** An action-bar context exists (the slot's presence). */
     visible: boolean;
     /** The action-bar layer is the active dock layer. */
     active: boolean;
-    isDesktop: boolean;
     icon: Component;
     label: string;
     accent: string;
@@ -93,7 +92,10 @@ function onSlotSettled(e: TransitionEvent) {
                 @click="emit('toggle')"
             >
                 <component :is="icon" class="w-6 h-6" :style="{ color: accent }" />
-                <span v-if="isDesktop" class="text-small font-display" :style="{ color: accent }">
+                <!-- SS-8 B05 · 0140 (ABT-10): the wordmark is cut only at the phone
+                     aperture (< sm), never by a desktop zoom: 200 % of a 1440 desktop
+                     is a 720 px viewport and keeps it (SC 1.4.4). -->
+                <span class="hidden sm:inline text-small font-display" :style="{ color: accent }">
                     {{ label }}
                 </span>
                 <!-- S.W7-6 (P1-9.2): the layer-swap AFFORDANCE — ArrowRight
@@ -161,5 +163,11 @@ function onSlotSettled(e: TransitionEvent) {
     --dock-icon-padding: 0.5rem 0.75rem;
     margin-inline: 0.25rem;
     gap: 0.5em;
+    /* SS-8 B05 · 0140 (ABT-10): the compact register sizes the seat to its
+       content (40 px), under glass's coarse touch floor. The seat holds the
+       producer's own `--dock-control-floor` (44 px on a coarse pointer, 0 on a
+       fine one), the floor every non-compact dock control already wears. */
+    min-block-size: var(--dock-control-floor, 0px);
+    min-inline-size: var(--dock-control-floor, 0px);
 }
 </style>

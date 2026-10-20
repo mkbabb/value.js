@@ -221,7 +221,10 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </script>
 
 <template>
-    <div ref="root" class="flex items-center gap-0 min-w-0">
+    <!-- SS-8 B05 · 0125 (MISS-1): the layer root breathes on the face's own
+         `--dock-layer-gap`, so the trailing separator gets the same air as the
+         leading one (the retired `gap-0` gave it half). -->
+    <div ref="root" class="flex items-center gap-(--dock-layer-gap) min-w-0">
         <DockCrossfade
             :key="kept"
             :active="activeSubLayer"

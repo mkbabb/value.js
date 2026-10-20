@@ -113,7 +113,11 @@ const dockPlate = computed(() => dockHost.value?.querySelector(".dock-plate") ??
 // gold clears it; the glyphs (the view icon, the admin shield, the crown) at
 // the 3:1 graphics floor, as the seal already does. At the text floor plus
 // the headroom, a mid-dark band drained the gold to white.
-const { identityCss: bandIdentityCss, plateCss: bandPlateCss } = useChromeAccentFn(dockPlate);
+const {
+    safeCss: bandSafeCss,
+    identityCss: bandIdentityCss,
+    plateCss: bandPlateCss,
+} = useChromeAccentFn(dockPlate);
 const { isDark } = useGlobalDark();
 const bandGoldStyle = computed(() => {
     const gold = goldIdentityCss(isDark.value);
@@ -121,6 +125,14 @@ const bandGoldStyle = computed(() => {
     const glyph = bandIdentityCss(gold, GRAPHICS_CONTRAST_FLOOR);
     return word && glyph ? { "--ink-gold": word, "--ink-gold-glyph": glyph } : undefined;
 });
+// SS-8 B05 · 0132 (ABT-8): the Tools wordmark and glyph sit on the dock band, a
+// floating rung, not the resting plate SAFE_ACCENT_KEY is certified against
+// (light band: 4.23-4.81:1 measured, 3 of 6 seeds under 4.5). The band's own
+// instrument certifies the accent at the text floor; before the band mounts the
+// resting ink stands in.
+const toolsInk = computed(
+    () => bandSafeCss(safeAccent.value, TEXT_CONTRAST_FLOOR) ?? safeAccent.value,
+);
 // X-DS pass 19 (V19C-02): the dock's PLAIN words read the band's plate ink,
 // the same instrument and scope as the gold above. glass seats its dock ink on
 // `.glass-dock` itself (`--dock-fg-on-aurora` and `--muted-foreground` from
@@ -130,8 +142,18 @@ const bandGoldStyle = computed(() => {
 // pole) and no glass rule is overridden.
 const bandInkStyle = computed(() => {
     const ink = bandPlateCss();
-    return ink
-        ? { "--foreground": ink, "--dock-fg-on-aurora": ink, "--muted-foreground": ink }
+    // SS-8 B05 · 0133 (ABT-11): the dock's focus ring is non-text ink on the
+    // band, so it is certified there at the 3:1 graphics floor. The scoped rule
+    // below paints it opaque: glass's 48 % mix of a resting-rung accent read
+    // 2.08:1 on the light band, and no hue-holding ink clears 3:1 through it.
+    const ring = bandSafeCss(safeAccent.value, GRAPHICS_CONTRAST_FLOOR);
+    return ink && ring
+        ? {
+              "--foreground": ink,
+              "--dock-fg-on-aurora": ink,
+              "--muted-foreground": ink,
+              "--focus-ring-color": ring,
+          }
         : undefined;
 });
 
@@ -302,10 +324,9 @@ watch(
                     <ActionBarToggle
                         :visible="hasAnyActionBar"
                         :active="actionBarLayerActive"
-                        :is-desktop="isDesktop"
                         :icon="actionSet?.icon ?? Paintbrush"
                         :label="actionSet?.label ?? 'Tools'"
-                        :accent="safeAccent"
+                        :accent="toolsInk"
                         @toggle="toggleActionBar"
                     />
 
@@ -441,6 +462,25 @@ watch(
 .dock-settle :deep(.view-select-trigger),
 .dock-settle .dock-seal {
     animation: vj-settle var(--spring-dock-duration) var(--spring-dock);
+}
+
+/* SS-8 B05 · 0133 (ABT-11): the dock's focus ring paints the band-certified
+   `--focus-ring-color` (3:1, bandInkStyle) whole. glass seats each control's
+   ring at a 48 % mix of that knob, which halves a certified ink back under the
+   graphics floor on a light band; the re-seat rides glass's own
+   `--dock-ring-color` hook, the control set its rule names. */
+.glass-dock
+    :deep(
+        :is(
+                .dock-layer-tab,
+                .dock-icon-button,
+                .dark-mode-toggle-button,
+                .dock-tab-button,
+                .dock-select-trigger,
+                .dock-dropdown-trigger
+            )
+    ) {
+    --dock-ring-color: var(--focus-ring-color);
 }
 
 /* The action-bar toggle slot machine (S.W7-6 boot seat · W6-8 T-29 settle
