@@ -26,7 +26,7 @@
 
 import { describe, expect, it } from "vitest";
 
-import { convertColor, oklch, type AnyColor, type Color } from "@mkbabb/value.js/color";
+import { convertColor, oklch, serializeCssColor, type AnyColor, type Color } from "@mkbabb/value.js/color";
 import { parseCssColor } from "@mkbabb/value.js/css";
 import {
     GRAPHICS_CONTRAST_FLOOR,
@@ -39,6 +39,7 @@ import {
     resolveSurfaceLightness,
 } from "../demo/color-session/ink";
 import {
+    PALETTES_RAMP_LIGHT_SHIFTS,
     PALETTES_RAMP_SHIFTS,
     RAMP_TEXT_CONTRAST_FLOOR,
     RAMP_LARGE_TEXT_CONTRAST_FLOOR,
@@ -162,6 +163,8 @@ describe("W7-4 — the current-view accent (O-13-slimmed: the R1 survivor)", () 
 describe("W6-4/WR-8 — the guarded letterform ramp (Q5 RULED; O-14's T-10 referent; the per-site surface cure)", () => {
     it("the ruled form: three stops fanned ±60° (X-DS value pass 4, P4R-01); the two per-site floors", () => {
         expect(PALETTES_RAMP_SHIFTS).toEqual([-60, 0, 60]);
+        // P5-B1 RULED Pole B (COHESION §0ge.7): the light fan re-centres cool.
+        expect(PALETTES_RAMP_LIGHT_SHIFTS).toEqual([-70, -20, 20]);
         expect(RAMP_TEXT_CONTRAST_FLOOR).toBe(4.5);
         expect(RAMP_LARGE_TEXT_CONTRAST_FLOOR).toBe(3);
     });
@@ -227,6 +230,63 @@ describe("W6-4/WR-8 — the guarded letterform ramp (Q5 RULED; O-14's T-10 refer
         expect(
             resolvePalettesRamp("not-a-color", 0.5, RAMP_TEXT_CONTRAST_FLOOR),
         ).toBeNull();
+    });
+});
+
+describe("P5-B1 RULED Pole B (COHESION §0ge.7) — the light ramp re-centres cool; dark unchanged", () => {
+    // DS/value pass 5 (P5C-02, probe-p5c.json): the live pick's hue (the
+    // contrast-guarded accent at the 1440 light frame) and the title plate.
+    const PICK_HUE = 9.83402284231;
+    const PICK = `oklch(0.5 0.15 ${PICK_HUE})`;
+    const LIGHT_PLATE_L = parseResolved("rgb(215 132 124)").L;
+    const DARK_PLATE_L = 0.35;
+
+    /** Pole A's stop: the same max-chroma start the resolver takes, at the
+     *  ±60° fan's hue — the contrast Pole B must hold. */
+    const poleAStop = (shift: number, surfaceL: number, floor: number) => {
+        const start = oklch(surfaceL, 0.4, (((PICK_HUE + shift) % 360) + 360) % 360, 1);
+        if (!start.ok) throw new Error("pole A start");
+        const css = serializeCssColor(start.value);
+        if (!css.ok) throw new Error("pole A serialize");
+        return certifyAccentInk(css.value, surfaceL, floor);
+    };
+
+    for (const [site, floor] of [
+        ["title", RAMP_LARGE_TEXT_CONTRAST_FLOOR],
+        ["menu", RAMP_TEXT_CONTRAST_FLOOR],
+    ] as const) {
+        it(`${site}: light hues land violet 300 / rose 350 / coral 30 at Pole A's own contrast`, () => {
+            const ramp = resolvePalettesRamp(PICK, LIGHT_PLATE_L, floor)!;
+            expect(ramp).not.toBeNull();
+            const hues = ramp.map((stop) => parseResolved(stop).H);
+            [300, 350, 30].forEach((target, i) => {
+                const delta = Math.abs(((hues[i]! - target + 540) % 360) - 180);
+                expect(delta, `stop ${i} hue ${hues[i]}`).toBeLessThan(0.5);
+            });
+            const poleA = PALETTES_RAMP_SHIFTS.map((shift) => poleAStop(shift, LIGHT_PLATE_L, floor));
+            const poleARatios = poleA.map((stop) => ratioAgainst(stop, LIGHT_PLATE_L));
+            for (const stop of ramp) {
+                const ratio = ratioAgainst(stop, LIGHT_PLATE_L);
+                expect(ratio, `${stop}`).toBeGreaterThanOrEqual(floor);
+                expect(ratio, `${stop} vs Pole A ${poleARatios.join("/")}`).toBeGreaterThanOrEqual(Math.min(...poleARatios) - 0.02);
+                expect(ratio, `${stop} vs Pole A ${poleARatios.join("/")}`).toBeLessThanOrEqual(Math.max(...poleARatios) + 0.02);
+            }
+        });
+    }
+
+    it("title: the warm end keeps its chroma voice (C ≈ 0.155, against Pole A's brown 0.08)", () => {
+        const ramp = resolvePalettesRamp(PICK, LIGHT_PLATE_L, RAMP_LARGE_TEXT_CONTRAST_FLOOR)!;
+        const warm = parseResolved(ramp[2]).C;
+        const poleAWarm = parseResolved(poleAStop(60, LIGHT_PLATE_L, RAMP_LARGE_TEXT_CONTRAST_FLOOR)).C;
+        expect(warm).toBeGreaterThan(0.14);
+        expect(warm).toBeGreaterThan(poleAWarm + 0.05);
+    });
+
+    it("dark: the ±60° fan is unchanged (stop for stop, Pole A)", () => {
+        for (const floor of [RAMP_LARGE_TEXT_CONTRAST_FLOOR, RAMP_TEXT_CONTRAST_FLOOR]) {
+            const ramp = resolvePalettesRamp(PICK, DARK_PLATE_L, floor)!;
+            expect(ramp).toEqual(PALETTES_RAMP_SHIFTS.map((shift) => poleAStop(shift, DARK_PLATE_L, floor)));
+        }
     });
 });
 

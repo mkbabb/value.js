@@ -75,6 +75,22 @@ import { certifyAccentInk } from "./ink";
  */
 export const PALETTES_RAMP_SHIFTS = [-60, 0, 60] as const;
 
+/**
+ * The LIGHT fan (COHESION §0ge.7, P5-B1 RULED Pole B; DS/value pass 5,
+ * P5C-02). On a light plate the stops walk to deep ink, where the ±60° fan's
+ * warm end (pick + 60, h ≈ 70) has almost no sRGB chroma: it read brown
+ * (C 0.08). The light fan re-centres cool, −70 / −20 / +20 around the pick
+ * (violet 300, rose 350, coral 30 at the measured pick h ≈ 10), so the warm
+ * end keeps its chroma voice (C ≈ 0.155) through the SAME max-chroma solve at
+ * the same site floor, hence at Pole A's own measured contrast. The dark fan
+ * is unchanged.
+ */
+export const PALETTES_RAMP_LIGHT_SHIFTS = [-70, -20, 20] as const;
+
+/** A plate at or above this OKLab L takes deep ink (the light register) — the
+ *  house split `contrastInkFor` draws for a light fill. */
+const RAMP_LIGHT_PLATE_L = 0.5;
+
 /** A chroma past every sRGB cusp: the gamut map returns each hue's maximum. */
 const RAMP_GAMUT_CHROMA = 0.4;
 
@@ -126,7 +142,8 @@ export function resolvePalettesRamp(
     const hue = baseHue === "none" ? 0 : baseHue;
 
     const stops: string[] = [];
-    for (const shift of PALETTES_RAMP_SHIFTS) {
+    const shifts = surfaceL >= RAMP_LIGHT_PLATE_L ? PALETTES_RAMP_LIGHT_SHIFTS : PALETTES_RAMP_SHIFTS;
+    for (const shift of shifts) {
         const start = oklch(surfaceL, RAMP_GAMUT_CHROMA, (((hue + shift) % 360) + 360) % 360, 1);
         if (!start.ok) return null;
         const css = serializeCssColor(start.value);
