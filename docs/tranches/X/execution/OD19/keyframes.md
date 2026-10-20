@@ -128,6 +128,7 @@ Rows OD19-K3, OD19-K4. keyframes.js `eb2b7bc1` (master, fast-forward pushed from
   - vue-tsc `-p tsconfig.json` and `-p tsconfig.test.json`: clean.
   - One suite rerun hung at 0 % CPU under load 160 and the guard killed it at the 10-minute timeout (rc 124). A concurrent run in the same window failed two tests outside this change (`home-cube-one-mount`, KFA-24) while sibling seats had other app files dirty. Neither is attributed to this cure.
 - **Same-concern adjacent lines:** the test file above (the falsifier for the changed mechanism). Nothing else was touched.
+- **Re-deploy check, 2026-10-20:** `38951f24` is an ancestor of `origin/master`. The modify set and falsifier are unchanged since then. `scene-swap-w13x` passes 5/5 under guarded. No new act was needed, and residuals (a) and (b) still stand.
 
 ### KF-P3-code-editor
 
