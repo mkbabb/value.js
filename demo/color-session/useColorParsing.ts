@@ -9,6 +9,7 @@ import {
     convertPickerColor,
     mapPickerOklabToSrgb,
     parsePickerColor,
+    readPickerColor,
     serializePickerColor,
     withAlpha,
     type PickerColor,
@@ -60,11 +61,20 @@ export function useColorParsing(deps: {
         parseError.value = false;
     };
 
+    // SS-8 Z-ColorInput-1 (BANK-1 fired): the library parse is total, so the
+    // field reads its Result — an invalid parse raises the badge, and nothing
+    // else does. The bare catch that turned ANY throw into "not a valid color"
+    // is gone: an internal fault after a good parse propagates, loud.
     const parseAndSetColor = (source: string) => {
         const input = source.trim().toLowerCase();
         if (!input) return;
         try {
-            const parsed = parseColor(input);
+            const result = readPickerColor(input);
+            if (!result.ok) {
+                if (!initialParse) parseError.value = true;
+                return;
+            }
+            const parsed = result.value;
             const selected: DisplayColorSpace = parsed.space === "rgb" && input.startsWith("#")
                 ? "hex"
                 : parsed.space;
@@ -83,8 +93,6 @@ export function useColorParsing(deps: {
             } catch {
                 // Preserve stable hue for powerless colors.
             }
-        } catch {
-            if (!initialParse) parseError.value = true;
         } finally {
             initialParse = false;
         }

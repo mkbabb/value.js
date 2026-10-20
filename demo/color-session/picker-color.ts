@@ -139,8 +139,14 @@ export function resolveMissingChannels(color: AnyColor): AnyColor {
     );
 }
 
+/** The parse Result, unconverted — for a reader whose invalid text is the
+ *  user's to fix (the colour field), so a parse failure is DATA, not a throw. */
+export function readPickerColor(source: string): ReturnType<typeof parseCssColor> {
+    return parseCssColor(source.trim());
+}
+
 export function parsePickerColor(source: string): CssColor {
-    const result = parseCssColor(source.trim());
+    const result = readPickerColor(source);
     if (result.ok) return result.value;
     throw new PickerColorError("Invalid CSS color", result.diagnostics);
 }
