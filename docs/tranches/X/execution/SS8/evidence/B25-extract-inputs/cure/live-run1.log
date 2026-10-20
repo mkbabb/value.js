@@ -1,0 +1,15 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9187/#/extract
+Call log:
+[2m  - navigating to "http://localhost:9187/#/extract", waiting until "domcontentloaded"[22m
+
+    at open (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B25/lib.mjs:33:13)
+    at async dzCell (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B25/probe-cure.mjs:28:32)
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B25/probe-cure.mjs:115:37 {
+  name: 'Error'
+}
+
+Node.js v26.0.0

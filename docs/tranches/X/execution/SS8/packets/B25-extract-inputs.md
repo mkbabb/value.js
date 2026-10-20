@@ -110,3 +110,20 @@
 | 0722 | REFUTED (counts); structure cured | **Cure (EY-8 ≡ XP-9), the glass-first option:** the overlay adopts glass `./dialog`. The producer owns `role="dialog"`, `aria-modal`, the name (sr-only `DialogTitle` "Eyedropper", plus a `DialogDescription`), focus entry and return, hiding the content behind it, and an Escape scoped to the layer. The window `keydown` listener and its arm/release lifecycle are deleted. `@escape-key-down` releases a pin first. Because the dialog is a teleported controlled popup, `ExtractWorkbench` closes it in `onDeactivated` (A2-VA-L2-11). The `vj-enter` wrapper was replaced by glass's dialog presence motion; no custom keyframe was removed. | `SS8-0722`: role, aria-modal, labelled "Eyedropper", the root behind under `aria-hidden`, focus inside (RED x2 → GREEN x2). `Escape` lock: pinned Esc unpins and keeps the dialog open; the next Esc closes it (GREEN; passes on the old code too) | `605daabe7` |
 
 Files: `demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue` · `demo/workbenches/extract/ExtractWorkbench.vue` · `demo/workbenches/generate/GenerateControls.vue` · `demo/styles/utils.css` (this seat's hunk only; the other seat's SS8-0408 hunk had already landed as `63436369f` when this was staged) · `e2e/smoke/oracles/o18-contrast-census.spec.ts` · `demo/test/extract/ss8-b25-cures.test.ts` · `docs/tranches/X/execution/SS8/probes/B25/probe-cure.mjs` · `C/*`. No `src/**` change and no public API change. glass-ui was consumed, not edited.
+
+### live
+
+The first attempt (`C/live-run1.log`) borrowed another seat's vite on :9187, which died while the run waited in the browser queue (`ERR_CONNECTION_REFUSED`), so it produced no reading. The second run used this seat's own server: `guarded --timeout 30 -- probes/B25/cure-live.sh`. That script runs vite with B19's HMR-and-watch-off config on :9125 plus `probe-cure.mjs`, headless Chromium, one browser, a new context per cell, and tears both down on exit. It exited 0 (`C/live-run2.log`, `C/live-*.json`). The served tree was HEAD `605daabe7` plus other seats' dirty hunks, none of them in a B25 path.
+- **0713, CURED live.** The `.dashed-well` border computes `oklch(0.292 0.0039 34.6)` in light and `oklch(0.808 0.0038 41.9)` in dark (the stamped `--ink-muted`).
+  - Strongest painted dash against the ground outside: **4.339 light / 7.725 dark** (was 1.474 / 1.711).
+  - Token against the ground outside: 4.12 / 7.26. Token against the well interior: 3.39 / 6.58.
+  - Every reading clears 3:1. (`C/live-dz-{light,dark}.json`)
+- **0715, CURED live.** The dialog is `position: fixed` and not inside the pane.
+  - 1440×900: 1024×768 at (208, 66), inside the viewport, overflow past the fold **0** (was 16 px).
+  - 720×450: 688×418 at (16, 16), overflow **0** (was 312 px).
+  - (`C/live-geo-*.json`)
+- **0722, CURED live (modality).** At both sizes the dialog has `role=dialog`, `aria-modal=true` and the name "Eyedropper".
+  - 30 presses of Tab: **0 escapes from the dialog** (was 17 to 19 outside / 13 behind).
+  - The live `paneHidden` read gave `false`, but the probe looked the pane up through the zone's label and did not record whether that lookup resolved. **Hiding the content behind from AT stays UNPROVEN live.** It is witnessed in jsdom only, by the `SS8-0722` falsifier.
+- **0721 EY-20, CURED live.** A pin, then 12 ctrl-wheel zoom steps (0.615 → 1.237). The loupe stays on image pixel **[499,406] before and after**. The loupe centre is `[235,160,142]` and the pixel under it is `[235,160,142]`, distance **0 after the zoom** (was Δ 58.6). (`C/live-stalepin.json`)
+- **0705, hook live.** `#/generate` carries `data-o18="generate-count"` with its `.slider-range` (was zero hooks). **The new O-18 e2e leg was NOT RUN.** Its ratio verdict is owed to the next O-18 run. (`C/live-gen.json`)
