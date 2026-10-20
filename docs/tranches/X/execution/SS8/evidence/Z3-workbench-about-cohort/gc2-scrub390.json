@@ -1,0 +1,107 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "chromium",
+ "at": "2026-10-20T20:49:48.807Z",
+ "out": {
+  "scrub390": {
+   "cell": "scrub390",
+   "r": {
+    "roleSliderRect": [
+     150.8,
+     566.9,
+     0,
+     9
+    ],
+    "name": "Number of colors",
+    "labelledby": null,
+    "visibleLabel": {
+     "text": "Colors",
+     "for": null
+    },
+    "root": [
+     33,
+     559.4,
+     324,
+     24
+    ],
+    "painted": [
+     {
+      "tag": "SPAN",
+      "cls": "glass-slider w-full",
+      "rect": [
+       33,
+       559.4,
+       324,
+       24
+      ],
+      "bg": "rgba(0, 0, 0, 0)",
+      "img": "none"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "slider-track track-well",
+      "rect": [
+       33,
+       566.9,
+       324,
+       9
+      ],
+      "bg": "color(srgb 0.964706 0.952941 0.937255 / 0.5)",
+      "img": "none"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "slider-range glass-liquid-fill",
+      "rect": [
+       33,
+       566.9,
+       117.8,
+       9
+      ],
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.88)",
+      "img": "none"
+     }
+    ]
+   },
+   "hit": {
+    "root": [
+     33,
+     559.4,
+     324,
+     24
+    ],
+    "before": {
+     "content": "none",
+     "h": "auto",
+     "inset": "auto"
+    }
+   },
+   "taps": {
+    "0": [
+     5,
+     11
+    ],
+    "14": [
+     11,
+     11
+    ],
+    "20": [
+     11,
+     11
+    ],
+    "-14": [
+     11,
+     11
+    ],
+    "-20": [
+     11,
+     11
+    ]
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 6624
+  }
+ }
+}

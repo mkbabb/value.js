@@ -1,0 +1,146 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "chromium",
+ "at": "2026-10-20T20:08:09.380Z",
+ "out": {
+  "ink": {
+   "cell": "ink",
+   "light-rgb": {
+    "h2": {
+     "ink": "oklch(0.307762 0.124262 2)",
+     "inkRGB": [
+      92,
+      0,
+      43
+     ],
+     "bg": [
+      214,
+      146,
+      142
+     ],
+     "ratio": 5.61,
+     "size": "30px"
+    },
+    "code": {
+     "ink": "oklch(0.307762 0.124262 2)",
+     "inkRGB": [
+      92,
+      0,
+      43
+     ],
+     "chipBg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+     "bgPixel": [
+      198,
+      118,
+      142
+     ],
+     "ratio": 4.28,
+     "muted": "light-dark(#f6f3ef,#1f1c19)"
+    }
+   },
+   "light-oklch": {
+    "h2": {
+     "ink": "oklch(0.307762 0.124262 2)",
+     "inkRGB": [
+      92,
+      0,
+      43
+     ],
+     "bg": [
+      214,
+      146,
+      142
+     ],
+     "ratio": 5.61,
+     "size": "30px"
+    },
+    "code": {
+     "ink": "oklch(0.307762 0.124262 2)",
+     "inkRGB": [
+      92,
+      0,
+      43
+     ],
+     "chipBg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+     "bgPixel": [
+      202,
+      122,
+      142
+     ],
+     "ratio": 4.49,
+     "muted": "light-dark(#f6f3ef,#1f1c19)"
+    }
+   },
+   "dark-rgb": {
+    "h2": {
+     "ink": "oklch(0.307762 0.124262 2)",
+     "inkRGB": [
+      92,
+      0,
+      43
+     ],
+     "bg": [
+      214,
+      146,
+      142
+     ],
+     "ratio": 5.61,
+     "size": "30px"
+    },
+    "code": {
+     "ink": "oklch(0.307762 0.124262 2)",
+     "inkRGB": [
+      92,
+      0,
+      43
+     ],
+     "chipBg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+     "bgPixel": [
+      198,
+      118,
+      142
+     ],
+     "ratio": 4.28,
+     "muted": "light-dark(#f6f3ef,#1f1c19)"
+    }
+   },
+   "dark-oklch": {
+    "h2": {
+     "ink": "oklch(0.307762 0.124262 2)",
+     "inkRGB": [
+      92,
+      0,
+      43
+     ],
+     "bg": [
+      214,
+      146,
+      142
+     ],
+     "ratio": 5.61,
+     "size": "30px"
+    },
+    "code": {
+     "ink": "oklch(0.307762 0.124262 2)",
+     "inkRGB": [
+      92,
+      0,
+      43
+     ],
+     "chipBg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+     "bgPixel": [
+      202,
+      122,
+      142
+     ],
+     "ratio": 4.49,
+     "muted": "light-dark(#f6f3ef,#1f1c19)"
+    }
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 9636
+  }
+ }
+}

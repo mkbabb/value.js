@@ -1,0 +1,50 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "chromium",
+ "at": "2026-10-20T19:51:09.522Z",
+ "out": {
+  "dockverb": {
+   "cell": "dockverb",
+   "info": [
+    {
+     "label": "Regenerate",
+     "text": "",
+     "inPlate": false,
+     "vis": "visible",
+     "effOpacity": 0,
+     "hiddenAnc": "DIV.dock-face",
+     "disabled": false,
+     "rect": [
+      542,
+      21,
+      40,
+      40
+     ]
+    },
+    {
+     "label": null,
+     "text": "Regenerate",
+     "inPlate": true,
+     "vis": "visible",
+     "effOpacity": 1,
+     "hiddenAnc": null,
+     "disabled": false,
+     "rect": [
+      437,
+      347,
+      148,
+      40
+     ]
+    }
+   ],
+   "axButtons": [],
+   "clicked": {
+    "changed": false
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3397
+  }
+ }
+}

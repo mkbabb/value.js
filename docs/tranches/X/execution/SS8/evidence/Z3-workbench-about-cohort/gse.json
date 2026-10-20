@@ -1,0 +1,461 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "chromium",
+ "at": "2026-10-20T20:07:59.281Z",
+ "out": {
+  "recon": {
+   "cell": "recon",
+   "s": {
+    "bar": {
+     "border": [
+      224,
+      240.09,
+      462,
+      40
+     ],
+     "bl": 0,
+     "br": 0,
+     "bg": "linear-gradient(90deg in oklch, oklch(0.75 0.15 145) calc(0% + 12px), oklch(0.7469 0.15094 148.75) calc(3.125% + 11.25px), oklch(0.7438 0.15188 152.5) calc(6.25% + 10.5px), oklch(0.7406 0.15281 156.25"
+    },
+    "handles": [
+     {
+      "id": "stop-1-mvh470mm",
+      "now": 0,
+      "text": "Stop 1 of 2, position 0%",
+      "label": "Gradient stop 1 of 2",
+      "role": "slider",
+      "sel": "false",
+      "cx": 236,
+      "hit": [
+       224,
+       284.09,
+       24,
+       24
+      ],
+      "face": [
+       226,
+       286.09,
+       20,
+       20
+      ],
+      "faceBg": "repeating-conic-gradient(oklab(0.877618 0.000751939 0.00317353) 0%, oklab(0.877618 0.000751939 0.00317353) 25%, rgb(251,",
+      "faceBgColor": "rgba(0, 0, 0, 0)",
+      "faceBorder": "0px rgb(198, 180, 159)",
+      "faceShadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.92) 0px 0px 0px 2px"
+     },
+     {
+      "id": "stop-2-mvh470mm",
+      "now": 100,
+      "text": "Stop 2 of 2, position 100%",
+      "label": "Gradient stop 2 of 2",
+      "role": "slider",
+      "sel": "false",
+      "cx": 674,
+      "hit": [
+       662,
+       284.09,
+       24,
+       24
+      ],
+      "face": [
+       664,
+       286.09,
+       20,
+       20
+      ],
+      "faceBg": "repeating-conic-gradient(oklab(0.877618 0.000751939 0.00317353) 0%, oklab(0.877618 0.000751939 0.00317353) 25%, rgb(251,",
+      "faceBgColor": "rgba(0, 0, 0, 0)",
+      "faceBorder": "0px rgb(198, 180, 159)",
+      "faceShadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.92) 0px 0px 0px 2px"
+     }
+    ],
+    "count": 2,
+    "tileBg": "linear-gradient(90deg in oklch, oklch(0.75 0.15 145) 0%, oklch(0.7469 0.15094 148.75) 3.13%, oklch(0.7438 0.15188 152.5) 6.25%, oklch(0.7406 0.15281 156.25) 9.38%, oklch(0.7375 0.15375 160) 12.5%, oklch(0.7344 0.15469 163.75) 15.63%, oklch(0.7313 0.15563 167.5) 18.75%, oklch(0.7281 0.15656 171.25) 21.88%, oklch(0.725 0.1575 175) 25%, oklch(0.7219 0.15844 178.75) 28.13%, oklch(0.7188 0.15937 182.5)",
+    "editor": "linear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)",
+    "active": "BODY|",
+    "inspector": {
+     "text": "Select a stop on the rail to set its position or remove it.",
+     "pos": null,
+     "remove": null
+    },
+    "watercolorInMain": 4,
+    "headings": [
+     "H1:Gradient",
+     "H3:Stops",
+     "H3:Interpolation",
+     "H3:Easing",
+     "H3:1 → 2linear",
+     "H3:CSS",
+     "H2:My Palettes"
+    ],
+    "live": [
+     "Gradient view",
+     "GradientBuild gradients with per-interval easing and CSS output.",
+     "My PalettesSave, organize, and share your colors.",
+     "No saved palettes yet.Add colors, then save."
+    ],
+    "panes": 2,
+    "boundary": []
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2432
+  },
+  "mint": {
+   "cell": "mint",
+   "clickX": 455,
+   "clickFrac": 0.5,
+   "gap": 219,
+   "count": [
+    2,
+    3
+   ],
+   "fresh": {
+    "id": "stop-3-mvh4743u",
+    "now": 50,
+    "text": "Stop 2 of 3, position 50%",
+    "label": "Gradient stop 2 of 3",
+    "role": "slider",
+    "sel": "true",
+    "cx": 455,
+    "hit": [
+     440,
+     281.09,
+     30,
+     30
+    ],
+    "face": [
+     442.5,
+     283.59,
+     25,
+     25
+    ],
+    "faceBg": "repeating-conic-gradient(oklab(0.877618 0.000751939 0.00317353) 0%, oklab(0.877618 0.000751939 0.00317353) 25%, rgb(251,",
+    "faceBgColor": "rgba(0, 0, 0, 0)",
+    "faceBorder": "0px rgb(198, 180, 159)",
+    "faceShadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 2px inset, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px"
+   },
+   "dx": 0,
+   "editorBefore": "linear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)",
+   "editorAfter": "linear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(70% 0.165 205deg) 50%,\n  oklch(65% 0.18 265deg) 100%\n)",
+   "tileBg": "linear-gradient(90deg in oklch, oklch(0.75 0.15 145) 0%, oklch(0.7469 0.15094 148.75) 3.13%, oklch(0.7438 0.15188 152.5) 6.25%, oklch(0.7406 0.15281 156.25) 9.38%, oklch(0.7375 0.15375 160) 12.5%, oklch(0.7344 0.15469 163.75) 15.63%, oklch(0.7313 0.15563 167.5) 18.75%, oklch(0.7281 0.15656 171.25) 21.88%, oklch(0.725 0.1575 175) 25%, oklch(0.7219 0.15844 178.75) 28.13%, oklch(0.7188 0.15937 182.5)",
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3305
+  },
+  "order": {
+   "cell": "order",
+   "dragged": "stop-2-mvh4751b",
+   "from": 100,
+   "handlesAfter": [
+    [
+     "stop-1-mvh4751b",
+     0
+    ],
+    [
+     "stop-2-mvh4751b",
+     13.1
+    ]
+   ],
+   "editorAfter": "linear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 13.1%\n)",
+   "tileBg": "linear-gradient(90deg in oklch, oklch(0.75 0.15 145) 0%, oklch(0.7469 0.15094 148.75) 0.41%, oklch(0.7438 0.15188 152.5) 0.82%, oklch(0.7406 0.15281 156.25) 1.23%, oklch(0.7375 0.15375 160) 1.64%, oklch(0.7344 0.15469 163.75) 2.05%, oklch(0.7313 0.15563 167.5) 2.46%, oklch(0.7281 0.15656 171.25) 2.87%, oklch(0.725 0.1575 175) 3.27%, oklch(0.7219 0.15844 178.75) 3.68%, oklch(0.7188 0.15937 182.5) 4",
+   "boundary": [],
+   "stopsInText": [
+    "0%,",
+    "13.1%\n)"
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 4100
+  },
+  "kb": {
+   "cell": "kb",
+   "activeAfterMouseClick": "BUTTON|Gradient stop 1 of 2",
+   "selectedAfterClick": "true",
+   "steps": {
+    "start": 0,
+    "right": 1,
+    "up": 2,
+    "pageUp": 12,
+    "down": 11,
+    "pageDown": 1,
+    "end": 100,
+    "home": 0
+   },
+   "caretLabel": "Add gradient stop at 50%",
+   "caretMint": [
+    2,
+    3
+   ],
+   "handleAttrs": {
+    "id": "stop-1-mvh47867",
+    "now": 0,
+    "text": "Stop 1 of 2, position 0%",
+    "label": "Gradient stop 1 of 2",
+    "role": "slider",
+    "sel": "true",
+    "cx": 236,
+    "hit": [
+     221,
+     281.09,
+     30,
+     30
+    ],
+    "face": [
+     223.5,
+     283.59,
+     25,
+     25
+    ],
+    "faceBg": "repeating-conic-gradient(oklab(0.877618 0.000751939 0.00317353) 0%, oklab(0.877618 0.000751939 0.00317353) 25%, rgb(251,",
+    "faceBgColor": "rgba(0, 0, 0, 0)",
+    "faceBorder": "0px rgb(198, 180, 159)",
+    "faceShadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 2px inset, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px"
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 5119
+  },
+  "buttons": {
+   "cell": "buttons",
+   "start": 2,
+   "afterMiddle": 2,
+   "afterRight": 2,
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3608
+  },
+  "teleport": {
+   "cell": "teleport",
+   "tap": {
+    "before": [
+     0,
+     236
+    ],
+    "after": [
+     0,
+     236
+    ],
+    "dpx": 0
+   },
+   "drag6": {
+    "before": [
+     0,
+     236
+    ],
+    "after": [
+     1.4,
+     242.13
+    ],
+    "dpx": 6.13
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3681
+  },
+  "axis": {
+   "cell": "axis",
+   "border": [
+    224,
+    686
+   ],
+   "padding": [
+    224,
+    686
+   ],
+   "handles": [
+    {
+     "now": 0,
+     "cx": 236,
+     "expectBorder": 224,
+     "dBorder": 12,
+     "face": [
+      226,
+      286.09,
+      20,
+      20
+     ]
+    },
+    {
+     "now": 100,
+     "cx": 674,
+     "expectBorder": 686,
+     "dBorder": -12,
+     "face": [
+      664,
+      286.09,
+      20,
+      20
+     ]
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2140
+  },
+  "rem20": {
+   "cell": "rem20",
+   "rootFS": "20px",
+   "border": [
+    102,
+    680
+   ],
+   "ends": [
+    {
+     "now": 0,
+     "faceLeft": 104.5,
+     "faceRight": 129.5,
+     "overhangLeft": -2.5,
+     "overhangRight": -550.5
+    },
+    {
+     "now": 100,
+     "faceLeft": 652.5,
+     "faceRight": 677.5,
+     "overhangLeft": -550.5,
+     "overhangRight": -2.5
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2493
+  },
+  "floor": {
+   "cell": "floor",
+   "start": 2,
+   "removalLog": [],
+   "atFloor": 2,
+   "inspector": {
+    "text": "Stop 1 of 2\n\nPosition\n%\nRemove\n\nA gradient needs at least two stops, so this one cannot be removed.",
+    "pos": {
+     "tag": "INPUT",
+     "value": "0",
+     "role": "spinbutton"
+    },
+    "remove": {
+     "disabled": true,
+     "describedby": "gradient-stop-removal-reason",
+     "reason": "A gradient needs at least two stops, so this one cannot be removed."
+    }
+   },
+   "afterDelete": {
+    "count": 2,
+    "live": [
+     "Gradient view",
+     "GradientBuild gradients with per-interval easing and CSS output.",
+     "A gradient needs at least two stops, so this one cannot be removed.",
+     "My PalettesSave, organize, and share your colors.",
+     "No saved palettes yet.Add colors, then save."
+    ]
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2947
+  },
+  "numeric": {
+   "cell": "numeric",
+   "error": "TypeError: Cannot read properties of undefined (reading 'id')",
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3170
+  },
+  "crash": {
+   "cell": "crash",
+   "panes": [
+    2,
+    2
+   ],
+   "boundary": [],
+   "verdict": [
+    "unparseable color \"oklch()\""
+   ],
+   "bodyLen": 449,
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3395
+  },
+  "coarse": {
+   "cell": "coarse",
+   "error": "TypeError: Cannot read properties of undefined (reading 'id')",
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3657
+  },
+  "white": {
+   "cell": "white",
+   "editor": "linear-gradient(\n  90deg in oklab,\n  #ffffff 0%,\n  #fafafa 100%\n)",
+   "tileBg": "linear-gradient(90deg, oklch(1 0 none) 0%, oklch(0.9995 0 none) 3.13%, oklch(0.9991 0 none) 6.25%, oklch(0.9986 0 none) 9.38%, oklch(0.9981 0 none) 12.5%, oklch(0.9977 0 none) 15.63%, oklch(0.9972 0 none) 18.75%, oklch(0.9967 0 none) 21.88%, oklch(0.9963 0 none) 25%, oklch(0.9958 0 none) 28.13%, oklch(0.9953 0 none) 31.25%, oklch(0.9949 0 none) 34.38%, oklch(0.9944 0 none) 37.5%, oklch(0.9939 0 no",
+   "faces": [
+    {
+     "face": [
+      226,
+      286.1,
+      20,
+      20
+     ],
+     "rampL": null,
+     "maxRatioVsRamp": null
+    },
+    {
+     "face": [
+      664,
+      286.1,
+      20,
+      20
+     ],
+     "rampL": null,
+     "maxRatioVsRamp": null
+    }
+   ],
+   "faceStyles": [
+    {
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "shadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.92) 0px 0px 0px 2px"
+    },
+    {
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "shadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.92) 0px 0px 0px 2px"
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 4051
+  },
+  "dark": {
+   "cell": "dark",
+   "handles": [
+    {
+     "now": 0,
+     "faceBg": "repeating-conic-gradient(oklab(0.254868 0.0011134 0.00309681) 0%, oklab(0.254868 0.0011134 0.00309681) 25%, rgb(11, 10, ",
+     "faceBorder": "0px rgb(101, 87, 73)",
+     "faceShadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.92) 0px 0px 0px 2px"
+    },
+    {
+     "now": 100,
+     "faceBg": "repeating-conic-gradient(oklab(0.254868 0.0011134 0.00309681) 0%, oklab(0.254868 0.0011134 0.00309681) 25%, rgb(11, 10, ",
+     "faceBorder": "0px rgb(101, 87, 73)",
+     "faceShadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.92) 0px 0px 0px 2px"
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2067
+  }
+ }
+}

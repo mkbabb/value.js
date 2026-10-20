@@ -1,0 +1,24 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "chromium",
+ "at": "2026-10-20T20:49:41.832Z",
+ "out": {
+  "numeric": {
+   "cell": "numeric",
+   "selAtStart": "true",
+   "selNow": "true",
+   "before": 50,
+   "after": 33,
+   "rmState": {
+    "disabled": false,
+    "aria": null
+   },
+   "countAfterRemove": 2,
+   "notice": "Removed the stop at 33%.",
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 4246
+  }
+ }
+}

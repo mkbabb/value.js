@@ -1,0 +1,799 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "chromium",
+ "at": "2026-10-20T19:52:27.877Z",
+ "out": {
+  "census": {
+   "cell": "census",
+   "union": {
+    "div": 64,
+    "h3": 74,
+    "p": 111,
+    "mark": 89,
+    "hr": 44,
+    "h2": 53,
+    "ol": 30,
+    "li": 215,
+    "strong": 140,
+    "em": 3,
+    "ul": 28,
+    "code": 141,
+    "span": 37,
+    "a": 3
+   },
+   "perSpace": {
+    "rgb": {
+     "state": "authored",
+     "tags": {
+      "div": 5,
+      "h3": 8,
+      "p": 9,
+      "mark": 9,
+      "hr": 4,
+      "h2": 4,
+      "ol": 3,
+      "li": 19,
+      "strong": 13,
+      "em": 1,
+      "ul": 3,
+      "code": 5,
+      "span": 4
+     },
+     "katex": 4,
+     "katexDisplay": 4,
+     "anchors": [],
+     "markCsName": 9,
+     "h2": {
+      "color": "oklch(0.307762 0.124262 2)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1575.828125,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.307762 0.124262 2)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       795.875,
+       3454.359375,
+       16.640625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(30.776197486318% 0.124262102014 2.000000000003deg); --md-color-h3: color-mix(in oklab, oklch(30.776197486318% 0.124262102014 2.000000000003deg) 61.8%, var(--foreground)); --md-color-accent: oklch(30.776197486318% 0.124262102014 2.000000000003deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "hsl": {
+     "state": "authored",
+     "tags": {
+      "div": 7,
+      "h3": 6,
+      "p": 9,
+      "mark": 4,
+      "strong": 13,
+      "hr": 4,
+      "h2": 4,
+      "ol": 3,
+      "li": 17,
+      "ul": 2,
+      "code": 6,
+      "span": 4
+     },
+     "katex": 6,
+     "katexDisplay": 4,
+     "anchors": [],
+     "markCsName": 4,
+     "h2": {
+      "color": "oklch(0.0186658 0.00754025 1.73705)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1598.796875,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.0186658 0.00754025 1.73705)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       974.125,
+       2061.09375,
+       51.140625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(1.866582368549% 0.007540247755 1.737046825902deg); --md-color-h3: color-mix(in oklab, oklch(1.866582368549% 0.007540247755 1.737046825902deg) 61.8%, var(--foreground)); --md-color-accent: oklch(1.866582368549% 0.007540247755 1.737046825902deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "hsv": {
+     "state": "authored",
+     "tags": {
+      "div": 3,
+      "h3": 7,
+      "p": 13,
+      "mark": 11,
+      "strong": 10,
+      "hr": 4,
+      "h2": 5,
+      "ol": 2,
+      "li": 14,
+      "code": 8,
+      "ul": 2,
+      "span": 2
+     },
+     "katex": 2,
+     "katexDisplay": 2,
+     "anchors": [],
+     "markCsName": 11,
+     "h2": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1645.859375,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       795.875,
+       1743.734375,
+       16.640625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(30.787915817213% 0.124370891684 1.737046825902deg); --md-color-h3: color-mix(in oklab, oklch(30.787915817213% 0.124370891684 1.737046825902deg) 61.8%, var(--foreground)); --md-color-accent: oklch(30.787915817213% 0.124370891684 1.737046825902deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "hwb": {
+     "state": "authored",
+     "tags": {
+      "div": 5,
+      "h3": 4,
+      "p": 12,
+      "mark": 5,
+      "strong": 10,
+      "code": 16,
+      "hr": 4,
+      "h2": 5,
+      "ol": 2,
+      "li": 21,
+      "ul": 3,
+      "span": 2
+     },
+     "katex": 4,
+     "katexDisplay": 2,
+     "anchors": [],
+     "markCsName": 5,
+     "h2": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1744.734375,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       852.90625,
+       1563.984375,
+       51.140625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(30.7879158172% 0.124370891684 1.737046825895deg); --md-color-h3: color-mix(in oklab, oklch(30.7879158172% 0.124370891684 1.737046825895deg) 61.8%, var(--foreground)); --md-color-accent: oklch(30.7879158172% 0.124370891684 1.737046825895deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "lab": {
+     "state": "authored",
+     "tags": {
+      "div": 11,
+      "h3": 8,
+      "p": 9,
+      "mark": 9,
+      "strong": 15,
+      "em": 2,
+      "hr": 4,
+      "h2": 4,
+      "ol": 3,
+      "li": 20,
+      "code": 11,
+      "ul": 3,
+      "span": 4
+     },
+     "katex": 10,
+     "katexDisplay": 4,
+     "anchors": [],
+     "markCsName": 9,
+     "h2": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1748.640625,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       953.640625,
+       1956.859375,
+       25.265625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(30.7879158172% 0.124370891684 1.737046825895deg); --md-color-h3: color-mix(in oklab, oklch(30.7879158172% 0.124370891684 1.737046825895deg) 61.8%, var(--foreground)); --md-color-accent: oklch(30.7879158172% 0.124370891684 1.737046825895deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "lch": {
+     "state": "authored",
+     "tags": {
+      "div": 3,
+      "h3": 4,
+      "p": 7,
+      "a": 1,
+      "code": 21,
+      "hr": 4,
+      "h2": 6,
+      "ol": 3,
+      "li": 24,
+      "strong": 12,
+      "mark": 4,
+      "ul": 3,
+      "span": 2
+     },
+     "katex": 2,
+     "katexDisplay": 2,
+     "anchors": [
+      "https://en.wikipedia.org/wiki/International_Commission_on_Illumination"
+     ],
+     "markCsName": 4,
+     "h2": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1504.953125,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       1098.359375,
+       1256.203125,
+       16.640625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(30.7879158172% 0.124370891684 1.737046825895deg); --md-color-h3: color-mix(in oklab, oklch(30.7879158172% 0.124370891684 1.737046825895deg) 61.8%, var(--foreground)); --md-color-accent: oklch(30.7879158172% 0.124370891684 1.737046825895deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "oklab": {
+     "state": "authored",
+     "tags": {
+      "div": 7,
+      "h3": 8,
+      "p": 8,
+      "mark": 6,
+      "code": 11,
+      "hr": 4,
+      "h2": 4,
+      "ol": 3,
+      "li": 19,
+      "strong": 12,
+      "ul": 2,
+      "span": 2
+     },
+     "katex": 6,
+     "katexDisplay": 2,
+     "anchors": [],
+     "markCsName": 6,
+     "h2": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1702.703125,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       1063.53125,
+       1537.953125,
+       42.515625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(30.7879158172% 0.124370891684 1.737046825778deg); --md-color-h3: color-mix(in oklab, oklch(30.7879158172% 0.124370891684 1.737046825778deg) 61.8%, var(--foreground)); --md-color-accent: oklch(30.7879158172% 0.124370891684 1.737046825778deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "oklch": {
+     "state": "authored",
+     "tags": {
+      "div": 5,
+      "h3": 7,
+      "p": 9,
+      "mark": 7,
+      "a": 1,
+      "code": 16,
+      "strong": 13,
+      "hr": 4,
+      "h2": 6,
+      "ol": 3,
+      "li": 20,
+      "ul": 2,
+      "span": 4
+     },
+     "katex": 4,
+     "katexDisplay": 4,
+     "anchors": [
+      "https://bottosson.github.io/posts/oklab/"
+     ],
+     "markCsName": 7,
+     "h2": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1684.765625,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       830.53125,
+       1464.015625,
+       16.640625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(30.7879158172% 0.124370891683 1.737046825778deg); --md-color-h3: color-mix(in oklab, oklch(30.7879158172% 0.124370891683 1.737046825778deg) 61.8%, var(--foreground)); --md-color-accent: oklch(30.7879158172% 0.124370891683 1.737046825778deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "xyz": {
+     "state": "authored",
+     "tags": {
+      "div": 5,
+      "h3": 7,
+      "p": 13,
+      "mark": 16,
+      "a": 1,
+      "strong": 15,
+      "hr": 4,
+      "h2": 6,
+      "ol": 3,
+      "li": 21,
+      "ul": 3,
+      "code": 9,
+      "span": 4
+     },
+     "katex": 4,
+     "katexDisplay": 4,
+     "anchors": [
+      "https://en.wikipedia.org/wiki/International_Commission_on_Illumination"
+     ],
+     "markCsName": 16,
+     "h2": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       2048.359375,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.307879 0.124371 1.73705)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       993.734375,
+       3082.21875,
+       16.640625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(30.7879158172% 0.124370891684 1.737046825808deg); --md-color-h3: color-mix(in oklab, oklch(30.7879158172% 0.124370891684 1.737046825808deg) 61.8%, var(--foreground)); --md-color-accent: oklch(30.7879158172% 0.124370891684 1.737046825808deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "kelvin": {
+     "state": "authored",
+     "tags": {
+      "div": 5,
+      "h3": 5,
+      "p": 7,
+      "mark": 3,
+      "strong": 15,
+      "code": 3,
+      "hr": 4,
+      "h2": 5,
+      "ol": 2,
+      "li": 20,
+      "ul": 3,
+      "span": 3
+     },
+     "katex": 4,
+     "katexDisplay": 3,
+     "anchors": [],
+     "markCsName": 3,
+     "h2": {
+      "color": "oklch(0.267076 0.0622446 60.6411)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1800.734375,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.267076 0.0622446 60.6411)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       754,
+       1579.984375,
+       51.140625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(26.707562598397% 0.062244570197 60.641120455933deg); --md-color-h3: color-mix(in oklab, oklch(26.707562598397% 0.062244570197 60.641120455933deg) 61.8%, var(--foreground)); --md-color-accent: oklch(26.707562598397% 0.062244570197 60.641120455933deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "hex": {
+     "state": "authored",
+     "tags": {
+      "div": 8,
+      "h3": 10,
+      "p": 15,
+      "mark": 15,
+      "code": 35,
+      "hr": 4,
+      "h2": 4,
+      "ol": 3,
+      "li": 20,
+      "strong": 12,
+      "ul": 2,
+      "span": 6
+     },
+     "katex": 7,
+     "katexDisplay": 6,
+     "anchors": [],
+     "markCsName": 15,
+     "h2": {
+      "color": "oklch(0.267576 0.0622526 60.824)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1672.734375,
+       462,
+       36
+      ]
+     },
+     "code": {
+      "color": "oklch(0.267576 0.0622526 60.824)",
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+      "rect": [
+       754,
+       1423.984375,
+       16.640625,
+       23
+      ]
+     },
+     "muted": "light-dark(#f6f3ef,#1f1c19)",
+     "mdVars": "--md-color-h2: oklch(26.757633863602% 0.062252620817 60.824029881392deg); --md-color-h3: color-mix(in oklab, oklch(26.757633863602% 0.062252620817 60.824029881392deg) 61.8%, var(--foreground)); --md-color-accent: oklch(26.757633863602% 0.062252620817 60.824029881392deg);",
+     "measureCh": 49.5,
+     "pWidth": 462,
+     "kdRow": {
+      "cv": "auto",
+      "cis": "auto 200px",
+      "ox": "auto"
+     },
+     "ohSnap": false
+    },
+    "display-p3": {
+     "state": "none-authored",
+     "ohSnap": false,
+     "empty": "No long-form guide is written for Display P3 yet — its definition, white point, gamut, components and conversion paths are stated in full above."
+    },
+    "xyz-d50": {
+     "state": "none-authored",
+     "ohSnap": false,
+     "empty": "No long-form guide is written for Display P3 yet — its definition, white point, gamut, components and conversion paths are stated in full above."
+    }
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 14542
+  },
+  "ink": {
+   "cell": "ink",
+   "error": "TypeError: object null is not iterable (cannot read property Symbol(Symbol.iterator))",
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3283
+  },
+  "firstframe": {
+   "cell": "firstframe",
+   "samples": [
+    {
+     "t": 303.20000000018626,
+     "c": "oklch(0.307762 0.124262 2)",
+     "phase": "insert"
+    },
+    {
+     "t": 324.29999999981374,
+     "c": "oklch(0.307762 0.124262 2)",
+     "phase": "frame1"
+    }
+   ],
+   "settled": "oklch(0.307762 0.124262 2)",
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3195
+  },
+  "firstframeDark": {
+   "cell": "firstframeDark",
+   "samples": [
+    {
+     "t": 293.59999999962747,
+     "c": "oklch(0.73424 0.175657 2)",
+     "phase": "insert"
+    },
+    {
+     "t": 314.70000000018626,
+     "c": "oklch(0.73424 0.175657 2)",
+     "phase": "frame1"
+    }
+   ],
+   "settled": "oklch(0.73424 0.175657 2)",
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3179
+  },
+  "skeleton": {
+   "cell": "skeleton",
+   "sk": {
+    "n": 3,
+    "items": [
+     {
+      "attrs": [
+       "data-v-0d5ebb1f=",
+       "data-v-12aaac3e=",
+       "data-slot=skeleton",
+       "aria-hidden=true",
+       "class=skeleton h-12 w-12 rounded-full"
+      ],
+      "bg": "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+      "bgImg": "none"
+     },
+     {
+      "attrs": [
+       "data-v-0d5ebb1f=",
+       "data-v-12aaac3e=",
+       "data-slot=skeleton",
+       "aria-hidden=true",
+       "class=skeleton h-4 w-full"
+      ],
+      "bg": "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+      "bgImg": "none"
+     },
+     {
+      "attrs": [
+       "data-v-0d5ebb1f=",
+       "data-v-12aaac3e=",
+       "data-slot=skeleton",
+       "aria-hidden=true",
+       "class=skeleton h-4 w-full"
+      ],
+      "bg": "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+      "bgImg": "none"
+     }
+    ],
+    "muted": "light-dark(#f6f3ef,#1f1c19)",
+    "guideHTML": "<h2 class=\"font-display text-title mb-phi-3\">Detailed Guide</h2><div data-v-12aaac3e=\"\" class=\"flex items-center space-x-4 h-full\"><div data-v-0d5ebb1f=\"\" data-v-12aaac3e=\"\" data-slot=\"skeleton\" aria-hidden=\"true\" class=\"skeleton h-12 w-12 rounded-full\"></div><div data-v-12aaac3e=\"\" class=\"space-y-2\"><div data-v-0d5ebb1f=\"\" data-v-12aaac3e=\"\" data-slot=\"skeleton\" aria-hidden=\"true\" class=\"skeleton"
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 974
+  },
+  "route": {
+   "cell": "route",
+   "r": {
+    "href": "http://127.0.0.1:4417/#/about",
+    "hash": "#/about",
+    "aboutCard": false,
+    "aboutVisible": false,
+    "title": "Not found — Color Picker"
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2684
+  },
+  "mobile": {
+   "cell": "mobile",
+   "before": {
+    "present": true,
+    "rect": [
+     16,
+     659,
+     358,
+     7699.40625
+    ],
+    "onScreen": true
+   },
+   "toggles": [],
+   "clicked": "label",
+   "after": {
+    "present": true,
+    "rect": [
+     16,
+     0,
+     358,
+     7475.84375
+    ],
+    "onScreen": true
+   },
+   "guideState": "authored",
+   "h2": true,
+   "href": "http://127.0.0.1:4417/#/?space=oklch",
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 4385
+  },
+  "capture": {
+   "cell": "capture",
+   "shots": {
+    "md-guide-chromium-light-rgb": [
+     462,
+     5605
+    ],
+    "md-guide-chromium-light-oklch": [
+     462,
+     6031
+    ],
+    "md-guide-chromium-light-lch": [
+     462,
+     4241
+    ],
+    "md-guide-chromium-dark-rgb": [
+     462,
+     5605
+    ],
+    "md-guide-chromium-dark-oklch": [
+     462,
+     6031
+    ],
+    "md-guide-chromium-dark-lch": [
+     462,
+     4241
+    ]
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 14521
+  }
+ }
+}

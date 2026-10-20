@@ -1,0 +1,114 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "webkit",
+ "at": "2026-10-20T22:28:04.628Z",
+ "out": {
+  "capfix": {
+   "shots": {
+    "rgb": {
+     "cell": "capfix-rgb",
+     "name": "md-guide-webkit-light-rgb",
+     "box": [
+      462,
+      3121
+     ],
+     "h2": {
+      "color": "oklch(0.307762 0.124262 2)",
+      "h": 36
+     },
+     "errors": [
+      "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+     ]
+    },
+    "oklch": {
+     "cell": "capfix-oklch",
+     "name": "md-guide-webkit-light-oklch",
+     "box": [
+      462,
+      3520
+     ],
+     "h2": {
+      "color": "oklch(0.307762 0.124262 2)",
+      "h": 36
+     },
+     "errors": [
+      "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+     ]
+    },
+    "lch": {
+     "cell": "capfix-lch",
+     "name": "md-guide-webkit-light-lch",
+     "box": [
+      462,
+      2829
+     ],
+     "h2": {
+      "color": "oklch(0.01318 0.005322 2)",
+      "h": 36
+     },
+     "errors": [
+      "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+     ]
+    }
+   },
+   "ms": 12083
+  },
+  "b4": {
+   "cell": "b4",
+   "info": {
+    "port": true,
+    "scrollH": 7408,
+    "clientH": 459,
+    "kids": 32,
+    "cv": "auto"
+   },
+   "anchor": {
+    "text": "Color Conversions",
+    "sh0": 7408,
+    "samples": [
+     {
+      "t": 0,
+      "off": 79.6,
+      "st": 3894,
+      "sh": 7408
+     },
+     {
+      "t": 50,
+      "off": 79.6,
+      "st": 3894,
+      "sh": 6477
+     },
+     {
+      "t": 200,
+      "off": 79.6,
+      "st": 3894,
+      "sh": 6477
+     },
+     {
+      "t": 600,
+      "off": 79.6,
+      "st": 3894,
+      "sh": 6477
+     },
+     {
+      "t": 1500,
+      "off": 79.6,
+      "st": 3894,
+      "sh": 6477
+     }
+    ]
+   },
+   "found": {
+    "phrase": "Two matrix multiplications sandwiching",
+    "hit": true,
+    "selText": "Two matrix multiplications sandwiching",
+    "scrollTop": 5268,
+    "selInPort": true
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 5028
+  }
+ }
+}

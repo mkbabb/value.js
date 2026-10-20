@@ -1,0 +1,70 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "webkit",
+ "at": "2026-10-20T22:27:46.681Z",
+ "out": {
+  "coarse": {
+   "cell": "coarse",
+   "mid": 50,
+   "geo": {
+    "hit": [
+     183,
+     92.8,
+     24,
+     24
+    ],
+    "before": {
+     "w": "44px",
+     "h": "44px",
+     "inset": "12px -32px -32px 12px"
+    },
+    "after": {
+     "w": "auto",
+     "h": "auto",
+     "inset": "auto"
+    },
+    "seatBottom": 150.6,
+    "nextTop": null,
+    "over": []
+   },
+   "taps": {
+    "14": {
+     "count": [
+      3,
+      3
+     ],
+     "target": "BUTTON.control-surface|",
+     "movedTo": 50
+    },
+    "20": {
+     "count": [
+      3,
+      3
+     ],
+     "target": "DIV.relative|",
+     "movedTo": 50
+    },
+    "26": {
+     "count": [
+      3,
+      3
+     ],
+     "target": "DIV.labeled-field|",
+     "movedTo": 50
+    },
+    "34": {
+     "count": [
+      3,
+      3
+     ],
+     "target": "LABEL.label|",
+     "movedTo": 50
+    }
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 9257
+  }
+ }
+}
