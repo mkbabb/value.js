@@ -1,4 +1,4 @@
-import { watch, type ShallowRef, type ComputedRef } from "vue";
+import { watch, type ShallowRef } from "vue";
 import { useStorage } from "@vueuse/core";
 import { debounce } from "../shared/debounce";
 import { safeGetItem } from "../platform/storage/useSafeStorage";
@@ -43,10 +43,8 @@ export function useColorPersistence(deps: {
     updateModel: (patch: Partial<ColorModel>) => void;
     parseAndSetColor: (css: string) => void;
     parseColor: (css: string) => PickerColor;
-    cssColor: ComputedRef<string>;
 }) {
-    const { model, updateModel, parseAndSetColor, parseColor, cssColor } =
-        deps;
+    const { model, updateModel, parseAndSetColor, parseColor } = deps;
 
     // Capture whether a persisted color-state exists BEFORE useStorage seeds the
     // default — the restore only fires for a genuine prior session (a fresh cold
@@ -89,7 +87,9 @@ export function useColorPersistence(deps: {
 
     const syncColorToStorage = debounce(
         () => {
-            colorStore.value.inputColor = cssColor.value;
+            // The model's own string, `none` kept (SS8-0035: the pipeline's
+            // outward `cssColor` resolves it; the store must not).
+            colorStore.value.inputColor = serializePickerColor(model.value.color);
         },
         200,
     );
