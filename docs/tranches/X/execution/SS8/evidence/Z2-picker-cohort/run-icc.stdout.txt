@@ -1,0 +1,500 @@
+[
+ {
+  "cell": "ci",
+  "ms": 110334,
+  "error": "TimeoutError: locator.hover: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[aria-label=\"Enter a CSS color\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <span role=\"textbox\" autocorrect=\"off\" data-v-55dadc03=\"\" contenteditable=\"\" spellcheck=\"false\" autocapitalize=\"off\" aria-label=\"Enter a CSS color\" class=\"color-input w-full block border overflow-hidden items-center bg-background rounded-media px-3 py-2 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center\">rgb(10 200 30)</span>\u001b[22m\n\u001b[2m  - attempting hover action\u001b[22m\n\u001b[2m    2 × waiting for elem",
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "forced",
+  "ms": 110148,
+  "field": {
+   "present": true,
+   "tag": "SPAN",
+   "contenteditable": "",
+   "role": "textbox",
+   "text": "oklch(73% 0.185 2deg)",
+   "focused": true,
+   "border": "rgb(0, 0, 0)",
+   "outline": "none 1px rgba(5, 0, 73, 0.8)",
+   "boxShadow": "none",
+   "fontSize": "18.608px",
+   "dir": "ltr",
+   "ariaInvalid": null,
+   "describedby": null,
+   "errormessage": null,
+   "send": {
+    "label": "Apply color",
+    "type": null,
+    "rect": {
+     "x": 810,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 834,
+     "b": 52.5
+    }
+   },
+   "badge": null,
+   "overlap": null,
+   "liveRegionsInDock": [
+    "status|polite|Save edit"
+   ],
+   "title": "Color Picker"
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters.",
+   "error: [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: pane chunk not settled after 20000 ms\n    at http://localhost:8096/@fs/Users/mkbabb/Programming/value.js/demo/shell/usePaneRouter.ts?t=1792523767666:126:41"
+  ]
+ },
+ {
+  "cell": "css",
+  "ms": 120063,
+  "error": "TimeoutError: page.goto: Timeout 120000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8096/#/\", waiting until \"load\"\u001b[22m\n",
+  "pageErrors": [],
+  "console": []
+ },
+ {
+  "cell": "csp",
+  "ms": 69347,
+  "sliders": 31,
+  "rows": 31,
+  "groups": 0,
+  "labelsFor": 0,
+  "valuetextNull": 31,
+  "labelledbyNull": 31,
+  "ariaDisabled": 0,
+  "variants": [
+   "scrubber"
+  ],
+  "sizes": [
+   "sm"
+  ],
+  "fmt": [
+   {
+    "label": "Body radius",
+    "now": "0.22",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.220",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Satellites",
+    "now": "3",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "3",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Satellite radius",
+    "now": "0.082",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.082",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Orbit radius",
+    "now": "0.17",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.170",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Eccentricity",
+    "now": "0.05",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.05",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Smoothness",
+    "now": "0.05",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.050",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Warp",
+    "now": "0.35",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.35",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Noise amplitude",
+    "now": "0.038",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.038",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Noise frequency",
+    "now": "3.5",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "3.5",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Noise speed",
+    "now": "0.08",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.080",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Pulse frequency",
+    "now": "0.3",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.30",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Pulse amplitude",
+    "now": "0.008",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.008",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Hue range",
+    "now": "5",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "5",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Saturation",
+    "now": "0",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.000",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Brightness",
+    "now": "0",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.000",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Noise frequency",
+    "now": "2",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "2.0",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Noise speed",
+    "now": "0.05",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.050",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Specular",
+    "now": "0.16",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.16",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Shininess",
+    "now": "20",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "20",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Rim",
+    "now": "0.32",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.32",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Rim power",
+    "now": "2.5",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "2.50",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Iridescence",
+    "now": "0.09",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.09",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Sub-surface",
+    "now": "0.1",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.10",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Core glow",
+    "now": "0.06",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.06",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Attraction",
+    "now": "0.35",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.35",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Strength",
+    "now": "0.1",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.100",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Stretch",
+    "now": "0.5",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.50",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Click impulse",
+    "now": "0.5",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.50",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Merge (ms)",
+    "now": "1800",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "1800",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Emerge (ms)",
+    "now": "2200",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "2200",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   },
+   {
+    "label": "Speed",
+    "now": "1",
+    "valuetext": null,
+    "labelledby": null,
+    "disabled": null,
+    "shown": "1.00",
+    "shownMinInline": "auto",
+    "variant": "scrubber",
+    "size": "sm",
+    "step": null
+   }
+  ],
+  "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+  "rangeBgImg": "none",
+  "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+  "headRecipe": "Fraunces | 20.352px | 600 | normal | none | oklch(0.216129 0.00624853 56.0356)",
+  "rowLabelRecipe": "\"Plus Jakarta Sans\" | 14.5411px | 500 | normal | none | oklch(0.216129 0.00624853 56.0356)",
+  "rowLabelText": "Body radius",
+  "dividerLines": [
+   "config-console console-well flex flex-co",
+   "config-action-bar"
+  ],
+  "nestedCards": 0,
+  "docks": 1,
+  "liveRegions": [
+   "null|polite"
+  ],
+  "interaction": {
+   "before": "0.22",
+   "moved": "0.25",
+   "copyLabel": "Copy JSON\nReset",
+   "copyLive": [],
+   "afterReset": "0.22",
+   "resetLive": []
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: [useClipboard] clipboard writeText rejected: NotAllowedError: Failed to execute 'writeText' on 'Clipboard': Write permission denied."
+  ]
+ },
+ {
+  "cell": "csp-mobile",
+  "ms": 44026,
+  "atRest": 31,
+  "tapped": null,
+  "afterTap": 31,
+  "candidates": [
+   "Select color space",
+   "l channel",
+   "c channel",
+   "h channel",
+   "alpha channel"
+  ],
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass 

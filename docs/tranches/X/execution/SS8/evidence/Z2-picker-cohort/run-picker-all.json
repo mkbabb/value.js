@@ -1,0 +1,374 @@
+[
+ {
+  "cell": "desk",
+  "ms": 75928,
+  "readout": {
+   "tag": "H3",
+   "slot": "card-title",
+   "contenteditable": 3,
+   "textboxes": 3,
+   "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+   "fontSize": "41.888px",
+   "cells": [
+    "73.0",
+    "0.2",
+    "2.0"
+   ],
+   "lineRects": 3
+  },
+  "title": {
+   "triggerFontSize": "53.28px",
+   "triggerFamily": "Fraunces, \"Fraunces Fallback\", serif",
+   "rect": {
+    "b": 185.96875,
+    "h": 84.96875
+   },
+   "trigBottom": 185.96875
+  },
+  "seam": {
+   "titleRowBottomToFigBox": 7.16,
+   "triggerBottomToGlyph": 4.16,
+   "readoutMinHeight": "46.9146px",
+   "readoutH": 46.90625
+  },
+  "ratio": 0.7862,
+  "grid": {
+   "cols": "512px 512px",
+   "cls": "pane-container"
+  },
+  "nestedCards": 1,
+  "cardsInShell": 2,
+  "spectrum": {
+   "tag": "FIGURE",
+   "cls": "spectrum-figure m-0 min-w-0 w-full flex flex-col",
+   "roles": [
+    "img"
+   ],
+   "rootRole": null,
+   "tab": null,
+   "focusables": 0
+  },
+  "liveRegionsInPicker": [
+   "DIV|null|polite"
+  ],
+  "firstPickerHeading": {
+   "tag": "H3",
+   "slot": "card-title",
+   "text": "73.0%,0.2,2.0deg",
+   "textboxDesc": 3
+  },
+  "h1": 1,
+  "combosSelectColorSpace": [
+   {
+    "text": "OKLCh",
+    "fs": "53.28px",
+    "inPicker": true
+   },
+   {
+    "text": "OKLCh",
+    "fs": "41.888px",
+    "inPicker": true
+   }
+  ],
+  "shellAnim": {
+   "name": "none",
+   "dur": "0s",
+   "token": "calc(0.45s * 1)"
+  },
+  "exposedTimers": null,
+  "pointerDebugRequested": 0,
+  "pointerDebugModuleRequests": [
+   "/@fs/Users/mkbabb/Programming/value.js/demo/picker/debug/usePointerDebug.ts"
+  ],
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "c1",
+  "ms": 20363,
+  "before": {
+   "readout": [
+    "73.0",
+    "0.2",
+    "2.0"
+   ],
+   "href": "http://localhost:8096/#/",
+   "title": "Color Picker"
+  },
+  "afterType": {
+   "readout": [
+    "100.05",
+    "0.2",
+    "2.0"
+   ],
+   "href": "http://localhost:8096/#/?space=oklch&color=oklch(100%25+0.185+2deg)",
+   "title": "oklch(100% 0.185 2deg) — Color Picker"
+  },
+  "childrenAfterType": [
+   "<span data-v-045fa993=\"\" class=\"fig-int\">100</span><span data-v-045fa993=\"\" clas",
+   "<span data-v-045fa993=\"\" class=\"fig-int\">0</span><span data-v-045fa993=\"\" class=",
+   "<span data-v-045fa993=\"\" class=\"fig-int\">2</span><span data-v-045fa993=\"\" class="
+  ],
+  "afterWrite": {
+   "readout": [
+    "99.2",
+    "0.2",
+    "2.0"
+   ],
+   "href": "http://localhost:8096/#/?space=oklch&color=oklch(99.2%25+0.185+2deg)",
+   "title": "oklch(99.2% 0.185 2deg) — Color Picker"
+  },
+  "sliderNow": "0.992",
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "c2",
+  "ms": 119197,
+  "n": 3,
+  "before": {
+   "readout": [
+    "73.0",
+    "0.2",
+    "2.0"
+   ],
+   "href": "http://localhost:8096/#/",
+   "title": "Color Picker"
+  },
+  "after": {
+   "readout": [
+    "30",
+    "0.2",
+    "10"
+   ],
+   "href": "http://localhost:8096/#/?space=oklch&color=oklch(73%25+0.185+10deg)",
+   "title": "oklch(73% 0.185 10deg) — Color Picker"
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters.",
+   "error: [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: pane chunk not settled after 20000 ms\n    at http://localhost:8096/@fs/Users/mkbabb/Programming/value.js/demo/shell/usePaneRouter.ts?t=1792521998774:126:41"
+  ]
+ },
+ {
+  "cell": "keys",
+  "ms": 29656,
+  "seq": [
+   {
+    "step": "rest",
+    "expanded": "false"
+   },
+   {
+    "step": "chord1",
+    "expanded": "false"
+   },
+   {
+    "step": "chord2",
+    "expanded": "true"
+   },
+   {
+    "step": "held+a",
+    "expanded": "false"
+   }
+  ],
+  "kdHome": [
+   {
+    "key": "Meta",
+    "meta": true,
+    "prevented": false
+   },
+   {
+    "key": "k",
+    "meta": true,
+    "prevented": false
+   },
+   {
+    "key": "Escape",
+    "meta": false,
+    "prevented": false
+   },
+   {
+    "key": "Meta",
+    "meta": true,
+    "prevented": false
+   },
+   {
+    "key": "k",
+    "meta": true,
+    "prevented": true
+   },
+   {
+    "key": "Escape",
+    "meta": false,
+    "prevented": false
+   },
+   {
+    "key": "Meta",
+    "meta": true,
+    "prevented": false
+   },
+   {
+    "key": "k",
+    "meta": true,
+    "prevented": true
+   },
+   {
+    "key": "a",
+    "meta": true,
+    "prevented": true
+   },
+   {
+    "key": "Escape",
+    "meta": false,
+    "prevented": false
+   }
+  ],
+  "pickerInDom": false,
+  "kdGradient": [
+   {
+    "key": "Meta",
+    "meta": true,
+    "prevented": false
+   },
+   {
+    "key": "k",
+    "meta": true,
+    "prevented": true
+   }
+  ],
+  "affordanceNamesChord": false,
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "mobile",
+  "ms": 12729,
+  "dockButtons": [
+   "Save edit",
+   "Cancel edit",
+   "Switch to slug",
+   "Cancel",
+   "Back",
+   "Reset color",
+   "Copy color",
+   "Random color",
+   "Palettes",
+   "Extract palette",
+   "Apply color",
+   "Open color input",
+   "Select view",
+   "Toggle action bar",
+   "Menu"
+  ],
+  "openColorInput": true,
+  "colorInputField": 1,
+  "ratio": 0.7862,
+  "figFont": "25.888px",
+  "trigFont": "32.928px",
+  "lines": {
+   "count": 3,
+   "cellsPerLine": [
+    3,
+    3,
+    3
+   ]
+  },
+  "combos": 2,
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "condense",
+  "ms": 6831,
+  "before": {
+   "h": 119.09,
+   "condensed": "false",
+   "overflow": 0,
+   "scrollTop": 0
+  },
+  "after": {
+   "h": 119.09,
+   "condensed": "false",
+   "overflow": 0,
+   "scrollTop": 0
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "unknown",
+  "ms": 5012,
+  "href": "http://localhost:8096/#/does-not-exist",
+  "picker": false,
+  "elements": 196,
+  "errorPlate": false,
+  "bodyText": "→\nNot found\nTools\nLogin\n@mbabb\nbackend offline — saved locally\n\n/does-not-exist could not be opened.\n\nNot found\n\nThis address names no view of this app.\n\n/does-not-exist\n\nBack to the picker",
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ {
+  "cell": "ambient-light",
+  "ms": 6765,
+  "file": "cp-ambient-1440-light.png",
+  "ambientMeanY": 0.4679,
+  "ambientMaxY": 0.7933,
+  "samples": 2200,
+  "plateSampleRGB": [
+   178,
+   100,
+   130
+  ],
+  "plates": 3,
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "ambient-dark",
+  "ms": 6712,
+  "file": "cp-ambient-1440-dark.png",
+  "ambientMeanY": 0.0269,
+  "ambientMaxY": 0.0658,
+  "samples": 2200,
+  "plateSampleRGB": [
+   93,
+   37,
+   49
+  ],
+  "plates": 3,
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ }
+]

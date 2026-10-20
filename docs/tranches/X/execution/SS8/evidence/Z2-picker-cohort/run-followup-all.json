@@ -1,0 +1,305 @@
+[
+ {
+  "cell": "ci",
+  "ms": 88938,
+  "rest": {
+   "focused": false,
+   "text": "oklch(73% 0.185 2deg)",
+   "border": "rgb(198, 180, 159)",
+   "outline": "none 3px",
+   "shadow": "none",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": null,
+   "badgeOverlapFracOfSend": null,
+   "title": "Color Picker"
+  },
+  "crownKeyframes": [
+   "crown-appear"
+  ],
+  "focused": {
+   "focused": true,
+   "text": "oklch(73% 0.185 2deg)",
+   "border": "oklch(0.73 0.185 2)",
+   "outline": "none 1px",
+   "shadow": "none",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": null,
+   "badgeOverlapFracOfSend": null,
+   "title": "Color Picker"
+  },
+  "afterDegenerate": {
+   "focused": true,
+   "text": "oklch()",
+   "border": "rgb(219, 36, 36)",
+   "outline": "none 1px",
+   "shadow": "color(srgb 0.86 0.14 0.14 / 0.25) 0px 0px 0px 2px",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": "not a valid color",
+   "badgeOverlapFracOfSend": 0.721,
+   "title": "Color Picker"
+  },
+  "afterWord": {
+   "focused": true,
+   "text": "notacolor",
+   "border": "rgb(219, 36, 36)",
+   "outline": "none 1px",
+   "shadow": "color(srgb 0.86 0.14 0.14 / 0.25) 0px 0px 0px 2px",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": "not a valid color",
+   "badgeOverlapFracOfSend": 0.721,
+   "title": "Color Picker"
+  },
+  "debounce": [
+   {
+    "t": 300,
+    "title": "Color Picker"
+   },
+   {
+    "t": 700,
+    "title": "Color Picker"
+   },
+   {
+    "t": 1300,
+    "title": "Color Picker"
+   },
+   {
+    "t": 2400,
+    "title": "rgb(10 200 30) — Color Picker"
+   }
+  ],
+  "popRest": 0,
+  "popOnKeyboardFocus": 0,
+  "popOnHover": 0,
+  "echo": null,
+  "titleAtEcho": "rgb(10 200 30) — Color Picker",
+  "crown": null,
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "ci-forced",
+  "ms": 8177,
+  "rest": {
+   "focused": false,
+   "text": "oklch(73% 0.185 2deg)",
+   "border": "rgb(0, 0, 0)",
+   "outline": "none 3px",
+   "shadow": "none",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": null,
+   "badgeOverlapFracOfSend": null,
+   "title": "Color Picker"
+  },
+  "crownKeyframes": [
+   "crown-appear"
+  ],
+  "focused": {
+   "focused": true,
+   "text": "oklch(73% 0.185 2deg)",
+   "border": "rgb(0, 0, 0)",
+   "outline": "none 1px",
+   "shadow": "none",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": null,
+   "badgeOverlapFracOfSend": null,
+   "title": "Color Picker"
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "picker-boot-clock",
+  "ms": 4638,
+  "shellAnims": [
+   {
+    "k": "overture-plate-settle",
+    "dur": 450,
+    "at": 189
+   }
+  ],
+  "token": "calc(0.45s * 1)",
+  "live": [
+   {
+    "cls": "card-header card-header--shrink picker-header font-display m",
+    "text": "OKLCh73.0%,0.2,2.0deg",
+    "inReadoutArea": true
+   },
+   {
+    "cls": "card-header card-header--shrink pane-header px-4 sm:px-6 pb-",
+    "text": "About the color spaces, OKLChThe math, the science, the art, the beauty of color",
+    "inReadoutArea": false
+   }
+  ],
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "picker-390",
+  "ms": 5155,
+  "tops": [
+   195,
+   195,
+   195
+  ],
+  "lines": 1,
+  "readoutW": 199,
+  "cellW": [
+   71,
+   43,
+   60
+  ],
+  "visible": true,
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "picker-390x480-scroll",
+  "ms": 6973,
+  "before": {
+   "h": 119.09,
+   "condensed": "false",
+   "hosts": [],
+   "docOver": 7719,
+   "docTop": 0
+  },
+  "after": {
+   "h": 119.09,
+   "condensed": "false",
+   "hosts": [],
+   "docOver": 7799,
+   "docTop": 720
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "css2",
+  "ms": 94508,
+  "about": [
+   {
+    "sp": "ictcp",
+    "combos": [
+     "OKLCh",
+     "OKLCh"
+    ],
+    "definition": "A cylindrical representation of the OKLab color space.",
+    "guideNext": "Historical ContextOKLCh is the polar form of OKLab, published by Björn Ottosson in 2020 to",
+    "cieRgb": false,
+    "href": "http://localhost:8096/#/?space=oklch&color=oklch(72.999999999998%25+0.185+1.999999999995deg)"
+   },
+   {
+    "sp": "jzazbz",
+    "combos": [
+     "Jzazbz",
+     "Jzazbz"
+    ],
+    "definition": "A perceptually-uniform space (Safdar, Kim, Luo, Cui & Melgosa, 2017) for image signals spa",
+    "guideNext": "No long-form guide is written for Jzazbz yet — its definition, white point, gamut, compone",
+    "cieRgb": false,
+    "href": "http://localhost:8096/#/?space=jzazbz&color=oklch(72.999999999997%25+0.185+1.999999999994deg)"
+   },
+   {
+    "sp": "a98-rgb",
+    "combos": [
+     "Adobe RGB",
+     "Adobe RGB"
+    ],
+    "definition": "Adobe's 1998 wide-gamut RGB working space, defined to encompass most colors reachable by C",
+    "guideNext": "No long-form guide is written for Adobe RGB yet — its definition, white point, gamut, comp",
+    "cieRgb": false,
+    "href": "http://localhost:8096/#/?space=a98-rgb&color=color(a98-rgb+0.889950622483+0.4268757578+0.609645189884)"
+   }
+  ],
+  "secondCount": 2,
+  "viaSecond": {
+   "before": {
+    "href": "http://localhost:8096/#/?space=a98-rgb&color=color(a98-rgb+0.889950622483+0.4268757578+0.609645189884)",
+    "readout": "0.9,0.4,0.6"
+   },
+   "after": {
+    "href": "http://localhost:8096/#/?space=lab&color=lab(66.387762887317%25+60.461020605511+3.340544394206)",
+    "readout": "66.4,60.5,3.3",
+    "combos": [
+     "Lab",
+     "Lab"
+    ],
+    "secondHost": "About the color spaces, \nLab\n\nThe math, "
+   }
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "csp-clip",
+  "ms": 6647,
+  "label": "Copied\nReset",
+  "clip": "{\n  \"geometry\": {\n    \"canvasSize\": 200,\n    \"bodyRadius\": 0",
+  "live": [],
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "csp-390-visible",
+  "ms": 6005,
+  "inDom": 31,
+  "rendered": 0,
+  "inViewport": 0,
+  "paneRect": {
+   "x": 16,
+   "w": 358,
+   "y": 104
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ }
+]
