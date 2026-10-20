@@ -73,3 +73,42 @@ Rows **OD19-F7**, **OD19-F8**. fourier `m/w1-bump-migration` **`976a704`** (push
   - slider-scrub-contrast (MPC-10) + equation-interaction: 3/3 ×2 (`adjacent-specs-run-{1,2}.txt`).
   - No golden re-baselined.
 - **Evidence:** `fourier/after/P2-fourier-sliders-caret/` (probe.mjs, probe.json, 8 PNGs, run logs).
+
+### P3-fourier-shell-motion-loading
+
+Rows **OD19-F5**, **OD19-F6**, **OD19-ALL**. fourier `m/w1-bump-migration` **`2a3651d`** (pushed, fast-forward).
+
+- **OD19-F5 (consumer): cured at the root.**
+  - **Route motion.** Every path change now runs under glass `routeTransition({ nav: "route" })` at the router seam (`web/src/router/index.ts`). This replaces I.ε's local `document.startViewTransition` bracket, which only covered the /w ↔ /v ↔ /gallery pairs. `<main>` carries `data-route-window` (`App.vue`).
+    - Glass gates the transition. Under reduced motion, or with no View Transitions API, the swap happens with no animation.
+    - The release is still a `nextTick`, never a frame (G-F9-11).
+    - There is one transition per navigation. A navigation that starts while one is still running (the loader's `/visualize` → `/w/` replace, or a second click mid-fade) opens none, so UIA-F-246's "started 1, aborted 0" holds.
+    - AFTER, all 4 cells, pushes to /paper, /v, /gallery, /equation and /morph: 6–26 frames with the new root's opacity below 1 (min 0), dock y/h moved in 0 frames, 0 loader-text frames (`probe.json` `routeTx`).
+  - **Panel corner.** `.viz-panel-left` and `.eq-panel-left-wrap` now publish `--radius-inset: 1px` (the aside's border). Glass derives the first layer's corner as **15px** inside the 16px card, so it is concentric (BEFORE: 4px). Read on /v and /equation in all 4 cells (`*-F5-layer-top_*.png`). /morph has no configurator layers, so nothing changes there.
+- **OD19-F6 (consumer): cured.** `DarkModeToggle.vue` now frames each shape's own ink box:
+  - every level the morph draws (≥ `lowLevel`), squared about its centre and padded by the stroke;
+  - mid-morph, the frame is lerped by the colour's existing `morphT`, so the motion is kept and nothing jumps;
+  - the stroke scales with the frame, so the line stays 1.68 px.
+  - Ink measured in the 24px box: sun 21.4 → **23.8 px**, moon 18.3 → **23.7 px** (`*-F6-toggle.png`).
+- **OD19-ALL (consumer): cured.**
+  - **Loaders.** The /v cold-load loader ("Loading the visualization…") and the /equation cold-compute loader ("Computing…") are now glass `Skeleton` in the stage's shape. The region is `aria-busy`, and the status keeps its accessible name with no visible text (`light-1440-{viz,equation}-skeleton.png`).
+  - **Prefetch.** `prefetchRoute()` (router) loads a section's chunk on navigation intent and calls its module's `prefetch()`. EquationView's `prefetch()` starts the default or restored compute. The view then either takes the in-flight promise (`takePrefetch`) or restores the result from the session cache.
+  - **Latency.** /paper → hover Equation → click → series painted: **1860 ms BEFORE**, 89–114 ms AFTER with a 1–3 s dwell, and 358 ms with no dwell.
+  - The /v first-compute overlay ("Computing the Fourier decomposition…") is a progress state over a drawn stage, not a route loader, and is left as is.
+- **Adjacent lines outside the modify set (same concern):**
+  - `web/src/components/layout/AppDock.vue`: the prefetch import, plus `@pointerenter`/`@focus` on the section menu items (the nav-intent seat).
+  - `web/e2e/f-w14u-vstage.spec.ts` e70: the busy status is located by accessible name (`getByRole("status", { name: /Loading/ })`) instead of visible text, which OD19-ALL removes. The assertion is no weaker.
+  - P1's `container-type` hunk in VisualizationView.vue was left unstaged. It was committed blob-wise, never reverted.
+- **Falsifier** `web/e2e/od19-p3-shell-motion-loading.spec.ts`: 16 tests, 4 cells.
+  - BEFORE: RED 15/16. Radius 4; vtFrames 0; ink 21.4/18.3; no skeleton; 1860 ms. Reduced motion passed.
+  - AFTER: GREEN ×2.
+- **Checks:**
+  - vue-tsc: clean.
+  - vitest: 116/116.
+  - Touched specs (P3, f-w13-radius, f-w14v-detached, f-w14v-nav, f-w14u-misc, f-w14u-eq, f-w14v-eq2, equation-interaction, f-w14u-vstage, shell-header, f-w14u-shell): 128/130 ×2.
+    - The 2 reds are `f-w14u-vstage` e171 (1440, 390), which expects `[style*="--row-fill"]` slider fills. P2 `976a704` deleted `--row-fill` (OD19-F7), so this is a sibling spec debt for P2/F.REL.v3, not this packet's.
+  - No golden re-baselined.
+- **Residuals:**
+  - glass `Skeleton` shimmer is O-102a (10.1.1). Adopt it when it lands.
+  - `useFourierMorph.ts`'s FR-AH-6 note names the router as the second home of the reduced-motion predicate. That copy is now gone, because glass owns the route gate.
+- **Evidence:** `fourier/after/P3-fourier-shell-motion-loading/` (probe.mjs, probe.json, PNGs, before-red/after-green/touched-run/vitest logs).

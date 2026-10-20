@@ -1,0 +1,264 @@
+{
+ "light-1440": {
+  "F5": {
+   "/v/hazy-etching-cream-elk": {
+    "r": "15px",
+    "aside": "16px"
+   },
+   "/equation": {
+    "r": "15px",
+    "aside": "16px"
+   },
+   "/morph": "configurator-layers=0"
+  },
+  "F6": {
+   "viewBox": "6.05 6.56 178.96 178.96",
+   "box": [
+    24,
+    24
+   ],
+   "ink": [
+    23.8,
+    23
+   ],
+   "strokePx": 1.68
+  },
+  "routeTx": {
+   "/paper": {
+    "frames": 86,
+    "vtFrames": 16,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/v/hazy-etching-cream-elk": {
+    "frames": 22,
+    "vtFrames": 6,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/gallery": {
+    "frames": 90,
+    "vtFrames": 15,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/equation": {
+    "frames": 25,
+    "vtFrames": 7,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/morph": {
+    "frames": 81,
+    "vtFrames": 11,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   }
+  }
+ },
+ "light-390": {
+  "F5": {
+   "/v/hazy-etching-cream-elk": {
+    "r": "15px",
+    "aside": "16px"
+   },
+   "/equation": {
+    "r": "15px",
+    "aside": "16px"
+   },
+   "/morph": "configurator-layers=0"
+  },
+  "F6": {
+   "viewBox": "6.05 6.56 178.96 178.96",
+   "box": [
+    24,
+    24
+   ],
+   "ink": [
+    23.8,
+    23
+   ],
+   "strokePx": 1.68
+  },
+  "routeTx": {
+   "/paper": {
+    "frames": 103,
+    "vtFrames": 26,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/v/hazy-etching-cream-elk": {
+    "frames": 82,
+    "vtFrames": 16,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/gallery": {
+    "frames": 105,
+    "vtFrames": 24,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/equation": {
+    "frames": 90,
+    "vtFrames": 15,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/morph": {
+    "frames": 101,
+    "vtFrames": 24,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   }
+  }
+ },
+ "dark-1440": {
+  "F5": {
+   "/v/hazy-etching-cream-elk": {
+    "r": "15px",
+    "aside": "16px"
+   },
+   "/equation": {
+    "r": "15px",
+    "aside": "16px"
+   },
+   "/morph": "configurator-layers=0"
+  },
+  "F6": {
+   "viewBox": "9.76 30.20 150.94 150.94",
+   "box": [
+    24,
+    24
+   ],
+   "ink": [
+    19.3,
+    23.7
+   ],
+   "strokePx": 1.68
+  },
+  "routeTx": {
+   "/paper": {
+    "frames": 83,
+    "vtFrames": 14,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/v/hazy-etching-cream-elk": {
+    "frames": 22,
+    "vtFrames": 7,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/gallery": {
+    "frames": 89,
+    "vtFrames": 13,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/equation": {
+    "frames": 23,
+    "vtFrames": 8,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/morph": {
+    "frames": 80,
+    "vtFrames": 12,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   }
+  }
+ },
+ "dark-390": {
+  "F5": {
+   "/v/hazy-etching-cream-elk": {
+    "r": "15px",
+    "aside": "16px"
+   },
+   "/equation": {
+    "r": "15px",
+    "aside": "16px"
+   },
+   "/morph": "configurator-layers=0"
+  },
+  "F6": {
+   "viewBox": "9.76 30.20 150.94 150.94",
+   "box": [
+    24,
+    24
+   ],
+   "ink": [
+    19.3,
+    23.7
+   ],
+   "strokePx": 1.68
+  },
+  "routeTx": {
+   "/paper": {
+    "frames": 105,
+    "vtFrames": 25,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/v/hazy-etching-cream-elk": {
+    "frames": 87,
+    "vtFrames": 18,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/gallery": {
+    "frames": 106,
+    "vtFrames": 25,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/equation": {
+    "frames": 90,
+    "vtFrames": 13,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   },
+   "/morph": {
+    "frames": 103,
+    "vtFrames": 25,
+    "minOpacity": 0,
+    "loaderFrames": 0,
+    "dockMoves": 0
+   }
+  }
+ },
+ "equationIntent": [
+  {
+   "dwellMs": 0,
+   "readyMs": 358
+  },
+  {
+   "dwellMs": 1000,
+   "readyMs": 89
+  },
+  {
+   "dwellMs": 3000,
+   "readyMs": 114
+  }
+ ]
+}
