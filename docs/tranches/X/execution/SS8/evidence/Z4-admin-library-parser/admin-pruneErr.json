@@ -1,0 +1,26 @@
+{
+  "cell": "pruneErr",
+  "notice": {
+    "text": "Prune failed: Internal Server Error",
+    "live": "polite",
+    "role": "status"
+  },
+  "text": "Users Manage accounts and permissions. 5 users · 2 empty Prune empty Prune failed: Internal Server Error amber -otter-1733 3 Delete all palettes ghost -empty-1733 0 cobalt -heron-9021 2 Delete all palettes ghost -empty-2208 0 an-extraordinarily-long-user-slug-that-keeps -going-4471 1 Delete all pale",
+  "saysNothingToPrune": false,
+  "prunePosts": 1,
+  "requests": [
+    {
+      "t": 1792531746356,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    },
+    {
+      "t": 1792531749120,
+      "m": "POST",
+      "p": "/admin/users/prune-empty",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

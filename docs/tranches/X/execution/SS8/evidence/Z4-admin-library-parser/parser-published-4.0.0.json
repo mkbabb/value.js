@@ -1,0 +1,330 @@
+{
+  "root": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/prototypes/css-parser/node_modules/@mkbabb/value.js",
+  "totality": {
+    "parseCssColor": {
+      "corpus": 172,
+      "throws": 102,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'replace')",
+        "TypeError: Cannot read properties of undefined (reading 'trim')",
+        "TypeError: Cannot read properties of null (reading 'trim')"
+      ]
+    },
+    "parseCssScalar": {
+      "corpus": 172,
+      "throws": 102,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'replace')",
+        "TypeError: Cannot read properties of undefined (reading 'trim')",
+        "TypeError: Cannot read properties of null (reading 'trim')"
+      ]
+    },
+    "parseCssValue": {
+      "corpus": 172,
+      "throws": 60,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'replace')",
+        "TypeError: Cannot read properties of undefined (reading 'trim')",
+        "TypeError: Cannot read properties of null (reading 'trim')"
+      ]
+    },
+    "parseCssValues": {
+      "corpus": 172,
+      "throws": 60,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'replace')",
+        "TypeError: Cannot read properties of undefined (reading 'trim')",
+        "TypeError: Cannot read properties of null (reading 'trim')"
+      ]
+    },
+    "parseKeyframeSelector": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'trim')",
+        "TypeError: Cannot read properties of null (reading 'trim')",
+        "TypeError: e.trim is not a function"
+      ]
+    },
+    "parseStylesheet": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "2/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'length')",
+        "TypeError: Cannot read properties of null (reading 'length')"
+      ]
+    },
+    "parseTimingFunction": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'trim')",
+        "TypeError: Cannot read properties of null (reading 'trim')",
+        "TypeError: e.trim is not a function"
+      ]
+    },
+    "parseAnimationTimeline": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'trim')",
+        "TypeError: Cannot read properties of null (reading 'trim')",
+        "TypeError: e.trim is not a function"
+      ]
+    },
+    "parseAnimationRange": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'trim')",
+        "TypeError: Cannot read properties of null (reading 'trim')",
+        "TypeError: e.trim is not a function"
+      ]
+    }
+  },
+  "table": {
+    "rgba(1, 2, 3, 0.5)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 18, expected: [ 'CSS color' ], actual: 'rgba(1, 2, 3, 0.5)' } ]\n}"
+    },
+    "hsla(120, 50%, 50%, 0.5)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 24, expected: [ 'CSS color' ], actual: 'hsla(120, 50%, 50%, 0.5)' } ]\n}"
+    },
+    "rgb(1,2,3,)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'rgb', channels: [ 1, 2, 3 ], alpha: 1 }"
+    },
+    "rgb(1 2 3 / )": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'rgb', channels: [ 1, 2, 3 ], alpha: 1 }"
+    },
+    "rgb(1, 2 3)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'rgb', channels: [ 1, 2, 3 ], alpha: 1 }"
+    },
+    "hsl(120%, 50%, 50%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ 432, 0.5, 0.5 ], alpha: 1 }"
+    },
+    "lch(50% 50% 50%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'lch', channels: [ 50, 75, 180 ], alpha: 1 }"
+    },
+    "rgb(300 -20 3)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'rgb', channels: [ 300, -20, 3 ], alpha: 1 }"
+    },
+    "rgb(1 2 3 / 1.5)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 16, expected: [ 'color_out_of_range' ], actual: 'rgb(1 2 3 / 1.5)' } ]\n}"
+    },
+    "hsl(120 50 50)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ 120, 50, 50 ], alpha: 1 }"
+    },
+    "hsl(120 50% 50%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ 120, 0.5, 0.5 ], alpha: 1 }"
+    },
+    "rgb(1. 2 3)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'rgb', channels: [ 1, 2, 3 ], alpha: 1 }"
+    },
+    "hwb(120, 30%, 40%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hwb', channels: [ 120, 0.3, 0.4 ], alpha: 1 }"
+    },
+    "currentcolor": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'color_context_required', start: 0, end: 12, expected: [ 'context-free color' ], actual: 'currentcolor' } ]\n}"
+    },
+    "lab(50 1e400 0)": {
+      "threw": false,
+      "ok": false,
+      "error": "{ ok: false, diagnostics: [ { code: 'css_syntax', start: 0, end: 15, expected: [], actual: 'lab(50 1e400 0)' } ] }"
+    },
+    "hsl(480 50% 50%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ 480, 0.5, 0.5 ], alpha: 1 }"
+    },
+    "hsl(-120 50% 50%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ -120, 0.5, 0.5 ], alpha: 1 }"
+    },
+    "oklch()": {
+      "threw": true,
+      "msg": "TypeError: Cannot read properties of undefined (reading 'replace')"
+    },
+    "color(xyz-d50 0.2 0.3 0.4)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'xyz', channels: [ 0.20946884509321387, 0.30574125403438535, 0.5284568786800763 ], alpha: 1 }"
+    },
+    "rgb(50%20%30%)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 14, expected: [ 'CSS color' ], actual: 'rgb(50%20%30%)' } ]\n}"
+    },
+    "rgb(1.5.5 3)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 12, expected: [ 'CSS color' ], actual: 'rgb(1.5.5 3)' } ]\n}"
+    },
+    "hsl(120 50%50%)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 15, expected: [ 'CSS color' ], actual: 'hsl(120 50%50%)' } ]\n}"
+    },
+    "color(constructor 0 0 0)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 24, expected: [ 'CSS color space' ], actual: 'color(constructor 0 0 0)' } ]\n}"
+    },
+    "color(__proto__ 0 0 0)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 22, expected: [ 'CSS color space' ], actual: 'color(__proto__ 0 0 0)' } ]\n}"
+    }
+  },
+  "proto": {
+    "parseCssColor": {
+      "constructor": {
+        "threw": true,
+        "msg": "TypeError: e.trim is not a function"
+      },
+      "__proto__": {
+        "threw": true,
+        "msg": "TypeError: e.trim is not a function"
+      }
+    },
+    "parseStylesheet": {
+      "threw": true,
+      "msg": "TypeError: e.trim is not a function"
+    },
+    "parseTimingFunction": {
+      "threw": false,
+      "ok": true,
+      "positionType": "function",
+      "value": "{ kind: 'steps', count: 2, position: [Function: Object] }"
+    },
+    "easing": {
+      "constructor": {
+        "threw": true,
+        "msg": "TypeError: function is not iterable (cannot read property Symbol(Symbol.iterator))"
+      },
+      "__proto__": {
+        "threw": true,
+        "msg": "TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))"
+      },
+      "toString": {
+        "threw": true,
+        "msg": "TypeError: function is not iterable (cannot read property Symbol(Symbol.iterator))"
+      },
+      "hasOwnProperty": {
+        "threw": true,
+        "msg": "TypeError: function is not iterable (cannot read property Symbol(Symbol.iterator))"
+      },
+      "valueOf": {
+        "threw": true,
+        "msg": "TypeError: function is not iterable (cannot read property Symbol(Symbol.iterator))"
+      }
+    },
+    "easingControl": {
+      "ease": {
+        "threw": false,
+        "ok": true,
+        "value": "[Function (anonymous)]"
+      },
+      "unknown": {
+        "threw": false,
+        "ok": false,
+        "error": "{ code: 'easing_name_unknown' }"
+      }
+    }
+  },
+  "easingReferenceStable": {
+    "ease": {
+      "sameReference": false,
+      "type": "function"
+    },
+    "ease-in": {
+      "sameReference": false,
+      "type": "function"
+    },
+    "ease-out": {
+      "sameReference": false,
+      "type": "function"
+    },
+    "ease-in-out": {
+      "sameReference": false,
+      "type": "function"
+    }
+  },
+  "exportsList": {
+    "css": [
+      "coerceToSyntax",
+      "collectAnimationOptions",
+      "collectCustomFunctions",
+      "collectDeclarations",
+      "collectKeyframes",
+      "collectPropertyDescriptors",
+      "collectStyleRules",
+      "collectTimelineOptions",
+      "parseAnimationRange",
+      "parseAnimationTimeline",
+      "parseCssColor",
+      "parseCssScalar",
+      "parseCssValue",
+      "parseCssValues",
+      "parseKeyframeSelector",
+      "parseStylesheet",
+      "parseTimingFunction",
+      "serializeCssColor",
+      "serializeTimelineOptions"
+    ],
+    "easing": [
+      "CubicBezier",
+      "bezierPresets",
+      "easeInBounce",
+      "easeInOutCirc",
+      "easeInOutCubic",
+      "easeInOutExpo",
+      "easeInOutQuad",
+      "easeInOutSine",
+      "easeOutCubic",
+      "easeOutExpo",
+      "easing",
+      "jumpTerms",
+      "linear",
+      "linearEasing",
+      "smoothStep3",
+      "steppedEase"
+    ]
+  }
+}

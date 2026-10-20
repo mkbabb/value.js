@@ -1,0 +1,25 @@
+{
+  "cell": "delErr",
+  "notice": {
+    "text": "Could not delete the user: Internal Server Error",
+    "live": "polite",
+    "role": "status"
+  },
+  "stillListed": 1,
+  "deletes": 1,
+  "requests": [
+    {
+      "t": 1792531761412,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    },
+    {
+      "t": 1792531763681,
+      "m": "DELETE",
+      "p": "/admin/users/ghost-empty-1733",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

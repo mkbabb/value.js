@@ -1,0 +1,383 @@
+{
+  "cell": "pop-1440",
+  "buttons": [
+    {
+      "label": "Sort users",
+      "variant": null,
+      "emphasis": "quiet",
+      "size": "xs",
+      "attrs": "data-slot data-emphasis data-tone data-size data-icon-only data-control-target data-press-armed type class id aria-haspopup aria-expanded data-state aria-label style",
+      "h": 28,
+      "w": 28,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Prune empty",
+      "variant": null,
+      "emphasis": "secondary",
+      "size": "xs",
+      "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-control-target data-press-armed type class style",
+      "h": 28,
+      "w": 123.6,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "14.384px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Refresh users",
+      "variant": null,
+      "emphasis": "secondary",
+      "size": "xs",
+      "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-icon-only data-control-target data-press-armed type class aria-label style",
+      "h": 28,
+      "w": 28,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "amber-otter-17333",
+      "variant": null,
+      "emphasis": null,
+      "size": null,
+      "attrs": "data-v-16795e8c type aria-controls aria-expanded data-state data-slot data-disclosure id class",
+      "h": 49,
+      "w": 778,
+      "minH": "auto",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Delete all palettes of amber-otter-1733",
+      "variant": null,
+      "emphasis": "secondary",
+      "size": "xs",
+      "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-control-target data-press-armed type class aria-label style",
+      "h": 28,
+      "w": 156,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "14.384px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Delete user amber-otter-1733",
+      "variant": null,
+      "emphasis": "quiet",
+      "size": "xs",
+      "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-icon-only data-control-target data-press-armed type class aria-label style",
+      "h": 28,
+      "w": 28,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Delete user ghost-empty-1733",
+      "variant": null,
+      "emphasis": "quiet",
+      "size": "xs",
+      "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-icon-only data-control-target data-press-armed type class aria-label style",
+      "h": 28,
+      "w": 28,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "cobalt-heron-90212",
+      "variant": null,
+      "emphasis": null,
+      "size": null,
+      "attrs": "data-v-16795e8c type aria-controls aria-expanded data-state data-slot data-disclosure id class",
+      "h": 49,
+      "w": 778,
+      "minH": "auto",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Delete all palettes of cobalt-heron-9021",
+      "variant": null,
+      "emphasis": "secondary",
+      "size": "xs",
+      "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-control-target data-press-armed type class aria-label style",
+      "h": 28,
+      "w": 156,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "14.384px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Delete user cobalt-heron-9021",
+      "variant": null,
+      "emphasis": "quiet",
+      "size": "xs",
+      "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-icon-only data-control-target data-press-armed type class aria-label style",
+      "h": 28,
+      "w": 28,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Delete user ghost-empty-2208",
+      "variant": null,
+      "emphasis": "quiet",
+      "size": "xs",
+      "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-icon-only data-control-target data-press-armed type class aria-label style",
+      "h": 28,
+      "w": 28,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "an-extraordinarily-long-user-slug-that-keeps-going",
+      "variant": null,
+      "emphasis": null,
+      "size": null,
+      "attrs": "data-v-16795e8c type aria-controls aria-expanded data-state data-slot data-disclosure id class",
+      "h": 49,
+      "w": 778,
+      "minH": "auto",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Delete all palettes of an-extraordinarily-long-use",
+      "variant": null,
+      "emphasis": "secondary",
+      "size": "xs",
+      "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-control-target data-press-armed type class aria-label style",
+      "h": 28,
+      "w": 156,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "14.384px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Delete user an-extraordinarily-long-user-slug-that",
+      "variant": null,
+      "emphasis": "quiet",
+      "size": "xs",
+      "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-icon-only data-control-target data-press-armed type class aria-label style",
+      "h": 28,
+      "w": 28,
+      "minH": "28px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    },
+    {
+      "label": "Previous page",
+      "variant": null,
+      "emphasis": "secondary",
+      "size": "sm",
+      "attrs": "data-slot data-emphasis data-tone data-size data-control-target data-press-armed type disabled class aria-label style",
+      "h": 36,
+      "w": 16,
+      "minH": "36px",
+      "disabled": true,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": false
+    },
+    {
+      "label": "Next page",
+      "variant": null,
+      "emphasis": "secondary",
+      "size": "sm",
+      "attrs": "data-slot data-emphasis data-tone data-size data-control-target data-press-armed type class aria-label style",
+      "h": 36,
+      "w": 16,
+      "minH": "36px",
+      "disabled": false,
+      "opacity": "1",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fs": "18.608px",
+      "ff": "\"Plus Jakarta Sans\", \"Plus J",
+      "fst": "normal",
+      "inTab": true
+    }
+  ],
+  "dom": {
+    "triggers": 3,
+    "triggerRole": [
+      "BUTTON",
+      null,
+      "false",
+      "glass-disclosure-content-v-1"
+    ],
+    "nestedInteractiveInsideTrigger": [
+      0,
+      0,
+      0
+    ],
+    "pillSpans": 2,
+    "pillInnerText": "\"amber\\n-otter-1733\"",
+    "pillTextContent": "amber-otter-1733",
+    "liveRegion": {
+      "ariaLive": "polite",
+      "role": null
+    },
+    "rolesWithAriaLabelOnGeneric": 0,
+    "toolbar": "400 users · 2 empty Prune empty",
+    "statusFont": {
+      "text": "400 users",
+      "fs": "16.4px",
+      "ff": "\"Fira Code\", \"Fira Code Fall"
+    }
+  },
+  "axNames": [
+    [
+      "button",
+      "amber -otter-1733 3"
+    ],
+    [
+      "button",
+      "Delete all palettes of amber-otter-1733"
+    ],
+    [
+      "button",
+      "Delete user amber-otter-1733"
+    ],
+    [
+      "button",
+      "Delete user ghost-empty-1733"
+    ],
+    [
+      "button",
+      "cobalt -heron-9021 2"
+    ],
+    [
+      "button",
+      "Delete all palettes of cobalt-heron-9021"
+    ],
+    [
+      "button",
+      "Delete user cobalt-heron-9021"
+    ],
+    [
+      "button",
+      "an-extraordinarily-long-user-slug-that-keeps -going-4471 1"
+    ],
+    [
+      "button",
+      "Delete all palettes of an-extraordinarily-long-user-slug-that-keeps-going-4471"
+    ],
+    [
+      "button",
+      "Delete user an-extraordinarily-long-user-slug-that-keeps-going-4471"
+    ],
+    [
+      "StaticText",
+      "-empty-1733"
+    ],
+    [
+      "StaticText",
+      "-otter-1733"
+    ]
+  ],
+  "listReqs": [
+    "/admin/users?limit=50&offset=0"
+  ],
+  "requests": [
+    {
+      "t": 1792531735408,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

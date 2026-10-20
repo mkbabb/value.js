@@ -1,0 +1,16 @@
+{
+  "cell": "skelRow",
+  "row": {
+    "rowH": 51,
+    "identityStartX": 13
+  },
+  "requests": [
+    {
+      "t": 1792531785064,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

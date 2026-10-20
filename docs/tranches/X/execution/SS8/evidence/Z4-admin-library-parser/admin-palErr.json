@@ -1,0 +1,20 @@
+{
+  "cell": "palErr",
+  "errorShown": true,
+  "noPalettes": false,
+  "requests": [
+    {
+      "t": 1792531765407,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    },
+    {
+      "t": 1792531767071,
+      "m": "GET",
+      "p": "/admin/users/amber-otter-1733/palettes",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

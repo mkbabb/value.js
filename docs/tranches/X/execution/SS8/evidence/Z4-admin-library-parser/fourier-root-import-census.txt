@@ -1,0 +1,20 @@
+# fourier-analysis @ e928541 (m/w1-bump-migration) — read 2026-10-20
+$ grep -rnE "from [\"']@mkbabb/value\.js[\"']" web/src | wc -l
+       0
+$ grep -rnoE "@mkbabb/value\.js/[a-z]+" web/src | sort | uniq -c
+   1 @mkbabb/value.js/color
+   1 @mkbabb/value.js/css
+   5 @mkbabb/value.js/easing
+   1 @mkbabb/value.js/math
+$ grep -rn timingFunctions web/src | wc -l
+       2
+$ grep -n "cssVarToHex\|hslToHex\|rgbToHex\|hexToRgb" -r web/src | wc -l
+       0
+$ value.js pin
+/Users/mkbabb/Programming/keyframes.js/package.json:71:        "@mkbabb/value.js": "4.0.0"
+/Users/mkbabb/Programming/fourier-analysis/web/package.json:23:        "@mkbabb/value.js": "^4.0.0",
+$ installed
+4.0.0
+4.0.0
+$ value.js package.json version
+4.1.0

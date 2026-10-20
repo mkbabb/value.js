@@ -1,0 +1,82 @@
+{
+  "head": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/z4-head",
+  "sharedAccepted": {
+    "n": 30,
+    "cells": [
+      {
+        "name": "HEAD parseCssColor",
+        "medianNs": 728,
+        "min": 553,
+        "max": 1303
+      },
+      {
+        "name": "published 4.0.0 (+catch)",
+        "medianNs": 810,
+        "min": 654,
+        "max": 1455
+      }
+    ],
+    "headSpeedupVsPublished": 1.11
+  },
+  "reject": {
+    "n": 10,
+    "cells": [
+      {
+        "name": "HEAD parseCssColor",
+        "medianNs": 209,
+        "min": 194,
+        "max": 243
+      },
+      {
+        "name": "published 4.0.0 (+catch)",
+        "medianNs": 234,
+        "min": 213,
+        "max": 277
+      }
+    ],
+    "headSpeedupVsPublished": 1.12
+  },
+  "r1Class": {
+    "n": 7,
+    "cells": [
+      {
+        "name": "HEAD parseCssColor",
+        "medianNs": 219,
+        "min": 190,
+        "max": 12621
+      },
+      {
+        "name": "published 4.0.0 (+catch)",
+        "medianNs": 52866,
+        "min": 37470,
+        "max": 114491
+      }
+    ],
+    "headSpeedupVsPublished": 241.53
+  },
+  "corpora": {
+    "sharedDropped": [],
+    "rejBoth": [
+      "notacolor",
+      "#gg0000",
+      "#12345",
+      "rgb(1 2)",
+      "rgb(1px 2 3)",
+      "hsv(120 50% 50%)",
+      "var(--brand)",
+      "currentColor",
+      "1px",
+      ""
+    ],
+    "r1": [
+      "oklch()",
+      "rgb()",
+      "hsl( )",
+      "lab(/)",
+      "oklab(/ )",
+      "color( / )",
+      "rgba()"
+    ]
+  },
+  "sink": 960000
+}

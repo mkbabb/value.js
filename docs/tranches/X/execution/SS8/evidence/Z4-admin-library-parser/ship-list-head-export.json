@@ -1,0 +1,35 @@
+{
+  "root": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/z4-head",
+  "version": "4.1.0",
+  "exportsKeys": [
+    "./color",
+    "./value",
+    "./css",
+    "./easing",
+    "./math",
+    "./transform",
+    "./quantize"
+  ],
+  "ship": {
+    "sampleColorRamp": true,
+    "mixColorsInto": true,
+    "toRgba8Into": true,
+    "toHex": true,
+    "ColorFactory": false,
+    "easingNames": true,
+    "serializeCssValue": true,
+    "serializeKeyframeSelector": false
+  },
+  "decline": {
+    "sampleBezier": false,
+    "resolveCssColor": false
+  },
+  "fence": {
+    "bezierPresetsKeys": 30,
+    "easingNamesCount": 40
+  },
+  "serializeCssValueBadInput": {
+    "threw": true,
+    "msg": "TypeError: n is not iterable"
+  }
+}

@@ -1,0 +1,32 @@
+# HEAD export 4d5d0dbdc
+ok   MTS-01  parseCssColor("constructor") returned
+ok   MTS-01  parseCssColor("__proto__") returned
+ok   MTS-01  parseCssScalar("constructor") returned
+ok   MTS-01  parseCssScalar("__proto__") returned
+ok   MTS-01  parseCssValue("constructor") returned
+ok   MTS-01  parseCssValue("__proto__") returned
+ok   MTS-01  parseCssValues("constructor") returned
+ok   MTS-01  parseCssValues("__proto__") returned
+ok   MTS-01  coerceToSyntax("constructor") returned
+ok   MTS-01  coerceToSyntax("__proto__") returned
+ok   MTS-01  parseStylesheet("a{color:constructor}") returned
+ok   MTS-01  parseStylesheet("a{color:__proto__}") returned
+ok   MTS-01  parseStylesheet("@keyframes k{from{color:constructor}}") returned
+ok   MTS-01  parseStylesheet("a{background:linear-gradient(constructor,red)}") returned
+ok   MTS-01  parseStylesheet("a{animation:x 1s steps(2,constructor)}") returned
+ok   MTS-02  steps(2, constructor) -> failure
+ok   MTS-02  steps(2, __proto__) -> failure
+ok   MTS-03  M 0 0 L 10 -> 0
+ok   MTS-03  M 0 0 C 1 1 2 2 3 -> 0
+ok   MTS-03  M 0 0 Q 1 1 2 -> 0
+ok   MTS-03  M 0 0 L 3 4 L 5 -> 5
+ok   MTS-04  compact == expanded (31.403311569547547)
+file:///private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/z4-head/docs/tranches/V/megatranche/audit/probes/src-surface-totality.mjs:74
+const dg = TR.decomposeMatrix3D([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+              ^
+
+TypeError: TR.decomposeMatrix3D is not a function
+    at file:///private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/z4-head/docs/tranches/V/megatranche/audit/probes/src-surface-totality.mjs:74:15
+
+Node.js v26.0.0
+exit 1

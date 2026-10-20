@@ -1,0 +1,37 @@
+{
+  "cell": "focus",
+  "triggerBox": {
+    "x": 224,
+    "y": 273.5625,
+    "width": 777.953125,
+    "height": 48.96875
+  },
+  "wrapper": [
+    223,
+    272.5625,
+    994,
+    50.96875
+  ],
+  "focused": {
+    "isTrigger": true,
+    "fv": true,
+    "outline": "none 3px oklch(0.216129 0.00624853 56.0356)",
+    "outlineOffset": "0px",
+    "boxShadow": "color(srgb 0.362727 0.0000282761 0.167897 / 0.3) 0px 0px 0px 2px, color(srgb 0.362727 0.0000282761 0.167897 / 0.15) 0px 0px 8px 0px"
+  },
+  "pixelDiff": {
+    "changedPx": 98,
+    "maxDelta": 130,
+    "w": 1006,
+    "h": 62
+  },
+  "requests": [
+    {
+      "t": 1792531739504,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

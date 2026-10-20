@@ -1,0 +1,89 @@
+{
+  "cell": "rtl",
+  "pills": [
+    {
+      "title": "amber-otter-1733",
+      "spans": [
+        {
+          "t": "amber",
+          "x": 1145.8
+        },
+        {
+          "t": "-otter-1733",
+          "x": 1037.5
+        }
+      ],
+      "visualOrder": "-otter-1733amber",
+      "dir": "rtl"
+    },
+    {
+      "title": "ghost-empty-1733",
+      "spans": [
+        {
+          "t": "ghost",
+          "x": 1145.8
+        },
+        {
+          "t": "-empty-1733",
+          "x": 1037.5
+        }
+      ],
+      "visualOrder": "-empty-1733ghost",
+      "dir": "rtl"
+    },
+    {
+      "title": "cobalt-heron-9021",
+      "spans": [
+        {
+          "t": "cobalt",
+          "x": 1136
+        },
+        {
+          "t": "-heron-9021",
+          "x": 1027.7
+        }
+      ],
+      "visualOrder": "-heron-9021cobalt",
+      "dir": "rtl"
+    },
+    {
+      "title": "ghost-empty-2208",
+      "spans": [
+        {
+          "t": "ghost",
+          "x": 1145.8
+        },
+        {
+          "t": "-empty-2208",
+          "x": 1037.5
+        }
+      ],
+      "visualOrder": "-empty-2208ghost",
+      "dir": "rtl"
+    },
+    {
+      "title": "an-extraordinarily-long-user-slug-that-keeps-going-4471",
+      "spans": [
+        {
+          "t": "an-extraordinarily-long-user-slug-that-keeps",
+          "x": 762
+        },
+        {
+          "t": "-going-4471",
+          "x": 653.8
+        }
+      ],
+      "visualOrder": "-going-4471an-extraordinarily-long-user-slug-that-keeps",
+      "dir": "rtl"
+    }
+  ],
+  "requests": [
+    {
+      "t": 1792531779278,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

@@ -1,0 +1,82 @@
+{
+  "head": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/z4-head",
+  "sharedAccepted": {
+    "n": 30,
+    "cells": [
+      {
+        "name": "HEAD parseCssColor",
+        "medianNs": 591,
+        "min": 529,
+        "max": 647
+      },
+      {
+        "name": "published 4.0.0 (+catch)",
+        "medianNs": 756,
+        "min": 668,
+        "max": 1314
+      }
+    ],
+    "headSpeedupVsPublished": 1.28
+  },
+  "reject": {
+    "n": 10,
+    "cells": [
+      {
+        "name": "HEAD parseCssColor",
+        "medianNs": 212,
+        "min": 170,
+        "max": 293
+      },
+      {
+        "name": "published 4.0.0 (+catch)",
+        "medianNs": 237,
+        "min": 207,
+        "max": 391
+      }
+    ],
+    "headSpeedupVsPublished": 1.11
+  },
+  "r1Class": {
+    "n": 7,
+    "cells": [
+      {
+        "name": "HEAD parseCssColor",
+        "medianNs": 214,
+        "min": 166,
+        "max": 294
+      },
+      {
+        "name": "published 4.0.0 (+catch)",
+        "medianNs": 39958,
+        "min": 34178,
+        "max": 50177
+      }
+    ],
+    "headSpeedupVsPublished": 187.13
+  },
+  "corpora": {
+    "sharedDropped": [],
+    "rejBoth": [
+      "notacolor",
+      "#gg0000",
+      "#12345",
+      "rgb(1 2)",
+      "rgb(1px 2 3)",
+      "hsv(120 50% 50%)",
+      "var(--brand)",
+      "currentColor",
+      "1px",
+      ""
+    ],
+    "r1": [
+      "oklch()",
+      "rgb()",
+      "hsl( )",
+      "lab(/)",
+      "oklab(/ )",
+      "color( / )",
+      "rgba()"
+    ]
+  },
+  "sink": 960000
+}

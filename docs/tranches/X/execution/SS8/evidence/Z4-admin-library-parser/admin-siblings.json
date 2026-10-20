@@ -1,0 +1,15 @@
+{
+  "cell": "siblings",
+  "flagged": {
+    "dialogOpened": true,
+    "dlgTitle": "Delete flagged palette?",
+    "deletesBeforeConfirm": 0
+  },
+  "tags": {
+    "dialogOpened": true,
+    "dlgTitle": "Delete tag?",
+    "deletesBeforeConfirm": 0
+  },
+  "requests": [],
+  "pageErrors": []
+}

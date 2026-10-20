@@ -1,0 +1,14 @@
+# 2026-10-20 — registry + pins (W.L6 cut witness)
+$ npm view @mkbabb/value.js dist-tags
+{ latest: '4.0.0' }
+$ npm view @mkbabb/value.js versions --json | tail -3
+  "3.1.0",
+  "4.0.0"
+]
+$ node -p require(value.js/package.json).version
+4.1.0
+$ curl -sD- -H "Origin: http://localhost:9341" :3000/health | grep -i access-control
+access-control-allow-credentials: true
+access-control-allow-headers: Content-Type, X-Session-Token, Authorization
+access-control-allow-methods: GET, POST, PATCH, DELETE, OPTIONS
+access-control-allow-origin: http://localhost:9000
