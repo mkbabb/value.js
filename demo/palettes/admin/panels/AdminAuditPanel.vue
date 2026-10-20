@@ -73,8 +73,10 @@
             detail="Sign in with an admin token to read the audit log."
         />
 
-        <!-- W5-1 + F-13: entries load as row shadows, one grammar. -->
-        <div v-else-if="firstLoad" class="grid gap-2" role="status" aria-label="Loading audit log">
+        <!-- W5-1 + F-13: entries load as row shadows, one grammar.
+             SS8-0514: at the rows' own rhythm — the rows are this root's
+             children (gap-3), so the shadows stand at gap-3, not a private 8 px. -->
+        <div v-else-if="firstLoad" class="grid gap-3" role="status" aria-label="Loading audit log">
             <AdminListSkeleton v-for="i in 3" :key="i" />
         </div>
 

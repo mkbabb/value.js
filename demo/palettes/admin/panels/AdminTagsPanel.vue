@@ -213,7 +213,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, inject, onActivated, onDeactivated, onMounted, ref, shallowRef, watch } from "vue";
 import {
     Dialog,
     DialogContent,
@@ -245,6 +245,12 @@ const canCreate = computed(
 );
 
 onMounted(() => tagsApi.loadTags());
+// SS8-0533 (ATP-29): the pane is kept alive and never evicted (PANE_CACHE_MAX
+// is each role's pane-set size), so a mount-only read went stale for the
+// session. Every RETURN reads again; the first activation is the mount's read.
+let left = false;
+onDeactivated(() => (left = true));
+onActivated(() => left && tagsApi.loadTags());
 
 // X.W7.e (G14 · N-6): the tag named in the confirm is kept for display through
 // the leave transition; the act is held separately, TAKEN (cleared) before it

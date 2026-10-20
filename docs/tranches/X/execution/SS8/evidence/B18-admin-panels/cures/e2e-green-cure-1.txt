@@ -1,0 +1,25 @@
+(node:32746) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:32823) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 10 tests using 1 worker
+
+(node:32997) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+SS8-0514 {"skel":{"h":[81.00851440429688,81.00851440429688,81.00851440429688],"gaps":[-0.231689453125,-0.231689453125]},"rows":{"h":[81.00851440429688,81.00851440429688,81.00851440429688],"gaps":[-0.231689453125,-0.231689453125]}}
+  ✓   1 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap (50.1s)
+  -   2 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:89:10 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+SS8-0529 New tag name {"text":87.7,"box":332,"field":332.2,"coarse":true,"uiScale":"1.5"}
+SS8-0529 New tag category {"text":80.9,"box":194,"field":194.4,"coarse":true,"uiScale":"1.5"}
+  ✓   3 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:116:5 › coarse 390 › SS8-0529 · the Tags create placeholders fit their fields (1.2s)
+  ✓   4 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:126:5 › coarse 390 › SS8-0513 · Audit Refresh is 44×44 coarse (849ms)
+  ✓   5 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:132:5 › coarse 390 › SS8-0524 · Flagged Dismiss and delete are ≥ 44 px (Chromium arm) (837ms)
+  ✓   6 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:144:5 › fine pointer pins › SS8-0509 · a ~6 KB target never widens its row past the track (320) (673ms)
+  ✓   7 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:163:5 › fine pointer pins › SS8-0510/0515 · no flex-1 spacer; the count + Refresh cluster ends the toolbar at 390 (1.2s)
+  ✓   8 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:180:5 › fine pointer pins › SS8-0513 · Audit Refresh is 28×28 fine (567ms)
+  ✓   9 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:186:5 › fine pointer pins › SS8-0523 · the flag badge renders at --type-small (1.7s)
+  ✓  10 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:201:5 › fine pointer pins › SS8-0526 · no repeating admin poll; a query before the hash still routes (7.2s)
+
+  1 skipped
+  9 passed (1.1m)

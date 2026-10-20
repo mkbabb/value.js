@@ -87,3 +87,31 @@
 - **0519 RTL**: `ml-auto` → `ms-auto` on the flag-row date (AF-48, one token).
 - **0522**: the light count fails at 4.19:1, and Audit's timestamp at 4.19:1. Thread `plate-ink` (EmptyState's rung) into the admin muted mono ink.
 - **0525**: focus falls to `<body>` after both row removals (AF-32). Move focus to the next row's Dismiss, or to the list.
+
+## cures
+
+Seat: SS-8 cure, batch B18-admin-panels (2026-10-20). Falsifiers:
+`demo/test/palettes/ss8-b18-admin-tags.test.ts`, `demo/test/palettes/ss8-b18-admin-audit.test.ts`
+(vitest, real `providePalettePorts` + `AdminPane`, `fetch` stubbed at the platform edge) and
+`e2e/smoke/admin/ss8-b18-admin-panels.spec.ts` (smoke-admin, headless Chromium, `--workers=1`).
+Every run went through `~/.claude/guard/guarded` (vitest `--light --maxWorkers=2`; playwright
+as a browser run). Run logs: `evidence/B18-admin-panels/cures/` (`E/cures/` below). The final e2e runs used a private server (`VJS_E2E_PORT=8186`). On the shared :8090, a concurrent seat's server teardown aborted navigations (`net::ERR_ABORTED`, goto timeouts), and that unrelated red is kept in `E/cures/e2e-green-1.txt`.
+
+| SID | verdict at this seat | cure / falsifier | witness |
+|---|---|---|---|
+| 0509 AAP-1 | already cured (no code owed) | vitest pin: the 6 KB-target audit row and its column carry `min-w-0` (UIA-V-52). RED x2 under the mutant that strips it, GREEN x2 at the tree. e2e pin at 320: `row − track ≤ 1`, `sw ≤ cw`. | `E/cures/pins-mutant-red-{1,2}.txt`; `E/cures/green-final-{1,2}.txt`; `E/cures/e2e-green-cure-{1,2}.txt` |
+| 0510 AAP-9 | already cured (no code owed) | vitest pin: count + Refresh form one `ms-auto shrink-0` cluster, and the toolbar has no `flex-1` spacer peer (V16-05). RED x2 under the spacer mutant, GREEN x2. | as 0509 |
+| 0513 AAP-19 | already cured (no code owed) | vitest pin: Refresh renders `data-size="xs"` and `data-icon-only="true"` with no text. RED x2 under the `size="sm"` mutant, GREEN x2. e2e pins: 28×28 fine, 44×44 coarse (GREEN x2, `E/cures/e2e-green-cure-{1,2}.txt`). | as 0509 |
+| 0514 Skeleton-vs-row | **gap limb CURED**; height limb **blockedByDirty** | `AdminAuditPanel.vue`: the loading region stands at the root's rhythm (`grid gap-2` → `gap-3`). The rows are the root's own children at `gap-3`, so the shadows now space as the rows do. vitest: the region's gap rung equals its parent's. RED x2 at HEAD (`expected 'gap-2' to be 'gap-3'`), GREEN x2. e2e (live geometry): RED x2 under the gap-2 mutant (`|Δgap|` = **4.0 px**: skeleton −2.39 vs rows 1.61), GREEN x2 with the cure (−0.23 = −0.23). Negative gaps, and heights that move between runs (66.2 / 69.1 / 79.2 / 81.0), show that the rects are read while an arrival transform is still in flight. So only the same-condition gap difference is evidence. Absolute heights are not. The height limb rides `AdminListSkeleton.vue`'s content column. That file holds the B17 seat's uncommitted SS8-0487 hunk on the same lines, so it is not touched here. The e2e height limb is `test.fixme` until that lands. With that hunk in the working tree, three runs read skeleton = row (69.13/69.02, 79.17/79.17, 81.01/81.01), and one read 66.23 vs 81.01. That is mid-arrival, so the height limb stays **UNPROVEN** here. Re-base of the void: 143.6 px plate, as the packet says (no code). | `E/cures/0514-red-2.txt` (run 1 inline in the seat log: same assertion); `E/cures/e2e-0514-mutant-red-{1,2}.txt`; `E/cures/e2e-green-cure-{1,2}.txt`; `E/cures/e2e-green-1.txt` |
+| 0515 Mobile | already cured (V16-05) | covered by the 0510 pin, plus the e2e 390 pin (no empty spacer; Refresh ends the toolbar). | as 0510 |
+| 0521 AF U-4 | no landing cure owed | No code. The out-of-flow ActionFeedback notice belongs to the X-W7 rebuild, as the packet routes it. | — |
+| 0523 AF U-6 | D-15 conclusion obsolete | No code. e2e pin: the flag badge's computed font-size equals `var(--type-small)` (GREEN x2). | `E/cures/e2e-green-cure-{1,2}.txt` |
+| 0524 AF U-7 | Chromium arm PROVEN; **Safari arm UNPROVEN** | No code. The e2e Chromium coarse-390 arm passed x2: Dismiss and delete ≥ 44 px. The WebKit arm was not run at this seat (the browser pool was saturated: 6/6 slots, queue 9). It is still owed via `guarded --exclusive webkit` before AF-45 is graded. | `E/cures/e2e-green-cure-{1,2}.txt` |
+| 0526 AF U-9 | H-2/H-3 struck; H-1 hypothesis | No code. e2e pin: after settling, there are no further `/admin/` requests over 5 s, and `/?utm=x&q=1#/admin/flagged` routes to the flagged pane (GREEN x2). | `E/cures/e2e-green-cure-{1,2}.txt` |
+| 0529 ATP all-geometry | **residue not reproduced → no code** | A shorter placeholder was drafted and **withdrawn**. The e2e coarse-390 cell (isMobile, hasTouch, DPR 2; `pointer: coarse` true, `--ui-scale` 1.5) measured HEAD's `"Category..."` at **80.9 px in a 186 px box** (name field 87.7 / 324), in the run with the HEAD placeholder, and at 80.9 / 194 in the final runs. The packet's 106.2-in-104 residue does not hold on the 2026-10-20 tree, so no cure is owed. The e2e fit test stays as a pin. | `E/cures/e2e-mutant-red-1.txt` (HEAD placeholder: GREEN, 80.9/186); `E/cures/e2e-green-cure-{1,2}.txt` |
+| 0532 ATP C-axis (C-18) | **CURED** | `demo/palettes/api/admin-colors.ts` `getAdminTags`: a row without a non-empty string `name` is dropped at the wire (the ATP-13 identity: a tag IS its name). vitest: `[{name:"moody"}, {name:""}, {no name}]` → only `Delete tag moody`, "1 tag". RED x2 at HEAD (`['Delete tag moody', …(2)]`), GREEN x2. C-1/C-3/C-6 need no code, per the packet. | `E/cures/tags-red-{1,2}.txt`; `E/cures/green-final-{1,2}.txt` |
+| 0533 ATP-29 | **CURED** | `AdminTagsPanel.vue`: `onActivated` re-reads on every RETURN to the kept-alive pane. The first activation is the mount's own read, so it is not doubled. vitest under a real `KeepAlive`: GET count 1 → 2 on re-entry, and the new tag renders. RED x2 at HEAD (`expected 1 to be 2`), GREEN x2. | `E/cures/tags-red-{1,2}.txt`; `E/cures/green-final-{1,2}.txt` |
+
+Type-check (`guarded --light -- npm run typecheck`): no errors in any B18 file. The only
+residual errors are in another seat's untracked files (`demo/test/palettes/ss8-b11-cures.test.ts` ×5,
+`e2e/smoke/admin/ss8-b17-admin-names.spec.ts`).

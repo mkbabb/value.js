@@ -1,0 +1,43 @@
+(node:26760) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:26811) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:26843) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:78:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap (30.0s)
+(node:28167) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  -  2 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:84:10 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+SS8-0529 New tag name {"text":87.7,"box":324,"field":324.2,"coarse":true,"uiScale":"1.5"}
+SS8-0529 New tag category {"text":80.9,"box":186,"field":186.4,"coarse":true,"uiScale":"1.5"}
+  ✓  3 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:111:5 › coarse 390 › SS8-0529 · the Tags create placeholders fit their fields (5.8s)
+
+
+  1) [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:78:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.waitFor: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[data-pane="admin-audit"] [role="status"][aria-label="Loading audit log"]') to be visible[22m
+
+
+      59 |     await page.goto("/#/admin/audit");
+      60 |     const status = page.locator(`${PANE("audit")} [role="status"][aria-label="Loading audit log"]`);
+    > 61 |     await status.waitFor();
+         |                  ^
+      62 |     const skel = await status.evaluate((st) => {
+      63 |         const k = [...st.children].map((e) => e.getBoundingClientRect());
+      64 |         return { h: k.map((b) => b.height), gaps: k.slice(1).map((b, i) => b.top - k[i]!.bottom) };
+        at shadowsVsRows (/Users/mkbabb/Programming/value.js/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:61:18)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:79:32
+
+    Error Context: test-results/ss8-b18-admin-panels-SS8-0-32430-w-rhythm-shadow-gap-row-gap-smoke-admin/error-context.md
+
+  1 failed
+    [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:78:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap 
+  1 skipped
+  1 passed (38.5s)

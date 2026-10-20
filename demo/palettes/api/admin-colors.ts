@@ -57,8 +57,15 @@ export function deleteColorName(token: string, id: string): Promise<void> {
 
 // ---- Tag CRUD ---------------------------------------------------------------
 
-export function getAdminTags(token: string): Promise<Tag[]> {
-    return adminRequest("/admin/tags", token);
+// SS8-0532 (C-18 · the ATP-13 identity): a tag IS its name — the list keys,
+// labels and deletes by it — so a row without a non-empty string `name` is
+// dropped at the wire, never drawn as an empty pill ("Delete tag undefined").
+const isNamedTag = (row: unknown): row is Tag =>
+    typeof (row as Partial<Tag> | null)?.name === "string" && (row as Tag).name !== "";
+
+export async function getAdminTags(token: string): Promise<Tag[]> {
+    const rows = await adminRequest<unknown[]>("/admin/tags", token);
+    return rows.filter(isNamedTag);
 }
 
 export function createTag(

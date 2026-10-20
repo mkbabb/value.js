@@ -1,0 +1,8 @@
+   × SS8-0532 · C-18 — a non-conforming tag row never renders > drops rows whose name is empty or missing; the conforming row stays 208ms
+     → expected [ 'Delete tag moody', …(2) ] to deeply equal [ 'Delete tag moody' ]
+   × SS8-0533 · ATP-29 — re-entry refreshes the kept-alive list > reads once on entry, and again on every return 203ms
+     → expected 1 to be 2 // Object.is equality
+   × SS8-0529 · the Category field never clips its own placeholder > the placeholder is the bare noun (no trailing ellipsis eating the coarse well) 77ms
+     → expected 'Category...' to be 'Category' // Object.is equality
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  3 failed (3)

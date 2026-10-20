@@ -1,0 +1,6 @@
+ ✓ demo/test/palettes/ss8-b18-admin-audit.test.ts (4 tests) 162ms
+ ✓ demo/test/palettes/admin-destructive.test.ts (10 tests) 670ms
+ ✓ demo/test/palettes/admin-u3-cures.test.ts (9 tests) 519ms
+ ✓ demo/test/palettes/ss8-b18-admin-tags.test.ts (2 tests) 330ms
+ Test Files  4 passed (4)
+      Tests  25 passed (25)

@@ -1,0 +1,35 @@
+(node:95337) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:95395) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:95465) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+SS8-0514 {"skel":{"h":[79.16549682617188,79.16549682617188,79.16549682617188],"gaps":[-2.388458251953125,-2.388458251953125]},"rows":{"h":[79.16548156738281,79.16549682617188,79.16549682617188],"gaps":[1.611328125,1.611328125]}}
+  ✘  1 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap (46.7s)
+  -  2 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:89:10 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+
+
+  1) [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.5[39m
+    Received:    [31m3.999786376953125[39m
+
+      83 |         test.slow();
+      84 |         const { skel, rows } = await shadowsVsRows(page);
+    > 85 |         for (const g of skel.gaps) expect(Math.abs(g - rows.gaps[0]!)).toBeLessThanOrEqual(0.5);
+         |                                                                        ^
+      86 |     });
+      87 |     // The height limb rides AdminListSkeleton's column, held by the B17 seat's
+      88 |     // uncommitted SS8-0487 hunk (blockedByDirty); un-fixme when that lands.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:85:72
+
+    Error Context: test-results/ss8-b18-admin-panels-SS8-0-32430-w-rhythm-shadow-gap-row-gap-smoke-admin/error-context.md
+
+  1 failed
+    [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap 
+  1 skipped
