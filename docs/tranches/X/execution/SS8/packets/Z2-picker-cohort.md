@@ -149,3 +149,47 @@
 - Picker-25 L-9/C-18: needs the built bundle delta.
 - ColorInput-11 D-15 and ColorInput-12 L-16: the popover detector failed its hover positive control.
 - CSP-17 D-15: shader behaviour; Satellites=0 was not driven.
+
+## cures
+
+**Seat:** SS-8 CURE · Z2-picker-cohort · 2026-10-20 · served model `claude-opus-5-5`. The adjudicated records are untouched (E-3). The verdicts below are this packet's own.
+
+**Falsifiers.**
+- `demo/test/color-session/ss8-z2-parse-boundary.test.ts` (vitest, 3 tests): the code cure's falsifier.
+- `e2e/smoke/ss8-z2-picker-cohort.spec.ts` (playwright `smoke`, 9 tests): regression guards for the rows that were already cured at HEAD. The record's born-RED state is gone, so these rows have no RED-before arm. Each guard asserts the live state this packet witnessed.
+
+**Runs** (all through `~/.claude/guard/guarded`; vitest `--maxWorkers=2`; playwright `--workers=1`, headless Chromium, `VJS_E2E_PORT=8197`). Logs are gitignored and stay on disk under `E/`:
+- vitest, before the cure: RED ×2 (`an internal fault after a successful parse is loud…`: the fault was swallowed and the badge raised). After the cure, the `demo/test/color-session/` suite was GREEN ×2 (95/95).
+- playwright, final spec: `E/cures-e2e-run1.log` and `E/cures-e2e-run2.log` each show **8 passed, 1 failed**. The one failure is Z-ColorPicker-14's seam both times (see below). `E/cures-e2e-p11-run{1,2}.log`: once the seam assertion is soft, the same test's other assertions (P11, P16, P21, CI10) pass ×2, and the only error is the seam.
+  - Earlier runs of the same spec were not counted: three `page.goto` 60 s timeouts at load 32, and one settle-wait instrument fault. In response, `goto` was moved to `domcontentloaded`, and the plate is now read after `document.fonts.ready` plus 4 s.
+- Type-check: `vue-tsc -p tsconfig.demo.json` = 0 errors and `vue-tsc -p tsconfig.test.json` = 0 errors. `tsc -p tsconfig.e2e.json` reports no errors in this seat's files; the pre-existing errors are in other seats' `ss8-b17`/`ss8-b22` specs.
+
+| id | disposition | witness | commit |
+|---|---|---|---|
+| Z-ColorPicker-1 | **No product change. The packet's residual is an instrument miss.** At 390 the run keeps the priority prefix (Copy, Random, Palettes, plus Open color input). Reset color and Extract palette sit in the run's **"More actions"** menu: the idiom ruled at COHESION §0fh.4 (X-13-RUN). The witness probe never opened that menu, and a closed DropdownMenuContent is not in the DOM. The guard taps Toggle action bar, then More actions, and asserts that all five scene actions are reachable. | e2e `P1 · CI5 · CI13 · P16 · P20`: GREEN ×2 | `ba202df7f` |
+| Z-ColorPicker-6 | **Record-arm correction, no cure.** The readout recovers after a slider write. The live defect is Z-ColorPicker-7 (PROVEN, not in this batch); its cure (delete the contenteditable write path) stays with Z-7's owner. | e2e `P6` (readout L = URL L ± 0.05 after one keystroke and 8× ArrowLeft): GREEN ×2 | `ba202df7f` |
+| Z-ColorPicker-9 | **ROUTED. Not cured, not deleted.** C-7 re-adjudicated: the condense surface is dead at every viewport. Glass `CardHeader shrink` reads only `closest(".card-scroll-host").scrollTop`. At `lg` and above the host is `display:contents`. Below `lg` the X.W5.b block law makes the **document** the one scroller, so the host never overflows; the card's `overflow-hidden` also makes the sticky header inert there. Both offered cures are closed to this seat. **Delete** contradicts the owner's T-61 / MANDATE §0.8 ruling ("the header padding/background should ALSO shrink on scroll"), and `shrink` is also what provides the header's `aria-live=polite` (Z-ColorPicker-11). **Bind to the real scroller** requires a glass door that does not exist: CardHeader `shrink` cannot read the document scroller. → **glass O-row (orchestrator relays): CardHeader `shrink` takes the document/`scrollingElement` as its scroll source.** Alternatively, the owner rules a bounded picker host below `lg` (a §0fh item-6-style ruling for the stage). | source read: glass `dist/card-ByyqRBvK.js` CardHeader; `demo/picker/ColorPicker.vue:13-24`; `demo/app/App.vue` one-mount-path note | — |
+| Z-ColorPicker-10 | Cured at HEAD; regression-guarded | e2e `P10`: GREEN ×2 | `ba202df7f` |
+| Z-ColorPicker-11 | Cured at HEAD; regression-guarded (`.picker-header` `aria-live=polite`) | e2e header test: GREEN ×2 | `ba202df7f` |
+| Z-ColorPicker-14 | **The REFUTED reading does NOT hold in the current working tree. Blocked by another seat's dirty hunk.** Settled seam at 1440×900 = **42.58 px** (trigger bottom → glyph) against the 14.87 ceiling. Cause, measured: `.pane-container` is `834.344px 515.656px`, the golden split from the **uncommitted** `demo/styles/shell.css` hunk (`--pane-stage-share: 61.8033989fr`). The picker's container widens, so `--blob-fp: clamp(7rem, 22cqi, 11rem)` reaches 11rem, and `.title-row` `min-height: calc(0.76·fp − 0.75rem)` = 121.76 px, which is taller than the 85 px title line. That breaks seat.css's own "at desktop the min-height resolves ≤ the title line (a no-op)" premise. Forcing `1fr 1fr` in-page (675 px columns under the same hunk) still gives 21.69 px (`E/cures-seam-split-witness.log`). The probe's 4.16 px was read on the 512/512 grid. The reservation is the W20-locked seat formula, so this seat does not change it. The guard stays honest-RED until the shell.css owner reconciles the split with the seat reservation. | e2e header test: RED ×2 at 42.58 (`E/cures-e2e-run{1,2}.log`) | `ba202df7f` (guard) |
+| Z-ColorPicker-16 | Cured at HEAD; regression-guarded (0.7862 at 1440 and at 390) | GREEN ×2 | `ba202df7f` |
+| Z-ColorPicker-20 | Cured at HEAD; regression-guarded (one cell top at 390) | GREEN ×2 | `ba202df7f` |
+| Z-ColorPicker-21 | Cured at HEAD; regression-guarded. The `overture-plate-settle` duration is sampled from first paint and equals `--overture-plate-land` (450 ms). | GREEN ×2 (p11 logs) | `ba202df7f` |
+| Z-ColorPicker-22 | Cured at HEAD in Chromium; regression-guarded (left-gutter mean Y, dark < 0.5× light). The WebKit cell still has not run. | GREEN ×2 | `ba202df7f` |
+| Z-ColorInput-1 | **CURED (BANK-1 fired).** `useColorParsing.parseAndSetColor` now reads the parse Result through `readPickerColor` (one reader at the `picker-color.ts` choke point). An invalid parse raises the badge; the bare `catch {}` that turned every throw into "not a valid color" is deleted. An internal fault after a good parse now propagates to `window.onerror`. No `src/**` change and no public API change. | vitest RED ×2 → GREEN ×2 | `28397f458` |
+| Z-ColorInput-5 | Name arm cured at HEAD; regression-guarded (`[aria-label="Apply color"]` present). **ROUTED:** the 24×24 seat to PR-12, and `type` null (latent) with it. | GREEN ×2 | `ba202df7f` |
+| Z-ColorInput-10 | Cured at HEAD; regression-guarded (global `@keyframes crown-appear` in the CSSOM) | GREEN ×2 (p11 logs) | `ba202df7f` |
+| Z-ColorInput-13 | Cured at HEAD; regression-guarded (390: the field opens, `rgb(10 200 30)` commits to the title) | GREEN ×2 | `ba202df7f` |
+| Z-ColorSpaceSelector-1..7 | Cured at HEAD; regression-guarded in one test: 18 options; ≤ 4 decimals; out-of-gamut rows marked; declared form on every caption; 0 overflow; 18 distinct seeds; no `tag=`; display-p3 and rec2020 each get their own About card with no CIE-RGB text | e2e `CSS1..7`: GREEN ×2 | `ba202df7f` |
+| Z-ConfigSliderPane-3, 4, 10, 12, 14 | Cured at HEAD; regression-guarded: scrubber ×31 with a painted range; track ≠ `--ink-muted`; heading family ≠ row-label family; `data-size=sm`; one `.glass-dock` | e2e `CSP3/4/10/12/14 · CSP5`: GREEN ×2 | `ba202df7f` |
+| Z-ConfigSliderPane-5 | Visual arm cured at HEAD; regression-guarded (label → "Copied", clipboard parses as JSON). The AT arm is Z-ConfigSliderPane-6 (PROVEN, not in this batch): its status-region cure stays with that row. | GREEN ×2 | `ba202df7f` |
+| Z-ConfigSliderPane-8 | **No cure on this axis** (record-arm correction: the scrubber variant draws no 12×24 thumb) | — | — |
+| Z-ConfigSliderPane-15 | Cured at HEAD; regression-guarded (forced colors: the focused slider's outline equals the Copy JSON button's and is not `none`) | GREEN ×2 | `ba202df7f` |
+| Z-ConfigSliderPane-16 | Cured at HEAD; regression-guarded (390 `#/blob`: 31 sliders in the DOM, the console visible) | GREEN ×2 | `ba202df7f` |
+
+**Routed (the orchestrator relays; this seat sends no mail):**
+- Z-ColorPicker-9: glass O-row for a document-scroller source for CardHeader `shrink`, or an owner ruling for a bounded stage host below `lg`.
+- Z-ColorInput-5: the 24 px seat goes to PR-12.
+
+**blockedByDirty:**
+- `demo/styles/shell.css`: Z-ColorPicker-14's seam guard is RED only under that file's uncommitted golden-split hunk, which belongs to another seat.
