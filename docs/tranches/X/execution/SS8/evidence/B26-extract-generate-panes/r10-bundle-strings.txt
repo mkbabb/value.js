@@ -1,0 +1,4 @@
+old-only 4 new-only 11
+old-only in gh-pages: [] of 4
+new-only in gh-pages: ['display-p3-linear'] count 1 of 11
+sample old-only ['CSS color space', 'CSS-native color', 'concrete xyz-d50', 'fromMax and fromMin cannot be equal']

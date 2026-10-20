@@ -1,0 +1,121 @@
+{
+ "app": "http://localhost:9227/",
+ "at": "2026-10-20T22:58:18.964Z",
+ "x5-phone-eyedropper-add": {
+  "addVisible": true,
+  "before": {
+   "hash": "#/extract",
+   "h1": "Extract",
+   "savedColors": null,
+   "lsKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pulse": 0,
+   "live": [
+    "Extract view",
+    "ExtractPull palettes from any image.",
+    "Image loaded: ss8-b26.png",
+    "My PalettesSave, organize, and share your colors.",
+    "No saved palettes yet.Add colors, then save."
+   ],
+   "visiblePanes": [
+    "Extract"
+   ],
+   "dialogOpen": true
+  },
+  "at250": {
+   "hash": "#/extract",
+   "h1": "Extract",
+   "savedColors": null,
+   "lsKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pulse": 1,
+   "live": [
+    "Extract view",
+    "ExtractPull palettes from any image.",
+    "Image loaded: ss8-b26.png",
+    "My PalettesSave, organize, and share your colors.",
+    "No saved palettes yet.Add colors, then save."
+   ],
+   "visiblePanes": [
+    "Extract"
+   ],
+   "dialogOpen": true
+  },
+  "after": {
+   "hash": "#/extract",
+   "h1": "Extract",
+   "savedColors": null,
+   "lsKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pulse": 1,
+   "live": [
+    "Extract view",
+    "ExtractPull palettes from any image.",
+    "Image loaded: ss8-b26.png",
+    "My PalettesSave, organize, and share your colors.",
+    "No saved palettes yet.Add colors, then save."
+   ],
+   "visiblePanes": [
+    "Extract"
+   ],
+   "dialogOpen": true,
+   "mutations": 61
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 12281
+ },
+ "d8-dark-plate": {
+  "plate": {
+   "x": 60,
+   "y": 781.25,
+   "w": 786.34375,
+   "h": 133.53125
+  },
+  "pane": {
+   "x": 36,
+   "y": 88,
+   "w": 834.34375,
+   "h": 842.78125
+  },
+  "amb": {
+   "x": 1414,
+   "y": 600,
+   "width": 16,
+   "height": 120
+  },
+  "plateMean": {
+   "r": 130.8465929575772,
+   "g": 39.68507390938589,
+   "b": 60.91365220526379,
+   "n": 16642,
+   "nonBlank": 16642
+  },
+  "plateC": 0.1251,
+  "ambient": {
+   "r": 118.98958333333333,
+   "g": 35.291666666666664,
+   "b": 9.355208333333334,
+   "n": 1920,
+   "nonBlank": 1920
+  },
+  "ambientC": 0.1218,
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 8489
+ }
+}

@@ -1,0 +1,642 @@
+{
+ "app": "http://localhost:9227/",
+ "at": "2026-10-20T21:55:47.841Z",
+ "desk-light-empty": {
+  "heading": {
+   "tag": "H1",
+   "id": "route-title"
+  },
+  "paneRect": {
+   "x": 199,
+   "y": 88,
+   "w": 512,
+   "h": 538.4
+  },
+  "cardRect": {
+   "x": 199,
+   "y": 88,
+   "w": 512,
+   "h": 538.4
+  },
+  "panes": [
+   {
+    "x": 199,
+    "y": 88,
+    "w": 512,
+    "h": 538.4
+   },
+   {
+    "x": 729,
+    "y": 88,
+    "w": 512,
+    "h": 381.5
+   }
+  ],
+  "vw": 1440,
+  "vh": 900,
+  "cardRole": null,
+  "cardAria": null,
+  "docScrollable": false,
+  "docScrollH": 900,
+  "docClientH": 900,
+  "scrollers": [
+   {
+    "tag": "div",
+    "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min",
+    "role": null,
+    "ariaLabel": null,
+    "ariaLabelledby": null,
+    "tabindex": "0",
+    "clientH": 442,
+    "scrollH": 442,
+    "inPane": true
+   },
+   {
+    "tag": "div",
+    "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min",
+    "role": null,
+    "ariaLabel": null,
+    "ariaLabelledby": null,
+    "tabindex": "0",
+    "clientH": 285,
+    "scrollH": 285,
+    "inPane": false
+   }
+  ],
+  "ariaLabelCount": {
+   "total": 20,
+   "inPane": 6
+  },
+  "ghostCaption": [],
+  "ghostRect": {
+   "x": 223,
+   "y": 568.4,
+   "w": 464,
+   "h": 42
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 6518
+ },
+ "phone-390x664-k16-empty": {
+  "k": "16",
+  "before": {
+   "docScrollable": true,
+   "ghostRect": {
+    "x": 32,
+    "y": 586.3,
+    "w": 326,
+    "h": 42
+   },
+   "scrollers": [
+    {
+     "tag": "div",
+     "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min",
+     "role": null,
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "tabindex": "0",
+     "clientH": 456,
+     "scrollH": 456,
+     "inPane": true
+    },
+    {
+     "tag": "div",
+     "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min",
+     "role": null,
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "tabindex": "0",
+     "clientH": 324,
+     "scrollH": 324,
+     "inPane": false
+    }
+   ]
+  },
+  "after": {
+   "docScrollable": true,
+   "ghostRect": {
+    "x": 32,
+    "y": 586.3,
+    "w": 326,
+    "h": 42
+   },
+   "scrollers": [
+    {
+     "tag": "div",
+     "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min",
+     "role": null,
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "tabindex": "0",
+     "clientH": 456,
+     "scrollH": 456,
+     "inPane": true
+    },
+    {
+     "tag": "div",
+     "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min",
+     "role": null,
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "tabindex": "0",
+     "clientH": 324,
+     "scrollH": 324,
+     "inPane": false
+    }
+   ],
+   "paneRect": {
+    "x": 16,
+    "y": 104,
+    "w": 358,
+    "h": 540.3
+   }
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 7565
+ },
+ "desk-light-image": {
+  "loadMs": 249,
+  "growth": [
+   {
+    "k": "4",
+    "paneH": 850.78125,
+    "contentH": 754,
+    "clientH": 754
+   },
+   {
+    "k": "8",
+    "paneH": 914.78125,
+    "contentH": 818,
+    "clientH": 818
+   },
+   {
+    "k": "12",
+    "paneH": 914.78125,
+    "contentH": 818,
+    "clientH": 818
+   },
+   {
+    "k": "16",
+    "paneH": 978.78125,
+    "contentH": 882,
+    "clientH": 882
+   }
+  ],
+  "code": {
+   "cls": "font-mono text-mono-small plate-ink truncate select-all",
+   "sw": 285,
+   "cw": 285,
+   "text": "oklch(58.73% 0.2216 17.68deg)"
+  },
+  "read": {
+   "heading": {
+    "tag": "H1",
+    "id": "route-title"
+   },
+   "paneRect": {
+    "x": 199,
+    "y": 88,
+    "w": 512,
+    "h": 978.8
+   },
+   "cardRect": {
+    "x": 199,
+    "y": 88,
+    "w": 512,
+    "h": 978.8
+   },
+   "panes": [
+    {
+     "x": 199,
+     "y": 88,
+     "w": 512,
+     "h": 978.8
+    },
+    {
+     "x": 729,
+     "y": 88,
+     "w": 512,
+     "h": 381.5
+    }
+   ],
+   "vw": 1440,
+   "vh": 900,
+   "cardRole": null,
+   "cardAria": null,
+   "docScrollable": true,
+   "docScrollH": 1075,
+   "docClientH": 900,
+   "scrollers": [
+    {
+     "tag": "div",
+     "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min",
+     "role": null,
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "tabindex": "0",
+     "clientH": 882,
+     "scrollH": 882,
+     "inPane": true
+    },
+    {
+     "tag": "div",
+     "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min",
+     "role": null,
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "tabindex": "0",
+     "clientH": 285,
+     "scrollH": 285,
+     "inPane": false
+    }
+   ],
+   "ariaLabelCount": {
+    "total": 43,
+    "inPane": 24
+   },
+   "ghostCaption": [],
+   "ghostRect": null
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 21889
+ },
+ "zoom200-image": {
+  "codes": [
+   {
+    "cls": "font-mono text-mono-small plate-ink truncate select-all",
+    "sw": 254,
+    "cw": 254,
+    "clipped": false,
+    "text": "oklch(89.99% 0.1223 109.8deg)"
+   }
+  ],
+  "docScrollable": true,
+  "paneRect": {
+   "x": 16,
+   "y": 80,
+   "w": 688,
+   "h": 674.8
+  },
+  "scrollers": [
+   {
+    "tag": "div",
+    "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min",
+    "role": null,
+    "ariaLabel": null,
+    "ariaLabelledby": null,
+    "tabindex": "0",
+    "clientH": 590,
+    "scrollH": 590,
+    "inPane": true
+   }
+  ],
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 8922
+ },
+ "desk-dark-image": {
+  "rects": {
+   "plate": {
+    "x": 223,
+    "y": 781.25,
+    "width": 464,
+    "height": 141.53125
+   },
+   "pane": {
+    "x": 199,
+    "y": 88,
+    "width": 512,
+    "height": 850.78125
+   }
+  },
+  "plateMean": {
+   "r": 137.3359375,
+   "g": 39.59375,
+   "b": 56.7734375,
+   "n": 128,
+   "nonBlank": 128
+  },
+  "ambientMean": {
+   "r": 53.94444444444444,
+   "g": 0,
+   "b": 44.8125,
+   "n": 144,
+   "nonBlank": 144
+  },
+  "plateC": 0.1318,
+  "ambientC": 0.1001,
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 8852
+ },
+ "phone-addcolor": {
+  "swatchCount": 5,
+  "addCount": 0,
+  "before": {
+   "hash": "#/extract",
+   "palettesColorCount": 5,
+   "saved": 0,
+   "statusText": [
+    "Extract view",
+    "ExtractPull palettes from any image.",
+    "Image loaded: ss8-b26.png",
+    "My PalettesSave, organize, and share your colors.",
+    "No saved palettes yet.Add colors, then save."
+   ]
+  },
+  "after": null,
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 9286
+ },
+ "forced-empty": {
+  "mq": true,
+  "ghostCount": 1,
+  "bones": [
+   {
+    "bg": "rgba(255, 255, 255, 0)",
+    "border": "rgb(0, 0, 0) 0px",
+    "fca": "auto"
+   },
+   {
+    "bg": "rgba(255, 255, 255, 0)",
+    "border": "rgb(0, 0, 0) 0px",
+    "fca": "auto"
+   },
+   {
+    "bg": "rgba(255, 255, 255, 0)",
+    "border": "rgb(0, 0, 0) 0px",
+    "fca": "auto"
+   },
+   {
+    "bg": "rgba(255, 255, 255, 0)",
+    "border": "rgb(0, 0, 0) 0px",
+    "fca": "auto"
+   },
+   {
+    "bg": "rgba(255, 255, 255, 0)",
+    "border": "rgb(0, 0, 0) 0px",
+    "fca": "auto"
+   },
+   {
+    "bg": "rgba(255, 255, 255, 0)",
+    "border": "rgb(0, 0, 0) 0px",
+    "fca": "auto"
+   }
+  ],
+  "ghostMean": {
+   "r": 233.55064655172413,
+   "g": 230.04156403940885,
+   "b": 225.3154761904762,
+   "n": 19488,
+   "nonBlank": 18876
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 6382
+ },
+ "rtl-empty": {
+  "dir": "rtl",
+  "sliderDir": "ltr",
+  "dataOrientation": "horizontal",
+  "slider": {
+   "x": 753,
+   "w": 464
+  },
+  "range": {
+   "x": 753,
+   "w": 123.7
+  },
+  "thumb": {
+   "x": 876.7,
+   "w": 0
+  },
+  "label": {
+   "text": "Colors",
+   "x": 1172.9,
+   "w": 44.1
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 7021
+ },
+ "drag-strobe": {
+  "zoneFound": true,
+  "attrOnZone": true,
+  "kids": 7,
+  "frames": 58,
+  "trueFrames": 58,
+  "falseRunsMidDrag": 0,
+  "firstTrueIdx": 0,
+  "tail": [
+   "true",
+   "true",
+   "true"
+  ],
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 6701
+ },
+ "touch-loupe": {
+  "stageCandidates": [
+   {
+    "tag": "CANVAS",
+    "x": 16,
+    "y": 309.2685546875,
+    "w": 344.1827392578125,
+    "h": 258.1370849609375
+   }
+  ],
+  "loupes": [
+   {
+    "w": 300,
+    "h": 150,
+    "rw": 390,
+    "rh": 844,
+    "visible": true,
+    "nonBlank": 0
+   },
+   {
+    "w": 320,
+    "h": 240,
+    "rw": 344.1827392578125,
+    "rh": 258.1370849609375,
+    "visible": true,
+    "nonBlank": 76800
+   },
+   {
+    "w": 110,
+    "h": 110,
+    "rw": 106,
+    "rh": 106,
+    "visible": true,
+    "nonBlank": 0
+   }
+  ],
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 10855
+ },
+ "l3-names": {
+  "empty": {
+   "shell": {
+    "n": 5,
+    "ariaLabel": 5,
+    "titleOnly": 0,
+    "neither": 0
+   },
+   "workbench": {
+    "n": 0,
+    "ariaLabel": 0,
+    "titleOnly": 0,
+    "neither": 0
+   }
+  },
+  "image": {
+   "shell": {
+    "n": 9,
+    "ariaLabel": 9,
+    "titleOnly": 0,
+    "neither": 0
+   },
+   "workbench": {
+    "n": 0,
+    "ariaLabel": 0,
+    "titleOnly": 0,
+    "neither": 0
+   }
+  },
+  "rows": [
+   {
+    "side": "shell",
+    "aria": "Save edit",
+    "title": null,
+    "text": "",
+    "visible": true
+   },
+   {
+    "side": "shell",
+    "aria": "Cancel edit",
+    "title": null,
+    "text": "",
+    "visible": true
+   },
+   {
+    "side": "shell",
+    "aria": "Switch to slug",
+    "title": null,
+    "text": "",
+    "visible": true
+   },
+   {
+    "side": "shell",
+    "aria": "Cancel",
+    "title": null,
+    "text": "",
+    "visible": true
+   },
+   {
+    "side": "shell",
+    "aria": "Back",
+    "title": null,
+    "text": "",
+    "visible": true
+   },
+   {
+    "side": "shell",
+    "aria": "Save palette",
+    "title": null,
+    "text": "",
+    "visible": true
+   },
+   {
+    "side": "shell",
+    "aria": "Rename palette",
+    "title": null,
+    "text": "",
+    "visible": true
+   },
+   {
+    "side": "shell",
+    "aria": "Export JSON",
+    "title": null,
+    "text": "",
+    "visible": true
+   },
+   {
+    "side": "shell",
+    "aria": "Toggle action bar",
+    "title": null,
+    "text": "Extracted Palette",
+    "visible": true
+   }
+  ],
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 7794
+ },
+ "c4-focus": {
+  "scrollers": [],
+  "scrollerFocusHits": [],
+  "tabSeqHead": [
+   "BUTTON:Replace image",
+   "BUTTON:Open camera",
+   "BUTTON:Reset",
+   "SPAN:Number of colors",
+   "SPAN:Chroma weight",
+   "DIV:Palette: Extracted Palette",
+   "BUTTON:Palette menu for Extracted Pal",
+   "BUTTON:Color swatch oklch(89.99% 0.12",
+   "BUTTON:Color swatch oklch(59.41% 0.21",
+   "BUTTON:Color swatch oklch(63% 0.1667 ",
+   "BUTTON:Color swatch oklch(37.91% 0.13",
+   "BUTTON:Color swatch oklch(56.7% 0.212",
+   "DIV:Start a new paletteNo saved pa",
+   "INPUT:Search your palettes",
+   "BUTTON:Add current color oklch(73% 0.",
+   "BODY:→ExtractExtracted Palette Logi",
+   "DIV:Expand dock",
+   "DIV:Pick a color Replace image  Op",
+   "DIV:Sample colors from the image",
+   "BUTTON:Replace image",
+   "BUTTON:Open camera",
+   "BUTTON:Reset",
+   "SPAN:Number of colors",
+   "SPAN:Chroma weight",
+   "DIV:Palette: Extracted Palette",
+   "BUTTON:Palette menu for Extracted Pal",
+   "BUTTON:Color swatch oklch(89.99% 0.12",
+   "BUTTON:Color swatch oklch(59.41% 0.21",
+   "BUTTON:Color swatch oklch(63% 0.1667 ",
+   "BUTTON:Color swatch oklch(37.91% 0.13",
+   "BUTTON:Color swatch oklch(56.7% 0.212",
+   "DIV:Start a new paletteNo saved pa",
+   "INPUT:Search your palettes",
+   "BUTTON:Add current color oklch(73% 0.",
+   "BODY:→ExtractExtracted Palette Logi",
+   "DIV:Expand dock",
+   "DIV:Pick a color Replace image  Op",
+   "DIV:Sample colors from the image",
+   "BUTTON:Replace image",
+   "BUTTON:Open camera"
+  ],
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 8247
+ }
+}

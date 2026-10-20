@@ -1,0 +1,1565 @@
+{
+ "app": "http://localhost:9227/",
+ "at": "2026-10-20T22:02:30.821Z",
+ "1440-light": {
+  "read": {
+   "heading": "H1:Generate",
+   "hash": "#/generate",
+   "mainRect": {
+    "x": 16,
+    "y": 88,
+    "w": 1408,
+    "h": 804,
+    "right": 1424,
+    "bottom": 892
+   },
+   "paneRect": {
+    "x": 199,
+    "y": 88,
+    "w": 512,
+    "h": 455.9,
+    "right": 711,
+    "bottom": 543.9
+   },
+   "plateRect": {
+    "x": 223,
+    "y": 184.6,
+    "w": 464,
+    "h": 196,
+    "right": 687,
+    "bottom": 380.6
+   },
+   "cardShare": 0.3636,
+   "titleRowH": 56,
+   "input": {
+    "sw": 438,
+    "cw": 438,
+    "value": "Generated palette"
+   },
+   "seed": {
+    "color": "oklab(0.263192 0.0032972 0.00333585)",
+    "rgba": [
+     39,
+     36,
+     35,
+     1
+    ],
+    "rect": {
+     "x": 236,
+     "y": 338.1,
+     "w": 137.8,
+     "h": 23,
+     "right": 373.8,
+     "bottom": 361
+    },
+    "text": "seed: 114d6a77"
+   },
+   "plateBg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+   "verbsRect": {
+    "x": 459.9,
+    "y": 329.6,
+    "w": 214.1,
+    "h": 40,
+    "right": 674,
+    "bottom": 369.6
+   },
+   "seedRowWraps": true,
+   "triggers": [
+    {
+     "text": "Vibrant",
+     "w": 226,
+     "valueSW": 54,
+     "valueCW": 54,
+     "truncated": false
+    },
+    {
+     "text": "Golden",
+     "w": 226,
+     "valueSW": 56,
+     "valueCW": 56,
+     "truncated": false
+    }
+   ],
+   "emptyTailPx": 0,
+   "thumb": {
+    "x": 391.7,
+    "y": 511.4,
+    "w": 0,
+    "h": 9,
+    "right": 391.7,
+    "bottom": 520.4,
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "oklch(0.216129 0.00624853 56.0356) 0px",
+    "boxShadow": "none"
+   },
+   "trackRect": {
+    "x": 223,
+    "y": 511.4,
+    "w": 464,
+    "h": 9,
+    "right": 687,
+    "bottom": 520.4
+   },
+   "countLabel": {
+    "color": "oklch(0.292283 0.00386159 34.63)",
+    "rgba": [
+     46,
+     43,
+     43,
+     1
+    ],
+    "rect": {
+     "x": 677.2,
+     "y": 476.9,
+     "w": 9.8,
+     "h": 23,
+     "right": 687,
+     "bottom": 499.9
+    }
+   },
+   "gradDivs": [
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 223,
+     "y": 424.9,
+     "w": 226,
+     "h": 36,
+     "right": 449,
+     "bottom": 460.9
+    },
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 461,
+     "y": 424.9,
+     "w": 226,
+     "h": 36,
+     "right": 687,
+     "bottom": 460.9
+    }
+   ]
+  },
+  "seedContrast": {
+   "ink": [
+    39,
+    36,
+    35
+   ],
+   "ground": [
+    199.3,
+    93.1,
+    165.5
+   ],
+   "ratio": 4.08
+  },
+  "countContrast": {
+   "ink": [
+    46,
+    43,
+    43
+   ],
+   "ground": [
+    214.1,
+    120.7,
+    156.9
+   ],
+   "ratio": 4.72
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 6590
+ },
+ "1440-dark": {
+  "read": {
+   "heading": "H1:Generate",
+   "hash": "#/generate",
+   "mainRect": {
+    "x": 16,
+    "y": 88,
+    "w": 1408,
+    "h": 804,
+    "right": 1424,
+    "bottom": 892
+   },
+   "paneRect": {
+    "x": 199,
+    "y": 88,
+    "w": 512,
+    "h": 455.9,
+    "right": 711,
+    "bottom": 543.9
+   },
+   "plateRect": {
+    "x": 223,
+    "y": 184.6,
+    "w": 464,
+    "h": 196,
+    "right": 687,
+    "bottom": 380.6
+   },
+   "cardShare": 0.3636,
+   "titleRowH": 56,
+   "input": {
+    "sw": 438,
+    "cw": 438,
+    "value": "Generated palette"
+   },
+   "seed": {
+    "color": "oklab(0.852707 0.00265344 0.00376283)",
+    "rgba": [
+     209,
+     206,
+     204,
+     1
+    ],
+    "rect": {
+     "x": 236,
+     "y": 338.1,
+     "w": 137.8,
+     "h": 23,
+     "right": 373.8,
+     "bottom": 361
+    },
+    "text": "seed: b3d7289a"
+   },
+   "plateBg": "oklab(0.926146 0.00162765 0.00610709 / 0.08)",
+   "verbsRect": {
+    "x": 459.9,
+    "y": 329.6,
+    "w": 214.1,
+    "h": 40,
+    "right": 674,
+    "bottom": 369.6
+   },
+   "seedRowWraps": true,
+   "triggers": [
+    {
+     "text": "Vibrant",
+     "w": 226,
+     "valueSW": 54,
+     "valueCW": 54,
+     "truncated": false
+    },
+    {
+     "text": "Golden",
+     "w": 226,
+     "valueSW": 56,
+     "valueCW": 56,
+     "truncated": false
+    }
+   ],
+   "emptyTailPx": 0,
+   "thumb": {
+    "x": 391.7,
+    "y": 511.4,
+    "w": 0,
+    "h": 9,
+    "right": 391.7,
+    "bottom": 520.4,
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "oklch(0.925202 0.00618423 67.7483) 0px",
+    "boxShadow": "none"
+   },
+   "trackRect": {
+    "x": 223,
+    "y": 511.4,
+    "w": 464,
+    "h": 9,
+    "right": 687,
+    "bottom": 520.4
+   },
+   "countLabel": {
+    "color": "oklch(0.807897 0.00382185 41.8684)",
+    "rgba": [
+     194,
+     191,
+     190,
+     1
+    ],
+    "rect": {
+     "x": 677.2,
+     "y": 476.9,
+     "w": 9.8,
+     "h": 23,
+     "right": 687,
+     "bottom": 499.9
+    }
+   },
+   "gradDivs": [
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / ",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 223,
+     "y": 424.9,
+     "w": 226,
+     "h": 36,
+     "right": 449,
+     "bottom": 460.9
+    },
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / ",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 461,
+     "y": 424.9,
+     "w": 226,
+     "h": 36,
+     "right": 687,
+     "bottom": 460.9
+    }
+   ]
+  },
+  "seedContrast": {
+   "ink": [
+    209,
+    206,
+    204
+   ],
+   "ground": [
+    100.9,
+    39.7,
+    74
+   ],
+   "ratio": 6.88
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 6532
+ },
+ "1280-light": {
+  "read": {
+   "heading": "H1:Generate",
+   "hash": "#/generate",
+   "mainRect": {
+    "x": 16,
+    "y": 88,
+    "w": 1248,
+    "h": 704,
+    "right": 1264,
+    "bottom": 792
+   },
+   "paneRect": {
+    "x": 120,
+    "y": 88,
+    "w": 512,
+    "h": 452,
+    "right": 632,
+    "bottom": 540
+   },
+   "plateRect": {
+    "x": 144,
+    "y": 181.8,
+    "w": 464,
+    "h": 196,
+    "right": 608,
+    "bottom": 377.8
+   },
+   "cardShare": 0.4103,
+   "titleRowH": 56,
+   "input": {
+    "sw": 438,
+    "cw": 438,
+    "value": "Generated palette"
+   },
+   "seed": {
+    "color": "oklab(0.263192 0.0032972 0.00333585)",
+    "rgba": [
+     39,
+     36,
+     35,
+     1
+    ],
+    "rect": {
+     "x": 157,
+     "y": 335.6,
+     "w": 134.4,
+     "h": 22.4,
+     "right": 291.4,
+     "bottom": 358
+    },
+    "text": "seed: b9203235"
+   },
+   "plateBg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+   "verbsRect": {
+    "x": 383.3,
+    "y": 326.8,
+    "w": 211.7,
+    "h": 40,
+    "right": 595,
+    "bottom": 366.8
+   },
+   "seedRowWraps": true,
+   "triggers": [
+    {
+     "text": "Vibrant",
+     "w": 226,
+     "valueSW": 53,
+     "valueCW": 53,
+     "truncated": false
+    },
+    {
+     "text": "Golden",
+     "w": 226,
+     "valueSW": 54,
+     "valueCW": 54,
+     "truncated": false
+    }
+   ],
+   "emptyTailPx": 0,
+   "thumb": {
+    "x": 312.7,
+    "y": 507.5,
+    "w": 0,
+    "h": 9,
+    "right": 312.7,
+    "bottom": 516.5,
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "oklch(0.216129 0.00624853 56.0356) 0px",
+    "boxShadow": "none"
+   },
+   "trackRect": {
+    "x": 144,
+    "y": 507.5,
+    "w": 464,
+    "h": 9,
+    "right": 608,
+    "bottom": 516.5
+   },
+   "countLabel": {
+    "color": "oklch(0.292283 0.00386159 34.63)",
+    "rgba": [
+     46,
+     43,
+     43,
+     1
+    ],
+    "rect": {
+     "x": 598.4,
+     "y": 473.7,
+     "w": 9.6,
+     "h": 22.4,
+     "right": 608,
+     "bottom": 496
+    }
+   },
+   "gradDivs": [
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 144,
+     "y": 421.7,
+     "w": 226,
+     "h": 36,
+     "right": 370,
+     "bottom": 457.7
+    },
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 382,
+     "y": 421.7,
+     "w": 226,
+     "h": 36,
+     "right": 608,
+     "bottom": 457.7
+    }
+   ]
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 6455
+ },
+ "390-light": {
+  "read": {
+   "heading": "H1:Generate",
+   "hash": "#/generate",
+   "mainRect": {
+    "x": 16,
+    "y": 104,
+    "w": 358,
+    "h": 902.6,
+    "right": 374,
+    "bottom": 1006.6
+   },
+   "paneRect": {
+    "x": 16,
+    "y": 103.9,
+    "w": 358,
+    "h": 478.4,
+    "right": 374,
+    "bottom": 582.2
+   },
+   "plateRect": {
+    "x": 32,
+    "y": 188.1,
+    "w": 326,
+    "h": 208,
+    "right": 358,
+    "bottom": 396.1
+   },
+   "cardShare": 1,
+   "titleRowH": 74,
+   "input": {
+    "sw": 300,
+    "cw": 300,
+    "value": "Generated palette"
+   },
+   "seed": {
+    "color": "oklab(0.263192 0.0032972 0.00333585)",
+    "rgba": [
+     39,
+     36,
+     35,
+     1
+    ],
+    "rect": {
+     "x": 45,
+     "y": 348.3,
+     "w": 117.6,
+     "h": 19.6,
+     "right": 162.6,
+     "bottom": 367.9
+    },
+    "text": "seed: 80dc2a5b"
+   },
+   "plateBg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+   "verbsRect": {
+    "x": 177,
+    "y": 331.1,
+    "w": 168,
+    "h": 54,
+    "right": 345,
+    "bottom": 385.1
+   },
+   "seedRowWraps": true,
+   "triggers": [
+    {
+     "text": "Vibrant",
+     "w": 157,
+     "valueSW": 69,
+     "valueCW": 69,
+     "truncated": false
+    },
+    {
+     "text": "Golden",
+     "w": 157,
+     "valueSW": 71,
+     "valueCW": 71,
+     "truncated": false
+    }
+   ],
+   "emptyTailPx": 0,
+   "thumb": {
+    "x": 150.5,
+    "y": 549.7,
+    "w": 0,
+    "h": 9,
+    "right": 150.5,
+    "bottom": 558.7,
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "oklch(0.216129 0.00624853 56.0356) 0px",
+    "boxShadow": "none"
+   },
+   "trackRect": {
+    "x": 32,
+    "y": 549.7,
+    "w": 326,
+    "h": 9,
+    "right": 358,
+    "bottom": 558.7
+   },
+   "countLabel": {
+    "color": "oklch(0.292283 0.00386159 34.63)",
+    "rgba": [
+     46,
+     43,
+     43,
+     1
+    ],
+    "rect": {
+     "x": 349.6,
+     "y": 515.4,
+     "w": 8.4,
+     "h": 19.6,
+     "right": 358,
+     "bottom": 535
+    }
+   },
+   "gradDivs": [
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 32,
+     "y": 442.2,
+     "w": 157,
+     "h": 54,
+     "right": 189,
+     "bottom": 496.2
+    },
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 201,
+     "y": 442.2,
+     "w": 157,
+     "h": 54,
+     "right": 358,
+     "bottom": 496.2
+    }
+   ]
+  },
+  "afterSplit": [
+   {
+    "text": "Vibrant",
+    "w": 157,
+    "valueSW": 69,
+    "valueCW": 69,
+    "truncated": false
+   },
+   {
+    "text": "Split complementary",
+    "w": 191,
+    "valueSW": 151,
+    "valueCW": 151,
+    "truncated": false
+   }
+  ],
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 8317
+ },
+ "320-light": {
+  "read": {
+   "heading": "H1:Generate",
+   "hash": "#/generate",
+   "mainRect": {
+    "x": 16,
+    "y": 104,
+    "w": 288,
+    "h": 917.9,
+    "right": 304,
+    "bottom": 1021.9
+   },
+   "paneRect": {
+    "x": 16,
+    "y": 103.5,
+    "w": 288,
+    "h": 493.8,
+    "right": 304,
+    "bottom": 597.4
+   },
+   "plateRect": {
+    "x": 32,
+    "y": 203.2,
+    "w": 256,
+    "h": 208,
+    "right": 288,
+    "bottom": 411.2
+   },
+   "cardShare": 1,
+   "titleRowH": 74,
+   "input": {
+    "sw": 230,
+    "cw": 230,
+    "value": "Generated palette"
+   },
+   "seed": {
+    "color": "oklab(0.263192 0.0032972 0.00333585)",
+    "rgba": [
+     39,
+     36,
+     35,
+     1
+    ],
+    "rect": {
+     "x": 45,
+     "y": 363.4,
+     "w": 54,
+     "h": 19.6,
+     "right": 99,
+     "bottom": 383
+    },
+    "text": "seed: f341eb76"
+   },
+   "plateBg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+   "verbsRect": {
+    "x": 107,
+    "y": 346.2,
+    "w": 168,
+    "h": 54,
+    "right": 275,
+    "bottom": 400.2
+   },
+   "seedRowWraps": true,
+   "triggers": [
+    {
+     "text": "Vibrant",
+     "w": 122,
+     "valueSW": 69,
+     "valueCW": 69,
+     "truncated": false
+    },
+    {
+     "text": "Golden",
+     "w": 122,
+     "valueSW": 71,
+     "valueCW": 71,
+     "truncated": false
+    }
+   ],
+   "emptyTailPx": 0,
+   "thumb": {
+    "x": 125.1,
+    "y": 564.9,
+    "w": 0,
+    "h": 9,
+    "right": 125.1,
+    "bottom": 573.9,
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "oklch(0.216129 0.00624853 56.0356) 0px",
+    "boxShadow": "none"
+   },
+   "trackRect": {
+    "x": 32,
+    "y": 564.9,
+    "w": 256,
+    "h": 9,
+    "right": 288,
+    "bottom": 573.9
+   },
+   "countLabel": {
+    "color": "oklch(0.292283 0.00386159 34.63)",
+    "rgba": [
+     46,
+     43,
+     43,
+     1
+    ],
+    "rect": {
+     "x": 279.6,
+     "y": 530.5,
+     "w": 8.4,
+     "h": 19.6,
+     "right": 288,
+     "bottom": 550.1
+    }
+   },
+   "gradDivs": [
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 32,
+     "y": 457.3,
+     "w": 122,
+     "h": 54,
+     "right": 154,
+     "bottom": 511.3
+    },
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 166,
+     "y": 457.3,
+     "w": 122,
+     "h": 54,
+     "right": 288,
+     "bottom": 511.3
+    }
+   ]
+  },
+  "afterSplit": [
+   {
+    "text": "Vibrant",
+    "w": 122,
+    "valueSW": 69,
+    "valueCW": 69,
+    "truncated": false
+   },
+   {
+    "text": "Split complementary",
+    "w": 191,
+    "valueSW": 151,
+    "valueCW": 151,
+    "truncated": false
+   }
+  ],
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 8332
+ },
+ "r8-route-hold": {
+  "read": {
+   "heading": "H1:Generate",
+   "hash": "#/generate",
+   "mainRect": {
+    "x": 16,
+    "y": 88,
+    "w": 1408,
+    "h": 804,
+    "right": 1424,
+    "bottom": 892
+   },
+   "paneRect": {
+    "x": 199,
+    "y": 88,
+    "w": 512,
+    "h": 455.9,
+    "right": 711,
+    "bottom": 543.9
+   },
+   "plateRect": {
+    "x": 223,
+    "y": 184.6,
+    "w": 464,
+    "h": 196,
+    "right": 687,
+    "bottom": 380.6
+   },
+   "cardShare": 0.3636,
+   "titleRowH": 56,
+   "input": {
+    "sw": 438,
+    "cw": 438,
+    "value": "Generated palette"
+   },
+   "seed": {
+    "color": "oklab(0.263192 0.0032972 0.00333585)",
+    "rgba": [
+     39,
+     36,
+     35,
+     1
+    ],
+    "rect": {
+     "x": 236,
+     "y": 338.1,
+     "w": 137.8,
+     "h": 23,
+     "right": 373.8,
+     "bottom": 361
+    },
+    "text": "seed: 6a0d9ea4"
+   },
+   "plateBg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+   "verbsRect": {
+    "x": 459.9,
+    "y": 329.6,
+    "w": 214.1,
+    "h": 40,
+    "right": 674,
+    "bottom": 369.6
+   },
+   "seedRowWraps": true,
+   "triggers": [
+    {
+     "text": "Vibrant",
+     "w": 226,
+     "valueSW": 54,
+     "valueCW": 54,
+     "truncated": false
+    },
+    {
+     "text": "Golden",
+     "w": 226,
+     "valueSW": 56,
+     "valueCW": 56,
+     "truncated": false
+    }
+   ],
+   "emptyTailPx": 0,
+   "thumb": {
+    "x": 391.7,
+    "y": 511.4,
+    "w": 0,
+    "h": 9,
+    "right": 391.7,
+    "bottom": 520.4,
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "oklch(0.216129 0.00624853 56.0356) 0px",
+    "boxShadow": "none"
+   },
+   "trackRect": {
+    "x": 223,
+    "y": 511.4,
+    "w": 464,
+    "h": 9,
+    "right": 687,
+    "bottom": 520.4
+   },
+   "countLabel": {
+    "color": "oklch(0.292283 0.00386159 34.63)",
+    "rgba": [
+     46,
+     43,
+     43,
+     1
+    ],
+    "rect": {
+     "x": 677.2,
+     "y": 476.9,
+     "w": 9.8,
+     "h": 23,
+     "right": 687,
+     "bottom": 499.9
+    }
+   },
+   "gradDivs": [
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 223,
+     "y": 424.9,
+     "w": 226,
+     "h": 36,
+     "right": 449,
+     "bottom": 460.9
+    },
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 461,
+     "y": 424.9,
+     "w": 226,
+     "h": 36,
+     "right": 687,
+     "bottom": 460.9
+    }
+   ]
+  },
+  "trail": [
+   {
+    "hash": "#/generate",
+    "h1": "Generate"
+   },
+   {
+    "hash": "#/generate",
+    "h1": "Generate"
+   },
+   {
+    "hash": "#/generate",
+    "h1": "Generate"
+   },
+   {
+    "hash": "#/generate",
+    "h1": "Generate"
+   },
+   {
+    "hash": "#/generate",
+    "h1": "Generate"
+   },
+   {
+    "hash": "#/generate",
+    "h1": "Generate"
+   }
+  ],
+  "drifted": false,
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 25206
+ },
+ "forced-1440": {
+  "read": {
+   "heading": "H1:Generate",
+   "hash": "#/generate",
+   "mainRect": {
+    "x": 16,
+    "y": 88,
+    "w": 1408,
+    "h": 804,
+    "right": 1424,
+    "bottom": 892
+   },
+   "paneRect": {
+    "x": 199,
+    "y": 87.7,
+    "w": 512,
+    "h": 455.9,
+    "right": 711,
+    "bottom": 543.6
+   },
+   "plateRect": {
+    "x": 223,
+    "y": 184.2,
+    "w": 464,
+    "h": 196,
+    "right": 687,
+    "bottom": 380.2
+   },
+   "cardShare": 0.3636,
+   "titleRowH": 56,
+   "input": {
+    "sw": 438,
+    "cw": 438,
+    "value": "Generated palette"
+   },
+   "seed": {
+    "color": "rgb(0, 0, 0)",
+    "rgba": [
+     0,
+     0,
+     0,
+     1
+    ],
+    "rect": {
+     "x": 236,
+     "y": 337.8,
+     "w": 137.8,
+     "h": 23,
+     "right": 373.8,
+     "bottom": 360.7
+    },
+    "text": "seed: c08eeac2"
+   },
+   "plateBg": "rgba(255, 255, 255, 0.08)",
+   "verbsRect": {
+    "x": 459.9,
+    "y": 329.2,
+    "w": 214.1,
+    "h": 40,
+    "right": 674,
+    "bottom": 369.2
+   },
+   "seedRowWraps": true,
+   "triggers": [
+    {
+     "text": "Vibrant",
+     "w": 226,
+     "valueSW": 54,
+     "valueCW": 54,
+     "truncated": false
+    },
+    {
+     "text": "Golden",
+     "w": 226,
+     "valueSW": 56,
+     "valueCW": 56,
+     "truncated": false
+    }
+   ],
+   "emptyTailPx": 0,
+   "thumb": {
+    "x": 391.7,
+    "y": 511.1,
+    "w": 0,
+    "h": 9,
+    "right": 391.7,
+    "bottom": 520.1,
+    "bg": "rgba(255, 255, 255, 0)",
+    "border": "rgb(0, 0, 0) 0px",
+    "boxShadow": "none"
+   },
+   "trackRect": {
+    "x": 223,
+    "y": 511.1,
+    "w": 464,
+    "h": 9,
+    "right": 687,
+    "bottom": 520.1
+   },
+   "countLabel": {
+    "color": "rgb(0, 0, 0)",
+    "rgba": [
+     0,
+     0,
+     0,
+     1
+    ],
+    "rect": {
+     "x": 677.2,
+     "y": 476.6,
+     "w": 9.8,
+     "h": 23,
+     "right": 687,
+     "bottom": 499.6
+    }
+   },
+   "gradDivs": []
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 6465
+ },
+ "thumbs-1440": {
+  "read": {
+   "heading": "H1:Generate",
+   "hash": "#/generate",
+   "mainRect": {
+    "x": 16,
+    "y": 88,
+    "w": 1408,
+    "h": 804,
+    "right": 1424,
+    "bottom": 892
+   },
+   "paneRect": {
+    "x": 199,
+    "y": 88,
+    "w": 512,
+    "h": 455.9,
+    "right": 711,
+    "bottom": 543.9
+   },
+   "plateRect": {
+    "x": 223,
+    "y": 184.6,
+    "w": 464,
+    "h": 196,
+    "right": 687,
+    "bottom": 380.6
+   },
+   "cardShare": 0.3636,
+   "titleRowH": 56,
+   "input": {
+    "sw": 438,
+    "cw": 438,
+    "value": "Generated palette"
+   },
+   "seed": {
+    "color": "oklab(0.263192 0.0032972 0.00333585)",
+    "rgba": [
+     39,
+     36,
+     35,
+     1
+    ],
+    "rect": {
+     "x": 236,
+     "y": 338.1,
+     "w": 137.8,
+     "h": 23,
+     "right": 373.8,
+     "bottom": 361
+    },
+    "text": "seed: 7bf2e93d"
+   },
+   "plateBg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+   "verbsRect": {
+    "x": 459.9,
+    "y": 329.6,
+    "w": 214.1,
+    "h": 40,
+    "right": 674,
+    "bottom": 369.6
+   },
+   "seedRowWraps": true,
+   "triggers": [
+    {
+     "text": "Vibrant",
+     "w": 226,
+     "valueSW": 54,
+     "valueCW": 54,
+     "truncated": false
+    },
+    {
+     "text": "Golden",
+     "w": 226,
+     "valueSW": 56,
+     "valueCW": 56,
+     "truncated": false
+    }
+   ],
+   "emptyTailPx": 0,
+   "thumb": {
+    "x": 391.7,
+    "y": 511.4,
+    "w": 0,
+    "h": 9,
+    "right": 391.7,
+    "bottom": 520.4,
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "oklch(0.216129 0.00624853 56.0356) 0px",
+    "boxShadow": "none"
+   },
+   "trackRect": {
+    "x": 223,
+    "y": 511.4,
+    "w": 464,
+    "h": 9,
+    "right": 687,
+    "bottom": 520.4
+   },
+   "countLabel": {
+    "color": "oklch(0.292283 0.00386159 34.63)",
+    "rgba": [
+     46,
+     43,
+     43,
+     1
+    ],
+    "rect": {
+     "x": 677.2,
+     "y": 476.9,
+     "w": 9.8,
+     "h": 23,
+     "right": 687,
+     "bottom": 499.9
+    }
+   },
+   "gradDivs": [
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 223,
+     "y": 424.9,
+     "w": 226,
+     "h": 36,
+     "right": 449,
+     "bottom": 460.9
+    },
+    {
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring fle",
+     "bgImage": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+     "bgColor": "rgba(0, 0, 0, 0)",
+     "fca": "auto",
+     "x": 461,
+     "y": 424.9,
+     "w": 226,
+     "h": 36,
+     "right": 687,
+     "bottom": 460.9
+    }
+   ]
+  },
+  "presets": [
+   "Vibrant",
+   "Pastel",
+   "Warm",
+   "Cool",
+   "Earth",
+   "Neon",
+   "Muted",
+   "Dark",
+   "Jewel",
+   "Random"
+  ],
+  "per": {
+   "Vibrant": {
+    "min": 1.29,
+    "samples": [
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ]
+    ],
+    "thumb": {
+     "w": 0,
+     "h": 9,
+     "ringW": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "ring": [
+      28,
+      25,
+      23,
+      1
+     ]
+    }
+   },
+   "Pastel": {
+    "min": 1.29,
+    "samples": [
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ]
+    ],
+    "thumb": {
+     "w": 0,
+     "h": 9,
+     "ringW": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "ring": [
+      28,
+      25,
+      23,
+      1
+     ]
+    }
+   },
+   "Warm": {
+    "min": 1.29,
+    "samples": [
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ]
+    ],
+    "thumb": {
+     "w": 0,
+     "h": 9,
+     "ringW": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "ring": [
+      28,
+      25,
+      23,
+      1
+     ]
+    }
+   },
+   "Cool": {
+    "min": 1.29,
+    "samples": [
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ]
+    ],
+    "thumb": {
+     "w": 0,
+     "h": 9,
+     "ringW": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "ring": [
+      28,
+      25,
+      23,
+      1
+     ]
+    }
+   },
+   "Earth": {
+    "min": 1.29,
+    "samples": [
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ]
+    ],
+    "thumb": {
+     "w": 0,
+     "h": 9,
+     "ringW": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "ring": [
+      28,
+      25,
+      23,
+      1
+     ]
+    }
+   },
+   "Neon": {
+    "min": 1.29,
+    "samples": [
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ]
+    ],
+    "thumb": {
+     "w": 0,
+     "h": 9,
+     "ringW": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "ring": [
+      28,
+      25,
+      23,
+      1
+     ]
+    }
+   },
+   "Muted": {
+    "min": 1.29,
+    "samples": [
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ]
+    ],
+    "thumb": {
+     "w": 0,
+     "h": 9,
+     "ringW": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "ring": [
+      28,
+      25,
+      23,
+      1
+     ]
+    }
+   },
+   "Dark": {
+    "min": 1.29,
+    "samples": [
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ]
+    ],
+    "thumb": {
+     "w": 0,
+     "h": 9,
+     "ringW": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "ring": [
+      28,
+      25,
+      23,
+      1
+     ]
+    }
+   },
+   "Jewel": {
+    "min": 1.29,
+    "samples": [
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ]
+    ],
+    "thumb": {
+     "w": 0,
+     "h": 9,
+     "ringW": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "ring": [
+      28,
+      25,
+      23,
+      1
+     ]
+    }
+   },
+   "Random": {
+    "min": 1.29,
+    "samples": [
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ],
+     [
+      1.29,
+      8.66
+     ]
+    ],
+    "thumb": {
+     "w": 0,
+     "h": 9,
+     "ringW": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "ring": [
+      28,
+      25,
+      23,
+      1
+     ]
+    }
+   }
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 59354
+ }
+}
