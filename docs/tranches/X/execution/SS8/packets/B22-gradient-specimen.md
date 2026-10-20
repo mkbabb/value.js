@@ -72,3 +72,21 @@
 - **U-6 / N-3**: the reveal parks the pressed tile under the 24px feather (50.8 %). This feeds X-W6. Cure direction: the reveal's nearest-edge target insets by the fade size, e.g. port `scroll-padding-inline` equal to `--fade-end/--fade-start`.
 - **U-2 / U-10 / C-04**: the in-plate capsule shadow is the whole band (light).
 - **U-11 / N-1**: the mis-rung's harm is marginal (one 4.489 cell).
+
+## cures
+
+Seat: SS-8 CURE, batch B22-gradient-specimen, 2026-10-20. Falsifier `e2e/smoke/ss8-b22-gradient-specimen.spec.ts` (project `smoke`, headless Chromium, private vite on :8122 via `VJS_E2E_PORT=8122 VJS_E2E_PERF_PORT=8123 ~/.claude/guard/guarded --timeout 30 -- npx playwright test e2e/smoke/ss8-b22-gradient-specimen.spec.ts --project=smoke --workers=1`). Logs: `E/cures/red-run{1,2}.txt`, `E/cures/green-run{1..4}.txt`; frames `E/cures/green-strip-{light,dark}.png`.
+
+RED x2 before (red-run1, red-run2: 3 failed / 2 passed each): U-1 light worst `ease` 3.883:1; U-12 light and dark, all 27 tiles carry `… 0px 8px 24px 0px` (the capsule's floating shadow).
+GREEN after: green-run3 and green-run4, 5/5 each. U-1 light worst `CSS` eyebrow 4.619 / 4.616:1 (34 runs), dark worst `end` 6.125:1. green-run1 was 5/5 on the pre-log spec bytes; green-run2 lost one cell to a load timeout (`.easing-panel` not found in 30 s, no assertion reached) and is not counted.
+Type-check: `tsc -p tsconfig.e2e.json` clean for this spec (the only errors are another seat's `ss8-b17-admin-names.spec.ts:218`); `vue-tsc -p tsconfig.demo.json` clean. `vitest run demo/test/gradient --maxWorkers=2`: 12/12.
+
+| row | verdict carried | cure | commit |
+|---|---|---|---|
+| U-1 (SS8-0620) | REFUTED (record figures) · the NEW light-label reading is a live defect | **CURED.** The resting tile labels and family eyebrows read `--muted-foreground-strong` (the pane's existing strong de-emphasis rung, `shell.css` `.pane-wrapper`: `--ink-muted` one golden step toward the certified `--ink-primary`), not bare `--ink-muted`; no alpha. The ground is witnessed as the strip's own composite under each text box (text inked transparent), so the falsifier measures the plate the label sits on, not a model. Light 3.883 → 4.62:1. **Residual (not cured here, routed by the orchestrator):** bare `--ink-muted` is certified to 4.5:1 exactly against the light field-MEAN referent (`resolveFieldAmbientLightness`, `ink.ts`), so any caption that sits over a field region darker than the mean reads under the floor; that is the app-wide referent law (SS8-0259 family), not this strip. The selected label (`--motion-accent`, 4.01:1 shadow-on in the witness) is U-11 / N-1's row and is not touched. | `962789bad` |
+| U-3 (SS8-0622) | REFUTED | No action: already cured by X.W6.e and V14C-01/V15C (`02f571d59`, `b8cf3fb18`). No falsifier written; nothing to turn RED. | — |
+| U-4 (SS8-0623) | REFUTED | No action: already cured by V15C-03/V16C-02 (container-query grid). The narrow single line stays D-42's weak-affordance row. | — |
+| U-5 (SS8-0624) | REFUTED | No action: already cured by `shape="icon"` (X.W6.d d1) and the open-row-only mount. | — |
+| U-7 (SS8-0626) | REFUTED for (b); (c) was unwitnessed for overshoot | **(c) WITNESSED, no code change.** The spec presses Shift+ArrowUp ×4 on "Bezier control point 2", reads both handles' `aria-valuetext`, and computes the authored cubic's y-range: max y > 1 (it overshoots), with 1 `.easing-panel`, no error boundary and 0 page errors. GREEN before the cure (red-run1/2) and after (green-run3/4), so the falsifier never had a RED state: the seam was already cured by X.W6.c's codomain guard (`b0991fd31`). | — |
+| U-9 (SS8-0628) | REFUTED | No action: already cured by V14C-02 (9px rung retired to `--text-caption`). | — |
+| U-12 (SS8-0631) | REFUTED (no card shadow) · C-04's in-plate capsule shadow is the live reading | **CURED (glass-first, no O-row needed).** The tiles pass glass Chip's existing `surface="veil"` axis (`surface-axis.css`: the quiet in-plate veil, `--veil-shadow: none`, no border), which glass orders after `.glass-capsule`. Computed box-shadow `none` on all 27 tiles in both schemes; the pressed tile still reads by its veil wash, accent stroke and accent label (frames). | `962789bad` |
