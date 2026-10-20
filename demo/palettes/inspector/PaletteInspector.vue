@@ -372,7 +372,10 @@ function handleMenuAction(action: string) {
         makePrivate: () => emit("setVisibility", props.palette, "private"),
         fork: () => emit("fork", props.palette),
         versions: () => emit("versions", props.palette),
-        flag: () => emit("flag", props.palette),
+        // SS8-0309: opened while focus sat on the dying menu item, the report
+        // dialog remembered that item and every close landed on <body>; opened
+        // once focus is back on this trigger, it gives focus back to the trigger.
+        flag: () => afterMenuFocusReturns(() => emit("flag", props.palette)),
         editTags: () => afterMenuFocusReturns(() => emit("editTags", props.palette)),
         exportJSON: () => void exportAs("json"),
         exportCSS: () => void exportAs("css"),
