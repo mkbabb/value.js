@@ -1,0 +1,7 @@
+# R-T1 ratchet witness: find src -name '*.ts' | xargs wc -l | sort -rn (top 3)
+## RED (HEAD 1d4966042 tree, path.ts via git show)
+     672 src/transform/path.ts (HEAD)
+## GREEN (worktree after split)
+     522 src/css/rules.ts
+     501 src/css/bbnf/mix.ts
+     477 src/transform/path.ts
