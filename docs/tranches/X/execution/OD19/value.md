@@ -124,3 +124,16 @@ Rows OD19-V5, OD19-V7 and the value half of OD19-ALL. Verdict: **PARTIAL — cur
 **Escalated** — the gradient@1440 title, the moving-window budget and the 390 frame budget need (a) residual 1's mount/raster cost (the pane's own mount, GradientPane/PalettesPane, outside P3) and (b) P1's V4 cure to land. Or the orchestrator can re-rule the window budget under `out-in`.
 
 **Machine note** — the guard held the BEFORE run for about 3.5 h (load 85–150). The shared `:9000` server stopped answering at 19:48, so every run used private ports (8190/8191/8192), and each server was stopped after its run.
+
+**Resume 2026-10-20 (after the reboot, HEAD `4d806342b`, which includes the glass 10.1.1 adoption)**: re-verify only. No code change; P3's code is still `091f86da2`, pushed. Evidence is in `value/after/P3/resume-2026-10-20/`.
+- `npm run typecheck`: lib, demo and test are clean. The 44 e2e tsc errors are all in other seats' untracked specs (`ss8-b17-admin-names` 39, `ss8-b18-admin-panels` 4, `ss8-b07-pane-shell` 1).
+- `walk.spec.ts`: passed ×2 on a private Playwright-owned dev server at :8190. The shared `:9000` server did not answer (curl timed out after 10 s), so the first pair of runs there failed at `goto`/`networkidle`. Those runs are kept as `e2e-run{1,2}.txt`; they are a substrate stall, not a P3 result.
+- `od19-pane-swap.spec.ts` ×2 at :8190: the V5 root cure holds. Every cell has `warmed: true` and `coldDuringGradient: []`, so the hop issues 0 pane requests.
+
+  | ms | gradient title @1440 | gradient window @1440 | mix title @1440 | mix window @1440 | gradient title @390 | gradient window @390 | mix title @390 | mix window @390 |
+  |---|---|---|---|---|---|---|---|---|
+  | run 1 | 544 | 491 | 248 | 408 | 317 | 659 | 383 | 867 |
+  | run 2 | 487 | 792 | 295 | 367 | 337 | 508 | 239 | 691 |
+
+  Mix at 1440 is GREEN on both budgets, and the 390 titles are GREEN. The two RED arms are the same ones as above: the gradient@1440 title, and the windows at 390. That is residual 1 (incoming-pane mount/raster under software GL) and residual 2 (P1's V4 caption shift). They are not P3 regressions; the numbers fall inside the earlier AFTER band. The escalation stands as written.
+- While these runs were going, the private dev server logged `TypeError: Cannot assign to read only property '0' of object '[object Array]'` (window.error). A standalone probe (`err-probe.mjs`, the same boot and gradient/mix hops at 1440 and 390, headless, on its own :8194 server) logged **0 page errors**. My reading is that HMR churn from other seats' live edits to the shared working tree (`demo/color-session/*` is dirty with SS-8 hunks) caused it; P3 did not. I did not chase it further, and P3's modify set does not touch it.

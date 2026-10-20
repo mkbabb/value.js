@@ -1,0 +1,90 @@
+(node:4208) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:4249) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/3] [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[od19-p3] {"width":1440,"warmed":true,"coldDuringGradient":[],"gradient":{"title":531,"firstMove":531,"lastMove":1014,"window":483,"maxFrame":483,"frames":10,"loaf":[[698,324,["render@323","style+layout@324"]]],"movedBy":[[531,[[-24,0,-1],[24,0,-1]]],[672,[[0,0,0.14],[0,0,0.14]]],[681,[[1,0,0.12],[-1,0,0.12]]],[1014,[[24,0,0.74],[-24,0,0.74]]]]},"home":{"title":0,"firstMove":317,"lastMove":717,"window":401,"maxFrame":266,"frames":11,"loaf":[[548,116,["render@115","style+layout@116"]],[665,57,["render@56","style+layout@57"]]],"movedBy":[[317,[[24,0,-1],[-24,0,-1]]],[509,[[0,0,0.15],[0,0,0.15]]],[542,[[-4,0,0.36],[4,0,0.36]]],[659,[[-17,0,0.46],[17,0,0.46]]],[717,[[-3,0,0.02],[3,0,0.02]]]]},"mix":{"title":331,"firstMove":331,"lastMove":781,"window":450,"maxFrame":285,"frames":10,"loaf":[[48,289,["render@287","style+layout@289","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|20"]],[338,66,["render@64","style+layout@65"]],[405,76,["render@75","style+layout@76"]],[527,64,["render@63","style+layout@64"]],[591,194,["render@193","style+layout@194"]]],"movedBy":[[331,[[0,0,0],[24,0,-1]]],[523,[[0,0,0],[-5,0,0.58]]],[590,[[0,0,0],[-11,0,0.31]]],[781,[[0,0,0],[-9,0,0.11]]]]},"at":"2026-10-20T18:52:51.428Z"}
+
+  1) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 1440 gradient: input → title (ms)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 400
+    Received:    531
+
+      179 |         ] as const) {
+      180 |             expect(h.title, `${width} ${name}: title paints`).not.toBeNull();
+    > 181 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+          |                                                                      ^
+      182 |             expect(h.window, `${width} ${name}: the swap moves`).not.toBeNull();
+      183 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+      184 |         }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:181:70
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-1-570e2-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+
+(node:6229) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[2/3] [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[od19-p3] {"width":390,"warmed":true,"coldDuringGradient":["@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css?t=1792522383403"],"gradient":{"title":1403,"firstMove":1403,"lastMove":2678,"window":1275,"maxFrame":858,"frames":10,"loaf":[[38,79,["render@78","style+layout@79"]],[117,241,["render@238","style+layout@241"]],[359,190,["render@189","style+layout@190"]]],"movedBy":[[1403,[[-24,0,-1],[24,434,-1]]],[1936,[[1,0,0.26],[-1,0,0.26]]],[1953,[[2,0,0.18],[-2,0,0.18]]],[2678,[[21,0,0.56],[-21,0,0.56]]]]},"home":{"title":0,"firstMove":433,"lastMove":433,"window":0,"maxFrame":392,"frames":4,"loaf":[],"movedBy":[[433,[[24,0,-1],[-24,-434,-1]]]]},"mix":{"title":307,"firstMove":0,"lastMove":589,"window":589,"maxFrame":232,"frames":14,"loaf":[[71,122,["render@122","style+layout@122"]],[193,55,["render@53","style+layout@55"]],[249,61,["render@58","style+layout@61","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|16"]],[360,235,["render@234","style+layout@235"]]],"movedBy":[[-2,[[0,7715,0],[0,-555,0]]],[49,[[0,-60,0],[0,0,0]]],[190,[[0,1,0],[22,0,-0.91]]],[240,[[0,0,0],[2,0,-0.08]]],[307,[[0,-7087,0],[0,0,-0.01]]],[339,[[0,0,0],[0,0,0.13]]],[357,[[0,0,0],[-1,0,0.23]]],[589,[[0,0,0],[-23,0,0.64]]]]},"at":"2026-10-20T18:53:11.503Z"}
+
+  2) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 390 gradient: input → title (ms)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 400
+    Received:    1403
+
+      179 |         ] as const) {
+      180 |             expect(h.title, `${width} ${name}: title paints`).not.toBeNull();
+    > 181 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+          |                                                                      ^
+      182 |             expect(h.window, `${width} ${name}: the swap moves`).not.toBeNull();
+      183 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+      184 |         }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:181:70
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-3-e0f6e-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+
+(node:7083) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[3/3] [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors
+  3) [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:8090/", waiting until "load"
+
+
+      46 |     );
+      47 |
+    > 48 |     await page.goto("/");
+         |                ^
+      49 |     // X.W5.a — the landmark is named by the route heading, so `main` is
+      50 |     // re-acquired per view rather than pinned to a static string.
+      51 |     const main = page.getByRole("main");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/walk.spec.ts:48:16
+
+    Error Context: test-results/walk-walk-all-user-views-s-862ed-ly-with-zero-console-errors-smoke/error-context.md
+
+
+  3 failed
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+    [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 
