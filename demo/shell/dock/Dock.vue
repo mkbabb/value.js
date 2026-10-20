@@ -100,6 +100,12 @@ const isDesktop = useMediaQuery("(min-width: 1024px)");
 const mobileEditActive = computed(() => !isDesktop.value && !!editTarget);
 const anyEditActive = computed(() => !!editTarget);
 const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>("dockRef");
+// SS-8 Z-Dock-13 (Dock G-P): the dock floats over the atmosphere field, so its
+// live backdrop sampler reads that canvas (App.vue stamps it with glass's
+// `data-glass-field-canvas` convention). Unbound, GlassDock hands its sampler a
+// getter that answers null, and the sample sat at `source-unavailable`.
+const fieldCanvas = () =>
+    document.querySelector<HTMLCanvasElement>("canvas[data-glass-field-canvas]");
 
 // X-DS pass 17 (V17C-01): the admin gold, certified on the dock BAND it sits
 // on (the band's measured tint over the ambient, the same instrument the
@@ -248,6 +254,7 @@ watch(
         <GlassDock
             ref="dockRef"
             :style="bandInkStyle"
+            :background-canvas="fieldCanvas"
             :collapse="isDesktop ? 'open' : false"
             :fit-content="true"
         >

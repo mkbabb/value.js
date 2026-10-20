@@ -184,17 +184,19 @@ test.describe("O-15b · the Tools clip release + register pass (W6-8)", () => {
         // the lane record carries the dock-tree grep-zero.
     });
 
-    test("the separator folds into the slot's arrival — one presence grammar", async ({
+    test("the slot's arrival carries no separator — one presence grammar", async ({
         page,
     }) => {
         await page.goto("/");
         await page.waitForSelector(".glass-dock");
         await expandDock(page);
-        // T-29 register pass row 3: the desktop separator lives INSIDE the
-        // animated inner box now — it enters WITH the 0fr→1fr arrival instead
-        // of popping via v-if beside it (two grammars for one arrival).
+        // T-29 register pass row 3 folded the desktop separator INTO the
+        // animated inner box so it could not pop beside the arrival. SS-8
+        // Z-Dock-10 (Dock G-M: main-layer separators = 0) retires it whole:
+        // the slot arrives as the control alone, and the producer's layer gap
+        // carries the grouping, so there is nothing left to pop.
         await expect(
             page.locator(".action-bar-toggle-inner .dock-separator"),
-        ).toHaveCount(1);
+        ).toHaveCount(0);
     });
 });

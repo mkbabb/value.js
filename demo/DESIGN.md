@@ -538,19 +538,22 @@ Layout tokens (`:root` in `demo/styles/foundation.css`):
 - **`--dock-h`**: the dock band's `min-height` floor.
 - **`--dock-gap`**: the DESIGNED gap between the two bands (the grid row-gap). `--dock-total` died
   with the padding reservation at T-31.
-- **`--app-gutter: 1rem`**: the shell's INLINE gutter, both sides. It is `.app-layout`'s horizontal
-  padding, and the amount `.pane-container`'s inline clamp subtracts.
+- **`--app-gutter: clamp(0.75rem, 2.5cqi, 3rem)`**: the shell's INLINE gutter, both sides
+  (12px@390 · 36px@1440 · 48px@3440). It is `.app-layout`'s horizontal padding.
 - **There is no block-axis cap token.** X.W5.b deleted the pane-container height cap and its
   aspect-keyed re-pins. The shell FLOORS the block axis
   (`.app-layout { min-block-size: 100svh }`) and caps it nowhere, so a scene taller than the
   viewport grows the document instead of being clipped. The token is deliberately absent:
   "cap the page by viewport aspect" is unrepresentable (L-8).
-- **`--pane-min: 25rem` / `--pane-max: 32rem` / `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`**:
-  the pane clamp ladder (S FINAL.md Ruling #1, "card width ~1/3 smaller"). The GRID owns the clamp:
-    - `.pane-container` is `max-width: min(100vw − 2·--app-gutter, 2·--pane-max + --pane-gap)`;
-    - the dual grid is `repeat(2, minmax(var(--pane-min), 1fr))`;
-    - cards grow fluidly from 1024 to 1536 and then clamp, with equal columns always;
+- **`--pane-min: 25rem` / `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`**: the pane row. It has
+  **no page cap** (layout-gestalt UL-1; SS-8 Z1):
+    - `.pane-container` spans the scene band; `auto-fit` decides one track or two;
+    - two tracks take the route's ratio from `.app-layout[data-view]`: golden 61.8/38.2 (stage
+      major) on Picker, Generate, Gradient, Extract and Mix; 2 : 1 (field major) on Browse and
+      Library; equal elsewhere; each track floors at `--pane-min`;
     - **pane shells never self-clamp** (`w-full` only), and there is no per-width media staircase.
+- **`--card-measure: 32rem`**: the owner's card width (S FINAL.md Ruling #1, "card width ~1/3
+  smaller"), worn only by a LONE card centred in a one-region scene (Atmosphere, Not found).
 - **`--menu-min-w: 11rem`**: the shared dropdown/select panel width, consumed as `min-w-menu`.
 
 **Short viewports and safe areas (X.W12U.m).**
@@ -593,8 +596,9 @@ viewport-variant kill class. Display type rungs are the named exception (viewpor
 | Token                                      | Consumed at                                            | Idiom                                             |
 | ------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------- |
 | `--dock-inset`                             | `.app-layout` padding (`demo/styles/shell.css`)        | direct CSS: the shell owns its band inset         |
-| `--app-gutter`                             | `.app-layout` padding + `.pane-container` inline clamp | direct CSS: one token, both sides of the coupling |
-| `--pane-min` / `--pane-max` / `--pane-gap` | `.pane-container`                                      | direct CSS: the grid owns the clamp               |
+| `--app-gutter`                             | `.app-layout` padding                                  | direct CSS: one token, both sides                 |
+| `--pane-min` / `--pane-gap`                | `.pane-container`                                      | direct CSS: the grid owns the tracks              |
+| `--card-measure`                           | AuroraPane · NotFoundPane                              | `max-w-(--card-measure)`                          |
 | `--menu-min-w`                             | every DropdownMenuContent + SelectContent              | `min-w-menu`                                      |
 | `--dock-h` / `--dock-gap`                  | `.dock-band` min-height / `.app-layout` row-gap        | direct CSS: the band grid owns them               |
 

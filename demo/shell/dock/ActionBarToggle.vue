@@ -2,7 +2,7 @@
 import { ref, watch } from "vue";
 import type { Component } from "vue";
 import { ArrowRight } from "@lucide/vue";
-import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
+import { DockControl } from "@mkbabb/glass-ui/dock";
 
 /**
  * <ActionBarToggle> — the dock's Tools trigger + its animated presence slot
@@ -30,8 +30,9 @@ import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
  *   - departure: the stamp drops the moment presence drops — the clip
  *     returns BEFORE any collapse animates.
  *
- * W6-8 register pass: the separator FOLDS INTO the slot (one presence
- * grammar — it used to POP via v-if while the slot grew beside it); the
+ * The slot holds the control alone: the main layer carries no separator
+ * (SS-8 Z-Dock-10, Dock G-M: separator ownership is the layer's composition,
+ * and the producer's layer gap carries the grouping). The
  * native `title` is retired (the control shows its label on desktop and
  * carries aria-label); ArrowRight stays the S.W7-6 layer-swap affordance.
  */
@@ -79,7 +80,6 @@ function onSlotSettled(e: TransitionEvent) {
         @transitionend.self="onSlotSettled"
     >
         <div class="action-bar-toggle-inner">
-            <DockSeparator class="hidden lg:block" />
             <!-- T-36 (§0.6 rider): the TRUE-BUTTON box-model — dock-tools-btn
                  steps the compact register's 4px sticker seat up to the
                  Button-primitive px-3/py-2 scale (the scoped rule below). -->
@@ -151,7 +151,7 @@ function onSlotSettled(e: TransitionEvent) {
    rides the producer's OWN token hook (`--dock-compact-control-padding`,
    dock-controls/icon-button.css), never a specificity fight: inline padding
    at the Button-primitive px-3/py-2 scale (the box lands at the sibling
-   controls' 2.5rem height), breathing margin off the folded separator, and
+   controls' 2.5rem height), breathing margin off its neighbours, and
    the label's em-gap between glyph, wordmark, and affordance arrow.
    Since glass 10.1.0 (X.W7L.m `c8a4959dd`) the in-dock rule
    `.glass-dock .dock-icon-button { padding: var(--dock-icon-padding, …) }`

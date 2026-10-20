@@ -165,12 +165,11 @@
  * row is top-anchored under the route title, where the panes already sit
  * whenever a pane fills the band. */
 .pane-main {
-    /* The row's inline clamp (below), named once so the route caption seats on
-     * the same leading edge as the row (X-DS value pass 8 · V8C-01). */
-    --pane-row-max: min(
-        calc(100vw - var(--app-gutter) * 2),
-        calc(var(--pane-max) * 2 + var(--pane-gap))
-    );
+    /* SS-8 Z1 (layout-gestalt UL-1): the band is the row's only inline bound,
+     * so the route caption and the row share its leading edge by construction
+     * (V8C-01). The band is the `scene` query container the per-route track
+     * ratio below reads (a container cannot query itself, and the row is one). */
+    container: scene / inline-size;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -192,9 +191,7 @@
  *
  * `auto-fit` asks the only question that was ever being asked: how many
  * `--pane-min` tracks fit in the space this container actually has? Two at
- * 1440 (the composition is unchanged: the container clamps at ≈1050px, so the
- * tracks land at `--pane-max` exactly as the retired `repeat(2, …)` did), one
- * at 390 and at 720 (≡ 1440 at 200% zoom), with the second region wrapping to
+ * 1440 (sized by the route's track ratio below), one at 390 and at 720 (≡ 1440 at 200% zoom), with the second region wrapping to
  * row 2 — the one scrolling column V·L2 asks for, on the document the block
  * law (X.W5.b) gave us. `min(--pane-min, 100%)` is what lets a track be
  * NARROWER than the floor when the viewport itself is: without it the grid
@@ -204,35 +201,64 @@
  *
  * The two gap values are the two this rule carried before, each on the axis it
  * governed: the dual arm's `--pane-gap` between columns, the base `1rem`
- * between stacked rows. The INLINE clamp below is untouched (EB-8): the
- * ≈1050px owner ruling is not this wave's to move, and the ratio / ultrawide
- * half rides CC-056 · V·L3 at X-W6. */
+ * between stacked rows.
+ *
+ * SS-8 Z1 (layout-gestalt UL-1/UL-2, chassis-fitness §4.1): the row has no
+ * inline clamp any more, and where two tracks fit they are not equal. Each
+ * route names its protagonist's share on `.app-layout[data-view]` (below);
+ * the `--pane-min` floor in each `minmax` keeps both regions at or above the
+ * floor right at the threshold, and past it the fr ratio holds exactly. */
 .pane-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(var(--pane-min), 100%), 1fr));
     column-gap: var(--pane-gap);
     row-gap: 1rem;
     width: 100%;
-    /* The GRID owns the clamp (R.W3 Lane A / A4 — U32, "handled generally"):
-     * the container grows fluidly with the viewport (minus .app-layout's
-     * horizontal padding, both sides) and clamps at two max-size cards plus
-     * the gutter (≈ 1050px — 32rem × 2 + 1.618rem, the 2026-07-05 owner-ruling
-     * clamp). Equal columns always; no shell self-clamps. */
-    max-width: var(--pane-row-max);
-    margin: 0 auto;
     position: relative;
     /* X.W5.b — the block-axis `max-height` that read the shell's cap token is
      * DELETED (gates B2/B4). It held this box to 608px inside a 1340.5px
      * scene band at 3440×1440 (45.4% block extent — the MT-F028 number,
      * reproduced exactly at wave-open) while the content inside measured 6.2×
      * the band: the cap was not restraining a long scene, it was hiding one.
-     * The box is now sized by its content. The INLINE clamp above is
-     * untouched — it is the owner-ruled ≈1050px invariant. */
+     * The box is now sized by its content. */
     min-height: 0;
     /* X.W12.c — the row contract below asks THIS box how many tracks it
      * holds, so it is the named query container (inline axis only: its width
      * is `width: 100%` + the clamp above, never its content's). */
     container: pane-row / inline-size;
+}
+
+/* SS-8 Z1 — THE PER-ROUTE TRACK RATIO (chassis-fitness §4.1; layout-gestalt §5
+ * rows 1–7). Golden 61.8 / 38.2 with the stage major: Picker, Generate,
+ * Gradient, Extract, Mix. Preview-dominant 2 : 1 with the FIELD major: Browse
+ * (its field is the stage) and Library (its field is the palettes region
+ * beside the shared picker). A route not named keeps equal tracks. The query
+ * is the row's two-track condition, read off the band (the row's width is the
+ * band's), with the token values written out as the row contract does. */
+.app-layout:is(
+        [data-view="picker"],
+        [data-view="generate"],
+        [data-view="gradient"],
+        [data-view="extract"],
+        [data-view="mix"]
+    ) {
+    --pane-stage-share: 61.8033989fr;
+    --pane-inspector-share: 38.1966011fr;
+}
+.app-layout[data-view="browse"] {
+    --pane-stage-share: 2fr;
+    --pane-inspector-share: 1fr;
+}
+.app-layout[data-view="palettes"] {
+    --pane-stage-share: 1fr;
+    --pane-inspector-share: 2fr;
+}
+@container scene (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+    .pane-container:has(> .pane-wrapper--stage + .pane-wrapper--inspector) {
+        grid-template-columns:
+            minmax(var(--pane-min), var(--pane-stage-share, 1fr))
+            minmax(var(--pane-min), var(--pane-inspector-share, 1fr));
+    }
 }
 
 /* The pane slots are size containers: in-card sizing rides `cqi` (container

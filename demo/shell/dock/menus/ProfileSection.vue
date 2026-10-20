@@ -3,7 +3,7 @@ import { computed, defineAsyncComponent, inject, useTemplateRef } from "vue";
 import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle, Shield,
 } from "@lucide/vue";
-import { DockControl, DockSeparator, DockTrigger } from "@mkbabb/glass-ui/dock";
+import { DockControl, DockTrigger } from "@mkbabb/glass-ui/dock";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem,
@@ -59,7 +59,6 @@ function openRepository(): void {
 <template>
     <!-- Desktop-only: user/login section -->
     <div ref="sectionRoot" class="hidden lg:flex items-center gap-1">
-        <DockSeparator />
 
         <!-- Logged in: "Account" button with dropdown -->
         <template v-if="pm.userSlug.value">
@@ -176,7 +175,6 @@ function openRepository(): void {
             </DockControl>
         </template>
 
-        <DockSeparator />
     </div>
 
     <!-- @mbabb menu -->

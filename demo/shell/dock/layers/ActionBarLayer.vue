@@ -66,11 +66,23 @@ function cycleToolbarMode() {
     }
     if (toolbarMode.value === "actions") {
         toolbarMode.value = "input";
+        void focusField();
     } else if (toolbarMode.value === "input") {
         toolbarMode.value = arm.canProposeName ? "propose" : "actions";
     } else {
         toolbarMode.value = "actions";
     }
+}
+
+// SS-8 Z-Dock-5 (Dock G-K(ii)): opening the input face hands focus to the
+// colour field, so typing lands there. The toggle keeps focus otherwise (it is
+// the control the user pressed, now labelled "Propose color name"), and the
+// typed text went nowhere. The face is un-inerted by the crossfade's own
+// update, so the focus waits a frame past it.
+const colorInput = useTemplateRef<{ focus: () => void }>("colorInput");
+async function focusField(): Promise<void> {
+    await nextTick();
+    requestAnimationFrame(() => colorInput.value?.focus());
 }
 
 const currentToggleIcon = computed(() => {
@@ -240,6 +252,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
             </DockLayer>
             <DockLayer v-if="inputArm" id="input">
                 <ColorInput
+                    ref="colorInput"
                     :propose-mode="toolbarMode === 'propose'"
                     class="min-w-0"
                     @proposed="onProposed"
