@@ -75,24 +75,26 @@
              `aria-label="Color tool panes"` named one through every catch and
              every route change). -->
         <main class="pane-main" :aria-labelledby="ROUTE_TITLE_ID">
-            <!-- X.W5.a · gate A5 (MT-F003 / App D-4) — ONE VISIBLE route H1
-                 inside <main>, speaking the schema's own label. The sr-only
-                 cure is STRUCK and uncitable: §5.1 requires a visible H1, and
-                 the constitution's seven focus origins target this node, which
-                 is why it is focusable-by-script (`tabindex="-1"`) and not
-                 focusable by tab.
+            <!-- X.W5.a · gate A5 (MT-F003 / App D-4) — ONE route H1 inside
+                 <main>, speaking the schema's own label. The constitution's
+                 seven focus origins target this node, which is why it is
+                 focusable-by-script (`tabindex="-1"`) and not focusable by tab.
                  X-DS value pass 8 (V8C-01): the name is said ONCE. Where a
                  pane title says the view's label (a `titled` region: Browse,
                  Extract, Mix, Generate, Gradient, Atmosphere, Blob, Not Found;
                  pass 9 · V9C-01: Palettes, whose "My Palettes" ends on it;
                  pass 18 · V18C-03: the five admin consoles) that title is
-                 this H1 (PaneShell), and no caption prints here. Where no pane
-                 says it ("Home") the caption stays, seated on the row's
-                 leading edge. -->
+                 this H1 (PaneShell), and no caption prints here.
+                 COHESION §0gf.2(a) (owner OD19-V4, reversing §0ge.7 VC5-01):
+                 where no pane says it ("Home") the H1 stays in <main> as
+                 visually-hidden text. The visible caption mounted in flow on
+                 every titled→Home swap and pushed the pane row down 23–25 px;
+                 hidden, it names <main> and takes focus but occupies no
+                 layout. -->
             <h1
                 v-if="!routeTitledByPane"
                 :id="ROUTE_TITLE_ID"
-                class="route-title font-display"
+                class="sr-only"
                 tabindex="-1"
             >
                 {{ currentConfig.label }}
@@ -500,45 +502,6 @@ onMounted(() => {
 
 /* The atmosphere-canvas arrival + PRM opacity pin moved to the overture
    grammar sheet (composables/boot/overture.css — the B2 voice + gate 5b). */
-
-/* X.W5.a · gate A5 — the visible route title.
-   ONE per route, inside <main>, speaking the schema's own label. A quiet
-   register on purpose: the dock already carries the view's identity as an
-   affordance, so the heading is the DOCUMENT's answer to "what is this scene",
-   not a second banner competing with it. It rides the certified de-emphasis
-   rung (`--ink-muted`, boot-stamped and floor-clamped), so it adds no new
-   contrast debt.
-   X-DS value pass 8 (V8C-01): it prints only where no pane title says the
-   label, and it sits on the row's leading edge, which is the stage card's
-   edge: the row's own inline clamp (`--pane-row-max`, shell.css) and
-   `text-align: start`. Centred, it hung over the gutter between two cards. */
-.route-title {
-    flex: none;
-    width: 100%;
-    max-width: var(--pane-row-max);
-    margin: 0 auto 0.5rem;
-    text-align: start;
-    /* X.W12U.m3 · R-m-2 (COHESION §0fh.5): the H1 sits on the type scale's
-     * nearest rung — caption (glass `--type-caption`, 12–16 px; 13.1 px at
-     * 844) — in place of the off-scale 0.8125rem; its 1.2 line box (15.8 px at
-     * 844×390) fits the measured 16 px title band. No new rung; the display
-     * face is kept. */
-    font-size: var(--text-caption);
-    font-weight: 500;
-    line-height: 1.2;
-    /* X-DS pass 1 (V1C-03): the schema's own label in sentence case — the
-     * original set no uppercase tracking anywhere (value-canon §2 Type). */
-    color: var(--ink-muted);
-}
-
-/* X.W12U.m · A2-VA-L2-4 — a short viewport folds the title's own margin
-   (the band tokens fold in foundation.css under the same query). The title
-   stays VISIBLE: gate A5 struck the sr-only cure. */
-@media (max-height: 30rem) {
-    .route-title {
-        margin-block-end: 0;
-    }
-}
 
 /* X.W5.a — ROLE-KEYED stagger. The plate-land delay follows the region's ROLE
    (stage first, inspector behind it), so when X.W5.d re-keys the motion family

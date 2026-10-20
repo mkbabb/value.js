@@ -1,0 +1,41 @@
+(node:10433) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:10467) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors (35.0s)
+(node:12974) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  2 [smoke] › e2e/smoke/page-load.spec.ts:73:1 › an unknown address announces its destination and is distinct from home (5.3s)
+  ✓  3 [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 1440 (1.8s)
+  ✓  4 [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 390 (572ms)
+  ✓  5 [smoke] › e2e/smoke/page-load.spec.ts:135:1 › OD19-V6: the pane-loading plate is wordless and named on its status (2.2s)
+  ✓  6 [smoke] › e2e/smoke/page-load.spec.ts:164:1 › OD19-V8: the channel rail carries one hairline (20.9s)
+  ✓  7 [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors (29.0s)
+
+
+  1) [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+      - navigating to "http://localhost:8290/", waiting until "load"
+
+
+      18 |     const consoleErrors = setupEnvNoise(page);
+      19 |
+    > 20 |     await page.goto("/");
+         |                ^
+      21 |
+      22 |     // Primary landmark — proves the pane shell mounted. X.W5.a: the landmark
+      23 |     // is named BY the route heading (`aria-labelledby`), never by a static
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/page-load.spec.ts:20:16
+
+    Error Context: test-results/page-load-page-loads-with--7d9e5-rks-and-zero-console-errors-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors 
+  6 passed (1.6m)

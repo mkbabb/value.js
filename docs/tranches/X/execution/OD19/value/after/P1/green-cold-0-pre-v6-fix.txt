@@ -1,0 +1,114 @@
+(node:99338) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:99422) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:99530) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors (30.0s)
+(node:2367) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [smoke] › e2e/smoke/page-load.spec.ts:73:1 › an unknown address announces its destination and is distinct from home (35.0s)
+(node:4858) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  3 [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 1440 (20.3s)
+  ✓  4 [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 390 (3.2s)
+  ✘  5 [smoke] › e2e/smoke/page-load.spec.ts:134:1 › OD19-V6: the pane-loading plate is wordless and named on its status (8.5s)
+(node:6998) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  6 [smoke] › e2e/smoke/page-load.spec.ts:163:1 › OD19-V8: the channel rail carries one hairline (35.0s)
+
+
+  1) [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:8290/", waiting until "load"
+
+
+      18 |     const consoleErrors = setupEnvNoise(page);
+      19 |
+    > 20 |     await page.goto("/");
+         |                ^
+      21 |
+      22 |     // Primary landmark — proves the pane shell mounted. X.W5.a: the landmark
+      23 |     // is named BY the route heading (`aria-labelledby`), never by a static
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/page-load.spec.ts:20:16
+
+    Error Context: test-results/page-load-page-loads-with--7d9e5-rks-and-zero-console-errors-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/page-load.spec.ts:73:1 › an unknown address announces its destination and is distinct from home 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+      - navigating to "http://localhost:8290/", waiting until "load"
+
+
+      76 |     const consoleErrors = setupEnvNoise(page);
+      77 |
+    > 78 |     await page.goto("/");
+         |                ^
+      79 |     const homeTitle = await page.title();
+      80 |     const homeHeading = await page
+      81 |         .getByRole("heading", { level: 1 })
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/page-load.spec.ts:78:16
+
+    Error Context: test-results/page-load-an-unknown-addre-9fcbe-n-and-is-distinct-from-home-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/page-load.spec.ts:134:1 › OD19-V6: the pane-loading plate is wordless and named on its status 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.pane-plate [role=\'status\']').first()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for locator('.pane-plate [role=\'status\']').first()
+
+
+      146 |     const status = page.locator(".pane-plate [role='status']").first();
+      147 |     try {
+    > 148 |         await expect(status).toBeVisible();
+          |                              ^
+      149 |         await expect(status).toHaveAttribute("aria-busy", "true");
+      150 |         await expect(status).toHaveAttribute("aria-label", "Loading the scene");
+      151 |         expect((await status.innerText()).trim()).toBe("");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/page-load.spec.ts:148:30
+
+    Error Context: test-results/page-load-OD19-V6-the-pane-98728-ess-and-named-on-its-status-smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/page-load.spec.ts:163:1 › OD19-V8: the channel rail carries one hairline ──
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+      - navigating to "http://localhost:8290/#/", waiting until "load"
+
+
+      162 |  */
+      163 | test("OD19-V8: the channel rail carries one hairline", async ({ page }) => {
+    > 164 |     await page.goto("/#/");
+          |                ^
+      165 |     const rail = page.locator(".channel-rail").first();
+      166 |     await expect(rail).toBeVisible();
+      167 |     const edge = await rail.evaluate((e) => {
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/page-load.spec.ts:164:16
+
+    Error Context: test-results/page-load-OD19-V8-the-channel-rail-carries-one-hairline-smoke/error-context.md
+
+  4 failed
+    [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors 
+    [smoke] › e2e/smoke/page-load.spec.ts:73:1 › an unknown address announces its destination and is distinct from home 
+    [smoke] › e2e/smoke/page-load.spec.ts:134:1 › OD19-V6: the pane-loading plate is wordless and named on its status 
+    [smoke] › e2e/smoke/page-load.spec.ts:163:1 › OD19-V8: the channel rail carries one hairline ───
+  2 passed (2.3m)

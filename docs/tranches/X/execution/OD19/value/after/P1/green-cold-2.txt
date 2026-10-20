@@ -1,0 +1,43 @@
+(node:23438) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:23534) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:23608) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors (33.5s)
+(node:24994) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  2 [smoke] › e2e/smoke/page-load.spec.ts:73:1 › an unknown address announces its destination and is distinct from home (7.9s)
+  ✓  3 [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 1440 (2.0s)
+  ✓  4 [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 390 (657ms)
+  ✓  5 [smoke] › e2e/smoke/page-load.spec.ts:135:1 › OD19-V6: the pane-loading plate is wordless and named on its status (2.7s)
+  ✓  6 [smoke] › e2e/smoke/page-load.spec.ts:164:1 › OD19-V8: the channel rail carries one hairline (825ms)
+  ✓  7 [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors (19.9s)
+
+
+  1) [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:8290/", waiting until "load"
+
+
+      18 |     const consoleErrors = setupEnvNoise(page);
+      19 |
+    > 20 |     await page.goto("/");
+         |                ^
+      21 |
+      22 |     // Primary landmark — proves the pane shell mounted. X.W5.a: the landmark
+      23 |     // is named BY the route heading (`aria-labelledby`), never by a static
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/page-load.spec.ts:20:16
+
+    Error Context: test-results/page-load-page-loads-with--7d9e5-rks-and-zero-console-errors-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors 
+  6 passed (1.2m)
