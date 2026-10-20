@@ -102,3 +102,25 @@ Two REFUTED rows keep a live residual the next wave should take:
 | 0751 | WebKit and touch, plus iOS hardware. The `ex-webkit` lock was saturated all session. |
 
 The Safari limb of 0725, and 0731's glyph-contrast and real-hardware limbs, are also open for the same engine and hardware reasons.
+
+## cures
+
+Falsifier: `e2e/smoke/ss8-b26-cures.spec.ts` (smoke project, Chromium headless, `--workers=1`, own vite on `VJS_E2E_PORT=9262`, every run via `guarded`). RED ×2 at HEAD (`E/cures/red-run1.txt`, `red-run2.txt`: R-2 light 4.08, X-5 status not found; R-2 dark passes at HEAD, as the witness measured). GREEN ×3 with the cures (`green-run1..3.txt`). Typecheck `vue-tsc -p tsconfig.demo.json` + `tsc -p tsconfig.e2e.json` exit 0 (`typecheck.txt`); vitest `demo/test/extract demo/test/generate` 9 files / 38 tests passed (`vitest.txt`). `E/` = `docs/tranches/X/execution/SS8/evidence/B26-extract-generate-panes/`.
+
+| SID | verdict at cure | change | commit |
+|---|---|---|---|
+| 0741 · R-2 | **CURED.** The packet's suggested cure (`.plate-ink`) was measured and rejected: the well washes the live ambient (ground rgb 199/92/169 under the default pink), and bare `--ink-muted` reads **3.71**, the well rung 4.07, a 61.8 % mix 4.28. Only the plate's primary pole clears: **4.62 light, 9.04 dark** (`probes/B26-cures/seed-ink.mjs` → `E/cures/seed-ink.json`). | `GenerateControls.vue`: the seed line wears `text-foreground` (the certified `--ink-primary` in a plate), the same ink as the Regenerate verb on its row; mono-small keeps it a caption. | see below |
+| 0726 · X-5 | **CURED (residual).** The visual pulse stood; now Add to palette and Apply each write a polite status (`"<colour> added to palette"`) inside the modal, cleared and rewritten so a repeat press is re-announced. | `ImageEyedropper.vue`: one `role="status" aria-live="polite"` node in the `DialogContent` (the App's route region is locked to route settlement, and the page behind the modal is hidden). | see below |
+| 0724 · D-4/D-8/D-17 | REFUTED, closed against this packet's witness. No product change. | — | — |
+| 0727 · L-11 | REFUTED, section-F carry closed. No change. | — | — |
+| 0728 · L-3 | REFUTED in count: corrected to **9** shell DockControls, all aria-labelled. The shell-aria-label vs workbench-title direction stands for X-W4. No change here. | — | — |
+| 0729 · D-16 | REFUTED; cured by X-W1 (`e2347c0e5`). | — | — |
+| 0731 · D2-23 | REFUTED (main and hit-cell limbs). Glyph-over-video contrast and real-hardware XW-9 stay **UNPROVEN** (no real camera). | — | — |
+| 0734 · C-34 | REFUTED; hypothesis closed. | — | — |
+| 0735 · zoom-200 | REFUTED ("all four" falsified by one unclipped arm). | — | — |
+| 0737 · D2-01 | REFUTED; X-W7 G20 landed. | — | — |
+| 0742 · R-3 | REFUTED; no subject at HEAD. | — | — |
+| 0743 · R-4 | REFUTED. | — | — |
+| 0744 · R-5 | REFUTED; the color-dialect fixture cured it. | — | — |
+| 0745 · R-6 | REFUTED. The side observation (Preset/Harmony triggers lose their edge under forced colors) is a glass Select trigger surface; not an item here, not cured. | — | — |
+| 0747 · R-8 | REFUTED; not reproduced. | — | — |

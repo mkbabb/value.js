@@ -19,6 +19,10 @@
         >
             <DialogTitle class="sr-only">Eyedropper</DialogTitle>
             <DialogDescription class="sr-only">{{ samplePrompt }}; Escape releases a pin, then closes.</DialogDescription>
+            <!-- SS8-0726 (X-5): the confirmation's spoken twin. The swatch pulse
+                 is the visual receipt; this polite region, inside the modal (the
+                 page behind is hidden), says what the press did. -->
+            <p class="sr-only" role="status" aria-live="polite" data-eyedropper-status>{{ confirmationText }}</p>
             <!-- Top bar -->
             <div class="flex items-center gap-2 px-3 py-2 shrink-0" :style="{ '--hover-color': sampledColor ?? '' }">
                 <DockControl class="eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">
@@ -252,17 +256,28 @@ async function loadAndFit() {
 
 // --- Actions ---
 
+// SS8-0726: each confirmation re-writes the status text (cleared first, so a
+// repeat press of the same colour is announced again, not deduplicated).
+const confirmationText = ref("");
+async function confirm(verb: string) {
+    const caption = formattedColor.value ? formatCssCaption(formattedColor.value) : "Color";
+    confirmations.value++;
+    confirmationText.value = "";
+    await nextTick();
+    confirmationText.value = `${caption} ${verb}`;
+}
+
 function onAddToPalette() {
     if (sampledColor.value) {
         emit("addToPalette", sampledColor.value);
-        confirmations.value++;
+        void confirm("added to palette");
     }
 }
 
 function onApplyColor() {
     if (sampledColor.value) {
         emit("pick", sampledColor.value);
-        confirmations.value++;
+        void confirm("applied as current color");
     }
 }
 

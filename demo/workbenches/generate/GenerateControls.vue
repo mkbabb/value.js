@@ -195,7 +195,13 @@ defineExpose({ regenerate, save, copyColors });
                  that Regenerate re-rolls — the provenance and the verb that
                  changes it share one line, and the title row stays whole. -->
             <div class="px-3 pb-2.5 pt-1 flex items-center gap-2 min-w-0">
-                <p class="min-w-0 truncate text-mono-small text-muted-foreground tabular-nums select-all">
+                <!-- SS8-0741 (R-2): the bench note wears the plate's primary
+                     ink, as the Regenerate verb beside it does. The well washes
+                     the live ambient, and over the default pink the muted rung
+                     read 4.08:1 light (bare --ink-muted 3.71); only the primary
+                     pole clears 4.5 (4.62 light, 9.04 dark). The mono-small
+                     rung keeps it a caption. -->
+                <p class="min-w-0 truncate text-mono-small text-foreground tabular-nums select-all">
                     seed: {{ seedHex }}
                 </p>
                 <div class="ml-auto flex items-center gap-2 shrink-0">
