@@ -3390,3 +3390,61 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-20. Spec: F-REL.
 **Escalation ESC-FREL-d-5 (orchestrator):** `.d`'s lock "after `.v3` (master CI GREEN ×2)" is unmet: ESC-FREL-v3-1 stands (m/w1 `39348303989` RED on X·OD19 `976a704`/`2a3651d`), the merge carrying `.m2`+`.s1` to master was not made, and master CI is RED. Route: the X·OD19 lane cures its 8 reds → `.v3`'s mechanical tail (fresh m/w1 CI GREEN → `merge --no-ff` → master CI ×2) → re-dispatch `.d` whole. No substitute (deploying m/w1, or master without `.s1`) was taken.
 
 **Adjacent edits:** none. **Commits:** value.js this receipt only (pathspec).
+
+## RESUME 2026-10-19 (j) — Close
+
+Close seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-20 ~01:40Z local 21:40. VERIFY-ONLY; nothing cured. Crash recovery: fourier ⟨`git status --porcelain`⟩ → dirty `web/**` (X·OD19 lane: `GalleryView.vue`, `DarkModeToggle.vue`, `main.ts`, `vite.config.ts`, f-w14 screenshots, `od19-load.spec.ts`, `sun-moon-shapes.ts`) + `?? .worktrees/`: none in an F.REL set, none touched. value.js: this record and `evidence/F-REL/` clean at open. Load ⟨`uptime`⟩ → `7.38 10.45 12.99`.
+
+### Commit roster (⟨`git show --stat`⟩ against each unit's writable set)
+| Unit | Commit | Paths | In bounds |
+|---|---|---|---|
+| `.s1` | fourier `c83b7ea` | `.env.example`, `.github/workflows/ci.yml`, `api/tests/test_boot_guard.py`, `docker-compose.prod.yml`, `docker-compose.yml` (healthcheck hunk only, L44-48), `scripts/deploy-hook.sh`, `scripts/deploy-switch-smoke.sh`, `scripts/prod-compose-smoke.sh` | yes |
+| `.s1` | fourier `563814d` | `scripts/deploy-switch-smoke.sh` | yes |
+| `.s1` | value.js `8ea7afd01` | this record + `evidence/F-REL/s1/**` | yes |
+| `.v3` | fourier `f7d17f0` | 3 linux `checkpoint-*-chromium-linux.png` | yes |
+| `.v3` | fourier `924df31` | `checkpoint-disclosure-body-chromium-{darwin,linux}.png` | yes |
+| `.v3` | value.js `51cf94d20` | this record + `evidence/F-REL/v3/README.md` | yes |
+| `.d` | value.js `6866846be` | this record | yes |
+
+landedWrong: none. The m/w1 → master merge was not made (`.v3` precondition unmet); master stays `24a524a`.
+
+### E13 mail sweep (close)
+⟨`ls -t glass-ui/docs/tranches | head -3`⟩ → `BL BK BJ`. ⟨`find value V/coordination · glass BL BK · keyframes V/coordination · atlas P/coordination -maxdepth 3 -type f -newer INBOX.md`⟩ → `glass BL/FORMATION-PROGRESS.md`, `glass BL/audit/INBOUND.md`: both are glass's own ledgers. INBOUND `2e3aef059` (O-102c) rules on value.js's outbound O-102(6), which closes on fourier `976a704` (the X·OD19 lane's cure, not an F.REL row), so it is out of this wave's scope and belongs to the X·OD19 lane / the records seat. ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`. **0 UNREAD in scope.**
+
+### Gate table (BEFORE = RESUME (j) Baseline → AFTER = this close's own readings)
+| Gate | BEFORE | AFTER (close) |
+|---|---|---|
+| s1 compose render | 0 lines `ENV`/`ADMIN_TOKEN`; mongo 512 MiB | ⟨`MONGO_PASSWORD=x docker compose -f docker-compose.yml -f docker-compose.prod.yml config`⟩ without the token → `required variable ADMIN_TOKEN is missing a value` ×2; with a fixture token → `ENV: production`, `ADMIN_TOKEN` present, `memory: "1073741824"`, `--wiredTigerCacheSizeGB` ×2. **GREEN** |
+| s1 boot-guard pytest | absent | ⟨`guarded --light -- .venv/bin/pytest api/tests/test_boot_guard.py -q`⟩ at the fourier HEAD `e928541` (api/scripts/compose identical to `924df31`: ⟨`git diff --stat 924df31 e928541 -- api docker-compose*.yml scripts`⟩ → empty) → `2 passed` ×2. **GREEN** |
+| api tests (live mongo) | banked | CI `39348303989` + `39340556816` job `api/tests (with live Mongo)` success ×2 (local full suite not re-run: it needs a live mongod; CI is the reading). **GREEN** |
+| prod-compose boot + health (CI) | — | CI `39348303989` + `39340556816` `production compose boot + health` success ×2. **GREEN** |
+| web vue-tsc | rc 0 | ⟨`guarded --light -- npx vue-tsc -b`⟩ in the clean scratch tree `~/.fourier-frel/g-wt` at `924df31` → rc 0 ×2. **GREEN** |
+| web vitest | 116 | ⟨`guarded -- npx vitest run --maxWorkers=2`⟩ same tree → `116 passed (116)` ×2. **GREEN** |
+| visual-checkpoint | items 1·6·7/2/8 RED | CI `39348303989` visual-checkpoint 6/6 (banked by `.v3`; not re-run: the WebKit/browser pool was busy, and CI is the binding reading). **GREEN** |
+| m/w1 CI e2e | RED | ⟨`gh run view 39348303989 --log-failed`⟩ → `8 failed`, `5 flaky`, `541 passed`. These are ESC-FREL-v3-1's X·OD19 reds. `e928541` has no CI run (⟨`gh run list --workflow ci.yml -L 6`⟩). **RED** |
+| merge m/w1 → master | `24a524a` | not made; ⟨`git rev-parse --short origin/master`⟩ → `24a524a`. **RED (blocked)** |
+| master CI ×2 | RED `39292117114` | unchanged, no new master run. **RED** |
+| prod health / openapi | 200 / 200 | ⟨`curl -w %{http_code}`⟩ → `200` / `200`. **GREEN** |
+| prod `/api/admin/verify` (no token) | 503 | `503`: the old build is live, since master lacks `c83b7ea`. **RED (`.d`)** |
+| pages-smoke | PASS | ⟨`bash scripts/pages-smoke.sh`⟩ → `PASS` ×2. **GREEN** |
+| cert > 14 d | Jan 4 2027 / Dec 22 2026 | ⟨`openssl s_client … \| openssl x509 -noout -enddate`⟩ → api `Jan  4 15:19:06 2027`, SPA `Dec 22 20:13:07 2026`. **GREEN** |
+| prod-verify 21/21 ×2; PD-1 prod; zero-outage deploy | RED | not run, because no deploy was made (`.d` ESC-FREL-d-5). **RED (blocked)** |
+
+### Units
+- `.s1`: **IMPLEMENTED** (fourier `c83b7ea` `563814d`; on m/w1, not yet on master).
+- `.v3`: **ESCALATED** ESC-FREL-v3-1. Its own items are GREEN, but the merge precondition (fresh m/w1 CI GREEN) is unmet because of 8 X·OD19 reds.
+- `.d`: **ESCALATED** ESC-FREL-d-5. Lock unmet; no host act.
+
+### Residuals (named owners)
+- R-j1: the 8 m/w1 e2e reds (`f-w14u-vedit:345,:573`, `f-w14u-vstage:373` ×2, `od19-p3-shell-motion-loading:98` ×4) from fourier `976a704` / `2a3651d`. Owner: **the X·OD19 fourier lane**, whose in-flight paths these are (§0gf.5). Then `e928541`, or its successor, needs a fresh m/w1 CI.
+- R-j2: `.v3`'s mechanical tail: fresh m/w1 CI GREEN, then `merge --no-ff` to master, then master CI GREEN ×2 (push + one dispatch). That reading also discharges `.m2`'s and `.s1`'s master gate. Owner: **Track C, a `.v3` re-sit**, after R-j1.
+- R-j3: `.d` whole: poller, hook deploy, `ENV=production`, `/api/admin/verify` read, mongo 8.0.20 + FCV + 1 GiB, prod-verify 21/21 ×2, PD-1 ×2, and closing deploy-alert #1. Owner: **Track C, a `.d` re-sit**, after R-j2. The admin anchor reads **403** (not 401) per `.s1`'s drifted-anchor note (`api/dependencies.py:262-270`). The orchestrator is asked to confirm that 403 satisfies §0gi's "not 503" intent.
+- R-j4: `.s1`'s healthcheck "before > 0" host count. Owner: **`.d`**, read from the host log after deploy.
+- R-j5: the first `.d` deploy recreates prod mongo once (cold backup window for DB-backed requests; `/api/health` stays 200). Owner: **`.d`**, which polls through it.
+- Mail: glass BL INBOUND O-102c (`2e3aef059`) is out of F.REL scope. Owner: **the X·OD19 lane / the records seat**.
+
+### Escalations standing
+ESC-FREL-v3-1 and ESC-FREL-d-5. Both route to the orchestrator: X·OD19 cures its 8 reds, then `.v3`'s tail, then `.d`. No substitute was taken: master was not deployed without `.s1`, and m/w1 was not deployed.
+
+### Four-verb line
+F.REL is **not moved**: it stays OPEN / BLOCKED. `.d` (the wave's deliverable) is undone, so IMPLEMENTED cannot be stamped. The LEDGER reads **BLOCKED-ON ESC-FREL-v3-1 (X·OD19 m/w1 e2e reds) + ESC-FREL-d-5**.
