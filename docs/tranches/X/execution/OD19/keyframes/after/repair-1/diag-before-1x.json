@@ -1,0 +1,292 @@
+[
+ {
+  "target": "Spring",
+  "click": 49,
+  "hashMs": 191,
+  "worst": 98,
+  "over50": [
+   [
+    97,
+    94
+   ],
+   [
+    278,
+    96
+   ],
+   [
+    382,
+    98
+   ],
+   [
+    480,
+    60
+   ],
+   [
+    540,
+    79
+   ]
+  ],
+  "marks": {
+   "prepare": [
+    49,
+    21
+   ],
+   "total": [
+    49,
+    496
+   ],
+   "commit": [
+    109,
+    75
+   ]
+  },
+  "loaf": [
+   {
+    "start": 102,
+    "dur": 102,
+    "block": 35,
+    "render": 85,
+    "style": 11,
+    "scripts": [
+     {
+      "inv": "ViewTransitionCallback",
+      "src": "@index-lqyUIOgd.js:308309",
+      "dur": 9,
+      "fsl": 4
+     },
+     {
+      "inv": "import.then",
+      "src": "@index-lqyUIOgd.js:304533",
+      "dur": 69,
+      "fsl": 32
+     }
+    ]
+   },
+   {
+    "start": 285,
+    "dur": 96,
+    "block": 0,
+    "render": 89,
+    "style": 4,
+    "scripts": []
+   },
+   {
+    "start": 389,
+    "dur": 97,
+    "block": 0,
+    "render": 91,
+    "style": 4,
+    "scripts": []
+   },
+   {
+    "start": 487,
+    "dur": 57,
+    "block": 0,
+    "render": 45,
+    "style": 0,
+    "scripts": [
+     {
+      "inv": "DIV#glass-disclosure-content-v-108.onanimationend",
+      "src": "d@vendor-reka-ui-C_Tr5-Vi.js:144569",
+      "dur": 7,
+      "fsl": 6
+     }
+    ]
+   },
+   {
+    "start": 544,
+    "dur": 75,
+    "block": 0,
+    "render": 74,
+    "style": 0,
+    "scripts": []
+   }
+  ]
+ },
+ {
+  "target": "Easing",
+  "click": 23,
+  "hashMs": 183,
+  "worst": 141,
+  "over50": [
+   [
+    42,
+    141
+   ],
+   [
+    265,
+    95
+   ],
+   [
+    359,
+    93
+   ],
+   [
+    453,
+    53
+   ],
+   [
+    505,
+    78
+   ]
+  ],
+  "marks": {
+   "prepare": [
+    23,
+    5
+   ],
+   "total": [
+    23,
+    488
+   ],
+   "commit": [
+    53,
+    122
+   ]
+  },
+  "loaf": [
+   {
+    "start": 47,
+    "dur": 146,
+    "block": 85,
+    "render": 133,
+    "style": 10,
+    "scripts": [
+     {
+      "inv": "import.then",
+      "src": "@index-lqyUIOgd.js:304326",
+      "dur": 122,
+      "fsl": 31
+     }
+    ]
+   },
+   {
+    "start": 272,
+    "dur": 93,
+    "block": 0,
+    "render": 87,
+    "style": 4,
+    "scripts": []
+   },
+   {
+    "start": 366,
+    "dur": 93,
+    "block": 0,
+    "render": 86,
+    "style": 4,
+    "scripts": []
+   },
+   {
+    "start": 511,
+    "dur": 74,
+    "block": 0,
+    "render": 71,
+    "style": 0,
+    "scripts": []
+   }
+  ]
+ },
+ {
+  "target": "Sequence",
+  "click": 26,
+  "hashMs": 103,
+  "worst": 86,
+  "over50": [
+   [
+    46,
+    57
+   ],
+   [
+    185,
+    80
+   ],
+   [
+    265,
+    86
+   ],
+   [
+    351,
+    86
+   ],
+   [
+    436,
+    62
+   ],
+   [
+    500,
+    56
+   ]
+  ],
+  "marks": {
+   "prepare": [
+    26,
+    6
+   ],
+   "total": [
+    26,
+    415
+   ],
+   "commit": [
+    57,
+    39
+   ]
+  },
+  "loaf": [
+   {
+    "start": 52,
+    "dur": 56,
+    "block": 0,
+    "render": 48,
+    "style": 5,
+    "scripts": [
+     {
+      "inv": "import.then",
+      "src": "@index-lqyUIOgd.js:304747",
+      "dur": 36,
+      "fsl": 22
+     }
+    ]
+   },
+   {
+    "start": 191,
+    "dur": 80,
+    "block": 0,
+    "render": 74,
+    "style": 5,
+    "scripts": []
+   },
+   {
+    "start": 271,
+    "dur": 86,
+    "block": 0,
+    "render": 80,
+    "style": 5,
+    "scripts": []
+   },
+   {
+    "start": 357,
+    "dur": 83,
+    "block": 0,
+    "render": 77,
+    "style": 0,
+    "scripts": []
+   },
+   {
+    "start": 502,
+    "dur": 55,
+    "block": 0,
+    "render": 54,
+    "style": 0,
+    "scripts": []
+   },
+   {
+    "start": 440,
+    "dur": 59,
+    "block": 0,
+    "render": 57,
+    "style": 1,
+    "scripts": []
+   }
+  ]
+ }
+]

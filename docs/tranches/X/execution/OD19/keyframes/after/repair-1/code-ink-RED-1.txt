@@ -1,0 +1,5 @@
+  ✗ light: closest number/stop ΔE 0.073 (bar 0.085)
+  ✗ dark: closest number/stop ΔE 0.058 (bar 0.085)
+{"light":{"rgb":{"structure":[28,25,23],"property":[73,58,107],"value":[69,58,48],"number":[126,90,204],"stop":[108,62,190],"punct":[124,102,80]},"closest":["number/stop 0.073","property/value 0.103","structure/value 0.142"]},"dark":{"rgb":{"structure":[233,230,226],"property":[211,190,233],"value":[205,198,189],"number":[190,149,236],"stop":[211,166,255],"punct":[172,160,145]},"closest":["number/stop 0.058","property/value 0.073","property/stop 0.076"]}}
+code-ink — FAIL (2)
+rc=1

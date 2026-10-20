@@ -1,0 +1,88 @@
+
+ RUN  v4.1.8 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/kf-head
+
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ ❯ |demo| test/demo/app/dock-surface-items.test.ts (11 tests | 3 failed) 452ms
+     × its menu names the four surfaces, each row a glyph + its title 94ms
+     × picking a row selects its surface and opens the closed pane 75ms
+     × re-picking the row the open pane is showing closes the pane 61ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/app/dock-surface-items.test.ts > ChromeDock: one surface trigger whose menu opens the shared pane > its menu names the four surfaces, each row a glyph + its title
+AssertionError: expected [ 'menuitem', 'menuitem', …(2) ] to deeply equal [ 'menuitemradio', …(3) ]
+
+- Expected
++ Received
+
+  [
+-   "menuitemradio",
+-   "menuitemradio",
+-   "menuitemradio",
+-   "menuitemradio",
++   "menuitem",
++   "menuitem",
++   "menuitem",
++   "menuitem",
+  ]
+
+ ❯ test/demo/app/dock-surface-items.test.ts:135:54
+    133|         await openMenu(wrapper);
+    134|         const r = rows();
+    135|         expect(r.map((e) => e.getAttribute("role"))).toEqual(["menuite…
+       |                                                      ^
+    136|         expect(r.map((e) => e.textContent?.trim())).toEqual(["Controls…
+    137|         for (const e of r) expect(e.querySelector("svg")).not.toBeNull…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |demo| test/demo/app/dock-surface-items.test.ts > ChromeDock: one surface trigger whose menu opens the shared pane > picking a row selects its surface and opens the closed pane
+AssertionError: expected [] to deeply equal [ 'keyframes' ]
+
+- Expected
++ Received
+
+- [
+-   "keyframes",
+- ]
++ []
+
+ ❯ test/demo/app/dock-surface-items.test.ts:148:26
+    146|         rows().find((e) => e.dataset.surface === "keyframes")!.click();
+    147|         await flushPromises();
+    148|         expect(onSelect).toEqual(["keyframes"]);
+       |                          ^
+    149|         expect(onToggle).toHaveLength(1);
+    150|         wrapper.unmount();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |demo| test/demo/app/dock-surface-items.test.ts > ChromeDock: one surface trigger whose menu opens the shared pane > re-picking the row the open pane is showing closes the pane
+AssertionError: expected null to be 'true' // Object.is equality
+
+- Expected:
+"true"
+
++ Received:
+null
+
+ ❯ test/demo/app/dock-surface-items.test.ts:162:54
+    160|         // C1-KF-10 — the showing row wears the producer's checked rad…
+    161|         // and it is the only checked row.
+    162|         expect(physics.getAttribute("aria-checked")).toBe("true");
+       |                                                      ^
+    163|         expect(physics.querySelector(".menu__radio-dot")).not.toBeNull…
+    164|         expect(rows().filter((e) => e.getAttribute("aria-checked") ===…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 8 passed (11)
+   Start at  18:19:41
+   Duration  2.02s (transform 763ms, setup 23ms, import 977ms, tests 452ms, environment 413ms)
+
