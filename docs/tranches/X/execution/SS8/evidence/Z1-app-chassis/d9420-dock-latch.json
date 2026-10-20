@@ -1,0 +1,31 @@
+{
+ "cell": "latch",
+ "ms": 96474,
+ "at": "2026-10-20T20:51:30.252Z",
+ "out": {
+  "seq": [
+   [
+    "/",
+    null
+   ],
+   [
+    "/atmosphere",
+    null
+   ],
+   [
+    "back",
+    null
+   ],
+   [
+    "/palettes",
+    null
+   ],
+   [
+    "/",
+    null
+   ]
+  ],
+  "coldAtmosphere": null,
+  "adminAuthenticated": false
+ }
+}

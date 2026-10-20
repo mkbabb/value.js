@@ -1,0 +1,64 @@
+{
+ "cell": "login",
+ "ms": 15395,
+ "at": "2026-10-20T21:48:38.978Z",
+ "out": {
+  "lampBefore": [
+   {
+    "role": "status",
+    "t": ""
+   }
+  ],
+  "focus": {
+   "tag": "DIV",
+   "label": null,
+   "cls": "dock-face is-active justify-center"
+  },
+  "timeline": [
+   {
+    "ms": 500,
+    "inputVisible": true,
+    "value": "zzzz-zzzz-zzzz-zzzz",
+    "error": {
+     "t": "Slug not found.",
+     "role": "alert",
+     "vis": true
+    },
+    "submit": "Switch to slug"
+   },
+   {
+    "ms": 2000,
+    "inputVisible": true,
+    "value": "zzzz-zzzz-zzzz-zzzz",
+    "error": {
+     "t": "Slug not found.",
+     "role": "alert",
+     "vis": true
+    },
+    "submit": "Switch to slug"
+   },
+   {
+    "ms": 6000,
+    "inputVisible": true,
+    "value": "zzzz-zzzz-zzzz-zzzz",
+    "error": {
+     "t": "Slug not found.",
+     "role": "alert",
+     "vis": true
+    },
+    "submit": "Switch to slug"
+   },
+   {
+    "ms": 10000,
+    "inputVisible": true,
+    "value": "zzzz-zzzz-zzzz-zzzz",
+    "error": {
+     "t": "Slug not found.",
+     "role": "alert",
+     "vis": true
+    },
+    "submit": "Switch to slug"
+   }
+  ]
+ }
+}

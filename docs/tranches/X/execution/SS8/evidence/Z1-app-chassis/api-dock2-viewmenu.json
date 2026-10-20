@@ -1,0 +1,209 @@
+{
+ "cell": "viewmenu",
+ "ms": 11077,
+ "at": "2026-10-20T21:49:09.444Z",
+ "out": {
+  "light": {
+   "pill": {
+    "t": "@mbabb",
+    "bidi": "normal",
+    "dirAttr": null,
+    "parentBidi": "isolate"
+   },
+   "rows": [
+    {
+     "t": "Home",
+     "sel": "false",
+     "kids": 8,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-48\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 3305,
+     "h": 562534402
+    },
+    {
+     "t": "Palettes",
+     "sel": "false",
+     "kids": 11,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-49\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 3507,
+     "h": 94119076
+    },
+    {
+     "t": "Browse",
+     "sel": "false",
+     "kids": 8,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-50\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 4366,
+     "h": 897254305
+    },
+    {
+     "t": "Extract",
+     "sel": "false",
+     "kids": 8,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-51\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 2781,
+     "h": -1382610002
+    },
+    {
+     "t": "Mix",
+     "sel": "false",
+     "kids": 8,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-52\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 6888,
+     "h": 1173774144
+    },
+    {
+     "t": "Generate",
+     "sel": "true",
+     "kids": 16,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-53\" aria-selected=\"true\" data-state=\"checked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify-ce",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 7494,
+     "h": 1073474355
+    },
+    {
+     "t": "Gradient",
+     "sel": "false",
+     "kids": 9,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-54\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 4883,
+     "h": -1406573419
+    }
+   ]
+  },
+  "dark": {
+   "pill": {
+    "t": "@mbabb",
+    "bidi": "normal",
+    "dirAttr": null,
+    "parentBidi": "isolate"
+   },
+   "rows": [
+    {
+     "t": "Home",
+     "sel": "false",
+     "kids": 8,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-48\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 4097,
+     "h": -321512787
+    },
+    {
+     "t": "Palettes",
+     "sel": "false",
+     "kids": 11,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-49\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 3733,
+     "h": -1449358586
+    },
+    {
+     "t": "Browse",
+     "sel": "false",
+     "kids": 8,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-50\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 4373,
+     "h": -1097655824
+    },
+    {
+     "t": "Extract",
+     "sel": "false",
+     "kids": 8,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-51\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 3230,
+     "h": -1049152380
+    },
+    {
+     "t": "Mix",
+     "sel": "false",
+     "kids": 8,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-52\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 7406,
+     "h": -1291801210
+    },
+    {
+     "t": "Generate",
+     "sel": "true",
+     "kids": 16,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-53\" aria-selected=\"true\" data-state=\"checked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify-ce",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 8162,
+     "h": -1796896490
+    },
+    {
+     "t": "Gradient",
+     "sel": "false",
+     "kids": 9,
+     "checkedNodes": 0,
+     "html": "<div data-v-2c6ff2e0=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-54\" aria-selected=\"false\" data-state=\"unchecked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute start-2 flex h-3.5 w-3.5 items-center justify",
+     "pseudo": [
+      null,
+      null
+     ],
+     "bytes": 5294,
+     "h": 127863303
+    }
+   ]
+  }
+ }
+}

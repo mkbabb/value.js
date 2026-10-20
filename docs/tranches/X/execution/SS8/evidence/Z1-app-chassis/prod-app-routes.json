@@ -1,0 +1,798 @@
+{
+ "cell": "routes",
+ "ms": 55769,
+ "at": "2026-10-20T20:01:46.550Z",
+ "out": {
+  "/": {
+   "label": "Home",
+   "href": "http://localhost:9419/#/",
+   "title": "Color Picker",
+   "h1": [
+    {
+     "t": "Home",
+     "srOnly": true,
+     "vis": false,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "Home view"
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b2",
+    "overture:b3",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Home",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "color-picker",
+     "x": 199,
+     "y": 88,
+     "w": 512,
+     "h": 621
+    },
+    {
+     "pane": "about",
+     "x": 729,
+     "y": 88,
+     "w": 512,
+     "h": 621
+    }
+   ],
+   "grid": "512px 512px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 1541,
+   "sliders": 4
+  },
+  "/palettes": {
+   "label": "Palettes",
+   "href": "http://localhost:9419/#/palettes",
+   "title": "Palettes — Color Picker",
+   "h1": [
+    {
+     "t": "My Palettes",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "Palettes view"
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b2",
+    "overture:b3",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Palettes",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "color-picker",
+     "x": 199,
+     "y": 88,
+     "w": 512,
+     "h": 621
+    },
+    {
+     "pane": "palettes",
+     "x": 729,
+     "y": 88,
+     "w": 512,
+     "h": 621
+    }
+   ],
+   "grid": "512px 512px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 196,
+   "sliders": 4
+  },
+  "/browse": {
+   "label": "Browse",
+   "href": "http://localhost:9419/#/browse",
+   "title": "Browse — Color Picker",
+   "h1": [
+    {
+     "t": "Browse",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "Browse view"
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Browse",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "browse",
+     "x": 199,
+     "y": 88,
+     "w": 512,
+     "h": 625
+    },
+    {
+     "pane": "palettes",
+     "x": 729,
+     "y": 88,
+     "w": 512,
+     "h": 625
+    }
+   ],
+   "grid": "512px 512px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 656,
+   "sliders": 0
+  },
+  "/extract": {
+   "label": "Extract",
+   "href": "http://localhost:9419/#/extract",
+   "title": "Extract — Color Picker",
+   "h1": [
+    {
+     "t": "Extract",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "Extract view"
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Extract",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "extract",
+     "x": 199,
+     "y": 88,
+     "w": 512,
+     "h": 556
+    },
+    {
+     "pane": "palettes",
+     "x": 729,
+     "y": 88,
+     "w": 512,
+     "h": 556
+    }
+   ],
+   "grid": "512px 512px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 227,
+   "sliders": 2
+  },
+  "/mix": {
+   "label": "Mix",
+   "href": "http://localhost:9419/#/mix",
+   "title": "Mix — Color Picker",
+   "h1": [
+    {
+     "t": "Mix",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "Mix view"
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b2",
+    "overture:b3",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Mix",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "color-picker",
+     "x": 199,
+     "y": 88,
+     "w": 512,
+     "h": 621
+    },
+    {
+     "pane": "mix",
+     "x": 729,
+     "y": 88,
+     "w": 512,
+     "h": 621
+    }
+   ],
+   "grid": "512px 512px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 269,
+   "sliders": 4
+  },
+  "/generate": {
+   "label": "Generate",
+   "href": "http://localhost:9419/#/generate",
+   "title": "Generate — Color Picker",
+   "h1": [
+    {
+     "t": "Generate",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "Generate view"
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Generate",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "generate",
+     "x": 199,
+     "y": 88,
+     "w": 512,
+     "h": 474
+    },
+    {
+     "pane": "palettes",
+     "x": 729,
+     "y": 88,
+     "w": 512,
+     "h": 480
+    }
+   ],
+   "grid": "512px 512px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 268,
+   "sliders": 1
+  },
+  "/gradient": {
+   "label": "Gradient",
+   "href": "http://localhost:9419/#/gradient",
+   "title": "Gradient — Color Picker",
+   "h1": [
+    {
+     "t": "Gradient",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "Gradient view"
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b2",
+    "overture:b3",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Gradient",
+    "gold": false
+   },
+   "doc": {
+    "sh": 975,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "gradient",
+     "x": 199,
+     "y": 88,
+     "w": 512,
+     "h": 879
+    },
+    {
+     "pane": "palettes",
+     "x": 729,
+     "y": 88,
+     "w": 512,
+     "h": 879
+    }
+   ],
+   "grid": "512px 512px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 470,
+   "sliders": 3
+  },
+  "/atmosphere": {
+   "label": "Atmosphere",
+   "href": "http://localhost:9419/#/atmosphere",
+   "title": "Atmosphere — Color Picker",
+   "h1": [
+    {
+     "t": "Atmosphere",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "Atmosphere view"
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Atmosphere",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "atmosphere",
+     "x": 199,
+     "y": 88,
+     "w": 1042,
+     "h": 684
+    }
+   ],
+   "grid": "1042px 0px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 209,
+   "sliders": 3
+  },
+  "/blob": {
+   "label": "Blob",
+   "href": "http://localhost:9419/#/blob",
+   "title": "Blob — Color Picker",
+   "h1": [
+    {
+     "t": "Blob",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "Blob view"
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b2",
+    "overture:b3",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Blob",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "color-picker",
+     "x": 199,
+     "y": 88,
+     "w": 512,
+     "h": 621
+    },
+    {
+     "pane": "blob",
+     "x": 729,
+     "y": 88,
+     "w": 512,
+     "h": 621
+    }
+   ],
+   "grid": "512px 512px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 742,
+   "sliders": 35
+  },
+  "/admin/users": {
+   "label": "Users",
+   "href": "http://localhost:9419/#/admin/users",
+   "title": "Not found — Color Picker",
+   "h1": [
+    {
+     "t": "Not found",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "/admin/users could not be opened."
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Not found",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "not-found",
+     "x": 199,
+     "y": 88,
+     "w": 1042,
+     "h": 265
+    }
+   ],
+   "grid": "1042px 0px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 119,
+   "sliders": 0
+  },
+  "/admin/names": {
+   "label": "Names",
+   "href": "http://localhost:9419/#/admin/names",
+   "title": "Not found — Color Picker",
+   "h1": [
+    {
+     "t": "Not found",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "/admin/names could not be opened."
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Not found",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "not-found",
+     "x": 199,
+     "y": 88,
+     "w": 1042,
+     "h": 265
+    }
+   ],
+   "grid": "1042px 0px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 119,
+   "sliders": 0
+  },
+  "/admin/audit": {
+   "label": "Audit log",
+   "href": "http://localhost:9419/#/admin/audit",
+   "title": "Not found — Color Picker",
+   "h1": [
+    {
+     "t": "Not found",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "/admin/audit could not be opened."
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Not found",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "not-found",
+     "x": 199,
+     "y": 88,
+     "w": 1042,
+     "h": 265
+    }
+   ],
+   "grid": "1042px 0px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 119,
+   "sliders": 0
+  },
+  "/admin/flagged": {
+   "label": "Flagged",
+   "href": "http://localhost:9419/#/admin/flagged",
+   "title": "Not found — Color Picker",
+   "h1": [
+    {
+     "t": "Not found",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "/admin/flagged could not be opened."
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Not found",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "not-found",
+     "x": 199,
+     "y": 88,
+     "w": 1042,
+     "h": 265
+    }
+   ],
+   "grid": "1042px 0px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 123,
+   "sliders": 0
+  },
+  "/admin/tags": {
+   "label": "Tags",
+   "href": "http://localhost:9419/#/admin/tags",
+   "title": "Not found — Color Picker",
+   "h1": [
+    {
+     "t": "Not found",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "/admin/tags could not be opened."
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Not found",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "not-found",
+     "x": 199,
+     "y": 88,
+     "w": 1042,
+     "h": 265
+    }
+   ],
+   "grid": "1042px 0px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 117,
+   "sliders": 0
+  },
+  "/does-not-exist": {
+   "label": "Not found",
+   "href": "http://localhost:9419/#/does-not-exist",
+   "title": "Not found — Color Picker",
+   "h1": [
+    {
+     "t": "Not found",
+     "srOnly": false,
+     "vis": true,
+     "inMain": true
+    }
+   ],
+   "main": 1,
+   "status": [
+    "/does-not-exist could not be opened."
+   ],
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "viewSelect": {
+    "text": "Not found",
+    "gold": false
+   },
+   "doc": {
+    "sh": 900,
+    "ch": 900,
+    "sw": 1440,
+    "cw": 1440
+   },
+   "panes": [
+    {
+     "pane": "not-found",
+     "x": 199,
+     "y": 88,
+     "w": 1042,
+     "h": 265
+    }
+   ],
+   "grid": "1042px 0px",
+   "pc": 1042,
+   "gutter": "16px",
+   "paneMax": "32rem",
+   "textLen": 125,
+   "sliders": 0
+  }
+ }
+}

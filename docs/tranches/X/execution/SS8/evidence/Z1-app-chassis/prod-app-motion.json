@@ -1,0 +1,10 @@
+{
+ "cell": "motion",
+ "ms": 24391,
+ "at": "2026-10-20T20:05:28.894Z",
+ "out": {
+  "raf20to24": 509,
+  "draws20to24": 0,
+  "stillControls": []
+ }
+}

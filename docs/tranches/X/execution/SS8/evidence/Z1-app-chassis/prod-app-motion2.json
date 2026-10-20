@@ -1,0 +1,21 @@
+{
+ "cell": "motion2",
+ "ms": 26905,
+ "at": "2026-10-20T21:22:12.621Z",
+ "out": {
+  "gl20to24": 0,
+  "gpu20to24": 0,
+  "changed": [
+   {
+    "canvas": "atmosphere-canvas fixed inset-x-0 top-0 ",
+    "pixelsChanged": false
+   },
+   {
+    "canvas": "goo-blob-canvas",
+    "pixelsChanged": false
+   }
+  ],
+  "stillControls": [],
+  "prm": false
+ }
+}

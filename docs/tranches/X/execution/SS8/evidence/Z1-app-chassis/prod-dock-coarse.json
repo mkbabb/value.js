@@ -1,0 +1,107 @@
+{
+ "cell": "coarse",
+ "ms": 8207,
+ "at": "2026-10-20T21:21:45.064Z",
+ "out": {
+  "fine": {
+   "coarse": false,
+   "ctrls": [
+    {
+     "l": "Reset color",
+     "h": 40,
+     "w": 40
+    },
+    {
+     "l": "Copy color",
+     "h": 40,
+     "w": 40
+    },
+    {
+     "l": "Random color",
+     "h": 40,
+     "w": 40
+    },
+    {
+     "l": "Palettes",
+     "h": 40,
+     "w": 40
+    },
+    {
+     "l": "Extract palette",
+     "h": 40,
+     "w": 40
+    },
+    {
+     "l": "Select view",
+     "h": 32,
+     "w": 106
+    },
+    {
+     "l": "Toggle action bar",
+     "h": 40,
+     "w": 119
+    },
+    {
+     "l": "Login",
+     "h": 38,
+     "w": 87
+    },
+    {
+     "l": "@mbabb",
+     "h": 30,
+     "w": 74
+    }
+   ]
+  },
+  "coarse": {
+   "coarse": true,
+   "ctrls": [
+    {
+     "l": "Reset color",
+     "h": 44,
+     "w": 44
+    },
+    {
+     "l": "Copy color",
+     "h": 44,
+     "w": 44
+    },
+    {
+     "l": "Random color",
+     "h": 44,
+     "w": 44
+    },
+    {
+     "l": "Palettes",
+     "h": 44,
+     "w": 44
+    },
+    {
+     "l": "Extract palette",
+     "h": 44,
+     "w": 44
+    },
+    {
+     "l": "Select view",
+     "h": 32,
+     "w": 106
+    },
+    {
+     "l": "Toggle action bar",
+     "h": 40,
+     "w": 119
+    },
+    {
+     "l": "Login",
+     "h": 38,
+     "w": 87
+    },
+    {
+     "l": "@mbabb",
+     "h": 30,
+     "w": 74
+    }
+   ]
+  }
+ }
+}

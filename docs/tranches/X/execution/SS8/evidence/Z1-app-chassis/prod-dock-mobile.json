@@ -1,0 +1,42 @@
+{
+ "cell": "mobile",
+ "ms": 27035,
+ "at": "2026-10-20T21:21:36.857Z",
+ "out": {
+  "m390": {
+   "opened": true,
+   "regenVisible": true,
+   "changed": true,
+   "openColorInput": 0,
+   "colorEntry": null,
+   "menuRows": [
+    {
+     "t": "Login",
+     "h": 44
+    },
+    {
+     "t": "Share color",
+     "h": 44
+    },
+    {
+     "t": "GitHub",
+     "h": 44
+    }
+   ]
+  },
+  "z720": {
+   "opened": true,
+   "regenVisible": true,
+   "changed": true,
+   "openColorInput": 0,
+   "colorEntry": null
+  },
+  "d1440": {
+   "opened": true,
+   "regenVisible": true,
+   "changed": true,
+   "openColorInput": 0,
+   "colorEntry": null
+  }
+ }
+}

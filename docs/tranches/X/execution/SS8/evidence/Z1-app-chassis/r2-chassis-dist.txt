@@ -1,0 +1,4 @@
+glass version:     "version": "10.1.0",
+dist/components instr*: 0
+grep -rl InstrumentChassis dist:        0
+demo consumers:        0

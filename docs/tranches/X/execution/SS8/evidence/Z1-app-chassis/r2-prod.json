@@ -1,0 +1,27 @@
+{
+ "/": {
+  "main": 1,
+  "text": 1541,
+  "h1": [
+   "Home"
+  ],
+  "href": "http://localhost:9419/#/",
+  "dockLive": [
+   "status/polite/dock-run-status"
+  ],
+  "shellStatus": 1
+ },
+ "/generate": {
+  "main": 1,
+  "text": 268,
+  "h1": [
+   "Generate"
+  ],
+  "href": "http://localhost:9419/#/generate",
+  "dockLive": [
+   "status/polite/dock-run-status"
+  ],
+  "shellStatus": 1
+ },
+ "pageErrors": []
+}

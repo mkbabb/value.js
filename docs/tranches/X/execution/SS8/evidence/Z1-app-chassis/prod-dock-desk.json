@@ -1,0 +1,43 @@
+{
+ "cell": "desk",
+ "ms": 6626,
+ "at": "2026-10-20T21:20:46.641Z",
+ "out": {
+  "census": {
+   "focusables": 5,
+   "cast": [],
+   "seps": 0,
+   "live": [
+    {
+     "role": "status",
+     "live": "polite",
+     "cls": "dock-run-status"
+    }
+   ],
+   "atPill": null,
+   "bg": "rgba(0, 0, 0, 0)",
+   "backdrop": {
+    "state": "unavailable",
+    "reason": "source-unavailable",
+    "luma": "0"
+   },
+   "dataAttrs": [
+    "data-v-e162101e=",
+    "data-backdrop-mode=live",
+    "data-backdrop-sample-state=unavailable",
+    "data-backdrop-sample-source=canvas",
+    "data-backdrop-sample-reason=source-unavailable"
+   ]
+  },
+  "opened": true,
+  "openColorInput": 0,
+  "colorFocus": {
+   "tag": "BUTTON",
+   "label": "Propose color name",
+   "editable": false
+  },
+  "typed": [
+   ""
+  ]
+ }
+}

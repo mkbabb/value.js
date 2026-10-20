@@ -1,0 +1,139 @@
+{
+ "cell": "pills",
+ "ms": 10299,
+ "at": "2026-10-20T21:53:29.986Z",
+ "out": {
+  "fine": {
+   "coarse": false,
+   "main": {
+    "focusables": [
+     "Select view",
+     "Toggle action ba",
+     "Login",
+     "@mbabb"
+    ],
+    "cast": [],
+    "seps": 3,
+    "ctrls": [
+     {
+      "l": "Select view",
+      "w": 91,
+      "h": 24
+     },
+     {
+      "l": "Toggle action ba",
+      "w": 97,
+      "h": 24
+     },
+     {
+      "l": "Login",
+      "w": 64,
+      "h": 38
+     },
+     {
+      "l": "@mbabb",
+      "w": 59,
+      "h": 23
+     }
+    ]
+   },
+   "slug": {
+    "focusables": [
+     "Slug or admin to",
+     "Switch to slug",
+     "Cancel"
+    ],
+    "cast": [
+     {
+      "l": "Slug or admin to",
+      "sh": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.04) 1px 0px 0px 0px inset, oklab(0.216129 0.00349092 0.00518243 / 0.16) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px"
+     }
+    ],
+    "seps": 1,
+    "ctrls": [
+     {
+      "l": "Slug or admin to",
+      "w": 224,
+      "h": 36
+     },
+     {
+      "l": "Switch to slug",
+      "w": 24,
+      "h": 24
+     },
+     {
+      "l": "Cancel",
+      "w": 24,
+      "h": 24
+     }
+    ]
+   }
+  },
+  "coarse": {
+   "coarse": true,
+   "main": {
+    "focusables": [
+     "Select view",
+     "Toggle action ba",
+     "Login",
+     "@mbabb"
+    ],
+    "cast": [],
+    "seps": 3,
+    "ctrls": [
+     {
+      "l": "Select view",
+      "w": 91,
+      "h": 24
+     },
+     {
+      "l": "Toggle action ba",
+      "w": 97,
+      "h": 44
+     },
+     {
+      "l": "Login",
+      "w": 64,
+      "h": 38
+     },
+     {
+      "l": "@mbabb",
+      "w": 59,
+      "h": 23
+     }
+    ]
+   },
+   "slug": {
+    "focusables": [
+     "Slug or admin to",
+     "Switch to slug",
+     "Cancel"
+    ],
+    "cast": [
+     {
+      "l": "Slug or admin to",
+      "sh": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.04) 1px 0px 0px 0px inset, oklab(0.216129 0.00349092 0.00518243 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px"
+     }
+    ],
+    "seps": 1,
+    "ctrls": [
+     {
+      "l": "Slug or admin to",
+      "w": 224,
+      "h": 54
+     },
+     {
+      "l": "Switch to slug",
+      "w": 44,
+      "h": 44
+     },
+     {
+      "l": "Cancel",
+      "w": 44,
+      "h": 44
+     }
+    ]
+   }
+  }
+ }
+}
