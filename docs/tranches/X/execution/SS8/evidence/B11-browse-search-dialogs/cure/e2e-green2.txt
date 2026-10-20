@@ -1,0 +1,13 @@
+(node:85777) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:85894) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+Running 4 tests using 1 worker
+(node:85999) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1/4] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason
+[2/4] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger
+[3/4] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger
+[4/4] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Escape returns focus to the Palette menu trigger
+  4 passed (1.8m)
+exit=0
