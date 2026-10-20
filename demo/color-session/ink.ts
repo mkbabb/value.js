@@ -6,6 +6,7 @@ import {
     parseCssColor,
     safeAccentColor,
     serializeCssColor,
+    xyz,
     type Color,
 } from "@mkbabb/value.js/color";
 
@@ -252,6 +253,68 @@ export function resolvePaintedLightness(ambientL: number, tint: SurfaceTint): nu
     return lightness(composite(surfaceColor(ambientL), tint));
 }
 
+/** One stop of the atmosphere's resolved field palette (glass `OklchStop`). */
+export interface FieldStop {
+    L: number;
+    C: number;
+    h: number;
+}
+
+const WHITE_XYZ = (() => {
+    const white = convertColor(surfaceColor(1), "xyz");
+    if (!white.ok) throw new Error(`[ink] white point failed: ${white.error.code}`);
+    return white.value.channels as readonly number[];
+})();
+
+/**
+ * The OKLab L of the NEUTRAL with the stop's WCAG luminance: the ground the
+ * achromatic `surfaceColor` stands in for. A chromatic stop's own L is not
+ * that ground (the default seed's dark field: its stop at L 0.42 has
+ * Y 0.069, the neutral at L 0.42 has Y 0.074).
+ */
+function luminanceLightness(stop: FieldStop): number {
+    const raw = oklch(stop.L, stop.C, stop.h, 1);
+    if (!raw.ok) throw new Error(`Invalid field stop: ${raw.error.code}`);
+    const painted = mapColorToGamut(raw.value, "srgb");
+    if (!painted.ok) throw new Error(`Field stop gamut map failed: ${painted.error.code}`);
+    const xyzStop = convertColor(painted.value, "xyz");
+    if (!xyzStop.ok) throw new Error(`Field stop luminance failed: ${xyzStop.error.code}`);
+    const Y = Math.max(0, xyzStop.value.channels[1] as number);
+    const grey = xyz(WHITE_XYZ[0]! * Y, Y, WHITE_XYZ[2]! * Y, 1);
+    if (!grey.ok) throw new Error(`Field stop luminance failed: ${grey.error.code}`);
+    const neutral = convertColor(grey.value, "oklch");
+    if (!neutral.ok) throw new Error(`Field stop luminance failed: ${neutral.error.code}`);
+    return lightness(neutral.value);
+}
+
+/**
+ * THE PAGE-AMBIENT REFERENT (SS8-0259 · CNL-17): the field ground every ink
+ * is certified over. It was the MEAN OKLab L of the field palette, an
+ * achromatic stand-in for a field that varies across the page. A plate sits
+ * over whichever region of the field lies under it, so an ink certified
+ * against the mean failed over the regions on its own side of the mean: the
+ * dark About card sat on the field's crimson region (the plate read
+ * rgb(126 25 44)), and the component ink certified to 5.75:1 against the
+ * mean (L 0.30) read 4.31:1 there.
+ * In dark the field lies wholly below mid-luminance and the ink is light, so
+ * the referent is the field's BRIGHTEST stop at its WCAG luminance: an ink
+ * that clears it clears every region of the field.
+ * Light keeps the mean. Its field can span the 4.58:1 dead band (seed
+ * oklch(0.66 0.16 28): stops L 0.56-0.88), where no ink of either polarity
+ * clears every stop, and a darkest-stop referent there flips the ink light
+ * and fails it over the pale stops. The light arm read 5.64:1 live.
+ */
+export function resolveFieldAmbientLightness(
+    stops: readonly FieldStop[],
+    dark: boolean,
+): number {
+    if (!stops.length) return 0.5;
+    if (dark) return Math.max(...stops.map(luminanceLightness));
+    let sum = 0;
+    for (const stop of stops) sum += stop.L;
+    return sum / stops.length;
+}
+
 /** Certify a concrete CSS color against the surface it actually paints. */
 export function certifyAccentInk(
     css: string,
@@ -422,21 +485,35 @@ export function certifyInkOnFill(
     return null;
 }
 
-/** Choose the WCAG-maximal neutral endpoint for a concrete opaque fill. */
+/**
+ * Choose the WCAG-maximal neutral endpoint for a concrete opaque fill.
+ *
+ * SS8-0257b (C-2): TOTAL over opaque fills. The walk used to test the RAW
+ * fill, and a fill outside sRGB (oklch(0.4 0.5 30)) has no in-gamut
+ * luminance, so neither endpoint certified and the chip rendered with no
+ * `color:` at all: 151 of 13,332 cells, L 0.40-0.82 at C >= 0.30. The fill is
+ * now mapped into the gamut a screen paints first; there, one of black or
+ * white always clears 4.58:1, so the 4.5:1 floor holds. The descending floors
+ * after it return the higher-contrast endpoint rather than nothing. Null
+ * remains only for a non-colour or a translucent fill, which has no single
+ * ground to certify against.
+ */
 export function contrastInkFor(fillCss: string): string | null {
-    const fill = parseOklch(fillCss);
-    if (!fill || fill.alpha !== 1) return null;
+    const parsed = parseOklch(fillCss);
+    if (!parsed || parsed.alpha !== 1) return null;
+    const mapped = mapColorToGamut(parsed, "srgb");
+    if (!mapped.ok) return null;
+    const fill = mapped.value;
     const L = lightness(fill);
     const endpoints = L >= 0.5 ? [0, 1] as const : [1, 0] as const;
-    for (const endpoint of endpoints) {
-        const ink = surfaceColor(endpoint);
-        const result = safeAccentColor(ink, fill, {
-            minimumRatio: TEXT_CONTRAST_FLOOR,
-            gamut: "srgb",
-        });
-        if (result.ok && Math.abs(lightness(result.value) - endpoint) < 1e-9) {
-            return endpoint === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
+    for (const minimumRatio of [TEXT_CONTRAST_FLOOR, GRAPHICS_CONTRAST_FLOOR, 1]) {
+        for (const endpoint of endpoints) {
+            const ink = surfaceColor(endpoint);
+            const result = safeAccentColor(ink, fill, { minimumRatio, gamut: "srgb" });
+            if (result.ok && Math.abs(lightness(result.value) - endpoint) < 1e-9) {
+                return endpoint === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
+            }
         }
     }
-    return null;
+    return endpoints[0] === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
 }
