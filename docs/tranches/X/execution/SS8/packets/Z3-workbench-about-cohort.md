@@ -118,3 +118,27 @@ The record's arbiter ran no browser probe ("every verdict was decidable from sou
 - **Z-Markdown-8 (chromium):** a 469 px scroll-anchor jump from the `content-visibility` rung. The same rung blanks every off-screen capture.
 
 **Tally (limbs; split rows count each limb):** PROVEN **17** · REFUTED **36** · UNPROVEN **10** across **48 items** (GenerateControls 19, GradientStopEditor 21 incl. -8w, Markdown 8). GenerateControls: P 6 · R 15 · U 3. GradientStopEditor: P 4 · R 17 · U 4. Markdown: P 7 · R 4 · U 3. The zero-residue cohort for these three records is swept. Every UNPROVEN limb above names its blocker. Re-run commands: `o20`/G13 e2e (needs a quiet `:8090`), real-Safari π cells, the instrumented G8 emission count, the 10-stop crowding mint, the preview-perf bench, and the before/after π deltas.
+
+## cures
+**Seat:** SS-8 CURE · 2026-10-20 · served model `claude-opus-5-5`. The records stay IMMUTABLE (E-3); this section is the addendum each REFUTED row was owed. No product code was changed: every cure in this batch had LANDED at HEAD already. Each row now has a falsifier that locks the cured state.
+**Falsifiers:** `demo/test/generate/ss8-z3-cures.test.ts` (5) · `demo/test/gradient/ss8-z3-cures.test.ts` (5) · `demo/test/about/ss8-z3-cures.test.ts` (2).
+**RED x2:** `probes/Z3/cures-mutants.sh <scratch-dir>` copies the 7 subject files aside, applies one mutant per cured arm (it re-opens each defect the record named), runs the three files, then restores the files byte-for-byte (`git diff --stat` empty after each run). Runs r4 and r5: `Tests 12 failed (12)` both times. (Runs r1–r3 left -5/-6 GREEN because a mutant there did not apply: an unescaped `/>` inside the perl `s///`. The fix is in the script.)
+**GREEN x2:** `guarded -- npx vitest run --maxWorkers=2 demo/test/generate demo/test/gradient demo/test/about` gave `Test Files 8 passed (8) · Tests 39 passed (39)` twice. Type-check: `guarded --light -- npx vue-tsc -p tsconfig.test.json --noEmit` reported 0 errors.
+
+| row | live state (witness) | falsifier arm · mutant that turns it RED | status |
+|---|---|---|---|
+| Z-GenerateControls-1, -3, -14 per-swatch arm | the swatches are SwatchButton copy verbs with `Copy <name>` / `Copied <name>` (E/gc.json copy) | `-1/-3/-14` · aria-label → static `Swatch` | REFUTED (cure LANDED) · locked |
+| Z-GenerateControls-2 | the typed name persisted (E/gc.json save) | `-2` · save emits the default name | REFUTED (cure LANDED) · locked |
+| Z-GenerateControls-5, -6 | no `variant` attribute; no strip (E/gc2.json) | `-5/-6` · `variant="ghost"` on Regenerate + a PreviewStrip on the plate | REFUTED (cure LANDED) · locked |
+| Z-GenerateControls-12, -18 | a visible "Colors" label; no badge (E/gc.json count) | `-12/-18` · the Label deleted | REFUTED (cure LANDED) · locked |
+| Z-GenerateControls-17 (dead-selector arm) | 5 live producers (E/gc2.json verbs.dead) | `-17` · `data-color-surface` deleted from SwatchButton. The record's "delete from foundation.css" cure stays RETRACTED: the selector has a producer | REFUTED · cure retracted · locked |
+| Z-GenerateControls-7, -9 verb arm, -10, -11 shadow arm, -15 active-scale arm | measured live only (E/gc.json, E/gc2.json: thumb 36.36 % = fill; verb row on 1 line at 1440/1024/768/390) | none: jsdom does no layout. The live witness is the evidence (the scrubber/no-track arm of -6/-7 is also held by `generate-rail.test.ts` V3C-05) | REFUTED (cure LANDED) · live-witnessed |
+| Z-GradientStopEditor-1 | the re-sorted CSS re-feeds clean (E/gse2.json cross) | `-1` · `.sort(byPosition)` dropped from `setStopPosition` | REFUTED (cure LANDED) · locked |
+| Z-GradientStopEditor-6 | 2 → 2 on a middle or right press (E/gse.json buttons) | `-6` · the bar's `e.button !== 0` guard deleted | REFUTED (cure LANDED) · locked |
+| Z-GradientStopEditor-14, -15 | Enter on the caret mints; role=group/slider (E/gse.json kb, census) | `-14/-15` · `role="group"` and the caret's Enter/Space mint deleted | REFUTED (cure LANDED) · locked |
+| Z-GradientStopEditor-16 absence arm, -17 | Remove disabled with its reason and status; spinbutton 50 → 33 (E/gse.json floor, E/gse2-numeric.json) | `-16/-17` · the inspector's `:disabled` deleted | REFUTED (cure LANDED) · locked |
+| Z-GradientStopEditor-13 (library) | panes 2 → 2, verdict `unparseable color "oklch()"` (E/gse.json crash) | `-13` · `applyCSS` throws on a verdict. The parser band's π-R1 totality is not touched; no public API changed | REFUTED (cure LANDED) · locked |
+| Z-GradientStopEditor-2…5, -8 (chromium), -8w (webkit), -9, -10 invisibility arm, -11, -18 | geometry and focus, measured live only (E/gse.json, E/gse2.json, E/gse2-coarse-webkit.json) | none: jsdom does no layout | REFUTED (cure LANDED) · live-witnessed |
+| Z-Markdown-2 | the bones carry only data-slot/aria-hidden/class (E/md.json skeleton) | `-2` · `variant="glass"` on a Skeleton | REFUTED (cure LANDED) · locked |
+| Z-Markdown-3 | display-p3 shows the explicit no-guide sentence (E/md.json route) | `-3` · display-p3 `doc: null` → a doc module. AboutPane.vue is dirty with another seat's hunks; it is read and never written | REFUTED (cure LANDED) · locked |
+| Z-Markdown-8 (webkit cell) | WebKit compensates (+79.6 px, stable) (E/md2-webkit-light.json b4) | none owed. The chromium cell stays PROVEN and routed; that rung is not deleted here | REFUTED · no cure needed |
