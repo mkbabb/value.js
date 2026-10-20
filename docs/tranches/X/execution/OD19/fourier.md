@@ -112,6 +112,13 @@ Rows **OD19-F5**, **OD19-F6**, **OD19-ALL**. fourier `m/w1-bump-migration` **`2a
   - glass `Skeleton` shimmer is O-102a (10.1.1). Adopt it when it lands.
   - `useFourierMorph.ts`'s FR-AH-6 note names the router as the second home of the reduced-motion predicate. That copy is now gone, because glass owns the route gate.
 - **Evidence:** `fourier/after/P3-fourier-shell-motion-loading/` (probe.mjs, probe.json, PNGs, before-red/after-green/touched-run/vitest logs).
+- **Re-deploy addendum (2026-10-20):** this was verify-only. No source change was needed, because `2a3651d` already holds every cure.
+  - The fourier HEAD is `e928541`. The working tree carries a sibling seat's uncommitted OD19-ALL load hunks, including `DarkModeToggle.vue`'s `sun-moon-shapes` import. Those hunks were left untouched.
+  - The falsifier ran 4 times against `BASE_URL=http://localhost:3100`, each run under `guarded` with `--workers=1` (`redeploy-2026-10-20-run-{1..4}.log`):
+    - Run 1 was 15/16. In the light-1440 cell, the `/v` push was at `vtFrames` 5 against a bar of 6. Load average was about 22–29. That push had 27 traced frames with min opacity 0, 0 loader frames and 0 dock moves.
+    - Runs 2, 3 and 4 were each 16/16.
+  - Verdict: the run-1 red is a frame-cadence flake under machine load, not a regression. The assertion is unchanged.
+  - Note: the suite defaults `BASE_URL` to `:3000`. Without the override, the e2e seed hits another app and gets a 404.
 
 ### P1-fourier-transport-docks
 - **Commit:** fourier-analysis `e928541` (`m/w1-bump-migration`, pushed fast-forward).
