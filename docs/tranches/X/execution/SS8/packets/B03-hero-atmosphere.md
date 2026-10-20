@@ -68,3 +68,23 @@
   - AP-4 inert knobs (SS8-0062 → X.W6.j).
 - **consumer, cure already landed** (the refutation is the witness): SS8-0060, 0066, 0071, 0076, 0079, 0082, 0084.
 - **figures drifted, no cure implied:** SS8-0061, 0069, 0074, 0080, 0081, 0085 (404 limb).
+
+## cures
+
+CURE seat, 2026-10-20, served model `claude-opus-5-5`. The batch held 13 REFUTED rows. One carried a live defect with a consumer cure of record and is cured below. One carries a live residual whose cure is a geometry or design ruling, so it is routed. The other 11 owe no code: their refutations witness cures that already landed, or figures that drifted. A RED-before falsifier cannot exist for an already-landed cure without reverting it, so none was manufactured. The records (E-3) are untouched.
+
+| SID | disposition | commit / route | falsifier and witness |
+|---|---|---|---|
+| SS8-0063 (AP-5) | **CURED** | `eefb2d0b2` | `guaranteeSeamOffset` moved out of `useAtmosphere.ts` into the pure `atmosphere-calibration.ts`, behind `resolveAtmosphereField(atoms)`. The WebGL field getter, the CSS fallback / D6 referent (`resolvedPalette`), and `auroraHarmonyStops` now resolve through that ONE function. Falsifier: `demo/test/glass/aurora-bracket.test.ts` O-14, re-pointed from "strip ≡ bare calibrated resolve" (an oracle that encoded the defect) to "strip ≡ field resolve" over the SS8-0063 grid (L .10–.95 × C {0,.05,.12,.2,.28} × 6 harmonies at h 25, plus `oklch(0.62 0.27 9.8)` = 546 cells). RED ×2 (strip re-pointing not yet applied): **216/546 strip≠field cells** (`evidence/B03-hero-atmosphere/cures/SS8-0063-red-{1,2}.txt`). GREEN ×2: 9/9 tests passed (`…-green-{1,2}.txt`). Command: `~/.claude/guard/guarded --light --timeout 10 -- npx vitest run demo/test/glass/aurora-bracket.test.ts --maxWorkers=2`. `demo/test/glass` 10/10. Type-check (`vue-tsc -p tsconfig.demo.json` / `tsconfig.test.json`): the only errors are 6 in `demo/test/shell/dock-profile-menus.test.ts` (TS2379 exactOptionalPropertyTypes). That file is not touched here; the errors are pre-existing and unowned by this batch (`cures/typecheck.txt`). Residual, not in the row: in DARK the field also takes `fieldAtoms`' shell-implied `lightnessScheme: "dark"`, and the strip (pure, with no shell) does not. That divergence is UNPROVEN live and is booked here, not cured. |
+| SS8-0085 | **ROUTED → X-W6** (geometry / owner design) | none | The 404 limb is REFUTED and that row is dead. The live residual: at 390 on `#/` and `#/blob` the hero's 1.6× overscan canvas overhangs the viewport ([228,408] > 390, about 18px), and only `.app-layout`'s clip keeps it out of view (overflowX 0). The dock also overhangs ([182,402], unbooked). A viewport-containment gate in `e2e/smoke/mobile/blob-presence-mobile.spec.ts` would be RED with no consumer cure that is not a placement change. The cure would move the bead ≥18px inward (T-30 placement, owner-judged) or move the clip into the picker seat (`PaneShell.vue` is dirty with another seat's hunks, and clipping at the pane would cut desktop overscan). That is the X-W6 seat ruling, not a cure seat's call. |
+| SS8-0060 | no change needed | — | Cure already landed (X.W7.g / X-DS re-composition). The REFUTED witness `A-atmosphere.json .light/.dark.labels` stands. |
+| SS8-0066 | no change needed | — | Already landed (one label column, V1C-05). Witness `A-atmosphere.json .light.triggers/.coarse390/.narrow320`. |
+| SS8-0069 | no change needed | — | Figure drift. The AP-1 composition rides the X.W6.j scene contract and is not decided by this number. |
+| SS8-0071 | no change needed | — | Already landed (spectrum variant retired). Witness `B-blob.json .forced`. |
+| SS8-0074 | no change needed | — | Figures drifted. The underlying rows keep their dispositions. |
+| SS8-0076 | no change needed | — | Already landed (`defaultPaneIndex`). Witness `B2-blob-wake.json .routes`. |
+| SS8-0079 | no change needed | — | Already landed (X.W12.d settled seam). Witness `H-hero.json .timeline`. |
+| SS8-0080 | no change needed | — | Nothing is owed on the emerge seam. The boot-side long tasks remain unowned (not booked here). |
+| SS8-0081 | no change needed | — | The claim is refuted outright. No defect. |
+| SS8-0082 | no change needed | — | Already landed (X.W12U.b re-derivation). Witness `O12-3-spec.log`. |
+| SS8-0084 | no change needed | — | Already landed (X-W2.a blob-config repoint). Witness `G-ghpages.json`. |
