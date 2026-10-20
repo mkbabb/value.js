@@ -96,3 +96,44 @@
 **Defects standing behind PROVEN rows** (no owner change, for the orchestrator):
 - **0213:** `ColorPicker.vue` adds its `window` keydown listener in `onMounted` and removes it only in `onUnmounted`. That violates PaneSlot's own activation contract. The cure is consumer: move add/remove to `onActivated`/`onDeactivated`, or gate `handleKeydown` on activation.
 - **0191:** a WebKit-headless frame can never witness backdrop-filter. Any gate that reads blur from WebKit-headless pixels is vacuous. This is an apparatus fact for every SS-8 and SS-13 seat.
+
+## cures
+
+**Seat:** SS-8 CURE, batch B07-pane-shell · 2026-10-20 · SERVED MODEL `claude-opus-5-5`. The verdicts above stay as written (E-3). This section records only the cure acts and their witnesses.
+
+**Code cure commit:** `8f4822853`. It deletes the dead T.W3-4 veil from `demo/shared/ui/PaneHeader.vue`:
+- the `::before` fill/filter/feather
+- the `@supports (animation-timeline)` swell and `@keyframes pane-header-veil`
+- the `--pane-veil-rest` token
+- the `scroll-timeline: --pane-scroll`, whose only consumer was the veil
+- the seated `display:none` rule
+- the false "α 0.65 / 0.72" comment
+
+Glass's own `<CardHeader shrink>` is untouched. No glass copy, no shim. The identity type and motion (title rung, condense) are kept.
+
+**Falsifier:** `e2e/smoke/ss8-b07-pane-shell.spec.ts`, in the `smoke` testDir. It runs through `P/pw.cure.config.ts`, which has the same Chromium engine and swiftshader args as the `smoke` project but no webServer. `P/cure-arm.sh` serves a given worktree on a private port and runs the spec N times, all under one `guarded` tree.
+
+**Witnesses** (headless Chromium; `--workers=1`; each run via `~/.claude/guard/guarded`):
+- **BEFORE (HEAD `4d5d0dbdc` bytes, worktree vite :8097), ×2:** `SS8-0192/0197 — no stylesheet carries the dead pane-header veil` **RED both runs**. It found `.card:has(> .pane-header ~ .pane-scroll-fade) > .pane-header::before` and `.pane-header[data-v-19daabcf]::before` ×2.
+  - Run 1 also had 2 `Execution context was destroyed` failures. Those came from vite's first-visit optimizer reload ("optimized dependencies changed. reloading"), not from the subject. Run 2: 1 failed (the veil), 8 passed.
+- **AFTER, isolated (HEAD `01026e7aa` + this cure's `PaneHeader.vue` only, worktree vite :8197), ×3:** **10/10 GREEN in each run** (39.4 s, 36.9 s, 30.9 s). Evidence: `E/cure-after-HEAD+cure.txt`.
+- **AFTER, shared working tree (:8090):** run 1 at 9 tests: 9 passed. Run 2 at 10 tests: 10 passed. Run 3: every test failed on `page.goto` timeout or refusal because the shared :8090 server went down (`curl` 000). That is environmental, so the run is not counted.
+- **Type-check:** `tsc -p tsconfig.e2e.json` reports 0 errors in `ss8-b07-pane-shell.spec.ts`. The remaining errors are in other seats' files, e.g. `ss8-b17-admin-names.spec.ts`. `vue-tsc -p tsconfig.demo.json` reports 0 errors in `PaneHeader.vue`. Its 1 remaining error is in `demo/test/picker/spectrum-dot-position.test.ts`, which this seat did not touch.
+- **RED-before for the already-cured rows: NOT WITNESSED.** Their cures predate this seat: `94ec8d527` (A2-VA-L1-2), `4fe9b05b9` (X-DS tail) and X.W5.d2.
+  - At `4fe9b05b9^` = `7f045c25c`, the seated arm was GREEN. Every pane was already seated, so that commit is not a RED for 0196/0199.
+  - At `94ec8d527^` = `ca65ae049`, the app did not boot against today's `node_modules`/`dist`: `main .pane-header` not found in 10/10 ×2. That is a precondition failure, not a falsification. Evidence: `E/cure-before-ca65ae049.txt`.
+  - These tests stand as regression guards. They are GREEN at HEAD before and after the cure.
+
+| SID | cure act | commit |
+|---|---|---|
+| 0189 PH-3 | Already cured (A2-VA-L1-2). Regression guard: the `seated` arm asserts at y = 0/64/120/300/max on 6 routes that the title has `transform: none`, its font-size is constant, and `data-condensed` is never `"true"`. Figures struck here, not in the record (E-3). | `8f4822853` (falsifier) |
+| 0190 C-8(ii) | No code cure. No gate in `e2e/**` is keyed to "≈211 px" (`grep` empty). Any future gate re-bases on 247 px (document) or on pane travel. | n/a, nothing to change |
+| 0192 C-11 | **CURED:** the dead veil block is deleted (root). RED ×2 → GREEN ×3 as above. | `8f4822853` |
+| 0194 D-15 | Already cured. New regression falsifier: no shipped CSS rule contains `tan(atan2(`. GREEN at HEAD and after the cure. `git grep 'tan(atan2' demo e2e` is empty. Rung ratios use `calc(len / len)` (0198). | `8f4822853` |
+| 0195 C-4 | Already cured. The guard is the same `seated` arm: never condensed, so no dead band. Figures struck here. | `8f4822853` (falsifier) |
+| 0196 L2-3 | Already cured. Guard: one visible `.pane-header` per PaneShell region, seated as a sibling before its `.pane-scroll-fade` port, on 6 routes. | `8f4822853` (falsifier) |
+| 0197 veil alphas | **CURED with 0192:** the false α 0.65/0.72 comment and the veil it described are deleted. The falsifier also asserts that every `main .pane-header::before` is absent or at opacity 0. | `8f4822853` |
+| 0199 PH-13 | Already cured. Guard: header↔port layout overlap = 0 px at every depth (offset boxes). Reopen only if an overlying header returns. | `8f4822853` (falsifier) |
+| 0209 PS out-in | Already cured (X.W5.d2). The standing regression gate is `out-in-reprobe.mjs`'s dev arm, as booked. This seat added nothing new. | n/a |
+| 0214 PS B3 | Already cured. Guard: cold boot `/gradient` and `/browse` → `#/` → `.hero-blob-anchor canvas` count 1 with width > 0. | `8f4822853` (falsifier) |
+| 0215 PS L-5 | **ROUTED to X-W8 (booked):** move `SESSION_PORT_KEY` from `palettes/usePalettePorts.ts` to `platform/auth/`. The consumer files `Dock.vue`, `ProfileSection.vue` and `MobileMenuDropdown.vue` are dirty with other seats' hunks (Track A / B04). The figures are re-based here to 82 / 28 / 34.1 % static (69 / 27 / 39.1 % runtime). | routed |
