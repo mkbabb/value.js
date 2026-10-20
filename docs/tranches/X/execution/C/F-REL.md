@@ -3281,3 +3281,84 @@ Spec: COHESION §0gi.2 (+ §0gi.1(e), §0gh.3–4); F-REL.md §State L4-6, §Uni
 **Escalations:** none.
 
 **Commits (fourier, `m/w1-bump-migration`):** `c83b7ea`, `563814d`. This record and `evidence/F-REL/s1/` are committed by value.js pathspec.
+
+### F-REL.v3
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 23:20Z → 2026-10-20 01:45Z. Spec: COHESION §0gh.2; F-REL.md §Units `.g` (L31) + §Gates (L36-37); ADDENDUM (d) `.vb2` (L62-66); Baseline (i) row v3. **Status: ESCALATED.**
+- **Done:** the unit's three reds (items 1·6·7, 2 and 8) are cured, each with its cause named. Item 3, which a sibling commit reddened mid-unit, is cured too. visual-checkpoint is 5/5 ×2 in the container and ×2 on darwin, and 6/6 on CI.
+- **Not done:** the fresh m/w1 CI is RED on 8 e2e failures from the X·OD19 fourier lane's `976a704` / `2a3651d`. So the merge to master was **not** made. Evidence: `docs/tranches/X/fourier/evidence/F-REL/v3/README.md`.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier) → no dirty path inside this unit's writable set. The snapshot dir and `visual-checkpoint.spec.ts` were clean. The dirty `web/src/**` and `web/e2e/**` belong to the X·OD19 lane, are untouched, and none was staged. value.js: no `evidence/F-REL/v3/` existed. No inherited work.
+
+**Acts:**
+1. **CI read (no heavy run).** On `39292117114` (master `24a524a`) and `39304717107` (m/w1 `9519b6f`), the three tests fail all 9 attempts on `toHaveScreenshot` size mismatches:
+   - `:99` and `:120`: `Expected an image 277px by 238px, received 245px by 214px`;
+   - `:161`: `1248px by 161px, received 1120px by 161px`.
+
+   **Drifted anchor:** the Baseline row's `:99 toHaveAttribute` / `:161 toBeVisible` wording does not match the bytes, where all three lines are `toHaveScreenshot`. The intent holds. `39340556816` (`563814d`, post-.s1) shows the same `3 failed · 1 flaky · 526 passed`.
+2. **Golden history.** ⟨`git log 24a524a^1..563814d -- web/e2e/visual-checkpoint.spec.ts-snapshots`⟩ → one commit, **`47c5f71`** (X-DS fourier pass 8, DS-F8C-C1: /gallery in the 72rem measure).
+   - Its message names the re-baseline: card 277×238→245×214, banner 1248→1120.
+   - ⟨`git show --stat 47c5f71`⟩ → it minted only the three `*-chromium-darwin.png`.
+   - ⟨`sips`⟩ → the darwin goldens are 245×214 / 1120×161; the linux goldens are still 277×238 / 1248×161.
+3. **Bisect under the guard,** in `mcr.microsoft.com/playwright:v1.61.0-noble`, with the guarded harness `~/.fourier-frel/vb/r7*.sh` (the `.vb2` harness, one plan per admission, re-sync after each checkout):
+   - `a1dc2eb` (=`47c5f71^`): `3 passed`;
+   - **`47c5f71`: `3 failed`** (the same three mismatches);
+   - `563814d`: linux `3 failed · 2 passed`; darwin `5 passed`.
+
+   One void pass is recorded: the first admission's container sync never ran, because `pkill -f vite` matched its own `bash -c`. Its linux logs are renamed `*.INVALID-stale.log`, and the guard now aborts unless the sync prints `synced`.
+   **Cause for all three items: `47c5f71` re-baselined darwin and not linux.** No web/src defect exists: the narrower measure is the ratified X-DS design (§0ej), and darwin is GREEN with it.
+4. **The one attributed re-baseline, read.** Minted with `--update-snapshots -g 'items 1 · 6 · 7|item 2 |item 8'` at `563814d` in the container.
+   - ⟨`cmp`⟩ → three CHANGED (banner 25539→25064, hover 7654→7001, resting 3037→2936 B); the other three goldens are byte-identical.
+   - Read: the same card and the same banner, narrower. Geometry only.
+   - Darwin was not re-minted (already current).
+   - → fourier **`f7d17f0`** (pathspec: the three `*-chromium-linux.png`).
+5. **Verify at `f7d17f0` → a new red.** Two sibling commits had landed underneath it: `976a704` (X·OD19 P2 sliders) and `d5a48cf` (X·W11.h18 deploy).
+   - D1/L1/D2/L2 → `1 failed 4 passed` each. Items 1·6·7, 2, 5 and 8 pass; **item 3** (`checkpoint-disclosure-body`) fails by 1124 px darwin / 1014 px linux.
+   - Attribution: item 3 fails identically at `976a704`, on both platforms, and passed at `563814d`.
+   - Read: the Harmonics slider became glass's integrated-thumb pill. This is OD19-F7, the owner's docket row. The row below it shifts ~4 px, and nothing else changes.
+   - Re-minted with `-g 'item 3 '` at `f7d17f0`; the five other linux goldens are byte-identical.
+   - → fourier **`924df31`** (pathspec: the two `checkpoint-disclosure-body-*.png`), on top of `2a3651d` (X·OD19 P3, landed meanwhile).
+   - A void admission is recorded: port 8191 was held by another seat's `serve-built.mjs`. Its logs are renamed `*.INVALID-port.log`, and the harness API moved to `:8197`.
+6. **Verify at `924df31`** (all 5, no update) → D1v `5 passed` · L1v `5 passed` · D2v `5 passed` · L2v `5 passed`, rc 0 each.
+7. **Unit checks.** In the gate worktree `.worktrees/v3`, clean and detached:
+   - ⟨`guarded --light -- npx vue-tsc -b`⟩ → rc 0 ×2, at each of `563814d`, `f7d17f0` and `924df31`;
+   - ⟨`guarded -- npx vitest run --maxWorkers=2`⟩ → `116 passed (116)` ×2 at each of the three.
+8. ⟨`git pull --ff-only; git push origin m/w1-bump-migration`⟩ → origin = `924df31`. ⟨`gh workflow run ci.yml --ref m/w1-bump-migration`⟩ → **`39348303989`** → **failure**:
+   - api ✓ · web ✓ · prod-compose ✓;
+   - e2e `8 failed · 5 flaky · 3 skipped · 541 passed`;
+   - **visual-checkpoint 6/6 ✓**, including mobile-chromium item 4.
+
+   The 8 are new against `39340556816`:
+   - `f-w14u-vedit:345` v242 (hover colour read with alpha 0.98419);
+   - `f-w14u-vedit:573` v178 (`the Terms track is found` → null);
+   - `f-w14u-vstage:373` e171 ×2 (`--row-fill` rows 0, expected > 3);
+   - `od19-p3-shell-motion-loading:98` ×4 (vtFrames 1, expected ≥ 6).
+
+   ⟨`git log 563814d..924df31 -- web/src`⟩ → exactly `976a704` + `2a3651d`, both X·OD19. **Attributed by elimination to the X·OD19 fourier lane.**
+9. **Merge to master: NOT made.** The precondition (fresh m/w1 CI GREEN) is unmet. A merge would carry a known red to master, where the gate is GREEN ×2 with no retry-until-green. The reds sit in another lane's in-flight paths (§0gf.5), outside this writable set.
+
+**Gates (BEFORE → AFTER):**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| per item: cause + commit | unnamed (Baseline i: "cause candidate: X-DS passes") | items 1·6·7 / 2 / 8 → **`47c5f71`** (darwin-only re-baseline), bisected `a1dc2eb` 3 passed → `47c5f71` 3 failed; item 3 (new) → **`976a704`**. **GREEN** |
+| visual-checkpoint 5/5 ×2 container + ×2 darwin | linux `3 failed · 2 passed` (Lhead), darwin 5/5 (Dhead) | at `924df31`: L1v 5/5, L2v 5/5, D1v 5/5, D2v 5/5. **GREEN** |
+| vue-tsc rc 0 + vitest ×2 | — | rc 0 ×2; 116/116 ×2 (at `924df31`; also at `563814d`, `f7d17f0`). **GREEN** |
+| fresh m/w1 CI GREEN (post-.s1) | `39340556816` failure (3 visual) | `39348303989` failure: visual 6/6 ✓; 8 X·OD19 reds. **RED** (not this unit's items) |
+| merge to master, no force | — | **not made** (precondition RED). **RED** |
+| master CI GREEN ×2 (discharges .m2 + .s1 master gates) | `39292117114` / `39292091987` failure | not run. **RED** |
+
+**Adjacent edits:** none. `visual-checkpoint.spec.ts` is untouched; no web/src file changed.
+
+**Escalation ESC-FREL-v3-1 (orchestrator; the X·OD19 fourier lane):** m/w1 CI `39348303989` is RED on 8 e2e failures introduced by X·OD19 `976a704` (P2 sliders) and `2a3651d` (P3 shell motion).
+- Those are the lane's own paths and in-flight units; this seat may not touch them (§0gf.5).
+- Once the lane cures them, `.v3`'s remaining acts are mechanical: a fresh m/w1 CI GREEN, then `git merge --no-ff` of the verified m/w1 SHA into master and push (no force), then master CI ×2 (push + one dispatch).
+- `e928541` (X·OD19 P1) has landed since and is unread by any CI.
+- Note for `.d`: the merge push makes the host hook fire, and the hook REFUSEs a SHA with no covering green push run (inv-28) until master CI completes GREEN.
+
+**Residuals:**
+- fourier `.worktrees/v3` (a gate worktree) is removed at close.
+- The scratch worktree `~/.fourier-frel/g-wt` is left detached at `924df31`, clean.
+- Container `frel-vb` is stopped.
+
+**Commits (fourier `m/w1-bump-migration`, pushed):** `f7d17f0`, `924df31`. value.js: this receipt + `evidence/F-REL/v3/README.md` (pathspec).
