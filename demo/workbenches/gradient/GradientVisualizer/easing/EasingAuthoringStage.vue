@@ -47,11 +47,9 @@ const vbRatio = ref(1.2); // linear's padded box (1 + 2·VIEW_PAD)
 
 /**
  * The producer's curve canvas, found by the accessible name THIS seat gives it
- * (`:label` → the svg's `aria-label`). It used to be found by `role="img"`; the
- * installed producer (glass 7.0.0) renders the canvas as `role="group"`, so that
- * selector matched nothing, the ratio never synced, and every Law-3 rule below
- * was dead (X-W6 · X.W6.e: found while removing the rAF sites, which were
- * re-reading a node that was not there).
+ * (`:label` → the svg's `aria-label`) — the seat's own name, never the
+ * producer's role, which is not the seat's contract. The role census is a
+ * measured fact held by `demo/test/gradient/ss8-b21-cures.test.ts` (SS8-0612).
  */
 function canvasSvg(): SVGSVGElement | null {
     return (
