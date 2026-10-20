@@ -58,8 +58,9 @@
             @transitionend.capture="onDockMorphSettled"
             @animationend="onDockLandEnd"
         >
-            <Dock
-                v-if="dockMounted"
+            <component
+                :is="dockComponent"
+                v-if="dockMounted && dockComponent"
                 :link-copied="linkCopied"
                 :edit-target="activeEditTarget"
                 @share-link="shareLink"
@@ -186,7 +187,12 @@
          (availability.ts + the loud console.error) is byte-preserved. -->
 
     <!-- Global modals -->
+    <!-- X.W11.p2 (COHESION §0ge.1(i)) — a closed dialog is not first-paint
+         state: its chunk was fetched by the boot because the async wrapper
+         rendered while closed. It now mounts the first time it is asked to
+         open, and stays mounted so its own close transition plays. -->
     <MigratePalettesDialog
+        v-if="migrateDialogWanted"
         :open="paletteManager.migration.showMigrateDialog.value"
         :count="paletteManager.library.savedPalettes.value.length"
         :mode="paletteManager.migration.migrateMode.value"
@@ -200,7 +206,10 @@
     <!-- X.W11.api (§0eh limb (a)): glass's Toaster, mounted ONCE — the seat
          the transport seam's palette-service failure toast renders into
          (`reportServiceProblem`, useApiClient.ts). -->
-    <Toaster />
+    <!-- X.W11.p2 (§0ge.1(i)) — the toast seat holds nothing at first paint and
+         mounts in the task after it; a toast raised earlier waits in glass's
+         module-level queue and renders when the seat mounts. -->
+    <Toaster v-if="afterFirstPaint" />
 </template>
 
 <script setup lang="ts">
@@ -220,7 +229,6 @@ import type { ColorModel, EditTarget } from "../color-session/color-model";
 import { ColorPicker } from "../picker";
 import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "../color-session/keys";
 
-import { Dock } from "../shell/dock";
 import PaneSlot from "../shell/PaneSlot.vue";
 // U.W-A11Y · U-F58: the focus-managed / SR-announced boundary that catches a
 // pane render throw instead of white-screening (never a silent dead plate).
@@ -239,7 +247,9 @@ import { Toaster } from "@mkbabb/glass-ui/toast";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
 import { resolveHydratedBootModel } from "./composables/boot/hydrate";
 import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
-import { useDockArrival } from "./composables/boot/useDockArrival";
+// X.W11.p2 (COHESION §0ge.1(ii)) — the dock is not imported here: its chunk left
+// the first-paint graph and `dockComponent` is resolved by useDockArrival.
+import { dockComponent, useDockArrival } from "./composables/boot/useDockArrival";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 // X.W12U.g2d (COHESION §0fr.1): the migrate dialog opens only on a login that
@@ -449,8 +459,32 @@ if (hydration.source !== "url") restoreFromStorage();
 // --- Custom color names ---
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
+// --- X.W11.p2 (COHESION §0ge.1(i)) — the boot yields at first paint ---
+// The mount task paints the scene: the pane, its inks and the veiled band. What
+// no first frame shows runs in the task AFTER that frame, by the same primitive
+// the dock's mount uses (useDockArrival): the frame's rAF posts a message, and
+// the message's task is the first one after first paint. That covers the
+// custom-names registry request, the toast seat and (on first ask) the
+// migration dialog.
+const afterFirstPaint = ref(false);
+const migrateDialogWanted = ref(false);
+watch(
+    () => paletteManager.migration.showMigrateDialog.value,
+    (open) => {
+        if (open) migrateDialogWanted.value = true;
+    },
+    { immediate: true },
+);
 onMounted(() => {
-    loadCustomColorNames();
+    requestAnimationFrame(() => {
+        const { port1, port2 } = new MessageChannel();
+        port1.onmessage = () => {
+            port1.close();
+            afterFirstPaint.value = true;
+            loadCustomColorNames();
+        };
+        port2.postMessage(null);
+    });
 });
 </script>
 

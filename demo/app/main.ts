@@ -27,6 +27,7 @@ import { API_CLIENT_KEY, createApiClient } from "../platform/transport/useApiCli
 import { initApiEnvironment } from "../platform/transport/availability";
 import { BASE_URL } from "../platform/transport/client";
 import { FAILURE_REPORTER_KEY } from "./ErrorBoundary.vue";
+import { loadDock, prefersInstantDock } from "./composables/boot/useDockArrival";
 
 import "../styles/utils.css";
 import "../styles/foundation.css";
@@ -98,7 +99,11 @@ if (typeof window !== "undefined") {
 // ten of the fourteen routes. Awaiting `isReady()` makes the first render the
 // TRUE route's render. It is wrapped in an async IIFE rather than written as a
 // top-level await so the entry needs no build-target concession.
+//
+// X.W11.p2 (COHESION §0ge.1(ii)) — under reduced motion the dock has no veil and
+// is first-paint state, so its chunk (which left the first-paint graph) is
+// resolved here beside the router, before the mount (useDockArrival).
 void (async () => {
-    await router.isReady();
+    await Promise.all([router.isReady(), prefersInstantDock() && loadDock()]);
     app.mount("#app");
 })();

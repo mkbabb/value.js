@@ -27,17 +27,40 @@
  * so it mounts in the first task.
  */
 
-import { onMounted, ref, watch } from "vue";
-import type { Ref } from "vue";
+import { onMounted, ref, shallowRef, watch } from "vue";
+import type { Component, Ref } from "vue";
 import type { useOverture } from "./useOverture";
+
+/**
+ * X.W11.p2 (COHESION §0ge.1(ii)) — THE DOCK LEAVES THE FIRST-PAINT GRAPH. The
+ * dock mounts after first paint under the veil (above), so its module graph —
+ * the dock tree, its menus and their producer parts — has no place among the
+ * boot's modulepreloads. Its chunk is fetched after first paint and the mount
+ * opens once it is in, so the reveal check below still anchors on the dock's
+ * own mount. Under reduced motion the dock is first-paint state, so the
+ * composition root (main.ts) resolves this chunk before `app.mount`, and
+ * `dockComponent` is already set when the first task renders. A failed load is
+ * not caught here: the rejection reaches the app's `unhandledrejection` floor.
+ */
+export const dockComponent = shallowRef<Component | null>(null);
+
+export function loadDock(): Promise<Component> {
+    return import("../../../shell/dock").then((m) => (dockComponent.value = m.Dock));
+}
+
+/** Reduced motion: instant states — the dock is present (and mounted) from the first task. */
+export function prefersInstantDock(): boolean {
+    return (
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+}
 
 export function useDockArrival(
     dockNav: Readonly<Ref<HTMLElement | null>>,
     overture: ReturnType<typeof useOverture>,
 ) {
-    const prmInstant =
-        typeof window !== "undefined" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prmInstant = prefersInstantDock();
     const dockRevealed = ref(prmInstant);
     const dockMounted = ref(prmInstant);
     if (prmInstant) overture.noteDockLanded();
@@ -61,7 +84,9 @@ export function useDockArrival(
             const { port1, port2 } = new MessageChannel();
             port1.onmessage = () => {
                 port1.close();
-                dockMounted.value = true;
+                void loadDock().then(() => {
+                    dockMounted.value = true;
+                });
             };
             port2.postMessage(null);
         });
