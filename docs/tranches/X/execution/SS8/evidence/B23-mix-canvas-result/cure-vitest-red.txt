@@ -1,0 +1,20 @@
+== 17dd0df47~1 run 1
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0636 / SS8-0642: deactivation mid-narration releases the store and settles once
+ FAIL  demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0639: a null 2D context settles and releases instead of arming a dead clock
+ FAIL  demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0641: the phase reset releases the canvas-held scroll extent
+      Tests  3 failed (3)
+== 17dd0df47~1 run 2
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0636 / SS8-0642: deactivation mid-narration releases the store and settles once
+ FAIL  demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0639: a null 2D context settles and releases instead of arming a dead clock
+ FAIL  demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0641: the phase reset releases the canvas-held scroll extent
+      Tests  3 failed (3)
+== HEAD run 1
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0639: a null 2D context settles and releases instead of arming a dead clock
+      Tests  1 failed | 2 passed (3)
+== HEAD run 2
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  demo/test/mix/ss8-b23-cures.test.ts > SS-8 B23 — the narration canvas lives only as long as its narration > SS8-0639: a null 2D context settles and releases instead of arming a dead clock
+      Tests  1 failed | 2 passed (3)
