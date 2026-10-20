@@ -1,21 +1,4 @@
 <template>
-    <!-- X.W7.d2 (COHESION §0bk.1 · W7.md §5.d) — the SELECTED-ENTITY INSPECTOR.
-         The props-only `PaletteSpecimen` (strip + name + counts) renders the
-         palette's truth; this host owns the entity's verbs — rename, menu,
-         feedback, versions, tags, export, publication, vote, feature and
-         delete — and the one rail their verdicts render on. When its palette
-         is the selected entity (`expanded`), the same verbs are registered as
-         the dock's `palette` scene on X-W4's typed `SceneActionSet`.
-
-         W5-a11y: role="article" provides a landmark for each palette; button
-         semantics are omitted because inner interactive controls must be
-         reachable. The root is the `palette-card` inline-size container the
-         meta cluster's declared collapse priority reads (A-20's ruled
-         consumer interim).
-         X.W12U.s2 · UIA-V-31: the card is selectable by keyboard — it is a
-         tab stop wearing the glass focus ring, Enter/Space on the card itself
-         selects it (its inner controls keep their own keys and tab stops), and
-         the selection is exposed as `aria-current`. -->
     <div
         ref="rootEl"
         class="palette-card group rounded-card border border-card-edge bg-well cursor-pointer focus-ring"
@@ -158,6 +141,31 @@
 </template>
 
 <script setup lang="ts">
+/*
+ * X.W7.d2 (COHESION §0bk.1 · W7.md §5.d) — the SELECTED-ENTITY INSPECTOR.
+ * The props-only `PaletteSpecimen` (strip + name + counts) renders the
+ * palette's truth; this host owns the entity's verbs — rename, menu,
+ * feedback, versions, tags, export, publication, vote, feature and
+ * delete — and the one rail their verdicts render on. When its palette
+ * is the selected entity (`expanded`), the same verbs are registered as
+ * the dock's `palette` scene on X-W4's typed `SceneActionSet`.
+ *
+ * W5-a11y: role="article" provides a landmark for each palette; button
+ * semantics are omitted because inner interactive controls must be
+ * reachable. The root is the `palette-card` inline-size container the
+ * meta cluster's declared collapse priority reads (A-20's ruled
+ * consumer interim).
+ * X.W12U.s2 · UIA-V-31: the card is selectable by keyboard — it is a
+ * tab stop wearing the glass focus ring, Enter/Space on the card itself
+ * selects it (its inner controls keep their own keys and tab stops), and
+ * the selection is exposed as `aria-current`.
+ *
+ * SS8-0404 (PCG U-7): this note lived as a leading <template> comment, which
+ * the dev compiler keeps as a sibling root, so the card mounted as a fragment
+ * (a text anchor before the article) under the grid's Sortable `insertNodeAt`.
+ * The template opens on its element and the note lives here, as ES-2 did for
+ * PaletteCardSkeleton.
+ */
 import {
     computed,
     inject,
