@@ -128,3 +128,57 @@ Rows OD19-K3, OD19-K4. keyframes.js `eb2b7bc1` (master, fast-forward pushed from
   - vue-tsc `-p tsconfig.json` and `-p tsconfig.test.json`: clean.
   - One suite rerun hung at 0 % CPU under load 160 and the guard killed it at the 10-minute timeout (rc 124). A concurrent run in the same window failed two tests outside this change (`home-cube-one-mount`, KFA-24) while sibling seats had other app files dirty. Neither is attributed to this cure.
 - **Same-concern adjacent lines:** the test file above (the falsifier for the changed mechanism). Nothing else was touched.
+
+### KF-P3-code-editor
+
+Rows OD19-K7 (consumer half) and OD19-ALL (editor open). keyframes.js commit `be52ee80` on master, pushed. Evidence: `after/KF-P3-code-editor/`.
+
+- **K7 inks: root `codeTokens.ts` CODE_INK plus the Monaco rules.**
+  - The table widens from 3 rungs to 6. Each rung is an app token or a `color-mix()` of two, so the identity violet is kept and red is not used:
+    - structure: at-rules, selectors and the `@keyframes` name (`--foreground`);
+    - property (violet mixed with foreground);
+    - value keyword (foreground mixed with muted);
+    - number+unit (`--color-progress`);
+    - keyframe stop (`--accent-kf-strong`, bold);
+    - punctuation/comment (`--muted-foreground`).
+  - Monaco's css grammar is copied as data. The `@keyframes` name becomes `tag`, and the keyframe body reads `0%`/`from`/`to` as `keyframe.stop`. The theme rules map the Monarch classes onto the six rungs.
+  - `tokenizeCSS` folds the same classes. StartingStyleTarget is unchanged and stays in lockstep.
+- **K7 status (KeyframesStringControls).**
+  - The visible word is gone. It is now StatusDot's `label` (role=img, aria-label), inside the same `role=status aria-live=polite` region.
+  - The dot is keyed on state, so each change adds a named node and is announced.
+  - `size="md"`.
+  - The success check is glass's (O-102 sub-row, unchanged). It is not masked.
+- **ALL (editor open).**
+  - Three acts:
+    - The hidden well's first idle period warms the Monaco chunk.
+    - One idle period later it primes Monaco's page-wide font measurement. This is a throwaway editor with the same font, in an offscreen box at `<body>`, never in the well, disposed in the same task.
+    - The theme resolves its 11 colours through one `display:none` probe.
+  - A box that arrives on a pane open boots one frame later.
+  - Root, measured: the open's boot task was 51–55 ms with 27–30 ms of forced layout (`loaf-open` before the font warm). The CPU profile puts the forced layout in Monaco's `readFontInfo → readCharWidths` chain (`profile-open-forced.txt`).
+  - The one-idle-seat contract (KFA-81, case 5) holds: a well that already has its box boots in the mount's idle period.
+
+| measure (probe run 1 / run 2; light+dark × 1440/390) | BEFORE | AFTER |
+|---|---|---|
+| distinct inks in `.view-lines` | 3 | **6 / 6** in all 4 cells |
+| visible status text | "Parsed" | **"" / ""** (aria-label "Parsed", aria-live polite) |
+| status dot | 7 px (390: 6 px) | **11.6 px (390: 10 px)** both runs |
+| input→editor paint (budget ≤150 ms) | 276–407 ms | **46–67 ms / 51–63 ms** |
+| worst frame during the open (budget ≤50 ms) | 128–134 ms | **16–26 ms / 18–22 ms**, 0 frames over 50; `loaf-open.log` records no LoAF |
+
+- **Falsifier, vitest:** `test/demo/instrument/css-code-editor-seam.test.ts`.
+  - The new cases:
+    - (0) the hidden well warms the chunk and then the font, with no editor in the well and no geometry read;
+    - (9) the theme inks 6 Monarch classes apart, and the grammar emits `keyframe.stop` and the `tag` name;
+    - (10) `tokenizeCSS` gives 6 rungs;
+    - (11) the status is a labelled md dot with no visible text, in a polite region.
+  - **RED at HEAD:** 6 failed, 8 passed (`vitest-RED-head.log`, which includes pane-header).
+  - **GREEN ×2:** 16/16 (`vitest-GREEN-{1,2}.log`).
+  - Neighbour suite: 11 files, 85/85 (`vitest-neighbours.log`).
+  - vue-tsc (app + test): clean.
+  - No e2e spec touches the editor or status.
+- **Probe:** `probe.mjs` (`run1/`, `run2/`, with editor PNGs for each cell), `loaf-open.mjs`, `profile-open.mjs`, `warm-check.mjs`. All headless chromium, one browser per run, a context per cell. The opener follows KF-P1's dropdown (`[data-dock-surface-trigger]` → menuitem), and input is the press on the Keyframes item.
+- **Same-concern adjacent lines, listed:**
+  - `test/demo/instrument/keyframes-pane-header.test.ts`: the status word is read from the dot's label. Text empty, aria-live and data-size md are added, and the stub takes `label`/`size`.
+  - `test/demo/scenes/r4panes-artifact-ink.test.ts`: property names take the `property` rung, and the artifact now carries 5 distinct inks (it has no keyframe stop).
+  - Both assertions moved to the new contract at equal or greater strength. Nothing was skipped or deleted, and no golden was re-baselined.
+- **Glass (O-102, unchanged):** StatusDot `success` always draws a check (`.feedback-mark[data-state=success]::after`). The owner's plain dot needs a glyph-less state or prop.

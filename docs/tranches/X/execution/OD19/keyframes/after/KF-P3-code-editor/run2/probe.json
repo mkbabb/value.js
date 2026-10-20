@@ -1,0 +1,198 @@
+{
+ "dark-1440": {
+  "load1": 12.6,
+  "opener": "menu",
+  "open": {
+   "inputAt": 18,
+   "editorPaintAt": 69,
+   "latencyMs": 51,
+   "maxDtOpen": 19,
+   "over50": 0
+  },
+  "K7": {
+   "inks": 6,
+   "distinctInks": [
+    [
+     "rgb(233, 230, 226)",
+     32
+    ],
+    [
+     "rgb(172, 160, 145)",
+     16
+    ],
+    [
+     "rgb(211, 190, 233)",
+     8
+    ],
+    [
+     "rgb(205, 198, 189)",
+     16
+    ],
+    [
+     "rgb(190, 149, 236)",
+     6
+    ],
+    [
+     "rgb(211, 166, 255)",
+     2
+    ]
+   ],
+   "statusVisibleText": "",
+   "statusLive": "polite",
+   "dotLabel": "Parsed",
+   "dotRole": "img",
+   "dotPx": [
+    11.6,
+    11.6
+   ],
+   "statusFont": "18.608px"
+  }
+ },
+ "dark-390": {
+  "load1": 13,
+  "opener": "menu",
+  "open": {
+   "inputAt": 17,
+   "editorPaintAt": 80,
+   "latencyMs": 63,
+   "maxDtOpen": 22,
+   "over50": 0
+  },
+  "K7": {
+   "inks": 6,
+   "distinctInks": [
+    [
+     "rgb(233, 230, 226)",
+     36
+    ],
+    [
+     "rgb(172, 160, 145)",
+     16
+    ],
+    [
+     "rgb(211, 190, 233)",
+     8
+    ],
+    [
+     "rgb(205, 198, 189)",
+     16
+    ],
+    [
+     "rgb(190, 149, 236)",
+     6
+    ],
+    [
+     "rgb(211, 166, 255)",
+     2
+    ]
+   ],
+   "statusVisibleText": "",
+   "statusLive": "polite",
+   "dotLabel": "Parsed",
+   "dotRole": "img",
+   "dotPx": [
+    10,
+    10
+   ],
+   "statusFont": "16px"
+  }
+ },
+ "light-1440": {
+  "load1": 15.4,
+  "opener": "menu",
+  "open": {
+   "inputAt": 20,
+   "editorPaintAt": 71,
+   "latencyMs": 51,
+   "maxDtOpen": 18,
+   "over50": 0
+  },
+  "K7": {
+   "inks": 6,
+   "distinctInks": [
+    [
+     "rgb(28, 25, 23)",
+     32
+    ],
+    [
+     "rgb(124, 102, 80)",
+     16
+    ],
+    [
+     "rgb(73, 58, 107)",
+     8
+    ],
+    [
+     "rgb(69, 58, 47)",
+     16
+    ],
+    [
+     "rgb(126, 90, 204)",
+     6
+    ],
+    [
+     "rgb(108, 62, 190)",
+     2
+    ]
+   ],
+   "statusVisibleText": "",
+   "statusLive": "polite",
+   "dotLabel": "Parsed",
+   "dotRole": "img",
+   "dotPx": [
+    11.6,
+    11.6
+   ],
+   "statusFont": "18.608px"
+  }
+ },
+ "light-390": {
+  "load1": 15.6,
+  "opener": "menu",
+  "open": {
+   "inputAt": 18,
+   "editorPaintAt": 74,
+   "latencyMs": 56,
+   "maxDtOpen": 19,
+   "over50": 0
+  },
+  "K7": {
+   "inks": 6,
+   "distinctInks": [
+    [
+     "rgb(28, 25, 23)",
+     36
+    ],
+    [
+     "rgb(124, 102, 80)",
+     16
+    ],
+    [
+     "rgb(73, 58, 107)",
+     8
+    ],
+    [
+     "rgb(69, 58, 47)",
+     16
+    ],
+    [
+     "rgb(126, 90, 204)",
+     6
+    ],
+    [
+     "rgb(108, 62, 190)",
+     2
+    ]
+   ],
+   "statusVisibleText": "",
+   "statusLive": "polite",
+   "dotLabel": "Parsed",
+   "dotRole": "img",
+   "dotPx": [
+    10,
+    10
+   ],
+   "statusFont": "16px"
+  }
+ }
+}
