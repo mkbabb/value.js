@@ -77,3 +77,32 @@ These findings are reported here only. They are not booked into any record (E-3)
 - JSON: `recon.json`, `probe-a.json`, `probe-b.json`, `probe-c.json`.
 - Committed frames (force-added, sparing): `hover-panel-1440-light.png`, `tap-hover-hover-touch.png`, `tap-mobile-390.png`, `card-forced.png`, `card-print.png`, `corner-x4.png`, `ring2-copyslug-light.png`, `prm-rewrap-600.png`, `route-generate.png`.
 - The other frames stay on disk, ignored by `*.png` and uncommitted.
+
+## cures
+
+**Seat:** SS-8 CURE · 2026-10-20 · `claude-opus-5-5` · batch B13-card-swatches (18 REFUTED rows). **Served app:** the shared `:9000` dev server did not answer (`curl -m 60 http://localhost:9000/` → `000` after 60 s at 16:08, listener PID 79993 at 94 % CPU; `scripts/dev/dev.sh` not touched). Every live cell therefore ran on this seat's own vite on `:9113`, serving the same tree with the repo dev config, through `probes/B13/run-own-vite.sh <tag>`: `~/.claude/guard/guarded --timeout 20 -- bash run-own-vite.sh <tag>`. It starts vite, runs `cure.mjs` twice in sequence (one headless Chromium per run, one context per scheme cell, closed in `finally`) and stops vite on exit. The API wall is routed, as in the witness probes.
+
+**Falsifier:** `demo/test/palettes/ss8-b13-cures.test.ts` (vitest, jsdom). Run with `guarded --light -- npx vitest run demo/test/palettes/ss8-b13-cures.test.ts --maxWorkers=2`. It failed twice on the HEAD bytes, with the subject swapped back to `git show HEAD:` (`× … the SwatchHoverMenu root is a flex container`, `AssertionError: expected false to be true`), and passed twice on the cured tree (`Tests 2 passed (2)`, ×2). **Type-check:** `vue-tsc -p tsconfig.test.json` and `-p tsconfig.demo.json` report no errors outside `demo/test/palettes/ss8-b11-cures.test.ts`, which is another seat's untracked file.
+
+**Live witness** (`cure.mjs`, `#/browse`, card "Probe Five" expanded, 1440×900). `reserve` is the wrapper height minus the 40px swatch height:
+
+| run | tree | light reserve | dark reserve | wrapper display | light slug CR | dark slug CR |
+|---|---|---|---|---|---|---|
+| `cure-before-1/2.json` | HEAD | 5.97 ×5 | 5.97 ×5 | block | 4.04 | 5.24 |
+| `cure-after-1.json` | L-1 + strong-rung trial | cell timed out (cold `page.goto` 30 s) | 0 ×5 | flex | — | 6.11 |
+| `cure-after-2.json` | L-1 + strong-rung trial | 0 ×5 | 0 ×5 | flex | **4.44** | 6.11 |
+| `cure-final-1.json` | committed tree | cell timed out (cold `page.goto`) | 0 ×5 | flex | — | 5.24 |
+| `cure-final-2.json` | committed tree | 0 ×5 | 0 ×5 | flex | 4.04 | 5.24 |
+
+The witness packet above measured the reservation at 4.97px on 2026-10-19. On today's tree it measures 5.97px; the mechanism is the same.
+
+| row | status (verbatim) | cure | commit |
+|---|---|---|---|
+| SwatchHoverMenu U-3 (→ L-1) | REFUTED (magnitudes) · mechanism live | **CURED.** The `SwatchHoverMenu.vue` wrapper went from `relative` to `relative flex`. The inline-block trigger is now a flex item, so no line box forms and no descender is reserved. The wrapper stays block-level, so the `#overlay` slot's `position:absolute` edit overlay in `CurrentPaletteEditor` is unaffected. Live reserve 5.97 → **0** in both schemes, on two runs. | `bcf8c17b2` |
+| PaletteCardSwatches V-3 (→ L-3) | REFUTED (numerals superseded); L-3 live | **NOT CURED; ROUTED (design ruling).** The suggested consumer cure, stepping the ink to `--muted-foreground-strong`, was trialled and measured. It reached only **4.44:1** light (dark 6.11), still under 4.5:1, so the trial was reverted and nothing was committed. On the pink session fill (`[203,104,163]`), reaching 4.5:1 needs near-primary ink or a less translucent well. Both reverse X-DS pass 9 P9R-04 (attribution at the muted meta rung) or change the card's surface, so the choice belongs to the orchestrator or owner. The ratio moves with the session seed. | — |
+| PaletteCardSwatches V-3 (→ L-4) | REFUTED; L-4 live | **ROUTED.** Glass O-row candidate: the outline recipe's `--ink-perimeter` 0.48 on translucent grounds measured 2.15:1. glass-ui is read-only to this seat. The consumer half (well translucency) shares L-3's design ruling. | — |
+| PaletteCardSwatches V-1, V-2, V-4, V-5, V-7, V-10 | REFUTED (at HEAD) | No change: the cures named in the batch (X.W12.u1, X.W7.c/d, the reka Collapsible, the removal of `useHoverPopover`'s spread) are already in the tree, and the witness packet measured them live. | — |
+| PaletteColorStrip U-3, U-4, U-5, U-7 | REFUTED (at HEAD) | No change: these were observed cured at HEAD (PCS-19, the PCS-1 floor cure in X.W7.c). | — |
+| SwatchHoverMenu U-1, U-2, U-4, U-5, U-6, U-7 | REFUTED (at HEAD) | No change: these were observed cured at HEAD (the one-Popover rebuild, the SwatchButton trigger, `p-1.5` winning). U-7's rewritten e2e specs remain unrun, as the witness noted. | — |
+
+**Dirty foreign hunk (not touched):** `demo/test/palettes/palette-card-layout.test.ts` carries an uncommitted `SS-8 B13 · the expanded swatch band` describe block that this seat did not write. Its L-1 case would pass on the cured tree. Its L-3 case asserts 4.5:1 and stays RED, consistent with L-3 being routed. In this seat's run the suite's harness skipped all 8 tests (`Tests 8 skipped`), so this seat makes no claim from it. Whoever owns the hunk decides whether to keep it.
