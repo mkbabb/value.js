@@ -116,7 +116,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref, watch } from "vue";
+import { inject, onBeforeUnmount, ref, watch } from "vue";
 import { SheetContent } from "@mkbabb/glass-ui/sheet";
 import {
     Dialog,
@@ -167,11 +167,26 @@ const loadError = ref<string | null>(null);
 /** The release whose revert is being confirmed. */
 const confirming = ref<string | null>(null);
 
+/**
+ * SS8-0471 (VHD-9/13 residue): the read in flight is owned, so the one this
+ * drawer abandons — closed, unmounted, or superseded by a fresh first page —
+ * is aborted rather than left to land in nobody's list.
+ */
+let inflight: AbortController | null = null;
+
+function abandon() {
+    inflight?.abort();
+    inflight = null;
+}
+
 async function loadVersions(offset = 0) {
+    if (offset === 0) abandon();
+    const ctrl = (inflight ??= new AbortController());
     loading.value = true;
     loadError.value = null;
     try {
-        const result = await pm.versions.fetchVersions(paletteSlug, 20, offset);
+        const result = await pm.versions.fetchVersions(paletteSlug, 20, offset, ctrl.signal);
+        if (ctrl.signal.aborted) return;
         if (!result.ok) {
             loadError.value = `The versions could not be read: ${result.message}`;
             emit("load-failed", result.message);
@@ -185,7 +200,8 @@ async function loadVersions(offset = 0) {
         }
         total.value = page.total;
     } finally {
-        loading.value = false;
+        // An abandoned read never clears the loading state of its successor.
+        if (!ctrl.signal.aborted) loading.value = false;
     }
 }
 
@@ -197,7 +213,8 @@ function loadMore() {
 watch(
     () => open,
     (isOpen) => {
-        if (isOpen && paletteSlug) {
+        if (!isOpen) abandon();
+        else if (paletteSlug) {
             versions.value = [];
             total.value = 0;
             confirming.value = null;
@@ -205,6 +222,8 @@ watch(
         }
     },
 );
+
+onBeforeUnmount(abandon);
 
 // UIA-V-126: a revert moves the palette's head (the host hands the drawer the
 // server's palette), so the list is re-read — the new release appears and is

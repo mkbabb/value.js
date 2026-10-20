@@ -81,3 +81,37 @@
 1. **Version-history sheet off-viewport at 1440×900 (Chromium).** After "Versions", the scrim paints but the sheet does not appear in the frame. The current row's rect is at **y 1020.4** and the sheet is at **x 0**, despite `side="right"`. The VersionHistoryDrawer comment assigns sheet placement to glass (O-74c G-1). Likely owner: **glass O-row (O-74c G-1)**. A re-read with the full sheet rect (`vhd.mjs` now records `y/right/bottom/position`) is queued but has not run.
 2. **Rename via menu loses focus to the menu trigger.** Focus goes field (+43 ms) → "Palette menu" button (+219 ms). Owner: **consumer**. Cure: on the rename action, `preventDefault` the dropdown's `close-auto-focus` (PaletteCardMenu → PaletteInspector), or focus the field after the menu settles. This also restores A-6's focus contract.
 3. **The press bleed (A-5) is live at HEAD** on both motion preferences (0463 evidence). It is still open and unchanged.
+
+## cures
+
+**Seat:** SS-8 CURE · 2026-10-20 · served model `claude-opus-5-5`. Falsifier file `demo/test/palettes/ss8-b16-cures.test.ts` (9 tests). `C/` = `docs/tranches/X/execution/SS8/evidence/B16-palette-dialogs/cure/`. Every run went through `~/.claude/guard/guarded`, with vitest at `--maxWorkers=2`.
+
+**Witnesses:**
+- **RED before, x2.** The cure diff was reverse-applied to the five subject files and the falsifier file was run twice: `Tests 5 failed | 4 passed (9)` both times. The five failures were 0454 ×1 and 0471 ×4. The four passes were the already-cured locks, which are witnessed by mutants instead.
+- **Mutants of the already-cured frame, x2.** `probes/B16/cure-mutants.sh` was run twice. Each mutant turned the `cured frame` test RED in both runs (`C/mutants-{1,2}.log`):
+  - a `variant="default"` attribute
+  - a `rounded-dialog` frame class
+  - `surface="opaque"`
+  - an injected `data-slot="dialog-close"` button
+- **0458 type mutant, x2.** `setActiveView: (id: string) => void` was run through `vue-tsc -p tsconfig.test.json` twice. Both runs gave `ss8-b16-cures.test.ts(95,9): TS2578 Unused '@ts-expect-error'` (`C/mutant-0458-{1,2}.log`). The file was restored afterwards.
+- **GREEN after, x2:** `Tests 9 passed (9)` (`C/vitest-green-{1,2}.log`).
+- **Typecheck:** `vue-tsc -p tsconfig.demo.json` and `-p tsconfig.test.json` (`C/typecheck.log`) show zero errors in any B16 path. The only errors left are in another seat's untracked `demo/test/palettes/ss8-b11-cures.test.ts` (lines 130/148/180/181, `noUncheckedIndexedAccess`), which this seat did not touch.
+- **Touched suites** (`guarded --timeout 15 -- npx vitest run --maxWorkers=2 demo/test/palettes test/status-lamp.test.ts test/dock-status-lamp.test.ts`, `C/vitest-touched-suites.log`): `Test Files 3 failed | 27 passed (30)`, `Tests 5 failed | 273 passed | 10 skipped`. Every B16 suite is green: `ss8-b16-cures`, `version-history-verdicts`, `revert-contract`, `browse-retry-probe` and `admin-u3-cures`. The three failing files import no B16 subject (checked by grep):
+  - `ss8-b18-admin-tags.test.ts`: another seat's untracked falsifier, 3 assertion failures.
+  - `plate-mass.test.ts`: `page.goto: Timeout 30000ms` and 5 s test timeouts, with machine load around 30.
+  - `palette-card-layout.test.ts`: dirty with another seat's hunks; it fails at file collect.
+- **Live re-read: NOT RUN.** At cure time the dev server on :9000 returned `curl` 000 after 15 s. The live residue of 0454 and 0471 (the `migrate.mjs` enter-hold cell and the `vhd.mjs` race cell) is still owed against this cure.
+
+| SID | verdict carried | cure / disposition | falsifier | commit |
+|---|---|---|---|---|
+| 0452 MPD C-9 | REFUTED | **Figure struck.** 3.63:1 does not reproduce (10.4:1 light / 5.2:1 dark, mean ground). No code change: the A-15 limb (`surface="glass"` at alpha 0.18/0.22) remains the consumer's surface decision. | the `surface` lock in `cured frame` (mutant `opaque-0453` RED x2) holds the surface the figure was read on | (this packet) |
+| 0453 MPD D-9/D-8 | REFUTED | **Figures struck.** Already cured at X.W12U.s2: no close button, footer Cancel, glass surface. | `cured frame`: `dialog-close` null and surface `glass` (mutants `close-0460`, `opaque-0453` RED x2) | see commit row below |
+| 0454 MPD A-12 | REFUTED (publish limb); residue cured | **Cure:** `MigratePalettesDialog.vue` arms `heldFromOpen` in `onOpenFocus`. A capture-phase `keydown` with `repeat:true` is `preventDefault`+`stopPropagation`ed until a key is released (`keyup`) or freshly pressed (`repeat:false`) inside the dialog. A held Enter can no longer press the Cancel it lands on. | 3 tests: repeats swallowed at open; not swallowed after keyup; not swallowed after a fresh press. RED x2 → GREEN x2. **Live:** UNPROVEN until `migrate.mjs` enter-hold is re-run (dev server down) | see commit row below |
+| 0455 MPD | REFUTED | Already cured (emphasis axis). Locked. | `cured frame`: no button has `variant` (mutant RED x2) | see commit row below |
+| 0456 MPD L-8 | REFUTED | Already cured (UIA-V-333). Locked. | `cured frame`: 0 `rounded-dialog` tokens (mutant RED x2) | see commit row below |
+| 0458 MPD L-1 | REFUTED | Already cured (`setActiveView: ViewId`). Locked at the type level. | `@ts-expect-error setActiveView("saved")`: the type mutant to `string` is RED x2 under vue-tsc | see commit row below |
+| 0460 MPD A-21 | REFUTED | Already cured (the footer Cancel is the dismiss). The producer's close geometry stays with the existing A-21 glass relay. No new O-row. | `cured frame`: no `dialog-close`; Cancel is `data-emphasis="text"` and emits `dismiss` | see commit row below |
+| 0461 PRI U-1 | REFUTED (Chromium) | **No cure.** The field computes `cursor: text`. The WebKit hover read is still owed for a cross-engine verdict, so it stays Chromium-only. | none (no defect) | (this packet) |
+| 0471 VHD U-4 | REFUTED (renderings); residue cured | **Cure:** an `AbortSignal` is threaded drawer → `pm.versions.fetchVersions(…, signal)` → `listVersions(…, signal)` → `request(path, { signal })`. The drawer owns its in-flight `AbortController` and aborts it on close, on unmount (the W7.78 v-if release), and when a fresh first page supersedes it. An aborted read writes no state, emits no `load-failed`, and never clears its successor's `loading`. The transport rethrows a caller's abort (`init.signal.aborted`) instead of tripping the availability latch, so a close is never read as "API unreachable". | 4 tests: close aborts; unmount aborts; supersede aborts and does not clear `loading`; aborted `request` leaves `apiAvailability` at `available`. RED x2 → GREEN x2. **Live:** UNPROVEN until `vhd.mjs` race is re-run | see commit row below |
+
+Files: `demo/palettes/browser/dialog/MigratePalettesDialog.vue` · `demo/palettes/browser/dialog/VersionHistoryDrawer.vue` · `demo/palettes/useVersionHistory.ts` · `demo/palettes/api/versions.ts` · `demo/platform/transport/client.ts` · `demo/test/palettes/ss8-b16-cures.test.ts` · `docs/tranches/X/execution/SS8/probes/B16/cure-mutants.sh` · `C/*`. None was dirty with another seat's hunks. No public API change: `src/**` is untouched, and `fetchVersions`/`listVersions` gain only a trailing optional parameter.

@@ -78,7 +78,10 @@ async function fetchWithRateLimitRetry(
         let res: Response;
         try {
             res = await fetch(input, init);
-        } catch {
+        } catch (e) {
+            // SS8-0471: a caller's abort is the caller's choice, never evidence
+            // the backend is unreachable — it propagates untouched.
+            if (init.signal?.aborted) throw e;
             // NETWORK-level failure (backend unreachable / CORS-dead) — never
             // an HTTP status. Trip the latch; surfaces degrade to local-only.
             markApiUnreachable();

@@ -1,0 +1,26 @@
+== mutant variant-0455
+1
+     → expected [ <button …(10)></button> ] to deeply equal []
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected [ <button …(10)></button> ] to deeply equal []
+      Tests  1 failed | 8 skipped (9)
+== mutant rounded-0456
+1
+     → expected [ 'rounded-dialog' ] to deeply equal []
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected [ 'rounded-dialog' ] to deeply equal []
+      Tests  1 failed | 8 skipped (9)
+== mutant opaque-0453
+1
+     → expected 'opaque' to be 'glass' // Object.is equality
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected 'opaque' to be 'glass' // Object.is equality
+      Tests  1 failed | 8 skipped (9)
+== mutant close-0460
+1
+     → expected <button …(1)></button> to be null
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected <button …(1)></button> to be null
+      Tests  1 failed | 8 skipped (9)
+ .../palettes/browser/dialog/MigratePalettesDialog.vue | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)

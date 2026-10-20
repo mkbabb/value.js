@@ -1,0 +1,2 @@
+demo/palettes/usePalettePorts.ts(153,9): error TS2322: Type '(id: ViewId) => void' is not assignable to type '(id: string) => void'.
+demo/test/palettes/ss8-b16-cures.test.ts(95,9): error TS2578: Unused '@ts-expect-error' directive.

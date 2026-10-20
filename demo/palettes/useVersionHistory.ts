@@ -42,6 +42,8 @@ export interface UseVersionHistory {
         slug: string,
         limit?: number,
         offset?: number,
+        /** SS8-0471: the drawer aborts the read it abandons (close/unmount). */
+        signal?: AbortSignal,
     ) => Promise<VersionsResult>;
     /** Revert `palette` to the release `hash`; the held palette is the
      *  If-Match validator's source (X.W12U.s2 · UIA-V-38). */
@@ -58,9 +60,10 @@ export function useVersionHistory(): UseVersionHistory {
         slug: string,
         limit = 20,
         offset = 0,
+        signal?: AbortSignal,
     ): Promise<VersionsResult> {
         try {
-            const res = await listVersions(slug, limit, offset);
+            const res = await listVersions(slug, limit, offset, signal);
             return { ok: true, page: { data: res.data, total: res.total } };
         } catch (e) {
             return { ok: false, message: messageOf(e, "The versions did not reach the server.") };
