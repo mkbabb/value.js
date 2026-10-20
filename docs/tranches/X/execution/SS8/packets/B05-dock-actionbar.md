@@ -88,3 +88,39 @@ Most REFUTED rows here are claims a landed cure has already superseded. The owne
 | 0149 ABN U-6 | consumer (done) | ABN-10's native-`disabled` arm is cured (aria-disabled only, `cursor: default`, no hover response). Close U-6 as superseded. |
 
 No glass O-row is raised. ABL D-2 (0121) is PROVEN, and its design half is already GLASS-OWNED per AB-15: no new defect, so no new row.
+
+## cures
+
+**Seat:** SS-8 CURE · 2026-10-20 · `claude-opus-5-5`. **Commit:** `6b3bb6dde` (code, falsifier, probes, evidence). The registry records are untouched (E-3). Verdicts are recorded here only.
+
+**Falsifier:** `e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts`, 15 cases, headless Chromium, `--workers=1`, every run via `guarded`.
+
+**Apparatus.** The shared `:9000` dev server was unusable for most of the session. It ran at 95–150 % CPU and 5–8 GB RSS under the concurrent seats' `foundation.css` HMR churn: index requests timed out after 60–280 s, and a whole run timed out at `page.goto` (`o33-red-2` first attempt). RED-1 is the only run on `:9000`. Every other run uses a quiet dev server, `probes/B05-dock-actionbar/vite.b05.config.ts`. It is the repo's own dev config unchanged, except that it has no watch or HMR and its own deps cache. With `B05_RED=1` it serves the four cured files from `HEAD`, so RED and GREEN read the same working tree around them. Runner: `probes/B05-dock-actionbar/o33-dev.sh`.
+
+**Runs** (evidence in `E/`):
+- `o33-red-1.json`: `:9000`, 14:50, pre-cure. 9 failed, 6 passed.
+- `o33-red-dev-1.json` and `o33-red-dev-2.json`: quiet server, HEAD files, final spec. 6 failed, 9 passed, x2.
+- `o33-green-dev-1.json` and `o33-green-dev-2.json`: quiet server, working tree. **15/15, x2.**
+- `o33-red-2.json` and `o33-green-bundle-{1,2}.json`: a static gh-pages build of the tree, used as a diagnostic only. That build's cascade differed from dev, with a 0 px separator margin and a 24 px Tools seat.
+
+Commands: `B05_RED=1 guarded --timeout 40 -- probes/B05-dock-actionbar/o33-dev.sh <port> o33-red-dev-N` and `guarded --timeout 40 -- probes/B05-dock-actionbar/o33-dev.sh <port> o33-green-dev-N`.
+
+**Other checks:**
+- `tsc -p tsconfig.e2e.json`: 0 errors in o33.
+- `vue-tsc -p tsconfig.demo.json`: 5 errors, all in another seat's `demo/test/palettes/ss8-b11-cures.test.ts`, none in `shell/dock`.
+- `vitest --maxWorkers=2 demo/test/shell`: 48/49. The one failure is `button-voice` V16-06 on `ImageEyedropper.vue:20`, another seat's file.
+
+| SID | cure | falsifier | RED → GREEN | commit |
+|---|---|---|---|---|
+| 0122 ABL D-1 | None needed: cured before this seat (MISS-5 containment). The collapse numbers are retired. AB-3's transposition is still the structural cure, and it is not attempted here. | o33 "bar-less routes" ×3 (`/atmosphere`, `/browse`, `/extract`): slot `inert` and 0 px, no non-ignored AX node, dock width > 200 | Guard only. GREEN in all 5 runs. **No RED is possible, because the cure predates this seat.** | `6b3bb6dde` (guard) |
+| 0125 ABL D-13 | `ActionBarLayer.vue` root `gap-0` → `gap-(--dock-layer-gap)` (MISS-1). | o33 0125: root gap = face gap; trailing row→separator air = leading separator→root air; separator→toggle = Back→separator (pointer off the dock) | RED x2: root gap 0 vs face gap 6. GREEN x2: 6/6/6/6. | `6b3bb6dde` |
+| 0132 ABT D-02/ABT-8 | `Dock.vue` `toolsInk`: the Tools wordmark and glyph ink is `useChromeAccentFn(dockPlate).safeCss(safeAccent, TEXT_CONTRAST_FLOOR)`. That is the band's own floating-rung instrument, the same one the band words and gold use. The resting `SAFE_ACCENT_KEY` ink stands in until the band mounts. | o33 0132 ×6 seeds (`oklch(0.62 0.16 h)`, h = 0…300, light): max-contrast label pixel vs plate ≥ 4.5 | RED **x1** only (`o33-red-1`, `:9000`): h0 4.26, h60 4.35, h300 4.23. **The defect did not reproduce on the 18:40 tree even with HEAD's Dock.vue** (`o33-red-dev-1/2`: 6/6 seeds ≥ 4.5), because other seats' `foundation.css`/`shell.css` and glass moves changed the band. GREEN x2: 6/6. The second RED therefore stays **UNWITNESSED**. The cure stands on the ABT-8 mechanism, not on a RED x2. | `6b3bb6dde` |
+| 0133 ABT D-08/ABT-11 | `Dock.vue`: `bandInkStyle` sets `--focus-ring-color` to `bandSafeCss(safeAccent, GRAPHICS_CONTRAST_FLOOR)`. A scoped rule re-seats glass's own `--dock-ring-color` hook to `var(--focus-ring-color)` (opaque) on the dock control set. glass's 48 % mix halves any hue-holding ink under 3:1 on a light band. No glass rule or file is touched. | o33 0133 ×2 seeds (h0, h180): ring-annulus pixel diff ≥ 3:1 | RED x3 (`red-1`, `red-dev-1/2`): 2.35 / 2.50. GREEN x2: ≥ 3. | `6b3bb6dde` |
+| 0136 ABT C-2/D-06/ABT-4 | None needed: the `:inert` interim was already cured, ghost set 0. Re-base on 0. The authenticated admin views are still for X-W8. | Same bar-less guard: CDP `Accessibility.getFullAXTree` has no exposed "Toggle action bar" node | Guard only. GREEN in all runs. **No RED is possible.** | `6b3bb6dde` (guard) |
+| 0140 ABT D-07/ABT-10 | `ActionBarToggle.vue`: `.dock-tools-btn` gets `min-block-size`/`min-inline-size: var(--dock-control-floor, 0px)`, glass's own coarse floor (44 px coarse, 0 fine). The wordmark goes from `v-if="isDesktop"` to `hidden sm:inline`, so 200 % zoom of a 1440 desktop (720 px) keeps it. The phone aperture (< 640) stays icon-only per S.W7-2. The dead `isDesktop` prop is deleted, along with Dock's binding. | o33 0140: coarse 390 (`hasTouch`, `isMobile`) Tools box ≥ 44×44; 720×450 @2× wordmark "Tools" visible | RED x3: height 40 (`red-1`) or 24 (`red-dev`), wordmark absent. GREEN x2. **At 390 the wordmark is still absent by design. That limb of "label null in both" is unchanged and needs an owner ruling.** | `6b3bb6dde` |
+| 0146 ABN U-3 | `GenericActionBar.vue` row: added `gap-(--dock-layer-gap)` (ABN-19). `justify-around` now only shares the slack beyond the gap. | o33 0146: every inter-seat gap ≥ the face's resolved `--dock-layer-gap` | RED x3: gaps 0. GREEN x2. | `6b3bb6dde` |
+| 0149 ABN U-6 | None needed: ABN-10's native-disabled arm was cured before this seat. Closed as superseded. | Existing `demo/test/shell/pane-popups-and-seats.test.ts` "an inoperable seat is a focusable button marked aria-disabled" (`disabled` attribute undefined, no emit) | Guard only. GREEN x2 (`vitest --maxWorkers=2`, 3/3 twice). **No RED is possible.** | none (existing test) |
+
+**Observations for the orchestrator** (no action by this seat):
+- (a) On the 18:40 tree the desktop and coarse Tools seat is **24 px** high on both the quiet dev server and the gh-pages build: the T-36 `8px 12px` box is not served. o15 T-36 likely reads RED again. The cause is upstream of B05: the served glass (sibling dist) or another seat's dirty style hunks. It was not chased.
+- (b) A concurrent working-tree edit to `demo/shell/dock/ActionBarToggle.vue` (mtime 19:19:31, not this seat's) moved `<DockSeparator class="hidden lg:block" />` **inside** the T-36 HTML comment, which comments out the folded separator. It is left untouched and uncommitted. Whoever owns that hunk should check it.
