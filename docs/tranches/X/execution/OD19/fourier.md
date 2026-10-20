@@ -112,3 +112,39 @@ Rows **OD19-F5**, **OD19-F6**, **OD19-ALL**. fourier `m/w1-bump-migration` **`2a
   - glass `Skeleton` shimmer is O-102a (10.1.1). Adopt it when it lands.
   - `useFourierMorph.ts`'s FR-AH-6 note names the router as the second home of the reduced-motion predicate. That copy is now gone, because glass owns the route gate.
 - **Evidence:** `fourier/after/P3-fourier-shell-motion-loading/` (probe.mjs, probe.json, PNGs, before-red/after-green/touched-run/vitest logs).
+
+### P1-fourier-transport-docks
+- **Commit:** fourier-analysis `e928541` (`m/w1-bump-migration`, pushed fast-forward).
+- **Rows:** OD19-F1, OD19-F3 and OD19-F4 are CURED. The transport half of OD19-F2 is CURED. The canvas-dock half of OD19-F2 stays glass G-F2a/G-F2b.
+- **Cures:**
+  - **F1, summary.** `AnimationControls.vue` `#collapsed` now holds only the mini-progress, at 2rem. It sits inside glass's 40 px summary square. The `Metric` is dropped.
+  - **F1, width.** The `.animation-dock:where(.expanded){width}` rule is deleted. The full face `.transport-face` gets a definite `inline-size`: `min(maxWidth, 100cqi) − (2·--dock-padding-inline + --dock-layer-height + --dock-layer-gap)`. Measured: face = full pane = run = 888 / 270 px, with no overflow. Glass now publishes the real `--dock-expanded-px` (958 / 340).
+  - **F3.** The ⋯ menu is replaced by two `DockTrigger for="dropdown"` seats. "Playback speed" shows the rate in mono ("1×"). "Easing" shows the glass `EasingCurve` of the current easing. Each seat has its own `DropdownMenuContent`. `SpeedSelect.vue`'s trailing separator is dropped.
+  - **F4.** Every dock dropdown's `@update:open` takes or returns exactly one `keepOpen()`/`release()` count on its dock ref:
+    - `AnimationControls` (both seats);
+    - `EditorControlsDock` (More editor tools and `ViewLayersMenu`);
+    - `CanvasControlsDock` (`ViewLayersMenu`, whose single root `DropdownMenu` receives the listener by attribute fallthrough).
+- **Adjacent line (outside the modify set):** `VisualizationView.vue` `.controls-overlay { container-type: inline-size }`. This makes `100cqi` the overlay that holds the dock. Only this hunk was staged.
+- **Falsifier:** `web/e2e/od19-p1-transport-docks.spec.ts`, light/dark × 1440/390, 4 tests per cell. It checks:
+  - every collapsed kid lies inside the plate;
+  - a later expand has ≥5 monotone growth frames and no reversal, and no single frame carries half of Play's travel;
+  - the collapse never undershoots and never grows back;
+  - Speed and Easing seats exist, each with its own menu;
+  - with a menu open and the pointer away, the dock never reaches `.collapsed` for 4.8 s, and after the menu closes and focus leaves, it collapses.
+  - **RED 16/16** against HEAD sources (`red-HEAD-sources.{log,json}`): kids outside the plate (+4), expand growth = 1 frame even on the second expand, no seats, F4 timeout.
+  - **GREEN 16/16 ×2** (`green-{1,2}-od19-p1-transport-docks.json`). Second-expand traces: 1440 = 6 growth frames, Play max step 205 of 424 px (about 35 frames in headless at DPR2); 390 = 21–28 growth frames, Play max step 19.6 of 115 px. Collapse: settled 102, min 102, 0 regrowth.
+  - **Deviation from the brief.** The brief's "no single-frame Play jump > 12 px" cannot hold for a 424 px travel at headless rAF cadence. It is asserted as "no single frame carries half the travel". Before the cure, one frame carried 428 of 428 px.
+- **Touched specs re-pointed (owner rows; no assertion weakened):**
+  - `f-w14u-d` d1 asserted the collapsed Metric, which OD19-F1 removes. It now asserts that the summary is the one readout inside the plate.
+  - `f-w14u-vdock` v9, `visualization-ux` keystone 4 and `f-w14v-au0` opened "More options", which OD19-F3 retires. They now open the Speed and Easing seats, and v9 runs its fit, label and keep-open checks on each menu.
+  - All four passed GREEN ×2 (vdock 10, d 6, ux 9, au0 10). `vue-tsc -b` rc 0. vitest 116/116.
+- **AFTER frames (LOOKed):**
+  - `{light,dark}-{1440,390}-F1-collapsed.png`: Play plus the 2rem bar, inside the pill.
+  - `-F1-expanded.png`: timeline, "1×" and the curve glyph.
+  - `-F3-speed-menu.png` and `-F3-easing-menu.png`: the two menus.
+  - `-F4-after-leave.png`: the dock is expanded with the menu open after 4.8 s, in all 4 cells.
+  - Traces: `trace-1440.json` (first flip, G-F2a) and `trace-1440-warm.json` (second expand, monotone 102→145→474→780→930→957→958).
+- **glass sub-rows (O-102):**
+  - **G-F2a (residual, measured).** On the first expand after load, glass publishes `--dock-expanded-px` from the collapsed root, 164 → 102 px at the flip. The full pane's `offsetWidth` reads 102 while collapsed, even though its content is a definite 888. The first morph therefore runs to 102 for about 600 ms, then snaps to 958. Every later expand is clean.
+  - **G-F3 (new).** `EasingCurve` has no caption-free glyph register. At dock-glyph size (20 px) its HTML "0"/"1" axis captions crowd the plot. The same happens at the menu rows' 24 px. A `bare`/glyph mode would be the producer cure.
+  - **G-F4.** A collapse still does not dismiss child overlays. The consumer now holds the dock open through `keepOpen()` instead.

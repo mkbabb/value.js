@@ -1,0 +1,561 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.0.0/bin/node",
+      "/Users/mkbabb/Programming/fourier-analysis/web/node_modules/.bin/playwright",
+      "test",
+      "e2e/f-w14v-au0.spec.ts",
+      "--project=chromium",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "/Users/mkbabb/Programming/fourier-analysis/web/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome-gpu",
+        "name": "chrome-gpu",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "honest-red",
+        "name": "honest-red",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npx vite build --outDir dist/e2e-preview --emptyOutDir && npx vite preview --outDir dist/e2e-preview --port 4190 --strictPort",
+      "url": "http://localhost:4190/",
+      "reuseExistingServer": true,
+      "timeout": 300000,
+      "stdout": "ignore",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "f-w14v-au0.spec.ts",
+      "file": "f-w14v-au0.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "au0 d1440-light",
+          "file": "f-w14v-au0.spec.ts",
+          "line": 327,
+          "column": 14,
+          "specs": [
+            {
+              "title": "frames the unread views d1440-light",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 30737,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:09:16.376Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e23b559007cf164ee17e-beecdbfd3aa4840c4ec9",
+              "file": "f-w14v-au0.spec.ts",
+              "line": 335,
+              "column": 13
+            }
+          ]
+        },
+        {
+          "title": "au0 m390-light",
+          "file": "f-w14v-au0.spec.ts",
+          "line": 327,
+          "column": 14,
+          "specs": [
+            {
+              "title": "frames the unread views m390-light",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 34337,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:09:47.249Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e23b559007cf164ee17e-b7199b32fc609ab75d0a",
+              "file": "f-w14v-au0.spec.ts",
+              "line": 335,
+              "column": 13
+            }
+          ]
+        },
+        {
+          "title": "au0 t768-light",
+          "file": "f-w14v-au0.spec.ts",
+          "line": 327,
+          "column": 14,
+          "specs": [
+            {
+              "title": "frames the unread views t768-light",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 30710,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:10:21.593Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e23b559007cf164ee17e-936859f23d75f774acdc",
+              "file": "f-w14v-au0.spec.ts",
+              "line": 335,
+              "column": 13
+            }
+          ]
+        },
+        {
+          "title": "au0 t1024-light",
+          "file": "f-w14v-au0.spec.ts",
+          "line": 327,
+          "column": 14,
+          "specs": [
+            {
+              "title": "frames the unread views t1024-light",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29476,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:10:52.310Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e23b559007cf164ee17e-5d48bf7035ad78c3741e",
+              "file": "f-w14v-au0.spec.ts",
+              "line": 335,
+              "column": 13
+            }
+          ]
+        },
+        {
+          "title": "au0 d1440-dark",
+          "file": "f-w14v-au0.spec.ts",
+          "line": 327,
+          "column": 14,
+          "specs": [
+            {
+              "title": "frames the unread views d1440-dark",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 31255,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:11:21.793Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e23b559007cf164ee17e-d65fc1ecebe3aded9427",
+              "file": "f-w14v-au0.spec.ts",
+              "line": 335,
+              "column": 13
+            }
+          ]
+        },
+        {
+          "title": "au0 m390-dark",
+          "file": "f-w14v-au0.spec.ts",
+          "line": 327,
+          "column": 14,
+          "specs": [
+            {
+              "title": "frames the unread views m390-dark",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 35028,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:11:53.056Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e23b559007cf164ee17e-26bf43ec940589a7dd71",
+              "file": "f-w14v-au0.spec.ts",
+              "line": 335,
+              "column": 13
+            }
+          ]
+        },
+        {
+          "title": "au0 t768-dark",
+          "file": "f-w14v-au0.spec.ts",
+          "line": 327,
+          "column": 14,
+          "specs": [
+            {
+              "title": "frames the unread views t768-dark",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 31134,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:12:28.091Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e23b559007cf164ee17e-45332c75e6d4562ea678",
+              "file": "f-w14v-au0.spec.ts",
+              "line": 335,
+              "column": 13
+            }
+          ]
+        },
+        {
+          "title": "au0 t1024-dark",
+          "file": "f-w14v-au0.spec.ts",
+          "line": 327,
+          "column": 14,
+          "specs": [
+            {
+              "title": "frames the unread views t1024-dark",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29482,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:12:59.231Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e23b559007cf164ee17e-855efbddf522a1cf0f9c",
+              "file": "f-w14v-au0.spec.ts",
+              "line": 335,
+              "column": 13
+            }
+          ]
+        },
+        {
+          "title": "au0 m360-light-loggedin",
+          "file": "f-w14v-au0.spec.ts",
+          "line": 354,
+          "column": 10,
+          "specs": [
+            {
+              "title": "frames the logged-in shell m360-light-loggedin",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3270,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:13:28.719Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e23b559007cf164ee17e-e94228a3f8b1cacfa9ee",
+              "file": "f-w14v-au0.spec.ts",
+              "line": 358,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "au0 m430-light-loggedin",
+          "file": "f-w14v-au0.spec.ts",
+          "line": 354,
+          "column": 10,
+          "specs": [
+            {
+              "title": "frames the logged-in shell m430-light-loggedin",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3290,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:13:31.995Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e23b559007cf164ee17e-b060b738bcf312715782",
+              "file": "f-w14v-au0.spec.ts",
+              "line": 358,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T00:09:05.222Z",
+    "duration": 270124.436,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

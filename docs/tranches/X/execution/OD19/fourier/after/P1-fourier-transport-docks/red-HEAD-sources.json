@@ -1,0 +1,1317 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.0.0/bin/node",
+      "/Users/mkbabb/Programming/fourier-analysis/web/node_modules/.bin/playwright",
+      "test",
+      "e2e/od19-p1-transport-docks.spec.ts",
+      "--project=chromium",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "/Users/mkbabb/Programming/fourier-analysis/web/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome-gpu",
+        "name": "chrome-gpu",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "honest-red",
+        "name": "honest-red",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npx vite build --outDir dist/e2e-preview --emptyOutDir && npx vite preview --outDir dist/e2e-preview --port 4190 --strictPort",
+      "url": "http://localhost:4190/",
+      "reuseExistingServer": true,
+      "timeout": 300000,
+      "stdout": "ignore",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "od19-p1-transport-docks.spec.ts",
+      "file": "od19-p1-transport-docks.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "X-OD19 P1 — transport dock (light 1440)",
+          "file": "od19-p1-transport-docks.spec.ts",
+          "line": 44,
+          "column": 10,
+          "specs": [
+            {
+              "title": "F1 — every collapsed-summary kid lies inside the plate",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 2133,
+                      "error": {
+                        "message": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 546..575 plate 445..547\",\u001b[39m\n\u001b[31m+   \"metric__unit 581..589 plate 445..547\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 546..575 plate 445..547\",\u001b[39m\n\u001b[31m+   \"metric__unit 581..589 plate 445..547\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:58:61",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 61,
+                          "line": 58
+                        },
+                        "snippet": "  56 |                     .map(({ e, r }) => `${e.className?.toString().slice(0, 24)} ${Math.round(r.left)}..${Math.round(r.right)} plate ${Math.round(p.left)}..${Math.round(p.right)}`);\n  57 |             });\n> 58 |             expect(out, \"collapsed kids outside the plate\").toEqual([]);\n     |                                                             ^\n  59 |             // One readout: the summary holds the position bar and nothing else.\n  60 |             await expect(page.locator(\".animation-dock .dock-layer--summary .metric\")).toHaveCount(0);\n  61 |         });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 61,
+                            "line": 58
+                          },
+                          "message": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 546..575 plate 445..547\",\u001b[39m\n\u001b[31m+   \"metric__unit 581..589 plate 445..547\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  56 |                     .map(({ e, r }) => `${e.className?.toString().slice(0, 24)} ${Math.round(r.left)}..${Math.round(r.right)} plate ${Math.round(p.left)}..${Math.round(p.right)}`);\n  57 |             });\n> 58 |             expect(out, \"collapsed kids outside the plate\").toEqual([]);\n     |                                                             ^\n  59 |             // One readout: the summary holds the position bar and nothing else.\n  60 |             await expect(page.locator(\".animation-dock .dock-layer--summary .metric\")).toHaveCount(0);\n  61 |         });\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:58:61"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:30:45.857Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--15f5b-y-kid-lies-inside-the-plate-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--15f5b-y-kid-lies-inside-the-plate-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 61,
+                        "line": 58
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-df9da674688ad516170a",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 48,
+              "column": 9
+            },
+            {
+              "title": "F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "first-flip (G-F2a)",
+                      "description": "{\"n\":35,\"w0\":102,\"wEnd\":958,\"growing\":2,\"reversals\":0,\"maxPlayJump\":420.71875,\"playTravel\":416.71875}"
+                    },
+                    {
+                      "type": "expand-trace",
+                      "description": "{\"n\":52,\"w0\":102,\"wEnd\":958,\"growing\":1,\"reversals\":0,\"maxPlayJump\":428,\"playTravel\":424}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8471,
+                      "error": {
+                        "message": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m",
+                        "stack": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:116:59",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 59,
+                          "line": 116
+                        },
+                        "snippet": "  114 |             test.info().annotations.push({ type: \"expand-trace\", description: JSON.stringify(exp) });\n  115 |             expect(exp.wEnd, \"the dock expanded\").toBeGreaterThan(exp.w0 + 100);\n> 116 |             expect(exp.growing, \"frames of width growth\").toBeGreaterThanOrEqual(5);\n      |                                                           ^\n  117 |             expect(exp.reversals, \"the width never reverses on expand\").toBe(0);\n  118 |             // Before: Play's whole travel (459 -> 31 px) landed in ONE frame. A 428 px\n  119 |             // travel at a headless rAF cadence cannot step <=12 px per frame, so the"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 59,
+                            "line": 116
+                          },
+                          "message": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m\n\n  114 |             test.info().annotations.push({ type: \"expand-trace\", description: JSON.stringify(exp) });\n  115 |             expect(exp.wEnd, \"the dock expanded\").toBeGreaterThan(exp.w0 + 100);\n> 116 |             expect(exp.growing, \"frames of width growth\").toBeGreaterThanOrEqual(5);\n      |                                                           ^\n  117 |             expect(exp.reversals, \"the width never reverses on expand\").toBe(0);\n  118 |             // Before: Play's whole travel (459 -> 31 px) landed in ONE frame. A 428 px\n  119 |             // travel at a headless rAF cadence cannot step <=12 px per frame, so the\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:116:59"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:30:48.581Z",
+                      "annotations": [
+                        {
+                          "type": "first-flip (G-F2a)",
+                          "description": "{\"n\":35,\"w0\":102,\"wEnd\":958,\"growing\":2,\"reversals\":0,\"maxPlayJump\":420.71875,\"playTravel\":416.71875}"
+                        },
+                        {
+                          "type": "expand-trace",
+                          "description": "{\"n\":52,\"w0\":102,\"wEnd\":958,\"growing\":1,\"reversals\":0,\"maxPlayJump\":428,\"playTravel\":424}"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--b860d--collapse-never-undershoots-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--b860d--collapse-never-undershoots-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 59,
+                        "line": 116
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-78e01d142397b2cf6c83",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 63,
+              "column": 9
+            },
+            {
+              "title": "F3 — Speed and Easing are dock seats, each with its own menu",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6945,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:139:71",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 71,
+                          "line": 139
+                        },
+                        "snippet": "  137 |             await expandTransport(page);\n  138 |             const dock = page.locator(\".animation-dock\");\n> 139 |             await expect(dock.locator(\"[aria-label='More options']\")).toHaveCount(0);\n      |                                                                       ^\n  140 |             const speed = dock.getByRole(\"button\", { name: \"Playback speed\" });\n  141 |             await expect(speed).toHaveText(/^\\s*[\\d.]+\\s*×\\s*$/);\n  142 |             await speed.click();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 71,
+                            "line": 139
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  137 |             await expandTransport(page);\n  138 |             const dock = page.locator(\".animation-dock\");\n> 139 |             await expect(dock.locator(\"[aria-label='More options']\")).toHaveCount(0);\n      |                                                                       ^\n  140 |             const speed = dock.getByRole(\"button\", { name: \"Playback speed\" });\n  141 |             await expect(speed).toHaveText(/^\\s*[\\d.]+\\s*×\\s*$/);\n  142 |             await speed.click();\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:139:71"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:30:57.578Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--aba67-eats-each-with-its-own-menu-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--aba67-eats-each-with-its-own-menu-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 71,
+                        "line": 139
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-e283f7ccec823c246811",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 135,
+              "column": 9
+            },
+            {
+              "title": "F4 — an open menu holds the dock open; closing it lets the dock collapse",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 90177,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 72,
+                            "line": 164
+                          },
+                          "message": "Error: locator.click: Test timeout of 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.animation-dock').getByRole('button', { name: 'Playback speed' })\u001b[22m\n\n\n  162 |             await expandTransport(page);\n  163 |             const dock = page.locator(\".animation-dock\");\n> 164 |             await dock.getByRole(\"button\", { name: \"Playback speed\" }).click();\n      |                                                                        ^\n  165 |             await expect(page.getByRole(\"menu\")).toBeVisible();\n  166 |             await page.mouse.move(2, 2);\n  167 |             await page.mouse.move(4, c.height - 4);\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:164:72"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:31:05.664Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--b140f-g-it-lets-the-dock-collapse-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--b140f-g-it-lets-the-dock-collapse-chromium/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-46500bc596f24bdca584",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 160,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "X-OD19 P1 — transport dock (dark 1440)",
+          "file": "od19-p1-transport-docks.spec.ts",
+          "line": 44,
+          "column": 10,
+          "specs": [
+            {
+              "title": "F1 — every collapsed-summary kid lies inside the plate",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 906,
+                      "error": {
+                        "message": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 545..574 plate 444..546\",\u001b[39m\n\u001b[31m+   \"metric__unit 580..588 plate 444..546\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 545..574 plate 444..546\",\u001b[39m\n\u001b[31m+   \"metric__unit 580..588 plate 444..546\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:58:61",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 61,
+                          "line": 58
+                        },
+                        "snippet": "  56 |                     .map(({ e, r }) => `${e.className?.toString().slice(0, 24)} ${Math.round(r.left)}..${Math.round(r.right)} plate ${Math.round(p.left)}..${Math.round(p.right)}`);\n  57 |             });\n> 58 |             expect(out, \"collapsed kids outside the plate\").toEqual([]);\n     |                                                             ^\n  59 |             // One readout: the summary holds the position bar and nothing else.\n  60 |             await expect(page.locator(\".animation-dock .dock-layer--summary .metric\")).toHaveCount(0);\n  61 |         });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 61,
+                            "line": 58
+                          },
+                          "message": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 545..574 plate 444..546\",\u001b[39m\n\u001b[31m+   \"metric__unit 580..588 plate 444..546\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  56 |                     .map(({ e, r }) => `${e.className?.toString().slice(0, 24)} ${Math.round(r.left)}..${Math.round(r.right)} plate ${Math.round(p.left)}..${Math.round(p.right)}`);\n  57 |             });\n> 58 |             expect(out, \"collapsed kids outside the plate\").toEqual([]);\n     |                                                             ^\n  59 |             // One readout: the summary holds the position bar and nothing else.\n  60 |             await expect(page.locator(\".animation-dock .dock-layer--summary .metric\")).toHaveCount(0);\n  61 |         });\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:58:61"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:32:36.404Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--d6f3a-y-kid-lies-inside-the-plate-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--d6f3a-y-kid-lies-inside-the-plate-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 61,
+                        "line": 58
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-6b362454ae84fd535f3f",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 48,
+              "column": 9
+            },
+            {
+              "title": "F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "first-flip (G-F2a)",
+                      "description": "{\"n\":33,\"w0\":102,\"wEnd\":958,\"growing\":1,\"reversals\":0,\"maxPlayJump\":426.015625,\"playTravel\":417.234375}"
+                    },
+                    {
+                      "type": "expand-trace",
+                      "description": "{\"n\":52,\"w0\":102,\"wEnd\":958,\"growing\":1,\"reversals\":0,\"maxPlayJump\":428,\"playTravel\":424}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8472,
+                      "error": {
+                        "message": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m",
+                        "stack": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:116:59",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 59,
+                          "line": 116
+                        },
+                        "snippet": "  114 |             test.info().annotations.push({ type: \"expand-trace\", description: JSON.stringify(exp) });\n  115 |             expect(exp.wEnd, \"the dock expanded\").toBeGreaterThan(exp.w0 + 100);\n> 116 |             expect(exp.growing, \"frames of width growth\").toBeGreaterThanOrEqual(5);\n      |                                                           ^\n  117 |             expect(exp.reversals, \"the width never reverses on expand\").toBe(0);\n  118 |             // Before: Play's whole travel (459 -> 31 px) landed in ONE frame. A 428 px\n  119 |             // travel at a headless rAF cadence cannot step <=12 px per frame, so the"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 59,
+                            "line": 116
+                          },
+                          "message": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m\n\n  114 |             test.info().annotations.push({ type: \"expand-trace\", description: JSON.stringify(exp) });\n  115 |             expect(exp.wEnd, \"the dock expanded\").toBeGreaterThan(exp.w0 + 100);\n> 116 |             expect(exp.growing, \"frames of width growth\").toBeGreaterThanOrEqual(5);\n      |                                                           ^\n  117 |             expect(exp.reversals, \"the width never reverses on expand\").toBe(0);\n  118 |             // Before: Play's whole travel (459 -> 31 px) landed in ONE frame. A 428 px\n  119 |             // travel at a headless rAF cadence cannot step <=12 px per frame, so the\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:116:59"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:32:37.888Z",
+                      "annotations": [
+                        {
+                          "type": "first-flip (G-F2a)",
+                          "description": "{\"n\":33,\"w0\":102,\"wEnd\":958,\"growing\":1,\"reversals\":0,\"maxPlayJump\":426.015625,\"playTravel\":417.234375}"
+                        },
+                        {
+                          "type": "expand-trace",
+                          "description": "{\"n\":52,\"w0\":102,\"wEnd\":958,\"growing\":1,\"reversals\":0,\"maxPlayJump\":428,\"playTravel\":424}"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--a8749--collapse-never-undershoots-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--a8749--collapse-never-undershoots-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 59,
+                        "line": 116
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-003f49023c67190cb565",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 63,
+              "column": 9
+            },
+            {
+              "title": "F3 — Speed and Easing are dock seats, each with its own menu",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6700,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:139:71",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 71,
+                          "line": 139
+                        },
+                        "snippet": "  137 |             await expandTransport(page);\n  138 |             const dock = page.locator(\".animation-dock\");\n> 139 |             await expect(dock.locator(\"[aria-label='More options']\")).toHaveCount(0);\n      |                                                                       ^\n  140 |             const speed = dock.getByRole(\"button\", { name: \"Playback speed\" });\n  141 |             await expect(speed).toHaveText(/^\\s*[\\d.]+\\s*×\\s*$/);\n  142 |             await speed.click();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 71,
+                            "line": 139
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  137 |             await expandTransport(page);\n  138 |             const dock = page.locator(\".animation-dock\");\n> 139 |             await expect(dock.locator(\"[aria-label='More options']\")).toHaveCount(0);\n      |                                                                       ^\n  140 |             const speed = dock.getByRole(\"button\", { name: \"Playback speed\" });\n  141 |             await expect(speed).toHaveText(/^\\s*[\\d.]+\\s*×\\s*$/);\n  142 |             await speed.click();\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:139:71"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:32:46.867Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--3b395-eats-each-with-its-own-menu-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--3b395-eats-each-with-its-own-menu-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 71,
+                        "line": 139
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-69a0c3c95efcfd55b207",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 135,
+              "column": 9
+            },
+            {
+              "title": "F4 — an open menu holds the dock open; closing it lets the dock collapse",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 90214,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 72,
+                            "line": 164
+                          },
+                          "message": "Error: locator.click: Test timeout of 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.animation-dock').getByRole('button', { name: 'Playback speed' })\u001b[22m\n\n\n  162 |             await expandTransport(page);\n  163 |             const dock = page.locator(\".animation-dock\");\n> 164 |             await dock.getByRole(\"button\", { name: \"Playback speed\" }).click();\n      |                                                                        ^\n  165 |             await expect(page.getByRole(\"menu\")).toBeVisible();\n  166 |             await page.mouse.move(2, 2);\n  167 |             await page.mouse.move(4, c.height - 4);\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:164:72"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:32:54.056Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--d4f3b-g-it-lets-the-dock-collapse-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--d4f3b-g-it-lets-the-dock-collapse-chromium/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-1dcf1b1c9ad55835fead",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 160,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "X-OD19 P1 — transport dock (light 390)",
+          "file": "od19-p1-transport-docks.spec.ts",
+          "line": 44,
+          "column": 10,
+          "specs": [
+            {
+              "title": "F1 — every collapsed-summary kid lies inside the plate",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 704,
+                      "error": {
+                        "message": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 245..270 plate 144..246\",\u001b[39m\n\u001b[31m+   \"metric__unit 275..282 plate 144..246\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 245..270 plate 144..246\",\u001b[39m\n\u001b[31m+   \"metric__unit 275..282 plate 144..246\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:58:61",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 61,
+                          "line": 58
+                        },
+                        "snippet": "  56 |                     .map(({ e, r }) => `${e.className?.toString().slice(0, 24)} ${Math.round(r.left)}..${Math.round(r.right)} plate ${Math.round(p.left)}..${Math.round(p.right)}`);\n  57 |             });\n> 58 |             expect(out, \"collapsed kids outside the plate\").toEqual([]);\n     |                                                             ^\n  59 |             // One readout: the summary holds the position bar and nothing else.\n  60 |             await expect(page.locator(\".animation-dock .dock-layer--summary .metric\")).toHaveCount(0);\n  61 |         });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 61,
+                            "line": 58
+                          },
+                          "message": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 245..270 plate 144..246\",\u001b[39m\n\u001b[31m+   \"metric__unit 275..282 plate 144..246\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  56 |                     .map(({ e, r }) => `${e.className?.toString().slice(0, 24)} ${Math.round(r.left)}..${Math.round(r.right)} plate ${Math.round(p.left)}..${Math.round(p.right)}`);\n  57 |             });\n> 58 |             expect(out, \"collapsed kids outside the plate\").toEqual([]);\n     |                                                             ^\n  59 |             // One readout: the summary holds the position bar and nothing else.\n  60 |             await expect(page.locator(\".animation-dock .dock-layer--summary .metric\")).toHaveCount(0);\n  61 |         });\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:58:61"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:34:24.868Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--9d34e-y-kid-lies-inside-the-plate-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--9d34e-y-kid-lies-inside-the-plate-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 61,
+                        "line": 58
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-e44e6a9dd6828484de84",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 48,
+              "column": 9
+            },
+            {
+              "title": "F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "first-flip (G-F2a)",
+                      "description": "{\"n\":149,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                    },
+                    {
+                      "type": "expand-trace",
+                      "description": "{\"n\":157,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7817,
+                      "error": {
+                        "message": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m",
+                        "stack": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:116:59",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 59,
+                          "line": 116
+                        },
+                        "snippet": "  114 |             test.info().annotations.push({ type: \"expand-trace\", description: JSON.stringify(exp) });\n  115 |             expect(exp.wEnd, \"the dock expanded\").toBeGreaterThan(exp.w0 + 100);\n> 116 |             expect(exp.growing, \"frames of width growth\").toBeGreaterThanOrEqual(5);\n      |                                                           ^\n  117 |             expect(exp.reversals, \"the width never reverses on expand\").toBe(0);\n  118 |             // Before: Play's whole travel (459 -> 31 px) landed in ONE frame. A 428 px\n  119 |             // travel at a headless rAF cadence cannot step <=12 px per frame, so the"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 59,
+                            "line": 116
+                          },
+                          "message": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m\n\n  114 |             test.info().annotations.push({ type: \"expand-trace\", description: JSON.stringify(exp) });\n  115 |             expect(exp.wEnd, \"the dock expanded\").toBeGreaterThan(exp.w0 + 100);\n> 116 |             expect(exp.growing, \"frames of width growth\").toBeGreaterThanOrEqual(5);\n      |                                                           ^\n  117 |             expect(exp.reversals, \"the width never reverses on expand\").toBe(0);\n  118 |             // Before: Play's whole travel (459 -> 31 px) landed in ONE frame. A 428 px\n  119 |             // travel at a headless rAF cadence cannot step <=12 px per frame, so the\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:116:59"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:34:26.129Z",
+                      "annotations": [
+                        {
+                          "type": "first-flip (G-F2a)",
+                          "description": "{\"n\":149,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                        },
+                        {
+                          "type": "expand-trace",
+                          "description": "{\"n\":157,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--ddfc0--collapse-never-undershoots-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--ddfc0--collapse-never-undershoots-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 59,
+                        "line": 116
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-8b128bb6b98e41b647d6",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 63,
+              "column": 9
+            },
+            {
+              "title": "F3 — Speed and Easing are dock seats, each with its own menu",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6663,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:139:71",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 71,
+                          "line": 139
+                        },
+                        "snippet": "  137 |             await expandTransport(page);\n  138 |             const dock = page.locator(\".animation-dock\");\n> 139 |             await expect(dock.locator(\"[aria-label='More options']\")).toHaveCount(0);\n      |                                                                       ^\n  140 |             const speed = dock.getByRole(\"button\", { name: \"Playback speed\" });\n  141 |             await expect(speed).toHaveText(/^\\s*[\\d.]+\\s*×\\s*$/);\n  142 |             await speed.click();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 71,
+                            "line": 139
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  137 |             await expandTransport(page);\n  138 |             const dock = page.locator(\".animation-dock\");\n> 139 |             await expect(dock.locator(\"[aria-label='More options']\")).toHaveCount(0);\n      |                                                                       ^\n  140 |             const speed = dock.getByRole(\"button\", { name: \"Playback speed\" });\n  141 |             await expect(speed).toHaveText(/^\\s*[\\d.]+\\s*×\\s*$/);\n  142 |             await speed.click();\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:139:71"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:34:34.519Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--6c9d6-eats-each-with-its-own-menu-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--6c9d6-eats-each-with-its-own-menu-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 71,
+                        "line": 139
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-4ee4232ef3b95e10e797",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 135,
+              "column": 9
+            },
+            {
+              "title": "F4 — an open menu holds the dock open; closing it lets the dock collapse",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 90100,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 72,
+                            "line": 164
+                          },
+                          "message": "Error: locator.click: Test timeout of 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.animation-dock').getByRole('button', { name: 'Playback speed' })\u001b[22m\n\n\n  162 |             await expandTransport(page);\n  163 |             const dock = page.locator(\".animation-dock\");\n> 164 |             await dock.getByRole(\"button\", { name: \"Playback speed\" }).click();\n      |                                                                        ^\n  165 |             await expect(page.getByRole(\"menu\")).toBeVisible();\n  166 |             await page.mouse.move(2, 2);\n  167 |             await page.mouse.move(4, c.height - 4);\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:164:72"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:34:41.665Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--92cef-g-it-lets-the-dock-collapse-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--92cef-g-it-lets-the-dock-collapse-chromium/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-552b219fc96e37784d01",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 160,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "X-OD19 P1 — transport dock (dark 390)",
+          "file": "od19-p1-transport-docks.spec.ts",
+          "line": 44,
+          "column": 10,
+          "specs": [
+            {
+              "title": "F1 — every collapsed-summary kid lies inside the plate",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 649,
+                      "error": {
+                        "message": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 245..270 plate 144..246\",\u001b[39m\n\u001b[31m+   \"metric__unit 275..282 plate 144..246\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 245..270 plate 144..246\",\u001b[39m\n\u001b[31m+   \"metric__unit 275..282 plate 144..246\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:58:61",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 61,
+                          "line": 58
+                        },
+                        "snippet": "  56 |                     .map(({ e, r }) => `${e.className?.toString().slice(0, 24)} ${Math.round(r.left)}..${Math.round(r.right)} plate ${Math.round(p.left)}..${Math.round(p.right)}`);\n  57 |             });\n> 58 |             expect(out, \"collapsed kids outside the plate\").toEqual([]);\n     |                                                             ^\n  59 |             // One readout: the summary holds the position bar and nothing else.\n  60 |             await expect(page.locator(\".animation-dock .dock-layer--summary .metric\")).toHaveCount(0);\n  61 |         });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 61,
+                            "line": 58
+                          },
+                          "message": "Error: collapsed kids outside the plate\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"metric__value 245..270 plate 144..246\",\u001b[39m\n\u001b[31m+   \"metric__unit 275..282 plate 144..246\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  56 |                     .map(({ e, r }) => `${e.className?.toString().slice(0, 24)} ${Math.round(r.left)}..${Math.round(r.right)} plate ${Math.round(p.left)}..${Math.round(p.right)}`);\n  57 |             });\n> 58 |             expect(out, \"collapsed kids outside the plate\").toEqual([]);\n     |                                                             ^\n  59 |             // One readout: the summary holds the position bar and nothing else.\n  60 |             await expect(page.locator(\".animation-dock .dock-layer--summary .metric\")).toHaveCount(0);\n  61 |         });\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:58:61"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:36:12.250Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--6a87a-y-kid-lies-inside-the-plate-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--6a87a-y-kid-lies-inside-the-plate-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 61,
+                        "line": 58
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-23eb36131f312c0bd0e0",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 48,
+              "column": 9
+            },
+            {
+              "title": "F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "first-flip (G-F2a)",
+                      "description": "{\"n\":165,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                    },
+                    {
+                      "type": "expand-trace",
+                      "description": "{\"n\":169,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7723,
+                      "error": {
+                        "message": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m",
+                        "stack": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:116:59",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 59,
+                          "line": 116
+                        },
+                        "snippet": "  114 |             test.info().annotations.push({ type: \"expand-trace\", description: JSON.stringify(exp) });\n  115 |             expect(exp.wEnd, \"the dock expanded\").toBeGreaterThan(exp.w0 + 100);\n> 116 |             expect(exp.growing, \"frames of width growth\").toBeGreaterThanOrEqual(5);\n      |                                                           ^\n  117 |             expect(exp.reversals, \"the width never reverses on expand\").toBe(0);\n  118 |             // Before: Play's whole travel (459 -> 31 px) landed in ONE frame. A 428 px\n  119 |             // travel at a headless rAF cadence cannot step <=12 px per frame, so the"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 59,
+                            "line": 116
+                          },
+                          "message": "Error: frames of width growth\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5\u001b[39m\nReceived:    \u001b[31m1\u001b[39m\n\n  114 |             test.info().annotations.push({ type: \"expand-trace\", description: JSON.stringify(exp) });\n  115 |             expect(exp.wEnd, \"the dock expanded\").toBeGreaterThan(exp.w0 + 100);\n> 116 |             expect(exp.growing, \"frames of width growth\").toBeGreaterThanOrEqual(5);\n      |                                                           ^\n  117 |             expect(exp.reversals, \"the width never reverses on expand\").toBe(0);\n  118 |             // Before: Play's whole travel (459 -> 31 px) landed in ONE frame. A 428 px\n  119 |             // travel at a headless rAF cadence cannot step <=12 px per frame, so the\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:116:59"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:36:13.417Z",
+                      "annotations": [
+                        {
+                          "type": "first-flip (G-F2a)",
+                          "description": "{\"n\":165,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                        },
+                        {
+                          "type": "expand-trace",
+                          "description": "{\"n\":169,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--3ff15--collapse-never-undershoots-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--3ff15--collapse-never-undershoots-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 59,
+                        "line": 116
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-f533ebbf2ce59b7732d7",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 63,
+              "column": 9
+            },
+            {
+              "title": "F3 — Speed and Easing are dock seats, each with its own menu",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6709,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:139:71",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                          "column": 71,
+                          "line": 139
+                        },
+                        "snippet": "  137 |             await expandTransport(page);\n  138 |             const dock = page.locator(\".animation-dock\");\n> 139 |             await expect(dock.locator(\"[aria-label='More options']\")).toHaveCount(0);\n      |                                                                       ^\n  140 |             const speed = dock.getByRole(\"button\", { name: \"Playback speed\" });\n  141 |             await expect(speed).toHaveText(/^\\s*[\\d.]+\\s*×\\s*$/);\n  142 |             await speed.click();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 71,
+                            "line": 139
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.animation-dock').locator('[aria-label=\\'More options\\']')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.animation-dock').locator('[aria-label=\\'More options\\']')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  137 |             await expandTransport(page);\n  138 |             const dock = page.locator(\".animation-dock\");\n> 139 |             await expect(dock.locator(\"[aria-label='More options']\")).toHaveCount(0);\n      |                                                                       ^\n  140 |             const speed = dock.getByRole(\"button\", { name: \"Playback speed\" });\n  141 |             await expect(speed).toHaveText(/^\\s*[\\d.]+\\s*×\\s*$/);\n  142 |             await speed.click();\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:139:71"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:36:21.648Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--654e3-eats-each-with-its-own-menu-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--654e3-eats-each-with-its-own-menu-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                        "column": 71,
+                        "line": 139
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-1d89f89026c836ef920a",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 135,
+              "column": 9
+            },
+            {
+              "title": "F4 — an open menu holds the dock open; closing it lets the dock collapse",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 90083,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts",
+                            "column": 72,
+                            "line": 164
+                          },
+                          "message": "Error: locator.click: Test timeout of 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.animation-dock').getByRole('button', { name: 'Playback speed' })\u001b[22m\n\n\n  162 |             await expandTransport(page);\n  163 |             const dock = page.locator(\".animation-dock\");\n> 164 |             await dock.getByRole(\"button\", { name: \"Playback speed\" }).click();\n      |                                                                        ^\n  165 |             await expect(page.getByRole(\"menu\")).toBeVisible();\n  166 |             await page.mouse.move(2, 2);\n  167 |             await page.mouse.move(4, c.height - 4);\n    at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:164:72"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:36:28.759Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--b685c-g-it-lets-the-dock-collapse-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/fourier-analysis/web/test-results/od19-p1-transport-docks-X--b685c-g-it-lets-the-dock-collapse-chromium/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-93deb078ae79d9f6a120",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 160,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T00:30:34.511Z",
+    "duration": 444515.484,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 16,
+    "flaky": 0
+  }
+}
