@@ -3362,3 +3362,31 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 23:20Z → 20
 - Container `frel-vb` is stopped.
 
 **Commits (fourier `m/w1-bump-migration`, pushed):** `f7d17f0`, `924df31`. value.js: this receipt + `evidence/F-REL/v3/README.md` (pathspec).
+
+### F-REL.d (RESUME (j))
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-20. Spec: F-REL.md §Units `.d` (L32-38) + §Gates (L36-37); ADDENDUM (f) (L78-83); COHESION §0fs, §0ge.4, §0gh.1–4, §0gi.1–3; RESUME (h) `.d` receipt. **Status: ESCALATED (lock unmet; no host act taken).**
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier) → dirty paths are all `web/**` (the X·OD19 lane's); none in `scripts/**`. value.js: this record clean, `evidence/F-REL/d/` carries no uncommitted work. No inherited work.
+
+**Lock check (measured before any act):**
+1. ⟨`git fetch; git rev-parse --short origin/master origin/m/w1-bump-migration`⟩ → `24a524a` / `e928541`. Master is still the `.d` merge of RESUME (g); ⟨`git log origin/master..origin/m/w1-bump-migration --oneline | wc -l`⟩ → `10`, including **`.s1` `c83b7ea`** (⟨`git log origin/master..origin/m/w1-bump-migration -- docker-compose.prod.yml scripts/deploy-hook.sh`⟩ → `d5a48cf`, `c83b7ea`). So master does **not** carry `.s1`: a deploy of master cannot deliver `ENV=production`, the token wiring or mongo 1 GiB, which the seat-0 brief presumed.
+2. ⟨`gh run list --workflow ci.yml -L 8`⟩ → master `39292117114` / `39292091987` (`24a524a`) **failure**; latest m/w1 `39348303989` (`924df31`) **failure** (ESC-FREL-v3-1's 8 X·OD19 reds); `e928541` unread by any CI. `.v3`'s lock (master CI GREEN ×2) is **unmet**, and the hook REFUSEs a SHA with no covering green push run (inv-28), so a deploy now would also be refused at the host.
+3. ⟨`grep -n '^## §0g' COHESION.md`⟩ → nothing after §0gi rules ESC-FREL-v3-1.
+
+**Read-only prod readings (BEFORE; no host act):** ⟨`curl -w %{http_code}`⟩ `/api/health` → `200`; `/api/admin/verify` (no token) → `503` (token not wired: the old build); `/openapi.json` → `200`; ⟨`openssl s_client … | openssl x509 -noout -enddate`⟩ → `notAfter=Jan  4 15:19:06 2027 GMT` (> 14 d).
+
+**Not done (by the lock, not by defect):** the off-host poller was not started (there is no switch to watch); no deploy, no backup, no mongo recreate, no prod-verify / PD-1 / pages-smoke runs; deploy-alert #1 stays open. No fourier commit.
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| poller before switch, 0 non-200 | — | not run (no switch). **RED (blocked)** |
+| hook deploy → OK; deploy-alert #1 closed | master `24a524a` live-attempted in (g)/(h) | not attempted. **RED (blocked)** |
+| `ENV=production`; admin/verify 401 ×2 | 503 | 503 (master lacks `c83b7ea`). **RED (blocked)** |
+| mongo 8.0.20 + FCV + 1 GiB via backend client | — | not read (no deploy). **RED (blocked)** |
+| prod-verify 21/21 ×2; PD-1 ×2; pages-smoke ×2 | — | not run. **RED (blocked)** |
+| cert > 14 d; openapi; health 200 | — | cert to 2027-01-04; openapi 200; health 200. **GREEN** (read-only) |
+
+**Escalation ESC-FREL-d-5 (orchestrator):** `.d`'s lock "after `.v3` (master CI GREEN ×2)" is unmet: ESC-FREL-v3-1 stands (m/w1 `39348303989` RED on X·OD19 `976a704`/`2a3651d`), the merge carrying `.m2`+`.s1` to master was not made, and master CI is RED. Route: the X·OD19 lane cures its 8 reds → `.v3`'s mechanical tail (fresh m/w1 CI GREEN → `merge --no-ff` → master CI ×2) → re-dispatch `.d` whole. No substitute (deploying m/w1, or master without `.s1`) was taken.
+
+**Adjacent edits:** none. **Commits:** value.js this receipt only (pathspec).
