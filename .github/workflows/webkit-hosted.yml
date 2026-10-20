@@ -1,0 +1,91 @@
+# SERVED MODEL: claude-opus-5-5
+# X-W11 · X.W11.s1 · COHESION §0ge.2 (OD-W11-1(b), RULED 2026-10-19) — the
+# hosted macOS WebKit arm, REPORTING, NOT GATING.
+#
+# The hosted macos-15 VM's GPU is not a user surface (measured: WebGL context
+# lost x18->129, byte-identical A/B), so under §0fr.2 it is not a cell of
+# record. `e2e-safari` therefore moved here from `ci.yml` byte-for-byte: the
+# same triggers (incl. X.W11.ci1b's push `paths` filter) and the same
+# concurrency, every step and every assertion kept. It reports; it does not
+# gate `deploy-pages`, which follows only the `ci` workflow's conclusion. The
+# WebKit cell of record is the darwin real-GPU run (`guarded --exclusive
+# webkit`), banked per release in X-W11 `.d` with its run log.
+name: webkit-hosted
+
+on:
+    push:
+        branches:
+            - "**"
+        # X-W11 · COHESION §0gc.3 (ESC-W11-CI-CADENCE): docs carry no product
+        # bytes, and a receipt-only push must not cancel a 2.5 h browser run
+        # (cancel-in-progress below stays). Census at landing: producer, api,
+        # oracle-slate, boot-smoke and lhci read nothing under docs/; e2e-smoke,
+        # e2e-safari and visual read five docs fixtures, so a push touching any
+        # of them still runs CI (X.W11.ci1b, §0gd). `paths` (not `paths-ignore`)
+        # because only `paths` honours `!`; the last matching pattern wins, so
+        # the re-includes follow the exclude. pull_request stays unfiltered.
+        paths:
+            - "**"
+            - "!docs/**"
+            # e2e-smoke · a11y-select-title.spec.ts B3
+            - "docs/tranches/X/waves/evidence/W4/a16-retest-receipt.md"
+            # e2e-smoke · views/gradient.spec.ts L3 (the dated ask + its census addendum)
+            - "docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md"
+            - "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-16.md"
+            # e2e-smoke + e2e-safari · oracles/o25-atmosphere-response.spec.ts (atmo1-ref + four seeds)
+            - "docs/tranches/X/waves/W6-evidence/atmosphere/atmo1-*.png"
+            # visual · golden-integrity.spec.ts
+            - "docs/tranches/X/evidence/w1/visual/MANIFEST.json"
+    pull_request:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: ci-${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    # ── G-2 · the WebKit arm, HARD ───────────────────────────────────────────
+    # The iOS-Safari engine class (the ValueUnit-nesting frame-294 stack
+    # overflow, WebGL-on-WebKit shader divergence) is unreachable from Chromium.
+    #
+    # `macos-15` is LOAD-BEARING here too (X-W11 §0gc, measured). On Linux,
+    # Playwright's WebKit is the WPE/GTK port over Mesa, not Safari's
+    # graphics stack, and the demo's main thread WEDGES ~3 s after load once its
+    # WebGL surfaces start: `page.evaluate` never returns (10 s probes x4),
+    # identically on the dev and the built origin and under reduced motion,
+    # while the same page with WebGL withheld answers in 1-2 ms. Every cell
+    # then times out or "Target page ... closed" — 175 failed / 3 passed in
+    # mcr.microsoft.com/playwright:v1.60.0-noble, and run 39117135689 burned the
+    # 6 h job ceiling the same way. The same suite on darwin WebKit runs in
+    # 13 min with the hang gone (153 passed / 25 failed, the 25 being the ruled
+    # ESC-W10-h-1 rows). This job exists for the Safari engine; macOS is the
+    # only runner that has it.
+    e2e-safari:
+        name: e2e-safari
+        runs-on: macos-15
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: npx playwright install --with-deps webkit
+            - run: npm run build
+            # `oracles-safari` rides here, not in `e2e-smoke`: it is the SAME
+            # engine install and the same WebKit cost centre. It exists because
+            # PH-4 measured the oracles subtree as reachable from no WebKit
+            # project at all while the corpus cited engine-specific rows against
+            # it — G-5 section C reds until a WebKit project collects it.
+            - run: >-
+                  npx playwright test
+                  --project=smoke-safari
+                  --project=oracles-safari
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: e2e-safari-report
+                  path: playwright-report/
+                  retention-days: 7

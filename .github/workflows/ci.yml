@@ -184,50 +184,6 @@ jobs:
                   path: playwright-report/
                   retention-days: 7
 
-    # ── G-2 · the WebKit arm, HARD ───────────────────────────────────────────
-    # The iOS-Safari engine class (the ValueUnit-nesting frame-294 stack
-    # overflow, WebGL-on-WebKit shader divergence) is unreachable from Chromium.
-    #
-    # `macos-15` is LOAD-BEARING here too (X-W11 §0gc, measured). On Linux,
-    # Playwright's WebKit is the WPE/GTK port over Mesa, not Safari's
-    # graphics stack, and the demo's main thread WEDGES ~3 s after load once its
-    # WebGL surfaces start: `page.evaluate` never returns (10 s probes x4),
-    # identically on the dev and the built origin and under reduced motion,
-    # while the same page with WebGL withheld answers in 1-2 ms. Every cell
-    # then times out or "Target page ... closed" — 175 failed / 3 passed in
-    # mcr.microsoft.com/playwright:v1.60.0-noble, and run 39117135689 burned the
-    # 6 h job ceiling the same way. The same suite on darwin WebKit runs in
-    # 13 min with the hang gone (153 passed / 25 failed, the 25 being the ruled
-    # ESC-W10-h-1 rows). This job exists for the Safari engine; macOS is the
-    # only runner that has it.
-    e2e-safari:
-        name: e2e-safari
-        runs-on: macos-15
-        steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: 24
-                  cache: npm
-            - run: npm ci
-            - run: npx playwright install --with-deps webkit
-            - run: npm run build
-            # `oracles-safari` rides here, not in `e2e-smoke`: it is the SAME
-            # engine install and the same WebKit cost centre. It exists because
-            # PH-4 measured the oracles subtree as reachable from no WebKit
-            # project at all while the corpus cited engine-specific rows against
-            # it — G-5 section C reds until a WebKit project collects it.
-            - run: >-
-                  npx playwright test
-                  --project=smoke-safari
-                  --project=oracles-safari
-            - uses: actions/upload-artifact@v4
-              if: always()
-              with:
-                  name: e2e-safari-report
-                  path: playwright-report/
-                  retention-days: 7
-
     # ── G-8/G-9/G-10 · the visual oracle, HARD ───────────────────────────────
     # `macos-15` is LOAD-BEARING, not a preference: text rasterisation is an OS
     # property, `{platform}` is in the golden path, and the committed goldens

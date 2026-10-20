@@ -61,7 +61,9 @@ const ENGINE_ROUTED_SUBTREES = [
 ];
 
 /** The workflow files that may satisfy a project's CI-job obligation. */
-const WORKFLOWS = [".github/workflows/ci.yml"];
+// `webkit-hosted.yml` carries `e2e-safari` (smoke-safari + oracles-safari)
+// since X.W11.s1 / COHESION §0ge.2: a reporting, non-gating hosted-WebKit run.
+const WORKFLOWS = [".github/workflows/ci.yml", ".github/workflows/webkit-hosted.yml"];
 
 const findings = [];
 /**
