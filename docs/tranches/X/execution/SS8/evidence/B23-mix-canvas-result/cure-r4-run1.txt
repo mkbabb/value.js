@@ -1,0 +1,36 @@
+(node:80896) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:80971) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget (30.4s)
+
+
+  1) [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.boundingBox: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.glass-dock').first()[22m
+
+
+       at smoke/fixtures/dock.ts:66
+
+      64 |     // what holds it open: rest the pointer on the plate's own inline-start
+      65 |     // padding (no control sits there, so no control's hover state is armed).
+    > 66 |     const box = await dock.boundingBox();
+         |                            ^
+      67 |     if (box) await page.mouse.move(box.x + 3, box.y + box.height / 2);
+      68 | }
+      69 |
+        at expandDock (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:66:28)
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:76:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/mix.spec.ts:34:5
+
+    Error Context: test-results/views-mix-mix-flow-converg-60bbb--result-plate-within-budget-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 

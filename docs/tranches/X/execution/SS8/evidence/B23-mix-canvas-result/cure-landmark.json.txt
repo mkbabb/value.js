@@ -1,0 +1,21 @@
+{
+ "mains": [
+  {
+   "labelledby": "route-title",
+   "cls": "pane-main",
+   "path": "div#app > div > main[labelledby=route-title]"
+  }
+ ],
+ "h1s": [
+  {
+   "id": "route-title",
+   "text": "Mix",
+   "path": "div#app > div > main[labelledby=route-title] > div > div > div > div > div > h1#route-title"
+  }
+ ],
+ "routeTitleCount": 1,
+ "addSlot": [
+  "div#app > div > main[labelledby=route-title] > div > div > div > div > div > div > div > div#mix-source-colors > div > div > button"
+ ],
+ "mainPaneMatch": 1
+}

@@ -1,0 +1,166 @@
+{
+ "tLoad": 24512,
+ "tPick": 63050,
+ "census": [
+  {
+   "t": 63050,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 64053,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 65057,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 66060,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 67063,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 68066,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 69070,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 70072,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 71075,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 72079,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 73082,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 74087,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 75091,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 76092,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 77096,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 78099,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 79103,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 80108,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 81110,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  },
+  {
+   "t": 82112,
+   "hash": "#/mix",
+   "mainPane": 0,
+   "h1": [],
+   "addSlotAll": 0,
+   "addSlotInMain": 0
+  }
+ ]
+}
