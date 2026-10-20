@@ -25,7 +25,7 @@
         tabindex="0"
         :aria-label="`Palette: ${palette.name}`"
         :aria-current="expanded ? 'true' : undefined"
-        v-bind="press.handlers"
+        v-bind="pressHandlers"
         :style="press.pressStyle.value"
         @click="$emit('click')"
         @keydown.enter.self.prevent="$emit('click')"
@@ -278,6 +278,15 @@ const press = useLiquidPress({
     shrinkDepth: 0.02,
     maxStretch: 1.03,
 });
+// SS8-0346/0350 (PC-20): the card's keyboard press is the card's own key, as
+// its Enter/Space selection is (`.self`). Space typed into the rename input
+// or pressed on an inner control is that control's — it never squashes the card.
+const pressHandlers = {
+    ...press.handlers,
+    onKeydown: (e: KeyboardEvent) => {
+        if (e.target === e.currentTarget) press.handlers.onKeydown(e);
+    },
+};
 
 // The band's popover never outlives its band; an opened band settles into view.
 watch(

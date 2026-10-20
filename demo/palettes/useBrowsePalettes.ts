@@ -161,7 +161,14 @@ export function useBrowsePalettes(deps: {
         addPublishedPalette(palette);
     }
 
-    async function onVote(palette: Palette): Promise<BrowseVerdict> {
+    // SS8-0366 (Meta U-4): one vote per palette in flight. A double-click
+    // otherwise fires two toggles 2 ms apart whose replies race; the second
+    // press while the first is pending is dropped (`null`, as `loadMore` is).
+    const votesInFlight = new Set<string>();
+
+    async function onVote(palette: Palette): Promise<BrowseVerdict | null> {
+        if (votesInFlight.has(palette.slug)) return null;
+        votesInFlight.add(palette.slug);
         try {
             await session.ensureSession();
             const result = await votePalette(palette.slug);
@@ -178,6 +185,8 @@ export function useBrowsePalettes(deps: {
         } catch (e) {
             // Row 14.
             return { success: false, message: `Vote failed: ${failureOf(e, "backend unreachable")}` };
+        } finally {
+            votesInFlight.delete(palette.slug);
         }
     }
 
