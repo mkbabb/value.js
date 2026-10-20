@@ -62,4 +62,23 @@ describe("service.palette.votes", () => {
         const r2 = await toggleVote(services, "votable", "bob");
         expect(r2.voteCount).toBe(2);
     });
+
+    // SS8-0366 (Meta U-4): a same-user double toggle whose second request
+    // loses the upsert race (the first request's vote row lands between its
+    // delete and its upsert, before the first request's `$inc`) answered
+    // `{voted:true, voteCount:0}` — a self-inconsistent reply. The loser's
+    // count is read from the vote rows, which already hold its vote.
+    it("a race-loser reply counts the vote it reports", async () => {
+        const votes = services.repositories.votes;
+        const deleteOne = votes.deleteOne.bind(votes);
+        votes.deleteOne = async (userSlug, paletteSlug) => {
+            const removed = await deleteOne(userSlug, paletteSlug);
+            await db
+                .collection("votes")
+                .insertOne({ userSlug, paletteSlug, createdAt: new Date() });
+            return removed;
+        };
+        const loser = await toggleVote(services, "votable", "alice");
+        expect(loser).toEqual({ voted: true, voteCount: 1 });
+    });
 });
