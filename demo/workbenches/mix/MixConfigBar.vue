@@ -65,7 +65,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
 </script>
 
 <template>
-    <div class="flex flex-col gap-3">
+    <div class="mix-config flex flex-col gap-3">
         <!-- A2-VA-L1-3: the interpolation pair is the app's one
              InterpolationFields (shared with the gradient workbench). W5-7:
              the permanent subtitles died — each row's own #description tells
@@ -80,7 +80,10 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             />
         </div>
 
-        <!-- Leftover strategy (palette mode only) -->
+        <!-- Leftover strategy (palette mode only). SS-8 B24 · SS8-0671 (MC-7):
+             the field enters/leaves on the vj-celebrate clock with its height
+             leg set (scoped below), never in one frame (+76.3 px measured). -->
+        <Transition name="vj-celebrate">
         <LabeledField
             v-if="showLeftoverStrategy"
             label="Size mismatch"
@@ -98,6 +101,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                 </SelectContent>
             </Select>
         </LabeledField>
+        </Transition>
 
         <!-- The page's ONE verb, on glass's primary emphasis. -->
         <Button
@@ -111,3 +115,15 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
         </Button>
     </div>
 </template>
+
+<style scoped>
+/* SS-8 B24 · SS8-0671 (MC-7): the vj-celebrate height leg for the
+ * Size-mismatch field — it unfurls from 0 instead of snapping the footer.
+ * The cap clears the field at both pointer registers (caption + a 54 px
+ * coarse trigger). */
+.mix-config {
+    --vj-celebrate-collapse: 0px;
+    --vj-celebrate-expanded: 6rem;
+    --vj-celebrate-scale: 1;
+}
+</style>

@@ -182,9 +182,8 @@
  *   --dock-inset  = the shell's top padding (the band's breathing room)
  *   --dock-gap    = the DESIGNED gap between the two bands (the grid row-gap)
  *   --app-gutter  = the shell's inline gutter, both sides (X.W5.b; the former
- *                   --app-padding-x, renamed to say what it is — a gutter the
- *                   .pane-container's inline clamp subtracts, not a padding
- *                   value some box happens to read)
+ *                   --app-padding-x, renamed to say what it is — the shell's
+ *                   gutter, not a padding value some box happens to read)
  *
  * THE BLOCK-AXIS CAP IS GONE (X.W5.b · V·L1 · gates B2/B4). A token used to be
  * declared here as "the cap on the pane container's height", with two @media
@@ -542,18 +541,21 @@
     --dock-inset: 1rem;
     --dock-gap: 1rem;
 
-    /* ── The pane clamp ladder (R.W3 Lane A / A4 — U32) ──
-     * The cards GROW then clamp, handled generally: `--pane-min` is the floor,
-     * `--pane-max` the per-card ceiling, `--pane-gap` a fluid φ-stepped gutter.
-     * The GRID owns the clamp via the `min()` container formula below — pane
-     * shells never self-clamp (the 10 `lg:max-w-desktop-pane` forks are
-     * deleted; shells are `w-full` only). No per-width media staircase.
+    /* ── The pane row (R.W3 Lane A / A4 — U32; SS-8 Z1 · layout-gestalt UL-1) ──
+     * `--pane-min` is a region's floor and `--pane-gap` a fluid φ-stepped
+     * gutter between regions. The row has NO page cap: the former
+     * `--pane-max` held the whole row at two 32rem cards (≈1050px, 30.5 % of a
+     * 3440 viewport), a card-comfort ruling leaking upward into a page cap.
+     * The row now spends the band, and each route's track ratio hands the
+     * surplus to its protagonist (shell.css `.pane-container`).
+     * `--card-measure` keeps the card-comfort ruling where it was asked:
      * OWNER RULING 2026-07-05 (card-width): 44rem → 32rem (~27% off — "about
-     * 1/3 smaller, maybe a bit less"); the floor drops 30rem → 25rem to stay
-     * below the new ceiling. 32rem over 30rem by eye: at 30rem the About
-     * card's Components labels wrap mid-word ("a* (Green-Red)" breaks). */
+     * 1/3 smaller, maybe a bit less"). It is the measure of a LONE card that
+     * centres in a one-region scene (Atmosphere, Not found), never the row's.
+     * 32rem over 30rem by eye: at 30rem the About card's Components labels
+     * wrap mid-word ("a* (Green-Red)" breaks). */
     --pane-min: 25rem;
-    --pane-max: 32rem;
+    --card-measure: 32rem;
     --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
@@ -566,10 +568,12 @@
      * tightening. X.W5.b renamed it from `--app-padding-x`: it is not a
      * padding value that one box happens to apply, it is the shell's gutter —
      * the .pane-container's inline clamp SUBTRACTS it on both sides, which is
-     * a gutter's job and not a padding's. The rename is inline-axis naming
-     * only; the axis itself is untouched here (CC-051's inline half rides
-     * CC-056 / V·L3 at X-W6). */
-    --app-gutter: 1rem;
+     * a gutter's job and not a padding's.
+     * SS-8 Z1 · layout-gestalt UL-2.4 / MB-3: the gutter is fluid and bounded,
+     * 12px@390 · 36px@1440 · 48px@3440. `cqi` resolves where the token is
+     * USED (`.app-layout`, which has no query-container ancestor), so it reads
+     * the small viewport there. */
+    --app-gutter: clamp(0.75rem, 2.5cqi, 3rem);
 
     /* ── The φ ladder (S.W4-8 — promoted from Markdown.vue's private scoped
      * block; design-docs-about P3). 1rem base, neighbours a factor of
@@ -646,29 +650,23 @@
  * hue" navy hairline) and FOUGHT the producer's ladder; they are deleted, not
  * retuned — zero borders compute in the 200–240 navy band. */
 .dark {
-    /* PROJECT OVERRIDE — the dark-scheme cartoon caster is a SHADOW, not a
-     * highlight (T.W8 · P6-R1/WR-5/T-53, the caster re-cut). At :root
-     * `--shadow-color: var(--foreground)` — correct in light (the foreground
-     * IS the stone ink), but in dark `--foreground` is the CREAM ink
-     * (#e9e6e2 ≈ srgb 0.914 0.902 0.886), so every shadow-card/shadow-cartoon
-     * consumer cast a LIGHT 8px slab: a "shadow" up to +88/255 BRIGHTER than
-     * the ground it shades (measured 143–161/255 over grounds of 55–92/255 —
-     * the owner's re-sighted "artifact at the edges of the top border of
-     * cards", NOT the T-45 blur class: bisection-proven filter-independent).
-     * Pin the caster ink to the STONE form (the light arm's own value) so the
-     * caster stays a scheme-true SHADOW in both schemes; the dark-tuned alpha
-     * (50/55%) below now paints stone-over-bright-field = honest depth. The
-     * cartoon OFFSET register (8px/0-blur stamp, D1) survives UNTOUCHED — this
-     * is the ONE knob (`--shadow-color`), never a producer fork (the P3 book
-     * stands for its own smear class). Pole A of the P6-B1 register bracket;
-     * the owner rules which register dark speaks in. */
-    --shadow-color: color(srgb 0.11 0.098 0.09);
+    /* PROJECT OVERRIDE — the dark-scheme cartoon caster (P6-B1 RULED Pole B,
+     * COHESION §0ge.7, VC6-04 / V12-01). At :root `--shadow-color:
+     * var(--foreground)` is the stone ink; in dark `--foreground` is the CREAM
+     * ink, so the root caster would cast a LIGHT slab. The original
+     * `684c818f` dark stamp returns: the caster is a mid-tone mixed from the
+     * scheme's own ink and paper (34% foreground into the background), cast
+     * OPAQUE — no transparent blend — at the same 8px/0-blur stamp geometry
+     * (D1). This is the ONE knob (`--shadow-color` + the dark cartoon rung),
+     * never a producer fork. (Pole A — the stone caster at 50% — is retired
+     * by the ruling.) */
+    --shadow-color: color-mix(in oklab, var(--foreground) 34%, var(--background));
 
-    /* Lighter cartoon shadow in dark mode; --shadow-card resolves through it
-     * via the var() reference set in :root. (The 10px hover rung and its
+    /* The dark cartoon stamp, opaque; --shadow-card resolves through it via
+     * the var() reference set in :root. (The 10px hover rung and its
      * --shadow-card-hover alias are deleted, X-DS pass 11 · V11-T1: no plate
      * lifts its stamp on hover any more.) */
-    --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 50%, transparent);
+    --shadow-cartoon: 8px 8px 0px 0px var(--shadow-color);
 
     --shadow: hsl(0 0% 45%);
 
@@ -722,7 +720,7 @@
 
 /* D.W4 Lane A: .touch-gate-* cluster colocated into ComponentSliders.vue's
  * unscoped <style>; .pane-scroll-fade colocated into PaneHeader.vue's unscoped
- * <style> (alongside the --pane-scroll consumers). (The `.palette-tab-content`
+ * <style>. (The `.palette-tab-content`
  * data-state cascade died with PaletteDialog.vue at T.W0-3, CC-6.) */
 
 /* Slug pill — the user/palette slug chip recipe, shared across the dock menus,
@@ -870,6 +868,16 @@
     .glass-slider[data-variant="spectrum"] .slider-range,
     [data-color-surface] {
         forced-color-adjust: none;
+    }
+
+    /* SS-8 B24 · SS8-0678 (MP-4): a GHOST dot is a placeholder affordance,
+     * never colour content, and the add slot that seats it is chrome. Both
+     * were enrolled above (`.swatch-row > *`, `.watercolor-swatch`), so the
+     * empty selection's ONE affordance kept its own sub-threshold ink and
+     * WHCM could not rescue it. They adopt system colours (tier 2). */
+    .add-slot-ghost,
+    .watercolor-swatch[data-variant="ghost"] {
+        forced-color-adjust: auto;
     }
 
     /* the U-F25 focus bind — a real outline where the shadow ring cannot paint.

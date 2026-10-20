@@ -12,6 +12,8 @@ import EmptyState from "../../shared/ui/EmptyState.vue";
 import type { Palette } from "../../palettes/types";
 import type { SelectedColor } from "./composables/useMixingState";
 import { formatCssCaption } from "../../color-session/format-color";
+import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
+import { GRAPHICS_CONTRAST_FLOOR } from "../../color-session/ink";
 
 const {
     mode,
@@ -32,6 +34,17 @@ const emit = defineEmits<{
     addPalette: [palette: Palette];
     removePalette: [slug: string];
 }>();
+
+// SS-8 B24 · SS8-0678/SS8-0684 (MSS-20 · R-MP7 · U-1): the add slot's ghost
+// stroke is the ONE affordance of the empty selection, and it painted the raw
+// picker colour — a non-text contrast with no floor (1.08:1 measured on the
+// light plate). The stroke is now the picker colour CERTIFIED to the 3:1
+// graphics floor on the resting plate the slot sits on (the house walk): the
+// hue survives, the floor holds for any picker colour.
+const { safeCss } = useSafeAccentFn("resting");
+const addSlotInk = computed(() =>
+    cssColorOpaque ? safeCss(cssColorOpaque, GRAPHICS_CONTRAST_FLOOR) : "var(--muted-foreground)",
+);
 
 const pm = inject(LIBRARY_PORT_KEY);
 const savedPalettes = computed(() => pm?.savedPalettes.value ?? []);
@@ -251,7 +264,7 @@ const swatchKeys = computed(() => {
                             @click="addCurrentColor"
                         >
                             <WatercolorDot
-                                :color="cssColorOpaque ?? 'var(--muted-foreground)'"
+                                :color="addSlotInk"
                                 variant="ghost"
                                 seed="mix-add-slot"
                                 class="w-full h-full"

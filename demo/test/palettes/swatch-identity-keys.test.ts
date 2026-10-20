@@ -7,7 +7,8 @@
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { mount } from "@vue/test-utils";
-import { defineComponent, h, nextTick, ref } from "vue";
+import { computed, defineComponent, h, nextTick, ref } from "vue";
+import { INK_AMBIENT_KEY } from "../../color-session/keys";
 import { useSwatchActions } from "../../palettes/browser/card/composables/useSwatchActions";
 import MixSourceSelector from "../../workbenches/mix/MixSourceSelector.vue";
 
@@ -89,6 +90,9 @@ describe("N-5 · MixSourceSelector chip keys are identities, not indices", () =>
     const mountMix = (selectedColors: { css: string; source: string }[]) =>
         mount(MixSourceSelector, {
             props: { mode: "colors", selectedColors, selectedPalettes: [], cssColorOpaque: "#000000" },
+            // SS-8 B24 (MSS-20): the add slot certifies its stroke against the
+            // live ambient — the boot writer's provider, supplied here.
+            global: { provide: { [INK_AMBIENT_KEY as symbol]: computed(() => 0.62) } },
         });
     const chips = (w: ReturnType<typeof mount>) =>
         new Map(w.findAll("[data-mix-source]").map((el) => [el.attributes("data-mix-color")!, el.element]));
