@@ -27,7 +27,14 @@
  * the genesis "muted blocks" read as BLOCKS against every neutral skeleton
  * ground (well ≈ resting plate). Low-chroma by construction (both `--well-bg`
  * and `--foreground` are near-neutral), so the muted-family character holds. */
+/* SS8-0408 (PCS U-1): glass-ui's `Skeleton` paints `--foreground` at
+ * `--ink-seam` and reads none of the `--skeleton-*` seams below, so the
+ * blocks were an 8 % step laid on the 8 % well and the atmosphere set the
+ * plate's contrast (dark measured 1.048:1). The register seats the producer's
+ * next ink rung, `--ink-edge`, on that live seam: one step toward the ink,
+ * twice the well's, so the block holds its floor over any atmosphere. */
 .skeleton-ink-register {
+    --ink-seam: var(--ink-edge);
     --skeleton-ink-pole: var(--foreground);
     --skeleton-ink: color-mix(in oklab, var(--well-bg), var(--skeleton-ink-pole) 15%);
     --skeleton-glass-bg: var(--skeleton-ink);
