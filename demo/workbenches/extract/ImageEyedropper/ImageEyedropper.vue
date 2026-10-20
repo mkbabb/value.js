@@ -1,11 +1,24 @@
 <template>
-    <!-- enter/exit family — opacity-only geometry (--vj-enter-y pinned to 0). -->
-    <Transition name="vj-enter" @after-enter="onTransitionEnd">
-        <!-- T.W3-1 (D1 rung-3 CHROME, Q4-defaulted: "eyedropper overlay stays
-             chrome"): a TRUE floating overlay over live image content — the
-             producer floating rung replaces the hand-minted bg-card/75 glass
-             (the T-CM-4 parallel-mint class). -->
-        <div class="absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden" style="--vj-enter-y: 0px">
+    <!-- SS8-0722 (EY-8 ≡ XP-9) · SS8-0715 (EY-15's bound): the eyedropper is a
+         MODAL instrument, so it wears glass's dialog rather than a hand-rolled
+         `div.absolute.inset-0` over the workbench root. The producer owns the
+         modality the bare div never had: `role="dialog"` + `aria-modal` + a
+         name, focus entry and return, the content behind it hidden from AT and
+         pointer, and an Escape scoped to the layer (no window listener). Its
+         content is `fixed` and sized to the VIEWPORT (the old overlay took the
+         workbench root's height, 714 px, and ran 16 px past the fold at
+         1440×900 and 312 px at 720×450). `deliberate`: Esc and an outside press
+         dismiss; the bar's own Close is the ✕, so glass's is not drawn twice.
+         Surface stays the true floating chrome (T.W3-1 Q4). -->
+    <Dialog :open="true" @update:open="(open) => { if (!open) emit('close'); }">
+        <DialogContent
+            surface="glass"
+            dismiss="deliberate"
+            class="flex flex-col gap-0 p-0 rounded-panel overflow-hidden w-[min(100vw_-_2rem,64rem)] h-[min(100dvh_-_2rem,48rem)]"
+            @escape-key-down="onEscape"
+        >
+            <DialogTitle class="sr-only">Eyedropper</DialogTitle>
+            <DialogDescription class="sr-only">{{ samplePrompt }}; Escape releases a pin, then closes.</DialogDescription>
             <!-- Top bar -->
             <div class="flex items-center gap-2 px-3 py-2 shrink-0" :style="{ '--hover-color': sampledColor ?? '' }">
                 <DockControl class="eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">
@@ -89,15 +102,16 @@
                     <canvas ref="loupeCanvasRef" width="110" height="110" class="w-full h-full rounded-full" aria-hidden="true" />
                 </div>
             </div>
-        </div>
-    </Transition>
+        </DialogContent>
+    </Dialog>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onActivated, onBeforeUnmount, onDeactivated, computed, watch, nextTick, useTemplateRef } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed, watch, nextTick, useTemplateRef } from "vue";
 import { X, Plus, Check } from "@lucide/vue";
 import { useMediaQuery } from "@vueuse/core";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@mkbabb/glass-ui/dialog";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 
 import { useInertiaGesture } from "./composables/useInertiaGesture";
@@ -169,6 +183,10 @@ const gesture = useInertiaGesture(viewportRef, {
             sampledColor.value = result.hex;
             formattedColor.value = result.formatted;
             loupe.showLoupeAt(rx, ry);
+            pinAnchor = {
+                x: (rx - gesture.panX.value) / gesture.zoom.value,
+                y: (ry - gesture.panY.value) / gesture.zoom.value,
+            };
             pinned.value = true;
         }
     },
@@ -183,13 +201,31 @@ const gesture = useInertiaGesture(viewportRef, {
     },
 });
 
+// SS8-0721 (EY-20): the pin holds an IMAGE point, not a viewport point. A
+// wheel zoom while pinned moves the bitmap under the loupe, so the loupe is
+// re-projected through the live transform onto the pixel it was pinned on
+// (the pinned VALUE is by design; the ring's position claim must stay true).
+let pinAnchor: { x: number; y: number } | null = null;
+watch(
+    () => [gesture.panX.value, gesture.panY.value, gesture.zoom.value] as const,
+    ([panX, panY, zoom]) => {
+        if (!pinned.value || !pinAnchor) return;
+        loupe.showLoupeAt(panX + pinAnchor.x * zoom, panY + pinAnchor.y * zoom);
+    },
+);
+
+function unpin() {
+    pinned.value = false;
+    pinAnchor = null;
+    loupe.hideLoupe();
+}
+
 // Intercept pointerdown to handle unpin
 watch(viewportRef, (el) => {
     if (!el) return;
     el.addEventListener("pointerdown", () => {
         if (pinned.value) {
-            pinned.value = false;
-            loupe.hideLoupe();
+            unpin();
             justUnpinned = true;
         }
     }, { capture: true }); // capture: runs before composable's handler
@@ -214,10 +250,6 @@ async function loadAndFit() {
     gesture.fitToViewport();
 }
 
-function onTransitionEnd() {
-    if (sampler.imageLoaded.value) gesture.fitToViewport();
-}
-
 // --- Actions ---
 
 function onAddToPalette() {
@@ -234,44 +266,18 @@ function onApplyColor() {
     }
 }
 
-function onKeyDown(e: KeyboardEvent) {
-    if (e.key === "Escape") {
-        if (pinned.value) {
-            pinned.value = false;
-            loupe.hideLoupe();
-        } else {
-            emit("close");
-        }
-    }
+// Escape is the dialog layer's (glass scopes it; no window listener — the
+// parked-pane key leak of X.W5.a gate N1 has no listener left to leak): it
+// releases a pin first, and only an unpinned Escape dismisses.
+function onEscape(e: KeyboardEvent) {
+    if (!pinned.value) return;
+    e.preventDefault();
+    unpin();
 }
 
-onMounted(() => {
-    loadAndFit();
-    armKeys();
-});
-
-// X.W5.a · gate N1 — the DEACTIVATION contract (see PaneSlot's header).
-// A parked eyedropper kept a WINDOW keydown handler armed: its Escape/Enter
-// keys answered from a pane the user could not see. The listener is the one
-// thing re-armed on return — a key handler is the pane's operability, and the
-// user did re-open the pane.
-function armKeys() {
-    window.addEventListener("keydown", onKeyDown);
-}
-
-function releaseKeys() {
-    window.removeEventListener("keydown", onKeyDown);
-}
-
-onActivated(armKeys);
-
-onDeactivated(() => {
-    releaseKeys();
-    sampler.dispose();
-});
+onMounted(loadAndFit);
 
 onBeforeUnmount(() => {
-    releaseKeys();
     sampler.dispose();
 });
 

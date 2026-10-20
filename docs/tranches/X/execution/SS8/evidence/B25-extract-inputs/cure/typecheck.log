@@ -1,0 +1,54 @@
+demo-exit 0
+test-exit 0
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(47,83): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(47,91): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(51,63): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(51,81): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(51,99): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(54,25): error TS18048: 'x' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(54,38): error TS18048: 'y' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(57,49): error TS2345: Argument of type '(v: number) => number' is not assignable to parameter of type '(value: number | undefined, index: number, array: (number | undefined)[]) => number'.
+  Types of parameters 'v' and 'value' are incompatible.
+    Type 'number | undefined' is not assignable to type 'number'.
+      Type 'undefined' is not assignable to type 'number'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(58,52): error TS18048: 'R' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(58,71): error TS18048: 'G' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(58,90): error TS18048: 'B' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(59,52): error TS18048: 'R' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(59,71): error TS18048: 'G' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(59,90): error TS18048: 'B' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(60,52): error TS18048: 'R' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(60,71): error TS18048: 'G' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(60,90): error TS18048: 'B' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(68,43): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(89,41): error TS2353: Object literal may only specify known properties, and 'reducedMotion' does not exist in type 'Fixtures<{}, {}, PlaywrightTestArgs & PlaywrightTestOptions, PlaywrightWorkerArgs & PlaywrightWorkerOptions>'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(101,39): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(120,93): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(154,53): error TS2345: Argument of type 'Element | undefined' is not assignable to parameter of type 'Element'.
+  Type 'undefined' is not assignable to type 'Element'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(155,41): error TS2345: Argument of type 'Element | undefined' is not assignable to parameter of type 'Element'.
+  Type 'undefined' is not assignable to type 'Element'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(155,66): error TS2345: Argument of type 'Element | undefined' is not assignable to parameter of type 'Element'.
+  Type 'undefined' is not assignable to type 'Element'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(155,89): error TS2345: Argument of type 'Element | undefined' is not assignable to parameter of type 'Element'.
+  Type 'undefined' is not assignable to type 'Element'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(175,30): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(178,58): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(179,61): error TS18048: 'd' is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(179,92): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(179,92): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(179,154): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(179,196): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(180,53): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(181,33): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(181,33): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(204,27): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(214,87): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(214,94): error TS2532: Object is possibly 'undefined'.
+e2e/smoke/admin/ss8-b17-admin-names.spec.ts(214,94): error TS2532: Object is possibly 'undefined'.
+e2e-exit 2

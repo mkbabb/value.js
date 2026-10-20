@@ -1,0 +1,109 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ❯ demo/test/extract/ss8-b25-cures.test.ts (6 tests | 5 failed) 972ms
+   × SS8-0722 · the eyedropper is a modal dialog > role=dialog, aria-modal, named; the workbench behind it is hidden from AT 696ms
+     → a dialog content mounted: expected null not to be null
+   × SS8-0715 · the stage is bounded by the viewport, not the workbench root > teleported out of the root, fixed, its box sized in viewport units 7ms
+     → expected null not to be null
+   × SS8-0721 (EY-20) · the pinned loupe follows its pixel through a zoom > re-projects the loupe onto the pinned image point after the transform moves 14ms
+     → expected { x: 100, y: 80 } to deeply equal { x: 160, y: 150 }
+   ✓ Escape is the dialog layer's > a pinned Escape releases the pin and keeps the dialog; the next closes it 13ms
+   × SS8-0705 (EC-16) · Generate's count row carries its O-18 hook > the census can find the count RANGE 239ms
+     → expected false to be true // Object.is equality
+   × SS8-0713 (U-7) · the dashed well's edge is certified ink > .dashed-well paints its dashed edge in --ink-muted, not the --card-edge hairline 2ms
+     → expected '1.5px dashed var(--card-edge)' to match /var\(--ink-muted\)/
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/extract/ss8-b25-cures.test.ts > SS8-0722 · the eyedropper is a modal dialog > role=dialog, aria-modal, named; the workbench behind it is hidden from AT
+AssertionError: a dialog content mounted: expected null not to be null
+ ❯ demo/test/extract/ss8-b25-cures.test.ts:117:57
+    115|     it("role=dialog, aria-modal, named; the workbench behind it is hid…
+    116|         const { wrapper, content } = await openEyedropper();
+    117|         expect(content, "a dialog content mounted").not.toBeNull();
+       |                                                         ^
+    118|         expect(content!.getAttribute("role")).toBe("dialog");
+    119|         expect(content!.getAttribute("aria-modal")).toBe("true");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  demo/test/extract/ss8-b25-cures.test.ts > SS8-0715 · the stage is bounded by the viewport, not the workbench root > teleported out of the root, fixed, its box sized in viewport units
+AssertionError: expected null not to be null
+ ❯ demo/test/extract/ss8-b25-cures.test.ts:132:29
+    130|     it("teleported out of the root, fixed, its box sized in viewport u…
+    131|         const { wrapper, content } = await openEyedropper();
+    132|         expect(content).not.toBeNull();
+       |                             ^
+    133|         expect(document.getElementById("workbench-root")!.contains(con…
+    134|         const cls = [...content!.classList];
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  demo/test/extract/ss8-b25-cures.test.ts > SS8-0721 (EY-20) · the pinned loupe follows its pixel through a zoom > re-projects the loupe onto the pinned image point after the transform moves
+AssertionError: expected { x: 100, y: 80 } to deeply equal { x: 160, y: 150 }
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  {[22m
+[32m-   "x": 160,[39m
+[32m-   "y": 150,[39m
+[31m+   "x": 100,[39m
+[31m+   "y": 80,[39m
+[2m  }[22m
+
+ ❯ demo/test/extract/ss8-b25-cures.test.ts:155:31
+    153|         await nextTick();
+    154|         // The pinned image point (100, 80) now sits at pan + point × …
+    155|         expect(loupeCentre()).toEqual({ x: -40 + 100 * 2, y: -10 + 80 …
+       |                               ^
+    156|         wrapper.unmount();
+    157|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  demo/test/extract/ss8-b25-cures.test.ts > SS8-0705 (EC-16) · Generate's count row carries its O-18 hook > the census can find the count RANGE
+AssertionError: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ demo/test/extract/ss8-b25-cures.test.ts:184:78
+    182|         const { default: GenerateControls } = await import("../../work…
+    183|         const w = mount(GenerateControls);
+    184|         expect(w.find('[data-o18="generate-count"] .slider-range').exi…
+       |                                                                              ^
+    185|         expect(w.find('[data-o18="generate-count"] [aria-label="Number…
+    186|         w.unmount();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  demo/test/extract/ss8-b25-cures.test.ts > SS8-0713 (U-7) · the dashed well's edge is certified ink > .dashed-well paints its dashed edge in --ink-muted, not the --card-edge hairline
+AssertionError: expected '1.5px dashed var(--card-edge)' to match /var\(--ink-muted\)/
+
+[32m- Expected:[39m 
+/var\(--ink-muted\)/
+
+[31m+ Received:[39m 
+"1.5px dashed var(--card-edge)"
+
+ ❯ demo/test/extract/ss8-b25-cures.test.ts:199:24
+    197|         const border = rule![2]!.match(/(?:^|;)\s*border\s*:\s*([^;]+)…
+    198|         expect(border).toMatch(/dashed/);
+    199|         expect(border).toMatch(/var\(--ink-muted\)/);
+       |                        ^
+    200|         expect(border).not.toMatch(/--card-edge/);
+    201|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 1 passed (6)
+   Start at  17:18:53
+   Duration  1.47s (transform 413ms, setup 47ms, collect 42ms, tests 972ms, environment 209ms, prepare 41ms)
+

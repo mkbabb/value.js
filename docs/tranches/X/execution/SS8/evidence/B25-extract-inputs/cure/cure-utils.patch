@@ -1,0 +1,21 @@
+diff --git a/demo/styles/utils.css b/demo/styles/utils.css
+index ae6e5ba74..99e7bfb90 100644
+--- a/demo/styles/utils.css
++++ b/demo/styles/utils.css
+@@ -75,9 +82,12 @@
+     flex-direction: column;
+     gap: 0.625rem;
+     padding: 0.75rem;
+-    /* R.W4 Lane A / A1 — hairline law 4: the well's dashed edge reads the ONE
+-     * `--card-edge` mint (in-house, scheme-stable), never a `--border` fork. */
+-    border: 1.5px dashed var(--card-edge);
++    /* SS8-0713 (U-7): the dashed edge is the well's OPERABLE affordance (the
++     * extract drop zone's only boundary), so it clears the 3:1 graphics floor
++     * on the resting plate: the certified rung `--ink-muted` (boot-stamped at
++     * the text floor over that plate), never the 12 % `--card-edge` hairline,
++     * which painted 1.47 light / 1.71 dark. The dash stays in-house ink. */
++    border: 1.5px dashed var(--ink-muted);
+     border-radius: var(--radius-card);
+     /* T.W3-1 (D1 rung-2 WELL; supersedes the S-20 glass recipe — R8): an
+      * in-plate fixture is an opaque TONE-STEP of its host plate, never a
+

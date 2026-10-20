@@ -1,0 +1,11 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/extract/ss8-b25-cures.test.ts (6 tests) 1088ms
+   ✓ SS8-0722 · the eyedropper is a modal dialog > role=dialog, aria-modal, named; the workbench behind it is hidden from AT  811ms
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  17:18:33
+   Duration  1.71s (transform 448ms, setup 53ms, collect 35ms, tests 1.09s, environment 274ms, prepare 57ms)
+

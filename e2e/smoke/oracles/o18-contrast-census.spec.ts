@@ -1153,6 +1153,32 @@ for (const scheme of ["light", "dark"] as const) {
             expect(kRail, "K range mounted").not.toBeNull();
             expect(kRail!.ratio, diag(kRail!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
         });
+
+        // SS8-0705 (EC-16 · L-22): Generate's count row is Extract's K twin; the
+        // O-18 cure and its hook had landed on one copy only, so the census
+        // could not fail on the other. The same RANGE reading, the same floor.
+        test("the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 · WCAG 1.4.11)", async ({
+            page,
+        }) => {
+            await page.goto(
+                "/#/generate?space=lab&color=" + encodeURIComponent(OWNER_COLOR),
+            );
+            await expect(mainPane(page)).toBeVisible();
+            const selector = '[data-o18="generate-count"] .slider-range';
+            await expect(page.locator(selector)).toBeVisible();
+            const deadline = Date.now() + 8000;
+            let row: CensusRow | null = null;
+            for (;;) {
+                row = await censusSurface(page, selector, "generate-count-range");
+                if ((row && row.ratio >= GRAPHICS_FLOOR) || Date.now() > deadline) break;
+                await page.waitForTimeout(250);
+            }
+            expect(row, "count range mounted").not.toBeNull();
+            expect(
+                row!.ratio,
+                `${row!.name} fill ${row!.ink} vs ground ${row!.ground} — raw ${row!.rawColor} α ${row!.effectiveAlpha} stack [${row!.stack.join(" | ")}]`,
+            ).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+        });
     });
 }
 

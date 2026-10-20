@@ -306,8 +306,9 @@ defineExpose({ regenerate, save, copyColors });
              voice from Extract's, with a thumb that sat mid-segment rather than
              on a count. The swatches already show on the plate above, so the
              count is glass's scrubber at the `sm` rung, Extract's idle
-             register. -->
-        <div class="flex flex-col gap-1 w-full min-w-0">
+             register. SS8-0705 (EC-16): the row carries its O-18 hook, so the
+             contrast census reads this RANGE as it reads Extract's twin. -->
+        <div data-o18="generate-count" class="flex flex-col gap-1 w-full min-w-0">
             <div class="flex items-center justify-between gap-2">
                 <Label>Colors</Label>
                 <span class="text-mono-small plate-ink tabular-nums">{{ count }}</span>
