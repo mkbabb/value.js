@@ -77,3 +77,23 @@
 
 ## Machine-load note
 From 16:35 the guard refused admission, with load at 94–169 against the 36 gate. The remaining Chromium runs (p1b, p2b) and the WebKit runs (p5, p5b) were stopped un-run. The exclusive WebKit lock had been held elsewhere since 15:10. The probes are complete and ready, and re-running them under headroom decides 0156 (coarse), 0176, 0177, 0184, 0185 and 0186 (engine half only).
+
+## cures
+SS-8 CURE seat, batch B06, 2026-10-20 (served model `claude-opus-5-5`). The falsifiers extend the owning oracle `e2e/smoke/oracles/o22-status-lamp.spec.ts` (project `smoke`). They light the lamp under the same real transport failure the oracle already uses: the api fetch/xhr is aborted with `connectionrefused`.
+- **RED, before the cure:** `guarded --timeout 15 -- npx playwright test --project=smoke --workers=1 --timeout=90000 e2e/smoke/oracles/o22-status-lamp.spec.ts` (:8090). Results: SS8-0165 measured `lamp-dot-pulse runs 7199.99 ms` against ≤ 5000, and SS8-0162 light measured `label ink rgb(91, 70, 51)`, worst-pixel contrast **3.326** against ≥ 4.5. Both match this packet's p3 witness (7.2 s; 3.31). The dark cell was already green.
+- **GREEN, after the cure, ×2:** `VJS_E2E_PORT=8097 guarded … --reporter=list e2e/smoke/oracles/o22-status-lamp.spec.ts`, 5/5 passed both times. The logs are `E/cures/o22-green-run1.txt` and `E/cures/o22-green-run2.txt`. An intermediate pair of runs on the shared :8090 server, and one on :8097, failed only on `page.goto` timeouts or `ERR_ABORTED` while the dev server was saturated or reaped at its guard timeout. Those are harness failures, not verdicts.
+- **Type-check:** `vue-tsc -p tsconfig.demo.json` and `tsc -p tsconfig.e2e.json` raise no error in any touched file. The remaining errors are in other seats' files: `demo/test/shell/dock-profile-menus.test.ts`, `demo/test/picker/spectrum-dot-position.test.ts`, `e2e/smoke/ss8-b07-pane-shell.spec.ts` and `e2e/smoke/admin/ss8-b18-admin-panels.spec.ts`.
+- **Vitest:** `guarded -- npx vitest run demo/test/shell test/status-lamp.test.ts --maxWorkers=2` passed 11 files and 63 tests.
+
+| SID | disposition | root cure / reason | commit |
+|---|---|---|---|
+| 0155 | no cure (stale premise) | The seats are DockControl since `c00004924`, so the coarse delta is 0. | — |
+| 0158 | no cure (stale premise) | The crossfade is live, with 15 mid frames each way. X-W8 G-8's RED cell is stale and should be re-read at its wave. | — |
+| 0162 | **CURED** | `ApiStatusChip.vue`: the dock seat paints `color: var(--dock-fg-on-aurora)` (glass's band-ink seam) instead of the `chipVariants` `text-muted-foreground`. The rule is declared before the misconfigured face, so the destructive ink still wins. `Dock.vue` hands the lamp the same plate-certified `bandInkStyle` its own words read, so the lamp follows the band's polarity, for example the owner-brown flip. No glass rule is overridden. Falsifier: O-22 `SS8-0162 … (light, 1440)` / `(dark, 1440)`, RED 3.326 → GREEN ×2. | this commit |
+| 0164 | no cure | There is no collision at 1024–1100 at HEAD widths. | — |
+| 0165 | **CURED** | `ApiStatusChip.vue`: the `lamp-dot-pulse` iteration count drops from 3 to 2, so the arrival beat runs 4.8 s, within WCAG 2.2.2's 5 s bound. The arrival beat and its identity motion are kept, and reduced-motion still suppresses it. Falsifier: O-22 `SS8-0165`, which sums `getComputedTiming().endTime` over the lamp subtree's animations. RED 7200 ms → GREEN ×2. | this commit |
+| 0170 | no cure (symptom not reproduced) | 0 of 24 cold loads redirected. The structural single-writer cure stays with its wave. | — |
+| 0172 | no cure (stale premise) | The dark accents span 0.331 OKLab; they are not near-whites. | — |
+| 0175 | no cure | The consumer-certified `--ink-gold-glyph` paints, so there is no glass relay (DVS-35). | — |
+| 0178 | no cure | Reset restores 90deg at +250 ms. The capture is banked for X.W4.d D4. | — |
+| 0182 | no cure (stale premise) | The Tools toggle is visible at 390 on every sampled route. | — |

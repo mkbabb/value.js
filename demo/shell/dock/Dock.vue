@@ -425,7 +425,9 @@ watch(
          collapsible layer. Dev-gated; variant matrix in
          shared/ui/api-status/api-status.ts (O-22; the one status chip,
          A2-VA-L1-9). -->
-    <ApiStatusChip seat="dock" />
+    <!-- SS-8 B06 · SS8-0162: the lamp sits on the same band as the dock's
+         words, so it reads the same plate-certified band ink. -->
+    <ApiStatusChip seat="dock" :style="bandInkStyle" />
 </template>
 
 <style scoped>
