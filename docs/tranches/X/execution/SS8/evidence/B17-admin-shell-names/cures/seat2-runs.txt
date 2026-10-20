@@ -1,0 +1,147 @@
+== seat2-red-1
+[0478 light 1440] min 4.84 · h25: 4.84/4.91/5.23 ink oklch(0.113836 0.00624853 56.0356) · h145: 5.01/5.28/6.08 ink oklch(0.113836 0.00624853 56.0356) · h265: 4.89/5.00/5.36 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  1 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (1.3m)
+[0478 light 390] min 5.39 · h25: 5.39/5.45/5.41 ink oklch(0.113836 0.00624853 56.0356) · h145: 6.29/6.46/6.66 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.50/5.45/5.51 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  2 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (49.3s)
+  ✘  3 [smoke-admin] · B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light (3.1s)
+[0478 dark 1440] min 6.60 · h25: 7.32/7.17/6.60 ink oklch(0.814639 0.00382185 41.8684) · h145: 7.81/7.71/6.88 ink oklch(0.830262 0.00382185 41.8684) · h265: 7.23/7.00/6.72 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  4 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (12.8s)
+[0478 dark 390] min 6.08 · h25: 6.32/6.23/6.08 ink oklch(0.814639 0.00382185 41.8684) · h145: 6.39/6.33/6.17 ink oklch(0.830262 0.00382185 41.8684) · h265: 6.30/6.32/6.17 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  5 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (6.6s)
+  ✘  6 [smoke-admin] · B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark (2.4s)
+[0504] swatch Δ 169/163/167
+  ✘  7 [smoke-admin] · B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors (7.4s)
+    Error: 1440: dL -0.040/-0.039/-0.039 col 32.00 vs live 47.94 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.550418 vsAboveBelow -0.039/-0.039/-0.039 t 2845ms
+      193 |             console.log(`[0483/0487 ${scheme}] ${reads.join(" · ")}`);
+    Error: 1440: dL 0.050/0.049/0.048 col 32.00 vs live 47.94 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.550415 vsAboveBelow 0.058/0.057/0.056 t 2247ms
+      193 |             console.log(`[0483/0487 ${scheme}] ${reads.join(" · ")}`);
+      225 |         console.log(`[0504] swatch Δ ${deltas.join("/")}`);
+  3 failed
+  4 passed (2.7m)
+== seat2-red-2
+[0478 light 1440] min 4.84 · h25: 4.84/4.91/5.23 ink oklch(0.113836 0.00624853 56.0356) · h145: 5.01/5.28/6.08 ink oklch(0.113836 0.00624853 56.0356) · h265: 4.89/5.00/5.36 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  1 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (46.6s)
+[0478 light 390] min 5.39 · h25: 5.39/5.45/5.41 ink oklch(0.113836 0.00624853 56.0356) · h145: 6.29/6.46/6.66 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.50/5.45/5.51 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  2 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (7.2s)
+  ✘  3 [smoke-admin] · B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light (2.6s)
+[0478 dark 1440] min 6.60 · h25: 7.32/7.17/6.60 ink oklch(0.814639 0.00382185 41.8684) · h145: 7.81/7.71/6.88 ink oklch(0.830262 0.00382185 41.8684) · h265: 7.23/7.00/6.78 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  4 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (33.1s)
+[0478 dark 390] min 6.08 · h25: 6.32/6.23/6.08 ink oklch(0.814639 0.00382185 41.8684) · h145: 6.39/6.33/6.17 ink oklch(0.830262 0.00382185 41.8684) · h265: 6.30/6.32/6.17 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  5 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (8.2s)
+  ✘  6 [smoke-admin] · B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark (2.6s)
+[0504] swatch Δ 169/163/167
+  ✘  7 [smoke-admin] · B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors (6.8s)
+    Error: 1440: dL -0.018/-0.017/-0.017 col 32.00 vs live 47.94 ink oklab(0.216129 0.00349092 0.00518243 / 0.08)@0.553725 vsAboveBelow -0.017/-0.017/-0.017 t 2461ms
+      193 |             console.log(`[0483/0487 ${scheme}] ${reads.join(" · ")}`);
+    Error: 1440: dL 0.022/0.022/0.021 col 32.00 vs live 47.94 ink oklab(0.925202 0.00234182 0.00572368 / 0.08)@0.562805 vsAboveBelow 0.029/0.028/0.028 t 2445ms
+      193 |             console.log(`[0483/0487 ${scheme}] ${reads.join(" · ")}`);
+      225 |         console.log(`[0504] swatch Δ ${deltas.join("/")}`);
+  3 failed
+  4 passed (1.9m)
+== seat2-red-3
+[0478 light 1440] min 4.84 · h25: 4.84/4.91/5.23 ink oklch(0.113836 0.00624853 56.0356) · h145: 5.01/5.28/6.08 ink oklch(0.113836 0.00624853 56.0356) · h265: 4.89/5.00/5.36 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  1 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (47.3s)
+[0478 light 390] min 5.38 · h25: 5.39/5.38/5.41 ink oklch(0.113836 0.00624853 56.0356) · h145: 6.29/6.46/6.66 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.50/5.45/5.51 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  2 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (7.2s)
+  ✘  3 [smoke-admin] · B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light (2.7s)
+[0478 dark 1440] min 6.60 · h25: 7.32/7.17/6.60 ink oklch(0.814639 0.00382185 41.8684) · h145: 7.81/7.71/6.88 ink oklch(0.830262 0.00382185 41.8684) · h265: 7.24/7.03/6.80 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  4 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (14.1s)
+[0478 dark 390] min 6.08 · h25: 6.32/6.23/6.08 ink oklch(0.814639 0.00382185 41.8684) · h145: 6.39/6.33/6.17 ink oklch(0.830262 0.00382185 41.8684) · h265: 6.30/6.30/6.17 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  5 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (7.6s)
+  ✘  6 [smoke-admin] · B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark (2.7s)
+[0504] swatch Δ 169/163/167
+  ✘  7 [smoke-admin] · B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors (10.4s)
+    Error: 1440: dL -0.018/-0.017/-0.017 col 32.00 vs live 47.94 ink oklab(0.216129 0.00349092 0.00518243 / 0.08)@0.558026 vsAboveBelow -0.017/-0.017/-0.017 t 2484ms
+      193 |             console.log(`[0483/0487 ${scheme}] ${reads.join(" · ")}`);
+    Error: 1440: dL 0.021/0.021/0.020 col 32.00 vs live 47.94 ink oklab(0.925202 0.00234182 0.00572368 / 0.08)@0.55641 vsAboveBelow 0.028/0.028/0.027 t 2534ms
+      193 |             console.log(`[0483/0487 ${scheme}] ${reads.join(" · ")}`);
+      225 |         console.log(`[0504] swatch Δ ${deltas.join("/")}`);
+  3 failed
+  4 passed (1.6m)
+== seat2-red-4
+[0478 light 1440] min 4.84 · h25: 4.84/4.91/5.23 ink oklch(0.113836 0.00624853 56.0356) · h145: 5.01/5.28/6.08 ink oklch(0.113836 0.00624853 56.0356) · h265: 4.89/5.00/5.36 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  1 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (1.3m)
+[0478 light 390] min 5.38 · h25: 5.39/5.38/5.41 ink oklch(0.113836 0.00624853 56.0356) · h145: 6.29/6.46/6.66 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.50/5.45/5.51 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  2 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (1.1m)
+  ✘  3 [smoke-admin] · B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light (2.6s)
+[0478 dark 1440] min 6.60 · h25: 7.32/7.17/6.60 ink oklch(0.814639 0.00382185 41.8684) · h145: 7.81/7.71/6.88 ink oklch(0.830262 0.00382185 41.8684) · h265: 7.23/7.00/6.78 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  4 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (11.9s)
+[0478 dark 390] min 6.08 · h25: 6.32/6.23/6.08 ink oklch(0.814639 0.00382185 41.8684) · h145: 6.39/6.33/6.17 ink oklch(0.830262 0.00382185 41.8684) · h265: 6.30/6.32/6.17 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  5 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (6.6s)
+  ✘  6 [smoke-admin] · B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark (2.4s)
+[0504] swatch Δ 169/163/167
+  ✘  7 [smoke-admin] · B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors (7.0s)
+    Error: 1440: dL -0.018/-0.017/-0.017 col 32.00 vs live 47.94 ink oklab(0.216129 0.00349092 0.00518243 / 0.08)@0.553824 vsAboveBelow -0.017/-0.017/-0.017 t 2430ms
+      195 |             console.log(`[0483/0487 ${scheme}] ${reads.join(" · ")}`);
+    Error: 1440: dL 0.022/0.021/0.021 col 32.00 vs live 47.94 ink oklab(0.925202 0.00234182 0.00572368 / 0.08)@0.557776 vsAboveBelow 0.029/0.029/0.028 t 2290ms
+      195 |             console.log(`[0483/0487 ${scheme}] ${reads.join(" · ")}`);
+      227 |         console.log(`[0504] swatch Δ ${deltas.join("/")}`);
+  3 failed
+  4 passed (3.0m)
+== seat2-green-5
+[0478 light 1440] min 4.84 · h25: 4.84/4.91/5.23 ink oklch(0.113836 0.00624853 56.0356) · h145: 5.01/5.28/6.08 ink oklch(0.113836 0.00624853 56.0356) · h265: 4.89/5.00/5.36 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  1 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (1.0m)
+[0478 light 390] min 5.38 · h25: 5.39/5.38/5.41 ink oklch(0.113836 0.00624853 56.0356) · h145: 6.29/6.46/6.66 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.50/5.45/5.51 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  2 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (6.8s)
+[0483/0487 light] 1440: dL -0.040/-0.038/-0.039 col 47.88 vs live 47.94 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.555493 vsAboveBelow -0.039/-0.039/-0.039 t 2326ms · 390: dL -0.047/-0.049/-0.050 col 41.19 vs live 41.19 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.552104 vsAboveBelow -0.039/-0.040/-0.040 t 2047ms
+  ✓  3 [smoke-admin] · B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light (4.5s)
+[0478 dark 1440] min 6.71 · h25: 7.37/7.18/6.71 ink oklch(0.814639 0.00382185 41.8684) · h145: 7.81/7.71/6.88 ink oklch(0.830262 0.00382185 41.8684) · h265: 7.24/7.03/6.80 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  4 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (8.8s)
+[0478 dark 390] min 6.08 · h25: 6.32/6.23/6.08 ink oklch(0.814639 0.00382185 41.8684) · h145: 6.39/6.33/6.17 ink oklch(0.830262 0.00382185 41.8684) · h265: 6.30/6.32/6.17 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  5 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (31.5s)
+[0483/0487 dark] 1440: dL 0.051/0.049/0.048 col 47.88 vs live 47.94 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.552913 vsAboveBelow 0.058/0.057/0.055 t 2493ms · 390: dL 0.040/0.038/0.035 col 41.19 vs live 41.19 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.556184 vsAboveBelow 0.052/0.050/0.048 t 2153ms
+  ✓  6 [smoke-admin] · B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark (4.8s)
+[0504] swatch Δ 0/0/1
+  ✓  7 [smoke-admin] · B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors (3.5s)
+  7 passed (2.1m)
+== seat2-green-6
+[0478 light 1440] min 4.84 · h25: 4.84/4.91/5.23 ink oklch(0.113836 0.00624853 56.0356) · h145: 5.01/5.28/6.08 ink oklch(0.113836 0.00624853 56.0356) · h265: 4.89/5.00/5.36 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  1 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (1.0m)
+[0478 light 390] min 5.38 · h25: 5.39/5.38/5.41 ink oklch(0.113836 0.00624853 56.0356) · h145: 6.29/6.46/6.66 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.50/5.45/5.51 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  2 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (7.4s)
+[0483/0487 light] 1440: dL -0.040/-0.038/-0.039 col 47.88 vs live 47.94 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.55027 vsAboveBelow -0.039/-0.039/-0.039 t 3142ms · 390: dL -0.047/-0.049/-0.050 col 41.19 vs live 41.19 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.568246 vsAboveBelow -0.039/-0.040/-0.040 t 39329ms
+  ✓  3 [smoke-admin] · B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light (42.6s)
+[0478 dark 1440] min 6.71 · h25: 7.37/7.18/6.71 ink oklch(0.814639 0.00382185 41.8684) · h145: 7.81/7.71/6.88 ink oklch(0.830262 0.00382185 41.8684) · h265: 7.28/7.00/6.72 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  4 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (8.6s)
+[0478 dark 390] min 5.97 · h25: 6.22/6.15/5.97 ink oklch(0.814639 0.00382185 41.8684) · h145: 6.39/6.25/6.17 ink oklch(0.830262 0.00382185 41.8684) · h265: 6.30/6.32/6.17 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  5 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (8.1s)
+[0483/0487 dark] 1440: dL 0.050/0.049/0.047 col 47.88 vs live 47.94 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.551175 vsAboveBelow 0.058/0.056/0.055 t 2345ms · 390: dL 0.048/0.046/0.043 col 41.19 vs live 41.19 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.619067 vsAboveBelow 0.060/0.057/0.055 t 46028ms
+  ✓  6 [smoke-admin] · B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark (48.5s)
+[0504] swatch Δ 0/0/1
+  ✓  7 [smoke-admin] · B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors (16.5s)
+  7 passed (3.3m)
+== seat2-green-8
+[0478 light 1440] min 4.84 · h25: 4.84/4.91/5.23 ink oklch(0.113836 0.00624853 56.0356) · h145: 5.01/5.28/6.08 ink oklch(0.113836 0.00624853 56.0356) · h265: 4.89/5.00/5.36 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  1 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (55.3s)
+[0478 light 390] min 5.38 · h25: 5.39/5.38/5.41 ink oklch(0.113836 0.00624853 56.0356) · h145: 6.29/6.46/6.66 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.50/5.45/5.51 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  2 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (7.3s)
+[0483/0487 light] 1440: dL -0.040/-0.038/-0.039 col 47.88 vs live 47.94 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.553329 vsAboveBelow -0.039/-0.039/-0.039 t 2573ms · 390: dL -0.047/-0.049/-0.050 col 41.19 vs live 41.19 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.556287 vsAboveBelow -0.039/-0.040/-0.040 t 2003ms
+  ✓  3 [smoke-admin] · B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light (4.7s)
+[0478 dark 1440] min 6.64 · h25: 7.35/7.16/6.64 ink oklch(0.814639 0.00382185 41.8684) · h145: 7.81/7.71/6.88 ink oklch(0.830262 0.00382185 41.8684) · h265: 7.23/7.00/6.72 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  4 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (9.7s)
+[0478 dark 390] min 6.08 · h25: 6.32/6.23/6.08 ink oklch(0.814639 0.00382185 41.8684) · h145: 6.39/6.33/6.17 ink oklch(0.830262 0.00382185 41.8684) · h265: 6.30/6.32/6.17 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  5 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (7.1s)
+[0483/0487 dark] 1440: dL 0.052/0.050/0.048 col 47.88 vs live 47.94 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.554592 vsAboveBelow 0.059/0.057/0.056 t 2472ms · 390: dL 0.040/0.038/0.035 col 41.19 vs live 41.19 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.551058 vsAboveBelow 0.052/0.050/0.047 t 2003ms
+  ✓  6 [smoke-admin] · B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark (4.7s)
+[0504] swatch Δ 0/0/1
+  ✓  7 [smoke-admin] · B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors (25.4s)
+  7 passed (2.0m)
+== seat2-green-9
+[0478 light 1440] min 4.84 · h25: 4.84/4.91/5.23 ink oklch(0.113836 0.00624853 56.0356) · h145: 5.01/5.28/6.08 ink oklch(0.113836 0.00624853 56.0356) · h265: 4.89/5.00/5.36 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  1 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (44.0s)
+[0478 light 390] min 5.38 · h25: 5.39/5.38/5.41 ink oklch(0.113836 0.00624853 56.0356) · h145: 6.29/6.46/6.66 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.50/5.45/5.51 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  2 [smoke-admin] · B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (6.6s)
+[0483/0487 light] 1440: dL -0.040/-0.038/-0.039 col 47.88 vs live 47.94 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.551721 vsAboveBelow -0.039/-0.039/-0.039 t 2456ms · 390: dL -0.047/-0.049/-0.050 col 41.19 vs live 41.19 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.551758 vsAboveBelow -0.039/-0.040/-0.040 t 1963ms
+  ✓  3 [smoke-admin] · B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light (4.6s)
+[0478 dark 1440] min 6.71 · h25: 7.38/7.19/6.71 ink oklch(0.814639 0.00382185 41.8684) · h145: 7.81/7.71/6.88 ink oklch(0.830262 0.00382185 41.8684) · h265: 7.24/7.03/6.80 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  4 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (8.0s)
+[0478 dark 390] min 6.08 · h25: 6.32/6.23/6.08 ink oklch(0.814639 0.00382185 41.8684) · h145: 6.39/6.33/6.17 ink oklch(0.830262 0.00382185 41.8684) · h265: 6.30/6.32/6.17 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  5 [smoke-admin] · B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (6.5s)
+[0483/0487 dark] 1440: dL 0.051/0.049/0.048 col 47.88 vs live 47.94 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.552432 vsAboveBelow 0.058/0.056/0.055 t 2322ms · 390: dL 0.040/0.038/0.035 col 41.19 vs live 41.19 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.551941 vsAboveBelow 0.052/0.050/0.047 t 1999ms
+  ✓  6 [smoke-admin] · B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark (4.4s)
+[0504] swatch Δ 0/0/1
+  ✓  7 [smoke-admin] · B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors (24.5s)
+  7 passed (1.7m)
+== vitest demo/test/palettes/admin-destructive.test.ts
+      Tests  10 passed (10)
+== typecheck: vue-tsc -p tsconfig.demo.json exit 0; tsc -p tsconfig.e2e.json exit 0 (after the spec's strict-index fixes)
