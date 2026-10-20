@@ -85,6 +85,28 @@
                 descent-override: 29.13%;
                 line-gap-override: 0%;
             }
+            /* X.W11.p2 (COHESION §0ge.1(ii); ESC-W11h19-1 arm b) — the ITALIC
+               landing face. The italic Fraunces face is not preloaded: it loads
+               on first use, off the critical path. Until now its fallback was
+               the upright face above, slanted by synthesis — 2.3 % wider than
+               the real italic per glyph run, so the swap re-flowed the italic
+               title (the space label widened 11 px in front of its chevron,
+               C10-1). Georgia Italic, size-adjust-tuned against the real italic
+               face at the title's own setting (42.568 px, wght 400, tracking
+               -0.025em, optical sizing auto; real/Georgia-Italic advance ratio
+               0.9709 over the space names), makes the swap reflow-free. The
+               vertical overrides carry the face's own ascent/descent (1956 /
+               510 of 2000, identical to the upright face) through this
+               size-adjust, as the upright pair does through its own. */
+            @font-face {
+                font-family: "Fraunces Fallback";
+                font-style: italic;
+                src: local("Georgia Italic"), local("Georgia-Italic");
+                size-adjust: 97.09%;
+                ascent-override: 100.94%;
+                descent-override: 26.78%;
+                line-gap-override: 0%;
+            }
         </style>
 
         <!-- W2-2 (T.W2): the per-stop ground properties, registered PRE-PAINT
