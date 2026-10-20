@@ -1,0 +1,93 @@
+(node:62842) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:62914) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:63000) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:25:5 › O-15a · the seal abrogation (negative watch) › the collapsed seal computes border-style none — no rim resurrection (30.0s)
+(node:64270) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   2 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots (31.1s)
+(node:65446) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   3 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole (9.5s)
+  ✘   4 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model (2.7s)
+(node:65947) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   5 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:165:5 › O-15b · the Tools clip release + register pass (W6-8) › zero native title on the dock set (the UA-slab retirement) (10.5s)
+  ✓   6 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:187:5 › O-15b · the Tools clip release + register pass (W6-8) › the slot's arrival carries no separator — one presence grammar (1.6s)
+  ✓   7 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:69:5 › Z1-app-chassis — the row composition › Z-chassis-2/3 · Z-LG-3/4 — per-route tracks at 1440, surplus to the stage at 3440 (2.9s)
+  ✓   8 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:110:5 › Z1-app-chassis — the row composition › Z-LG-5 — no page cap token (730ms)
+  ✓   9 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:121:5 › Z1-app-chassis — the row composition › Z-LG-6 — the fluid gutter (737ms)
+  ✓  10 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:149:5 › Z1-app-chassis — the dock › Z-Dock-10 — the main layer shows no visible separator (876ms)
+  ✓  11 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:164:5 › Z1-app-chassis — the dock › Z-Dock-13 — the dock's sampler is bound to the atmosphere field (2.7s)
+  ✓  12 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:178:5 › Z1-app-chassis — the dock › Z-Dock-5 — Open color input focuses the field and typing lands in it (3.0s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:25:5 › O-15a · the seal abrogation (negative watch) › the collapsed seal computes border-style none — no rim resurrection 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8213/", waiting until "load"[22m
+
+
+      26 |         page,
+      27 |     }) => {
+    > 28 |         await page.goto("/");
+         |                    ^
+      29 |         await page.waitForSelector(".glass-dock");
+      30 |         // The desktop dock auto-collapses ~5s after the pointer leaves it
+      31 |         // (probed live); the seal exists only in the collapsed summary.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:28:20
+
+    Error Context: test-results/oracles-o15-dock-register--26e86--none-—-no-rim-resurrection-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.waitForSelector: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.glass-dock') to be visible[22m
+    [2m    6 × locator resolved to hidden <div data-v-c1c2eb17="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="sample-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>[22m
+
+
+      52 |     }) => {
+      53 |         await page.goto("/");
+    > 54 |         await page.waitForSelector(".glass-dock");
+         |                    ^
+      55 |         await openView(page, "Mix");
+      56 |         // ── X-W1 · R2 (SH-8 = PP-2 = A-3 = MX-3 = MSS-2 = MR-2) ─────────────
+      57 |         // The add-slot was bound by `getByRole("button", { name: "Add current
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:54:20
+
+    Error Context: test-results/oracles-o15-dock-register--bbd38--geometric-ring-on-mix-dots-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7m8px 12[27mpx"[39m
+    Received: [31m"[7m0[27mpx"[39m
+
+      157 |         // delivered through the producer's own --dock-compact-control-padding
+      158 |         // token hook, so a producer register change surfaces here.
+    > 159 |         expect(box.padding).toBe("8px 12px");
+          |                             ^
+      160 |         expect(box.marginLeft).toBe("4px");
+      161 |         expect(box.marginRight).toBe("4px");
+      162 |         expect(box.gap).not.toBe("normal");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:159:29
+
+    Error Context: test-results/oracles-o15-dock-register--85717-s-the-true-button-box-model-smoke/error-context.md
+
+  3 failed
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:25:5 › O-15a · the seal abrogation (negative watch) › the collapsed seal computes border-style none — no rim resurrection 
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots 
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
+  9 passed (1.7m)

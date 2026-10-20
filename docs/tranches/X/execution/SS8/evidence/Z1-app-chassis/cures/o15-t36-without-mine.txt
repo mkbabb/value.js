@@ -1,0 +1,34 @@
+(node:40680) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:40740) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:40805) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model (30.0s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8213/", waiting until "load"[22m
+
+
+      139 |         page,
+      140 |     }) => {
+    > 141 |         await page.goto("/");
+          |                    ^
+      142 |         await page.waitForSelector(".glass-dock");
+      143 |         await expandDock(page);
+      144 |         const tools = page.locator(".dock-tools-btn");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:141:20
+
+    Error Context: test-results/oracles-o15-dock-register--85717-s-the-true-button-box-model-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 

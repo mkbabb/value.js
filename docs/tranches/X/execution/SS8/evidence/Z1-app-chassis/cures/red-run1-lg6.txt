@@ -1,0 +1,38 @@
+(node:3924) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:4157) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:4380) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:120:5 › Z1-app-chassis — the row composition › Z-LG-6 — the fluid gutter (44.8s)
+
+
+  1) [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:120:5 › Z1-app-chassis — the row composition › Z-LG-6 — the fluid gutter 
+
+    Error: gutter at 390
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeCloseTo[2m([22m[32mexpected[39m[2m, [22mprecision[2m)[22m
+
+    Expected: [32m12[39m
+    Received: [31m16[39m
+
+    Expected precision:    0
+    Expected difference: < [32m0.5[39m
+    Received difference:   [31m4[39m
+
+      131 |                 parseFloat(getComputedStyle(document.querySelector(".app-layout")!).paddingLeft),
+      132 |             );
+    > 133 |             expect(pad, `gutter at ${width}`).toBeCloseTo(px, 0);
+          |                                               ^
+      134 |         }
+      135 |     });
+      136 | });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-z1-app-chassis.spec.ts:133:47
+
+    Error Context: test-results/ss8-z1-app-chassis-Z1-app--39820-n-Z-LG-6-—-the-fluid-gutter-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:120:5 › Z1-app-chassis — the row composition › Z-LG-6 — the fluid gutter 

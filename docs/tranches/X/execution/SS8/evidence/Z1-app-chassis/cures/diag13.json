@@ -1,0 +1,11 @@
+{
+ "w": 300,
+ "h": 150,
+ "bgImage": "linear-gradient(135deg, rgb(173, 104, 201) 0%, rgb(248, 116,",
+ "arrived": "atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none atmosphere-canvas--arrived",
+ "gpu": true,
+ "meanAlphaIdle": 0,
+ "meanAlphaInRaf": 0,
+ "state": "unavailable",
+ "reason": "sample-unavailable"
+}

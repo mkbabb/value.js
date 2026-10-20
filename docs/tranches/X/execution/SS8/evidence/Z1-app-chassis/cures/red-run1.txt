@@ -1,0 +1,145 @@
+[guarded] waiting for headroom (load 38 > 36)
+(node:93806) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:93956) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:94026) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:68:5 › Z1-app-chassis — the row composition › Z-chassis-2/3 · Z-LG-3/4 — per-route tracks at 1440, surplus to the stage at 3440 (38.1s)
+(node:95999) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:109:5 › Z1-app-chassis — the row composition › Z-LG-5 · Z-LG-6 — no page cap token; the fluid gutter (10.8s)
+(node:96614) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  3 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:142:5 › Z1-app-chassis — the dock › Z-Dock-10 — the main layer shows no visible separator (39.5s)
+(node:98585) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  4 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:157:5 › Z1-app-chassis — the dock › Z-Dock-13 — the dock samples the atmosphere field (41.6s)
+(node:1590) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  5 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:168:5 › Z1-app-chassis — the dock › Z-Dock-5 — Open color input focuses the field and typing lands in it (24.8s)
+
+
+  1) [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:68:5 › Z1-app-chassis — the row composition › Z-chassis-2/3 · Z-LG-3/4 — per-route tracks at 1440, surplus to the stage at 3440 
+
+    Error: / stage share
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeCloseTo[2m([22m[32mexpected[39m[2m, [22mprecision[2m)[22m
+
+    Expected: [32m0.618033989[39m
+    Received: [31m0.5[39m
+
+    Expected precision:    2
+    Expected difference: < [32m0.005[39m
+    Received difference:   [31m0.11803398899999995[39m
+
+      83 |         // Z-chassis-3: the stage takes the golden major track.
+      84 |         for (const r of ["/", "/generate", "/gradient", "/extract", "/mix"]) {
+    > 85 |             expect(share(r, "stage"), `${r} stage share`).toBeCloseTo(GOLDEN, 2);
+         |                                                           ^
+      86 |         }
+      87 |         // Z-chassis-2: the FIELD takes 64–66.7 % — Browse's field is its stage,
+      88 |         // Library's field is the palettes region beside the shared picker.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-z1-app-chassis.spec.ts:85:59
+
+    Error Context: test-results/ss8-z1-app-chassis-Z1-app--692f1-urplus-to-the-stage-at-3440-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:109:5 › Z1-app-chassis — the row composition › Z-LG-5 · Z-LG-6 — no page cap token; the fluid gutter 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m""[39m
+    Received: [31m"32rem"[39m
+
+      115 |                 getComputedStyle(document.documentElement).getPropertyValue("--pane-max").trim(),
+      116 |             ),
+    > 117 |         ).toBe("");
+          |           ^
+      118 |         for (const [width, px] of [
+      119 |             [390, 12],
+      120 |             [1440, 36],
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-z1-app-chassis.spec.ts:117:11
+
+    Error Context: test-results/ss8-z1-app-chassis-Z1-app--21373--cap-token-the-fluid-gutter-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:142:5 › Z1-app-chassis — the dock › Z-Dock-10 — the main layer shows no visible separator 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m0[39m
+    Received: [31m3[39m
+
+      152 |             }).length,
+      153 |         );
+    > 154 |         expect(seps).toBe(0);
+          |                      ^
+      155 |     });
+      156 |
+      157 |     test("Z-Dock-13 — the dock samples the atmosphere field", async ({ page }) => {
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-z1-app-chassis.spec.ts:154:22
+
+    Error Context: test-results/ss8-z1-app-chassis-Z1-app--37584--shows-no-visible-separator-smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:157:5 › Z1-app-chassis — the dock › Z-Dock-13 — the dock samples the atmosphere field 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('.glass-dock').first()
+    Expected: [32m"sampled"[39m
+    Received: [31m"unavailable"[39m
+    Timeout:  20000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 20000ms[22m
+    [2m  - waiting for locator('.glass-dock').first()[22m
+    [2m    41 × locator resolved to <div data-v-c1c2eb17="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>[22m
+    [2m       - unexpected value "unavailable"[22m
+
+
+      157 |     test("Z-Dock-13 — the dock samples the atmosphere field", async ({ page }) => {
+      158 |         const dock = page.locator(".glass-dock").first();
+    > 159 |         await expect(dock).toHaveAttribute("data-backdrop-sample-state", "sampled", {
+          |                            ^
+      160 |             timeout: 20_000,
+      161 |         });
+      162 |         const luma = await dock.evaluate((e) =>
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-z1-app-chassis.spec.ts:159:28
+
+    Error Context: test-results/ss8-z1-app-chassis-Z1-app--7ee3b-amples-the-atmosphere-field-smoke/error-context.md
+
+  5) [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:168:5 › Z1-app-chassis — the dock › Z-Dock-5 — Open color input focuses the field and typing lands in it 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeFocused[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('textbox', { name: 'Enter a CSS color' })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toBeFocused" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('textbox', { name: 'Enter a CSS color' })[22m
+    [2m    14 × locator resolved to <span role="textbox" autocorrect="off" data-v-55dadc03="" contenteditable="" spellcheck="false" autocapitalize="off" aria-label="Enter a CSS color" class="color-input w-full block border overflow-hidden items-center bg-background rounded-media px-3 py-2 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center">oklch(73% 0.185 2deg)</span>[22m
+    [2m       - unexpected value "inactive"[22m
+
+
+      175 |         await page.getByRole("button", { name: "Open color input" }).click();
+      176 |         const field = page.getByRole("textbox", { name: "Enter a CSS color" });
+    > 177 |         await expect(field).toBeFocused({ timeout: 5000 });
+          |                             ^
+      178 |         await page.keyboard.press("ControlOrMeta+A");
+      179 |         await page.keyboard.type("red");
+      180 |         await expect(field).toHaveText("red");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-z1-app-chassis.spec.ts:177:29
+
+    Error Context: test-results/ss8-z1-app-chassis-Z1-app--be219-ield-and-typing-lands-in-it-smoke/error-context.md
+
+  5 failed
+    [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:68:5 › Z1-app-chassis — the row composition › Z-chassis-2/3 · Z-LG-3/4 — per-route tracks at 1440, surplus to the stage at 3440 
+    [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:109:5 › Z1-app-chassis — the row composition › Z-LG-5 · Z-LG-6 — no page cap token; the fluid gutter 
+    [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:142:5 › Z1-app-chassis — the dock › Z-Dock-10 — the main layer shows no visible separator 
+    [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:157:5 › Z1-app-chassis — the dock › Z-Dock-13 — the dock samples the atmosphere field 
+    [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:168:5 › Z1-app-chassis — the dock › Z-Dock-5 — Open color input focuses the field and typing lands in it 

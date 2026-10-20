@@ -1,0 +1,89 @@
+(node:71448) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:71536) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:71651) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:25:5 › O-15a · the seal abrogation (negative watch) › the collapsed seal computes border-style none — no rim resurrection (30.0s)
+(node:73833) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots (31.1s)
+(node:76469) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  3 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model (6.1s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:25:5 › O-15a · the seal abrogation (negative watch) › the collapsed seal computes border-style none — no rim resurrection 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8213/", waiting until "load"[22m
+
+
+      26 |         page,
+      27 |     }) => {
+    > 28 |         await page.goto("/");
+         |                    ^
+      29 |         await page.waitForSelector(".glass-dock");
+      30 |         // The desktop dock auto-collapses ~5s after the pointer leaves it
+      31 |         // (probed live); the seal exists only in the collapsed summary.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:28:20
+
+    Error Context: test-results/oracles-o15-dock-register--26e86--none-—-no-rim-resurrection-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-90" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:80
+
+      78 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      79 |     await expect(viewSelect).toBeVisible();
+    > 80 |     await viewSelect.click();
+         |                      ^
+      81 |
+      82 |     // Assert the listbox actually opened, so a closed-listbox regression
+      83 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:80:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:55:9
+
+    Error Context: test-results/oracles-o15-dock-register--bbd38--geometric-ring-on-mix-dots-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7m8px 12[27mpx"[39m
+    Received: [31m"[7m0[27mpx"[39m
+
+      157 |         // delivered through the producer's own --dock-compact-control-padding
+      158 |         // token hook, so a producer register change surfaces here.
+    > 159 |         expect(box.padding).toBe("8px 12px");
+          |                             ^
+      160 |         expect(box.marginLeft).toBe("4px");
+      161 |         expect(box.marginRight).toBe("4px");
+      162 |         expect(box.gap).not.toBe("normal");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:159:29
+
+    Error Context: test-results/oracles-o15-dock-register--85717-s-the-true-button-box-model-smoke/error-context.md
+
+  3 failed
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:25:5 › O-15a · the seal abrogation (negative watch) › the collapsed seal computes border-style none — no rim resurrection 
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots 
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
