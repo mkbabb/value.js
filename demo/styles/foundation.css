@@ -914,6 +914,16 @@
         /* raise the muddiest low-contrast text to the ink floor */
         --muted-foreground: color-mix(in oklab, var(--foreground) 88%, var(--background));
     }
+    /* SS8-0363: the panes re-seat the muted pair on their certified plate
+     * inks (shell.css `.pane-wrapper`), which shadows the :root raise above, and
+     * `--ink-muted` is floor-clamped, so it lands near 4.5:1 whatever the
+     * ground. With the tint dropped, the chip ratio FELL (light 7.29 -> 4.80,
+     * dark 6.93 -> 4.86). Raise the pane's pair toward its certified primary
+     * pole, so the ratio never falls. */
+    .app-layout .pane-wrapper {
+        --muted-foreground: color-mix(in oklab, var(--ink-muted), var(--ink-primary) 61.8%);
+        --on-glass-muted: color-mix(in oklab, var(--ink-muted), var(--ink-primary) 61.8%);
+    }
     /* thicker operable-chrome borders (one weight bump, not per-component).
      * The `.app-layout` prefix lifts specificity to 0,2,0 so the bump beats the
      * producer SFC-scoped hairline on the in-shell glass surfaces. */
