@@ -28,7 +28,15 @@ const channel = (c: number | "none"): number => (c === "none" ? 0 : c);
  * input value.js's parser refuses.
  */
 export function cssToOklab(css: string): OklabTriple {
-    const parsed = parseCssColor(css.trim());
+    // The published 4.0.0 parser can throw on a malformed functional colour
+    // (e.g. `oklch()`, apotheosis R1) instead of returning `ok: false`; a throw
+    // is the same refusal and must stay a 400, never a 500.
+    let parsed: ReturnType<typeof parseCssColor>;
+    try {
+        parsed = parseCssColor(css.trim());
+    } catch {
+        throw new ValidationError(`Unsupported color: ${css} (the API accepts any CSS <color> value.js parses)`);
+    }
     if (!parsed.ok) {
         const [issue] = parsed.diagnostics;
         throw new ValidationError(

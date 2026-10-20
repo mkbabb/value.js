@@ -24,7 +24,7 @@ const WIDE = [
     "color(display-p3 1 0.2 0.5)",
 ] as const;
 
-const GARBAGE = ["garbage", "oklch(", "rgb(1,2)", "#12", "color(nope 1 2 3)"] as const;
+const GARBAGE = ["garbage", "oklch(", "oklch()", "rgb(1,2)", "#12", "color(nope 1 2 3)"] as const;
 
 describe("palette colour grammar (parseCssColor is the one validator)", () => {
     let client: MongoClient;
