@@ -1,0 +1,371 @@
+(node:96365) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:96428) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 5 tests using 1 worker
+
+[1A[2K(node:96501) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, light)
+[1A[2K  1) [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, light) 
+
+    Error: {"text":"ease","ratio":3.883}
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m3.883[39m
+
+      106 |         });
+      107 |         const worst = readings.reduce((m, r) => (r.ratio < m.ratio ? r : m));
+    > 108 |         expect(worst.ratio, JSON.stringify(worst)).toBeGreaterThanOrEqual(4.5);
+          |                                                    ^
+      109 |     });
+      110 |
+      111 |     test(`U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, ${dark ? "dark" : "light"})`, async ({ page }) => {
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b22-gradient-specimen.spec.ts:108:52
+
+    Error Context: test-results/ss8-b22-gradient-specimen--51cd9-their-own-plate-1440-light--smoke/error-context.md
+
+
+[1A[2K(node:99369) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, light)
+[1A[2K  2) [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, light) 
+
+    Error: [{"id":"linear","on":true,"shadow":"rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px"},{"id":"ease","on":false,"shadow":"rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px"}]
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  -   1[39m
+    [31m+ Received  + 137[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   Object {[39m
+    [31m+     "id": "linear",[39m
+    [31m+     "on": true,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-sine",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-sine",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-sine",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-quad",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-quad",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-quad",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "smooth-step-3",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-cubic",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-cubic",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-cubic",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-expo",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-expo",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-expo",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-circ",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-circ",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-circ",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-back",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-back",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-back",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "steps",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "step-start",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "step-end",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+ ][39m
+
+      122 |         expect(shadows.some((t) => t.on)).toBe(true);
+      123 |         const shadowed = shadows.filter((t) => t.shadow !== "none");
+    > 124 |         expect(shadowed, JSON.stringify(shadowed.slice(0, 2))).toEqual([]);
+          |                                                                ^
+      125 |     });
+      126 | }
+      127 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b22-gradient-specimen.spec.ts:124:64
+
+    Error Context: test-results/ss8-b22-gradient-specimen--63cf2-t-no-floating-shadow-light--smoke/error-context.md
+
+
+[1A[2K(node:113) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, dark)
+[1A[2K[4/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, dark)
+[1A[2K  3) [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, dark) 
+
+    Error: [{"id":"linear","on":true,"shadow":"rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px"},{"id":"ease","on":false,"shadow":"rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px"}]
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  -   1[39m
+    [31m+ Received  + 137[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   Object {[39m
+    [31m+     "id": "linear",[39m
+    [31m+     "on": true,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-sine",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-sine",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-sine",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-quad",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-quad",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-quad",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "smooth-step-3",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-cubic",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-cubic",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-cubic",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-expo",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-expo",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-expo",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-circ",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-circ",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-circ",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-back",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-out-back",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "ease-in-out-back",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "steps",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "step-start",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "id": "step-end",[39m
+    [31m+     "on": false,[39m
+    [31m+     "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.298265 0.290684 0.284281 / 0.14) 0px 8px 24px 0px, color(srgb 0.298265 0.290684 0.284281 / 0.05) 0px 0px 0px 0.5px",[39m
+    [31m+   },[39m
+    [31m+ ][39m
+
+      122 |         expect(shadows.some((t) => t.on)).toBe(true);
+      123 |         const shadowed = shadows.filter((t) => t.shadow !== "none");
+    > 124 |         expect(shadowed, JSON.stringify(shadowed.slice(0, 2))).toEqual([]);
+          |                                                                ^
+      125 |     });
+      126 | }
+      127 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b22-gradient-specimen.spec.ts:124:64
+
+    Error Context: test-results/ss8-b22-gradient-specimen--cbdf8-at-no-floating-shadow-dark--smoke/error-context.md
+
+
+[1A[2K(node:1781) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:128:1 › U-7 (c) · an overshooting authored curve (Shift+ArrowUp ×4 on control point 2) keeps the pane
+[1A[2K  3 failed
+    [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, light) 
+    [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, light) 
+    [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, dark) 
+  2 passed (2.0m)

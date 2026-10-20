@@ -1,0 +1,23 @@
+(node:53800) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:53878) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 5 tests using 1 worker
+
+[1A[2K(node:53934) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, light)
+[1A[2K[smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, light)
+U-1 light worst {"text":"CSS","ratio":4.619} of 34
+
+[1A[2K[2/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, light)
+[1A[2K[3/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, dark)
+[1A[2K[smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, dark)
+U-1 dark worst {"text":"end","ratio":6.125} of 34
+
+[1A[2K[4/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, dark)
+[1A[2K[5/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:132:1 › U-7 (c) · an overshooting authored curve (Shift+ArrowUp ×4 on control point 2) keeps the pane
+[1A[2K  5 passed (1.8m)

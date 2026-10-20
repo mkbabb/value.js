@@ -1,0 +1,57 @@
+[guarded] waiting for headroom (load 38 > 36)
+(node:18998) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:19123) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 5 tests using 1 worker
+
+[1A[2K(node:19354) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, light)
+[1A[2K[smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, light)
+U-1 light worst {"text":"CSS","ratio":4.616} of 34
+
+[1A[2K[2/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, light)
+[1A[2K  1) [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, light) 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.easing-panel')
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 30000ms[22m
+    [2m  - waiting for locator('.easing-panel')[22m
+
+
+      30 |     }, dark);
+      31 |     await page.goto("/#/gradient", { waitUntil: "domcontentloaded" });
+    > 32 |     await expect(page.locator(".easing-panel")).toBeVisible({ timeout: 30_000 });
+         |                                                 ^
+      33 |     await page.waitForTimeout(1500);
+      34 |     const head = page.locator(".interval-head").first();
+      35 |     if ((await head.getAttribute("aria-expanded")) !== "true") await head.click();
+        at openStrip (/Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b22-gradient-specimen.spec.ts:32:49)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b22-gradient-specimen.spec.ts:113:9
+
+    Error Context: test-results/ss8-b22-gradient-specimen--63cf2-t-no-floating-shadow-light--smoke/error-context.md
+
+
+[1A[2K(node:28362) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, dark)
+[1A[2K[smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, dark)
+U-1 dark worst {"text":"end","ratio":6.125} of 34
+
+[1A[2K[4/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, dark)
+[1A[2K[5/5] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:132:1 › U-7 (c) · an overshooting authored curve (Shift+ArrowUp ×4 on control point 2) keeps the pane
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, light) 
+  4 passed (3.5m)
