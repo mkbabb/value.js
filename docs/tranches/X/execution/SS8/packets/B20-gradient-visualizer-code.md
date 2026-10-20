@@ -80,3 +80,51 @@
   - The `usePalettePorts` edge still drags 36 modules at HEAD (R-8).
   - The 28-stop tunnel through the open easing strip: no roving tabindex (R-13).
 - No glass-owned defect was found, so no O-row is named. No adjudicated record was edited (E-3).
+
+## cures
+
+**Seat:** SS-8 CURE · 2026-10-20 · served model `claude-opus-5-5` · batch B20-gradient-visualizer-code (the 12 REFUTED rows above). The verdict table above is unchanged. This section adds a cure or a falsifier for each row, and the records stay immutable (E-3).
+
+**Outcome.** No consumer source change was needed. Nine rows were already cured by changes that landed after the records were sealed. Two had no defect (0563, R-1). R-7 makes no shipped-bytes charge. Each row that this seat can hold now has a falsifier that goes RED when its cure is reverted and GREEN on the tree as it stands. Two limbs are routed elsewhere, not cured here: the R-4 frame and the R-15 desktop limb go to X-W6.b (GV-19), and the R-7 import hygiene goes to glass.
+
+**Falsifiers** (commit `83a69d695`):
+- `demo/test/gradient/ss8-b20-cures.test.ts` (vitest, jsdom), 10 cases.
+- `e2e/smoke/ss8-b20-gradient.spec.ts` (playwright, smoke project, default headless shell), 4 cells.
+- RED apparatus, under `P/`: `cure-mutants.mjs` (vitest) and `cure-mutants-pw.mjs` (playwright). Each mutant re-introduces one row's defect in the source, runs only that row's cells, and restores the file byte-exact in `finally`. `git status` on the subject files was clean after every run.
+
+**Runs:**
+- vitest: `~/.claude/guard/guarded --light --timeout 10 -- node P/cure-mutants.mjs`, run twice.
+  - Run 1 (`E/cure-mutants-run1.json`) and run 2 (`E/cure-mutants-run2.json`): **7 of 7 mutants KILLED (RED)**, and the unmutated file is **GREEN 10/10**.
+- playwright: `VJS_E2E_PORT=8120 ~/.claude/guard/guarded --timeout 30 -- node P/cure-mutants-pw.mjs`, run twice, plus one R-6-only run.
+  - R-1: KILLED in run 1 and run 2 (`E/cure-mutants-pw-run{1,2}.json`). Worst ratio 1.93 against the 4.5 floor.
+  - R-15: KILLED in run 1 and run 2. Aspect 1.42, outside the band (0.8, 1.25).
+  - R-6: **SURVIVED** in run 1. The pre-UIA-V-44 three-across band still showed no clipped value span, so the falsifier was too weak. It was strengthened to assert that the band stacks (one shared left edge, one row per field). After that it was KILLED in run 2 and again in `E/cure-mutants-pw-run3-R6.json` ("Received: 3" distinct left edges).
+- playwright GREEN: `VJS_E2E_PORT=8120 ~/.claude/guard/guarded --timeout 20 -- npx playwright test e2e/smoke/ss8-b20-gradient.spec.ts --project=smoke --workers=1`. These runs were made at machine load 25–35.
+  - Run 1: 4/4. This was before the R-6 stacking assertion and the heading-locator fix, and the R-1 cells could not locate their headings at first.
+  - Run 2: 2/4. Two phone cells failed on cold load: `Gradient CSS` was not visible within 30 s, and one `page.goto` returned ERR_ABORTED.
+  - Run 3 (`E/cure-green-pw-run3.txt`): **4/4 on the final assertions**.
+  - Run 4: 3/4. The 320 cell failed on cold load (the editor was not found within 30 s).
+  - Run 5 (`E/cure-green-pw-run5.txt`): **4/4**. This run used the cold-load wait widened to 60 s; no assertion was changed.
+- Type-check, via `guarded --light`: `vue-tsc -p tsconfig.test.json --noEmit` reports 0 errors. `tsc -p tsconfig.e2e.json --noEmit` reports 0 errors in `ss8-b20-gradient.spec.ts`. The errors it does report all belong to another seat's untracked `e2e/smoke/admin/ss8-b17-admin-names.spec.ts`.
+
+| row | disposition | falsifier → mutant (RED) | commit |
+|---|---|---|---|
+| SS8-0563 · D3-5 | No defect; the residue row is retired. Verdict and specimen both wear only `text-mono-small`. | vitest `SS8-0563`: both elements carry exactly one size token, `text-mono-small`. Mutant: the verdict wears `text-mono-caption` → RED x2. | `83a69d695` |
+| SS8-0564 · A-3 | **Already cured** (X-DS V4C-03 + V6C-10). | vitest `SS8-0564`: every crayon (comment, keyword, entity, string, number) is checked against the `--code-ground` law read from `hljs.css` (L pinned, chroma capped). The sweep covers h 0..359 at C 0 and at the cap, in both schemes, with the floor at 4.5. This is the per-seed certification the WITNESS row deferred to the guard. Mutant: light L 0.913 → 0.8 → RED x2. | `83a69d695` |
+| SS8-0566 · `break-all` | **Already cured** (`wrap-break-word` + V11C-02). | vitest `SS8-0566`: the editor carries `wrap-break-word` and `whitespace-pre-wrap`, and no `break-all`. Mutant: `break-all` → RED x2. | `83a69d695` |
+| SS8-0572 · L-3 | **Already cured** (V4C-03). | vitest `SS8-0572`: the SFC's scoped `.code-editor` rule is parsed with `@vue/compiler-sfc`. Its `background` must be `var(--code-ground)`, and the ground must be the alpha-free `oklch(from …)` law in both schemes. Mutant: `background: transparent` → RED x2. | `83a69d695` |
+| SS8-0574 · A-14c | **Already cured** (X.W12.u3 UIA-V-184). | vitest `SS8-0574`: a deliberate setup throw lands the plate and its Try-again Button inside a `resting`, full-region (`w-full h-full`) Card. Mutant: `tier="floating"` → RED x2. Not covered: the (a) "This panel" wording limb, which was not probed. | `83a69d695` |
+| SS8-0575 · L-16 | **Already cured** (library A-1: `parseCssColor` is total). No `src/**` change and no public-API change. | vitest `SS8-0575`: `linear-gradient(90deg, X 0%, blue 100%)` with X = `oklch()`, `calc()` or `foo()` returns a verdict naming X and never throws. The library half is already held by `test/gradient-order-invariant.test.ts:233-245`. Mutant: the pre-A-1 throw on an empty call at `gradientParse.ts` → RED x2 (3 cases). The A-8 debounce-timer cancellation is **not discharged** (a non-throwing parse does not exercise it). | `83a69d695` |
+| R-1 (SS8-0577) | No defect at HEAD; the four figures are retired. | playwright `R-1` (1440, light and dark): each h3's computed ink is composited over the screenshot ground 16 px and 40 px past its text run, and must be ≥ 4.5. Mutant: Interpolation h3 at `text-foreground/40` → RED x2 (1.93). | `83a69d695` |
+| R-4 (SS8-0580) | **ROUTED to X-W6.b (GV-19 frame)**, not cured here. The growth mechanism stands. Re-size from the measured numbers: body 748.4→1516.3 px (2076.9 open), easing share 38.7 % (55.3 % open), well 462×425.8. It is a frame decision, not a seat cure. | — | — |
+| R-6 (SS8-0582) | **Already cured** (UIA-V-44 + V7C-01). | playwright `R-6 + R-15` (390, 320): the band is one column (one left edge, distinct tops), and no trigger value is clipped, overlaps the tile or runs off the right edge. Mutant: the three-across band (`col-span-1 grid grid-cols-3`) → RED x2, after the falsifier was strengthened (see Runs). | `83a69d695` |
+| R-7 (SS8-0583) | No shipped-bytes charge (rolldown root = subpath, 13,320 B). The one hygiene residue is the root-barrel `Accordion` import at `GradientEasingEditor.vue:29`. It **cannot be cured consumer-side**: glass-ui 10.1.0 publishes no `./accordion` subpath, and `Accordion` is exported only from `.`. **ROUTED to glass**: the producer needs to publish `@mkbabb/glass-ui/accordion`. The orchestrator names the O-row and sends the mail. | none. The shipped-bytes witness is `E/build-witness.json`, and there is no consumer edit to falsify. | — |
+| R-14 (SS8-0590) | **Already cured** (A2-VA-L1-12). | vitest `R-14`: with 12 stops and 11 rows closed, 0 `.specimen-strip` elements are mounted; opening one row mounts exactly 1. Mutant: `force-mount` on `AccordionContent` → RED x2. | `83a69d695` |
+| R-15 (SS8-0591) | **Phone limb already cured** (V7C-01). The **desktop limb (no aspect-ratio at 1440, 0.709) is ROUTED to X-W6.b (GV-19)**. | playwright `R-6 + R-15` (390, 320): tile aspect in (0.8, 1.25). Mutant: the pre-V7C-01 tile (`col-start-2 w-24 row-span-2`) → RED x2 (1.42). | `83a69d695` |
+
+**Routed, not cured:**
+- R-4 → X-W6.b (GV-19).
+- R-15 desktop → X-W6.b (GV-19).
+- R-7 import hygiene → glass, which needs to publish an `./accordion` subpath. The orchestrator owns the O-row and the mail.
+
+**Blocked by dirty files:** none. Every subject file (`GradientCodeEditor.vue`, `GradientVisualizer.vue`, `GradientEasingEditor.vue`, `gradientParse.ts`, `ErrorBoundary.vue`, `hljs.css`) was clean, and no source file is committed by this seat. During the seat another seat had uncommitted hunks in `demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue`. This seat did not touch that file.
