@@ -1,0 +1,18 @@
+(node:99472) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+[1A[2K(node:99494) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/2] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+{"width":1440,"frames":60,"morphingFrames":0,"hostTransformFrames":0,"compounded":0,"settles":[{"t":196,"morphing":false,"onHost":false,"seat":"seal"},{"t":196,"morphing":false,"onHost":false,"seat":"trigger"}],"drift":0}
+
+[1A[2K[2/2] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+{"width":390,"frames":192,"morphingFrames":0,"hostTransformFrames":0,"compounded":0,"settles":[{"t":214,"morphing":false,"onHost":false,"seat":"seal"},{"t":214,"morphing":false,"onHost":false,"seat":"trigger"}],"drift":0}
+
+[1A[2K  2 passed (1.6m)
+EXIT 0

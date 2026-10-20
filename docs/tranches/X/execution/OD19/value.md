@@ -54,6 +54,11 @@ P4: Dock.vue:173-182 + :418-420: the `vj-settle` beat (kept, per the preserve-an
   - Honest limit: none of these hash switches entered `[data-morphing]` (morphingFrames 0 in every trace). The "no host transform while morphing" assertion passes because the host never transforms, and the morph gate was not exercised under a live morph.
 - **Gates.** `vue-tsc -p tsconfig.demo.json` is clean. `tsc -p tsconfig.e2e.json` is clean for the new spec; its remaining errors are in other seats' untracked or dirty specs (ss8-b17, od19-pane-swap, ss8-b07). `vitest demo/test/shell/` passed 8 files / 34 tests (`vitest-shell.txt`). The dock e2e `e2e/smoke/w12-dock.spec.ts` passed 6/6 ×2 (`w12-dock-run-1.txt`, `w12-dock-run-2.txt`); its layer-switch census still waits on the vj-settle `animationend`, which now bubbles from the seat. No golden was re-baselined.
 - **Glass half (O-102, not cured here):** V2-a (the swap/collapse width does not interpolate) and V2-b (start-edge clip-path reveal) are still adopted at the 10.1.1/10.2 repin.
+- **Re-check 2026-10-20 after the glass 10.1.1 adoption (`4d806342b`).** No code change; the cure `006fd567a` is pushed on `origin/tranche-u`.
+  - The falsifier `od19-v2-dock-settle.spec.ts` passed 2/2 in both runs (`after/P4/recheck-10.1.1-od19-{1,2}.txt`). In every trace, host-transform frames were 0, each vj-settle start was seated on the trigger and the seal with `morphing: false`, and drift was 0 px. Glass 10.1.1 does not change the result. `[data-morphing]` still did not fire on a hash view switch (morphingFrames 0), so the honest limit above still stands.
+  - The dock e2e `w12-dock.spec.ts` was **not re-certified**: all 6 tests failed at `page.goto(... "load")` 60 s timeouts, before any dock assertion ran (`recheck-10.1.1.txt`, `recheck-10.1.1-w12-dock.txt`, `recheck-10.1.1-w12-dock-1.txt`).
+    - The cause is the environment, not the dock. In the same window the falsifier's own `goto` timed out the same way. Port 8090 was held by another seat's guarded `vite --port 8090` (pid 88854, 90 % CPU, no HTTP reply in 30 s), and Playwright reuses that server. A rerun on a fresh server (`VJS_E2E_PORT=8097`) also timed out. Load was 25–45, with 90+ guarded runs queued.
+    - The last green dock e2e is still the P4 6/6 ×2 at `006fd567a`. It needs a re-run on a quiet machine.
 
 ### P2
 
