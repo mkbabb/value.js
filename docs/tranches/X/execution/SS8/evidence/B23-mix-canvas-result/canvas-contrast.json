@@ -1,0 +1,119 @@
+{
+ "light-settled": {
+  "rect": {
+   "x": 770,
+   "y": 555.296875,
+   "width": 430,
+   "height": 30.53125,
+   "top": 555.296875,
+   "right": 1200,
+   "bottom": 585.828125,
+   "left": 770
+  },
+  "headColor": "oklch(0.216129 0.00624853 56.0356)",
+  "headFont": "20.352px 600",
+  "plateOpacity": "1",
+  "headClass": "font-display text-subheading",
+  "bgMedian": [
+   213,
+   144,
+   140
+  ],
+  "inkCore": [
+   26,
+   23,
+   21
+  ],
+  "contrast": 6.963
+ },
+ "light-ghost": {
+  "rect": {
+   "x": 770,
+   "y": 555.296875,
+   "width": 430,
+   "height": 30.53125,
+   "top": 555.296875,
+   "right": 1200,
+   "bottom": 585.828125,
+   "left": 770
+  },
+  "headColor": "oklch(0.216129 0.00624853 56.0356)",
+  "headFont": "20.352px 600",
+  "plateOpacity": "0.55",
+  "headClass": "font-display text-subheading",
+  "bgMedian": [
+   215,
+   134,
+   148
+  ],
+  "inkCore": [
+   26,
+   23,
+   21
+  ],
+  "contrast": 6.563
+ },
+ "light-errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED",
+  "CONSOLE [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: pane chunk not settled after 20000 ms\n    at http://localhost:9119/@fs/Users/mkbabb/Programming/value.js/demo/shell/u"
+ ],
+ "dark-settled": {
+  "rect": {
+   "x": 770,
+   "y": 555.625,
+   "width": 430,
+   "height": 30.53125,
+   "top": 555.625,
+   "right": 1200,
+   "bottom": 586.15625,
+   "left": 770
+  },
+  "headColor": "oklch(0.925202 0.00618423 67.7483)",
+  "headFont": "20.352px 600",
+  "plateOpacity": "1",
+  "headClass": "font-display text-subheading",
+  "bgMedian": [
+   136,
+   23,
+   36
+  ],
+  "inkCore": [
+   235,
+   232,
+   228
+  ],
+  "contrast": 7.834
+ },
+ "dark-ghost": {
+  "rect": {
+   "x": 770,
+   "y": 555.625,
+   "width": 430,
+   "height": 30.53125,
+   "top": 555.625,
+   "right": 1200,
+   "bottom": 586.15625,
+   "left": 770
+  },
+  "headColor": "oklch(0.925202 0.00618423 67.7483)",
+  "headFont": "20.352px 600",
+  "plateOpacity": "0.55",
+  "headClass": "font-display text-subheading",
+  "bgMedian": [
+   126,
+   24,
+   44
+  ],
+  "inkCore": [
+   235,
+   232,
+   228
+  ],
+  "contrast": 8.371
+ },
+ "dark-errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

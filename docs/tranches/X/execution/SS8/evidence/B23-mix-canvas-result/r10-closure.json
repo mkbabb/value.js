@@ -1,0 +1,12 @@
+{
+ "glassUi": "10.1.0",
+ "barrel": {
+  "modules": 75,
+  "bytes": 239068
+ },
+ "dom": {
+  "modules": 6,
+  "bytes": 12622
+ },
+ "mixResultDisplayClipboardImport": "@mkbabb/glass-ui/dom"
+}

@@ -1,0 +1,48 @@
+{
+ "color": {
+  "distinct": [
+   {
+    "n": 1,
+    "baseFrequency": "0.05",
+    "numOctaves": "5",
+    "primitiveUnits": "userSpaceOnUse(default)",
+    "filterUnits": null,
+    "dispScale": "1.3",
+    "boxW": 56
+   }
+  ],
+  "svgCount": 1,
+  "cssFilters": [
+   "url(\"#watercolor-filter-v-83\")",
+   "brightness(1)",
+   "brightness(1)"
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ "palette": {
+  "distinct": [
+   {
+    "n": 12,
+    "baseFrequency": "0.05",
+    "numOctaves": "5",
+    "primitiveUnits": "userSpaceOnUse(default)",
+    "filterUnits": null,
+    "dispScale": "1.3",
+    "boxW": 40
+   }
+  ],
+  "svgCount": 12,
+  "cssFilters": [
+   "url(\"#watercolor-filter-v-86\")",
+   "url(\"#watercolor-filter-v-87\")",
+   "url(\"#watercolor-filter-v-88\")"
+  ],
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ }
+}

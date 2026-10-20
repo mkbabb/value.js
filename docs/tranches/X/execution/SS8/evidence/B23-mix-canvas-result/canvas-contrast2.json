@@ -1,0 +1,146 @@
+{
+ "light-plateTransition": "opacity 0.2s",
+ "light-settled": {
+  "rect": {
+   "x": 770,
+   "y": 409.625,
+   "width": 62.84375,
+   "height": 25,
+   "top": 409.625,
+   "right": 832.84375,
+   "bottom": 434.625,
+   "left": 770
+  },
+  "headColor": "oklch(0.216129 0.00624853 56.0356)",
+  "plateBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+  "plateOpacity": "1",
+  "headClass": "font-display text-subheading",
+  "bgMedian": [
+   200,
+   115,
+   146
+  ],
+  "inkCore": {
+   "ink": [
+    27,
+    24,
+    22
+   ],
+   "bg": [
+    204,
+    122,
+    150
+   ],
+   "at": "47_12"
+  },
+  "contrast": 5.713
+ },
+ "light-ghost": {
+  "rect": {
+   "x": 770,
+   "y": 409.625,
+   "width": 62.84375,
+   "height": 25,
+   "top": 409.625,
+   "right": 832.84375,
+   "bottom": 434.625,
+   "left": 770
+  },
+  "headColor": "oklch(0.216129 0.00624853 56.0356)",
+  "plateBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+  "plateOpacity": "0.55",
+  "headClass": "font-display text-subheading",
+  "bgMedian": [
+   207,
+   119,
+   151
+  ],
+  "inkCore": {
+   "ink": [
+    113,
+    70,
+    83
+   ],
+   "bg": [
+    212,
+    126,
+    155
+   ],
+   "at": "47_12"
+  },
+  "contrast": 2.685
+ },
+ "light-errors": [],
+ "dark-plateTransition": "opacity 0.2s",
+ "dark-settled": {
+  "rect": {
+   "x": 770,
+   "y": 409.625,
+   "width": 62.84375,
+   "height": 25,
+   "top": 409.625,
+   "right": 832.84375,
+   "bottom": 434.625,
+   "left": 770
+  },
+  "headColor": "oklch(0.925202 0.00618423 67.7483)",
+  "plateBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+  "plateOpacity": "1",
+  "headClass": "font-display text-subheading",
+  "bgMedian": [
+   128,
+   39,
+   62
+  ],
+  "inkCore": {
+   "ink": [
+    235,
+    232,
+    228
+   ],
+   "bg": [
+    123,
+    36,
+    59
+   ],
+   "at": "20_15"
+  },
+  "contrast": 7.969
+ },
+ "dark-ghost": {
+  "rect": {
+   "x": 770,
+   "y": 409.625,
+   "width": 62.84375,
+   "height": 25,
+   "top": 409.625,
+   "right": 832.84375,
+   "bottom": 434.625,
+   "left": 770
+  },
+  "headColor": "oklch(0.925202 0.00618423 67.7483)",
+  "plateBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+  "plateOpacity": "0.55",
+  "headClass": "font-display text-subheading",
+  "bgMedian": [
+   121,
+   32,
+   55
+  ],
+  "inkCore": {
+   "ink": [
+    180,
+    136,
+    145
+   ],
+   "bg": [
+    117,
+    27,
+    52
+   ],
+   "at": "20_15"
+  },
+  "contrast": 3.501
+ },
+ "dark-errors": []
+}

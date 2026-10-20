@@ -1,0 +1,160 @@
+{
+ "light": {
+  "plateRect": {
+   "x": 754,
+   "y": 503.140625,
+   "width": 462,
+   "height": 230.53125,
+   "top": 503.140625,
+   "right": 1216,
+   "bottom": 733.671875,
+   "left": 754
+  },
+  "plate": [
+   215,
+   127,
+   153
+  ],
+  "host": [
+   217,
+   128,
+   155
+  ],
+  "contrast": 1.017,
+  "samples": {
+   "in0": [
+    217,
+    129,
+    155
+   ],
+   "out0": [
+    215,
+    127,
+    155
+   ],
+   "in1": [
+    217,
+    129,
+    155
+   ],
+   "out1": [
+    217,
+    128,
+    155
+   ],
+   "in2": [
+    215,
+    127,
+    153
+   ],
+   "out2": [
+    218,
+    128,
+    155
+   ],
+   "in3": [
+    212,
+    125,
+    149
+   ],
+   "out3": [
+    217,
+    129,
+    155
+   ],
+   "in4": [
+    185,
+    122,
+    134
+   ],
+   "out4": [
+    214,
+    127,
+    152
+   ]
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ "dark": {
+  "plateRect": {
+   "x": 754,
+   "y": 503.46875,
+   "width": 462,
+   "height": 230.53125,
+   "top": 503.46875,
+   "right": 1216,
+   "bottom": 734,
+   "left": 754
+  },
+  "plate": [
+   122,
+   25,
+   47
+  ],
+  "host": [
+   122,
+   25,
+   48
+  ],
+  "contrast": 1.001,
+  "samples": {
+   "in0": [
+    123,
+    27,
+    50
+   ],
+   "out0": [
+    121,
+    25,
+    48
+   ],
+   "in1": [
+    124,
+    26,
+    48
+   ],
+   "out1": [
+    122,
+    25,
+    48
+   ],
+   "in2": [
+    122,
+    25,
+    47
+   ],
+   "out2": [
+    122,
+    26,
+    49
+   ],
+   "in3": [
+    120,
+    24,
+    46
+   ],
+   "out3": [
+    123,
+    25,
+    47
+   ],
+   "in4": [
+    95,
+    32,
+    41
+   ],
+   "out4": [
+    122,
+    24,
+    47
+   ]
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ }
+}

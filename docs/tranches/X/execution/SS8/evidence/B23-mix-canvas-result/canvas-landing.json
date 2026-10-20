@@ -1,0 +1,144 @@
+{
+ "viewport": "1440x900 light dpr1",
+ "runs": [
+  {
+   "k": 0,
+   "clickToArmMs": 65.2,
+   "anchorPresentAtArm": true,
+   "wellLate": {
+    "cx": 68,
+    "cy": 514.1875
+   },
+   "arm": {
+    "t": 53885.40000000037,
+    "isNull": false,
+    "w": 510,
+    "h": 619,
+    "styleH": "619px",
+    "cw": 510,
+    "ch": 619,
+    "pw": 510,
+    "ph": 619,
+    "psh": 619
+   },
+   "wellAtArm": {
+    "cx": 73.61001586914062,
+    "cy": 516.0715637207031,
+    "r": 27.160003662109375
+   },
+   "poolCentroid": {
+    "x": 68,
+    "y": 515,
+    "r": 28
+   },
+   "gradCount": 243,
+   "missVsWellPx": 0.8,
+   "fallbackPredicted": {
+    "x": 255,
+    "y": 433.3
+   },
+   "paneDims": "510x619",
+   "backingStore": {
+    "w": 510,
+    "h": 619,
+    "MB": 1.204
+   },
+   "lastPoolDiscAreaShare": 0.78,
+   "_ref": true
+  },
+  {
+   "k": 1,
+   "clickToArmMs": 25.1,
+   "anchorPresentAtArm": false,
+   "wellLate": {
+    "cx": 68.72824096679688,
+    "cy": 514.7067565917969
+   },
+   "arm": {
+    "t": 55432,
+    "isNull": false,
+    "w": 510,
+    "h": 619,
+    "styleH": "619px",
+    "cw": 510,
+    "ch": 619,
+    "pw": 510,
+    "ph": 619,
+    "psh": 619
+   },
+   "wellAtArm": null,
+   "poolCentroid": {
+    "x": 255,
+    "y": 433.3,
+    "r": 28
+   },
+   "gradCount": 238,
+   "missVsWellPx": 203.3,
+   "fallbackPredicted": {
+    "x": 255,
+    "y": 433.3
+   },
+   "paneDims": "510x619",
+   "backingStore": {
+    "w": 510,
+    "h": 619,
+    "MB": 1.204
+   },
+   "lastPoolDiscAreaShare": 0.78,
+   "_ref": true
+  },
+  {
+   "k": 2,
+   "clickToArmMs": 16.8,
+   "anchorPresentAtArm": false,
+   "wellLate": {
+    "cx": 68.87692260742188,
+    "cy": 514.8127746582031
+   },
+   "arm": {
+    "t": 56972.700000000186,
+    "isNull": false,
+    "w": 510,
+    "h": 619,
+    "styleH": "619px",
+    "cw": 510,
+    "ch": 619,
+    "pw": 510,
+    "ph": 619,
+    "psh": 619
+   },
+   "wellAtArm": null,
+   "poolCentroid": {
+    "x": 255,
+    "y": 433.3,
+    "r": 28
+   },
+   "gradCount": 244,
+   "missVsWellPx": 203.2,
+   "fallbackPredicted": {
+    "x": 255,
+    "y": 433.3
+   },
+   "paneDims": "510x619",
+   "backingStore": {
+    "w": 510,
+    "h": 619,
+    "MB": 1.204
+   },
+   "lastPoolDiscAreaShare": 0.78,
+   "_ref": true
+  }
+ ],
+ "after": {
+  "canvasW": 0,
+  "canvasH": 0,
+  "zIndex": "20",
+  "nullCtx": 0,
+  "arms": 3
+ },
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED",
+  "CONSOLE [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: pane chunk not settled after 20000 ms\n    at http://localhost:9119/@fs/Users/mkbabb/Programming/value.js/demo/shell/u"
+ ]
+}

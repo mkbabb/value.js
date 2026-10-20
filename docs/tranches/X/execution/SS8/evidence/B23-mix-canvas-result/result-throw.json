@@ -1,0 +1,28 @@
+{
+ "inMath": {
+  "boundary": "This panel hit an unexpected error.\n\nInvalid CSS color\n\nTry again",
+  "crashed": true,
+  "picker": true,
+  "plate": null,
+  "ghost": false,
+  "arms": 0,
+  "consoleErrors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED",
+   "CONSOLE [value.js] unhandled failure (boundary · component event handler) PickerColorError: Invalid CSS color\n    at parsePickerColor (http://localhost:9119/@fs/Users/mkbabb/Programming/value.js/demo/color-se"
+  ]
+ },
+ "beyondMinLen": {
+  "boundary": "This panel hit an unexpected error.\n\nInvalid CSS color\n\nTry again",
+  "crashed": true,
+  "picker": true,
+  "plate": null,
+  "ghost": false,
+  "arms": 1,
+  "consoleErrors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED",
+   "CONSOLE [value.js] unhandled failure (boundary · watcher callback) PickerColorError: Invalid CSS color\n    at parsePickerColor (http://localhost:9119/@fs/Users/mkbabb/Programming/value.js/demo/color-session/p"
+  ]
+ }
+}
