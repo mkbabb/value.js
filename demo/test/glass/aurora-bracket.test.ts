@@ -9,6 +9,7 @@ import {
     CALIBRATED_BREATH_PERIOD,
     CALIBRATED_SOFTMAX_BETA,
     resolveCalibratedAtmosphere,
+    resolveAtmosphereField,
     vividnessForSeedChroma,
     seedChroma,
 } from "../../app/composables/boot/atmosphere-calibration";
@@ -167,25 +168,49 @@ describe("O-6 — the T-26 bracket resolver (Q2-NOW)", () => {
     });
 });
 
-describe("O-14 · auroraHarmonyStops ≡ the calibrated resolve (strict)", () => {
-    it("each candidate harmony's strip is the palette selecting it yields", () => {
-        const atoms = structuredClone(DEFAULT_AURORA_ATOMS);
-        atoms.seed = "oklch(0.62 0.27 9.8)";
-        for (const harmony of ["analogous", "triad", "monochrome"] as const) {
-            const strip = auroraHarmonyStops(atoms, harmony);
-            const direct = resolveCalibratedAtmosphere({
-                ...atoms,
-                harmony,
-            }).palette;
-            expect(strip).toHaveLength(direct.length);
-            strip.forEach((s, i) => {
-                const m = /^oklch\(([\d.]+) ([\d.]+) ([\d.]+)\)$/.exec(s);
-                expect(m, `stop shape: ${s}`).not.toBeNull();
-                expect(Number(m![1])).toBeCloseTo(direct[i]!.L, 4);
-                expect(Number(m![2])).toBeCloseTo(direct[i]!.C, 4);
-                expect(Number(m![3])).toBeCloseTo(direct[i]!.h, 4);
-            });
+describe("O-14 · auroraHarmonyStops ≡ the FIELD resolve (strict; AP-5 / SS8-0063)", () => {
+    // The strip must equal the palette the field PAINTS on selection — the
+    // calibrated resolve UNDER the derive-seam guarantee, not the bare
+    // calibrated resolve. The SS8-0063 witness grid (C-compute.json .U4):
+    // L .10–.95 × C {0,.05,.12,.2,.28} × the six harmonies at hue 25, plus the
+    // record's worst seed. Before the cure 210/510 cells diverged (max 61 rgb).
+    const HARMONIES = [
+        "analogous",
+        "complementary",
+        "split-complementary",
+        "triad",
+        "tetradic",
+        "monochrome",
+    ] as const;
+    const seeds = ["oklch(0.62 0.27 9.8)"];
+    for (let L = 0.1; L <= 0.951; L += 0.05)
+        for (const C of [0, 0.05, 0.12, 0.2, 0.28]) seeds.push(`oklch(${L.toFixed(2)} ${C} 25)`);
+
+    it("every seed × harmony strip is the field palette selecting it paints", () => {
+        let diverged = 0;
+        let cells = 0;
+        for (const seed of seeds) {
+            const atoms = structuredClone(DEFAULT_AURORA_ATOMS);
+            atoms.seed = seed;
+            for (const harmony of HARMONIES) {
+                cells++;
+                const strip = auroraHarmonyStops(atoms, harmony);
+                const field = resolveAtmosphereField({ ...atoms, harmony }).palette;
+                expect(strip).toHaveLength(field.length);
+                const off = strip.some((s, i) => {
+                    const m = /^oklch\(([\d.]+) ([\d.]+) ([\d.]+)\)$/.exec(s);
+                    expect(m, `stop shape: ${s}`).not.toBeNull();
+                    return (
+                        Math.abs(Number(m![1]) - field[i]!.L) > 5e-5 ||
+                        Math.abs(Number(m![2]) - field[i]!.C) > 5e-5 ||
+                        Math.abs(Number(m![3]) - field[i]!.h) > 5e-5
+                    );
+                });
+                if (off) diverged++;
+            }
         }
+        expect(cells).toBe(seeds.length * HARMONIES.length);
+        expect(diverged, `${diverged}/${cells} strip≠field cells`).toBe(0);
     });
 });
 

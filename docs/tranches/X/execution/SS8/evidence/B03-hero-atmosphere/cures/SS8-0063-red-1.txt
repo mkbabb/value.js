@@ -1,0 +1,42 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ❯ demo/test/glass/aurora-bracket.test.ts (9 tests | 1 failed) 514ms
+   ✓ O-6 — the T-26 bracket resolver (Q2-NOW) > the energy knob lands strictly inside the bracket (0.7 < 0.76 < 0.82) 1ms
+   ✓ O-6 — the T-26 bracket resolver (Q2-NOW) > every energy-co-varied axis resolves strictly between the two poles 2ms
+   ✓ O-6 — the T-26 bracket resolver (Q2-NOW) > the calibrated base knobs survive the atom resolution (the base seam) 0ms
+   ✓ O-6 — the T-26 bracket resolver (Q2-NOW) > vividness rides the seed's chroma — a gray pick keeps a sage whisper, never marigold (F-11) 1ms
+   ✓ O-6 — the T-26 bracket resolver (Q2-NOW) > T-32 — the zones knob: count sits AT the producer ceiling; the scattered prior spreads the six across the frame 1ms
+   ✓ O-6 — the T-26 bracket resolver (Q2-NOW) > seedChroma is throw-free on any input (the deep-watch law's helper) 0ms
+   × O-14 · auroraHarmonyStops ≡ the FIELD resolve (strict; AP-5 / SS8-0063) > every seed × harmony strip is the field palette selecting it paints 507ms
+     → 216/546 strip≠field cells: expected 216 to be +0 // Object.is equality
+   ✓ X.W6.i · i2 — the dark lBand door is REACHABLE through the atoms > `lightnessScheme: "dark"` moves the WHOLE derived ramp into the dark band 1ms
+   ✓ X.W6.i · i2 — the dark lBand door is REACHABLE through the atoms > an explicit `lBand` OVERRIDES the scheme and is honoured exactly 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/glass/aurora-bracket.test.ts > O-14 · auroraHarmonyStops ≡ the FIELD resolve (strict; AP-5 / SS8-0063) > every seed × harmony strip is the field palette selecting it paints
+AssertionError: 216/546 strip≠field cells: expected 216 to be +0 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 0[39m
+[31m+ 216[39m
+
+ ❯ demo/test/glass/aurora-bracket.test.ts:213:68
+    211|         }
+    212|         expect(cells).toBe(seeds.length * HARMONIES.length);
+    213|         expect(diverged, `${diverged}/${cells} strip≠field cells`).toB…
+       |                                                                    ^
+    214|     });
+    215| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Start at  14:34:37
+   Duration  2.23s (transform 64ms, setup 71ms, collect 74ms, tests 514ms, environment 1.02s, prepare 113ms)
+
