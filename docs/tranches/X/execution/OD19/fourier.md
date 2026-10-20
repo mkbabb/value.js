@@ -156,3 +156,132 @@ Rows **OD19-F5**, **OD19-F6**, **OD19-ALL**. fourier `m/w1-bump-migration` **`2a
   - **G-F3 (new).** `EasingCurve` has no caption-free glyph register. At dock-glyph size (20 px) its HTML "0"/"1" axis captions crowd the plot. The same happens at the menu rows' 24 px. A `bare`/glyph mode would be the producer cure.
   - **G-F4.** A collapse still does not dismiss child overlays. The consumer now holds the dock open through `keepOpen()` instead.
 - **Re-deploy verify (2026-10-20).** The modify set is unchanged since `e928541` (fourier HEAD, pushed). The falsifier re-ran on the served dev app (:3100) under `guarded`: GREEN 16/16 in 2.0 min. No new code; the residual is still G-F2a.
+
+### load
+
+Row **OD19-ALL** (fourier half): load times on every route, and smooth, subtle route transitions. fourier `m/w1-bump-migration` at **`ac9d514` (pushed, fast-forward over `e928541`)**.
+
+**The instrument.** Every route was read on the production bundle. `vite preview` served it on :4190, and Playwright's `webServer` built and started it under `guarded`, then stopped it when the run ended. `/api` proxied to the dev backend on :8000 (`COMPUTE_CONCURRENCY=1`), and the seed origin was `BASE_URL=http://localhost:3100`.
+
+The browser was headless Chromium (the Playwright headless shell), one browser per run and a context per cell. CPU was throttled ×4 through CDP `Emulation.setCPUThrottlingRate`. The network was localhost and unthrottled, so bytes are read as bytes.
+
+Each route was read in three modes:
+- **cold**: a fresh context, then a hard load.
+- **warm**: a second hard load in the same context.
+- **nav**: an in-app navigation from another section. The pointer goes over the dock section-menu item, then clicks it. Time is measured from the click, and frames are traced over the transition.
+
+Each reading records:
+- the decoded JS and CSS bytes;
+- the time until the route's own content selector is visible with nothing in `<main>` `aria-busy`;
+- long tasks: the count, and TBT = Σ(d − 50 ms);
+- for nav, the maximum frame gap and the number of frames over 50 ms.
+
+The time bars count only the page's **own** time: the reading minus `apiMs`, the union of the `/api/` request spans inside the timed window. A cold `/equation` waits 1.4–6.8 s on the backend's compute of the default series. That latency belongs to the server and the shared machine (load 17–28 during these runs), not to the bundle, so the raw `ms` is still recorded beside the own time.
+
+The spec and readings are at `fourier/load/` (`before/`, `after/`; the probes are in `tools/`).
+
+**Root causes measured (BEFORE).** The eager boot set was **1,349 kB** of JS (`index` 520 + `vendor-ui` 369 + `vendor-math` 308 + `vendor-vue` 128 + `vendor-keyframes` 24), and every route parsed all of it before it could start. It held four welds:
+1. **The header toggle's sun and moon.** 2 × 10 harmonic levels of JSON (~450 kB raw, 375 kB of the entry chunk) were imported statically by `DarkModeToggle.vue`, which mounts on every route. This is the FR-AH-1 row.
+2. **`katex`** (258 kB) was welded into `vendor-math`, which boot needs for `installVizColors`.
+3. **`vendor-ui`** (glass-ui, reka-ui and lucide) put every component that any route uses on the boot path.
+4. **`vendor-paper`** named the packages' bare `"."` entries, which the app never imports, so it built an **empty** chunk that `/paper` fetched for nothing.
+
+The admin panels loaded only when their tab opened: the Users tab fetched 18 kB of code at click time.
+
+**Cures (root, consumer).**
+- `web/vite.config.ts`: the three welds are struck. A named vendor chunk now exists only for a cluster that every route loads (`vendor-vue`, `vendor-math` = the value.js colour subpaths, `vendor-keyframes`). Rollup places katex, glass, reka and lucide where they are imported. The empty `vendor-paper` is gone.
+- `web/src/lib/sun-moon-shapes.ts` (new; the shapes' one home): the two shapes ride their own chunks. They are requested when the module evaluates, in parallel with the route chunk, and `main.ts` mounts once `router.isReady()` and the shapes have both landed. The glyph never paints empty. `FourierMorphDemo.vue` reads the same two shapes from there.
+- `sun.json` and `moon.json`: coordinates are rounded to 3 decimals, sub-pixel in their 200-unit viewBox. That is 450 → 201 kB, and the P3 falsifier's toggle-ink bars stay green.
+- **Prefetch on intent** (beside P3's dock section-menu `prefetchRoute` on `pointerenter`/`focus`):
+  - In `GalleryView.vue`, admin mode turning on loads the three admin panels' chunks.
+  - An opened gallery card (`selectedSlug`) prefetches `/v/<slug>`'s route chunk.
+- Already landed under P3 (`2a3651d`), and re-read here on the production bundle:
+  - route changes crossfade under glass `routeTransition({nav:"route"})`, which is View Transitions on opacity only;
+  - the text loaders are glass `Skeleton` with `aria-busy`;
+  - nav-intent prefetch of the route chunk and of `/equation`'s default compute.
+
+  No visible text loader remains in `web/src`. The admin lists' "Loading users." and "Loading audit entries." live only in their `sr-only` live regions, and no spinner exists.
+
+**Chunk bytes (raw, from the build).**
+
+| chunk | BEFORE kB | AFTER kB |
+|---|---|---|
+| **eager boot set** (entry + named vendors in `index.html`) | **1,349.2** | **459.7** (−66 %) |
+| `index` (entry) | 520.3 | 261.6 |
+| `vendor-ui` | 369.4 | — (struck) |
+| `vendor-math` | 307.6 | 46.2 |
+| `vendor-vue` / `vendor-keyframes` | 127.6 / 24.3 | 127.6 / 24.3 |
+| `sun` + `moon` (parallel with the route chunk; gates mount) | in entry | 101.1 + 100.3 |
+| `vendor-paper` (empty, fetched by /paper) | 0.0 | — (struck) |
+| shared component chunk (glass + katex, loaded by the routes that use them) | in vendors | 261.9 |
+| `PaperView` / `VisualizationView` / `GalleryView` / `EquationView` / `FourierMorphDemo` | 481.9 / 74.1 / 44.5 / 33.3 / 10.1 | 510.7 / 77.6 / 53.4 / 33.6 / 10.5 |
+
+**Before/after: every route, CPU ×4, production bundle.**
+- BEFORE = `before/load-before-{1,2}.json`.
+- AFTER = `after/load-after-{3,4}.json`, both runs GREEN 19/19.
+- Times are in ms. "own" is the time minus the API wait.
+
+| route @ width | mode | JS KB BEFORE → AFTER | CSS KB | ms BEFORE r1 / r2 | ms AFTER r1 / r2 (own = less API wait) | long tasks (TBT ms) BEFORE → AFTER | frame gap max / >50 ms BEFORE → AFTER |
+|---|---|---|---|---|---|---|---|
+| paper@1440 | cold | 1790 → 1432 (-20%) | 441 → 441 | 563 / 566 | 715 (own 715) / 790 (own 790) | 3 (376), 3 (359) → 3 (457), 3 (538) |  |
+| paper@1440 | warm | 0 → 0 | 0 → 0 | 353 / 309 | 318 (own 318) / 421 (own 421) | 2 (133), 2 (115) → 1 (117), 2 (212) |  |
+| paper@390 | cold | 1790 → 1432 (-20%) | 441 → 441 | 530 / 560 | 387 (own 387) / 535 (own 535) | 3 (339), 3 (368) → 2 (225), 2 (343) |  |
+| paper@390 | warm | 0 → 0 | 0 → 0 | 330 / 311 | 246 (own 246) / 342 (own 342) | 1 (77), 1 (72) → 1 (56), 2 (98) |  |
+| visualize@1440 | cold | 1444 → 1162 (-20%) | 434 → 434 | 378 / 389 | 363 (own 363) / 457 (own 457) | 2 (205), 2 (204) → 1 (205), 1 (264) |  |
+| visualize@1440 | warm | 0 → 0 | 0 → 0 | 248 / 243 | 211 (own 211) / 247 (own 247) | 1 (39), 1 (32) → 1 (32), 1 (47) |  |
+| visualize@390 | cold | 1444 → 1162 (-20%) | 434 → 434 | 452 / 349 | 354 (own 354) / 453 (own 453) | 2 (260), 2 (178) → 1 (187), 1 (259) |  |
+| visualize@390 | warm | 0 → 0 | 0 → 0 | 245 / 203 | 213 (own 213) / 268 (own 268) | 1 (41), 1 (22) → 1 (30), 1 (55) |  |
+| visualization@1440 | cold | 1444 → 1162 (-20%) | 434 → 434 | 1025 / 708 | 783 (own 762) / 998 (own 975) | 4 (639), 3 (397) → 2 (468), 2 (621) |  |
+| visualization@1440 | warm | 0 → 0 | 0 → 0 | 780 / 366 | 600 (own 590) / 790 (own 779) | 3 (230), 2 (117) → 2 (149), 3 (242) |  |
+| visualization@390 | cold | 1444 → 1162 (-20%) | 434 → 434 | 857 / 707 | 725 (own 700) / 995 (own 887) | 3 (505), 3 (393) → 2 (418), 2 (548) |  |
+| visualization@390 | warm | 0 → 0 | 0 → 0 | 403 / 324 | 405 (own 376) / 498 (own 476) | 2 (140), 2 (95) → 2 (131), 2 (179) |  |
+| gallery@1440 | cold | 1392 → 798 (-43%) | 422 → 422 | 592 / 613 | 552 (own 537) / 688 (own 672) | 3 (292), 3 (304) → 2 (266), 2 (357) |  |
+| gallery@1440 | warm | 0 → 0 | 0 → 0 | 267 / 268 | 259 (own 254) / 329 (own 316) | 1 (34), 1 (38) → 2 (37), 2 (74) |  |
+| gallery@390 | cold | 1392 → 798 (-43%) | 422 → 422 | 574 / 501 | 571 (own 566) / 669 (own 664) | 3 (274), 3 (222) → 2 (284), 2 (355) |  |
+| gallery@390 | warm | 0 → 0 | 0 → 0 | 298 / 282 | 289 (own 271) / 364 (own 360) | 2 (55), 2 (46) → 2 (50), 2 (95) |  |
+| equation@1440 | cold | 1389 → 1079 (-22%) | 427 → 427 | 2129 / 1776 | 1855 (own 417) / 6847 (own 413) | 3 (413), 3 (369) → 3 (476), 4 (506) |  |
+| equation@1440 | warm | 0 → 0 | 0 → 0 | 415 / 368 | 401 (own 401) / 353 (own 353) | 3 (201), 3 (165) → 3 (209), 2 (197) |  |
+| equation@390 | cold | 1389 → 1079 (-22%) | 427 → 427 | 2336 / 1839 | 1963 (own 384) / 1990 (own 349) | 4 (472), 3 (299) → 3 (446), 3 (407) |  |
+| equation@390 | warm | 0 → 0 | 0 → 0 | 381 / 226 | 315 (own 315) / 280 (own 280) | 1 (201), 1 (94) → 1 (168), 1 (148) |  |
+| morph@1440 | cold | 1342 → 740 (-45%) | 422 → 422 | 647 / 484 | 628 (own 628) / 570 (own 570) | 2 (454), 2 (312) → 1 (441), 1 (395) |  |
+| morph@1440 | warm | 0 → 0 | 0 → 0 | 443 / 358 | 424 (own 424) / 382 (own 382) | 1 (219), 1 (146) → 1 (208), 1 (186) |  |
+| morph@390 | cold | 1342 → 740 (-45%) | 422 → 422 | 666 / 478 | 616 (own 616) / 534 (own 534) | 2 (472), 2 (305) → 1 (432), 1 (367) |  |
+| morph@390 | warm | 0 → 0 | 0 → 0 | 462 / 352 | 428 (own 428) / 343 (own 343) | 1 (231), 1 (160) → 1 (213), 1 (159) |  |
+| paper | nav | 472 → 776 (64%) | 28 → 28 | 584 / 603 | 563 (own 563) / 509 (own 509) | 2 (132), 2 (146) → 2 (223), 2 (175) | 258/1, 284/1 → 359/1, 304/1 |
+| visualize | nav | 126 → 232 (84%) | 21 → 21 | 449 / 431 | 398 (own 398) / 472 (own 472) | 1 (30), 1 (21) → 1 (48), 1 (35) | 133/3, 125/5 → 155/5, 143/3 |
+| gallery | nav | 73 → 127 (74%) | 8 → 8 | 533 / 523 | 616 (own 610) / 561 (own 556) | 2 (104), 2 (48) → 2 (107), 2 (67) | 258/1, 175/1 → 248/1, 207/1 |
+| equation | nav | 71 → 172 (142%) | 13 → 13 | 1464 / 1190 | 1648 (own 182) / 1699 (own 173) | 2 (113), 2 (132) → 3 (198), 2 (171) | 167/8, 166/4 → 231/17, 195/12 |
+| morph | nav | 25 → 85 (240%) | 9 → 9 | 568 / 591 | 609 (own 609) / 643 (own 643) | 1 (149), 1 (165) → 1 (255), 1 (201) | 250/1, 266/1 → 366/1, 308/1 |
+| admin | cold | 1392 → 839 (-40%) | 422 → 422 | 709 / 587 | 666 (own 405) / 738 (own 445) | 3 (290), 3 (206) → 3 (250), 3 (302) |  |
+| admin | users-tab | 18 → 0 (-100%) | 0 → 0 | 304 / 218 | 217 (own 171) / 211 (own 189) | 2 (36), 0 (0) → 1 (3), 1 (6) |  |
+
+**Reading.**
+- **Bytes are the cure, and they reproduce exactly.** Each route's cold JS falls by between 20 % (/paper, /visualize, /v) and 45 % (/morph). /gallery falls 43 % and admin 40 %. The admin Users tab now fetches **0** kB, because its code already arrived when admin mode turned on. An opened gallery card has already fetched `VisualizationView`.
+- **Nav bytes go up.** /paper 472 → 776 kB and /equation 71 → 172 kB. This is the intended trade: the components that used to sit in the eager `vendor-ui` and the katex in `vendor-math` now load with the first route that uses them. A cold load plus one navigation still moves fewer bytes than before. /morph cold + /paper nav goes from 1,814 kB (1,342 + 472) to 1,516 kB (740 + 776). /paper cold + /visualize nav goes from 1,916 kB (1,790 + 126) to 1,664 kB (1,432 + 232).
+- **The time columns are rendering-bound and noisy on a shared machine.** At CPU ×4 on localhost, the first style and layout pass and Vue's mount dominate. The BEFORE runs were taken on 2026-10-19 at a lower load than the AFTER runs (2026-10-20, load 17–28 from other seats). An earlier AFTER run taken at a load close to BEFORE's (`after/load-after-1.json`, which predates the `apiMs` field) read cold times 9–34 % under `before-1` on every route except the server-bound /equation. Examples: /paper@390 530 → 362, /visualize@1440 378 → 304, /morph@1440 647 → 504. Against `before-2`'s spread, some of those readings are level (/morph@1440 484 vs 504, /visualize@390 349 vs 343). So time is a budget bar here, not proof that the bytes cure works.
+- **/equation's page time is ~0.4 s cold and ~0.18 s on nav.** Its raw 1.6–6.8 s is the backend's compute of the default series. The P3 nav-intent prefetch hides that compute when the pointer dwells on the menu item (1,860 → 89–114 ms after a 1–3 s dwell, P3 above). The spec moves the pointer straight from hover to click, so it measures the no-dwell worst case.
+- **Transitions.** Every nav runs the glass crossfade (opacity only). The maximum frame gap is the route-chunk evaluation frame at CPU ×4: 143–366 ms AFTER against 125–284 ms BEFORE, under the 450 ms bar. /equation's nav has 12–17 frames over 50 ms AFTER, against 4–8 BEFORE: its route chunk now carries its own components (172 kB evaluated at CPU ×4), and the series paints while the compute result lands. That stays under the 20-frame bar, and it is the one transition reading that got worse.
+
+**Falsifier.** `web/e2e/od19-load.spec.ts`, 19 tests.
+- 12 tests: cold + warm for each of the 6 routes × {1440, 390}.
+- 5 tests: in-app nav with frame tracing.
+- 2 tests: gallery card prefetch, and admin cold + Users tab.
+- The bars:
+  - Cold JS per route sits between its AFTER and BEFORE readings: /paper 1,550, /visualize and /v 1,260, /gallery 870, /equation 1,170, /morph 810, admin 910 kB.
+  - The admin Users tab fetches 0 kB.
+  - The /v chunk must be present once a gallery card is open.
+  - Own-time budgets are about 1.5× the worst AFTER reading. /equation's own-time bars are cold 1,000 ms and nav 700 ms.
+  - Frames: max gap ≤ 450 ms, and ≤ 20 frames over 50 ms.
+- BEFORE: **RED 14/19** (`before/run-before-2-RED.log`; every byte bar, the card prefetch and the admin tab).
+- AFTER: **GREEN 19/19 ×2** (`after/run-after-{3,4}.log`).
+- An intermediate AFTER run (`after/run-after-2.log`, under the earlier raw-time bars) went red only on /equation cold (6,801 ms) and nav (3,941 ms). Those are the backend's compute under load, which is why the time bars now read own time. Two runs (`run-after-2-seed-404{,b}.log`) never started: the seed defaulted to :3000, which another app owns.
+
+**Gates.**
+- `vue-tsc -b`: clean.
+- vitest: 116/116 (`after/vitest.log`).
+- Adjacent spec `od19-p3-shell-motion-loading` (toggle ink, route crossfade, skeletons): run 1 15/16 (the /v push `vtFrames` 5 against a bar of 6 under load; this is the same frame-cadence flake as the P3 re-deploy addendum) and run 2 **16/16** (`after/adjacent-p3-run-{1,2}.log`).
+- No golden was re-baselined.
+
+**Residuals.**
+- The glass `Skeleton` shimmer is O-102a (glass 10.1.1). Adopt it when it lands; it is never a local animation.
+- The /equation cold compute is the backend's (the `/api/equations/compute` default series). A server-side cache of the default series is the next root, and it is not a bundle cure.

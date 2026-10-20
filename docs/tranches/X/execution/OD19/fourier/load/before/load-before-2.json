@@ -1,0 +1,268 @@
+{
+  "cpuThrottle": 4,
+  "readings": {
+    "paper@1440": {
+      "cold": {
+        "ms": 566,
+        "jsKB": 1790,
+        "cssKB": 441,
+        "longTasks": 3,
+        "tbt": 359
+      },
+      "warm": {
+        "ms": 309,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 2,
+        "tbt": 115
+      }
+    },
+    "paper@390": {
+      "cold": {
+        "ms": 560,
+        "jsKB": 1790,
+        "cssKB": 441,
+        "longTasks": 3,
+        "tbt": 368
+      },
+      "warm": {
+        "ms": 311,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 72
+      }
+    },
+    "visualize@1440": {
+      "cold": {
+        "ms": 389,
+        "jsKB": 1444,
+        "cssKB": 434,
+        "longTasks": 2,
+        "tbt": 204
+      },
+      "warm": {
+        "ms": 243,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 32
+      }
+    },
+    "visualize@390": {
+      "cold": {
+        "ms": 349,
+        "jsKB": 1444,
+        "cssKB": 434,
+        "longTasks": 2,
+        "tbt": 178
+      },
+      "warm": {
+        "ms": 203,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 22
+      }
+    },
+    "visualization@1440": {
+      "cold": {
+        "ms": 708,
+        "jsKB": 1444,
+        "cssKB": 434,
+        "longTasks": 3,
+        "tbt": 397
+      },
+      "warm": {
+        "ms": 366,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 2,
+        "tbt": 117
+      }
+    },
+    "visualization@390": {
+      "cold": {
+        "ms": 707,
+        "jsKB": 1444,
+        "cssKB": 434,
+        "longTasks": 3,
+        "tbt": 393
+      },
+      "warm": {
+        "ms": 324,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 2,
+        "tbt": 95
+      }
+    },
+    "gallery@1440": {
+      "cold": {
+        "ms": 613,
+        "jsKB": 1392,
+        "cssKB": 422,
+        "longTasks": 3,
+        "tbt": 304
+      },
+      "warm": {
+        "ms": 268,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 38
+      }
+    },
+    "gallery@390": {
+      "cold": {
+        "ms": 501,
+        "jsKB": 1392,
+        "cssKB": 422,
+        "longTasks": 3,
+        "tbt": 222
+      },
+      "warm": {
+        "ms": 282,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 2,
+        "tbt": 46
+      }
+    },
+    "equation@1440": {
+      "cold": {
+        "ms": 1776,
+        "jsKB": 1389,
+        "cssKB": 427,
+        "longTasks": 3,
+        "tbt": 369
+      },
+      "warm": {
+        "ms": 368,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 3,
+        "tbt": 165
+      }
+    },
+    "equation@390": {
+      "cold": {
+        "ms": 1839,
+        "jsKB": 1389,
+        "cssKB": 427,
+        "longTasks": 3,
+        "tbt": 299
+      },
+      "warm": {
+        "ms": 226,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 94
+      }
+    },
+    "morph@1440": {
+      "cold": {
+        "ms": 484,
+        "jsKB": 1342,
+        "cssKB": 422,
+        "longTasks": 2,
+        "tbt": 312
+      },
+      "warm": {
+        "ms": 358,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 146
+      }
+    },
+    "morph@390": {
+      "cold": {
+        "ms": 478,
+        "jsKB": 1342,
+        "cssKB": 422,
+        "longTasks": 2,
+        "tbt": 305
+      },
+      "warm": {
+        "ms": 352,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 160
+      }
+    },
+    "paper": {
+      "nav": {
+        "ms": 603,
+        "jsKB": 472,
+        "cssKB": 28,
+        "longTasks": 2,
+        "tbt": 146,
+        "maxGapMs": 284,
+        "over50": 1
+      }
+    },
+    "visualize": {
+      "nav": {
+        "ms": 431,
+        "jsKB": 126,
+        "cssKB": 21,
+        "longTasks": 1,
+        "tbt": 21,
+        "maxGapMs": 125,
+        "over50": 5
+      }
+    },
+    "gallery": {
+      "nav": {
+        "ms": 523,
+        "jsKB": 73,
+        "cssKB": 8,
+        "longTasks": 2,
+        "tbt": 48,
+        "maxGapMs": 175,
+        "over50": 1
+      }
+    },
+    "equation": {
+      "nav": {
+        "ms": 1190,
+        "jsKB": 71,
+        "cssKB": 13,
+        "longTasks": 2,
+        "tbt": 132,
+        "maxGapMs": 166,
+        "over50": 4
+      }
+    },
+    "morph": {
+      "nav": {
+        "ms": 591,
+        "jsKB": 25,
+        "cssKB": 9,
+        "longTasks": 1,
+        "tbt": 165,
+        "maxGapMs": 266,
+        "over50": 1
+      }
+    },
+    "admin": {
+      "cold": {
+        "ms": 587,
+        "jsKB": 1392,
+        "cssKB": 422,
+        "longTasks": 3,
+        "tbt": 206
+      },
+      "users-tab": {
+        "ms": 218,
+        "jsKB": 18,
+        "cssKB": 0,
+        "longTasks": 0,
+        "tbt": 0
+      }
+    }
+  }
+}
