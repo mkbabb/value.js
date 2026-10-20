@@ -1,0 +1,12 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/color-session/colour-frame-cost.test.ts (5 tests) 2179ms
+   ✓ OD19-V3 — the Palettes ramps leave the drag clock > a drag writes --accent-view every frame but mints no ramp until the input settles; the settled ramp is byte-equal to a direct mint  1606ms
+   ✓ OD19-V3 — one colour frame certifies each question once > the boot accent, the Nutrition label and two floating menus cost one walk per rung per frame, with unchanged answers  361ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  14:35:03
+   Duration  3.52s (transform 123ms, setup 84ms, collect 248ms, tests 2.18s, environment 638ms, prepare 150ms)
+

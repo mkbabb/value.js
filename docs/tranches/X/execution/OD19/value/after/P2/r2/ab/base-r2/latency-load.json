@@ -1,0 +1,212 @@
+{
+ "dark-1440": {
+  "v8_rail": {
+   "border": "0px solid rgb(101, 87, 73)",
+   "outline": "oklch(0.925202 0.00618423 67.7483) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 2081,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 37.3,
+    "p95": 56.6,
+    "max": 76.1
+   },
+   "frameInterval": {
+    "n": 63,
+    "p50": 40.4,
+    "p95": 64.3,
+    "max": 68.4
+   },
+   "loaf": {
+    "n": 8,
+    "totalMs": 511,
+    "blockingMs": 27
+   },
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/demo/color-session/useAtmosphe::publish",
+     169
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/node_modules/.vite/deps/vue.ru::invoker",
+     108
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/node_modules/.vite/deps/useRes::h",
+     9
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/node_modules/.vite/deps/useScr::FrameRequestCallback",
+     6
+    ]
+   ]
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 1065,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 23.8,
+    "p95": 38.7,
+    "max": 42.7
+   },
+   "frameInterval": {
+    "n": 105,
+    "p50": 12.8,
+    "p95": 25.9,
+    "max": 30.5
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": []
+  },
+  "v5_gradient": {
+   "tLoadEvent": 238,
+   "tTitleVisible": 489,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 232,
+    "load": 237,
+    "fcp": 300,
+    "resources": 250
+   },
+   "requests": 446,
+   "errors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:8291 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+   ],
+   "failed": [],
+   "tInAppSecondVisit": 303
+  },
+  "v5_mix": {
+   "tLoadEvent": 302,
+   "tTitleVisible": 414,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 291,
+    "load": 300,
+    "fcp": 328,
+    "resources": 250
+   },
+   "requests": 446,
+   "errors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:8291 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+   ],
+   "failed": [],
+   "tInAppSecondVisit": 278
+  },
+  "v6_plate": null
+ },
+ "light-390": {
+  "v8_rail": {
+   "border": "0px solid rgb(198, 180, 159)",
+   "outline": "oklch(0.216129 0.00624853 56.0356) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 4075,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 57.4,
+    "p95": 215.4,
+    "max": 246.1
+   },
+   "frameInterval": {
+    "n": 133,
+    "p50": 13.5,
+    "p95": 170.5,
+    "max": 247.5
+   },
+   "loaf": {
+    "n": 25,
+    "totalMs": 2686,
+    "blockingMs": 1310
+   },
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/demo/color-session/useAtmosphe::publish",
+     2009
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/node_modules/.vite/deps/vue.ru::invoker",
+     391
+    ],
+    [
+     "/composables/boot/useViewAccents.ts::mintRamps",
+     80
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/node_modules/.vite/deps/useScr::FrameRequestCallback",
+     27
+    ]
+   ]
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 600,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 13,
+    "p95": 19.2,
+    "max": 21.8
+   },
+   "frameInterval": {
+    "n": 120,
+    "p50": 8.1,
+    "p95": 13.6,
+    "max": 15.9
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": []
+  },
+  "v5_gradient": {
+   "tLoadEvent": 204,
+   "tTitleVisible": 406,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 200,
+    "load": 203,
+    "fcp": 256,
+    "resources": 250
+   },
+   "requests": 446,
+   "errors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:8291 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+   ],
+   "failed": [],
+   "tInAppSecondVisit": 252
+  },
+  "v5_mix": {
+   "tLoadEvent": 250,
+   "tTitleVisible": 343,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 241,
+    "load": 248,
+    "fcp": 260,
+    "resources": 250
+   },
+   "requests": 446,
+   "errors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:8291 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+   ],
+   "failed": [],
+   "tInAppSecondVisit": 242
+  },
+  "v6_plate": null
+ }
+}

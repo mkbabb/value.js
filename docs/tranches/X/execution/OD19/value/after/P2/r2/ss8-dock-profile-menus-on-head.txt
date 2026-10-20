@@ -1,0 +1,248 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:51109) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+stderr | demo/test/shell/dock-profile-menus.test.ts > SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > ProfileSection: one menuitem, no nested anchor; click and Enter open the repository
+[Vue warn]: Unhandled error during execution of component update 
+  at <ProfileSection cssColorOpaque="oklch(0.62 0.19 25)" linkCopied=false mbabbMenuOpen=true  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/shell/dock-profile-menus.test.ts > SS8-0093 · 0098 — band controls are glass's dock control family > ProfileSection (out): every band seat is a DockTrigger or DockControl
+[Vue warn]: Unhandled error during execution of component update 
+  at <ProfileSection cssColorOpaque="oklch(0.62 0.19 25)" linkCopied=false ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | demo/test/shell/dock-profile-menus.test.ts > SS8-0093 · 0098 — band controls are glass's dock control family > ProfileSection (user): every band seat is a DockTrigger or DockControl
+[Vue warn]: Unhandled error during execution of component update 
+  at <PopperRoot data-slot="menu" data-menu-trigger="click" > 
+  at <MenuRoot open=false onUpdate:open=fn dir="ltr"  ... > 
+  at <DropdownMenuRoot key=1 data-slot="menu" data-menu-trigger="click"  ... > 
+  at <DropdownMenu key=0 open=false onUpdate:open=fn > 
+  at <ProfileSection cssColorOpaque="oklch(0.62 0.19 25)" linkCopied=false ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | demo/test/shell/dock-profile-menus.test.ts > SS8-0099 — the theme row is a checkbox item > ProfileSection: Dark mode is a menuitemcheckbox whose state is aria-checked, no sun/moon glyph
+[Vue warn]: Unhandled error during execution of component update 
+  at <ProfileSection cssColorOpaque="oklch(0.62 0.19 25)" linkCopied=false mbabbMenuOpen=true  ... > 
+  at <VTUROOT>
+
+ ❯ demo/test/shell/dock-profile-menus.test.ts (13 tests | 7 failed) 433ms
+   × SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > ProfileSection: one menuitem, no nested anchor; click and Enter open the repository 128ms
+     → no open menu
+   × SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > MobileMenuDropdown: one menuitem, no nested anchor; click and Enter open the repository 108ms
+     → no open menu
+   × SS8-0092 — the admin identity is a menu with its exits > ProfileSection: admin arm offers Switch account + Sign out of admin; sign out reaches adminLogout 31ms
+     → no open menu
+   × SS8-0092 — the admin identity is a menu with its exits > MobileMenuDropdown: admin arm offers Switch account + Sign out of admin; sign out reaches adminLogout 31ms
+     → no open menu
+   ✓ SS8-0093 · 0098 — band controls are glass's dock control family > ProfileSection (out): every band seat is a DockTrigger or DockControl 6ms
+   ✓ SS8-0093 · 0098 — band controls are glass's dock control family > ProfileSection (user): every band seat is a DockTrigger or DockControl 8ms
+   ✓ SS8-0093 · 0098 — band controls are glass's dock control family > ProfileSection (admin): every band seat is a DockTrigger or DockControl 6ms
+   × SS8-0099 — the theme row is a checkbox item > ProfileSection: Dark mode is a menuitemcheckbox whose state is aria-checked, no sun/moon glyph 5ms
+     → no open menu
+   ✓ SS8-0099 — the theme row is a checkbox item > MobileMenuDropdown: Dark mode is a menuitemcheckbox whose state is aria-checked, no sun/moon glyph 22ms
+   ✓ SS8-0107 — the admin gold reads the rebound certified ink > ProfileSection: the admin trigger wears .gold-ink, no inline gold, no shimmer 6ms
+   ✓ SS8-0107 — the admin gold reads the rebound certified ink > utils.css: .gold-ink is the one reader of --ink-gold 1ms
+   × SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (light): 7/7 picks paint safeCss_floating(pick), idempotent 39ms
+     → oklch(0.62 0.19 25): expected 'oklch(0.933754 0.033387 25)' to be 'oklch(93.37539969245% 0.033387010915 …' // Object.is equality
+   × SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (dark): 7/7 picks paint safeCss_floating(pick), idempotent 40ms
+     → oklch(0.62 0.19 25): expected 'oklch(0.897896 0.0531241 25)' to be 'oklch(89.789560109377% 0.053124107898…' // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > ProfileSection: one menuitem, no nested anchor; click and Enter open the repository
+Error: no open menu
+ ❯ menu demo/test/shell/dock-profile-menus.test.ts:94:20
+     92| function menu(): HTMLElement {
+     93|     const el = document.body.querySelector<HTMLElement>("[role=menu]");
+     94|     if (!el) throw new Error("no open menu");
+       |                    ^
+     95|     return el;
+     96| }
+ ❯ rowNamed demo/test/shell/dock-profile-menus.test.ts:101:21
+ ❯ demo/test/shell/dock-profile-menus.test.ts:127:25
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > MobileMenuDropdown: one menuitem, no nested anchor; click and Enter open the repository
+Error: no open menu
+ ❯ menu demo/test/shell/dock-profile-menus.test.ts:94:20
+     92| function menu(): HTMLElement {
+     93|     const el = document.body.querySelector<HTMLElement>("[role=menu]");
+     94|     if (!el) throw new Error("no open menu");
+       |                    ^
+     95|     return el;
+     96| }
+ ❯ rowNamed demo/test/shell/dock-profile-menus.test.ts:101:21
+ ❯ demo/test/shell/dock-profile-menus.test.ts:139:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0092 — the admin identity is a menu with its exits > ProfileSection: admin arm offers Switch account + Sign out of admin; sign out reaches adminLogout
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0092 — the admin identity is a menu with its exits > MobileMenuDropdown: admin arm offers Switch account + Sign out of admin; sign out reaches adminLogout
+Error: no open menu
+ ❯ menu demo/test/shell/dock-profile-menus.test.ts:94:20
+     92| function menu(): HTMLElement {
+     93|     const el = document.body.querySelector<HTMLElement>("[role=menu]");
+     94|     if (!el) throw new Error("no open menu");
+       |                    ^
+     95|     return el;
+     96| }
+ ❯ rowNamed demo/test/shell/dock-profile-menus.test.ts:101:21
+ ❯ demo/test/shell/dock-profile-menus.test.ts:159:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0099 — the theme row is a checkbox item > ProfileSection: Dark mode is a menuitemcheckbox whose state is aria-checked, no sun/moon glyph
+Error: no open menu
+ ❯ menu demo/test/shell/dock-profile-menus.test.ts:94:20
+     92| function menu(): HTMLElement {
+     93|     const el = document.body.querySelector<HTMLElement>("[role=menu]");
+     94|     if (!el) throw new Error("no open menu");
+       |                    ^
+     95|     return el;
+     96| }
+ ❯ rowNamed demo/test/shell/dock-profile-menus.test.ts:101:21
+ ❯ demo/test/shell/dock-profile-menus.test.ts:193:25
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (light): 7/7 picks paint safeCss_floating(pick), idempotent
+AssertionError: oklch(0.62 0.19 25): expected 'oklch(0.933754 0.033387 25)' to be 'oklch(93.37539969245% 0.033387010915 …' // Object.is equality
+
+Expected: [32m"oklch(93[7m.[27m375[7m39969245% 0.033387010915 25deg[27m)"[39m
+Received: [31m"oklch([7m0.[27m93375[7m4 0.033387 25[27m)"[39m
+
+ ❯ demo/test/shell/dock-profile-menus.test.ts:235:48
+    233|                 const once = ref1(pick);
+    234|                 // jsdom keeps the authored oklch() string; compare it…
+    235|                 expect(pill.style.color, pick).toBe(once);
+       |                                                ^
+    236|                 expect(ref1(once), `${pick} re-certified`).toBe(once);
+    237|                 wrapper!.unmount();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  demo/test/shell/dock-profile-menus.test.ts > SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (dark): 7/7 picks paint safeCss_floating(pick), idempotent
+AssertionError: oklch(0.62 0.19 25): expected 'oklch(0.897896 0.0531241 25)' to be 'oklch(89.789560109377% 0.053124107898…' // Object.is equality
+
+Expected: [32m"oklch(89[7m.[27m789[7m560109377% 0.053124107898 25deg[27m)"[39m
+Received: [31m"oklch([7m0.[27m89789[7m6 0.0531241 25[27m)"[39m
+
+ ❯ demo/test/shell/dock-profile-menus.test.ts:235:48
+    233|                 const once = ref1(pick);
+    234|                 // jsdom keeps the authored oklch() string; compare it…
+    235|                 expect(pill.style.color, pick).toBe(once);
+       |                                                ^
+    236|                 expect(ref1(once), `${pick} re-certified`).toBe(once);
+    237|                 wrapper!.unmount();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 4 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: useChromeAccentFn: no painted dock band above the host element — the chrome referent is unmeasurable
+ ❯ resolveDockPlateTint demo/color-session/useContrastSafeColor.ts:182:11
+    180|         if (c) return { color: srgbColor(c.r, c.g, c.b), alpha: c.alph…
+    181|     }
+    182|     throw new Error(
+       |           ^
+    183|         "useChromeAccentFn: no painted dock band above the host elemen…
+    184|     );
+ ❯ bandTint demo/color-session/useContrastSafeColor.ts:584:47
+ ❯ safeCss demo/color-session/useContrastSafeColor.ts:594:52
+ ❯ ComputedRefImpl.fn demo/shell/dock/menus/ProfileSection.vue:38:35
+ ❯ refreshComputed node_modules/@vue/reactivity/dist/reactivity.cjs.js:418:28
+ ❯ isDirty node_modules/@vue/reactivity/dist/reactivity.cjs.js:389:68
+ ❯ ReactiveEffect.runIfDirty node_modules/@vue/reactivity/dist/reactivity.cjs.js:301:9
+ ❯ callWithErrorHandling node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:200:33
+ ❯ flushJobs node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:405:9
+ ❯ processTicksAndRejections node:internal/process/task_queues:104:5
+
+This error originated in "demo/test/shell/dock-profile-menus.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "ProfileSection: one menuitem, no nested anchor; click and Enter open the repository". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: useChromeAccentFn: no painted dock band above the host element — the chrome referent is unmeasurable
+ ❯ resolveDockPlateTint demo/color-session/useContrastSafeColor.ts:182:11
+    180|         if (c) return { color: srgbColor(c.r, c.g, c.b), alpha: c.alph…
+    181|     }
+    182|     throw new Error(
+       |           ^
+    183|         "useChromeAccentFn: no painted dock band above the host elemen…
+    184|     );
+ ❯ bandTint demo/color-session/useContrastSafeColor.ts:584:47
+ ❯ safeCss demo/color-session/useContrastSafeColor.ts:594:52
+ ❯ ComputedRefImpl.fn demo/shell/dock/menus/ProfileSection.vue:38:35
+ ❯ refreshComputed node_modules/@vue/reactivity/dist/reactivity.cjs.js:418:28
+ ❯ isDirty node_modules/@vue/reactivity/dist/reactivity.cjs.js:389:68
+ ❯ ReactiveEffect.runIfDirty node_modules/@vue/reactivity/dist/reactivity.cjs.js:301:9
+ ❯ callWithErrorHandling node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:200:33
+ ❯ flushJobs node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:405:9
+
+This error originated in "demo/test/shell/dock-profile-menus.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "ProfileSection (out): every band seat is a DockTrigger or DockControl". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: useChromeAccentFn: no painted dock band above the host element — the chrome referent is unmeasurable
+ ❯ resolveDockPlateTint demo/color-session/useContrastSafeColor.ts:182:11
+    180|         if (c) return { color: srgbColor(c.r, c.g, c.b), alpha: c.alph…
+    181|     }
+    182|     throw new Error(
+       |           ^
+    183|         "useChromeAccentFn: no painted dock band above the host elemen…
+    184|     );
+ ❯ bandTint demo/color-session/useContrastSafeColor.ts:584:47
+ ❯ safeCss demo/color-session/useContrastSafeColor.ts:594:52
+ ❯ ComputedRefImpl.fn demo/shell/dock/menus/ProfileSection.vue:38:35
+ ❯ refreshComputed node_modules/@vue/reactivity/dist/reactivity.cjs.js:418:28
+ ❯ isDirty node_modules/@vue/reactivity/dist/reactivity.cjs.js:389:68
+ ❯ ReactiveEffect.runIfDirty node_modules/@vue/reactivity/dist/reactivity.cjs.js:301:9
+ ❯ callWithErrorHandling node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:200:33
+ ❯ flushJobs node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:405:9
+
+This error originated in "demo/test/shell/dock-profile-menus.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "ProfileSection (user): every band seat is a DockTrigger or DockControl". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: useChromeAccentFn: no painted dock band above the host element — the chrome referent is unmeasurable
+ ❯ resolveDockPlateTint demo/color-session/useContrastSafeColor.ts:182:11
+    180|         if (c) return { color: srgbColor(c.r, c.g, c.b), alpha: c.alph…
+    181|     }
+    182|     throw new Error(
+       |           ^
+    183|         "useChromeAccentFn: no painted dock band above the host elemen…
+    184|     );
+ ❯ bandTint demo/color-session/useContrastSafeColor.ts:584:47
+ ❯ safeCss demo/color-session/useContrastSafeColor.ts:594:52
+ ❯ ComputedRefImpl.fn demo/shell/dock/menus/ProfileSection.vue:38:35
+ ❯ refreshComputed node_modules/@vue/reactivity/dist/reactivity.cjs.js:418:28
+ ❯ isDirty node_modules/@vue/reactivity/dist/reactivity.cjs.js:389:68
+ ❯ ReactiveEffect.runIfDirty node_modules/@vue/reactivity/dist/reactivity.cjs.js:301:9
+ ❯ callWithErrorHandling node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:200:33
+ ❯ flushJobs node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:405:9
+
+This error originated in "demo/test/shell/dock-profile-menus.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "ProfileSection: Dark mode is a menuitemcheckbox whose state is aria-checked, no sun/moon glyph". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed (1)
+      Tests  7 failed | 6 passed (13)
+     Errors  4 errors
+   Start at  14:35:54
+   Duration  1.64s (transform 320ms, setup 52ms, collect 712ms, tests 433ms, environment 198ms, prepare 42ms)
+

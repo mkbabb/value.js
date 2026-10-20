@@ -1,0 +1,59 @@
+diff --git a/demo/color-session/useContrastSafeColor.ts b/demo/color-session/useContrastSafeColor.ts
+index 1c06cf671..4a9c2f4ac 100644
+--- a/demo/color-session/useContrastSafeColor.ts
++++ b/demo/color-session/useContrastSafeColor.ts
+@@ -280,6 +280,27 @@ function resolveLiveTintCached(surface: LiveLayer): SurfaceTint | undefined {
+     return tint;
+ }
+ 
++/**
++ * The certified accent, memoised per (colour, ground, floor) (OD19-V3).
++ * `certifyAccentInk` is a pure WCAG walk, and one colour frame asks it the
++ * same question from several consumers: the boot writer's `safeAccentCss`
++ * and the Nutrition label both certify the live pick on the resting rung,
++ * and the profile menu and the mobile menu both certify it on the floating
++ * rung. The walk runs once per distinct question; the answer is the walk's
++ * own string, so every consumer reads exactly what it read before. Bounded
++ * like the tint colour cache: a drag asks new questions every frame.
++ */
++const certifiedCache = new Map<string, string>();
++function certifyAccentInkOnce(css: string, surfaceL: number, floor?: number): string {
++    const key = `${css}|${surfaceL}|${floor ?? ""}`;
++    const hit = certifiedCache.get(key);
++    if (hit !== undefined) return hit;
++    const safe = certifyAccentInk(css, surfaceL, floor);
++    if (certifiedCache.size >= 64) certifiedCache.clear();
++    certifiedCache.set(key, safe);
++    return safe;
++}
++
+ /** The surface referent, live-first: probe the painted recipe, compose with
+  *  the ambient; the static model serves only where nothing can be measured.
+  *  Tracks the probe epoch so a reactive caller re-drives its live read once
+@@ -335,7 +356,7 @@ export function useContrastSafeColor(
+     bumpProbeEpochOnMount();
+ 
+     const safeAccentCss = computed(() =>
+-        certifyAccentInk(
++        certifyAccentInkOnce(
+             cssColorOpaque.value,
+             surfaceLightnessNow(
+                 "resting",
+@@ -552,7 +573,7 @@ export function useSafeAccentFn(surface: InkSurface = "page") {
+      *  `GRAPHICS_CONTRAST_FLOOR` (3) for non-text ink (WCAG 1.4.11: slider
+      *  tracks, rails — the T-44a rung); defaults to the 4.5 text floor. */
+     function safeCss(css: string, floor?: number): string {
+-        return certifyAccentInk(
++        return certifyAccentInkOnce(
+             css,
+             surfaceLightnessNow(surface, ambient.value, isDark.value),
+             floor,
+@@ -589,7 +610,7 @@ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
+     function safeCss(css: string, floor?: number): string | undefined {
+         const el = host.value;
+         if (!el) return undefined;
+-        return certifyAccentInk(
++        return certifyAccentInkOnce(
+             css,
+             resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+             floor,

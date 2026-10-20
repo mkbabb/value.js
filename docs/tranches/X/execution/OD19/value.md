@@ -137,3 +137,39 @@ Rows OD19-V5, OD19-V7 and the value half of OD19-ALL. Verdict: **PARTIAL — cur
 
   Mix at 1440 is GREEN on both budgets, and the 390 titles are GREEN. The two RED arms are the same ones as above: the gradient@1440 title, and the windows at 390. That is residual 1 (incoming-pane mount/raster under software GL) and residual 2 (P1's V4 caption shift). They are not P3 regressions; the numbers fall inside the earlier AFTER band. The escalation stands as written.
 - While these runs were going, the private dev server logged `TypeError: Cannot assign to read only property '0' of object '[object Array]'` (window.error). A standalone probe (`err-probe.mjs`, the same boot and gradient/mix hops at 1440 and 390, headless, on its own :8194 server) logged **0 page errors**. My reading is that HMR churn from other seats' live edits to the shared working tree (`demo/color-session/*` is dirty with SS-8 hunks) caused it; P3 did not. I did not chase it further, and P3's modify set does not touch it.
+
+### P2 (r2, 2026-10-20 redeploy)
+
+**Row OD19-V3. Code `6095ee100` (on top of `61867fc32`). Verdict: PARTIAL; the budget is still not met.** This seat re-checked the r1 cure and cured the one residual root that lies in the P2 modify set. The rest of the latency sits outside the set and is named below.
+
+- **r1 still holds** at HEAD `4d5d0dbdc`. `getPropertyValue` is absent from the top 25 self frames in all four arms (< 16 ms; budget < 50 ms ✔). `resolvePalettesRamp` costs 7–8 ms inclusive per drag (the settle mint only).
+- **Cure** (`demo/color-session/useContrastSafeColor.ts`, `certifyAccentInkOnce`). r1's residual (1) was `certifyAccentInk` running on every colour frame. Part of it was the same pure walk asked twice per frame:
+  - the boot writer's `safeAccentCss` and the Nutrition label's `useSafeAccentFn("resting").safeCss` both certify the live pick on the resting rung at the default floor;
+  - the profile menu and the mobile menu both certify it on the floating rung.
+
+  A bounded memo keyed (colour, surface L, floor), the `tintColorCache` idiom with 64 entries, now serves `safeAccentCss`, `useSafeAccentFn.safeCss` and `useChromeAccentFn.safeCss`. It returns the walk's own string, so the output is byte-equal. No new module and no shim. Nothing else was touched; `useViewAccents.ts` is unchanged from r1.
+- **Falsifier** `demo/test/color-session/colour-frame-cost.test.ts`, new case 5. A pass-through spy wraps `certifyAccentInk`. Over 18 colour frames, four consumers on two rungs must cost 2 walks per frame, and their answers must equal the real walk.
+  - RED ×2 on the parent source: 4 walks, 1 failed / 4 passed (`after/P2/r2/vitest-red-{1,2}.txt`).
+  - GREEN ×2: 5/5 (`vitest-green-{1,2}.txt`).
+- **Gates.**
+  - Touched tests: `colour-frame-cost`, `test/view-accents`, `test/contrast-floor` all pass (`vitest-touched.txt`).
+  - Also in that run: `demo/test/shell/dock-profile-menus.test.ts`, an untracked SS-8 born-RED spec owned by another seat, has 7 failures. The same 7 fail on the parent source (`ss8-dock-profile-menus-on-head.txt`), so they are not P2's.
+  - `vue-tsc` demo + test: the only errors are that same SS-8 file's 3 (`typecheck.txt`).
+  - eslint clean on both files.
+  - No e2e spec covers these modules. No golden was re-baselined.
+- **AFTER, clean A/B** (`after/P2/r2/ab/`, `SUMMARY.json`, `summarize.py`, `cure.diff`). Two detached worktrees at HEAD `4d5d0dbdc`, the cure arm being HEAD plus `cure.diff`, each with its own dev server (:8291 / :8292) and the shared `dist/`. Order base, cure, base, cure, run through `guarded` with the same `ab.sh` and probes (`latency-load.mjs`, `v3-profile.mjs`, dark-1440 and light-390). Load averaged 22–32 throughout.
+
+| measure | base r1 / r2 | cure r1 / r2 |
+|---|---|---|
+| `certifyAccentInk` incl. per drag | 202 / 225 ms | 169 / 175 ms (−20 %) |
+| `getPropertyValue` self | absent / absent | absent / absent ✔ |
+| dark-1440 picker p50 / p95 | 39.9/55.8 · 37.3/56.6 | 50.1/76.6 · 41.3/56.0 |
+| light-390 picker p50 / p95 | 43.1/166.9 · 57.4/215.4 | 43.6/174.8 · 53.8/201.6 |
+
+Today's base is already well below r1's base (dark-1440 p50 57–66 → 37–40 ms). At this load, the latency difference between the base and cure arms is within run-to-run noise. The certify cut is real, but too small to move p50/p95 on its own.
+
+- **Residual (budget p50 ≤ 25 / p95 ≤ 50 ms not met; outside the P2 modify set):**
+  - (1) `HeroBlob.vue:281` `repaintParked`, reached from its `watch.deep` at `:301`: 417 ms inclusive per drag, through `getBoundingClientRect` at 468 ms self. This is a forced layout on every colour frame, now the largest single cost in the cure arm. It is the same row as r1 residual (3).
+  - (2) About-scene inks mounted under the picker: `useMarkdownColors.ts:24`, which calls `certifyAccentInk` directly (55 ms), and `ColorNutritionLabel.vue` render (51 ms). Both are off-screen during a picker drag.
+  - (3) light-390 still blocks 0.9–1.3 s per drag. `useAtmosphere::publish` dominates its LoAF script attribution (1856 ms in cure-r2).
+  - These need a follow-up packet: HeroBlob's parked repaint read off the colour clock, the About-scene inks kept off the drag clock while the scene is not visible, and the atmosphere publish.

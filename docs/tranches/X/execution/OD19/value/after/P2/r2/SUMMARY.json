@@ -1,0 +1,166 @@
+{
+ "base-r1": {
+  "dark-1440": {
+   "picker": {
+    "n": 42,
+    "p50": 39.9,
+    "p95": 55.8,
+    "max": 58.6
+   },
+   "loaf": {
+    "n": 5,
+    "totalMs": 270,
+    "blockingMs": 11
+   }
+  },
+  "light-390": {
+   "picker": {
+    "n": 42,
+    "p50": 43.1,
+    "p95": 166.9,
+    "max": 190.7
+   },
+   "loaf": {
+    "n": 12,
+    "totalMs": 1512,
+    "blockingMs": 829
+   }
+  },
+  "gpv_self": [
+   "absent from top (<16ms)"
+  ],
+  "certify_incl": [
+   "202ms certifyAccentInk @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/demo/color-session/ink.ts:201"
+  ],
+  "ramp_incl": [
+   "7ms resolvePalettesRamp @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/demo/color-session/palettes-ramp.ts:130"
+  ],
+  "safeCss_incl": [
+   "49ms safeCss @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/demo/color-session/useContrastSafeColor.ts:413",
+   "46ms safeCss @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/demo/color-session/useContrastSafeColor.ts:445"
+  ]
+ },
+ "base-r2": {
+  "dark-1440": {
+   "picker": {
+    "n": 42,
+    "p50": 37.3,
+    "p95": 56.6,
+    "max": 76.1
+   },
+   "loaf": {
+    "n": 8,
+    "totalMs": 511,
+    "blockingMs": 27
+   }
+  },
+  "light-390": {
+   "picker": {
+    "n": 42,
+    "p50": 57.4,
+    "p95": 215.4,
+    "max": 246.1
+   },
+   "loaf": {
+    "n": 25,
+    "totalMs": 2686,
+    "blockingMs": 1310
+   }
+  },
+  "gpv_self": [
+   "absent from top (<16ms)"
+  ],
+  "certify_incl": [
+   "225ms certifyAccentInk @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/demo/color-session/ink.ts:201"
+  ],
+  "ramp_incl": [
+   "9ms resolvePalettesRamp @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/demo/color-session/palettes-ramp.ts:130"
+  ],
+  "safeCss_incl": [
+   "56ms safeCss @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/demo/color-session/useContrastSafeColor.ts:413",
+   "47ms safeCss @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-base/demo/color-session/useContrastSafeColor.ts:445"
+  ]
+ },
+ "cure-r1": {
+  "dark-1440": {
+   "picker": {
+    "n": 42,
+    "p50": 50.1,
+    "p95": 76.6,
+    "max": 89.4
+   },
+   "loaf": {
+    "n": 22,
+    "totalMs": 1381,
+    "blockingMs": 27
+   }
+  },
+  "light-390": {
+   "picker": {
+    "n": 42,
+    "p50": 43.6,
+    "p95": 174.8,
+    "max": 208.9
+   },
+   "loaf": {
+    "n": 20,
+    "totalMs": 2065,
+    "blockingMs": 926
+   }
+  },
+  "gpv_self": [
+   "absent from top (<16ms)"
+  ],
+  "certify_incl": [
+   "169ms certifyAccentInk @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-cure/demo/color-session/ink.ts:201"
+  ],
+  "ramp_incl": [
+   "8ms resolvePalettesRamp @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-cure/demo/color-session/palettes-ramp.ts:130"
+  ],
+  "safeCss_incl": [
+   "45ms safeCss @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-cure/demo/color-session/useContrastSafeColor.ts:433",
+   "43ms safeCss @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-cure/demo/color-session/useContrastSafeColor.ts:465"
+  ]
+ },
+ "cure-r2": {
+  "dark-1440": {
+   "picker": {
+    "n": 42,
+    "p50": 41.3,
+    "p95": 56,
+    "max": 69.1
+   },
+   "loaf": {
+    "n": 10,
+    "totalMs": 558,
+    "blockingMs": 12
+   }
+  },
+  "light-390": {
+   "picker": {
+    "n": 42,
+    "p50": 53.8,
+    "p95": 201.6,
+    "max": 241.8
+   },
+   "loaf": {
+    "n": 24,
+    "totalMs": 2452,
+    "blockingMs": 1128
+   }
+  },
+  "gpv_self": [
+   "absent from top (<16ms)"
+  ],
+  "certify_incl": [
+   "175ms certifyAccentInk @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-cure/demo/color-session/ink.ts:201"
+  ],
+  "ramp_incl": [
+   "7ms resolvePalettesRamp @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-cure/demo/color-session/palettes-ramp.ts:130"
+  ],
+  "safeCss_incl": [
+   "50ms safeCss @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-cure/demo/color-session/useContrastSafeColor.ts:433",
+   "43ms safeCss @ /@fs/Users/mkbabb/Programming/value.js/.worktrees/p2r2-cure/demo/color-session/useContrastSafeColor.ts:465"
+  ]
+ }
+}

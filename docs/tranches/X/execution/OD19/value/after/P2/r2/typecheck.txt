@@ -1,0 +1,12 @@
+demo/test/shell/dock-profile-menus.test.ts(126,42): error TS2379: Argument of type '{ menu: "mbabb" | undefined; }' is not assignable to parameter of type '{ menu?: "profile" | "mbabb"; pick?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'menu' are incompatible.
+    Type '"mbabb" | undefined' is not assignable to type '"profile" | "mbabb"'.
+      Type 'undefined' is not assignable to type '"profile" | "mbabb"'.
+demo/test/shell/dock-profile-menus.test.ts(151,62): error TS2379: Argument of type '{ menu: "profile" | undefined; }' is not assignable to parameter of type '{ menu?: "profile" | "mbabb"; pick?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'menu' are incompatible.
+    Type '"profile" | undefined' is not assignable to type '"profile" | "mbabb"'.
+      Type 'undefined' is not assignable to type '"profile" | "mbabb"'.
+demo/test/shell/dock-profile-menus.test.ts(192,42): error TS2379: Argument of type '{ menu: "mbabb" | undefined; }' is not assignable to parameter of type '{ menu?: "profile" | "mbabb"; pick?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'menu' are incompatible.
+    Type '"mbabb" | undefined' is not assignable to type '"profile" | "mbabb"'.
+      Type 'undefined' is not assignable to type '"profile" | "mbabb"'.
