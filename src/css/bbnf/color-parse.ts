@@ -6,7 +6,7 @@
 // `@mkbabb/value.js/color` publishes it, so a colour parse carries the colour grammar and no more.
 
 import type { CssColor, ParseResult } from "../types";
-import { failure, success } from "../result";
+import { failure, notText, success } from "../result";
 import type { ColorNode } from "./color";
 import { asColorNode } from "./color";
 import { actions } from "./color-actions";
@@ -25,6 +25,7 @@ function colorResult(source: string, node: ColorNode): ParseResult<CssColor> {
 
 /** `parseCssColor` — one whole `<color>`. */
 export function parseCssColor(source: string): ParseResult<CssColor> {
+    if (typeof source !== "string") return notText();
     const node = colorTop(source);
     return node === FAIL ? failure(source, "css_syntax", ["color"]) : colorResult(source, asColorNode(node as ColorNode | Numeric));
 }

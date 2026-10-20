@@ -6,7 +6,7 @@
 // stylesheet layer's list reader (`stylesheet.bbnf`), internal to `src/css/`.
 
 import type { CssList, CssScalar, CssValue } from "../../value";
-import { failure, success } from "../result";
+import { failure, notText, success } from "../result";
 import type { CssTimingFunction, KeyframeSelector, ParseResult } from "../types";
 import { FAIL, parser } from "./load";
 import type { Refused, SelectorNode, TimingNode, ValueNode } from "./value";
@@ -37,6 +37,7 @@ function valueResult<T extends CssValue>(source: string, node: ValueNode): Parse
 
 /** `parseCssValue` — a component-value list (comma, then slash, then space separated). */
 export function parseCssValue(source: string): ParseResult<CssValue> {
+    if (typeof source !== "string") return notText();
     const node = valueTop(source);
     return node === FAIL ? failure(source, "css_syntax", ["scalar"]) : valueResult(source, node as ValueNode);
 }
@@ -61,12 +62,14 @@ export function parseCssValues(source: string): ParseResult<CssList> {
 
 /** `parseCssScalar` — one scalar: a colour, a number with its unit, a string, an operator or a keyword. */
 export function parseCssScalar(source: string): ParseResult<CssScalar> {
+    if (typeof source !== "string") return notText();
     const node = scalarTop(source);
     return node === FAIL ? failure(source, "css_syntax", ["scalar"]) : valueResult(source, node as ValueNode);
 }
 
 /** `parseKeyframeSelector` — one `<keyframe-selector>`. */
 export function parseKeyframeSelector(source: string): ParseResult<KeyframeSelector> {
+    if (typeof source !== "string") return notText();
     const parsed = selectorEntry(source);
     if (parsed === FAIL) return failure(source, "keyframe_selector_invalid", ["keyframe selector"]);
     const node: SelectorNode = keyframeSelector(parsed);
@@ -75,6 +78,7 @@ export function parseKeyframeSelector(source: string): ParseResult<KeyframeSelec
 
 /** `parseTimingFunction` — one `<easing-function>`. */
 export function parseTimingFunction(source: string): ParseResult<CssTimingFunction> {
+    if (typeof source !== "string") return notText();
     const parsed = timingFunction(source);
     if (parsed === FAIL) return failure(source, "css_syntax", ["timing function"]);
     const node = parsed as TimingNode;

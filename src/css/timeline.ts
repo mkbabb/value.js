@@ -11,11 +11,12 @@ import type {
 } from "./types";
 import { splitTopLevel } from "./bbnf/index";
 import { isDashedIdent, isTimelineLength, timelineArgs } from "./bbnf/sheet";
-import { failure, success } from "./result";
+import { failure, notText, success } from "./result";
 
 const AXES = new Set<TimelineAxis>(["block", "inline", "x", "y"]);
 const SCROLLERS = new Set(["nearest", "root", "self"] as const);
 export function parseAnimationTimeline(source: string): ParseResult<AnimationTimelineValue> {
+    if (typeof source !== "string") return notText();
     const input = source.trim();
     const lower = input.toLowerCase();
     if (lower === "auto" || lower === "none") return success(Object.freeze({ kind: lower }));
@@ -63,6 +64,7 @@ function rangeBoundary(tokens: readonly string[]): RangeBoundary | null {
         : null;
 }
 export function parseAnimationRange(source: string): ParseResult<AnimationRangeValue> {
+    if (typeof source !== "string") return notText();
     const input = source.trim();
     const comma = splitTopLevel(input, ",");
     if (!comma || comma.length > 2) return failure(source, "timeline_option_invalid", ["animation range"]);
