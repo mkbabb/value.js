@@ -15,12 +15,23 @@
  * or scheme change. Settled tokens are byte-equal to a direct mint.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { computed, effectScope, nextTick, ref } from "vue";
+import { computed, createApp, effectScope, nextTick, ref } from "vue";
 
 const isDark = ref(true);
 vi.mock("@mkbabb/glass-ui/dark", () => ({ useGlobalDark: () => ({ isDark }) }));
+// A pass-through spy: every caller gets the real walk; the count is the cost.
+vi.mock("../../color-session/ink", async (importOriginal) => {
+    const real = await importOriginal<typeof import("../../color-session/ink")>();
+    return { ...real, certifyAccentInk: vi.fn(real.certifyAccentInk) };
+});
 
-import { goldIdentityCss } from "../../color-session/useContrastSafeColor";
+import { certifyAccentInk } from "../../color-session/ink";
+import { INK_AMBIENT_KEY } from "../../color-session/keys";
+import {
+    goldIdentityCss,
+    useContrastSafeColor,
+    useSafeAccentFn,
+} from "../../color-session/useContrastSafeColor";
 import {
     resolvePalettesRamp,
     RAMP_LARGE_TEXT_CONTRAST_FLOOR,
@@ -128,6 +139,53 @@ describe("OD19-V3 — the Palettes ramps leave the drag clock", () => {
         const want = expected("oklch(0.7 0.15 30)", 0.5);
         expect(ramp("--palettes-ramp")).toEqual(want.menu);
         expect(ramp("--palettes-ramp-title")).toEqual(want.title);
+        scope.stop();
+    });
+});
+
+describe("OD19-V3 — one colour frame certifies each question once", () => {
+    it("the boot accent, the Nutrition label and two floating menus cost one walk per rung per frame, with unchanged answers", async () => {
+        const real = (await vi.importActual<typeof import("../../color-session/ink")>(
+            "../../color-session/ink",
+        )).certifyAccentInk;
+        const walk = vi.mocked(certifyAccentInk);
+        const pick = ref("oklch(0.62 0.18 12)");
+        const ambient = ref(0.42);
+        const ambientC = computed(() => ambient.value);
+        const app = createApp({});
+        app.provide(INK_AMBIENT_KEY, ambientC);
+        const scope = effectScope();
+        const reads = app.runWithContext(() =>
+            scope.run(() => {
+                const boot = useContrastSafeColor(computed(() => pick.value), ambientC);
+                const label = useSafeAccentFn("resting");
+                const menuA = useSafeAccentFn("floating");
+                const menuB = useSafeAccentFn("floating");
+                return [
+                    computed(() => boot.safeAccentCss.value),
+                    computed(() => label.safeCss(pick.value)),
+                    computed(() => menuA.safeCss(pick.value)),
+                    computed(() => menuB.safeCss(pick.value)),
+                ];
+            }),
+        )!;
+
+        for (let hue = 12; hue <= 330; hue += 18) {
+            pick.value = `oklch(0.62 0.18 ${hue})`;
+            ambient.value = 0.42 + hue / 4000;
+            walk.mockClear();
+            const got = reads.map((r) => r.value);
+            // Two rungs (resting, floating): two walks, not four.
+            expect(walk).toHaveBeenCalledTimes(2);
+            const restingL = resolveSurfaceLightnessLive("resting", ambient.value, isDark.value);
+            const floatingL = resolveSurfaceLightnessLive("floating", ambient.value, isDark.value);
+            expect(got).toEqual([
+                real(pick.value, restingL),
+                real(pick.value, restingL),
+                real(pick.value, floatingL),
+                real(pick.value, floatingL),
+            ]);
+        }
         scope.stop();
     });
 });
