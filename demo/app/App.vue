@@ -163,20 +163,15 @@
                          slot's cache beneath it is never remounted. -->
                     <ErrorBoundary :reset-key="region.key">
                         <component
-                            :is="slotFor(region.role)"
+                            :is="slotFor(region)"
                             :component="region.component"
                             :component-key="region.key"
                             :component-props="region.props"
-                            :on-mount="bindPane(region.role)"
+                            :on-mount="slotReports(region.role).onMount"
                             transition-name="vj-enter"
                             :max="PANE_CACHE_MAX[region.role]"
                             appear
-                            :on-appeared="
-                                (el: Element | null) =>
-                                    region.role === 'stage'
-                                        ? overture.noteLeftPlateSettled(el)
-                                        : overture.noteRightPlateSettled()
-                            "
+                            :on-appeared="slotReports(region.role).onAppeared"
                         />
                     </ErrorBoundary>
                 </div>
@@ -228,6 +223,7 @@ import {
     shallowRef,
     useTemplateRef,
     watch,
+    type Component,
 } from "vue";
 import { useRoute } from "vue-router";
 import { useMounted } from "@vueuse/core";
@@ -251,7 +247,7 @@ import {
     type RegionRole,
 } from "../shell/useViewManager";
 import { useColorPipeline } from "../color-session/useColorPipeline";
-import { usePaneRouter, PANE_CACHE_MAX } from "../shell/usePaneRouter";
+import { usePaneRouter, PANE_CACHE_MAX, preloadPane } from "../shell/usePaneRouter";
 import { useSceneTargets } from "../shell/useSceneTargets";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
 import { useClipboard } from "@mkbabb/glass-ui/dom";
@@ -280,12 +276,62 @@ import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 // nothing to hydrate and renders PaneSlot directly.
 const HYDRATES_SHELL =
     import.meta.env.SSR || document.documentElement.dataset.firstView === "shell";
-const IdleHydratedPaneSlot = defineAsyncComponent({
-    loader: async () => PaneSlot,
-    hydrate: hydrateOnIdle(),
-});
-const slotFor = (role: RegionRole) =>
-    role === "stage" || !HYDRATES_SHELL ? PaneSlot : IdleHydratedPaneSlot;
+// X.W11.p4c (COHESION §0go.2(a)) — the shell's panes now paint from the first
+// frame, so a region must hydrate the markup it painted, never re-mount it. A
+// lazy region's PaneSlot renders its plate phase until the pane's chunk has
+// resolved, and the plate phase is not the tree the prerender rendered: the
+// resolved pane would then MOUNT over the painted one, with a second entrance.
+// So the region's idle hydration also waits for its pane's chunk (the same
+// one load `preloadPane` shares with the slot); a failed chunk hydrates the
+// slot, whose plate phase shows the error plate as on any client view.
+const idleHydratedSlots = new Map<RegionRole, Component>();
+function slotFor(region: { role: RegionRole; component: Component | null }): Component {
+    if (region.role === "stage" || !HYDRATES_SHELL) return PaneSlot;
+    let slot = idleHydratedSlots.get(region.role);
+    if (slot === undefined) {
+        const firstPane = region.component;
+        slot = defineAsyncComponent({
+            loader: async () => {
+                const loading = firstPane === null ? null : preloadPane(firstPane);
+                if (loading !== null) await loading.then(noop, noop);
+                return PaneSlot;
+            },
+            hydrate: hydrateOnIdle(),
+        });
+        idleHydratedSlots.set(region.role, slot);
+    }
+    return slot;
+}
+const noop = () => {};
+
+// X.W11.p4c — a lazily hydrated region hydrates only if it is not updated
+// first (Vue skips the hydration of an async wrapper patched before its
+// strategy fires, and re-renders it over the painted markup). Every App render
+// used to hand each slot a NEW mount and settlement callback (a fresh
+// `bindPane` closure, an inline arrow), so the boot's own early re-renders
+// patched the inspector's wrapper and re-mounted its pane. The callbacks are
+// one pair per region role, made once.
+const slotReportsByRole = new Map<
+    RegionRole,
+    {
+        onMount: (instance: unknown, key: string) => void;
+        onAppeared: (el: Element | null) => void;
+    }
+>();
+function slotReports(role: RegionRole) {
+    let reports = slotReportsByRole.get(role);
+    if (reports === undefined) {
+        reports = {
+            onMount: bindPane(role),
+            onAppeared: (el: Element | null) =>
+                role === "stage"
+                    ? overture.noteLeftPlateSettled(el)
+                    : overture.noteRightPlateSettled(),
+        };
+        slotReportsByRole.set(role, reports);
+    }
+    return reports;
+}
 
 const MigratePalettesDialog = defineAsyncComponent(() =>
     import("../palettes/browser/dialog").then((m) => m.MigratePalettesDialog),

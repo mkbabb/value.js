@@ -72,7 +72,7 @@
                     class="space-y-1"
                 >
                     <div
-                        :style="{ color: componentInk }"
+                        :style="mounted ? { color: componentInk } : undefined"
                         class="font-semibold"
                         data-o18="component-name"
                     >
@@ -183,6 +183,7 @@
 </template>
 <script setup lang="ts">
 import { computed, ref, inject } from "vue";
+import { useMounted } from "@vueuse/core";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import { contrastInkFor } from "../../color-session/ink";
@@ -206,6 +207,10 @@ const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 //   lightness, never a page-level constant.
 const { safeCss } = useSafeAccentFn("resting");
 const componentInk = computed(() => safeCss(cssColorOpaque.value));
+// X.W11.p4c (§0gl.12's law): the ink probes the live surface in the visitor's
+// scheme, so it is written after mount; the hydrated first view reads the
+// plate's certified ink, which is what the prerendered shell painted.
+const mounted = useMounted();
 
 //   FILL role — the hovered graph node paints the LIVE COLOR as data (C3:
 //   color-data surface), and its ink derives from the FILL's own luminance —
