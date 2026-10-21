@@ -1,4 +1,4 @@
-import type { Page } from "@playwright/test";
+import type { ElementHandle, Locator, Page } from "@playwright/test";
 import { userTest as test, expect } from "../fixtures/user-auth";
 import { expandDock, mainPane } from "../fixtures/dock";
 import { routeBrowsePalettes } from "../fixtures/browse-palettes";
@@ -118,16 +118,30 @@ interface CensusRow {
  * In-page census toolkit: format-agnostic color resolution (dual-ground
  * canvas draw → color + alpha), ancestor ground compositing, WCAG ratio.
  * One evaluate per element keeps the spec deterministic and inspectable.
+ *
+ * `target` is either a CSS selector (the document's first match; `null` when
+ * absent) or a Locator that names ONE element by itself — a population row is
+ * bound by its own item, never re-found through a stamped attribute.
  */
 async function censusElement(
     page: Page,
-    selector: string,
+    target: string | Locator,
     name: string,
 ): Promise<CensusRow | null> {
-    return page.evaluate(
-        ({ selector, name }) => {
-            const el = document.querySelector<HTMLElement>(selector);
-            if (!el) return null;
+    const handle: ElementHandle | null =
+        typeof target === "string"
+            ? (
+                  await page.evaluateHandle(
+                      (selector) => document.querySelector(selector),
+                      target,
+                  )
+              ).asElement()
+            : await target.elementHandle();
+    if (!handle) return null;
+    return handle.evaluate(
+        (node, { name }) => {
+            if (!(node instanceof HTMLElement)) return null;
+            const el = node;
 
             const cv = document.createElement("canvas");
             cv.width = cv.height = 1;
@@ -239,7 +253,7 @@ async function censusElement(
                 stack,
             };
         },
-        { selector, name },
+        { name },
     );
 }
 
@@ -1422,22 +1436,16 @@ for (const scheme of ["light", "dark"] as const) {
             // Bind EACH row by its own item. A positional `:nth-of-type`
             // counts the menu's label div as a sibling, so it read the row
             // before the one it named and never read the last (X.W10.h,
-            // o18-1322-menu-probe: off by one).
+            // o18-1322-menu-probe: off by one). The census reads the row's
+            // own `menuitem` Locator (the role population, indexed among
+            // menuitems only), so nothing is stamped onto the product DOM and
+            // every binding names an element the product renders.
             const names: string[] = [];
             for (let i = 0; i < count; i++) {
-                const item = items.nth(i);
-                names.push((await item.textContent())?.trim() ?? `row ${i}`);
-                await item.evaluate(
-                    (el, v) => el.setAttribute("data-o18-census", v),
-                    `profile-row-${i}`,
-                );
+                names.push((await items.nth(i).textContent())?.trim() ?? `row ${i}`);
             }
             const readRow = (i: number) =>
-                censusElement(
-                    page,
-                    `[data-o18-census="profile-row-${i}"]`,
-                    `profile-row-${i}`,
-                );
+                censusElement(page, items.nth(i), `profile-row-${i}`);
 
             // Settle past the menu's entrance with the file's deadline idiom.
             // The entrance is the MENU's — one ancestor opacity chain over
