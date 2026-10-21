@@ -79,6 +79,18 @@ const TIER_BG_TOKEN: Partial<Record<LiveLayer, string>> = {
  * probes re-drive through ordinary reactivity. No polling, no workaround.
  */
 const probeEpoch = ref(0);
+/**
+ * OD19 repair 1 (C1-V-05): a probe has MISSED since the last bump — a live
+ * read found no painted referent (the subtree was still detached, or no
+ * cascade was mounted). The bump re-drives exactly those reads. A mount
+ * whose consumers all read a referent that was already measured has nothing
+ * to re-drive: the recipe is scheme-scoped (the stamps below), so bumping
+ * anyway invalidated every tint memo in the app and re-ran every live-ink
+ * computed inside the incoming pane's mount frame (measured on the Home →
+ * Gradient switch: 60–70 ms of `useContrastSafeColor`/`ink`/colour parsing
+ * in an 89–109 ms frame, ANGLE-Metal, `value/after/repair-1/v05/`).
+ */
+let probeMissed = true;
 export function bumpProbeEpochOnMount(): void {
     // Composables may be exercised outside a component (unit probes) — the
     // epoch is a mount-truth signal, so no instance simply means no bump.
@@ -87,7 +99,12 @@ export function bumpProbeEpochOnMount(): void {
     // consumer like any other — it must register the mount bump from its
     // setup, or its first (possibly detached/pre-style) probe result caches
     // until some OTHER consumer happens to bump the epoch.
-    if (getCurrentInstance()) onMounted(() => probeEpoch.value++);
+    if (getCurrentInstance())
+        onMounted(() => {
+            if (!probeMissed) return;
+            probeMissed = false;
+            probeEpoch.value++;
+        });
 }
 
 /**
@@ -276,6 +293,7 @@ function resolveLiveTintCached(surface: LiveLayer): SurfaceTint | undefined {
         return hit.tint;
     }
     const tint = resolveLiveTint(surface);
+    if (tint === undefined && surface !== "page") probeMissed = true;
     liveTintCache.set(surface, { darkClass, epoch, tint });
     return tint;
 }
@@ -532,6 +550,7 @@ function schemeTokenCss(token: string, dark: boolean, fallback: string): string 
     if (live === undefined) {
         live = getComputedStyle(document.documentElement).getPropertyValue(token).trim();
         if (live) schemeTokenMemo.set(token, live);
+        else probeMissed = true;
     }
     return lightDarkArm(live, dark) || fallback;
 }
