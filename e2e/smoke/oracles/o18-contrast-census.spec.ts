@@ -1361,6 +1361,33 @@ for (const scheme of ["light", "dark"] as const) {
                 "the admin branch mounts — if this fails the census is still blind and the row below proves nothing",
             ).toBeVisible({ timeout: 8000 });
 
+            // X.W11.h3b (COHESION §0gl.8) — sample the pill AT REST. The band
+            // reveals through `overture-dock-land` (opacity 0→1) after the
+            // producer morph, and the census multiplies the ancestor opacity
+            // into the ink, so a sample taken mid-entrance reads the arrival,
+            // not the ink (ESC-W11h3-1: ink == ground at band opacity 0).
+            // Wait for the reveal (veil class gone), then for every TIMED
+            // animation under the band to finish. The dock plate's caps
+            // (`gl-dock-cap-inline-*`) run on a scroll/view timeline, whose
+            // `finished` never settles by definition (duration "auto"); they
+            // are not an entrance, so only document-timeline animations count.
+            await page.waitForFunction(
+                () =>
+                    !document
+                        .querySelector("nav.dock-band")
+                        ?.classList.contains("overture-dock-veiled"),
+            );
+            await page.evaluate(async () => {
+                const band = document.querySelector("nav.dock-band");
+                if (!band) return;
+                await Promise.all(
+                    band
+                        .getAnimations({ subtree: true })
+                        .filter((a) => a.timeline instanceof DocumentTimeline)
+                        .map((a) => a.finished),
+                );
+            });
+
             const row = await censusElement(
                 page,
                 '[data-o18="admin-trigger"]',
