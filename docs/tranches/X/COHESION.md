@@ -4619,3 +4619,19 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
 
 ### §0gn erratum — 2026-10-21
 §0gn.2(a)'s glass row is **O-107** (AURORA-DERIVE-SHADER-FREE, W-D.1; glass 16782fcef). O-105 stays BLOB-LIT-LIGHTNESS (§0gl.11, X.W11.h8, W-G.5), and O-106 stays DELIBERATE-TRAILING-ACTIVATION (X.W11.h17, W-E.4).
+
+## §0go — 2026-10-21: ESC-W11c-TAG-CI-E2E-VISUAL and ESC-W11p4b-1 ruled (delegate, §0ge)
+1. **The publish reads the library's own gates: arm (b), then (c).**
+   - §0gm.2 is re-scoped. The npm publish of 4.1.0 reads only the library-gating CI jobs: producer ×2 (Node 22 + 24), api, the oracle slate and boot-smoke, all GREEN at the tag tree.
+   - e2e-smoke, visual and lhci gate the **demo deploy** only. deploy-pages stays HELD on them; none of them is weakened.
+   - Then .c pushes the tag, release.yml publishes with provenance, and .d/.e read the published library.
+   - Then **(c), unit X.W11.v1:** cure the demo suites at their roots, then the deploy:
+     - visual: 192 darwin-golden mismatches (E14 lineage). Each re-baseline is attributed to its causing commit and read, never blind.
+     - e2e-smoke: 26 failed / 22 flaky (X-W10 E1–E9, perf bars, o10). A flake is cured, not re-run.
+2. **ESC-W11p4b-1: arm (a) and arm (b), both granted.**
+   - **(a):** the owner's docket asks for faster loading on every page of every app (OD19-ALL), and that outranks a first-load entrance.
+     - On the FIRST document load, the prerendered stage pane paints from the shell: no `appear` `<template>` wrapper in SSR (PaneSlot.vue).
+     - The plate-land overture on first load becomes a transform-only settle: opacity 1 from the first frame, a small translate/scale ease, and nothing under PRM. The identity motion is kept, and the content is contentful from first paint.
+     - Client-side route changes keep the full overture unchanged.
+   - **(b):** ink certification leaves the boot task. `demo/color-session/ink.ts` memoizes `certify` by (seed, scheme, ground) and runs the first certification after first paint. The first frame paints with the pre-certified inks the shell already carries, which hold the floors as SS-8 measured them. Writable set widened to `ink.ts` and its caller `useAtmosphereBoot`.
+   - Gate: lhci ×3 on CI after each arm. If it is still over budget, the seat profiles again and proposes the next cut; first-paint content is never deferred.
