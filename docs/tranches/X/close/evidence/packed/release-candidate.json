@@ -1,0 +1,16 @@
+{
+  "package": "@mkbabb/value.js",
+  "version": "4.1.0",
+  "filename": "/home/runner/work/_temp/value-pack/mkbabb-value.js-4.1.0.tgz",
+  "bytes": 74998,
+  "sha256": "f6a8bf70c33b3712cc84d7da1d06eba9ff4c6d8731bfcea82727939f4a9885dd",
+  "sha512": "2bbc1cbddf8feab8f1c448709eb4a9055cb36193ece53320d7399b7ba80e1bdb35a9a50664e9cfae8c646715e04d07c852a5cdf35c8f14fcc1e7ac3d99bf7949",
+  "integrity": "sha512-K7wcvd+P6rjxxEhwnrSpBVyzYZPs5TMg1zmbe6gOG9s1qaUGZOnProxkZxXgTQfIUqXN81yPFPzB56w9mb95SQ==",
+  "shasum": "d488535c9bfc747e318895417c28a753a3b7b3d6",
+  "commit": "d25c4514b3e846aaeb7c2eb1c016c34a55af1786",
+  "gitHead": "d25c4514b3e846aaeb7c2eb1c016c34a55af1786",
+  "tag": "v4.1.0",
+  "repository": "mkbabb/value.js",
+  "runId": "39596724330",
+  "runAttempt": "1"
+}
