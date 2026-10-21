@@ -2,6 +2,7 @@ import type { Page } from "@playwright/test";
 import { userTest as test, expect } from "../fixtures/user-auth";
 import { expandDock, mainPane } from "../fixtures/dock";
 import { routeBrowsePalettes } from "../fixtures/browse-palettes";
+import { mapColorToGamut, oklch } from "../../../dist/subpaths/color.js";
 
 /**
  * T.W3 W3-5 · O-18 — THE POPULATION CONTRAST CENSUS (SYNTHESIS §6.1 O-18).
@@ -423,6 +424,32 @@ async function resolveRgbInPage(
 /** The identity floor: the certified accent keeps ≥ this fraction of the
  *  pick's chroma (gamut-permitting — §5.2's stated leg). */
 const IDENTITY_C_FLOOR = 0.35;
+
+/** The sRGB gamut-maximal chroma at (L, H), as the LIBRARY computes it:
+ *  `mapColorToGamut` holds L and H and bisects the greatest representable C,
+ *  so a chroma request past any sRGB ceiling (0.5) returns the ceiling. */
+function gamutMaxChroma(L: number, H: number): number {
+    const probe = oklch(L, 0.5, H);
+    if (!probe.ok) throw new Error(`oklch(${L} 0.5 ${H}): ${probe.error.code}`);
+    const mapped = mapColorToGamut(probe.value, "srgb");
+    if (!mapped.ok) throw new Error(`gamut map oklch(${L} 0.5 ${H}): ${mapped.error.code}`);
+    return mapped.value.channels[1] as number;
+}
+
+/** COHESION §0gl.7 (ESC-W11h2, O18-992): the floor is
+ *  min(IDENTITY_C_FLOOR × pick C, Cmax(h, L)) at the measured accent's own
+ *  hue and lightness. A near-white certified accent (L ≈ 0.986 at the owner
+ *  seed, light) cannot hold 0.35× the pick's C inside sRGB at all; the bare
+ *  0.35× constant was physically unsatisfiable there. This corrects an
+ *  impossible constant and never weakens a reachable one: wherever the slice
+ *  admits 0.35× the pick, that is still the floor. The 8-bit sample sits ON
+ *  the boundary when the library clamps, and the inline converter and the
+ *  library's agree to ~2e-8 there, so the comparison carries a 1e-6
+ *  converter tolerance (four orders below any identity-bearing chroma). */
+const GAMUT_CONVERTER_EPS = 1e-6;
+function identityChromaFloor(pickC: number, accent: { L: number; H: number }): number {
+    return Math.min(IDENTITY_C_FLOOR * pickC, gamutMaxChroma(accent.L, accent.H));
+}
 
 /** Boot to the owner color and wait for the ink writers (boot contract). */
 async function bootAtOwnerColor(page: Page) {
@@ -1008,14 +1035,15 @@ for (const scheme of ["light", "dark"] as const) {
                     .trim(),
             );
             const accent = rgbToOklch(await resolveRgbInPage(page, accentCss));
+            const chromaFloor = identityChromaFloor(pick.C, accent);
             expect(
                 hueDeltaDeg(accent.H, pick.H),
                 `accent hue ≈ pick hue (accent ${accentCss}; pick H ${pick.H.toFixed(1)})`,
             ).toBeLessThanOrEqual(12);
             expect(
                 accent.C,
-                `accent chroma ≥ ${IDENTITY_C_FLOOR}× pick (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
-            ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C);
+                `accent chroma ≥ min(${IDENTITY_C_FLOOR}× pick, Cmax(h, L)) = ${chromaFloor.toFixed(6)} (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
+            ).toBeGreaterThanOrEqual(chromaFloor - GAMUT_CONVERTER_EPS);
 
             // 2 — the owner's NAMED instance (t33-audit-03's shot): the "Lab"
             //     space trigger wears `--space-title-ink` = the safe accent at
@@ -1040,8 +1068,8 @@ for (const scheme of ["light", "dark"] as const) {
             ).toBeLessThanOrEqual(15);
             expect(
                 triggerInk.C,
-                `trigger ink chroma ≥ ${IDENTITY_C_FLOOR}×α× pick (ink ${row!.ink} α ${row!.effectiveAlpha})`,
-            ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C * row!.effectiveAlpha);
+                `trigger ink chroma ≥ α × min(${IDENTITY_C_FLOOR}× pick, Cmax(h, L)) (ink ${row!.ink} α ${row!.effectiveAlpha})`,
+            ).toBeGreaterThanOrEqual(chromaFloor * row!.effectiveAlpha - GAMUT_CONVERTER_EPS);
         });
 
         test("the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)", async ({
