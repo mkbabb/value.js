@@ -242,8 +242,33 @@
                 // theme-color rides the ground's base stop from B0.
                 var meta = document.querySelector('meta[name="theme-color"]');
                 if (meta) meta.setAttribute('content', stops[0]);
+
+                // X.W11.p3 (COHESION §0ge.1(iii)) — the FIRST-VIEW decision. The
+                // gh-pages build ships `/` prerendered at its default seed
+                // (scripts/build/prerender-shell.ts). This visit shows and
+                // hydrates that shell only when its first view IS that render:
+                // the home route with no URL seed, no stored seed (the
+                // `color-picker` record — COLOR_STORE_KEY, mirrored like the
+                // ground keys above), and motion allowed (under reduced motion
+                // the dock is first-paint state the shell does not carry).
+                // Anything else stamps `client`: the rule below hides the shell
+                // before paint and main.ts client-renders from an emptied root.
+                var shell = false;
+                try {
+                    var hash = location.hash;
+                    var seed = JSON.parse(localStorage.getItem('color-picker'));
+                    shell = (hash === '' || hash === '#' || hash === '#/') &&
+                        !(seed && typeof seed.inputColor === 'string' && seed.inputColor.trim()) &&
+                        !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                } catch (e) { /* an unreadable record → the client render */ }
+                document.documentElement.setAttribute('data-first-view', shell ? 'shell' : 'client');
             })();
         </script>
+        <style>
+            html:not([data-first-view="shell"]) #app[data-prerendered] {
+                display: none;
+            }
+        </style>
 
         <script type="module" src="./main.ts"></script>
     </head>

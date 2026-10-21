@@ -13,6 +13,7 @@ import Markdown from "unplugin-vue-markdown/vite";
 import { sourceExportPlugin } from "./plugins/vite-source-export";
 import { deferGlassFonts } from "./plugins/vite-defer-glass-fonts";
 import { groundTokensPlugin } from "./plugins/vite-ground-tokens";
+import { prerenderShell } from "./scripts/build/prerender-shell";
 
 import {
     libraryCodeSplitting,
@@ -327,7 +328,9 @@ export default defineConfig((mode) => {
                     },
                 },
             },
-            plugins: [...defaultPlugins, deferGlassFonts()],
+            // X.W11.p3 (COHESION §0ge.1(iii)) — the first view of `/` ships as
+            // prerendered HTML and is hydrated in place (scripts/build/prerender-shell.ts).
+            plugins: [...defaultPlugins, deferGlassFonts(), prerenderShell()],
         };
     } else {
         // Dev mode: serve the demo app with HMR
