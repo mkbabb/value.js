@@ -121,10 +121,16 @@ for (const scheme of ["light", "dark"] as const) {
                 // the contract of a header that OVERLIES its scrolling body
                 // (V2C-15, owner-banked, unchanged). A seated header has no
                 // occlusion job, so its contract is the opposite: no veil.
+                // SS8-0192: the app's veil is deleted; what remains on the
+                // header is glass's own `<CardHeader shrink>` condense veil,
+                // opacity 0 until the header condenses (a seated one never does).
                 if (v.seated) {
                     expect
-                        .soft(v.display, `${view} (${scheme}): a seated header still paints a veil`)
-                        .toBe("none");
+                        .soft(
+                            v.display === "none" ? 0 : v.opacity,
+                            `${view} (${scheme}): a seated header still paints a veil`,
+                        )
+                        .toBe(0);
                     continue;
                 }
                 // Gate 1 — the rest floor (shaded AT rest — T-23).
