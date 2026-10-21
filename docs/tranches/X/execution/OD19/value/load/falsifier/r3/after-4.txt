@@ -1,0 +1,144 @@
+(node:72456) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 15 tests using 1 worker
+
+[1A[2K(node:72611) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/ content=962ms paneRequestGap=115ms
+
+[1A[2K[2/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/palettes content=1632ms paneRequestGap=115ms
+
+[1A[2K[od19-route-load] #/palettes hop=6210ms
+
+[1A[2K  1) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4000[39m
+    Received:    [31m6209.7000000014905[39m
+
+      190 |             console.log(`[od19-route-load] #/${route} hop=${hop == null ? "none" : Math.round(hop)}ms`);
+      191 |             expect(hop, `the hop to #/${route} reached its content`).not.toBeNull();
+    > 192 |             expect(hop!).toBeLessThanOrEqual(HOP_BAR_MS);
+          |                          ^
+      193 |         });
+      194 |     }
+      195 | });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:192:26
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-949b4-ent-≤-2500-ms-hop-≤-4000-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:77375) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/browse content=1576ms paneRequestGap=124ms
+
+[1A[2K[od19-route-load] #/browse hop=4481ms
+
+[1A[2K  2) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4000[39m
+    Received:    [31m4480.5000000022355[39m
+
+      190 |             console.log(`[od19-route-load] #/${route} hop=${hop == null ? "none" : Math.round(hop)}ms`);
+      191 |             expect(hop, `the hop to #/${route} reached its content`).not.toBeNull();
+    > 192 |             expect(hop!).toBeLessThanOrEqual(HOP_BAR_MS);
+          |                          ^
+      193 |         });
+      194 |     }
+      195 | });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:192:26
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-08d09-ent-≤-2500-ms-hop-≤-4000-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:80397) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/extract cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/extract cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/extract content=796ms paneRequestGap=124ms
+
+[1A[2K[od19-route-load] #/extract hop=1644ms
+
+[1A[2K[5/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/mix content=1615ms paneRequestGap=94ms
+
+[1A[2K[od19-route-load] #/mix hop=695ms
+
+[1A[2K[6/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/generate cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/generate cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/generate content=769ms paneRequestGap=114ms
+
+[1A[2K[od19-route-load] #/generate hop=459ms
+
+[1A[2K[7/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/gradient cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/gradient cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/gradient content=895ms paneRequestGap=107ms
+
+[1A[2K[od19-route-load] #/gradient hop=616ms
+
+[1A[2K[8/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/atmosphere content=557ms paneRequestGap=115ms
+
+[1A[2K[od19-route-load] #/atmosphere hop=1520ms
+
+[1A[2K[9/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/blob cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/blob cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/blob content=933ms paneRequestGap=111ms
+
+[1A[2K[od19-route-load] #/blob hop=1702ms
+
+[1A[2K[10/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/users cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/users cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/admin/users content=829ms paneRequestGap=113ms
+
+[1A[2K[od19-route-load] #/admin/users hop=588ms
+
+[1A[2K[11/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/names cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/names cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/admin/names content=849ms paneRequestGap=118ms
+
+[1A[2K[od19-route-load] #/admin/names hop=1574ms
+
+[1A[2K[12/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/admin/audit content=842ms paneRequestGap=114ms
+
+[1A[2K[od19-route-load] #/admin/audit hop=1914ms
+
+[1A[2K[13/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/admin/flagged content=816ms paneRequestGap=114ms
+
+[1A[2K[od19-route-load] #/admin/flagged hop=607ms
+
+[1A[2K[14/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms
+[od19-route-load] #/admin/tags content=898ms paneRequestGap=120ms
+
+[1A[2K[od19-route-load] #/admin/tags hop=848ms
+
+[1A[2K[15/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/no-such-route cold: pane chunk early, content ≤ 1500 ms, hop ≤ 4000 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/no-such-route cold: pane chunk early, content ≤ 1500 ms, hop ≤ 4000 ms
+[od19-route-load] #/no-such-route content=93ms paneRequestGap=nullms
+
+[1A[2K[od19-route-load] #/no-such-route hop=469ms
+
+[1A[2K  2 failed
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop ≤ 4000 ms 
+  13 passed (1.8m)

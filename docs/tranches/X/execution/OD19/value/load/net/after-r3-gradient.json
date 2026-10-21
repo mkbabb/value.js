@@ -1,0 +1,42 @@
+{
+ "origin": "http://localhost:8293",
+ "width": 1440,
+ "cpu": 4,
+ "rttMs": 150,
+ "downKbps": 1600,
+ "at": "2026-10-20T23:44:51.138Z",
+ "rows": [
+  {
+   "route": "gradient",
+   "rep": 0,
+   "contentMs": 7051,
+   "entryEnd": 2886,
+   "paneStart": 2962,
+   "paneEnd": 3427
+  },
+  {
+   "route": "gradient",
+   "rep": 1,
+   "contentMs": 5545,
+   "entryEnd": 2871,
+   "paneStart": 2941,
+   "paneEnd": 3406
+  },
+  {
+   "route": "gradient",
+   "rep": 2,
+   "contentMs": 5109,
+   "entryEnd": 2871,
+   "paneStart": 2948,
+   "paneEnd": 3412
+  },
+  {
+   "route": "gradient",
+   "rep": 3,
+   "contentMs": 5225,
+   "entryEnd": 2872,
+   "paneStart": 2946,
+   "paneEnd": 3413
+  }
+ ]
+}
