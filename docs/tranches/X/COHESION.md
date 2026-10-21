@@ -4635,3 +4635,23 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
      - Client-side route changes keep the full overture unchanged.
    - **(b):** ink certification leaves the boot task. `demo/color-session/ink.ts` memoizes `certify` by (seed, scheme, ground) and runs the first certification after first paint. The first frame paints with the pre-certified inks the shell already carries, which hold the floors as SS-8 measured them. Writable set widened to `ink.ts` and its caller `useAtmosphereBoot`.
    - Gate: lhci ×3 on CI after each arm. If it is still over budget, the seat profiles again and proposes the next cut; first-paint content is never deferred.
+
+## §0gp — 2026-10-21: X-OD19 is CLOSED honest-RED (`2d85bd584`). Its time-budget residue is read on the real-GPU cell (§0fr.2/.3), and ESC-FREL-ci-1 is ruled
+1. **Read:**
+   - 14 rows CURED in full;
+   - V3, V5, V7 and ALL: every consumer cause cured, and the time budget is still missed;
+   - V2, F2, F6 and K7: the consumer half cured, the glass half held under O-102;
+   - V1, K5 and K8: held under O-102 in full, with the glass cause measured.
+   - The O-102 letter is sent (glass `d2318a631`).
+   - All three apps run glass 10.1.1, with the redundant workarounds retired (value f77db7842, keyframes f8d6077b, fourier e4c2e1d).
+2. **The §0fr.2/.3 law applies to every OD19 frame and latency budget:**
+   - V3 colour-change latency (+8 ms);
+   - value frame and hop budgets (gradient title 487–544 against 400 ms; the 390 moving window 508–867 against 450);
+   - keyframes warm swaps (3–7 frames over 50 ms);
+   - fourier `od19-load` equation-nav frame bars (over50 33/39 against 20; max gap 500/650 against 450).
+
+   On SwiftShader or a CI software rasteriser the reading is INFORMATIONAL, and the spec's leg there asserts liveness only. This is the form ruled LAWFUL at §0fr.3 (`w12-drag.spec.ts:136`). The budget's gate is the **real-GPU cell of record**: headless real Chrome, `channel:'chrome'`, ANGLE-Metal, named in the spec file per the machine law, ×2.
+   - Any budget RED on the real-GPU cell is a product cure at its root (profile, name the cost), never a test change.
+3. **ESC-FREL-ci-1 RULED by 2.** fourier's `od19-load` frame bars take the liveness-on-software and budget-on-GPU split. The correctness legs stay gating on CI. Then m/w1 CI is read to GREEN at HEAD (e4c2e1d or later), and Track C resumes: merge, master CI ×2, then the .d deploy.
+4. **The critic residue for value and keyframes** (each three passes, not clean) beyond the time budgets is cured at root by the residue seats, one per app. Glass sub-rows are cited under O-102, not re-filed.
+   - The value `w12-dock.spec.ts` pair (a regression present before the repin) is owned by Track A (X.W11), which re-reads it on 10.1.1.
