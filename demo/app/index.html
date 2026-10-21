@@ -184,7 +184,14 @@
              `groundRecordInject` → `injectGroundTokens`), so a
              GROUND_RECORD_VERSION bump propagates here automatically and can no
              longer strand the boot. Only the guard LOGIC below is mirrored
-             (inherent to a pre-module reader that cannot import). -->
+             (inherent to a pre-module reader that cannot import).
+             X.W11.h7b (COHESION §0gl.10 · O28-114): a `#/?color=` share link
+             paints its SEEDED ground from the first frame. The derive is not
+             mirrored: vite's `seededGroundInline` bundles the one source
+             module (`boot/seeded-ground.ts`, which useAtmosphere's sink also
+             runs) into the script below in place of its token, exposing
+             `__vjsSeededGround`. -->
+        <script>__GROUND_SEEDED_RESOLVER__</script>
         <script>
             (function() {
                 // B0 — the ground beat (the overture's origin mark; O-4 reads it).
@@ -212,7 +219,14 @@
                 var VERSION = __GROUND_RECORD_VERSION__;
                 var scheme = dark ? 'dark' : 'light';
                 var stops = FIRST_VISIT[scheme];
-                try {
+                // A share-link seed wins, in hydrate's order (URL, then the
+                // record, then the constants): the same pure derive the app's
+                // sink runs, over the same `parseUrlSeed` hydrate reads with.
+                var url = __vjsSeededGround.parseUrlSeed(location.hash);
+                var seeded = url && __vjsSeededGround.seededGroundStops(
+                    url.color.trim().toLowerCase(), dark);
+                if (seeded) stops = seeded;
+                else try {
                     var rec = JSON.parse(localStorage.getItem('color-picker-ground'));
                     if (rec && rec.deriveVersion === VERSION &&
                         rec.scheme === scheme &&

@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { build, defineConfig, type Plugin } from "vite";
 import path from "path";
 import { readFileSync } from "fs";
 
@@ -140,11 +140,76 @@ const defaultOptions = {
 // HTML transform no longer rides inside a browser module and this config no
 // longer reaches across the demo's boundary to import one.
 
+// X.W11.h7b (COHESION §0gl.10 · DISPOSITION §8 E7 / O28-114): THE SEEDED
+// PRE-PAINT GROUND. The boot script in `index.html` paints the ground before
+// any module runs, and for a `#/?color=` share link it must paint the SAME
+// calibrated ground the app's sink lands on. It cannot import, so this plugin
+// bundles the one source module (`boot/seeded-ground.ts`, the pure derive
+// `useAtmosphere` itself calls) as an IIFE through Vite's own build and writes
+// it in place of the `__GROUND_SEEDED_RESOLVER__` token. Never a hand copy:
+// the bytes the boot runs are the module's bytes.
+//
+// `moduleSideEffects: false` keeps only what the derive reaches: the
+// producer's aurora chunk imports Vue at its top level for its components,
+// which a pre-paint derive never runs. In serve the bundle is cached and
+// dropped when any module it was built from changes.
+const SEEDED_GROUND_ENTRY = path.resolve(
+    import.meta.dirname,
+    "demo/app/composables/boot/seeded-ground.ts",
+);
+
+async function bundleSeededGround(): Promise<{ code: string; ids: Set<string> }> {
+    const result = await build({
+        configFile: false,
+        logLevel: "warn",
+        publicDir: false,
+        resolve: { alias: valueJsSelfAlias },
+        build: {
+            write: false,
+            minify: true,
+            emptyOutDir: false,
+            lib: {
+                entry: SEEDED_GROUND_ENTRY,
+                formats: ["iife"],
+                name: "__vjsSeededGround",
+            },
+            rolldownOptions: { treeshake: { moduleSideEffects: false } },
+        },
+    });
+    const chunk = [result]
+        .flat()
+        .flatMap((output) => ("output" in output ? output.output : []))
+        .find((file) => file.type === "chunk" && file.isEntry);
+    if (chunk?.type !== "chunk") throw new Error("[seeded-ground] the IIFE build emitted no entry chunk");
+    // A literal `</script` inside the bundle would close the inline element.
+    const code = chunk.code.replaceAll("</script", "<\\/script");
+    return { code, ids: new Set(chunk.moduleIds) };
+}
+
+function seededGroundInline(): Plugin {
+    let cached: ReturnType<typeof bundleSeededGround> | undefined;
+    return {
+        name: "value-js:seeded-ground-inline",
+        configureServer(server) {
+            server.watcher.on("change", async (file) => {
+                if (cached && (await cached).ids.has(path.resolve(file))) cached = undefined;
+            });
+        },
+        async transformIndexHtml(html) {
+            if (!html.includes("__GROUND_SEEDED_RESOLVER__")) return html;
+            cached ??= bundleSeededGround();
+            const { code } = await cached;
+            return html.replace("__GROUND_SEEDED_RESOLVER__", () => code);
+        },
+    };
+}
+
 const defaultPlugins = [
     sourceExportPlugin(),
     Vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown({}),
     groundTokensPlugin(),
+    seededGroundInline(),
 ];
 
 export default defineConfig((mode) => {
