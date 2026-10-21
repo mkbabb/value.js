@@ -123,6 +123,41 @@ function certify(
     floor: number,
     headroom: number = CERTIFY_HEADROOM,
 ): Color<"oklch"> {
+    const key = `${accent.channels.join(",")},${accent.alpha}|${surfaceL}|${floor}|${headroom}`;
+    const known = CERTIFIED.get(key);
+    if (known) return known;
+    const certified = walkToFloor(accent, surfaceL, floor, headroom);
+    if (CERTIFIED.size >= CERTIFIED_CAPACITY) {
+        CERTIFIED.delete(CERTIFIED.keys().next().value!);
+    }
+    CERTIFIED.set(key, certified);
+    return certified;
+}
+
+/**
+ * X.W11.p4c (COHESION §0go.2(b)) — THE CERTIFY MEMO. `certify` is a pure
+ * function of its inputs, and the boot asks it the same question many times
+ * over: the plate ink is walked by `resolvePlateInk`, again inside
+ * `resolveMutedInk` and again behind each identity ink's fallback, and an
+ * identity ink that holds its chroma is walked once to decide and once more to
+ * serialize. Each walk is a WCAG bisection through the colour parser (the
+ * boot's measured ~100 ms at 4× CPU, `.p4b` act 8). The memo is keyed by the
+ * walk's full input — the seed (the accent's channels and alpha), the ground
+ * (the surface lightness), the floor and the headroom; the scheme enters
+ * through the seed and the ground it selects — so one (seed, scheme, ground)
+ * certifies once and every later ask returns the same certified colour. A
+ * failed walk throws and is never stored. Bounded: a drag mints a new seed per
+ * frame, and the oldest entry leaves first.
+ */
+const CERTIFIED = new Map<string, Color<"oklch">>();
+const CERTIFIED_CAPACITY = 512;
+
+function walkToFloor(
+    accent: Color<"oklch">,
+    surfaceL: number,
+    floor: number,
+    headroom: number,
+): Color<"oklch"> {
     const surface = surfaceColor(surfaceL);
     const attempt = (minimumRatio: number) =>
         safeAccentColor(accent, surface, { minimumRatio, gamut: "srgb" });
