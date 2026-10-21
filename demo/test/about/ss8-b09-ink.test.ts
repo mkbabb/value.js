@@ -53,9 +53,23 @@ const clears = (ink: Color<"oklch">, ground: Color<"oklch">, floor = TEXT_CONTRA
 };
 
 describe("SS8-0257b · contrastInkFor is total over opaque fills", () => {
+    // X.W11.c2 (COHESION §0gn.1, the D59 precedent): profiled per phase
+    // (local ×2, 13,332 cells, ~1.0 s): contrastInkFor ~55% (its gamut map
+    // ~45% of that, the endpoint walk the rest) · the oracle's own gamut map
+    // ~23% · the oracle's safeAccentColor check ~20% · parsing ~4%. That is
+    // the census's inherent work; the one hoistable per-cell cost (re-parsing
+    // the ink, which takes only two values) is memoised below. CI read 5,410 ms
+    // on Node 22 and 3,310 ms on Node 24 against vitest's 5 s default, so the
+    // census carries an explicit 20 s timeout: 3.7x the worst CI reading.
     it("every cell of the probe's census grid gets a neutral ink that clears 4.5:1", () => {
         const nulls: string[] = [];
         const fails: string[] = [];
+        const inks = new Map<string, Color<"oklch">>();
+        const inkOklch = (ink: string) => {
+            let color = inks.get(ink);
+            if (!color) inks.set(ink, (color = toOklch(ink)));
+            return color;
+        };
         for (let i = 0; i <= 100; i++) {
             for (let j = 0; j <= 10; j++) {
                 for (let h = 0; h < 360; h += 30) {
@@ -66,13 +80,13 @@ describe("SS8-0257b · contrastInkFor is total over opaque fills", () => {
                         continue;
                     }
                     const painted = mapColorToGamut(toOklch(css), "srgb");
-                    if (!painted.ok || !clears(toOklch(ink), painted.value)) fails.push(`${css} -> ${ink}`);
+                    if (!painted.ok || !clears(inkOklch(ink), painted.value)) fails.push(`${css} -> ${ink}`);
                 }
             }
         }
         expect(nulls.length, nulls.slice(0, 5).join(", ")).toBe(0);
         expect(fails.length, fails.slice(0, 5).join(", ")).toBe(0);
-    });
+    }, 20_000);
 
     it("an in-gamut fill keeps its WCAG-maximal endpoint", () => {
         expect(contrastInkFor("oklch(0.95 0.02 90)")).toBe("oklch(0 0 0)");
