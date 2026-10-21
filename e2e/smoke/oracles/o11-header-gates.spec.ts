@@ -170,19 +170,26 @@ const CAPTION_ROUTES = [
     "/blob",
 ] as const;
 
+/** An sRGB triple, 0–255 per channel. */
+type RGB = readonly [number, number, number];
+/** An sRGB triple plus alpha 0–1. */
+type RGBA = readonly [number, number, number, number];
+
 /** The caption inks (sRGB through a 1×1 canvas) and line heights. */
 async function readCaptions(page: Page) {
     return page.evaluate(() => {
         const cv = document.createElement("canvas");
         cv.width = cv.height = 1;
         const g = cv.getContext("2d", { willReadFrequently: true })!;
-        const rgba = (c: string) => {
+        const rgba = (c: string): RGBA => {
             g.clearRect(0, 0, 1, 1);
             g.fillStyle = "#000";
             g.fillStyle = c;
             g.fillRect(0, 0, 1, 1);
             const d = g.getImageData(0, 0, 1, 1).data;
-            return [d[0], d[1], d[2], d[3] / 255];
+            // An unread channel is NaN, never 0: NaN fails the floor loudly.
+            const at = (i: number): number => d[i] ?? NaN;
+            return [at(0), at(1), at(2), at(3) / 255];
         };
         return Array.from(document.querySelectorAll<HTMLElement>("main .pane-header"))
             .map((hd, hi) => ({
@@ -215,12 +222,14 @@ async function groundRegions(page: Page, png: Buffer, lh: number) {
             const g = cv.getContext("2d")!;
             g.drawImage(img, 0, 0);
             const d = g.getImageData(0, 0, cv.width, cv.height).data;
+            // An unread channel is NaN, never 0: NaN fails the floor loudly.
+            const at = (i: number): number => d[i] ?? NaN;
             const s = Math.max(
                 4,
                 Math.min(Math.round(side * devicePixelRatio), cv.width, cv.height),
             );
             const st = Math.max(2, s >> 1);
-            const out: number[][] = [];
+            const out: RGB[] = [];
             for (let y0 = 0; y0 + s <= cv.height; y0 += st) {
                 for (let x0 = 0; x0 + s <= cv.width; x0 += st) {
                     let r = 0,
@@ -229,9 +238,9 @@ async function groundRegions(page: Page, png: Buffer, lh: number) {
                     for (let y = y0; y < y0 + s; y++) {
                         for (let x = x0; x < x0 + s; x++) {
                             const i = (y * cv.width + x) * 4;
-                            r += d[i];
-                            gg += d[i + 1];
-                            b += d[i + 2];
+                            r += at(i);
+                            gg += at(i + 1);
+                            b += at(i + 2);
                         }
                     }
                     out.push([r / (s * s), gg / (s * s), b / (s * s)]);
@@ -247,9 +256,9 @@ const lin = (c: number) => {
     const v = c / 255;
     return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
 };
-const lum = ([r, g, b]: number[]) =>
+const lum = ([r, g, b]: RGB) =>
     0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
-const contrast = (a: number[], b: number[]) => {
+const contrast = (a: RGB, b: RGB) => {
     const x = lum(a),
         y = lum(b);
     return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
@@ -295,12 +304,14 @@ for (const scheme of ["light", "dark"] as const) {
                         `${route}: no ground region read`,
                     ).toBeGreaterThan(0);
                     let worst = Infinity;
-                    let at: number[] = [];
+                    let at: RGB = [NaN, NaN, NaN];
+                    const [ir, ig, ib, a] = c.ink;
                     for (const gr of regions) {
-                        const a = c.ink[3];
-                        const ink = c.ink
-                            .slice(0, 3)
-                            .map((v, i) => v * a + gr[i] * (1 - a));
+                        const ink: RGB = [
+                            ir * a + gr[0] * (1 - a),
+                            ig * a + gr[1] * (1 - a),
+                            ib * a + gr[2] * (1 - a),
+                        ];
                         const r = contrast(ink, gr);
                         if (r < worst) [worst, at] = [r, gr];
                     }
@@ -311,7 +322,7 @@ for (const scheme of ["light", "dark"] as const) {
                         )
                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);
                 }
-                await veil.evaluate((n) => n.remove());
+                await veil.evaluate((n) => n.parentNode?.removeChild(n));
             }
         });
     }
