@@ -1,0 +1,72 @@
+{
+ "390": {
+  "skeleton": {
+   "t0": {
+    "shimmer": "true",
+    "afterAnimation": "skeleton-shimmer-5e54f919",
+    "afterTransform": "matrix(1, 0, 0, 1, -445.532, 0)",
+    "hostText": ""
+   },
+   "t1": {
+    "shimmer": "true",
+    "afterAnimation": "skeleton-shimmer-5e54f919",
+    "afterTransform": "matrix(1, 0, 0, 1, -385.665, 0)",
+    "hostText": ""
+   },
+   "moving": true
+  },
+  "menu": {
+   "hasZPopoverClass": true,
+   "zIndex": "130",
+   "wrapperZ": "130",
+   "rect": [
+    41,
+    100,
+    272,
+    314
+   ],
+   "misses": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  }
+ },
+ "1440": {
+  "skeleton": {
+   "t0": {
+    "shimmer": "true",
+    "afterAnimation": "skeleton-shimmer-5e54f919",
+    "afterTransform": "matrix(1, 0, 0, 1, -441.585, 0)",
+    "hostText": ""
+   },
+   "t1": {
+    "shimmer": "true",
+    "afterAnimation": "skeleton-shimmer-5e54f919",
+    "afterTransform": "matrix(1, 0, 0, 1, -381.971, 0)",
+    "hostText": ""
+   },
+   "moving": true
+  },
+  "menu": {
+   "hasZPopoverClass": true,
+   "zIndex": "130",
+   "wrapperZ": "130",
+   "rect": [
+    607,
+    108,
+    272,
+    307
+   ],
+   "misses": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  }
+ }
+}

@@ -330,3 +330,26 @@ ESC-FREL-v3-1 (COHESION §0gj.2): the fourier CI-green unit. fourier `m/w1-bump-
 - No bar was moved, and the test was not excluded.
 
 **Pre-existing CI flakes (they pass on retry; the same set was in the 2026-10-16 green 38938542799):** equation-interaction:77, f-w13-image-controls:200, f-w14u-paper:466 (gap 3.97 against ≥ 4), f-w14v-eq2:39, f-w14-uia:493, f-w14u-vedit v87:152. They are not this lane's commits. They are named for a cure seat, not re-run.
+
+### glass-10.1.1
+
+Adopting `@mkbabb/glass-ui` **10.1.1** (tag `v10.1.1` at `d7baa1dc3`). Read before the work: MIGRATION §10.1.1 and the CHANGELOG 10.1.1 section, both whole. Code: fourier `e4c2e1d` on `m/w1-bump-migration`, pushed fast-forward from `73fca89`. Evidence: `fourier/after/glass-10.1.1/`. Every run went through `guarded` and was headless Chromium with `--workers=1`. `BASE_URL` was the suite's own :4190 preview, and the dev backend was on :8000.
+
+| item | verdict | detail |
+|---|---|---|
+| pin | **ADOPTED** (`e4c2e1d`) | `10.1.0` → `10.1.1` exact in `web/package.json` and the lockfile. The integrity `sha512-7e/gASh…Q8pQ==` equals the registry's, and `npm ls` reads 10.1.1 (`pin.txt`). This is the bump the `### ci-green` gates saw uncommitted in the tree. It is now owned and committed. `DockContext.expanded`: fourier never calls `provideDockContext`. |
+| Skeleton shimmer (OD19-V6 / ALL "loading → skeleton shimmer") | **ADOPTED, RE-READ LIVE** | The `/v` stage Skeleton (`VisualizationView`) and the `/equation` compute Skeletons (`EquationView`, 3 bars) pass glass's `shimmer`. No local shimmer CSS existed. The `od19-p3` skeleton tests now also assert that no bar lacks `data-shimmer`, a strengthened check that nothing weakens. They pass in every run below with the compute and the visualization held 2 s. This is the live headless read. The gallery and admin list Skeletons are not on a docket row and keep the breathe. |
+| O-102(3) / G-3, OD19-F4 "dropdowns do not collapse with the dock" | **NOTHING TO RETIRE; RE-READ LIVE** | No code closed menus by hand on collapse. The F4 cure (`e928541`) holds the dock open through `keepOpen()`/`release()` while a menu is up (`AnimationControls`, `EditorControlsDock`, `CanvasControlsDock`). MIGRATION §10.1.1 names that as the way to keep the dock open, and without it a pointer that leaves into the portalled menu would now collapse the dock and close the menu under the user. So it stays. 10.1.1 adds the producer half: a collapse closes any face overlay. The `od19-p1` "F4 — an open menu holds the dock open; closing it lets the dock collapse" test passes in every cure run except one hover-expand miss, covered below. |
+| G-2 menu z rung, G-1 sheet, O-102(6) floats | nothing to retire | fourier had no `z-*` class on a glass `DropdownMenuContent`. `PaperSearchDropdown`'s `--z-popover` is its own surface, not a glass menu. There was no sheet override. The time caret is already glass's portalled Tooltip (`976a704`). |
+
+**Gates (guarded):**
+- `vue-tsc -b --force`: rc 0 ×2 (`vue-tsc-{1,2}.txt`).
+- `vitest run --maxWorkers=2`: **116 / 116 ×2** (`vitest-{1,2}.txt`).
+- e2e `od19-p1-transport-docks` + `od19-p3-shell-motion-loading` (the dock, menu and skeleton specs): **32 / 32**, then **30 / 32** (`e2e-{1,2}.txt`). `od19-p1` alone: **15 / 16**, then **16 / 16** (`e2e-p1-alone-{1,2}.txt`).
+- Every failure is one class. `expandTransport`'s hover leaves the dock `collapsed` ("Expected /expanded/") or narrow (`wEnd` 102 against > 202), and it hits a different test each run.
+- **A/B against glass 10.1.0** (`ab/`, `ab.sh`). `base` was a detached worktree at `73fca89` with the 10.1.0 tarball and otherwise the same `node_modules`. `cure` was this tree. They alternated over three passes.
+  - base: 14, 16 and 16 of 16.
+  - cure: 16, 16 and 15 of 16.
+  - The base misses are the same hover-expand class (F1 light 1440 and F4 dark 1440). The flake predates 10.1.1, so the release neither causes nor cures it. It is the intermittent P1 dock-hover read already recorded under `### ci-green`. The worktree was removed afterwards.
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched.

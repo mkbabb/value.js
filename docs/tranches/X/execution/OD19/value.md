@@ -548,3 +548,23 @@ Critic 3's four consumer findings on value: C3-V-01, C3-V-02, C3-V-04 and C3-V-0
 - gh-pages build of the cure tree: rc 0 (`v04`/`v05` ran on it).
 
 No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched. V2-p is named for O-102 with the measurements above.
+
+### glass-10.1.1
+
+Adopting `@mkbabb/glass-ui` **10.1.1** (tag `v10.1.1` at `d7baa1dc3`). Read before the work: MIGRATION §10.1.1 and the CHANGELOG 10.1.1 section, both whole. Code `f77db7842`. Evidence: `value/after/glass-10.1.1/`. Every run went through `guarded`, headless Chromium, one browser per run and one context per cell. Runs were in the shared tree. It carried other seats' uncommitted hunks: SS-8's comment edits and its `palette-card-layout.test.ts` addition, plus `e2e/visual/*`.
+
+| item | verdict | detail |
+|---|---|---|
+| pin | **ALREADY ADOPTED** | `package.json` and the lockfile pin `10.1.1` exact. Commit `9ed00b5cd` (repair 1, C1-V-01). `node_modules` reads 10.1.1. `DockContext.expanded` needs nothing here, because value never calls `provideDockContext`. |
+| G-2 menus on the popover rung | **RETIRED** (`f77db7842`) | The consumer `z-popover` class is removed from all five `DropdownMenuContent` sites: `UserSortMenu`, `PaletteCardMenu`, `GenericActionBar`, `MobileMenuDropdown`, and `ProfileSection` ×3. The `shell.css` paint-order note now names the producer rung. Live (`probe-v6-menu-1.json`, 390): the dock "Menu" content carries `z-popover` from glass's `overlayContentAttrs`, at z-index 130. All 5 of 5 hit points land on the menu. |
+| O-102(3) collapse closes face overlays | **NO CONSUMER CODE TO RETIRE** | value has no hand-closing code on dock collapse (grep over `demo/**`). The release delivers the close. |
+| G-1 Sheet fixed | nothing to retire | value has no `SheetContent` position override. |
+| G-3 seat roving, O-102(6) floats portalled | nothing to retire | value has no consumer workaround for either. |
+| Skeleton shimmer (OD19-V6) | **ALREADY ADOPTED, RE-READ LIVE** | `PaneLoadingPlate` passes `shimmer` on both bars (`9ed00b5cd`). The live run held the gradient chunk on Home → Gradient (`probe-v6-menu-1.json`) and read, at 1440 and at 390: plate text `""`, `aria-busy=true`, both bars `data-shimmer`, `::after` animation `skeleton-shimmer`, and the `::after` transform moving between reads 400 ms apart. No local shimmer CSS exists. The `--skeleton-shimmer-delay`/`-tint` writes in `PaletteCardSkeleton`/`utils.css` are dormant producer seams that glass 10.1.1 does not read. They are not a local animation, so they are left alone. |
+
+**Gates ×2 (guarded):**
+- `npm run typecheck` (lib, demo, test and e2e projects): rc 0 ×2 (`typecheck-{1,2}.txt`).
+- `vitest run --maxWorkers=2`: **1490 / 1491 ×2** (`vitest-{1,2}.txt`). The one failure is `palette-card-layout.test.ts` "SS-8 B13 … L-3". It belongs to another seat: an uncommitted, born-RED addition of 69 lines in the shared tree. It is not touched here.
+- e2e `--project=smoke --workers=1`, on `od19-v2-dock-settle`, `page-load`, `w12-dock`, `oracles/v7r-overlay-layer` and `ss8-b14-skeleton-ink`: **16 / 18 ×2** (`e2e-{1,2}.txt`). The two failures are the known `w12-dock` pair: "Login hover plate `rgba(0,0,0,0)`" and "layer switch: `W12e seed` ≠ `Tools`". They are the same HEAD regression that `### repair 1` measured on 10.1.0 and 10.1.1 alike, and it is routed to the dock seat (Track A). The v7r overlay paint-order oracle passes with the class retired.
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched.

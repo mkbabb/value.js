@@ -332,3 +332,19 @@ Critic 3's four consumer findings on keyframes (C3-KF-01 to -04). Commit: keyfra
   - `scene-swap-w13x` awaits home's loader (the idle warm's state) before the switch, with all assertions unchanged.
 - No test was deleted, skipped or weakened. No golden was re-baselined.
 - Another seat's one-line `KeyframeTimeline.vue` hunk stayed in the tree, unstaged and uncommitted here.
+
+### glass-10.1.1
+
+Adopting `@mkbabb/glass-ui` **10.1.1** (tag `v10.1.1` at `d7baa1dc3`). Read before the work: MIGRATION §10.1.1 and the CHANGELOG 10.1.1 section, both whole. Code: keyframes `f8d6077b`. Evidence: `keyframes/after/glass-10.1.1/`. Every run went through `guarded`. Browser runs were headless Chromium, with one browser per run and one context per cell. Another seat's staged `KeyframeTimeline.vue` hunk stayed in the tree. It was not staged or committed here.
+
+| item | verdict | detail |
+|---|---|---|
+| pin | **ALREADY ADOPTED** | `10.1.1` exact with registry-equal lock integrity: `8876e82e`, repair 3 (C3-KF-01). The demo never calls `provideDockContext`, so `DockContext.expanded` needs nothing. |
+| G-2 menus on the popover rung | **RETIRED** (`f8d6077b`) | The consumer `z-popover` class is gone from the surface menu (`ChromeDock`), the @mbabb menu (`MbabbMenu`, whose MM-15 note is rewritten to name glass's role rung) and the Share popover (`SharePopover`). Live (`probe-skeleton-menu-3.json`): the @mbabb menu's content carries `z-popover` from glass, at z-index 130, and all 5 of 5 hit points land on the menu at both 1440 and 390. Run 2 missed three corners because it read during the reveal transition. Run 3 reads 700 ms after open, with a 12 px inset. |
+| G-1 Sheet fixed | **NOTE ONLY** | No consumer override existed; the ControlsPaneWrapper note on the held SHEET-POSITION row (O-87/O-88) now records glass's cure. |
+| O-102(3) collapse closes face overlays | **NOTHING TO RETIRE** | No code closes menus by hand on collapse. The `keepOpen()`/`release()` holds (ChromeDock Selects, MbabbMenu, TransportDock) are the documented way to keep the dock open while an overlay is up, and MIGRATION §10.1.1 names them as such, so they stay. The ChromeDock watchdog answers glass's touch gate, which collapses past the hold counter. 10.1.1 does not change that gate, so the watchdog is not redundant. |
+| Skeleton shimmer | **ALREADY ADOPTED, RE-READ LIVE** | `SceneSkeleton` passes `<Skeleton shimmer>` (`8876e82e`). The live run deep-linked into `#/amiga` with its scene chunk held (`probe-skeleton-menu-3.json`). At 1440 and at 390 the fallback's Skeleton read `data-shimmer`, `::after` animation `skeleton-shimmer`, and an `::after` transform moving between reads 400 ms apart (-441.6 → -382.0 px). The host had no text. There is no local shimmer CSS. Runs 1–2 switched the hash from `#/cube`. An idle warm had sometimes already resolved the scene, so no fallback was mounted. The deep link removes that race. |
+
+**Gates ×2 (guarded):** `npm run check` (vue-tsc app and test, then proof:structure) rc 0 ×2 (`check-{1,2}.txt`). `vitest run --project demo --maxWorkers=2`: **160 files / 969 tests ×2** (`vitest-demo-{1,2}.txt`). These include the dock and menu suites (`chrome-dock-*`, `dock-*`, `mbabb-menu-*`, `r4dock-*`) and `scene-skeleton-shimmer`. keyframes has no Playwright suite; its dock, menu and skeleton specs are these vitest files, and the live probe above is the browser read.
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched.

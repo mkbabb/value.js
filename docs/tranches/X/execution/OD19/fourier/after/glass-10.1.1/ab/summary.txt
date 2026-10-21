@@ -1,0 +1,6 @@
+p1 base rc=1  2 failed  14 passed (1.7m) 
+p1 cure rc=0  16 passed (1.9m) 
+p2 base rc=0  16 passed (1.9m) 
+p2 cure rc=0  16 passed (1.9m) 
+p3 base rc=0  16 passed (1.9m) 
+p3 cure rc=1  1 failed  15 passed (1.7m) 

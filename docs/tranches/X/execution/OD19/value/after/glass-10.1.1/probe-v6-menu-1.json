@@ -1,0 +1,93 @@
+{
+  "390": {
+    "v6": {
+      "plateText": "",
+      "ariaBusy": "true",
+      "t0": [
+        {
+          "shimmer": true,
+          "afterAnimation": "skeleton-shimmer-5e54f919",
+          "afterTransform": "matrix(1, 0, 0, 1, -423.636, 0)",
+          "text": ""
+        },
+        {
+          "shimmer": true,
+          "afterAnimation": "skeleton-shimmer-5e54f919",
+          "afterTransform": "matrix(1, 0, 0, 1, -423.636, 0)",
+          "text": ""
+        }
+      ],
+      "t1": [
+        {
+          "shimmer": true,
+          "afterAnimation": "skeleton-shimmer-5e54f919",
+          "afterTransform": "matrix(1, 0, 0, 1, -362.992, 0)",
+          "text": ""
+        },
+        {
+          "shimmer": true,
+          "afterAnimation": "skeleton-shimmer-5e54f919",
+          "afterTransform": "matrix(1, 0, 0, 1, -362.992, 0)",
+          "text": ""
+        }
+      ],
+      "moving": [
+        true,
+        true
+      ]
+    },
+    "menu": {
+      "className": "glass-floating glass-overlay-plate glass-reveal z-popover min-w-menu font-display",
+      "hasZPopoverClass": true,
+      "zIndex": "130",
+      "wrapperZ": "130",
+      "dockZ": "0",
+      "hitsOnMenu": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  "1440": {
+    "v6": {
+      "plateText": "",
+      "ariaBusy": "true",
+      "t0": [
+        {
+          "shimmer": true,
+          "afterAnimation": "skeleton-shimmer-5e54f919",
+          "afterTransform": "matrix(1, 0, 0, 1, -435.259, 0)",
+          "text": ""
+        },
+        {
+          "shimmer": true,
+          "afterAnimation": "skeleton-shimmer-5e54f919",
+          "afterTransform": "matrix(1, 0, 0, 1, -435.259, 0)",
+          "text": ""
+        }
+      ],
+      "t1": [
+        {
+          "shimmer": true,
+          "afterAnimation": "skeleton-shimmer-5e54f919",
+          "afterTransform": "matrix(1, 0, 0, 1, -375.526, 0)",
+          "text": ""
+        },
+        {
+          "shimmer": true,
+          "afterAnimation": "skeleton-shimmer-5e54f919",
+          "afterTransform": "matrix(1, 0, 0, 1, -375.526, 0)",
+          "text": ""
+        }
+      ],
+      "moving": [
+        true,
+        true
+      ]
+    },
+    "menu": null
+  }
+}
