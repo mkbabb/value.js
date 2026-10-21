@@ -43,6 +43,29 @@ function stylelessSsr(): Plugin {
     };
 }
 
+/**
+ * X.W11.p4b · N3 (COHESION §0gm.3 / §0gn.2(c)) — under the shell, the entry's
+ * modulepreloads are post-paint: the first view is the prerendered markup and
+ * the stylesheet, and the chunks only hydrate it. Vite emits them at High
+ * priority, where they contend with the render-blocking sheet and the two
+ * preloaded Fraunces faces (the italic one stays, §0gl.6), so they are
+ * demoted to `fetchpriority="low"`. They stay static links the preload
+ * scanner finds, so they still load in parallel, never as a waterfall.
+ *
+ * The demotion is not keyed on `data-first-view`: the boot script can only
+ * reach links it writes itself, and Chrome fetched document-written
+ * modulepreloads at High whatever their hint (measured, the p4b receipt). A
+ * client first view needs the sheet and the faces too, so the low hint only
+ * orders the chunks after them there as well.
+ */
+const MODULEPRELOAD = '<link rel="modulepreload" crossorigin href=';
+
+export function demoteModulepreloads(html: string): string {
+    const parts = html.split(MODULEPRELOAD);
+    if (parts.length === 1) throw new Error("[prerender-shell] the entry carries no modulepreload");
+    return parts.join('<link rel="modulepreload" fetchpriority="low" crossorigin href=');
+}
+
 export function prerenderShell(): Plugin {
     let config: ResolvedConfig;
     return {
@@ -50,6 +73,10 @@ export function prerenderShell(): Plugin {
         apply: (userConfig, env) => env.command === "build" && !userConfig.build?.ssr,
         configResolved(resolved) {
             config = resolved;
+        },
+        transformIndexHtml: {
+            order: "post",
+            handler: demoteModulepreloads,
         },
         async closeBundle() {
             await build({
