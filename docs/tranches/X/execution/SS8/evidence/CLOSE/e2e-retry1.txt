@@ -1,0 +1,163 @@
+(node:18908) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:18990) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 33 tests using 1 worker
+
+(node:19195) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason (1.0m)
+(node:23917) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   2 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger (18.1s)
+  ✓   3 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger (3.4s)
+  ✓   4 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Escape returns focus to the Palette menu trigger (2.9s)
+  ✓   5 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8) (12.4s)
+  ✓   6 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column (2.5s)
+  ✓   7 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (8.7s)
+  ✓   8 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (7.5s)
+  ✓   9 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip (6.8s)
+  ✓  10 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops (7.4s)
+  ✓  11 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize (38.5s)
+  ✓  12 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:115:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the Tools slot is inert, 0 px and unexposed; the dock keeps its face (4.3s)
+  ✓  13 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:115:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the Tools slot is inert, 0 px and unexposed; the dock keeps its face (3.2s)
+  ✓  14 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:115:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the Tools slot is inert, 0 px and unexposed; the dock keeps its face (3.6s)
+  ✓  15 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:140:5 › B05 · the action-bar proportion (0125 · 0146) › 0125: the layer root breathes on the face's own gap — both separators get equal air (6.5s)
+  ✘  16 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:177:5 › B05 · the action-bar proportion (0125 · 0146) › 0146: the seat row is spaced by --dock-layer-gap, not by justify-around slack (6.3s)
+(node:32111) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  17 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) (12.2s)
+(node:33269) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  18 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) (11.9s)
+  ✓  19 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) (6.2s)
+  ✓  20 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) (6.0s)
+  ✓  21 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) (6.5s)
+  ✓  22 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) (6.5s)
+  ✓  23 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:217:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 0) (7.1s)
+  ✓  24 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:217:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 180) (7.2s)
+  ✓  25 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:253:9 › B05 · the Tools target and wordmark (0140) › coarse 390 › the Tools target holds the 44 px coarse floor (4.6s)
+  ✓  26 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:263:9 › B05 · the Tools target and wordmark (0140) › zoom 200 % of 1440×900 › the Tools wordmark survives the zoom (3.9s)
+  ✘  27 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (14.0s)
+(node:38738) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  28 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (light) (13.1s)
+  ✘  29 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (11.4s)
+(node:40346) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  30 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (dark) (15.0s)
+  ✓  31 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, light) (3.4s)
+  ✓  32 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, dark) (3.5s)
+  ✓  33 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:84:5 › X-5 · phone › X-5 · Add to palette in the eyedropper is announced politely (390, touch) (5.8s)
+
+
+  1) [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)')[22m
+
+
+      41 |     await page.goto("/#/browse");
+      42 |     const main = mainPane(page);
+    > 43 |     await expect(main).toBeVisible();
+         |                        ^
+      44 |     await main.getByRole("button", { name: "Palette menu" }).first().click();
+      45 |     await page.getByRole("menuitem", { name: /Report/ }).click();
+      46 |     // FlagReportDialog: Spam radio + Report button.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-flag.spec.ts:43:24
+
+    Error Context: test-results/flows-palette-flag-flag-a--15b16-ettes-slug-flag-with-reason-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:177:5 › B05 · the action-bar proportion (0125 · 0146) › 0146: the seat row is spaced by --dock-layer-gap, not by justify-around slack 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m5.5[39m
+    Received:    [31m5.3983154296875[39m
+
+      193 |         expect(row.token).toBeGreaterThan(0);
+      194 |         expect(row.gaps.length).toBeGreaterThan(0);
+    > 195 |         for (const gap of row.gaps) expect(gap).toBeGreaterThanOrEqual(row.token - 0.5);
+          |                                                 ^
+      196 |     });
+      197 | });
+      198 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:195:49
+
+    Error Context: test-results/oracles-o33-dock-actionbar-5ba3b-not-by-justify-around-slack-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.422145141483228[39m
+
+      210 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      211 |             expect(label).not.toBeNull();
+    > 212 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      213 |         });
+      214 |     }
+      215 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:212:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-e66f8--the-light-band-seed-hue-0--smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+
+    Error: ramp chip 0: head rim step 154 vs interior slope 0 (rim 194,91,135, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m154[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: test-results/ss8-b19-color-chips-R-13-·-e662b-s-the-endpoint-stops-light--smoke/error-context.md
+
+  5) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+
+    Error: ramp chip 0: head rim step 65 vs interior slope 0 (rim 118,49,69, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m65[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: test-results/ss8-b19-color-chips-R-13-·-bfba2-ls-the-endpoint-stops-dark--smoke/error-context.md
+
+  5 failed
+    [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:177:5 › B05 · the action-bar proportion (0125 · 0146) › 0146: the seat row is spaced by --dock-layer-gap, not by justify-around slack 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+  28 passed (5.7m)
+exit 1

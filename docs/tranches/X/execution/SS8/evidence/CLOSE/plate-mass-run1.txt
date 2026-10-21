@@ -1,0 +1,48 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:58556) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stderr | demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugin `externalize-deps`. See https://rolldown.rs/options/checks#plugintimings for more details.
+
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+G20 1440 {"PaletteCardSkeleton.vue:instrument@16":42,"PaletteCardSkeleton.vue:instrument@1":42,"PaletteCardSkeleton.vue@16":92.515625,"PaletteCardSkeleton.vue@1":92.515625,"PaletteCardSkeleton.vue:developing@16":92.515625,"PaletteCardSkeleton.vue:developing@1":92.515625}
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 1440 shadow loading 92.515625 settled 92.53125
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 1440 developing loading 92.515625 settled 92.53125
+
+ ❯ demo/test/palettes/plate-mass.test.ts (4 tests | 2 skipped) 76388ms
+   ↓ plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+   ↓ plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+   ✓ plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them 120ms
+   ✓ plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card 25ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px
+TimeoutError: page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "http://127.0.0.1:5173/", waiting until "load"[22m
+
+ ❯ openHarness demo/test/palettes/n-fixtures/browser.ts:71:16
+     69|     const browser: Browser = await chromium.launch();
+     70|     const page = await browser.newPage({ viewport });
+     71|     await page.goto(`http://127.0.0.1:${address.port}/`);
+       |                ^
+     72|     await page.waitForSelector("[role=article][data-case]");
+     73|     return {
+ ❯ demo/test/palettes/plate-mass.test.ts:85:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 passed | 2 skipped (4)
+   Start at  21:55:19
+   Duration  77.17s (transform 43ms, setup 52ms, collect 319ms, tests 76.39s, environment 0ms, prepare 67ms)
+

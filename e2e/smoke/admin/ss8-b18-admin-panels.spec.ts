@@ -7,8 +7,8 @@ import { adminPopulatedTest as test, expect } from "./fixtures/admin-populated";
  *
  * CURES (red before the cure, green after):
  *   SS8-0514  the Audit loading shadows hold the rows' rhythm: the shadow list's
- *             gap is the row list's gap (the height limb is fixme'd: it rides
- *             AdminListSkeleton's column, another seat's uncommitted hunk).
+ *             gap is the row list's gap; the height limb (shadow = row height)
+ *             rides AdminListSkeleton's column (B17 4c4506b9a), re-armed at SS-8 CLOSE.
  * PINS (already cured at HEAD; the witness's figures, kept from regressing):
  *   SS8-0529  at coarse 390 the Tags create placeholders fit their fields (the
  *             106.2-in-104 residue did not reproduce on the 2026-10-20 tree:
@@ -84,9 +84,10 @@ test.describe("SS8-0514 · Audit shadows keep the row rhythm", () => {
         const { skel, rows } = await shadowsVsRows(page);
         for (const g of skel.gaps) expect(Math.abs(g - rows.gaps[0]!)).toBeLessThanOrEqual(0.5);
     });
-    // The height limb rides AdminListSkeleton's column, held by the B17 seat's
-    // uncommitted SS8-0487 hunk (blockedByDirty); un-fixme when that lands.
-    test.fixme("shadow height = row height", async ({ page }) => {
+    // The height limb rides AdminListSkeleton's column: B17's SS8-0487 column
+    // landed at 4c4506b9a, so the SS-8 CLOSE seat re-armed it (was test.fixme).
+    test("shadow height = row height", async ({ page }) => {
+        test.slow();
         const { skel, rows } = await shadowsVsRows(page);
         for (const h of skel.h) expect(Math.abs(h - rows.h[0]!)).toBeLessThanOrEqual(1);
     });
