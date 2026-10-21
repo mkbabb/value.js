@@ -4588,3 +4588,20 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
       - anything truly live is written after mount.
       Writable set widened to those files.
     - Gate: 0 mismatches in 4/4 shell cells, then lhci ×3 on CI. If LCP/TBT are still over budget after hydration is clean, the seat names the remaining critical-path tasks with a profile and proposes the next cut; it never defers the first-paint pane.
+
+## §0gm — 2026-10-21: X-W11's second escalation set ruled (delegate, §0ge)
+1. **ESC-W11c-TAG-CI-RED.** Two e2e rows red in CI's `npm run typecheck` and the oracle slate, introduced by this wave's own units.
+   - **Units:**
+     - **X.W11.d3c** cures the 12 TS errors in `e2e/smoke/oracles/o11-header-gates.spec.ts` (from 4004bcdf7) at root.
+     - **X.W11.h4b** cures the slate's DEAD ATTRIBUTE `[data-o18-census]` (from 241d65567): the product carries the attribute the oracle reads, or the oracle reads a selector that exists. The census is not weakened.
+   - **.b's reading becomes ci.yml's own:** `npm run typecheck` (all four programs) and the oracle slate join G2, so a green .b now means a green CI tag.
+   - **Then:** re-mint LOCAL v4.1.0 at HEAD, then .b and .c re-sit.
+2. **The library release does not wait on demo LCP.** When lhci is the only red left, **publish @mkbabb/value.js 4.1.0** (tag push, release.yml, npm with provenance). The library's surface and gates are independent of the demo's boot budget.
+   - **The demo deploy (deploy-pages) is HELD** until lhci is green or ruled again. Its deploy gate is not weakened.
+   - **.d and .e** read the published library (G9, G12 packets) now; their deploy-dependent legs wait for the deploy.
+3. **ESC-W11p3b-1 (lhci after clean hydration): N1, N2 and N3 are granted to a new unit X.W11.p4, in order, with lhci ×3 on CI read after each:**
+   - **N1:** reduce .h7b's inline pre-paint script to its pure seeded-ground core (185 KB → only the `boot/seeded-ground.ts` import closure).
+   - **N2:** hydrate the first-paint pane eagerly, and every non-visible region and registry lazily (`hydrateOnIdle` / `hydrateOnVisible`; App.vue + demo/shell/**).
+   - **N3:** demote post-paint modulepreloads under the shell. The italic Fraunces preload STAYS (§0gl.6, the above-the-fold title) unless N3 measures that the italic is not used in the first viewport at either width.
+   - **N4 is conditional:** only if still over budget after N1–N3. The paper grain is identity and stays (§0dm), but it may move off the LCP candidate's own background (for example to a pseudo-element or a shared tiled asset), measured both ways.
+4. **ESC-W11d3b-1 (3 light-390 caption cells at 3.22:1 over the hot aurora band): arm (a).** The ground side is cured: at 390 the resting header plate takes glass's denser resting rung that holds the 4.5:1 caption floor over its darkest backdrop region, measured on the 3 cells ×2 with the other 49 unchanged. If no published rung does it, X.W11.d3c relays the plate-α ask to glass with the numbers, and the 3 cells are held honest-RED. Arm (c), the polarity flip, is refused, and arm (b), moving the aurora, would change identity placement.
