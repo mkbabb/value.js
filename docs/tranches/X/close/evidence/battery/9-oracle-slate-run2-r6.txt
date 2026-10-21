@@ -1,0 +1,21 @@
+SERVED MODEL: claude-opus-5-5
+unit: X.W11.b (RESUME eighth, r6) · 2026-10-21 05:45:40 EDT
+tree: v4.1.0^{commit} = c2259fdadb892a590c645f73c319b61c6c5e009a (annotated tag object 1a4bf1e58ad7e80a1becdae80472b1f6578a410a); clean detached worktree, git status --porcelain | wc -l -> 0
+node: v26.0.0 · npm: 11.12.1
+cmd: ~/.claude/guard/guarded --light --timeout 5 -- zsh -c "node scripts/ci/oracle-slate.mjs"
+---
+ORACLE SLATE — X-W1 G-5 (R2 · R47 · R48 · R50)
+  projects declared : 8 (smoke, smoke-admin, smoke-mobile, smoke-reactivity, smoke-perf, oracles-safari, smoke-safari, visual)
+  projects invoked  : smoke, smoke-admin, smoke-mobile, smoke-reactivity, smoke-perf, visual, smoke-safari, oracles-safari
+  tracked e2e specs : 129
+  collected by ≥1   : 129
+  D · ordinal "o10d" is one oracle over 2 files, each declaring it: e2e/smoke/admin/o10d-admin-title-voice.spec.ts · e2e/smoke/oracles/o10d-display-voice-census.spec.ts
+  D · ordinal "o18" is one oracle over 2 files, each declaring it: e2e/smoke/admin/o18-modal-ink.spec.ts · e2e/smoke/oracles/o18-contrast-census.spec.ts
+  E · a STATIC census. A locator whose literal EXISTS in product source but is unreachable at runtime (an `aria-label` dropped by a producer component's `inheritAttrs: false`) is not decidable here — that class is caught by G-3's classified run.
+  E · 612 literal references checked · 134 dynamic (template/regex/variable) references are UNCHECKABLE by this instrument and are reported, not exempted
+  F · 22 eslint `files:` globs read; only path-claiming globs are judged
+
+SLATE CLEAN — 0 findings
+---
+exit 0
+tree after: git status --porcelain | wc -l -> 0
