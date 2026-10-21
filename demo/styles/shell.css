@@ -414,12 +414,13 @@
  * both glass Cards are z-auto stacking contexts, so DOM order alone painted
  * the LATER right pane over the left pane's overflowing ornament). Grid items
  * take z-index directly (no positioning needed). A portaled overlay clears
- * this layer ONLY when it carries its own: glass's Select and Popover take
- * z-popover, but glass 10.1.0's DropdownMenuContent ships z-index auto, so a
- * menu opened over the stage painted UNDER it while reka still routed clicks
- * to it (X-DS V7R-01). Until glass gives the menu chunk z-popover (relayed
- * under O-87/O-80), every DropdownMenuContent call site carries glass's own
- * `z-popover` utility; ZERO per-instance z-index on the ornament itself (the
+ * this layer ONLY when it carries its own. Since glass 10.1.1 (G-2) every
+ * overlay takes its rung from its role (menu, submenu, panel -> z-popover), so
+ * the menus clear it with no consumer class. On 10.1.0 the DropdownMenuContent
+ * shipped z-index auto and painted UNDER the stage (X-DS V7R-01); the per-site
+ * `z-popover` lift that answered it is retired at the 10.1.1 adoption, and
+ * the oracle v7r-overlay-layer.spec.ts holds the paint order. ZERO per-instance
+ * z-index on the ornament itself (the
  * no-z-hacks law — the slot assigns the layer). X.W5.c: keyed on the region's
  * ROLE. The ornament overflows because of what the region IS — the protagonist
  * carrying the hero blob — not because of which side of a grid it landed on,

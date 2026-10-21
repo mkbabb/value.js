@@ -79,7 +79,7 @@ function openRepository(): void {
                     <UserCircle class="w-3.5 h-3.5" />
                     Profile
                 </DockTrigger>
-                <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="z-popover min-w-menu font-display">
+                <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="min-w-menu font-display">
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
                             class="slug-pill whitespace-nowrap"
@@ -140,7 +140,7 @@ function openRepository(): void {
                     <Shield class="w-3.5 h-3.5" aria-hidden="true" />
                     admin
                 </DockTrigger>
-                <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="z-popover min-w-menu font-display">
+                <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="min-w-menu font-display">
                     <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="emit('startSlugEdit')">
                         <LogIn class="w-3.5 h-3.5" /> Switch account
                     </DropdownMenuItem>
@@ -194,7 +194,7 @@ function openRepository(): void {
             >
                 @mbabb
             </DockTrigger>
-            <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="z-popover min-w-menu font-display">
+            <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="min-w-menu font-display">
                 <div class="flex items-center gap-2 px-2 py-1.5">
                     <Avatar decorative class="w-7 h-7">
                         <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />

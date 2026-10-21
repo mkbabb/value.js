@@ -194,7 +194,7 @@ const failedMessage = computed(() =>
                     <Ellipsis class="w-6 h-6" />
                 </DockControl>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="z-popover min-w-menu font-display">
+            <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="min-w-menu font-display">
                 <DropdownMenuItem
                     v-for="action in menuSeats"
                     :key="action.token"
