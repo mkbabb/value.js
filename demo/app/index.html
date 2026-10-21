@@ -43,6 +43,13 @@
              commit, never a swap-reflow. font-display:fallback's no-late-swap
              arm is a non-case for a preloaded same-origin face (recorded). -->
         <link rel="preload" href="./fonts/fraunces-latin-normal.woff2" as="font" type="font/woff2" crossorigin />
+        <!-- X.W11.h19b (COHESION §0gl.6; C10-1): the latin ITALIC face is
+             used above the fold (the picker title, ColorSpaceSelector's
+             `font-display italic`), so it is preloaded beside the upright
+             face; the size-adjust-tuned italic "Fraunces Fallback" below
+             stays as its metric-compatible landing face. Only the latin
+             italic subset is preloaded — the latin-ext faces stay on use. -->
+        <link rel="preload" href="./fonts/fraunces-latin-italic.woff2" as="font" type="font/woff2" crossorigin />
         <style>
             @font-face {
                 font-family: "Fraunces";
