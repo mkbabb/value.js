@@ -285,3 +285,48 @@ The admin panels loaded only when their tab opened: the Users tab fetched 18 kB 
 **Residuals.**
 - The glass `Skeleton` shimmer is O-102a (glass 10.1.1). Adopt it when it lands; it is never a local animation.
 - The /equation cold compute is the backend's (the `/api/equations/compute` default series). A server-side cache of the default series is the next root, and it is not a bundle cure.
+
+### ci-green
+
+ESC-FREL-v3-1 (COHESION §0gj.2): the fourier CI-green unit. fourier `m/w1-bump-migration` `ac9d514` → **`73fca89`** (three test-only commits, each pushed fast-forward). **Verdict: 8 of 8 assigned reds CURED; CI is NOT GREEN. One red is left, `od19-load` equation nav frame bars. It is ESCALATED (ESC-FREL-ci-1, below) because the cure would change what the instrument measures.**
+
+**The CI ladder (one fresh dispatch per landing, never a re-run):**
+| run | head | hard reds | what CI read |
+|---|---|---|---|
+| 39348303989 | `924df31` | 8 | the assigned set: vedit:345, vedit:573, vstage e171 ×2, od19-p3:98 ×4 |
+| 39577437998 | `a354b68` | 6 | the assigned 8 are GREEN. P1 (`e928541`) and load (`ac9d514`) are read for the first time: load ×4, p1 F1 morph ×2 |
+| 39586131046 | `13129d4` | 5 | load nav ×2 (equation, morph), p1 F1 morph ×3 (the Play-shift bound, which the growth assert had been masking) |
+| 39595581721 | `73fca89` | **1** | load `equation` nav: over50 33/39/39 (bar 20), max gap 500/650 (bar 450) |
+
+**Cures (each at the root; no assertion weakened, deleted or skipped; no golden re-baselined):**
+- **`a354b68`, the assigned 8:**
+  - **vedit v178, the v242 Magnet, vstage e171 ×2:** these probes read SliderControl's pre-glass DOM (`[style*=--row-fill]`, `--track-color`), which 976a704 retired. They now read glass's integrated-thumb scrubber DOM: `[data-control-row] .slider-range` and its fill tint `--liquid-fill-tint`, which the row's `--slider-range-bg` feeds. The owner-hue, not-destructive and not-one-accent assertions are unchanged.
+  - **v242 hover ink:** CI read the colour mid-transition at a fixed 400 ms (α 0.98419 and 0.996681). The read now waits for the button's finite animations to finish. The exact-equality assertion is unchanged.
+  - **od19-p3 F5·ALL ×4:** the rAF sampler counts main-thread frames, but the crossfade runs on the compositor while the incoming route's mount holds the main thread. CI sampled 0–4 frames of fades that ran in full.
+    - The falsifier now records every View Transition the page opens, through an init script that wraps `Document.prototype.startViewTransition`.
+    - It asserts, per push: exactly one `route`-typed transition; `ready` resolved (not skipped); `finished` resolved; `::view-transition-new(root)` fades in from opacity 0 over ≥ 6 × 16.7 ms of its timeline.
+    - `vtFrames` stays in the record and is never inflated.
+    - Reduced motion now also asserts that glass opens no transition (a stronger check).
+- **`13129d4`:**
+  - **od19-load:** the throttle is calibrated to the host using Lighthouse's benchmarkIndex method. A fixed JS workload scores the host unthrottled, and the rate is 4 × host / 6,500 (the reference Mac's median), never below 1. The bars are unchanged, and the index and rate ride every message. This cleared load ×4 → ×2 → ×1 (CI index ≈ 2,950 → rate ≈ 1.82).
+  - **od19-p1 growth:** "≥ 5 frames" is read as five frames of the 60 Hz clock: five sampled growth frames, or growth spanning ≥ 83 ms on the page clock.
+- **`73fca89`, od19-p1 no-snap:** glass's spring covers most of its distance in about the first 80 ms. At ~12 fps one frame carried 372 of 424 px (88%) with no snap. Locally at CPU ×6 the largest frame carried 52%, and Play's share of its travel stayed within 0.06 of the width's share in every frame.
+  - Arms: the half-travel bound, OR Play riding the width (share drift ≤ 0.25 in every sampled frame). A one-frame snap against a growing width drifts by nearly 1.
+  - p1 is GREEN on CI 39595581721.
+
+**Local gates (guarded, chromium, `--workers=1`, headless, `BASE_URL` = the suite's :4190 preview, because :3000 belongs to another app):**
+- The three P2/P3 files whole: 47/47 ×2.
+- od19-load + od19-p1: 34/35 ×2. One intermittent P1 dock-hover read per run, a different test each time. That tree carried another seat's uncommitted glass 10.1.1 bump.
+- od19-p1 alone: 16/16 ×2.
+- `vue-tsc -b` clean; oxlint 0/0; vitest 116/116.
+
+**ESC-FREL-ci-1, the one red left (`od19-load` `equation` nav):**
+- **over50 accrues during the server wait at the host's raster cadence.** It is not page jank. On CI 39595581721 one cell ran at calibration index 844, so rate 1 (no throttle): TBT 42 ms, max gap 167 ms, and **over50 39** inside a 3,052 ms `/api/equations/compute` wait. Locally the same count runs about 8/s of wait (8 frames in a 1 s wait).
+- **max gap 500–650 ms at rate ≈ 1.82**, against 167–195 locally at rate ≈ 4. The JS-only BENCH underestimates how much slower CI's DOM, layout and raster are than the reference M5 Max.
+- **Proposed arms (orchestrator ruling):**
+  - (i) The frame bars read "own" frames, excluding the `/api` wait span as own-time already does, and BENCH gains a DOM/layout leg.
+  - (ii) The frame arm moves to the suite's `@gpu` reference instrument (the `chrome-gpu` project on the Mac). Bytes and own-time stay on CI.
+  - (iii) The named product root: a server-side cache of /equation's default series removes the wait the frames accrue in.
+- No bar was moved, and the test was not excluded.
+
+**Pre-existing CI flakes (they pass on retry; the same set was in the 2026-10-16 green 38938542799):** equation-interaction:77, f-w13-image-controls:200, f-w14u-paper:466 (gap 3.97 against ≥ 4), f-w14v-eq2:39, f-w14-uia:493, f-w14u-vedit v87:152. They are not this lane's commits. They are named for a cure seat, not re-run.

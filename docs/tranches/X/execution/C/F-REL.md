@@ -3448,3 +3448,9 @@ ESC-FREL-v3-1 and ESC-FREL-d-5. Both route to the orchestrator: X·OD19 cures it
 
 ### Four-verb line
 F.REL is **not moved**: it stays OPEN / BLOCKED. `.d` (the wave's deliverable) is undone, so IMPLEMENTED cannot be stamped. The LEDGER reads **BLOCKED-ON ESC-FREL-v3-1 (X·OD19 m/w1 e2e reds) + ESC-FREL-d-5**.
+
+- **2026-10-21 · ESC-FREL-v3-1 (X·OD19 ci-green):** m/w1 `73fca89`.
+  - The 8 assigned reds of 39348303989 are CURED: GREEN on CI 39577437998 and every later run.
+  - P1 (`e928541`) and load (`ac9d514`), read by CI for the first time, are cured to 1 red: `od19-load` equation nav frame bars on CI 39595581721.
+  - That red is **ESCALATED as ESC-FREL-ci-1** (receipt: `OD19/fourier.md` §ci-green).
+  - m/w1 is **not yet GREEN**, so Track C's merge stays blocked.
