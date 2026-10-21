@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
 @import "tw-animate-css";
 
 /*
@@ -36,6 +36,13 @@
  * Scoped to the authored CODE files by extension (`{vue,ts,html}`) so the
  * sibling `.css` files (this one + animations.css/utils.css) — which are NOT
  * content templates — stay out of the candidate-extraction set.
+ *
+ * OD19 C3-V-01: `source(none)` on the `@import` turns the implicit scan OFF, so
+ * the explicit globs below are the WHOLE scan. Left on, it walked every
+ * untracked file under the repo root (sibling seats' `.worktrees/`, `docs/`
+ * evidence, `bench/`): 74,923 files handed to the dev server's watcher, a
+ * 14.8 s compile of this sheet on each of their writes, and 1,258 utilities
+ * minted from words in files the app never serves (none of them in its DOM).
  *
  */
 
