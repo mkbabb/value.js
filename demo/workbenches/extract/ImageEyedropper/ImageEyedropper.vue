@@ -17,7 +17,7 @@
             class="flex flex-col gap-0 p-0 rounded-panel overflow-hidden w-[min(100vw_-_2rem,64rem)] h-[min(100dvh_-_2rem,48rem)]"
             @escape-key-down="onEscape"
         >
-            <DialogTitle class="sr-only">Eyedropper</DialogTitle>
+            <DialogTitle class="sr-only font-display font-medium">Eyedropper</DialogTitle>
             <DialogDescription class="sr-only">{{ samplePrompt }}; Escape releases a pin, then closes.</DialogDescription>
             <!-- SS8-0726 (X-5): the confirmation's spoken twin. The swatch pulse
                  is the visual receipt; this polite region, inside the modal (the

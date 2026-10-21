@@ -68,7 +68,6 @@ async function readFrame<T, A>(
                 const d = c.getImageData(0, 0, 1, 1).data;
                 return [d[0]!, d[1]!, d[2]!, d[3]! / 255] as const;
             };
-            // eslint-disable-next-line no-new-func
             return new Function("arg", "h", `return (${fn})(arg, h)`)(arg, { px, mean, cr, okL, solid });
         },
         { b64: png.toString("base64"), arg, fn },
