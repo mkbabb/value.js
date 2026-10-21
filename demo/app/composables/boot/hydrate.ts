@@ -39,6 +39,7 @@ import {
 // with useColorPersistence. boot→lib is a legal DOWN import.
 import { COLOR_STORE_KEY } from "../../../color-session/useColorPersistence";
 import { safeGetItem } from "../../../platform/storage/useSafeStorage";
+import { parseUrlSeed } from "./seeded-ground";
 
 export type BootSeedSource = "url" | "storage" | "default";
 
@@ -63,14 +64,9 @@ export interface HydratedBootModel {
  */
 function readUrlSeed(): { space: string; color: string } | null {
     if (typeof window === "undefined") return null;
-    const hash = window.location.hash;
-    const q = hash.indexOf("?");
-    if (q === -1) return null;
-    const params = new URLSearchParams(hash.slice(q + 1));
-    const space = params.get("space");
-    const color = params.get("color");
-    if (!space || !color) return null;
-    return { space, color };
+    // X.W11.h7b: the parse is `seeded-ground.ts`'s `parseUrlSeed`, the one
+    // reader the pre-paint boot script also runs for the seeded ground.
+    return parseUrlSeed(window.location.hash);
 }
 
 /** Shape-validated read of the persisted input color (string, non-empty). */

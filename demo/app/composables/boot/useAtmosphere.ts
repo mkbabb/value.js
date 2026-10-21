@@ -37,12 +37,8 @@ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "../../../scenes/atmosphere/aurora-atoms";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
 import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
-import {
-    GROUND_STORE_KEY,
-    buildGroundRecord,
-    normalizeGroundStops,
-    type GroundRecord,
-} from "./ground";
+import { GROUND_STORE_KEY, buildGroundRecord, type GroundRecord } from "./ground";
+import { fieldAtomsFor, groundPaletteFor, groundStopsFor } from "./seeded-ground";
 
 /**
  * W6-7 — the pointer-as-light strength fed to the aurora cursor model. The
@@ -129,12 +125,9 @@ export function useAtmosphere(
     // `lBand` authored in AuroraPane WINS, because this only supplies the
     // band the shell implies when the atoms have not spoken. The ground's own
     // scheme-banding (below) is a separate contract and is untouched.
-    const fieldAtoms = (): AuroraAtoms =>
-        !isDark.value ||
-        auroraAtoms.lightnessScheme !== undefined ||
-        auroraAtoms.lBand !== undefined
-            ? auroraAtoms
-            : { ...auroraAtoms, lightnessScheme: "dark" };
+    // X.W11.h7b: the rule is `seeded-ground.ts`'s `fieldAtomsFor`, the one
+    // source the pre-paint boot also runs.
+    const fieldAtoms = (): AuroraAtoms => fieldAtomsFor(auroraAtoms, isDark.value);
 
     const aurora = useAurora(
         atmosphereCanvas,
@@ -205,17 +198,14 @@ export function useAtmosphere(
     // the ground is pinned to the RAW producer derive by the
     // FIRST_VISIT_GROUND byte-identity above, while the field rides the
     // calibrated base; collapsing them would silently re-point that pin.
-    const groundPalette = computed(() => {
-        const fieldPalette = resolvedPalette.value; // tracks seed/atom edits
-        if (!isDark.value) return fieldPalette;
-        const seed = auroraAtoms.seed;
-        if (typeof seed !== "string") return fieldPalette;
-        try {
-            return deriveAurora(seed, { scheme: "dark" });
-        } catch {
-            return fieldPalette;
-        }
-    });
+    // X.W11.h7b (COHESION §0gl.10): the banding is `seeded-ground.ts`'s
+    // `groundPaletteFor` and the stop set its `groundStopsFor` — the same pure
+    // derive the build inlines into the pre-paint boot script, so a seeded
+    // first paint and this sink's first write are one function's output.
+    const groundPalette = computed(() =>
+        // resolvedPalette is always read: it tracks seed/atom edits.
+        groundPaletteFor(auroraAtoms, isDark.value, resolvedPalette.value),
+    );
     const persistGround = debounce(
         (record: GroundRecord) =>
             safeSetItem("local", GROUND_STORE_KEY, JSON.stringify(record)),
@@ -225,7 +215,7 @@ export function useAtmosphere(
         [groundPalette, isDark],
         ([palette, dark]) => {
             if (!palette?.length) return;
-            const stops = normalizeGroundStops(palette.map(oklchStopToHex));
+            const stops = groundStopsFor(palette);
             const root = document.documentElement.style;
             stops.forEach((stop, i) => root.setProperty(`--saved-bg-${i}`, stop));
             const base = stops[0];
