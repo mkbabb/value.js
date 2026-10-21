@@ -4539,3 +4539,28 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
 3. **Track C after that:** a fresh m/w1 CI GREEN → `merge --no-ff` to master → master CI ×2 → .d deploy. .d reads 403 rather than 503 on `/api/admin/verify` (the token is wired). The first deploy recreates the production mongo once, behind the hook's cold backup.
    - F.REL.m2 (`a60c542`, `9519b6f`) and .s1 (`c83b7ea`, `563814d`) are landed.
 4. **Resume order after the reboot:** Track A, X-OD19 (with ESC-FREL-v3-1), SS-8, then Track C once m/w1 is green. Never more than 4 concurrently, and each browser run uses one browser.
+
+## §0gk — 2026-10-20: SS-8 is SWEPT-WITH-RESIDUE (`ecbf3f53c`); its owner rows are ruled by the delegate (§0ge); the residue moves to SS-8.r; the glass rows go out as one letter
+1. **Read:** 999 rows: 320 PROVEN, 422 REFUTED (each with a cure commit or a route, CLOSE §4/§5), and 257 UNPROVEN, each with its measured reason (CLOSE §6). All 14 records of the zero-residue cohort are swept, so §4.1's completion condition is met.
+2. **Owner rows (CLOSE §4.3), ruled:**
+   - **B02 0054 (deploy source):** discharged by Track A's `.c` deploy-on-green. Its receipt records the served source tree by SHA.
+   - **B02 0039:** a consumer cure. The caption reaches its ink through a token step, never through `opacity`.
+   - **B03 0061 (SelectContent α):** glass material, relayed as part of D3.
+   - **B03 0085:** move the clip. The hero clips at the viewport, and the bead placement is unchanged.
+   - **B05 0140:** the 390 Tools seat is icon-only BY DESIGN, carrying its accessible name.
+   - **B10 R-3:** the regrade is accepted; the glyph passes 1.4.11.
+   - **B13 L-3:** **the 4.5:1 text floor wins** over the X-DS P9R-04 meta rung, the same law as §0ge's header veil. The attribution ink takes the token step that reaches ≥4.5:1 in both schemes.
+   - **B15 0440:** YES, elevation reads the same in both schemes. Add a scheme-aware `--well-bg` lift at `foundation.css:407`.
+   - **B15 0422 / 0444:** record only; no law binds them.
+   - **B24 R-9:** record only. `server.host: true` is the owner's chosen LAN device-testing setup, and the firewall is the boundary.
+   - **B24 U-11:** the SS-8.r seat reads it and cures it at root by the default rule.
+   - **B22 U-1 / B09 0259 (the referent law):** a caption's contrast is certified against the **darkest backdrop region it actually sits over**, not the field mean. Wherever that falls under 4.5:1, the ink takes a token step.
+   - **Z4 band-17 (publish 4.1.0):** an owner act DELEGATED. It rides Track A's re-mint of v4.1.0 at X-W9.f.
+3. **SS-8.r, dispatched after X-OD19's glass 10.1.1 adoption lands**, because the B19 red was read on a tree with that bump uncommitted. Each item is a root cure with a falsifier, GREEN ×2 on committed bytes:
+   - B19 R-13 (SS8-0537 rim step), with the glass bump attributed or excluded;
+   - Z-ColorPicker-14: Z1's golden split collides with the W20 title-row reservation, so one owner of the seam is chosen;
+   - B05 0132 (4.42 vs 4.5), 0125 and 0146;
+   - o14 dark and B26 X-5, where each flake is cured, not re-run;
+   - the B11 0309 palette-flag reach and the `plate-mass` 390 `page.goto` timeout;
+   - the consumer rulings in 2: 0039, B13 L-3, 0440, the referent law, 0085 and U-11.
+4. **Glass rows (CLOSE §4.2):** relayed as one letter, `docs/tranches/V/coordination/valuejs-outbound-2026-10-20-ss8-glass-rows.md`, pointing at CLOSE §4.2 for the measured evidence. The rows already named (O-59, I-20, B-3, B-4) are cited, not re-filed.
