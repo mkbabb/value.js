@@ -162,7 +162,8 @@
                          clears when the user moves to another pane, and the
                          slot's cache beneath it is never remounted. -->
                     <ErrorBoundary :reset-key="region.key">
-                        <PaneSlot
+                        <component
+                            :is="slotFor(region.role)"
                             :component="region.component"
                             :component-key="region.key"
                             :component-props="region.props"
@@ -220,6 +221,7 @@
 import {
     computed,
     defineAsyncComponent,
+    hydrateOnIdle,
     onMounted,
     provide,
     ref,
@@ -242,7 +244,12 @@ import ErrorBoundary from "./ErrorBoundary.vue";
 import { useCustomColorNames } from "../color-session/useCustomColorNames";
 import { useColorUrl } from "../color-session/useColorUrl";
 
-import { ROUTE_TITLE_ID, useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
+import {
+    ROUTE_TITLE_ID,
+    useViewManager,
+    VIEW_MANAGER_KEY,
+    type RegionRole,
+} from "../shell/useViewManager";
 import { useColorPipeline } from "../color-session/useColorPipeline";
 import { usePaneRouter, PANE_CACHE_MAX } from "../shell/usePaneRouter";
 import { useSceneTargets } from "../shell/useSceneTargets";
@@ -263,6 +270,23 @@ import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 // still reached through the `dialog/` sub-barrel (U-F47 · G-DEMO-3b: never the
 // raw `.vue` file), and the barrel's siblings now ride the same lazy chunk
 // instead of the eager index.
+// X.W11.p4b · N2 (COHESION §0gm.3 / §0gn.2(c)) — the shell's hydration was ONE
+// task (1,020 ms on CI's lhci): App's setup and the hydration walk of every
+// region's markup. Only the first-paint pane hydrates in it now. Every other
+// region (the inspector, the action pane) hydrates its prerendered markup when
+// the main thread is next idle (`hydrateOnIdle`, Vue 3.5 lazy hydration),
+// through an async wrapper over the SAME PaneSlot, so the vnode tree the
+// prerender rendered is the tree hydrated. A client first view (no shell) has
+// nothing to hydrate and renders PaneSlot directly.
+const HYDRATES_SHELL =
+    import.meta.env.SSR || document.documentElement.dataset.firstView === "shell";
+const IdleHydratedPaneSlot = defineAsyncComponent({
+    loader: async () => PaneSlot,
+    hydrate: hydrateOnIdle(),
+});
+const slotFor = (role: RegionRole) =>
+    role === "stage" || !HYDRATES_SHELL ? PaneSlot : IdleHydratedPaneSlot;
+
 const MigratePalettesDialog = defineAsyncComponent(() =>
     import("../palettes/browser/dialog").then((m) => m.MigratePalettesDialog),
 );
