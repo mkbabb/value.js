@@ -32,14 +32,20 @@
  *    generated space: the router's own table, guarded for parity below.
  *  · VIEWPORT — 390 / 1024 / 3440, the three W1.md names.
  *  · SCHEME — light / dark, the two the app ships (`useGlobalDark`).
- *  · PANE — **mobile only**. At 1024 and 3440 both panes render side by side, so
- *    one frame witnesses both. At 390 the shell shows ONE pane at a time
- *    (`defaultPaneIndex` in VIEW_MAP picks which), so the sibling pane — About,
- *    Mix, Blob, Palettes — is unreachable in the default frame. The pane axis
- *    exists at 390 *because a mobile user reaches the other pane by tapping the
- *    segmented control*, and is absent at desktop *because there is nothing
- *    there to reach*. That is L-19 applied, not evaded: it is precisely the
- *    "pane-hosted surfaces ARE reached" clause of R34.
+ *  · PANE — **none: one frame per (route, viewport, scheme).** The shell lays
+ *    a scene's ordered `regions[]` out by SPACE (`demo/styles/shell.css`
+ *    `.pane-container`, `repeat(auto-fit, minmax(min(--pane-min, 100%), 1fr))`,
+ *    X.W5.c `50633f195`): side by side where two tracks fit, and stacked into the
+ *    ONE scrolling column where they do not — 390 included. Every region is
+ *    mounted at every width (`App.vue`'s single `v-for` over `regions`, each a
+ *    `.pane-wrapper[data-pane]`), and the shutter is full-page, so one frame
+ *    witnesses every region. The 390 pane axis this table used to carry — a
+ *    second frame per dual scene, reached through the pane segmented control —
+ *    photographed a control X.W5.c DELETED (`PaneSegmentedControl.vue`), so its
+ *    sibling cells read "unreachable" on every dual scene (DISPOSITION §5a: 28
+ *    cells). Re-planned at X.W11.h14 (2026-10-20, COHESION §0gd.1 E14) to the
+ *    product's own route model; `capture.ts` `showPane` now proves the frame
+ *    holds each region the census names, so the sameness trap stays closed.
  *
  * ─── The parity guard ────────────────────────────────────────────────────────
  *
@@ -58,14 +64,12 @@ export interface CensusRoute {
     readonly id: string;
     /** The canonical deep link. The demo is a HASH router (`createWebHashHistory`). */
     readonly path: string;
-    /** `VIEW_MAP[id].left` — the left pane component. */
+    /** `VIEW_MAP[id].regions[0].pane` — the stage region's pane. */
     readonly left: string;
-    /** `VIEW_MAP[id].right` — the right pane, or null for single-pane views. */
+    /** `VIEW_MAP[id].regions[1].pane` — the inspector region's pane, or null for a one-region scene. */
     readonly right: CensusRightPane;
     /** `router` meta.admin — the route needs the admin token seeded to render. */
     readonly admin: boolean;
-    /** `VIEW_MAP[id].defaultPaneIndex ?? 0` — which pane a fresh mobile arrival shows. */
-    readonly defaultPaneIndex: 0 | 1;
 }
 
 /**
@@ -84,7 +88,6 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "color-picker",
         right: "about",
         admin: false,
-        defaultPaneIndex: 0,
     },
     {
         id: "palettes",
@@ -92,7 +95,6 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "color-picker",
         right: "palettes",
         admin: false,
-        defaultPaneIndex: 1,
     },
     {
         id: "browse",
@@ -100,7 +102,6 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "browse",
         right: "palettes",
         admin: false,
-        defaultPaneIndex: 0,
     },
     {
         id: "extract",
@@ -108,7 +109,6 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "extract",
         right: "palettes",
         admin: false,
-        defaultPaneIndex: 0,
     },
     {
         id: "mix",
@@ -116,7 +116,6 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "color-picker",
         right: "mix",
         admin: false,
-        defaultPaneIndex: 1,
     },
     {
         id: "generate",
@@ -124,7 +123,6 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "generate",
         right: "palettes",
         admin: false,
-        defaultPaneIndex: 0,
     },
     {
         id: "gradient",
@@ -132,7 +130,6 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "gradient",
         right: "palettes",
         admin: false,
-        defaultPaneIndex: 0,
     },
     {
         id: "atmosphere",
@@ -140,7 +137,6 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "atmosphere",
         right: null,
         admin: false,
-        defaultPaneIndex: 0,
     },
     {
         id: "blob",
@@ -148,47 +144,41 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "color-picker",
         right: "blob",
         admin: false,
-        defaultPaneIndex: 0,
     },
     {
         id: "admin-users",
         path: "/#/admin/users",
         left: "admin-users",
-        right: "palettes",
+        right: null,
         admin: true,
-        defaultPaneIndex: 0,
     },
     {
         id: "admin-names",
         path: "/#/admin/names",
         left: "admin-names",
-        right: "palettes",
+        right: null,
         admin: true,
-        defaultPaneIndex: 0,
     },
     {
         id: "admin-audit",
         path: "/#/admin/audit",
         left: "admin-audit",
-        right: "palettes",
+        right: null,
         admin: true,
-        defaultPaneIndex: 0,
     },
     {
         id: "admin-flagged",
         path: "/#/admin/flagged",
         left: "admin-flagged",
-        right: "palettes",
+        right: null,
         admin: true,
-        defaultPaneIndex: 0,
     },
     {
         id: "admin-tags",
         path: "/#/admin/tags",
         left: "admin-tags",
-        right: "palettes",
+        right: null,
         admin: true,
-        defaultPaneIndex: 0,
     },
     // X.W5.c2 (COHESION §0ax ESC-R1-2) — `not-found`: X-W3's catch-all record,
     // made a full `ViewId` by X.W5.a. It has no path of its own (it is
@@ -200,7 +190,6 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "not-found",
         right: null,
         admin: false,
-        defaultPaneIndex: 0,
     },
 ];
 
@@ -233,19 +222,21 @@ export const SCHEMES = ["light", "dark"] as const;
 export type Scheme = (typeof SCHEMES)[number];
 
 /**
- * The mobile pane axis: at 390 a dual-pane view needs TWO frames to witness both
- * panes. Returns the pane indices this (route, viewport) pair actually renders
- * to a user — one at 390 per frame, and a single combined frame at desktop.
+ * The frames a (route, viewport) pair needs: ONE. Every region is mounted at
+ * every width and the shutter is full-page, so the stacked 390 column and the
+ * side-by-side desktop row each witness the whole scene in one frame (see the
+ * PANE note above). The pane index survives as the capture's argument only.
  */
-export function panesFor(route: CensusRoute, viewport: ViewportId): readonly (0 | 1)[] {
-    if (viewport !== "390") return [route.defaultPaneIndex];
-    if (route.right === null) return [0];
-    return [0, 1];
+export function panesFor(_route: CensusRoute, _viewport: ViewportId): readonly 0[] {
+    return [0];
 }
 
-/** The pane's own name, for the golden filename and the manifest. */
-export function paneName(route: CensusRoute, pane: 0 | 1): string {
-    return pane === 0 ? route.left : (route.right ?? "none");
+/**
+ * The frame's pane label, for the golden filename and the manifest: the one
+ * region's pane for a one-region scene, `both` when the frame holds two.
+ */
+export function paneName(route: CensusRoute, _pane: 0 | 1): string {
+    return route.right === null ? route.left : "both";
 }
 
 /** Total route-arm cells, computed — never a number anyone typed. */
