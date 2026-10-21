@@ -33,7 +33,9 @@
             class="atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"
             :class="overture.b2.value && 'atmosphere-canvas--arrived'"
             :style="
-                auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined
+                mounted && auroraCssGradient
+                    ? { backgroundImage: auroraCssGradient }
+                    : undefined
             "
             aria-hidden="true"
             data-testid="atmosphere-canvas"
@@ -226,6 +228,7 @@ import {
     watch,
 } from "vue";
 import { useRoute } from "vue-router";
+import { useMounted } from "@vueuse/core";
 
 import type { ColorModel, EditTarget } from "../color-session/color-model";
 import { ColorPicker } from "../picker";
@@ -341,6 +344,10 @@ const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
     cssColorOpaqueFrame,
     currentConfig,
 );
+// X.W11.p3b (COHESION §0gl.12): the CSS-substrate gradient exists only on a
+// device the WebGL field cannot serve — a property of the visitor, not of the
+// first view — so it is written after mount, never into the hydrated markup.
+const mounted = useMounted();
 
 // --- W2-3 (T.W2) — THE OVERTURE: the named beat-gating DAG (B0–B4) ---
 // One choreography, ordered by GATING (see useOverture's header). B2's field

@@ -202,7 +202,8 @@ const thumbInk = computed(() => {
 
 // Producer token feed for the glass-ui spectrum slider: the perceptual ramp
 // on the track, the LIVE color on the thumb, the value-aware needle ink on
-// the border. Touch-action rides the same gate as the spectrum plate.
+// the border. Touch-action rides the same gate as the spectrum plate, in CSS
+// (the pointer class, X.W11.p3b · COHESION §0gl.12 — style block below).
 // The ALPHA row's ramp composes the house `--alpha-checker` ground UNDER it
 // via the producer's own `--glass-slider-track-background` seam.
 function sliderVars(component: string): Record<string, string | undefined> {
@@ -215,9 +216,6 @@ function sliderVars(component: string): Record<string, string | undefined> {
                 : ramp,
         "--slider-thumb-bg": cssColorOpaque.value,
         "--slider-thumb-border-color": thumbInk.value,
-        touchAction: spectrumGateIsTouchDevice
-            ? (sliderGates[component]?.isActive.value ? "none" : "pan-y")
-            : undefined,
     };
 }
 
@@ -231,7 +229,6 @@ function scrollToSlider(component: string) {
 // Touch-gate cluster — the capture-phase wrapper listeners + iOS pointer-
 // capture leak recovery live in the colocated composable (R.W3 Lane C lift).
 const {
-    isTouchDevice: spectrumGateIsTouchDevice,
     sliderGates,
     sliderWrapperEls,
 } = useSliderTouchGates({ currentColorSpace, debug });
@@ -275,6 +272,19 @@ useSliderAnnouncements({
 }
 .touch-gate-target.touch-gate-active {
     outline-color: color-mix(in srgb, var(--foreground) 50%, transparent);
+}
+
+/* X.W11.p3b (COHESION §0gl.12): a channel slider on a coarse pointer lets the
+ * page pan until its gate activates it; a fine pointer keeps the slider's own
+ * default. The pointer class is CSS's to read — a setup-time inline value
+ * would differ between the prerendered first view and the visitor's device. */
+@media (pointer: coarse) {
+    .touch-gate-target:not(.touch-gate-active) .channel-slider {
+        touch-action: pan-y;
+    }
+    .touch-gate-target.touch-gate-active .channel-slider {
+        touch-action: none;
+    }
 }
 
 /* Slider track gets a foreground-colored border when gate is active */

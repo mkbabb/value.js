@@ -36,7 +36,6 @@
              rotation utility — re-adding one would shadow the shipped fix. -->
         <SelectTrigger
             aria-label="Select color space"
-            :style="{ '--space-title-ink': safeAccent }"
             :class="[
                 'space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]',
                 inline ? 'space-trigger--inline' : '',
@@ -282,6 +281,12 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
      * title as a dark lens over the tinted plate. */
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
+    /* X.W11.p3b (COHESION §0gl.12): the title ink is the safe accent read
+     * from its root token — `--accent-live` is the SAME SAFE_ACCENT_KEY
+     * computation, mirrored by the boot writer (useAtmosphereBoot) and
+     * resolved per scheme — never a setup-time inline value, which the
+     * prerendered first view would have to guess before it knows the scheme. */
+    --space-title-ink: var(--accent-live);
     color: color-mix(in srgb, var(--space-title-ink) 86%, transparent);
     transition: color var(--duration-fast) var(--ease-standard);
     /* T.W4-1 — the ×φ landing (Q11a: the glass-ui ladder is the sizing

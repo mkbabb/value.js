@@ -9,15 +9,13 @@ import { computed, type ComputedRef } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
 import { channelNumber, type PickerColorIn } from "../../../../color-session/picker-color";
 import { spectrumFieldIsLight } from "../../spectrumLuma";
-import type { useTouchGate } from "@mkbabb/glass-ui/dom";
 
 export function useSpectrumPlateStyle(opts: {
     HSVCurrentColor: ComputedRef<PickerColorIn<"hsv">>;
     cssColorOpaque: ComputedRef<string>;
     dotPos: ComputedRef<{ s: number; v: number }>;
-    spectrumGate: ReturnType<typeof useTouchGate>;
 }) {
-    const { HSVCurrentColor, cssColorOpaque, dotPos, spectrumGate } = opts;
+    const { HSVCurrentColor, cssColorOpaque, dotPos } = opts;
 
     // W5-a11y: reactive description of the picker's current 2D position.
     // HSV s/v are 0–1 fractions; rendered as rounded percent.
@@ -38,9 +36,11 @@ export function useSpectrumPlateStyle(opts: {
         linear-gradient(to right, #fff, hsl(${hue}deg, 100%, 50%))
       `,
             "--spectrum-shadow": shadowStr,
-            touchAction: spectrumGate.isTouchDevice
-                ? (spectrumGate.isActive.value ? "none" : "pan-y")
-                : "none",
+            // X.W11.p3b (COHESION §0gl.12): `touch-action` is NOT computed
+            // here. It derives from the visitor's pointer class, which the
+            // prerendered first view cannot know, so it lives in CSS
+            // (`@media (pointer: coarse)`, SpectrumCanvas.vue) keyed on the
+            // gate's `touch-gate-active` class.
         };
     });
 
