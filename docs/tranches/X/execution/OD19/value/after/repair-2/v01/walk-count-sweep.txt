@@ -1,0 +1,14 @@
+light ambient 0.3 restingL 0.297 walks 8
+light ambient 0.4 restingL 0.383 walks 8
+light ambient 0.5 restingL 0.470 walks 8
+light ambient 0.6 restingL 0.558 walks 103
+light ambient 0.7 restingL 0.646 walks 9
+light ambient 0.8 restingL 0.733 walks 8
+light ambient 0.9 restingL 0.821 walks 8
+dark ambient 0.3 restingL 0.277 walks 8
+dark ambient 0.4 restingL 0.361 walks 8
+dark ambient 0.5 restingL 0.445 walks 8
+dark ambient 0.6 restingL 0.530 walks 75
+dark ambient 0.7 restingL 0.615 walks 87
+dark ambient 0.8 restingL 0.699 walks 9
+dark ambient 0.9 restingL 0.784 walks 8

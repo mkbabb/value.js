@@ -1,0 +1,2 @@
+light restingL 0.751 {"accent":1,"plate":1,"muted":2,"destructive":1,"gold-text":2,"gold-glyph":2}
+dark restingL 0.277 {"accent":1,"plate":1,"muted":2,"destructive":1,"gold-text":2,"gold-glyph":2}

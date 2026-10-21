@@ -362,3 +362,73 @@ That is within noise, and the budget (p50 ≤ 25 / p95 ≤ 50) is **not met**. T
 - `o18-contrast-census.spec.ts`: 30–31 / 32 ×2 on the cure against 30 / 32 ×2 on HEAD. The failing set is the same pre-existing one, the identity leg (light) plus the admin-pill row, whose failing scheme alternates between runs on both arms. The epoch change adds no census failure.
 
 No golden was re-baselined. No test was deleted, skipped or weakened.
+
+### repair 2
+
+Critic 2's three consumer findings on value: C2-V-01, C2-V-03 and C2-V-05. Code `de51e13c1`. Evidence is in `value/after/repair-2/`. Every browser run went through `guarded`, headless, with one browser per run and one context per cell. **A/B:** two detached worktrees at HEAD `02f8e58f5`, each on its own vite dev server and deps cache, with the API pointed at a dead `:3000` (`probes/r2-serve.sh`). `base` is HEAD (`.worktrees/r2-base`, :8391). `cure` is HEAD plus this repair (`.worktrees/r2-cure`, :8392). Order: base, then cure, in each of two passes (`ab/pass-{1,2}/`, `probes/r2-ab.sh`). Load on the machine was shared throughout. `base-1/` is a first run whose 1440 geometry cells hit a dev-server dependency re-optimise reload, so the probe now warms every route first; `base-2/` adds every stage's landed height.
+
+| row | verdict | cure | falsifier |
+|---|---|---|---|
+| **C2-V-01** picker drag latency | **CURED at the root named by the finding. Measured: light-390 meets p95 and misses p50 by 1 ms. light-1440 misses both bars by 4–8 ms.** | `useAtmosphereBoot.ts`: the ink referent holds while the colour moves and publishes the latest ambient after a 120 ms quiet. This is the same settle the P2 ramps use. | `demo/test/color-session/ink-referent-settle.test.ts` plus `latency-load.mjs` (below) and `probes/r2-inks.mjs` |
+| **C2-V-03** loading plate size | **CURED at 1440 (0.934 of the landed pane). PARTIAL at 390 (0.766): the plate covers the whole visible band, and the remaining 223 px of the 955 px pane land below the fold.** | `shell.css` declares `--scene-band-block` on `.app-layout`, next to the paddings it subtracts. `PaneLoadingPlate.vue` reserves it (`min-block-size`), with the plate as a flex column and the Card as `flex-1`. The no-op `h-full` is gone. | `probes/r2-geo.mjs` v03 |
+| **C2-V-05** offline chip over the dock | **CURED** | `ApiStatusChip.vue`: below the desktop band, the dock-seat lamp moves to the band's block-end corner, under the pill's edge. The band is floored at 72 px around a 42 px pill. The lamp is still out of flow, so the dock's centring does not shift. Desktop keeps the lamp on the pill's axis, which the o22 oracle asserts at 1280. | `probes/r2-geo.mjs` v05 |
+
+**C2-V-01, the root and why light costs about 10× more.**
+- The certified inks are WCAG walks keyed on the atmosphere's ambient, and that ambient moves with the picked colour. These inks are the boot's plate, muted, modal and destructive inks and its four gold rungs, the dock band's gold and plate inks (`Dock.vue` `bandGoldStyle`/`bandInkStyle`), and every `safeCss` consumer. So every colour frame re-walked all of them.
+- Why light is worse (`v01/walk-count-sweep.txt`, static model, library `safeAccentColor` calls per frame across the five surface-only inks): 8 walks on most grounds, but **75–103 walks** where the resting surface lands at L 0.53–0.65. That is the 4.58:1 dead band (Y ≈ 0.18), where the 5.75:1 headroom target is unreachable. There every `certify` runs its 10-step headroom bisection, and each gold rung adds the 16-step far-side bisection and then the plate ink. The light field's mid-lightness grounds cross that band during a hue drag. The dark field sits below it.
+- Repair 1 called the residual "the software-raster frame itself". That attribution was wrong for this cost, as the critic said, and this receipt corrects it.
+- **Cure:** `heldLightness` in `useAtmosphereBoot.ts`.
+  - It republishes at once when the ambient moves without a colour move (a scheme flip, the field arriving), so a flip never shows stale inks.
+  - It is provided as `INK_AMBIENT_KEY` and fed to `useContrastSafeColor` and `useViewAccents`. `--ink-ambient-l` stamps the same held number, so the O-18 census still reads the referent the guard used.
+  - The picked colour's own inks (`--accent-live`, the label and menu inks) still certify every frame, against the held ground.
+- **CPU profile of the same 41-step light-1440 drag** (`prof/{base,cure}/v3-profile.json`; `v3-profile.mjs` now takes `SCHEME`):
+  - `certify` inclusive: **1353 → 136 ms**.
+  - `certifyIdentityInk`: 607 ms → gone.
+  - The library walk's self time (`color-*.js:185`): 619 → 87 ms.
+
+**Picker channel-slider input→paint** (`latency-load.mjs`, CELLS light-1440 and light-390; p50/p95 ms; LoAF count · blocking ms; the top LoAF script is `useAtmosphere::publish`, the coalesced colour frame):
+
+| cell | base pass 1 | base pass 2 | cure pass 1 | cure pass 2 |
+|---|---|---|---|---|
+| light-1440 | 55.2/163.6 · 28·739 · publish 1222 ms | 69.5/174.8 · 25·734 | **33.1/57.6 · 6·7** · publish 46 ms | **31.1/54.4 · 8·5** |
+| light-390 | 39.9/146.4 · 12·689 · publish 940 ms | 38.8/141.6 · 11·655 | **26.7/33.5 · 1·6** · publish 10 ms | **26.0/29.9 · 1·0** |
+
+The gradient slider is unchanged in both arms (p50 17–18 ms at 1440, 7–9 ms at 390). That is the scheme-independent floor the critic compared against.
+
+- **Residual against the bar (p50 ≤ 25 / p95 ≤ 50):**
+  - light-390 is GREEN on p95 and 1.0–1.7 ms over on p50.
+  - light-1440 is 6–8 ms over on p50 and 4–8 ms over on p95.
+  - What is left in the cure profile is `HeroBlob.vue:295`, the parked-bead repaint (228 ms inclusive), with `getBoundingClientRect` at 249 ms self. That is glass `resume()` → `createCanvasLifecycle` re-measure, already named as **O-102 sub-row V3-g** in repair 1. The consumer half (the forced layout outside a frame) was cured in repair 1. The measure inside the frame belongs to glass.
+  - The double-rAF metric cannot read below one frame (≈ 16.7 ms).
+- **Settled inks equal the pre-cure inks.**
+  - Browser check (`probes/r2-inks.mjs`, `v01/inks-{base,cure}.json`): the same drag, then 1.5 s of settle, then 17 root tokens read in each arm (every `--ink-*`, `--accent-live`, `--accent-view`, the ramp heads). The two arms are **byte-equal at light-1440, light-390 and dark-1440**.
+  - Unit falsifier: after settle, every token equals a fresh mint at the final colour and ambient, in light and in dark.
+- **Unit falsifier `ink-referent-settle.test.ts`.** It mounts `useAtmosphereBoot` with the atmosphere's ambient driven by the test, and has three cases:
+  - (1) light and (2) dark: a 21-step drag calls `certifyIdentityInk`, `resolvePlateInk` and `resolveMutedInk` 0 times mid-drag, leaves every surface token unchanged, keeps `--accent-live` equal to the accent certified on the held ground every frame, and after settle equals a fresh mint.
+  - (3) an ambient move with no colour move publishes at once.
+  - **RED ×2** on HEAD (`v01/vitest-RED-{1,2}.txt`: 2 failed / 1 passed, `certifyIdentityInk` called 2 and 4 times in one frame). **GREEN ×2** on the cure, together with P2's `colour-frame-cost.test.ts` (`v01/vitest-GREEN-{1,2}.txt`, 8/8).
+
+**C2-V-03.** Home → Gradient, with the Gradient chunk held 3 s after a reload. Plate box against the landed pane, both passes identical (`ab/pass-{1,2}/{base,cure}/geo.json`):
+
+| cell | base plate → pane | cure plate → pane | cure row y / row height across the land |
+|---|---|---|---|
+| 1440 (light, dark) | 108 → 861 (0.125) | **804 → 861 (0.934)** | y 88 → 88 · 804 → 861 (base 480 → 861) |
+| 390 (light, dark) | 108 → 955 (0.113) | 732 → 955 (0.766) | y 104 → 104 · 1116 → 1339 (base 492 → 1339) |
+
+- At 390, `--scene-band-block` is the band the 844 px viewport shows under the dock (732 px). The Gradient pane is taller than the viewport, so the 223 px still to come land below the fold, where they move nothing on screen.
+- A per-pane reserved height would meet the 10 % bar at 390, but it would be a hand-measured number per pane that drifts with every content change. I did not mint one; the orchestrator can rule on that.
+- The landed stage heights for every lazy route are recorded in `base-2/geo.json`. At 1440: 400–861 against an 812 band. At 390: 381–955 against a 740 band.
+- A pane shorter than the band (browse, generate) now shrinks once on landing, instead of growing ~300–750 px.
+
+**C2-V-05.** At 390, offline, with Tools on, the dock plate spans x 30–360 and y 28–70.
+- **base**, both passes and both schemes: chip at (352, 45, 26×14), **intersects: true** (the end cap).
+- **cure**, both passes and both schemes: chip at (352, 74, 26×14), **intersects: false** at rest and with Tools on. `scrollWidth` is 390 (no horizontal scroll).
+- Frames: `ab/pass-*/*/v05-*.png`.
+
+**Gates ×2 (guarded, cure worktree, `probes/r2-gates.sh`):**
+- vitest full, `--maxWorkers=2`: **127/127 files, 1478/1478 tests ×2** (`gates/vitest-full-{1,2}.txt`).
+- e2e (`--project=smoke --workers=1`; page-load, o22-status-lamp, cold-nav-scene-enter, walk): **13/14 ×2** (`gates/e2e-run-{1,2}.txt`). OD19-V4, V6 and V8 and every o22 lamp test pass. The one failure is `cold-nav-scene-enter` `/#/`, "the loading plate shows on a slow chunk", and it **fails identically on HEAD** (`gates/cold-nav-on-base.txt`), so it is pre-existing and not caused by this repair.
+- `vue-tsc` demo and test projects: 0 errors (`typecheck-{demo,test}.txt`; main tree).
+- eslint on the four touched files and the new test: clean (`eslint.txt`).
+
+No golden was re-baselined. No test was deleted, skipped or weakened.

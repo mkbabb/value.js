@@ -1,0 +1,12 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js/.worktrees/r2-cure
+
+ ✓ demo/test/color-session/ink-referent-settle.test.ts (3 tests) 474ms
+ ✓ demo/test/color-session/colour-frame-cost.test.ts (5 tests) 658ms
+   ✓ OD19-V3 — the Palettes ramps leave the drag clock > a drag writes --accent-view every frame but mints no ramp until the input settles; the settled ramp is byte-equal to a direct mint  454ms
+
+ Test Files  2 passed (2)
+      Tests  8 passed (8)
+   Start at  00:41:49
+   Duration  1.20s (transform 117ms, setup 84ms, collect 229ms, tests 1.13s, environment 388ms, prepare 81ms)
+

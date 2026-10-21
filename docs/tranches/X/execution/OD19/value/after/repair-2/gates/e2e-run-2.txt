@@ -1,0 +1,58 @@
+(node:48628) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:48768) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 14 tests using 1 worker
+
+(node:49310) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/gradient: 5 fresh contexts × cold first navigation → 0 stuck enter states (44.2s)
+  ✘   2 [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/: 5 fresh contexts × cold first navigation → 0 stuck enter states (30.0s)
+(node:68325) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   3 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:58:5 › O-22 · the dock status lamp (W6-6 / T-9) › healthy backend → no lamp; the dead banner stays dead (4.8s)
+  ✓   4 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome (1.3s)
+  ✓   5 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:161:5 › SS-8 B06 · the dock lamp's served face › SS8-0165 — the arrival pulse stops within 5 s (WCAG 2.2.2) (741ms)
+  ✓   6 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:175:9 › SS-8 B06 · the dock lamp's served face › SS8-0162 — the dock label clears 4.5:1 on its own ground (light, 1440) (2.4s)
+  ✓   7 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:175:9 › SS-8 B06 · the dock lamp's served face › SS8-0162 — the dock label clears 4.5:1 on its own ground (dark, 1440) (2.1s)
+  ✓   8 [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors (678ms)
+  ✓   9 [smoke] › e2e/smoke/page-load.spec.ts:73:1 › an unknown address announces its destination and is distinct from home (1.2s)
+  ✓  10 [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 1440 (977ms)
+  ✓  11 [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 390 (524ms)
+  ✓  12 [smoke] › e2e/smoke/page-load.spec.ts:135:1 › OD19-V6: the pane-loading plate is wordless and named on its status (1.1s)
+  ✓  13 [smoke] › e2e/smoke/page-load.spec.ts:164:1 › OD19-V8: the channel rail carries one hairline (409ms)
+  ✓  14 [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors (11.0s)
+
+
+  1) [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/: 5 fresh contexts × cold first navigation → 0 stuck enter states 
+
+    Error: the loading plate shows on a slow chunk
+
+    [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.pane-plate').first()
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - the loading plate shows on a slow chunk with timeout 30000ms[22m
+    [2m  - waiting for locator('.pane-plate').first()[22m
+
+
+      60 |     // the region's loading plate must SHOW before the pane arrives. The cure
+      61 |     // keys the plate and the pane apart; it must not have keyed the plate away.
+    > 62 |     await expect(page.locator(".pane-plate").first(), "the loading plate shows on a slow chunk").toBeVisible({
+         |                                                                                                  ^
+      63 |         timeout: 30_000,
+      64 |     });
+      65 |     // `networkidle` outlasts the held chunks, so every pane has RESOLVED before
+        at coldNavigate (/Users/mkbabb/Programming/value.js/.worktrees/r2-cure/e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:62:98)
+        at /Users/mkbabb/Programming/value.js/.worktrees/r2-cure/e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:83:39
+
+    Error Context: test-results/oracles-cold-nav-scene-ent-1ee49-tion-→-0-stuck-enter-states-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/: 5 fresh contexts × cold first navigation → 0 stuck enter states 
+  13 passed (1.7m)

@@ -8,7 +8,8 @@ const OUT = process.env.OUT;
 const browser = await chromium.launch({ headless: true });
 const res = {};
 try {
-    const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "dark" });
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: process.env.SCHEME ?? "dark" });
+    await ctx.addInitScript((th) => { try { localStorage.setItem("vueuse-color-scheme", th); } catch {} }, process.env.SCHEME ?? "dark");
     try {
         const page = await ctx.newPage();
         await page.goto(BASE + "/#/", { waitUntil: "load", timeout: 180000 });
