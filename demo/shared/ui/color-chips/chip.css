@@ -1,0 +1,30 @@
+/*
+ * color-chips/chip.css — the ONE preview-chip recipe (X-W6 W6·438 / R-7, home
+ * ruled module-local: imported by PreviewRamp and PreviewStrip, never re-minted
+ * per SFC). Every chip-family cure lands here.
+ *
+ * PROPORTION (F7): 1em tall, one golden plate wide (φ² ≈ 2.618rem), `radius-sm`.
+ *
+ * THE SPECIMEN WELL (PS-2, W6·453): the specimen sits on its own opaque stage,
+ * the menu's own material made opaque (`--popover`), with a 1px gutter of the
+ * same tone. Translucent menu glass, page bleed and the selected/highlighted
+ * row's fill therefore never composite through the masked tail segment or the
+ * corner arcs (SS-8 B19: SS8-0554a, SS8-0546).
+ *
+ * THE RING (R-13, W6·440): an OUTSET outline from the one `--card-edge` mint.
+ * It bounds the well against the menu and paints nothing over the specimen,
+ * so the endpoint stops (the operand identities) show unveiled (SS8-0537).
+ */
+.preview-chip {
+    display: inline-flex;
+    flex: none;
+    box-sizing: border-box;
+    inline-size: 2.618rem; /* one golden plate — φ² × 1em (F7) */
+    block-size: 1em;
+    border: 1px solid var(--popover);
+    border-radius: var(--radius-sm);
+    background-color: var(--popover);
+    background-clip: padding-box;
+    overflow: hidden;
+    outline: 1px solid var(--card-edge);
+}

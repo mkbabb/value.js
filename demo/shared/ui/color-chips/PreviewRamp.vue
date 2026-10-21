@@ -6,10 +6,9 @@
  * never computes color); the chip stamps them on `data-stops` (the O-14
  * paint≡stops referent) and paints them as a discrete-stop linear gradient.
  *
- * PROPORTION (F7): the chip joins the description line — height 1em, width
- * one golden plate (φ² ≈ 2.618rem), `radius-sm`, an inset hairline ring
- * (`--foreground` 12%) so light chips survive light glass, dark chips dark
- * glass, and designed color out-ranks accidental bleed-through (F8).
+ * PROPORTION + MATERIAL (F7/F8): the chip joins the description line; its
+ * box, specimen well and outset `--card-edge` ring are the module's ONE
+ * recipe in `./chip.css` (R-7 / PS-2 / R-13).
  * `aria-hidden` decorative — the a11y truth stays label + description.
  * Static paint — no motion, PRM-neutral.
  */
@@ -36,15 +35,4 @@ const gradient = computed(
     ></span>
 </template>
 
-<style scoped>
-.preview-chip {
-    display: inline-block;
-    flex: none;
-    inline-size: 2.618rem; /* one golden plate — φ² × 1em (F7) */
-    block-size: 1em;
-    border-radius: var(--radius-sm);
-    /* The inset hairline ring (F7/F8): designed color out-ranks bleed. */
-    box-shadow: inset 0 0 0 1px
-        color-mix(in oklab, var(--foreground) 12%, transparent);
-}
-</style>
+<style scoped src="./chip.css"></style>
