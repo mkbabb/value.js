@@ -78,7 +78,10 @@ export function prerenderShell(): Plugin {
             order: "post",
             handler: demoteModulepreloads,
         },
-        async closeBundle() {
+        async closeBundle(error) {
+            // A failed client build has no index.html to write into; rendering
+            // anyway replaced the build's own error with this plugin's ENOENT.
+            if (error) return;
             await build({
                 configFile: path.resolve(ROOT, "vite.config.ts"),
                 mode: config.mode,
