@@ -4564,3 +4564,27 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
    - the B11 0309 palette-flag reach and the `plate-mass` 390 `page.goto` timeout;
    - the consumer rulings in 2: 0039, B13 L-3, 0440, the referent law, 0085 and U-11.
 4. **Glass rows (CLOSE §4.2):** relayed as one letter, `docs/tranches/V/coordination/valuejs-outbound-2026-10-20-ss8-glass-rows.md`, pointing at CLOSE §4.2 for the measured evidence. The rows already named (O-59, I-20, B-3, B-4) are cited, not re-filed.
+
+## §0gl — 2026-10-20: X-W11's escalations ruled (delegate, §0ge); Track A resumes
+1. **The release chain (ESC-W11b → c → d → e).** The cause is two SS-8 landings red under G2:
+   - the unused `eslint-disable-next-line no-new-func` at `e2e/smoke/admin/ss8-b17-admin-names.spec.ts:71` (b43de3e18);
+   - the npm-test failure V16-06 at `ImageEyedropper.vue:20` (sr-only DialogTitle, 605daabe7).
+   **Ruled:** unit **X.W11.b2** cures both at the root. Delete the directive only if the code beneath truly no longer needs it, otherwise cure the code. The eyedropper dialog keeps an accessible title that the test reads. G2 must be GREEN ×2 on tranche-u HEAD. Then re-mint v4.1.0 locally at that HEAD; the old local tag has never been pushed, so it is replaced. Then .b, .c (push tag, npm publish 4.1.0 with the owner's token, deploy-pages), .d and .e run in order. The owner's 4.1.0 publish is DELEGATED (§0gk.2).
+2. **ESC-W11ci4-1 (the 390 morph overflow): arm (i), the producer arm.** The cause is glass `dist/dock.js:456`: the expanded endpoint latches only while the dock is expanded, so a breakpoint narrowing during a collapse reserves a stale `--dock-expanded-px`. All four consumer arms stay REFUSED (masking or copying producer state). The cause is relayed to glass for **10.1.2**, which is in flight on the same dock code, not 10.2.0. `o21:328` stays honest-RED, ADOPT-AT-LANDING at the 10.1.2 adoption.
+3. **ESC-W11d3-1:** arm B is landed in product (PaneHeader.vue is clean at HEAD; the SS-8 B07 seat committed SS8-0192). SS-8 is CLOSED, so its uncommitted twin re-aim at `e2e/smoke/oracles/o11-header-gates.spec.ts` is ORPHANED and **adopted by X.W11.d3b**. That seat reads the hunk, keeps it if it is the lawful re-aim, and commits it.
+   - The 29 caption cells under 4.5:1 cure under §0gk.2's referent law (the darkest backdrop the caption sits over) with one caption-ink token step, ×2.
+4. **h16:** re-dispatched; the load is now normal. The planned WebKit `Alt+Tab` traversal lands per DISPOSITION §8 E16.
+5. **h17:** accepted as honest-RED on glass O-106, ADOPT-AT-LANDING.
+6. **ESC-W11h19-1 (C10-1 CLS 0.00001):** the root is the italic Fraunces swap. Cure: `index.html` also preloads `fraunces-latin-italic` (the face used above the fold), and an italic `Fraunces Fallback` face is tuned the same way as the normal one (size-adjust and ascent metrics). Writable: `demo/app/index.html` and the font-face CSS.
+7. **ESC-W11h2 (O18-992 light identity):** the floor is physically unsatisfiable at a near-white accent: the library already returns the gamut-maximal chroma (0.00688 at L 0.9859, h 31.58). **Ruled:** the identity floor reads `min(0.037181, Cmax(h, L))`, the gamut-maximal chroma the library computes, cited to this ruling. This corrects an impossible constant; it does not weaken a reachable one.
+8. **ESC-W11h3:** the cure is already at the bytes; the instrument is wrong. `censusElement` samples during `overture-dock-land`. Cure the instrument: wait for `nav.dock-band`'s `getAnimations()` to finish, then sample. The assertions are unchanged.
+9. **ESC-W11h5:** the gamut-hatch surface was retired by the RULED retirements in a68ecdc1c ("ruled retirements"). o19's canvas legs a–d retire with the surface, cited to a68ecdc1c and this ruling. The orphaned `--gamut-hatch*` tokens at `foundation.css:368/372` are deleted if nothing reads them, and the oracle's token leg goes with them.
+10. **ESC-W11h7 (the pre-paint URL-seed ground):** a static table cannot work (ΔE about 0.2). **Ruled:** the pre-paint script runs the SAME pure calibrated-field function the app uses (`useAtmosphere.ts:208`'s derive), inlined at build from its one source module by the existing Vite build (a pure, dependency-free module, or its minimal pure core extracted), never hand-copied. Writable set widened to that module plus the build config.
+11. **ESC-W11h8: arm (i).** The M-9 ink floor (an accessibility law) stands. The residual body-stop ΔC is booked to glass O-105 plus the floor, held honest-RED and ADOPT-AT-LANDING.
+12. **ESC-W11p2-1 / p3-1 (boot LCP/TBT and the prerendered shell):**
+    - **p3 continues.** The hydration mismatches are cured at their root: every first-view inline style computed from the visitor's environment moves into CSS:
+      - `touch-action` goes to `@media (pointer: coarse)` (useSpectrumPlateStyle.ts:41-43, ComponentSliders.vue:219-220);
+      - scheme- and ground-dependent inks become CSS custom properties resolved under the scheme class or `prefers-color-scheme` (ConsoleRail.vue:137-146, ColorSpaceSelector);
+      - anything truly live is written after mount.
+      Writable set widened to those files.
+    - Gate: 0 mismatches in 4/4 shell cells, then lhci ×3 on CI. If LCP/TBT are still over budget after hydration is clean, the seat names the remaining critical-path tasks with a profile and proposes the next cut; it never defers the first-paint pane.
