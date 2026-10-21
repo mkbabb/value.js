@@ -172,7 +172,7 @@ Every red has a named owner (residuals 4, 5 and the O-88 row). None is an X-DS r
    - **Cause:** D6's mean-ambient referent. The fix is to certify display ink against the local field under its site, or the owner rules the margin.
 4. **value.js carries from pass 19–20.**
    - **admin-walk** (smoke-admin 24/25): the Names region renders empty after users → names hash navigation, pre-existing at HEAD. Owner: **X-W10** (the e2e cells), for a router or KeepAlive seat.
-   - **PaneShell's `seated` prop and overlying branch** can be retired at their 9 call sites (V19C note (a)). Owner: **the X-DS value lane**.
+   - **PaneShell's `seated` prop and overlying branch** can be retired at their ~~9~~ 10 call sites (V19C note (a)) [2026-10-20 · OD19 repair 1, C1-V-07: the count is 10. `4fe9b05b9` retired the prop at all 10 call sites, and a census finds 10 `<PaneShell` users]. Owner: **the X-DS value lane**.
 5. **value.js standing e2e reds.**
    - The 15 cells (o18 ×6, o19 ×4, o23:225, o26, o28, webgl-blob-idle:210 ×2) are homed by id to **X-W10** (`waves/W10-ADDENDUM-2026-10-16-cprime.md` §1).
    - `webgl-blob.spec.ts:13` failed in run 1 only (the hero canvas not attached at boot). Owner: **X-W10**, beside the webgl-blob-idle cells, as a flake to witness.

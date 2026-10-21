@@ -1,0 +1,10 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/gradient/code-editor-idle-highlight.test.ts (1 test) 40ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  23:24:57
+   Duration  1.53s (transform 108ms, setup 71ms, collect 120ms, tests 40ms, environment 796ms, prepare 112ms)
+

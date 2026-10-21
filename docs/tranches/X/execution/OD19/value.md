@@ -54,7 +54,7 @@ P4: Dock.vue:173-182 + :418-420: the `vj-settle` beat (kept, per the preserve-an
   - Honest limit: none of these hash switches entered `[data-morphing]` (morphingFrames 0 in every trace). The "no host transform while morphing" assertion passes because the host never transforms, and the morph gate was not exercised under a live morph.
 - **Gates.** `vue-tsc -p tsconfig.demo.json` is clean. `tsc -p tsconfig.e2e.json` is clean for the new spec; its remaining errors are in other seats' untracked or dirty specs (ss8-b17, od19-pane-swap, ss8-b07). `vitest demo/test/shell/` passed 8 files / 34 tests (`vitest-shell.txt`). The dock e2e `e2e/smoke/w12-dock.spec.ts` passed 6/6 ×2 (`w12-dock-run-1.txt`, `w12-dock-run-2.txt`); its layer-switch census still waits on the vj-settle `animationend`, which now bubbles from the seat. No golden was re-baselined.
 - **Glass half (O-102, not cured here):** V2-a (the swap/collapse width does not interpolate) and V2-b (start-edge clip-path reveal) are still adopted at the 10.1.1/10.2 repin.
-- **Re-check 2026-10-20 after the glass 10.1.1 adoption (`4d806342b`).** No code change; the cure `006fd567a` is pushed on `origin/tranche-u`.
+- **Re-check 2026-10-20 ~~after the glass 10.1.1 adoption (`4d806342b`)~~ [2026-10-21 · repair 1, C1-V-01: this re-check ran on glass **10.1.0**. `4d806342b` changed only a workflow script, and value's `package.json` and `node_modules` both stayed at 10.1.0 until repair 1 repinned them. "Glass 10.1.1 does not change the result" below therefore reads "glass 10.1.0". The 10.1.1 re-run is under `### repair 1`].** No code change; the cure `006fd567a` is pushed on `origin/tranche-u`.
   - The falsifier `od19-v2-dock-settle.spec.ts` passed 2/2 in both runs (`after/P4/recheck-10.1.1-od19-{1,2}.txt`). In every trace, host-transform frames were 0, each vj-settle start was seated on the trigger and the seal with `morphing: false`, and drift was 0 px. Glass 10.1.1 does not change the result. `[data-morphing]` still did not fire on a hash view switch (morphingFrames 0), so the honest limit above still stands.
   - The dock e2e `w12-dock.spec.ts` was **not re-certified**: all 6 tests failed at `page.goto(... "load")` 60 s timeouts, before any dock assertion ran (`recheck-10.1.1.txt`, `recheck-10.1.1-w12-dock.txt`, `recheck-10.1.1-w12-dock-1.txt`).
     - The cause is the environment, not the dock. In the same window the falsifier's own `goto` timed out the same way. Port 8090 was held by another seat's guarded `vite --port 8090` (pid 88854, 90 % CPU, no HTTP reply in 30 s), and Playwright reuses that server. A rerun on a fresh server (`VJS_E2E_PORT=8097`) also timed out. Load was 25–45, with 90+ guarded runs queued.
@@ -306,3 +306,59 @@ Admin cells seed a token and stub the admin endpoints with empty envelopes. The 
 - eslint on both files: clean.
 - vitest (`demo/test/shell` plus `admin-u3-cures`, `--maxWorkers=2`): 57/58 passed (`value/load/vitest-shell.txt`). The one failure is `button-voice.test.ts` V16-06, which flags `ImageEyedropper.vue:20` (another seat's SS-8 B25 `605daabe7`). It is unrelated to the router.
 - No golden was re-baselined. No test was deleted, skipped or weakened.
+
+### repair 1
+
+Critic 1's four consumer findings on value (C1-V-01, -05, -06, -07). Code `9ed00b5cd`. Evidence: `value/after/repair-1/`. Every browser run went through `guarded` and was headless, with one browser per run and one context per cell. **A/B:** two detached worktrees at HEAD `29798d5df`, each on its own vite dev server and its own deps cache, so the shared tree's live edits from other seats never reached either arm. `base` is HEAD (`.worktrees/r1-red`, :8291); `cure` is HEAD plus this repair (`.worktrees/r1-after`, :8292). Both arms read the same `node_modules` (glass 10.1.1). Order: base, then cure, in each of three passes (`ab/pass-{1,2,3}/`, `probes/r1-ab.sh`). Pass 1's cure carried only the epoch half of C1-V-05. Load was 17–31 throughout.
+
+| row | verdict | cure | falsifier |
+|---|---|---|---|
+| **C1-V-01** glass pin | **CURED** | `package.json` and the lockfile pin `@mkbabb/glass-ui` **10.1.1** (`npm i --save-exact`; `v01/pin.txt`: `npm ls` 10.1.1, lock `resolved …glass-ui-10.1.1.tgz`). `PaneLoadingPlate.vue` passes `shimmer` on both Skeleton bars (OD19-V6). glass draws the sheen, so no local shimmer is added. The dock-collapse overlay close (G-3) arrives with the pin. This repair adds no consumer code for it, and the dock e2e below is run on the new pin. The P4 re-check receipt is corrected in place: it measured **10.1.0**. | `demo/test/shell/pane-plate-shimmer.test.ts`: both bars carry glass's `data-shimmer`, and the plate has no text. **RED ×2** on HEAD (`v01/vitest-shimmer-RED-{1,2}.txt`); GREEN on the cure and in both full-suite runs. |
+| **C1-V-05** view-switch frames | **PARTIAL. The incoming pane's mount frame is cut 30–40 % at two roots. The OD19-V7 frame budget (no frame > 50 ms) is still not met. ESCALATED with P3 for an explicit re-rule.** | See below. | `demo/test/color-session/probe-epoch-mount.test.ts` (2 cases) and `demo/test/gradient/code-editor-idle-highlight.test.ts`: **RED ×2** on HEAD (`v05/vitest-epoch-RED-{1,2}.txt`: `expected 3 to be 2`; `v05/vitest-hljs-RED-{1,2}.txt`: highlight called at mount). GREEN on the cure and in both full-suite runs. The GPU hop witness is `probes/r1-v05-verdict.py` (mount frame ≤ 70 ms on every hop): base RED in all three passes (max 98 / 101 / 117 ms). The full cure was GREEN in pass 2 (max 64) and RED in pass 3, where one 1440-light hop read 79 ms at load 24–27. |
+| **C1-V-06** hero parked repaint | **CURED at the consumer root (the forced layout). The OD19-V3 budget is still not met. The residual is the software-raster frame itself.** | `HeroBlob.vue` `repaintParked` is coalesced to one per animation frame and runs inside that frame's callback, cancelled on unmount. The measure is glass's: `resume()` re-measures through `createCanvasLifecycle`'s `getBoundingClientRect`. In the post-flush of each colour write, after that write's root `setProperty` calls, the measure forced a synchronous style and layout. Inside the frame callback it reads the layout the frame computes anyway. | `probes/r1-hero-gbcr.mjs` (reads of the bead's subtree outside an animation-frame callback must be 0, at most one per frame). **base RED ×6 runs** (passes 1–3, dark-1440 and light-390): 41–42 reads, every one outside a frame, 455–613 ms. **cure GREEN ×6**: 0 outside, one per frame, 90–271 ms in total. |
+| **C1-V-07** record count | **CURED (records only).** | `DS/CLOSE.md:175` and `DS/value.md:1790, 1834` read "9 call sites". Each is corrected in place to ~~9~~ 10 with a dated bracket. A census finds 10 `<PaneShell` users, and `4fe9b05b9` names 10. This file's DIAGNOSE row already said 10. | — |
+
+**C1-V-05, what the frames are.** Before any cure, the Home → Gradient hop was traced on two renderers (`v05/before-{sw,gpu}-*.jsonl`, `v05/tracing-before-1440-light.json`):
+- **SwiftShader** (the critic's renderer, the headless default): 12–17 frames over 34 ms at 1440, in both directions. A Chrome trace of the hop puts **826 ms on `VizCompositorThread`** against 230 ms on the renderer main thread. Most of the long frames have no script in their LoAF. They are the software display compositor drawing every frame of the opacity/offset enter. That is the environment, as in keyframes repair-2's C2-KF-01. Changing the kept motion to suit a software compositor would overfit the test environment. The cure did not move it: 12–14 at 1440 in both arms (`ab/pass-{2,3}/*/hop-sw-*`).
+- **ANGLE-Metal**, the GPU witness (the same headless shell with `--use-angle=metal`, `probes/r1-hop-trace.mjs` with `R1_GPU=1`; it exits 2 when only SwiftShader is served): 0–5 frames over 34 ms. Two frames are long:
+  - the click frame, 58–68 ms;
+  - the incoming pane's mount frame (the out-in leave timer → mount), 64–117 ms.
+  
+  Per-frame attribution (`probes/r1-hop-trace.mjs`, which slices the CPU profile to each LoAF window with a clock beacon) gave these two consumer roots:
+  1. **The probe epoch re-ran every live-ink computed in the app.** The easing rows certify their ink (`useSafeAccentFn`), so their `onMounted` bumped the one global probe epoch. That invalidated every tint memo, and every live-ink consumer re-probed inside the mount frame: `useContrastSafeColor` 22–24, `ink.ts` 19–22, colour parsing 21 ms (`v05/prof-frames-before-gpu-1440-light.jsonl`). **Cure** (`useContrastSafeColor.ts`): the bump fires only after a probe **missed**, meaning a tier read that found no painted referent or an empty token read. A mount over an already-measured referent re-drives nothing, and a missed probe is still re-driven by the next mount (the epoch's purpose, kept as the falsifier's second case). After the cure, all three fall out of the mount frame (`v05/prof-frames-cure-gpu-1440-light.jsonl`).
+  2. **hljs tokenized the CSS well inside the mount** (12–13 ms) for a well below the fold. **Cure** (`GradientCodeEditor.vue`): the mount paints the same text plain, and the crayons land in an idle slice (`requestIdleCallback`, with a timer on Safari). The text and the box are the same, so no layout changes, and focus still holds the editor truce.
+- **A/B on the GPU witness, full cure (passes 2–3):**
+
+| | mount frame (ms) | worst frame (ms) |
+|---|---|---|
+| base | 87–117 | 82–110 |
+| cure | 56–79 | 37–71 |
+
+- **Residuals (measured, still over 50 ms):**
+  - (a) Vue's own mount of the above-fold pane, 61–84 ms of Vue runtime in the mount frame: the stop rail, the interpolation fields and glass's select and scroll-trigger setup. The Easing and CSS sections were not deferred: mounting them after the enter would add content to a pane the reader is already looking at, and their own script is under 3 ms of the frame. Only hljs, which repaints the same text, was moved.
+  - (b) The click frame. glass's dock morph springs are about 40 ms (`@mkbabb_glass-ui_dock` 14–16, `useLiquidPress` 12–14, `motionTempo` 11–14, `useSpring` 11–14): **O-102 sub-row V7-g**. `useViewAccents`'s immediate ramp mint on a view change is about 25 ms. P2 ruled that mint immediate so the Palettes title never opens stale.
+  - (c) SwiftShader's compositor.
+  
+  The P3 escalation stands narrowed: the budget needs (a) and (b), or the orchestrator re-rules it for the out-in mount.
+
+**C1-V-06, latency.** `latency-load.mjs` was run at dark-1440 and light-390 in both arms (passes 1–2; `ab/pass-*/*/lat/latency-load.json`). Picker slider input→paint, p50/p95 in ms:
+
+| cell | base | cure |
+|---|---|---|
+| dark-1440 | 44.8/89.1, 43.3/71.9 | 39.5/83.4, 40.3/85.4 |
+| light-390 | 62.6/228.3, 61.9/196.4 | 61.5/216.9, 72.3/216.1 |
+
+That is within noise, and the budget (p50 ≤ 25 / p95 ≤ 50) is **not met**. The forced layout was real (455–613 ms per drag, all of it in the input path). It is gone, but the frame is bound by the bead's software draw: on SwiftShader the parked engine rasters one metaball frame per colour frame on the CPU, which is the X-W11 software-raster tier. **O-102 sub-row V3-g:** a parked Blob has no repaint seam that skips the re-measure. `pause()`/`resume()` is the only seam the Blob exposes, and `resume()` always runs `resize()`.
+
+**Glass 10.1.1 re-run** (`v01/e2e-run-{1,2}.txt`, cure worktree, `--project=smoke --workers=1`):
+- `od19-v2-dock-settle.spec.ts`: **2/2 ×2**.
+- `page-load.spec.ts`: **6/6 ×2**, including OD19-V6, the wordless plate.
+- `w12-dock.spec.ts`: **4/6 ×2**. The same two tests fail the same way on **HEAD with glass 10.1.0** (`v01/w12-dock-head-g100.txt`, a HEAD worktree overlaid with the 10.1.0 tarball) and on HEAD with 10.1.1 (`w12-dock-head-red.txt`). The failures are "(1) Login hover plate `rgba(0,0,0,0)`" and "(2) layer switch mobile-edit: after `W12e seed` ≠ `Tools`". They are a regression on HEAD between `006fd567a` (last 6/6) and `29798d5df`, and neither the pin nor this repair causes them. Routed to the dock seat (Track A, X-W11 dock at 390).
+
+**Gates ×2 (guarded):**
+- vitest full in the cure worktree, `--maxWorkers=2`: **1474 / 1475 passed ×2** (`vitest-full-{1,2}.txt`). The one failure is `button-voice.test.ts` V16-06, which fails identically on HEAD (`vitest-button-voice-on-head.txt`; another seat's `ImageEyedropper.vue`, as in `### load`).
+- `vue-tsc` demo and test projects: clean (`typecheck-{demo,test}-1.txt`).
+- eslint on the touched files: clean.
+- `o18-contrast-census.spec.ts`: 30–31 / 32 ×2 on the cure against 30 / 32 ×2 on HEAD. The failing set is the same pre-existing one, the identity leg (light) plus the admin-pill row, whose failing scheme alternates between runs on both arms. The epoch change adds no census failure.
+
+No golden was re-baselined. No test was deleted, skipped or weakened.

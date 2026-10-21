@@ -1,0 +1,220 @@
+{
+ "dark-1440": {
+  "v8_rail": {
+   "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+   "outline": "oklch(0.925202 0.00618423 67.7483) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 3357,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 40.3,
+    "p95": 85.4,
+    "max": 121.2
+   },
+   "frameInterval": {
+    "n": 56,
+    "p50": 66.5,
+    "p95": 112.5,
+    "max": 137.6
+   },
+   "loaf": {
+    "n": 44,
+    "totalMs": 3113,
+    "blockingMs": 84
+   },
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r1-after/node_modules/.vite-r1-8292/deps::invoker",
+     533
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r1-after/demo/color-session/useAtmospher::publish",
+     522
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r1-after/demo/picker/visual/HeroBlob.vue::FrameRequestCallback",
+     193
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r1-after/node_modules/.vite-r1-8292/deps::FrameRequestCallback",
+     60
+    ],
+    [
+     "/composables/boot/useViewAccents.ts::mintRamps",
+     9
+    ]
+   ]
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 1234,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 21.2,
+    "p95": 60.2,
+    "max": 74
+   },
+   "frameInterval": {
+    "n": 97,
+    "p50": 9.1,
+    "p95": 38.4,
+    "max": 66.7
+   },
+   "loaf": {
+    "n": 4,
+    "totalMs": 254,
+    "blockingMs": 0
+   },
+   "topScripts": []
+  },
+  "v5_gradient": {
+   "tLoadEvent": 227,
+   "tTitleVisible": 431,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 221,
+    "load": 225,
+    "fcp": 384,
+    "resources": 250
+   },
+   "requests": 447,
+   "errors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:8292 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+   ],
+   "failed": [],
+   "tInAppSecondVisit": 318
+  },
+  "v5_mix": {
+   "tLoadEvent": 282,
+   "tTitleVisible": 353,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 271,
+    "load": 281,
+    "fcp": 332,
+    "resources": 250
+   },
+   "requests": 447,
+   "errors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:8292 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+   ],
+   "failed": [],
+   "tInAppSecondVisit": 273
+  },
+  "v6_plate": null
+ },
+ "light-390": {
+  "v8_rail": {
+   "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+   "outline": "oklch(0.216129 0.00624853 56.0356) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 4429,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 72.3,
+    "p95": 216.1,
+    "max": 261.2
+   },
+   "frameInterval": {
+    "n": 115,
+    "p50": 15.6,
+    "p95": 174.8,
+    "max": 253.8
+   },
+   "loaf": {
+    "n": 27,
+    "totalMs": 3175,
+    "blockingMs": 1586
+   },
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r1-after/demo/color-session/useAtmospher::publish",
+     1848
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r1-after/node_modules/.vite-r1-8292/deps::invoker",
+     459
+    ],
+    [
+     "/composables/boot/useViewAccents.ts::mintRamps",
+     151
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r1-after/node_modules/.vite-r1-8292/deps::FrameRequestCallback",
+     27
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r1-after/demo/picker/visual/HeroBlob.vue::FrameRequestCallback",
+     25
+    ]
+   ]
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 604,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 10.2,
+    "p95": 24.2,
+    "max": 25
+   },
+   "frameInterval": {
+    "n": 93,
+    "p50": 8.6,
+    "p95": 18.4,
+    "max": 22.9
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": []
+  },
+  "v5_gradient": {
+   "tLoadEvent": 250,
+   "tTitleVisible": 489,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 246,
+    "load": 249,
+    "fcp": 384,
+    "resources": 250
+   },
+   "requests": 447,
+   "errors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:8292 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+   ],
+   "failed": [],
+   "tInAppSecondVisit": 269
+  },
+  "v5_mix": {
+   "tLoadEvent": 301,
+   "tTitleVisible": 379,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 288,
+    "load": 299,
+    "fcp": 316,
+    "resources": 250
+   },
+   "requests": 447,
+   "errors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:8292 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+   ],
+   "failed": [],
+   "tInAppSecondVisit": 265
+  },
+  "v6_plate": null
+ }
+}

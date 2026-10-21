@@ -1,0 +1,9 @@
+@mkbabb/value.js@4.1.0 /Users/mkbabb/Programming/value.js
+└── @mkbabb/glass-ui@10.1.1
+
+90:        "@mkbabb/glass-ui": "10.1.1",
+1298:        "node_modules/@mkbabb/glass-ui": {
+1299-            "version": "10.1.1",
+1300-            "resolved": "https://registry.npmjs.org/@mkbabb/glass-ui/-/glass-ui-10.1.1.tgz",
+1301-            "integrity": "sha512-7e/gAShdoQRwfjyUplOu0jOiKTmOIErb+5AsLsDq6G4xyHjcucYCQB8oqkv4z7C+MLlravHE0bJzeU/cIQQ8pQ==",
+1

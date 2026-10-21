@@ -1787,7 +1787,7 @@ Critic V19C named seven consumer rows (V19C-01 medium, -02 medium, -03 low, -04 
 **Loop state.**
 - V19C-01..07 are cured.
 - For the next critic:
-  - (a) Users, Names, Audit, Flagged and Tags now all seat their header. No titled pane uses PaneShell's overlying branch now, so a later pass may retire it, along with the `seated` prop, at its 9 call sites.
+  - (a) Users, Names, Audit, Flagged and Tags now all seat their header. No titled pane uses PaneShell's overlying branch now, so a later pass may retire it, along with the `seated` prop, at its ~~9~~ 10 call sites [2026-10-20 · OD19 repair 1, C1-V-07: the count is 10. `4fe9b05b9` retired the prop at all 10 call sites, and a census finds 10 `<PaneShell` users].
   - (b) At 390, Tags' toolbar row holds only the Refresh icon when the list is empty. Judge whether it belongs beside the create row.
   - (c) The o23 HSL-row failure and the admin-walk empty Names pane are pre-existing at HEAD, and neither has an owner yet.
   - (d) The brown-band view label waits on glass's trigger rest cut (O-87).
@@ -1831,7 +1831,7 @@ Critic V20C named five consumer rows (V20C-01 low, -02 low, -03 low, -04 trivial
 **Loop state.**
 - V20C-01..03 are cured. V20C-04 waits on the owner (VC5-01). V20C-05 is accepted.
 - For the next critic:
-  - (a) Pass 19's note (a) still stands: PaneShell's overlying branch and the `seated` prop can be retired at their 9 call sites.
+  - (a) Pass 19's note (a) still stands: PaneShell's overlying branch and the `seated` prop can be retired at their ~~9~~ 10 call sites [2026-10-20 · OD19 repair 1, C1-V-07: the count is 10. `4fe9b05b9` retired the prop at all 10 call sites, and a census finds 10 `<PaneShell` users].
   - (b) The admin-walk carry and the o23 HSL row still have no owner.
   - (c) If hover feedback on the Users row is wanted, it belongs on the whole bordered row (V20C-02's 'if wanted'). This pass judged the chevron sufficient.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The SegmentedTabs falsifier is ±1 px.
