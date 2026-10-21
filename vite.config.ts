@@ -226,12 +226,14 @@ async function bundleSeededGround(part: "url-seed" | "derive"): Promise<SeededBu
 function seededGroundInline(): Plugin {
     const cached: Partial<Record<"url-seed" | "derive", Promise<SeededBundle>>> = {};
     const bundle = (part: "url-seed" | "derive") => (cached[part] ??= bundleSeededGround(part));
-    let isBuild = false;
+    // Only the demo's client build carries the boot HTML: the library build
+    // (`lib`) and the shell prerender (`ssr`) emit no derive asset.
+    let isAppBuild = false;
     let base = "/";
     return {
         name: "value-js:seeded-ground-inline",
         configResolved(config) {
-            isBuild = config.command === "build";
+            isAppBuild = config.command === "build" && !config.build.lib && !config.build.ssr;
             base = config.base || "/";
         },
         configureServer(server) {
@@ -250,7 +252,7 @@ function seededGroundInline(): Plugin {
             });
         },
         async renderStart() {
-            if (!isBuild) return;
+            if (!isAppBuild) return;
             this.emitFile({
                 type: "asset",
                 name: SEEDED_DERIVE_ASSET,
@@ -262,7 +264,7 @@ function seededGroundInline(): Plugin {
             async handler(html, ctx) {
                 if (!html.includes("__GROUND_URL_SEED__")) return html;
                 let src = SEEDED_DERIVE_DEV_PATH;
-                if (isBuild) {
+                if (isAppBuild) {
                     const asset = Object.values(ctx.bundle ?? {}).find(
                         (out) =>
                             out.type === "asset" &&
