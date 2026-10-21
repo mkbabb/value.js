@@ -689,20 +689,13 @@ bespoke resolver. The rest of the axis:
 - The per-view accents gamut-map to the cusp, then re-guard L, then hold WCAG ≥ 3:1, all through
   library ops (`demo/app/composables/boot/useViewAccents.ts`).
 
-**The gamut ink/paper pairs (R.W3 Lane B / B1; recalibrated T.W6-1 / T-6).** Out-of-gamut is a
-designed state. The truth-line overlay's whole vocabulary is two pairs in `:root` of
-`demo/styles/foundation.css`:
-
-- ink, from `--foreground`: `--gamut-edge` / `--gamut-hatch`;
-- paper, from `--background`: `--gamut-edge-paper` / `--gamut-hatch-paper`.
-
-They form a 45%/65% edge pair and a 22%/28% hatch pair (the R5 recalibrated band; O-19 guards the
-≥ 59/45 per-255 luma-delta floor). Each contour segment applies them by the field's own luminance,
-through the one hue-aware predicate `spectrumFieldIsLight(h, s, v)`
-(`demo/picker/controls/spectrumLuma.ts`). That predicate is the same one the WatercolorDot border
-and the needle ink flip on. It is one function, never a copied constant, and it picks the stroke
-that contrasts more against the field colour's real relative luminance. This is measurement chrome
-only: the overlay reads in ink and the live colour, never in gold, never in the crayons.
+**The gamut ink/paper edge pair (R.W3 Lane B / B1).** Out-of-gamut is a designed state. Its live
+vocabulary is one pair in `:root` of `demo/styles/foundation.css`: the ink `--gamut-edge` (from
+`--foreground`, 45%) and the paper `--gamut-edge-paper` (from `--background`, 65%). The out-of-gamut
+specimen caption underline (`ColorSpaceSelector.vue`) reads the ink. The spectrum truth-line
+overlay and its hatch netting were retired with the perceived-space plate at `a68ecdc1c` (V-A73 C1
+ruled retirements); the hatch tokens and the O-19 netting oracle went with them (COHESION
+§0gl.9). This is measurement chrome only: it reads in ink, never in gold, never in the crayons.
 
 **The alpha checker ground (`--alpha-checker`, S owner-ruling 2026-07-05).** ONE recipe, one home:
 the transparency ground that every alpha-carrying ramp or well composes UNDER its colour layer.
