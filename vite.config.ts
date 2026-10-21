@@ -251,6 +251,13 @@ function seededGroundInline(): Plugin {
                 }, next);
             });
         },
+        // Both IIFEs are built before the client build transforms anything:
+        // a nested build() started inside the outer build's render phase
+        // failed it intermittently on CI ("Build failed" at "rendering
+        // chunks", run 39589948974 lhci), so render only emits finished code.
+        async buildStart() {
+            if (isAppBuild) await Promise.all([bundle("url-seed"), bundle("derive")]);
+        },
         async renderStart() {
             if (!isAppBuild) return;
             this.emitFile({
