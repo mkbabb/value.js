@@ -1,0 +1,18 @@
+(node:15839) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:15886) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:16062) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip (59.7s)
+  ✓  2 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops (11.3s)
+  ✓  3 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize (10.6s)
+  ✓  4 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (12.5s)
+  ✓  5 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (light) (9.2s)
+  ✓  6 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (15.3s)
+  ✓  7 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (dark) (6.3s)
+
+  7 passed (2.1m)

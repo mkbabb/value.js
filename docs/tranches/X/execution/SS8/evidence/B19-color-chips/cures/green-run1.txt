@@ -1,0 +1,101 @@
+[guarded] waiting for headroom (load 37 > 36)
+(node:82307) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:82454) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:82961) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip (1.5m)
+  ✓  2 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops (9.0s)
+  ✓  3 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize (12.8s)
+  ✓  4 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (20.1s)
+  ✓  5 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (light) (33.9s)
+  ✓  6 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (11.9s)
+  ✘  7 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (dark) (2.0m)
+
+
+  1) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (dark) 
+
+    [31mTest timeout of 120000ms exceeded.[39m
+
+    Error: browserContext.close: Test ended.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-Sc6p4x --remote-debugging-pipe --no-startup-window
+    <launched> pid=83043
+    [pid=83043][err] [1020/211922.062233:INFO:CONSOLE:851] "[vite] connecting...", source: http://localhost:8190/@vite/client (851)
+    [pid=83043][err] [1020/211922.082521:INFO:CONSOLE:955] "[vite] connected.", source: http://localhost:8190/@vite/client (955)
+    [pid=83043][err] [1020/212028.618785:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x13400518a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=83043][err] [1020/212028.622635:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x13400518a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=83043][err] [1020/212038.946549:INFO:CONSOLE:44] "[useCustomColorNames] color-name load failed (not backend-absence): SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON", source: http://localhost:8190/@fs/Users/mkbabb/Programming/value.js/demo/color-session/useCustomColorNames.ts (44)
+    [pid=83043][err] [1020/212044.175778:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x13400529800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=83043][err] [1020/212044.176671:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x13400529800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+    [pid=83043][err] [1020/212044.198028:INFO:CONSOLE:0] "No available adapters.", source: http://localhost:8190/#/mix (0)
+    [pid=83043][err] [1020/212048.837360:INFO:CONSOLE:851] "[vite] connecting...", source: http://localhost:8190/@vite/client (851)
+    [pid=83043][err] [1020/212048.845705:INFO:CONSOLE:955] "[vite] connected.", source: http://localhost:8190/@vite/client (955)
+    [pid=83043][err] [1020/212049.183440:INFO:CONSOLE:44] "[useCustomColorNames] color-name load failed (not backend-absence): SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON", source: http://localhost:8190/@fs/Users/mkbabb/Programming/value.js/demo/color-session/useCustomColorNames.ts (44)
+    [pid=83043][err] [1020/212052.967627:INFO:CONSOLE:0] "No available adapters.", source: http://localhost:8190/#/mix (0)
+    [pid=83043][err] [1020/212057.854031:INFO:CONSOLE:851] "[vite] connecting...", source: http://localhost:8190/@vite/client (851)
+    [pid=83043][err] [1020/212057.859134:INFO:CONSOLE:955] "[vite] connected.", source: http://localhost:8190/@vite/client (955)
+    [pid=83043][err] [1020/212058.141763:INFO:CONSOLE:44] "[useCustomColorNames] color-name load failed (not backend-absence): SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON", source: http://localhost:8190/@fs/Users/mkbabb/Programming/value.js/demo/color-session/useCustomColorNames.ts (44)
+    [pid=83043][err] [1020/212101.892176:INFO:CONSOLE:0] "No available adapters.", source: http://localhost:8190/#/mix (0)
+    [pid=83043][err] [1020/212106.368462:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212106.691099:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212107.176010:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212107.570622:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212107.723252:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212107.731266:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212107.738679:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212107.746574:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212107.753405:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212108.949347:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212109.368081:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212110.058932:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212110.429462:INFO:CONSOLE:12] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (12)
+    [pid=83043][err] [1020/212110.654322:INFO:CONSOLE:851] "[vite] connecting...", source: http://localhost:8190/@vite/client (851)
+    [pid=83043][err] [1020/212110.657993:INFO:CONSOLE:955] "[vite] connected.", source: http://localhost:8190/@vite/client (955)
+    [pid=83043][err] [1020/212110.925403:INFO:CONSOLE:44] "[useCustomColorNames] color-name load failed (not backend-absence): SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON", source: http://localhost:8190/@fs/Users/mkbabb/Programming/value.js/demo/color-session/useCustomColorNames.ts (44)
+    [pid=83043][err] [1020/212116.113410:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212119.174903:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212120.292122:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212121.704630:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212123.314585:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212125.239063:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212125.644496:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212127.376020:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212128.966508:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212155.946931:INFO:CONSOLE:851] "[vite] connecting...", source: http://localhost:8190/@vite/client (851)
+    [pid=83043][err] [1020/212156.169166:INFO:CONSOLE:955] "[vite] connected.", source: http://localhost:8190/@vite/client (955)
+    [pid=83043][err] [1020/212156.380998:INFO:CONSOLE:44] "[useCustomColorNames] color-name load failed (not backend-absence): SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON", source: http://localhost:8190/@fs/Users/mkbabb/Programming/value.js/demo/color-session/useCustomColorNames.ts (44)
+    [pid=83043][err] [1020/212200.390113:INFO:CONSOLE:9] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (9)
+    [pid=83043][err] [1020/212204.624463:INFO:CONSOLE:851] "[vite] connecting...", source: http://localhost:8190/@vite/client (851)
+    [pid=83043][err] [1020/212204.630527:INFO:CONSOLE:955] "[vite] connected.", source: http://localhost:8190/@vite/client (955)
+    [pid=83043][err] [1020/212204.830717:INFO:CONSOLE:44] "[useCustomColorNames] color-name load failed (not backend-absence): SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON", source: http://localhost:8190/@fs/Users/mkbabb/Programming/value.js/demo/color-session/useCustomColorNames.ts (44)
+    [pid=83043][err] [1020/212208.426138:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212209.333560:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212210.210424:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212211.118664:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212211.793848:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212212.790542:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212213.758360:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212214.951021:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043][err] [1020/212215.683309:INFO:CONSOLE:15] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source:  (15)
+    [pid=83043] <gracefully close start>
+
+      288 |             await page.keyboard.press("Escape");
+      289 |         } finally {
+    > 290 |             await ctx.close();
+          |             ^
+      291 |         }
+      292 |     });
+      293 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:290:13
+
+    Error Context: docs/tranches/X/execution/SS8/evidence/B19-color-chips/logs/pw-green1/ss8-b19-color-chips-D-11-·-af921-ight-never-reaches-it-dark--smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (dark) 
+  6 passed (5.0m)

@@ -1,0 +1,3 @@
+demo/test/generate/ss8-z3-cures.test.ts(83,15): error TS2532: Object is possibly 'undefined'.
+demo/test/generate/ss8-z3-cures.test.ts(87,16): error TS2532: Object is possibly 'undefined'.
+demo/test/generate/ss8-z3-cures.test.ts(88,16): error TS2532: Object is possibly 'undefined'.
