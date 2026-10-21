@@ -90,6 +90,19 @@ const status = computed(() => resolveApiStatus(availability.value, isDev, seat))
     pointer-events: none;
 }
 @media (max-width: 1023.98px) {
+    /* OD19 repair 2 (C2-V-05): below the desktop band the pill's widest
+     * state reaches the lamp. At 390 the Tools layer widens the dock to
+     * 330 px (x 30-360) and the lamp, centred on the pill's axis at the
+     * band's inline end (x 352-378), sat on the dock's end cap. The band is
+     * floored taller than the pill (72 px around a 42 px pill), so the lamp
+     * takes the band's block-end corner, under the pill's edge: off the dock
+     * row whatever width the dock morphs to, still band chrome, still out of
+     * flow (no centring shift). */
+    .api-status-chip[data-seat="dock"] {
+        top: auto;
+        bottom: 0;
+        translate: none;
+    }
     .api-status-chip[data-seat="dock"] .api-status-label {
         position: absolute;
         width: 1px;

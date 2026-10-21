@@ -94,6 +94,17 @@
     padding-left: max(var(--app-gutter), env(safe-area-inset-left, 0px));
     padding-right: max(var(--app-gutter), env(safe-area-inset-right, 0px));
     padding-block-end: max(0.5rem, env(safe-area-inset-bottom, 0px));
+    /* OD19 repair 2 (C2-V-03) — THE SCENE BAND'S BLOCK SIZE: the stable
+     * viewport less this box's own block paddings, the dock band's floor and
+     * the gap under it, i.e. the block the scene band shows at rest. Declared
+     * beside the paddings it subtracts, so the two move together. The loading
+     * plate reserves it (PaneLoadingPlate.vue): a pane still in flight holds
+     * the band the landed pane will fill, never a 108 px card. */
+    --scene-band-block: calc(
+        100svh - max(var(--dock-inset), env(safe-area-inset-top, 0px))
+            - var(--dock-band-min-h) - var(--dock-gap)
+            - max(0.5rem, env(safe-area-inset-bottom, 0px))
+    );
 }
 
 /* The a11y landmarks are the two band rows. <nav> IS the dock band —

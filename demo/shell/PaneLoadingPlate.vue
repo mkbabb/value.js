@@ -1,7 +1,7 @@
 <!-- SERVED MODEL: claude-opus-5-5[1m] -->
 <template>
     <div
-        class="pane-plate relative w-full mx-auto h-full min-w-0"
+        class="pane-plate relative w-full mx-auto min-w-0 flex flex-col"
         role="status"
         aria-busy="true"
         aria-label="Loading the scene"
@@ -20,13 +20,18 @@
              AFTER `$attrs`, so a `role` passed to a non-selectable Card is
              dropped (measured: the status was never in the a11y tree; O-102
              sub-row V6-b). The eye reads glass's Skeleton bars, and no local
-             shimmer is added (the shimmer is glass's, relayed as O-102). -->
+             shimmer is added (the shimmer is glass's, relayed as O-102).
+             OD19 repair 2 (C2-V-03): the plate RESERVES the scene band's
+             block (`--scene-band-block`, shell.css). Its old `h-full` resolved
+             against a region row the plate itself sized, so it stood 108 px
+             tall and the column grew ~750 px when the chunk landed (Gradient:
+             861 px at 1440 in an 812 px band). -->
         <!-- ONE root element, no sibling comment: a comment beside the root
              makes a dev-root fragment, which loses the slot's out-in
              continuation (PaneSlot.vue header). -->
         <Card
             tier="resting"
-            class="paper-grain-overlay w-full h-full min-w-0 flex flex-col gap-4 px-4 sm:px-6 py-6"
+            class="paper-grain-overlay w-full flex-1 min-w-0 flex flex-col gap-4 px-4 sm:px-6 py-6"
         >
             <Skeleton shimmer class="h-7 w-2/5 rounded-md" aria-hidden="true" />
             <Skeleton shimmer class="h-4 w-3/4 rounded-md" aria-hidden="true" />
@@ -44,3 +49,9 @@ import { Card } from "@mkbabb/glass-ui/card";
 // barrel only, and an eager root import pins the whole barrel into the boot graph.
 const Skeleton = defineAsyncComponent(() => import("@mkbabb/glass-ui").then((m) => m.Skeleton));
 </script>
+
+<style scoped>
+.pane-plate {
+    min-block-size: var(--scene-band-block);
+}
+</style>

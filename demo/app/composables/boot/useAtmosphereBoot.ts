@@ -48,7 +48,7 @@
  *      consistently for every present and future sampling surface.
  */
 
-import { watch, provide } from "vue";
+import { computed, onScopeDispose, provide, ref, watch } from "vue";
 import type { ComputedRef, ShallowRef } from "vue";
 
 import { INK_AMBIENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
@@ -56,6 +56,11 @@ import type { PaneConfig } from "../../../shell/useViewManager";
 import { useContrastSafeColor } from "../../../color-session/useContrastSafeColor";
 import { useViewAccents } from "./useViewAccents";
 import { useAtmosphere } from "./useAtmosphere";
+
+/** OD19 repair 2 (C2-V-01): the quiet interval after the last colour frame
+ *  before the ink referent re-publishes (the same interval as the Palettes
+ *  ramps' settle, `useViewAccents` RAMP_SETTLE_MS). */
+const INK_SETTLE_MS = 120;
 
 export function useAtmosphereBoot(
     atmosphereCanvas: Readonly<ShallowRef<HTMLCanvasElement | null>>,
@@ -70,10 +75,46 @@ export function useAtmosphereBoot(
     //     AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on the caller's scope). Ordered
     //     FIRST since M-15: the atmosphere exposes the live `derivedLightness`
     //     (the D6 page-ambient referent) BOTH accent resolvers consume.
-    const { auroraCssGradient, auroraArrived, derivedLightness } = useAtmosphere(
+    const { auroraCssGradient, auroraArrived, derivedLightness: liveLightness } = useAtmosphere(
         atmosphereCanvas,
         atmosphereColor,
     );
+
+    // OD19 repair 2 (C2-V-01 · OD19-V3): THE INK REFERENT SETTLES OFF THE DRAG
+    // CLOCK. Every certified ink below is a WCAG walk keyed on this ambient,
+    // and the ambient moves with the picked colour, so a picker drag re-walked
+    // all of them on every colour frame: the plate, muted, modal, destructive
+    // and four gold rungs here, the dock band's gold and plate inks, and every
+    // `safeCss` consumer (CDP profile of a 41-step light drag: `certify` 1.84 s
+    // inclusive, `certifyIdentityInk` 0.82 s of it). Light paid ~10x dark: on a
+    // pale ground the gold cannot hold its chroma at the headroom, so each gold
+    // rung runs the headroom bisection, then the 16-step far-side bisection,
+    // then the plate ink. The referent now holds while the COLOUR moves and
+    // publishes the latest ambient once the input settles (the Palettes ramps'
+    // P2 idiom, same interval), so the settled inks are the ones a per-frame
+    // walk lands on. Anything else that moves the ambient (a scheme flip, the
+    // field arriving) publishes at once. The picked colour's own inks (the live
+    // accent, the label and menu inks) still certify every frame, against the
+    // held ground.
+    const heldLightness = ref(liveLightness.value);
+    let inkSettle: ReturnType<typeof setTimeout> | undefined;
+    const publishInkAmbient = () => {
+        inkSettle = undefined;
+        heldLightness.value = liveLightness.value;
+    };
+    watch([liveLightness, atmosphereColor], ([l, colour], old) => {
+        if (!old || colour === old[1]) {
+            clearTimeout(inkSettle);
+            inkSettle = undefined;
+            heldLightness.value = l;
+            return;
+        }
+        if (inkSettle === undefined && l === heldLightness.value) return;
+        clearTimeout(inkSettle);
+        inkSettle = setTimeout(publishInkAmbient, INK_SETTLE_MS);
+    });
+    onScopeDispose(() => clearTimeout(inkSettle));
+    const derivedLightness = computed(() => heldLightness.value);
 
     // 2 — the accent axis (W3-5 threads the M-15 exposed value): the live
     //     colour certified against the LIVE ambient — never the retired
