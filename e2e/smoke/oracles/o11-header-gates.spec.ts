@@ -149,6 +149,174 @@ for (const scheme of ["light", "dark"] as const) {
     });
 }
 
+// ── THE CAPTION LEG (X.W11.d3b · COHESION §0gl.3 · §0gk.2 referent law, B22
+// U-1 / B09 0259) ──────────────────────────────────────────────────────────
+// A caption's contrast is certified against the DARKEST backdrop region it
+// actually sits over, never the field mean. Read at the true bytes, the
+// region that binds is the worst-contrast one (in light the darkest, in dark
+// the lightest under the light ink), so the leg certifies against the minimum
+// over line-height squares of the painted ground (ink hidden, element
+// screenshot), stepping half a square. The floor is the 4.5:1 text floor.
+const CAPTION_FLOOR = 4.5;
+const CAPTION_ROUTES = [
+    "/",
+    "/palettes",
+    "/browse",
+    "/extract",
+    "/mix",
+    "/generate",
+    "/gradient",
+    "/atmosphere",
+    "/blob",
+] as const;
+
+/** The caption inks (sRGB through a 1×1 canvas) and line heights. */
+async function readCaptions(page: Page) {
+    return page.evaluate(() => {
+        const cv = document.createElement("canvas");
+        cv.width = cv.height = 1;
+        const g = cv.getContext("2d", { willReadFrequently: true })!;
+        const rgba = (c: string) => {
+            g.clearRect(0, 0, 1, 1);
+            g.fillStyle = "#000";
+            g.fillStyle = c;
+            g.fillRect(0, 0, 1, 1);
+            const d = g.getImageData(0, 0, 1, 1).data;
+            return [d[0], d[1], d[2], d[3] / 255];
+        };
+        return Array.from(document.querySelectorAll<HTMLElement>("main .pane-header"))
+            .map((hd, hi) => ({
+                hd,
+                hi,
+                el: hd.querySelector<HTMLElement>(".pane-header-desc"),
+            }))
+            .filter(({ el }) => el !== null && el.getBoundingClientRect().width > 0)
+            .map(({ hi, el }) => ({
+                hi,
+                text: el!.textContent!.trim().slice(0, 32),
+                ink: rgba(getComputedStyle(el!).color),
+                lh:
+                    parseFloat(getComputedStyle(el!).lineHeight) ||
+                    el!.getBoundingClientRect().height,
+            }));
+    });
+}
+
+/** The painted ground under the caption as line-height-square region means. */
+async function groundRegions(page: Page, png: Buffer, lh: number) {
+    return page.evaluate(
+        async ([b64, side]) => {
+            const img = new Image();
+            img.src = `data:image/png;base64,${b64}`;
+            await img.decode();
+            const cv = document.createElement("canvas");
+            cv.width = img.width;
+            cv.height = img.height;
+            const g = cv.getContext("2d")!;
+            g.drawImage(img, 0, 0);
+            const d = g.getImageData(0, 0, cv.width, cv.height).data;
+            const s = Math.max(
+                4,
+                Math.min(Math.round(side * devicePixelRatio), cv.width, cv.height),
+            );
+            const st = Math.max(2, s >> 1);
+            const out: number[][] = [];
+            for (let y0 = 0; y0 + s <= cv.height; y0 += st) {
+                for (let x0 = 0; x0 + s <= cv.width; x0 += st) {
+                    let r = 0,
+                        gg = 0,
+                        b = 0;
+                    for (let y = y0; y < y0 + s; y++) {
+                        for (let x = x0; x < x0 + s; x++) {
+                            const i = (y * cv.width + x) * 4;
+                            r += d[i];
+                            gg += d[i + 1];
+                            b += d[i + 2];
+                        }
+                    }
+                    out.push([r / (s * s), gg / (s * s), b / (s * s)]);
+                }
+            }
+            return out;
+        },
+        [png.toString("base64"), lh] as const,
+    );
+}
+
+const lin = (c: number) => {
+    const v = c / 255;
+    return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+};
+const lum = ([r, g, b]: number[]) =>
+    0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+const contrast = (a: number[], b: number[]) => {
+    const x = lum(a),
+        y = lum(b);
+    return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
+};
+
+for (const scheme of ["light", "dark"] as const) {
+    for (const [w, h] of [
+        [1440, 900],
+        [390, 844],
+    ] as const) {
+        test(`O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (${scheme} ${w})`, async ({
+            page,
+        }) => {
+            test.setTimeout(240_000);
+            await page.setViewportSize({ width: w, height: h });
+            await page.emulateMedia({ colorScheme: scheme, reducedMotion: "reduce" });
+            await page.goto("/#/", { timeout: 60_000 });
+            await expect(mainPane(page)).toBeVisible();
+            for (const route of CAPTION_ROUTES) {
+                await page.goto(`/#${route}`, { timeout: 60_000 });
+                await page.evaluate(
+                    (s) =>
+                        document.documentElement.classList.toggle("dark", s === "dark"),
+                    scheme,
+                );
+                await expect(page.locator("main .pane-header").first()).toBeVisible();
+                await page.waitForTimeout(2500);
+                const caps = await readCaptions(page);
+                const veil = await page.addStyleTag({
+                    content:
+                        ".pane-header-desc{color:transparent!important;text-shadow:none!important}",
+                });
+                await page.waitForTimeout(150);
+                for (const c of caps) {
+                    const png = await page
+                        .locator("main .pane-header")
+                        .nth(c.hi)
+                        .locator(".pane-header-desc")
+                        .screenshot({ animations: "disabled" });
+                    const regions = await groundRegions(page, png, c.lh);
+                    expect(
+                        regions.length,
+                        `${route}: no ground region read`,
+                    ).toBeGreaterThan(0);
+                    let worst = Infinity;
+                    let at: number[] = [];
+                    for (const gr of regions) {
+                        const a = c.ink[3];
+                        const ink = c.ink
+                            .slice(0, 3)
+                            .map((v, i) => v * a + gr[i] * (1 - a));
+                        const r = contrast(ink, gr);
+                        if (r < worst) [worst, at] = [r, gr];
+                    }
+                    expect
+                        .soft(
+                            worst,
+                            `${route} (${scheme} ${w}) "${c.text}": ink rgb(${c.ink.slice(0, 3).join(",")}) vs the darkest region rgb(${at.map(Math.round).join(",")}) = ${worst.toFixed(2)}:1`,
+                        )
+                        .toBeGreaterThanOrEqual(CAPTION_FLOOR);
+                }
+                await veil.evaluate((n) => n.remove());
+            }
+        });
+    }
+}
+
 /** Whether the view has a visible pane scroll host that actually overflows
  *  UNDER its own header (the header inside the host). X-DS pass 4 (V4C-05):
  *  a seated header's port scrolls beside it, never under it. */

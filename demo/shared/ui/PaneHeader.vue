@@ -43,11 +43,10 @@
         >
             <slot />
         </CardTitle>
-        <!-- AB-2 (T.W8 remediation_1 · D6): the caption speaks the CERTIFIED
-             de-emphasis rung `--ink-muted` (the boot-stamped floor-clamped
-             plate ink, ≥4.5 on the composited resting plate) — never raw
-             `--muted-foreground`, which measured 4.29:1 on the TRUE header
-             ground (veil `::before` included). The color rides the scoped rule
+        <!-- AB-2 (T.W8 remediation_1 · D6): the caption speaks a CERTIFIED
+             plate rung — never raw `--muted-foreground`. X.W11.d3b (§0gl.3,
+             the referent law): certified against the darkest region under
+             it, the rung is `--ink-primary`. The color rides the scoped rule
              below; glass hides the caption on the condensed strip. -->
         <CardDescription v-if="description" class="pane-header-desc text-caption">{{ description }}</CardDescription>
     </CardHeader>
@@ -117,12 +116,16 @@ const { level = 2, titleId } = defineProps<{
 }
 
 
-/* AB-2 (D6) — the caption ink: the boot-stamped certified de-emphasis rung.
- * `--ink-muted` is the floor-clamped plate ink useAtmosphereBoot writes on
- * :root (the plate-caption / parse-echo voice, ≥4.5 on the composited resting
- * plate). Falls back to `--muted-foreground` before the boot writer runs. */
+/* AB-2 (D6) — the caption ink, a boot-stamped certified plate rung.
+ * X.W11.d3b (COHESION §0gl.3 · §0gk.2 referent law, B22 U-1 / B09 0259): a
+ * caption is certified against the darkest backdrop region it actually sits
+ * over, not the field mean. Against that region `--ink-muted` (certified on
+ * the mean resting plate) fell under 4.5:1 across the panes, so the caption
+ * takes ONE token step up the plate ladder to `--ink-primary`, the scheme
+ * foreground useAtmosphereBoot certifies on the same plate (a token, never
+ * opacity: B02 0039). Size and the caption rung carry the de-emphasis. */
 .pane-header-desc {
-    color: var(--ink-muted);
+    color: var(--ink-primary);
 }
 
 .pane-header {
