@@ -4605,3 +4605,14 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
    - **N3:** demote post-paint modulepreloads under the shell. The italic Fraunces preload STAYS (§0gl.6, the above-the-fold title) unless N3 measures that the italic is not used in the first viewport at either width.
    - **N4 is conditional:** only if still over budget after N1–N3. The paper grain is identity and stays (§0dm), but it may move off the LCP candidate's own background (for example to a pseudo-element or a shared tiled asset), measured both ways.
 4. **ESC-W11d3b-1 (3 light-390 caption cells at 3.22:1 over the hot aurora band): arm (a).** The ground side is cured: at 390 the resting header plate takes glass's denser resting rung that holds the 4.5:1 caption floor over its darkest backdrop region, measured on the 3 cells ×2 with the other 49 unchanged. If no published rung does it, X.W11.d3c relays the plate-α ask to glass with the numbers, and the 3 cells are held honest-RED. Arm (c), the polarity flip, is refused, and arm (b), moving the aurora, would change identity placement.
+
+## §0gn — 2026-10-21: ESC-W11c-TAG-CI-RED-2 and ESC-W11p4-1 ruled (delegate, §0ge)
+1. **SS8-0257b (`demo/test/about/ss8-b09-ink.test.ts`) times out on CI Node 22: 5,410 ms against vitest's 5 s default; 3,310 ms on Node 24; 757 ms locally.**
+   - **Unit X.W11.c2 profiles it first.** If the time is avoidable cost (repeated parsing, per-cell setup that can be hoisted, a wasted await), it is cured at that cost.
+   - If the time is the census's own inherent work, the D59 precedent applies (2026-07-17: the W51 PNG tests): an explicit per-test timeout with the measured CI headroom stated (at least 3× the worst CI reading), and the assertions untouched.
+   - Either way, Node 22 and Node 24 producer jobs are both GREEN on CI. Then re-mint LOCAL v4.1.0, and .b and .c re-sit.
+   - §0gm.2 stands: publish when lhci is the only red; the deploy is held.
+2. **ESC-W11p4-1 (N1 measured impossible as specified: the inline script already IS the seeded-ground closure; 99.8 KB of it is dead glass shader source that rolldown keeps).** Ruled:
+   - **(c):** the N1→N2→N3 order lock is LIFTED. N2 (lazy hydration of the 1,020 ms task) and N3 (modulepreload demotion) proceed now, with lhci ×3 on CI after each.
+   - **(b):** §0gl.10 is refined, not reversed. The inline script keeps only the boot plus `parseUrlSeed`. The derive becomes a hashed classic asset built from the SAME one source module, loaded parser-blocking ONLY when a `#`/`?color=` seed is present. The first-frame seeded ground (O28-114) is kept, and every unseeded document, `/` included, drops about 59 KB gz.
+   - **(a):** relayed to glass as a producer row: ship `deriveAurora` and its config in a module free of shader strings. Adopted at landing, which shrinks the seeded path too.
