@@ -190,3 +190,119 @@ Today's base is already well below r1's base (dark-1440 p50 57–66 → 37–40 
   - Honest limit: the first run after each fresh vite start (`green-warm-1`, `green-warm-3`, `green-cold-1/2`) failed page-load test 1 on a cold-compile `goto` timeout or a dep-reoptimise `ERR_ABORTED`. `green-warm-3` also failed walk on a titled pane's H1 count of 0, a pane still loading under load 20–30. All 4 falsifiers were green in every one of those runs, and the same failures do not occur warm.
 - **Gates.** `vue-tsc` (lib, demo and test) is clean for P1 files. The remaining `typecheck` errors are only in other seats' SS-8 specs and tests (`ss8-b17/b18/b07`, `ss8-b11-cures`). vitest: 99/101 files and 1272 tests passed. The 2 failing files (`palette-card-layout`, `plate-mass`) are `page.goto` 30 s harness timeouts in the palettes browser harness, outside P1 (`vitest.txt`).
 - **Adjacent lines outside the modify set:** none.
+
+### load
+
+OD19-ALL, the value half of route loading: "All loading times for all apps needs to be improved, every page, every app", and route-to-route navigation "smoothly and subtly". Boot (the first paint of `/`) is X.W11.p2's and is not touched here. The pane swap (OD19-V7), intent prefetch and the idle warm (OD19-V5) landed in P3 (`091f86da2`), and the wordless skeleton plate (OD19-V6) landed in P1 (`bdd97b752`). This seat re-measured all of them on a production build and cured the one route-level root still open.
+
+**Verdict: PARTIAL.** The cold deep link's pane-chunk waterfall is cured at its root, and the falsifier goes RED to GREEN. On localhost the end-to-end time to content does not move beyond noise. Under a stated slow network, five of six heavy routes improve by 160–320 ms (median) and gradient is neutral. The remaining costs are measured and routed (residuals below).
+
+**Cure:** `bf1f02d8a`, file `demo/app/router/index.ts`. Falsifier: `e2e/smoke/perf/od19-route-load.spec.ts`.
+
+**Method.**
+- Production build `vite build --mode gh-pages` (`VITE_API_URL=http://localhost:3000`), served by `vite preview` from a clean worktree, inside a `guarded` run that stops the server on exit (`value/probes/load-run.sh`, `load-serve.sh`).
+  - BEFORE = HEAD `bdd97b752` (`.worktrees/load-head`).
+  - AFTER = the same tree plus the cure (`.worktrees/load-after`).
+  - Neither tree carries Track A's in-flight `prerenderShell` (the uncommitted `vite.config.ts` hunk).
+- Headless Chromium (headless shell, SwiftShader GL) at **CPU 4×** (CDP `Emulation.setCPUThrottlingRate`), with no network throttle (localhost) unless stated. One browser per run, one context per route, and a warm-up load first.
+- Probe `value/probes/load-routes.mjs`, three cells for every route in the router:
+  - **cold**: empty cache, deep link `#/<route>`;
+  - **warm**: the same context reloaded, HTTP cache primed;
+  - **hop**: from a settled `#/` (the idle warm has run), set the hash.
+- **Content** means every scene region holds a mounted pane, none holds the loading plate, and the route's H1 is in `<main>`. Measured: JS bytes on the wire up to content, long tasks up to content (count·sum ms), and for the hop the max rAF frame from input to content + 700 ms.
+- Runs were interleaved BEFORE r1 → AFTER r1 → BEFORE r2 → AFTER r2 on 2026-10-20, 18:40–19:45, at load 25–42 on a shared machine. Raw data is in `value/load/before-head/r{1,2}-{1440,390}.json` and `value/load/after/r{1,2}-{1440,390}.json`.
+
+**Root causes measured on the built bundle.**
+1. **The deep link's pane graph waited for the mount (CURED).**
+   - Cold `#/gradient` (`load-waterfall.mjs`): the entry chunk arrived at 54 ms, but `GradientPane` was requested at **654 ms**. PaneSlot asks for a lazy pane only when it mounts, which is after the entry evaluates, the router resolves and `app.mount` begins.
+   - Cure: `router/index.ts` resolves the address at module evaluation (`router.resolve(location.hash)`, which is synchronous under hash history) and calls P3's `preloadView` for the linked view. An admin view is warmed only for a held token. The chunks then download and compile off-thread while the boot evaluates.
+   - AFTER: `GradientPane` was requested at **164 ms**.
+   - Through the falsifier, every lazy route's pane-request gap after the entry is **82–129 ms (AFTER) against 258–673 ms (BEFORE)**.
+2. **Already in place, re-verified on the build and not re-authored.**
+   - Route-level splitting: every non-home pane is its own chunk (`usePaneRouter.ts` `lazyPane`).
+   - Intent prefetch on the view menu (pointerenter/focus, and menu open) plus the idle warm (P3).
+   - The loading plate is glass `Skeleton` with no text (P1).
+   - The pane swap animates opacity and transform only (`animations.css` `vj-enter` family, the leave on `--duration-fast` for both properties).
+
+**Before → after, every route.** Each cell reads `before r1 / r2 → after r1 / r2`, CPU 4×, localhost. Long tasks are given as count·sum ms. ¹ = the served API refuses the probe's admin token (403), so the route bounces to `#/` and the cell times Home. The falsifier below stubs the admin endpoints and times the admin pane itself.
+
+1440×900:
+
+| route | cold content ms | cold JS KB | cold long tasks | warm content ms | hop content ms | hop max frame ms |
+|---|---|---|---|---|---|---|
+| home (picker + about) | 1596 / 1073 → **819 / 1188** | 367 / 367 → 367 / 367 | 3·1085 / 3·1052 → 1·583 / 4·1207 | 2740 / 4783 → 2022 / 2640 | — / — → — / — | — / — → — / — |
+| palettes | 972 / 1868 → **832 / 1137** | 394 / 398 → 394 / 394 | 2·772 / 3·934 → 2·680 / 3·1126 | 1730 / 2631 → 1213 / 1129 | 446 / 430 → 770 / 514 | 259 / 252 → 369 / 335 |
+| browse | 677 / 744 → **700 / 708** | 406 / 406 → 406 / 406 | 2·507 / 2·542 → 2·525 / 2·538 | 413 / 432 → 919 / 956 | 1045 / 1677 → 982 / 3372 | 822 / 1142 → 657 / 1040 |
+| extract | 739 / 767 → **736 / 921** | 402 / 402 → 403 / 403 | 2·556 / 2·586 → 2·566 / 2·739 | 944 / 778 → 740 / 1687 | 568 / 974 → 581 / 1325 | 502 / 765 → 353 / 312 |
+| mix | 949 / 1187 → **997 / 927** | 376 / 376 → 376 / 376 | 2·751 / 3·1034 → 2·815 / 2·825 | 1239 / 3267 → 1719 / 1404 | 798 / 1100 → 667 / 662 | 371 / 580 → 340 / 292 |
+| generate | 765 / 813 → **761 / 781** | 382 / 382 → 382 / 382 | 2·576 / 2·625 → 2·587 / 2·598 | 1180 / 1283 → 986 / 900 | 900 / 1717 → 1757 / 664 | 387 / 539 → 813 / 306 |
+| gradient | 993 / 1063 → **970 / 1100** | 455 / 455 → 455 / 455 | 2·796 / 2·845 → 2·790 / 2·909 | 1445 / 1486 → 1172 / 1415 | 589 / 772 → 826 / 574 | 330 / 527 → 322 / 331 |
+| atmosphere | 523 / 512 → **603 / 556** | 338 / 338 → 339 / 339 | 2·558 / 2·540 → 1·437 / 2·592 | 926 / 778 → 800 / 1048 | 542 / 1168 → 774 / 918 | 311 / 404 → 258 / 229 |
+| blob | 997 / 871 → **900 / 1121** | 365 / 365 → 365 / 365 | 2·861 / 2·777 → 2·811 / 2·907 | 1423 / 1929 → 1346 / 1478 | 537 / 483 → 810 / 633 | 313 / 273 → 338 / 300 |
+| admin/users ¹ | 1342 / 1266 → **1364 / 1106** | 386 / 386 → 387 / 418 | 4·1133 / 3·986 → 4·1185 / 4·972 | 1716 / 1759 → 1717 / 1311 | 371 / 292 → 315 / 300 | 702 / 567 → 459 / 316 |
+| admin/names ¹ | 1225 / 1303 → **1288 / 1121** | 386 / 386 → 387 / 387 | 4·1051 / 4·1159 → 3·988 / 4·984 | 2020 / 1657 → 1544 / 1278 | 278 / 270 → 368 / 116 | 420 / 454 → 258 / 256 |
+| admin/audit | 517 / 534 → **637 / 485** | 383 / 383 → 379 / 383 | 2·455 / 2·476 → 1·455 / 2·429 | 1192 / 1390 → 1217 / 1061 | 738 / 708 → 687 / 381 | 993 / 809 → 302 / 818 |
+| admin/flagged | 566 / 535 → **541 / 544** | 383 / 383 → 383 / 383 | 2·508 / 2·486 → 2·486 / 2·495 | 1118 / 2532 → 1102 / 1810 | 503 / 669 → 432 / 673 | 302 / 314 → 615 / 328 |
+| admin/tags | 585 / 538 → **1002 / 538** | 379 / 383 → 383 / 383 | 2·530 / 2·492 → 2·973 / 2·499 | 1427 / 1111 → 1579 / 1370 | 407 / 328 → 1154 / 677 | 787 / 283 → 636 / 476 |
+| no-such-route | 89 / 87 → **90 / 95** | 329 / 329 → 329 / 329 | 1·396 / 1·410 → 1·467 / 1·413 | 81 / 59 → 84 / 57 | 331 / 368 → 1856 / 585 | 156 / 182 → 530 / 217 |
+
+390×844:
+
+| route | cold content ms | cold JS KB | cold long tasks | warm content ms | hop content ms | hop max frame ms |
+|---|---|---|---|---|---|---|
+| home (picker + about) | 899 / 982 → **1211 / 1030** | 367 / 367 → 367 / 367 | 2·717 / 2·735 → 3·1069 / 2·773 | 1611 / 2032 → 3374 / 2788 | — / — → — / — | — / — → — / — |
+| palettes | 833 / 748 → **839 / 1138** | 394 / 394 → 394 / 394 | 2·682 / 1·552 → 2·701 / 3·988 | 1192 / 746 → 1197 / 967 | 440 / 378 → 429 / 392 | 105 / 113 → 154 / 162 |
+| browse | 687 / 691 → **687 / 681** | 411 / 411 → 412 / 412 | 2·491 / 2·514 → 2·519 / 2·514 | 710 / 773 → 417 / 600 | 614 / 700 → 2914 / 1418 | 395 / 470 → 638 / 749 |
+| extract | 725 / 702 → **743 / 773** | 408 / 408 → 408 / 403 | 2·546 / 2·544 → 2·575 / 2·597 | 688 / 582 → 782 / 1795 | 426 / 593 → 438 / 2740 | 200 / 750 → 376 / 1471 |
+| mix | 838 / 888 → **863 / 812** | 381 / 381 → 381 / 381 | 2·732 / 2·718 → 2·827 / 1·603 | 1022 / 2471 → 1131 / 873 | 482 / 611 → 537 / 782 | 114 / 222 → 279 / 340 |
+| generate | 743 / 836 → **784 / 703** | 403 / 397 → 403 / 403 | 2·568 / 2·621 → 2·605 / 2·533 | 798 / 939 → 1306 / 934 | 714 / 461 → 1909 / 480 | 368 / 150 → 939 / 142 |
+| gradient | 898 / 1039 → **984 / 966** | 455 / 455 → 455 / 459 | 2·725 / 2·811 → 2·791 / 2·792 | 1185 / 1062 → 894 / 961 | 475 / 478 → 557 / 942 | 103 / 133 → 221 / 550 |
+| atmosphere | 512 / 512 → **555 / 558** | 404 / 404 → 369 / 404 | 2·533 / 2·527 → 2·585 / 2·577 | 601 / 376 → 723 / 645 | 462 / 485 → 449 / 488 | 235 / 200 → 371 / 207 |
+| blob | 913 / 903 → **813 / 871** | 369 / 365 → 365 / 365 | 2·783 / 2·903 → 2·790 / 2·822 | 839 / 1241 → 1165 / 867 | 497 / 578 → 516 / 491 | 119 / 248 → 247 / 104 |
+| admin/users ¹ | 1071 / 1240 → **1257 / 1263** | 443 / 418 → 418 / 387 | 4·939 / 4·1052 → 4·1110 / 4·1104 | 613 / 1626 → 2770 / 2070 | 168 / 133 → 166 / 138 | 244 / 289 → 369 / 268 |
+| admin/names ¹ | 1214 / 1360 → **1303 / 1238** | 418 / 386 → 418 / 418 | 4·1072 / 4·1101 → 4·1149 / 4·1093 | 1702 / 1683 → 1985 / 1347 | 192 / 126 → 349 / 159 | 272 / 274 → 233 / 222 |
+| admin/audit | 524 / 533 → **562 / 539** | 383 / 383 → 383 / 383 | 2·466 / 2·473 → 2·494 / 2·483 | 1895 / 1433 → 1454 / 1654 | 338 / 413 → 463 / 329 | 259 / 698 → 316 / 259 |
+| admin/flagged | 535 / 553 → **556 / 544** | 383 / 379 → 383 / 383 | 1·374 / 2·496 → 2·499 / 2·492 | 1327 / 968 → 1470 / 1182 | 325 / 366 → 309 / 416 | 364 / 360 → 366 / 399 |
+| admin/tags | 535 / 533 → **496 / 564** | 383 / 383 → 383 / 383 | 2·466 / 1·370 → 2·447 / 2·496 | 1607 / 1843 → 1992 / 990 | 320 / 630 → 305 / 357 | 241 / 825 → 243 / 344 |
+| no-such-route | 86 / 83 → **87 / 85** | 329 / 329 → 359 / 329 | 0·0 / 0·0 → 1·372 / 1·385 | 72 / 66 → 52 / 62 | 747 / 365 → 318 / 396 | 764 / 189 → 123 / 242 |
+
+How to read these tables: on localhost the route chunk arrives within a few ms, so cold content is set by the main thread (entry evaluation plus pane mount), and the cure's earlier request does not move it beyond run-to-run noise. Hop outliers (for example browse 3372 ms and extract 2740 ms) recur in BEFORE and AFTER alike and follow machine load. Cold JS bytes are unchanged: the cure moves *when* the chunk is fetched, not what is fetched.
+
+**Under a stated network** (`load-cold-net.mjs`): 150 ms RTT, 1.6 Mbps down / 750 kbps up (CDP `Network.emulateNetworkConditions`), CPU 4×, 1440. Each row has 4 samples per build (2 runs × 2 reps), interleaved. Gradient has 4 more per build in r3.
+
+| cold route | content ms, before → after (median) | pane request gap after entry, ms |
+|---|---|---|
+| gradient | 5498 / 4913 / 5788 / 4863 · r3 5699 / 5427 / 4856 / 5284 → 5738 / 5140 / 5947 / 5058 · r3 7051 / 5545 / 5109 / 5225 (5356 → 5385, neutral) | 211–292 → 57–77 |
+| mix | 4248 / 4250 / 4534 / 4513 → 4272 / 4072 / 4208 / 3991 (4382 → 4140, **−242**) | 284–366 → 56–80 |
+| palettes | 4423 / 4388 / 4412 / 4443 → 4156 / 4048 / 4154 / 4022 (4418 → 4101, **−317**) | 234–373 → 56–78 |
+| extract | 4622 / 4466 / 4723 / 4917 → 4392 / 4347 / 4445 / 4321 (4673 → 4370, **−303**) | 180–269 → 57–68 |
+| generate | 4514 / 4385 / 4442 / 4463 → 4481 / 4204 / 4237 / 4220 (4453 → 4229, **−224**) | 197–265 → 48–71 |
+| blob | 3588 / 3597 / 3683 / 3657 → 3441 / 3490 / 3614 / 3432 (3627 → 3466, **−162**) | 312–362 → 50–69 |
+
+Gradient is neutral. Its pane graph (182 KB `GradientPane` + 32 KB `vendor-highlight`) now downloads alongside the boot's own chunks, so what the earlier start saves, the shared bandwidth spends. Residual 1 names the bytes.
+
+**Falsifier** `e2e/smoke/perf/od19-route-load.spec.ts` (smoke-perf project, built bundle, CPU 4×, all 15 routes). It runs each route cold and asserts:
+- (1) the route's pane chunk is requested ≤ **180 ms** after the entry chunk arrives. This is the discriminating bar.
+- (2) time to content stays under the route's regression bar: 2500 ms, and 1500 ms for not-found. AFTER measured 541–1509 ms.
+- (3) the in-app hop from a settled `#/`, with the route's chunk already landed by the idle warm, reaches its content, and its time is logged. The hop has no ms bar (residual 3).
+
+Admin cells seed a token and stub the admin endpoints with empty envelopes. The file opens with one throwaway load, as the probe does.
+- **RED** on BEFORE: **14 failed / 1 passed** (`value/load/falsifier/final/before-1.txt`; also `r3/before-1.txt` 14 failed / 1 passed). Every lazy route failed (1). The one pass is not-found, which has no lazy pane.
+- **GREEN** on AFTER: **15/15 ×2** (`final/after-{1,2}.txt`).
+- How the bars were set, from the drafts kept in `value/load/falsifier/`:
+  - A first draft without the warm-up read 5–12 s on its first two cells on a fresh browser (`red-before.txt`, `green-after-{1,2}.txt`).
+  - At a 300 ms gap bar, BEFORE on a quieter machine read 8 failed / 7 passed with gaps of 216–418 ms (`r2/before-1.txt`). The bar was moved to 180; AFTER's gap never exceeded 135 ms in any run.
+  - A hop bar of 2500 and then 4000 ms failed on AFTER at load 31–33 (`r3/after-{2,3,4}.txt`: palettes 5536/6210, mix 4545, browse 4481 ms). The same spread appears in BEFORE (browse 3372 ms in the probe), so the hop was made a logged measurement.
+
+**Residuals (measured, outside this seat's cure)**
+1. **The gradient route carries the whole CSS value grammar.** `GradientPane` is 182 KB: 130 KB of it is the library's `css-grammar` chunk (attributed with `load-chunk-attr.mjs` over the sourcemapped build), pulled in for `parseTimingFunction` (`model/sample.ts:114`) and `parseCssScalar` (`gradientParse.ts:111,125`). `parseCssColor` already has a colour-only parser (`src/css/bbnf/color-parse`, X-W12U `.g2s`). A timing/scalar-rooted parser compiled alone would cut most of the 130 KB from the gradient route. That is library parser work (the BBNF grammar law, V·π edicts) and is routed there; no demo-side cure exists without a local parser, which the law forbids.
+2. **A warm reload costs more than a cold load** (warm content 1.1–4.8 s against cold 0.5–1.6 s in both builds). `load-warm-loaf.mjs` attributes it to one long animation frame, the entry chunk's evaluation: 1.6–4.5 s on the second load against about 0.6 s cold. A storage-cleared reload is also slow, so it is not app state. This is Chrome's second-visit code-cache production over the 469 KB entry chunk at CPU 4×, so it is boot-graph size and belongs to **X.W11.p2 (Track A)**. Relayed, not cured here.
+3. **The hop is load-bound and has no bar: ESCALATED with P3.** Measured 310–1460 ms on a quiet machine and 2.2–6.2 s at load 30+ (palettes 5536/6210, mix 4545, browse 4481 ms), in BEFORE and AFTER alike. Its cost is the incoming pane's mount, the same finding as P3 residual 1. `load-hop-loaf.mjs` attributes the hop's largest frame to Vue's out-in leave timer, which mounts the incoming pane: gradient 293 ms, generate 131 ms. A glass `createCanvasLifecycle` ResizeObserver → `resize()` runs 124–231 ms on browse and the admin hops. `load-canvas-resize.mjs` shows the leaving Home's hero-blob canvas growing 180→282 px during its leave on one admin hop. That run was not reproducible on every hop, so it is recorded and not cured. The out-in floor (leave + mount + settle) stands as P3 escalated it.
+4. **API-refused origin.** The served API's CORS allowlist names `:9000` only, so a preview or perf origin sees every API call fail. `load-api-down.mjs` shows that Home and Palettes still reach content in about 1.6 s with the API refused, so a refusing API costs no route content. The probe runs with web security off so that it measures the API-up path.
+
+**Gates.**
+- `vue-tsc -p tsconfig.demo.json`: clean for this change. The remaining errors are only in other seats' `ss8-*` tests.
+- `tsc -p tsconfig.e2e.json`: clean for the new spec.
+- eslint on both files: clean.
+- vitest (`demo/test/shell` plus `admin-u3-cures`, `--maxWorkers=2`): 57/58 passed (`value/load/vitest-shell.txt`). The one failure is `button-voice.test.ts` V16-06, which flags `ImageEyedropper.vue:20` (another seat's SS-8 B25 `605daabe7`). It is unrelated to the router.
+- No golden was re-baselined. No test was deleted, skipped or weakened.
