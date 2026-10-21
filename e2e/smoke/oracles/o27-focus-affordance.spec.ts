@@ -53,11 +53,16 @@ async function freezeRingTransition(page: Page): Promise<void> {
 // Tab through the honest focus order until a gradient stop handle takes
 // keyboard focus (the o15 idiom — Tab gives true `:focus-visible` modality,
 // which a programmatic `.focus()` does NOT). Returns the focused handle.
+// X.W11.h16 (DISPOSITION §8 E16): WebKit's default Tab order (Safari without
+// Full Keyboard Access) holds form controls only; the engine's full-keyboard
+// traversal is `Alt+Tab` (Option-Tab) — the same keyboard modality.
 async function tabToHandle(page: Page, main: Locator): Promise<Locator> {
     const handle = bar(main).locator("[data-stop-id]").first();
     await handle.scrollIntoViewIfNeeded();
+    const engine = page.context().browser()?.browserType().name();
+    const traverse = engine === "webkit" ? "Alt+Tab" : "Tab";
     for (let i = 0; i < 80; i++) {
-        await page.keyboard.press("Tab");
+        await page.keyboard.press(traverse);
         const onHandle = await page.evaluate(
             () => document.activeElement?.hasAttribute("data-stop-id") ?? false,
         );

@@ -86,6 +86,7 @@ test.describe("O-15a · the seal abrogation (negative watch)", () => {
 test.describe("O-15b · the Tools clip release + register pass (W6-8)", () => {
     test("settled rest releases the clip — the hover capsule + shadow render whole", async ({
         page,
+        browserName,
     }) => {
         await page.goto("/");
         await page.waitForSelector(".glass-dock");
@@ -112,10 +113,16 @@ test.describe("O-15b · the Tools clip release + register pass (W6-8)", () => {
         // outside the box (`.dock-icon-button:focus-visible { outline:
         // var(--dock-ring-width) solid …; outline-offset: … }`), no longer a
         // box-shadow — the paint a released clip must not amputate.
+        // X.W11.h16 (DISPOSITION §8 E16): WebKit's default Tab order (Safari
+        // without Full Keyboard Access) holds form controls only, so `Tab`
+        // never lands on the dock `<button>`. The engine's full-keyboard
+        // traversal is `Alt+Tab` (Option-Tab) — the same keyboard modality,
+        // honest `:focus-visible`, not a programmatic `.focus()`.
+        const traverse = browserName === "webkit" ? "Alt+Tab" : "Tab";
         const tools = page.locator(".dock-tools-btn");
         let ring = { style: "none", width: 0, offset: 0 };
         for (let i = 0; i < 20; i++) {
-            await page.keyboard.press("Tab");
+            await page.keyboard.press(traverse);
             const isTools = await tools.evaluate((el) => el === document.activeElement);
             if (isTools) {
                 ring = await tools.evaluate((el) => {
