@@ -1,0 +1,21 @@
+SERVED MODEL: claude-opus-5-5
+unit: X.W11.b (RESUME sixth, r4) · 2026-10-20 23:41:05 EDT
+tree: v4.1.0^{commit} = a50b976d68cab5b6b752584b301e9313ce2d59b4 (annotated tag object ec2703c07012ed75fe043fe43ca664840fdde349); clean detached worktree, git status --porcelain | wc -l -> 0
+node: v26.0.0 · npm: 11.12.1
+cmd: ~/.claude/guard/guarded --light -- zsh -c "npm run lint"
+---
+
+> @mkbabb/value.js@4.1.0 lint
+> eslint . --max-warnings=0
+
+
+/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b4-wt/e2e/smoke/admin/ss8-b17-admin-names.spec.ts
+  71:13  warning  Unused eslint-disable directive (no problems were reported from 'no-new-func')
+
+✖ 1 problem (0 errors, 1 warning)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+
+ESLint found too many warnings (maximum: 0).
+---
+exit 1
+tree after: git status --porcelain | wc -l -> 0
