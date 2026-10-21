@@ -1,0 +1,78 @@
+[
+ {
+  "label": "before",
+  "reverseDisc": "lucide-arrow-right-left-icon",
+  "directionTrigger": [
+   "lucide-chevron-down-icon",
+   "lucide-arrow-right-left-icon",
+   "lucide-chevron-down-icon",
+   "lucide-arrow-right-to-line-icon",
+   "lucide-chevron-down-icon",
+   "lucide-chevron-down-icon",
+   "lucide-chevron-down-icon"
+  ],
+  "menu": {
+   "width": 333,
+   "rows": [
+    {
+     "text": "Controls",
+     "description": null,
+     "disabled": false
+    },
+    {
+     "text": "Keyframes",
+     "description": null,
+     "disabled": false
+    },
+    {
+     "text": "Timeline",
+     "description": null,
+     "disabled": false
+    },
+    {
+     "text": "Matrix: select the Matrix channel",
+     "description": null,
+     "disabled": true
+    }
+   ]
+  }
+ },
+ {
+  "label": "after",
+  "reverseDisc": "lucide-arrow-left-icon",
+  "directionTrigger": [
+   "lucide-chevron-down-icon",
+   "lucide-arrow-right-left-icon",
+   "lucide-chevron-down-icon",
+   "lucide-arrow-right-to-line-icon",
+   "lucide-chevron-down-icon",
+   "lucide-chevron-down-icon",
+   "lucide-chevron-down-icon"
+  ],
+  "menu": {
+   "width": 172,
+   "rows": [
+    {
+     "text": "Controls",
+     "description": null,
+     "disabled": false
+    },
+    {
+     "text": "Keyframes",
+     "description": null,
+     "disabled": false
+    },
+    {
+     "text": "Timeline",
+     "description": null,
+     "disabled": false
+    },
+    {
+     "text": "Matrix",
+     "description": "Select the Matrix channel",
+     "disabled": true
+    }
+   ]
+  }
+ }
+]

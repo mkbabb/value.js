@@ -1,0 +1,9 @@
+swap-3d — /Users/mkbabb/Programming/keyframes.js/dist/r2-final · ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) · 1440x900 dark
+ok   Cube    #/cube     worst frame 79 ms (<= 120)
+ok   Spring  #/spring   worst frame 84 ms
+ok   Amiga   #/amiga    worst frame 68 ms (<= 120)
+ok   Spring  #/spring   worst frame 67 ms
+ok   Cube    #/cube     worst frame 75 ms (<= 120)
+ok   Spring  #/spring   worst frame 68 ms
+ok   Amiga   #/amiga    worst frame 60 ms (<= 120)
+EXIT 0
