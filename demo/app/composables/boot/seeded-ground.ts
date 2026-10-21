@@ -16,11 +16,14 @@
  *     seed (`parseUrlSeed`, also hydrate's URL reader) and paints
  *     `seededGroundStops(seed, dark)` before any module runs.
  *
- * The boot script cannot import, so the build inlines THIS module into it:
- * `vite.config.ts`'s `seededGroundInline` plugin bundles this file (with the
- * producer derive it calls) as an IIFE and writes it into the boot HTML at
- * build/serve time. Nothing here is hand-copied into the HTML (§0gl.10: a
- * static table misses by ΔE_OK ~0.2; a second derive is forbidden, §4.3).
+ * The boot script cannot import, so the build bundles THIS module for it:
+ * `vite.config.ts`'s `seededGroundInline` plugin builds this file twice, as
+ * IIFEs — its `parseUrlSeed` alone, inlined into the boot HTML, and the whole
+ * module (with the producer derive it calls) as a hashed classic script the
+ * boot writes in, parser-blocking, only when the URL carries a seed
+ * (X.W11.p4b · §0gn.2(b)). Nothing here is hand-copied into the HTML
+ * (§0gl.10: a static table misses by ΔE_OK ~0.2; a second derive is
+ * forbidden, §4.3).
  */
 
 import { deriveAurora, type AuroraAtoms } from "@mkbabb/glass-ui/aurora";

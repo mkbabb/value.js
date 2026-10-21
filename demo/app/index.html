@@ -189,9 +189,17 @@
              paints its SEEDED ground from the first frame. The derive is not
              mirrored: vite's `seededGroundInline` bundles the one source
              module (`boot/seeded-ground.ts`, which useAtmosphere's sink also
-             runs) into the script below in place of its token, exposing
-             `__vjsSeededGround`. -->
-        <script>__GROUND_SEEDED_RESOLVER__</script>
+             runs). X.W11.p4b (§0gn.2(b)): only its `parseUrlSeed` is inline
+             (`__vjsUrlSeed`); the derive is the same module built as a hashed
+             classic script (`__vjsSeededGround`), written in below —
+             parser-blocking, so it runs before the boot script — ONLY when the
+             URL carries a seed. An unseeded document never fetches it. -->
+        <script>
+            __GROUND_URL_SEED__
+            if (__vjsUrlSeed.parseUrlSeed(location.hash)) {
+                document.write('<script src="__GROUND_SEEDED_DERIVE_SRC__"><\/script>');
+            }
+        </script>
         <script>
             (function() {
                 // B0 — the ground beat (the overture's origin mark; O-4 reads it).
@@ -222,9 +230,13 @@
                 // A share-link seed wins, in hydrate's order (URL, then the
                 // record, then the constants): the same pure derive the app's
                 // sink runs, over the same `parseUrlSeed` hydrate reads with.
-                var url = __vjsSeededGround.parseUrlSeed(location.hash);
-                var seeded = url && __vjsSeededGround.seededGroundStops(
-                    url.color.trim().toLowerCase(), dark);
+                // The derive script is written in above exactly when the URL
+                // carries a seed; a seed whose derive script did not load
+                // (offline, a failed fetch) paints like a refused seed.
+                var url = __vjsUrlSeed.parseUrlSeed(location.hash);
+                var seeded = url && window.__vjsSeededGround &&
+                    window.__vjsSeededGround.seededGroundStops(
+                        url.color.trim().toLowerCase(), dark);
                 if (seeded) stops = seeded;
                 else try {
                     var rec = JSON.parse(localStorage.getItem('color-picker-ground'));
