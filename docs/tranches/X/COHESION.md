@@ -4616,3 +4616,6 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
    - **(c):** the N1→N2→N3 order lock is LIFTED. N2 (lazy hydration of the 1,020 ms task) and N3 (modulepreload demotion) proceed now, with lhci ×3 on CI after each.
    - **(b):** §0gl.10 is refined, not reversed. The inline script keeps only the boot plus `parseUrlSeed`. The derive becomes a hashed classic asset built from the SAME one source module, loaded parser-blocking ONLY when a `#`/`?color=` seed is present. The first-frame seeded ground (O28-114) is kept, and every unseeded document, `/` included, drops about 59 KB gz.
    - **(a):** relayed to glass as a producer row: ship `deriveAurora` and its config in a module free of shader strings. Adopted at landing, which shrinks the seeded path too.
+
+### §0gn erratum — 2026-10-21
+§0gn.2(a)'s glass row is **O-107** (AURORA-DERIVE-SHADER-FREE, W-D.1; glass 16782fcef). O-105 stays BLOB-LIT-LIGHTNESS (§0gl.11, X.W11.h8, W-G.5), and O-106 stays DELIBERATE-TRAILING-ACTIVATION (X.W11.h17, W-E.4).
