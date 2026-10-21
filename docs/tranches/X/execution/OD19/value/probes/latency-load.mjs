@@ -56,6 +56,9 @@ async function dragMeasure(page, handle, label) {
         label, wallMs: wall, inputToPaint: stats(S.inputs), frameInterval: stats(dts),
         loaf: { n: S.loaf.length, totalMs: S.loaf.reduce((a, l) => a + l.d, 0), blockingMs: S.loaf.reduce((a, l) => a + l.blk, 0) },
         topScripts: Object.entries(scriptTotals).sort((a, b) => b[1] - a[1]).slice(0, 8),
+        // repair 3: attributed script time per long frame, and over every frame of the drag
+        scriptsPerLoaf: stats(S.loaf.map((l) => l.scripts.reduce((a, sc) => a + sc.d, 0))),
+        scriptMsPerFrame: +(S.loaf.reduce((a, l) => a + l.scripts.reduce((b, sc) => b + sc.d, 0), 0) / Math.max(1, S.frames.length)).toFixed(1),
     };
 }
 
@@ -96,6 +99,8 @@ try {
             if (await gs.count()) R.v3_gradientSlider = await dragMeasure(page, gs, "gradient pane first [role=slider]");
         } catch (e) { R.v3_error = String(e).slice(0, 300); } finally { await ctx.close(); }
 
+        // ONLY=v3 (repair 3): stop after the drag cells
+        if (process.env.ONLY === "v3") continue;
         // ── V5: cold loads and in-app navigation
         for (const route of ["gradient", "mix"]) {
             ctx = await mk();

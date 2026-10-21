@@ -1,0 +1,74 @@
+(node:42401) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 15 tests using 1 worker
+
+(node:42425) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:171:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) (22.4s)
+(node:43769) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   2 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:223:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif (10.5s)
+  ✓   3 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:275:1 › O-10d census — the 390 phone band: the card name truncates to ONE line under the serif (4.8s)
+  ✓   4 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:305:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles (9.9s)
+  ✓   5 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:392:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) (4.9s)
+  ✓   6 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:469:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row (1ms)
+Z2 header census 1440 {"live":"polite","seam":42.578125,"ratio":0.7861861861861862,"cellTops":[219,219,219]}
+Z2 seam diag [{"cols":"834.344px 515.656px","regions":["color-picker:834","about:516"],"fp":"141.76px"},{"s":".pane-shell .picker-header","top":88,"bottom":265,"h":177,"minH":"auto","pad":"0px 24px","mt":"0px"},{"s":".pane-shell .title-row","top":88,"bottom":210,"h":122,"minH":"121.76px","pad":"0px 141.76px 0px 0px","mt":"0px"},{"s":".pane-shell .title-row [role=\"combobox\"]","top":88,"bottom":173,"h":85,"minH":"0px","pad":"0px 0px 5.0616px","mt":"0px"},{"s":".pane-shell .readout","top":219,"bottom":265,"h":47,"minH":"46.9146px","pad":"0px","mt":"0px"},{"s":".pane-shell .readout .readout-fig","top":219,"bottom":265,"h":47,"minH":"auto","pad":"0px","mt":"0px"},null]
+  ✘   7 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes (6.3s)
+(node:45800) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   8 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:121:5 › Z2 picker cohort — desktop 1440 › P6 — a model write after a readout keystroke repaints the readout (7.3s)
+  ✓   9 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:139:5 › Z2 picker cohort — desktop 1440 › P10 — an unknown pane is Not found, never the picker (1.4s)
+  ✓  10 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:146:5 › Z2 picker cohort — desktop 1440 › CSS1..7 — the colour-space catalog and the About card (10.9s)
+  ✓  11 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:191:5 › Z2 picker cohort — desktop 1440 › CSP3/4/10/12/14 · CSP5 — the Blob configurator census and Copy (3.8s)
+  ✓  12 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:235:5 › Z2 picker cohort — desktop 1440 › CSP15 — forced colors: a focused config slider draws the same outline as a button (1.8s)
+  ✓  13 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:257:5 › Z2 picker cohort — desktop 1440 › P22 — the dark scheme darkens the ambient ground (18.1s)
+  ✓  14 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:294:5 › Z2 picker cohort — mobile 390 › P1 · CI5 · CI13 · P16 · P20 — every action reachable; free-text entry; the readout band (6.6s)
+  ✓  15 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:330:5 › Z2 picker cohort — mobile 390 › CSP16 — below 1024 the configurator stays in the DOM (1.4s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:171:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) 
+
+    Error: Home: heading "Home" off the display face
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoMatch[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected pattern: [32m/^"?Fraunces\b/[39m
+    Received string:  [31m"\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif"[39m
+
+      201 |             expect
+      202 |                 .soft(h.fontFamily, `${view}: heading "${h.text}" off the display face`)
+    > 203 |                 .toMatch(DISPLAY_FACE);
+          |                  ^
+      204 |         }
+      205 |
+      206 |         // The Palettes stop also carries the saved-grid empty state (fresh
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:203:18
+
+    Error Context: test-results/oracles-o10d-display-voice-c5977-lay-voice-the-picker-title--smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes 
+
+    Error: Z-ColorPicker-14: the label→readout seam is under the φG ceiling
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m14.87[39m
+    Received:   [31m42.578125[39m
+
+      91 |         })));
+      92 |         expect(c.live, "Z-ColorPicker-11: the picker header is a polite region").toBe("polite");
+    > 93 |         expect.soft(c.seam, "Z-ColorPicker-14: the label→readout seam is under the φG ceiling").toBeLessThan(14.87);
+         |                                                                                                 ^
+      94 |         expect(c.ratio, "Z-ColorPicker-16: the paired readout/label ratio").toBeCloseTo(0.7862, 3);
+      95 |         const clock = await page.evaluate(() => {
+      96 |             const probe = document.createElement("div");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-z2-picker-cohort.spec.ts:93:97
+
+    Error Context: test-results/ss8-z2-picker-cohort-Z2-pi-2df40-ratio-clock-crown-keyframes-smoke/error-context.md
+
+  2 failed
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:171:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) 
+    [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes 
+  13 passed (1.9m)

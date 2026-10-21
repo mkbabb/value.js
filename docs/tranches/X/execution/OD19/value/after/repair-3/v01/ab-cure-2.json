@@ -1,0 +1,97 @@
+{
+  "arm": "cure",
+  "watchedDirs": 87,
+  "watchedEntries": 595,
+  "watchedTop": [
+    [
+      "demo/workbenches",
+      15
+    ],
+    [
+      "demo/palettes",
+      13
+    ],
+    [
+      "demo/test",
+      13
+    ],
+    [
+      "demo/picker",
+      9
+    ],
+    [
+      "demo/app",
+      8
+    ],
+    [
+      "demo/scenes",
+      8
+    ],
+    [
+      "demo/shell",
+      5
+    ],
+    [
+      "demo/shared",
+      5
+    ],
+    [
+      "demo/platform",
+      3
+    ],
+    [
+      "demo",
+      1
+    ],
+    [
+      "plugins",
+      1
+    ],
+    [
+      "",
+      1
+    ]
+  ],
+  "httpBefore": 21,
+  "burstMs": 1858,
+  "httpDuring": [
+    6,
+    8,
+    11,
+    8,
+    9,
+    15,
+    9,
+    7
+  ],
+  "httpAfter": [
+    6,
+    6,
+    7,
+    8,
+    5,
+    5,
+    5,
+    5,
+    6,
+    15,
+    6,
+    6,
+    6,
+    5,
+    6,
+    5,
+    6,
+    9,
+    5,
+    4
+  ],
+  "lagMaxMs": 8,
+  "lagP95Ms": 3,
+  "settleMs": 12241,
+  "liveness": {
+    "oorChange": true,
+    "rootAdd": true
+  },
+  "verdict": "GREEN"
+}

@@ -1,0 +1,91 @@
+{
+  "arm": "base",
+  "watchedDirs": 9849,
+  "watchedEntries": 74639,
+  "watchedTop": [
+    [
+      "docs/tranches",
+      2384
+    ],
+    [
+      ".worktrees/p2-base",
+      2382
+    ],
+    [
+      ".worktrees/load-before",
+      2377
+    ],
+    [
+      ".worktrees/p2-work",
+      2376
+    ],
+    [
+      "bench/records",
+      45
+    ],
+    [
+      "api/src",
+      27
+    ],
+    [
+      ".worktrees/w8check1",
+      18
+    ],
+    [
+      ".worktrees/w8close2",
+      16
+    ],
+    [
+      ".worktrees/w8close3",
+      16
+    ],
+    [
+      "demo/workbenches",
+      15
+    ],
+    [
+      ".worktrees/w8close5",
+      14
+    ],
+    [
+      "demo/palettes",
+      13
+    ]
+  ],
+  "httpBefore": 23,
+  "burstMs": 42356,
+  "httpDuring": [
+    8,
+    44
+  ],
+  "httpAfter": [
+    6137,
+    6,
+    6,
+    5,
+    6,
+    7,
+    7,
+    6,
+    12,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    6,
+    6,
+    7
+  ],
+  "lagMaxMs": 42187,
+  "lagP95Ms": 303,
+  "settleMs": 73253,
+  "liveness": {
+    "oorChange": true,
+    "rootAdd": true
+  },
+  "verdict": "RED"
+}

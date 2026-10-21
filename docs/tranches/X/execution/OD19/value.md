@@ -432,3 +432,119 @@ The gradient slider is unchanged in both arms (p50 17–18 ms at 1440, 7–9 ms 
 - eslint on the four touched files and the new test: clean (`eslint.txt`).
 
 No golden was re-baselined. No test was deleted, skipped or weakened.
+
+### repair 3
+
+Critic 3's four consumer findings on value: C3-V-01, C3-V-02, C3-V-04 and C3-V-05. Code ``7b437814e``. Evidence is in `value/after/repair-3/` (`v01/`, `v02/`, `v04/`, `v05/`, `gates/`). Every browser run went through `guarded`, headless, with one browser per run and one context per cell. **A/B without worktrees:** each arm is a vite dev server started in-process from the repo's own `vite.config.ts`, on its own port and deps cache (`probes/r3-serve.mjs`, `r3-run.sh`, `r3-watch-ab.mjs`). `cure` serves the tree as written. `base` serves this repair's two files as HEAD has them: a pre-transform swaps foundation.css's first line back, and a load hook reads `ColorInput.vue` from git at `7b437814e~1` (`BASE_REV`). Order: base, then cure, in each of two passes.
+
+| row | verdict | cure | falsifier |
+|---|---|---|---|
+| **C3-V-01** the :9000 server stalls | **CURED at the root: the event source was Tailwind's automatic source detection, not chokidar.** | `demo/styles/foundation.css`: `@import "tailwindcss" source(none);`. The two explicit `@source` globs already in that file (`demo/**/*.{vue,ts,html}`) become the whole scan. | `probes/r3-watch-ab.mjs` (a write burst outside the served root, measured from inside the server) plus `r3-tw-scan.mjs` and `r3-dom-classes.mjs` (no served utility lost) plus `r3-uptime.sh` (the live :9000, one hour) |
+| **C3-V-02** dock grows after Tools | **CURED for the consumer cause. A glass-rooted remainder is named as O-102 sub-row V2-p (below).** | `ColorInput.vue`: the field's block size is glass's `--dock-control-size` (the 40 px dock row), and `align-content: center` centres its one line. `py-2` and the no-op `items-center` are gone. | `probes/r3-dock-height.mjs` (plate height per rAF before, through and after Tools, 4 cells) plus `r3-field-shot.mjs` |
+| **C3-V-04** picker drag at 1440 | **PARTIAL, carried. The built-bundle re-read finds 0.3–1.2 ms of consumer script per frame, under the 15 ms bar, so the publish stays on the frame. The residual is frame production (raster), O-102 V3-g.** | none (the cure's condition is not met) | `latency-load.mjs` (`ONLY=v3`, plus per-frame script sums) on a gh-pages build (`probes/r3-built.sh`) |
+| **C3-V-05** view switch at 1440 | **Carried under C1-V-05 (P3), re-read on the built bundle without capture.** | none | `load-routes.mjs` hop rows on the gh-pages build (`r3-built.sh`, `KIND=routes`) |
+
+**C3-V-01: the root.**
+- **What the stall was.** The `sample` the critic took shows the main thread inside chokidar's fsevents dispatch. That dispatch hands every filesystem event under its stream root to every watched path's listener (`cont.listeners.forEach` → `indexOf`). A stream watching ~600 files costs nothing. The :9000 watcher held **74,637 files**.
+- **Where they came from.** I traced every `watcher.add()` back to the stylesheet compile that asked for it, using an AsyncLocalStorage keyed on vite:css's module id (`R3_TRACE=1` in `r3-watch-ab.mjs`).
+  - 74,311 came from `demo/styles/foundation.css`.
+  - That file's `@import "tailwindcss"` left Tailwind's automatic source detection on. Rooted at the cwd (the repo root), detection walks every file that is not gitignored.
+  - `.worktrees/` is untracked, not ignored, so its 13 GB was in scope, along with `docs/` and `bench/`.
+  - Each walked file comes back as a postcss dependency, and vite watches every dependency.
+- **Measured through vite's own CSS pipeline** (`r3-tw-scan.mjs`, `preprocessCSS` on the repo config, one mode per process; `v01/tw-scan-1.json`):
+
+| | auto (HEAD) | `source(none)` (cure) |
+|---|---|---|
+| dependencies vite watches | **74,923** (.worktrees 54,492 · docs 17,818 · glass 812 · bench 599 · demo 559 · …) | **610** (demo 332 · glass 276 · tailwind · tw-animate) |
+| one compile of foundation.css | **14,845 ms** | **319 ms** |
+| rule selectors emitted | 3,277 | 2,019 |
+
+- **What the 1,258 dropped selectors are.** All of them are utilities minted from words in files the app never serves. Examples: `.paper-underpaint`, `.cartoon-surface`, `.end-1.5`, `.@container/scrolled`, plus `bg-card` and `ease-standard`, which `demo/DESIGN.md` names in prose.
+  - Both modes scan every served file with the same extractor, so a class in a served file can't be lost.
+  - **Browser check** (`r3-dom-classes.mjs`, ×2, `v01/dom-classes-{1,2}.json`): every route at 1440 and 390, light and dark, with the Tools face and its colour-input face opened. **595–597 DOM classes, and 0 in the dropped set: GREEN ×2.**
+- **The falsifier** (`r3-watch-ab.mjs`, `v01/ab-{base,cure}-{1,2}.json`):
+  - Setup: the dev server, then every route loaded in a browser, then a child process makes 20,000 writes across 500 files under `.worktrees/.r3-probe-<arm>/`. That is outside the served root, like a sibling seat's run.
+  - It measures the server's own event-loop lag and its GET / latency during the burst and for 10 s after.
+  - Liveness: an add inside the served root and a change to an out-of-root watched file must both still reach the watcher.
+  - GREEN means lag under 250 ms, every read under 1 s, and both liveness events seen.
+
+| pass | arm | watched | loop lag max | GET / during burst | GET / after | verdict |
+|---|---|---|---|---|---|---|
+| 1 | base | 74,637 | **46,518 ms** | 2 reads (the loop was blocked) | **5,724 ms** (Tailwind's re-scan) | **RED** |
+| 1 | cure | 595 | **7 ms** | 12 reads, max 14 ms | 10 ms | **GREEN** |
+| 2 | base | 74,639 | **42,187 ms** | 2 reads | **6,137 ms** | **RED** |
+| 2 | cure | 595 | **8 ms** | 8 reads, max 15 ms | 15 ms | **GREEN** |
+
+- **What I tried first and reverted.** First I set chokidar `useFsEvents: false` in vite.config.ts's dev branch. That gave 25 s → 42 ms lag, but the watcher still held 73,911 entries over 9,847 directories, so the cost had only moved. With `source(none)` and HEAD's chokidar defaults (fsevents on), the lag is 7–8 ms. So vite.config.ts is unchanged.
+  - The finding's other candidates: `demo/app/.vite-critic-9216/` (14 MB, last written 2026-10-16) is dormant and is not where the 74k files came from. `test-results/` is already in vite's default `ignored` list.
+- **`seededGroundInline` (0bab8ea8a), re-read.** Its `watcher.on("change")` is one `Set.has` per event. Its `build()` re-runs only on the next `index.html` transform after one of its own bundled modules changes. It is not an event source, and it is not on any path the trace saw.
+- **Production gets the same cure.** The gh-pages build also runs from the repo root, so it was scanning 13 GB and shipping the 1,258 junk utilities. The `source(none)` build has the same 2,019-selector set.
+- **The live :9000 server.**
+  - Before: pid 79993, up 13 h 22 min, 95.7 % CPU, 4.78 GB RSS. GET / timed out at 10 s (`000`).
+  - I stopped that one vite process and started the same command `scripts/dev/dev.sh` runs (`VITE_API_URL=http://localhost:3000 npx vite --port 9000 --strictPort`) under `guarded --timeout 720` (`GUARD_ALLOW_LONG=1`, `--rss-gb 8`; 9000 is in keep-ports). The log is `.dev/logs/web-9000-r3.log`. dev.sh itself, its API and its watch-builds were not touched.
+  - Every route was then loaded once in a browser (`v01/uptime-9000/crawl-start.json`).
+  - **One hour** of `r3-uptime.sh` (`v01/uptime-9000/`): **120 samples, 30 s apart, 04:14–05:14.**
+    - Each sample timed GET / and GET /main.ts (the entry module).
+    - **0 non-200. GET / max 69 ms, /main.ts max 2 ms.**
+    - The server sat at 1–62 % CPU and **0.98 GB RSS, flat** (983,664 → 985,216 KB), against 4.8–5.3 GB and 94–99 % before.
+    - Files the other seats wrote under the repo in that hour (`writes-by-dir.txt`): `dist/` 212 (value's `build --watch`), `docs/` 12, `test-results/` 3, `e2e/` 2.
+    - That was a light hour, so the burst falsifier above is the stronger proof. It replays a 20,000-write sibling run, and the cured server's loop stays under 8 ms.
+
+**C3-V-02: the field, and what glass still does.**
+- **Falsifier** (`r3-dock-height.mjs`). Plate height at rest (before the first Tools visit), then sampled every rAF through Home→Tools and Tools→Back, then after Back. GREEN means every sample equals the rest height within ±0.5 px.
+  - **`keyboard` mode** parks the pointer off the dock and presses Enter on each control, so the only variable is the field (`v02/keyboard-{base,cure}-{1,2}.json`):
+
+| pass | arm | 1440 light/dark: rest / Tools / after Back (range through swaps) | 390 light/dark | verdict |
+|---|---|---|---|---|
+| 1, 2 | base | 40 / **45** / **45** ([42,45], [45,45]); field 45.9 | 40 / **42** / **42**; field 42 | **RED ×2** |
+| 1, 2 | cure | 40 / 40 / 40 ([40,40], [40,40]); field 40 | 40 / 40 / 40; field 40 | **GREEN ×2** |
+
+  - With the colour-input face open (`v02/field-{base,cure}.json`, PNGs): base field and plate are 45.9/46 at 1440 and 42/42 at 390, and the plate's top moves 3 px (20.5 → 17.5). Cure field and plate are 40/40 at both widths, and the plate's top stays at 20.5/29. The text's centre offset is the same in both arms (−0.95 px at 1440, −0.5 px at 390).
+- **`pointer` mode** (`v02/pointer-{base,cure}-1.json`): the mouse rests on the dock, as an owner's does. base: 40/45/45 at 1440, and 40/42/44 and 40/42/43 at 390. cure: **40/40/43 in all four cells.**
+- **The remaining 3 px is glass-rooted: O-102 sub-row V2-p (measured).**
+  - `DockCrossfade` keeps a monotonic peak, `max(face.scrollHeight)`, re-measured on register and resize, as its `min-block-size` (`dist/dock.js`, `f()` → `--dock-crossfade-peak`).
+  - The control under the pointer takes glass's `.dock-icon-button:hover { scale: var(--scale-hover-dock) }` (computed `scale: 1.1`, a 40 px button → 44 px box). A transform counts toward its face's scrollable overflow (face `scrollHeight` 42–43).
+  - So Back, or the resize that follows it, latches the run at 43 px for the rest of the session. No consumer element is involved: the hovered control is glass's own `.dock-icon-button`, and the peak is glass's own measure.
+  - Cure belongs in glass: the peak should read the layout box, not the overflow, or skip `scale`d descendants. The consumer does not patch this locally.
+
+**C3-V-04: the built-bundle re-read** (`v04/pass-{1,2}/latency-load.json`). Build: `vite build --mode gh-pages` of the cure tree into a scratch outDir, served by `e2e/smoke/perf/serve-built.mjs`. Picker channel slider, 40 moves; p50/p95 ms; LoAF count; consumer script ms per frame (all LoAF script time over every drag frame) and per long frame (p50/max):
+
+| cell | pass 1 | pass 2 | rAF interval p50 (pass 1/2) |
+|---|---|---|---|
+| light-1440 | 41.5/59.2 · 8 LoAF · **1.2 ms/frame** (5/22 per LoAF) | 39.8/59.2 · 10 · **1.2** (7/16) | 43.4 / 43.2 ms |
+| dark-1440 | 41.0/59.5 · 3 · **0.4** (10/11) | 38.5/44.7 · 2 · **0.3** (10/10) | 38.2 / 43.9 ms |
+| light-390 | 17.7/26.9 · 0 · 0 | 17.9/21.2 · 0 · 0 | 8.4 / 8.3 ms |
+| dark-390 | 18.2/23.2 · 0 · 0 | 18.4/21.7 · 0 · 0 | 8.8 / 8.2 ms |
+
+- The gradient slider: 1440 p50 18–20 ms, p95 42–47 ms; 390 p50 6–8 ms, p95 12–18 ms; 0–1 LoAF.
+- **The repair-3 condition** ("if consumer scripts still sum to more than 15 ms per frame") **is not met:** 0.3–1.2 ms per frame, at most 22 ms in a single long frame. The top LoAF script is Vue's scheduler (`vue.runtime…::n`, 10–43 ms over the whole drag), then HeroBlob's rAF (6–19 ms). `useAtmosphereFrameCoalesce` `publish` no longer appears.
+- So the publish stays on the frame. Moving it would trade the live atmosphere for nothing measurable.
+- **What is left at 1440 is frame production.** The rAF cadence there is ~43 ms (≈ 23 fps) with almost no script, against 8 ms at 390. That is SwiftShader rastering the 1440×900 scene with its canvases. It stays with **O-102 V3-g**.
+- Against the bar (p50 ≤ 25, p95 ≤ 50): 390 meets both. 1440 is PARTIAL.
+
+**C3-V-05: the built re-read** (`v05/pass-{1,2}/routes-{1440,390}.json`, `load-routes.mjs` hop rows, CPU unthrottled, no screenshots). From a settled Home, an in-app hop to the route, framed from the input to content plus 700 ms:
+
+| hop | 1440 pass 1 | 1440 pass 2 | 390 pass 1 | 390 pass 2 |
+|---|---|---|---|---|
+| Home → Mix | max 144 ms · 2/37 frames > 50 | max 119 · 9/23 | max 54 · 1/64 | max 54 · 1/55 |
+| Home → Gradient | max 152 · 5/26 | max 154 · 6/27 | max 60 · 1/59 | max 56 · 1/59 |
+
+- Every hop has `ltMax 0`: no main-thread task over 50 ms. The long frames at 1440 are not script.
+- So without capture the frame budget is no better, and C1-V-05's raster attribution is reinforced.
+- Carried under **C1-V-05 (P3)**. No new cure.
+
+**Gates ×2 (guarded, main tree):**
+- The main tree is HEAD plus this repair plus the other seats' uncommitted hunks in `demo/palettes/PalettesPane.vue`, `demo/scenes/about/AboutPane.vue`, `demo/shell/PaneShell.vue`, `demo/test/palettes/palette-card-layout.test.ts` and foundation.css line ~708. I committed only my hunks.
+- vitest full, `--maxWorkers=2`: **1479/1480 ×2** (`gates/vitest-full-{1,2}.txt`).
+  - The one failure is `palette-card-layout.test.ts` › "SS-8 B13 … L-3: the attribution ink …". That case is part of another seat's **uncommitted** addition to the file (+69 lines, `git diff`), and it fails in its own `querySelector("[data-palette-swatches] .font-mono")`. It touches neither file of this repair.
+- e2e (`--project=smoke --workers=1`; page-load, flows/color-propose, o10d-display-voice-census, ss8-z2-picker-cohort, walk): **23/25 ×2** (`gates/e2e-run-{1,2}.txt`).
+  - The two failures are the same in both runs, and neither comes from this repair.
+  - (a) `o10d-display-voice-census` › "every heading … speaks the display voice": `Home: heading "Home" off the display face`. That heading is P1's `<h1 class="sr-only">` (`bdd97b752`, OD19-V4). It carries no display-face class, so it speaks the body face. The census has asserted the display face on every heading since P1.
+  - (b) `ss8-z2-picker-cohort` › desktop 1440 › "Z-ColorPicker-14: the label→readout seam": 42.578125 against < 14.87.
+  - **Attribution** (`probes/r3-e2e-ab.sh`, `gates/attrib/e2e-{base,cure}.txt`, both specs against each arm's server):
+    - (b) fails with the identical 42.578125 on base.
+    - (a) fails on base too. That run stops one step earlier, at an `element(s) not found` visibility wait, and its third case ("gated title surfaces") also failed in base only. That third case passed on cure and in both gate runs.
+- `vue-tsc -p tsconfig.demo.json`: 0 errors (`gates/typecheck-demo.txt`). eslint on `ColorInput.vue`: clean (`gates/eslint.txt`).
+- gh-pages build of the cure tree: rc 0 (`v04`/`v05` ran on it).
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched. V2-p is named for O-102 with the measurements above.
