@@ -625,7 +625,27 @@ export async function applyRtl(page: Page): Promise<void> {
  */
 export async function tabTo(page: Page, steps = 12): Promise<void> {
     for (let i = 0; i < steps; i++) await page.keyboard.press("Tab");
-    await page.waitForTimeout(250);
+    // ─── The walk's TERMINAL dock posture, waited on as state (X.W11.v1) ─────
+    //
+    // The dock is first in tab order, so the walk passes through it. When the
+    // last press leaves focus OUTSIDE the dock, glass's dock state machine
+    // (`useDockState` `onFocusOut`) schedules `hover → collapsed` after its
+    // idle window (`DOCK_COLLAPSE_DELAY_MS`, 3600 ms in glass 10.1.1). The old
+    // fixed 250 ms sleep photographed whichever side of that timer the
+    // quiescence wait happened to land on: measured on CI run 39613889291, 10
+    // of the 14 cells photographed the collapsed seal against goldens minted
+    // with the dock still open (and admin-flagged flipped between attempts).
+    // The walk's settled frame is the collapsed seal, so the shutter waits for
+    // it; the morph to it is then covered by `requireQuiescence`. A walk that
+    // ends INSIDE the dock leaves it open (no timer is armed), and is
+    // photographed as it stands.
+    const focusInDock = await page.evaluate(
+        () => document.activeElement?.closest(".glass-dock") != null,
+    );
+    if (!focusInDock)
+        await page
+            .locator(".glass-dock.collapsed")
+            .waitFor({ state: "attached", timeout: 10_000 });
 }
 
 /**
