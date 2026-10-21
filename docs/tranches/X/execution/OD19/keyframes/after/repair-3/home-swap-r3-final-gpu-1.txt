@@ -1,0 +1,7 @@
+[guarded] waiting for headroom (load 40 > 36)
+home-swap — /Users/mkbabb/Programming/keyframes.js/dist/r3-final · ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) · #/sequence -> Home · N=5 · 1440x900 light
+ok   run 0: worst 59 ms / 182 frames · {"prepare":23,"total":332,"commit":35} · strip std min 15.4
+ok   run 1: worst 49 ms / 188 frames · {"prepare":27,"total":340,"commit":40} · strip std min 15.4
+ok   run 2: worst 42 ms / 189 frames · {"prepare":20,"total":337,"commit":32} · strip std min 15.7
+ok   run 3: worst 53 ms / 187 frames · {"prepare":7,"total":331,"commit":33} · strip std min 15.6
+ok   run 4: worst 42 ms / 188 frames · {"prepare":21,"total":330,"commit":34} · strip std min 16

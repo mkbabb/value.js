@@ -1,0 +1,656 @@
+[guarded] waiting for headroom (load 39 > 36)
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+(node:7779) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7930) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7963) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:8182) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:8097) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:8403) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+(node:8657) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+(node:9171) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:9372) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:9595) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:9531) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+stderr | test/demo/app/chrome-dock-triggers.test.ts > UIA-KF-242 — opening the scene list warms every scene > (2) a keyboard open with NO row hovered or arrowed warms each scene once
+[Vue warn]: injection "Symbol(router)" not found. 
+  at <SharePopover open=false onUpdate:open=fn anchor=undefined  ... > 
+  at <MbabbMenu onSceneRestore=fn<onSceneRestore> > 
+  at <DockFace> 
+  at <GlassDock ref="dockRef" collapse="closed" fit-content=true  ... > 
+  at <ChromeDock currentSceneId="cube" scenes= [
+  {
+    id: 'cube',
+    label: 'Cube',
+    icon: { name: '', setup: [Function (anonymous)] }
+  },
+  {
+    id: 'easing',
+    label: 'Easing',
+    icon: { name: '', setup: [Function (anonymous)] }
+  },
+  {
+    id: 'spring',
+    label: 'Spring',
+    icon: { name: '', setup: [Function (anonymous)] }
+  }
+] homeScene= {
+  id: 'home',
+  label: 'Home',
+  icon: { name: '', setup: [Function (anonymous)] }
+}  ... > 
+  at <TooltipProvider delay-duration=700 skip-delay-duration=300 > 
+  at <TooltipProvider> 
+  at <Anonymous ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+[Vue warn]: injection "Symbol(route location)" not found. 
+  at <SharePopover open=false onUpdate:open=fn anchor=undefined  ... > 
+  at <MbabbMenu onSceneRestore=fn<onSceneRestore> > 
+  at <DockFace> 
+  at <GlassDock ref="dockRef" collapse="closed" fit-content=true  ... > 
+  at <ChromeDock currentSceneId="cube" scenes= [
+  {
+    id: 'cube',
+    label: 'Cube',
+    icon: { name: '', setup: [Function (anonymous)] }
+  },
+  {
+    id: 'easing',
+    label: 'Easing',
+    icon: { name: '', setup: [Function (anonymous)] }
+  },
+  {
+    id: 'spring',
+    label: 'Spring',
+    icon: { name: '', setup: [Function (anonymous)] }
+  }
+] homeScene= {
+  id: 'home',
+  label: 'Home',
+  icon: { name: '', setup: [Function (anonymous)] }
+}  ... > 
+  at <TooltipProvider delay-duration=700 skip-delay-duration=300 > 
+  at <TooltipProvider> 
+  at <Anonymous ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+stderr | test/demo/app/chrome-dock-triggers.test.ts > UIA-KF-131 — a dock popup starts below the dock, not inside it > (4) the scene list and the @mbabb menu are offset from the dock's bottom edge, not the trigger's
+[Vue warn]: injection "Symbol(router)" not found. 
+  at <SharePopover open=false onUpdate:open=fn anchor=undefined  ... > 
+  at <MbabbMenu onSceneRestore=fn<onSceneRestore> > 
+  at <DockFace> 
+  at <GlassDock ref="dockRef" collapse="closed" fit-content=true  ... > 
+  at <ChromeDock currentSceneId="cube" scenes= [
+  {
+    id: 'cube',
+    label: 'Cube',
+    icon: { name: '', setup: [Function (anonymous)] }
+  },
+  {
+    id: 'easing',
+    label: 'Easing',
+    icon: { name: '', setup: [Function (anonymous)] }
+  },
+  {
+    id: 'spring',
+    label: 'Spring',
+    icon: { name: '', setup: [Function (anonymous)] }
+  }
+] homeScene= {
+  id: 'home',
+  label: 'Home',
+  icon: { name: '', setup: [Function (anonymous)] }
+}  ... > 
+  at <TooltipProvider delay-duration=700 skip-delay-duration=300 > 
+  at <TooltipProvider> 
+  at <Anonymous ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+[Vue warn]: injection "Symbol(route location)" not found. 
+  at <SharePopover open=false onUpdate:open=fn anchor=undefined  ... > 
+  at <MbabbMenu onSceneRestore=fn<onSceneRestore> > 
+  at <DockFace> 
+  at <GlassDock ref="dockRef" collapse="closed" fit-content=true  ... > 
+  at <ChromeDock currentSceneId="cube" scenes= [
+  {
+    id: 'cube',
+    label: 'Cube',
+    icon: { name: '', setup: [Function (anonymous)] }
+  },
+  {
+    id: 'easing',
+    label: 'Easing',
+    icon: { name: '', setup: [Function (anonymous)] }
+  },
+  {
+    id: 'spring',
+    label: 'Spring',
+    icon: { name: '', setup: [Function (anonymous)] }
+  }
+] homeScene= {
+  id: 'home',
+  label: 'Home',
+  icon: { name: '', setup: [Function (anonymous)] }
+}  ... > 
+  at <TooltipProvider delay-duration=700 skip-delay-duration=300 > 
+  at <TooltipProvider> 
+  at <Anonymous ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+ ❯ |demo| test/demo/app/chrome-dock-triggers.test.ts (5 tests | 2 failed) 2172ms
+     × (2) a keyboard open with NO row hovered or arrowed warms each scene once 388ms
+     × (4) the scene list and the @mbabb menu are offset from the dock's bottom edge, not the trigger's 1150ms
+(node:9937) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10041) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10066) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+(node:10226) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10263) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+(node:10606) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10813) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10982) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10969) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+(node:11096) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:11518) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:11654) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+(node:11812) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:11869) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12039) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12191) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12412) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12534) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+(node:12661) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12777) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13354) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+(node:13460) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13574) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13738) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13756) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |demo| test/demo/app/scene-swap-w13x.test.ts (5 tests | 1 failed) 95ms
+     × finishes the closing overlay's exit before the capture, without awaiting it, then holds the update callback until the scene is ready 57ms
+(node:14055) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14070) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14295) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14459) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14573) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14588) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14769) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14801) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14862) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14985) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15186) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15247) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15238) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15265) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15403) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15554) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15645) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15679) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15689) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15767) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15788) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15845) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15857) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:16203) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/app/chrome-dock-triggers.test.ts > UIA-KF-242 — opening the scene list warms every scene > (2) a keyboard open with NO row hovered or arrowed warms each scene once
+AssertionError: expected Set{ 'home', 'cube', 'easing', …(1) } to deeply equal Set{ 'cube', 'easing', 'spring' }
+
+- Expected
++ Received
+
+  Set {
+    "cube",
+    "easing",
++   "home",
+    "spring",
+  }
+
+ ❯ test/demo/app/chrome-dock-triggers.test.ts:103:59
+    101|         await vi.waitFor(() => expect(document.querySelector("[role=li…
+    102|         await nextTick();
+    103|         expect(new Set(warm.mock.calls.map((c) => c[0]))).toEqual(new …
+       |                                                           ^
+    104|         w.unmount();
+    105|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |demo| test/demo/app/chrome-dock-triggers.test.ts > UIA-KF-131 — a dock popup starts below the dock, not inside it > (4) the scene list and the @mbabb menu are offset from the dock's bottom edge, not the trigger's
+AssertionError: expected <div …(18)>…(2)</div> to be null
+
+- Expected:
+null
+
++ Received:
+<div
+  bodylock="true"
+  class="relative z-popover overflow-hidden rounded-card text-popover-foreground glass-reveal data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1 glass-floating glass-field-portal min-w-[var(--dropdown-min-width)]"
+  data-align="start"
+  data-dismissable-layer=""
+  data-glass-dock-face=""
+  data-glass-dock-owner="glass-dock-v-0"
+  data-glass-dock-portal=""
+  data-reveal="menu"
+  data-side="bottom"
+  data-slot="select-content"
+  data-state="open"
+  dir="ltr"
+  disableoutsidepointerevents="true"
+  id="reka-select-content-v-1"
+  position="popper"
+  role="listbox"
+  style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); --select-dot-color: currentColor; display: flex; flex-direction: column; outline: none; pointer-events: auto;"
+  tabindex="-1"
+>
+  
+  
+  
+  
+  <!--v-if-->
+  
+  <div
+    class="fading-scroll fading-scroll--y max-h-[inherit] w-full min-w-(--reka-select-trigger-width)"
+    data-fade-end=""
+    data-fade-start=""
+    data-reka-select-viewport=""
+    data-slot="select-viewport"
+    role="presentation"
+    style="position: relative; flex: 1 1 0%; overflow: hidden auto;"
+  >
+    
+    
+    <div
+      aria-labelledby="reka-select-group-v-4"
+      class="p-1 w-full dock-label"
+      data-v-fcea60c7=""
+      role="group"
+    >
+      
+      
+      <div
+        class="py-1 ps-7 pe-2 text-dropdown-secondary font-semibold sr-only"
+        data-v-fcea60c7=""
+        id="reka-select-group-v-4"
+      >
+        
+        
+        Scenes
+        
+        
+      </div>
+      <div
+        aria-labelledby="reka-select-item-text-v-5"
+        aria-selected="false"
+        class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1 ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled"
+        data-reka-collection-item=""
+        data-state="unchecked"
+        data-v-fcea60c7=""
+        role="option"
+        tabindex="-1"
+      >
+        
+        <span
+          aria-hidden="true"
+          class="absolute start-2 flex h-3.5 w-3.5 items-center justify-center"
+        >
+          <!--v-if-->
+        </span>
+        <div
+          class="flex flex-col gap-0.5 min-w-0"
+        >
+          <span
+            id="reka-select-item-text-v-5"
+          >
+            
+            
+            <span
+              class="flex items-center gap-2"
+              data-v-fcea60c7=""
+            >
+              <span
+                aria-hidden="true"
+                class="dock-glyph"
+                data-v-fcea60c7=""
+              />
+              <span
+                data-v-fcea60c7=""
+              >
+                Home
+              </span>
+            </span>
+            
+            
+          </span>
+          
+          
+        </div>
+        
+      </div>
+      
+      <div
+        aria-labelledby="reka-select-item-text-v-6"
+        aria-selected="true"
+        class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1 ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled"
+        data-reka-collection-item=""
+        data-state="checked"
+        data-v-fcea60c7=""
+        role="option"
+        tabindex="-1"
+      >
+        
+        <span
+          aria-hidden="true"
+          class="absolute start-2 flex h-3.5 w-3.5 items-center justify-center"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+            <span
+              class="inline-block w-2 h-2 rounded-pill bg-current"
+            />
+            
+          </span>
+        </span>
+        <div
+          class="flex flex-col gap-0.5 min-w-0"
+        >
+          <span
+            id="reka-select-item-text-v-6"
+          >
+            
+            
+            <span
+              class="flex items-center gap-2"
+              data-v-fcea60c7=""
+            >
+              <span
+                aria-hidden="true"
+                class="dock-glyph"
+                data-v-fcea60c7=""
+              />
+              <span
+                data-v-fcea60c7=""
+              >
+                Cube
+              </span>
+            </span>
+            
+            
+          </span>
+          
+          
+        </div>
+        
+      </div>
+      <div
+        aria-labelledby="reka-select-item-text-v-7"
+        aria-selected="false"
+        class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1 ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled"
+        data-reka-collection-item=""
+        data-state="unchecked"
+        data-v-fcea60c7=""
+        role="option"
+        tabindex="-1"
+      >
+        
+        <span
+          aria-hidden="true"
+          class="absolute start-2 flex h-3.5 w-3.5 items-center justify-center"
+        >
+          <!--v-if-->
+        </span>
+        <div
+          class="flex flex-col gap-0.5 min-w-0"
+        >
+          <span
+            id="reka-select-item-text-v-7"
+          >
+            
+            
+            <span
+              class="flex items-center gap-2"
+              data-v-fcea60c7=""
+            >
+              <span
+                aria-hidden="true"
+                class="dock-glyph"
+                data-v-fcea60c7=""
+              />
+              <span
+                data-v-fcea60c7=""
+              >
+                Easing
+              </span>
+            </span>
+            
+            
+          </span>
+          
+          
+        </div>
+        
+      </div>
+      <div
+        aria-labelledby="reka-select-item-text-v-8"
+        aria-selected="false"
+        class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1 ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled"
+        data-reka-collection-item=""
+        data-state="unchecked"
+        data-v-fcea60c7=""
+        role="option"
+        tabindex="-1"
+      >
+        
+        <span
+          aria-hidden="true"
+          class="absolute start-2 flex h-3.5 w-3.5 items-center justify-center"
+        >
+          <!--v-if-->
+        </span>
+        <div
+          class="flex flex-col gap-0.5 min-w-0"
+        >
+          <span
+            id="reka-select-item-text-v-8"
+          >
+            
+            
+            <span
+              class="flex items-center gap-2"
+              data-v-fcea60c7=""
+            >
+              <span
+                aria-hidden="true"
+                class="dock-glyph"
+                data-v-fcea60c7=""
+              />
+              <span
+                data-v-fcea60c7=""
+              >
+                Spring
+              </span>
+            </span>
+            
+            
+          </span>
+          
+          
+        </div>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+  </div>
+  <style>
+     /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */ [data-reka-select-viewport] { scrollbar-width:none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; } [data-reka-select-viewport]::-webkit-scrollbar { display: none; } 
+  </style>
+  
+  <!--v-if-->
+  
+  
+  
+  
+</div>
+
+ ❯ test/demo/app/chrome-dock-triggers.test.ts:141:81
+    139|         document.dispatchEvent(new window.KeyboardEvent("keydown", { k…
+    140|         document.querySelector<HTMLElement>("[role=listbox]")?.dispatc…
+    141|         await vi.waitFor(() => expect(document.querySelector("[role=li…
+       |                                                                                 ^
+    142|
+    143|         const init = { bubbles: true, cancelable: true, button: 0 };
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |demo| test/demo/app/scene-swap-w13x.test.ts > KFA-25 / KFA-26 / KFA-201 — the switch prepares, then captures the resolved scene > finishes the closing overlay's exit before the capture, without awaiting it, then holds the update callback until the scene is ready
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ test/demo/app/scene-swap-w13x.test.ts:149:25
+    147|         // capture first (KFA-26 / KFA-201): its exit is finished BEFO…
+    148|         // transition starts, and an infinite animation is left alone.
+    149|         expect(startVT).toHaveBeenCalledTimes(1);
+       |                         ^
+    150|         expect(exitFinish).toHaveBeenCalledTimes(1);
+    151|         expect(exitFinish.mock.invocationCallOrder[0]).toBeLessThan(st…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  2 failed | 158 passed (160)
+      Tests  3 failed | 966 passed (969)
+   Start at  21:22:23
+   Duration  132.53s (transform 19.42s, setup 1.64s, import 73.28s, tests 65.56s, environment 96.03s)
+

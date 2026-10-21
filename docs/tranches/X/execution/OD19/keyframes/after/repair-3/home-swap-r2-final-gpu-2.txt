@@ -1,0 +1,6 @@
+home-swap — /Users/mkbabb/Programming/keyframes.js/dist/r2-final · ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) · #/sequence -> Home · N=5 · 1440x900 light
+FAIL run 0: worst 53 ms / 182 frames · {"prepare":5,"total":326,"commit":36} · strip std min 16 · backdrop fetched after the pick: HeroAurora-DBOKtgn5.js, HeroAurora-CJUYErC9.css
+FAIL run 1: worst 47 ms / 187 frames · {"prepare":4,"total":316,"commit":33} · strip std min 16.1 · backdrop fetched after the pick: HeroAurora-DBOKtgn5.js, HeroAurora-CJUYErC9.css
+FAIL run 2: worst 50 ms / 186 frames · {"prepare":4,"total":342,"commit":32} · strip std min 15.9 · backdrop fetched after the pick: HeroAurora-DBOKtgn5.js, HeroAurora-CJUYErC9.css
+FAIL run 3: worst 44 ms / 187 frames · {"prepare":4,"total":325,"commit":33} · strip std min 15.9 · backdrop fetched after the pick: HeroAurora-DBOKtgn5.js, HeroAurora-CJUYErC9.css
+FAIL run 4: worst 45 ms / 191 frames · {"prepare":4,"total":313,"commit":31} · strip std min 18 · backdrop fetched after the pick: HeroAurora-DBOKtgn5.js, HeroAurora-CJUYErC9.css

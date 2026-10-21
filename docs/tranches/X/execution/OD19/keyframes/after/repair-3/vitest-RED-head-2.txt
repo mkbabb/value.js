@@ -1,0 +1,169 @@
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ ❯ |demo| test/demo/app/dock-surface-items.test.ts (12 tests | 1 failed) 633ms
+     × on the phone sheet's peek, the face's surface is the checked row 64ms
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ ❯ |demo| test/demo/app/home-backdrop-warm.test.ts (2 tests | 2 failed) 227ms
+     × loadScene(home) resolves the HeroAurora module before the transition 4ms
+     × opening the Scene list warms Home's row with the scenes' 222ms
+ ❯ |demo| test/demo/app/scene-skeleton-shimmer.test.ts (2 tests | 2 failed) 35ms
+     × pins @mkbabb/glass-ui to exactly 10.1.1, lockfile integrity equal to the registry's 6ms
+     × the stage placeholder's Skeleton carries the producer's shimmer 27ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/app/dock-surface-items.test.ts > ChromeDock: one surface trigger whose menu opens the shared pane > on the phone sheet's peek, the face's surface is the checked row
+AssertionError: expected [] to deeply equal [ …(1) ]
+
+- Expected
++ Received
+
+- [
+-   <div
+-     aria-checked="false"
+-     class="menu__item interactive-item glass-menu-row gap-2.5 py-1"
+-     data-dock-surface-item=""
+-     data-indicator="start"
+-     data-reka-collection-item=""
+-     data-slot="menu-radio-item"
+-     data-state="unchecked"
+-     data-surface="spring"
+-     data-v-fcea60c7=""
+-     role="menuitemradio"
+-     tabindex="-1"
+-   >
+-     
+-     
+-     
+-     
+-     <span
+-       class="menu__indicator"
+-     >
+-       <!---->
+-     </span>
+-     
+-     <span
+-       class="w-7 shrink-0 flex justify-center"
+-       data-v-fcea60c7=""
+-     >
+-       <svg
+-         aria-hidden="true"
+-         class="lucide lucide-atom-icon lucide-atom w-5 h-5"
+-         data-v-fcea60c7=""
+-         fill="none"
+-         height="24"
+-         stroke="currentColor"
+-         stroke-linecap="round"
+-         stroke-linejoin="round"
+-         stroke-width="2"
+-         viewBox="0 0 24 24"
+-         width="24"
+-         xmlns="http://www.w3.org/2000/svg"
+-       >
+-         <circle
+-           cx="12"
+-           cy="12"
+-           r="1"
+-         />
+-         <path
+-           d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"
+-         />
+-         <path
+-           d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"
+-         />
+-       </svg>
+-     </span>
+-     <span
+-       class="flex-1 min-w-0 text-small"
+-       data-v-fcea60c7=""
+-     >
+-       Physics
+-     </span>
+-     
+-     
+-     
+-     
+-     
+-   </div>,
+- ]
++ []
+
+ ❯ test/demo/app/dock-surface-items.test.ts:193:85
+    191|             await openMenu(wrapper);
+    192|             const physics = rows().find((e) => e.dataset.surface === "…
+    193|             expect(rows().filter((e) => e.getAttribute("aria-checked")…
+       |                                                                                     ^
+    194|             expect(physics.querySelector(".menu__radio-dot")).not.toBe…
+    195|             // Re-picking the peeking surface raises the sheet (the st…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |demo| test/demo/app/home-backdrop-warm.test.ts > Home's backdrop is warmed and loaded like a scene > loadScene(home) resolves the HeroAurora module before the transition
+AssertionError: expected undefined to be type of 'number'
+
+Expected: "number"
+Received: "undefined"
+
+ ❯ test/demo/app/home-backdrop-warm.test.ts:22:50
+     20|     it("loadScene(home) resolves the HeroAurora module before the tran…
+     21|         const mod = (await loadScene(HOME_SCENE_ID)) as { HERO_AURORA_…
+     22|         expect(mod?.HERO_AURORA_OPACITY_CEILING).toBeTypeOf("number");
+       |                                                  ^
+     23|     });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |demo| test/demo/app/home-backdrop-warm.test.ts > Home's backdrop is warmed and loaded like a scene > opening the Scene list warms Home's row with the scenes'
+AssertionError: expected [ 'sequence', 'spring' ] to include 'home'
+ ❯ test/demo/app/home-backdrop-warm.test.ts:49:28
+     47|             await flushPromises();
+     48|             await nextTick();
+     49|             expect(warmed).toContain(HOME_SCENE_ID);
+       |                            ^
+     50|             expect(warmed).toEqual(expect.arrayContaining(["sequence",…
+     51|         } finally {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |demo| test/demo/app/scene-skeleton-shimmer.test.ts > SceneSkeleton — glass's shimmer > pins @mkbabb/glass-ui to exactly 10.1.1, lockfile integrity equal to the registry's
+AssertionError: expected '10.1.0' to be '10.1.1' // Object.is equality
+
+Expected: "10.1.1"
+Received: "10.1.0"
+
+ ❯ test/demo/app/scene-skeleton-shimmer.test.ts:22:57
+     20|     it("pins @mkbabb/glass-ui to exactly 10.1.1, lockfile integrity eq…
+     21|         const pkg = JSON.parse(readFileSync(join(ROOT, "package.json")…
+     22|         expect(pkg.devDependencies["@mkbabb/glass-ui"]).toBe("10.1.1");
+       |                                                         ^
+     23|         const lock = JSON.parse(readFileSync(join(ROOT, "package-lock.…
+     24|         const entry = lock.packages["node_modules/@mkbabb/glass-ui"];
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |demo| test/demo/app/scene-skeleton-shimmer.test.ts > SceneSkeleton — glass's shimmer > the stage placeholder's Skeleton carries the producer's shimmer
+AssertionError: expected undefined to be defined
+ ❯ test/demo/app/scene-skeleton-shimmer.test.ts:33:50
+     31|         const sheen = wrapper.find(".scene-skeleton__sheen");
+     32|         expect(sheen.exists()).toBe(true);
+     33|         expect(sheen.attributes("data-shimmer")).toBeDefined();
+       |                                                  ^
+     34|         wrapper.unmount();
+     35|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  5 failed | 11 passed (16)
+   Start at  20:54:31
+   Duration  4.50s (transform 2.73s, setup 59ms, import 4.78s, tests 896ms, environment 2.00s)
+
