@@ -109,9 +109,38 @@ for (const dark of [false, true]) {
                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
 
                 // The listbox scrolls to the selected row; centre this chip in its
-                // viewport, clear of the select's scroll buttons.
-                await chip.evaluate((el) => el.scrollIntoView({ block: "center" }));
-                await page.waitForTimeout(150);
+                // viewport, clear of the select's scroll buttons. Only the select's
+                // own scroll viewport moves: `scrollIntoView` also scrolled the page
+                // scroller under the open select, and the anchored content re-seats
+                // to its trigger a frame (under load, hundreds of ms) later, so the
+                // clip read a box the chip had left (SS-8.r: rim 194,91,135 = the
+                // selected row's fill, RED 1/10 at 5d98dba67). The clip is taken
+                // once the chip's box holds across consecutive frames.
+                const settled = await chip.evaluate(async (el) => {
+                    const lb = el.closest("[role=listbox]") as HTMLElement;
+                    let vp: HTMLElement | null = el.parentElement;
+                    while (vp && vp !== lb.parentElement && vp.scrollHeight <= vp.clientHeight) vp = vp.parentElement;
+                    if (vp && vp !== lb.parentElement) {
+                        const e = el.getBoundingClientRect();
+                        const v = vp.getBoundingClientRect();
+                        vp.scrollTop += e.top + e.height / 2 - (v.top + v.height / 2);
+                    }
+                    const frame = () => new Promise((r) => requestAnimationFrame(() => r(null)));
+                    const key = () => {
+                        const b = el.getBoundingClientRect();
+                        return `${b.x},${b.y},${b.width},${b.height}`;
+                    };
+                    let last = key();
+                    for (let held = 0, n = 0; n < 120; n++) {
+                        await frame();
+                        const k = key();
+                        held = k === last ? held + 1 : 0;
+                        last = k;
+                        if (held >= 3) return true;
+                    }
+                    return false;
+                });
+                expect(settled, `${tag}: the chip's box settles before the clip`).toBe(true);
                 const box = await contentBox(page, chip);
                 const img = decodePng(await page.screenshot({ clip: box, path: test.info().outputPath(`r13-${scheme}-clip${i}.png`) }));
                 const mid = Math.floor(img.height / 2);
