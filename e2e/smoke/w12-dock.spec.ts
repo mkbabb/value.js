@@ -221,6 +221,9 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
         width: number;
         height: number;
         hash: string;
+        /** pre-switch staging that is NOT the layer switch (the face read as
+         *  `before` is the one the switch leaves, so it is read after this) */
+        stage?: (p: Page) => Promise<void>;
         enter: (p: Page) => Promise<void>;
         entered: (p: Page) => Locator;
         leave: (p: Page) => Promise<void>;
@@ -279,13 +282,22 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             // the leg runs in a coarse context and TAPS (it drove a fine mouse at
             // 390 before, a pointer class this layer never serves).
             coarse: true,
-            enter: async (p) => {
+            // X.W11.v1c: opening the card SELECTS the palette, and a selected
+            // entity's verbs are the dock's set with its name as the Tools
+            // label (X.W7.d2 · COHESION §0bk.1, shell/useSceneActions.ts) —
+            // so the main face the mobile-edit switch leaves and returns to
+            // reads "W12e seed", not "Tools". The card + swatch popover are
+            // staging; the layer switch is the Edit tap.
+            stage: async (p) => {
                 // a LOCAL palette's swatch in edit: open the seeded card, open
-                // its first swatch's popover, take its Edit (pm.onEditColor →
-                // emitStartEdit → the dock's mobile-edit layer at < lg)
+                // its first swatch's popover (then `enter` takes its Edit:
+                // pm.onEditColor → emitStartEdit → the dock's mobile-edit
+                // layer at < lg)
                 const card = p.locator('[aria-label="Palette: W12e seed"]');
                 await card.tap({ timeout: 10_000 });
                 await card.locator(".watercolor-swatch").first().locator("xpath=..").tap({ timeout: 10_000 });
+            },
+            enter: async (p) => {
                 const edit = p.locator('[aria-label^="Edit color "]').first();
                 // The 2026-09-24 reading (Edit painted at x=-189, y=879) no
                 // longer reproduces: X.W12U.m2 reads Edit at 38,552 (coarse) and
@@ -333,6 +345,7 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
                 }, sw.hash);
                 await page.waitForFunction(() => (window as unknown as { __w12eSettled?: boolean }).__w12eSettled === true, null, { timeout: 15_000 });
             }
+            if (sw.stage) await sw.stage(page);
             const before = await activeFace(page, sw.face);
             await armSwitchCensus(page);
             await sw.enter(page);
