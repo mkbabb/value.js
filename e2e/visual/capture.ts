@@ -790,6 +790,15 @@ export async function applyRtl(page: Page): Promise<void> {
  * gap."* This suite IS chromium, which is the condition that record names.
  */
 export async function tabTo(page: Page, steps = 12): Promise<void> {
+    // ─── The timed toast leaves BEFORE the walk (X.W11.v1b) ─────────────────
+    //
+    // The service-failure toast is focusable (`tabindex=0`), and a toast that
+    // holds focus pauses its own timer. Measured, census at 9407af39b:
+    // `keyboard-focus-desktop › browse` walked INTO the toast and held it open
+    // past `settleTimedToasts`' 15 s. Whether the walk meets the toast at all
+    // depends on the host's speed against its 10 s life, so the walk starts
+    // from the frame without it.
+    await settleTimedToasts(page);
     for (let i = 0; i < steps; i++) await page.keyboard.press("Tab");
     // ─── The walk's TERMINAL dock posture, waited on as state (X.W11.v1) ─────
     //
