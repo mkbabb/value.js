@@ -1,0 +1,15 @@
+  ✓ entry chunk assets/index-CIptMQJR.js is substantial (314358 B > 50000 B floor)
+  ✓ entry's static import graph excludes vendor-monaco / vendor-three
+  ✓ CSS asset emitted (assets/index-cy2x3jGN.css)
+  ✓ critical-CSS <style data-critical> block inlined
+  ✓ main stylesheet deferred (media=print onload swap)
+  ✓ no loading-splash residue
+demo-smoke — inv γ (the demo cannot ship blank)
+  ✓ #app mounts with non-trivial children
+  ✓ home hero text renders
+  ✓ no vendor-monaco / vendor-three / worker request at first paint (first-contentful-paint; 1 after it)
+  ✓ zero console errors during mount
+  ✓ zero uncaught pageerror during mount
+  ✓ no literal '[object Object]' text node
+
+demo-smoke — PASS: the built demo paints (inv γ holds).

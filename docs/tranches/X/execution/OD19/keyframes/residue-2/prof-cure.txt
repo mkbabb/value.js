@@ -1,0 +1,113 @@
+ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)
+cube->amiga commit 76 worst 100 over50 1 busy 100.3 forced 16
+   APP 6.9  Ie@index-DtFq3m48.js:11078
+   APP 2.7  settleClosingOverlays@index-DtFq3m48.js:19657
+   APP 1.1  (anon)@index-DtFq3m48.js:14915
+   APP 0.9  s$1@keyboard-Dorq21rx.js:1131
+   APP 0.7  (anon)@index-DtFq3m48.js:4269
+   APP 0.7  Ee@index-DtFq3m48.js:10755
+   APP 0.5  c$2@keyboard-Dorq21rx.js:1135
+   APP 0.5  setup@AmigaScene-hASl7m16.js:853
+   self 16.3  getPropertyValue@:0
+   self 16  (program)@:0
+   self 7.5  get offsetWidth@:0
+   self 2.6  _createVNode@vendor-reka-ui-Due_qpJo.js:5378
+   self 2.4  getAnimations@:0
+   self 1.4  mergeProps@vendor-reka-ui-Due_qpJo.js:5501
+   FORCE 9.2  getPropertyValue <- n$4@glass-ui-CbFvPBPH.js:1218 <- maxStretch@glass-ui-CbFvPBPH.js:1274 <- o@glass-ui-CbFvPBPH.js:1147
+   FORCE 7.1  getPropertyValue <- e$10@glass-ui-CbFvPBPH.js:8 <- l$4@glass-ui-CbFvPBPH.js:15 <- d$3@glass-ui-CbFvPBPH.js:1231
+amiga->square commit 64 worst 82 over50 1 busy 71.4 forced 10
+   APP 5.4  Ie@index-DtFq3m48.js:11078
+   APP 3.2  disposeGraph@AmigaScene-hASl7m16.js:475
+   APP 0.9  (anon)@index-DtFq3m48.js:4269
+   APP 0.8  Ee@index-DtFq3m48.js:10755
+   APP 0.5  c$2@keyboard-Dorq21rx.js:1135
+   APP 0.3  setup@SquareScene-CblwxGpj.js:874
+   APP 0.3  (anon)@index-DtFq3m48.js:19764
+   APP 0.3  generateCurveSVGPath@index-DtFq3m48.js:6240
+   self 10.6  removeChild@:0
+   self 10.3  getPropertyValue@:0
+   self 5.9  get offsetWidth@:0
+   self 4.9  (program)@:0
+   self 3.7  (anon)@:0
+   self 2.8  WebGLRenderer.forceContextLoss@vendor-three-BCFVu74X.js:29943
+   FORCE 6.1  getPropertyValue <- n$4@glass-ui-CbFvPBPH.js:1218 <- maxStretch@glass-ui-CbFvPBPH.js:1274 <- o@glass-ui-CbFvPBPH.js:1147
+   FORCE 4.2  getPropertyValue <- e$10@glass-ui-CbFvPBPH.js:8 <- l$4@glass-ui-CbFvPBPH.js:15 <- d$3@glass-ui-CbFvPBPH.js:1231
+   FORCE 0.2  getBoundingClientRect <- publish@index-DtFq3m48.js:11836 <- (anon)@vendor-reka-ui-Due_qpJo.js:3246 <- callWithErrorHandling@vendor-reka-ui-Due_qpJo.js:1690
+square->easing commit 75 worst 85 over50 1 busy 115 forced 22
+   APP 4.4  land@index-DtFq3m48.js:10218
+   APP 3.6  Ee@index-DtFq3m48.js:10755
+   APP 3.4  m@index-DtFq3m48.js:5429
+   APP 3.1  tick@index-DtFq3m48.js:6025
+   APP 2.2  Ie@index-DtFq3m48.js:11078
+   APP 0.6  E$1@index-DtFq3m48.js:2823
+   APP 0.5  measureStrip@index-DtFq3m48.js:5899
+   APP 0.5  (anon)@index-DtFq3m48.js:6044
+   self 21.4  getPropertyValue@:0
+   self 16.2  (program)@:0
+   self 8.3  removeChild@:0
+   self 4.6  resolve@:0
+   self 4.4  land@index-DtFq3m48.js:10218
+   self 3.4  elementsFromPoint@:0
+   FORCE 10.7  getPropertyValue <- n$4@glass-ui-CbFvPBPH.js:1218 <- maxStretch@glass-ui-CbFvPBPH.js:1274 <- o@glass-ui-CbFvPBPH.js:1147
+   FORCE 7.4  getPropertyValue <- e$10@glass-ui-CbFvPBPH.js:8 <- l$4@glass-ui-CbFvPBPH.js:15 <- d$3@glass-ui-CbFvPBPH.js:1231
+   FORCE 3.4  getPropertyValue <- m@index-DtFq3m48.js:5429 <- o@glass-ui-CbFvPBPH.js:1147 <- (anon)@glass-ui-CbFvPBPH.js:1158
+   FORCE 0.3  getBoundingClientRect <- (anon)@index-DtFq3m48.js:5436 <- h@index-DtFq3m48.js:5435 <- l@index-DtFq3m48.js:5339
+   FORCE 0.2  getBoundingClientRect <- (anon)@index-DtFq3m48.js:5933 <- rowsOf@index-DtFq3m48.js:5929 <- landDrawer@index-DtFq3m48.js:5942
+   FORCE 0.2  getBoundingClientRect <- rowsOf@index-DtFq3m48.js:5929 <- landDrawer@index-DtFq3m48.js:5942 <- landDrawerEdges@index-DtFq3m48.js:6040
+easing->spring commit 76 worst 85 over50 1 busy 127.9 forced 31
+   APP 4.7  Ie@index-DtFq3m48.js:11078
+   APP 3.8  Ee@index-DtFq3m48.js:10755
+   APP 1.5  watch.immediate@SpringScene-Cqy4YJbR.js:1354
+   APP 0.9  contentSpans@index-DtFq3m48.js:9996
+   APP 0.4  c$2@keyboard-Dorq21rx.js:1135
+   APP 0.4  springTimingFunction@timing-function-B1r2HzYZ.js:188
+   APP 0.4  compileToEntry@public-CuDZ_ZZD.js:9124
+   APP 0.3  setup@SpringScene-Cqy4YJbR.js:2281
+   self 25.7  getPropertyValue@:0
+   self 22.2  (program)@:0
+   self 6.6  removeChild@:0
+   self 5.7  getAnimationName@vendor-reka-ui-Due_qpJo.js:10241
+   self 5.4  (garbage collector)@:0
+   self 4.9  getBoundingClientRect@:0
+   FORCE 19.1  getPropertyValue <- n$4@glass-ui-CbFvPBPH.js:1218 <- maxStretch@glass-ui-CbFvPBPH.js:1274 <- o@glass-ui-CbFvPBPH.js:1147
+   FORCE 6.6  getPropertyValue <- e$10@glass-ui-CbFvPBPH.js:8 <- l$4@glass-ui-CbFvPBPH.js:15 <- d$3@glass-ui-CbFvPBPH.js:1231
+   FORCE 4.7  getBoundingClientRect <- watch.immediate@vendor-reka-ui-Due_qpJo.js:10450
+   FORCE 0.2  getBoundingClientRect <- publish@index-DtFq3m48.js:11836 <- (anon)@vendor-reka-ui-Due_qpJo.js:3246 <- callWithErrorHandling@vendor-reka-ui-Due_qpJo.js:1690
+spring->sequence commit 34 worst 51 over50 1 busy 39.7 forced 5
+   APP 4.9  Ie@index-DtFq3m48.js:11078
+   APP 0.4  Ee@index-DtFq3m48.js:10755
+   APP 0.3  transformTargetsStyle@public-CuDZ_ZZD.js:736
+   APP 0.3  (anon)@SequenceScene-DgevdOjs.js:77
+   APP 0.3  (anon)@index-DtFq3m48.js:9522
+   APP 0.2  (anon)@keyboard-Dorq21rx.js:1235
+   APP 0.2  setup@SequenceScene-DgevdOjs.js:630
+   APP 0.2  stop@progress-DqKNAxBU.js:326
+   self 7.2  removeChild@:0
+   self 5.1  get offsetWidth@:0
+   self 4.8  getPropertyValue@:0
+   self 3.9  (program)@:0
+   self 2.2  resolve@:0
+   self 0.6  renderComponentRoot@vendor-reka-ui-Due_qpJo.js:3946
+   FORCE 4.2  getPropertyValue <- n$4@glass-ui-CbFvPBPH.js:1218 <- maxStretch@glass-ui-CbFvPBPH.js:1274 <- o@glass-ui-CbFvPBPH.js:1147
+   FORCE 0.7  getPropertyValue <- e$10@glass-ui-CbFvPBPH.js:8 <- l$4@glass-ui-CbFvPBPH.js:15 <- d$3@glass-ui-CbFvPBPH.js:1231
+   FORCE 0.4  getBoundingClientRect <- v@glass-ui-CbFvPBPH.js:493 <- watch.immediate@glass-ui-CbFvPBPH.js:502 <- callWithErrorHandling@vendor-reka-ui-Due_qpJo.js:1690
+   FORCE 0.2  getBoundingClientRect <- publish@index-DtFq3m48.js:11836 <- (anon)@vendor-reka-ui-Due_qpJo.js:3246 <- callWithErrorHandling@vendor-reka-ui-Due_qpJo.js:1690
+sequence->cube commit 51 worst 67 over50 1 busy 58.2 forced 13
+   APP 5.8  Ie@index-DtFq3m48.js:11078
+   APP 2.1  probeBrowserScalar@index-DtFq3m48.js:8666
+   APP 0.6  (anon)@index-DtFq3m48.js:4269
+   APP 0.6  generateCurveSVGPath@index-DtFq3m48.js:6240
+   APP 0.5  Ee@index-DtFq3m48.js:10755
+   APP 0.4  render@public-CuDZ_ZZD.js:728
+   APP 0.3  c$2@keyboard-Dorq21rx.js:1135
+   APP 0.3  (anon)@index-DtFq3m48.js:4696
+   self 13.2  getPropertyValue@:0
+   self 8.7  (program)@:0
+   self 5.8  get offsetWidth@:0
+   self 3.3  removeChild@:0
+   self 1.2  setFullProps@vendor-reka-ui-Due_qpJo.js:4125
+   self 0.8  get value@vendor-reka-ui-Due_qpJo.js:1443
+   FORCE 7.2  getPropertyValue <- n$4@glass-ui-CbFvPBPH.js:1218 <- maxStretch@glass-ui-CbFvPBPH.js:1274 <- o@glass-ui-CbFvPBPH.js:1147
+   FORCE 3.8  getPropertyValue <- e$10@glass-ui-CbFvPBPH.js:8 <- l$4@glass-ui-CbFvPBPH.js:15 <- d$3@glass-ui-CbFvPBPH.js:1231
+   FORCE 2.1  getPropertyValue <- probeBrowserScalar@index-DtFq3m48.js:8666 <- resolveBrowserScalar@index-DtFq3m48.js:8708 <- interpolateSlot@public-CuDZ_ZZD.js:424

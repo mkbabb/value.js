@@ -410,3 +410,72 @@ Residue seat, 2026-10-27, `claude-opus-5-5` (the re-deploy of the 2026-10-21 sea
 - C2-KF-01 Cube/Amiga swap frames: ENVIRONMENT-ROOTED. The GPU cell's cube/amiga commit frames are the shared commit cost above, not raster.
 - C3-KF-03 blank frame into Home: MEASURED (VT render-suppressed window). On the GPU cell cube→home is within budget (33–46 ms outside load noise).
 - Not taken (outside this residue, recorded in CLOSE): the K6 observer scripts (`demo-driver.mjs:941`, `live-session{,-mobile}.mjs`) still select `[data-dock-surface-item][aria-checked]`, which exists only while the portalled menu is open.
+
+### residue-2 (§0gq.3)
+
+Residue-2 seat, 2026-10-27, `claude-opus-5-5`. Scope: §0gq.3, the one consumer unit that cures the remaining consumer reads in each warm swap's commit frame, cures KF-RES-1, and re-reads the warm-swap 50 ms bar on the GPU cell. Code: keyframes.js **`cc1a8669`** (master, pushed). Evidence: `keyframes/residue-2/`. Every run went through `guarded`: browser runs never light, one browser per run, a context per rep, closed in `finally`. glass-ui was not touched. Another seat's staged and unstaged `KeyframeTimeline.vue` hunks stayed in the tree and out of the commit. Both builds that were measured carry that one-line hunk, so the comparison is like for like.
+
+**Where each read sat (HEAD `fc1a3383`, `prof-head.json`, caller chains by `stacks.py` over `raw-cpuprofiles.tgz`).**
+- `getMaxX` read the stage's and the ball's `clientWidth` on every paint. In a swap that meant a paused seat inside the commit's pre-flush and every frame of a play: 24.6 ms across sequence→cube, 4.8 ms of cube→amiga.
+- SquareScene's setup read was `useSquareTumble`'s `onMounted` `getComputedStyle(:root)`. Behind it, `paintRest` read `--square-travel` and the tour's root tokens. Whichever read came first paid the forced recalc, so the cure had to remove all three.
+- `probeBrowserScalar` on the cube came from SCENE_READY's `restoreGroupPlaybackState`, which sampled the saved clocks (the `var(--rotationX)` endpoint) inside the View Transition callback. The resumed loop then sampled the same clocks again in the same rendering step.
+- `useFoldLanding.land` ran from the frame callback that the new rail's mutation scheduled, which was the commit frame (4–10 ms).
+
+**Cures (keyframes `cc1a8669`):**
+- `AnimationVisualizer.vue`: the ball's run is kept as a size. The observer that bumps the layout epoch (now watching the stage and the ball) re-reads it after layout, when the read is free. Only the first paint before the first report reads it.
+- `useSquareTumble.ts`: the egg's palette is read at the first sweep and kept, not at mount. `useSquareDemo.ts`: `paintRest` reads no style. The envelope was already resolved by the plate's first observer report, and the tour's stops are now seated once on that same report. The rest pose needs neither, and each stop's fallback is its token's declared value.
+- `scenePlaybackAdapters.ts`: a playing restore re-seats the clocks and resumes. The loop's first frame is the one sample and paint, taken after the commit's DOM work. A paused restore still paints at once.
+- `useFoldLanding.ts`: while `:active-view-transition` matches, a landing takes the frame after (the new state is at the dissolve's first step). Outside a transition it lands in the next frame, as before.
+- **KF-RES-1** (`useSceneTransition.ts`, `App.vue`, `scenes.ts`): the idle warm of every scene chunk is no longer armed at the shell's mount. The scene host's first `<Suspense>` resolve (`onSceneContent`) arms it in the next frame, so its idle period follows that frame's paint. Later resolves arm nothing.
+
+**Where the reads sit after (`prof-cure.json`):**
+- the square's mount reads are gone (resolveEnvelope/resolveTourPalette 0.3 ms, in the observer);
+- `getMaxX` is one read per visualizer mount (2.9 ms), not 24.6;
+- the cube probe is 2.6 ms in the loop's frame, not 7.9 in the mount;
+- `land` no longer runs in the commit frame.
+
+**Falsifiers (each RED ×2 at `fc1a3383`, by assertion: `vitest-RED-head-{1,2}.txt`; GREEN ×2: `vitest-GREEN-{1,2}.txt`):**
+- `test/demo/instrument/visualizer-run-read-once.test.ts`: 6 width reads → 2 over three seats; a resize re-reads in the observer and not in the paint.
+- `test/demo/scenes/square-mount-reads-no-style.test.ts`: mount plus rest paint make 3 `getComputedStyle` calls → 0. The first tumble reads once, and its sweep colours.
+- `test/demo/state/restore-playing-paints-once.test.ts`: a playing restore makes 1 style read → 0, and the loop's first frame paints. A paused restore still paints at once.
+- `test/demo/instrument/fold-landing-swap-frame.test.ts`: under a transition the landing moves from frame 1 → 2; outside one it stays at frame 1.
+- `test/demo/app/scene-warm-after-content.test.ts`: the idle warm armed at mount → none until the first content, then one.
+
+**KF-RES-1 gate (`route-load.mjs`, 4× CPU, `dist/residue2-{head,cure}`):**
+- HEAD ×2: cold amiga **1427 KB**, PASS (`route-load-head-{1,2}.txt`).
+- Cure: **4 of 4** in the first set (`route-load-cure-{1..4}.txt`) and **4 of 4** in the second (`route-load-cure-{5..8}.txt`). Every run reads cold amiga at **1427 KB**, Aurora not fetched, PASS (all 35 checks, warm-swap prepare/commit and the deep-link→home backdrop leg included).
+- The 1707 KB failure was intermittent, 1 in 4 at the residue seat, and HEAD passed both of its runs here. The deterministic witness is the vitest falsifier above.
+
+**The 50 ms bar re-read on the real-GPU cell (`warm-swap-probe.mjs`, the residue seat's cell):**
+- Setup: headless real Chrome, `channel:'chrome'` (demo-driver `gpu: true`), `--use-angle=metal`; renderer read back as `ANGLE Metal Renderer: Apple M5 Max`. Production build, 1440×900, light, 2 reps per run, ×2 runs each side, load 20–27.
+- Each cell is the worst frame per rep (r1 rep0/rep1 · r2 rep0/rep1) and the commit range, in ms (`head-gpu-{1,2}`, `cure-gpu-{1,2}`, `summary.txt`).
+
+| swap | HEAD worst frame | HEAD commit (med) | CURE worst frame | CURE commit (med) |
+|---|---|---|---|---|
+| cube→amiga | 66/82 · 85/82 | 52–69 (62.5) | 66/85 · 84/83 | 49–62 (58) |
+| amiga→square | 65/82 · 66/83 | 48–74 (65) | 68/83 · 68/66 | 50–67 (51) |
+| square→easing | 68/66 · 67/88 | 54–65 (58) | 67/67 · 65/83 | 50–60 (52.5) |
+| easing→spring | 89/85 · 68/85 | 57–74 (62) | 85/68 · 67/68 | 46–61 (49) |
+| spring→sequence | 32/49 · 51/49 | 25–34 (30) | 51/33 · 50/50 | 25–34 (30) |
+| **sequence→cube** | 52/51 · 85/84 | 37–59 (50.5) | 139*/50 · 51/50 | 38–49 (39.5) |
+| cube→home | 2523*/41 · 35/36 | 5–6 | 52/34 · 38/38 | 5–6 |
+
+`*`: one frame each, outside the commit span, while the reads in family ran beside it, so these are machine noise. The 2523 ms HEAD frame is a stalled rep.
+
+**Budget verdict: RED, still ESCALATED. What remains is glass-rooted under O-102, with the relay in §0gq.4.**
+- Every consumer read §0gq.3 named is out of the commit frame or read once. Commit medians fell 4–14 ms on five swaps.
+- sequence→cube reaches the bar's edge (50–51 ms, three vsync frames).
+- 5 of 7 swaps still have one 65–85 ms commit frame.
+- LoAF reads the remainder as one script, the mount inside the transition callback (`import.then`, 40–62 ms). Inside it:
+  - **glass forced computed style at mount**: `maxStretch` (useLiquidFlex) plus `writeVelocityWeight`/`motionTempo` (`l$4`/`e$10`), 10–26 ms per swap.
+  - **the glass dock re-measure on every swap**: `dock.js` `Ie`/`Ee`, 4–10 ms.
+  - glass tabs `m` getPropertyValue, 3 ms.
+  - Vue's own patch and mount of the destination tree.
+- These are held under O-102 and were not patched locally.
+- The consumer remainder is small: Amiga's `disposeGraph` teardown inside the commit (3 ms), the Easing catalogue's first `tick` (3 ms), the one `getMaxX` read per visualizer mount (2.9 ms) and the cube probe in the loop's frame (2.6 ms). Together they are under any swap's ~20–30 ms gap to the bar, so the bar is not reachable without the glass half.
+
+**Gates ×2:**
+- `npm run check` (vue-tsc app and test, then proof:structure): rc 0 ×2 (`check-{1,2}.txt`).
+- `vitest run --project demo --maxWorkers=2`: **166 files / 979 tests ×2** (`vitest-demo-{1,2}.txt`; 971 plus the 8 new).
+- Touched browser observations ×2 over the cure build: `home-swap.mjs`, `swap-3d.mjs`, `smoke.mjs` and `subject-animates.mjs` all PASS ×2 (`e2e-*-{1,2}.txt`; home-swap and swap-3d frame bars are informational on SwiftShader per §0gp.2). keyframes has no Playwright e2e suite, so the touched browser readings are these, the GPU probe ×2 and route-load.
+- No test was deleted, skipped or weakened, and no golden was re-baselined.

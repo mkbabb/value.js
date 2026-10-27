@@ -1,0 +1,7 @@
+subject-animates observation — the subject-write seam
+  ✓ [raf] subject WRITES on the play click — 37 distinct computed values, settles at 200px (the rAF standalone path (_renderFrame → interpFrames(apply=true)))
+  ✓ [waapi] subject WRITES on the play click — 37 distinct computed values, settles at 200px (the WAAPI default path (compositor write + shadow loop))
+  ✓ [group] subject WRITES on the play click — 37 distinct computed values, settles at 200px (the AnimationGroup single-target composite (the demo cube/easing/spring shape))
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 2017.4000000000015, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 2017.4000000000015 → 2025.699999999997 → 3309.9000000000015, aria flipped to "Pause animation", and the engine-written nodes traversed {"bob":40,"pose":40,"spin":40} distinct transforms. F4 closed: the gate drives the demo's nested transform owners, not only the synthetic <div>.
+
+subject-animates observation — PASS: every play path (rAF / WAAPI / group composite) WRITES the interpolated frame to its subject — the subject's computed style traverses the animation, not just the playhead — AND the REAL demo cube on the built dist/gh-pages/ receives the engine write (the group composite's interpFrames(apply=true) playhead advances on the real subject, not only the synthetic <div> — K.W0 S6 clause d, F4 closed). The seam the J.W6 S1 sync conversion refactored is guarded, end to end.
