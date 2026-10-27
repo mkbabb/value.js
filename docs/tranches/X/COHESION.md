@@ -4674,3 +4674,24 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
    - V3-s: the synchronous `drawImage` + `getImageData` in `useGlassBackdropLuminance`'s live mode, 17–19 ms per drag and up to 433 ms under load. Ask: an async readback.
    - V5-h: `motionTempo`'s `getPropertyValue` on every spring tick, 15–17 ms per hop. Ask: read the token once per press.
    - keyframes: the forced computed-style reads at mount (`maxStretch`/`useLiquidFlex`/`writeVelocityWeight`, 5–25 ms per swap) and the dock re-measure on every swap (4–10 ms, O-80 class).
+
+## §0gr — 2026-10-27: SS-8.r ruled (`62d6205f6`; SS-8 SWEPT-WITH-RESIDUE)
+1. **Cured:**
+   - B19 R-13: an instrument race; the glass 10.1.1 bump is EXCLUDED as the cause.
+   - Z-ColorPicker-14: one seam owner, header.css Row A.
+   - B05 0125 and 0146.
+   - B26 X-5.
+   - B15 0440: a `--well-bg` lift in both schemes.
+   - B13 L-3: attribution ink at 4.77–6.84.
+   - B03 0085: the hero clips at the 390 edge.
+   - B05 0140 and B24 U-11: recorded.
+   - o14 dark, B11 0309 and plate-mass: GREEN on isolated bytes; their reds were apparatus.
+2. **ESC-SS8r-0039 (the light rail tooltip at 2.80–3.39:1): arm (b), the §0gk.2 referent law applied to floating pairs.**
+   - A floating pair (tooltip title plus caption) is certified against the composite it ACTUALLY sits on, not the bare ambient (`useContrastSafeColor` `floatingL`).
+   - In light, the rail tooltip's real ground is dark (L 0.09–0.16), so the whole pair takes the light pole (5.10–5.76:1). That is one pair-wide polarity chosen by the real referent, not a caption-only flip, so §0gm.4 is not breached.
+   - Owner: Track A, unit **X.W11.f1** (it shares `demo/color-session/` with p4c). Falsifier ×2, both schemes, every floating surface that uses the pair.
+3. **ESC-SS8r-0132 (B05 0132, Tools ink 4.42 over the light dock band): arm (a).** The ground is a mid-tone where black caps at about 4.8:1. Held honest-RED and relayed to glass on the O-83/O-87 dock-band rung line, together with §0gm.4's 390 plate rung. The polarity flip stays refused.
+4. **Routed to Track A:**
+   - the `blob-presence-mobile` idle leg, RED on HEAD bytes (the parked 390 hero draws 0), as unit **X.W11.o2**: cure at root, or prove the park lawful and re-aim the leg with the ruling cited;
+   - the darwin golden re-baselines attributed to `6bcd3e562` and `ea6e054b4`, into X.W11.v1 (E14 lineage).
+5. **Recorded:** Vite 8 ignores the harness's `server.port: 0` and binds the shared 5173. X.W11.v1 cures the harness at its root (an explicit free port).
