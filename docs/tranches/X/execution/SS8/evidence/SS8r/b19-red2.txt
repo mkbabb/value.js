@@ -1,0 +1,295 @@
+(node:75307) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:75358) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 20 tests using 1 worker
+
+(node:75537) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (19.8s)
+  ✓   2 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (9.6s)
+(node:76754) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   3 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (19.3s)
+  ✓   4 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (10.1s)
+(node:78077) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   5 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (17.4s)
+(node:78695) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   6 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (17.7s)
+(node:79308) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   7 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (14.7s)
+(node:79697) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   8 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (21.1s)
+(node:80689) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   9 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (13.7s)
+(node:81276) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  10 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (21.6s)
+(node:82154) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  11 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (14.2s)
+(node:82722) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  12 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (19.8s)
+(node:83582) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  13 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (19.7s)
+  ✓  14 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (10.4s)
+(node:85230) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  15 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (17.7s)
+(node:86536) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  16 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (18.2s)
+(node:87383) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  17 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (39.1s)
+  ✓  18 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (10.5s)
+(node:89917) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  19 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (19.9s)
+(node:90875) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  20 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (15.8s)
+
+
+  1) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+
+    Error: ramp chip 0: head rim step 154 vs interior slope 0 (rim 194,91,135, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m154[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-e662b-s-the-endpoint-stops-light--smoke-repeat2/error-context.md
+
+  2) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+
+    Error: ramp chip 0: head rim step 65 vs interior slope 0 (rim 118,49,69, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m65[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-bfba2-ls-the-endpoint-stops-dark--smoke-repeat2/error-context.md
+
+  3) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+
+    Error: ramp chip 0: head rim step 154 vs interior slope 0 (rim 194,91,135, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m154[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-e662b-s-the-endpoint-stops-light--smoke-repeat3/error-context.md
+
+  4) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+
+    Error: ramp chip 0: head rim step 65 vs interior slope 0 (rim 118,49,69, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m65[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-bfba2-ls-the-endpoint-stops-dark--smoke-repeat3/error-context.md
+
+  5) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+
+    Error: ramp chip 0: head rim step 154 vs interior slope 0 (rim 194,91,135, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m154[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-e662b-s-the-endpoint-stops-light--smoke-repeat4/error-context.md
+
+  6) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+
+    Error: ramp chip 0: head rim step 65 vs interior slope 0 (rim 118,49,69, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m65[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-bfba2-ls-the-endpoint-stops-dark--smoke-repeat4/error-context.md
+
+  7) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+
+    Error: ramp chip 0: head rim step 154 vs interior slope 0 (rim 194,91,135, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m154[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-e662b-s-the-endpoint-stops-light--smoke-repeat5/error-context.md
+
+  8) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+
+    Error: ramp chip 0: head rim step 65 vs interior slope 0 (rim 118,49,69, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m65[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-bfba2-ls-the-endpoint-stops-dark--smoke-repeat5/error-context.md
+
+  9) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+
+    Error: ramp chip 0: head rim step 154 vs interior slope 0 (rim 194,91,135, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m154[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-e662b-s-the-endpoint-stops-light--smoke-repeat7/error-context.md
+
+  10) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+
+    Error: ramp chip 0: head rim step 65 vs interior slope 0 (rim 118,49,69, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m65[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-bfba2-ls-the-endpoint-stops-dark--smoke-repeat7/error-context.md
+
+  11) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+
+    Error: ramp chip 0: head rim step 154 vs interior slope 0 (rim 194,91,135, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m154[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-b19-red2/ss8-b19-color-chips-R-13-·-e662b-s-the-endpoint-stops-light--smoke-repeat9/error-context.md
+
+  11 failed
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+  9 passed (6.1m)
+exit 1

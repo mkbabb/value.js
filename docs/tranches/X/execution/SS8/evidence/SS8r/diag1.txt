@@ -1,0 +1,481 @@
+(node:68782) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:68838) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 51 tests using 1 worker
+
+(node:68920) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason (11.1s)
+  ✓   2 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger (3.8s)
+  ✓   3 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger (2.6s)
+  ✓   4 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Escape returns focus to the Palette menu trigger (1.9s)
+  ✓   5 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (10.6s)
+  ✓   6 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (7.4s)
+  ✓   7 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:84:5 › X-5 · phone › X-5 · Add to palette in the eyedropper is announced politely (390, touch) (5.8s)
+Z2 header census 1440 {"live":"polite","seam":42.578125,"ratio":0.7861861861861862,"cellTops":[219,219,219]}
+Z2 seam diag [{"cols":"834.344px 515.656px","regions":["color-picker:834","about:516"],"fp":"141.76px"},{"s":".pane-shell .picker-header","top":88,"bottom":265,"h":177,"minH":"auto","pad":"0px 24px","mt":"0px"},{"s":".pane-shell .title-row","top":88,"bottom":210,"h":122,"minH":"121.76px","pad":"0px 141.76px 0px 0px","mt":"0px"},{"s":".pane-shell .title-row [role=\"combobox\"]","top":88,"bottom":173,"h":85,"minH":"0px","pad":"0px 0px 5.0616px","mt":"0px"},{"s":".pane-shell .readout","top":219,"bottom":265,"h":47,"minH":"46.9146px","pad":"0px","mt":"0px"},{"s":".pane-shell .readout .readout-fig","top":219,"bottom":265,"h":47,"minH":"auto","pad":"0px","mt":"0px"},null]
+  ✘   8 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes (7.9s)
+(node:72606) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+P0132 hue 0
++300 ratio=4.658 ink=oklch(0.122416 0.0496263 0) plate@6=185,84,154 besideLabel=194,81,151
++1500 ratio=4.658 ink=oklch(0.122416 0.0496263 0) plate@6=185,84,154 besideLabel=194,81,151
++4000 ratio=4.658 ink=oklch(0.122416 0.0496263 0) plate@6=185,84,154 besideLabel=194,81,151
+  ✓   9 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 0 (18.4s)
+P0132 hue 60
++300 ratio=4.781 ink=oklch(0.118341 0.0277524 60) plate@6=203,87,44 besideLabel=208,88,30
++1500 ratio=4.781 ink=oklch(0.118341 0.0277524 60) plate@6=203,87,44 besideLabel=208,88,30
++4000 ratio=4.781 ink=oklch(0.118341 0.0277524 60) plate@6=203,87,44 besideLabel=208,88,30
+  ✓  10 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 60 (13.5s)
+P0132 hue 120
++300 ratio=4.943 ink=oklch(0.111459 0.0264623 120) plate@6=133,128,23 besideLabel=131,132,17
++1500 ratio=4.943 ink=oklch(0.111459 0.0264623 120) plate@6=133,128,23 besideLabel=131,132,17
++4000 ratio=4.943 ink=oklch(0.111459 0.0264623 120) plate@6=133,128,23 besideLabel=131,132,17
+  ✓  11 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 120 (13.6s)
+P0132 hue 180
++300 ratio=5.222 ink=oklch(0.112373 0.0203878 180) plate@6=34,146,107 besideLabel=26,149,112
++1500 ratio=5.222 ink=oklch(0.112373 0.0203878 180) plate@6=34,146,107 besideLabel=26,149,112
++4000 ratio=5.222 ink=oklch(0.112373 0.0203878 180) plate@6=34,146,107 besideLabel=26,149,112
+  ✓  12 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 180 (12.9s)
+P0132 hue 240
++300 ratio=5.037 ink=oklch(0.11311 0.0259091 240) plate@6=33,136,174 besideLabel=26,139,182
++1500 ratio=5.037 ink=oklch(0.11311 0.0259091 240) plate@6=33,136,174 besideLabel=26,139,182
++4000 ratio=5.037 ink=oklch(0.11311 0.0259091 240) plate@6=33,136,174 besideLabel=26,139,182
+  ✓  13 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 240 (12.8s)
+P0132 hue 300
++300 ratio=4.680 ink=oklch(0.123864 0.0661177 300) plate@6=105,111,212 besideLabel=115,108,219
++1500 ratio=4.680 ink=oklch(0.123864 0.0661177 300) plate@6=105,111,212 besideLabel=115,108,219
++4000 ratio=4.680 ink=oklch(0.123864 0.0661177 300) plate@6=105,111,212 besideLabel=115,108,219
+  ✓  14 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 300 (13.4s)
+PROBE0146 0
+0 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+101 gaps=6.00,4.96,4.96,6.00 tr= anims=scale|opacity|--specular-x|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+204 gaps=6.00,4.24,4.24,6.00 tr= anims=scale|opacity|--specular-x|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+306 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+408 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+509 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+611 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+712 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+813 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+915 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1018 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1119 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1221 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1323 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1424 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1525 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1628 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1729 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1830 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1931 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2033 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2134 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2236 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2338 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2439 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2540 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2642 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2743 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2845 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2947 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+  ✓  15 [smoke] › e2e/smoke/zz/b05-probe.spec.ts:15:29 › b05 probe 0 (8.2s)
+PROBE0146 1
+0 gaps=6.00,6.00,6.00,6.00 tr= anims=opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+103 gaps=6.00,6.00,6.00,6.00 tr= anims=opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+205 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+308 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+410 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+513 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+615 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+719 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+821 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+923 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1025 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1128 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1229 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1332 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1434 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1536 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1639 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1741 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1843 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1946 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2048 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2150 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2251 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2353 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2454 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2555 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2657 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2757 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2858 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2960 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+  ✓  16 [smoke] › e2e/smoke/zz/b05-probe.spec.ts:15:29 › b05 probe 1 (7.7s)
+PROBE0146 2
+0 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+100 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+203 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+304 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+405 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+898 gaps=6.00,4.59,4.59,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1555 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2144 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2255 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2358 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2459 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2561 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2665 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2766 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2869 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2969 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+  ✓  17 [smoke] › e2e/smoke/zz/b05-probe.spec.ts:15:29 › b05 probe 2 (7.8s)
+(node:78329) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  18 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason (8.7s)
+  ✓  19 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger (3.1s)
+  ✓  20 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger (2.6s)
+  ✓  21 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Escape returns focus to the Palette menu trigger (2.2s)
+  ✓  22 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (10.8s)
+  ✓  23 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (6.7s)
+  ✓  24 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:84:5 › X-5 · phone › X-5 · Add to palette in the eyedropper is announced politely (390, touch) (4.1s)
+Z2 header census 1440 {"live":"polite","seam":42.578125,"ratio":0.7861861861861862,"cellTops":[219,219,219]}
+Z2 seam diag [{"cols":"834.344px 515.656px","regions":["color-picker:834","about:516"],"fp":"141.76px"},{"s":".pane-shell .picker-header","top":88,"bottom":265,"h":177,"minH":"auto","pad":"0px 24px","mt":"0px"},{"s":".pane-shell .title-row","top":88,"bottom":210,"h":122,"minH":"121.76px","pad":"0px 141.76px 0px 0px","mt":"0px"},{"s":".pane-shell .title-row [role=\"combobox\"]","top":88,"bottom":173,"h":85,"minH":"0px","pad":"0px 0px 5.0616px","mt":"0px"},{"s":".pane-shell .readout","top":219,"bottom":265,"h":47,"minH":"46.9146px","pad":"0px","mt":"0px"},{"s":".pane-shell .readout .readout-fig","top":219,"bottom":265,"h":47,"minH":"auto","pad":"0px","mt":"0px"},null]
+  ✘  25 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes (5.6s)
+(node:79896) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+P0132 hue 0
++300 ratio=4.628 ink=oklch(0.122416 0.0496263 0) plate@6=184,84,153 besideLabel=194,81,151
++1500 ratio=4.628 ink=oklch(0.122416 0.0496263 0) plate@6=184,84,153 besideLabel=194,81,151
++4000 ratio=4.628 ink=oklch(0.122416 0.0496263 0) plate@6=184,84,153 besideLabel=194,81,151
+  ✓  26 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 0 (20.5s)
+P0132 hue 60
++300 ratio=4.781 ink=oklch(0.118341 0.0277524 60) plate@6=203,87,44 besideLabel=208,88,30
++1500 ratio=4.781 ink=oklch(0.118341 0.0277524 60) plate@6=203,87,44 besideLabel=208,88,30
++4000 ratio=4.781 ink=oklch(0.118341 0.0277524 60) plate@6=203,87,44 besideLabel=208,88,30
+  ✓  27 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 60 (15.3s)
+P0132 hue 120
++300 ratio=4.943 ink=oklch(0.111459 0.0264623 120) plate@6=133,128,23 besideLabel=131,132,17
++1500 ratio=4.943 ink=oklch(0.111459 0.0264623 120) plate@6=133,128,23 besideLabel=131,132,17
++4000 ratio=4.943 ink=oklch(0.111459 0.0264623 120) plate@6=133,128,23 besideLabel=131,132,17
+  ✓  28 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 120 (14.5s)
+P0132 hue 180
++300 ratio=5.222 ink=oklch(0.112373 0.0203878 180) plate@6=34,146,107 besideLabel=26,149,112
++1500 ratio=5.222 ink=oklch(0.112373 0.0203878 180) plate@6=34,146,107 besideLabel=26,149,112
++4000 ratio=5.222 ink=oklch(0.112373 0.0203878 180) plate@6=34,146,107 besideLabel=26,149,112
+  ✓  29 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 180 (14.8s)
+P0132 hue 240
++300 ratio=5.037 ink=oklch(0.11311 0.0259091 240) plate@6=33,136,174 besideLabel=26,139,182
++1500 ratio=5.037 ink=oklch(0.11311 0.0259091 240) plate@6=33,136,174 besideLabel=26,139,182
++4000 ratio=5.037 ink=oklch(0.11311 0.0259091 240) plate@6=33,136,174 besideLabel=26,139,182
+  ✓  30 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 240 (14.5s)
+P0132 hue 300
++300 ratio=4.680 ink=oklch(0.123864 0.0661177 300) plate@6=105,111,212 besideLabel=115,108,219
++1500 ratio=4.680 ink=oklch(0.123864 0.0661177 300) plate@6=105,111,212 besideLabel=115,108,219
++4000 ratio=4.680 ink=oklch(0.123864 0.0661177 300) plate@6=105,111,212 besideLabel=115,108,219
+  ✓  31 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 300 (13.3s)
+PROBE0146 0
+0 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+101 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|--specular-x|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+202 gaps=6.00,4.45,4.45,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+305 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+406 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+507 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+610 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+712 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+814 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+915 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1015 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1118 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1220 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1320 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1421 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1522 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1623 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1725 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1826 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1928 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2029 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2130 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2231 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2333 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2434 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2536 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2637 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2737 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2839 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2940 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+  ✓  32 [smoke] › e2e/smoke/zz/b05-probe.spec.ts:15:29 › b05 probe 0 (6.9s)
+PROBE0146 1
+0 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+101 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|--specular-x|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+204 gaps=6.00,4.25,4.25,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+304 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+407 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+508 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+609 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+710 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+812 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+913 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1016 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1118 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1219 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1319 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1419 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1520 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1620 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1721 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1822 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1923 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2026 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2126 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2228 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2329 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2431 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2531 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2632 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2733 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2835 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2936 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+  ✓  33 [smoke] › e2e/smoke/zz/b05-probe.spec.ts:15:29 › b05 probe 1 (7.6s)
+PROBE0146 2
+0 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+101 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|--specular-x|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+202 gaps=6.00,4.33,4.33,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+306 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+408 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+509 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+614 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+715 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+816 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+917 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1021 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1121 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1223 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1326 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1426 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1528 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1629 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1731 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1833 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1935 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2036 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2138 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2239 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2341 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2442 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2543 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2644 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2745 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2847 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2949 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+  ✓  34 [smoke] › e2e/smoke/zz/b05-probe.spec.ts:15:29 › b05 probe 2 (8.0s)
+(node:84585) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  35 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason (11.3s)
+  ✓  36 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger (4.2s)
+  ✓  37 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger (3.2s)
+  ✓  38 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Escape returns focus to the Palette menu trigger (2.5s)
+  ✓  39 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (8.6s)
+  ✓  40 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (8.7s)
+  ✓  41 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:84:5 › X-5 · phone › X-5 · Add to palette in the eyedropper is announced politely (390, touch) (3.9s)
+Z2 header census 1440 {"live":"polite","seam":42.578125,"ratio":0.7861861861861862,"cellTops":[219,219,219]}
+Z2 seam diag [{"cols":"834.344px 515.656px","regions":["color-picker:834","about:516"],"fp":"141.76px"},{"s":".pane-shell .picker-header","top":88,"bottom":265,"h":177,"minH":"auto","pad":"0px 24px","mt":"0px"},{"s":".pane-shell .title-row","top":88,"bottom":210,"h":122,"minH":"121.76px","pad":"0px 141.76px 0px 0px","mt":"0px"},{"s":".pane-shell .title-row [role=\"combobox\"]","top":88,"bottom":173,"h":85,"minH":"0px","pad":"0px 0px 5.0616px","mt":"0px"},{"s":".pane-shell .readout","top":219,"bottom":265,"h":47,"minH":"46.9146px","pad":"0px","mt":"0px"},{"s":".pane-shell .readout .readout-fig","top":219,"bottom":265,"h":47,"minH":"auto","pad":"0px","mt":"0px"},null]
+  ✘  42 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes (5.1s)
+(node:86559) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+P0132 hue 0
++300 ratio=4.658 ink=oklch(0.122416 0.0496263 0) plate@6=185,84,154 besideLabel=194,81,151
++1500 ratio=4.658 ink=oklch(0.122416 0.0496263 0) plate@6=185,84,154 besideLabel=194,81,151
++4000 ratio=4.658 ink=oklch(0.122416 0.0496263 0) plate@6=185,84,154 besideLabel=194,81,151
+  ✓  43 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 0 (18.5s)
+P0132 hue 60
++300 ratio=4.781 ink=oklch(0.118341 0.0277524 60) plate@6=203,87,44 besideLabel=208,88,30
++1500 ratio=4.781 ink=oklch(0.118341 0.0277524 60) plate@6=203,87,44 besideLabel=208,88,30
++4000 ratio=4.781 ink=oklch(0.118341 0.0277524 60) plate@6=203,87,44 besideLabel=208,88,30
+  ✓  44 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 60 (14.1s)
+P0132 hue 120
++300 ratio=4.943 ink=oklch(0.111459 0.0264623 120) plate@6=133,128,23 besideLabel=131,132,17
++1500 ratio=4.943 ink=oklch(0.111459 0.0264623 120) plate@6=133,128,23 besideLabel=131,132,17
++4000 ratio=4.943 ink=oklch(0.111459 0.0264623 120) plate@6=133,128,23 besideLabel=131,132,17
+  ✓  45 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 120 (13.9s)
+P0132 hue 180
++300 ratio=5.222 ink=oklch(0.112373 0.0203878 180) plate@6=34,146,107 besideLabel=26,149,112
++1500 ratio=5.222 ink=oklch(0.112373 0.0203878 180) plate@6=34,146,107 besideLabel=26,149,112
++4000 ratio=5.222 ink=oklch(0.112373 0.0203878 180) plate@6=34,146,107 besideLabel=26,149,112
+  ✓  46 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 180 (14.5s)
+P0132 hue 240
++300 ratio=5.037 ink=oklch(0.11311 0.0259091 240) plate@6=33,136,174 besideLabel=26,139,182
++1500 ratio=5.037 ink=oklch(0.11311 0.0259091 240) plate@6=33,136,174 besideLabel=26,139,182
++4000 ratio=5.037 ink=oklch(0.11311 0.0259091 240) plate@6=33,136,174 besideLabel=26,139,182
+  ✓  47 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 240 (12.6s)
+P0132 hue 300
++300 ratio=4.680 ink=oklch(0.123864 0.0661177 300) plate@6=105,111,212 besideLabel=115,108,219
++1500 ratio=4.680 ink=oklch(0.123864 0.0661177 300) plate@6=105,111,212 besideLabel=115,108,219
++4000 ratio=4.680 ink=oklch(0.123864 0.0661177 300) plate@6=105,111,212 besideLabel=115,108,219
+  ✓  48 [smoke] › e2e/smoke/zz/b05-ink-probe.spec.ts:114:25 › p0132 300 (14.2s)
+PROBE0146 0
+0 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+102 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|--specular-x|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+203 gaps=6.00,4.23,4.23,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+306 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+408 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+510 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+612 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+714 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+815 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+915 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1017 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1118 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1219 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1321 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1422 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1523 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1624 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1726 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1827 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1928 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2029 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2130 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2231 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2332 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2433 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2534 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2635 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2736 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2837 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2938 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+  ✓  49 [smoke] › e2e/smoke/zz/b05-probe.spec.ts:15:29 › b05 probe 0 (7.5s)
+PROBE0146 1
+0 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+101 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|--specular-x|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+202 gaps=6.00,4.16,4.16,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+304 gaps=6.00,4.16,4.16,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+406 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+508 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+613 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+714 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+815 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+917 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1018 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1120 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1221 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1322 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1423 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1525 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1625 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1727 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1828 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1928 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2029 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2131 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2232 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2333 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2434 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2535 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2636 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2738 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2839 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2940 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+  ✓  50 [smoke] › e2e/smoke/zz/b05-probe.spec.ts:15:29 › b05 probe 1 (7.4s)
+PROBE0146 2
+0 gaps=6.00,6.00,6.00,6.00 tr= anims=--specular-x|opacity|scale|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+102 gaps=6.00,6.00,6.00,6.00 tr= anims=scale|opacity|--specular-x|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+203 gaps=6.00,4.33,4.33,6.00 tr= anims=scale|opacity|opacity|--specular-y|--specular-x|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+304 gaps=6.00,4.00,4.00,6.00 tr= anims=opacity|opacity|gl-dock-cap-inline-start|gl-dock-cap-inline-end
+405 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+506 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+608 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+709 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+810 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+912 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1014 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1115 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1222 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1324 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1425 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1525 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1627 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1728 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1829 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+1930 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2031 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2132 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2233 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2334 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2435 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2536 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2637 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2738 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2840 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+2942 gaps=6.00,4.00,4.00,6.00 tr= anims=gl-dock-cap-inline-start|gl-dock-cap-inline-end
+  ✓  51 [smoke] › e2e/smoke/zz/b05-probe.spec.ts:15:29 › b05 probe 2 (7.9s)
+
+
+  1) [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes 
+
+    Error: Z-ColorPicker-14: the label→readout seam is under the φG ceiling
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m14.87[39m
+    Received:   [31m42.578125[39m
+
+      91 |         })));
+      92 |         expect(c.live, "Z-ColorPicker-11: the picker header is a polite region").toBe("polite");
+    > 93 |         expect.soft(c.seam, "Z-ColorPicker-14: the label→readout seam is under the φG ceiling").toBeLessThan(14.87);
+         |                                                                                                 ^
+      94 |         expect(c.ratio, "Z-ColorPicker-16: the paired readout/label ratio").toBeCloseTo(0.7862, 3);
+      95 |         const clock = await page.evaluate(() => {
+      96 |             const probe = document.createElement("div");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-z2-picker-cohort.spec.ts:93:97
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-diag1/ss8-z2-picker-cohort-Z2-pi-2df40-ratio-clock-crown-keyframes-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes 
+
+    Error: Z-ColorPicker-14: the label→readout seam is under the φG ceiling
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m14.87[39m
+    Received:   [31m42.578125[39m
+
+      91 |         })));
+      92 |         expect(c.live, "Z-ColorPicker-11: the picker header is a polite region").toBe("polite");
+    > 93 |         expect.soft(c.seam, "Z-ColorPicker-14: the label→readout seam is under the φG ceiling").toBeLessThan(14.87);
+         |                                                                                                 ^
+      94 |         expect(c.ratio, "Z-ColorPicker-16: the paired readout/label ratio").toBeCloseTo(0.7862, 3);
+      95 |         const clock = await page.evaluate(() => {
+      96 |             const probe = document.createElement("div");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-z2-picker-cohort.spec.ts:93:97
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-diag1/ss8-z2-picker-cohort-Z2-pi-2df40-ratio-clock-crown-keyframes-smoke-repeat1/error-context.md
+
+  3) [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes 
+
+    Error: Z-ColorPicker-14: the label→readout seam is under the φG ceiling
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m14.87[39m
+    Received:   [31m42.578125[39m
+
+      91 |         })));
+      92 |         expect(c.live, "Z-ColorPicker-11: the picker header is a polite region").toBe("polite");
+    > 93 |         expect.soft(c.seam, "Z-ColorPicker-14: the label→readout seam is under the φG ceiling").toBeLessThan(14.87);
+         |                                                                                                 ^
+      94 |         expect(c.ratio, "Z-ColorPicker-16: the paired readout/label ratio").toBeCloseTo(0.7862, 3);
+      95 |         const clock = await page.evaluate(() => {
+      96 |             const probe = document.createElement("div");
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/ss8-z2-picker-cohort.spec.ts:93:97
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-diag1/ss8-z2-picker-cohort-Z2-pi-2df40-ratio-clock-crown-keyframes-smoke-repeat2/error-context.md
+
+  3 failed
+    [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes 
+    [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes 
+    [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes 
+  48 passed (8.1m)
+exit 1

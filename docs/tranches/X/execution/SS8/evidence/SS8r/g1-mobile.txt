@@ -1,0 +1,40 @@
+(node:35220) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:35326) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:35399) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:75:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) (23.8s)
+(node:36394) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[blob-390] PRM window=3000ms draws=0 frames=365
+  ✓  2 [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:213:1 › hero blob at 390 under prefers-reduced-motion: one static frame, then parked (0 idle draws) (13.6s)
+
+
+  1) [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:75:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+
+    Error: the idle hero drew nothing over 3000ms at 390 — the live blob parked
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      178 |         after - before,
+      179 |         `the idle hero drew nothing over ${WINDOW_MS}ms at 390 — the live blob parked`,
+    > 180 |     ).toBeGreaterThan(0);
+          |       ^
+      181 |     expect(
+      182 |         after - before,
+      183 |         `the hero drew ${after - before} times over ${frames.length} displayed frames at 390 — more than one draw per frame`,
+        at /Users/mkbabb/Programming/value.js/.worktrees/ss8r/e2e/smoke/mobile/blob-presence-mobile.spec.ts:180:7
+
+    Error Context: ../../docs/tranches/X/execution/SS8/evidence/SS8R/out-g1-mobile/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/error-context.md
+
+  1 failed
+    [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:75:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+  1 passed (42.3s)
+exit 1
