@@ -1,0 +1,280 @@
+{
+ "light-1440": {
+  "ro": [
+   [
+    "at Ne._.immediate (assets/dist-CopHm3Rn.js:1:13011) < at In (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22624) < at R (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22691) < at u.call (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:26408) :: DIV.dock-layer.dock-layer--full.dock-run",
+    2,
+    0,
+    0
+   ],
+   [
+    "at f (assets/dock-Dg81xjET.js:1:11164) < at In (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22624) < at R (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22691) < at u.call (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:26408) :: DIV.glass-dock.horizontal.shape-pill,DIV.dock-layers,DIV.dock-layer.dock-layer--full.dock-run",
+    2,
+    0,
+    0
+   ],
+   [
+    "at v (assets/useResizeObserver-CdUlm2QZ-P1BHwy7P.js:1:605) < at t.immediate (assets/useResizeObserver-CdUlm2QZ-P1BHwy7P.js:1:766) < at In (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22624) < at R (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22691) :: DIV.glass-dock.horizontal.shape-pill",
+    2,
+    0,
+    0
+   ]
+  ],
+  "n": 42,
+  "p50": 25,
+  "p95": 29.1,
+  "inputs": [
+   30.7,
+   25,
+   25.6,
+   20.2,
+   21.9,
+   21.3,
+   19.4,
+   19.9,
+   21.6,
+   22,
+   31.5,
+   25.1,
+   23.7,
+   23.5,
+   25.1,
+   20.1,
+   16.2,
+   27.6,
+   25.6,
+   24.9,
+   24.8,
+   20.1,
+   24.5,
+   22.2,
+   22.6,
+   24.9,
+   26.7,
+   25.7,
+   26.2,
+   24.4,
+   27.4,
+   29.1,
+   25.6,
+   29.1,
+   25.8,
+   27.8,
+   26.3,
+   25.4,
+   23.9,
+   26,
+   20.7,
+   26.6
+  ],
+  "frameDtOver17": 1,
+  "frames": 111,
+  "traceSpanMs": 1883,
+  "mainMs": {
+   "RunMicrotasks": 392.1,
+   "UpdateLayoutTree": 277.5,
+   "FireAnimationFrame": 245,
+   "EventDispatch": 215.9,
+   "Layout": 178.2,
+   "FunctionCall": 88.2,
+   "Paint": 64.8,
+   "PrePaint": 22.1,
+   "TimerFire": 21.8,
+   "Layerize": 20.3,
+   "Commit": 15,
+   "IntersectionObserverController::computeIntersections": 4.4,
+   "HitTest": 2.7,
+   "UpdateLayer": 2.2,
+   "ParseHTML": 0
+  },
+  "topFns": [
+   [
+    "?@assets/index-CRxbG3pG.js:9",
+    31.1
+   ],
+   [
+    "_@assets/index-CRxbG3pG.js:194",
+    23.9
+   ],
+   [
+    "n@assets/vue.runtime.esm-bundler-CgkFrCBN.js:3",
+    10.5
+   ],
+   [
+    "i@assets/index-CRxbG3pG.js:12",
+    6.3
+   ],
+   [
+    "h@assets/useResizeObserver-CdUlm2QZ-P1BHwy7P.js:1",
+    4.8
+   ],
+   [
+    "tick@:9",
+    2
+   ],
+   [
+    "b@assets/dom-BGUvN8Cf.js:1",
+    1.8
+   ],
+   [
+    "De@assets/ColorInput-BfHjiJtd.js:1",
+    1.5
+   ],
+   [
+    "addEventListener.capture@:4",
+    0.9
+   ],
+   [
+    "r@assets/keyframes-DEDv5OhW.js:1",
+    0.8
+   ],
+   [
+    "Ny.Se.passive@assets/index-CRxbG3pG.js:3414",
+    0.7
+   ],
+   [
+    "l@assets/index-CRxbG3pG.js:3414",
+    0.7
+   ]
+  ]
+ },
+ "dark-1440": {
+  "ro": [
+   [
+    "at v (assets/useResizeObserver-CdUlm2QZ-P1BHwy7P.js:1:605) < at t.immediate (assets/useResizeObserver-CdUlm2QZ-P1BHwy7P.js:1:766) < at In (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22624) < at R (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22691) :: DIV.glass-dock.horizontal.shape-pill",
+    2,
+    0.1,
+    0.1
+   ],
+   [
+    "at Ne._.immediate (assets/dist-CopHm3Rn.js:1:13011) < at In (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22624) < at R (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22691) < at u.call (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:26408) :: DIV.dock-layer.dock-layer--full.dock-run",
+    2,
+    0.1,
+    0.1
+   ],
+   [
+    "at f (assets/dock-Dg81xjET.js:1:11164) < at In (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22624) < at R (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:22691) < at u.call (assets/vue.runtime.esm-bundler-CgkFrCBN.js:1:26408) :: DIV.glass-dock.horizontal.shape-pill,DIV.dock-layers,DIV.dock-layer.dock-layer--full.dock-run",
+    2,
+    0,
+    0
+   ]
+  ],
+  "n": 42,
+  "p50": 25.5,
+  "p95": 29.9,
+  "inputs": [
+   21.1,
+   26.6,
+   20.7,
+   23.3,
+   16.2,
+   21.9,
+   17.4,
+   27.7,
+   22.3,
+   23.3,
+   22.6,
+   20.4,
+   26.2,
+   25.5,
+   19.5,
+   21,
+   16.6,
+   29.2,
+   22.3,
+   26.4,
+   24.5,
+   20.9,
+   26.8,
+   26.8,
+   26.1,
+   27.3,
+   20.4,
+   24.7,
+   26.9,
+   27.7,
+   16.7,
+   29.1,
+   30.4,
+   23.4,
+   28.1,
+   30.6,
+   27,
+   27.1,
+   29.9,
+   29.6,
+   26.7,
+   21.3
+  ],
+  "frameDtOver17": 1,
+  "frames": 109,
+  "traceSpanMs": 1850,
+  "mainMs": {
+   "RunMicrotasks": 362.7,
+   "UpdateLayoutTree": 239.8,
+   "FireAnimationFrame": 223.9,
+   "EventDispatch": 221.9,
+   "Layout": 168.8,
+   "FunctionCall": 83.5,
+   "Paint": 50.2,
+   "PrePaint": 19,
+   "Layerize": 17.4,
+   "Commit": 13.3,
+   "IntersectionObserverController::computeIntersections": 4.4,
+   "TimerFire": 2.7,
+   "UpdateLayer": 1.4,
+   "HitTest": 1.1,
+   "ParseHTML": 0
+  },
+  "topFns": [
+   [
+    "?@assets/index-CRxbG3pG.js:9",
+    32.4
+   ],
+   [
+    "_@assets/index-CRxbG3pG.js:194",
+    23.5
+   ],
+   [
+    "n@assets/vue.runtime.esm-bundler-CgkFrCBN.js:3",
+    10.5
+   ],
+   [
+    "h@assets/useResizeObserver-CdUlm2QZ-P1BHwy7P.js:1",
+    5.7
+   ],
+   [
+    "tick@:9",
+    1.8
+   ],
+   [
+    "b@assets/dom-BGUvN8Cf.js:1",
+    1.6
+   ],
+   [
+    "De@assets/ColorInput-BfHjiJtd.js:1",
+    1.6
+   ],
+   [
+    "addEventListener.capture@:4",
+    1
+   ],
+   [
+    "r@assets/keyframes-DEDv5OhW.js:1",
+    0.8
+   ],
+   [
+    "Ny.Se.passive@assets/index-CRxbG3pG.js:3414",
+    0.7
+   ],
+   [
+    "l@assets/index-CRxbG3pG.js:3414",
+    0.7
+   ],
+   [
+    "r@assets/index-CRxbG3pG.js:12",
+    0.5
+   ]
+  ]
+ }
+}

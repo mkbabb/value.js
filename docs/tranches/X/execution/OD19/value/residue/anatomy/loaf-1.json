@@ -1,0 +1,232 @@
+{
+ "light-1440": {
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "floor": {
+   "n": 42,
+   "p50": 31.1,
+   "p95": 31.7,
+   "max": 31.7
+  },
+  "drag1": {
+   "n": 42,
+   "p50": 24.6,
+   "p95": 32.6,
+   "max": 46.3,
+   "loaf": [
+    [
+     50,
+     30,
+     41,
+     [
+      "SPAN.onpointerdown|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|16|fl5",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|9|fl0"
+     ]
+    ]
+   ]
+  },
+  "drag2": {
+   "n": 42,
+   "p50": 24.2,
+   "p95": 33.1,
+   "max": 46.6,
+   "loaf": [
+    [
+     50,
+     24,
+     41,
+     [
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|17|fl0",
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|8|fl0"
+     ]
+    ]
+   ]
+  }
+ },
+ "dark-1440": {
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "floor": {
+   "n": 42,
+   "p50": 30.5,
+   "p95": 31.2,
+   "max": 31.5
+  },
+  "drag1": {
+   "n": 42,
+   "p50": 33.5,
+   "p95": 46.2,
+   "max": 46.8,
+   "loaf": [
+    [
+     55,
+     32,
+     46,
+     [
+      "SPAN.onpointerdown|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|22|fl6",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|11|fl0"
+     ]
+    ],
+    [
+     50,
+     21,
+     40,
+     [
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|10|fl7",
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|10|fl0",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|8|fl0"
+     ]
+    ],
+    [
+     51,
+     25,
+     43,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|10|fl0",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|9|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|8|fl6"
+     ]
+    ],
+    [
+     50,
+     26,
+     42,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|11|fl0",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|9|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|7|fl6"
+     ]
+    ]
+   ]
+  },
+  "drag2": {
+   "n": 42,
+   "p50": 24.1,
+   "p95": 35.5,
+   "max": 48.3,
+   "loaf": [
+    [
+     53,
+     25,
+     42,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|10|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|9|fl7",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|8|fl0"
+     ]
+    ]
+   ]
+  }
+ },
+ "light-390": {
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "floor": {
+   "n": 42,
+   "p50": 30.6,
+   "p95": 31.5,
+   "max": 31.7
+  },
+  "drag1": {
+   "n": 42,
+   "p50": 40.3,
+   "p95": 48.1,
+   "max": 56.6,
+   "loaf": [
+    [
+     51,
+     26,
+     41,
+     [
+      "SPAN.onpointerdown|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|18|fl3",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|12|fl0"
+     ]
+    ],
+    [
+     52,
+     23,
+     41,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|10|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|9|fl7",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|9|fl0"
+     ]
+    ],
+    [
+     52,
+     25,
+     42,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|10|fl0",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|9|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|8|fl6"
+     ]
+    ],
+    [
+     51,
+     25,
+     39,
+     [
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|14|fl0",
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|11|fl0"
+     ]
+    ],
+    [
+     63,
+     27,
+     52,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|16|fl0",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|15|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|10|fl8"
+     ]
+    ],
+    [
+     55,
+     26,
+     46,
+     [
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|12|fl0",
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|11|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|9|fl6"
+     ]
+    ]
+   ]
+  },
+  "drag2": {
+   "n": 42,
+   "p50": 29.2,
+   "p95": 44.8,
+   "max": 47.2,
+   "loaf": [
+    [
+     53,
+     25,
+     43,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|10|fl0",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|9|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|8|fl6"
+     ]
+    ],
+    [
+     55,
+     26,
+     44,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|11|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|10|fl7",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|9|fl0"
+     ]
+    ],
+    [
+     53,
+     26,
+     44,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|10|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|9|fl7",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|8|fl0"
+     ]
+    ]
+   ]
+  }
+ }
+}

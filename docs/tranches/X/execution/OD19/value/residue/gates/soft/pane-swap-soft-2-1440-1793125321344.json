@@ -1,0 +1,280 @@
+{
+  "width": 1440,
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+  "realGpu": false,
+  "warmed": true,
+  "coldDuringGradient": [],
+  "gradient": {
+    "title": 984,
+    "firstMove": 984,
+    "lastMove": 2043,
+    "window": 1059,
+    "maxFrame": 783,
+    "frames": 10,
+    "loaf": [
+      [
+        51,
+        120,
+        [
+          "render@119",
+          "style+layout@120"
+        ]
+      ],
+      [
+        208,
+        1026,
+        [
+          "render@781",
+          "style+layout@783",
+          "ResizeObserverCallback|deps/createCanvasLifecycle-hJHobVTn-Bn6S7la1.js|242",
+          "TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|38",
+          "TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|12"
+        ]
+      ]
+    ],
+    "movedBy": [
+      [
+        984,
+        [
+          [
+            -24,
+            0,
+            -1
+          ],
+          [
+            24,
+            0,
+            -1
+          ]
+        ]
+      ],
+      [
+        1251,
+        [
+          [
+            0,
+            0,
+            0.15
+          ],
+          [
+            0,
+            0,
+            0.15
+          ]
+        ]
+      ],
+      [
+        1267,
+        [
+          [
+            1,
+            0,
+            0.21
+          ],
+          [
+            -1,
+            0,
+            0.21
+          ]
+        ]
+      ],
+      [
+        2043,
+        [
+          [
+            22,
+            0,
+            0.64
+          ],
+          [
+            -22,
+            0,
+            0.64
+          ]
+        ]
+      ]
+    ]
+  },
+  "home": {
+    "title": 3,
+    "firstMove": 502,
+    "lastMove": 1203,
+    "window": 701,
+    "maxFrame": 459,
+    "frames": 9,
+    "loaf": [
+      [
+        44,
+        899,
+        [
+          "render@461",
+          "style+layout@468",
+          "ResizeObserverCallback|deps/createCanvasLifecycle-hJHobVTn-Bn6S7la1.js|427",
+          "TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|11",
+          "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js|6"
+        ]
+      ]
+    ],
+    "movedBy": [
+      [
+        502,
+        [
+          [
+            24,
+            0,
+            -1
+          ],
+          [
+            -24,
+            0,
+            -1
+          ]
+        ]
+      ],
+      [
+        961,
+        [
+          [
+            0,
+            0,
+            0.15
+          ],
+          [
+            0,
+            0,
+            0.15
+          ]
+        ]
+      ],
+      [
+        1203,
+        [
+          [
+            -25,
+            0,
+            0.85
+          ],
+          [
+            25,
+            0,
+            0.85
+          ]
+        ]
+      ]
+    ]
+  },
+  "mix": {
+    "title": 301,
+    "firstMove": 301,
+    "lastMove": 876,
+    "window": 575,
+    "maxFrame": 259,
+    "frames": 10,
+    "loaf": [
+      [
+        44,
+        263,
+        [
+          "render@260",
+          "style+layout@262",
+          "TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|23"
+        ]
+      ],
+      [
+        308,
+        51,
+        [
+          "render@50",
+          "style+layout@51"
+        ]
+      ],
+      [
+        360,
+        83,
+        [
+          "render@82",
+          "style+layout@83"
+        ]
+      ],
+      [
+        443,
+        51,
+        [
+          "render@49",
+          "style+layout@50"
+        ]
+      ],
+      [
+        494,
+        132,
+        [
+          "render@131",
+          "style+layout@132"
+        ]
+      ]
+    ],
+    "movedBy": [
+      [
+        301,
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            24,
+            0,
+            -1
+          ]
+        ]
+      ],
+      [
+        484,
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            -5,
+            0,
+            0.58
+          ]
+        ]
+      ],
+      [
+        618,
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            -18,
+            0,
+            0.42
+          ]
+        ]
+      ],
+      [
+        876,
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            -2,
+            0,
+            0
+          ]
+        ]
+      ]
+    ]
+  },
+  "at": "2026-10-27T18:22:01.344Z"
+}

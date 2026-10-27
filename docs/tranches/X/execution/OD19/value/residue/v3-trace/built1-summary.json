@@ -1,0 +1,478 @@
+{
+ "light-1440": {
+  "n": 42,
+  "p50": 26.2,
+  "p95": 30.9,
+  "inputs": [
+   21.3,
+   29.6,
+   23.6,
+   19.7,
+   25.3,
+   23.9,
+   26.2,
+   24.8,
+   24.1,
+   24.7,
+   25.8,
+   23.1,
+   25.1,
+   26.2,
+   26.2,
+   25.6,
+   172.5,
+   20.3,
+   27.9,
+   30.5,
+   17.5,
+   16.3,
+   27.9,
+   30.8,
+   15.3,
+   29.8,
+   27.2,
+   29.3,
+   30.9,
+   31.4,
+   29.2,
+   14.8,
+   28.7,
+   30.9,
+   26.1,
+   23.3,
+   29.4,
+   29.2,
+   29.5,
+   29.6,
+   29.3,
+   28.8
+  ],
+  "frameDtOver17": 2,
+  "frames": 105,
+  "traceSpanMs": 1932,
+  "mainMs": {
+   "FireAnimationFrame": 378.4,
+   "RunMicrotasks": 346.2,
+   "UpdateLayoutTree": 245.7,
+   "FunctionCall": 231.6,
+   "EventDispatch": 180.4,
+   "Layout": 159.2,
+   "Paint": 54.9,
+   "TimerFire": 20.9,
+   "PrePaint": 18.4,
+   "Layerize": 17,
+   "Commit": 12.4,
+   "IntersectionObserverController::computeIntersections": 3.4,
+   "HitTest": 2.4,
+   "UpdateLayer": 1.9,
+   "ParseHTML": 0
+  },
+  "topFns": [
+   [
+    "h@assets/useResizeObserver-CdUlm2QZ-P1BHwy7P.js:1",
+    158.8
+   ],
+   [
+    "?@assets/index-CRxbG3pG.js:9",
+    27.5
+   ],
+   [
+    "_@assets/index-CRxbG3pG.js:194",
+    19.5
+   ],
+   [
+    "n@assets/vue.runtime.esm-bundler-CgkFrCBN.js:3",
+    9.4
+   ],
+   [
+    "i@assets/index-CRxbG3pG.js:12",
+    6.7
+   ],
+   [
+    "tick@:9",
+    1.5
+   ],
+   [
+    "b@assets/dom-BGUvN8Cf.js:1",
+    1.4
+   ],
+   [
+    "De@assets/ColorInput-BfHjiJtd.js:1",
+    1.3
+   ],
+   [
+    "addEventListener.capture@:4",
+    1
+   ],
+   [
+    "r@assets/keyframes-DEDv5OhW.js:1",
+    0.7
+   ],
+   [
+    "l@assets/index-CRxbG3pG.js:3414",
+    0.6
+   ],
+   [
+    "Ny.Se.passive@assets/index-CRxbG3pG.js:3414",
+    0.6
+   ]
+  ]
+ },
+ "dark-1440": {
+  "n": 42,
+  "p50": 16.7,
+  "p95": 31.4,
+  "inputs": [
+   26.2,
+   19.6,
+   15.5,
+   32.3,
+   27.8,
+   24.5,
+   32.3,
+   15.5,
+   15.3,
+   28.5,
+   15.8,
+   16.8,
+   28.7,
+   16,
+   16.4,
+   15.4,
+   16.1,
+   24.5,
+   16.8,
+   16.7,
+   16,
+   16.7,
+   15.8,
+   28.8,
+   16.5,
+   23.1,
+   16.7,
+   15,
+   31.4,
+   15.1,
+   26.8,
+   30.7,
+   17.3,
+   16.9,
+   16.4,
+   16.3,
+   15.5,
+   16.1,
+   25.6,
+   15.4,
+   15.5,
+   17
+  ],
+  "frameDtOver17": 0,
+  "frames": 81,
+  "traceSpanMs": 1365,
+  "mainMs": {
+   "RunMicrotasks": 294.3,
+   "EventDispatch": 176.8,
+   "FireAnimationFrame": 171.4,
+   "UpdateLayoutTree": 167.7,
+   "Layout": 141.4,
+   "FunctionCall": 55.3,
+   "Paint": 37.5,
+   "PrePaint": 13.1,
+   "Layerize": 12.4,
+   "Commit": 9.4,
+   "IntersectionObserverController::computeIntersections": 2.6,
+   "TimerFire": 2.4,
+   "UpdateLayer": 0.9,
+   "HitTest": 0.8,
+   "ParseHTML": 0
+  },
+  "topFns": [
+   [
+    "?@assets/index-CRxbG3pG.js:9",
+    20.7
+   ],
+   [
+    "_@assets/index-CRxbG3pG.js:194",
+    14.3
+   ],
+   [
+    "n@assets/vue.runtime.esm-bundler-CgkFrCBN.js:3",
+    8.4
+   ],
+   [
+    "h@assets/useResizeObserver-CdUlm2QZ-P1BHwy7P.js:1",
+    4.1
+   ],
+   [
+    "De@assets/ColorInput-BfHjiJtd.js:1",
+    1.3
+   ],
+   [
+    "tick@:9",
+    0.9
+   ],
+   [
+    "b@assets/dom-BGUvN8Cf.js:1",
+    0.8
+   ],
+   [
+    "addEventListener.capture@:4",
+    0.6
+   ],
+   [
+    "r@assets/keyframes-DEDv5OhW.js:1",
+    0.6
+   ],
+   [
+    "Ny.Se.passive@assets/index-CRxbG3pG.js:3414",
+    0.6
+   ],
+   [
+    "l@assets/index-CRxbG3pG.js:3414",
+    0.5
+   ],
+   [
+    "r@assets/index-CRxbG3pG.js:12",
+    0.5
+   ]
+  ]
+ },
+ "light-390": {
+  "n": 42,
+  "p50": 26.2,
+  "p95": 32.4,
+  "inputs": [
+   24.3,
+   16.8,
+   48,
+   31.1,
+   29.3,
+   24.9,
+   30.3,
+   29.4,
+   16.5,
+   30.5,
+   29.2,
+   29.3,
+   16.3,
+   15.8,
+   16,
+   26.8,
+   30.8,
+   17.8,
+   17.1,
+   16.5,
+   16.6,
+   31.1,
+   15.6,
+   16.2,
+   29.9,
+   32.6,
+   26.2,
+   30.1,
+   31.5,
+   30.5,
+   15.7,
+   15.5,
+   16,
+   16.3,
+   16.2,
+   16.3,
+   30.4,
+   24.3,
+   32.1,
+   32.4,
+   31.3,
+   17.3
+  ],
+  "frameDtOver17": 1,
+  "frames": 89,
+  "traceSpanMs": 1515,
+  "mainMs": {
+   "RunMicrotasks": 309.1,
+   "FireAnimationFrame": 199,
+   "UpdateLayoutTree": 166.9,
+   "EventDispatch": 157.9,
+   "Layout": 147.2,
+   "FunctionCall": 66.1,
+   "Paint": 39,
+   "TimerFire": 19.7,
+   "Layerize": 15.7,
+   "PrePaint": 13.9,
+   "Commit": 9.6,
+   "IntersectionObserverController::computeIntersections": 2.5,
+   "HitTest": 2.3,
+   "UpdateLayer": 1.1,
+   "ParseHTML": 0
+  },
+  "topFns": [
+   [
+    "?@assets/index-CRxbG3pG.js:9",
+    31.5
+   ],
+   [
+    "_@assets/index-CRxbG3pG.js:194",
+    14.7
+   ],
+   [
+    "n@assets/vue.runtime.esm-bundler-CgkFrCBN.js:3",
+    6.8
+   ],
+   [
+    "i@assets/index-CRxbG3pG.js:12",
+    6.1
+   ],
+   [
+    "De@assets/ColorInput-BfHjiJtd.js:1",
+    1.2
+   ],
+   [
+    "b@assets/dom-BGUvN8Cf.js:1",
+    1
+   ],
+   [
+    "tick@:9",
+    0.9
+   ],
+   [
+    "addEventListener.capture@:4",
+    0.8
+   ],
+   [
+    "Ny.Se.passive@assets/index-CRxbG3pG.js:3414",
+    0.6
+   ],
+   [
+    "l@assets/index-CRxbG3pG.js:3414",
+    0.5
+   ],
+   [
+    "r@assets/index-CRxbG3pG.js:12",
+    0.5
+   ],
+   [
+    "listener@:7664",
+    0.3
+   ]
+  ]
+ },
+ "dark-390": {
+  "n": 42,
+  "p50": 17.3,
+  "p95": 31.5,
+  "inputs": [
+   27.5,
+   31,
+   21.4,
+   31.7,
+   16.9,
+   32.8,
+   15.5,
+   18.2,
+   17.9,
+   17.3,
+   17.2,
+   17,
+   16.9,
+   16.1,
+   15.7,
+   16.1,
+   16.3,
+   16.8,
+   16.5,
+   17.5,
+   17.5,
+   28.9,
+   18,
+   19.8,
+   16.9,
+   16.2,
+   16.8,
+   31.5,
+   16.5,
+   30.5,
+   16.4,
+   16.2,
+   17.4,
+   17.5,
+   27.8,
+   17.1,
+   16.6,
+   19.8,
+   17,
+   18,
+   30.3,
+   17.2
+  ],
+  "frameDtOver17": 0,
+  "frames": 75,
+  "traceSpanMs": 1267,
+  "mainMs": {
+   "RunMicrotasks": 287.2,
+   "EventDispatch": 169,
+   "FireAnimationFrame": 161.7,
+   "Layout": 136.9,
+   "UpdateLayoutTree": 130.2,
+   "FunctionCall": 44.8,
+   "Paint": 34.2,
+   "Layerize": 12.2,
+   "PrePaint": 11,
+   "Commit": 8.1,
+   "TimerFire": 2.4,
+   "IntersectionObserverController::computeIntersections": 2.2,
+   "HitTest": 0.9,
+   "UpdateLayer": 0.7,
+   "ParseHTML": 0
+  },
+  "topFns": [
+   [
+    "?@assets/index-CRxbG3pG.js:9",
+    19.4
+   ],
+   [
+    "_@assets/index-CRxbG3pG.js:194",
+    12.8
+   ],
+   [
+    "n@assets/vue.runtime.esm-bundler-CgkFrCBN.js:3",
+    6.2
+   ],
+   [
+    "De@assets/ColorInput-BfHjiJtd.js:1",
+    1.2
+   ],
+   [
+    "tick@:9",
+    0.7
+   ],
+   [
+    "b@assets/dom-BGUvN8Cf.js:1",
+    0.7
+   ],
+   [
+    "addEventListener.capture@:4",
+    0.6
+   ],
+   [
+    "Ny.Se.passive@assets/index-CRxbG3pG.js:3414",
+    0.5
+   ],
+   [
+    "l@assets/index-CRxbG3pG.js:3414",
+    0.5
+   ],
+   [
+    "r@assets/index-CRxbG3pG.js:12",
+    0.4
+   ],
+   [
+    "listener@:7664",
+    0.3
+   ],
+   [
+    "e@assets/index-CRxbG3pG.js:3414",
+    0.2
+   ]
+  ]
+ }
+}

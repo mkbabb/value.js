@@ -568,3 +568,86 @@ Adopting `@mkbabb/glass-ui` **10.1.1** (tag `v10.1.1` at `d7baa1dc3`). Read befo
 - e2e `--project=smoke --workers=1`, on `od19-v2-dock-settle`, `page-load`, `w12-dock`, `oracles/v7r-overlay-layer` and `ss8-b14-skeleton-ink`: **16 / 18 ×2** (`e2e-{1,2}.txt`). The two failures are the known `w12-dock` pair: "Login hover plate `rgba(0,0,0,0)`" and "layer switch: `W12e seed` ≠ `Tools`". They are the same HEAD regression that `### repair 1` measured on 10.1.0 and 10.1.1 alike, and it is routed to the dock seat (Track A). The v7r overlay paint-order oracle passes with the class retired.
 
 No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched.
+
+### residue (§0gp)
+
+Residue seat, 2026-10-27, `claude-opus-5-5`. Binding: COHESION §0gp (2: every OD19 frame/latency budget is gated on the real-GPU cell of record, ×2; software raster asserts liveness only, the form ruled LAWFUL at §0fr.3), §0fr.2–.3, §0gf, §0dm. Evidence: `value/residue/` (`gpu-read-2/` the spec reads, `anatomy/` profiles and LoAF, `probes/` the instruments, `gates/`). An earlier residue seat (2026-10-21) left `gpu-read/`, `v3-trace/`, the uncommitted `od19-v3-colour-latency.spec.ts` and the `useRealGpuCell()` line in `od19-pane-swap.spec.ts`; this seat adopted and finished them. Every run went through `guarded`. Browser runs were headless, with one browser per run and one context per cell. Machine load was 28–83 throughout, from other seats.
+
+**The cell of record.** Headless real Chrome, `channel:'chrome'`, `--use-angle=metal`. WebGL renderer: "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max)". The cell is opted in by `W12_REAL_GPU=1` (`perf/real-gpu.ts`), and each spec file names the need (a GPU/ANGLE-Metal frame-production measurement).
+
+#### Spec changes (instrument only; no assertion moved)
+- `e2e/smoke/od19-pane-swap.spec.ts`:
+  - **§0gp.2 split.** Liveness ("title paints", "the swap moves") is asserted on every renderer. The title ≤ 400 and window ≤ 450 legs assert only off a software rasteriser. `renderer` and `realGpu` are banked in the record.
+  - **Instrument bug cured.** The LoAF observer sorted `e.scripts` in place. That array is frozen, so every long frame threw `TypeError: Cannot assign to read only property '0'` into the app's `window.error` handler (the 2026-10-21 `gpu-read/run-1.txt` shows it on every LoAF) and lost the attribution. It now sorts a copy. The error count in `gpu-read-2/head-{2,3}.txt` is **0 ×2**.
+  - `OD19_OUT` can now redirect the output.
+- `e2e/smoke/od19-v3-colour-latency.spec.ts` (new; carries the same split): it now also banks the **instrument floor**, `floorP50`/`floorP95`. That is the same double-rAF read over 41 hover moves across the inert left gutter. It is recorded and never asserted.
+
+#### Budget reads on the real-GPU cell (×3, `gpu-read-2/`)
+| budget | head-1 | head-2 | head-3 | verdict |
+|---|---|---|---|---|
+| gradient title @1440 (≤ 400) | 400 | 272 | 281 | **GREEN ×2** (head-1 was under load 80, with glass readback frames, below) |
+| gradient / mix window @1440 (≤ 450) | 483 / 433 | 450 / 433 | 450 / 433 | **GREEN ×2** |
+| gradient window @390 (≤ 450) | 450 | 450 | 450 | GREEN |
+| **mix window @390 (≤ 450)** | 500 | 500 | 500 | **RED ×3, deterministic. Root named; the cure is routed (below).** |
+| V3 p50 / p95 (≤ 25 / ≤ 50), 4 cells | 22.3–27.7 / 31.8–87.6 | 28.6–38.9 / 45.4–48.5 | 20.5–34.6 / 40.1–46.1 | p95 GREEN in 11/12 cells. p50 RED in 7/12. **Instrument floor 29.1–30.6 in every cell.** |
+
+The swap's designed moving window is 433 ms: the leave, plus the commit, plus the enter. At 1440 a 450 reading is one 16.7 ms frame over that.
+
+#### The 390 window: the outgoing panes reorder at the input frame (consumer root, owner Track A)
+- Probe: `probes/mix390-jump.mjs` (390, GPU).
+- At t ≈ 9 ms after Home → Mix, **before** the leave begins at about 75 ms, the stage child jumps from y 104 to y 7766, and the inspector's outgoing About (h 7646) jumps to y 104.
+- So the user taps Mix, the picker vanishes below 7.6k px of About text, and that text is what fades out. The same jump affects every hop between Home and the picker-stage routes (palettes, mix, blob), and every hop between those routes and the non-picker-stage routes.
+- **Root:** shell.css's one-track rule (`A2-VA-L2-5`), `.app-layout:not([data-view="picker"]) .pane-wrapper--stage[data-pane="color-picker"] { order: 1 }`. It keys on `data-view` and on the wrapper's `data-pane`. App.vue binds both from the route (`viewManager.currentView`, `region.key`), and the route moves at the input. `PaneSlot` commits the displayed key only after its rAF/preload hold, with the out-in leave after that.
+- **The cure:** the order must key on the **displayed** pane. App.vue already receives the displayed key from every slot (`slotReports(role).onMount(instance, liveKey)`). Stamp it on the region wrapper, for example as `data-shown`, and key the rule on the stage showing `color-picker` while the inspector shows something other than `about`.
+  - That keeps the settled order byte-identical: the subject comes first on palettes, mix and blob, and the picker comes first on Home.
+  - It moves the flip to the commit.
+- **Not landed here.** `demo/app/App.vue` is dirty with Track A's X.W11.v1 O-10d hunk, and `PaneSlot.vue` belongs to Track A (§0gp task law). A CSS-only form was tried on paper and ruled out:
+  - an About marker (`.about-card`) misorders a cold Home, because About is lazy;
+  - the `[inert]` leave marker does not cover the 0–75 ms pre-commit window, which is where the jump happens.
+- **Routed to Track A (X-W11) by id as `OD19-V7-390-ORDER`.** Falsifier of record: od19-pane-swap 390 mix window on the GPU cell, RED 500 ×3. The first move must come at the leave (≈ 75 ms), giving ≈ 433.
+
+#### V3: the p50 bar sits below the instrument's own floor (measured), and the tail is glass
+- **The instrument is phase-locked, and it reads in reverse** (`probes/v3-floor-spin.mjs`, `anatomy/floor-spin-r{1,2}.json`, ×2). Setup: the same double-rAF read over 41 Playwright hover moves on the inert gutter at light-1440, with a synthetic busy-wait added inside the pointermove listener.
+
+| added main-thread work per move | run 1 p50 / p95 | run 2 p50 / p95 |
+|---|---|---|
+| 0 ms | 31.1 / 31.4 | 30.7 / 32.1 |
+| 4 ms | 27.1 / 28.2 | 26.2 / 28.0 |
+| 8 ms | 23.0 / 24.0 | 22.4 / 23.8 |
+| 12 ms | 18.8 / 19.4 | 18.9 / 20.0 |
+
+  - **More work reads lower.** Playwright injects each move after the renderer acknowledges the previous one, so where the injection lands in the frame depends on how long the handler held the thread. The read is that phase plus one frame. It is not the time the product takes to paint the input.
+  - With zero work, the floor (29.1–30.6 in 8 of 8 spec cells, 29.5–31.1 in the probes) is already above the 25 ms p50 bar. A p50 under 25 is reachable only by a handler that takes long enough to shift the phase. That is why the picker drag (22–39) sometimes reads below its own floor.
+  - **No product cure can make this p50 bar hold. Re-ruling the instrument is an orchestrator act (W2.md §11 guardrail 1),** so it is ESCALATED as **ESC-OD19-V3-instr**, not changed here.
+  - A lawful product-latency read on the same cell would be one of two things: frames missed during the drag (`rafP50` is **16.7 in 12/12 cells**, so the drag is painted frame-on-frame), or Event Timing / LoAF `renderStart` minus input.
+- **What the drag costs, named** (`anatomy/head-{1,2}.json`, `loaf-1.json`; CDP CPU profile, GPU cell, dev build, a 41-move drag of about 1.9 s):
+  - **Consumer.**
+    - `certify` 90–101 ms inclusive, about 2.3 ms per input. These are distinct questions, already memoised per (colour, ground, floor) in `certifyAccentInkOnce`.
+    - `ColorNutritionLabel` render 43 ms, and `Dock.vue:133` 42 ms.
+    - `useAtmosphereFrameCoalesce` `publish` 8–17 ms per frame.
+    - The pointermove invoker 8–15 ms, including Vue's flush.
+    - Per-input consumer script is about 5–8 ms on the Vue dev runtime, inside the 16.7 ms frame. The 50–60 ms LoAFs (1–10 per drag) are `invoker` + `publish` + glass `useRAFLoop`.
+  - **Glass: the live backdrop sampler's synchronous GPU readback.** New measured sub-row **V3-s**, cited under O-102 and not re-filed.
+    - GlassDock's `useGlassBackdropLuminance` live mode, opted in by SS-8 Z-Dock-13 (`Dock.vue` `:background-canvas="fieldCanvas"`), runs `Te()`: `drawImage(<WebGL field canvas>)` → `getImageData(0,0,32,32)`. It runs from its `useRAFLoop` tick (≥ 250 ms) and from its ResizeObserver.
+    - On a real GPU that is a sync readback: 17–19 ms `getImageData` plus 11–19 ms `getBoundingClientRect` (`Ee` → `elementsFromPoint`) per drag.
+    - Under load it is the tail. One `useRAFLoop` frame took **433 ms** of script inside a **1038 ms** frame (the light-1440 1033 ms input). A `useResizeObserver h` frame took **161 ms**.
+    - In the hops it is the 149–155 ms LoAFs (head-1, 1440 and 390), and the Home→Mix **283 ms** frame (`getImageData` 286.8 ms, `anatomy/hop-head-2.json`).
+    - **Ask (glass):** an async readback (`createImageBitmap` / PBO+fence), or a sample from the field's own colour model, never a sync `getImageData` on a WebGL source.
+  - **Glass: liquid press reads a token every spring tick.** New sub-row **V5-h**, cited under O-102. `useLiquidPress` → `useSpring` → `motionTempo` reads `getPropertyValue` 15–17 ms per hop, plus `writeVelocityWeight` `maxStretch` 4–5 ms. **Ask:** read the tempo token once per press, not per tick.
+- **V3-g (HeroBlob `resume()` → `createCanvasLifecycle` re-measure, O-102 §8)** was re-read at HEAD. It has **0 samples** among the drag's native-caller attributions (only glass dock frames remain; `anatomy/head-2.json` `callers`). It is no longer measurable on this cell, so §8 stays open in glass and costs this drag nothing.
+
+#### The critic residue beyond the budgets (passes 1–3)
+| row | state at HEAD | verdict |
+|---|---|---|
+| C1-V-05 / C3-V-05, incoming mount frame / view switch | On GPU, gradient and mix 1440 hold the designed 433–450 window ×2. The remaining long frames are glass V3-s/V5-h (above). | **DISCHARGED at 1440 on the cell of record.** 390 mix is `OD19-V7-390-ORDER` (Track A). |
+| C2-V-03 @390, plate 0.766 of the landed pane | Unchanged. The plate fills the visible band, and the rest lands below the fold. A per-pane hand-measured reserve was declined at repair 2 for the orderer's ruling. | **Carried to the orchestrator as before.** Nothing moves on screen, so there is no root cure without a drifting constant. |
+| C3-V-04, picker drag @1440 raster | On GPU, rAF stays at 16.7 and consumer script is about 5–8 ms per input. What is left is V3-s (glass) plus the instrument floor. | **Consumer DISCHARGED.** Glass V3-s is cited under O-102. The bar is ESC-OD19-V3-instr. |
+| o10d census, sr-only H1 off the display face (repair 3 gate (a)) | Track A's uncommitted X.W11.v1 O-10d hunk in App.vue adds `font-display`. | Owned by Track A. Not touched. |
+
+#### Gates (×2, guarded)
+- `npm run typecheck`: rc 0 ×2 (`gates/typecheck-{1,2}.txt`).
+- `vitest run --maxWorkers=2`: **1490/1491 ×2** (`gates/vitest-{1,2}.txt`). The one failure is `palette-card-layout.test.ts` "SS-8 B13 … L-3". It belongs to another seat: an uncommitted, born-RED addition, the same row every OD19 gate since repair 3 has shown.
+- Touched e2e, software cell (`--project=smoke --workers=1`): od19-v3-colour-latency plus od19-pane-swap, **6/6 ×2** (`gates/e2e-soft-{1,2}.txt`). This is liveness only; the readings are banked as INFORMATIONAL per §0gp.2.
+- Touched e2e, real-GPU cell: the budget table above. RED rows are named with their roots, and no assertion moved.
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched. Neither shadcn `ui/**` nor `scripts/dev/dev.sh` was touched. App.vue and PaneSlot (Track A) were not touched.

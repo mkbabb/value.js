@@ -1,0 +1,13 @@
+{
+  "cell": "dark-1440",
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "realGpu": true,
+  "n": 42,
+  "p50": 18.7,
+  "p95": 28.2,
+  "max": 31.2,
+  "rafP50": 16.7,
+  "loafN": 1,
+  "loafMax": 57,
+  "at": "2026-10-21T14:15:21.482Z"
+}

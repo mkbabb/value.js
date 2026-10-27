@@ -1,5 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
+import { detectRenderer, isSoftwareGL } from "./perf/frame-budget";
+import { REAL_GPU, useRealGpuCell } from "./perf/real-gpu";
 
 /**
  * OD19-V5 / OD19-V7 / OD19-ALL (owner docket 2026-10-19, packet P3) — the
@@ -23,11 +25,23 @@ import { mkdirSync, writeFileSync } from "node:fs";
  * Budgets (P3 falsifier): title ≤ 400 ms, window ≤ 450 ms; at 390 no swap
  * frame > 50 ms is RECORDED (software GL frame times are host-bound; the
  * built-bundle long-task gate is `perf/view-switch-frame-budget.spec.ts`).
+ *
+ * §0gp.2 / §0fr.2-.3 (the real-GPU cell law): the title and window budgets are
+ * frame-production budgets, so their gate is the real-GPU cell of record —
+ * headless real Chrome, `channel: "chrome"`, ANGLE-Metal (`W12_REAL_GPU=1`,
+ * `perf/real-gpu.ts`; the machine law's named need: a GPU/ANGLE-Metal
+ * measurement), ×2. On SwiftShader (the `smoke` project's software rasteriser)
+ * the incoming pane's mount/draw is the CPU rastering the scene (OD19 C1-V-05,
+ * C3-V-05: `ltMax 0`, the long frames are not script), so that leg asserts
+ * liveness only — the title paints and the swap moves — and banks the reading
+ * as INFORMATIONAL: the form ruled LAWFUL at §0fr.3 (`w12-drag.spec.ts`).
  */
+
+useRealGpuCell();
 
 const TITLE_BUDGET_MS = 400;
 const WINDOW_BUDGET_MS = 450;
-const OUT = "docs/tranches/X/execution/OD19/value/after/P3";
+const OUT = process.env.OD19_OUT ?? "docs/tranches/X/execution/OD19/value/after/P3";
 
 interface Hop {
     title: number | null;
@@ -76,7 +90,7 @@ async function hop(page: Page, hash: string, label: string): Promise<Hop> {
                         [
                             `render@${Math.round((e.renderStart ?? 0) - e.startTime)}`,
                             `style+layout@${Math.round((e.styleAndLayoutStart ?? 0) - e.startTime)}`,
-                        ].concat((e.scripts ?? [])
+                        ].concat([...(e.scripts ?? [])] // LoAF `scripts` is a frozen array: sort a copy
                             .sort((a, b) => b.duration - a.duration)
                             .slice(0, 3)
                             .map((x) => `${x.invoker}|${(x.sourceURL ?? "").split("/").slice(-2).join("/").split("?")[0]}|${Math.round(x.duration)}`)),
@@ -168,7 +182,9 @@ for (const width of [1440, 390]) {
         await page.waitForTimeout(800);
         const mix = await hop(page, "#/mix", "Mix");
 
-        const record = { width, warmed, coldDuringGradient, gradient, home, mix, at: new Date().toISOString() };
+        const renderer = await detectRenderer(page);
+        const soft = isSoftwareGL(renderer);
+        const record = { width, renderer, realGpu: REAL_GPU, warmed, coldDuringGradient, gradient, home, mix, at: new Date().toISOString() };
         mkdirSync(OUT, { recursive: true });
         writeFileSync(`${OUT}/pane-swap-${process.env.OD19_PHASE ?? "run"}-${width}-${Date.now()}.json`, JSON.stringify(record, null, 2));
         console.log(`[od19-p3] ${JSON.stringify(record)}`);
@@ -177,9 +193,11 @@ for (const width of [1440, 390]) {
             ["gradient", gradient],
             ["mix", mix],
         ] as const) {
+            // Liveness, every renderer: the title paints and the swap moves.
             expect(h.title, `${width} ${name}: title paints`).not.toBeNull();
-            expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
             expect(h.window, `${width} ${name}: the swap moves`).not.toBeNull();
+            if (soft) continue; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+            expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
         }
     });

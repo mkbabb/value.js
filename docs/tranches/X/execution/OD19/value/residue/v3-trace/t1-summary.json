@@ -1,0 +1,359 @@
+{
+ "light-1440": {
+  "n": 42,
+  "p50": 28,
+  "p95": 45.5,
+  "inputs": [
+   26.5,
+   44.7,
+   35.2,
+   35.2,
+   41.3,
+   19.4,
+   21.8,
+   25.8,
+   42.8,
+   35.1,
+   25,
+   38.3,
+   15.6,
+   26.1,
+   28,
+   15.7,
+   14.7,
+   44.5,
+   26.4,
+   28.5,
+   45.5,
+   17.4,
+   17.4,
+   47.7,
+   33.3,
+   20.6,
+   33.5,
+   30.2,
+   21.4,
+   27.7,
+   45,
+   29.6,
+   14.9,
+   46.4,
+   29.2,
+   15.9,
+   32.6,
+   24.8,
+   17.8,
+   30.3,
+   16.4,
+   17.7
+  ],
+  "frameDtOver17": 23,
+  "frames": 117,
+  "traceSpanMs": 2376,
+  "mainMs": {
+   "RunMicrotasks": 809.3,
+   "FireAnimationFrame": 487.9,
+   "EventDispatch": 416,
+   "UpdateLayoutTree": 343.6,
+   "Layout": 227.9,
+   "FunctionCall": 123.9,
+   "Paint": 74.1,
+   "TimerFire": 33.1,
+   "PrePaint": 24.5,
+   "Layerize": 23.5,
+   "Commit": 17.4,
+   "IntersectionObserverController::computeIntersections": 5.2,
+   "HitTest": 3.4,
+   "UpdateLayer": 2.7,
+   "ParseHTML": 0
+  },
+  "topFns": [
+   [
+    "?@deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:43",
+    44.8
+   ],
+   [
+    "S@deps/createCanvasLifecycle-hJHobVTn-Bn6S7la1.js:121",
+    28.7
+   ],
+   [
+    "invoker@deps/vue.runtime.esm-bundler-DQai_KuN.js:7646",
+    13.1
+   ],
+   [
+    "h@deps/useResizeObserver-CdUlm2QZ-Dwk41xCG.js:5",
+    12.7
+   ],
+   [
+    "mintRamps@boot/useViewAccents.ts:128",
+    8.6
+   ],
+   [
+    "x@deps/useDragVelocity-C5BkKiNf-D22i_fwR.js:18",
+    3.1
+   ],
+   [
+    "paintCaption@dock/ColorInput.vue:144",
+    2.6
+   ],
+   [
+    "tick@:9",
+    2
+   ],
+   [
+    "addEventListener.capture@:4",
+    1
+   ],
+   [
+    "r@deps/keyframes-CO6wkrcg.js:82",
+    0.9
+   ],
+   [
+    "useEventListener.passive@boot/useAtmosphere.ts:233",
+    0.9
+   ],
+   [
+    "onMutations@composables/useDevicePixelSnap.ts:71",
+    0.7
+   ]
+  ]
+ },
+ "dark-1440": {
+  "n": 42,
+  "p50": 22.5,
+  "p95": 29.8,
+  "inputs": [
+   18.2,
+   25,
+   21.8,
+   29.8,
+   25.5,
+   26.6,
+   27.8,
+   29.9,
+   19.6,
+   16.6,
+   16.3,
+   25.1,
+   15.7,
+   23.7,
+   22.5,
+   23,
+   24.9,
+   20.7,
+   21.2,
+   21.2,
+   17.9,
+   24,
+   23.1,
+   22.5,
+   19.8,
+   19.1,
+   21.5,
+   16,
+   27.5,
+   17.8,
+   20.3,
+   21.1,
+   23.7,
+   25.2,
+   15.6,
+   29.5,
+   27.1,
+   30.9,
+   20.4,
+   21.4,
+   18.6,
+   23
+  ],
+  "frameDtOver17": 1,
+  "frames": 122,
+  "traceSpanMs": 2091,
+  "mainMs": {
+   "RunMicrotasks": 609,
+   "EventDispatch": 350.9,
+   "FireAnimationFrame": 346.5,
+   "UpdateLayoutTree": 257.4,
+   "Layout": 181.3,
+   "FunctionCall": 88.4,
+   "Paint": 51.7,
+   "PrePaint": 19.3,
+   "Layerize": 19,
+   "Commit": 14.3,
+   "IntersectionObserverController::computeIntersections": 4.8,
+   "TimerFire": 3.2,
+   "HitTest": 1.5,
+   "UpdateLayer": 1.5,
+   "ParseHTML": 0
+  },
+  "topFns": [
+   [
+    "?@deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:43",
+    35
+   ],
+   [
+    "S@deps/createCanvasLifecycle-hJHobVTn-Bn6S7la1.js:121",
+    25.4
+   ],
+   [
+    "invoker@deps/vue.runtime.esm-bundler-DQai_KuN.js:7646",
+    11.7
+   ],
+   [
+    "h@deps/useResizeObserver-CdUlm2QZ-Dwk41xCG.js:5",
+    2.6
+   ],
+   [
+    "x@deps/useDragVelocity-C5BkKiNf-D22i_fwR.js:18",
+    2.6
+   ],
+   [
+    "tick@:9",
+    2.4
+   ],
+   [
+    "paintCaption@dock/ColorInput.vue:144",
+    1.8
+   ],
+   [
+    "addEventListener.capture@:4",
+    0.9
+   ],
+   [
+    "r@deps/keyframes-CO6wkrcg.js:82",
+    0.9
+   ],
+   [
+    "useEventListener.passive@boot/useAtmosphere.ts:233",
+    0.8
+   ],
+   [
+    "onMutations@composables/useDevicePixelSnap.ts:71",
+    0.7
+   ],
+   [
+    "?@shared/debounce.ts:19",
+    0.6
+   ]
+  ]
+ },
+ "light-390": {
+  "n": 42,
+  "p50": 20,
+  "p95": 31.8,
+  "inputs": [
+   23.6,
+   20.1,
+   28.6,
+   16.2,
+   16.3,
+   17.7,
+   31.8,
+   17.5,
+   16.7,
+   19,
+   18.4,
+   20.5,
+   19.4,
+   20,
+   29.3,
+   19.3,
+   18.1,
+   20.2,
+   18.7,
+   17.3,
+   20,
+   30.8,
+   18.4,
+   16.9,
+   19.8,
+   31.8,
+   18.6,
+   31.4,
+   45,
+   19.2,
+   17.9,
+   19.6,
+   18.4,
+   20.3,
+   20.3,
+   16.7,
+   29.1,
+   22,
+   21.8,
+   22.2,
+   23.5,
+   24
+  ],
+  "frameDtOver17": 3,
+  "frames": 114,
+  "traceSpanMs": 1974,
+  "mainMs": {
+   "RunMicrotasks": 668.6,
+   "FireAnimationFrame": 373.4,
+   "EventDispatch": 355.1,
+   "UpdateLayoutTree": 235.5,
+   "Layout": 190.7,
+   "FunctionCall": 83.6,
+   "Paint": 51.8,
+   "TimerFire": 26.6,
+   "Layerize": 21.6,
+   "PrePaint": 19,
+   "Commit": 13.7,
+   "IntersectionObserverController::computeIntersections": 4.2,
+   "HitTest": 2.9,
+   "UpdateLayer": 1.6,
+   "ParseHTML": 0
+  },
+  "topFns": [
+   [
+    "?@deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:43",
+    30.1
+   ],
+   [
+    "S@deps/createCanvasLifecycle-hJHobVTn-Bn6S7la1.js:121",
+    23.8
+   ],
+   [
+    "invoker@deps/vue.runtime.esm-bundler-DQai_KuN.js:7646",
+    9.8
+   ],
+   [
+    "mintRamps@boot/useViewAccents.ts:128",
+    6.9
+   ],
+   [
+    "x@deps/useDragVelocity-C5BkKiNf-D22i_fwR.js:18",
+    3.3
+   ],
+   [
+    "tick@:9",
+    2
+   ],
+   [
+    "paintCaption@dock/ColorInput.vue:144",
+    1.9
+   ],
+   [
+    "addEventListener.capture@:4",
+    0.8
+   ],
+   [
+    "useEventListener.passive@boot/useAtmosphere.ts:233",
+    0.7
+   ],
+   [
+    "onSettle@composables/useDevicePixelSnap.ts:68",
+    0.7
+   ],
+   [
+    "onMutations@composables/useDevicePixelSnap.ts:71",
+    0.6
+   ],
+   [
+    "?@shared/debounce.ts:19",
+    0.6
+   ]
+  ]
+ }
+}

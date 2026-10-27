@@ -1,0 +1,189 @@
+(node:96577) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:96640) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:96686) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js (resolved id: /Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js) in /Users/mkbabb/Programming/value.js/dist/subpaths/color.js. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js (resolved id: /Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js) in /Users/mkbabb/Programming/value.js/dist/subpaths/color.js. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/actions-BHL-LzPw.js (resolved id: /Users/mkbabb/Programming/value.js/dist/actions-BHL-LzPw.js) in /Users/mkbabb/Programming/value.js/dist/subpaths/color.js. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/color-grammar-CaAaicsD.js (resolved id: /Users/mkbabb/Programming/value.js/dist/color-grammar-CaAaicsD.js) in /Users/mkbabb/Programming/value.js/dist/subpaths/color.js. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/color-grammar-CaAaicsD.js (resolved id: /Users/mkbabb/Programming/value.js/dist/color-grammar-CaAaicsD.js) in /Users/mkbabb/Programming/value.js/dist/subpaths/color.js. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/css-grammar-Cgj9gMD-.js (resolved id: /Users/mkbabb/Programming/value.js/dist/css-grammar-Cgj9gMD-.js) in /Users/mkbabb/Programming/value.js/dist/subpaths/css.js. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js (resolved id: /Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js). Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/actions-BHL-LzPw.js (resolved id: /Users/mkbabb/Programming/value.js/dist/actions-BHL-LzPw.js). Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/color-grammar-CaAaicsD.js (resolved id: /Users/mkbabb/Programming/value.js/dist/color-grammar-CaAaicsD.js). Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/serialize-BtpoAFZw.js (resolved id: /Users/mkbabb/Programming/value.js/dist/serialize-BtpoAFZw.js). Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/css.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/css.js) in /Users/mkbabb/Programming/value.js/demo/scenes/about/markdown/composables/useMarkdownColors.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/math.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/math.js) in /Users/mkbabb/Programming/value.js/demo/app/composables/boot/atmosphere-calibration.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/math.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/math.js) in /Users/mkbabb/Programming/value.js/demo/app/composables/boot/atmosphere-calibration.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/math.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/math.js) in /Users/mkbabb/Programming/value.js/demo/app/composables/boot/atmosphere-calibration.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/math.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/math.js) in /Users/mkbabb/Programming/value.js/demo/app/composables/boot/atmosphere-calibration.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/markdown/Markdown.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/search/SearchFilterBar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/ColorSpaceSelector.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/shell/dock/ColorInput.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/SwatchButton.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /App.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/PaletteSpecimen.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ConsoleRail.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/palettes/inspector/PaletteCardSwatches.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/picker/ColorPicker.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/palettes/inspector/PaletteCardMeta.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/card/CurrentPaletteEditor.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ComponentSliders.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/shell/dock/menus/ProfileSection.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/search/MiniColorPicker.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/shell/dock/Dock.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/ColorNutritionLabel.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/shell/dock/menus/MobileMenuDropdown.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/AboutPane.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/card/SwatchHoverMenu.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/color.js) in /Users/mkbabb/Programming/value.js/demo/color-session/named-color-snap.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /@fs/Users/mkbabb/Programming/value.js/dist/subpaths/css.js (resolved id: /Users/mkbabb/Programming/value.js/dist/subpaths/css.js) in /Users/mkbabb/Programming/value.js/demo/scenes/about/markdown/composables/useMarkdownColors.ts. Does the file exist?
+[2m[WebServer] [22m[2m2:15:17 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /@fs/Users/mkbabb/Programming/value.js/demo/palettes/inspector/PaletteInspector.vue. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[od19-p3] {"width":1440,"renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"warmed":true,"coldDuringGradient":["/favicon.svg"],"gradient":{"title":272,"firstMove":88,"lastMove":538,"window":450,"maxFrame":33,"frames":30,"loaf":[[260,55,["render@51","style+layout@53","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|39","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|13"]]],"movedBy":[[88,[[-6,0,-0.26],[6,0,-0.26]]],[105,[[-4,0,-0.18],[4,0,-0.18]]],[122,[[-3,0,-0.14],[3,0,-0.14]]],[138,[[-3,0,-0.11],[3,0,-0.11]]],[155,[[-2,0,-0.09],[2,0,-0.09]]],[172,[[-2,0,-0.07],[2,0,-0.07]]],[188,[[-1,0,-0.05],[1,0,-0.05]]],[222,[[-2,0,-0.07],[2,0,-0.07]]],[238,[[0,0,-0.02],[0,0,-0.02]]],[338,[[0,0,0.25],[0,0,0.25]]],[355,[[2,0,0.18],[-2,0,0.18]]],[372,[[2,0,0.14],[-2,0,0.14]]]]},"home":{"title":17,"firstMove":84,"lastMove":517,"window":433,"maxFrame":17,"frames":31,"loaf":[[-15,51,["render@40","style+layout@47"]]],"movedBy":[[84,[[6,0,-0.26],[-6,0,-0.26]]],[100,[[4,0,-0.18],[-4,0,-0.18]]],[117,[[3,0,-0.14],[-3,0,-0.14]]],[134,[[3,0,-0.11],[-3,0,-0.11]]],[150,[[2,0,-0.09],[-2,0,-0.09]]],[167,[[2,0,-0.07],[-2,0,-0.07]]],[184,[[1,0,-0.05],[-1,0,-0.05]]],[200,[[1,0,-0.04],[-1,0,-0.04]]],[217,[[1,0,-0.03],[-1,0,-0.03]]],[234,[[0,0,-0.02],[0,0,-0.02]]],[317,[[0,0,0.25],[0,0,0.25]]],[334,[[-2,0,0.18],[2,0,0.18]]]]},"mix":{"title":258,"firstMove":75,"lastMove":508,"window":433,"maxFrame":33,"frames":30,"loaf":[],"movedBy":[[75,[[0,0,0],[6,0,-0.26]]],[91,[[0,0,0],[4,0,-0.18]]],[108,[[0,0,0],[3,0,-0.14]]],[125,[[0,0,0],[3,0,-0.11]]],[141,[[0,0,0],[2,0,-0.09]]],[158,[[0,0,0],[2,0,-0.07]]],[175,[[0,0,0],[1,0,-0.05]]],[191,[[0,0,0],[1,0,-0.04]]],[225,[[0,0,0],[1,0,-0.05]]],[308,[[0,0,0],[0,0,0.25]]],[325,[[0,0,0],[-2,0,0.18]]],[341,[[0,0,0],[-2,0,0.14]]]]},"at":"2026-10-27T18:15:27.299Z"}
+  ✓  1 [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms (13.6s)
+[od19-p3] {"width":390,"renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"warmed":true,"coldDuringGradient":["/favicon.svg"],"gradient":{"title":266,"firstMove":82,"lastMove":532,"window":450,"maxFrame":33,"frames":31,"loaf":[[-16,56,["render@43","style+layout@55","FrameRequestCallback|shell/PaneSlot.vue|6"]],[253,56,["render@54","style+layout@55","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|40","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|13"]]],"movedBy":[[82,[[-6,0,-0.26],[6,0,-0.26]]],[99,[[-4,0,-0.18],[4,0,-0.18]]],[116,[[-3,0,-0.14],[3,0,-0.14]]],[132,[[-3,0,-0.11],[3,0,-0.11]]],[149,[[-2,0,-0.09],[2,0,-0.09]]],[166,[[-2,0,-0.07],[2,0,-0.07]]],[182,[[-1,0,-0.05],[1,0,-0.05]]],[199,[[-1,0,-0.04],[1,0,-0.04]]],[216,[[-1,0,-0.03],[1,0,-0.03]]],[232,[[0,0,-0.02],[0,0,-0.02]]],[266,[[0,0,-0.02],[0,429,-0.02]]],[332,[[1,0,0.26],[-1,1,0.26]]]]},"home":{"title":7,"firstMove":74,"lastMove":507,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[74,[[6,0,-0.26],[-6,0,-0.26]]],[91,[[4,0,-0.18],[-4,0,-0.18]]],[107,[[3,0,-0.14],[-3,0,-0.14]]],[124,[[3,0,-0.11],[-3,0,-0.11]]],[141,[[2,0,-0.09],[-2,0,-0.09]]],[157,[[2,0,-0.07],[-2,0,-0.07]]],[174,[[1,0,-0.05],[-1,0,-0.05]]],[191,[[1,0,-0.04],[-1,0,-0.04]]],[207,[[1,0,-0.03],[-1,0,-0.03]]],[224,[[0,0,-0.02],[0,0,-0.02]]],[257,[[0,0,-0.02],[0,-429,-0.02]]],[307,[[-1,0,0.26],[1,-1,0.26]]]]},"mix":{"title":259,"firstMove":9,"lastMove":509,"window":500,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[9,[[0,7662,0],[0,-541,0]]],[43,[[0,-60,0],[0,0,0]]],[76,[[0,1,0],[6,0,-0.26]]],[93,[[0,0,0],[4,0,-0.18]]],[109,[[0,0,0],[3,0,-0.14]]],[126,[[0,0,0],[3,0,-0.11]]],[143,[[0,0,0],[2,0,-0.09]]],[159,[[0,0,0],[2,0,-0.07]]],[176,[[0,0,0],[1,0,-0.05]]],[193,[[0,0,0],[1,0,-0.04]]],[209,[[0,0,0],[1,0,-0.03]]],[226,[[0,0,0],[0,0,-0.02]]]]},"at":"2026-10-27T18:15:36.271Z"}
+  ✘  2 [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms (9.0s)
+(node:98271) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"light-1440","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":38.9,"p95":45.4,"max":46,"rafP50":16.7,"floorP50":30,"floorP95":30.9,"loafN":10,"loafMax":59,"at":"2026-10-27T18:15:58.338Z"}
+  ✘  3 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (7.5s)
+(node:98843) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"dark-1440","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":30.2,"p95":46.1,"max":46.7,"rafP50":16.7,"floorP50":30,"floorP95":31.1,"loafN":4,"loafMax":61,"at":"2026-10-27T18:16:14.723Z"}
+  ✘  4 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (7.5s)
+(node:99554) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"light-390","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":28.6,"p95":48.5,"max":49.5,"rafP50":16.7,"floorP50":29.1,"floorP95":30.8,"loafN":3,"loafMax":59,"at":"2026-10-27T18:16:30.525Z"}
+  ✘  5 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (7.5s)
+(node:669) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"dark-390","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":29.3,"p95":45.5,"max":48.2,"rafP50":16.7,"floorP50":29.1,"floorP95":30.4,"loafN":4,"loafMax":54,"at":"2026-10-27T18:16:48.340Z"}
+  ✘  6 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (7.6s)
+
+
+  1) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 390 mix: moving window (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m450[39m
+    Received:    [31m500[39m
+
+      199 |             if (soft) continue; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+      200 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+    > 201 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+          |                                                                       ^
+      202 |         }
+      203 |     });
+      204 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:201:71
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-3-e0f6e-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+
+    Error: light-1440: input → paint p50 (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m25[39m
+    Received:    [31m38.9[39m
+
+      166 |             expect(r.inputs.length, `${scheme}-${width}: inputs painted`).toBeGreaterThan(10);
+      167 |             if (soft) return; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+    > 168 |             expect(record.p50!, `${scheme}-${width}: input → paint p50 (ms)`).toBeLessThanOrEqual(P50_BUDGET_MS);
+          |                                                                               ^
+      169 |             expect(record.p95!, `${scheme}-${width}: input → paint p95 (ms)`).toBeLessThanOrEqual(P95_BUDGET_MS);
+      170 |         });
+      171 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v3-colour-latency.spec.ts:168:79
+
+    Error Context: test-results/od19-v3-colour-latency-OD1-6ac8a-int-p50-≤-25-ms-p95-≤-50-ms-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+
+    Error: dark-1440: input → paint p50 (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m25[39m
+    Received:    [31m30.2[39m
+
+      166 |             expect(r.inputs.length, `${scheme}-${width}: inputs painted`).toBeGreaterThan(10);
+      167 |             if (soft) return; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+    > 168 |             expect(record.p50!, `${scheme}-${width}: input → paint p50 (ms)`).toBeLessThanOrEqual(P50_BUDGET_MS);
+          |                                                                               ^
+      169 |             expect(record.p95!, `${scheme}-${width}: input → paint p95 (ms)`).toBeLessThanOrEqual(P95_BUDGET_MS);
+      170 |         });
+      171 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v3-colour-latency.spec.ts:168:79
+
+    Error Context: test-results/od19-v3-colour-latency-OD1-890ce-int-p50-≤-25-ms-p95-≤-50-ms-smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+
+    Error: light-390: input → paint p50 (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m25[39m
+    Received:    [31m28.6[39m
+
+      166 |             expect(r.inputs.length, `${scheme}-${width}: inputs painted`).toBeGreaterThan(10);
+      167 |             if (soft) return; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+    > 168 |             expect(record.p50!, `${scheme}-${width}: input → paint p50 (ms)`).toBeLessThanOrEqual(P50_BUDGET_MS);
+          |                                                                               ^
+      169 |             expect(record.p95!, `${scheme}-${width}: input → paint p95 (ms)`).toBeLessThanOrEqual(P95_BUDGET_MS);
+      170 |         });
+      171 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v3-colour-latency.spec.ts:168:79
+
+    Error Context: test-results/od19-v3-colour-latency-OD1-4b9a7-int-p50-≤-25-ms-p95-≤-50-ms-smoke/error-context.md
+
+  5) [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+
+    Error: dark-390: input → paint p50 (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m25[39m
+    Received:    [31m29.3[39m
+
+      166 |             expect(r.inputs.length, `${scheme}-${width}: inputs painted`).toBeGreaterThan(10);
+      167 |             if (soft) return; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+    > 168 |             expect(record.p50!, `${scheme}-${width}: input → paint p50 (ms)`).toBeLessThanOrEqual(P50_BUDGET_MS);
+          |                                                                               ^
+      169 |             expect(record.p95!, `${scheme}-${width}: input → paint p95 (ms)`).toBeLessThanOrEqual(P95_BUDGET_MS);
+      170 |         });
+      171 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v3-colour-latency.spec.ts:168:79
+
+    Error Context: test-results/od19-v3-colour-latency-OD1-bd360-int-p50-≤-25-ms-p95-≤-50-ms-smoke/error-context.md
+
+  5 failed
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+    [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+    [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+    [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+    [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+  1 passed (1.8m)

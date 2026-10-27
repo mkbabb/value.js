@@ -1,0 +1,181 @@
+(node:22750) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:23054) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:23123) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m3362 │[0m /* #__PURE__ */
+[2m[WebServer] [22m [38;5;240m     │[0m ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m        ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+[2m[WebServer] [22m [38;5;240m     │[0m                       ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22mError: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+[2m[WebServer] [22m    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+[2m[WebServer] [22m    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+[2m[WebServer] [22m    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+[2m[WebServer] [22m    at o (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js:8:44)
+[2m[WebServer] [22m    at F (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:110:7)
+[2m[WebServer] [22m    at xe (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:117:60)
+[2m[WebServer] [22m    at useAtmosphere (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:9734:27)
+[2m[WebServer] [22m    at useAtmosphereBoot (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:9885:80)
+[2m[WebServer] [22m    at setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10296:48)
+[2m[WebServer] [22m    at App_vue_vue_type_script_setup_true_lang_default.setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10430:22) [90mundefined[39m
+
+Running 6 tests using 1 worker
+
+(node:23530) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-p3] {"width":1440,"renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"warmed":true,"coldDuringGradient":["/favicon.svg"],"gradient":{"title":400,"firstMove":216,"lastMove":700,"window":483,"maxFrame":200,"frames":12,"loaf":[[-16,53,["render@40","style+layout@49","FrameRequestCallback|shell/PaneSlot.vue|5"]],[38,155,["render@0","style+layout@151","FrameRequestCallback|deps/useResizeObserver-CdUlm2QZ-Dwk41xCG.js|149"]],[236,215,["render@200","style+layout@213","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|38","DIV.ontransitionend|deps/vue.runtime.esm-bundler-DQai_KuN.js|12"]],[502,212,["render@211","style+layout@212"]]],"movedBy":[[216,[[-6,0,-0.26],[6,0,-0.26]]],[233,[[-4,0,-0.18],[4,0,-0.18]]],[400,[[-13,0,-0.56],[13,0,-0.56]]],[483,[[1,0,0.26],[-1,0,0.26]]],[500,[[2,0,0.18],[-2,0,0.18]]],[700,[[22,0,0.56],[-22,0,0.56]]]]},"home":{"title":10,"firstMove":77,"lastMove":510,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[77,[[6,0,-0.26],[-6,0,-0.26]]],[94,[[4,0,-0.18],[-4,0,-0.18]]],[110,[[3,0,-0.14],[-3,0,-0.14]]],[127,[[3,0,-0.11],[-3,0,-0.11]]],[144,[[2,0,-0.09],[-2,0,-0.09]]],[160,[[2,0,-0.07],[-2,0,-0.07]]],[177,[[1,0,-0.05],[-1,0,-0.05]]],[193,[[1,0,-0.04],[-1,0,-0.04]]],[210,[[1,0,-0.03],[-1,0,-0.03]]],[227,[[0,0,-0.02],[0,0,-0.02]]],[310,[[0,0,0.25],[0,0,0.25]]],[327,[[-2,0,0.18],[2,0,0.18]]]]},"mix":{"title":258,"firstMove":74,"lastMove":508,"window":433,"maxFrame":117,"frames":25,"loaf":[[326,129,["render@128","style+layout@129"]]],"movedBy":[[74,[[0,0,0],[6,0,-0.26]]],[91,[[0,0,0],[4,0,-0.18]]],[107,[[0,0,0],[3,0,-0.14]]],[124,[[0,0,0],[3,0,-0.11]]],[141,[[0,0,0],[2,0,-0.09]]],[157,[[0,0,0],[2,0,-0.07]]],[174,[[0,0,0],[1,0,-0.05]]],[191,[[0,0,0],[1,0,-0.04]]],[208,[[0,0,0],[1,0,-0.03]]],[224,[[0,0,0],[0,0,-0.02]]],[308,[[0,0,0],[0,0,0.25]]],[324,[[0,0,0],[-2,0,0.18]]]]},"at":"2026-10-27T17:18:06.421Z"}
+  ✘  1 [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms (17.3s)
+(node:25409) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-p3] {"width":390,"renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"warmed":true,"coldDuringGradient":["/favicon.svg"],"gradient":{"title":272,"firstMove":88,"lastMove":538,"window":450,"maxFrame":150,"frames":23,"loaf":[[-10,54,["render@43","style+layout@53","FrameRequestCallback|shell/PaneSlot.vue|6"]],[340,166,["render@16","style+layout@166","FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js|149"]]],"movedBy":[[88,[[-6,0,-0.26],[6,0,-0.26]]],[105,[[-4,0,-0.18],[4,0,-0.18]]],[122,[[-3,0,-0.14],[3,0,-0.14]]],[138,[[-3,0,-0.11],[3,0,-0.11]]],[155,[[-2,0,-0.09],[2,0,-0.09]]],[172,[[-2,0,-0.07],[2,0,-0.07]]],[188,[[-1,0,-0.05],[1,0,-0.05]]],[205,[[-1,0,-0.04],[1,0,-0.04]]],[222,[[-1,0,-0.03],[1,0,-0.03]]],[238,[[0,0,-0.02],[0,0,-0.02]]],[272,[[0,0,-0.02],[0,429,-0.02]]],[338,[[1,0,0.26],[-1,1,0.26]]]]},"home":{"title":9,"firstMove":75,"lastMove":542,"window":467,"maxFrame":150,"frames":25,"loaf":[[145,168,["render@159","style+layout@165","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|9","FrameRequestCallback||6"]]],"movedBy":[[75,[[6,0,-0.26],[-6,0,-0.26]]],[92,[[4,0,-0.18],[-4,0,-0.18]]],[109,[[3,0,-0.14],[-3,0,-0.14]]],[125,[[3,0,-0.11],[-3,0,-0.11]]],[142,[[2,0,-0.09],[-2,0,-0.09]]],[292,[[5,0,-0.23],[-5,-429,-0.23]]],[342,[[-1,0,0.26],[1,-1,0.26]]],[359,[[-2,0,0.18],[2,0,0.18]]],[375,[[-2,0,0.14],[2,0,0.14]]],[392,[[-3,0,0.11],[3,0,0.11]]],[409,[[-3,0,0.09],[3,0,0.09]]],[425,[[-3,0,0.07],[3,0,0.07]]]]},"mix":{"title":259,"firstMove":9,"lastMove":509,"window":500,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[9,[[0,7662,0],[0,-541,0]]],[43,[[0,-60,0],[0,0,0]]],[76,[[0,1,0],[6,0,-0.26]]],[93,[[0,0,0],[4,0,-0.18]]],[109,[[0,0,0],[3,0,-0.14]]],[126,[[0,0,0],[3,0,-0.11]]],[143,[[0,0,0],[2,0,-0.09]]],[159,[[0,0,0],[2,0,-0.07]]],[176,[[0,0,0],[1,0,-0.05]]],[193,[[0,0,0],[1,0,-0.04]]],[209,[[0,0,0],[1,0,-0.03]]],[226,[[0,0,0],[0,0,-0.02]]]]},"at":"2026-10-27T17:18:28.017Z"}
+  ✘  2 [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms (9.4s)
+(node:26640) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"light-1440","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":26.7,"p95":87.6,"max":704.5,"rafP50":16.7,"loafN":4,"loafMax":712,"at":"2026-10-27T17:18:43.263Z"}
+  ✘  3 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (7.0s)
+(node:27644) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"dark-1440","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":25.7,"p95":37.6,"max":41.8,"rafP50":16.7,"loafN":0,"loafMax":0,"at":"2026-10-27T17:18:57.008Z"}
+  ✘  4 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (6.4s)
+(node:28372) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"light-390","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":27.7,"p95":43.2,"max":47.2,"rafP50":16.7,"loafN":4,"loafMax":74,"at":"2026-10-27T17:19:11.095Z"}
+  ✘  5 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (6.4s)
+(node:28861) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"dark-390","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":22.3,"p95":31.8,"max":40.5,"rafP50":16.7,"loafN":0,"loafMax":0,"at":"2026-10-27T17:19:22.611Z"}
+  ✓  6 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (6.1s)
+
+
+  1) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 1440 gradient: moving window (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m450[39m
+    Received:    [31m483[39m
+
+      199 |             if (soft) continue; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+      200 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+    > 201 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+          |                                                                       ^
+      202 |         }
+      203 |     });
+      204 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:201:71
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-1-570e2-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 390 mix: moving window (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m450[39m
+    Received:    [31m500[39m
+
+      199 |             if (soft) continue; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+      200 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+    > 201 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+          |                                                                       ^
+      202 |         }
+      203 |     });
+      204 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:201:71
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-3-e0f6e-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+
+    Error: light-1440: input → paint p50 (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m25[39m
+    Received:    [31m26.7[39m
+
+      137 |             expect(r.inputs.length, `${scheme}-${width}: inputs painted`).toBeGreaterThan(10);
+      138 |             if (soft) return; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+    > 139 |             expect(record.p50!, `${scheme}-${width}: input → paint p50 (ms)`).toBeLessThanOrEqual(P50_BUDGET_MS);
+          |                                                                               ^
+      140 |             expect(record.p95!, `${scheme}-${width}: input → paint p95 (ms)`).toBeLessThanOrEqual(P95_BUDGET_MS);
+      141 |         });
+      142 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v3-colour-latency.spec.ts:139:79
+
+    Error Context: test-results/od19-v3-colour-latency-OD1-6ac8a-int-p50-≤-25-ms-p95-≤-50-ms-smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+
+    Error: dark-1440: input → paint p50 (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m25[39m
+    Received:    [31m25.7[39m
+
+      137 |             expect(r.inputs.length, `${scheme}-${width}: inputs painted`).toBeGreaterThan(10);
+      138 |             if (soft) return; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+    > 139 |             expect(record.p50!, `${scheme}-${width}: input → paint p50 (ms)`).toBeLessThanOrEqual(P50_BUDGET_MS);
+          |                                                                               ^
+      140 |             expect(record.p95!, `${scheme}-${width}: input → paint p95 (ms)`).toBeLessThanOrEqual(P95_BUDGET_MS);
+      141 |         });
+      142 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v3-colour-latency.spec.ts:139:79
+
+    Error Context: test-results/od19-v3-colour-latency-OD1-890ce-int-p50-≤-25-ms-p95-≤-50-ms-smoke/error-context.md
+
+  5) [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+
+    Error: light-390: input → paint p50 (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m25[39m
+    Received:    [31m27.7[39m
+
+      137 |             expect(r.inputs.length, `${scheme}-${width}: inputs painted`).toBeGreaterThan(10);
+      138 |             if (soft) return; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+    > 139 |             expect(record.p50!, `${scheme}-${width}: input → paint p50 (ms)`).toBeLessThanOrEqual(P50_BUDGET_MS);
+          |                                                                               ^
+      140 |             expect(record.p95!, `${scheme}-${width}: input → paint p95 (ms)`).toBeLessThanOrEqual(P95_BUDGET_MS);
+      141 |         });
+      142 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v3-colour-latency.spec.ts:139:79
+
+    Error Context: test-results/od19-v3-colour-latency-OD1-4b9a7-int-p50-≤-25-ms-p95-≤-50-ms-smoke/error-context.md
+
+  5 failed
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+    [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+    [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+    [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+  1 passed (1.9m)

@@ -1,0 +1,124 @@
+(node:59206) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:59276) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:59406) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m[2m10:14:43 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mTypeError[22m: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[2m10:14:43 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m    at Array.sort (<anonymous>)
+[2m[WebServer] [22m    at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+[2m[WebServer] [22m[2m10:14:45 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mTypeError[22m: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[2m10:14:45 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m    at Array.sort (<anonymous>)
+[2m[WebServer] [22m    at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+[2m[WebServer] [22m[2m10:14:47 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mTypeError[22m: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[2m10:14:47 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m    at Array.sort (<anonymous>)
+[2m[WebServer] [22m    at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+[od19-p3] {"width":1440,"warmed":true,"coldDuringGradient":["/favicon.svg"],"gradient":{"title":276,"firstMove":93,"lastMove":543,"window":450,"maxFrame":33,"frames":31,"loaf":[[-5,50,["render@34","style+layout@46","FrameRequestCallback|shell/PaneSlot.vue|7"]]],"movedBy":[[93,[[-6,0,-0.26],[6,0,-0.26]]],[110,[[-4,0,-0.18],[4,0,-0.18]]],[126,[[-3,0,-0.14],[3,0,-0.14]]],[143,[[-3,0,-0.11],[3,0,-0.11]]],[160,[[-2,0,-0.09],[2,0,-0.09]]],[176,[[-2,0,-0.07],[2,0,-0.07]]],[193,[[-1,0,-0.05],[1,0,-0.05]]],[210,[[-1,0,-0.04],[1,0,-0.04]]],[226,[[-1,0,-0.03],[1,0,-0.03]]],[243,[[0,0,-0.02],[0,0,-0.02]]],[343,[[0,0,0.25],[0,0,0.25]]],[360,[[2,0,0.18],[-2,0,0.18]]]]},"home":{"title":7,"firstMove":74,"lastMove":507,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[74,[[6,0,-0.26],[-6,0,-0.26]]],[90,[[4,0,-0.18],[-4,0,-0.18]]],[107,[[3,0,-0.14],[-3,0,-0.14]]],[123,[[3,0,-0.11],[-3,0,-0.11]]],[140,[[2,0,-0.09],[-2,0,-0.09]]],[157,[[2,0,-0.07],[-2,0,-0.07]]],[173,[[1,0,-0.05],[-1,0,-0.05]]],[190,[[1,0,-0.04],[-1,0,-0.04]]],[207,[[1,0,-0.03],[-1,0,-0.03]]],[224,[[0,0,-0.02],[0,0,-0.02]]],[307,[[0,0,0.25],[0,0,0.25]]],[324,[[-2,0,0.18],[2,0,0.18]]]]},"mix":{"title":259,"firstMove":75,"lastMove":509,"window":433,"maxFrame":33,"frames":30,"loaf":[],"movedBy":[[75,[[0,0,0],[6,0,-0.26]]],[92,[[0,0,0],[4,0,-0.18]]],[109,[[0,0,0],[3,0,-0.14]]],[125,[[0,0,0],[3,0,-0.11]]],[142,[[0,0,0],[2,0,-0.09]]],[158,[[0,0,0],[2,0,-0.07]]],[175,[[0,0,0],[1,0,-0.05]]],[192,[[0,0,0],[1,0,-0.04]]],[225,[[0,0,0],[1,0,-0.05]]],[308,[[0,0,0],[0,0,0.25]]],[325,[[0,0,0],[-2,0,0.18]]],[342,[[0,0,0],[-2,0,0.14]]]]},"at":"2026-10-21T14:14:48.887Z"}
+  ✓  1 [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms (10.6s)
+[2m[WebServer] [22m[2m10:14:52 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mTypeError[22m: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[2m10:14:52 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m    at Array.sort (<anonymous>)
+[2m[WebServer] [22m    at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+[2m[WebServer] [22m[2m10:14:54 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mTypeError[22m: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[2m10:14:54 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m    at Array.sort (<anonymous>)
+[2m[WebServer] [22m    at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+[2m[WebServer] [22m[2m10:14:56 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mTypeError[22m: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[2m10:14:56 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[2m[WebServer] [22m    at Array.sort (<anonymous>)
+[2m[WebServer] [22m    at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+[od19-p3] {"width":390,"warmed":true,"coldDuringGradient":["/favicon.svg"],"gradient":{"title":260,"firstMove":77,"lastMove":527,"window":450,"maxFrame":33,"frames":30,"loaf":[],"movedBy":[[77,[[-6,0,-0.26],[6,0,-0.26]]],[94,[[-4,0,-0.18],[4,0,-0.18]]],[110,[[-3,0,-0.14],[3,0,-0.14]]],[127,[[-3,0,-0.11],[3,0,-0.11]]],[144,[[-2,0,-0.09],[2,0,-0.09]]],[160,[[-2,0,-0.07],[2,0,-0.07]]],[177,[[-1,0,-0.05],[1,0,-0.05]]],[194,[[-1,0,-0.04],[1,0,-0.04]]],[227,[[-1,0,-0.05],[1,0,-0.05]]],[260,[[0,0,-0.02],[0,429,-0.02]]],[327,[[1,0,0.26],[-1,1,0.26]]],[344,[[2,0,0.18],[-2,0,0.18]]]]},"home":{"title":9,"firstMove":76,"lastMove":509,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[76,[[6,0,-0.26],[-6,0,-0.26]]],[92,[[4,0,-0.18],[-4,0,-0.18]]],[109,[[3,0,-0.14],[-3,0,-0.14]]],[126,[[3,0,-0.11],[-3,0,-0.11]]],[142,[[2,0,-0.09],[-2,0,-0.09]]],[159,[[2,0,-0.07],[-2,0,-0.07]]],[176,[[1,0,-0.05],[-1,0,-0.05]]],[192,[[1,0,-0.04],[-1,0,-0.04]]],[209,[[1,0,-0.03],[-1,0,-0.03]]],[226,[[0,0,-0.02],[0,0,-0.02]]],[259,[[0,0,-0.02],[0,-429,-0.02]]],[309,[[-1,0,0.26],[1,-1,0.26]]]]},"mix":{"title":258,"firstMove":8,"lastMove":508,"window":500,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[8,[[0,7662,0],[0,-541,0]]],[41,[[0,-60,0],[0,0,0]]],[75,[[0,1,0],[6,0,-0.26]]],[91,[[0,0,0],[4,0,-0.18]]],[108,[[0,0,0],[3,0,-0.14]]],[125,[[0,0,0],[3,0,-0.11]]],[141,[[0,0,0],[2,0,-0.09]]],[158,[[0,0,0],[2,0,-0.07]]],[175,[[0,0,0],[1,0,-0.05]]],[191,[[0,0,0],[1,0,-0.04]]],[208,[[0,0,0],[1,0,-0.03]]],[225,[[0,0,0],[0,0,-0.02]]]]},"at":"2026-10-21T14:14:57.609Z"}
+  ✘  2 [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms (8.7s)
+(node:60989) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"light-1440","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":28.9,"p95":47.4,"max":49.6,"rafP50":16.7,"loafN":4,"loafMax":72,"at":"2026-10-21T14:15:10.162Z"}
+  ✘  3 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (6.2s)
+(node:61440) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"dark-1440","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":18.7,"p95":28.2,"max":31.2,"rafP50":16.7,"loafN":1,"loafMax":57,"at":"2026-10-21T14:15:21.482Z"}
+  ✓  4 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (5.6s)
+[od19-v3] {"cell":"light-390","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":27.3,"p95":44.6,"max":48.4,"rafP50":16.7,"loafN":1,"loafMax":63,"at":"2026-10-21T14:15:27.194Z"}
+  ✘  5 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (5.7s)
+(node:62048) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[od19-v3] {"cell":"dark-390","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":21.7,"p95":26.9,"max":31.3,"rafP50":16.7,"loafN":1,"loafMax":60,"at":"2026-10-21T14:15:37.580Z"}
+  ✓  6 [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms (5.4s)
+
+
+  1) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 390 mix: moving window (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m450[39m
+    Received:    [31m500[39m
+
+      184 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+      185 |             expect(h.window, `${width} ${name}: the swap moves`).not.toBeNull();
+    > 186 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+          |                                                                       ^
+      187 |         }
+      188 |     });
+      189 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:186:71
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-3-e0f6e-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+
+    Error: light-1440: input → paint p50 (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m25[39m
+    Received:    [31m28.9[39m
+
+      137 |             expect(r.inputs.length, `${scheme}-${width}: inputs painted`).toBeGreaterThan(10);
+      138 |             if (soft) return; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+    > 139 |             expect(record.p50!, `${scheme}-${width}: input → paint p50 (ms)`).toBeLessThanOrEqual(P50_BUDGET_MS);
+          |                                                                               ^
+      140 |             expect(record.p95!, `${scheme}-${width}: input → paint p95 (ms)`).toBeLessThanOrEqual(P95_BUDGET_MS);
+      141 |         });
+      142 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v3-colour-latency.spec.ts:139:79
+
+    Error Context: test-results/od19-v3-colour-latency-OD1-6ac8a-int-p50-≤-25-ms-p95-≤-50-ms-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+
+    Error: light-390: input → paint p50 (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m25[39m
+    Received:    [31m27.3[39m
+
+      137 |             expect(r.inputs.length, `${scheme}-${width}: inputs painted`).toBeGreaterThan(10);
+      138 |             if (soft) return; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+    > 139 |             expect(record.p50!, `${scheme}-${width}: input → paint p50 (ms)`).toBeLessThanOrEqual(P50_BUDGET_MS);
+          |                                                                               ^
+      140 |             expect(record.p95!, `${scheme}-${width}: input → paint p95 (ms)`).toBeLessThanOrEqual(P95_BUDGET_MS);
+      141 |         });
+      142 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v3-colour-latency.spec.ts:139:79
+
+    Error Context: test-results/od19-v3-colour-latency-OD1-4b9a7-int-p50-≤-25-ms-p95-≤-50-ms-smoke/error-context.md
+
+  3 failed
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+    [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+    [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+  3 passed (1.1m)

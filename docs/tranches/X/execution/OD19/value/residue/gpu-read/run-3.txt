@@ -1,0 +1,59 @@
+(node:13162) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+[1A[2K(node:13261) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/6] [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[1A[2K[smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[od19-p3] {"width":1440,"warmed":true,"coldDuringGradient":["/favicon.svg"],"gradient":{"title":253,"firstMove":70,"lastMove":519,"window":450,"maxFrame":33,"frames":31,"loaf":[],"movedBy":[[70,[[-6,0,-0.26],[6,0,-0.26]]],[86,[[-4,0,-0.18],[4,0,-0.18]]],[103,[[-3,0,-0.14],[3,0,-0.14]]],[119,[[-3,0,-0.11],[3,0,-0.11]]],[136,[[-2,0,-0.09],[2,0,-0.09]]],[153,[[-2,0,-0.07],[2,0,-0.07]]],[169,[[-1,0,-0.05],[1,0,-0.05]]],[186,[[-1,0,-0.04],[1,0,-0.04]]],[203,[[-1,0,-0.03],[1,0,-0.03]]],[219,[[0,0,-0.02],[0,0,-0.02]]],[319,[[0,0,0.25],[0,0,0.25]]],[336,[[2,0,0.18],[-2,0,0.18]]]]},"home":{"title":9,"firstMove":76,"lastMove":509,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[76,[[6,0,-0.26],[-6,0,-0.26]]],[92,[[4,0,-0.18],[-4,0,-0.18]]],[109,[[3,0,-0.14],[-3,0,-0.14]]],[126,[[3,0,-0.11],[-3,0,-0.11]]],[142,[[2,0,-0.09],[-2,0,-0.09]]],[159,[[2,0,-0.07],[-2,0,-0.07]]],[176,[[1,0,-0.05],[-1,0,-0.05]]],[192,[[1,0,-0.04],[-1,0,-0.04]]],[209,[[1,0,-0.03],[-1,0,-0.03]]],[226,[[0,0,-0.02],[0,0,-0.02]]],[309,[[0,0,0.25],[0,0,0.25]]],[326,[[-2,0,0.18],[2,0,0.18]]]]},"mix":{"title":260,"firstMove":77,"lastMove":510,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[77,[[0,0,0],[6,0,-0.26]]],[94,[[0,0,0],[4,0,-0.18]]],[110,[[0,0,0],[3,0,-0.14]]],[127,[[0,0,0],[3,0,-0.11]]],[144,[[0,0,0],[2,0,-0.09]]],[160,[[0,0,0],[2,0,-0.07]]],[177,[[0,0,0],[1,0,-0.05]]],[194,[[0,0,0],[1,0,-0.04]]],[210,[[0,0,0],[1,0,-0.03]]],[227,[[0,0,0],[0,0,-0.02]]],[310,[[0,0,0],[0,0,0.25]]],[327,[[0,0,0],[-2,0,0.18]]]]},"at":"2026-10-21T18:04:11.142Z"}
+
+[1A[2K[2/6] [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[1A[2K[smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[od19-p3] {"width":390,"warmed":true,"coldDuringGradient":["/favicon.svg"],"gradient":{"title":255,"firstMove":72,"lastMove":505,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[72,[[-6,0,-0.26],[6,0,-0.26]]],[88,[[-4,0,-0.18],[4,0,-0.18]]],[105,[[-3,0,-0.14],[3,0,-0.14]]],[122,[[-3,0,-0.11],[3,0,-0.11]]],[138,[[-2,0,-0.09],[2,0,-0.09]]],[155,[[-2,0,-0.07],[2,0,-0.07]]],[172,[[-1,0,-0.05],[1,0,-0.05]]],[188,[[-1,0,-0.04],[1,0,-0.04]]],[205,[[-1,0,-0.03],[1,0,-0.03]]],[222,[[0,0,-0.02],[0,0,-0.02]]],[255,[[0,0,-0.02],[0,429,-0.02]]],[305,[[1,0,0.26],[-1,1,0.26]]]]},"home":{"title":8,"firstMove":75,"lastMove":508,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[75,[[6,0,-0.26],[-6,0,-0.26]]],[92,[[4,0,-0.18],[-4,0,-0.18]]],[108,[[3,0,-0.14],[-3,0,-0.14]]],[125,[[3,0,-0.11],[-3,0,-0.11]]],[142,[[2,0,-0.09],[-2,0,-0.09]]],[158,[[2,0,-0.07],[-2,0,-0.07]]],[175,[[1,0,-0.05],[-1,0,-0.05]]],[192,[[1,0,-0.04],[-1,0,-0.04]]],[208,[[1,0,-0.03],[-1,0,-0.03]]],[225,[[0,0,-0.02],[0,0,-0.02]]],[258,[[0,0,-0.02],[0,-429,-0.02]]],[308,[[-1,0,0.26],[1,-1,0.26]]]]},"mix":{"title":258,"firstMove":9,"lastMove":509,"window":500,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[9,[[0,7662,0],[0,-541,0]]],[42,[[0,-60,0],[0,0,0]]],[75,[[0,1,0],[6,0,-0.26]]],[92,[[0,0,0],[4,0,-0.18]]],[109,[[0,0,0],[3,0,-0.14]]],[125,[[0,0,0],[3,0,-0.11]]],[142,[[0,0,0],[2,0,-0.09]]],[159,[[0,0,0],[2,0,-0.07]]],[175,[[0,0,0],[1,0,-0.05]]],[192,[[0,0,0],[1,0,-0.04]]],[209,[[0,0,0],[1,0,-0.03]]],[225,[[0,0,0],[0,0,-0.02]]]]},"at":"2026-10-21T18:04:19.226Z"}
+
+[1A[2K  1) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 390 mix: moving window (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m450[39m
+    Received:    [31m500[39m
+
+      184 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+      185 |             expect(h.window, `${width} ${name}: the swap moves`).not.toBeNull();
+    > 186 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+          |                                                                       ^
+      187 |         }
+      188 |     });
+      189 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:186:71
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-3-e0f6e-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+
+[1A[2K(node:14689) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/6] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"light-1440","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":22.4,"p95":40.9,"max":46.1,"rafP50":16.7,"loafN":1,"loafMax":61,"at":"2026-10-21T18:04:31.081Z"}
+
+[1A[2K[4/6] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"dark-1440","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":22.1,"p95":29,"max":32.3,"rafP50":16.7,"loafN":1,"loafMax":69,"at":"2026-10-21T18:04:36.476Z"}
+
+[1A[2K[5/6] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"light-390","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":19.9,"p95":24.7,"max":28.4,"rafP50":16.7,"loafN":0,"loafMax":0,"at":"2026-10-21T18:04:41.754Z"}
+
+[1A[2K[6/6] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"dark-390","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":24.6,"p95":28.2,"max":29.7,"rafP50":16.7,"loafN":0,"loafMax":0,"at":"2026-10-21T18:04:46.989Z"}
+
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+  5 passed (1.1m)
