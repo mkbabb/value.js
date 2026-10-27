@@ -3683,3 +3683,58 @@ None open. ESC-FREL-v3-1, ESC-FREL-ci-1 and ESC-FREL-d-5 are discharged by this 
 
 ### Four-verb line
 The spec's §State names no designated VERIFIED seat for F.REL, and this is a close, not a check. F.REL moves **OPEN → IMPLEMENTED** (every unit's commits landed; close written). It is not CLOSED or VERIFIED here; that is the fresh check's to stamp. LEDGER row: **IMPLEMENTED 2026-09-17** (RESUME (k) close 2026-10-27).
+
+## Check 1
+
+Fresh adversarial check (L-20, pass 1), seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-27 ~20:40–21:00Z. Read: spec `F-REL.md` whole (83 L, addenda (a)–(f)); this record's (k) Open, Baseline, Unit plan, Unit receipts (`.d` acts and gates) and Close; COHESION §0fq.3, §0ge.4, §0gi heads; every commit the close names. Crash recovery: this record and LEDGER clean at open (⟨`git status --porcelain -- <both>`⟩ → empty); fourier main tree dirty only in another lane's `web/e2e/screenshots/f-w14/*.png`, untouched. Check-run logs live under `~/.dev-logs/frel/check1/` (not committed; the readings are quoted here).
+
+### Axis 1 — every claimed GREEN, re-run by this seat
+| Gate | Command (this seat) | Reading | Verdict |
+|---|---|---|---|
+| `.g2` merge `--no-ff`, clean, no force | ⟨`git log -1 --format='%h %p' origin/master`⟩; ⟨`git merge-tree --write-tree 24a524a 34b10ae`⟩ vs ⟨`git rev-parse 50ef781^{tree}`⟩ | `50ef781 24a524a 34b10ae`; both trees `42271488a988…` (no hand-resolved hunk); ⟨`git ls-remote origin`⟩ master `50ef7812…` | GREEN |
+| master CI ×2 | ⟨`gh run view 40561927861` / `40568756355 --json conclusion,headSha,event,jobs`⟩ | `success 50ef781 push` 5/5 · `success 50ef781 workflow_dispatch` 5/5 | GREEN |
+| api tests ×2 · web vue-tsc + vitest ×2 · e2e ×2 | the same two runs' jobs; ⟨`gh run view 40568756355 --log \| grep passed`⟩ | api/tests success ×2; web success ×2; gating e2e `595 passed`, `3 skipped`; the honest-red project runs as its own step and reads `7 failed` = the 7 `producer-held.json` rows, as declared | GREEN (named set explicit) |
+| root pytest `tests/` | ⟨`COMPUTE_CONCURRENCY=1 guarded --timeout 30 -- .venv/bin/pytest tests/ -q`⟩ in the main tree (`d0c300d` = `50ef781` + `scripts/prod-verify.mjs` only) | **`188 passed in 411.29s`**, rc 0 (the close's 188 under a complete env reproduces; `test_contour_bench.py` included) | GREEN |
+| host deploy at master SHA | ⟨`curl https://api.<host>/deploy-record.json`⟩ | `outcome OK`, `deployed_sha 50ef7812…`, `recorded_at 2026-10-27T20:16:44Z`, `health gate GREEN: liveness ok, readiness ok` | GREEN |
+| no outage across the switch | banked poller ⟨`grep -c 'api-health=' resit-k-health-poll.txt`⟩ / ⟨`… \| grep -vc 'api-health=200'`⟩ | `915` / `0` (not re-runnable: no new switch) | GREEN (banked, counts reproduce) |
+| deploy-alert #1 closed | ⟨`gh issue view 1 --json state,closedAt`⟩ | `CLOSED` `2026-10-27T20:24:29Z` | GREEN |
+| `/api/admin/verify` no token | ⟨`curl -w %{http_code}`⟩ ×2 | `403 403` | GREEN |
+| health · openapi | ⟨`curl`⟩; openapi parsed | `200`; `42` paths, `0.2.0`, `/remix` `/publish` `/unpublish` `/diff` present | GREEN |
+| end-to-end production check | ⟨`COMPUTE_CONCURRENCY=1 guarded --timeout 15 -- node scripts/prod-verify.mjs https://fourier.babb.dev https://api.fourier.babb.dev ~/.dev-logs/frel/check1 assets/portraits/daraksha.jpg ~/.fourier-samples/daraksha.jpeg`⟩ (headless shell) | **`21/21 GREEN`**, rc 0 (upload/upright/extract/epicycles/create ×2 images incl. the EXIF-6 original; preview, publish, remix, diff, gallery, PATCH If-Match 200, 3 deletes 204, 0 CORS console errors) | GREEN |
+| PD-1 prod | ⟨`bash evidence/F-REL/d/pd1-prod.sh assets/portraits/daraksha.jpg`⟩, after a 100 s quiet gap | `200`, strong `etag`, no `content-encoding`, `access-control-expose-headers: ETag, RateLimit-Reset`; `PATCH(If-Match)=200 PATCH(stale)=412 DELETE=204` → **`PD-1 PASS`** | GREEN |
+| production smoke ×2 | ⟨`bash scripts/pages-smoke.sh`⟩ ×2 | `PASS` `PASS` | GREEN |
+| cert > 14 d | ⟨`openssl s_client … \| openssl x509 -noout -enddate`⟩ | SPA `Dec 22 20:13:07 2026`, API `Jan  4 15:19:06 2027` | GREEN |
+| mongo 1 GiB · 8.0.20/FCV · 0 auth-failed | host-only reads (§0gh.4 forbids host detail here) | not re-read; banked in `.d` with commands named | GREEN (banked; INFO-1) |
+
+A first PD-1 attempt by this seat, run seconds after the prod-verify run, read `PATCH=429 PATCH=429 DELETE=429` → `PD-1 FAIL`: the same write-budget collision R-k4 names (it is the rate limiter working, not a PD-1 defect). Its draft `blazing-soaking-mango-koala` could not be deleted (DELETE was the 429; the session token is ephemeral and never printed), so it stays a probe-titled **draft**, never listed (INFO-3; joins R-k3).
+
+### Axes 2–9
+- **(2) Bounds.** ⟨`git show --stat`⟩: fourier `50ef781` = the merge (parents `24a524a` `34b10ae`), `.g2`'s declared act; fourier `d0c300d` = `scripts/prod-verify.mjs` only (+4/−1), in `.d`'s set; value.js `fd3051e14` `2fbef1c68` = record + `evidence/F-REL/g2/*`; `468a7e4ad` = record + `evidence/F-REL/d/*` (12 files); `a7d35c780` = record + LEDGER (1 line) + `evidence/F-REL/close-k/*`. All in set. ⟨`git log -3 -- scripts/dev/dev.sh`⟩ → newest `85cfea2cf` (tranche T); untouched. The host `hooks.json` change is the deploy path's config (spec §State Law), designed in advance at RESUME (g) `.h1` design (b), restored byte-identical (`cmp`), under §0gi's full delegation of host hardening. No secret, IP or token in any committed evidence (⟨`grep -rnE '<ipv4>|ADMIN_TOKEN=|Bearer …' evidence/F-REL/{d/resit-k-*,d/*.sh,close-k,g2}`⟩ → none).
+- **(3) Masking.** None in the diff. ⟨`git show 50ef781:.github/workflows/ci.yml \| grep -nE 'continue-on-error\|\|\| true'`⟩ → comments forswearing it plus `kill … \|\| true` in teardown only. The producer-held set is the spec-sanctioned manifest (ADDENDUM (a) `.w`), run as its own named step, never skipped. ⟨`git log --since=2026-10-06 -G'test\.(skip\|fixme)' 50ef781 -- web api tests`⟩ → only `c313ea8` `3168b89` (X-DS passes, not F.REL); the 3 gating skips are `contour-extraction.spec.ts`'s fixture-conditional `test.skip()` (`2eafa20`, 2026-03-09) and the `visualization-crud.spec.ts:641` `test.fixme` (`504844a`, 2026-06-01): both predate this wave and are not in its diff (INFO-2). `d0c300d` drops `channel: "chrome"` (machine law), no assertion touched.
+- **(4) Commit families.** `.g2` = one merge commit + its two record commits; `.d` = one probe fix + one record commit; close = one commit. One commit per meaning; nothing split.
+- **(5) E-3.** ⟨`git log -- docs/tranches/X/fourier/waves/F-REL.md`⟩ → newest `70ecaf647` (2026-10-16, the orchestrator's addendum (f)); ⟨`git log --since=2026-10-27 -- registry/adjudicated/ X/fourier/waves/`⟩ → empty; ⟨`git diff --stat 54270cb63..HEAD -- X/fourier/waves/ V/megatranche/registry/adjudicated/`⟩ → empty. Held.
+- **(6) Mail.** ⟨`grep -E '^\| I-' INBOX.md \| grep -c '\| UNREAD'`⟩ → `0`. Clean.
+- **(7) Four-verb line.** The close moved OPEN/BLOCKED → IMPLEMENTED and left CLOSED to this check. Lawful.
+- **(8) Goal at the bytes.** Master green (×2, 5/5), API healthy at master `50ef781` via the hook, the new contour pipeline served (prod extraction `points 1024` on both portraits, this seat), CORS complete (`PATCH`+`If-Match` 200 cross-origin, `ETag` exposed, 0 CORS console errors), publish/remix/diff live. MET.
+- **(9) Published figures.** `915`/`0` poller lines, `595 passed`, `42` paths, `403 403`, 5/5 ×2, tree `42271488…`, cert dates: all reproduce. The close's prod-verify ×3 (runs 1, 3, close) is honest: run 2's `10/17` is banked RED with its cause (R-k4).
+
+### Axis 10 — honest-RED adjudication
+- **The 7 `web/e2e/producer-held.json` rows** (`f-w14v-au3.spec.ts:119`, `f-w14v-c3.spec.ts:128`, `:138`, `gallery-admin-a11y.spec.ts:91`, `:103`, `:114`, `:125`), RED in master CI's `honest-red` step ×2 (`7 failed`, "still RED as declared"). Relief: **producer-owned** by the spec's own text: §Units `.g` ("the named honest-RED set carries its glass ADOPT-AT-LANDING rows explicitly in the config") and ADDENDUM (a) `.w` ("Producer-owned failures go only into `web/e2e/producer-held.json` (test id, O-id, expiry) … relay each one to glass BK"). Each row carries its O-id and expiry in the committed manifest; owner = glass (BK relays). A consumer patch would be the defect. Relieved.
+- **The pair-level contrast holds** (`pairs`: GAB-1 `--tier-*`, HLG-37), held BY PAIR ID under ADDENDUM (d) `.w2` (manifest `pairs`, O-97); producer-owned, relieved.
+- **No other gate is RED.** Every §Gates row and every ADDENDUM (f) row reads GREEN above.
+
+### Successors ("Opens after" this wave)
+⟨`grep -rnE 'Opens after.{0,200}F\.REL\|after F\.REL' docs/tranches/X`⟩ → only F.CT phase 3 (`F-CT.md:58`, "opens only after F.REL closes"). That conjunct was superseded by COHESION §0ev.4 ("F.CT3 runs NOW, concurrently with F.REL"), and F.CT is CLOSED honest-RED (§0fp; phase 4 not opened, §0ge.6). **No successor is blocked on F.REL**; the F.CT3 conjunct is GREEN as of this check either way.
+
+### Register
+| # | Severity | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| INFO-1 | INFO | The host-only reads (mongo 1 GiB, 8.0.20/FCV, 0 auth-failed over 12 intervals, `ENV=production`) are banked from `.d`, not re-read off-host. | `.d` gate table (commands named); `/api/admin/verify` 403 ×2 here confirms `ENV=production` with the token wired, indirectly | none; §0gh.4 forbids host detail in this record |
+| INFO-2 | INFO | The gating e2e reads `3 skipped`: pre-existing fixture-conditional `test.skip()` (`2eafa20`, 2026-03) and one `test.fixme` (`504844a`, 2026-06), not in F.REL's diff. | ⟨`git log --since=2026-10-06 -G'test\.(skip\|fixme)' 50ef781`⟩ → X-DS commits only | none for F.REL; a later fourier sweep may retire them |
+| INFO-3 | INFO | This check left one probe draft `blazing-soaking-mango-koala` (DELETE answered 429), and the probe's empty per-process budget tracker caused it. | first PD-1 attempt output above | joins R-k3 (orchestrator, admin hard delete); R-k4 (Track C) cures the tracker |
+| INFO-4 | INFO | `d0c300d` (the probe headless-shell fix) is on m/w1 only. | ⟨`git merge-base --is-ancestor d0c300d origin/master`⟩ → no; R-k6 | R-k6 (Track C, next merge); `scripts/` probe, not a CI or product path |
+
+Zero BLOCKER, CRITICAL, HIGH or MINOR.
+
+### Verdict
+**CONFORMANT-HONEST-RED.** Zero BLOCKER, CRITICAL, HIGH or MINOR; 12 gate rows re-run by this seat, all GREEN (2 more rows, the poller and the host-only mongo reads, are banked with counts that reproduce). Honest-RED set: the 7 `producer-held.json` e2e rows (glass-owned, O-id and expiry per row, relieved by §Units `.g` and ADDENDUM (a) `.w`) and the pair-level contrast holds (ADDENDUM (d) `.w2`). LEDGER `F.REL` → **CLOSED 2026-09-17 (honest-RED: producer-held e2e ×7 + pair-level contrast holds, glass-owned)**.
