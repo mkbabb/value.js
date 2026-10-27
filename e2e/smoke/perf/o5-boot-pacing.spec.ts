@@ -6,7 +6,10 @@ import {
     percentile,
     waitMs,
     detectRenderer,
+    isSoftwareGL,
+    SOFT_CEIL,
 } from "./frame-budget";
+import { useRealGpuCell } from "./real-gpu";
 
 /**
  * T.W0 W0-5 · O-5 — PACING VARIANCE (software-invariant; SYNTHESIS §6.1 O-5,
@@ -67,6 +70,22 @@ import {
  *    Lowering that guard would be a narrowed assertion and is forbidden.)
  */
 
+/*
+ * ── X.W11.v1c · COHESION §0gp.2 (the §0fr.2/.3 law) — LIVENESS ON SOFTWARE GL,
+ *    BUDGET ON THE REAL-GPU CELL OF RECORD.
+ *    The spike, the pile-up and the `frames.length > 10` guard are FRAME
+ *    budgets, and every reading above names their software-GL cause: a ~2.5 s
+ *    presentation-side BeginFrame stall carrying no main-thread work, and a
+ *    window that yields 3–12 rAF frames on SwiftShader. On SwiftShader (the
+ *    `smoke-perf` project; CI) the leg asserts liveness only — the boot paints
+ *    and the rAF loop ticks (`SOFT_CEIL.idleMinFrames`), the §0fr.3 form ruled
+ *    LAWFUL at `w12-drag.spec.ts:136`. Every budget below is asserted UNCHANGED
+ *    on the real-GPU cell: `W12_REAL_GPU=1` runs this file in headless Google
+ *    Chrome (`channel: "chrome"`, ANGLE-Metal — the GPU measurement is the
+ *    named need for the branded channel, machine law), ×2.
+ */
+useRealGpuCell();
+
 const SPIKE_RATIO = 3; // no delta > 3× median
 const DROP_RATIO = 2; // a "dropped" frame is > 2× median
 const DROP_FRACTION_MAX = 0.1; // ≤ 10% dropped
@@ -93,13 +112,21 @@ test("O-5 boot pacing — no jitter spike over the boot window", async ({ page }
     // The boot window B0→B4 — the first ~4s of real-time boot rendering.
     await waitMs(page, 4000);
     const frames = (await readFrames(page)).filter((d) => d > 0);
+    const renderer = await detectRenderer(page);
+    if (isSoftwareGL(renderer)) {
+        // §0gp.2: INFORMATIONAL on software GL — liveness only (header above).
+        console.log(
+            `[O-5 SOFTWARE-GL liveness] renderer=${renderer} frames=${frames.length} max=${frames.length ? Math.max(...frames).toFixed(1) : "-"}ms`,
+        );
+        expect(frames.length, "boot rAF loop dead on software GL").toBeGreaterThanOrEqual(SOFT_CEIL.idleMinFrames);
+        return;
+    }
     expect(frames.length, "no boot frames captured").toBeGreaterThan(10);
 
     const median = percentile(frames, 50);
     const maxDelta = Math.max(...frames);
     const dropped = frames.filter((d) => d > DROP_RATIO * median).length;
     const dropFraction = dropped / frames.length;
-    const renderer = await detectRenderer(page);
     console.log(
         `[O-5] renderer=${renderer} frames=${frames.length} median=${median.toFixed(1)}ms max=${maxDelta.toFixed(1)}ms (${(maxDelta / median).toFixed(1)}× median) dropped=${dropped} (${(dropFraction * 100).toFixed(1)}%)`,
     );
