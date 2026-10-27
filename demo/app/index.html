@@ -322,5 +322,19 @@
              `.ground-breath`). -->
         <div class="ground-breath" aria-hidden="true"></div>
         <div id="app"></div>
+        <!-- X.W11.v1c: a document that serves NO shell is a client first view.
+             The head's fouc-guard stamp reads only the visit (route, seed,
+             motion), because the root is not parsed yet; on the dev server,
+             which serves no shell (main.ts), it stamped `shell` on every cold
+             `/`, so App.vue's HYDRATES_SHELL routed the inspector through the
+             idle-hydration wrapper that waits for the pane chunk, and the
+             region painted nothing — no loading plate — while About's chunk
+             was in flight (cold-nav-scene-enter `/#/` RED from b5df0da12,
+             bisected). This classic script runs before any module script,
+             with the root parsed: no `data-prerendered` root, no shell. -->
+        <script>
+            if (!document.getElementById("app").hasAttribute("data-prerendered"))
+                document.documentElement.setAttribute("data-first-view", "client");
+        </script>
     </body>
 </html>
