@@ -604,6 +604,21 @@ for (const scheme of ["light", "dark"] as const) {
             const icon = page.locator(".view-select-trigger svg").first();
             if (await icon.count()) {
                 await expect(icon).toBeVisible();
+                // X.W11.v1c (the §0gl.8 instrument law: sample the terminal
+                // frame, assertions unchanged): the trigger scope TRANSITIONS
+                // its registered `--accent-view` (DockViewSelect.vue, the W7-4
+                // bounded sweep), so the icon reads the root token only once
+                // that sweep has finished. Measured on SwiftShader (dark, `/`):
+                // the 550 ms sweep was still `running` at +5 s with the icon at
+                // an intermediate oklab, the root already certified.
+                await page.waitForFunction(
+                    () => {
+                        const t = document.querySelector(".view-select-trigger");
+                        return !!t && t.getAnimations().every((a) => a.playState !== "running");
+                    },
+                    null,
+                    { timeout: 30_000 },
+                );
                 // X-W1 · G-1 — the probe returns NAMED triples rather than a
                 // pair of loose arrays: `Uint8ClampedArray` indexing is
                 // `number | undefined` under `noUncheckedIndexedAccess`, and
