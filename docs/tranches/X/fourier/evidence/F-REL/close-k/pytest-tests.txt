@@ -1,0 +1,14 @@
+SERVED MODEL: claude-opus-5-5
+# F.REL RESUME (k) close — root pytest tests/ at master 50ef781 (~/.fourier-frel/g-wt, guarded, COMPUTE_CONCURRENCY=1)
+## run 1: the worktree's own .venv (no 'web' extra: pydantic absent)
+   1 4 failed, 184 passed in 339.99s (0:05:39)
+   4 E   ModuleNotFoundError: No module named 'pydantic'
+   1 FAILED tests/test_contour_bench.py::test_bench_metrics_are_sane[animals-golden-retriever]
+   1 FAILED tests/test_contour_bench.py::test_bench_metrics_are_sane[animals-sun]
+   1 FAILED tests/test_contour_bench.py::test_bench_metrics_are_sane[portraits-daraksha]
+   1 FAILED tests/test_contour_bench.py::test_bench_metrics_are_sane[portraits-euler]
+## test_contour_bench.py x2 with the full-extras venv (editable src = main tree src; git diff 50ef781 d0c300d = scripts/prod-verify.mjs only)
+.......                                                                  [100%]
+7 passed in 36.02s
+.......                                                                  [100%]
+7 passed in 35.87s

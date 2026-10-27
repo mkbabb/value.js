@@ -1,0 +1,25 @@
+SERVED MODEL: claude-opus-5-5
+# F.REL RESUME (k) close — prod-verify (headless shell, guarded, COMPUTE_CONCURRENCY=1), 2026-10-27
+GREEN session — {"status":200,"user":"rosy-reaching-straw-bear"}
+GREEN upload daraksha.jpg — {"status":200,"slug":"faded-darting-onyx-yak"}
+GREEN upright daraksha.jpg — {"status":200,"w":768,"h":1024}
+GREEN extract daraksha.jpg — {"status":200,"ms":62,"source":"extract","points":1024}
+GREEN epicycles daraksha.jpg — {"status":200}
+GREEN create daraksha.jpg — {"status":201,"slug":"flecked-etching-chestnut-tiger","etag":"\"fb2c9eab8cc035fc5460b9236a048cba0686058e5b649649f18221f0e087c4b2\""}
+GREEN upload daraksha.jpeg — {"status":200,"slug":"twilit-cresting-prism-kestrel"}
+GREEN upright daraksha.jpeg — {"status":200,"w":768,"h":1024}
+GREEN extract daraksha.jpeg — {"status":200,"ms":58,"source":"extract","points":1024}
+GREEN epicycles daraksha.jpeg — {"status":200}
+GREEN create daraksha.jpeg — {"status":201,"slug":"sunlit-humming-plum-duck","etag":"\"2fa333598b29f3bc0148b8824535ad2b7e0412276877de45ac827988a6fd9808\""}
+GREEN preview /v/<slug> — {"slug":"flecked-etching-chestnut-tiger","canvas":true,"failed":0}
+GREEN publish — {"status":200,"visibility":"public"}
+GREEN remix — {"status":201,"child":"smoky-skating-cerulean-boa"}
+GREEN diff — {"status":200,"keys":["from_hash","to_hash","ops","identical"]}
+GREEN gallery — {"status":200,"listed":true,"items":1}
+GREEN edit (PATCH, If-Match) — {"etagExposed":true,"status":200}
+GREEN delete smoky-skating-cerulean-boa — {"status":204}
+GREEN delete sunlit-humming-plum-duck — {"status":204}
+GREEN delete flecked-etching-chestnut-tiger — {"status":204}
+GREEN no CORS console errors — {"cors":[]}
+21/21 GREEN
+rc=0

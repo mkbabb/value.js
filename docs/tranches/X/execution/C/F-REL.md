@@ -3626,3 +3626,60 @@ R-j3, R-j4 and R-j5 are discharged.
 - R-k5: `deploy-pages` `40568806110` shipped the SPA from `50ef781` (pages-smoke PASS ×2). `40575160812` (the dispatch run's) was **skipped** by design (push-only). R-k2 is discharged.
 
 **Escalations:** none. **Status: DONE.**
+
+## RESUME 2026-10-27 (k) — Close
+
+Close seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-27 ~20:30Z. VERIFY-ONLY; nothing cured. Crash recovery: fourier ⟨`git status --porcelain`⟩ → only ` M web/e2e/screenshots/f-w14/after-page-*.png` (another lane's) + `?? .worktrees/`, none in an F.REL set, untouched; `~/.fourier-frel/g-wt` at `50ef781`, 0 dirty. value.js: this record, LEDGER and `evidence/F-REL/` clean at open. Nothing inherited. Load ⟨`uptime`⟩ → `12.15 15.95 19.50`. Evidence: `docs/tranches/X/fourier/evidence/F-REL/close-k/` (`prod-verify.txt`, `pd1.txt`, `pytest-tests.txt`).
+
+### Commit roster (⟨`git show --stat`⟩ against each unit's writable set)
+| Unit | Commit | Paths | In bounds |
+|---|---|---|---|
+| `.g2` | fourier `50ef781` | merge `--no-ff` of `34b10ae` into master; parents `24a524a` + `34b10ae`; tree `42271488…` = ⟨`git merge-tree --write-tree 24a524a 34b10ae`⟩ (rc 0) → no hand-resolved hunk; ⟨`git rev-parse --short origin/master`⟩ → `50ef781` | yes |
+| `.g2` | value.js `fd3051e14` | this record + `evidence/F-REL/g2/{reads-1,master-ci}.txt` | yes |
+| `.g2` | value.js `2fbef1c68` | this record + `evidence/F-REL/g2/{health-poll,master-ci}.txt` | yes |
+| `.d` | fourier `d0c300d` | `scripts/prod-verify.mjs` (1 file, +4/−1); on `m/w1-bump-migration` = origin, **not on master** (⟨`git merge-base --is-ancestor d0c300d origin/master`⟩ → no) | yes (`scripts/**`, prod-verify only) |
+| `.d` | value.js `468a7e4ad` | this record + `evidence/F-REL/d/{health-poll-1s.sh,pd1-prod.sh,resit-k-*.txt}` (12 files) | yes |
+
+landedWrong: none. The host `hooks.json` edit (`.d` acts 3/5) is the deploy path's config, restored byte-identical per the receipt; it is the spec's lawful channel ("the host is changed only through its deploy path and config").
+
+### E13 mail sweep (close)
+⟨`ls -t glass-ui/docs/tranches | head -3`⟩ → `BL BK BJ`. ⟨`find value V/coordination · glass BL BK/coordination · keyframes V/coordination · P/coordination -maxdepth 3 -type f -newer INBOX.md`⟩ → `glass BL/FORMATION-PROGRESS.md`, `glass BL/audit/INBOUND.md` only: glass's own ledgers; INBOUND `5a98867fe` (O-108) and `070f3e90f` (O-109) row value.js outbound perf/plate-text relays, neither addressed to F.REL. ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`. **0 UNREAD in scope.**
+
+### Gate table (BEFORE = RESUME (k) Baseline → AFTER = this close's own readings, ~20:35–20:50Z)
+| Gate (spec §Gates / ADDENDUM (f)) | BEFORE | AFTER (close) |
+|---|---|---|
+| api tests ×2 | banked | master CI `40561927861` (push) + `40568756355` (dispatch), job `api/tests (with live Mongo)` success ×2 (⟨`gh run view --log`⟩ dispatch → `347 passed`). **GREEN** |
+| pytest `tests/` | banked 169 ×2 (`e26d48a`) | ⟨`guarded -- .venv/bin/pytest tests/ -q`⟩ in `~/.fourier-frel/g-wt` @ `50ef781` → `184 passed, 4 failed`; the 4 = `test_contour_bench.py::test_bench_metrics_are_sane[*]`, each `ModuleNotFoundError: No module named 'pydantic'` (the scratch worktree's venv lacks the `web` extra: an environment read, not a product red). Re-run with the full-extras venv (editable `src` = main tree, ⟨`git diff --stat 50ef781 d0c300d`⟩ → `scripts/prod-verify.mjs` only) → `test_contour_bench.py` `7 passed` ×2. **GREEN** (188/188 under a complete env; the full file once, the bench file ×2) |
+| web vue-tsc · vitest · e2e ×2 (named set explicit) | master CI RED `39292117114` | master CI ×2 @ `50ef781`: `web (vue-tsc + vite build)` (runs `npm test` + `vue-tsc -b --force`) success ×2; `e2e (Playwright)` success ×2 (dispatch `595 passed`; the honest-red project runs as its own named step). **GREEN** |
+| `.g2` merge `--no-ff` clean · push no force | not made | `50ef781` (see roster); `24a524a..50ef781`. **GREEN** |
+| master CI GREEN ×2 | RED @ `24a524a` | ⟨`gh run view <id> --json conclusion,headSha,jobs`⟩ → `40561927861` success `50ef781` 5/5 · `40568756355` success `50ef781` 5/5. **GREEN** |
+| host deploy at master SHA | REFUSE @ `79f1a43` | ⟨`curl …/deploy-record.json`⟩ → `outcome OK`, `deployed_sha 50ef781…`, `recorded_at 20:16:44Z`, `health gate GREEN: liveness ok, readiness ok`. **GREEN** |
+| no API outage during the deploy (health polled through it) | — | not re-runnable at close (no new switch); banked from `.d`: `resit-k-health-poll.txt` 915/915 `200`, 0 non-200, max gap 2 s. **GREEN (banked)** |
+| deploy-alert #1 closed | OPEN | ⟨`gh issue view 1 --json state,closedAt`⟩ → `CLOSED` `2026-10-27T20:24:29Z`. **GREEN** |
+| `/api/admin/verify` no token = 403 (not 503) | 503 | ⟨`curl -w %{http_code}`⟩ ×2 → `403` `403`. **GREEN** |
+| health · openapi | 200 · 200 | `200` · `200`; openapi `42` paths, `0.2.0`, `/remix` `/publish` `/unpublish` `/diff` present. **GREEN** |
+| end-to-end production check (prod-verify) | RED (old build) | ⟨`COMPUTE_CONCURRENCY=1 guarded --timeout 15 -- node scripts/prod-verify.mjs <spa> <api> ~/.dev-logs/frel/close-k daraksha.jpg daraksha.jpeg(EXIF-6)`⟩ (headless shell, `d0c300d` bytes) → `21/21 GREEN`, rc 0 (`close-k/prod-verify.txt`). With `.d`'s runs 1 and 3: ×3. **GREEN** |
+| PD-1 prod | gzip, no ETag | ⟨`bash evidence/F-REL/d/pd1-prod.sh assets/portraits/daraksha.jpg`⟩ 80 s after prod-verify → `200`, strong `etag`, no `content-encoding`, `access-control-expose-headers: ETag, RateLimit-Reset`; `PATCH(If-Match)=200 PATCH(stale)=412 DELETE=204` → `PD-1 PASS` (`close-k/pd1.txt`). **GREEN** |
+| production smoke | PASS | ⟨`bash scripts/pages-smoke.sh`⟩ → `PASS` (CORS origin, cert line). **GREEN** |
+| cert > 14 d | Dec 22 / Jan 4 | ⟨`openssl s_client … \| openssl x509 -noout -enddate`⟩ → SPA `Dec 22 20:13:07 2026`, API `Jan  4 15:19:06 2027`. **GREEN** |
+| mongo 1 GiB · 8.0.20 + FCV · 0 auth-failed / 12 intervals | 512 MiB · 208/10 min | host-only reads; not re-read off-host at close (§0gh.4: no host detail here). Banked from `.d`: `1073741824`, `mongo:8.0.20`, FCV `8.0`, 0 over 16 and 12 intervals. **GREEN (banked)** |
+
+§Verification Artefacts: the spec names none beyond §Gates; every gate above is read.
+
+### Units
+- `.g2`: **IMPLEMENTED** (fourier `50ef781`; value.js `fd3051e14` `2fbef1c68`). Discharges R-j2 and the master gates of `.m2`, `.s1`, `.v3`.
+- `.d`: **IMPLEMENTED** (fourier `d0c300d`; value.js `468a7e4ad`). Discharges R-j3, R-j4, R-j5, R-k1, R-k2.
+- Every earlier unit is alreadyDone per the (k) Unit plan. All of the wave's units have landed.
+
+### Residuals (named owners)
+- R-k3: 9 tombstoned probe rows from `.d`, plus this close's PD-1 draft and prod-verify rows (soft `DELETE`, 0 live). Hard delete is an admin act (§0ge.8 R-4). Owner: **the orchestrator** (optional; not a gate).
+- R-k4: `prod-verify.mjs`'s rate-budget tracker starts empty per process (back-to-back runs read 429s). Owner: **Track C** (next touch of the probe; this close spaced its runs instead).
+- R-k6 (new): `d0c300d` (the prod-verify headless-shell cure) is on `m/w1-bump-migration` only, not on master; it rides the next m/w1 → master merge. It also has no m/w1 `ci.yml` run of its own (newest m/w1 run is `40552991504` @ `34b10ae`; the change is a `scripts/` probe file CI does not execute). Owner: **Track C** (next merge).
+- R-k7 (new): the scratch worktree `~/.fourier-frel/g-wt`'s `.venv` lacks the `web` extra, so a root `pytest tests/` there reads 4 import errors in `test_contour_bench.py`. Environment only. Owner: **Track C** (any later sitting using that worktree: `uv sync --extra web --extra dev`).
+- Host: `hooks.json.bak-frel-d-20261027` (mode 600) is left on the host by `.d`. Owner: **the orchestrator / owner** (remove at will).
+
+### Escalations
+None open. ESC-FREL-v3-1, ESC-FREL-ci-1 and ESC-FREL-d-5 are discharged by this sitting's `.g2` and `.d`.
+
+### Four-verb line
+The spec's §State names no designated VERIFIED seat for F.REL, and this is a close, not a check. F.REL moves **OPEN → IMPLEMENTED** (every unit's commits landed; close written). It is not CLOSED or VERIFIED here; that is the fresh check's to stamp. LEDGER row: **IMPLEMENTED 2026-09-17** (RESUME (k) close 2026-10-27).
