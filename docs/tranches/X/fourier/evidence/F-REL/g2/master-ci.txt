@@ -31,4 +31,4 @@ inv-27 evidence (covering run id + SHA)	success	2026-10-27T20:06:56Z	2026-10-27T
 ⟨gh run view 40568806141 --log-failed | tail⟩ → '[deploy-alert] waiting - no deploy-of-record served' … 19:54:37Z 'updating the open deploy-alert issue #1' → exit 1
 (the host did not deploy 50ef781 on the push webhook: the expected fail-closed REFUSE; .d's read and act)
 
-⟨awk '{print $2}' health-poll.log | sort | uniq -c⟩ → 1249 health=200 (0 non-200)
+⟨awk '{print $2}' health-poll.txt | sort | uniq -c⟩ → 1249 health=200 (0 non-200)
