@@ -77,7 +77,7 @@
              SS8-0514: at the rows' own rhythm — the rows are this root's
              children (gap-3), so the shadows stand at gap-3, not a private 8 px. -->
         <div v-else-if="firstLoad" class="grid gap-3" role="status" aria-label="Loading audit log">
-            <AdminListSkeleton v-for="i in 3" :key="i" />
+            <AdminListSkeleton v-for="i in 3" :key="i" badge-lead />
         </div>
 
         <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never

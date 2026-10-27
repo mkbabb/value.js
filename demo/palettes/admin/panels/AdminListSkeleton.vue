@@ -14,7 +14,15 @@
              each row type (`text-small` over `text-mono-small`, `gap-0.5`),
              each bar centred in its own line, so the swap keeps the column. -->
         <div class="flex-1 min-w-0 flex flex-col gap-0.5">
-            <div class="text-small h-lh flex items-center">
+            <!-- X.W11.v1c (SS8-0514): a row whose primary line LEADS WITH A
+                 BADGE (Audit: the action badge) has that line's box — the
+                 badge's own padded line, taller than a bare `text-small` line
+                 once glass's `.badge-atom` padding outranks Tailwind's base
+                 reset. `badgeLead` sizes the line with the SAME glass Badge,
+                 empty and invisible, so the shadow column is the row's by
+                 construction rather than by a copied height. -->
+            <div class="text-small flex items-center" :class="badgeLead ? 'min-h-lh' : 'h-lh'">
+                <Badge v-if="badgeLead" variant="secondary" class="text-mono-small shrink-0 invisible w-0 px-0 min-w-0">&nbsp;</Badge>
                 <Skeleton class="h-3.5 w-36 max-w-[60%] rounded-md" />
             </div>
             <div class="text-mono-small h-lh flex items-center">
@@ -27,4 +35,7 @@
 
 <script setup lang="ts">
 import { Skeleton } from "@mkbabb/glass-ui";
+import { Badge } from "@mkbabb/glass-ui/badge";
+
+const { badgeLead = false } = defineProps<{ badgeLead?: boolean }>();
 </script>
