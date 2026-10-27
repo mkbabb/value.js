@@ -4655,3 +4655,22 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
 3. **ESC-FREL-ci-1 RULED by 2.** fourier's `od19-load` frame bars take the liveness-on-software and budget-on-GPU split. The correctness legs stay gating on CI. Then m/w1 CI is read to GREEN at HEAD (e4c2e1d or later), and Track C resumes: merge, master CI ×2, then the .d deploy.
 4. **The critic residue for value and keyframes** (each three passes, not clean) beyond the time budgets is cured at root by the residue seats, one per app. Glass sub-rows are cited under O-102, not re-filed.
    - The value `w12-dock.spec.ts` pair (a regression present before the repin) is owned by Track A (X.W11), which re-reads it on 10.1.1.
+
+## §0gq — 2026-10-27: X-OD19 residue ruled; Track C resumes on fourier m/w1 GREEN
+1. **fourier: DONE.** m/w1 CI GREEN at `34b10ae` (run 40552991504, all 5 jobs). ESC-FREL-ci-1 is cured by the §0gp.2 split, and the GPU cell is GREEN ×2. DOCK-SUMMARY-SQUARE is adopted. **Track C resumes:** `merge --no-ff` the verified SHA into master, master CI ×2, then the .d deploy.
+2. **value:**
+   - (a) **OD19-V7-390-ORDER → Track A, unit X.W11.o1.** Key shell.css's one-track `order` rule on the DISPLAYED pane key, stamped from App.vue's `slotReports().onMount` on each region wrapper, not on the route-time `data-view`/`data-pane`. Gate: the mix window @390 ≤ 450 on the GPU cell ×2.
+   - (b) **ESC-OD19-V3-instr: the V3 bar is restated from the instrument.**
+     - The p50 bar (25 ms) sits below the harness's own measured zero-work floor (29–31 ms), and the reading tracks the harness's input-ack phase.
+     - The V3 gate becomes: **p95 ≤ the stated bar** (already GREEN 11/12), AND **product-attributable latency, p50 minus the measured zero-work floor in the same run, ≤ one frame (16.7 ms)**, read on the GPU cell ×2.
+     - The same h2 principle as §0gl.7: an impossible constant is corrected, never a reachable one weakened. The cell RED in 1/12 on p95 is re-read under that gate.
+   - (c) **C2-V-03 @390 is ruled CURED.** The plate fills the whole visible band, and the 223 px below the fold has no visual effect at first paint.
+3. **keyframes (PARTIAL; the Easing re-plot is cured at `fc1a3383`). One consumer unit cures the remaining consumer reads at root:**
+   - `useFoldLanding.land` (2–4 ms), `AnimationVisualizer.getMaxX` (about 4 ms), `probeBrowserScalar` on cube (5–6 ms) and SquareScene's setup `getPropertyValue` (4 ms): each read once and cached, or moved out of the commit frame;
+   - **KF-RES-1:** the idle scene warm starts only after a deep link's content has painted.
+
+   The warm-swap 50 ms bar is then re-read on the GPU cell. What remains is glass-rooted: computed-style reads at mount and per tick, and the per-swap dock re-measure. It is held under O-102 with the relay below.
+4. **Glass relay (one letter, citing O-102):**
+   - V3-s: the synchronous `drawImage` + `getImageData` in `useGlassBackdropLuminance`'s live mode, 17–19 ms per drag and up to 433 ms under load. Ask: an async readback.
+   - V5-h: `motionTempo`'s `getPropertyValue` on every spring tick, 15–17 ms per hop. Ask: read the token once per press.
+   - keyframes: the forced computed-style reads at mount (`maxStretch`/`useLiquidFlex`/`writeVelocityWeight`, 5–25 ms per swap) and the dock re-measure on every swap (4–10 ms, O-80 class).
