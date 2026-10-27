@@ -39,8 +39,22 @@
  * metaball.frag.ts:315-318 — but the interior reads featureless at ⌀≥90px)
  * + the wrapper's resting drop-shadow halo — the exact P6 packet rider
  * (hero-scale legibility, row A family), which STANDS amended. */
+/* SS-8.r Z-ColorPicker-14 (COHESION §0gk.3): ONE OWNER OF THE TITLE→READOUT
+ * SEAM — header.css Row A's `--picker-header-rhythm`. The bead's W20 reservation
+ * (`.title-row` min-height, 0.76·fp − 0.75rem) is subordinate: it may grow the
+ * title row only where the title band is shorter than the bead (the phone
+ * floor), never at desktop. The 22cqi slope was calibrated on a pane capped at
+ * 32rem (fp ≤ 112.6px). Z1's golden split deleted that cap (`fe398ede2`,
+ * Z-LG-5), so at 1440 the 834px picker pane drove fp to the 11rem cap (176px).
+ * The reservation then reached 121.76px over an 85px title, and the seam opened
+ * to 42.578px against the 14.87 φG ceiling. The upper bound is now the title
+ * band itself: fp stops where its reservation reaches the ×φ band of the
+ * at-rest title rung (φ·`--type-display-2`). At 1440 that is fp = 129.2px,
+ * a reservation of 86.2px over the 85px title. Below the ×φ bound the 7rem floor
+ * wins (CSS clamp: MIN beats MAX), so the 390 hand-scale presence (Q7) is
+ * unchanged. */
 .pane-shell {
-    --blob-fp: clamp(7rem, 22cqi, 11rem);
+    --blob-fp: clamp(7rem, 22cqi, calc((1.618 * var(--type-display-2) + 0.75rem) / 0.76));
     /* The spectrum's live-tinted hard stamp offset (V1-27, 684c818f) — ONE
      * value the stamp and the seat's breath both read. */
     --spectrum-stamp: 8px;

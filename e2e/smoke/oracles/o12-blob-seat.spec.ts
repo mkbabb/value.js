@@ -20,12 +20,16 @@ import { useRealGpuCell } from "../perf/real-gpu";
 
 /**
  * THE SEAT FORMULA (T.W4-5 · D8) — the e2e mirror of the ONE cqi footprint law
- * (`ColorPicker.vue .pane-shell{--blob-fp: clamp(7rem, 22cqi, 11rem)}`),
+ * (`seat.css .pane-shell{--blob-fp: clamp(7rem, 22cqi, (φ·display-2 + 0.75rem) / 0.76)}`),
  * computed at the test's own viewport (PI-4). Moved here from the retired
  * W3-3 timing fixture (X.W12U.b); the 390 leg carries its own copy.
  */
-function seatFootprintPx(paneWidthPx: number, remPx = 16): number {
-    return Math.min(Math.max(0.22 * paneWidthPx, 7 * remPx), 11 * remPx);
+function seatFootprintPx(paneWidthPx: number, viewportWidthPx: number, remPx = 16): number {
+    // SS-8.r Z-ColorPicker-14 (seat.css): the upper bound is the title band,
+    // (φ·--type-display-2 + 0.75rem) / 0.76, and CSS clamp lets MIN beat MAX.
+    const display2 = Math.min(Math.max(1.5 * remPx + 0.022 * viewportWidthPx, 2.058 * remPx), 3.33 * remPx);
+    const titleBound = (1.618 * display2 + 0.75 * remPx) / 0.76;
+    return Math.max(7 * remPx, Math.min(0.22 * paneWidthPx, titleBound));
 }
 /** Visible bead = 2·bodyRadius·fp (bodyRadius 0.26 — the HERO register). */
 const BEAD_RATIO = 0.52;
@@ -130,7 +134,7 @@ async function bootWithBlob(page: import("@playwright/test").Page) {
         .locator(".pane-wrapper--stage")
         .first()
         .evaluate((el) => el.clientWidth);
-    const fp = seatFootprintPx(pane);
+    const fp = seatFootprintPx(pane, page.viewportSize()!.width);
     await expect
         .poll(async () => (await blob.boundingBox())?.width ?? 0, {
             timeout: 6000,

@@ -17,13 +17,17 @@ import {
 } from "../perf/frame-budget";
 /**
  * THE SEAT FORMULA (T.W4-5 · D8) — the e2e mirror of the ONE cqi footprint law
- * (`ColorPicker.vue .pane-shell{--blob-fp: clamp(7rem, 22cqi, 11rem)}`); the
+ * (`seat.css .pane-shell{--blob-fp: clamp(7rem, 22cqi, (φ·display-2 + 0.75rem) / 0.76)}`); the
  * canvas is 1.6x the footprint (the producer overscan identity). PI-4's law:
  * geometry gates COMPUTE their bounds at the test's own viewport. (Moved here
  * from the retired W3-3 timing fixture, X.W12U.b; O-12 carries its own.)
  */
-function seatFootprintPx(paneWidthPx: number, remPx = 16): number {
-    return Math.min(Math.max(0.22 * paneWidthPx, 7 * remPx), 11 * remPx);
+function seatFootprintPx(paneWidthPx: number, viewportWidthPx: number, remPx = 16): number {
+    // SS-8.r Z-ColorPicker-14 (seat.css): the upper bound is the title band,
+    // (φ·--type-display-2 + 0.75rem) / 0.76, and CSS clamp lets MIN beat MAX.
+    const display2 = Math.min(Math.max(1.5 * remPx + 0.022 * viewportWidthPx, 2.058 * remPx), 3.33 * remPx);
+    const titleBound = (1.618 * display2 + 0.75 * remPx) / 0.76;
+    return Math.max(7 * remPx, Math.min(0.22 * paneWidthPx, titleBound));
 }
 const CANVAS_OVERSCAN = 1.6;
 
@@ -94,7 +98,7 @@ test("hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live
         .locator(".pane-wrapper")
         .last()
         .evaluate((el) => el.clientWidth);
-    const expectedCanvas = CANVAS_OVERSCAN * seatFootprintPx(paneWidth);
+    const expectedCanvas = CANVAS_OVERSCAN * seatFootprintPx(paneWidth, page.viewportSize()!.width);
 
     // SETTLE-STAMPED (T.W2-4): the blob EMERGES at B4 through the 500ms
     // goo-scale pose — poll until the emerge releases before the exact law
