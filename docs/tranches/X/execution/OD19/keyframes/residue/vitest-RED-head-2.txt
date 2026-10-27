@@ -1,0 +1,35 @@
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/.kf-residue-wt
+
+(node:57488) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |demo| test/demo/scenes/easing-swap-plots.test.ts (2 tests | 1 failed) 1395ms
+     × (1)(2) a mount, and a revisit, call the tile curves 0 times 808ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/scenes/easing-swap-plots.test.ts > OD19 residue: the swap into Easing builds no tile plot > (1)(2) a mount, and a revisit, call the tile curves 0 times
+AssertionError: expected 24426 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 24426
+
+ ❯ test/demo/scenes/easing-swap-plots.test.ts:123:33
+    121|         second.app.unmount();
+    122|         // A tile re-plot is thousands of calls (24,426 for the 28 til…
+    123|         expect(first.tileCalls).toBe(0);
+       |                                 ^
+    124|         expect(second.tileCalls).toBe(0);
+    125|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  14:13:24
+   Duration  2.41s (transform 1.13s, setup 21ms, import 502ms, tests 1.40s, environment 364ms)
+

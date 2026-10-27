@@ -348,3 +348,65 @@ Adopting `@mkbabb/glass-ui` **10.1.1** (tag `v10.1.1` at `d7baa1dc3`). Read befo
 **Gates ×2 (guarded):** `npm run check` (vue-tsc app and test, then proof:structure) rc 0 ×2 (`check-{1,2}.txt`). `vitest run --project demo --maxWorkers=2`: **160 files / 969 tests ×2** (`vitest-demo-{1,2}.txt`). These include the dock and menu suites (`chrome-dock-*`, `dock-*`, `mbabb-menu-*`, `r4dock-*`) and `scene-skeleton-shimmer`. keyframes has no Playwright suite; its dock, menu and skeleton specs are these vitest files, and the live probe above is the browser read.
 
 No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched.
+
+### residue (§0gp)
+
+Residue seat, 2026-10-27, `claude-opus-5-5` (the re-deploy of the 2026-10-21 seat, whose HEAD readings, profiles and in-flight Easing cure this seat inherited and finished). Scope: the warm-swap frame budget (CLOSE §5.4) and the keyframes critic residue of the three OD19 passes. Code: keyframes.js `fc1a3383` (master, pushed). Evidence: `keyframes/residue/`. Every run went through `guarded`: browser runs never light, one browser per run, a context per rep, closed in `finally`.
+
+**Cell of record (§0gp.2, §0fr.2).** `residue/warm-swap-probe.mjs`: headless real Chrome, `channel:'chrome'` (demo-driver `gpu: true`), `--use-angle=metal`; renderer read back as `ANGLE Metal Renderer: Apple M5 Max`. The need is cited in the probe header: a frame budget over a WebGL/blur page is a GPU-compositor fact. Production build, 1440×900, light. Boot `#/cube`, 3 s idle, then hash-swap amiga → square → easing → spring → sequence → cube → home, 2 reps per run. The budget is that no rAF frame inside a swap exceeds 50 ms. Software (`head-sw1-1.json`, the headless shell's SwiftShader) is INFORMATIONAL only.
+
+**What the GPU cell reads (HEAD `f8d6077b`, runs `head-gpu1-1`, `head-gpu1-2`).** The CLOSE's "3–7 frames over 50 ms" was the software/4× reading. On the GPU cell each swap has **exactly one** frame over 50 ms, and it is the commit frame: the destination scene's mount, inside the View Transition update callback (LoAF invoker `import.then` / `ViewTransitionCallback`). The dissolve frames themselves are clean on the GPU, so the no-script 60–90 ms frames that C1-KF-03(b) measured are software raster (frames are vsync-quantised at 16.7 ms).
+
+| swap | HEAD worst frame ms (r1 rep0/1 · r2 rep0/1) | HEAD commit ms | CURE worst frame ms (r1 · r2) | CURE commit ms |
+|---|---|---|---|---|
+| cube→amiga | 83/99 · 84/84 | 60–71 | 86/82 · 66/82 | 52–59 |
+| amiga→square | 82/82 · 83/101 | 62–81 | 143*/67 · 66/67 | 50–60 |
+| **square→easing** | **102/118 · 117/117** | **82–104** | **228*/69 · 67/67** | **49–59** |
+| easing→spring | 83/84 · 83/83 | 58–67 | 230*/68 · 66/67 | 47–63 |
+| spring→sequence | 50/51 · 50/50 | 28–37 | 50/51 · 50/33 | 25–33 |
+| sequence→cube | 68/83 · 67/49 | 41–61 | 68/135* · 67/50 | 38–54 |
+| cube→home | 38/45 · 46/38 | 6–7 | 177*/91* · 245*/33 | 5–7 |
+
+`*` = cure run 1 rep 0 and the home row, read at load 45–58 (guard admission waited on load 45 > 36). The same reps' commit spans are in family, so these frames are machine noise rather than script. HEAD r2 and cure r2 ran back to back at load ≈ 30.
+
+**Profile (`profile-swap.mjs` over the unminified build `dist/residue-head-nomin`, `prof-head-gpu1-{1,2}.json`, attributed by `attribute.py` to source `//#region`s).** Commit-frame busy time is 37–158 ms per swap. Named costs:
+- **Easing tile plots (consumer, CURED):** the catalogue's 28 tiles re-plotted on every mount, about 24,000 curve calls through value.js `easing` (`h$2`) plus `curvePlot`. That is 10–15 ms of samples and the largest consumer script in any commit frame.
+- **glass forced style (O-102, already filed at repair 1):** `getPropertyValue` under glass `maxStretch` (useLiquidFlex), and `writeVelocityWeight`/`motionTempo`. These are 5–25 ms per swap and the single largest forced-layout source in every swap.
+- **glass dock measurement (O-102 / O-80 class):** `dock.js` `Ie`/`Ee`/`Oe`/`C`, `getBoundingClientRect` on the dock on every swap, 4–10 ms.
+- **consumer, small:** `useFoldLanding.land` 2–4 ms, `AnimationVisualizer.getMaxX` ≈ 4 ms (amiga), keyframes `src/animation/resolve/browser.ts probeBrowserScalar` 5–6 ms (cube), SquareScene setup `getPropertyValue` 4 ms. Amiga's `attachRenderer` (18 ms) is already a later frame (KFA-76 builds the room past first paint), not the commit.
+- The remainder is Vue's own patch and mount of the destination tree.
+
+**Cure (keyframes `fc1a3383`): the swap into Easing builds no tile plot.**
+- `curvePlot.ts` `unitEasingPlot(fn)`: one unit-frame plot per function object, held in a WeakMap. A plot is a pure function of its curve.
+- `scenes/easing/specimens.ts`: the specimen groups plus ONE stable function per tile. Their plots are built when the scene chunk evaluates (the idle warm, `warmScenesAtIdle`, or a deep link's boot), not in the swap.
+- `EasingTarget.vue` takes its specimens from that module. `EasingCatalogue.vue` draws through `unitEasingPlot`, so live dropdown kinds that hand fresh functions still plot as before.
+- **Result on the GPU cell:** square→easing commit 82–104 → **49–59 ms**, worst frame 102–118 → **66–69 ms** (×2). That swap moves from the worst to in family with the others.
+
+**Falsifier:** `test/demo/scenes/easing-swap-plots.test.ts`.
+- (1)(2) a mount and a revisit call the tile curves 0 times. It was born RED at `f8d6077b`: 24,426 calls (`vitest-RED-head-{1,2}.txt`).
+- (3) each tile's stroke equals its own function's plot.
+- GREEN ×2 (`vitest-GREEN-{1,2}.txt`).
+
+**Gates ×2.**
+- `npm run check` (vue-tsc app and test, then proof:structure): rc 0 ×2 (`check-{1,2}.txt`).
+- `vitest run --project demo --maxWorkers=2`: **161 files / 971 tests ×2** (`vitest-demo-{1,2}.txt`; 969 plus the 2 new).
+- `scripts/observe/demo/route-load.mjs` over `dist/residue-cure`: PASS in 3 of 4 runs (`route-load-1.txt`, `route-load-disc-cure.txt`, `route-load-disc-cure2.txt`). Run 2 (`route-load-2.txt`) failed 2 checks: **cold amiga 1707 KB before content, Aurora fetched**. The interleaved HEAD runs passed ×2 (`route-load-disc-head{,2}.txt`), and the cure's passing runs read 1427 KB against HEAD's 1426.
+  - Mechanism, named and not cured here: `warmScenesAtIdle` is a `requestIdleCallback` with no deadline. During cold amiga's three.js chunk wait the main thread is idle, so the warm (every scene, plus Home's Aurora since `8876e82e`) can be requested before amiga's content. The cure does not change what is fetched, or when.
+  - **Row KF-RES-1 (consumer, open):** start the idle warm after the deep link's content, not at the first idle.
+- keyframes has no Playwright e2e suite. The touched browser reading is the GPU probe above ×2 plus route-load.
+- No test was deleted, skipped or weakened. No golden was re-baselined. glass-ui was untouched. Another seat's staged and unstaged `KeyframeTimeline.vue` hunks stayed in the tree and were not committed.
+
+**Budget verdict: RED on the real-GPU cell, ESCALATED with its decomposition.**
+- 5 of 7 swaps still have one 66–84 ms commit frame (cure r2 ×2). spring→sequence sits at the 50 ms edge, and home is within budget.
+- At 16.7 ms quantisation, reaching the bar needs commit ≤ ~33 ms, a further ~20–25 ms per swap.
+- The remaining consumer items above total under that on any one swap. glass's mount-time computed-style reads plus the dock measurement (9–35 ms per swap, O-102 sub-rows filed at repair 1) are the dominant named cost.
+- Ask: glass reads root tokens once (or after the first frame) and skips the dock re-measure when the dock's box is unchanged. Then re-read on this cell. The small consumer reads (`land`, `getMaxX`, `probeBrowserScalar`, SquareScene setup) go after first paint in the scene/pane packets.
+
+**Software split (§0gp.2):** no committed keyframes spec binds a warm-swap frame bar on software. `route-load.mjs` binds only prepare/commit latency; `home-swap.mjs` and `swap-3d.mjs` already bind their frame bars on a GPU renderer only and report under SwiftShader. So no software leg needed moving. The SwiftShader reading (`head-sw1-1.json`: 2–6 frames over 50 ms per swap, most with no script) is banked as INFORMATIONAL.
+
+**Critic residue (three passes), re-read here:**
+- C1-KF-03 (a) commit-frame mount: cut at the Easing root (above); the rest is escalated with the budget. (b) no-script dissolve frames: **ENVIRONMENT-ROOTED, confirmed**, absent on the GPU cell.
+- C1-KF-09 option chevrons: GLASS-HELD (O-102 §6), unchanged.
+- C2-KF-01 Cube/Amiga swap frames: ENVIRONMENT-ROOTED. The GPU cell's cube/amiga commit frames are the shared commit cost above, not raster.
+- C3-KF-03 blank frame into Home: MEASURED (VT render-suppressed window). On the GPU cell cube→home is within budget (33–46 ms outside load noise).
+- Not taken (outside this residue, recorded in CLOSE): the K6 observer scripts (`demo-driver.mjs:941`, `live-session{,-mobile}.mjs`) still select `[data-dock-surface-item][aria-checked]`, which exists only while the portalled menu is open.

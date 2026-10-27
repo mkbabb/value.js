@@ -1,0 +1,500 @@
+{
+ "dist": "/Users/mkbabb/Programming/keyframes.js/dist/residue-head",
+ "cell": "sw",
+ "rate": 1,
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+ "rows": [
+  {
+   "rep": 0,
+   "swap": "cube->amiga",
+   "prepare": 4,
+   "total": 536,
+   "commit": 51,
+   "frames": 16,
+   "maxFrame": 339,
+   "over50": 3,
+   "over": [
+    [
+     72,
+     70,
+     1
+    ],
+    [
+     193,
+     76,
+     1
+    ],
+    [
+     532,
+     339,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 10,
+     "dur": 68,
+     "block": 3,
+     "render": 6,
+     "style": 3,
+     "scripts": [
+      {
+       "dur": 6,
+       "layout": 2,
+       "inv": "ViewTransitionCallback",
+       "fn": "",
+       "src": "index-BuFpS9tp.js",
+       "pos": 307932
+      },
+      {
+       "dur": 47,
+       "layout": 19,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-BuFpS9tp.js",
+       "pos": 303564
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "amiga->square",
+   "prepare": 0,
+   "total": 396,
+   "commit": 50,
+   "frames": 19,
+   "maxFrame": 62,
+   "over50": 4,
+   "over": [
+    [
+     66,
+     59,
+     1
+    ],
+    [
+     240,
+     61,
+     1
+    ],
+    [
+     301,
+     62,
+     1
+    ],
+    [
+     362,
+     61,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 10,
+     "dur": 62,
+     "block": 4,
+     "render": 6,
+     "style": 3,
+     "scripts": [
+      {
+       "dur": 47,
+       "layout": 24,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-BuFpS9tp.js",
+       "pos": 303756
+      }
+     ]
+    },
+    {
+     "start": 183,
+     "dur": 61,
+     "block": 0,
+     "render": 4,
+     "style": 4,
+     "scripts": []
+    },
+    {
+     "start": 244,
+     "dur": 61,
+     "block": 0,
+     "render": 4,
+     "style": 4,
+     "scripts": []
+    },
+    {
+     "start": 306,
+     "dur": 61,
+     "block": 0,
+     "render": 5,
+     "style": 2,
+     "scripts": []
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "square->easing",
+   "prepare": 9,
+   "total": 439,
+   "commit": 72,
+   "frames": 17,
+   "maxFrame": 87,
+   "over50": 6,
+   "over": [
+    [
+     95,
+     87,
+     1
+    ],
+    [
+     184,
+     64,
+     1
+    ],
+    [
+     248,
+     58,
+     1
+    ],
+    [
+     313,
+     65,
+     1
+    ],
+    [
+     377,
+     59,
+     1
+    ],
+    [
+     434,
+     58,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 12,
+     "dur": 93,
+     "block": 35,
+     "render": 10,
+     "style": 7,
+     "scripts": [
+      {
+       "dur": 74,
+       "layout": 25,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-BuFpS9tp.js",
+       "pos": 303949
+      }
+     ]
+    },
+    {
+     "start": 126,
+     "dur": 63,
+     "block": 0,
+     "render": 5,
+     "style": 3,
+     "scripts": []
+    },
+    {
+     "start": 194,
+     "dur": 58,
+     "block": 0,
+     "render": 5,
+     "style": 2,
+     "scripts": []
+    },
+    {
+     "start": 253,
+     "dur": 64,
+     "block": 0,
+     "render": 4,
+     "style": 2,
+     "scripts": []
+    },
+    {
+     "start": 324,
+     "dur": 57,
+     "block": 0,
+     "render": 4,
+     "style": 2,
+     "scripts": []
+    },
+    {
+     "start": 382,
+     "dur": 57,
+     "block": 0,
+     "render": 4,
+     "style": 0,
+     "scripts": []
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "easing->spring",
+   "prepare": 3,
+   "total": 383,
+   "commit": 48,
+   "frames": 16,
+   "maxFrame": 66,
+   "over50": 5,
+   "over": [
+    [
+     65,
+     61,
+     1
+    ],
+    [
+     186,
+     65,
+     1
+    ],
+    [
+     251,
+     65,
+     1
+    ],
+    [
+     314,
+     63,
+     1
+    ],
+    [
+     380,
+     66,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 8,
+     "dur": 65,
+     "block": 7,
+     "render": 8,
+     "style": 7,
+     "scripts": [
+      {
+       "dur": 49,
+       "layout": 25,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-BuFpS9tp.js",
+       "pos": 304156
+      }
+     ]
+    },
+    {
+     "start": 126,
+     "dur": 66,
+     "block": 0,
+     "render": 6,
+     "style": 3,
+     "scripts": []
+    },
+    {
+     "start": 193,
+     "dur": 65,
+     "block": 0,
+     "render": 7,
+     "style": 4,
+     "scripts": []
+    },
+    {
+     "start": 258,
+     "dur": 61,
+     "block": 0,
+     "render": 5,
+     "style": 2,
+     "scripts": []
+    },
+    {
+     "start": 319,
+     "dur": 64,
+     "block": 0,
+     "render": 8,
+     "style": 0,
+     "scripts": [
+      {
+       "dur": 5,
+       "layout": 4,
+       "inv": "DIV#glass-disclosure-content-v-269.onanimationend",
+       "fn": "d",
+       "src": "vendor-reka-ui-4DPhyUsZ.js",
+       "pos": 144569
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "spring->sequence",
+   "prepare": 1,
+   "total": 317,
+   "commit": 26,
+   "frames": 17,
+   "maxFrame": 62,
+   "over50": 4,
+   "over": [
+    [
+     129,
+     62,
+     1
+    ],
+    [
+     190,
+     61,
+     1
+    ],
+    [
+     251,
+     56,
+     1
+    ],
+    [
+     309,
+     59,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 72,
+     "dur": 62,
+     "block": 0,
+     "render": 4,
+     "style": 4,
+     "scripts": []
+    },
+    {
+     "start": 133,
+     "dur": 61,
+     "block": 0,
+     "render": 4,
+     "style": 2,
+     "scripts": []
+    },
+    {
+     "start": 199,
+     "dur": 56,
+     "block": 0,
+     "render": 5,
+     "style": 4,
+     "scripts": []
+    },
+    {
+     "start": 255,
+     "dur": 58,
+     "block": 0,
+     "render": 4,
+     "style": 4,
+     "scripts": []
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "sequence->cube",
+   "prepare": 7,
+   "total": 978,
+   "commit": 45,
+   "frames": 8,
+   "maxFrame": 537,
+   "over50": 4,
+   "over": [
+    [
+     65,
+     58,
+     1
+    ],
+    [
+     152,
+     69,
+     1
+    ],
+    [
+     694,
+     537,
+     1
+    ],
+    [
+     972,
+     278,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 11,
+     "dur": 58,
+     "block": 1,
+     "render": 4,
+     "style": 1,
+     "scripts": [
+      {
+       "dur": 44,
+       "layout": 21,
+       "inv": "ViewTransitionCallback",
+       "fn": "",
+       "src": "index-BuFpS9tp.js",
+       "pos": 307932
+      }
+     ]
+    },
+    {
+     "start": 89,
+     "dur": 69,
+     "block": 0,
+     "render": 5,
+     "style": 3,
+     "scripts": []
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "cube->home",
+   "prepare": 6,
+   "total": 327,
+   "commit": 6,
+   "frames": 22,
+   "maxFrame": 64,
+   "over50": 2,
+   "over": [
+    [
+     260,
+     64,
+     1
+    ],
+    [
+     323,
+     63,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 200,
+     "dur": 64,
+     "block": 0,
+     "render": 5,
+     "style": 0,
+     "scripts": []
+    },
+    {
+     "start": 265,
+     "dur": 62,
+     "block": 0,
+     "render": 4,
+     "style": 4,
+     "scripts": []
+    }
+   ]
+  }
+ ]
+}

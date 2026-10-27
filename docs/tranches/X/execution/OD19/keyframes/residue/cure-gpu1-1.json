@@ -1,0 +1,634 @@
+{
+ "dist": "/Users/mkbabb/Programming/keyframes.js/dist/residue-cure",
+ "cell": "gpu",
+ "rate": 1,
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "rows": [
+  {
+   "rep": 0,
+   "swap": "cube->amiga",
+   "prepare": 9,
+   "total": 361,
+   "commit": 58,
+   "frames": 16,
+   "maxFrame": 86,
+   "over50": 2,
+   "over": [
+    [
+     90,
+     84,
+     1
+    ],
+    [
+     194,
+     86,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 13,
+     "dur": 83,
+     "block": 8,
+     "render": 6,
+     "style": 3,
+     "scripts": [
+      {
+       "dur": 6,
+       "layout": 3,
+       "inv": "ViewTransitionCallback",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 308000
+      },
+      {
+       "dur": 51,
+       "layout": 19,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 303632
+      }
+     ]
+    },
+    {
+     "start": 113,
+     "dur": 85,
+     "block": 35,
+     "render": 4,
+     "style": 4,
+     "scripts": [
+      {
+       "dur": 81,
+       "layout": 0,
+       "inv": "TimerHandler:setTimeout",
+       "fn": "",
+       "src": "",
+       "pos": -1
+      }
+     ]
+    },
+    {
+     "start": 375,
+     "dur": 90,
+     "block": 0,
+     "render": 1,
+     "style": 0,
+     "scripts": []
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "amiga->square",
+   "prepare": 5,
+   "total": 360,
+   "commit": 60,
+   "frames": 17,
+   "maxFrame": 143,
+   "over50": 2,
+   "over": [
+    [
+     89,
+     84,
+     1
+    ],
+    [
+     283,
+     143,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 9,
+     "dur": 86,
+     "block": 7,
+     "render": 6,
+     "style": 3,
+     "scripts": [
+      {
+       "dur": 12,
+       "layout": 0,
+       "inv": "ViewTransitionCallback",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 308000
+      },
+      {
+       "dur": 50,
+       "layout": 24,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 303824
+      }
+     ]
+    },
+    {
+     "start": 144,
+     "dur": 143,
+     "block": 0,
+     "render": 4,
+     "style": 4,
+     "scripts": []
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "square->easing",
+   "prepare": 16,
+   "total": 368,
+   "commit": 59,
+   "frames": 9,
+   "maxFrame": 228,
+   "over50": 2,
+   "over": [
+    [
+     83,
+     67,
+     1
+    ],
+    [
+     361,
+     228,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 21,
+     "dur": 71,
+     "block": 19,
+     "render": 8,
+     "style": 6,
+     "scripts": [
+      {
+       "dur": 60,
+       "layout": 27,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 304017
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "easing->spring",
+   "prepare": 1,
+   "total": 371,
+   "commit": 63,
+   "frames": 13,
+   "maxFrame": 230,
+   "over50": 2,
+   "over": [
+    [
+     85,
+     84,
+     1
+    ],
+    [
+     365,
+     230,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 5,
+     "dur": 89,
+     "block": 24,
+     "render": 9,
+     "style": 7,
+     "scripts": [
+      {
+       "dur": 65,
+       "layout": 33,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 304224
+      }
+     ]
+    },
+    {
+     "start": 144,
+     "dur": 227,
+     "block": 0,
+     "render": 13,
+     "style": 4,
+     "scripts": [
+      {
+       "dur": 7,
+       "layout": 7,
+       "inv": "DIV#glass-disclosure-content-v-269.onanimationend",
+       "fn": "d",
+       "src": "vendor-reka-ui-4DPhyUsZ.js",
+       "pos": 144569
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "spring->sequence",
+   "prepare": 5,
+   "total": 326,
+   "commit": 28,
+   "frames": 24,
+   "maxFrame": 50,
+   "over50": 0,
+   "over": [],
+   "loaf": [
+    {
+     "start": 9,
+     "dur": 52,
+     "block": 0,
+     "render": 6,
+     "style": 3,
+     "scripts": [
+      {
+       "dur": 29,
+       "layout": 17,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 304438
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "sequence->cube",
+   "prepare": 4,
+   "total": 344,
+   "commit": 44,
+   "frames": 24,
+   "maxFrame": 68,
+   "over50": 1,
+   "over": [
+    [
+     72,
+     68,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 9,
+     "dur": 68,
+     "block": 0,
+     "render": 4,
+     "style": 1,
+     "scripts": [
+      {
+       "dur": 44,
+       "layout": 21,
+       "inv": "ViewTransitionCallback",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 308000
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 0,
+   "swap": "cube->home",
+   "prepare": 11,
+   "total": 444,
+   "commit": 5,
+   "frames": 10,
+   "maxFrame": 177,
+   "over50": 2,
+   "over": [
+    [
+     261,
+     141,
+     1
+    ],
+    [
+     438,
+     177,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 14,
+     "dur": 54,
+     "block": 0,
+     "render": 14,
+     "style": 1,
+     "scripts": [
+      {
+       "dur": 5,
+       "layout": 0,
+       "inv": "ViewTransitionCallback",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 308000
+      },
+      {
+       "dur": 13,
+       "layout": 0,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 303376
+      },
+      {
+       "dur": 13,
+       "layout": 1,
+       "inv": "FrameRequestCallback",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 180420
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 1,
+   "swap": "cube->amiga",
+   "prepare": 8,
+   "total": 343,
+   "commit": 59,
+   "frames": 23,
+   "maxFrame": 82,
+   "over50": 1,
+   "over": [
+    [
+     88,
+     82,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 13,
+     "dur": 81,
+     "block": 9,
+     "render": 7,
+     "style": 3,
+     "scripts": [
+      {
+       "dur": 6,
+       "layout": 3,
+       "inv": "ViewTransitionCallback",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 308000
+      },
+      {
+       "dur": 53,
+       "layout": 19,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 303632
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 1,
+   "swap": "amiga->square",
+   "prepare": 3,
+   "total": 324,
+   "commit": 50,
+   "frames": 23,
+   "maxFrame": 67,
+   "over50": 1,
+   "over": [
+    [
+     71,
+     67,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 7,
+     "dur": 72,
+     "block": 5,
+     "render": 8,
+     "style": 4,
+     "scripts": [
+      {
+       "dur": 47,
+       "layout": 23,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 303824
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 1,
+   "swap": "square->easing",
+   "prepare": 11,
+   "total": 366,
+   "commit": 54,
+   "frames": 25,
+   "maxFrame": 69,
+   "over50": 1,
+   "over": [
+    [
+     81,
+     69,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 15,
+     "dur": 76,
+     "block": 16,
+     "render": 10,
+     "style": 7,
+     "scripts": [
+      {
+       "dur": 56,
+       "layout": 25,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 304017
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 1,
+   "swap": "easing->spring",
+   "prepare": 4,
+   "total": 343,
+   "commit": 48,
+   "frames": 23,
+   "maxFrame": 68,
+   "over50": 1,
+   "over": [
+    [
+     72,
+     68,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 9,
+     "dur": 71,
+     "block": 5,
+     "render": 7,
+     "style": 6,
+     "scripts": [
+      {
+       "dur": 48,
+       "layout": 26,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 304224
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 1,
+   "swap": "spring->sequence",
+   "prepare": 15,
+   "total": 337,
+   "commit": 33,
+   "frames": 24,
+   "maxFrame": 51,
+   "over50": 1,
+   "over": [
+    [
+     66,
+     51,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 20,
+     "dur": 52,
+     "block": 0,
+     "render": 6,
+     "style": 3,
+     "scripts": [
+      {
+       "dur": 34,
+       "layout": 19,
+       "inv": "import.then",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 304438
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rep": 1,
+   "swap": "sequence->cube",
+   "prepare": 14,
+   "total": 354,
+   "commit": 50,
+   "frames": 17,
+   "maxFrame": 135,
+   "over50": 2,
+   "over": [
+    [
+     81,
+     66,
+     1
+    ],
+    [
+     282,
+     135,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 19,
+     "dur": 66,
+     "block": 3,
+     "render": 4,
+     "style": 1,
+     "scripts": [
+      {
+       "dur": 50,
+       "layout": 24,
+       "inv": "ViewTransitionCallback",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 308000
+      }
+     ]
+    },
+    {
+     "start": 155,
+     "dur": 135,
+     "block": 0,
+     "render": 7,
+     "style": 4,
+     "scripts": []
+    }
+   ]
+  },
+  {
+   "rep": 1,
+   "swap": "cube->home",
+   "prepare": 12,
+   "total": 306,
+   "commit": 7,
+   "frames": 19,
+   "maxFrame": 91,
+   "over50": 1,
+   "over": [
+    [
+     261,
+     91,
+     1
+    ]
+   ],
+   "loaf": [
+    {
+     "start": 159,
+     "dur": 102,
+     "block": 41,
+     "render": 91,
+     "style": 0,
+     "scripts": [
+      {
+       "dur": 90,
+       "layout": 4,
+       "inv": "FrameRequestCallback",
+       "fn": "",
+       "src": "index-CXgbIWgh.js",
+       "pos": 180420
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
