@@ -3522,3 +3522,40 @@ Groups: `[[F-REL.g2], [F-REL.d]]`.
 | F-REL.d | F-REL.md §Units `.d` (L32-38) + §Gates; ADDENDUM (f) (L78-83); §0fs; §0ge.4; §0gh.1–4; §0gi.1–3; §0gq.1; (j) close R-j3/R-j4/R-j5; RESUME (h)/(j) `.d` receipts | fourier `scripts/**` (prod-verify only, if a defect is read); value.js `docs/tranches/X/fourier/evidence/F-REL/d/` + this record | an off-host `/api/health` poller across the switch with no non-200; host deploy via the hook → OK (the first deploy recreates prod mongo once, behind the hook's cold backup); deploy-alert #1 closed; backend `ENV=production` with `ADMIN_TOKEN` from `/opt/deploy/.env`; `/api/admin/verify` **403** with no token (not 503) ×2; mongo container memory reads **1 GiB**; healthcheck log 0 `Checking authorization failed` over 12 intervals; mongo 8.0.20 + FCV read via the backend client; prod-verify 21/21 ×2; PD-1 prod ×2 (ETag under gzip, If-Match 200, stale 412); pages-smoke ×2; cert > 14 d; openapi 200 | after `.g2` (master CI GREEN ×2); host only via the owner's VPN SSH and the deploy path; no VPN, firewall, sshd or port change; backup before any mongo recreate; token never printed |
 
 ## RESUME 2026-10-27 (k) — Unit receipts
+
+### F-REL.g2
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-27 ~18:36Z. Spec read whole (`F-REL.md`, 83 L): §Units `.g` (L31), §Gates (L40-41), ADDENDUM (f) `.g2` (L82); COHESION §0gp (3) and §0gq (1) read; record header, (j) Close, (k) Open/Baseline/Unit plan read. Evidence: `docs/tranches/X/fourier/evidence/F-REL/g2/` (`reads-1.txt`, `health-poll.log`, `master-ci.txt`).
+
+**Crash recovery.** fourier main tree ⟨`git status --porcelain`⟩ → 15 ` M web/e2e/screenshots/f-w14/after-page-*.png` + `?? .worktrees/`: another lane's, outside this set, untouched. Clean worktree `~/.fourier-frel/g-wt` ⟨`git status --porcelain | wc -l`⟩ → `0`. value.js: `evidence/F-REL/g2/` absent, this record clean. Nothing inherited.
+
+**Acts, in order.**
+1. ⟨`git fetch; git rev-parse --short origin/master origin/m/w1-bump-migration`⟩ → `24a524a` · `34b10ae` (HEAD unmoved since the (k) open). ⟨`gh run view 40552991504 --json headSha,jobs`⟩ → headSha `34b10ae7c7cc…` · api/tests (live Mongo) · e2e (Playwright) · web (vue-tsc + vite build) · production compose boot + health · inv-27 evidence → **success ×5**; it is the newest m/w1 `ci.yml` run (⟨`gh run list --workflow ci.yml -L 6`⟩). Verified SHA = `34b10ae`.
+2. `.d`'s poller precondition (plan lock): the off-host `/api/health` poller (`evidence/F-REL/d/health-poll.sh`, 2 s cadence) started 18:38:43Z, before the push; log `g2/health-poll.log`.
+3. In `~/.fourier-frel/g-wt`: ⟨`git checkout --detach origin/master`⟩ → `24a524a`; ⟨`git merge-tree --write-tree origin/master 34b10ae; echo $?`⟩ → tree `42271488…`, rc **0**.
+4. ⟨`git merge --no-ff -m "Merge m/w1-bump-migration 34b10ae into master (X F.REL .g2; COHESION §0gq.1 …)" 34b10ae`⟩ → rc 0, worktree clean after. Merge commit **fourier `50ef781`**; ⟨`git rev-parse HEAD^{tree} HEAD^1 HEAD^2`⟩ → `42271488…` (= the merge-tree tree: **no hand-resolved hunk**) · `24a524a` · `34b10ae`. It carries `.m2` (`a60c542` `9519b6f`), `.s1` (`c83b7ea` `563814d`) and `.v3` (`f7d17f0` `924df31`) to master.
+5. ⟨`git fetch; git rev-parse --short origin/master`⟩ → `24a524a` (unmoved), then ⟨`git push origin HEAD:master`⟩ at 18:38:56Z → `24a524a..50ef781  HEAD -> master`, rc 0, **no force**.
+6. Webhook: ⟨`gh api …/hooks/603157401/deliveries`⟩ → newest `3850709490670248000` 2026-10-27T18:38:58.51Z `push` HTTP 200. The body is not readable (the token lacks `admin:repo_hook`). Whether the host deployed or REFUSEd fail-closed is `.d`'s read. No host act was taken here.
+7. Master CI, push run: ⟨`gh run view 40561927861 --json headSha,event,conclusion,jobs`⟩ → `50ef781…` · `push` · **success**; jobs production compose boot + health · api/tests (live Mongo) · e2e (Playwright, 18:39:01Z→19:23:31Z) · web (vue-tsc + vite build) · inv-27 evidence → **success ×5**.
+8. Only after act 7 read GREEN: ⟨`gh workflow run ci.yml --ref master`⟩ 19:24:02Z → run **`40568756355`** (`workflow_dispatch`, `50ef781`). ⟨`gh run view 40568756355 --json …`⟩ → **success**; the same 5 jobs **success ×5** (e2e 19:24:08Z→20:06:53Z). One dispatch, no re-run of any run.
+9. Observed, not this unit's act: the push run's success fired `deploy-pages` `40568806110` (**success**: the SPA ships from master again) and `deploy-alert` `40568806141` (**failure**: ⟨`gh run view 40568806141 --log-failed`⟩ → `[deploy-alert] waiting - no deploy-of-record served` … `updating the open deploy-alert issue #1`, exit 1). So the host did not deploy `50ef781` on the push webhook, which is the expected fail-closed REFUSE. The dispatch run's success fired `deploy-pages` `40575160812` (in progress at 20:08Z) and `deploy-alert` `40575160677` (skipped).
+10. The poller ran to its 2700 s end (18:38:43Z→19:23:41Z). ⟨`grep -c ' health=200 ' g2/health-poll.log`⟩ ×2 → `1249` of `1249` lines (0 non-200). No switch occurred, so this is a non-regression read and not `.d`'s switch gate.
+
+**Gates (BEFORE → AFTER).**
+| Gate | BEFORE ((k) Baseline) | AFTER |
+|---|---|---|
+| m/w1 HEAD latest ci.yml run GREEN | `40552991504` @ `34b10ae` 5/5 | re-read at act 1: HEAD unmoved, `40552991504` 5/5 success. **GREEN** |
+| `merge --no-ff` clean, no hand-resolved hunks | not made; merge-tree rc 0 | `50ef781` (parents `24a524a` + `34b10ae`), tree `4227148…` = merge-tree tree, rc 0. **GREEN** |
+| push to master, no force | master `24a524a` | `24a524a..50ef781` fast-forward of master to the merge; ⟨`git rev-parse --short origin/master`⟩ → `50ef781` (read after the dispatch run). **GREEN** |
+| master CI GREEN ×2 | `39292117114` / `39292091987` failure @ `24a524a` | push `40561927861` success 5/5 · dispatch `40568756355` success 5/5, both @ `50ef781`. **GREEN** |
+
+This discharges R-j2 and the master gates of `.m2`, `.s1` and `.v3`.
+
+**Adjacent edits:** none. **Commits:** fourier `50ef781` (the merge; pushed); value.js, this receipt + `evidence/F-REL/g2/` (one record commit).
+
+**Residuals (named owners).**
+- R-k1: the host has not deployed `50ef781`. Deploy-alert `40568806141` updated issue #1 with "no deploy-of-record served". Owner: **`.d`** (hook deploy, poller across the switch, close #1).
+- R-k2: `deploy-pages` `40575160812` was still in progress when this receipt was written. `40568806110` already shipped the SPA from `50ef781`. Owner: **`.d`** (pages-smoke ×2).
+- The clean worktree `~/.fourier-frel/g-wt` is left detached at `50ef781`, with nothing dirty in it.
+
+**Escalations:** none. **Status: DONE.**
