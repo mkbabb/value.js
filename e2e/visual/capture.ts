@@ -815,6 +815,33 @@ export async function tabTo(page: Page, steps = 12): Promise<void> {
 }
 
 /**
+ * The shutter waits for every timed toast to finish its life (X.W11.v1b).
+ *
+ * In this matrix the palette service is absent (the dev server answers
+ * `/palettes` with its SPA HTML), so every cell that mounts a palette surface
+ * raises glass's service-failure toast through `reportServiceProblem`
+ * (`demo/platform/transport/useApiClient.ts`, `SERVICE_TOAST_MS` = 10 s), and
+ * the forced-state arm raises it on purpose. A toast with a timer is not a
+ * settled frame: the shutter photographed whichever side of that timer the
+ * host's speed landed it on. Measured — probe, `/#/browse` cold, no
+ * interaction: the toast opens at 0.66 s, closes at 10.62 s, leaves the DOM at
+ * 10.82 s, and no second toast follows in 26 s. On CI run 39613889291:
+ * `at-rest · 3440 › browse · both · dark` photographed the toast gone against a
+ * golden with it present (attempts 1–2), and `forced-state › api-unavailable
+ * latch` and `forced-colors-desktop › browse` red on the toast's own text and
+ * Retry rows (1,103 and 222 px), bimodal at the parent too (`b34f5aeee`).
+ * The terminal frame is the one without the toast, so the shutter waits for
+ * it — the same law as `tabTo`'s collapsed seal. The toast's own pixels are
+ * the e2e suite's subject, not this matrix's; no cell names it.
+ */
+export async function settleTimedToasts(page: Page): Promise<void> {
+    await page
+        .locator('[data-slot="toast"]')
+        .first()
+        .waitFor({ state: "detached", timeout: 15_000 });
+}
+
+/**
  * Seed N saved palettes into storage before boot.
  *
  * R35 / A-30 (MigratePalettesDialog): *"zero visual-matrix coverage BY

@@ -29,6 +29,7 @@ import {
     pinEntropy,
     pinOptionalFaces,
     pinStockMonoFallback,
+    settleTimedToasts,
 } from "./capture";
 import { TOLERANCE } from "./tolerance";
 
@@ -152,6 +153,9 @@ function makeVisualApi(): VisualApi {
             // A cell sitting on a half-pixel layout tie rasterises two ways for
             // identical inputs (see `ensureOffLayoutTie`, and IC-11). Move it off
             // the tie BEFORE the shutter opens, or the golden is a coin flip.
+            // A timed toast is not a settled frame: wait out its life first
+            // (see `settleTimedToasts`).
+            await settleTimedToasts(page);
             if (axes.capture) await ensureOffLayoutTie(page, axes.capture);
             const name = goldenName(axes, renderer);
             // THE LAST THING BEFORE THE SHUTTER. Every arm reaches the camera
