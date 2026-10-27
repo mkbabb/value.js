@@ -1,0 +1,32 @@
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 12 tests using 1 worker
+
+  ✓   1 [chromium] › e2e/f-w14v-pd.spec.ts:112:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate (1.6s)
+  ✓   2 [chromium] › e2e/f-w14v-pd.spec.ts:121:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › expanded: every element inside the plate (2.7s)
+  ✓   3 [chromium] › e2e/f-w14v-pd.spec.ts:112:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate (2.2s)
+  ✓   4 [chromium] › e2e/f-w14v-pd.spec.ts:121:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › expanded: every element inside the plate (3.6s)
+  ✓   5 [chromium] › e2e/f-w14v-pd.spec.ts:112:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate (1.1s)
+  ✓   6 [chromium] › e2e/f-w14v-pd.spec.ts:121:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › expanded: every element inside the plate (2.3s)
+  ✓   7 [chromium] › e2e/f-w14v-pd.spec.ts:112:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate (991ms)
+  ✓   8 [chromium] › e2e/f-w14v-pd.spec.ts:121:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › expanded: every element inside the plate (3.8s)
+  ✓   9 [chromium] › e2e/f-w14v-pd.spec.ts:112:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate (1.6s)
+  ✓  10 [chromium] › e2e/f-w14v-pd.spec.ts:121:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › expanded: every element inside the plate (1.9s)
+  ✓  11 [chromium] › e2e/f-w14v-pd.spec.ts:112:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate (1.0s)
+  ✓  12 [chromium] › e2e/f-w14v-pd.spec.ts:121:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › expanded: every element inside the plate (2.6s)
+
+  12 passed (45.3s)

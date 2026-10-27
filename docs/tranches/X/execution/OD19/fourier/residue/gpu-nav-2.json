@@ -1,0 +1,79 @@
+{
+  "cpuThrottle": 4,
+  "host": {
+    "index": 5095,
+    "rate": 3.1353846153846154
+  },
+  "readings": {
+    "paper": {
+      "nav": {
+        "ms": 477,
+        "apiMs": 0,
+        "jsKB": 776,
+        "cssKB": 28,
+        "longTasks": 2,
+        "tbt": 93,
+        "maxGapMs": 200,
+        "over50": 1,
+        "frames": 77,
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"
+      }
+    },
+    "visualize": {
+      "nav": {
+        "ms": 404,
+        "apiMs": 0,
+        "jsKB": 232,
+        "cssKB": 21,
+        "longTasks": 1,
+        "tbt": 21,
+        "maxGapMs": 117,
+        "over50": 1,
+        "frames": 79,
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"
+      }
+    },
+    "gallery": {
+      "nav": {
+        "ms": 457,
+        "apiMs": 5,
+        "jsKB": 127,
+        "cssKB": 8,
+        "longTasks": 2,
+        "tbt": 35,
+        "maxGapMs": 167,
+        "over50": 1,
+        "frames": 78,
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"
+      }
+    },
+    "equation": {
+      "nav": {
+        "ms": 1630,
+        "apiMs": 1478,
+        "jsKB": 173,
+        "cssKB": 13,
+        "longTasks": 2,
+        "tbt": 131,
+        "maxGapMs": 150,
+        "over50": 2,
+        "frames": 142,
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"
+      }
+    },
+    "morph": {
+      "nav": {
+        "ms": 491,
+        "apiMs": 0,
+        "jsKB": 85,
+        "cssKB": 9,
+        "longTasks": 1,
+        "tbt": 138,
+        "maxGapMs": 233,
+        "over50": 1,
+        "frames": 78,
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"
+      }
+    }
+  }
+}

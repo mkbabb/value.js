@@ -1,0 +1,36 @@
+delay-proxy :8091 -> localhost:8000, compute held 3052 ms
+
+Running 1 test using 1 worker
+
+[1/1] [chromium] › e2e/od19-load-head-falsifier.spec.ts:299:9 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › equation: an in-app navigation reaches content within the bar, with a smooth transition
+  1) [chromium] › e2e/od19-load-head-falsifier.spec.ts:299:9 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › equation: an in-app navigation reaches content within the bar, with a smooth transition 
+
+    Error: nav frames over 50 ms {"ms":4744,"apiMs":4583,"jsKB":173,"cssKB":13,"longTasks":2,"tbt":148,"maxGapMs":182,"over50":36,"cpu":{"index":5055,"rate":3.1107692307692307}}
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 20
+    Received:    36
+
+      307 |                 expect.soft(own(nav), `nav content ms (own) ${JSON.stringify({ ...nav, cpu: hostCalibration })}`).toBeLessThanOrEqual(route.bar.navMs!);
+      308 |                 expect.soft(nav.maxGapMs!, `nav max frame gap ${JSON.stringify({ ...nav, cpu: hostCalibration })}`).toBeLessThanOrEqual(FRAME_BAR.maxGapMs);
+    > 309 |                 expect.soft(nav.over50!, `nav frames over 50 ms ${JSON.stringify({ ...nav, cpu: hostCalibration })}`).toBeLessThanOrEqual(FRAME_BAR.over50);
+          |                                                                                                                       ^
+      310 |             } finally {
+      311 |                 await ctx.close();
+      312 |             }
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-load-head-falsifier.spec.ts:309:119
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/od19-load-head-falsifier-O-01c19-ar-with-a-smooth-transition-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/od19-load-head-falsifier-O-01c19-ar-with-a-smooth-transition-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/od19-load-head-falsifier-O-01c19-ar-with-a-smooth-transition-chromium/error-context.md
+
+
+  1 failed
+    [chromium] › e2e/od19-load-head-falsifier.spec.ts:299:9 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › equation: an in-app navigation reaches content within the bar, with a smooth transition 

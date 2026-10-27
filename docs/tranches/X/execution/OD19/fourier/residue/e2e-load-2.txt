@@ -1,0 +1,46 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 24 tests using 1 worker
+
+[1/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › paper @1440: cold and warm loads reach content within the bar
+[2/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › paper @390: cold and warm loads reach content within the bar
+[3/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › visualize @1440: cold and warm loads reach content within the bar
+[4/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › visualize @390: cold and warm loads reach content within the bar
+[5/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › visualization @1440: cold and warm loads reach content within the bar
+[6/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › visualization @390: cold and warm loads reach content within the bar
+[7/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › gallery @1440: cold and warm loads reach content within the bar
+[8/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › gallery @390: cold and warm loads reach content within the bar
+[9/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › equation @1440: cold and warm loads reach content within the bar
+[10/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › equation @390: cold and warm loads reach content within the bar
+[11/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › morph @1440: cold and warm loads reach content within the bar
+[12/24] [chromium] › e2e/od19-load.spec.ts:345:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › morph @390: cold and warm loads reach content within the bar
+[13/24] [chromium] › e2e/od19-load.spec.ts:363:9 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › paper: an in-app navigation reaches content within the bar, with a smooth transition
+[14/24] [chromium] › e2e/od19-load.spec.ts:363:9 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › visualize: an in-app navigation reaches content within the bar, with a smooth transition
+[15/24] [chromium] › e2e/od19-load.spec.ts:363:9 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › gallery: an in-app navigation reaches content within the bar, with a smooth transition
+[16/24] [chromium] › e2e/od19-load.spec.ts:363:9 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › equation: an in-app navigation reaches content within the bar, with a smooth transition
+[17/24] [chromium] › e2e/od19-load.spec.ts:363:9 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › morph: an in-app navigation reaches content within the bar, with a smooth transition
+[18/24] [chromium] › e2e/od19-load.spec.ts:382:5 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › gallery: an open card has already loaded its visualization's route chunk
+[19/24] [chromium] › e2e/od19-load.spec.ts:403:5 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › admin: the admin gallery and its lazy Users tab reach content within the bar
+[20/24] [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › paper: an in-app navigation keeps the frame budget on ANGLE Metal @gpu
+[21/24] [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › visualize: an in-app navigation keeps the frame budget on ANGLE Metal @gpu
+[22/24] [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › gallery: an in-app navigation keeps the frame budget on ANGLE Metal @gpu
+[23/24] [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › equation: an in-app navigation keeps the frame budget on ANGLE Metal @gpu
+[24/24] [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › morph: an in-app navigation keeps the frame budget on ANGLE Metal @gpu
+  24 passed (1.2m)

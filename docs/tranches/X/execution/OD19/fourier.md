@@ -353,3 +353,56 @@ Adopting `@mkbabb/glass-ui` **10.1.1** (tag `v10.1.1` at `d7baa1dc3`). Read befo
   - The base misses are the same hover-expand class (F1 light 1440 and F4 dark 1440). The flake predates 10.1.1, so the release neither causes nor cures it. It is the intermittent P1 dock-hover read already recorded under `### ci-green`. The worktree was removed afterwards.
 
 No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched.
+
+### residue (§0gp)
+
+ESC-FREL-ci-1, ruled at COHESION §0gp.2–.3. fourier `m/w1-bump-migration` `e4c2e1d` → `d89f4c9` → **`34b10ae`**, each pushed fast-forward. **Verdict: CURED. m/w1 CI is GREEN at HEAD: run 40552991504 on `34b10ae`, all 5 jobs successful (e2e 594 passed, 1 flaky, 3 skipped; honest-red "as declared").** Evidence: `fourier/residue/`.
+
+**1. The split (`d89f4c9`, `web/e2e/od19-load.spec.ts`).** This follows the §0fr.2/.3 law.
+- The nav cell reads the page's WebGL renderer.
+  - On a software rasteriser (SwiftShader, llvmpipe, or none), the frame reading is recorded as a `frames-informational` annotation. The leg asserts liveness: more than 1 sampler frame across the transition. This is the form ruled LAWFUL at §0fr.3.
+  - On hardware, the leg asserts FRAME_BAR: max gap ≤ 450 ms and ≤ 20 frames over 50 ms.
+- The budget's cell of record is a new `@gpu` describe, run by the `chrome-gpu` project. That project is headless real Chrome with `channel:"chrome"` and `--use-angle=metal`, and the spec header cites the machine-law need for it.
+  - `expectHardwareGpu` runs in `beforeAll`, and every cell asserts that its renderer is not software.
+- The bytes and own-time legs stay gating in every cell, CI included. No bar was moved.
+- **Falsifier.** The `equation` nav cell runs under CI 39595581721's condition: software raster, and the compute held 3,052 ms through `tools/delay-proxy.mjs` (`tools/falsifier.sh`).
+  - HEAD spec (`e4c2e1d`): **RED ×2** (`falsifier-head-{1,2}`; over50 36, max gap 182).
+  - Cure: **GREEN ×2** (`falsifier-cure-{1,2}`), with the chromium cell live and the chrome-gpu cell on "ANGLE Metal Renderer: Apple M5 Max".
+- **The real-GPU cell ×2** (`gpu-nav-{1,2}`): all 5 navs GREEN in both runs.
+  - Across the cells, max gap was 117–267 ms (bar 450) and over50 was 1–3 (bar 20).
+  - On hardware, the /equation nav that read 33/39 over50 and 500/650 ms on the CI software raster sits well under the budget. **No GPU red, so there is no product cure to make.** The CI count was the emulator's raster cadence during the server wait, as diagnosed under `### ci-green`.
+- **Gates for the split:**
+  - od19-load chromium: 19/19 ×2 (`chromium-load-{1,2}`).
+  - chromium + chrome-gpu: 24/24 ×2 (`e2e-load-{1,2}`).
+  - `vue-tsc -b`: clean ×2.
+  - vitest: 116/116 ×2.
+  - oxlint: clean.
+
+**2. The red the split uncovered: the honest-red reporter (`34b10ae`).**
+- CI 39650062340 on `d89f4c9` had od19-load GREEN, and the gating chromium cells passed: 586 passed, plus 3 pre-existing flakes that passed on retry.
+- The job still failed in the producer-held step. `honest-red-reporter.ts` read **NOW PASSES ×6** on the `DOCK-SUMMARY-SQUARE` row (O-84, the `f-w14v-pd` collapsed cells at 1440/1024/390 × light/dark).
+- The same 6 read the same way on every CI since run 39577437998 (head `a354b68`, still on glass 10.1.0), which was the first run to read `e928541` (OD19-F1: the transport summary is one readout). So fourier's own F1 cure discharged the hold. glass did not land it.
+  - The ladder in `### ci-green` counted only the gating cells and did not record this step.
+- **Cure, by the manifest's own contract** ("a row leaves only by adoption"):
+  - The row is deleted from `web/e2e/producer-held.json`, so the 6 collapsed cells gate in `chromium` and `mobile-chromium` again.
+  - The `f-w14v-pd.spec.ts` header records the adoption.
+  - No assertion changed. The producer rule stays asked under O-84 / O-102.
+- **Falsifier:** the honest-red project under its reporter, against the suite's :3100 dev server and the :8000 API.
+  - HEAD `d89f4c9`: **RED ×2** ("NOT as declared (6)", rc 1; `honest-red-head-{1,2}`).
+  - Cure: **GREEN ×2** ("as declared — 7 rows, 7 tests, every one RED on its own token", rc 0; `honest-red-cure-{1,2}`).
+- **Gates:**
+  - Touched spec `f-w14v-pd` in chromium + mobile-chromium: **12/12 ×2**, including all 6 collapsed cells (`pd-gating-{1,2}`).
+  - `vue-tsc -b --force`: rc 0 ×2.
+  - vitest `--maxWorkers=2`: 116/116 ×2 (`adopt-*`).
+
+**3. CI.** Run 40552991504 was a fresh `workflow_dispatch` on `34b10ae`. It was not a re-run. Its log is in `ci-40552991504-e2e.log`.
+- web, api/tests, compose boot, e2e and inv-27 were all successful.
+- od19-load equation nav ✓.
+- The 6 `f-w14v-pd` collapsed cells ✓ in the gating cell.
+- The honest-red set was "as declared".
+- 1 flaky: `equation-interaction.spec.ts:77`. It passed on CI's own retry and was never re-dispatched. It is one of the pre-existing flake set named under `### ci-green`. That set is not this lane's commits, and it stays named for a cure seat.
+- The other two pre-existing flakes read clean this run.
+
+**Track C may resume (§0gp.3): merge, master CI ×2, then the .d deploy.**
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched. fourier `.worktrees/` is untouched.

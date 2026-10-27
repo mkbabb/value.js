@@ -1,0 +1,25 @@
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 5 tests using 1 worker
+
+  ✓  1 [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › paper: an in-app navigation keeps the frame budget on ANGLE Metal @gpu (4.6s)
+  ✓  2 [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › visualize: an in-app navigation keeps the frame budget on ANGLE Metal @gpu (3.3s)
+  ✓  3 [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › gallery: an in-app navigation keeps the frame budget on ANGLE Metal @gpu (3.5s)
+  ✓  4 [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › equation: an in-app navigation keeps the frame budget on ANGLE Metal @gpu (4.3s)
+  ✓  5 [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › morph: an in-app navigation keeps the frame budget on ANGLE Metal @gpu (3.4s)
+
+  5 passed (31.2s)

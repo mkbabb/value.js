@@ -1,0 +1,313 @@
+{
+  "cpuThrottle": 4,
+  "host": {
+    "index": 6261,
+    "rate": 3.852923076923077
+  },
+  "readings": {
+    "paper@1440": {
+      "cold": {
+        "ms": 452,
+        "apiMs": 0,
+        "jsKB": 1432,
+        "cssKB": 442,
+        "longTasks": 2,
+        "tbt": 289
+      },
+      "warm": {
+        "ms": 284,
+        "apiMs": 0,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 109
+      }
+    },
+    "paper@390": {
+      "cold": {
+        "ms": 369,
+        "apiMs": 0,
+        "jsKB": 1432,
+        "cssKB": 442,
+        "longTasks": 2,
+        "tbt": 203
+      },
+      "warm": {
+        "ms": 214,
+        "apiMs": 0,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 47
+      }
+    },
+    "visualize@1440": {
+      "cold": {
+        "ms": 318,
+        "apiMs": 0,
+        "jsKB": 1163,
+        "cssKB": 435,
+        "longTasks": 1,
+        "tbt": 166
+      },
+      "warm": {
+        "ms": 203,
+        "apiMs": 0,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 27
+      }
+    },
+    "visualize@390": {
+      "cold": {
+        "ms": 340,
+        "apiMs": 0,
+        "jsKB": 1163,
+        "cssKB": 435,
+        "longTasks": 1,
+        "tbt": 183
+      },
+      "warm": {
+        "ms": 196,
+        "apiMs": 0,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 23
+      }
+    },
+    "visualization@1440": {
+      "cold": {
+        "ms": 688,
+        "apiMs": 13,
+        "jsKB": 1163,
+        "cssKB": 435,
+        "longTasks": 2,
+        "tbt": 395
+      },
+      "warm": {
+        "ms": 556,
+        "apiMs": 9,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 2,
+        "tbt": 130
+      }
+    },
+    "visualization@390": {
+      "cold": {
+        "ms": 687,
+        "apiMs": 42,
+        "jsKB": 1163,
+        "cssKB": 435,
+        "longTasks": 2,
+        "tbt": 368
+      },
+      "warm": {
+        "ms": 343,
+        "apiMs": 8,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 2,
+        "tbt": 104
+      }
+    },
+    "gallery@1440": {
+      "cold": {
+        "ms": 502,
+        "apiMs": 9,
+        "jsKB": 799,
+        "cssKB": 423,
+        "longTasks": 2,
+        "tbt": 238
+      },
+      "warm": {
+        "ms": 232,
+        "apiMs": 19,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 31
+      }
+    },
+    "gallery@390": {
+      "cold": {
+        "ms": 469,
+        "apiMs": 5,
+        "jsKB": 799,
+        "cssKB": 423,
+        "longTasks": 2,
+        "tbt": 210
+      },
+      "warm": {
+        "ms": 235,
+        "apiMs": 9,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 31
+      }
+    },
+    "equation@1440": {
+      "cold": {
+        "ms": 2255,
+        "apiMs": 1914,
+        "jsKB": 1081,
+        "cssKB": 428,
+        "longTasks": 2,
+        "tbt": 355
+      },
+      "warm": {
+        "ms": 322,
+        "apiMs": 0,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 2,
+        "tbt": 137
+      }
+    },
+    "equation@390": {
+      "cold": {
+        "ms": 1661,
+        "apiMs": 1363,
+        "jsKB": 1081,
+        "cssKB": 428,
+        "longTasks": 2,
+        "tbt": 314
+      },
+      "warm": {
+        "ms": 235,
+        "apiMs": 0,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 115
+      }
+    },
+    "morph@1440": {
+      "cold": {
+        "ms": 467,
+        "apiMs": 0,
+        "jsKB": 741,
+        "cssKB": 423,
+        "longTasks": 1,
+        "tbt": 313
+      },
+      "warm": {
+        "ms": 310,
+        "apiMs": 0,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 132
+      }
+    },
+    "morph@390": {
+      "cold": {
+        "ms": 423,
+        "apiMs": 0,
+        "jsKB": 741,
+        "cssKB": 423,
+        "longTasks": 1,
+        "tbt": 281
+      },
+      "warm": {
+        "ms": 281,
+        "apiMs": 0,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 1,
+        "tbt": 123
+      }
+    },
+    "paper": {
+      "nav": {
+        "ms": 593,
+        "apiMs": 0,
+        "jsKB": 776,
+        "cssKB": 28,
+        "longTasks": 2,
+        "tbt": 148,
+        "maxGapMs": 268,
+        "over50": 1,
+        "frames": 163,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    "visualize": {
+      "nav": {
+        "ms": 342,
+        "apiMs": 0,
+        "jsKB": 232,
+        "cssKB": 21,
+        "longTasks": 1,
+        "tbt": 22,
+        "maxGapMs": 123,
+        "over50": 4,
+        "frames": 94,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    "gallery": {
+      "nav": {
+        "ms": 583,
+        "apiMs": 6,
+        "jsKB": 127,
+        "cssKB": 8,
+        "longTasks": 2,
+        "tbt": 83,
+        "maxGapMs": 222,
+        "over50": 1,
+        "frames": 150,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    "equation": {
+      "nav": {
+        "ms": 1580,
+        "apiMs": 1424,
+        "jsKB": 173,
+        "cssKB": 13,
+        "longTasks": 2,
+        "tbt": 152,
+        "maxGapMs": 182,
+        "over50": 7,
+        "frames": 115,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    "morph": {
+      "nav": {
+        "ms": 601,
+        "apiMs": 0,
+        "jsKB": 85,
+        "cssKB": 9,
+        "longTasks": 1,
+        "tbt": 169,
+        "maxGapMs": 267,
+        "over50": 1,
+        "frames": 151,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    "admin": {
+      "cold": {
+        "ms": 531,
+        "apiMs": 201,
+        "jsKB": 840,
+        "cssKB": 424,
+        "longTasks": 2,
+        "tbt": 170
+      },
+      "users-tab": {
+        "ms": 205,
+        "apiMs": 41,
+        "jsKB": 0,
+        "cssKB": 0,
+        "longTasks": 0,
+        "tbt": 0
+      }
+    }
+  }
+}
