@@ -59,6 +59,43 @@ async function openBar(page: Page): Promise<void> {
     await page.waitForTimeout(900);
     await parkOnDock(page);
     await page.waitForTimeout(300);
+    await settleBar(page);
+}
+
+/**
+ * SS-8.r B05 0125 / 0146: the bar's posture lands over a few hundred ms (the
+ * scene-action seats tween their gaps 6 → 4 px under the open bar while the
+ * face's `--dock-layer-gap` re-resolves), and at host load the tween ran past
+ * the fixed 1.2 s wait: the face gap was read on one posture and the seats
+ * mid-flight (5.398 < 5.5; an air delta of 2 px). Every proportion below is
+ * read once the layer root's own geometry and both gaps hold for consecutive
+ * frames (the §0gl.8 instrument law: sample the settled posture).
+ */
+async function settleBar(page: Page): Promise<void> {
+    const settled = await page.evaluate(async () => {
+        const key = () => {
+            const row = document.querySelector('[data-testid="scene-action-row"]');
+            const root = row?.closest(".dock-crossfade")?.parentElement;
+            const face = row?.closest(".dock-face-content");
+            if (!row || !root || !face) return "absent";
+            const boxes = [root, ...root.querySelectorAll("button, .dock-separator")].map((e) => {
+                const b = e.getBoundingClientRect();
+                return `${b.left.toFixed(2)}/${b.width.toFixed(2)}`;
+            });
+            return `${getComputedStyle(face).columnGap}|${getComputedStyle(root).columnGap}|${boxes.join(",")}`;
+        };
+        const frame = () => new Promise((r) => requestAnimationFrame(() => r(null)));
+        let last = key();
+        for (let held = 0, n = 0; n < 600; n++) {
+            await frame();
+            const k = key();
+            held = k === last && k !== "absent" ? held + 1 : 0;
+            last = k;
+            if (held >= 10) return true;
+        }
+        return false;
+    });
+    expect(settled, "the open bar's posture settles").toBe(true);
 }
 
 type RGB = [number, number, number];
@@ -146,6 +183,7 @@ test.describe("B05 · the action-bar proportion (0125 · 0146)", () => {
         // (an open bar does not idle-collapse; SS8-0129 S1).
         await page.mouse.move(1430, 890);
         await page.waitForTimeout(400);
+        await settleBar(page);
         const air = await page.evaluate(() => {
             const row = document.querySelector('[data-testid="scene-action-row"]')!;
             const crossfade = row.closest(".dock-crossfade")!;
