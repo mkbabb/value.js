@@ -153,8 +153,19 @@
              W2-2: the body ground is the FIXED gradient template over the
              registered per-stop properties (the same template as style.css's
              base rule — the producer paletteToCssGradient geometry). The
-             ground is a complete material from the first paint (B0). -->
+             ground is a complete material from the first paint (B0).
+
+             X.W11.v1c: THE DOCUMENT'S CASCADE-LAYER ORDER IS STATED HERE,
+             ONCE, in the earliest stylesheet of both modes. A layer's rank is
+             fixed by its FIRST declaration, and `main.ts` imports App.vue
+             (and so every SFC sheet) before foundation.css's Tailwind
+             statement: since d386d18bc the WatercolorDot sheet's
+             `@layer components` came first, ranking every glass control
+             BELOW Tailwind's `base` reset (button radius 0, transparent
+             background), so dock pills lost their stadium and hover plate.
+             This is the order foundation.css declares, fouc-guard lowest. -->
         <style>
+            @layer fouc-guard, properties, theme, base, components, utilities;
             @layer fouc-guard {
                 .hidden { display: none; }
                 body {
