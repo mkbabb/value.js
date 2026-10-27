@@ -27,6 +27,8 @@ import {
     CAPTURE_STYLE_PATH,
     ensureOffLayoutTie,
     pinEntropy,
+    pinOptionalFaces,
+    pinStockMonoFallback,
 } from "./capture";
 import { TOLERANCE } from "./tolerance";
 
@@ -196,7 +198,8 @@ export interface VisualFixtures {
  */
 export const VISUAL_FIXTURE = {
     /**
-     * The context override exists for ONE reason: the entropy pin has to be
+     * The context override exists for ONE reason: the entropy pin (and, since
+     * X.W11.v1b, the font pins — `pinOptionalFaces`, `pinStockMonoFallback`) has to be
      * installed before the first page script of every cell, in every arm, and
      * an arm that had to remember to call it is an arm that will one day not.
      * Putting it on the shared fixture object means
@@ -209,6 +212,8 @@ export const VISUAL_FIXTURE = {
         use: (context: BrowserContext) => Promise<void>,
     ) => {
         await pinEntropy(context);
+        await pinOptionalFaces(context);
+        await pinStockMonoFallback(context);
         await use(context);
     },
     visual: async ({}, use: (api: VisualApi) => Promise<void>) => {
