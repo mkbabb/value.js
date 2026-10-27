@@ -44,7 +44,16 @@ test("goo-blob canvas survives view switch without webglcontextlost", async ({
     await instrumentWebglDraws(page);
 
     await page.goto("/");
-    // Mounted on the picker (Home) view.
+    // Mounted on the picker (Home) view — on the overture's ornament beat.
+    // X.W11.v1c: the hero EMERGES at B4, and B4 settle-gates on the field's
+    // derive-in (useOverture.ts, the B2/B4 de-coincidence; the o11-header-gates
+    // precedent). Under SwiftShader that 0.9 s transition runs on a starved
+    // timeline: measured cold `/`, HeroBlob.vue requested at 10.05 s and the
+    // canvas attached at 10.9 s, past the 8 s attach window. The spec reads
+    // the beat it depends on (the `overture:b4` mark), then the canvas.
+    await page.waitForFunction(() => performance.getEntriesByName("overture:b4", "mark").length > 0, null, {
+        timeout: 30_000,
+    });
     await expect(page.getByTestId("goo-blob-canvas").last()).toBeAttached();
 
     // Switch away → switch back. Exercises unmount/remount.
