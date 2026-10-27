@@ -1,0 +1,25 @@
+SERVED MODEL: claude-opus-5-5
+# prod-verify run 3 (guarded, headless shell, COMPUTE_CONCURRENCY=1)
+GREEN session — {"status":200,"user":"vast-changing-lilac-mink"}
+GREEN upload daraksha.jpg — {"status":200,"slug":"faded-darting-onyx-yak"}
+GREEN upright daraksha.jpg — {"status":200,"w":768,"h":1024}
+GREEN extract daraksha.jpg — {"status":200,"ms":62,"source":"extract","points":1024}
+GREEN epicycles daraksha.jpg — {"status":200}
+GREEN create daraksha.jpg — {"status":201,"slug":"eager-mending-azure-ferret","etag":"\"f70da1f337a04466ecfd651b015f28b225e625c41db3ead7fefcb64b797d0bdc\""}
+GREEN upload daraksha.jpeg — {"status":200,"slug":"twilit-cresting-prism-kestrel"}
+GREEN upright daraksha.jpeg — {"status":200,"w":768,"h":1024}
+GREEN extract daraksha.jpeg — {"status":200,"ms":56,"source":"extract","points":1024}
+GREEN epicycles daraksha.jpeg — {"status":200}
+GREEN create daraksha.jpeg — {"status":201,"slug":"chalky-racing-salmon-turtle","etag":"\"c721662dc1c126fdec5dc6a6faa585b6cd94cb8e918c4796d0d9a0f63818816b\""}
+GREEN preview /v/<slug> — {"slug":"eager-mending-azure-ferret","canvas":true,"failed":0}
+GREEN publish — {"status":200,"visibility":"public"}
+GREEN remix — {"status":201,"child":"mellow-jolting-clay-jaguar"}
+GREEN diff — {"status":200,"keys":["from_hash","to_hash","ops","identical"]}
+GREEN gallery — {"status":200,"listed":true,"items":1}
+GREEN edit (PATCH, If-Match) — {"etagExposed":true,"status":200}
+GREEN delete mellow-jolting-clay-jaguar — {"status":204}
+GREEN delete chalky-racing-salmon-turtle — {"status":204}
+GREEN delete eager-mending-azure-ferret — {"status":204}
+GREEN no CORS console errors — {"cors":[]}
+21/21 GREEN
+rc=0

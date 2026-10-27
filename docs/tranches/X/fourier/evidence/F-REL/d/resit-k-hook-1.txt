@@ -1,0 +1,32 @@
+SERVED MODEL: claude-opus-5-5
+# host hook deploy #1 output (webhook journal, deploy-hook lines; addresses redacted)
+[webhook] 2026/10/27 20:12:13 [5c76f1] incoming HTTP POST request from <ip>:47640
+[webhook] 2026/10/27 20:12:13 [5c76f1] fourier-analysis got matched
+[webhook] 2026/10/27 20:12:13 [5c76f1] fourier-analysis hook triggered successfully
+[webhook] 2026/10/27 20:12:13 [5c76f1] 200 | 0 B | 92.884µs | <ip>:9000 | POST /hooks/fourier-analysis
+[webhook] 2026/10/27 20:12:13 [5c76f1] executing /var/www/fourier-analysis/scripts/deploy-hook.sh (/var/www/fourier-analysis/scripts/deploy-hook.sh) with arguments ["/var/www/fourier-analysis/scripts/deploy-hook.sh"
+[webhook] 2026/10/27 20:14:27 [5c76f1] command output: [deploy-hook 2026-10-27T20:12:13Z] fourier deploy-hook invoked (repo arg: mkbabb/fourier-analysis)
+[deploy-hook 2026-10-27T20:12:13Z] rollback target = last-known-green 79f1a43528e8944a0075649a761c59bfc4070f25 (from /opt/deploy/fourier-last-green)
+[deploy-hook 2026-10-27T20:12:13Z] inv-28 — asking GitHub for a covering green ci.yml run for 50ef7812725b114c62a0c242b8f6b19cb7179d8a on master…
+[deploy-hook 2026-10-27T20:12:14Z] inv-28 GREEN — 50ef7812725b114c62a0c242b8f6b19cb7179d8a is covered by ci.yml run unknown
+[deploy-hook 2026-10-27T20:12:14Z] advancing 79f1a43528e8944a0075649a761c59bfc4070f25 -> 50ef7812725b114c62a0c242b8f6b19cb7179d8a (covered by CI run unknown)
+[deploy-hook 2026-10-27T20:12:14Z] nginx/ changed in 79f1a43528e8944a0075649a761c59bfc4070f25..50ef7812725b114c62a0c242b8f6b19cb7179d8a — the switch validates and reloads the edge config
+[deploy-hook 2026-10-27T20:12:14Z] building (build --parallel) — the serving stack is untouched…
+[deploy-hook 2026-10-27T20:13:32Z] edge: backend pinned to fourier-analysis-backend-1
+[deploy-hook 2026-10-27T20:13:32Z] switch backend: starting 1 new beside 1 serving (the edge stays on the serving one)
+[deploy-hook 2026-10-27T20:13:44Z] edge: backend pinned to fourier-analysis-backend-2
+[deploy-hook 2026-10-27T20:13:44Z] switch backend: retiring e3f4f01de1b0 (graceful stop, ≤ 30s)
+[deploy-hook 2026-10-27T20:14:14Z] switch backend: serving abbf561ae423 (healthy)
+[deploy-hook 2026-10-27T20:14:15Z] edge: frontend pinned to fourier-analysis-frontend-1
+[deploy-hook 2026-10-27T20:14:15Z] switch frontend: starting 1 new beside 1 serving (the edge stays on the serving one)
+[deploy-hook 2026-10-27T20:14:23Z] edge: frontend pinned to fourier-analysis-frontend-2
+[deploy-hook 2026-10-27T20:14:23Z] switch frontend: retiring 8e9c6f133fff (graceful stop, ≤ 30s)
+[deploy-hook 2026-10-27T20:14:23Z] switch frontend: serving 76c25b142567 (healthy)
+[deploy-hook 2026-10-27T20:14:23Z] edge: nginx/ changed — validating the new config in the live edge before reload
+[deploy-hook 2026-10-27T20:14:24Z] edge: config reloaded gracefully
+[deploy-hook 2026-10-27T20:14:24Z] health gate GREEN on :8100 (attempt 1/30) — LIVENESS ok (/api/health) · READINESS ok (/ → 404, inv-22)
+[deploy-hook 2026-10-27T20:14:24Z] running pending migrations (post-up post-gate)…
+[deploy-hook 2026-10-27T20:14:27Z] migrations OK
+[deploy-hook 2026-10-27T20:14:27Z] DEPLOY OK 79f1a43528e8944a0075649a761c59bfc4070f25 -> 50ef7812725b114c62a0c242b8f6b19cb7179d8a (CI run unknown; liveness ok, readiness ok)
+[deploy-hook 2026-10-27T20:14:27Z] ALERT-CHANNEL POST FAILED — the message above reached syslog only
+[webhook] 2026/10/27 20:14:27 [5c76f1] finished handling fourier-analysis

@@ -3559,3 +3559,70 @@ This discharges R-j2 and the master gates of `.m2`, `.s1` and `.v3`.
 - The clean worktree `~/.fourier-frel/g-wt` is left detached at `50ef781`, with nothing dirty in it.
 
 **Escalations:** none. **Status: DONE.**
+
+### F-REL.d
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-27 ~20:08–20:30Z. Spec read whole (`F-REL.md`, 83 L): §Units `.d` (L32-38), §Gates (L40-41), ADDENDUM (f) (L78-83); COHESION §0fs, §0ge.4, §0gh.1–4, §0gi.1–3, §0gq.1; (j) Close R-j3/R-j4/R-j5; the (h)/(j) `.d` receipts; the `.h1` bootstrap design (L2759); `.g2`'s receipt. Evidence: `docs/tranches/X/fourier/evidence/F-REL/d/resit-k-*.txt`, `health-poll-1s.sh`, `pd1-prod.sh` (line 1 SERVED MODEL on every `.txt`). No secret value, host address or infrastructure detail is written here or in the evidence (§0gh.4).
+
+**Crash recovery.** fourier ⟨`git status --porcelain -- scripts`⟩ → empty (the main tree's dirty `web/e2e/screenshots/f-w14/**` belong to another lane: untouched, never staged). value.js `evidence/F-REL/d/` + this record → clean. Nothing inherited.
+
+**Lock.** `.g2` DONE: master `50ef781`, master CI GREEN ×2 (`40561927861` push + `40568756355` dispatch, 5/5 each). ⟨`git fetch; git rev-parse --short origin/master`⟩ → `50ef781`. Host reached over the owner's VPN SSH (key-only, the non-default port): ⟨`ssh … 'hostname && echo SSH_OK'`⟩ → `SSH_OK`. No VPN, firewall, sshd or port change was made.
+
+**The measured bootstrap gap.** The `.h1` design (L2759) assumed one bootstrap deploy run by the host's old hook copy. At the bytes, that is not enough:
+- ⟨`journalctl -u webhook`⟩ 18:38:58Z → the `.g2` push reached the host's hook (`79f1a43`'s copy), which answered `REFUSE — inv-31: FOURIER_DEPLOY_ALERT_WEBHOOK is unset`, exit 1.
+- `79f1a43`'s hook runs compose with the repo `.env` only (MONGO_* key names). `50ef781`'s `docker-compose.prod.yml:15` requires `${ADMIN_TOKEN:?…}`, which lives only in the secret store `/opt/deploy/.env` (key names: `WEBHOOK_SECRET ADMIN_TOKEN`). So the old hook could not render the new compose even with the alert variable set.
+- GitHub redelivery: ⟨`gh api -X POST …/deliveries/<id>/attempts`⟩ → 404 "needs the admin:repo_hook scope". Not available.
+- ⟨compose v5.6.0, a throwaway file requiring `ADMIN_TOKEN` + `MONGO_USER`⟩: no env → rc 1; `COMPOSE_ENV_FILES=<repo .env>,<secret store>` → rc 0. So compose can read the store itself, and no secret value needs to be copied anywhere.
+
+**Acts, in order.**
+1. Before any host write, BEFORE reads: host tree `79f1a43`; mongo `HostConfig.Memory` 536870912 (512 MiB), image `mongo:8.0`; "Checking authorization failed" 208 in 10 min (R-j4 BEFORE > 0).
+2. The off-host poller started at 20:11:11Z: ⟨`health-poll-1s.sh 5400`⟩, `/api/health` every 1 s, logging the code and time.
+3. Deploy-path config, for ONE bootstrap deploy. ⟨`cp -p hooks.json hooks.json.bak-frel-d-20261027`⟩ (mode 600). Then the fourier arm got `pass-environment-to-command` with two entries:
+   - `FOURIER_DEPLOY_ALERT_WEBHOOK` = a loopback discard URL. This is `.h1` design (b). The watched channel is the `deploy-alert` issue (§0ge.4); the old hook only needs the variable non-empty.
+   - `COMPOSE_ENV_FILES` = `<repo .env>,<secret store>`, i.e. paths only. The token stays only in the store (§0gi.1(e)).
+
+   The `-hotreload` watcher did not fire on the atomic replace, so ⟨`kill -USR1 <webhook>`⟩ → `found 5 hook(s) … loaded: fourier-analysis`.
+4. Dispatch #1, 20:12:13Z. The hook's own trigger path: an HMAC-signed `refs/heads/master` push body, POSTed to the receiver on loopback (the secret was read and used on the host, never printed) → `[5c76f1] fourier-analysis hook triggered successfully`. The hook's own output (`resit-k-hook-1.txt`):
+   - `inv-28 GREEN` → `advancing 79f1a43… -> 50ef781…`
+   - build; mongo `--no-recreate` (the old hook)
+   - backend 1→2 and frontend 1→2 switched beside the serving ones; edge config validated and reloaded
+   - `health gate GREEN on :8100 (attempt 1/30)` · `migrations OK` · **`DEPLOY OK 79f1a43… -> 50ef781…`** (20:14:27Z)
+5. Config restored. ⟨`cat hooks.json.bak-frel-d-20261027 > hooks.json; cmp …`⟩ → identical; `pass-environment` count 0; USR1 → 5 loaded. The host tree now carries `50ef781`'s hook, which names the secret store with `--env-file` itself.
+6. Dispatch #2, 20:15:00Z `[e9a638]`, the same path. `50ef781`'s hook (`resit-k-hook-2.txt`):
+   - `inv-31: … the watched channel is the deploy-alert issue`
+   - `compose env: <store> supplies keys: WEBHOOK_SECRET ADMIN_TOKEN`
+   - **`mongo: its definition changed (config hash 3df677dbf1d6 -> e167ac5b1369) — cold backup, then recreate`**, then `backup … (318329410 bytes)`, then `recreated … (healthy)` at 20:15:54Z. This is the one mongo recreate, behind the hook's cold backup (R-j5).
+   - backend 2→3, frontend 2→3; `health gate GREEN (attempt 1/30)` · `migrations OK` · **`DEPLOY OK 50ef781… -> 50ef781…`** (20:16:45Z)
+7. Production reads (AFTER) and the prod checks. The gate table below gives the readings.
+8. `scripts/prod-verify.mjs:39` launched branded Chrome (`channel: "chrome"`) with no cited witness need. The machine law (2026-10-16) makes Playwright's default headless shell the norm. Cure: drop `channel`, with a one-comment citation. Committed as fourier **`d0c300d`** on `m/w1-bump-migration` (pathspec, pushed, no force). All three prod-verify runs used the cured file.
+9. Deploy-alert: ⟨`gh workflow run deploy-alert.yml -f sha=50ef781…`⟩ → run **`40577707656`** success, `[deploy-alert] OK - 50ef781… deployed`. Then ⟨`gh issue close 1 --comment …`⟩ → **#1 CLOSED** 2026-10-27T20:24:29Z.
+10. The poller was stopped at 20:28:00Z (STOP file); ⟨`pgrep`⟩ → stopped.
+
+**Gates (BEFORE → AFTER).**
+| Gate | BEFORE ((k) Baseline / act 1) | AFTER |
+|---|---|---|
+| off-host `/api/health` poller across the switch, no non-200 | — | ⟨`grep -c ' api-health=200 '` / `grep -vc …`⟩ ×2 → `915` / `0` of 915 lines (20:11:12–20:28:00Z; 245 inside the two deploys; max gap 2 s, max 0.589 s). **GREEN** |
+| hook deploy → OK at the merged master SHA; mongo recreated once behind the cold backup | host `79f1a43`; REFUSE at 18:38:58Z | `DEPLOY OK` ×2 (#1 bootstrap 79f1a43→50ef781, #2 50ef781's own hook); `/deploy-record.json` → `OK`, `deployed_sha 50ef781`, `recorded_at 20:16:44Z`; mongo recreated once at #2 after a 318 MB cold backup. **GREEN** |
+| deploy-alert issue #1 closed | OPEN | watcher `40577707656` OK; `#1 CLOSED` 20:24:29Z. **GREEN** |
+| backend `ENV=production`, `ADMIN_TOKEN` from the store (key name only) | ENV ≠ production | ⟨`docker exec <backend> printenv ENV`⟩ → `production`; ⟨`test -n "$ADMIN_TOKEN"`⟩ → `yes`; the hook logs the store's keys `WEBHOOK_SECRET ADMIN_TOKEN`. **GREEN** |
+| `/api/admin/verify` without a token = 403 ×2 | 503 | `403 403` (20:17Z) · `403 403` (20:23Z). **GREEN** |
+| mongo memory 1 GiB; 0 `Checking authorization failed` over 12 intervals | 512 MiB; 208 in 10 min | `HostConfig.Memory 1073741824`, image `mongo:8.0.20`, restarts 0, OOM false, about 103 MiB used. The healthcheck is `mongosh --nodb --norc` every 5 s. The count is **0** over 20:15:48–20:17:12Z (16 intervals) and **0** over 20:20:23–20:21:23Z (12). The container has 2 such lines since start, at 20:17:26Z and 20:17:42Z. They are this seat's own two `getParameter` attempts as the app user, which lacks that privilege, not the healthcheck. **GREEN** |
+| mongo 8.0.20 + FCV via the backend client | 8.0.20 (§0gh.1) | motor inside the backend container: `buildInfo.version 8.0.20`; FCV `8.0` (`admin.system.version`, read as the store user; the app user is refused `getParameter`). Never mongosh in the mongo container. **GREEN** |
+| prod-verify 21/21 ×2 (headless, guarded) | RED (old build) | run 1 **21/21** rc 0. Run 2 10/17 rc 1: 7 × 429, because it started the instant run 1 ended, inside run 1's 60 s write budget, and the probe's tracker starts empty in each process. Run 3, after a 75 s quiet gap: **21/21** rc 0. Reading: GREEN ×2 (runs 1 and 3); run 2 is banked as RED with its cause. **GREEN** |
+| PD-1 on prod ×2 | gzip, no ETag | `pd1-prod.sh` ×2, under `Accept-Encoding: gzip`: `200`, strong ETag, no `Content-Encoding`, ETag exposed. Then `PATCH If-Match` → `200`, the stale replay → `412`, and `DELETE` → `204`. **PASS ×2**. (The script's first draft, a remix of the newest public row, found 0 public rows and never reached the gated calls. It was rewritten to make its own draft; `resit-k-pd1.txt` says so.) **GREEN** |
+| pages-smoke ×2; cert > 14 d; openapi 200; health 200 | PASS; Dec 22 / Jan 4; 200; 200 | `PASS` ×2; SPA `Dec 22 20:13:07 2026`, API `Jan  4 15:19:06 2027`; openapi `200` (42 paths, 0.2.0, diff/publish/remix/unpublish); health `200`. **GREEN** |
+
+R-j3, R-j4 and R-j5 are discharged.
+
+**Adjacent edits:**
+- fourier `scripts/prod-verify.mjs:39-42` (`d0c300d`), in set: the probe defect read at act 8.
+- Host deploy-path config `/opt/deploy/hooks.json`: changed for one deploy, then restored byte-identical (acts 3 and 5). The backup `hooks.json.bak-frel-d-20261027` is left on the host, mode 600.
+
+**Commits:** fourier `d0c300d` (pushed to m/w1); value.js, this receipt + `evidence/F-REL/d/resit-k-*` + `health-poll-1s.sh` + `pd1-prod.sh` (one record commit).
+
+**Residuals (named owners).**
+- R-k3: DELETE is a soft delete (`deleted_at`). Today's probes left 9 tombstoned rows (7 draft, 2 public, all probe-titled; 0 live; the gallery lists 0 public rows), beside the 14 tombstoned rows from 10-16, for 23 in all. Their image docs stay (images 2). A hard delete is an admin act per the §0ge.8 R-4 precedent. Owner: **the orchestrator** (optional; not a gate).
+- R-k4: `prod-verify.mjs`'s budget tracker starts empty in each process, so a back-to-back second run reads its predecessor's 429s. The cure is to seed it from `RateLimit-Reset`, or to run the probe once per 60 s window. Owner: **Track C** (a next `.d` sitting or the close; this seat banked runs 1 and 3 and did not change the probe's grading).
+- R-k5: `deploy-pages` `40568806110` shipped the SPA from `50ef781` (pages-smoke PASS ×2). `40575160812` (the dispatch run's) was **skipped** by design (push-only). R-k2 is discharged.
+
+**Escalations:** none. **Status: DONE.**
