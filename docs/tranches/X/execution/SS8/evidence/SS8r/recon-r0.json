@@ -1,0 +1,1291 @@
+{
+ "base": "http://localhost:9147/",
+ "tag": "r0",
+ "at": "2026-10-27T17:21:03.283Z",
+ "cells": {
+  "caption": {
+   "light|rgb(200 80 40)": {
+    "meta": {
+     "text": "(0 - 255)",
+     "chain": [
+      "P.text-mono-small.text-muted-foreground.mt-0.5",
+      "DIV.glass-floating.glass-overlay-plate.glass-reveal.z-tooltip.max-w-56",
+      "DIV.",
+      "BODY.relative",
+      "HTML."
+     ],
+     "floating": true
+    },
+    "inks": {
+     "bare": "oklch(0.0193736 0.00473915 56.0356)",
+     "strong": "oklab(0.0193736 0.00264766 0.00393057)",
+     "golden": "oklab(0.022622 0.00309159 0.00458961)",
+     "primary": "oklch(0.0193736 0.00473915 56.0356)",
+     "floatPrimary": "oklch(0.0193736 0.00473915 56.0356)"
+    },
+    "ref": {
+     "bare": {
+      "min": 2.8,
+      "at": [
+       137,
+       63,
+       36
+      ]
+     },
+     "strong": {
+      "min": 2.8,
+      "at": [
+       137,
+       63,
+       36
+      ]
+     },
+     "golden": {
+      "min": 2.8,
+      "at": [
+       137,
+       63,
+       36
+      ]
+     },
+     "primary": {
+      "min": 2.8,
+      "at": [
+       137,
+       63,
+       36
+      ]
+     },
+     "floatPrimary": {
+      "min": 2.8,
+      "at": [
+       137,
+       63,
+       36
+      ]
+     }
+    }
+   },
+   "light|oklch(0.62 0.16 330)": {
+    "meta": {
+     "text": "(0 - 255)",
+     "chain": [
+      "P.text-mono-small.text-muted-foreground.mt-0.5",
+      "DIV.glass-floating.glass-overlay-plate.glass-reveal.z-tooltip.max-w-56",
+      "DIV.",
+      "BODY.relative",
+      "HTML."
+     ],
+     "floating": true
+    },
+    "inks": {
+     "bare": "oklch(0.0176181 0.00430971 56.0356)",
+     "strong": "oklab(0.0176181 0.00240774 0.0035744)",
+     "golden": "oklab(0.113836 0.00349092 0.00518243)",
+     "primary": "oklch(0.0176181 0.00430971 56.0356)",
+     "floatPrimary": "oklch(0.0176181 0.00430971 56.0356)"
+    },
+    "ref": {
+     "bare": {
+      "min": 2.995,
+      "at": [
+       117,
+       72,
+       128
+      ]
+     },
+     "strong": {
+      "min": 2.995,
+      "at": [
+       117,
+       72,
+       128
+      ]
+     },
+     "golden": {
+      "min": 2.906,
+      "at": [
+       117,
+       72,
+       128
+      ]
+     },
+     "primary": {
+      "min": 2.995,
+      "at": [
+       117,
+       72,
+       128
+      ]
+     },
+     "floatPrimary": {
+      "min": 2.995,
+      "at": [
+       117,
+       72,
+       128
+      ]
+     }
+    }
+   },
+   "light|oklch(0.62 0.16 120)": {
+    "meta": {
+     "text": "(0 - 255)",
+     "chain": [
+      "P.text-mono-small.text-muted-foreground.mt-0.5",
+      "DIV.glass-floating.glass-overlay-plate.glass-reveal.z-tooltip.max-w-56",
+      "DIV.",
+      "BODY.relative",
+      "HTML."
+     ],
+     "floating": true
+    },
+    "inks": {
+     "bare": "oklch(0.0176181 0.00430971 56.0356)",
+     "strong": "oklab(0.0176181 0.00240774 0.0035744)",
+     "golden": "oklab(0.113836 0.00349092 0.00518243)",
+     "primary": "oklch(0.0176181 0.00430971 56.0356)",
+     "floatPrimary": "oklch(0.0176181 0.00430971 56.0356)"
+    },
+    "ref": {
+     "bare": {
+      "min": 3.222,
+      "at": [
+       97,
+       97,
+       8
+      ]
+     },
+     "strong": {
+      "min": 3.222,
+      "at": [
+       97,
+       97,
+       8
+      ]
+     },
+     "golden": {
+      "min": 3.126,
+      "at": [
+       97,
+       97,
+       8
+      ]
+     },
+     "primary": {
+      "min": 3.222,
+      "at": [
+       97,
+       97,
+       8
+      ]
+     },
+     "floatPrimary": {
+      "min": 3.222,
+      "at": [
+       97,
+       97,
+       8
+      ]
+     }
+    }
+   },
+   "light|oklch(0.62 0.16 240)": {
+    "meta": {
+     "text": "(0 - 255)",
+     "chain": [
+      "P.text-mono-small.text-muted-foreground.mt-0.5",
+      "DIV.glass-floating.glass-overlay-plate.glass-reveal.z-tooltip.max-w-56",
+      "DIV.",
+      "BODY.relative",
+      "HTML."
+     ],
+     "floating": true
+    },
+    "inks": {
+     "bare": "oklch(0.0176181 0.00430971 56.0356)",
+     "strong": "oklab(0.0176181 0.00240774 0.0035744)",
+     "golden": "oklab(0.113836 0.00349092 0.00518243)",
+     "primary": "oklch(0.0176181 0.00430971 56.0356)",
+     "floatPrimary": "oklch(0.0176181 0.00430971 56.0356)"
+    },
+    "ref": {
+     "bare": {
+      "min": 3.392,
+      "at": [
+       40,
+       105,
+       122
+      ]
+     },
+     "strong": {
+      "min": 3.392,
+      "at": [
+       40,
+       105,
+       122
+      ]
+     },
+     "golden": {
+      "min": 3.291,
+      "at": [
+       40,
+       105,
+       122
+      ]
+     },
+     "primary": {
+      "min": 3.392,
+      "at": [
+       40,
+       105,
+       122
+      ]
+     },
+     "floatPrimary": {
+      "min": 3.392,
+      "at": [
+       40,
+       105,
+       122
+      ]
+     }
+    }
+   },
+   "dark|rgb(200 80 40)": {
+    "meta": {
+     "text": "(0 - 255)",
+     "chain": [
+      "P.text-mono-small.text-muted-foreground.mt-0.5",
+      "DIV.glass-floating.glass-overlay-plate.glass-reveal.z-tooltip.max-w-56",
+      "DIV.",
+      "BODY.relative",
+      "HTML.dark"
+     ],
+     "floating": true
+    },
+    "inks": {
+     "bare": "oklch(0.802655 0.00382185 41.8684)",
+     "strong": "oklab(0.849468 0.00265344 0.00376283)",
+     "golden": "oklab(0.882967 0.00253444 0.00451164)",
+     "primary": "oklch(0.925202 0.00618423 67.7483)",
+     "floatPrimary": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    "ref": {
+     "bare": {
+      "min": 6.134,
+      "at": [
+       91,
+       46,
+       29
+      ]
+     },
+     "strong": {
+      "min": 7.164,
+      "at": [
+       91,
+       46,
+       29
+      ]
+     },
+     "golden": {
+      "min": 7.983,
+      "at": [
+       91,
+       46,
+       29
+      ]
+     },
+     "primary": {
+      "min": 9.109,
+      "at": [
+       91,
+       46,
+       29
+      ]
+     },
+     "floatPrimary": {
+      "min": 9.109,
+      "at": [
+       91,
+       46,
+       29
+      ]
+     }
+    }
+   },
+   "dark|oklch(0.62 0.16 330)": {
+    "meta": {
+     "text": "(0 - 255)",
+     "chain": [
+      "P.text-mono-small.text-muted-foreground.mt-0.5",
+      "DIV.glass-floating.glass-overlay-plate.glass-reveal.z-tooltip.max-w-56",
+      "DIV.",
+      "BODY.relative",
+      "HTML.dark"
+     ],
+     "floating": true
+    },
+    "inks": {
+     "bare": "oklch(0.79264 0.00382185 41.8684)",
+     "strong": "oklab(0.843278 0.00265344 0.00376283)",
+     "golden": "oklab(0.878172 0.00253444 0.00451164)",
+     "primary": "oklch(0.925202 0.00618423 67.7483)",
+     "floatPrimary": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    "ref": {
+     "bare": {
+      "min": 5.856,
+      "at": [
+       78,
+       47,
+       90
+      ]
+     },
+     "strong": {
+      "min": 6.927,
+      "at": [
+       78,
+       47,
+       90
+      ]
+     },
+     "golden": {
+      "min": 7.725,
+      "at": [
+       78,
+       47,
+       90
+      ]
+     },
+     "primary": {
+      "min": 8.988,
+      "at": [
+       78,
+       47,
+       90
+      ]
+     },
+     "floatPrimary": {
+      "min": 8.988,
+      "at": [
+       78,
+       47,
+       90
+      ]
+     }
+    }
+   },
+   "dark|oklch(0.62 0.16 120)": {
+    "meta": {
+     "text": "(0 - 255)",
+     "chain": [
+      "P.text-mono-small.text-muted-foreground.mt-0.5",
+      "DIV.glass-floating.glass-overlay-plate.glass-reveal.z-tooltip.max-w-56",
+      "DIV.",
+      "BODY.relative",
+      "HTML.dark"
+     ],
+     "floating": true
+    },
+    "inks": {
+     "bare": "oklch(0.820897 0.00382185 41.8684)",
+     "strong": "oklab(0.860742 0.00265344 0.00376283)",
+     "golden": "oklab(0.890125 0.00253444 0.00451164)",
+     "primary": "oklch(0.925202 0.00618423 67.7483)",
+     "floatPrimary": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    "ref": {
+     "bare": {
+      "min": 5.624,
+      "at": [
+       51,
+       75,
+       11
+      ]
+     },
+     "strong": {
+      "min": 6.372,
+      "at": [
+       51,
+       75,
+       11
+      ]
+     },
+     "golden": {
+      "min": 7.009,
+      "at": [
+       51,
+       75,
+       11
+      ]
+     },
+     "primary": {
+      "min": 7.845,
+      "at": [
+       51,
+       75,
+       11
+      ]
+     },
+     "floatPrimary": {
+      "min": 7.845,
+      "at": [
+       51,
+       75,
+       11
+      ]
+     }
+    }
+   },
+   "dark|oklch(0.62 0.16 240)": {
+    "meta": {
+     "text": "(0 - 255)",
+     "chain": [
+      "P.text-mono-small.text-muted-foreground.mt-0.5",
+      "DIV.glass-floating.glass-overlay-plate.glass-reveal.z-tooltip.max-w-56",
+      "DIV.",
+      "BODY.relative",
+      "HTML.dark"
+     ],
+     "floating": true
+    },
+    "inks": {
+     "bare": "oklch(0.795792 0.00382185 41.8684)",
+     "strong": "oklab(0.845226 0.00265344 0.00376283)",
+     "golden": "oklab(0.879808 0.00253444 0.00451164)",
+     "primary": "oklch(0.925202 0.00618423 67.7483)",
+     "floatPrimary": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    "ref": {
+     "bare": {
+      "min": 5.057,
+      "at": [
+       34,
+       74,
+       91
+      ]
+     },
+     "strong": {
+      "min": 5.931,
+      "at": [
+       34,
+       74,
+       91
+      ]
+     },
+     "golden": {
+      "min": 6.664,
+      "at": [
+       34,
+       74,
+       91
+      ]
+     },
+     "primary": {
+      "min": 7.678,
+      "at": [
+       34,
+       74,
+       91
+      ]
+     },
+     "floatPrimary": {
+      "min": 7.678,
+      "at": [
+       34,
+       74,
+       91
+      ]
+     }
+    }
+   }
+  },
+  "attribution": {
+   "light|null": {
+    "inks": {
+     "bare": "oklch(0.292283 0.00386159 34.63)",
+     "strong": "oklab(0.263192 0.0032972 0.00333585)",
+     "golden": "oklab(0.24522 0.00337118 0.00404102)",
+     "primary": "oklch(0.216129 0.00624853 56.0356)"
+    },
+    "ref": {
+     "bare": {
+      "min": 3.411,
+      "at": [
+       191,
+       86,
+       167
+      ]
+     },
+     "strong": {
+      "min": 3.745,
+      "at": [
+       191,
+       86,
+       167
+      ]
+     },
+     "golden": {
+      "min": 3.936,
+      "at": [
+       191,
+       86,
+       167
+      ]
+     },
+     "primary": {
+      "min": 4.251,
+      "at": [
+       191,
+       86,
+       167
+      ]
+     }
+    }
+   },
+   "light|oklch(0.62 0.16 0)": {
+    "inks": {
+     "bare": "oklch(0.113836 0.00624853 56.0356)",
+     "strong": "oklab(0.113836 0.00349092 0.00518243)",
+     "golden": "oklab(0.113836 0.00349092 0.00518243)",
+     "primary": "oklch(0.113836 0.00624853 56.0356)"
+    },
+    "ref": {
+     "bare": {
+      "min": 3.616,
+      "at": [
+       157,
+       72,
+       138
+      ]
+     },
+     "strong": {
+      "min": 3.616,
+      "at": [
+       157,
+       72,
+       138
+      ]
+     },
+     "golden": {
+      "min": 3.616,
+      "at": [
+       157,
+       72,
+       138
+      ]
+     },
+     "primary": {
+      "min": 3.616,
+      "at": [
+       157,
+       72,
+       138
+      ]
+     }
+    }
+   },
+   "light|oklch(0.65 0.14 340)": {
+    "inks": {
+     "bare": "oklch(0.194043 0.00386159 34.63)",
+     "strong": "oklab(0.193231 0.0032972 0.00333585)",
+     "golden": "oklab(0.19273 0.00337118 0.00404102)",
+     "primary": "oklch(0.191918 0.00624853 56.0356)"
+    },
+    "ref": {
+     "bare": {
+      "min": 3.491,
+      "at": [
+       139,
+       88,
+       159
+      ]
+     },
+     "strong": {
+      "min": 3.493,
+      "at": [
+       139,
+       88,
+       159
+      ]
+     },
+     "golden": {
+      "min": 3.495,
+      "at": [
+       139,
+       88,
+       159
+      ]
+     },
+     "primary": {
+      "min": 3.495,
+      "at": [
+       139,
+       88,
+       159
+      ]
+     }
+    }
+   },
+   "light|oklch(0.62 0.16 120)": {
+    "inks": {
+     "bare": "oklch(0.113836 0.00624853 56.0356)",
+     "strong": "oklab(0.113836 0.00349092 0.00518243)",
+     "golden": "oklab(0.113836 0.00349092 0.00518243)",
+     "primary": "oklch(0.113836 0.00624853 56.0356)"
+    },
+    "ref": {
+     "bare": {
+      "min": 3.701,
+      "at": [
+       119,
+       105,
+       19
+      ]
+     },
+     "strong": {
+      "min": 3.701,
+      "at": [
+       119,
+       105,
+       19
+      ]
+     },
+     "golden": {
+      "min": 3.701,
+      "at": [
+       119,
+       105,
+       19
+      ]
+     },
+     "primary": {
+      "min": 3.701,
+      "at": [
+       119,
+       105,
+       19
+      ]
+     }
+    }
+   },
+   "light|oklch(0.62 0.16 240)": {
+    "inks": {
+     "bare": "oklch(0.113836 0.00624853 56.0356)",
+     "strong": "oklab(0.113836 0.00349092 0.00518243)",
+     "golden": "oklab(0.113836 0.00349092 0.00518243)",
+     "primary": "oklch(0.113836 0.00624853 56.0356)"
+    },
+    "ref": {
+     "bare": {
+      "min": 3.818,
+      "at": [
+       29,
+       116,
+       141
+      ]
+     },
+     "strong": {
+      "min": 3.818,
+      "at": [
+       29,
+       116,
+       141
+      ]
+     },
+     "golden": {
+      "min": 3.818,
+      "at": [
+       29,
+       116,
+       141
+      ]
+     },
+     "primary": {
+      "min": 3.818,
+      "at": [
+       29,
+       116,
+       141
+      ]
+     }
+    }
+   },
+   "dark|null": {
+    "inks": {
+     "bare": "oklch(0.807897 0.00382185 41.8684)",
+     "strong": "oklab(0.852707 0.00265344 0.00376283)",
+     "golden": "oklab(0.880391 0.00253444 0.00451164)",
+     "primary": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    "ref": {
+     "bare": {
+      "min": 5.795,
+      "at": [
+       96,
+       45,
+       78
+      ]
+     },
+     "strong": {
+      "min": 6.764,
+      "at": [
+       96,
+       45,
+       78
+      ]
+     },
+     "golden": {
+      "min": 7.39,
+      "at": [
+       96,
+       45,
+       78
+      ]
+     },
+     "primary": {
+      "min": 8.514,
+      "at": [
+       96,
+       45,
+       78
+      ]
+     }
+    }
+   },
+   "dark|oklch(0.62 0.16 0)": {
+    "inks": {
+     "bare": "oklch(0.807168 0.00382185 41.8684)",
+     "strong": "oklab(0.852257 0.00265344 0.00376283)",
+     "golden": "oklab(0.880113 0.00253444 0.00451164)",
+     "primary": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    "ref": {
+     "bare": {
+      "min": 5.778,
+      "at": [
+       96,
+       45,
+       80
+      ]
+     },
+     "strong": {
+      "min": 6.744,
+      "at": [
+       96,
+       45,
+       80
+      ]
+     },
+     "golden": {
+      "min": 7.368,
+      "at": [
+       96,
+       45,
+       80
+      ]
+     },
+     "primary": {
+      "min": 8.489,
+      "at": [
+       96,
+       45,
+       80
+      ]
+     }
+    }
+   },
+   "dark|oklch(0.65 0.14 340)": {
+    "inks": {
+     "bare": "oklch(0.805229 0.00382185 41.8684)",
+     "strong": "oklab(0.851059 0.00265344 0.00376283)",
+     "golden": "oklab(0.879372 0.00253444 0.00451164)",
+     "primary": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    "ref": {
+     "bare": {
+      "min": 5.812,
+      "at": [
+       90,
+       45,
+       95
+      ]
+     },
+     "strong": {
+      "min": 6.721,
+      "at": [
+       90,
+       45,
+       95
+      ]
+     },
+     "golden": {
+      "min": 7.366,
+      "at": [
+       90,
+       45,
+       95
+      ]
+     },
+     "primary": {
+      "min": 8.546,
+      "at": [
+       90,
+       45,
+       95
+      ]
+     }
+    }
+   },
+   "dark|oklch(0.62 0.16 120)": {
+    "inks": {
+     "bare": "oklch(0.833378 0.00382185 41.8684)",
+     "strong": "oklab(0.868455 0.00265344 0.00376283)",
+     "golden": "oklab(0.890125 0.00253444 0.00451164)",
+     "primary": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    "ref": {
+     "bare": {
+      "min": 6.144,
+      "at": [
+       71,
+       65,
+       39
+      ]
+     },
+     "strong": {
+      "min": 6.866,
+      "at": [
+       71,
+       65,
+       39
+      ]
+     },
+     "golden": {
+      "min": 7.346,
+      "at": [
+       71,
+       65,
+       39
+      ]
+     },
+     "primary": {
+      "min": 8.222,
+      "at": [
+       71,
+       65,
+       39
+      ]
+     }
+    }
+   },
+   "dark|oklch(0.62 0.16 240)": {
+    "inks": {
+     "bare": "oklch(0.806371 0.00382185 41.8684)",
+     "strong": "oklab(0.851764 0.00265344 0.00376283)",
+     "golden": "oklab(0.879808 0.00253444 0.00451164)",
+     "primary": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    "ref": {
+     "bare": {
+      "min": 5.595,
+      "at": [
+       49,
+       68,
+       73
+      ]
+     },
+     "strong": {
+      "min": 6.479,
+      "at": [
+       49,
+       68,
+       73
+      ]
+     },
+     "golden": {
+      "min": 7.135,
+      "at": [
+       49,
+       68,
+       73
+      ]
+     },
+     "primary": {
+      "min": 8.22,
+      "at": [
+       49,
+       68,
+       73
+      ]
+     }
+    }
+   }
+  },
+  "well": {
+   "light|null": {
+    "wellBg": "color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 8%, transparent)",
+    "slip": [
+     201,
+     135,
+     132
+    ],
+    "host": [
+     215,
+     144,
+     143
+    ],
+    "dL": -0.0348
+   },
+   "light|oklch(0.62 0.16 0)": {
+    "wellBg": "color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 8%, transparent)",
+    "slip": [
+     201,
+     102,
+     107
+    ],
+    "host": [
+     215,
+     108,
+     115
+    ],
+    "dL": -0.0302
+   },
+   "light|oklch(0.62 0.16 240)": {
+    "wellBg": "color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 8%, transparent)",
+    "slip": [
+     79,
+     145,
+     190
+    ],
+    "host": [
+     85,
+     153,
+     204
+    ],
+    "dL": -0.0276
+   },
+   "dark|null": {
+    "wellBg": "color-mix(in oklab, hsl(30 14% 90%) 8%, transparent)",
+    "slip": [
+     144,
+     41,
+     54
+    ],
+    "host": [
+     136,
+     25,
+     37
+    ],
+    "dL": 0.0332
+   },
+   "dark|oklch(0.62 0.16 0)": {
+    "wellBg": "color-mix(in oklab, hsl(30 14% 90%) 8%, transparent)",
+    "slip": [
+     144,
+     41,
+     58
+    ],
+    "host": [
+     137,
+     25,
+     41
+    ],
+    "dL": 0.0315
+   },
+   "dark|oklch(0.62 0.16 240)": {
+    "wellBg": "color-mix(in oklab, hsl(30 14% 90%) 8%, transparent)",
+    "slip": [
+     45,
+     78,
+     132
+    ],
+    "host": [
+     30,
+     66,
+     124
+    ],
+    "dL": 0.0409
+   }
+  },
+  "hero": {
+   "#/": {
+    "vw": 390,
+    "docSW": 390,
+    "chain": [
+     {
+      "el": "CANVAS.goo-blob-canvas",
+      "rect": [
+       232.4,
+       70.4,
+       411.6,
+       249.6
+      ],
+      "ox": "clip",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "DIV.goo-blob-wrapper.w-(--blob-fp)",
+      "rect": [
+       266,
+       104,
+       378,
+       216
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "layout style"
+     },
+     {
+      "el": "DIV.pointer-events-none.hero-blob-anchor",
+      "rect": [
+       266,
+       104,
+       378,
+       216
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "DIV.pane-shell.flex.flex-col.relative",
+      "rect": [
+       12,
+       104,
+       378,
+       629.2
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "DIV.pane-wrapper.w-full.min-w-0.min-h-0",
+      "rect": [
+       12,
+       104,
+       378,
+       629.2
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "layout"
+     },
+     {
+      "el": "DIV.pane-container",
+      "rect": [
+       12,
+       104,
+       378,
+       8291.2
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "MAIN.pane-main",
+      "rect": [
+       12,
+       104,
+       378,
+       8291.2
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "DIV.app-layout",
+      "rect": [
+       0,
+       0,
+       390,
+       8299.2
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "DIV.",
+      "rect": [
+       0,
+       0,
+       390,
+       8299.2
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "BODY.relative",
+      "rect": [
+       0,
+       0,
+       390,
+       8299.2
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "HTML.",
+      "rect": [
+       0,
+       0,
+       390,
+       8299.2
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     }
+    ]
+   },
+   "#/blob": {
+    "vw": 390,
+    "docSW": 390,
+    "chain": [
+     {
+      "el": "CANVAS.goo-blob-canvas",
+      "rect": [
+       232.4,
+       2744.9,
+       411.6,
+       2924.1
+      ],
+      "ox": "clip",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "DIV.goo-blob-wrapper.w-(--blob-fp)",
+      "rect": [
+       266,
+       2778.5,
+       378,
+       2890.5
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "layout style"
+     },
+     {
+      "el": "DIV.pointer-events-none.hero-blob-anchor",
+      "rect": [
+       266,
+       2778.5,
+       378,
+       2890.5
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "DIV.pane-shell.flex.flex-col.relative",
+      "rect": [
+       12,
+       2778.5,
+       378,
+       3303.7
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "DIV.pane-wrapper.w-full.min-w-0.min-h-0",
+      "rect": [
+       12,
+       2778.5,
+       378,
+       3303.7
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "layout"
+     },
+     {
+      "el": "DIV.pane-container",
+      "rect": [
+       12,
+       104,
+       378,
+       3303.9
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "MAIN.pane-main",
+      "rect": [
+       12,
+       104,
+       378,
+       3303.9
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "DIV.app-layout",
+      "rect": [
+       0,
+       0,
+       390,
+       3311.9
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "DIV.",
+      "rect": [
+       0,
+       0,
+       390,
+       3311.9
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "BODY.relative",
+      "rect": [
+       0,
+       0,
+       390,
+       3311.9
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     },
+     {
+      "el": "HTML.",
+      "rect": [
+       0,
+       0,
+       390,
+       3311.9
+      ],
+      "ox": "visible",
+      "cp": "none",
+      "contain": "none"
+     }
+    ]
+   }
+  }
+ }
+}

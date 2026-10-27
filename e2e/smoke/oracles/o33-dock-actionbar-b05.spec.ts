@@ -256,6 +256,17 @@ test.describe("B05 · the Tools target and wordmark (0140)", () => {
             expect(b.height).toBeGreaterThanOrEqual(44 - 0.5);
             expect(b.width).toBeGreaterThanOrEqual(44 - 0.5);
         });
+        // SS-8.r B05 0140 (COHESION §0gk.2, record-only): the phone Tools seat
+        // is icon-only BY DESIGN (S.W7-2), so its name is the accessible name,
+        // never the hidden wordmark.
+        test("the icon-only Tools seat carries its accessible name", async ({ page }) => {
+            await boot(page, "/");
+            const tools = page.getByRole("button", { name: "Toggle action bar" });
+            await expect(tools).toHaveCount(1);
+            await expect(tools).toBeVisible();
+            await expect(tools).toHaveAccessibleName("Toggle action bar");
+            await expect(page.locator(`${TOOLS} span`)).toBeHidden();
+        });
     });
 
     test.describe("zoom 200 % of 1440×900", () => {

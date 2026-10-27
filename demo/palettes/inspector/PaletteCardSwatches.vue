@@ -5,12 +5,15 @@
              author slug) in the muted ink at regular weight, no ring
              (the bold, colour-ringed pill read as a tag button and outweighed
              the name). The copy verb is glass's quiet icon Button, anchored to
-             the slug it copies. -->
+             the slug it copies. SS-8.r B13 L-3 (COHESION §0gk.2: the 4.5:1
+             text floor wins over P9R-04's meta rung): the ink takes the strong
+             muted step, the step that clears 4.5:1 on the card's lifted well
+             (SS8-0440) over its darkest ground, in both schemes. -->
         <div
             v-if="displaySlug"
             class="px-3 pt-2 flex items-center gap-1 border-t border-seam"
         >
-            <span class="text-small text-muted-foreground truncate max-w-tooltip"><template v-if="slugIsAuthor">by </template><span class="font-mono">{{ displaySlug }}</span></span>
+            <span class="text-small text-(color:--muted-foreground-strong) truncate max-w-tooltip"><template v-if="slugIsAuthor">by </template><span class="font-mono">{{ displaySlug }}</span></span>
             <Button
                 icon-only
                 emphasis="quiet"

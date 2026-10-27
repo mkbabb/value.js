@@ -393,8 +393,16 @@
      * this token swaps onto it at the adopt event (BOOKED, T.W3 §BOOKS).
      * Consumers: `.dashed-well`, PaletteCard (+skeleton), the gradient
      * perceived-space plate + stop chip, VersionHistoryDrawer rows, the mix
-     * result plate — the six parallel hand-mints D1 retires. */
-    --well-bg: color-mix(in oklab, var(--foreground) 8%, transparent);
+     * result plate — the six parallel hand-mints D1 retires.
+     * SS-8.r B15 SS8-0440 (COHESION §0gk.2: elevation reads the same in both
+     * schemes): the wash is a LIFT in both schemes, toward the scheme's light
+     * pole: the paper (`--background`) here, the cream ink (`--foreground`)
+     * in `.dark` below. An 8% `--foreground` wash sank the well in light
+     * (-0.03 L against its host) and lifted it in dark (+0.03..0.04 L), so the
+     * same fixture read recessed in one scheme and raised in the other. The
+     * paper sits nearer the light host than the cream ink sits to the dark
+     * one, so the light arm takes the larger share for the same step. */
+    --well-bg: color-mix(in oklab, var(--background) 14%, transparent);
 
     /* Rung-4 STAGE: the named near-black pair for photographic/media grounds
      * (extract image stage, caption veils, on-stage chrome). Scheme-INVARIANT
@@ -655,6 +663,11 @@
      * --shadow-card-hover alias are deleted, X-DS pass 11 · V11-T1: no plate
      * lifts its stamp on hover any more.) */
     --shadow-cartoon: 8px 8px 0px 0px var(--shadow-color);
+
+    /* SS-8.r B15 SS8-0440: the well's lift in dark is the cream ink's 8% wash
+     * (the D1 bracket); `:root` above holds the light arm and the law. */
+    --well-bg: color-mix(in oklab, var(--foreground) 8%, transparent);
+
 
     --shadow: hsl(0 0% 45%);
 

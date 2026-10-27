@@ -56,6 +56,17 @@
     right: var(--blob-seat);
     /* The NAMED ornament tier (Q3b) — never source-order accident. */
     z-index: var(--z-ornament);
+    /* SS-8.r B03 SS8-0085 (COHESION §0gk.2: move the clip; the hero clips at
+     * the viewport, the bead placement unchanged). The producer canvas is
+     * 1.6× the wrapper, so its transparent overscan reached 0.3·fp past the
+     * card: at 390 the canvas ran to 411.6 px, past the viewport, with nothing
+     * but ink overflow keeping it off the page. The hero now clips its own
+     * paint one seat-plus-gutter beyond its box: the gutter floor (0.75rem,
+     * `--app-gutter`'s minimum) is the narrowest card-to-viewport distance at
+     * every width, so the clip never crosses the viewport edge. The bead's body
+     * sits 0.175·fp inside the wrapper (the containment identity above), so
+     * the clip cuts only transparent overscan; nothing in the seat moves. */
+    clip-path: inset(calc(-1 * (var(--blob-seat) + 0.75rem)));
 }
 
 /* X-DS pass 1 (V1-10): the consumer's CONTACT SHADOW pool (a radial-gradient

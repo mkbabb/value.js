@@ -1,0 +1,13 @@
+(node:59961) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+[1A[2K(node:60063) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/4] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:200:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (light)
+[1A[2K[2/4] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:200:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (dark)
+[1A[2K[3/4] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:410:1 › O-7 seat row · t-mobile F-7 — the 768 frame: the cap class stays dead where it bit (captures attached)
+[1A[2K[4/4] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:448:1 › O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached)
+[1A[2K  4 passed (50.1s)
