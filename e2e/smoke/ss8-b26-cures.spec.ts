@@ -108,14 +108,32 @@ test.describe("X-5 · phone", () => {
         await page.locator("text=Pick a color").first().tap();
         const dialog = page.getByRole("dialog", { name: "Eyedropper" });
         await expect(dialog).toBeVisible({ timeout: 20_000 });
-        await page.waitForTimeout(1500);
-        const stage = await dialog.evaluate((d) => {
-            const c = [...d.querySelectorAll("canvas,img")]
-                .map((e) => e.getBoundingClientRect())
-                .sort((a, b) => b.width * b.height - a.width * a.height)[0]!;
-            return { x: c.x, y: c.y, w: c.width, h: c.height };
+        // SS-8.r X-5: the tap targets the image only once the eyedropper holds
+        // it. The fixed 1.5 s sleep raced the image's decode and the fit's
+        // transform transition: a tap on the default 300×150 canvas, or on a box
+        // still tweening toward its fit, maps through the fitted pan/zoom to a
+        // point off the image, `sampleAt` answers null, nothing pins, and the
+        // "Add to palette" action never renders (CLOSE run2: element not found).
+        // The stage is read once the canvas carries the bitmap (its backing is
+        // the image's 320×240) and its box holds across consecutive frames.
+        const stage = await dialog.evaluate(async (d) => {
+            const frame = () => new Promise((r) => requestAnimationFrame(() => r(null)));
+            const pick = () =>
+                [...d.querySelectorAll("canvas")].find((c) => c.width === 320 && c.height === 240) ?? null;
+            let last = "";
+            for (let held = 0, n = 0; n < 1200; n++) {
+                await frame();
+                const c = pick();
+                const b = c?.getBoundingClientRect();
+                const k = b ? `${b.x},${b.y},${b.width},${b.height}` : "";
+                held = k && k === last ? held + 1 : 0;
+                last = k;
+                if (held >= 10) return { x: b!.x, y: b!.y, w: b!.width, h: b!.height };
+            }
+            return null;
         });
-        await page.touchscreen.tap(stage.x + stage.w * 0.75, stage.y + stage.h * 0.25);
+        expect(stage, "the eyedropper holds the image, fitted and settled").not.toBeNull();
+        await page.touchscreen.tap(stage!.x + stage!.w * 0.75, stage!.y + stage!.h * 0.25);
         const add = dialog.locator('[title="Add to palette"]').first();
         await expect(add).toBeVisible({ timeout: 10_000 });
         await add.tap();
