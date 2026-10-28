@@ -327,9 +327,9 @@
              - `client`: the tags are written here, parser-inserted, so the
                entry keeps a static module script's deferred timing.
              - `shell`: the painted shell needs no script to be contentful, so
-               the tags go in after the document is parsed and one frame has
-               painted (rAF, then a task). A hidden document paints nothing,
-               so it starts at once.
+               the tags go in after the document is parsed and its first
+               contentful paint has landed (the paint-timing entry, then a
+               task). A hidden document paints nothing, so it starts at once.
              The dev server serves the static entry and no template. -->
         <script>
             (function () {
@@ -349,9 +349,35 @@
                         document.head.appendChild(el);
                     }
                 }
+                // The first rendered frame is not always the contentful one
+                // (CI lhr at ccaf95ef4: the rAF task ran at 140 ms, the first
+                // contentful paint landed at 241 ms), so the browser's own
+                // `first-contentful-paint` entry is the signal; an engine
+                // without paint timing falls to the frame clock.
+                var started = false;
+                function once() {
+                    if (started) return;
+                    started = true;
+                    setTimeout(start, 0);
+                }
                 function afterPaint() {
-                    if (document.visibilityState === "hidden") start();
-                    else requestAnimationFrame(function () { setTimeout(start, 0); });
+                    if (document.visibilityState === "hidden") return once();
+                    var types = window.PerformanceObserver && PerformanceObserver.supportedEntryTypes;
+                    if (!types || types.indexOf("paint") < 0) {
+                        return requestAnimationFrame(once);
+                    }
+                    new PerformanceObserver(function (list, observer) {
+                        var entries = list.getEntries();
+                        for (var i = 0; i < entries.length; i++) {
+                            if (entries[i].name === "first-contentful-paint") {
+                                observer.disconnect();
+                                once();
+                            }
+                        }
+                    }).observe({ type: "paint", buffered: true });
+                    document.addEventListener("visibilitychange", function () {
+                        if (document.visibilityState === "hidden") once();
+                    });
                 }
                 if (document.readyState === "loading") {
                     document.addEventListener("DOMContentLoaded", afterPaint, { once: true });
