@@ -1,0 +1,15 @@
+import { createRequire } from "node:module";
+const require = createRequire("/Users/mkbabb/Programming/fourier-analysis/web/package.json");
+const { chromium } = require("playwright");
+const b = await chromium.launch({ channel: "chrome", headless: true });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "dark" });
+await ctx.addInitScript(() => { try { localStorage.setItem("vueuse-color-scheme", "dark"); localStorage.setItem("theme", "dark"); } catch {} });
+const p = await ctx.newPage();
+await p.goto("http://localhost:3100/gallery", { waitUntil: "load" }); await p.waitForTimeout(2500);
+const card = p.locator(".gallery-card").first();
+const rest = await card.evaluate(e => getComputedStyle(e).backgroundColor);
+await card.hover(); await p.waitForTimeout(600);
+const hov = await card.evaluate(e => getComputedStyle(e).backgroundColor);
+const info = await p.evaluate(() => ({ html: document.documentElement.className, data: document.documentElement.dataset, rules: [...document.styleSheets].flatMap(s => { try { return [...s.cssRules]; } catch { return []; } }).flatMap(r => r.cssRules ? [...r.cssRules] : [r]).map(r => r.cssText).filter(t => /gallery-card[^{]*:hover/.test(t) || /^\.dark *\{ *background-color: oklch\(from/.test(t)).map(t => t.slice(0, 160)) }));
+console.log(JSON.stringify({ rest, hov, ...info }, null, 1));
+await b.close();

@@ -1,0 +1,38 @@
+{
+  "cell": "skel",
+  "skeleton": {
+    "rows": 3,
+    "rowH": 69.9,
+    "leaves": [
+      [
+        "skeleton w-8 h-8 rounded-full shrink-0",
+        32,
+        32
+      ],
+      [
+        "skeleton h-3.5 w-36 max-w-[60%] rounded-md",
+        144,
+        14
+      ],
+      [
+        "skeleton h-3 w-24 max-w-[40%] rounded-md",
+        96,
+        12
+      ],
+      [
+        "skeleton h-7 w-14 rounded-full shrink-0",
+        56,
+        28
+      ]
+    ]
+  },
+  "requests": [
+    {
+      "t": 1792531781687,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

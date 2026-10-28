@@ -1,0 +1,76 @@
+{
+  "light": {
+    "meta": {
+      "cls": "label block mb-1.5",
+      "slot": "label",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "paperField": true
+    },
+    "heading": {
+      "fgComputed": "oklch(0.216129 0.00624853 56.0356)",
+      "fgComposited": [
+        28,
+        25,
+        23
+      ],
+      "bgMedian": [
+        214,
+        112,
+        164
+      ],
+      "ratio": 5.59
+    },
+    "chipText": {
+      "fgComputed": "oklch(0.292283 0.00386159 34.63)",
+      "fgComposited": [
+        46,
+        43,
+        43
+      ],
+      "bgMedian": [
+        227,
+        176,
+        202
+      ],
+      "ratio": 7.57
+    },
+    "pageErrors": []
+  },
+  "dark": {
+    "meta": {
+      "cls": "label block mb-1.5",
+      "slot": "label",
+      "color": "oklch(0.925202 0.00618423 67.7483)",
+      "paperField": true
+    },
+    "heading": {
+      "fgComputed": "oklch(0.925202 0.00618423 67.7483)",
+      "fgComposited": [
+        233,
+        230,
+        226
+      ],
+      "bgMedian": [
+        108,
+        24,
+        54
+      ],
+      "ratio": 9.268
+    },
+    "chipText": {
+      "fgComputed": "oklch(0.712763 0.00382185 41.8684)",
+      "fgComposited": [
+        164,
+        162,
+        160
+      ],
+      "bgMedian": [
+        66,
+        38,
+        49
+      ],
+      "ratio": 5.314
+    },
+    "pageErrors": []
+  }
+}

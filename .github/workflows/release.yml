@@ -35,8 +35,8 @@ jobs:
               run: npm run build
             - name: typecheck (published library graph)
               run: npx vue-tsc -p tsconfig.lib.json --noEmit
-            - name: test
-              run: npx vitest run
+            - run: npx playwright install --with-deps chromium
+            - run: npm test
             - name: stamp immutable source identity
               shell: bash
               run: |

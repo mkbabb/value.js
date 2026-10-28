@@ -112,6 +112,7 @@ watch(
                         <Chip
                             mode="selectable"
                             shape="icon"
+                            surface="veil"
                             class="specimen-tile"
                             :model-value="tile.id === selectedId"
                             :aria-label="tile.id"
@@ -197,14 +198,20 @@ watch(
     border-inline-start: 1px solid var(--card-edge);
 }
 /* X-DS value pass 14 (V14C-02): the family heading and the tile names sit on
-   the scale's caption rung (the route title's), in the certified de-emphasis
-   ink. The kf gallery's 9px tracked mono eyebrow, dimmed by opacity, is
-   retired: de-emphasis rides `--ink-muted`, never alpha (T.W4-4). */
+   the scale's caption rung (the route title's). The kf gallery's 9px tracked
+   mono eyebrow, dimmed by opacity, is retired: de-emphasis rides an ink rung,
+   never alpha (T.W4-4).
+   SS-8 B22 (SS8-0620): the rung is the pane's strong de-emphasis step
+   (`--muted-foreground-strong`, shell.css: `--ink-muted` one golden step
+   toward the certified `--ink-primary`). Bare `--ink-muted` is certified to
+   the 4.5:1 floor exactly, against the field-mean referent; the strip sits
+   lower on the pane, over a darker region of the field, where the bare rung
+   read 3.9-4.3:1 on the plate under the text (light). */
 .family-eyebrow,
 .tile-label {
     font-size: var(--text-caption);
     line-height: 1.2;
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--muted-foreground-strong);
 }
 .family-tiles {
     display: flex;
@@ -220,7 +227,12 @@ watch(
    seat sizes it to specimen scale. Its SHAPE is the glass icon circle
    (`shape="icon"`, aspect-square), chosen ONCE for every tile (X-W6 · X.W6.d —
    d1): the `cell` shape resolved to a capsule, so a 45px-wide tile beside a
-   44px one read as a stadium beside a circle. */
+   44px one read as a stadium beside a circle.
+   Its SURFACE is glass's in-plate veil (`surface="veil"`, SS-8 B22 · C-04 /
+   SS8-0631): the capsule's default material carries the FLOATING shadow
+   (0 8px 24px), so 27 tiles laid inside the resting plate cast a grey band
+   across it. The veil is the producer's flat in-plate tone: quiet tier, no
+   border, no shadow. */
 .specimen-cell {
     display: flex;
     flex-direction: column;

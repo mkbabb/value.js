@@ -1,0 +1,22 @@
+{
+ "label": "glass-ui@6.0.0",
+ "exportKeys": [
+  "WatercolorDot",
+  "hashString",
+  "mulberry32",
+  "radiiToCSS",
+  "randomRadii",
+  "useWatercolorBlob"
+ ],
+ "inheritAttrs": "(default true)",
+ "ghostDiv": {
+  "hasDataMixTarget": true,
+  "rootTag": "div",
+  "head": "<div class=\"watercolor-swatch w-10 h-10\" data-testid=\"watercolor-swatch\" data-variant=\"ghost\" style=\"border-radius:63.443867028690875% 36.60076175816357% 45.869883387349546% 68.64327539224178% / 33.94728541839868% 49.99058741610497% 55.5623135343194% 43.390546"
+ },
+ "ghostButton": {
+  "hasDataMixTarget": true,
+  "rootTag": "button",
+  "head": "<button class=\"watercolor-swatch w-10 h-10\" type=\"button\" data-testid=\"watercolor-swatch\" data-variant=\"ghost\" style=\"border-radius:63.443867028690875% 36.60076175816357% 45.869883387349546% 68.64327539224178% / 33.94728541839868% 49.99058741610497% 55.5623135"
+ }
+}

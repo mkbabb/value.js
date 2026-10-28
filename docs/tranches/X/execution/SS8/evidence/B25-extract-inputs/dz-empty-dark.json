@@ -1,0 +1,142 @@
+{
+ "theme": "dark",
+ "z": {
+  "cls": "group relative transition-colors flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-pointer dashed-well min-h-[180px] max-h-[min(320px,40dvh)]",
+  "rect": {
+   "x": 224,
+   "y": 201.234375,
+   "width": 462,
+   "height": 180,
+   "top": 201.234375,
+   "right": 686,
+   "bottom": 381.234375,
+   "left": 224
+  },
+  "borderStyle": "dashed",
+  "borderWidth": "1px",
+  "borderColor": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+  "borderBytes": [
+   230,
+   230,
+   222,
+   31
+  ],
+  "bgImage": "none",
+  "outline": "oklch(0.925202 0.00618423 67.7483) none 3px",
+  "texts": [
+   {
+    "text": "Upload image",
+    "family": "Fraunces, \"Fraunces Fallback\", serif",
+    "size": "16.4px",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "bytes": [
+     233,
+     230,
+     226,
+     255
+    ],
+    "rect": {
+     "x": 386.15625,
+     "y": 297.75,
+     "width": 137.671875,
+     "height": 22.96875,
+     "top": 297.75,
+     "right": 523.828125,
+     "bottom": 320.71875,
+     "left": 386.15625
+    }
+   }
+  ],
+  "longMonoCopyInPane": []
+ },
+ "edgeMaxVsOutside": {
+  "px": [
+   123,
+   66,
+   96,
+   255
+  ],
+  "r": 1.711
+ },
+ "edgeSample": [
+  [
+   93,
+   41,
+   75,
+   255
+  ],
+  [
+   113,
+   64,
+   94,
+   255
+  ],
+  [
+   114,
+   64,
+   93,
+   255
+  ],
+  [
+   100,
+   38,
+   71,
+   255
+  ],
+  [
+   120,
+   63,
+   93,
+   255
+  ],
+  [
+   124,
+   64,
+   93,
+   255
+  ]
+ ],
+ "outside": [
+  [
+   90,
+   24,
+   60,
+   255
+  ],
+  [
+   83,
+   25,
+   62,
+   255
+  ]
+ ],
+ "inside": [
+  [
+   92,
+   41,
+   75,
+   255
+  ],
+  [
+   121,
+   41,
+   69,
+   255
+  ]
+ ],
+ "borderTokenVsOutside": 10.265,
+ "borderTokenVsInside": 8.933,
+ "promptGround": [
+  [
+   106,
+   40,
+   74,
+   255
+  ]
+ ],
+ "promptInk": 8.377,
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

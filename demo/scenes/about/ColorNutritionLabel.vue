@@ -26,7 +26,7 @@
 
         <section>
             <h2 class="font-display text-subheading mb-2">
-                Basic Information
+                Basic information
             </h2>
             <!-- S.W4-8 (design-docs-about P2-7): the former "Type:" row died —
                  it restated the Definition alert above in shorthand ("Type:
@@ -46,11 +46,11 @@
                  value carries the key/value contrast alone; Fraunces stays
                  reserved for the display rungs (three-voice law). -->
             <div class="grid grid-cols-2 gap-2 text-small">
-                <div class="plate-ink">Device Dependency:</div>
+                <div class="plate-ink">Device dependency:</div>
                 <div class="font-medium" data-fact="device-dependency">
                     {{ currentColorSpaceInfo.deviceDependency }}
                 </div>
-                <div class="plate-ink">White Point:</div>
+                <div class="plate-ink">White point:</div>
                 <div class="font-medium" data-fact="white-point">{{ currentColorSpaceInfo.whitePoint }}</div>
                 <div class="plate-ink">Gamut:</div>
                 <div class="font-medium" data-fact="gamut">{{ currentColorSpaceInfo.gamut }}</div>
@@ -91,18 +91,18 @@
 
         <section>
             <h2 class="font-display text-subheading mb-2">
-                Key Properties
+                Key properties
             </h2>
             <div class="grid grid-cols-2 gap-2 text-small">
-                <div class="plate-ink">Perceptual Uniformity:</div>
+                <div class="plate-ink">Perceptual uniformity:</div>
                 <div class="font-medium">
                     {{ currentColorSpaceInfo.perceptualUniformity }}
                 </div>
-                <div class="plate-ink">Hue Linearity:</div>
+                <div class="plate-ink">Hue linearity:</div>
                 <div class="font-medium">
                     {{ currentColorSpaceInfo.hueLinearity }}
                 </div>
-                <div class="plate-ink">Lightness Separation:</div>
+                <div class="plate-ink">Lightness separation:</div>
                 <div class="font-medium">
                     {{ currentColorSpaceInfo.lightnessSeparation }}
                 </div>
@@ -113,7 +113,7 @@
 
         <section class="space-y-4">
             <h2 class="font-display text-subheading">
-                Conversion Graph
+                Conversion graph
             </h2>
             <div class="flex flex-wrap gap-4">
                 <!-- X.W12.c · UIA-V-4 — the chip is a path to READ, not a control.
@@ -168,7 +168,7 @@
             <h2 class="font-display text-subheading mb-2">Usage</h2>
             <div class="space-y-2 text-small">
                 <div>
-                    <span class="plate-ink">Common Applications: </span>
+                    <span class="plate-ink">Common applications: </span>
                     <span class="font-medium">{{
                         currentColorSpaceInfo.applications.join(", ")
                     }}</span>

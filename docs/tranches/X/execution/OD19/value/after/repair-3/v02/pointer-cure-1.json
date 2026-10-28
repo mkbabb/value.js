@@ -1,0 +1,144 @@
+{
+  "light-1440": {
+    "rest": {
+      "plate": 40,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toTools": [
+      40,
+      40,
+      101
+    ],
+    "tools": {
+      "plate": 40,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toBack": [
+      40,
+      43,
+      178
+    ],
+    "back": {
+      "plate": 43,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "peak": "43px",
+    "verdict": "RED"
+  },
+  "dark-1440": {
+    "rest": {
+      "plate": 40,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toTools": [
+      40,
+      40,
+      106
+    ],
+    "tools": {
+      "plate": 40,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toBack": [
+      40,
+      43,
+      181
+    ],
+    "back": {
+      "plate": 43,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "peak": "43px",
+    "verdict": "RED"
+  },
+  "light-390": {
+    "rest": {
+      "plate": 40,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toTools": [
+      40,
+      40,
+      213
+    ],
+    "tools": {
+      "plate": 40,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toBack": [
+      40,
+      43,
+      213
+    ],
+    "back": {
+      "plate": 43,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "peak": "43px",
+    "verdict": "RED"
+  },
+  "dark-390": {
+    "rest": {
+      "plate": 40,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toTools": [
+      40,
+      40,
+      209
+    ],
+    "tools": {
+      "plate": 40,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toBack": [
+      40,
+      43,
+      206
+    ],
+    "back": {
+      "plate": 43,
+      "field": 40,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "peak": "43px",
+    "verdict": "RED"
+  },
+  "mode": "pointer",
+  "verdict": "RED"
+}

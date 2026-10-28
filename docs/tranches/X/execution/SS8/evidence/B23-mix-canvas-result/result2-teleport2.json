@@ -1,0 +1,55 @@
+{
+ "mixSourceSelector": {
+  "removeButtons": 4,
+  "frames": 16,
+  "maxAbsDx": 19.9,
+  "maxAbsDy": 22.6,
+  "positions": [
+   "relative"
+  ],
+  "head": [
+   {
+    "t": 16,
+    "dx": 0,
+    "dy": 0,
+    "pos": "relative"
+   },
+   {
+    "t": 52,
+    "dx": 0,
+    "dy": 0,
+    "pos": "relative"
+   },
+   {
+    "t": 54,
+    "dx": 0,
+    "dy": 0,
+    "pos": "relative"
+   },
+   {
+    "t": 78,
+    "dx": 0.1,
+    "dy": 0.1,
+    "pos": "relative"
+   },
+   {
+    "t": 101,
+    "dx": 0.7,
+    "dy": 0.8,
+    "pos": "relative"
+   }
+  ],
+  "errors": []
+ },
+ "currentPaletteEditor": {
+  "swatches": 6,
+  "removeButtons": 0,
+  "removeButtonsAfterHover": 1,
+  "frames": 0,
+  "maxAbsDx": 0,
+  "maxAbsDy": 0,
+  "positions": [],
+  "head": [],
+  "errors": []
+ }
+}

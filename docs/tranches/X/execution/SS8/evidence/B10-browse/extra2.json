@@ -1,0 +1,64 @@
+{
+ "r2_1440": {
+  "popover": [
+   336,
+   299.19
+  ],
+  "paneCls": "glass-resting card pane-shell__card pape",
+  "browsePanePct": 24.2,
+  "cardsInVP": 5,
+  "cardsCovered": 3,
+  "over50": 2,
+  "pastFoldPx": -359.81
+ },
+ "r2_390": {
+  "popover": [
+   336,
+   404.19
+  ],
+  "paneCls": "glass-resting card pane-shell__card pape",
+  "browsePanePct": 50,
+  "cardsInVP": 5,
+  "cardsCovered": 3,
+  "over50": 3,
+  "pastFoldPx": -176.48
+ },
+ "screenChain": [
+  "DIV.:economy/auto",
+  "DIV.overflow-hidden:economy/auto",
+  "DIV.palette-specimen:economy/auto",
+  "DIV.palette-card:economy/auto",
+  "DIV.palette-card-grid:economy/auto",
+  "DIV.grid:economy/auto",
+  "DIV.pane-body:economy/auto",
+  "DIV.fading-scroll:economy/auto",
+  "DIV.glass-resting:economy/auto",
+  "DIV.pane-shell:economy/auto",
+  "DIV.pane-wrapper:economy/auto",
+  "DIV.pane-container:economy/auto",
+  "MAIN.pane-main:economy/auto",
+  "DIV.app-layout:economy/auto",
+  "DIV.:economy/auto",
+  "BODY.relative:economy/auto",
+  "HTML.:economy/auto"
+ ],
+ "printChain": [
+  "DIV.:exact/auto",
+  "DIV.overflow-hidden:exact/auto",
+  "DIV.palette-specimen:exact/auto",
+  "DIV.palette-card:exact/auto",
+  "DIV.palette-card-grid:exact/auto",
+  "DIV.grid:exact/auto",
+  "DIV.pane-body:exact/auto",
+  "DIV.fading-scroll:exact/auto",
+  "DIV.glass-resting:exact/auto",
+  "DIV.pane-shell:exact/auto",
+  "DIV.pane-wrapper:exact/auto",
+  "DIV.pane-container:exact/auto",
+  "MAIN.pane-main:exact/auto",
+  "DIV.app-layout:exact/auto",
+  "DIV.:exact/auto",
+  "BODY.relative:exact/auto",
+  "HTML.:exact/auto"
+ ]
+}

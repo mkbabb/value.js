@@ -1,0 +1,80 @@
+{
+ "light-844": {
+  "band": [
+   0,
+   844,
+   68,
+   118
+  ],
+  "bar": [
+   16,
+   828,
+   72,
+   118
+  ],
+  "article": [
+   16,
+   828,
+   -45828,
+   85719
+  ],
+  "after": {
+   "content": "\"\"",
+   "left": "0px",
+   "right": "0px",
+   "width": "844px",
+   "bg": "rgb(198, 180, 159)",
+   "bottom": "-1px"
+  },
+  "barShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px",
+  "barBackdrop": "none",
+  "barClass": "floating-toc-bar floating-toc-bar--trigger glass-resting"
+ },
+ "light-hover": {
+  "cursor": "auto",
+  "inf": 0,
+  "stage": [
+   "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border b",
+   "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+  ]
+ },
+ "dark-844": {
+  "band": [
+   0,
+   844,
+   68,
+   118
+  ],
+  "bar": [
+   16,
+   828,
+   72,
+   118
+  ],
+  "article": [
+   16,
+   828,
+   -45828,
+   85719
+  ],
+  "after": {
+   "content": "\"\"",
+   "left": "0px",
+   "right": "0px",
+   "width": "844px",
+   "bg": "rgb(101, 87, 73)",
+   "bottom": "-1px"
+  },
+  "barShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px",
+  "barBackdrop": "none",
+  "barClass": "floating-toc-bar floating-toc-bar--trigger glass-resting"
+ },
+ "dark-hover": {
+  "cursor": "auto",
+  "inf": 0,
+  "stage": [
+   "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border b",
+   "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+  ]
+ }
+}

@@ -1,0 +1,614 @@
+{
+ "light-1440": {
+  "cardRest": {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "layers": 6,
+   "bg": "color(srgb 0.994 0.96 0.926)",
+   "bf": "none",
+   "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.16)",
+   "outline": "rgb(28, 25, 23) none 3px"
+  },
+  "cardHover": {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "layers": 6,
+   "bg": "oklch(0.953918 0.0148539 67.5222)",
+   "bf": "none",
+   "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.16)",
+   "outline": "rgb(28, 25, 23) none 3px"
+  },
+  "badge": {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([class*=size-])]:size-[1em] [&_svg]:shrink-0 [&_svg",
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset",
+   "layers": 4,
+   "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+   "bf": "none",
+   "border": "0px solid color(srgb 0.843137 0.207843 0.137255 / 0.3)",
+   "outline": "rgb(215, 53, 35) none 3px"
+  },
+  "nf": {
+   "tag": "H1",
+   "fs": "23.6694px",
+   "fw": "600",
+   "ff": "\"Computer Modern Serif\", \"Latin Modern R"
+  },
+  "morph": {
+   "h1": {
+    "fs": "41.888px",
+    "fw": "400"
+   },
+   "tile": {
+    "cls": "button tap-squish focus-ring grid-cell is-bound",
+    "border": "1px solid rgb(28, 25, 23)",
+    "shadow": "none",
+    "outline": "rgb(112, 89, 66) none 3px",
+    "bg": "rgb(253, 245, 236)",
+    "pressed": null,
+    "attrs": "data-v-942aaff2= data-slot=button data-emphasis=quiet data-tone=neutral data-size=md data-control-target= data-press-armed= type=button class=button tap-squish focus-ring g style=--glass-btn-press-t: 0.0000; -"
+   }
+  },
+  "eq": {
+   "buttons": [
+    {
+     "label": "ΣSigma notation (compact",
+     "box": [
+      29,
+      101,
+      64,
+      35
+     ],
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": 0,
+     "cls": "segmented-tab"
+    },
+    {
+     "label": "a + bExpanded terms",
+     "box": [
+      93,
+      101,
+      64,
+      35
+     ],
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": 0,
+     "cls": "segmented-tab glass-capsule-hover"
+    },
+    {
+     "label": "About this approximation",
+     "box": [
+      891,
+      98,
+      40,
+      40
+     ],
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": 0,
+     "cls": "button tap-squish focus-ring"
+    },
+    {
+     "label": "Copy LaTeX",
+     "box": [
+      939,
+      98,
+      40,
+      40
+     ],
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": 0,
+     "cls": "button tap-squish focus-ring"
+    },
+    {
+     "label": "Pause the convergence sw",
+     "box": [
+      29,
+      839,
+      40,
+      40
+     ],
+     "bg": "oklab(0.958891 0.0089115 0.0269842)",
+     "shadow": 5,
+     "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-ho"
+    }
+   ],
+   "aside": {
+    "top": 100,
+    "bottom": 888,
+    "h": 788,
+    "scrollH": 786,
+    "clientH": 786,
+    "ovf": "hidden",
+    "mask": "none"
+   },
+   "vh": 900
+  },
+  "vgeom": {
+   "stage": [
+    16,
+    88,
+    972,
+    800
+   ],
+   "aside": [
+    1000,
+    100,
+    424,
+    628.5
+   ],
+   "headers": [
+    {
+     "t": "Image",
+     "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+     "pos": "static",
+     "fs": "18.608px"
+    },
+    {
+     "t": "Basis",
+     "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+     "pos": "static",
+     "fs": "18.608px"
+    },
+    {
+     "t": "Contour",
+     "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+     "pos": "static",
+     "fs": "18.608px"
+    },
+    {
+     "t": "Coefficients201 harmonics · n = ±200",
+     "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+     "pos": "static",
+     "fs": "18.608px"
+    }
+   ],
+   "coefSub": {
+    "t": "201 harmonics · n = ±200",
+    "fs": "11px",
+    "ff": "\"Fira Code\", \"Fira Code Fallba"
+   }
+  },
+  "focus": {
+   "t": "Contour",
+   "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+   "outline": "oklab(0.216128 0.00350075 0.00518669 / 0.48) solid 2px",
+   "offset": "2px",
+   "shadow": "none",
+   "box": [
+    1002,
+    632,
+    420,
+    47
+   ],
+   "clip": [
+    {
+     "cls": "fading-scroll fading-scroll--y configurator-controls flex-1 ",
+     "ovf": "auto/auto",
+     "box": [
+      1001,
+      422
+     ]
+    },
+    {
+     "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-float",
+     "ovf": "hidden/hidden",
+     "box": [
+      1000,
+      424
+     ]
+    },
+    {
+     "cls": "relative flex-1 min-h-0 flex flex-col overflow-y-auto",
+     "ovf": "auto/auto",
+     "box": [
+      0,
+      1440
+     ]
+    }
+   ]
+  },
+  "transport": [
+   {
+    "cls": "controls-dock-anchor",
+    "box": [
+     883,
+     97,
+     96,
+     66
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+    "box": [
+     883,
+     97,
+     96,
+     56
+    ],
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "dock-plate",
+    "box": [
+     883,
+     97,
+     96,
+     56
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "dock-controls",
+    "box": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "dock-layers",
+    "box": [
+     891,
+     105,
+     40,
+     40
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "dock-layer dock-layer--full dock-run",
+    "box": [
+     883,
+     93,
+     96,
+     64
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger view-layers-trigger",
+    "box": [
+     883,
+     109,
+     40,
+     32
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "dock-separator",
+    "box": [
+     937,
+     111,
+     1,
+     28
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   }
+  ]
+ },
+ "dark-1440": {
+  "cardRest": {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "layers": 6,
+   "bg": "color(srgb 0.2074 0.165013 0.1326)",
+   "bf": "none",
+   "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.16)",
+   "outline": "rgb(233, 230, 226) none 3px"
+  },
+  "cardHover": {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "layers": 6,
+   "bg": "oklch(0.314869 0.0216345 59.1819)",
+   "bf": "none",
+   "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.16)",
+   "outline": "rgb(233, 230, 226) none 3px"
+  },
+  "badge": {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([class*=size-])]:size-[1em] [&_svg]:shrink-0 [&_svg",
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.48) 0px 0px 0px 1px inset",
+   "layers": 4,
+   "bg": "color(srgb 0.921569 0.45098 0.4 / 0.12)",
+   "bf": "none",
+   "border": "0px solid color(srgb 0.921569 0.45098 0.4 / 0.3)",
+   "outline": "rgb(235, 115, 102) none 3px"
+  },
+  "nf": {
+   "tag": "H1",
+   "fs": "23.6694px",
+   "fw": "600",
+   "ff": "\"Computer Modern Serif\", \"Latin Modern R"
+  },
+  "morph": {
+   "h1": {
+    "fs": "41.888px",
+    "fw": "400"
+   },
+   "tile": {
+    "cls": "button tap-squish focus-ring grid-cell is-bound",
+    "border": "1px solid rgb(233, 230, 226)",
+    "shadow": "none",
+    "outline": "rgb(195, 185, 172) none 3px",
+    "bg": "rgb(53, 42, 34)",
+    "pressed": null,
+    "attrs": "data-v-942aaff2= data-slot=button data-emphasis=quiet data-tone=neutral data-size=md data-control-target= data-press-armed= type=button class=button tap-squish focus-ring g style=--glass-btn-press-t: 0.0000; -"
+   }
+  },
+  "eq": {
+   "buttons": [
+    {
+     "label": "ΣSigma notation (compact",
+     "box": [
+      29,
+      101,
+      64,
+      35
+     ],
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": 0,
+     "cls": "segmented-tab"
+    },
+    {
+     "label": "a + bExpanded terms",
+     "box": [
+      93,
+      101,
+      64,
+      35
+     ],
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": 0,
+     "cls": "segmented-tab glass-capsule-hover"
+    },
+    {
+     "label": "About this approximation",
+     "box": [
+      891,
+      98,
+      40,
+      40
+     ],
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": 0,
+     "cls": "button tap-squish focus-ring"
+    },
+    {
+     "label": "Copy LaTeX",
+     "box": [
+      939,
+      98,
+      40,
+      40
+     ],
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": 0,
+     "cls": "button tap-squish focus-ring"
+    },
+    {
+     "label": "Pause the convergence sw",
+     "box": [
+      29,
+      839,
+      40,
+      40
+     ],
+     "bg": "oklab(0.31489 0.0117949 0.0248798)",
+     "shadow": 5,
+     "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-ho"
+    }
+   ],
+   "aside": {
+    "top": 100,
+    "bottom": 888,
+    "h": 788,
+    "scrollH": 786,
+    "clientH": 786,
+    "ovf": "hidden",
+    "mask": "none"
+   },
+   "vh": 900
+  },
+  "vgeom": {
+   "stage": [
+    16,
+    88,
+    972,
+    800
+   ],
+   "aside": [
+    1000,
+    100,
+    424,
+    628.5
+   ],
+   "headers": [
+    {
+     "t": "Image",
+     "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+     "pos": "static",
+     "fs": "18.608px"
+    },
+    {
+     "t": "Basis",
+     "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+     "pos": "static",
+     "fs": "18.608px"
+    },
+    {
+     "t": "Contour",
+     "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+     "pos": "static",
+     "fs": "18.608px"
+    },
+    {
+     "t": "Coefficients201 harmonics · n = ±200",
+     "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+     "pos": "static",
+     "fs": "18.608px"
+    }
+   ],
+   "coefSub": {
+    "t": "201 harmonics · n = ±200",
+    "fs": "11px",
+    "ff": "\"Fira Code\", \"Fira Code Fallba"
+   }
+  },
+  "focus": {
+   "t": "Contour",
+   "cls": "configurator-layer-trigger group w-full py-2 tap-squish transition-control text-left focus-ring",
+   "outline": "oklab(0.925196 0.00238398 0.00574207 / 0.48) solid 2px",
+   "offset": "2px",
+   "shadow": "none",
+   "box": [
+    1002,
+    632,
+    420,
+    47
+   ],
+   "clip": [
+    {
+     "cls": "fading-scroll fading-scroll--y configurator-controls flex-1 ",
+     "ovf": "auto/auto",
+     "box": [
+      1001,
+      422
+     ]
+    },
+    {
+     "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-float",
+     "ovf": "hidden/hidden",
+     "box": [
+      1000,
+      424
+     ]
+    },
+    {
+     "cls": "relative flex-1 min-h-0 flex flex-col overflow-y-auto",
+     "ovf": "auto/auto",
+     "box": [
+      0,
+      1440
+     ]
+    }
+   ]
+  },
+  "transport": [
+   {
+    "cls": "controls-dock-anchor",
+    "box": [
+     883,
+     97,
+     96,
+     66
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+    "box": [
+     883,
+     97,
+     96,
+     56
+    ],
+    "shadow": "color(srgb 0.914 0.9 0.886 / 0.12) 0px 0px 12px 0px",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "dock-plate",
+    "box": [
+     883,
+     97,
+     96,
+     56
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "dock-controls",
+    "box": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "dock-layers",
+    "box": [
+     891,
+     105,
+     40,
+     40
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "dock-layer dock-layer--full dock-run",
+    "box": [
+     883,
+     93,
+     96,
+     64
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger view-layers-trigger",
+    "box": [
+     883,
+     109,
+     40,
+     32
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   },
+   {
+    "cls": "dock-separator",
+    "box": [
+     937,
+     111,
+     1,
+     28
+    ],
+    "shadow": "none",
+    "bgi": "none",
+    "mask": "none"
+   }
+  ]
+ }
+}

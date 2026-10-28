@@ -1,0 +1,279 @@
+{
+ "light-1440": {
+  "v8_rail": {
+   "border": "1px solid oklab(0.216114 0.00343135 0.00508514 / 0.12)",
+   "outline": "oklch(0.216129 0.00624853 56.0356) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 1996,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 41.5,
+    "p95": 59.2,
+    "max": 62.7
+   },
+   "frameInterval": {
+    "n": 60,
+    "p50": 43.4,
+    "p95": 54.2,
+    "max": 70.3
+   },
+   "loaf": {
+    "n": 8,
+    "totalMs": 478,
+    "blockingMs": 1
+   },
+   "topScripts": [
+    [
+     "/assets/vue.runtime.esm-bundler-sjRBGrxr.js::n",
+     43
+    ],
+    [
+     "/assets/index-fZZbqeNQ.js::c",
+     18
+    ],
+    [
+     "/assets/HeroBlob-DQQBHZf9.js::FrameRequestCallback",
+     7
+    ],
+    [
+     "/assets/index-fZZbqeNQ.js::r",
+     5
+    ]
+   ],
+   "scriptsPerLoaf": {
+    "n": 8,
+    "p50": 5,
+    "p95": 22,
+    "max": 22
+   },
+   "scriptMsPerFrame": 1.2
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 886,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 19.9,
+    "p95": 46.9,
+    "max": 47.4
+   },
+   "frameInterval": {
+    "n": 91,
+    "p50": 10.6,
+    "p95": 28.9,
+    "max": 40.2
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": [],
+   "scriptsPerLoaf": null,
+   "scriptMsPerFrame": 0
+  }
+ },
+ "dark-1440": {
+  "v8_rail": {
+   "border": "1px solid oklab(0.926146 0.00162765 0.00610709 / 0.12)",
+   "outline": "oklch(0.925202 0.00618423 67.7483) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 1975,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 41,
+    "p95": 59.5,
+    "max": 68.3
+   },
+   "frameInterval": {
+    "n": 64,
+    "p50": 38.2,
+    "p95": 55.3,
+    "max": 74.6
+   },
+   "loaf": {
+    "n": 3,
+    "totalMs": 181,
+    "blockingMs": 0
+   },
+   "topScripts": [
+    [
+     "/assets/vue.runtime.esm-bundler-sjRBGrxr.js::n",
+     10
+    ],
+    [
+     "/assets/HeroBlob-DQQBHZf9.js::FrameRequestCallback",
+     6
+    ],
+    [
+     "/assets/index-fZZbqeNQ.js::c",
+     6
+    ],
+    [
+     "/assets/index-fZZbqeNQ.js::r",
+     5
+    ]
+   ],
+   "scriptsPerLoaf": {
+    "n": 3,
+    "p50": 10,
+    "p95": 11,
+    "max": 11
+   },
+   "scriptMsPerFrame": 0.4
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 870,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 18.4,
+    "p95": 45.5,
+    "max": 52.8
+   },
+   "frameInterval": {
+    "n": 95,
+    "p50": 12.6,
+    "p95": 24.5,
+    "max": 38.5
+   },
+   "loaf": {
+    "n": 1,
+    "totalMs": 56,
+    "blockingMs": 0
+   },
+   "topScripts": [],
+   "scriptsPerLoaf": {
+    "n": 1,
+    "p50": 0,
+    "p95": 0,
+    "max": 0
+   },
+   "scriptMsPerFrame": 0
+  }
+ },
+ "light-390": {
+  "v8_rail": {
+   "border": "1px solid oklab(0.216114 0.00343135 0.00508514 / 0.12)",
+   "outline": "oklch(0.216129 0.00624853 56.0356) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 1186,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 17.7,
+    "p95": 26.9,
+    "max": 29.4
+   },
+   "frameInterval": {
+    "n": 150,
+    "p50": 8.4,
+    "p95": 17.1,
+    "max": 37
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": [],
+   "scriptsPerLoaf": null,
+   "scriptMsPerFrame": 0
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 385,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 7,
+    "p95": 18.2,
+    "max": 27
+   },
+   "frameInterval": {
+    "n": 92,
+    "p50": 8,
+    "p95": 15,
+    "max": 21.6
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": [],
+   "scriptsPerLoaf": null,
+   "scriptMsPerFrame": 0
+  }
+ },
+ "dark-390": {
+  "v8_rail": {
+   "border": "1px solid oklab(0.926146 0.00162765 0.00610709 / 0.12)",
+   "outline": "oklch(0.925202 0.00618423 67.7483) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 1103,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 18.2,
+    "p95": 23.2,
+    "max": 26.5
+   },
+   "frameInterval": {
+    "n": 143,
+    "p50": 8.8,
+    "p95": 17.7,
+    "max": 35.7
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": [],
+   "scriptsPerLoaf": null,
+   "scriptMsPerFrame": 0
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 374,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 7.8,
+    "p95": 12.4,
+    "max": 16.9
+   },
+   "frameInterval": {
+    "n": 95,
+    "p50": 7.9,
+    "p95": 12.7,
+    "max": 16
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": [],
+   "scriptsPerLoaf": null,
+   "scriptMsPerFrame": 0
+  }
+ }
+}

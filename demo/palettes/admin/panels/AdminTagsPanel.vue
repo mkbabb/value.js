@@ -3,19 +3,19 @@
         <!-- X.W12U.h · A2-VA-L3-2 (consumer half): the toolbar stands only over a
              readable list. Under the signed-out or error plate every control
              in it was dead or a second Retry, so the row held nothing live. -->
-        <div v-if="!tagsApi.access.value && !tagsApi.loadError.value" class="flex items-center gap-2">
-            <!-- W7.61 (ATP-12): the count speaks only over a loaded ledger. -->
-            <span
-                v-if="!tagsApi.loading.value"
-                class="text-mono-small text-muted-foreground"
-            >
+        <!-- X-DS pass 20 (V20C-01): the count's row stands only while it has a
+             count to say; Refresh lives at the end of the create row (Audit's
+             one action row), never a lone glyph in a blank band. -->
+        <div
+            v-if="!tagsApi.access.value && !tagsApi.loadError.value && !tagsApi.loading.value && tagsApi.tags.value.length > 0"
+            class="flex items-center gap-2"
+        >
+            <!-- W7.61 (ATP-12): the count speaks only over a loaded ledger.
+                 X-DS pass 19 (V19C-04): nor over an empty plate, which
+                 already says there is nothing (Audit's UIA-V-638 guard). -->
+            <span class="text-mono-small text-muted-foreground">
                 {{ tagsApi.tags.value.length }} tag{{ tagsApi.tags.value.length === 1 ? "" : "s" }}
             </span>
-            <div class="flex-1" />
-            <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button emphasis="secondary" size="xs" icon-only aria-label="Refresh tags" @click="tagsApi.loadTags()">
-                <RefreshCw class="h-3 w-3" aria-hidden="true" />
-            </Button>
         </div>
 
         <!-- X.W7.d (S-13): the tag write's one visible result. -->
@@ -56,29 +56,33 @@
             aria-label="New tag"
             @submit.prevent="canCreate && tagsApi.createTag()"
         >
-            <!-- S.W5-3 (S-17/F-7): glass-ui Input pills, sm rung; the pair
-                 sized honestly (name vs category was ~5×; the category well
-                 no longer clips its own placeholder). -->
-            <Input
-                v-model="tagsApi.newName.value"
-                type="text"
-                size="sm"
-                placeholder="Tag name..."
-                aria-label="New tag name"
-                :disabled="tagsApi.loading.value"
-                :aria-invalid="tagsApi.newNameProblem.value ? true : undefined"
-                aria-describedby="admin-tag-name-problem"
-                class="basis-full sm:basis-auto flex-1 min-w-0 font-mono"
-            />
-            <Input
-                v-model="tagsApi.newCategory.value"
-                type="text"
-                size="sm"
-                placeholder="Category..."
-                aria-label="New tag category"
-                :disabled="tagsApi.loading.value"
-                class="flex-1 min-w-0 sm:flex-none sm:w-36 font-mono"
-            />
+            <!-- S.W5-3 (S-17/F-7): the pair sized honestly (name vs category
+                 was ~5×; the category well no longer clips its own
+                 placeholder). X-DS pass 19 (V19C-03): both wear the ONE seated
+                 register (DESIGN.md, THE REGISTER LAW: utils.css
+                 `.search-seated`), in the body voice. -->
+            <div class="input-bar search-seated basis-full sm:basis-auto flex-1 min-w-0">
+                <input
+                    v-model="tagsApi.newName.value"
+                    type="text"
+                    placeholder="Tag name..."
+                    aria-label="New tag name"
+                    :disabled="tagsApi.loading.value"
+                    :aria-invalid="tagsApi.newNameProblem.value ? true : undefined"
+                    aria-describedby="admin-tag-name-problem"
+                    class="input-bar-field"
+                />
+            </div>
+            <div class="input-bar search-seated flex-1 min-w-0 sm:flex-none sm:w-36">
+                <input
+                    v-model="tagsApi.newCategory.value"
+                    type="text"
+                    placeholder="Category..."
+                    aria-label="New tag category"
+                    :disabled="tagsApi.loading.value"
+                    class="input-bar-field"
+                />
+            </div>
             <Button
                 type="submit"
                 size="sm"
@@ -87,6 +91,18 @@
             >
                 <Plus class="h-3.5 w-3.5" aria-hidden="true" />
                 Add tag
+            </Button>
+            <!-- W5-a11y: icon-only refresh button needs accessible name -->
+            <Button
+                type="button"
+                emphasis="secondary"
+                size="xs"
+                icon-only
+                class="shrink-0"
+                aria-label="Refresh tags"
+                @click="tagsApi.loadTags()"
+            >
+                <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </form>
         <!-- W7.80 (ATP-10): the contract problem is shown before any request. -->
@@ -197,7 +213,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, inject, onActivated, onDeactivated, onMounted, ref, shallowRef, watch } from "vue";
 import {
     Dialog,
     DialogContent,
@@ -207,7 +223,6 @@ import {
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
 import { Button } from "@mkbabb/glass-ui/button";
-import { Input } from "@mkbabb/glass-ui/input";
 import { Label } from "@mkbabb/glass-ui/label";
 import { Skeleton } from "@mkbabb/glass-ui";
 import { Plus, RefreshCw, Trash2, X } from "@lucide/vue";
@@ -230,6 +245,12 @@ const canCreate = computed(
 );
 
 onMounted(() => tagsApi.loadTags());
+// SS8-0533 (ATP-29): the pane is kept alive and never evicted (PANE_CACHE_MAX
+// is each role's pane-set size), so a mount-only read went stale for the
+// session. Every RETURN reads again; the first activation is the mount's read.
+let left = false;
+onDeactivated(() => (left = true));
+onActivated(() => left && tagsApi.loadTags());
 
 // X.W7.e (G14 · N-6): the tag named in the confirm is kept for display through
 // the leave transition; the act is held separately, TAKEN (cleared) before it

@@ -1,0 +1,8 @@
+cube false {"rest":{"n":41,"worst":26,"mean":12},"during":{"n":9,"worst":70,"mean":43}}
+cube true {"rest":{"n":68,"worst":11,"mean":7},"during":{"n":19,"worst":60,"mean":23}}
+easing false {"rest":{"n":66,"worst":10,"mean":8},"during":{"n":11,"worst":86,"mean":35}}
+easing true {"rest":{"n":65,"worst":10,"mean":8},"during":{"n":31,"worst":44,"mean":13}}
+spring false {"rest":{"n":66,"worst":10,"mean":8},"during":{"n":12,"worst":90,"mean":33}}
+spring true {"rest":{"n":67,"worst":10,"mean":7},"during":{"n":33,"worst":47,"mean":12}}
+sequence false {"rest":{"n":67,"worst":10,"mean":7},"during":{"n":13,"worst":76,"mean":30}}
+sequence true {"rest":{"n":65,"worst":14,"mean":8},"during":{"n":35,"worst":41,"mean":12}}

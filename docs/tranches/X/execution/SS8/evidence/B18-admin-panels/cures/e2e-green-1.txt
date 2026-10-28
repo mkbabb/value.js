@@ -1,0 +1,72 @@
+(node:56889) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:56962) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 11 tests using 1 worker
+
+(node:57098) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [smoke-admin] › e2e/smoke/admin/flows/tag-create.spec.ts:9:1 › admin tag create POSTs /admin/tags with name+category (30.0s)
+(node:58451) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+SS8-0514 {"skel":{"h":[69.12702941894531,69.12701416015625,69.12704467773438],"gaps":[11.65423583984375,11.654205322265625]},"rows":{"h":[69.02459716796875,69.02462768554688,69.02459716796875],"gaps":[11.756622314453125,11.75665283203125]}}
+  ✓   2 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:78:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap (11.4s)
+  -   3 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:84:10 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+SS8-0529 New tag name {"text":87.7,"box":324,"field":324.2}
+SS8-0529 New tag category {"text":68.1,"box":186,"field":186.4}
+  ✓   4 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:105:5 › coarse 390 › SS8-0529 · the Tags create placeholders fit their fields (1.1s)
+  ✓   5 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:115:5 › coarse 390 › SS8-0513 · Audit Refresh is 44×44 coarse (592ms)
+  ✓   6 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:121:5 › coarse 390 › SS8-0524 · Flagged Dismiss and delete are ≥ 44 px (Chromium arm) (1.4s)
+  ✘   7 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:133:5 › fine pointer pins › SS8-0509 · a ~6 KB target never widens its row past the track (320) (677ms)
+(node:59160) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   8 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:150:5 › fine pointer pins › SS8-0510/0515 · no flex-1 spacer; the count + Refresh cluster ends the toolbar at 390 (3.8s)
+  ✓   9 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:167:5 › fine pointer pins › SS8-0513 · Audit Refresh is 28×28 fine (985ms)
+  ✓  10 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:173:5 › fine pointer pins › SS8-0523 · the flag badge renders at --type-small (709ms)
+  ✓  11 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:188:5 › fine pointer pins › SS8-0526 · no repeating admin poll; a query before the hash still routes (7.1s)
+
+
+  1) [smoke-admin] › e2e/smoke/admin/flows/tag-create.spec.ts:9:1 › admin tag create POSTs /admin/tags with name+category 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8090/#/admin/tags", waiting until "load"[22m
+
+
+      35 |     });
+      36 |
+    > 37 |     await page.goto("/#/admin/tags");
+         |                ^
+      38 |     const main = mainPane(page);
+      39 |     await expect(main).toBeVisible();
+      40 |     // The Tags panel mounts in both layout slots (the off-breakpoint copy is
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/flows/tag-create.spec.ts:37:16
+
+    Error Context: test-results/flows-tag-create-admin-tag-88307-min-tags-with-name-category-smoke-admin/error-context.md
+
+  2) [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:133:5 › fine pointer pins › SS8-0509 · a ~6 KB target never widens its row past the track (320) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.5[39m
+    Received:    [31m0.709320068359375[39m
+
+      144 |             sw: r.scrollWidth,
+      145 |         }));
+    > 146 |         expect(Math.abs(m.row - m.track)).toBeLessThanOrEqual(0.5);
+          |                                           ^
+      147 |         expect(m.sw).toBeLessThanOrEqual(m.cw);
+      148 |     });
+      149 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:146:43
+
+    Error Context: test-results/ss8-b18-admin-panels-fine--63d1c-its-row-past-the-track-320--smoke-admin/error-context.md
+
+  2 failed
+    [smoke-admin] › e2e/smoke/admin/flows/tag-create.spec.ts:9:1 › admin tag create POSTs /admin/tags with name+category 
+    [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:133:5 › fine pointer pins › SS8-0509 · a ~6 KB target never widens its row past the track (320) 
+  1 skipped
+  8 passed (1.0m)

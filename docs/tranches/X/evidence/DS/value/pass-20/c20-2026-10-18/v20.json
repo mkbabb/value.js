@@ -1,0 +1,554 @@
+[
+  {
+    "cell": "admin-flagged",
+    "theme": "light",
+    "width": 1440,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh flagged palettes",
+          "box": {
+            "x": 706,
+            "y": 323,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": false,
+          "inEmptyPlate": true,
+          "text": ""
+        }
+      ],
+      "countLine": [],
+      "formButtons": null,
+      "form": null,
+      "emptyPlate": "No flagged palettes."
+    },
+    "file": "admin-flagged-1440-light.png"
+  },
+  {
+    "cell": "admin-tags",
+    "theme": "light",
+    "width": 1440,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh tags",
+          "box": {
+            "x": 1188,
+            "y": 206,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": true,
+          "inEmptyPlate": true,
+          "text": ""
+        }
+      ],
+      "countLine": [],
+      "formButtons": [
+        "Add tag",
+        "Refresh tags"
+      ],
+      "form": {
+        "x": 224,
+        "y": 202,
+        "w": 992,
+        "h": 36
+      },
+      "emptyPlate": "No tags yet."
+    },
+    "file": "admin-tags-1440-light.png"
+  },
+  {
+    "cell": "admin-tags-populated",
+    "theme": "light",
+    "width": 1440,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh tags",
+          "box": {
+            "x": 1188,
+            "y": 241,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": true,
+          "inEmptyPlate": false,
+          "text": ""
+        }
+      ],
+      "countLine": [
+        "3 tags"
+      ],
+      "formButtons": [
+        "Add tag",
+        "Refresh tags"
+      ],
+      "form": {
+        "x": 224,
+        "y": 237,
+        "w": 992,
+        "h": 36
+      },
+      "emptyPlate": null
+    },
+    "file": "admin-tags-populated-1440-light.png"
+  },
+  {
+    "cell": "users-open",
+    "theme": "light",
+    "width": 1440,
+    "closedChevron": "none",
+    "read": {
+      "trigger": {
+        "x": 225,
+        "y": 291,
+        "w": 772,
+        "h": 49
+      },
+      "triggerBg": "rgba(0, 0, 0, 0)",
+      "chevron": {
+        "x": 981,
+        "y": 307,
+        "w": 16,
+        "h": 16
+      },
+      "chevronRotate": "180deg",
+      "chevronInTrigger": true,
+      "liBorder": "0px solid",
+      "liBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+      "nameFont": "Fraunces 16.4px 500",
+      "nameW": 121,
+      "nameText": "Harbor at Dusk",
+      "nameTruncated": false,
+      "slugFont": "16.4px",
+      "feature": {
+        "label": "Unfeature Harbor at Dusk",
+        "pressed": "true",
+        "visibleText": "Unfeature",
+        "box": {
+          "x": 1059,
+          "y": 403,
+          "w": 102,
+          "h": 28
+        }
+      }
+    },
+    "file": "users-open-1440-light.png"
+  },
+  {
+    "cell": "admin-flagged",
+    "theme": "light",
+    "width": 390,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh flagged palettes",
+          "box": {
+            "x": 181,
+            "y": 323,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": false,
+          "inEmptyPlate": true,
+          "text": ""
+        }
+      ],
+      "countLine": [],
+      "formButtons": null,
+      "form": null,
+      "emptyPlate": "No flagged palettes."
+    },
+    "file": "admin-flagged-390-light.png"
+  },
+  {
+    "cell": "admin-tags",
+    "theme": "light",
+    "width": 390,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh tags",
+          "box": {
+            "x": 329,
+            "y": 253,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": true,
+          "inEmptyPlate": true,
+          "text": ""
+        }
+      ],
+      "countLine": [],
+      "formButtons": [
+        "Add tag",
+        "Refresh tags"
+      ],
+      "form": {
+        "x": 33,
+        "y": 205,
+        "w": 324,
+        "h": 80
+      },
+      "emptyPlate": "No tags yet."
+    },
+    "file": "admin-tags-390-light.png"
+  },
+  {
+    "cell": "admin-tags-populated",
+    "theme": "light",
+    "width": 390,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh tags",
+          "box": {
+            "x": 329,
+            "y": 285,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": true,
+          "inEmptyPlate": false,
+          "text": ""
+        }
+      ],
+      "countLine": [
+        "3 tags"
+      ],
+      "formButtons": [
+        "Add tag",
+        "Refresh tags"
+      ],
+      "form": {
+        "x": 33,
+        "y": 237,
+        "w": 324,
+        "h": 80
+      },
+      "emptyPlate": null
+    },
+    "file": "admin-tags-populated-390-light.png"
+  },
+  {
+    "cell": "users-open",
+    "theme": "light",
+    "width": 390,
+    "closedChevron": "none",
+    "read": {
+      "trigger": {
+        "x": 34,
+        "y": 294,
+        "w": 310,
+        "h": 46
+      },
+      "triggerBg": "rgba(0, 0, 0, 0)",
+      "chevron": {
+        "x": 328,
+        "y": 309,
+        "w": 16,
+        "h": 16
+      },
+      "chevronRotate": "180deg",
+      "chevronInTrigger": true,
+      "liBorder": "0px solid",
+      "liBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+      "nameFont": "Fraunces 14px 500",
+      "nameW": 103,
+      "nameText": "Harbor at Dusk",
+      "nameTruncated": false,
+      "slugFont": "14px",
+      "feature": {
+        "label": "Unfeature Harbor at Dusk",
+        "pressed": "true",
+        "visibleText": "",
+        "box": {
+          "x": 272,
+          "y": 441,
+          "w": 30,
+          "h": 28
+        }
+      }
+    },
+    "file": "users-open-390-light.png"
+  },
+  {
+    "cell": "admin-flagged",
+    "theme": "dark",
+    "width": 1440,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh flagged palettes",
+          "box": {
+            "x": 706,
+            "y": 323,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": false,
+          "inEmptyPlate": true,
+          "text": ""
+        }
+      ],
+      "countLine": [],
+      "formButtons": null,
+      "form": null,
+      "emptyPlate": "No flagged palettes."
+    },
+    "file": "admin-flagged-1440-dark.png"
+  },
+  {
+    "cell": "admin-tags",
+    "theme": "dark",
+    "width": 1440,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh tags",
+          "box": {
+            "x": 1188,
+            "y": 206,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": true,
+          "inEmptyPlate": true,
+          "text": ""
+        }
+      ],
+      "countLine": [],
+      "formButtons": [
+        "Add tag",
+        "Refresh tags"
+      ],
+      "form": {
+        "x": 224,
+        "y": 202,
+        "w": 992,
+        "h": 36
+      },
+      "emptyPlate": "No tags yet."
+    },
+    "file": "admin-tags-1440-dark.png"
+  },
+  {
+    "cell": "admin-tags-populated",
+    "theme": "dark",
+    "width": 1440,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh tags",
+          "box": {
+            "x": 1188,
+            "y": 241,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": true,
+          "inEmptyPlate": false,
+          "text": ""
+        }
+      ],
+      "countLine": [
+        "3 tags"
+      ],
+      "formButtons": [
+        "Add tag",
+        "Refresh tags"
+      ],
+      "form": {
+        "x": 224,
+        "y": 237,
+        "w": 992,
+        "h": 36
+      },
+      "emptyPlate": null
+    },
+    "file": "admin-tags-populated-1440-dark.png"
+  },
+  {
+    "cell": "users-open",
+    "theme": "dark",
+    "width": 1440,
+    "closedChevron": "none",
+    "read": {
+      "trigger": {
+        "x": 225,
+        "y": 291,
+        "w": 772,
+        "h": 49
+      },
+      "triggerBg": "rgba(0, 0, 0, 0)",
+      "chevron": {
+        "x": 981,
+        "y": 307,
+        "w": 16,
+        "h": 16
+      },
+      "chevronRotate": "180deg",
+      "chevronInTrigger": true,
+      "liBorder": "0px solid",
+      "liBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+      "nameFont": "Fraunces 16.4px 500",
+      "nameW": 121,
+      "nameText": "Harbor at Dusk",
+      "nameTruncated": false,
+      "slugFont": "16.4px",
+      "feature": {
+        "label": "Unfeature Harbor at Dusk",
+        "pressed": "true",
+        "visibleText": "Unfeature",
+        "box": {
+          "x": 1059,
+          "y": 403,
+          "w": 102,
+          "h": 28
+        }
+      }
+    },
+    "file": "users-open-1440-dark.png"
+  },
+  {
+    "cell": "admin-flagged",
+    "theme": "dark",
+    "width": 390,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh flagged palettes",
+          "box": {
+            "x": 181,
+            "y": 323,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": false,
+          "inEmptyPlate": true,
+          "text": ""
+        }
+      ],
+      "countLine": [],
+      "formButtons": null,
+      "form": null,
+      "emptyPlate": "No flagged palettes."
+    },
+    "file": "admin-flagged-390-dark.png"
+  },
+  {
+    "cell": "admin-tags",
+    "theme": "dark",
+    "width": 390,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh tags",
+          "box": {
+            "x": 329,
+            "y": 253,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": true,
+          "inEmptyPlate": true,
+          "text": ""
+        }
+      ],
+      "countLine": [],
+      "formButtons": [
+        "Add tag",
+        "Refresh tags"
+      ],
+      "form": {
+        "x": 33,
+        "y": 205,
+        "w": 324,
+        "h": 80
+      },
+      "emptyPlate": "No tags yet."
+    },
+    "file": "admin-tags-390-dark.png"
+  },
+  {
+    "cell": "admin-tags-populated",
+    "theme": "dark",
+    "width": 390,
+    "read": {
+      "refresh": [
+        {
+          "label": "Refresh tags",
+          "box": {
+            "x": 329,
+            "y": 285,
+            "w": 28,
+            "h": 28
+          },
+          "inForm": true,
+          "inEmptyPlate": false,
+          "text": ""
+        }
+      ],
+      "countLine": [
+        "3 tags"
+      ],
+      "formButtons": [
+        "Add tag",
+        "Refresh tags"
+      ],
+      "form": {
+        "x": 33,
+        "y": 237,
+        "w": 324,
+        "h": 80
+      },
+      "emptyPlate": null
+    },
+    "file": "admin-tags-populated-390-dark.png"
+  },
+  {
+    "cell": "users-open",
+    "theme": "dark",
+    "width": 390,
+    "closedChevron": "none",
+    "read": {
+      "trigger": {
+        "x": 34,
+        "y": 294,
+        "w": 310,
+        "h": 46
+      },
+      "triggerBg": "rgba(0, 0, 0, 0)",
+      "chevron": {
+        "x": 328,
+        "y": 309,
+        "w": 16,
+        "h": 16
+      },
+      "chevronRotate": "180deg",
+      "chevronInTrigger": true,
+      "liBorder": "0px solid",
+      "liBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+      "nameFont": "Fraunces 14px 500",
+      "nameW": 103,
+      "nameText": "Harbor at Dusk",
+      "nameTruncated": false,
+      "slugFont": "14px",
+      "feature": {
+        "label": "Unfeature Harbor at Dusk",
+        "pressed": "true",
+        "visibleText": "",
+        "box": {
+          "x": 272,
+          "y": 441,
+          "w": 30,
+          "h": 28
+        }
+      }
+    },
+    "file": "users-open-390-dark.png"
+  }
+]

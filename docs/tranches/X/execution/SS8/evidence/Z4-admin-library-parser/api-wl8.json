@@ -1,0 +1,164 @@
+{
+  "api": "http://localhost:3000",
+  "steps": [
+    {
+      "method": "POST",
+      "path": "/sessions",
+      "as": "anon",
+      "status": 201,
+      "body": "{\"token\":\"<redacted>\",\"userSlug\":\"foggy-running-quartz-swan\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/sessions",
+      "as": "anon",
+      "status": 201,
+      "body": "{\"token\":\"<redacted>\",\"userSlug\":\"frozen-rising-sand-squid\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/palettes",
+      "as": "session",
+      "status": 201,
+      "body": "{\"name\":\"SS8 Z4 private probe\",\"slug\":\"ss8-z4-priv-mvh1raqq\",\"colors\":[{\"css\":\"#123456\",\"position\":0},{\"css\":\"#abcdef\",\"position\":1}],\"tags\":[],\"versionCount\":1,\"forkCount\":0,\"forkOf\":null,\"forkOfHash\":null,\"currentHash\""
+    },
+    {
+      "method": "GET",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq",
+      "as": "session",
+      "status": 200,
+      "body": "{\"name\":\"SS8 Z4 private probe\",\"slug\":\"ss8-z4-priv-mvh1raqq\",\"colors\":[{\"css\":\"#123456\",\"position\":0},{\"css\":\"#abcdef\",\"position\":1}],\"tags\":[],\"versionCount\":1,\"forkCount\":0,\"forkOf\":null,\"forkOfHash\":null,\"currentHash\""
+    },
+    {
+      "method": "POST",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq/unpublish",
+      "as": "session",
+      "status": 200,
+      "body": "{\"name\":\"SS8 Z4 private probe\",\"slug\":\"ss8-z4-priv-mvh1raqq\",\"colors\":[{\"css\":\"#123456\",\"position\":0},{\"css\":\"#abcdef\",\"position\":1}],\"tags\":[],\"versionCount\":1,\"forkCount\":0,\"forkOf\":null,\"forkOfHash\":null,\"currentHash\""
+    },
+    {
+      "method": "GET",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq",
+      "as": "anon",
+      "status": 404,
+      "body": "{\"type\":\"urn:contract:not-found\",\"title\":\"Palette not found\",\"status\":404,\"instance\":\"/palettes/ss8-z4-priv-mvh1raqq\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq/versions",
+      "as": "anon",
+      "status": 404,
+      "body": "{\"type\":\"urn:contract:not-found\",\"title\":\"Palette not found\",\"status\":404,\"instance\":\"/palettes/ss8-z4-priv-mvh1raqq/versions\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq/versions/6278eac1a80b927088983ae81ed47f8e01972b252721c8dbdbfe740dbfbe9338",
+      "as": "anon",
+      "status": 404,
+      "body": "{\"type\":\"urn:contract:not-found\",\"title\":\"Palette not found\",\"status\":404,\"instance\":\"/palettes/ss8-z4-priv-mvh1raqq/versions/6278eac1a80b927088983ae81ed47f8e01972b252721c8dbdbfe740dbfbe9338\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq/forks",
+      "as": "anon",
+      "status": 404,
+      "body": "{\"type\":\"urn:contract:not-found\",\"title\":\"Palette not found\",\"status\":404,\"instance\":\"/palettes/ss8-z4-priv-mvh1raqq/forks\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq/provenance",
+      "as": "anon",
+      "status": 404,
+      "body": "{\"type\":\"urn:contract:not-found\",\"title\":\"Palette not found\",\"status\":404,\"instance\":\"/palettes/ss8-z4-priv-mvh1raqq/provenance\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq",
+      "as": "session",
+      "status": 404,
+      "body": "{\"type\":\"urn:contract:not-found\",\"title\":\"Palette not found\",\"status\":404,\"instance\":\"/palettes/ss8-z4-priv-mvh1raqq\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq/forks",
+      "as": "session",
+      "status": 404,
+      "body": "{\"type\":\"urn:contract:not-found\",\"title\":\"Palette not found\",\"status\":404,\"instance\":\"/palettes/ss8-z4-priv-mvh1raqq/forks\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq",
+      "as": "session",
+      "status": 200,
+      "body": "{\"name\":\"SS8 Z4 private probe\",\"slug\":\"ss8-z4-priv-mvh1raqq\",\"colors\":[{\"css\":\"#123456\",\"position\":0},{\"css\":\"#abcdef\",\"position\":1}],\"tags\":[],\"versionCount\":1,\"forkCount\":0,\"forkOf\":null,\"forkOfHash\":null,\"currentHash\""
+    },
+    {
+      "method": "GET",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq/versions",
+      "as": "session",
+      "status": 200,
+      "body": "{\"data\":[{\"hash\":\"8d8601cb6918e6389e4cc909a5237fa34bc27e4564d7b84fdc9c755a48dae01c\",\"payloadHash\":\"6278eac1a80b927088983ae81ed47f8e01972b252721c8dbdbfe740dbfbe9338\",\"revisionNo\":1,\"name\":\"SS8 Z4 private probe\",\"colors\":["
+    },
+    {
+      "method": "GET",
+      "path": "/palettes?limit=1",
+      "as": "anon",
+      "status": 200,
+      "body": "{\"data\":[],\"nextCursor\":null,\"hasMore\":false}"
+    },
+    {
+      "method": "GET",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq",
+      "as": "session",
+      "status": 200,
+      "body": "{\"name\":\"SS8 Z4 private probe\",\"slug\":\"ss8-z4-priv-mvh1raqq\",\"colors\":[{\"css\":\"#123456\",\"position\":0},{\"css\":\"#abcdef\",\"position\":1}],\"tags\":[],\"versionCount\":1,\"forkCount\":0,\"forkOf\":null,\"forkOfHash\":null,\"currentHash\""
+    },
+    {
+      "method": "DELETE",
+      "path": "/palettes/ss8-z4-priv-mvh1raqq",
+      "as": "session",
+      "status": 200,
+      "body": "{\"deleted\":true,\"deletedAt\":\"2026-10-20T18:59:28.875Z\"}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/sessions",
+      "as": "session",
+      "status": 200,
+      "body": "{\"ok\":true}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/sessions",
+      "as": "session",
+      "status": 200,
+      "body": "{\"ok\":true}"
+    }
+  ],
+  "sessions": {
+    "owner": true,
+    "stranger": true
+  },
+  "visibilityAtCreate": "public",
+  "unpublish": {
+    "status": 200,
+    "visibility": "private"
+  },
+  "private": {
+    "anonGet": 404,
+    "anonVersions": 404,
+    "anonVersionHash": 404,
+    "anonForksList": 404,
+    "anonProvenance": 404,
+    "strangerGet": 404,
+    "strangerFork": {
+      "status": 404,
+      "forkVisibility": null
+    },
+    "ownerGet": 200,
+    "ownerVersions": 200
+  },
+  "cleanup": {
+    "ss8-z4-priv-mvh1raqq": 200
+  }
+}

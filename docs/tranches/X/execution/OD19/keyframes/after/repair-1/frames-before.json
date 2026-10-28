@@ -1,0 +1,250 @@
+[
+ {
+  "tag": "before-dark-1440",
+  "notes": [],
+  "chevrons": [
+   {
+    "text": "",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "0deg",
+    "ancestorState": null,
+    "openAncestor": null
+   },
+   {
+    "text": "alternate",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "180deg",
+    "ancestorState": "open",
+    "openAncestor": "div.configurator-layer-region.grid.motion-reduce:transition-none"
+   },
+   {
+    "text": "forwards",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "180deg",
+    "ancestorState": "open",
+    "openAncestor": "div.configurator-layer-region.grid.motion-reduce:transition-none"
+   },
+   {
+    "text": "ease-in-out",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "none",
+    "ancestorState": "open",
+    "openAncestor": "div.configurator-layer-region.grid.motion-reduce:transition-none"
+   },
+   {
+    "text": "replace",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "none",
+    "ancestorState": null,
+    "openAncestor": null
+   },
+   {
+    "text": "",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "0deg",
+    "ancestorState": null,
+    "openAncestor": null
+   }
+  ],
+  "reverse": {
+   "glyph": "lucide-arrow-right-icon",
+   "px": [
+    16,
+    16
+   ],
+   "disc": 48
+  },
+  "surfaces": [
+   {
+    "t": "Controls",
+    "role": "menuitem",
+    "checked": null,
+    "dot": false
+   },
+   {
+    "t": "Keyframes",
+    "role": "menuitem",
+    "checked": null,
+    "dot": false
+   },
+   {
+    "t": "Timeline",
+    "role": "menuitem",
+    "checked": null,
+    "dot": false
+   },
+   {
+    "t": "Matrix: select the Matrix channel",
+    "role": "menuitem",
+    "checked": null,
+    "dot": false
+   }
+  ],
+  "inks": {
+   "rgb(233, 230, 226)": [
+    ".Rotations",
+    "",
+    "",
+    ""
+   ],
+   "rgb(172, 160, 145)": [
+    "{",
+    ";",
+    ";",
+    ";"
+   ],
+   "rgb(211, 190, 233)": [
+    "animation-name:",
+    "animation-duration:",
+    "animation-timing-function:",
+    "animation-iteration-count:"
+   ],
+   "rgb(205, 198, 189)": [
+    "Rotations",
+    "ease-in-out",
+    "infinite",
+    "alternate"
+   ],
+   "rgb(190, 149, 236)": [
+    "5s",
+    "0deg",
+    "0turn",
+    "0deg"
+   ],
+   "rgb(211, 166, 255)": [
+    "0%",
+    "100%"
+   ]
+  }
+ },
+ {
+  "tag": "before-light-1440",
+  "notes": [],
+  "chevrons": [
+   {
+    "text": "",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "0deg",
+    "ancestorState": null,
+    "openAncestor": null
+   },
+   {
+    "text": "alternate",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "180deg",
+    "ancestorState": "open",
+    "openAncestor": "div.configurator-layer-region.grid.motion-reduce:transition-none"
+   },
+   {
+    "text": "forwards",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "180deg",
+    "ancestorState": "open",
+    "openAncestor": "div.configurator-layer-region.grid.motion-reduce:transition-none"
+   },
+   {
+    "text": "ease-in-out",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "none",
+    "ancestorState": "open",
+    "openAncestor": "div.configurator-layer-region.grid.motion-reduce:transition-none"
+   },
+   {
+    "text": "replace",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "none",
+    "ancestorState": null,
+    "openAncestor": null
+   },
+   {
+    "text": "",
+    "chevron": "lucide-chevron-down-icon",
+    "rot": 0,
+    "rotate": "0deg",
+    "ancestorState": null,
+    "openAncestor": null
+   }
+  ],
+  "reverse": {
+   "glyph": "lucide-arrow-right-icon",
+   "px": [
+    16,
+    16
+   ],
+   "disc": 48
+  },
+  "surfaces": [
+   {
+    "t": "Controls",
+    "role": "menuitem",
+    "checked": null,
+    "dot": false
+   },
+   {
+    "t": "Keyframes",
+    "role": "menuitem",
+    "checked": null,
+    "dot": false
+   },
+   {
+    "t": "Timeline",
+    "role": "menuitem",
+    "checked": null,
+    "dot": false
+   },
+   {
+    "t": "Matrix: select the Matrix channel",
+    "role": "menuitem",
+    "checked": null,
+    "dot": false
+   }
+  ],
+  "inks": {
+   "rgb(28, 25, 23)": [
+    ".Rotations",
+    "",
+    "",
+    ""
+   ],
+   "rgb(124, 102, 80)": [
+    "{",
+    ";",
+    ";",
+    ";"
+   ],
+   "rgb(73, 58, 107)": [
+    "animation-name:",
+    "animation-duration:",
+    "animation-timing-function:",
+    "animation-iteration-count:"
+   ],
+   "rgb(69, 58, 48)": [
+    "Rotations",
+    "ease-in-out",
+    "infinite",
+    "alternate"
+   ],
+   "rgb(126, 90, 204)": [
+    "5s",
+    "0deg",
+    "0turn",
+    "0deg"
+   ],
+   "rgb(108, 62, 190)": [
+    "0%",
+    "100%"
+   ]
+  }
+ }
+]

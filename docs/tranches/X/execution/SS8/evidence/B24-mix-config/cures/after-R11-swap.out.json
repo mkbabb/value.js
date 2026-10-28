@@ -1,0 +1,50 @@
+{
+ "label": "after",
+ "base": "http://localhost:8126",
+ "at": "2026-10-20T22:51:46.292Z",
+ "R11-swap": {
+  "frames": 59,
+  "footFirst": 145.4,
+  "footLast": 221.7,
+  "growth": 76.3,
+  "framesWithGrowth": 3,
+  "maxOneFrameFootStep": 33.5,
+  "at": [
+   {
+    "t": 495,
+    "footH": 157.4,
+    "mixTop": 672
+   },
+   {
+    "t": 531.5,
+    "footH": 190.9,
+    "mixTop": 705.5
+   }
+  ],
+  "GREEN": false,
+  "trace": [
+   {
+    "t": 397.7,
+    "footH": 157.4,
+    "mixTop": 672
+   },
+   {
+    "t": 531.5,
+    "footH": 190.9,
+    "mixTop": 705.5
+   },
+   {
+    "t": 601,
+    "footH": 221.7,
+    "mixTop": 705.5
+   },
+   {
+    "t": 657.4,
+    "footH": 221.7,
+    "mixTop": 672.5
+   }
+  ],
+  "errors": [],
+  "ms": 4285
+ }
+}

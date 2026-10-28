@@ -62,7 +62,7 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
 </script>
 
 <template>
-    <PaneShell title="Mix" description="Mix colors and palettes together." seated follow>
+    <PaneShell title="Mix" description="Mix colors and palettes together." follow>
         <!-- X.W12U.h · A2-VA-L3-5: the Mix companion follows the picker's row
              (shell.css row contract) and scrolls inside its own card.
              A2-VA-L1-1: the one pane shell.

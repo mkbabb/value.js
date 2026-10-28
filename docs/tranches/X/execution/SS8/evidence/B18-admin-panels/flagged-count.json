@@ -1,0 +1,32 @@
+{
+  "light": {
+    "fgComputed": "oklch(0.292283 0.00386159 34.63)",
+    "fgComposited": [
+      46,
+      43,
+      43
+    ],
+    "bgMedian": [
+      214,
+      98,
+      180
+    ],
+    "ratio": 4.186,
+    "pageErrors": []
+  },
+  "dark": {
+    "fgComputed": "oklch(0.712763 0.00382185 41.8684)",
+    "fgComposited": [
+      164,
+      162,
+      160
+    ],
+    "bgMedian": [
+      80,
+      23,
+      60
+    ],
+    "ratio": 5.399,
+    "pageErrors": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+ "light-1440": {
+  "url": "http://localhost:3100/v/hazy-etching-cream-elk",
+  "canvas": {
+   "x": 502,
+   "y": 488,
+   "w": 970,
+   "h": 798
+  },
+  "loops": []
+ },
+ "dark-1440": {
+  "url": "http://localhost:3100/v/hazy-etching-cream-elk",
+  "canvas": {
+   "x": 502,
+   "y": 488,
+   "w": 970,
+   "h": 798
+  },
+  "loops": []
+ }
+}

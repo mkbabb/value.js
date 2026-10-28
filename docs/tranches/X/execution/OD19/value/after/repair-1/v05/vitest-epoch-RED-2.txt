@@ -1,0 +1,35 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js/.worktrees/r1-red
+
+ ❯ demo/test/color-session/probe-epoch-mount.test.ts (2 tests | 1 failed) 63ms
+   × OD19 repair 1 — the probe epoch bumps only after a missed probe > mounting a second consumer on a measured referent does not re-run the first consumer's ink 50ms
+     → expected 3 to be 2 // Object.is equality
+   ✓ OD19 repair 1 — the probe epoch bumps only after a missed probe > a probe that missed is still re-driven by the next mount 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/color-session/probe-epoch-mount.test.ts > OD19 repair 1 — the probe epoch bumps only after a missed probe > mounting a second consumer on a measured referent does not re-run the first consumer's ink
+AssertionError: expected 3 to be 2 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 2[39m
+[31m+ 3[39m
+
+ ❯ demo/test/color-session/probe-epoch-mount.test.ts:86:21
+     84|         await nextTick();
+     85|         await nextTick();
+     86|         expect(a.n).toBe(settled);
+       |                     ^
+     87|     });
+     88| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  22:55:02
+   Duration  869ms (transform 123ms, setup 60ms, collect 173ms, tests 63ms, environment 294ms, prepare 54ms)
+

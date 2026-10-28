@@ -1,0 +1,6 @@
+home-swap — /Users/mkbabb/Programming/keyframes.js/dist/r3-final · ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) · #/sequence -> Home · N=5 · 1440x900 light
+ok   run 0: worst 57 ms / 176 frames · {"prepare":21,"total":328,"commit":35} · strip std min 15.4
+ok   run 1: worst 59 ms / 186 frames · {"prepare":7,"total":340,"commit":35} · strip std min 15.8
+ok   run 2: worst 50 ms / 180 frames · {"prepare":21,"total":334,"commit":35} · strip std min 16.3
+ok   run 3: worst 58 ms / 181 frames · {"prepare":7,"total":335,"commit":33} · strip std min 16.6
+ok   run 4: worst 53 ms / 184 frames · {"prepare":7,"total":317,"commit":34} · strip std min 15.8

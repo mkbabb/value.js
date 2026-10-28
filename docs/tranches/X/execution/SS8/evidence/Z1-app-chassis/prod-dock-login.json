@@ -1,0 +1,87 @@
+{
+ "cell": "login",
+ "ms": 9602,
+ "at": "2026-10-20T21:20:40.015Z",
+ "out": {
+  "loginVisible": true,
+  "swap": {
+   "frames": 80,
+   "w0": 487.3,
+   "w1": 349,
+   "maxStep": 138.3
+  },
+  "focus": {
+   "tag": "DIV",
+   "label": null,
+   "ph": null
+  },
+  "controls": [
+   {
+    "tag": "INPUT",
+    "label": "Slug or admin token",
+    "w": 224,
+    "h": 36
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Reset color",
+    "w": 40,
+    "h": 40
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Copy color",
+    "w": 40,
+    "h": 40
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Random color",
+    "w": 40,
+    "h": 40
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Palettes",
+    "w": 40,
+    "h": 40
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Extract palette",
+    "w": 40,
+    "h": 40
+   }
+  ],
+  "after": {
+   "inputPresent": true,
+   "inputVisible": true,
+   "inputValue": "zzzz-zzzz-zzzz-zzzz",
+   "alerts": [
+    {
+     "role": "alert",
+     "t": "value.js dev is MISCONFIGURED: http://localhost:9419 has no VITE_API_URL and is targeting the cross-origin production AP",
+     "vis": true
+    },
+    {
+     "role": "status",
+     "t": "Save edit",
+     "vis": true
+    }
+   ]
+  },
+  "net": []
+ }
+}

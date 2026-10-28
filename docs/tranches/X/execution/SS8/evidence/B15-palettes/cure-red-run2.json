@@ -1,0 +1,267 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/ss8-b15-palette-cards.spec.ts",
+      "file": "smoke/ss8-b15-palette-cards.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "SS8-0442 · a focused saved card's ring paints on all four edges",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "edge-steps",
+                  "description": "[{\"edge\":\"top\",\"unfocused\":2.94,\"focused\":2.94},{\"edge\":\"bottom\",\"unfocused\":25.29,\"focused\":65.36},{\"edge\":\"left\",\"unfocused\":2.96,\"focused\":2.96},{\"edge\":\"right\",\"unfocused\":3.05,\"focused\":3.05}]"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 21289,
+                  "error": {
+                    "message": "Error: outer-vs-gap step per edge: [{\"edge\":\"top\",\"unfocused\":2.94,\"focused\":2.94},{\"edge\":\"bottom\",\"unfocused\":25.29,\"focused\":65.36},{\"edge\":\"left\",\"unfocused\":2.96,\"focused\":2.96},{\"edge\":\"right\",\"unfocused\":3.05,\"focused\":3.05}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 17\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"edge\": \"top\",\u001b[39m\n\u001b[31m+     \"focused\": 2.94,\u001b[39m\n\u001b[31m+     \"unfocused\": 2.94,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"edge\": \"left\",\u001b[39m\n\u001b[31m+     \"focused\": 2.96,\u001b[39m\n\u001b[31m+     \"unfocused\": 2.96,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"edge\": \"right\",\u001b[39m\n\u001b[31m+     \"focused\": 3.05,\u001b[39m\n\u001b[31m+     \"unfocused\": 3.05,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: outer-vs-gap step per edge: [{\"edge\":\"top\",\"unfocused\":2.94,\"focused\":2.94},{\"edge\":\"bottom\",\"unfocused\":25.29,\"focused\":65.36},{\"edge\":\"left\",\"unfocused\":2.96,\"focused\":2.96},{\"edge\":\"right\",\"unfocused\":3.05,\"focused\":3.05}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 17\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"edge\": \"top\",\u001b[39m\n\u001b[31m+     \"focused\": 2.94,\u001b[39m\n\u001b[31m+     \"unfocused\": 2.94,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"edge\": \"left\",\u001b[39m\n\u001b[31m+     \"focused\": 2.96,\u001b[39m\n\u001b[31m+     \"unfocused\": 2.96,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"edge\": \"right\",\u001b[39m\n\u001b[31m+     \"focused\": 3.05,\u001b[39m\n\u001b[31m+     \"unfocused\": 3.05,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b15-palette-cards.spec.ts:115:79",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b15-palette-cards.spec.ts",
+                      "column": 79,
+                      "line": 115
+                    },
+                    "snippet": "  113 |     test.info().annotations.push({ type: \"edge-steps\", description: JSON.stringify(steps) });\n  114 |     const unpainted = steps.filter((s) => !(s.focused > Math.max(s.unfocused * 2, s.unfocused + 8)));\n> 115 |     expect(unpainted, `outer-vs-gap step per edge: ${JSON.stringify(steps)}`).toEqual([]);\n      |                                                                               ^\n  116 | });\n  117 |\n  118 | test(\"SS8-0446 · the saved-card scroller keeps its bottom fade (regression arm)\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b15-palette-cards.spec.ts",
+                        "column": 79,
+                        "line": 115
+                      },
+                      "message": "Error: outer-vs-gap step per edge: [{\"edge\":\"top\",\"unfocused\":2.94,\"focused\":2.94},{\"edge\":\"bottom\",\"unfocused\":25.29,\"focused\":65.36},{\"edge\":\"left\",\"unfocused\":2.96,\"focused\":2.96},{\"edge\":\"right\",\"unfocused\":3.05,\"focused\":3.05}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 17\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"edge\": \"top\",\u001b[39m\n\u001b[31m+     \"focused\": 2.94,\u001b[39m\n\u001b[31m+     \"unfocused\": 2.94,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"edge\": \"left\",\u001b[39m\n\u001b[31m+     \"focused\": 2.96,\u001b[39m\n\u001b[31m+     \"unfocused\": 2.96,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"edge\": \"right\",\u001b[39m\n\u001b[31m+     \"focused\": 3.05,\u001b[39m\n\u001b[31m+     \"unfocused\": 3.05,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  113 |     test.info().annotations.push({ type: \"edge-steps\", description: JSON.stringify(steps) });\n  114 |     const unpainted = steps.filter((s) => !(s.focused > Math.max(s.unfocused * 2, s.unfocused + 8)));\n> 115 |     expect(unpainted, `outer-vs-gap step per edge: ${JSON.stringify(steps)}`).toEqual([]);\n      |                                                                               ^\n  116 | });\n  117 |\n  118 | test(\"SS8-0446 · the saved-card scroller keeps its bottom fade (regression arm)\", async ({ page }) => {\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b15-palette-cards.spec.ts:115:79"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T23:40:08.171Z",
+                  "annotations": [
+                    {
+                      "type": "edge-steps",
+                      "description": "[{\"edge\":\"top\",\"unfocused\":2.94,\"focused\":2.94},{\"edge\":\"bottom\",\"unfocused\":25.29,\"focused\":65.36},{\"edge\":\"left\",\"unfocused\":2.96,\"focused\":2.96},{\"edge\":\"right\",\"unfocused\":3.05,\"focused\":3.05}]"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/ss8-b15-palette-cards-SS8--813b5-ng-paints-on-all-four-edges-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b15-palette-cards.spec.ts",
+                    "column": 79,
+                    "line": 115
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "24aa82c06a47c3a84d29-e7f56955f3a147d18f5e",
+          "file": "smoke/ss8-b15-palette-cards.spec.ts",
+          "line": 52,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T23:40:05.473Z",
+    "duration": 24268.569,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

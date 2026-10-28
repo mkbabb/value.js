@@ -1,0 +1,338 @@
+{
+ "light-1440": {
+  "c5": {
+   "notFound": {
+    "t": "Page not found",
+    "px": 41.89,
+    "weight": "400",
+    "lines": 1,
+    "w": 422
+   },
+   "morph": {
+    "t": "Fourier Morph",
+    "px": 41.89,
+    "weight": "400",
+    "lines": 1,
+    "w": 1120
+   }
+  },
+  "c1": {
+   "dragging": true,
+   "zoneBorder": "0px solid",
+   "buttonShadowHasRing": false,
+   "stageRing": "rgb(28, 25, 23) 0px 0px 0px 2px inset"
+  },
+  "c2": {
+   "layers": [
+    "Functionf(t)",
+    "Series",
+    "Coefficients21 harmonics · n = ±20"
+   ],
+   "tabs": []
+  },
+  "c4": {
+   "dock": [
+    867,
+    97,
+    112,
+    56
+   ],
+   "insetTop": 8,
+   "insetRight": 8,
+   "collapsed": null,
+   "controls": [
+    {
+     "name": "About this approximation",
+     "box": [
+      40,
+      40
+     ],
+     "inDock": true
+    },
+    {
+     "name": "Copy LaTeX",
+     "box": [
+      40,
+      40
+     ],
+     "inDock": true
+    }
+   ],
+   "bareButtons": 0,
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px",
+   "hovercard": true
+  },
+  "c3": {
+   "header": "Coefficients401 terms · n = ±200",
+   "subs": [
+    "N; the Fourier sum runs −N to N",
+    "points traced on the outline",
+    "saliency cutoff",
+    "softens noisy edges"
+   ],
+   "dock": {
+    "insetTop": 8,
+    "insetRight": 8,
+    "h": 56
+   }
+  },
+  "c6": {
+   "harmonicsRowH": 90.7,
+   "samplePointsRowH": 90.7
+  }
+ },
+ "light-390": {
+  "c5": {
+   "notFound": {
+    "t": "Page not found",
+    "px": 25.89,
+    "weight": "400",
+    "lines": 1,
+    "w": 340
+   },
+   "morph": {
+    "t": "Fourier Morph",
+    "px": 25.89,
+    "weight": "400",
+    "lines": 1,
+    "w": 358
+   }
+  },
+  "c1": {
+   "dragging": true,
+   "zoneBorder": "0px solid",
+   "buttonShadowHasRing": false,
+   "stageRing": "rgb(28, 25, 23) 0px 0px 0px 2px inset"
+  },
+  "c2": {
+   "layers": [
+    "Functionf(t)",
+    "Series",
+    "Coefficients21 harmonics · n = ±20"
+   ],
+   "tabs": [
+    "Controls",
+    "Canvas"
+   ]
+  },
+  "c4": {
+   "dock": [
+    245,
+    140.5,
+    120,
+    60
+   ],
+   "insetTop": 8,
+   "insetRight": 8,
+   "collapsed": null,
+   "controls": [
+    {
+     "name": "About this approximation",
+     "box": [
+      44,
+      44
+     ],
+     "inDock": true
+    },
+    {
+     "name": "Copy LaTeX",
+     "box": [
+      44,
+      44
+     ],
+     "inDock": true
+    }
+   ],
+   "bareButtons": 0,
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "c3": {
+   "header": "Coefficients401 terms · n = ±200",
+   "subs": [
+    "N; the Fourier sum runs −N to N",
+    "points traced on the outline",
+    "saliency cutoff",
+    "softens noisy edges"
+   ],
+   "dock": {
+    "insetTop": 0,
+    "insetRight": 0,
+    "h": 0
+   }
+  },
+  "c6": {
+   "harmonicsRowH": 99.8,
+   "samplePointsRowH": 99.8
+  }
+ },
+ "dark-1440": {
+  "c5": {
+   "notFound": {
+    "t": "Page not found",
+    "px": 41.89,
+    "weight": "400",
+    "lines": 1,
+    "w": 422
+   },
+   "morph": {
+    "t": "Fourier Morph",
+    "px": 41.89,
+    "weight": "400",
+    "lines": 1,
+    "w": 1120
+   }
+  },
+  "c1": {
+   "dragging": true,
+   "zoneBorder": "0px solid",
+   "buttonShadowHasRing": false,
+   "stageRing": "rgb(186, 183, 171) 0px 0px 0px 2px inset"
+  },
+  "c2": {
+   "layers": [
+    "Functionf(t)",
+    "Series",
+    "Coefficients21 harmonics · n = ±20"
+   ],
+   "tabs": []
+  },
+  "c4": {
+   "dock": [
+    867,
+    97,
+    112,
+    56
+   ],
+   "insetTop": 8,
+   "insetRight": 8,
+   "collapsed": null,
+   "controls": [
+    {
+     "name": "About this approximation",
+     "box": [
+      40,
+      40
+     ],
+     "inDock": true
+    },
+    {
+     "name": "Copy LaTeX",
+     "box": [
+      40,
+      40
+     ],
+     "inDock": true
+    }
+   ],
+   "bareButtons": 0,
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px",
+   "hovercard": true
+  },
+  "c3": {
+   "header": "Coefficients401 terms · n = ±200",
+   "subs": [
+    "N; the Fourier sum runs −N to N",
+    "points traced on the outline",
+    "saliency cutoff",
+    "softens noisy edges"
+   ],
+   "dock": {
+    "insetTop": 8,
+    "insetRight": 8,
+    "h": 56
+   }
+  },
+  "c6": {
+   "harmonicsRowH": 90.7,
+   "samplePointsRowH": 90.7
+  }
+ },
+ "dark-390": {
+  "c5": {
+   "notFound": {
+    "t": "Page not found",
+    "px": 25.89,
+    "weight": "400",
+    "lines": 1,
+    "w": 340
+   },
+   "morph": {
+    "t": "Fourier Morph",
+    "px": 25.89,
+    "weight": "400",
+    "lines": 1,
+    "w": 358
+   }
+  },
+  "c1": {
+   "dragging": true,
+   "zoneBorder": "0px solid",
+   "buttonShadowHasRing": false,
+   "stageRing": "rgb(186, 183, 171) 0px 0px 0px 2px inset"
+  },
+  "c2": {
+   "layers": [
+    "Functionf(t)",
+    "Series",
+    "Coefficients21 harmonics · n = ±20"
+   ],
+   "tabs": [
+    "Controls",
+    "Canvas"
+   ]
+  },
+  "c4": {
+   "dock": [
+    245,
+    140.5,
+    120,
+    60
+   ],
+   "insetTop": 8,
+   "insetRight": 8,
+   "collapsed": null,
+   "controls": [
+    {
+     "name": "About this approximation",
+     "box": [
+      44,
+      44
+     ],
+     "inDock": true
+    },
+    {
+     "name": "Copy LaTeX",
+     "box": [
+      44,
+      44
+     ],
+     "inDock": true
+    }
+   ],
+   "bareButtons": 0,
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "c3": {
+   "header": "Coefficients",
+   "subs": [
+    "N; the Fourier sum runs −N to N",
+    "points traced on the outline",
+    "saliency cutoff",
+    "softens noisy edges"
+   ],
+   "dock": {
+    "insetTop": 0,
+    "insetRight": 0,
+    "h": 0
+   }
+  },
+  "c6": {
+   "harmonicsRowH": 99.8,
+   "samplePointsRowH": 99.8
+  }
+ }
+}

@@ -258,7 +258,8 @@
             </div>
         </div>
 
-        <!-- Eyedropper overlay (unified capability — T20) -->
+        <!-- Eyedropper (unified capability — T20): a glass dialog, teleported
+             and viewport-bound (SS8-0715/0722); it no longer overlays this root. -->
         <ImageEyedropper
             v-if="session.eyedropperOpen.value && session.previewUrl.value"
             :image-url="session.previewUrl.value"
@@ -372,4 +373,9 @@ async function captureFrame() {
 // return, because re-opening the camera is the user's act, not the router's.
 onDeactivated(camera.stop);
 onBeforeUnmount(camera.stop);
+// A2-VA-L2-11 (a popup never outlives its pane), now that the eyedropper is a
+// teleported modal (SS8-0722): a CONTROLLED popup closes its own state on park.
+onDeactivated(() => {
+    session.eyedropperOpen.value = false;
+});
 </script>

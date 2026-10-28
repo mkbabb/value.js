@@ -132,7 +132,7 @@ export async function paneSettled(page: Page): Promise<void> {
  *
  * X.W5.a retired the static `aria-label` naming for the live
  * landmark: `<main :aria-labelledby="route-title">`, named BY the route's one
- * visible `<h1 id="route-title">` (`demo/app/App.vue`), so the name
+ * `<h1 id="route-title">` (`demo/app/App.vue`), so the name
  * now tracks the route ("Home", "Gradient", "Not Found", …) and can never
  * announce a scene that is no longer mounted. Every spec reaches the shell's
  * main pane through THIS export — never a per-file copy of the query — so the
@@ -140,7 +140,7 @@ export async function paneSettled(page: Page): Promise<void> {
  *
  * X-DS value pass 8 (V8C-01): that H1 is App's caption only where no pane
  * title says the label; on a `titled` route it is the pane's own title, inside
- * the row.
+ * the row. COHESION §0gf.2(a) (OD19-V4): App's caption is visually hidden.
  *
  * The selector is the relation itself: a `<main>` labelled by `route-title`
  * that CONTAINS that H1. A `<main>` whose label points elsewhere, or whose H1

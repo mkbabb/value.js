@@ -1,0 +1,61 @@
+{
+ "at": "2026-10-19T19:08:05.643Z",
+ "r3-ltr": {
+  "htmlDir": "ltr",
+  "before": {
+   "bar": [
+    224,
+    240.1,
+    462,
+    40
+   ],
+   "handles": [
+    {
+     "id": "stop-1-mvfmnpa6",
+     "now": 0,
+     "cx": 236,
+     "frac": 0.026
+    },
+    {
+     "id": "stop-2-mvfmnpa6",
+     "now": 100,
+     "cx": 674,
+     "frac": 0.974
+    }
+   ],
+   "dir": "ltr"
+  },
+  "clickX": 339.5,
+  "minted": {
+   "id": "stop-3-mvfmnqj2",
+   "now": 23.6,
+   "cx": 339.4,
+   "frac": 0.25
+  },
+  "mintedOffsetPx": -0.1,
+  "key": {
+   "nowAfterArrowRight": 24.6,
+   "cxAfter": 343.7
+  },
+  "rampEnds": [
+   [
+    101,
+    184,
+    102
+   ],
+   [
+    84,
+    127,
+    231
+   ]
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r3-rtl": {
+  "error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/gradient\", waiting until \"domcontentloaded\"\u001b[22m\n"
+ },
+ "r12": {
+  "error": "Error: page.evaluate: TypeError: Failed to fetch dynamically imported module: http://localhost:9000/workbenches/gradient/composables/useGradientCSS.ts"
+ }
+}

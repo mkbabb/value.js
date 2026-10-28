@@ -1,0 +1,346 @@
+[
+ {
+  "cell": "META-U1 chip contrast 1440 light contrast=no-preference",
+  "ms": 4464,
+  "chip": {
+   "color": "oklch(0.292283 0.00386159 34.63)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+   "text": "ocean",
+   "ground": [
+    220,
+    173,
+    195
+   ],
+   "cr": 7.22
+  },
+  "more": {
+   "color": "oklch(0.292283 0.00386159 34.63)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+   "text": "4 tags+3+2+1",
+   "ground": [
+    219,
+    173,
+    192
+   ],
+   "cr": 7.18
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "META-U1 chip contrast 1440 dark contrast=no-preference",
+  "ms": 12642,
+  "chip": {
+   "color": "oklch(0.712763 0.00382185 41.8684)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+   "text": "ocean",
+   "ground": [
+    73,
+    45,
+    54
+   ],
+   "cr": 4.82
+  },
+  "more": {
+   "color": "oklch(0.712763 0.00382185 41.8684)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+   "text": "4 tags+3+2+1",
+   "ground": [
+    74,
+    44,
+    53
+   ],
+   "cr": 4.85
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "META-U1 chip contrast 390 light contrast=no-preference",
+  "ms": 2276,
+  "chip": {
+   "color": "oklch(0.292283 0.00386159 34.63)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+   "text": "ocean",
+   "ground": [
+    220,
+    179,
+    191
+   ],
+   "cr": 7.51
+  },
+  "more": {
+   "color": "oklch(0.292283 0.00386159 34.63)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+   "text": "4 tags+3+2+1",
+   "ground": [
+    220,
+    181,
+    190
+   ],
+   "cr": 7.61
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "META-U1 chip contrast 390 dark contrast=no-preference",
+  "ms": 11694,
+  "chip": {
+   "color": "oklch(0.712763 0.00382185 41.8684)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+   "text": "ocean",
+   "ground": [
+    78,
+    44,
+    50
+   ],
+   "cr": 4.77
+  },
+  "more": {
+   "color": "oklch(0.712763 0.00382185 41.8684)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+   "text": "4 tags+3+2+1",
+   "ground": [
+    81,
+    46,
+    51
+   ],
+   "cr": 4.62
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "META-U1 chip contrast 1440 light contrast=more",
+  "ms": 5750,
+  "chip": {
+   "color": "oklch(0.475389 0.00386159 34.63)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+   "text": "ocean",
+   "ground": [
+    227,
+    215,
+    209
+   ],
+   "cr": 4.72
+  },
+  "more": {
+   "color": "oklch(0.475389 0.00386159 34.63)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+   "text": "4 tags+3+2+1",
+   "ground": [
+    227,
+    215,
+    209
+   ],
+   "cr": 4.72
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "META-U1 chip contrast 1440 dark contrast=more",
+  "ms": 2289,
+  "chip": {
+   "color": "oklch(0.726046 0.00382185 41.8684)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+   "text": "ocean",
+   "ground": [
+    69,
+    58,
+    52
+   ],
+   "cr": 4.55
+  },
+  "more": {
+   "color": "oklch(0.726046 0.00382185 41.8684)",
+   "fs": "11px",
+   "fw": "400",
+   "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+   "text": "4 tags+3+2+1",
+   "ground": [
+    69,
+    58,
+    52
+   ],
+   "cr": 4.55
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U6 featured badge light rm=reduce",
+  "ms": 2462,
+  "anim": {
+   "anims": [],
+   "shimmer": false,
+   "bgImage": []
+  },
+  "word": {
+   "color": "oklch(0.216129 0.00624853 56.0356)",
+   "fs": "16.4px",
+   "fw": "600",
+   "bg": "rgba(0, 0, 0, 0)",
+   "text": "Featured",
+   "ground": [
+    195,
+    106,
+    150
+   ],
+   "cr": 4.85
+  },
+  "icon": {
+   "color": "oklch(0.293228 0.0601663 84.2)",
+   "cr": 3.89
+  },
+  "border": "rgb(198, 180, 159)",
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U6 featured badge dark rm=reduce",
+  "ms": 3084,
+  "anim": {
+   "anims": [],
+   "shimmer": false,
+   "bgImage": []
+  },
+  "word": {
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "fs": "16.4px",
+   "fw": "600",
+   "bg": "rgba(0, 0, 0, 0)",
+   "text": "Featured",
+   "ground": [
+    90,
+    40,
+    65
+   ],
+   "cr": 9.3
+  },
+  "icon": {
+   "color": "oklch(0.784 0.143 86)",
+   "cr": 5.81
+  },
+  "border": "rgb(101, 87, 73)",
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U6 featured badge light rm=no-preference",
+  "ms": 2390,
+  "anim": {
+   "anims": [],
+   "shimmer": false,
+   "bgImage": []
+  },
+  "word": {
+   "color": "oklch(0.216129 0.00624853 56.0356)",
+   "fs": "16.4px",
+   "fw": "600",
+   "bg": "rgba(0, 0, 0, 0)",
+   "text": "Featured",
+   "ground": [
+    195,
+    106,
+    150
+   ],
+   "cr": 4.85
+  },
+  "icon": {
+   "color": "oklch(0.293228 0.0601663 84.2)",
+   "cr": 3.89
+  },
+  "border": "rgb(198, 180, 159)",
+  "pageErrors": []
+ },
+ {
+  "cell": "META-U5 .fira-code served CSSOM",
+  "ms": 2329,
+  "hits": [
+   {
+    "sheet": "Users/mkbabb/Programming/value.js/demo/styles/foundation.css",
+    "layer": "utilities",
+    "sel": ".fira-code",
+    "css": "font-family: var(--font-mono); font-feature-settings: \"liga\", \"calt\";"
+   }
+  ],
+  "liveElements": 0,
+  "computedOnProbe": {
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "ffs": "\"calt\", \"liga\""
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "MENU-U4 covered controls under the open menu",
+  "ms": 3318,
+  "menu": {
+   "x": 533,
+   "y": 338,
+   "w": 139.75,
+   "h": 211
+  },
+  "bodyPointerEvents": "none",
+  "covered": [
+   "Colors of Probe Five",
+   "Palette menu"
+  ],
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U8 swatch hover fan-out",
+  "ms": 4433,
+  "swatches": 8,
+  "mutatedSwatches": [
+   [
+    3,
+    1
+   ]
+  ],
+  "popover": true,
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U10 coarse tap on the swatch popover trigger",
+  "ms": 9527,
+  "attrs": {
+   "tag": "BUTTON",
+   "type": "button",
+   "hasPopup": "dialog",
+   "expanded": "false",
+   "ariaHidden": null,
+   "pe": "auto"
+  },
+  "panel": {
+   "label": "Actions for #2563eb",
+   "x": 28,
+   "y": 644.3333129882812,
+   "w": 184,
+   "h": 68,
+   "inViewport": true,
+   "buttons": [
+    "Add #2563eb to current palette",
+    "Edit color #2563eb",
+    "Copy color #2563eb"
+   ]
+  },
+  "expandedAfter": "true",
+  "pageErrors": []
+ }
+]

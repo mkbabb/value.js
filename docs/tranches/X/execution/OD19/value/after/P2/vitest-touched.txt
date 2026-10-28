@@ -1,0 +1,13 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/view-accents.test.ts (34 tests) 104ms
+ ✓ demo/test/color-session/colour-frame-cost.test.ts (4 tests) 523ms
+   ✓ OD19-V3 — the Palettes ramps leave the drag clock > a drag writes --accent-view every frame but mints no ramp until the input settles; the settled ramp is byte-equal to a direct mint  451ms
+ ✓ test/contrast-floor.test.ts (4 tests) 3ms
+
+ Test Files  3 passed (3)
+      Tests  42 passed (42)
+   Start at  19:01:32
+   Duration  1.42s (transform 206ms, setup 117ms, collect 404ms, tests 631ms, environment 946ms, prepare 145ms)
+

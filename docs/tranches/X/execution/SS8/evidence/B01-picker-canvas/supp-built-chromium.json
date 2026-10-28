@@ -1,0 +1,58 @@
+{
+  "engine": "chromium",
+  "version": "148.0.7778.96",
+  "base": "http://localhost:9188",
+  "at": "2026-10-19T18:36:43.125Z",
+  "pos2": {
+    "position": "absolute",
+    "sheets": [
+      "(inline)",
+      "(inline)",
+      "(inline)",
+      "index-DCR9CSMC.css",
+      "glass-fonts-PBJY3762.css",
+      "AboutPane-BnGMG6fL.css"
+    ],
+    "dotCenterFrac": [
+      0.75,
+      0.251
+    ]
+  },
+  "trace2": {
+    "marks": true,
+    "idle": {
+      "ms": 959,
+      "rafs": 126,
+      "rafMsP50": 0.088,
+      "rafMsMax": 0.501,
+      "layouts": 0,
+      "layoutsInsideRaf": 0,
+      "layoutMsTotal": 0,
+      "styleRecalcs": 29,
+      "styleMsTotal": 1.4,
+      "insideRafStacks": {}
+    },
+    "drag": {
+      "ms": 5518,
+      "rafs": 387,
+      "rafMsP50": 0.115,
+      "rafMsMax": 222.29,
+      "layouts": 304,
+      "layoutsInsideRaf": 189,
+      "layoutMsTotal": 253.7,
+      "styleRecalcs": 310,
+      "styleMsTotal": 1637.4,
+      "insideRafStacks": {
+        "om@index-BfZMmIfw.js:12 < am@index-BfZMmIfw.js:12": 124,
+        "om@index-BfZMmIfw.js:12 < (anon)@index-BfZMmIfw.js:12": 44,
+        "Km@index-BfZMmIfw.js:12 < Jm@index-BfZMmIfw.js:12": 19,
+        "a@index-BfZMmIfw.js:3414": 2
+      }
+    },
+    "loadavg": [
+      21.9,
+      24.6,
+      29.7
+    ]
+  }
+}

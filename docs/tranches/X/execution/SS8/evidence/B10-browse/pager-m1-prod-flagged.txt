@@ -1,0 +1,2 @@
+{"type":"urn:contract:session-invalid","title":"Unauthorized","status":401,"instance":"/admin/flagged"}
+HTTP 401

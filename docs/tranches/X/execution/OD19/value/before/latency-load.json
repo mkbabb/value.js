@@ -1,0 +1,426 @@
+{
+ "dark-1440": {
+  "v8_rail": {
+   "border": "0px solid rgb(101, 87, 73)",
+   "outline": "oklch(0.925202 0.00618423 67.7483) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 3724,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 71.7,
+    "p95": 126.5,
+    "max": 149
+   },
+   "frameInterval": {
+    "n": 67,
+    "p50": 66.6,
+    "p95": 117.2,
+    "max": 150
+   },
+   "loaf": {
+    "n": 43,
+    "totalMs": 3439,
+    "blockingMs": 494
+   },
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/demo/color-session/useAtmosphereFrameCoalesce.ts::publish",
+     1591
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-bundler-DQa::invoker",
+     506
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/useScrollChrome-BJbWV32F-Bk::FrameRequestCallback",
+     49
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/useResizeObserver-CdUlm2QZ-::h",
+     19
+    ],
+    [
+     "/composables/useDevicePixelSnap.ts::sync",
+     9
+    ]
+   ]
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 1012,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 22.2,
+    "p95": 40,
+    "max": 42.3
+   },
+   "frameInterval": {
+    "n": 100,
+    "p50": 16.2,
+    "p95": 25.1,
+    "max": 33.4
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": []
+  },
+  "v5_gradient": {
+   "tLoadEvent": 1115,
+   "tTitleVisible": 1382,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 1109,
+    "load": 1113,
+    "fcp": 1172,
+    "resources": 250
+   },
+   "requests": 383,
+   "errors": [],
+   "failed": [],
+   "tInAppSecondVisit": 352
+  },
+  "v5_mix": {
+   "tLoadEvent": 334,
+   "tTitleVisible": 447,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 323,
+    "load": 333,
+    "fcp": 364,
+    "resources": 250
+   },
+   "requests": 327,
+   "errors": [],
+   "failed": [],
+   "tInAppSecondVisit": 350
+  },
+  "v6_plate": {
+   "text": "Loading the scene…",
+   "busy": "true"
+  }
+ },
+ "light-1440": {
+  "v8_rail": {
+   "border": "0px solid rgb(198, 180, 159)",
+   "outline": "oklch(0.216129 0.00624853 56.0356) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 7009,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 139.5,
+    "p95": 320.4,
+    "max": 370.2
+   },
+   "frameInterval": {
+    "n": 92,
+    "p50": 41.4,
+    "p95": 283.2,
+    "max": 352.8
+   },
+   "loaf": {
+    "n": 41,
+    "totalMs": 6302,
+    "blockingMs": 3513
+   },
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/demo/color-session/useAtmosphereFrameCoalesce.ts::publish",
+     4516
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-bundler-DQa::invoker",
+     616
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/useScrollChrome-BJbWV32F-Bk::FrameRequestCallback",
+     45
+    ],
+    [
+     "/composables/useDevicePixelSnap.ts::sync",
+     26
+    ]
+   ]
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 1073,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 23.2,
+    "p95": 34.4,
+    "max": 58.2
+   },
+   "frameInterval": {
+    "n": 108,
+    "p50": 9.3,
+    "p95": 24.9,
+    "max": 41.6
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": []
+  },
+  "v5_gradient": {
+   "tLoadEvent": 8705,
+   "tTitleVisible": 11073,
+   "plateSeen": true,
+   "nav": {
+    "dcl": 8699,
+    "load": 8703,
+    "fcp": 8780,
+    "resources": 250
+   },
+   "requests": 382,
+   "errors": [],
+   "failed": [],
+   "tInAppSecondVisit": 323
+  },
+  "v5_mix": {
+   "tLoadEvent": 2683,
+   "tTitleVisible": 3433,
+   "plateSeen": true,
+   "nav": {
+    "dcl": 880,
+    "load": 2681,
+    "fcp": 920,
+    "resources": 250
+   },
+   "requests": 333,
+   "errors": [],
+   "failed": [],
+   "tInAppSecondVisit": 272
+  },
+  "v6_plate": {
+   "text": "Loading the scene…",
+   "busy": "true"
+  }
+ },
+ "dark-390": {
+  "v8_rail": {
+   "border": "0px solid rgb(101, 87, 73)",
+   "outline": "oklch(0.925202 0.00618423 67.7483) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 3162,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 53.2,
+    "p95": 102.8,
+    "max": 115.2
+   },
+   "frameInterval": {
+    "n": 141,
+    "p50": 8.4,
+    "p95": 91.7,
+    "max": 116.7
+   },
+   "loaf": {
+    "n": 34,
+    "totalMs": 2310,
+    "blockingMs": 488
+   },
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/demo/color-session/useAtmosphereFrameCoalesce.ts::publish",
+     1431
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-bundler-DQa::invoker",
+     378
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/useScrollChrome-BJbWV32F-Bk::FrameRequestCallback",
+     21
+    ],
+    [
+     "/composables/useDevicePixelSnap.ts::sync",
+     7
+    ]
+   ]
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 681,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 11.8,
+    "p95": 22,
+    "max": 24
+   },
+   "frameInterval": {
+    "n": 110,
+    "p50": 8.4,
+    "p95": 16.7,
+    "max": 17.1
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": []
+  },
+  "v5_gradient": {
+   "tLoadEvent": 235,
+   "tTitleVisible": 452,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 230,
+    "load": 234,
+    "fcp": 292,
+    "resources": 250
+   },
+   "requests": 378,
+   "errors": [],
+   "failed": [],
+   "tInAppSecondVisit": 340
+  },
+  "v5_mix": {
+   "tLoadEvent": 278,
+   "tTitleVisible": 364,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 270,
+    "load": 278,
+    "fcp": 292,
+    "resources": 250
+   },
+   "requests": 333,
+   "errors": [],
+   "failed": [],
+   "tInAppSecondVisit": 257
+  },
+  "v6_plate": {
+   "text": "Loading the scene…",
+   "busy": "true"
+  }
+ },
+ "light-390": {
+  "v8_rail": {
+   "border": "0px solid rgb(198, 180, 159)",
+   "outline": "oklch(0.216129 0.00624853 56.0356) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 5749,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 111.3,
+    "p95": 285.2,
+    "max": 347.5
+   },
+   "frameInterval": {
+    "n": 137,
+    "p50": 9.1,
+    "p95": 233.3,
+    "max": 349.9
+   },
+   "loaf": {
+    "n": 37,
+    "totalMs": 4970,
+    "blockingMs": 2921
+   },
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/demo/color-session/useAtmosphereFrameCoalesce.ts::publish",
+     3893
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-bundler-DQa::invoker",
+     539
+    ],
+    [
+     "/composables/useDevicePixelSnap.ts::sync",
+     24
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/useScrollChrome-BJbWV32F-Bk::FrameRequestCallback",
+     7
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css?t=1792436228725::http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/styles/foundati",
+     6
+    ]
+   ]
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 781,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 14.5,
+    "p95": 20.9,
+    "max": 26.6
+   },
+   "frameInterval": {
+    "n": 117,
+    "p50": 8.4,
+    "p95": 16.7,
+    "max": 17.5
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": []
+  },
+  "v5_gradient": {
+   "tLoadEvent": 723,
+   "tTitleVisible": 963,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 717,
+    "load": 721,
+    "fcp": 784,
+    "resources": 250
+   },
+   "requests": 382,
+   "errors": [],
+   "failed": [],
+   "tInAppSecondVisit": 273
+  },
+  "v5_mix": {
+   "tLoadEvent": 316,
+   "tTitleVisible": 448,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 304,
+    "load": 314,
+    "fcp": 332,
+    "resources": 250
+   },
+   "requests": 333,
+   "errors": [],
+   "failed": [],
+   "tInAppSecondVisit": 261
+  },
+  "v6_plate": {
+   "text": "Loading the scene…",
+   "busy": "true"
+  }
+ }
+}

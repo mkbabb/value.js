@@ -1,0 +1,25 @@
+284.8ms (idle) :-1
+218.9ms (program) :-1
+13.3ms get offsetWidth :-1
+6.7ms getBoundingClientRect :-1
+5.9ms _readClientRects deps/monaco-editor_esm_vs_editor_editor__api__js.js:35422
+5.8ms measureReferenceDomElement deps/monaco-editor_esm_vs_editor_editor__api__js.js:32828
+4.4ms getPropertyValue :-1
+2.9ms getAnimationName deps/dist-CWHMI1qW.js:3843
+2.6ms removeChild :-1
+1.6ms focus :-1
+1.1ms getMaxX playback/AnimationVisualizer.vue:73
+1.1ms appendChild :-1
+1.0ms hex keyframes/CSSCodeEditor.vue:123
+1.0ms (anon) deps/monaco-editor_esm_vs_editor_editor__api__js.js:106665
+0.9ms elementsFromPoint :-1
+0.9ms updateProps deps/vue.runtime.esm-bundler-m0dh_5cm.js:4889
+0.8ms get deps/vue.runtime.esm-bundler-m0dh_5cm.js:995
+0.7ms prepareRender deps/monaco-editor_esm_vs_editor_editor__api__js.js:45060
+0.7ms CodeEditorWidget deps/monaco-editor_esm_vs_editor_editor__api__js.js:73590
+0.7ms land composables/useFoldLanding.ts:358
+0.7ms (anon) :1
+0.7ms _renderLine deps/monaco-editor_esm_vs_editor_editor__api__js.js:31728
+0.6ms _createInstance deps/monaco-editor_esm_vs_editor_editor__api__js.js:107802
+0.6ms mergeProps deps/vue.runtime.esm-bundler-m0dh_5cm.js:6571
+0.6ms View deps/monaco-editor_esm_vs_editor_editor__api__js.js:56704

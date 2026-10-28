@@ -1,0 +1,56 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ❯ demo/test/color-session/colour-frame-cost.test.ts (4 tests | 2 failed) 218ms
+   × OD19-V3 — scheme-constant tokens are read once per scheme > a run of colour frames reads --color-gold from the cascade once, and again only on a scheme flip 42ms
+     → expected "bound " to be called +0 times, but got 40 times
+   × OD19-V3 — the Palettes ramps leave the drag clock > a drag writes --accent-view every frame but mints no ramp until the input settles; the settled ramp is byte-equal to a direct mint 63ms
+     → expected [ …(3) ] to deeply equal [ …(3) ]
+   ✓ OD19-V3 — the Palettes ramps leave the drag clock > a view change re-mints the ramps at once (no settle wait) 52ms
+   ✓ OD19-V3 — the Palettes ramps leave the drag clock > a scheme flip re-mints the ramps at once against the new scheme's surface 60ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/color-session/colour-frame-cost.test.ts > OD19-V3 — scheme-constant tokens are read once per scheme > a run of colour frames reads --color-gold from the cascade once, and again only on a scheme flip
+AssertionError: expected "bound " to be called +0 times, but got 40 times
+ ❯ demo/test/color-session/colour-frame-cost.test.ts:50:21
+     48| 
+     49|         for (let frame = 0; frame < 40; frame++) expect(goldIdentityCs…
+     50|         expect(spy).toHaveBeenCalledTimes(0);
+       |                     ^
+     51| 
+     52|         expect(goldIdentityCss(false)).toBe("#a07a10");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  demo/test/color-session/colour-frame-cost.test.ts > OD19-V3 — the Palettes ramps leave the drag clock > a drag writes --accent-view every frame but mints no ramp until the input settles; the settled ramp is byte-equal to a direct mint
+AssertionError: expected [ …(3) ] to deeply equal [ …(3) ]
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[32m-   "oklch(91.53337134611% 0.070795744937 330deg)",[39m
+[32m-   "oklch(91.21050189414% 0.045470893942 30deg)",[39m
+[32m-   "oklch(90.805958553305% 0.117695631366 90deg)",[39m
+[31m+   "oklch(93.869049181489% 0.041590143275 340deg)",[39m
+[31m+   "oklch(93.498056783612% 0.034253131971 40deg)",[39m
+[31m+   "oklch(93.065869439493% 0.146629525814 100deg)",[39m
+[2m  ][22m
+
+ ❯ demo/test/color-session/colour-frame-cost.test.ts:101:45
+     99|             expect(token("--accent-view")).toBe(expected(accent.value,…
+    100|             // Mid-drag: the ramps still carry the pre-drag mint.
+    101|             expect(ramp("--palettes-ramp")).toEqual(first);
+       |                                             ^
+    102|             vi.advanceTimersByTime(16);
+    103|         }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 2 passed (4)
+   Start at  15:12:09
+   Duration  1.97s (transform 164ms, setup 123ms, collect 216ms, tests 218ms, environment 701ms, prepare 73ms)
+

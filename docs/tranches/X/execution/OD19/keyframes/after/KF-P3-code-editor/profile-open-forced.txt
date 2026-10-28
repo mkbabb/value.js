@@ -1,0 +1,6 @@
+13.3ms get offsetWidth <- _readFromDomElements:18236 <- read:18186 <- readCharWidths:18244 <- _actualReadFontInfo:18332 <- readFontInfo:18300 <- _readFontInfo:33178 <- _computeOptions:33144
+3.6ms getBoundingClientRect <- check:6972 <- raf:6998 <- (root):-1
+1.9ms getBoundingClientRect <- Te:396 <- De:410 <- S:483 <- (anon):194 <- (root):-1
+1.0ms getBoundingClientRect <- u:893 <- p:903 <- _:954 <- focus:-1 <- (anon):25354 <- (root):-1
+0.4ms getComputedStyle <- getAnimationName:3843 <- handleAnimationStart:3816 <- (root):-1
+0.2ms getBoundingClientRect <- _updateSelectionAndControlBoundsAfterRender:56509 <- onDidRender:56327 <- render:57035 <- render:56980 <- (anon):57205 <- safeInvokeNoArg:57146 <- _onRenderScheduled:57184

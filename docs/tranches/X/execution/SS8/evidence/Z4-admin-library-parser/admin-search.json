@@ -1,0 +1,23 @@
+{
+  "cell": "search",
+  "reqsAfterType": [
+    "/admin/users?limit=50&offset=0&q=zzz-offpage"
+  ],
+  "text": "Users Manage accounts and permissions. 400 users Prune empty No users match “zzz-offpage”. Clear search Page 1 of 8",
+  "pager": null,
+  "requests": [
+    {
+      "t": 1792531775611,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    },
+    {
+      "t": 1792531777555,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0&q=zzz-offpage",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

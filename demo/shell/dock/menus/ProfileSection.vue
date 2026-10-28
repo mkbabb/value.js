@@ -3,7 +3,7 @@ import { computed, defineAsyncComponent, inject, useTemplateRef } from "vue";
 import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle, Shield,
 } from "@lucide/vue";
-import { DockControl, DockSeparator, DockTrigger } from "@mkbabb/glass-ui/dock";
+import { DockControl, DockTrigger } from "@mkbabb/glass-ui/dock";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem,
@@ -59,7 +59,6 @@ function openRepository(): void {
 <template>
     <!-- Desktop-only: user/login section -->
     <div ref="sectionRoot" class="hidden lg:flex items-center gap-1">
-        <DockSeparator />
 
         <!-- Logged in: "Account" button with dropdown -->
         <template v-if="pm.userSlug.value">
@@ -176,7 +175,6 @@ function openRepository(): void {
             </DockControl>
         </template>
 
-        <DockSeparator />
     </div>
 
     <!-- @mbabb menu -->
@@ -186,10 +184,13 @@ function openRepository(): void {
                  section caption — text-mono-small is the non-transforming
                  mono rung. Lowercase is the mark. X.W12.e (OA-22): it sits on
                  glass's dock dropdown trigger (the dock control's plate and
-                 stadium), never a generic Button's squared plate. -->
+                 stadium), never a generic Button's squared plate.
+                 X-DS pass 19 (V19C-02): it reads the band's certified plate
+                 ink at full strength (Dock.vue); the mono rung and its weight
+                 carry its secondary rank, not an opacity cut. -->
             <DockTrigger
                 for="dropdown"
-                class="text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap"
+                class="text-mono-small text-foreground hover:underline underline-offset-4 whitespace-nowrap"
             >
                 @mbabb
             </DockTrigger>

@@ -1,0 +1,20 @@
+{
+ "at": "2026-10-20T22:53:23.978Z",
+ "builds": [
+  {
+   "glassModules": 126,
+   "glassToValueEdges": {
+    "<repo>/node_modules/vue/dist/vue.runtime.esm-bundler.js": 74,
+    "<repo>/node_modules/reka-ui/dist/index.js": 26,
+    "<repo>/node_modules/@lucide/vue/dist/esm/lucide-vue.mjs": 11,
+    "<repo>/node_modules/@mkbabb/keyframes.js/dist/keyframes.js": 6,
+    "<repo>/dist/subpaths/color.js": 4,
+    "<repo>/node_modules/@vueuse/core/dist/index.js": 3,
+    "<repo>/dist/subpaths/css.js": 3,
+    "<repo>/dist/subpaths/easing.js": 1
+   },
+   "graphHasNodeModulesValueJs": [],
+   "graphHasDistSubpaths": 6
+  }
+ ]
+}

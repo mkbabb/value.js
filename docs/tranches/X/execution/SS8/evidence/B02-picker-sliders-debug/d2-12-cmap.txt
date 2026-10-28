@@ -1,0 +1,8 @@
+fraunces-latin-ext-italic.woff2 {'0x1d22': False, '0x1d1b': False, '0x1d18': False, '0x3b1': False} 290
+fraunces-latin-ext-normal.woff2 {'0x1d22': False, '0x1d1b': False, '0x1d18': False, '0x3b1': False} 289
+fraunces-latin-italic.woff2 {'0x1d22': False, '0x1d1b': False, '0x1d18': False, '0x3b1': False} 223
+fraunces-latin-normal.woff2 {'0x1d22': False, '0x1d1b': False, '0x1d18': False, '0x3b1': False} 222
+1e0d114a72921799f06413d3673a80c316fa77d8d344df6de7c8659302ece2dc  demo/app/public/fonts/fraunces-latin-ext-italic.woff2
+f120089b9440f3e35a980a2137347b1851ad46ee4b8ad5c63b6c07e053fa40e2  demo/app/public/fonts/fraunces-latin-ext-normal.woff2
+4af9c759c8059b53923b4b50ba377ba51029876e1af1ea757efb07bc67d97896  demo/app/public/fonts/fraunces-latin-italic.woff2
+ad74cd7c27c9d440f573d4b516fe53e3fc42cba402ac4d9532fed325fbc73952  demo/app/public/fonts/fraunces-latin-normal.woff2

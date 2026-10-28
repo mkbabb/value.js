@@ -1,0 +1,366 @@
+{
+ "prod_light": [
+  {
+   "name": "hey v2 (remix)",
+   "n": 1,
+   "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": null,
+   "minAdjDE": null,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 1.027,
+     "dE": 0.0895
+    },
+    "last": {
+     "wcag": 1.027,
+     "dE": 0.0895
+    }
+   }
+  },
+  {
+   "name": "hey v2 (remix)",
+   "n": 1,
+   "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": null,
+   "minAdjDE": null,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 1.027,
+     "dE": 0.0895
+    },
+    "last": {
+     "wcag": 1.027,
+     "dE": 0.0895
+    }
+   }
+  },
+  {
+   "name": "hey v2",
+   "n": 1,
+   "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": null,
+   "minAdjDE": null,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 1.027,
+     "dE": 0.0895
+    },
+    "last": {
+     "wcag": 1.027,
+     "dE": 0.0895
+    }
+   }
+  },
+  {
+   "name": "hey",
+   "n": 1,
+   "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": null,
+   "minAdjDE": null,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 1.027,
+     "dE": 0.0895
+    },
+    "last": {
+     "wcag": 1.027,
+     "dE": 0.0895
+    }
+   }
+  },
+  {
+   "name": "Audit Test Palette",
+   "n": 3,
+   "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.452,
+   "minAdjDE": 0.1025,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 1.027,
+     "dE": 0.0895
+    },
+    "last": {
+     "wcag": 2.887,
+     "dE": 0.4354
+    }
+   }
+  },
+  {
+   "name": "Lavender Dreams",
+   "n": 4,
+   "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.103,
+   "minAdjDE": 0.042,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 10.741,
+     "dE": 0.7753
+    },
+    "last": {
+     "wcag": 10.117,
+     "dE": 0.7523
+    }
+   }
+  },
+  {
+   "name": "Forest Canopy",
+   "n": 7,
+   "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.536,
+   "minAdjDE": 0.1118,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 2.539,
+     "dE": 0.4031
+    },
+    "last": {
+     "wcag": 2.818,
+     "dE": 0.4335
+    }
+   }
+  },
+  {
+   "name": "Neon Cyberpunk",
+   "n": 5,
+   "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.52,
+   "minAdjDE": 0.278,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 7.167,
+     "dE": 0.7519
+    },
+    "last": {
+     "wcag": 19.55,
+     "dE": 0.9653
+    }
+   }
+  },
+  {
+   "name": "Ocean Depths",
+   "n": 6,
+   "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.028,
+   "minAdjDE": 0.0382,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 3.489,
+     "dE": 0.4786
+    },
+    "last": {
+     "wcag": 2.293,
+     "dE": 0.4235
+    }
+   }
+  },
+  {
+   "name": "Sunset Blaze",
+   "n": 5,
+   "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.294,
+   "minAdjDE": 0.0924,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 5.675,
+     "dE": 0.6438
+    },
+    "last": {
+     "wcag": 4.417,
+     "dE": 0.5946
+    }
+   }
+  }
+ ],
+ "prod_dark": [
+  {
+   "name": "hey v2 (remix)",
+   "n": 1,
+   "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": null,
+   "minAdjDE": null,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 1.026,
+     "dE": 0.0732
+    },
+    "last": {
+     "wcag": 1.026,
+     "dE": 0.0732
+    }
+   }
+  },
+  {
+   "name": "hey v2 (remix)",
+   "n": 1,
+   "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": null,
+   "minAdjDE": null,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 1.026,
+     "dE": 0.0732
+    },
+    "last": {
+     "wcag": 1.026,
+     "dE": 0.0732
+    }
+   }
+  },
+  {
+   "name": "hey v2",
+   "n": 1,
+   "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": null,
+   "minAdjDE": null,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 1.026,
+     "dE": 0.0732
+    },
+    "last": {
+     "wcag": 1.026,
+     "dE": 0.0732
+    }
+   }
+  },
+  {
+   "name": "hey",
+   "n": 1,
+   "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": null,
+   "minAdjDE": null,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 1.026,
+     "dE": 0.0732
+    },
+    "last": {
+     "wcag": 1.026,
+     "dE": 0.0732
+    }
+   }
+  },
+  {
+   "name": "Audit Test Palette",
+   "n": 3,
+   "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.452,
+   "minAdjDE": 0.1025,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 1.026,
+     "dE": 0.0732
+    },
+    "last": {
+     "wcag": 2.884,
+     "dE": 0.4202
+    }
+   }
+  },
+  {
+   "name": "Lavender Dreams",
+   "n": 4,
+   "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.103,
+   "minAdjDE": 0.042,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 10.732,
+     "dE": 0.76
+    },
+    "last": {
+     "wcag": 10.108,
+     "dE": 0.7372
+    }
+   }
+  },
+  {
+   "name": "Forest Canopy",
+   "n": 7,
+   "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.536,
+   "minAdjDE": 0.1118,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 2.536,
+     "dE": 0.389
+    },
+    "last": {
+     "wcag": 2.815,
+     "dE": 0.4174
+    }
+   }
+  },
+  {
+   "name": "Neon Cyberpunk",
+   "n": 5,
+   "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.52,
+   "minAdjDE": 0.278,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 7.161,
+     "dE": 0.7366
+    },
+    "last": {
+     "wcag": 19.532,
+     "dE": 0.95
+    }
+   }
+  },
+  {
+   "name": "Ocean Depths",
+   "n": 6,
+   "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.028,
+   "minAdjDE": 0.0382,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 3.486,
+     "dE": 0.465
+    },
+    "last": {
+     "wcag": 2.291,
+     "dE": 0.4115
+    }
+   }
+  },
+  {
+   "name": "Sunset Blaze",
+   "n": 5,
+   "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "stripSurface": false,
+   "minAdjWcag": 1.294,
+   "minAdjDE": 0.0924,
+   "edgeVsCard": {
+    "first": {
+     "wcag": 5.67,
+     "dE": 0.627
+    },
+    "last": {
+     "wcag": 4.413,
+     "dE": 0.5777
+    }
+   }
+  }
+ ]
+}

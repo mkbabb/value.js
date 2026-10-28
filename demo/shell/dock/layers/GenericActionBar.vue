@@ -157,7 +157,12 @@ const failedMessage = computed(() =>
 </script>
 
 <template>
-    <div class="flex items-center justify-around flex-1" data-testid="scene-action-row">
+    <!-- SS-8 B05 · 0146 (ABN-19): the seats are spaced by the dock's
+         `--dock-layer-gap`; `justify-around` only shares any slack beyond it. -->
+    <div
+        class="flex items-center justify-around gap-(--dock-layer-gap) flex-1"
+        data-testid="scene-action-row"
+    >
         <div
             v-for="action in runSeats"
             :key="action.token"

@@ -1,0 +1,13 @@
+import { createRequire } from "node:module";
+const require = createRequire("/Users/mkbabb/Programming/fourier-analysis/web/package.json");
+const { chromium } = require("playwright");
+const OUT = process.argv[2];
+const b = await chromium.launch({ channel: "chrome", headless: true });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
+const p = await ctx.newPage();
+await p.goto("http://localhost:3100/paper", { waitUntil: "networkidle" }); await p.waitForTimeout(3000);
+console.log(JSON.stringify(await p.evaluate(() => [...document.querySelectorAll("[class*=section-header]")].slice(0,4).map(h => { const cs = getComputedStyle(h); return [h.className, cs.position, cs.top, cs.backgroundColor]; }))));
+const mb = await p.$(".math-block"); await mb.scrollIntoViewIfNeeded(); await mb.hover(); await p.waitForTimeout(500);
+console.log(JSON.stringify(await mb.evaluate(e => [getComputedStyle(e).borderLeft, getComputedStyle(e).color])));
+await mb.screenshot({ path: `${OUT}/mathblock-hover-light.png` });
+await b.close();

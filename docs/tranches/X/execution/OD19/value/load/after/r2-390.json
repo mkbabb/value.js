@@ -1,0 +1,541 @@
+{
+ "origin": "http://localhost:8293",
+ "width": 390,
+ "cpu": 4,
+ "at": "2026-10-20T23:30:45.155Z",
+ "rows": [
+  {
+   "route": "picker",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/",
+     "Home"
+    ],
+    "contentMs": 1030,
+    "jsKB": 367,
+    "jsN": 48,
+    "ltN": 2,
+    "ltMax": 638,
+    "ltSum": 773
+   },
+   "warm": {
+    "at": [
+     "#/",
+     "Home"
+    ],
+    "contentMs": 2788,
+    "jsKB": 8,
+    "jsN": 48,
+    "ltN": 2,
+    "ltMax": 2517,
+    "ltSum": 2651
+   }
+  },
+  {
+   "route": "palettes",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/palettes",
+     "My Palettes"
+    ],
+    "contentMs": 1138,
+    "jsKB": 394,
+    "jsN": 53,
+    "ltN": 3,
+    "ltMax": 644,
+    "ltSum": 988
+   },
+   "warm": {
+    "at": [
+     "#/palettes",
+     "My Palettes"
+    ],
+    "contentMs": 967,
+    "jsKB": 13,
+    "jsN": 54,
+    "ltN": 2,
+    "ltMax": 766,
+    "ltSum": 833
+   },
+   "hop": {
+    "contentMs": 392,
+    "maxFrame": 162,
+    "over50": 7,
+    "frames": 21,
+    "ltMax": 112
+   }
+  },
+  {
+   "route": "browse",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/browse",
+     "Browse"
+    ],
+    "contentMs": 681,
+    "jsKB": 412,
+    "jsN": 59,
+    "ltN": 2,
+    "ltMax": 394,
+    "ltSum": 514
+   },
+   "warm": {
+    "at": [
+     "#/browse",
+     "Browse"
+    ],
+    "contentMs": 600,
+    "jsKB": 27,
+    "jsN": 64,
+    "ltN": 1,
+    "ltMax": 493,
+    "ltSum": 493
+   },
+   "hop": {
+    "contentMs": 1418,
+    "maxFrame": 749,
+    "over50": 2,
+    "frames": 5,
+    "ltMax": 815
+   }
+  },
+  {
+   "route": "extract",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/extract",
+     "Extract"
+    ],
+    "contentMs": 773,
+    "jsKB": 403,
+    "jsN": 54,
+    "ltN": 2,
+    "ltMax": 412,
+    "ltSum": 597
+   },
+   "warm": {
+    "at": [
+     "#/extract",
+     "Extract"
+    ],
+    "contentMs": 1795,
+    "jsKB": 9,
+    "jsN": 54,
+    "ltN": 2,
+    "ltMax": 1585,
+    "ltSum": 1688
+   },
+   "hop": {
+    "contentMs": 2740,
+    "maxFrame": 1471,
+    "over50": 5,
+    "frames": 7,
+    "ltMax": 1300
+   }
+  },
+  {
+   "route": "mix",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/mix",
+     "Mix"
+    ],
+    "contentMs": 812,
+    "jsKB": 381,
+    "jsN": 55,
+    "ltN": 1,
+    "ltMax": 603,
+    "ltSum": 603
+   },
+   "warm": {
+    "at": [
+     "#/mix",
+     "Mix"
+    ],
+    "contentMs": 873,
+    "jsKB": 10,
+    "jsN": 55,
+    "ltN": 2,
+    "ltMax": 664,
+    "ltSum": 820
+   },
+   "hop": {
+    "contentMs": 782,
+    "maxFrame": 340,
+    "over50": 6,
+    "frames": 21,
+    "ltMax": 163
+   }
+  },
+  {
+   "route": "generate",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/generate",
+     "Generate"
+    ],
+    "contentMs": 703,
+    "jsKB": 403,
+    "jsN": 59,
+    "ltN": 2,
+    "ltMax": 357,
+    "ltSum": 533
+   },
+   "warm": {
+    "at": [
+     "#/generate",
+     "Generate"
+    ],
+    "contentMs": 934,
+    "jsKB": 25,
+    "jsN": 63,
+    "ltN": 2,
+    "ltMax": 695,
+    "ltSum": 820
+   },
+   "hop": {
+    "contentMs": 480,
+    "maxFrame": 142,
+    "over50": 7,
+    "frames": 24,
+    "ltMax": 158
+   }
+  },
+  {
+   "route": "gradient",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/gradient",
+     "Gradient"
+    ],
+    "contentMs": 966,
+    "jsKB": 459,
+    "jsN": 61,
+    "ltN": 2,
+    "ltMax": 400,
+    "ltSum": 792
+   },
+   "warm": {
+    "at": [
+     "#/gradient",
+     "Gradient"
+    ],
+    "contentMs": 961,
+    "jsKB": 36,
+    "jsN": 66,
+    "ltN": 2,
+    "ltMax": 637,
+    "ltSum": 849
+   },
+   "hop": {
+    "contentMs": 942,
+    "maxFrame": 550,
+    "over50": 6,
+    "frames": 10,
+    "ltMax": 551
+   }
+  },
+  {
+   "route": "atmosphere",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/atmosphere",
+     "Atmosphere"
+    ],
+    "contentMs": 558,
+    "jsKB": 404,
+    "jsN": 60,
+    "ltN": 2,
+    "ltMax": 394,
+    "ltSum": 577
+   },
+   "warm": {
+    "at": [
+     "#/atmosphere",
+     "Atmosphere"
+    ],
+    "contentMs": 645,
+    "jsKB": 10,
+    "jsN": 60,
+    "ltN": 2,
+    "ltMax": 543,
+    "ltSum": 661
+   },
+   "hop": {
+    "contentMs": 488,
+    "maxFrame": 207,
+    "over50": 9,
+    "frames": 18,
+    "ltMax": 158
+   }
+  },
+  {
+   "route": "blob",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/blob",
+     "Blob"
+    ],
+    "contentMs": 871,
+    "jsKB": 365,
+    "jsN": 49,
+    "ltN": 2,
+    "ltMax": 630,
+    "ltSum": 822
+   },
+   "warm": {
+    "at": [
+     "#/blob",
+     "Blob"
+    ],
+    "contentMs": 867,
+    "jsKB": 9,
+    "jsN": 49,
+    "ltN": 2,
+    "ltMax": 699,
+    "ltSum": 857
+   },
+   "hop": {
+    "contentMs": 491,
+    "maxFrame": 104,
+    "over50": 9,
+    "frames": 34,
+    "ltMax": 161
+   }
+  },
+  {
+   "route": "admin/users",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/",
+     "Home"
+    ],
+    "contentMs": 1263,
+    "jsKB": 387,
+    "jsN": 56,
+    "ltN": 4,
+    "ltMax": 392,
+    "ltSum": 1104
+   },
+   "warm": {
+    "at": [
+     "#/",
+     "Home"
+    ],
+    "contentMs": 2070,
+    "jsKB": 8,
+    "jsN": 48,
+    "ltN": 3,
+    "ltMax": 1707,
+    "ltSum": 2049
+   },
+   "hop": {
+    "contentMs": 138,
+    "maxFrame": 268,
+    "over50": 5,
+    "frames": 12,
+    "ltMax": 231
+   }
+  },
+  {
+   "route": "admin/names",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/",
+     "Home"
+    ],
+    "contentMs": 1238,
+    "jsKB": 418,
+    "jsN": 61,
+    "ltN": 4,
+    "ltMax": 392,
+    "ltSum": 1093
+   },
+   "warm": {
+    "at": [
+     "#/",
+     "Home"
+    ],
+    "contentMs": 1347,
+    "jsKB": 10,
+    "jsN": 56,
+    "ltN": 3,
+    "ltMax": 452,
+    "ltSum": 654
+   },
+   "hop": {
+    "contentMs": 159,
+    "maxFrame": 222,
+    "over50": 7,
+    "frames": 12,
+    "ltMax": 211
+   }
+  },
+  {
+   "route": "admin/audit",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/admin/audit",
+     "Audit log"
+    ],
+    "contentMs": 539,
+    "jsKB": 383,
+    "jsN": 55,
+    "ltN": 2,
+    "ltMax": 381,
+    "ltSum": 483
+   },
+   "warm": {
+    "at": [
+     "#/",
+     "Home"
+    ],
+    "contentMs": 1654,
+    "jsKB": 10,
+    "jsN": 56,
+    "ltN": 3,
+    "ltMax": 642,
+    "ltSum": 1238
+   },
+   "hop": {
+    "contentMs": 329,
+    "maxFrame": 259,
+    "over50": 6,
+    "frames": 15,
+    "ltMax": 220
+   }
+  },
+  {
+   "route": "admin/flagged",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/admin/flagged",
+     "Flagged"
+    ],
+    "contentMs": 544,
+    "jsKB": 383,
+    "jsN": 55,
+    "ltN": 2,
+    "ltMax": 391,
+    "ltSum": 492
+   },
+   "warm": {
+    "at": [
+     "#/",
+     "Home"
+    ],
+    "contentMs": 1182,
+    "jsKB": 40,
+    "jsN": 56,
+    "ltN": 2,
+    "ltMax": 979,
+    "ltSum": 1110
+   },
+   "hop": {
+    "contentMs": 416,
+    "maxFrame": 399,
+    "over50": 5,
+    "frames": 15,
+    "ltMax": 243
+   }
+  },
+  {
+   "route": "admin/tags",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/admin/tags",
+     "Tags"
+    ],
+    "contentMs": 564,
+    "jsKB": 383,
+    "jsN": 55,
+    "ltN": 2,
+    "ltMax": 385,
+    "ltSum": 496
+   },
+   "warm": {
+    "at": [
+     "#/",
+     "Home"
+    ],
+    "contentMs": 990,
+    "jsKB": 8,
+    "jsN": 48,
+    "ltN": 2,
+    "ltMax": 814,
+    "ltSum": 942
+   },
+   "hop": {
+    "contentMs": 357,
+    "maxFrame": 344,
+    "over50": 5,
+    "frames": 12,
+    "ltMax": 333
+   }
+  },
+  {
+   "route": "no-such-route",
+   "width": 390,
+   "cpu": 4,
+   "cold": {
+    "at": [
+     "#/no-such-route",
+     "Not found"
+    ],
+    "contentMs": 85,
+    "jsKB": 329,
+    "jsN": 38,
+    "ltN": 1,
+    "ltMax": 385,
+    "ltSum": 385
+   },
+   "warm": {
+    "at": [
+     "#/no-such-route",
+     "Not found"
+    ],
+    "contentMs": 62,
+    "jsKB": 7,
+    "jsN": 38,
+    "ltN": 1,
+    "ltMax": 510,
+    "ltSum": 510
+   },
+   "hop": {
+    "contentMs": 396,
+    "maxFrame": 242,
+    "over50": 8,
+    "frames": 24,
+    "ltMax": 249
+   }
+  }
+ ]
+}

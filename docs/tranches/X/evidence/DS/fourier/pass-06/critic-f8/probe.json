@@ -1,0 +1,836 @@
+{
+ "gallery-light-1440": [
+  [
+   "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   [
+    "bi:linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,"
+   ]
+  ],
+  [
+   "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   [
+    "f:brightness(1)"
+   ]
+  ],
+  [
+   "field-control glass-control-edge search-field-input",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ]
+ ],
+ "gallery-card-hover-light": {
+  "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+  "tf": "none",
+  "bi": "linear-gradient(oklch(0.216128 0.00625756 55.9827 / 0.05), oklch(0.216128 0.00625756 55.9827 / 0.05))"
+ },
+ "visualize-light-1440": [
+  [
+   "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   [
+    "bi:linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,"
+   ]
+  ],
+  [
+   "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   [
+    "f:brightness(1)"
+   ]
+  ],
+  [
+   "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-car",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ]
+ ],
+ "morph-light-1440": [
+  [
+   "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   [
+    "bi:linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,"
+   ]
+  ],
+  [
+   "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   [
+    "f:brightness(1)"
+   ]
+  ],
+  [
+   "glass-resting morph-button",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card config-card",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "fira-code number-field__input field-control glass-control-edge",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "slider-track track-well",
+   [
+    "bs:oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+    "bi:linear-gradient(to right, oklab(0.68759 0.136247 0.0725575 / 0.775) 0px, oklab(0"
+   ]
+  ],
+  [
+   "slider-thumb glass-specular-track",
+   [
+    "bs:color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+   ]
+  ],
+  [
+   "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.",
+    "bi:linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397"
+   ]
+  ],
+  [
+   "glass-resting card config-card",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "fira-code number-field__input field-control glass-control-edge",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "slider-track track-well",
+   [
+    "bs:oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+    "bi:linear-gradient(to right, oklab(0.715267 0.139266 -0.0133231 / 0.775) 0px, oklab"
+   ]
+  ],
+  [
+   "slider-thumb glass-specular-track",
+   [
+    "bs:color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+   ]
+  ],
+  [
+   "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.",
+    "bi:linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397"
+   ]
+  ],
+  [
+   "glass-resting card config-card",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "fira-code number-field__input field-control glass-control-edge",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "slider-track track-well",
+   [
+    "bs:oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+    "bi:linear-gradient(to right, oklab(0.68759 0.136247 0.0725575 / 0.775) 0px, oklab(0"
+   ]
+  ],
+  [
+   "slider-thumb glass-specular-track",
+   [
+    "bs:color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+   ]
+  ],
+  [
+   "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.",
+    "bi:linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397"
+   ]
+  ],
+  [
+   "glass-resting card levels-card",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "fira-code number-field__input field-control glass-control-edge",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "slider-track track-well",
+   [
+    "bs:oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+    "bi:linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0"
+   ]
+  ],
+  [
+   "slider-thumb glass-specular-track",
+   [
+    "bs:color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+   ]
+  ],
+  [
+   "fira-code number-field__input field-control glass-control-edge",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "slider-track track-well",
+   [
+    "bs:oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+    "bi:linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0"
+   ]
+  ],
+  [
+   "slider-thumb glass-specular-track",
+   [
+    "bs:color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:color(srgb 0.859497 0.139733 0.139504 / 0.15) 0px 0px 0px 2px"
+   ]
+  ]
+ ],
+ "gallery-light-390": [
+  [
+   "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   [
+    "bi:linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,"
+   ]
+  ],
+  [
+   "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   [
+    "f:brightness(1)"
+   ]
+  ],
+  [
+   "field-control glass-control-edge search-field-input",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0."
+   ]
+  ]
+ ],
+ "gallery-dark-1440": [
+  [
+   "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   [
+    "bi:linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0,"
+   ]
+  ],
+  [
+   "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   [
+    "f:brightness(1)"
+   ]
+  ],
+  [
+   "field-control glass-control-edge search-field-input",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ]
+ ],
+ "gallery-card-hover-dark": {
+  "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+  "tf": "none",
+  "bi": "linear-gradient(oklch(0.925196 0.00621729 67.4529 / 0.05), oklch(0.925196 0.00621729 67.4529 / 0.05))"
+ },
+ "visualize-dark-1440": [
+  [
+   "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   [
+    "bi:linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0,"
+   ]
+  ],
+  [
+   "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   [
+    "f:brightness(1)"
+   ]
+  ],
+  [
+   "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-car",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ]
+ ],
+ "morph-dark-1440": [
+  [
+   "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   [
+    "bi:linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0,"
+   ]
+  ],
+  [
+   "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   [
+    "f:brightness(1)"
+   ]
+  ],
+  [
+   "glass-resting morph-button",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "glass-resting card config-card",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "fira-code number-field__input field-control glass-control-edge",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "slider-track track-well",
+   [
+    "bs:oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+    "bi:linear-gradient(to right, oklab(0.523409 0.108925 0.0476926 / 0.775) 0px, oklab("
+   ]
+  ],
+  [
+   "slider-thumb glass-specular-track",
+   [
+    "bs:color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+   ]
+  ],
+  [
+   "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0",
+    "bi:linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card config-card",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "fira-code number-field__input field-control glass-control-edge",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "slider-track track-well",
+   [
+    "bs:oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+    "bi:linear-gradient(to right, oklab(0.551086 0.0936279 -0.00646001 / 0.775) 0px, okl"
+   ]
+  ],
+  [
+   "slider-thumb glass-specular-track",
+   [
+    "bs:color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+   ]
+  ],
+  [
+   "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0",
+    "bi:linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card config-card",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "fira-code number-field__input field-control glass-control-edge",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "slider-track track-well",
+   [
+    "bs:oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+    "bi:linear-gradient(to right, oklab(0.523409 0.108925 0.0476926 / 0.775) 0px, oklab("
+   ]
+  ],
+  [
+   "slider-thumb glass-specular-track",
+   [
+    "bs:color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+   ]
+  ],
+  [
+   "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0",
+    "bi:linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0."
+   ]
+  ],
+  [
+   "glass-resting card levels-card",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "fira-code number-field__input field-control glass-control-edge",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "slider-track track-well",
+   [
+    "bs:oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+    "bi:linear-gradient(to right, oklab(0.558183 0.0955875 0.0526017 / 0.775) 0px, oklab"
+   ]
+  ],
+  [
+   "slider-thumb glass-specular-track",
+   [
+    "bs:color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+   ]
+  ],
+  [
+   "fira-code number-field__input field-control glass-control-edge",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "slider-track track-well",
+   [
+    "bs:oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+    "bi:linear-gradient(to right, oklab(0.558183 0.0955875 0.0526017 / 0.775) 0px, oklab"
+   ]
+  ],
+  [
+   "slider-thumb glass-specular-track",
+   [
+    "bs:color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   [
+    "bs:color(srgb 0.877849 0.362313 0.362194 / 0.15) 0px 0px 0px 2px"
+   ]
+  ]
+ ],
+ "gallery-dark-390": [
+  [
+   "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   [
+    "bi:linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0,"
+   ]
+  ],
+  [
+   "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   [
+    "f:brightness(1)"
+   ]
+  ],
+  [
+   "field-control glass-control-edge search-field-input",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "glass-resting card gallery-card deferred-section",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ],
+  [
+   "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   [
+    "bs:rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0"
+   ]
+  ]
+ ]
+}

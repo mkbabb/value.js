@@ -8,7 +8,7 @@
         ]"
         role="alert"
     >
-        <CircleAlert class="w-6 h-6 text-destructive/80" aria-hidden="true" />
+        <CircleAlert class="w-6 h-6 text-destructive" aria-hidden="true" />
         <p class="font-display text-subheading text-foreground max-w-[30ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
@@ -17,8 +17,13 @@
              otherwise sizes to its 44ch max and overflows both card edges at
              390), and `wrap-anywhere` lets an unbroken URL break too.
              X-DS value pass 8 (V8C-02): the machine truth speaks Fira, the
-             mono rung Generate's seed line uses (value-canon §2 Type). -->
-        <p v-if="detail" class="text-mono-small plate-ink w-full min-w-0 max-w-[min(44ch,100%)] wrap-anywhere">
+             mono rung Generate's seed line uses (value-canon §2 Type).
+             SS-8 B08 (SS8-0241): the bare `.plate-ink` rung read 4.32:1 off
+             the dark served frame (mono small, under the 4.5:1 floor); the
+             detail speaks the STRONG muted rung `.pane-wrapper` seats (the
+             golden step toward `--ink-primary`), as the admin mono captions
+             do. -->
+        <p v-if="detail" class="text-mono-small text-(color:--muted-foreground-strong) w-full min-w-0 max-w-[min(44ch,100%)] wrap-anywhere">
             {{ detail }}
         </p>
         <slot name="action" />
@@ -118,7 +123,8 @@
  * default AND element, so the idiom cannot regrow.
  * · error — the PLAIN register (Q6: error surfaces DROP the
  * annotations; no ghosts, never a second invitation): a
- * quiet destructive glyph, the Fraunces statement of failure, the
+ * destructive glyph (X-DS pass 18 · V18C-02: the plate's certified red at
+ * full strength, `--ink-destructive`), the Fraunces statement of failure, the
  * machine truth in Fira, and a real Retry in the action slot.
  *
  * X.W12U.h · A2-VA-L3-1 (consumer half): the error statement sits on the

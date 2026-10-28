@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5
+## at fourier dc30e5e
+PASS A webhook unset: require_alert_channel rc 0 (no REFUSE)
+PASS B webhook set: notify posted to the second sink
+PASS C0 the edge location serves the hook's ROLLED_BACK record as JSON
+PASS C forced failure: dry-run prints gh issue create --label deploy-alert (rc 1)
+PASS D open issue #17: dry-run prints gh issue comment 17, no second issue (rc 1)
+PASS E REFUSED at SHA: TIMEOUT alert on the bound (rc 1)
+PASS F no record served (bootstrap): TIMEOUT alert (rc 1)
+PASS G OK at SHA: exit 0, no gh call
+PASS tripwire: no real gh call in any case
+deploy-alert-fixture: GREEN

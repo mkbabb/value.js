@@ -1,0 +1,42 @@
+{
+  "chipCssPresent": true,
+  "tiles": [
+    {
+      "attrs": "data-v-0377df5d= type=button aria-pressed=true data-state=on aria-label=linear title=linear data-specimen=linear class=glass-chip glass-capsule accent-tone inline-flex items-center justify-center font-sans text-muted-for",
+      "rect": [
+        47.3,
+        47.3
+      ],
+      "bg": "oklab(0.827364 -0.00311358 -0.0034809)",
+      "radius": "9999px",
+      "padding": "4px",
+      "border": "0px oklab(0.307762 -0.0342874 -0.0644853 / 0.55)",
+      "display": "flex"
+    },
+    {
+      "attrs": "data-v-0377df5d= type=button aria-pressed=false data-state=off aria-label=ease title=ease data-specimen=ease class=glass-chip glass-capsule accent-tone inline-flex items-center justify-center font-sans text-muted-foregro",
+      "rect": [
+        44,
+        44
+      ],
+      "bg": "oklab(0.588483 0.019123 0.0656416 / 0.3112)",
+      "radius": "9999px",
+      "padding": "4px",
+      "border": "0px rgb(198, 180, 159)",
+      "display": "flex"
+    },
+    {
+      "attrs": "data-v-0377df5d= type=button aria-pressed=false data-state=off aria-label=ease-in title=ease-in data-specimen=ease-in class=glass-chip glass-capsule accent-tone inline-flex items-center justify-center font-sans text-mute",
+      "rect": [
+        44,
+        44
+      ],
+      "bg": "oklab(0.588483 0.019123 0.0656416 / 0.3112)",
+      "radius": "9999px",
+      "padding": "4px",
+      "border": "0px rgb(198, 180, 159)",
+      "display": "flex"
+    }
+  ],
+  "pageErrors": []
+}

@@ -39,7 +39,8 @@ import { expect, test, type Page } from "@playwright/test";
  *     never toggles the layer.
  */
 
-const FRAMES = "docs/tranches/X/evidence/X-W7L/a-frames";
+// Run output, never committed evidence (COHESION §0gd.2): the dated X-W7L a-frames stay as committed.
+const FRAMES = "test-results/x-w7l-detached";
 const PHASE = process.env.XW7L_PHASE ?? "after";
 
 type Rgb = [number, number, number];

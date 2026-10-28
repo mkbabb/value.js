@@ -1,0 +1,45 @@
+{
+ "at": "2026-10-20T21:19:21.920Z",
+ "results": [
+  {
+   "row": "SS8-0563",
+   "mutant": "KILLED (RED)",
+   "tests": "1 failed | 9 skipped (10)"
+  },
+  {
+   "row": "SS8-0566",
+   "mutant": "KILLED (RED)",
+   "tests": "1 failed | 9 skipped (10)"
+  },
+  {
+   "row": "SS8-0564",
+   "mutant": "KILLED (RED)",
+   "tests": "1 failed | 1 passed | 8 skipped (10)"
+  },
+  {
+   "row": "SS8-0572",
+   "mutant": "KILLED (RED)",
+   "tests": "1 failed | 9 skipped (10)"
+  },
+  {
+   "row": "SS8-0574",
+   "mutant": "KILLED (RED)",
+   "tests": "1 failed | 9 skipped (10)"
+  },
+  {
+   "row": "SS8-0575",
+   "mutant": "KILLED (RED)",
+   "tests": "3 failed | 7 skipped (10)"
+  },
+  {
+   "row": "R-14",
+   "mutant": "KILLED (RED)",
+   "tests": "1 failed | 9 skipped (10)"
+  },
+  {
+   "row": "ALL (unmutated)",
+   "verdict": "GREEN",
+   "tests": "10 passed (10)"
+  }
+ ]
+}

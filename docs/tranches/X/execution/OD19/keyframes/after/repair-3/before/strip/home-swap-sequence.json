@@ -1,0 +1,3554 @@
+[
+ {
+  "run": 0,
+  "hash": "#/",
+  "worst": 529,
+  "frames": 39,
+  "measures": {
+   "prepare": 3,
+   "total": 806,
+   "commit": 25
+  },
+  "afterPick": [
+   "HeroAurora-DBOKtgn5.js",
+   "HeroAurora-CJUYErC9.css"
+  ],
+  "strip": [
+   {
+    "mean": 231,
+    "std": 18.7
+   },
+   {
+    "mean": 220,
+    "std": 43.5
+   },
+   {
+    "mean": 219,
+    "std": 45.2
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   }
+  ],
+  "layers": [
+   {
+    "dt": 0,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 13,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 30,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 16,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 14,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 24,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 529,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 171,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 234,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 239,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 16,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   }
+  ],
+  "stripAfterPick": [
+   "HeroAurora-DBOKtgn5.js",
+   "HeroAurora-CJUYErC9.css"
+  ],
+  "stripHash": "#/",
+  "stripLayers": [
+   {
+    "dt": 0,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 16,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 30,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 22,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 359,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 252,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 330,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 22,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   }
+  ]
+ },
+ {
+  "run": 1,
+  "hash": "#/",
+  "worst": 429,
+  "frames": 64,
+  "measures": {
+   "prepare": 4,
+   "total": 411,
+   "commit": 23
+  },
+  "afterPick": [
+   "HeroAurora-DBOKtgn5.js",
+   "HeroAurora-CJUYErC9.css"
+  ],
+  "strip": [
+   {
+    "mean": 231,
+    "std": 18.7
+   },
+   {
+    "mean": 220,
+    "std": 43.3
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.2
+   }
+  ],
+  "layers": [
+   {
+    "dt": 0,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 45,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 23,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 318,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 24,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 429,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 214,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 16,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   }
+  ],
+  "stripAfterPick": [
+   "HeroAurora-DBOKtgn5.js",
+   "HeroAurora-CJUYErC9.css"
+  ],
+  "stripHash": "#/",
+  "stripLayers": [
+   {
+    "dt": 0,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 16,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 37,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 22,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 343,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 23,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 767,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 23,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   }
+  ]
+ },
+ {
+  "run": 2,
+  "hash": "#/",
+  "worst": 451,
+  "frames": 58,
+  "measures": {
+   "prepare": 4,
+   "total": 451,
+   "commit": 26
+  },
+  "afterPick": [
+   "HeroAurora-DBOKtgn5.js",
+   "HeroAurora-CJUYErC9.css"
+  ],
+  "strip": [
+   {
+    "mean": 231,
+    "std": 18.7
+   },
+   {
+    "mean": 221,
+    "std": 42.6
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   }
+  ],
+  "layers": [
+   {
+    "dt": 0,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 16,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 29,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 13,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 37,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 340,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 27,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 451,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 203,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 17,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   }
+  ],
+  "stripAfterPick": [
+   "HeroAurora-DBOKtgn5.js",
+   "HeroAurora-CJUYErC9.css"
+  ],
+  "stripHash": "#/",
+  "stripLayers": [
+   {
+    "dt": 0,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 25,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 38,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 18,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 18,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 355,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 16,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 504,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 192,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 22,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 15,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   }
+  ]
+ },
+ {
+  "run": 3,
+  "hash": "#/",
+  "worst": 495,
+  "frames": 32,
+  "measures": {
+   "prepare": 3,
+   "total": 827,
+   "commit": 24
+  },
+  "afterPick": [
+   "HeroAurora-DBOKtgn5.js",
+   "HeroAurora-CJUYErC9.css"
+  ],
+  "strip": [
+   {
+    "mean": 231,
+    "std": 18.7
+   },
+   {
+    "mean": 220,
+    "std": 43.3
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   }
+  ],
+  "layers": [
+   {
+    "dt": 0,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 37,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 15,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 15,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 21,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 495,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 229,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 254,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 250,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 13,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   }
+  ],
+  "stripAfterPick": [
+   "HeroAurora-DBOKtgn5.js",
+   "HeroAurora-CJUYErC9.css"
+  ],
+  "stripHash": "#/",
+  "stripLayers": [
+   {
+    "dt": 0,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 16,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 29,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 22,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 18,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 313,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 22,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 714,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 17,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   }
+  ]
+ },
+ {
+  "run": 4,
+  "hash": "#/",
+  "worst": 558,
+  "frames": 26,
+  "measures": {
+   "prepare": 3,
+   "total": 889,
+   "commit": 25
+  },
+  "afterPick": [
+   "HeroAurora-DBOKtgn5.js",
+   "HeroAurora-CJUYErC9.css"
+  ],
+  "strip": [
+   {
+    "mean": 231,
+    "std": 18.7
+   },
+   {
+    "mean": 220,
+    "std": 43.4
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.1
+   },
+   {
+    "mean": 219,
+    "std": 45.2
+   },
+   {
+    "mean": 219,
+    "std": 45.2
+   },
+   {
+    "mean": 219,
+    "std": 45.3
+   }
+  ],
+  "layers": [
+   {
+    "dt": 0,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 37,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 37,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 558,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 227,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 231,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 247,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 16,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 13,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 10,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 5,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   }
+  ],
+  "stripAfterPick": [
+   "HeroAurora-DBOKtgn5.js",
+   "HeroAurora-CJUYErC9.css"
+  ],
+  "stripHash": "#/",
+  "stripLayers": [
+   {
+    "dt": 0,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": false,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 25,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 50,
+    "vt": true,
+    "host": 1,
+    "aurora": false,
+    "dock": true
+   },
+   {
+    "dt": 30,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 7,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 23,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 430,
+    "vt": true,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 23,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 809,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 28,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 9,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 6,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   },
+   {
+    "dt": 8,
+    "vt": false,
+    "host": 1,
+    "aurora": true,
+    "dock": true
+   }
+  ]
+ }
+]

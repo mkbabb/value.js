@@ -1,0 +1,930 @@
+[
+ {
+  "cell": "parity-1440",
+  "ms": 91318,
+  "rest": [
+   {
+    "n": "Reset color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Copy color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Random color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Palettes",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Extract palette",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Open color input",
+    "inDom": 1,
+    "visible": 0
+   }
+  ],
+  "steps": [
+   {
+    "label": "Toggle action bar",
+    "clickable": true,
+    "after": [
+     {
+      "n": "Reset color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Copy color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Random color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Palettes",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Extract palette",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Open color input",
+      "inDom": 1,
+      "visible": 1
+     }
+    ],
+    "menuItems": []
+   },
+   {
+    "label": "Menu",
+    "clickable": false
+   }
+  ],
+  "colorEntry": {
+   "openVisible": true,
+   "fieldVisible": false
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "parity-390",
+  "ms": 43195,
+  "rest": [
+   {
+    "n": "Reset color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Copy color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Random color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Palettes",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Extract palette",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Open color input",
+    "inDom": 1,
+    "visible": 0
+   }
+  ],
+  "steps": [
+   {
+    "label": "Toggle action bar",
+    "clickable": true,
+    "after": [
+     {
+      "n": "Reset color",
+      "inDom": 0,
+      "visible": 0
+     },
+     {
+      "n": "Copy color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Random color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Palettes",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Extract palette",
+      "inDom": 0,
+      "visible": 0
+     },
+     {
+      "n": "Open color input",
+      "inDom": 1,
+      "visible": 1
+     }
+    ],
+    "menuItems": []
+   },
+   {
+    "label": "Menu",
+    "clickable": true,
+    "after": [
+     {
+      "n": "Reset color",
+      "inDom": 0,
+      "visible": 0
+     },
+     {
+      "n": "Copy color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Random color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Palettes",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Extract palette",
+      "inDom": 0,
+      "visible": 0
+     },
+     {
+      "n": "Open color input",
+      "inDom": 1,
+      "visible": 1
+     }
+    ],
+    "menuItems": []
+   }
+  ],
+  "colorEntry": {
+   "openVisible": true,
+   "fieldVisible": true,
+   "titleAfter": "rgb(10 200 30) — Color Picker"
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "0": {
+   "tag": "DIV",
+   "role": null,
+   "live": "polite",
+   "cls": "card-header card-header--shrink picker-header font-display m-0 pb-0 [--card-pad:",
+   "text": "OKLCh73.0%,0.2,2.0deg",
+   "inReadout": false,
+   "pane": "73.0%,0.2,2.0deg"
+  },
+  "1": {
+   "tag": "SPAN",
+   "role": null,
+   "live": "off",
+   "cls": "channel-meter font-mono",
+   "text": "73.0%",
+   "inReadout": false,
+   "pane": "73.0%,0.2,2.0deg"
+  },
+  "2": {
+   "tag": "SPAN",
+   "role": null,
+   "live": "off",
+   "cls": "channel-meter font-mono",
+   "text": "0.2",
+   "inReadout": false,
+   "pane": "73.0%,0.2,2.0deg"
+  },
+  "3": {
+   "tag": "SPAN",
+   "role": null,
+   "live": "off",
+   "cls": "channel-meter font-mono",
+   "text": "2.0deg",
+   "inReadout": false,
+   "pane": "73.0%,0.2,2.0deg"
+  },
+  "4": {
+   "tag": "SPAN",
+   "role": null,
+   "live": "off",
+   "cls": "channel-meter font-mono",
+   "text": "100.0%",
+   "inReadout": false,
+   "pane": "73.0%,0.2,2.0deg"
+  },
+  "5": {
+   "tag": "DIV",
+   "role": null,
+   "live": "polite",
+   "cls": "card-header card-header--shrink pane-header px-4 sm:px-6 pb-(--pane-header-gap) ",
+   "text": "About the color spaces, OKLChThe math, the science, the art, the beauty of color",
+   "inReadout": false,
+   "pane": "About the color spaces, OKLCh"
+  },
+  "cell": "picker-live",
+  "ms": 8874,
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "csp-atmosphere",
+  "ms": 10177,
+  "hasConsole": 1,
+  "paint": [
+   {
+    "label": "Color energy",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.76",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.76"
+   },
+   {
+    "label": "Noise",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.5",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.50"
+   },
+   {
+    "label": "Zones",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "6",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "6"
+   }
+  ],
+  "census": {
+   "sliders": 3,
+   "groups": 0,
+   "labelsFor": 0,
+   "headRecipe": "Fraunces | 20.352px | 600 | normal | none",
+   "rowLabelRecipe": "\"Plus Jakarta Sans\" | 14.5411px | 500 | normal | none",
+   "rowLabel": "Color energy",
+   "dividingLines": 6,
+   "liveRegions": [
+    "DIV|null|polite|AtmosphereAurora palette follo"
+   ],
+   "nestedCards": 0,
+   "docks": 1,
+   "rowH": 58.97,
+   "thumb": "0.0x9.0"
+  },
+  "copyLabelAfterClick": "Copied",
+  "copyLabelAria": null,
+  "liveAfterCopy": [],
+  "liveAfterReset": [],
+  "reset": {
+   "firstKnob": {
+    "v0": "0.76",
+    "v1": "0.82",
+    "v2": "0.76"
+   },
+   "before": {
+    "paletteStops": null,
+    "topKeys": [
+     "harmony",
+     "colorEnergy",
+     "zones",
+     "noise",
+     "medium",
+     "motion",
+     "interactivity",
+     "seed"
+    ]
+   },
+   "after": {
+    "paletteStops": null,
+    "topKeys": [
+     "harmony",
+     "colorEnergy",
+     "zones",
+     "noise",
+     "medium",
+     "motion",
+     "interactivity",
+     "seed"
+    ]
+   }
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ {
+  "cell": "csp-blob",
+  "ms": 10391,
+  "hasConsole": 1,
+  "paint": [
+   {
+    "label": "Body radius",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.22",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.220"
+   },
+   {
+    "label": "Satellites",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "3",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "3"
+   },
+   {
+    "label": "Satellite radius",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.082",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.082"
+   },
+   {
+    "label": "Orbit radius",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.17",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.170"
+   },
+   {
+    "label": "Eccentricity",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.05",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.05"
+   },
+   {
+    "label": "Smoothness",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.05",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.050"
+   },
+   {
+    "label": "Warp",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.35",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.35"
+   },
+   {
+    "label": "Noise amplitude",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.038",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.038"
+   },
+   {
+    "label": "Noise frequency",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "3.5",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "3.5"
+   },
+   {
+    "label": "Noise speed",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.08",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.080"
+   },
+   {
+    "label": "Pulse frequency",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.3",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.30"
+   },
+   {
+    "label": "Pulse amplitude",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.008",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.008"
+   },
+   {
+    "label": "Hue range",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "5",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "5"
+   },
+   {
+    "label": "Saturation",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.000"
+   },
+   {
+    "label": "Brightness",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.000"
+   },
+   {
+    "label": "Noise frequency",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "2",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "2.0"
+   },
+   {
+    "label": "Noise speed",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.05",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.050"
+   },
+   {
+    "label": "Specular",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.16",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.16"
+   },
+   {
+    "label": "Shininess",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "20",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "20"
+   },
+   {
+    "label": "Rim",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.32",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.32"
+   },
+   {
+    "label": "Rim power",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "2.5",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "2.50"
+   },
+   {
+    "label": "Iridescence",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.09",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.09"
+   },
+   {
+    "label": "Sub-surface",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.1",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.10"
+   },
+   {
+    "label": "Core glow",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.06",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.06"
+   },
+   {
+    "label": "Attraction",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.35",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.35"
+   },
+   {
+    "label": "Strength",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.1",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.100"
+   },
+   {
+    "label": "Stretch",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.5",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.50"
+   },
+   {
+    "label": "Click impulse",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "0.5",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "0.50"
+   },
+   {
+    "label": "Merge (ms)",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "1800",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "1800"
+   },
+   {
+    "label": "Emerge (ms)",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "2200",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "2200"
+   },
+   {
+    "label": "Speed",
+    "variant": "scrubber",
+    "size": "sm",
+    "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+    "rangeAlpha": null,
+    "rangeImg": "none",
+    "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "contrast": 1.01,
+    "valuetext": null,
+    "now": "1",
+    "labelledby": null,
+    "disabled": null,
+    "shown": "1.00"
+   }
+  ],
+  "census": {
+   "sliders": 31,
+   "groups": 0,
+   "labelsFor": 0,
+   "headRecipe": "Fraunces | 20.352px | 600 | normal | none",
+   "rowLabelRecipe": "\"Plus Jakarta Sans\" | 14.5411px | 500 | normal | none",
+   "rowLabel": "Body radius",
+   "dividingLines": 2,
+   "liveRegions": [
+    "DIV|null|polite|BlobTune metaball geometry, me"
+   ],
+   "nestedCards": 0,
+   "docks": 1,
+   "rowH": 58.97,
+   "thumb": "0.0x9.0"
+  },
+  "copyLabelAfterClick": "Copied",
+  "copyLabelAria": null,
+  "liveAfterCopy": [],
+  "liveAfterReset": [],
+  "reset": {
+   "firstKnob": {
+    "v0": "0.22",
+    "v1": "0.25",
+    "v2": "0.22"
+   },
+   "before": {
+    "paletteStops": [
+     "#c861ad",
+     "#e86fa5",
+     "#ff869c",
+     "#ffaba2"
+    ],
+    "topKeys": [
+     "geometry",
+     "satellites",
+     "membrane",
+     "color",
+     "surface",
+     "interaction",
+     "morphT",
+     "quality",
+     "tempo"
+    ]
+   },
+   "after": {
+    "paletteStops": [
+     "#b5947f",
+     "#d4b27d",
+     "#dad6b1"
+    ],
+    "topKeys": [
+     "geometry",
+     "satellites",
+     "membrane",
+     "color",
+     "surface",
+     "interaction",
+     "morphT",
+     "quality",
+     "tempo"
+    ]
+   }
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ }
+]

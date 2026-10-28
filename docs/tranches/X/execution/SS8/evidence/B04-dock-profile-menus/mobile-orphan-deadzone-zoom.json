@@ -1,0 +1,41 @@
+{
+ "deadZone": {
+  "rowW": 150,
+  "rowH": 44,
+  "hitFraction": 1,
+  "anchors": 0
+ },
+ "focusAfterEscape390": "BUTTON|Menu",
+ "orphan": {
+  "menuPresent": true,
+  "menuRect": [
+   0,
+   17,
+   176,
+   260
+  ],
+  "menuOpacity": "1",
+  "triggerRects": 0,
+  "triggerExpanded": "true"
+ },
+ "orphanAfterEscape": {
+  "menuPresent": false,
+  "active": "BODY|null|visible=true"
+ },
+ "zoom200": {
+  "profileSectionShown": [
+   false,
+   false
+  ],
+  "kebab": true,
+  "dockScrollW": 188,
+  "dockClientW": 188,
+  "docOverflowX": false,
+  "menuRows": [
+   "Login",
+   "Share color",
+   "GitHub",
+   "Dark mode"
+  ]
+ }
+}

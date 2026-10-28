@@ -1,0 +1,70 @@
+{
+ "cell": "colorentry",
+ "ms": 19387,
+ "at": "2026-10-20T21:48:58.366Z",
+ "out": {
+  "d1440": {
+   "toggle": true,
+   "ocVisible": true,
+   "after": {
+    "focus": {
+     "tag": "BUTTON",
+     "label": "Propose color name",
+     "editable": false
+    },
+    "fields": [
+     {
+      "tag": "INPUT",
+      "label": "Slug or admin token",
+      "w": 224
+     }
+    ],
+    "typed": [
+     ""
+    ]
+   }
+  },
+  "z720": {
+   "toggle": true,
+   "ocVisible": true,
+   "after": {
+    "focus": {
+     "tag": "BUTTON",
+     "label": "Propose color name",
+     "editable": false
+    },
+    "fields": [
+     {
+      "tag": "INPUT",
+      "label": "Slug or admin token",
+      "w": 224
+     }
+    ],
+    "typed": [
+     ""
+    ]
+   }
+  },
+  "m390": {
+   "toggle": true,
+   "ocVisible": true,
+   "after": {
+    "focus": {
+     "tag": "BUTTON",
+     "label": "Propose color name",
+     "editable": false
+    },
+    "fields": [
+     {
+      "tag": "INPUT",
+      "label": "Slug or admin token",
+      "w": 156
+     }
+    ],
+    "typed": [
+     ""
+    ]
+   }
+  }
+ }
+}

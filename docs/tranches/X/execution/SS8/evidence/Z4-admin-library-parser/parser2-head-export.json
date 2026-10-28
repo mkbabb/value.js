@@ -1,0 +1,63 @@
+{
+  "namedTested": 148,
+  "namedMismatches": 0,
+  "mism": [],
+  "depth": [
+    {
+      "depth": 10,
+      "threw": false,
+      "ok": false,
+      "code": "color_context_required"
+    },
+    {
+      "depth": 100,
+      "threw": false,
+      "ok": false,
+      "code": "color_context_required"
+    },
+    {
+      "depth": 1000,
+      "threw": false,
+      "ok": false,
+      "code": "css_syntax"
+    },
+    {
+      "depth": 5000,
+      "threw": false,
+      "ok": false,
+      "code": "css_syntax"
+    },
+    {
+      "depth": 20000,
+      "threw": false,
+      "ok": false,
+      "code": "css_syntax"
+    }
+  ],
+  "codes": {
+    "currentcolor": {
+      "ok": false,
+      "diag": "[{\"code\":\"color_context_required\",\"start\":0,\"end\":12,\"expected\":[\"context-free color\"],\"actual\":\"currentcolor\"}]"
+    },
+    "lab(50 1e400 0)": {
+      "ok": false,
+      "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":15,\"expected\":[\"color_non_finite\"],\"actual\":\"lab(50 1e400 0)\"}]"
+    },
+    "var(--brand)": {
+      "ok": false,
+      "diag": "[{\"code\":\"color_context_required\",\"start\":0,\"end\":12,\"expected\":[\"context-free color\"],\"actual\":\"var(--brand)\"}]"
+    },
+    "rgb(from red r g b)": {
+      "ok": false,
+      "diag": "[{\"code\":\"color_context_required\",\"start\":0,\"end\":19,\"expected\":[\"context-free color\"],\"actual\":\"rgb(from red r g b)\"}]"
+    },
+    "oklch()": {
+      "ok": false,
+      "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":7,\"expected\":[\"color\"],\"actual\":\"oklch()\"}]"
+    },
+    "notacolor": {
+      "ok": false,
+      "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":9,\"expected\":[\"<named-color>\"],\"actual\":\"notacolor\"}]"
+    }
+  }
+}

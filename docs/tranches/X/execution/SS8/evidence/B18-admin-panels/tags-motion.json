@@ -1,0 +1,18 @@
+{
+  "transitionsAtRest": [
+    "div|box-shadow, border-color|0.18s, 0.18s",
+    "p|opacity, visibility|0.3s, 0.3s",
+    "div|box-shadow, border-color|0.2s, 0.2s",
+    "button|background-color, border-color, box-shadow, color, opacity, scale|0.18s, 0.18s, 0.18s, 0.18s, 0.18s, 0.12s",
+    "button|background-color, transform|0.2s",
+    "svg|color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to|0.2s"
+  ],
+  "animationsOnHover": [
+    "CSSTransition|opacity|300",
+    "CSSTransition|background-color|200",
+    "CSSTransition|color|200",
+    "CSSAnimation|gl-fade-start-in|auto",
+    "CSSAnimation|gl-fade-end-out|auto"
+  ],
+  "pageErrors": []
+}

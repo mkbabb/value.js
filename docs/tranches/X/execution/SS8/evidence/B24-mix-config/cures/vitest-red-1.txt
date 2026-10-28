@@ -1,0 +1,8 @@
+   × SS8-0671 · MC-7 — the Size-mismatch field enters on the vj-celebrate clock > the field mounts through the vj-celebrate Transition (not in one frame) 104ms
+   × SS8-0671 · MC-7 — the Size-mismatch field enters on the vj-celebrate clock > the family's height leg is set (collapse 0, a finite expanded cap) 12ms
+   × SS8-0673 · DD-1 — the plate's mount and the ghost→content swap use the vj-morph height leg > MixPane.vue sets --vj-morph-collapse / --vj-morph-expanded 2ms
+   × SS8-0673 · DD-1 — the plate's mount and the ghost→content swap use the vj-morph height leg > MixResultDisplay.vue sets --vj-morph-collapse / --vj-morph-expanded 4ms
+   × SS8-0678 / SS8-0684 · MSS-20 — the add slot's ghost stroke has a 3:1 floor > a picker colour at the plate's lightness is walked to clear 3:1 on the resting plate 15ms
+   ✓ SS8-0678 / SS8-0684 · MSS-20 — the add slot's ghost stroke has a 3:1 floor > the walk keeps the picker's hue (identity colour, not a neutral stand-in) 10ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  5 failed | 1 passed (6)

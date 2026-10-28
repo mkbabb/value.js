@@ -1,0 +1,226 @@
+[
+ {
+  "cell": "MENU-U2/U11 360x225 dpr4 root100%",
+  "ms": 3540,
+  "inner": [
+   360,
+   225,
+   4
+  ],
+  "menu": {
+   "x": 116,
+   "y": 0,
+   "w": 197.9375,
+   "h": 90.9375,
+   "scrollH": 468,
+   "clientH": 89,
+   "hiddenPct": 81,
+   "overflowY": "auto",
+   "maxH": "90.9375px",
+   "bottomOver": -134,
+   "items": [
+    "Save",
+    "Remix",
+    "Versions 3",
+    "JSON",
+    "CSS Custom Properties",
+    "Tailwind Config",
+    "SVG Swatch",
+    "PNG Swatch",
+    "Report"
+   ],
+   "exportSub": false
+  },
+  "sub": null,
+  "pageErrors": []
+ },
+ {
+  "cell": "MENU-U2/U11 1440x225 dpr1 root100%",
+  "ms": 3556,
+  "inner": [
+   1440,
+   225,
+   1
+  ],
+  "menu": {
+   "x": 523,
+   "y": 0,
+   "w": 149.859375,
+   "h": 90.828125,
+   "scrollH": 253,
+   "clientH": 89,
+   "hiddenPct": 64.8,
+   "overflowY": "auto",
+   "maxH": "90.8281px",
+   "bottomOver": -134,
+   "items": [
+    "Save",
+    "Remix",
+    "Versions 3",
+    "Export",
+    "Report"
+   ],
+   "exportSub": true
+  },
+  "sub": {
+   "opened": true,
+   "y": 22,
+   "h": 135,
+   "bottomOver": -68,
+   "topOver": -22,
+   "overflow": "hidden/auto",
+   "maxH": "135px",
+   "scrollH": 253,
+   "clientH": 133,
+   "itemsVisible": 4,
+   "items": 5
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "MENU-U2/U11 1440x900 dpr1 root100%",
+  "ms": 6507,
+  "inner": [
+   1440,
+   900,
+   1
+  ],
+  "menu": {
+   "x": 523,
+   "y": 597,
+   "w": 149.859375,
+   "h": 255,
+   "scrollH": 253,
+   "clientH": 253,
+   "hiddenPct": 0,
+   "overflowY": "auto",
+   "maxH": "384px",
+   "bottomOver": -48,
+   "items": [
+    "Save",
+    "Remix",
+    "Versions 3",
+    "Export",
+    "Report"
+   ],
+   "exportSub": true
+  },
+  "sub": {
+   "opened": true,
+   "y": 539,
+   "h": 255,
+   "bottomOver": -106,
+   "topOver": -539,
+   "overflow": "hidden/auto",
+   "maxH": "384px",
+   "scrollH": 253,
+   "clientH": 253,
+   "itemsVisible": 5,
+   "items": 5
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "MENU-U2/U11 1440x900 dpr1 root200%",
+  "ms": 12921,
+  "inner": [
+   1440,
+   900,
+   1
+  ],
+  "menu": {
+   "x": 1077,
+   "y": 0,
+   "w": 257.171875,
+   "h": 410.078125,
+   "scrollH": 481,
+   "clientH": 408,
+   "hiddenPct": 15.2,
+   "overflowY": "auto",
+   "maxH": "410.078px",
+   "bottomOver": -490,
+   "items": [
+    "Save",
+    "Remix",
+    "Versions 3",
+    "Export",
+    "Report"
+   ],
+   "exportSub": true
+  },
+  "sub": {
+   "opened": true,
+   "y": 293,
+   "h": 483,
+   "bottomOver": -124,
+   "topOver": -293,
+   "overflow": "hidden/auto",
+   "maxH": "540px",
+   "scrollH": 481,
+   "clientH": 481,
+   "itemsVisible": 5,
+   "items": 5
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U7/U11 press register: control, Space in rename, drag traverse",
+  "ms": 8047,
+  "control": {
+   "frames": 22,
+   "min": 0.9512,
+   "max": 1.0094
+  },
+  "focused": {
+   "tag": "BUTTON",
+   "inCard": true
+  },
+  "spaceInInput": {
+   "frames": 15,
+   "min": 1,
+   "max": 1
+  },
+  "dragOverCard1": {
+   "frames": 65,
+   "min": 1,
+   "max": 1
+  },
+  "dragOverCard2": {
+   "frames": 65,
+   "min": 1,
+   "max": 1
+  },
+  "orderAfterDrag": [
+   "Palette: Local 1",
+   "Palette: Local 2",
+   "Palette: Local 0",
+   "Palette: Local 3"
+  ],
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U12 shell: skeleton vs card",
+  "ms": 2619,
+  "skel": {
+   "cls": "skeleton-ink-register rounded-card border border-card-edge overflow-hidden bg-well",
+   "w": 462,
+   "h": 127.453125,
+   "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+   "radius": "16px",
+   "shadow": "none",
+   "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "overflow": "hidden"
+  },
+  "card": {
+   "cls": "palette-card group rounded-card border border-card-edge bg-well cursor-pointer focus-ring",
+   "w": 462,
+   "h": 127.5,
+   "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+   "radius": "16px",
+   "shadow": "none",
+   "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "overflow": "visible"
+  },
+  "pageErrors": []
+ }
+]

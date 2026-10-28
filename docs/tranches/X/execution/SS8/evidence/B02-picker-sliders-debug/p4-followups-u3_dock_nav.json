@@ -1,0 +1,46 @@
+{
+ "base": "http://localhost:9000/",
+ "at": "2026-10-19T18:59:36.242Z",
+ "cells": {
+  "u3_dock_nav": [
+   {
+    "tag": "boot",
+    "hash": "#/?debug=1",
+    "overlay": true
+   },
+   {
+    "tag": "dock->gradient",
+    "hash": "#/gradient?debug=1",
+    "overlay": true,
+    "items": [
+     "Home",
+     "Palettes",
+     "Browse",
+     "Extract",
+     "Mix",
+     "Generate",
+     "Gradient"
+    ]
+   },
+   {
+    "tag": "dock->home",
+    "hash": "#/?debug=1",
+    "overlay": true,
+    "items": [
+     "Home",
+     "Palettes",
+     "Browse",
+     "Extract",
+     "Mix",
+     "Generate",
+     "Gradient"
+    ]
+   },
+   {
+    "tag": "reload",
+    "hash": "#/?debug=1",
+    "overlay": true
+   }
+  ]
+ }
+}

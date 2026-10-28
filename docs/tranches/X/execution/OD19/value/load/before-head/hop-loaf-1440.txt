@@ -1,0 +1,43 @@
+== hop palettes #/palettes undefined
+== hop browse #/browse Browse
+{"start":-1,"dur":198,"block":147,"render":59,"scripts":[{"d":24,"inv":"FrameRequestCallback","src":"index-BjaMkXeJ.js:222811","fn":"","fsl":13},{"d":17,"inv":"FrameRequestCallback","src":"index-BjaMkXeJ.js:222811","fn":"","fsl":16}]}
+{"start":1346,"dur":58,"block":0,"render":1,"scripts":[]}
+{"start":1404,"dur":113,"block":0,"render":2,"scripts":[]}
+{"start":260,"dur":849,"block":291,"render":262,"scripts":[{"d":67,"inv":"TimerHandler:setTimeout","src":"vue.runtime.esm-bundler-CZavfU-W.js:86354","fn":"","fsl":35},{"d":61,"inv":"TimerHandler:setTimeout","src":"vue.runtime.esm-bundler-CZavfU-W.js:86354","fn":"","fsl":29},{"d":231,"inv":"ResizeObserverCallback","src":"index-BjaMkXeJ.js:256325","fn":"","fsl":0}]}
+{"start":1113,"dur":182,"block":0,"render":8,"scripts":[]}
+{"start":1518,"dur":331,"block":0,"render":5,"scripts":[]}
+== hop generate #/generate Generate
+{"start":-2,"dur":202,"block":152,"render":55,"scripts":[{"d":21,"inv":"FrameRequestCallback","src":"index-BjaMkXeJ.js:222811","fn":"","fsl":10}]}
+{"start":223,"dur":177,"block":0,"render":17,"scripts":[]}
+{"start":496,"dur":51,"block":0,"render":4,"scripts":[]}
+{"start":549,"dur":230,"block":139,"render":57,"scripts":[{"d":131,"inv":"TimerHandler:setTimeout","src":"vue.runtime.esm-bundler-CZavfU-W.js:86354","fn":"","fsl":46},{"d":43,"inv":"ResizeObserverCallback","src":"index-BjaMkXeJ.js:256325","fn":"","fsl":0}]}
+{"start":783,"dur":69,"block":19,"render":8,"scripts":[{"d":60,"inv":"TimerHandler:setTimeout","src":"vue.runtime.esm-bundler-CZavfU-W.js:86354","fn":"","fsl":30}]}
+{"start":1355,"dur":67,"block":0,"render":1,"scripts":[]}
+{"start":1425,"dur":75,"block":0,"render":1,"scripts":[]}
+{"start":864,"dur":217,"block":0,"render":2,"scripts":[]}
+{"start":1083,"dur":270,"block":0,"render":3,"scripts":[]}
+== hop gradient #/gradient Gradient
+{"start":-1,"dur":213,"block":163,"render":58,"scripts":[{"d":21,"inv":"FrameRequestCallback","src":"index-BjaMkXeJ.js:222811","fn":"","fsl":11}]}
+{"start":255,"dur":147,"block":0,"render":15,"scripts":[]}
+{"start":424,"dur":324,"block":256,"render":13,"scripts":[{"d":293,"inv":"TimerHandler:setTimeout","src":"vue.runtime.esm-bundler-CZavfU-W.js:86354","fn":"","fsl":74}]}
+{"start":753,"dur":65,"block":14,"render":9,"scripts":[{"d":54,"inv":"TimerHandler:setTimeout","src":"vue.runtime.esm-bundler-CZavfU-W.js:86354","fn":"","fsl":27}]}
+{"start":1128,"dur":73,"block":0,"render":1,"scripts":[]}
+{"start":1202,"dur":66,"block":0,"render":0,"scripts":[]}
+{"start":1325,"dur":73,"block":0,"render":1,"scripts":[]}
+{"start":838,"dur":288,"block":0,"render":5,"scripts":[]}
+{"start":1398,"dur":66,"block":0,"render":0,"scripts":[]}
+{"start":1268,"dur":55,"block":0,"render":2,"scripts":[]}
+== hop admin/tags #/ Home
+{"start":-2,"dur":106,"block":54,"render":43,"scripts":[{"d":18,"inv":"FrameRequestCallback","src":"index-BjaMkXeJ.js:222811","fn":"","fsl":9}]}
+{"start":124,"dur":122,"block":0,"render":26,"scripts":[]}
+{"start":299,"dur":63,"block":0,"render":23,"scripts":[]}
+{"start":412,"dur":198,"block":133,"render":140,"scripts":[{"d":43,"inv":"TimerHandler:setTimeout","src":"vue.runtime.esm-bundler-CZavfU-W.js:86354","fn":"","fsl":18},{"d":124,"inv":"ResizeObserverCallback","src":"index-BjaMkXeJ.js:256325","fn":"","fsl":0}]}
+{"start":613,"dur":275,"block":223,"render":37,"scripts":[{"d":236,"inv":"Response.json.then","src":"index-BjaMkXeJ.js:132083","fn":"","fsl":63}]}
+{"start":1567,"dur":101,"block":0,"render":3,"scripts":[]}
+{"start":912,"dur":452,"block":204,"render":202,"scripts":[{"d":52,"inv":"TimerHandler:setTimeout","src":"vue.runtime.esm-bundler-CZavfU-W.js:86354","fn":"","fsl":36},{"d":178,"inv":"ResizeObserverCallback","src":"index-BjaMkXeJ.js:256325","fn":"","fsl":13}]}
+{"start":1369,"dur":95,"block":0,"render":45,"scripts":[]}
+{"start":1798,"dur":85,"block":0,"render":1,"scripts":[]}
+{"start":1504,"dur":60,"block":0,"render":17,"scripts":[]}
+{"start":1669,"dur":127,"block":0,"render":3,"scripts":[]}
+{"start":2098,"dur":91,"block":0,"render":0,"scripts":[]}
+{"start":1884,"dur":63,"block":0,"render":6,"scripts":[]}

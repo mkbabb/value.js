@@ -1,0 +1,30 @@
+{
+ "engine": "chromium",
+ "synthetic": [
+  {
+   "id": "a",
+   "parentOffsetW": 400,
+   "parentClientW": 400,
+   "scrollbarPx": 0,
+   "canvasCssW": 400,
+   "canvasClientW": 400,
+   "agrees": true
+  },
+  {
+   "id": "b",
+   "parentOffsetW": 400,
+   "parentClientW": 385,
+   "scrollbarPx": 15,
+   "canvasCssW": 385,
+   "canvasClientW": 385,
+   "agrees": true
+  }
+ ],
+ "app": {
+  "parentClientW": 766,
+  "parentOffsetW": 768,
+  "overflowY": "hidden",
+  "canvasCssW": 766,
+  "agrees": true
+ }
+}

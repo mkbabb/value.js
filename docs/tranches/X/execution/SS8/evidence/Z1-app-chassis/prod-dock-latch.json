@@ -1,0 +1,49 @@
+{
+ "cell": "latch",
+ "ms": 15187,
+ "at": "2026-10-20T21:20:30.413Z",
+ "out": {
+  "seq": [
+   [
+    "/",
+    {
+     "text": "Home",
+     "gold": false
+    }
+   ],
+   [
+    "/atmosphere",
+    {
+     "text": "Atmosphere",
+     "gold": false
+    }
+   ],
+   [
+    "back",
+    {
+     "text": "Home",
+     "gold": false
+    }
+   ],
+   [
+    "/palettes",
+    {
+     "text": "Palettes",
+     "gold": false
+    }
+   ],
+   [
+    "/",
+    {
+     "text": "Home",
+     "gold": false
+    }
+   ]
+  ],
+  "coldAtmosphere": {
+   "text": "Atmosphere",
+   "gold": false
+  },
+  "adminAuthenticated": false
+ }
+}

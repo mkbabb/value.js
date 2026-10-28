@@ -1,0 +1,30 @@
+{
+ "light-1440": {
+  "paperScrollers": [
+   "paper-scroll"
+  ],
+  "eqScrollers": []
+ },
+ "light-390": {
+  "paperScrollers": [
+   "paper-scroll"
+  ],
+  "eqScrollers": [
+   "fading-scroll fading-scroll--y configurator-controls flex-1 min-h-0 scrollbar-thin"
+  ]
+ },
+ "dark-1440": {
+  "paperScrollers": [
+   "paper-scroll"
+  ],
+  "eqScrollers": []
+ },
+ "dark-390": {
+  "paperScrollers": [
+   "paper-scroll"
+  ],
+  "eqScrollers": [
+   "fading-scroll fading-scroll--y configurator-controls flex-1 min-h-0 scrollbar-thin"
+  ]
+ }
+}

@@ -1,0 +1,142 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/picker/spectrum-dot-position.test.ts (3 tests) 550ms
+(node:20373) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ demo/test/palettes/ss8-b11-cures.test.ts (75 tests) 2603ms
+ ✓ demo/test/extract/ss8-b25-cures.test.ts (6 tests) 1615ms
+   ✓ SS8-0722 · the eyedropper is a modal dialog > role=dialog, aria-modal, named; the workbench behind it is hidden from AT  1105ms
+   ✓ SS8-0705 (EC-16) · Generate's count row carries its O-18 hook > the census can find the count RANGE  326ms
+(node:20909) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/admin-destructive.test.ts (10 tests) 759ms
+ ✓ demo/test/about/ss8-b09-ink.test.ts (11 tests) 1491ms
+   ✓ SS8-0257b · contrastInkFor is total over opaque fills > every cell of the probe's census grid gets a neutral ink that clears 4.5:1  1469ms
+ ✓ demo/test/generate/ss8-z3-cures.test.ts (5 tests) 860ms
+   ✓ Z3 · GenerateControls REFUTED rows stay cured > -1/-3/-14: each swatch is a named copy button; a click writes it and names it Copied  614ms
+(node:21897) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/shell/dock-profile-menus.test.ts (13 tests) 3153ms
+   ✓ SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > ProfileSection: one menuitem, no nested anchor; click and Enter open the repository  645ms
+   ✓ SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > MobileMenuDropdown: one menuitem, no nested anchor; click and Enter open the repository  410ms
+   ✓ SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (light): 7/7 picks paint safeCss_floating(pick), idempotent  467ms
+   ✓ SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (dark): 7/7 picks paint safeCss_floating(pick), idempotent  769ms
+(node:22388) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/gradient/ss8-b20-cures.test.ts (10 tests) 1020ms
+   ✓ R-14 (SS8-0590) · a closed easing row mounts no specimen strip > 12 stops, all rows closed: zero strips; one row open: exactly one strip  684ms
+ ✓ demo/test/palettes/palette-inspector.test.ts (9 tests) 1568ms
+   ✓ G7 · the export failure is rendered by its host > a thrown download is said on the inspector's rail  568ms
+   ✓ the selected entity rides X-W4's typed SceneActionSet > deselect and unmount remove exactly this inspector's target  343ms
+ ✓ demo/test/palettes/ss8-b10-browse.test.ts (13 tests) 1204ms
+ ✓ demo/test/palettes/ss8-b16-cures.test.ts (9 tests) 854ms
+   ✓ SS8-0454 · a held Enter cannot press the dialog it opened > the dialog opens on Cancel and swallows the held key's repeats  415ms
+(node:23649) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/ss8-b18-admin-audit.test.ts (4 tests) 184ms
+ ✓ demo/test/glass/aurora-bracket.test.ts (9 tests) 146ms
+(node:24111) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/ss8-b18-admin-tags.test.ts (2 tests) 119ms
+(node:24232) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/ss8-b12-cures.test.ts (3 tests) 216ms
+ ✓ demo/test/about/ss8-b09-katex.test.ts (3 tests) 121ms
+ ✓ demo/test/palettes/ss8-b14-cures.test.ts (4 tests) 95ms
+ ✓ demo/test/gradient/ss8-z3-cures.test.ts (5 tests) 89ms
+ ✓ demo/test/gradient/ss8-b21-cures.test.ts (2 tests) 81ms
+(node:24743) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/mix/ss8-b24-cures.test.ts (2 tests) 87ms
+ ✓ demo/test/shell/pane-popups-and-seats.test.ts (3 tests) 70ms
+ ✓ demo/test/palettes/ss8-b13-cures.test.ts (1 test) 65ms
+ ✓ demo/test/mix/ss8-b23-cures.test.ts (3 tests) 31ms
+ ✓ test/dock-status-lamp.test.ts (6 tests) 33ms
+ ✓ test/hsv-byte-exact.test.ts (2 tests) 33ms
+ ✓ test/parser-totality.test.ts (132 tests) 23ms
+stderr | demo/test/about/ss8-z3-cures.test.ts > Z3 · Markdown REFUTED rows stay cured > -2: the loading bones carry no inert surface/variant attributes
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <Markdown module=fn<pending> ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+(node:25586) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/about/ss8-z3-cures.test.ts (2 tests) 32ms
+ ✓ demo/test/shell/error-plate-detail-ink.test.ts (2 tests) 21ms
+ ✓ test/gradient-order-invariant.test.ts (17 tests) 20ms
+ ✓ demo/test/color-session/missing-channel-outward.test.ts (2 tests) 13ms
+ ✓ test/preview-chips.test.ts (4 tests) 11ms
+ ✓ test/transform/path-geometry.test.ts (43 tests) 6ms
+ ✓ test/status-lamp.test.ts (14 tests) 6ms
+ ✓ demo/test/color-session/ss8-z2-parse-boundary.test.ts (3 tests) 4ms
+ ✓ demo/test/palettes/browse-retry-probe.test.ts (4 tests) 5ms
+ ✓ test/readout-reservation.test.ts (14 tests) 6ms
+stderr | demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugin `externalize-deps`. See https://rolldown.rs/options/checks#plugintimings for more details.
+
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+G20 1440 {"PaletteCardSkeleton.vue:instrument@16":42,"PaletteCardSkeleton.vue:instrument@1":42,"PaletteCardSkeleton.vue@16":92.515625,"PaletteCardSkeleton.vue@1":92.515625,"PaletteCardSkeleton.vue:developing@16":92.515625,"PaletteCardSkeleton.vue:developing@1":92.515625}
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+N-17 1440 shadow loading 92.515625 settled 92.53125
+
+ ❯ demo/test/palettes/plate-mass.test.ts (4 tests | 1 failed | 2 skipped) 121460ms
+   ↓ plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+   ↓ plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+   ✓ plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them 135ms
+   × plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card 5912ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px
+Error: Hook timed out in 60000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ ❯ demo/test/palettes/plate-mass.test.ts:82:5
+     80| ])("plate at $width px", (viewport) => {
+     81|     let seat: HarnessSeat;
+     82|     beforeAll(async () => {
+       |     ^
+     83|         // Every plate file is mounted after load: declare them so the…
+     84|         // scan sees their imports before the first navigation (no col…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+Error: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ ❯ demo/test/palettes/plate-mass.test.ts:89:5
+     87|         });
+     88|     }, 60_000);
+     89|     afterAll(async () => {
+       |     ^
+     90|         await seat?.close();
+     91|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ demo/test/palettes/plate-mass.test.ts:109:5
+    107|     });
+    108| 
+    109|     it("N-17 · the loading skeleton is the silhouette of the settled c…
+       |     ^
+    110|         const settled = await settledCardHeight(seat.page);
+    111|         for (const variant of ["shadow", "developing"]) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed | 36 passed (37)
+      Tests  1 failed | 451 passed | 2 skipped (454)
+   Start at  21:49:13
+   Duration  122.97s (transform 2.24s, setup 2.10s, collect 17.46s, tests 138.66s, environment 13.43s, prepare 2.02s)
+

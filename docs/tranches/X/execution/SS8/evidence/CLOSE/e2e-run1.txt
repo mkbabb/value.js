@@ -1,0 +1,279 @@
+(node:5313) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:5493) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 96 tests using 1 worker
+
+(node:5859) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason (30.0s)
+(node:8276) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   2 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger (30.8s)
+(node:10654) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   3 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger (8.8s)
+  ✓   4 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Escape returns focus to the Palette menu trigger (1.6s)
+  ✓   5 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8) (8.5s)
+  ✓   6 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column (1.7s)
+  ✓   7 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (6.6s)
+  ✓   8 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (6.0s)
+  ✓   9 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip (4.4s)
+  ✓  10 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops (5.3s)
+  ✓  11 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize (7.9s)
+  ✓  12 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:58:5 › O-22 · the dock status lamp (W6-6 / T-9) › healthy backend → no lamp; the dead banner stays dead (1.5s)
+  ✓  13 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome (1.1s)
+  ✓  14 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:161:5 › SS-8 B06 · the dock lamp's served face › SS8-0165 — the arrival pulse stops within 5 s (WCAG 2.2.2) (1.5s)
+  ✓  15 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:175:9 › SS-8 B06 · the dock lamp's served face › SS8-0162 — the dock label clears 4.5:1 on its own ground (light, 1440) (3.0s)
+  ✓  16 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:175:9 › SS-8 B06 · the dock lamp's served face › SS8-0162 — the dock label clears 4.5:1 on its own ground (dark, 1440) (3.1s)
+  ✓  17 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:115:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the Tools slot is inert, 0 px and unexposed; the dock keeps its face (3.4s)
+  ✓  18 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:115:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the Tools slot is inert, 0 px and unexposed; the dock keeps its face (4.4s)
+  ✓  19 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:115:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the Tools slot is inert, 0 px and unexposed; the dock keeps its face (3.1s)
+  ✓  20 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:140:5 › B05 · the action-bar proportion (0125 · 0146) › 0125: the layer root breathes on the face's own gap — both separators get equal air (7.0s)
+  ✓  21 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:177:5 › B05 · the action-bar proportion (0125 · 0146) › 0146: the seat row is spaced by --dock-layer-gap, not by justify-around slack (5.5s)
+[2m[WebServer] [22m[2m10:11:00 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: pane chunk not settled after 20000 ms
+[2m[WebServer] [22m    at http://localhost:8297/@fs/Users/mkbabb/Programming/value.js/demo/shell/usePaneRouter.ts:126:41
+  ✘  22 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) (30.0s)
+(node:17891) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  23 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) (30.0s)
+(node:19379) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  24 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) (22.5s)
+  ✓  25 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) (6.3s)
+  ✓  26 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) (5.3s)
+  ✓  27 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) (6.6s)
+  ✓  28 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:217:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 0) (7.7s)
+  ✓  29 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:217:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 180) (7.8s)
+  ✓  30 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:253:9 › B05 · the Tools target and wordmark (0140) › coarse 390 › the Tools target holds the 44 px coarse floor (3.7s)
+  ✓  31 [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:263:9 › B05 · the Tools target and wordmark (0140) › zoom 200 % of 1440×900 › the Tools wordmark survives the zoom (4.2s)
+  ✓  32 [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:32:1 › SS8-0192/0197 — no stylesheet carries the dead pane-header veil (1.1s)
+  ✓  33 [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:67:1 › SS8-0194 — no shipped rule computes a ratio through tan(atan2()) (the WebKit pole) (1.6s)
+  ✓  34 [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/) (1.7s)
+  ✓  35 [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/gradient) (2.1s)
+  ✓  36 [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/mix) (2.4s)
+  ✓  37 [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/extract) (3.1s)
+  ✓  38 [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/generate) (2.4s)
+  ✓  39 [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/browse) (2.0s)
+  ✓  40 [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:167:5 › SS8-0214 — deep-link cold boot /gradient then home mounts the hero blob (4.2s)
+  ✓  41 [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:167:5 › SS8-0214 — deep-link cold boot /browse then home mounts the hero blob (4.2s)
+SS8-0363 light {"normal":{"ratio":7.584552937636789,"ink":[46,43,43],"ground":[222,179,196]},"more":{"ratio":9.504529215238103,"ink":[52,49,47],"ground":[230,219,213]}}
+  ✓  42 [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (light) (5.3s)
+SS8-0363 dark {"normal":{"ratio":6.529655434624107,"ink":[194,191,190],"ground":[77,46,54]},"more":{"ratio":7.242784554229888,"ink":[209,206,203],"ground":[67,56,50]}}
+  ✓  43 [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (dark) (5.0s)
+SS8-0408 light {"peak":1.2920609404767849,"trough":1.164939365286351}
+  ✓  44 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) (3.1s)
+SS8-0408 dark {"peak":1.445669524625369,"trough":1.190572857673939}
+  ✓  45 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) (2.7s)
+  ✓  46 [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:52:1 › SS8-0442 · a focused saved card's ring paints on all four edges (2.5s)
+  ✓  47 [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:121:1 › SS8-0446 · the saved-card scroller keeps its bottom fade (regression arm) (1.5s)
+  ✓  48 [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:131:1 › SS8-0450 · a zero-match query offers Clear search (regression arm) (1.6s)
+  ✘  49 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (8.3s)
+(node:27380) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  50 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (light) (11.5s)
+  ✓  51 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (9.0s)
+  ✓  52 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (dark) (6.0s)
+  ✓  53 [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:45:5 › R-1 · section headings clear 4.5:1 over the live ground (1440, light) (4.6s)
+  ✓  54 [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:45:5 › R-1 · section headings clear 4.5:1 over the live ground (1440, dark) (4.9s)
+  ✓  55 [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:79:5 › R-6 + R-15 · the interpolation band stacks unclipped and the tile is near-square (390) (10.8s)
+  ✓  56 [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:79:5 › R-6 + R-15 · the interpolation band stacks unclipped and the tile is near-square (320) (2.0s)
+U-1 light worst {"text":"CSS","ratio":4.619} of 34
+  ✓  57 [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, light) (4.5s)
+  ✓  58 [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, light) (4.0s)
+U-1 dark worst {"text":"end","ratio":6.125} of 34
+  ✓  59 [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, dark) (1.0m)
+  ✓  60 [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, dark) (49.3s)
+  ✓  61 [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:132:1 › U-7 (c) · an overshooting authored curve (Shift+ArrowUp ×4 on control point 2) keeps the pane (20.3s)
+  ✓  62 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, light) (3.4s)
+  ✓  63 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, dark) (3.2s)
+  ✓  64 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:84:5 › X-5 · phone › X-5 · Add to palette in the eyedropper is announced politely (390, touch) (3.6s)
+  ✓  65 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:69:5 › Z1-app-chassis — the row composition › Z-chassis-2/3 · Z-LG-3/4 — per-route tracks at 1440, surplus to the stage at 3440 (2.0s)
+  ✓  66 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:110:5 › Z1-app-chassis — the row composition › Z-LG-5 — no page cap token (601ms)
+  ✓  67 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:121:5 › Z1-app-chassis — the row composition › Z-LG-6 — the fluid gutter (619ms)
+  ✓  68 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:149:5 › Z1-app-chassis — the dock › Z-Dock-10 — the main layer shows no visible separator (795ms)
+  ✓  69 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:164:5 › Z1-app-chassis — the dock › Z-Dock-13 — the dock's sampler is bound to the atmosphere field (2.4s)
+  ✓  70 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:178:5 › Z1-app-chassis — the dock › Z-Dock-5 — Open color input focuses the field and typing lands in it (2.2s)
+Z2 header census 1440 {"live":"polite","seam":42.578125,"ratio":0.7861861861861862,"cellTops":[219,219,219]}
+Z2 seam diag [{"cols":"834.344px 515.656px","regions":["color-picker:834","about:516"],"fp":"141.76px"},{"s":".pane-shell .picker-header","top":88,"bottom":265,"h":177,"minH":"auto","pad":"0px 24px","mt":"0px"},{"s":".pane-shell .title-row","top":88,"bottom":210,"h":122,"minH":"121.76px","pad":"0px 141.76px 0px 0px","mt":"0px"},{"s":".pane-shell .title-row [role=\"combobox\"]","top":88,"bottom":173,"h":85,"minH":"0px","pad":"0px 0px 5.0616px","mt":"0px"},{"s":".pane-shell .readout","top":219,"bottom":265,"h":47,"minH":"46.9146px","pad":"0px","mt":"0px"},{"s":".pane-shell .readout .readout-fig","top":219,"bottom":265,"h":47,"minH":"auto","pad":"0px","mt":"0px"},null]
+  ✘  71 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes (8.1s)
+(node:39769) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  72 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:121:5 › Z2 picker cohort — desktop 1440 › P6 — a model write after a readout keystroke repaints the readout (19.7s)
+  ✓  73 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:139:5 › Z2 picker cohort — desktop 1440 › P10 — an unknown pane is Not found, never the picker (1.4s)
+  ✓  74 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:146:5 › Z2 picker cohort — desktop 1440 › CSS1..7 — the colour-space catalog and the About card (13.8s)
+  ✓  75 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:191:5 › Z2 picker cohort — desktop 1440 › CSP3/4/10/12/14 · CSP5 — the Blob configurator census and Copy (2.4s)
+  ✓  76 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:235:5 › Z2 picker cohort — desktop 1440 › CSP15 — forced colors: a focused config slider draws the same outline as a button (2.3s)
+  ✓  77 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:257:5 › Z2 picker cohort — desktop 1440 › P22 — the dark scheme darkens the ambient ground (17.3s)
+  ✓  78 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:294:5 › Z2 picker cohort — mobile 390 › P1 · CI5 · CI13 · P16 · P20 — every action reachable; free-text entry; the readout band (7.1s)
+  ✓  79 [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:330:5 › Z2 picker cohort — mobile 390 › CSP16 — below 1024 the configurator stays in the DOM (1.5s)
+(node:42762) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[0478 light 1440] min 4.84 · h25: 4.84/4.91/5.23 ink oklch(0.113836 0.00624853 56.0356) · h145: 5.01/5.28/6.08 ink oklch(0.113836 0.00624853 56.0356) · h265: 4.89/5.00/5.36 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  80 [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:96:13 › B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (10.1s)
+[0478 light 390] min 5.38 · h25: 5.39/5.38/5.41 ink oklch(0.113836 0.00624853 56.0356) · h145: 6.29/6.46/6.66 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.50/5.45/5.51 ink oklch(0.113836 0.00624853 56.0356)
+  ✓  81 [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:96:13 › B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (6.6s)
+[0483/0487 light] 1440: dL -0.040/-0.038/-0.039 col 47.88 vs live 47.94 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.550179 vsAboveBelow -0.039/-0.039/-0.039 t 122000ms · 390: dL -0.047/-0.049/-0.050 col 41.19 vs live 41.19 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.555341 vsAboveBelow -0.039/-0.040/-0.040 t 2291ms
+  ✓  82 [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:131:9 › B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light (2.1m)
+[0478 dark 1440] min 6.71 · h25: 7.38/7.19/6.71 ink oklch(0.814639 0.00382185 41.8684) · h145: 7.81/7.71/6.88 ink oklch(0.830262 0.00382185 41.8684) · h265: 7.24/7.03/6.80 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  83 [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:96:13 › B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440 (8.8s)
+[0478 dark 390] min 6.08 · h25: 6.32/6.23/6.08 ink oklch(0.814639 0.00382185 41.8684) · h145: 6.39/6.25/6.17 ink oklch(0.830262 0.00382185 41.8684) · h265: 6.30/6.32/6.17 ink oklch(0.802087 0.00382185 41.8684)
+  ✓  84 [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:96:13 › B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390 (7.0s)
+[0483/0487 dark] 1440: dL 0.052/0.050/0.048 col 47.88 vs live 47.94 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.552319 vsAboveBelow 0.059/0.057/0.055 t 2528ms · 390: dL 0.037/0.035/0.032 col 41.19 vs live 41.19 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.551911 vsAboveBelow 0.049/0.047/0.044 t 1776ms
+  ✓  85 [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:131:9 › B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark (4.4s)
+[0504] swatch Δ 0/0/1
+  ✓  86 [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:204:5 › B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors (3.4s)
+SS8-0514 {"skel":{"h":[81.00851440429688,81.00851440429688,81.00851440429688],"gaps":[-0.231689453125,-0.231689453125]},"rows":{"h":[81.00851440429688,81.00851440429688,81.00851440429688],"gaps":[-0.231689453125,-0.231689453125]}}
+  ✓  87 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap (848ms)
+SS8-0514 {"skel":{"h":[78.974609375,78.974609375,78.974609375],"gaps":[1.803558349609375,1.803558349609375]},"rows":{"h":[78.974609375,78.974609375,78.974609375],"gaps":[1.803558349609375,1.803558349609375]}}
+  ✓  88 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:89:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height (742ms)
+SS8-0529 New tag name {"text":87.7,"box":332,"field":332.2,"coarse":true,"uiScale":"1.5"}
+SS8-0529 New tag category {"text":80.9,"box":194,"field":194.3,"coarse":true,"uiScale":"1.5"}
+  ✓  89 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:117:5 › coarse 390 › SS8-0529 · the Tags create placeholders fit their fields (766ms)
+  ✓  90 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:127:5 › coarse 390 › SS8-0513 · Audit Refresh is 44×44 coarse (17.2s)
+  ✓  91 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:133:5 › coarse 390 › SS8-0524 · Flagged Dismiss and delete are ≥ 44 px (Chromium arm) (19.2s)
+  ✓  92 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:145:5 › fine pointer pins › SS8-0509 · a ~6 KB target never widens its row past the track (320) (664ms)
+  ✓  93 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:164:5 › fine pointer pins › SS8-0510/0515 · no flex-1 spacer; the count + Refresh cluster ends the toolbar at 390 (638ms)
+  ✓  94 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:181:5 › fine pointer pins › SS8-0513 · Audit Refresh is 28×28 fine (688ms)
+  ✓  95 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:187:5 › fine pointer pins › SS8-0523 · the flag badge renders at --type-small (686ms)
+  ✓  96 [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:202:5 › fine pointer pins › SS8-0526 · no repeating admin poll; a query before the hash still routes (7.0s)
+
+
+  1) [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8297/#/browse", waiting until "load"[22m
+
+
+      39 |     });
+      40 |
+    > 41 |     await page.goto("/#/browse");
+         |                ^
+      42 |     const main = mainPane(page);
+      43 |     await expect(main).toBeVisible();
+      44 |     await main.getByRole("button", { name: "Palette menu" }).first().click();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-flag.spec.ts:41:16
+
+    Error Context: test-results/flows-palette-flag-flag-a--15b16-ettes-slug-flag-with-reason-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('menuitem', { name: /Report/ })[22m
+    [2m    - locator resolved to <div tabindex="-1" role="menuitem" data-slot="menu-item" data-reka-collection-item="" class="menu__item interactive-item glass-menu-row gap-2 cursor-pointer text-muted-foreground">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      79 |         const trigger = main.getByRole("button", { name: /Palette menu/ }).first();
+      80 |         await trigger.click();
+    > 81 |         await page.getByRole("menuitem", { name: /Report/ }).click();
+         |                                                              ^
+      82 |         const dialog = page.getByRole("dialog");
+      83 |         await expect(dialog).toBeVisible();
+      84 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-flag.spec.ts:81:62
+
+    Error Context: test-results/flows-palette-flag-SS8-030-a78f2-to-the-Palette-menu-trigger-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8297/#/", waiting until "load"[22m
+
+
+      36 |
+      37 | async function boot(page: Page, hash = "/"): Promise<void> {
+    > 38 |     await page.goto(`/#${hash}`, { waitUntil: "load", timeout: 240_000 });
+         |                ^
+      39 |     await page.waitForSelector(".glass-dock", { timeout: 60_000 });
+      40 |     await page.waitForLoadState("networkidle", { timeout: 15_000 }).catch(() => {});
+      41 |     await page.waitForTimeout(2000);
+        at boot (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:38:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:207:19
+
+    Error Context: test-results/oracles-o33-dock-actionbar-e66f8--the-light-band-seed-hue-0--smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8297/#/", waiting until "load"[22m
+
+
+      36 |
+      37 | async function boot(page: Page, hash = "/"): Promise<void> {
+    > 38 |     await page.goto(`/#${hash}`, { waitUntil: "load", timeout: 240_000 });
+         |                ^
+      39 |     await page.waitForSelector(".glass-dock", { timeout: 60_000 });
+      40 |     await page.waitForLoadState("networkidle", { timeout: 15_000 }).catch(() => {});
+      41 |     await page.waitForTimeout(2000);
+        at boot (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:38:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:207:19
+
+    Error Context: test-results/oracles-o33-dock-actionbar-3345d-the-light-band-seed-hue-60--smoke/error-context.md
+
+  5) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+
+    Error: ramp chip 0: head rim step 154 vs interior slope 0 (rim 194,91,135, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m154[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: test-results/ss8-b19-color-chips-R-13-·-e662b-s-the-endpoint-stops-light--smoke/error-context.md
+
+  6) [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes 
+
+    Error: Z-ColorPicker-14: the label→readout seam is under the φG ceiling
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m14.87[39m
+    Received:   [31m42.578125[39m
+
+      91 |         })));
+      92 |         expect(c.live, "Z-ColorPicker-11: the picker header is a polite region").toBe("polite");
+    > 93 |         expect.soft(c.seam, "Z-ColorPicker-14: the label→readout seam is under the φG ceiling").toBeLessThan(14.87);
+         |                                                                                                 ^
+      94 |         expect(c.ratio, "Z-ColorPicker-16: the paired readout/label ratio").toBeCloseTo(0.7862, 3);
+      95 |         const clock = await page.evaluate(() => {
+      96 |             const probe = document.createElement("div");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-z2-picker-cohort.spec.ts:93:97
+
+    Error Context: test-results/ss8-z2-picker-cohort-Z2-pi-2df40-ratio-clock-crown-keyframes-smoke/error-context.md
+
+  6 failed
+    [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason 
+    [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+    [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes 
+  90 passed (13.8m)
+exit 1

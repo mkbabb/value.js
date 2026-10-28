@@ -1,0 +1,42 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js/.worktrees/r2-base
+
+ ❯ demo/test/color-session/ink-referent-settle.test.ts (3 tests | 2 failed) 234ms
+   × OD19 repair 2 — the surface inks leave the drag clock > light: a drag re-walks no surface ink until the input settles; the live accent tracks every frame; the settled tokens equal a fresh mint 75ms
+     → expected "certifyIdentityInk" to be called +0 times, but got 2 times
+   × OD19 repair 2 — the surface inks leave the drag clock > dark: a drag re-walks no surface ink until the input settles; the live accent tracks every frame; the settled tokens equal a fresh mint 40ms
+     → expected "certifyIdentityInk" to be called +0 times, but got 4 times
+   ✓ OD19 repair 2 — the surface inks leave the drag clock > a referent move with no colour move (a scheme flip, the field arriving) publishes at once 118ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/color-session/ink-referent-settle.test.ts > OD19 repair 2 — the surface inks leave the drag clock > light: a drag re-walks no surface ink until the input settles; the live accent tracks every frame; the settled tokens equal a fresh mint
+AssertionError: expected "certifyIdentityInk" to be called +0 times, but got 2 times
+ ❯ demo/test/color-session/ink-referent-settle.test.ts:131:50
+    129|                 await nextTick();
+    130|                 // Mid-drag: no surface ink is re-walked and none chan…
+    131|                 for (const w of walks) expect(w).toHaveBeenCalledTimes…
+       |                                                  ^
+    132|                 expect(read(SURFACE_TOKENS)).toEqual(before);
+    133|                 // The live accent is the picked colour, certified on …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  demo/test/color-session/ink-referent-settle.test.ts > OD19 repair 2 — the surface inks leave the drag clock > dark: a drag re-walks no surface ink until the input settles; the live accent tracks every frame; the settled tokens equal a fresh mint
+AssertionError: expected "certifyIdentityInk" to be called +0 times, but got 4 times
+ ❯ demo/test/color-session/ink-referent-settle.test.ts:131:50
+    129|                 await nextTick();
+    130|                 // Mid-drag: no surface ink is re-walked and none chan…
+    131|                 for (const w of walks) expect(w).toHaveBeenCalledTimes…
+       |                                                  ^
+    132|                 expect(read(SURFACE_TOKENS)).toEqual(before);
+    133|                 // The live accent is the picked colour, certified on …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  00:40:02
+   Duration  644ms (transform 75ms, setup 32ms, collect 97ms, tests 234ms, environment 130ms, prepare 27ms)
+

@@ -1,0 +1,12 @@
+# R-9 witness Tue Oct 20 14:51:59 EDT 2026
+vite.config.ts:279-281 dev mode server.host: true
+COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node    79993 mkbabb   25u  IPv6 0x76cbcda1a8df8ba5      0t0  TCP *:9000 (LISTEN)
+LAN IP en0: 192.168.1.167
+Firewall is blocking all non-essential incoming connections. (State = 2)
+Firewall stealth mode is on
+* Connected to 192.168.1.167 (192.168.1.167) port 9000
+> GET / HTTP/1.1
+* Recv failure: Connection reset by peer
+* Closing connection
+loopback localhost:9000 -> 200 10.623304s

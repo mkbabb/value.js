@@ -1,0 +1,672 @@
+{
+ "trace": {
+  "vueModules": 78,
+  "userSortMenu": [],
+  "adminModules": []
+ },
+ "prod_light": {
+  "cards": 10,
+  "htmlDark": false,
+  "cardRefs": {
+   "keys": 10,
+   "cardsInDom": 10
+  },
+  "trigger": {
+   "w": 36,
+   "h": 36,
+   "radius": "18px",
+   "minHeight": "36px",
+   "aspect": 1,
+   "barH": 36,
+   "overhangTop": 0,
+   "overhangBottom": 0,
+   "contain": "none",
+   "classes": "button tap-squish focus-ring relative"
+  },
+  "metaSizes": {
+   "name": {
+    "fs": "20.352px",
+    "top": 297
+   },
+   "chip": null,
+   "more": null,
+   "voteButton": {
+    "fs": "18.176px",
+    "cls": false
+   },
+   "count": {
+    "fs": "16px",
+    "top": 340
+   },
+   "metaRow": {
+    "fs": "18.176px",
+    "top": 338
+   }
+  },
+  "u11": {
+   "geo": {
+    "c": [
+     {
+      "l": 145,
+      "t": 246.40625,
+      "r": 607,
+      "b": 373.328125
+     },
+     {
+      "l": 145,
+      "t": 385.328125,
+      "r": 607,
+      "b": 512.25
+     }
+    ],
+    "shadow": "none",
+    "gridContain": "content",
+    "gridCls": "palette-card-grid grid grid-cols-1 gap-3 min-h-[120px] transition-opacity duration-fast"
+   },
+   "leftMaxDelta": 9.2,
+   "gutterMaxDelta": 5.8,
+   "leftPx": [
+    [
+     215,
+     84,
+     181
+    ],
+    [
+     216,
+     85,
+     182
+    ],
+    [
+     215,
+     85,
+     182
+    ],
+    [
+     212,
+     82,
+     179
+    ],
+    [
+     210,
+     79,
+     176
+    ],
+    [
+     214,
+     84,
+     180
+    ],
+    [
+     217,
+     86,
+     183
+    ],
+    [
+     216,
+     86,
+     182
+    ],
+    [
+     215,
+     84,
+     181
+    ],
+    [
+     212,
+     82,
+     179
+    ],
+    [
+     213,
+     83,
+     179
+    ],
+    [
+     212,
+     82,
+     179
+    ]
+   ],
+   "gutterPx": [
+    [
+     216,
+     100,
+     159
+    ],
+    [
+     211,
+     96,
+     155
+    ],
+    [
+     215,
+     100,
+     159
+    ],
+    [
+     213,
+     99,
+     157
+    ],
+    [
+     211,
+     95,
+     155
+    ],
+    [
+     214,
+     99,
+     158
+    ],
+    [
+     214,
+     100,
+     158
+    ]
+   ],
+   "refPx": [
+    217,
+    89,
+    184
+   ]
+  },
+  "strips": [
+   {
+    "slug": null,
+    "name": "hey v2 (remix)",
+    "bands": [
+     "lab(12.23 2.53 0.5)"
+    ],
+    "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "hey v2 (remix)",
+    "bands": [
+     "lab(12.23 2.53 0.5)"
+    ],
+    "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "hey v2",
+    "bands": [
+     "lab(12.23 2.53 0.5)"
+    ],
+    "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "hey",
+    "bands": [
+     "lab(12.23 2.53 0.5)"
+    ],
+    "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Audit Test Palette",
+    "bands": [
+     "lab(12.23 2.53 0.5)",
+     "lab(47.83 68.32 38.44)",
+     "lab(92 88.8 20)"
+    ],
+    "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Lavender Dreams",
+    "bands": [
+     "rgb(204, 173, 235)",
+     "rgb(215, 156, 226)",
+     "rgb(230, 179, 221)",
+     "rgb(182, 174, 224)"
+    ],
+    "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Forest Canopy",
+    "bands": [
+     "rgb(38, 89, 38)",
+     "rgb(45, 134, 60)",
+     "rgb(98, 166, 63)",
+     "rgb(161, 203, 77)",
+     "rgb(50, 103, 77)",
+     "rgb(163, 133, 41)",
+     "rgb(115, 77, 38)"
+    ],
+    "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Neon Cyberpunk",
+    "bands": [
+     "rgb(255, 51, 255)",
+     "rgb(0, 255, 255)",
+     "rgb(140, 37, 244)",
+     "rgb(249, 31, 140)",
+     "rgb(255, 255, 0)"
+    ],
+    "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Ocean Depths",
+    "bands": [
+     "rgb(15, 107, 138)",
+     "rgb(29, 143, 201)",
+     "rgb(60, 140, 221)",
+     "rgb(87, 208, 219)",
+     "rgb(20, 184, 170)",
+     "rgb(13, 64, 165)"
+    ],
+    "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Sunset Blaze",
+    "bands": [
+     "rgb(238, 75, 43)",
+     "rgb(245, 138, 61)",
+     "rgb(251, 194, 81)",
+     "rgb(244, 233, 113)",
+     "rgb(223, 32, 64)"
+    ],
+    "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "stripSurface": false
+   }
+  ],
+  "r3": {
+   "fill": [
+    199,
+    95,
+    146
+   ],
+   "field": [
+    200,
+    96,
+    148
+   ],
+   "glyph": [
+    35,
+    33,
+    30
+   ],
+   "fillVsField": 1.014,
+   "glyphVsFill": 4.191,
+   "glyphVsField": 4.249
+  },
+  "forced": {
+   "bands": 34,
+   "stripDistinctBg": [
+    "rgb(255, 255, 255)"
+   ],
+   "stripForcedColorAdjust": "auto",
+   "bandForcedColorAdjust": "auto",
+   "watercolorCount": 6,
+   "watercolorFCA": [
+    "none"
+   ]
+  },
+  "print": {
+   "printColorAdjust": "exact",
+   "webkit": "exact"
+  },
+  "r9": {
+   "badge": false,
+   "label": "Filters"
+  },
+  "u7seq": {
+   "\"o\"": {
+    "cards": 3,
+    "plate": ""
+   },
+   "\"oc\"": {
+    "cards": 0,
+    "plate": ""
+   },
+   "\"oce\"": {
+    "cards": 0,
+    "plate": ""
+   },
+   "\"ocea\"": {
+    "cards": 0,
+    "plate": ""
+   },
+   "\"ocean\"": {
+    "cards": 1,
+    "plate": ""
+   },
+   "\" ocean\"": {
+    "cards": 0
+   }
+  }
+ },
+ "prod_light_log": [
+  "GET https://api.color.babb.dev/palettes?limit=50&sort=newest",
+  "GET https://api.color.babb.dev/palettes?limit=50&sort=newest",
+  "GET https://api.color.babb.dev/palettes?limit=50&sort=newest&q=oc",
+  "GET https://api.color.babb.dev/palettes?limit=50&sort=newest&q=oce",
+  "GET https://api.color.babb.dev/palettes?limit=50&sort=newest&q=ocea",
+  "GET https://api.color.babb.dev/palettes?limit=50&sort=newest&q=ocean",
+  "GET https://api.color.babb.dev/palettes?limit=50&sort=newest&q=ocean"
+ ],
+ "prod_dark": {
+  "cards": 10,
+  "htmlDark": true,
+  "cardRefs": {
+   "keys": 10,
+   "cardsInDom": 10
+  },
+  "trigger": {
+   "w": 36,
+   "h": 36,
+   "radius": "18px",
+   "minHeight": "36px",
+   "aspect": 1,
+   "barH": 36,
+   "overhangTop": 0,
+   "overhangBottom": 0,
+   "contain": "none",
+   "classes": "button tap-squish focus-ring relative"
+  },
+  "metaSizes": {
+   "name": {
+    "fs": "20.352px",
+    "top": 298
+   },
+   "chip": null,
+   "more": null,
+   "voteButton": {
+    "fs": "18.176px",
+    "cls": false
+   },
+   "count": {
+    "fs": "16px",
+    "top": 340
+   },
+   "metaRow": {
+    "fs": "18.176px",
+    "top": 338
+   }
+  },
+  "u11": {
+   "geo": {
+    "c": [
+     {
+      "l": 145,
+      "t": 246.796875,
+      "r": 607,
+      "b": 373.71875
+     },
+     {
+      "l": 145,
+      "t": 385.71875,
+      "r": 607,
+      "b": 512.640625
+     }
+    ],
+    "shadow": "none",
+    "gridContain": "content",
+    "gridCls": "palette-card-grid grid grid-cols-1 gap-3 min-h-[120px] transition-opacity duration-fast"
+   },
+   "leftMaxDelta": 27.8,
+   "gutterMaxDelta": 29.7,
+   "leftPx": [
+    [
+     83,
+     25,
+     53
+    ],
+    [
+     80,
+     22,
+     51
+    ],
+    [
+     79,
+     21,
+     49
+    ],
+    [
+     81,
+     23,
+     51
+    ],
+    [
+     82,
+     24,
+     52
+    ],
+    [
+     83,
+     25,
+     54
+    ],
+    [
+     82,
+     25,
+     54
+    ],
+    [
+     79,
+     22,
+     50
+    ],
+    [
+     79,
+     22,
+     51
+    ],
+    [
+     79,
+     22,
+     50
+    ],
+    [
+     83,
+     27,
+     55
+    ],
+    [
+     83,
+     27,
+     55
+    ]
+   ],
+   "gutterPx": [
+    [
+     97,
+     22,
+     48
+    ],
+    [
+     100,
+     25,
+     51
+    ],
+    [
+     98,
+     24,
+     50
+    ],
+    [
+     97,
+     21,
+     48
+    ],
+    [
+     99,
+     24,
+     51
+    ],
+    [
+     98,
+     24,
+     51
+    ],
+    [
+     97,
+     22,
+     48
+    ]
+   ],
+   "refPx": [
+    50,
+    0,
+    35
+   ]
+  },
+  "strips": [
+   {
+    "slug": null,
+    "name": "hey v2 (remix)",
+    "bands": [
+     "lab(12.23 2.53 0.5)"
+    ],
+    "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "hey v2 (remix)",
+    "bands": [
+     "lab(12.23 2.53 0.5)"
+    ],
+    "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "hey v2",
+    "bands": [
+     "lab(12.23 2.53 0.5)"
+    ],
+    "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "hey",
+    "bands": [
+     "lab(12.23 2.53 0.5)"
+    ],
+    "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Audit Test Palette",
+    "bands": [
+     "lab(12.23 2.53 0.5)",
+     "lab(47.83 68.32 38.44)",
+     "lab(92 88.8 20)"
+    ],
+    "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Lavender Dreams",
+    "bands": [
+     "rgb(204, 173, 235)",
+     "rgb(215, 156, 226)",
+     "rgb(230, 179, 221)",
+     "rgb(182, 174, 224)"
+    ],
+    "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Forest Canopy",
+    "bands": [
+     "rgb(38, 89, 38)",
+     "rgb(45, 134, 60)",
+     "rgb(98, 166, 63)",
+     "rgb(161, 203, 77)",
+     "rgb(50, 103, 77)",
+     "rgb(163, 133, 41)",
+     "rgb(115, 77, 38)"
+    ],
+    "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Neon Cyberpunk",
+    "bands": [
+     "rgb(255, 51, 255)",
+     "rgb(0, 255, 255)",
+     "rgb(140, 37, 244)",
+     "rgb(249, 31, 140)",
+     "rgb(255, 255, 0)"
+    ],
+    "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Ocean Depths",
+    "bands": [
+     "rgb(15, 107, 138)",
+     "rgb(29, 143, 201)",
+     "rgb(60, 140, 221)",
+     "rgb(87, 208, 219)",
+     "rgb(20, 184, 170)",
+     "rgb(13, 64, 165)"
+    ],
+    "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "stripSurface": false
+   },
+   {
+    "slug": null,
+    "name": "Sunset Blaze",
+    "bands": [
+     "rgb(238, 75, 43)",
+     "rgb(245, 138, 61)",
+     "rgb(251, 194, 81)",
+     "rgb(244, 233, 113)",
+     "rgb(223, 32, 64)"
+    ],
+    "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "stripSurface": false
+   }
+  ],
+  "r3": {
+   "fill": [
+    113,
+    41,
+    66
+   ],
+   "field": [
+    110,
+    38,
+    63
+   ],
+   "glyph": [
+    197,
+    194,
+    191
+   ],
+   "fillVsField": 1.043,
+   "glyphVsFill": 5.645,
+   "glyphVsField": 5.886
+  }
+ },
+ "prod_dark_log": [
+  "GET https://api.color.babb.dev/palettes?limit=50&sort=newest",
+  "GET https://api.color.babb.dev/colors/approved",
+  "GET https://api.color.babb.dev/colors/tags"
+ ]
+}

@@ -1,0 +1,4 @@
+e2e run1 rc=1
+e2e run2 rc=1
+vitest run1 rc=0
+vitest run2 rc=0

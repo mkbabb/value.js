@@ -1,0 +1,19 @@
+[18:42:06] start
+[19:01:13] r10 exit 0
+[19:04:15] k13 chromium exit 1
+[14:35:13] resume 2026-10-20 BASE=:9000
+[14:57:11] own-vite up (9119)
+[14:58:00] k13 chromium exit 0
+[14:59:50] canvas run1 exit 0
+[15:05:36] canvas run2 exit 0
+[15:06:34] result run1 exit 0
+[15:08:29] result run2 exit 0
+[15:09:01] mix spec exit 1
+[15:09:01] queue done
+[15:27:11] own-vite up (9119)
+[15:29:30] canvas run3 (seam contrast2) exit 0
+[15:30:28] result2 run exit 0
+[15:30:28] queue done
+[15:42:25] r7 ssr re-run (glass 6.0.0/7.0.0 npm tarballs) exit 0
+[15:42:36] r10 closure re-run exit 0
+[16:03:30] k13 webkit WITHDRAWN — exclusive-webkit lock not granted 15:31-16:03

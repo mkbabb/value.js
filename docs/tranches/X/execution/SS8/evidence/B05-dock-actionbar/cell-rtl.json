@@ -1,0 +1,20 @@
+{
+ "shipped": {
+  "htmlDir": "ltr",
+  "anyRtl": false
+ },
+ "arrow": [
+  {
+   "cls": "lucide lucide-paintbrush-icon lucide-paintbrush",
+   "x": 785.7,
+   "transform": "none",
+   "display": "block"
+  },
+  {
+   "cls": "lucide lucide-arrow-right-icon lucide-arrow-right",
+   "x": 713.2,
+   "transform": "none",
+   "display": "block"
+  }
+ ]
+}

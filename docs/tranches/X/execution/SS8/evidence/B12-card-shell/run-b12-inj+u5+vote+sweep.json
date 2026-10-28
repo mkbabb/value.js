@@ -1,0 +1,180 @@
+[
+ {
+  "cell": "MENU-U10 export SVG of a hostile palette (real API)",
+  "error": "Error: locator.waitFor: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': '[role=\"article\"][aria-label=\"Palette: SS8 Inj </title><script>alert(1)</script> & \"q\"\"]' is not a valid selector.\n    at query (<anonymous>:5334:41)\n    at <anonymous>:5344:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5121:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5331:17)\n    at Selector"
+ },
+ {
+  "cell": "MENU-U5 publish of a saved-from-remote copy (real API)",
+  "ms": 10277,
+  "browseItems": [
+   "Save",
+   "Remix",
+   "Export",
+   "Report"
+  ],
+  "saveFeedback": "SS8 B12 Owned Sunset 5 warm sunset 0 Saved!",
+  "tagged": {
+   "count": 1,
+   "panes": [
+    "palettes"
+   ]
+  },
+  "savedItems": [
+   "Publish",
+   "Rename",
+   "Export",
+   "Delete"
+  ],
+  "after": "SS8 B12 Owned Sunset 5 warm sunset Failed to publish: No response — the network or the service's TLS certificate failed.",
+  "live": [
+   "backend offline — saved locally",
+   "Palettes view",
+   "OKLCh73.0%,0.2,2.0degDaraksha",
+   "73.0%",
+   "0.2",
+   "2.0deg"
+  ],
+  "net": [],
+  "pageErrors": []
+ },
+ {
+  "cell": "META-U4 double-click vote (natural)",
+  "ms": 10328,
+  "before": "0 votes, click to vote",
+  "ui": {
+   "label": "0 votes, click to vote",
+   "filled": "lucide lucide-heart-icon lucide-heart w-3.5 h-3.5 transition-colors text-muted-foreground"
+  },
+  "server": {
+   "voted": false,
+   "voteCount": 0
+  },
+  "wire": [
+   {
+    "t": 7695,
+    "ev": "req"
+   },
+   {
+    "t": 7695,
+    "ev": "req"
+   }
+  ],
+  "pageErrors": []
+ },
+ {
+  "cell": "META-U4 double-click vote (first-delayed-900ms)",
+  "ms": 9294,
+  "before": "0 votes, click to vote",
+  "ui": {
+   "label": "0 votes, click to vote",
+   "filled": "lucide lucide-heart-icon lucide-heart w-3.5 h-3.5 transition-colors text-muted-foreground"
+  },
+  "server": {
+   "voted": false,
+   "voteCount": 0
+  },
+  "wire": [
+   {
+    "k": 1,
+    "t": 6680,
+    "ev": "server-replied",
+    "status": 429,
+    "body": "{\"type\":\"urn:contract:rate-limited\",\"title\":\"Rate limit exceeded\",\"status\":429,\"instance\":\"/palettes/ss8-b12-owned-sunset/vote\"}"
+   },
+   {
+    "k": 2,
+    "t": 6680,
+    "ev": "server-replied",
+    "status": 429,
+    "body": "{\"type\":\"urn:contract:rate-limited\",\"title\":\"Rate limit exceeded\",\"status\":429,\"instance\":\"/palettes/ss8-b12-owned-sunset/vote\"}"
+   },
+   {
+    "k": 2,
+    "t": 6680,
+    "ev": "delivered-to-page"
+   },
+   {
+    "k": 1,
+    "t": 7581,
+    "ev": "delivered-to-page"
+   },
+   {
+    "k": 3,
+    "t": 7707,
+    "ev": "server-replied",
+    "status": 429,
+    "body": "{\"type\":\"urn:contract:rate-limited\",\"title\":\"Rate limit exceeded\",\"status\":429,\"instance\":\"/palettes/ss8-b12-owned-sunset/vote\"}"
+   },
+   {
+    "k": 3,
+    "t": 7707,
+    "ev": "delivered-to-page"
+   },
+   {
+    "k": 4,
+    "t": 8591,
+    "ev": "server-replied",
+    "status": 429,
+    "body": "{\"type\":\"urn:contract:rate-limited\",\"title\":\"Rate limit exceeded\",\"status\":429,\"instance\":\"/palettes/ss8-b12-owned-sunset/vote\"}"
+   },
+   {
+    "k": 4,
+    "t": 8591,
+    "ev": "delivered-to-page"
+   }
+  ],
+  "pageErrors": []
+ },
+ {
+  "cell": "MENU-U9 typeahead-d + Space destruction sweep",
+  "ms": 15407,
+  "rows": [
+   {
+    "delay": 0,
+    "focusedAfterD": "Delete",
+    "deleteRequests": 0,
+    "dialog": [
+     "Delete palette? This will delete the palette SS8 B12 Owned Sunset for its owner and every "
+    ],
+    "cardStill": 1
+   },
+   {
+    "delay": 100,
+    "focusedAfterD": "Delete",
+    "deleteRequests": 0,
+    "dialog": [
+     "Delete palette? This will delete the palette SS8 B12 Owned Sunset for its owner and every "
+    ],
+    "cardStill": 1
+   },
+   {
+    "delay": 300,
+    "focusedAfterD": "Delete",
+    "deleteRequests": 0,
+    "dialog": [
+     "Delete palette? This will delete the palette SS8 B12 Owned Sunset for its owner and every "
+    ],
+    "cardStill": 1
+   },
+   {
+    "delay": 600,
+    "focusedAfterD": "Delete",
+    "deleteRequests": 0,
+    "dialog": [
+     "Delete palette? This will delete the palette SS8 B12 Owned Sunset for its owner and every "
+    ],
+    "cardStill": 1
+   },
+   {
+    "delay": 1000,
+    "focusedAfterD": "Delete",
+    "deleteRequests": 0,
+    "dialog": [
+     "Delete palette? This will delete the palette SS8 B12 Owned Sunset for its owner and every "
+    ],
+    "cardStill": 1
+   }
+  ],
+  "pageErrors": []
+ }
+]

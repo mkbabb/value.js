@@ -27,7 +27,14 @@
  * the genesis "muted blocks" read as BLOCKS against every neutral skeleton
  * ground (well ≈ resting plate). Low-chroma by construction (both `--well-bg`
  * and `--foreground` are near-neutral), so the muted-family character holds. */
+/* SS8-0408 (PCS U-1): glass-ui's `Skeleton` paints `--foreground` at
+ * `--ink-seam` and reads none of the `--skeleton-*` seams below, so the
+ * blocks were an 8 % step laid on the 8 % well and the atmosphere set the
+ * plate's contrast (dark measured 1.048:1). The register seats the producer's
+ * next ink rung, `--ink-edge`, on that live seam: one step toward the ink,
+ * twice the well's, so the block holds its floor over any atmosphere. */
 .skeleton-ink-register {
+    --ink-seam: var(--ink-edge);
     --skeleton-ink-pole: var(--foreground);
     --skeleton-ink: color-mix(in oklab, var(--well-bg), var(--skeleton-ink-pole) 15%);
     --skeleton-glass-bg: var(--skeleton-ink);
@@ -75,9 +82,12 @@
     flex-direction: column;
     gap: 0.625rem;
     padding: 0.75rem;
-    /* R.W4 Lane A / A1 — hairline law 4: the well's dashed edge reads the ONE
-     * `--card-edge` mint (in-house, scheme-stable), never a `--border` fork. */
-    border: 1.5px dashed var(--card-edge);
+    /* SS8-0713 (U-7): the dashed edge is the well's OPERABLE affordance (the
+     * extract drop zone's only boundary), so it clears the 3:1 graphics floor
+     * on the resting plate: the certified rung `--ink-muted` (boot-stamped at
+     * the text floor over that plate), never the 12 % `--card-edge` hairline,
+     * which painted 1.47 light / 1.71 dark. The dash stays in-house ink. */
+    border: 1.5px dashed var(--ink-muted);
     border-radius: var(--radius-card);
     /* T.W3-1 (D1 rung-2 WELL; supersedes the S-20 glass recipe — R8): an
      * in-plate fixture is an opaque TONE-STEP of its host plate, never a
@@ -159,6 +169,14 @@
  * kept (§0dm); only the lightness walks, to a bronze in light. */
 .gold-ink {
     color: var(--ink-gold);
+}
+/* X-DS pass 18 (V18C-01): a gold GLYPH reads the glyph rung
+ * (`--ink-gold-glyph`, the 3:1 graphics floor, rebound on the same grounds
+ * as the word's), so the shield and the crown keep the gold where the word
+ * beside them falls back to the plate's ink. */
+svg.gold-ink,
+.gold-ink svg {
+    color: var(--ink-gold-glyph);
 }
 
 /* Swatch-row list idiom (R.W4 Lane B / B1) — shared by the three swatch

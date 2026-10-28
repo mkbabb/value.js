@@ -240,35 +240,37 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     // route's pane, seated on every admin console, which is where four canon
     // rows and the route's only a11y-battery findings came from. The console is
     // the whole scene; it gets the stage and nothing beside it.
+    // X-DS pass 18 (V18C-03): each console's pane title says its view label,
+    // so the region is `titled` and the title is the route's one <h1>.
     "admin-users": {
         label: "Users",
-        regions: [{ role: "stage", pane: "admin-users", label: "Users" }],
+        regions: [{ role: "stage", pane: "admin-users", label: "Users", titled: true }],
         // UIA-V-493: Users is its own glyph, not the admin mode's Shield.
         icon: Users,
         accentHueShift: 0,
     },
     "admin-names": {
         label: "Names",
-        regions: [{ role: "stage", pane: "admin-names", label: "Names" }],
+        regions: [{ role: "stage", pane: "admin-names", label: "Names", titled: true }],
         // UIA-V-488 · V-493: Names and Tags were both `Tag`; Names is a type glyph.
         icon: Type,
         accentHueShift: 0,
     },
     "admin-audit": {
         label: "Audit log",
-        regions: [{ role: "stage", pane: "admin-audit", label: "Audit" }],
+        regions: [{ role: "stage", pane: "admin-audit", label: "Audit", titled: true }],
         icon: ScrollText,
         accentHueShift: 0,
     },
     "admin-flagged": {
         label: "Flagged",
-        regions: [{ role: "stage", pane: "admin-flagged", label: "Flagged" }],
+        regions: [{ role: "stage", pane: "admin-flagged", label: "Flagged", titled: true }],
         icon: Flag,
         accentHueShift: 0,
     },
     "admin-tags": {
         label: "Tags",
-        regions: [{ role: "stage", pane: "admin-tags", label: "Tags" }],
+        regions: [{ role: "stage", pane: "admin-tags", label: "Tags", titled: true }],
         icon: Tag,
         accentHueShift: 0,
     },
@@ -277,8 +279,8 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     // deep-link to. One region: a dead end shows one thing. No hue turn — it is
     // not a place in the 40°-step dock fan.
     "not-found": {
-        label: "Not Found",
-        regions: [{ role: "stage", pane: "not-found", label: "Not Found", titled: true }],
+        label: "Not found",
+        regions: [{ role: "stage", pane: "not-found", label: "Not found", titled: true }],
         icon: Compass,
         accentHueShift: 0,
     },

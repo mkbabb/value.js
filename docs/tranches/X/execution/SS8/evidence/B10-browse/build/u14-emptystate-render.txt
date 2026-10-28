@@ -1,0 +1,4 @@
+chunk: index-ewva9CsM.js
+render-root head: return t({focus:()=>i.value?.focus()}),(t,a)=>e.variant===`error`?(C(),J(`div`,{key:0,ref_key:`root`,ref:i,class:x([`flex flex-col items-center justify-center gap-2.5 text-center`,e.compact?`pb-8`:`py-8`]),role:`alert`},[n(r(oo),{class:`w-6 h-6 text-destructiv
+root branches (createElementBlock div with key): 3
+Fragment at root: False

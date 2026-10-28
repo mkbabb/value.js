@@ -1,9 +1,9 @@
 <template>
-    <!-- W5-a11y: color strip is a decorative visual, hidden from AT -->
     <div
         aria-hidden="true"
         role="presentation"
         data-color-strip
+        data-color-surface
         :data-orientation="orientation"
         :data-summary="summary || undefined"
         :class="[
@@ -14,6 +14,12 @@
         ]"
         :style="summary ? { backgroundImage: summaryGradient } : undefined"
     >
+        <!-- W5-a11y: color strip is a decorative visual, hidden from AT.
+             SS-8 B10 (SS8-0285): the strip IS colour content —
+             `data-color-surface` (foundation.css) keeps its bands' ink under
+             forced colours and prints them exact; the bands inherit
+             `forced-color-adjust: none`. (Inside the root: a leading template
+             comment makes a dev-mode fragment, the EmptyState lesson.) -->
         <!-- X.W7.c (G10 · fold S-10 / PCS-1 / PCS-23): each band's flex-basis
              is 0 and its grow factor is its weight, so the N bands always share
              exactly the strip — no percentage floor that sums past 100% and

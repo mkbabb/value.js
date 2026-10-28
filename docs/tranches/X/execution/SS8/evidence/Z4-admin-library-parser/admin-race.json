@@ -1,0 +1,55 @@
+{
+  "cell": "race",
+  "open": [
+    "cobalt-heron-9021"
+  ],
+  "rendered": [
+    "cobalt-heron-9021-p0",
+    "cobalt-heron-9021-p1"
+  ],
+  "afterRefresh": [
+    "cobalt-heron-9021-p0",
+    "cobalt-heron-9021-p1"
+  ],
+  "openAfter": [
+    "cobalt-heron-9021"
+  ],
+  "palReqs": [
+    "/admin/users/amber-otter-1733/palettes",
+    "/admin/users/cobalt-heron-9021/palettes",
+    "/admin/users/cobalt-heron-9021/palettes"
+  ],
+  "requests": [
+    {
+      "t": 1792531768829,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    },
+    {
+      "t": 1792531770498,
+      "m": "GET",
+      "p": "/admin/users/amber-otter-1733/palettes",
+      "body": null
+    },
+    {
+      "t": 1792531770850,
+      "m": "GET",
+      "p": "/admin/users/cobalt-heron-9021/palettes",
+      "body": null
+    },
+    {
+      "t": 1792531773380,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    },
+    {
+      "t": 1792531773392,
+      "m": "GET",
+      "p": "/admin/users/cobalt-heron-9021/palettes",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

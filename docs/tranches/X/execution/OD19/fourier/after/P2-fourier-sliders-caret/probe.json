@@ -1,0 +1,94 @@
+{
+ "light-1440": {
+  "F7": [
+   ".glass-slider 380x20 variant=scrubber border=0px opacity=1 bgImage=none tint=",
+   ".slider-track 380x20 variant=- border=0px opacity=1 bgImage=none tint=",
+   ".slider-range 27x20 variant=- border=0px opacity=1 bgImage=none tint=light-dark(oklch(0.579 0.201 3",
+   ".slider-thumb 0x20 variant=- border=0px opacity=0 bgImage=none tint="
+  ],
+  "F8": {
+   "caret": [
+    220,
+    808,
+    79,
+    21
+   ],
+   "thumbX": 259,
+   "thumbTop": 844,
+   "inDock": false,
+   "hitIsCaret": true,
+   "clippers": [
+    "glass-floating glass-overlay-plate glass ovf=hidden auto box=799..838"
+   ]
+  }
+ },
+ "light-390": {
+  "F7": [
+   ".glass-slider 314x20 variant=scrubber border=0px opacity=1 bgImage=none tint=",
+   ".slider-track 314x20 variant=- border=0px opacity=1 bgImage=none tint=",
+   ".slider-range 22x20 variant=- border=0px opacity=1 bgImage=none tint=light-dark(oklch(0.579 0.201 3",
+   ".slider-thumb 0x20 variant=- border=0px opacity=0 bgImage=none tint="
+  ],
+  "F8": {
+   "caret": [
+    68,
+    763,
+    67,
+    18
+   ],
+   "thumbX": 101,
+   "thumbTop": 796,
+   "inDock": false,
+   "hitIsCaret": true,
+   "clippers": [
+    "glass-floating glass-overlay-plate glass ovf=hidden auto box=754..790"
+   ]
+  }
+ },
+ "dark-1440": {
+  "F7": [
+   ".glass-slider 380x20 variant=scrubber border=0px opacity=1 bgImage=none tint=",
+   ".slider-track 380x20 variant=- border=0px opacity=1 bgImage=none tint=",
+   ".slider-range 73x20 variant=- border=0px opacity=1 bgImage=none tint=oklch(0.693 0.151 28.1)",
+   ".slider-thumb 0x20 variant=- border=0px opacity=0 bgImage=none tint="
+  ],
+  "F8": {
+   "caret": [
+    220,
+    808,
+    79,
+    21
+   ],
+   "thumbX": 259,
+   "thumbTop": 844,
+   "inDock": false,
+   "hitIsCaret": true,
+   "clippers": [
+    "glass-floating glass-overlay-plate glass ovf=hidden auto box=799..838"
+   ]
+  }
+ },
+ "dark-390": {
+  "F7": [
+   ".glass-slider 314x20 variant=scrubber border=0px opacity=1 bgImage=none tint=",
+   ".slider-track 314x20 variant=- border=0px opacity=1 bgImage=none tint=",
+   ".slider-range 60x20 variant=- border=0px opacity=1 bgImage=none tint=oklch(0.693 0.151 28.1)",
+   ".slider-thumb 0x20 variant=- border=0px opacity=0 bgImage=none tint="
+  ],
+  "F8": {
+   "caret": [
+    68,
+    763,
+    67,
+    18
+   ],
+   "thumbX": 101,
+   "thumbTop": 796,
+   "inDock": false,
+   "hitIsCaret": true,
+   "clippers": [
+    "glass-floating glass-overlay-plate glass ovf=hidden auto box=754..790"
+   ]
+  }
+ }
+}

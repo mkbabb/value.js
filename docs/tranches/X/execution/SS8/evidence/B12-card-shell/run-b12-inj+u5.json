@@ -1,0 +1,78 @@
+[
+ {
+  "cell": "MENU-U10 export SVG of hostile palette: SS8 InjName ",
+  "ms": 20634,
+  "rendered": {
+   "scripts": 0,
+   "name": "SS8 InjName </title><script>alert(1)</script> & \"q\""
+  },
+  "suggested": "ss8-b12-inj-name--r1.svg",
+  "file": "menu-u10-hostile-name.svg",
+  "bytes": 499,
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 2 1\" width=\"1200\" height=\"240\" role=\"img\" aria-labelledby=\"title desc\" shape-rendering=\"crispEdges\">\n  <title id=\"title\">SS8 InjName &lt;/title&gt;&lt;script&gt;alert(1)&lt;/script&gt; &amp; &quot;q&quot;</title>\n  <desc id=\"desc\">2-color palette</desc>\n  <rect x=\"0\" y=\"0\" width=\"1\" height=\"1\" fill=\"oklch(58.584% 0.222042 17.585 / 1.000000)\"/>\n  <rect x=\"1\" y=\"0\" width=\"1\" height=\"1\" fill=\"oklch(54.615% 0.215208 262.881 / 1.000000)\"/>\n</svg>\n",
+  "parsed": {
+   "scripts": 0,
+   "title": "SS8 InjName </title><script>alert(1)</script> & \"q\"",
+   "rects": 2
+  },
+  "dialogs": [],
+  "console": [],
+  "pageErrors": []
+ },
+ {
+  "cell": "MENU-U10 export SVG of hostile palette: SS8 Inj </ti",
+  "ms": 13302,
+  "rendered": {
+   "scripts": 0,
+   "name": "SS8 Inj </title><script>alert(1)</script> & \"q\""
+  },
+  "download": null,
+  "cardText": "SS8 Inj </title><script>alert(1)</script> & \"q\" 2 0 The color rgb(1 2 3 / )\"/><script>x</script> is not a CSS color.",
+  "console": [],
+  "dialogs": [],
+  "pageErrors": []
+ },
+ {
+  "cell": "MENU-U5 publish of a saved-from-remote copy (real API)",
+  "ms": 9915,
+  "B": "raw-humming-cinder-heron",
+  "browseItems": [
+   "Save",
+   "Remix",
+   "Export",
+   "Report"
+  ],
+  "saveFeedback": "SS8 B12 Owned Sunset 5 warm sunset 0 Saved!",
+  "tagged": {
+   "count": 1,
+   "panes": [
+    "palettes"
+   ]
+  },
+  "savedItems": [
+   "Publish",
+   "Rename",
+   "Export",
+   "Delete"
+  ],
+  "after": "SS8 B12 Owned Sunset 5 warm sunset Failed to publish: Duplicate entry",
+  "live": [
+   "Palettes view",
+   "OKLCh73.0%,0.2,2.0degDaraksha",
+   "73.0%",
+   "0.2",
+   "2.0deg",
+   "100.0%"
+  ],
+  "net": [
+   {
+    "m": "POST",
+    "path": "/palettes",
+    "status": 409,
+    "req": "{\"name\":\"SS8 B12 Owned Sunset\",\"slug\":\"ss8-b12-owned-sunset\",\"colors\":[{\"css\":\"#e11d48\",\"position\":0},{\"css\":\"#f59e0b\",\"position\":1},{\"css\":\"#16a34a\",\"position\":2},{\"css\":\"#2563eb\",\"position\":3},{\"css",
+    "body": "{\"type\":\"urn:contract:slug-conflict\",\"title\":\"Duplicate entry\",\"status\":409,\"instance\":\"/palettes\"}"
+   }
+  ],
+  "pageErrors": []
+ }
+]

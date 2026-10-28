@@ -25,9 +25,11 @@ export function listVersions(
     slug: string,
     limit = 20,
     offset = 0,
+    signal?: AbortSignal,
 ): Promise<PaginatedResponse<PaletteVersion>> {
     return request(
         `/palettes/${encodeURIComponent(slug)}/versions?limit=${limit}&offset=${offset}`,
+        { signal: signal ?? null },
     );
 }
 

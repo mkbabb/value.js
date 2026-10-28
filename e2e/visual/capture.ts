@@ -557,44 +557,48 @@ export async function ensureOffLayoutTie(
 }
 
 /**
- * Show a specific pane at mobile widths.
+ * Prove the frame holds every region the census names for this route.
  *
- * At 390 the shell renders ONE pane; `VIEW_MAP[view].defaultPaneIndex` picks
- * which one a fresh route-driven arrival shows. The sibling pane — About, Mix,
- * Blob, Palettes — is reached by the pane segmented control. Without this the
- * matrix cannot witness About at all, which is R34's `Katex R6` limb: *"About is
- * a PANE (`viewSchema.ts:107`), structurally unreachable by a route matrix."*
+ * The shell mounts a scene's ordered `regions[]` at every width — side by side
+ * where two `--pane-min` tracks fit, stacked into one scrolling column where
+ * they do not (`App.vue`'s single `v-for`; `shell.css` `.pane-container`). Each
+ * region is a `.pane-container > .pane-wrapper[data-pane="<PaneId>"]`, and the
+ * shutter is full-page, so one frame witnesses the whole scene. About (R34's
+ * `Katex R6` limb, *"About is a PANE, structurally unreachable by a route
+ * matrix"*) is therefore photographed in `picker`'s own frame.
  *
- * Returns `false` when the control is absent (a single-pane view), so a caller
- * never silently photographs the default pane under the other pane's name.
+ * Returns `false` unless EXACTLY the census's regions are mounted, in order, each
+ * with a laid-out box — so a scene that stopped mounting a region, or mounts one
+ * the census does not name, fails by name and is never photographed as if it
+ * were whole (the sameness trap: "a visual audit that captures the same pane N
+ * times is worse than no audit: it reads green").
  *
- * SELECTOR, measured not assumed: glass-ui's `SegmentedTabs` renders
- * `div[role="group"] > button.segmented-tab[aria-pressed]` — NOT `role="tab"`.
- * `page.getByRole("tab")` on this app resolves to the picker's channel rail
- * (`.channel-rail-item`, the L/a/b/α buttons), so a role-based pane switch would
- * have clicked a colour channel and photographed the default pane anyway.
- * Verified live at 390 at authoring:
- *   `.pane-segmented-control` → role=group, children
- *   `button.segmented-tab` "Picker"(aria-pressed=true) / "About"(false).
+ * Re-planned at X.W11.h14 (2026-10-20, COHESION §0gd.1 E14). The predecessor
+ * clicked `.pane-segmented-control button.segmented-tab`, the 390 pane switch
+ * X.W5.c deleted (`50633f195`, `PaneSegmentedControl.vue`); every dual scene's
+ * sibling cell then read "unreachable" (DISPOSITION §5a, 28 cells).
  */
 export async function showPane(
     page: Page,
     route: CensusRoute,
-    pane: 0 | 1,
+    _pane: 0 | 1,
 ): Promise<boolean> {
-    if (pane === route.defaultPaneIndex) return true;
-    if (route.right === null) return false;
-    const tabs = page.locator(".pane-segmented-control button.segmented-tab");
-    if ((await tabs.count()) < 2) return false;
-    await tabs.nth(pane).click();
-    await tabs.nth(pane).waitFor({ state: "visible" });
-    // The pane swap is a transition; wait on the product's own signal, not a
-    // guessed duration — same reason as `gotoRoute`. The sibling pane is a
-    // `defineAsyncComponent` too, so its chunk gets the same second
-    // `networkidle` the route path gets, for the same measured reason.
-    await page.waitForLoadState("networkidle");
-    await requireQuiescence(page, `pane ${pane} of ${route.id}`);
-    return true;
+    const declared = route.right === null ? [route.left] : [route.left, route.right];
+    const regions = page.locator(".pane-container > .pane-wrapper[data-pane]");
+    await regions.first().waitFor({ state: "visible" });
+    const mounted = await regions.evaluateAll((els) =>
+        els.map((el) => {
+            const box = el.getBoundingClientRect();
+            return {
+                pane: el.getAttribute("data-pane"),
+                laidOut: box.width > 0 && box.height > 0,
+            };
+        }),
+    );
+    return (
+        mounted.length === declared.length &&
+        mounted.every((m, i) => m.pane === declared[i] && m.laidOut)
+    );
 }
 
 /**

@@ -1,0 +1,41 @@
+## 14:55:08 eb.mjs eb-contrast try 1
+eb-contrast light {"regions":["color-picker","palettes"],"stmt":{"raw":[28,25,23,1],"rect":[814.71875,375.9375,340.5625,27.984375],"ink":"oklch(0.216129 0.00624853 56.0356)","eff":[28,25,23,1],"ground":[156,94,176,1],"cr":3.865,"stack":["glass-resting card paper-grain-overlay w-full h-fu=50,35,21,0.14","relative=173,104,201,1"],"notes":["relative:bgimg"]},"glyph":{"raw":[96,0,4,1],"rect":[973,341.9375,24,24],"ink":"oklch(0.307178 0.125362 27.4847)","eff":[96,0,4,1],"ground":[156,94,176,1],"cr":3.096,"stack":["glass-resting card paper-grain-overlay w-full h-fu=50,35,21,0.14","relative=173,104,201,1"],"notes":["relative:bgimg"]},"detail":{"raw":[46,43,43,1],"rect":[768.515625,413.921875,432.953125,22.96875],"ink":"oklch(0.292283 0.00386159 34.63)","eff":[46,43,43,1],"ground":[156,94,176,1],"cr":3.101,"stack":["glass-resting card paper-grain-overlay w-full h-fu=50,35,21,0.14","relative=173,104,201,1"],"notes":["relative:bgimg"]},"detailText":"SS8 probe: induced render throw in palettes","hit":{"stmt":"self","glyph":"self","detail":"self"},"plateViewportPct":25.8,"inkViewportPct":1.55,"role":"alert","live":"assertive","statementPixels":{"inkPx":9180,"totalPx":9180,"minLuma":24}}
+eb-contrast dark {"regions":["color-picker","palettes"],"stmt":{"raw":[233,230,226,1],"rect":[814.71875,375.9375,340.5625,27.984375],"ink":"oklch(0.925202 0.00618423 67.7483)","eff":[233,230,226,1],"ground":[33,2,26,1],"cr":15.512,"stack":["glass-resting card paper-grain-overlay w-full h-fu=22,11,0,0.18","relative=36,0,32,1"],"notes":["relative:bgimg"]},"glyph":{"raw":[255,121,108,1],"rect":[973,341.9375,24,24],"ink":"oklch(0.730581 0.165869 27.5)","eff":[255,121,108,1],"ground":[33,2,26,1],"cr":7.538,"stack":["glass-resting card paper-grain-overlay w-full h-fu=22,11,0,0.18","relative=36,0,32,1"],"notes":["relative:bgimg"]},"detail":{"raw":[164,162,160,1],"rect":[768.515625,413.921875,432.953125,22.96875],"ink":"oklch(0.712763 0.00382185 41.8684)","eff":[164,162,160,1],"ground":[33,2,26,1],"cr":7.585,"stack":["glass-resting card paper-grain-overlay w-full h-fu=22,11,0,0.18","relative=36,0,32,1"],"notes":["relative:bgimg"]},"detailText":"SS8 probe: induced render throw in palettes","hit":{"stmt":"self","glyph":"self","detail":"self"},"plateViewportPct":25.8,"inkViewportPct":1.55,"role":"alert","live":"assertive","statementPixels":{"inkPx":9180,"totalPx":9180,"minLuma":50}}
+## 14:57:39 eb.mjs eb-focus try 1
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.evaluate: Timeout 60000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-pane="picker"] input[type="text"], [data-pane="picker"] input:not([type]), [data-pane="picker"] [contenteditable="true"]').first()[22m
+
+    at /Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B08/eb.mjs:66:37 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0
+## cell eb-focus exit 1
+## 15:00:45 eb.mjs eb-focus try 2
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.goto: Timeout 120000ms exceeded.
+Call log:
+[2m  - navigating to "http://localhost:9000/#/palettes", waiting until "load"[22m
+
+    at boot (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B08/eb.mjs:30:14)
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B08/eb.mjs:62:33 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0
+## cell eb-focus exit 1
+## 15:04:10 eb.mjs eb-census try 1
+eb-census {"regions":["color-picker","palettes"],"elementsUnderApp":307,"guardedInRegions":140,"pct":45.6,"boundaryCarriers":2,"appLayoutChildren":["canvas.atmosphere-canvas","nav.dock-band","main.pane-main"],"appTopLevel":["div.app-layout"],"bodyChildren":["div","div#app","div","div","div","div"]}
+## 15:07:11 eb.mjs eb-webgl try 1
+eb-webgl {"regions":["color-picker","blob"],"cycledKey":"blob","before":{"made":2,"lost":1,"live":1,"canvases":2},"after12":{"made":2,"lost":1,"live":1,"canvases":2,"connectedCanvasesWithCtx":1},"glConsole":["warning: [.WebGL-0x11c00592600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels","warning: [.WebGL-0x11c00592600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this"]}
+## 15:10:39 eb.mjs eb-alerts try 1
+[guarded] waiting for headroom (load 171 > 36)
+## 18:4x stopped by seat: guard held eb-alerts at 'waiting for headroom' 15:10→18:42 (load 95–195); eb-alerts, eb-chunk and the re-run eb-focus never launched

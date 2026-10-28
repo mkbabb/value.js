@@ -1,0 +1,87 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "webkit",
+ "at": "2026-10-20T23:02:53.923Z",
+ "out": {
+  "coarse": {
+   "cell": "coarse",
+   "mid": 50,
+   "selected": "true",
+   "geo": {
+    "hit": [
+     180,
+     294.8,
+     30,
+     30
+    ],
+    "before": {
+     "w": "44px",
+     "h": "44px",
+     "inset": "12px -32px -32px 12px"
+    },
+    "after": {
+     "w": "auto",
+     "h": "auto",
+     "inset": "auto"
+    },
+    "seatBottom": 421.6,
+    "nextTop": null,
+    "over": []
+   },
+   "taps": {
+    "14": {
+     "at": [
+      195,
+      323.77
+     ],
+     "count": [
+      3,
+      3
+     ],
+     "target": "BUTTON.rail-handle|Gradient stop 2 of 3",
+     "movedTo": 50
+    },
+    "20": {
+     "at": [
+      195,
+      124.77
+     ],
+     "count": [
+      3,
+      3
+     ],
+     "target": "BUTTON.rail-handle|Gradient stop 2 of 3",
+     "movedTo": 50
+    },
+    "26": {
+     "at": [
+      195,
+      130.76999999999998
+     ],
+     "count": [
+      3,
+      3
+     ],
+     "target": "BUTTON.rail-handle|Gradient stop 2 of 3",
+     "movedTo": 50
+    },
+    "34": {
+     "at": [
+      195,
+      138.76999999999998
+     ],
+     "count": [
+      3,
+      3
+     ],
+     "target": "DIV.stop-inspector|",
+     "movedTo": 50
+    }
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 8390
+  }
+ }
+}

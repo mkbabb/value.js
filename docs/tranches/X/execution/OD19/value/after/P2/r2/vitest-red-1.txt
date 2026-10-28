@@ -1,0 +1,31 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ❯ demo/test/color-session/colour-frame-cost.test.ts (5 tests | 1 failed) 1363ms
+   ✓ OD19-V3 — scheme-constant tokens are read once per scheme > a run of colour frames reads --color-gold from the cascade once, and again only on a scheme flip 38ms
+   ✓ OD19-V3 — the Palettes ramps leave the drag clock > a drag writes --accent-view every frame but mints no ramp until the input settles; the settled ramp is byte-equal to a direct mint  1242ms
+   ✓ OD19-V3 — the Palettes ramps leave the drag clock > a view change re-mints the ramps at once (no settle wait) 37ms
+   ✓ OD19-V3 — the Palettes ramps leave the drag clock > a scheme flip re-mints the ramps at once against the new scheme's surface 33ms
+   × OD19-V3 — one colour frame certifies each question once > the boot accent, the Nutrition label and two floating menus cost one walk per rung per frame, with unchanged answers 12ms
+     → expected "certifyAccentInk" to be called 2 times, but got 4 times
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/color-session/colour-frame-cost.test.ts > OD19-V3 — one colour frame certifies each question once > the boot accent, the Nutrition label and two floating menus cost one walk per rung per frame, with unchanged answers
+AssertionError: expected "certifyAccentInk" to be called 2 times, but got 4 times
+ ❯ demo/test/color-session/colour-frame-cost.test.ts:179:26
+    177|             const got = reads.map((r) => r.value);
+    178|             // Two rungs (resting, floating): two walks, not four.
+    179|             expect(walk).toHaveBeenCalledTimes(2);
+       |                          ^
+    180|             const restingL = resolveSurfaceLightnessLive("resting", am…
+    181|             const floatingL = resolveSurfaceLightnessLive("floating", …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  14:34:34
+   Duration  2.88s (transform 116ms, setup 102ms, collect 186ms, tests 1.36s, environment 708ms, prepare 125ms)
+

@@ -70,9 +70,12 @@ export async function toggleVote(
     }
 
     // The upsert matched an existing vote (a concurrent insert won the race);
-    // no `$inc` fires. Re-read the current count — `voted` is true because a
-    // vote row now exists for this user+palette.
-    const current = await services.repositories.palettes.findBySlug(slug);
-    if (!current) throw new NotFoundError("Palette disappeared during vote");
-    return { voted: true, voteCount: current.voteCount };
+    // no `$inc` fires. `voted` is true because a vote row now exists for this
+    // user+palette. SS8-0366: the count is read from the vote rows, not the
+    // denormalized counter — the winner's `$inc` may not have landed yet, and
+    // the counter would answer `{voted: true, voteCount: 0}`.
+    return {
+        voted: true,
+        voteCount: await services.repositories.votes.countForPalette(slug),
+    };
 }

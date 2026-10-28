@@ -1,0 +1,342 @@
+{
+  "root": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/z4-head",
+  "totality": {
+    "parseCssColor": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'charCodeAt')",
+        "TypeError: Cannot read properties of null (reading 'charCodeAt')",
+        "TypeError: e.charCodeAt is not a function"
+      ]
+    },
+    "parseCssScalar": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'charCodeAt')",
+        "TypeError: Cannot read properties of null (reading 'charCodeAt')",
+        "TypeError: e.charCodeAt is not a function"
+      ]
+    },
+    "parseCssValue": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'charCodeAt')",
+        "TypeError: Cannot read properties of null (reading 'charCodeAt')",
+        "TypeError: e.charCodeAt is not a function"
+      ]
+    },
+    "parseCssValues": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'charCodeAt')",
+        "TypeError: Cannot read properties of null (reading 'charCodeAt')",
+        "TypeError: e.charCodeAt is not a function"
+      ]
+    },
+    "parseKeyframeSelector": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'charCodeAt')",
+        "TypeError: Cannot read properties of null (reading 'charCodeAt')",
+        "TypeError: e.charCodeAt is not a function"
+      ]
+    },
+    "parseStylesheet": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'charCodeAt')",
+        "TypeError: Cannot read properties of null (reading 'charCodeAt')",
+        "TypeError: e.charCodeAt is not a function"
+      ]
+    },
+    "parseTimingFunction": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'charCodeAt')",
+        "TypeError: Cannot read properties of null (reading 'charCodeAt')",
+        "TypeError: e.charCodeAt is not a function"
+      ]
+    },
+    "parseAnimationTimeline": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'trim')",
+        "TypeError: Cannot read properties of null (reading 'trim')",
+        "TypeError: e.trim is not a function"
+      ]
+    },
+    "parseAnimationRange": {
+      "corpus": 172,
+      "throws": 0,
+      "nonStringThrows": "7/7",
+      "modes": [
+        "TypeError: Cannot read properties of undefined (reading 'trim')",
+        "TypeError: Cannot read properties of null (reading 'trim')",
+        "TypeError: e.trim is not a function"
+      ]
+    }
+  },
+  "table": {
+    "rgba(1, 2, 3, 0.5)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'rgb', channels: [ 1, 2, 3 ], alpha: 0.5 }"
+    },
+    "hsla(120, 50%, 50%, 0.5)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ 120, 0.5, 0.5 ], alpha: 0.5 }"
+    },
+    "rgb(1,2,3,)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 11, expected: [ 'color' ], actual: 'rgb(1,2,3,)' } ]\n}"
+    },
+    "rgb(1 2 3 / )": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 13, expected: [ 'color' ], actual: 'rgb(1 2 3 / )' } ]\n}"
+    },
+    "rgb(1, 2 3)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 11, expected: [ 'color' ], actual: 'rgb(1, 2 3)' } ]\n}"
+    },
+    "hsl(120%, 50%, 50%)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 19, expected: [ 'color' ], actual: 'hsl(120%, 50%, 50%)' } ]\n}"
+    },
+    "lch(50% 50% 50%)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 16, expected: [ 'color' ], actual: 'lch(50% 50% 50%)' } ]\n}"
+    },
+    "rgb(300 -20 3)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'rgb', channels: [ 255, 0, 3 ], alpha: 1 }"
+    },
+    "rgb(1 2 3 / 1.5)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'rgb', channels: [ 1, 2, 3 ], alpha: 1 }"
+    },
+    "hsl(120 50 50)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ 120, 0.5, 0.5 ], alpha: 1 }"
+    },
+    "hsl(120 50% 50%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ 120, 0.5, 0.5 ], alpha: 1 }"
+    },
+    "rgb(1. 2 3)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 11, expected: [ 'color' ], actual: 'rgb(1. 2 3)' } ]\n}"
+    },
+    "hwb(120, 30%, 40%)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 18, expected: [ 'color' ], actual: 'hwb(120, 30%, 40%)' } ]\n}"
+    },
+    "currentcolor": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'color_context_required', start: 0, end: 12, expected: [ 'context-free color' ], actual: 'currentcolor' } ]\n}"
+    },
+    "lab(50 1e400 0)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 15, expected: [ 'color_non_finite' ], actual: 'lab(50 1e400 0)' } ]\n}"
+    },
+    "hsl(480 50% 50%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ 480, 0.5, 0.5 ], alpha: 1 }"
+    },
+    "hsl(-120 50% 50%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ -120, 0.5, 0.5 ], alpha: 1 }"
+    },
+    "oklch()": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 7, expected: [ 'color' ], actual: 'oklch()' } ]\n}"
+    },
+    "color(xyz-d50 0.2 0.3 0.4)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'xyz', channels: [ 0.20946884509321387, 0.30574125403438535, 0.5284568786800763 ], alpha: 1 }"
+    },
+    "rgb(50%20%30%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'rgb', channels: [ 127.5, 51, 76.5 ], alpha: 1 }"
+    },
+    "rgb(1.5.5 3)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'rgb', channels: [ 1.5, 0.5, 3 ], alpha: 1 }"
+    },
+    "hsl(120 50%50%)": {
+      "threw": false,
+      "ok": true,
+      "value": "{ space: 'hsl', channels: [ 120, 0.5, 0.5 ], alpha: 1 }"
+    },
+    "color(constructor 0 0 0)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 24, expected: [ 'color' ], actual: 'color(constructor 0 0 0)' } ]\n}"
+    },
+    "color(__proto__ 0 0 0)": {
+      "threw": false,
+      "ok": false,
+      "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 22, expected: [ 'color' ], actual: 'color(__proto__ 0 0 0)' } ]\n}"
+    }
+  },
+  "proto": {
+    "parseCssColor": {
+      "constructor": {
+        "threw": false,
+        "ok": false,
+        "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 11, expected: [ '<named-color>' ], actual: 'constructor' } ]\n}"
+      },
+      "__proto__": {
+        "threw": false,
+        "ok": false,
+        "error": "{\n  ok: false,\n  diagnostics: [ { code: 'css_syntax', start: 0, end: 9, expected: [ 'color' ], actual: '__proto__' } ]\n}"
+      }
+    },
+    "parseStylesheet": {
+      "threw": false,
+      "ok": true,
+      "value": "[\n  {\n    kind: 'style',\n    selectors: [ 'a' ],\n    declarations: [\n      { name: 'color', value: { kind: 'scalar', payload: { type: 'keyword', value: 'constructor' } }, important: false }\n    ]\n  }\n]"
+    },
+    "parseTimingFunction": {
+      "threw": false,
+      "ok": false,
+      "positionType": "undefined",
+      "value": "undefined"
+    },
+    "easing": {
+      "constructor": {
+        "threw": false,
+        "ok": false,
+        "error": "{ code: 'easing_name_unknown' }"
+      },
+      "__proto__": {
+        "threw": false,
+        "ok": false,
+        "error": "{ code: 'easing_name_unknown' }"
+      },
+      "toString": {
+        "threw": false,
+        "ok": false,
+        "error": "{ code: 'easing_name_unknown' }"
+      },
+      "hasOwnProperty": {
+        "threw": false,
+        "ok": false,
+        "error": "{ code: 'easing_name_unknown' }"
+      },
+      "valueOf": {
+        "threw": false,
+        "ok": false,
+        "error": "{ code: 'easing_name_unknown' }"
+      }
+    },
+    "easingControl": {
+      "ease": {
+        "threw": false,
+        "ok": true,
+        "value": "[Function (anonymous)]"
+      },
+      "unknown": {
+        "threw": false,
+        "ok": false,
+        "error": "{ code: 'easing_name_unknown' }"
+      }
+    }
+  },
+  "easingReferenceStable": {
+    "ease": {
+      "sameReference": true,
+      "type": "function"
+    },
+    "ease-in": {
+      "sameReference": true,
+      "type": "function"
+    },
+    "ease-out": {
+      "sameReference": true,
+      "type": "function"
+    },
+    "ease-in-out": {
+      "sameReference": true,
+      "type": "function"
+    }
+  },
+  "exportsList": {
+    "css": [
+      "coerceToSyntax",
+      "collectAnimationOptions",
+      "collectCustomFunctions",
+      "collectDeclarations",
+      "collectKeyframes",
+      "collectPropertyDescriptors",
+      "collectStyleRules",
+      "collectTimelineOptions",
+      "parseAnimationRange",
+      "parseAnimationTimeline",
+      "parseCssColor",
+      "parseCssScalar",
+      "parseCssValue",
+      "parseCssValues",
+      "parseKeyframeSelector",
+      "parseStylesheet",
+      "parseTimingFunction",
+      "serializeCssColor",
+      "serializeCssValue",
+      "serializeTimelineOptions"
+    ],
+    "easing": [
+      "CubicBezier",
+      "bezierPresets",
+      "easeInBounce",
+      "easeInOutCirc",
+      "easeInOutCubic",
+      "easeInOutExpo",
+      "easeInOutQuad",
+      "easeInOutSine",
+      "easeOutCubic",
+      "easeOutExpo",
+      "easing",
+      "easingNames",
+      "jumpTerms",
+      "linear",
+      "linearEasing",
+      "smoothStep3",
+      "steppedEase"
+    ]
+  }
+}

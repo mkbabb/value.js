@@ -1,0 +1,191 @@
+{
+ "app": "http://localhost:9227/",
+ "at": "2026-10-20T22:34:29.081Z",
+ "x5-phone-eyedropper-add": {
+  "addVisible": false,
+  "before": {
+   "hash": "#/extract",
+   "h1": "Extract",
+   "savedColors": null,
+   "lsKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pulse": 0,
+   "live": [
+    "Extract view",
+    "ExtractPull palettes from any image.",
+    "Image loaded: ss8-b26.png",
+    "My PalettesSave, organize, and share your colors.",
+    "No saved palettes yet.Add colors, then save."
+   ],
+   "visiblePanes": [
+    "Extract"
+   ],
+   "dialogOpen": true
+  },
+  "at250": {
+   "hash": "#/extract",
+   "h1": "Extract",
+   "savedColors": null,
+   "lsKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pulse": 0,
+   "live": [
+    "Extract view",
+    "ExtractPull palettes from any image.",
+    "Image loaded: ss8-b26.png",
+    "My PalettesSave, organize, and share your colors.",
+    "No saved palettes yet.Add colors, then save."
+   ],
+   "visiblePanes": [
+    "Extract"
+   ],
+   "dialogOpen": true
+  },
+  "after": {
+   "hash": "#/extract",
+   "h1": "Extract",
+   "savedColors": null,
+   "lsKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pulse": 0,
+   "live": [
+    "Extract view",
+    "ExtractPull palettes from any image.",
+    "Image loaded: ss8-b26.png",
+    "My PalettesSave, organize, and share your colors.",
+    "No saved palettes yet.Add colors, then save."
+   ],
+   "visiblePanes": [
+    "Extract"
+   ],
+   "dialogOpen": true,
+   "mutations": 25
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 12270
+ },
+ "rtl-image": {
+  "ltr": {
+   "dir": "ltr",
+   "grads": [
+    {
+     "cls": "absolute inset-x-0 top-1/2 -translate-y-1/2 h-6 rounded-full",
+     "bg": "linear-gradient(to right, oklch(0.899898 0.122309 109.806) 0%, oklch(0.899898 0.122309 109",
+     "dir": "ltr"
+    },
+    {
+     "cls": "palettes-ramp-text",
+     "bg": "linear-gradient(90deg in oklch, oklch(0.401988 0.224706 292), oklch(0.394391 0.169838 342)",
+     "dir": "ltr"
+    }
+   ],
+   "swatchXs": [
+    73,
+    137,
+    201,
+    265,
+    329
+   ],
+   "slider": {
+    "x": 60,
+    "w": 786
+   },
+   "range": {
+    "x": 60,
+    "w": 210
+   },
+   "label": {
+    "text": "Colors",
+    "x": 60,
+    "w": 44
+   }
+  },
+  "rtl": {
+   "dir": "rtl",
+   "grads": [
+    {
+     "cls": "absolute inset-x-0 top-1/2 -translate-y-1/2 h-6 rounded-full",
+     "bg": "linear-gradient(to right, oklch(0.899898 0.122309 109.806) 0%, oklch(0.899898 0.122309 109",
+     "dir": "rtl"
+    },
+    {
+     "cls": "palettes-ramp-text",
+     "bg": "linear-gradient(90deg in oklch, oklch(0.401988 0.224706 292), oklch(0.394391 0.169838 342)",
+     "dir": "rtl"
+    }
+   ],
+   "swatchXs": [
+    1311,
+    1247,
+    1183,
+    1119,
+    1055
+   ],
+   "slider": {
+    "x": 594,
+    "w": 786
+   },
+   "range": {
+    "x": 594,
+    "w": 210
+   },
+   "label": {
+    "text": "Colors",
+    "x": 1336,
+    "w": 44
+   }
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 8863
+ },
+ "d8-dark-plate": {
+  "plate": {
+   "x": 60,
+   "y": 781.25,
+   "w": 786.34375,
+   "h": 133.53125
+  },
+  "pane": {
+   "x": 36,
+   "y": 88,
+   "w": 834.34375,
+   "h": 842.78125
+  },
+  "plateMean": {
+   "r": 130.8465929575772,
+   "g": 39.68507390938589,
+   "b": 60.91365220526379,
+   "n": 16642,
+   "nonBlank": 16642
+  },
+  "plateC": 0.1251,
+  "ambient": {
+   "r": 217.6214,
+   "g": 189.0376,
+   "b": 128.569,
+   "n": 10000,
+   "nonBlank": 10000
+  },
+  "ambientC": 0.0847,
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 8462
+ }
+}

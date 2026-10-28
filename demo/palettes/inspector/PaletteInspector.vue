@@ -1,21 +1,4 @@
 <template>
-    <!-- X.W7.d2 (COHESION §0bk.1 · W7.md §5.d) — the SELECTED-ENTITY INSPECTOR.
-         The props-only `PaletteSpecimen` (strip + name + counts) renders the
-         palette's truth; this host owns the entity's verbs — rename, menu,
-         feedback, versions, tags, export, publication, vote, feature and
-         delete — and the one rail their verdicts render on. When its palette
-         is the selected entity (`expanded`), the same verbs are registered as
-         the dock's `palette` scene on X-W4's typed `SceneActionSet`.
-
-         W5-a11y: role="article" provides a landmark for each palette; button
-         semantics are omitted because inner interactive controls must be
-         reachable. The root is the `palette-card` inline-size container the
-         meta cluster's declared collapse priority reads (A-20's ruled
-         consumer interim).
-         X.W12U.s2 · UIA-V-31: the card is selectable by keyboard — it is a
-         tab stop wearing the glass focus ring, Enter/Space on the card itself
-         selects it (its inner controls keep their own keys and tab stops), and
-         the selection is exposed as `aria-current`. -->
     <div
         ref="rootEl"
         class="palette-card group rounded-card border border-card-edge bg-well cursor-pointer focus-ring"
@@ -25,7 +8,7 @@
         tabindex="0"
         :aria-label="`Palette: ${palette.name}`"
         :aria-current="expanded ? 'true' : undefined"
-        v-bind="press.handlers"
+        v-bind="pressHandlers"
         :style="press.pressStyle.value"
         @click="$emit('click')"
         @keydown.enter.self.prevent="$emit('click')"
@@ -92,7 +75,7 @@
                         icon-only
                         emphasis="quiet"
                         size="sm"
-                        aria-label="Palette menu"
+                        :aria-label="`Palette menu for ${palette.name}`"
                         class="shrink-0"
                         @focus="onMenuFocusReturned"
                     >
@@ -158,6 +141,31 @@
 </template>
 
 <script setup lang="ts">
+/*
+ * X.W7.d2 (COHESION §0bk.1 · W7.md §5.d) — the SELECTED-ENTITY INSPECTOR.
+ * The props-only `PaletteSpecimen` (strip + name + counts) renders the
+ * palette's truth; this host owns the entity's verbs — rename, menu,
+ * feedback, versions, tags, export, publication, vote, feature and
+ * delete — and the one rail their verdicts render on. When its palette
+ * is the selected entity (`expanded`), the same verbs are registered as
+ * the dock's `palette` scene on X-W4's typed `SceneActionSet`.
+ *
+ * W5-a11y: role="article" provides a landmark for each palette; button
+ * semantics are omitted because inner interactive controls must be
+ * reachable. The root is the `palette-card` inline-size container the
+ * meta cluster's declared collapse priority reads (A-20's ruled
+ * consumer interim).
+ * X.W12U.s2 · UIA-V-31: the card is selectable by keyboard — it is a
+ * tab stop wearing the glass focus ring, Enter/Space on the card itself
+ * selects it (its inner controls keep their own keys and tab stops), and
+ * the selection is exposed as `aria-current`.
+ *
+ * SS8-0404 (PCG U-7): this note lived as a leading <template> comment, which
+ * the dev compiler keeps as a sibling root, so the card mounted as a fragment
+ * (a text anchor before the article) under the grid's Sortable `insertNodeAt`.
+ * The template opens on its element and the note lives here, as ES-2 did for
+ * PaletteCardSkeleton.
+ */
 import {
     computed,
     inject,
@@ -278,6 +286,15 @@ const press = useLiquidPress({
     shrinkDepth: 0.02,
     maxStretch: 1.03,
 });
+// SS8-0346/0350 (PC-20): the card's keyboard press is the card's own key, as
+// its Enter/Space selection is (`.self`). Space typed into the rename input
+// or pressed on an inner control is that control's — it never squashes the card.
+const pressHandlers = {
+    ...press.handlers,
+    onKeydown: (e: KeyboardEvent) => {
+        if (e.target === e.currentTarget) press.handlers.onKeydown(e);
+    },
+};
 
 // The band's popover never outlives its band; an opened band settles into view.
 watch(
@@ -355,7 +372,10 @@ function handleMenuAction(action: string) {
         makePrivate: () => emit("setVisibility", props.palette, "private"),
         fork: () => emit("fork", props.palette),
         versions: () => emit("versions", props.palette),
-        flag: () => emit("flag", props.palette),
+        // SS8-0309: opened while focus sat on the dying menu item, the report
+        // dialog remembered that item and every close landed on <body>; opened
+        // once focus is back on this trigger, it gives focus back to the trigger.
+        flag: () => afterMenuFocusReturns(() => emit("flag", props.palette)),
         editTags: () => afterMenuFocusReturns(() => emit("editTags", props.palette)),
         exportJSON: () => void exportAs("json"),
         exportCSS: () => void exportAs("css"),

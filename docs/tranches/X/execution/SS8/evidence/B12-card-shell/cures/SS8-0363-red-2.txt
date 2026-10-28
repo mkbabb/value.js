@@ -1,0 +1,56 @@
+(node:18345) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:18409) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:18542) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+SS8-0363 light {"normal":{"ratio":7.291843054576377,"ink":[46,43,43],"ground":[220,174,198]},"more":{"ratio":4.802163806374881,"ink":[94,92,91],"ground":[228,217,211]}}
+  ✘  1 [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (light) (1.3m)
+(node:23055) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+SS8-0363 dark {"normal":{"ratio":6.932476150243682,"ink":[194,191,190],"ground":[70,43,53]},"more":{"ratio":4.863234471037527,"ink":[171,169,167],"ground":[66,56,50]}}
+  ✘  2 [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (dark) (33.2s)
+
+
+  1) [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (light) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m7.291843054576377[39m
+    Received:    [31m4.802163806374881[39m
+
+      127 |         console.log(`SS8-0363 ${scheme}`, JSON.stringify({ normal, more }));
+      128 |         expect(normal.ratio).toBeGreaterThanOrEqual(4.5);
+    > 129 |         expect(more.ratio).toBeGreaterThanOrEqual(normal.ratio);
+          |                            ^
+      130 |     });
+      131 | }
+      132 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b12-card-shell.spec.ts:129:28
+
+    Error Context: test-results/ss8-b12-card-shell-SS8-036-de34a-the-tag-chip-s-ratio-light--smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (dark) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m6.932476150243682[39m
+    Received:    [31m4.863234471037527[39m
+
+      127 |         console.log(`SS8-0363 ${scheme}`, JSON.stringify({ normal, more }));
+      128 |         expect(normal.ratio).toBeGreaterThanOrEqual(4.5);
+    > 129 |         expect(more.ratio).toBeGreaterThanOrEqual(normal.ratio);
+          |                            ^
+      130 |     });
+      131 | }
+      132 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b12-card-shell.spec.ts:129:28
+
+    Error Context: test-results/ss8-b12-card-shell-SS8-036-e25f8--the-tag-chip-s-ratio-dark--smoke/error-context.md
+
+  2 failed
+    [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (light) 
+    [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (dark) 

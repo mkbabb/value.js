@@ -1,0 +1,126 @@
+{
+ "light": {
+  "geo": {
+   "x": 73,
+   "y": 337.75,
+   "w": 137.765625,
+   "h": 21,
+   "vars": {
+    "--muted-foreground": "color-mix(in oklab, oklch(29.228317458622% 0.003861589952 34.629978305623deg), oklch(21.612909107484% 0.00624852743 56.035563601331deg) 38.2%)",
+    "--ink-muted": "oklch(29.228317458622% 0.003861589952 34.629978305623deg)",
+    "--foreground": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+    "--ink-primary": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+    "--well-bg": "color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 8%, transparent)"
+   }
+  },
+  "ground": [
+   199,
+   92,
+   169
+  ],
+  "cands": {
+   "var(--muted-foreground)": {
+    "ink": [
+     39,
+     36,
+     35
+    ],
+    "ratio": 4.07
+   },
+   "var(--ink-muted)": {
+    "ink": [
+     46,
+     43,
+     43
+    ],
+    "ratio": 3.71
+   },
+   "var(--foreground)": {
+    "ink": [
+     28,
+     25,
+     23
+    ],
+    "ratio": 4.62
+   },
+   "var(--ink-primary)": {
+    "ink": [
+     28,
+     25,
+     23
+    ],
+    "ratio": 4.62
+   },
+   "color-mix(in oklab, var(--ink-muted), var(--foreground) 61.8%)": {
+    "ink": [
+     35,
+     32,
+     30
+    ],
+    "ratio": 4.28
+   }
+  }
+ },
+ "dark": {
+  "geo": {
+   "x": 73,
+   "y": 338.078125,
+   "w": 137.765625,
+   "h": 21,
+   "vars": {
+    "--muted-foreground": "color-mix(in oklab, oklch(80.789670348742% 0.003821851545 41.86844006185deg), oklch(92.520158240924% 0.006184225801 67.748284889725deg) 38.2%)",
+    "--ink-muted": "oklch(80.789670348742% 0.003821851545 41.86844006185deg)",
+    "--foreground": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+    "--ink-primary": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+    "--well-bg": "color-mix(in oklab, hsl(30 14% 90%) 8%, transparent)"
+   }
+  },
+  "ground": [
+   93,
+   40,
+   74
+  ],
+  "cands": {
+   "var(--muted-foreground)": {
+    "ink": [
+     209,
+     206,
+     204
+    ],
+    "ratio": 7.18
+   },
+   "var(--ink-muted)": {
+    "ink": [
+     194,
+     191,
+     190
+    ],
+    "ratio": 6.15
+   },
+   "var(--foreground)": {
+    "ink": [
+     233,
+     230,
+     226
+    ],
+    "ratio": 9.04
+   },
+   "var(--ink-primary)": {
+    "ink": [
+     233,
+     230,
+     226
+    ],
+    "ratio": 9.04
+   },
+   "color-mix(in oklab, var(--ink-muted), var(--foreground) 61.8%)": {
+    "ink": [
+     218,
+     215,
+     212
+    ],
+    "ratio": 7.84
+   }
+  }
+ }
+}

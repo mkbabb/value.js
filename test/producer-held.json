@@ -1,0 +1,36 @@
+{
+    "servedModel": "SERVED MODEL: claude-opus-5-5",
+    "about": "X.W11.rel1 (value.js COHESION §0gb.2 ESC-W11c-RELEASE-TEST-RED; W11.md ADDENDUM (third)): THE ONE committed manifest of producer-held vitest cases. Each row is a test whose cure is glass-ui's to ship, relayed by its O-id. test/ink.test.ts registers exactly these full names through its one helper, which runs the unchanged body and passes only if the body throws an AssertionError: any other error fails it, a body that passes fails it (glass landed: adopt it and delete the row), and a row that matches no registered test fails the file. Every other failure blocks. A row leaves only by adoption, and expires at its stated repin.",
+    "rows": [
+        {
+            "test": "D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light)",
+            "o": "O-62 (a)",
+            "row": "INK-VEIL-MIDBAND — across glass 10.1.0's --glass-veil-ink mid-band no muted ink is both quieter than the foreground and clear of the floor (I-45, glass 95068476)",
+            "expiry": "lifts at the glass 10.2.0 repin"
+        },
+        {
+            "test": "D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark)",
+            "o": "O-62 (a)",
+            "row": "INK-VEIL-MIDBAND — across glass 10.1.0's --glass-veil-ink mid-band no muted ink is both quieter than the foreground and clear of the floor (I-45, glass 95068476)",
+            "expiry": "lifts at the glass 10.2.0 repin"
+        },
+        {
+            "test": "T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light)",
+            "o": "O-62 (a)",
+            "row": "INK-VEIL-MIDBAND — across glass 10.1.0's --glass-veil-ink mid-band no plate ink clears the floor and keeps the pick's chroma voice (I-45, glass 95068476)",
+            "expiry": "lifts at the glass 10.2.0 repin"
+        },
+        {
+            "test": "T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark)",
+            "o": "O-62 (a)",
+            "row": "INK-VEIL-MIDBAND — across glass 10.1.0's --glass-veil-ink mid-band no plate ink clears the floor and keeps the pick's chroma voice (I-45, glass 95068476)",
+            "expiry": "lifts at the glass 10.2.0 repin"
+        },
+        {
+            "test": "T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)",
+            "o": "O-62 (a)",
+            "row": "INK-VEIL-MIDBAND — across glass 10.1.0's --glass-veil-ink mid-band no plate ink clears the floor and keeps the pick's chroma voice (I-45, glass 95068476)",
+            "expiry": "lifts at the glass 10.2.0 repin"
+        }
+    ]
+}

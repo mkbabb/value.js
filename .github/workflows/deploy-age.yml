@@ -1,0 +1,48 @@
+# deploy-age.yml — G-21, the standing DR-11 check (X-W11 · COHESION §0gc.2 (ii)).
+#
+# Reds when production is older than the newest close: when the commit the
+# newest successful `deploy-pages` run on master shipped does not contain the
+# newest annotated `tranche-*-close` / `v<digit>*` tag reachable from
+# origin/master. The bar is DR-11's, unchanged: 0 days. The logic and the close
+# grammar live in scripts/ci/deploy-age.mjs.
+#
+# It runs HERE and not in ci.yml because a gate must not sit inside the
+# workflow whose success it gates: `deploy-pages.yml` ships only on a green CI,
+# so a deploy-age job inside CI locked the deploy it was waiting for
+# (ESC-W11-DEPLOY-AGE-SELF-LOCK, ruled arm (A)). It runs daily, so a stale
+# production is caught between pushes, and after every deploy-pages run, so a
+# deploy that shipped is measured at once.
+name: deploy-age
+
+on:
+    schedule:
+        # Daily 06:41 UTC (off the hour, per GitHub's schedule-load guidance).
+        - cron: "41 6 * * *"
+    workflow_run:
+        # Must match the `name:` of .github/workflows/deploy-pages.yml exactly.
+        workflows: ["deploy-pages"]
+        types: [completed]
+
+permissions:
+    contents: read
+    actions: read
+
+jobs:
+    deploy-age:
+        name: deploy-age — production contains the newest close
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        steps:
+            - uses: actions/checkout@v5
+              with:
+                  # Ancestry and the annotated close tags need the whole
+                  # history and every tag; a shallow clone is an instrument
+                  # failure the script reds on, never a pass.
+                  fetch-depth: 0
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+            - name: the deployed commit vs the newest close
+              env:
+                  GH_TOKEN: ${{ github.token }}
+              run: node scripts/ci/deploy-age.mjs

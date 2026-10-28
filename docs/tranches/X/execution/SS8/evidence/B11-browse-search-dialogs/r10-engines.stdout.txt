@@ -1,0 +1,7 @@
+== r10 chromium
+chromium {"ua":"adlessChrome/148.0.7778.96 Safari/537.36","gradient":"linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 0))","solid":"rgb(255, 0, 0)","solidPixel":[255,0,0,255]}
+exit 0
+== r10 webkit
+[guarded] waiting for the 'webkit' lock
+webkit {"ua":"like Gecko) Version/26.4 Safari/605.1.15","gradient":"linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 0))","solid":"rgb(255, 0, 0)","solidPixel":[255,0,0,255]}
+exit 0

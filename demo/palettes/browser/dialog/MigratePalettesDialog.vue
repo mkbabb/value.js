@@ -13,6 +13,8 @@
             :dismiss="migrating ? 'locked' : 'deliberate'"
             scroll
             @open-auto-focus="onOpenFocus"
+            @keydown.capture="swallowHeldRepeat"
+            @keyup.capture="heldFromOpen = false"
         >
             <DialogHeader>
                 <!-- T.W4-6 (T-15/F7) · O-10d census: dialog titles keep the display
@@ -85,8 +87,25 @@ defineEmits<{
 const uid = useId();
 const cancelRef = useTemplateRef<ComponentPublicInstance>("cancelRef");
 
+/**
+ * SS8-0454 (A-12 residue): the Enter that submitted the slug form and opened
+ * this dialog may still be held. Its auto-repeats are not a decision made in
+ * the dialog, so until a key is released (or freshly pressed) here they are
+ * swallowed — a held Enter can no longer press the Cancel it lands on.
+ */
+let heldFromOpen = false;
+
+function swallowHeldRepeat(e: KeyboardEvent) {
+    if (!e.repeat) heldFromOpen = false;
+    else if (heldFromOpen) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+}
+
 function onOpenFocus(e: Event) {
     e.preventDefault();
+    heldFromOpen = true;
     (cancelRef.value?.$el as HTMLElement | undefined)?.focus();
 }
 

@@ -80,7 +80,11 @@ describe.each([
 ])("plate at $width px", (viewport) => {
     let seat: HarnessSeat;
     beforeAll(async () => {
-        seat = await openHarness(viewport);
+        // Every plate file is mounted after load: declare them so the dep
+        // scan sees their imports before the first navigation (no cold reload).
+        seat = await openHarness(viewport, {
+            mounts: [...new Set(PLATES.map(({ file }) => path.join(PLATE_DIR, file)))],
+        });
     }, 60_000);
     afterAll(async () => {
         await seat?.close();

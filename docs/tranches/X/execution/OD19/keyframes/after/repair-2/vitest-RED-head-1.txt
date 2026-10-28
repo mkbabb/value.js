@@ -1,0 +1,83 @@
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ ❯ |demo| test/demo/app/dock-surface-items.test.ts (11 tests | 2 failed) 428ms
+     × a disabled row keeps its title and does nothing; home shows no trigger 92ms
+     × a facet slot with no live facet names the facet its channel would show 3ms
+(node:83822) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |demo| test/demo/instrument/playback-ribbon-contract.test.ts (26 tests | 1 failed) 1152ms
+     × the disc's glyph is OPTION_GLYPHS.reverse, and not one of the table's non-reverse entries 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/app/dock-surface-items.test.ts > ChromeDock: one surface trigger whose menu opens the shared pane > a disabled row keeps its title and does nothing; home shows no trigger
+AssertionError: expected 'Matrix: select the Matrix channel' to be 'Matrix' // Object.is equality
+
+Expected: "Matrix"
+Received: "Matrix: select the Matrix channel"
+
+ ❯ test/demo/app/dock-surface-items.test.ts:207:43
+    205|         await openMenu(cube.wrapper);
+    206|         const facet = rows()[3]!;
+    207|         expect(facet.textContent?.trim()).toBe("Matrix");
+       |                                           ^
+    208|         expect(facet.getAttribute("aria-description")).toBe("Select th…
+    209|         expect(facet.hasAttribute("data-disabled")).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |demo| test/demo/app/dock-surface-items.test.ts > the one surface registry (X.KF.W13X.esc1) > a facet slot with no live facet names the facet its channel would show
+AssertionError: expected { kind: 'facet', …(5) } to match object { kind: 'facet', …(6) }
+
+- Expected
++ Received
+
+  {
+    "enabled": false,
+    "icon": "Grid3X3",
+    "kind": "facet",
+    "label": "Matrix",
+-   "reason": "Select the Matrix channel",
+    "surface": "matrix-controls",
+-   "title": "Matrix",
++   "title": "Matrix: select the Matrix channel",
+  }
+
+ ❯ test/demo/app/dock-surface-items.test.ts:246:27
+    244|         expect(facets).toEqual([{ surface: "matrix-controls", channel:…
+    245|         const atRest = dockSurfaceItems(surfacesFor({ channels, facets…
+    246|         expect(atRest[3]).toMatchObject({
+       |                           ^
+    247|             kind: "facet",
+    248|             surface: "matrix-controls",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |demo| test/demo/instrument/playback-ribbon-contract.test.ts > C2-KF-02 — the Reverse disc speaks the pane's direction vocabulary > the disc's glyph is OPTION_GLYPHS.reverse, and not one of the table's non-reverse entries
+AssertionError: expected 'lucide-arrow-right-left-icon' to be 'lucide-arrow-left-icon' // Object.is equality
+
+Expected: "lucide-arrow-left-icon"
+Received: "lucide-arrow-right-left-icon"
+
+ ❯ test/demo/instrument/playback-ribbon-contract.test.ts:903:23
+    901|         const drawn = lucideName(disc?.querySelector("svg"));
+    902|         expect(drawn).not.toBeNull();
+    903|         expect(drawn).toBe(glyphName(OPTION_GLYPHS.reverse));
+       |                       ^
+    904|         const others = Object.entries(OPTION_GLYPHS)
+    905|             .filter(([value]) => value !== "reverse")
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  3 failed | 34 passed (37)
+   Start at  20:16:37
+   Duration  3.39s (transform 2.03s, setup 40ms, import 2.75s, tests 1.58s, environment 801ms)
+

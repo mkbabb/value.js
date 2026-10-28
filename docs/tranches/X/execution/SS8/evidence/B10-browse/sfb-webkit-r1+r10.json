@@ -1,0 +1,28 @@
+{
+ "engine": "webkit",
+ "r1_error": "Error: page.evaluate: TypeError: Argument 1 ('element') to Window.getComputedStyle must be an instance of Element",
+ "r10": {
+  "seq": [
+   "BUTTON:Newest",
+   "INPUT:Search by CSS colo",
+   "OUT:SPAN:",
+   "OUT:BODY:→\nBrowse\nLogin\n@mb",
+   "OUT:SPAN:",
+   "OUT:DIV:stub palette 0\nFea",
+   "OUT:INPUT:",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Palette: stub pale",
+   "OUT:DIV:Start a new palett"
+  ]
+ }
+}

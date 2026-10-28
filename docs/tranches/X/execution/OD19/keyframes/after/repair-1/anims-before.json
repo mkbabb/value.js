@@ -1,0 +1,417 @@
+[
+ {
+  "target": "Easing",
+  "samples": [
+   {
+    "t": 196,
+    "n": 36,
+    "list": [
+     "height@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "opacity@div.segmented-indicator.segmented-indicator--js.glass-capsule 200ms",
+     "translate@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "width@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "height@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 210ms",
+     "opacity@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 200ms",
+     "width@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 210ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "enter@div. 200ms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms"
+    ]
+   },
+   {
+    "t": 290,
+    "n": 36,
+    "list": [
+     "height@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "opacity@div.segmented-indicator.segmented-indicator--js.glass-capsule 200ms",
+     "translate@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "width@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "opacity@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 200ms",
+     "height@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 210ms",
+     "width@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 210ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "enter@div. 200ms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms"
+    ]
+   },
+   {
+    "t": 382,
+    "n": 36,
+    "list": [
+     "height@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "opacity@div.segmented-indicator.segmented-indicator--js.glass-capsule 200ms",
+     "translate@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "width@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "opacity@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 200ms",
+     "height@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 210ms",
+     "width@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 210ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "enter@div. 200ms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms"
+    ]
+   },
+   {
+    "t": 475,
+    "n": 36,
+    "list": [
+     "height@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "opacity@div.segmented-indicator.segmented-indicator--js.glass-capsule 200ms",
+     "translate@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "width@div.segmented-indicator.segmented-indicator--js.glass-capsule 210ms",
+     "opacity@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 200ms",
+     "height@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 210ms",
+     "width@div.segmented-indicator.segmented-indicator--js.paper-ink-mark 210ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "enter@div. 200ms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms"
+    ]
+   },
+   {
+    "t": 568,
+    "n": 28,
+    "list": [
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "-ua-view-transition-group-anim-root@html.dark::view-transition-group(root) 250ms",
+     "-ua-view-transition-group-anim-transport-dock@html.dark::view-transition-group(transport-dock) 250ms",
+     "-ua-view-transition-group-anim-chrome-dock@html.dark::view-transition-group(chrome-dock) 250ms",
+     "-ua-view-transition-group-anim-scene-subject@html.dark::view-transition-group(scene-subject) 250ms",
+     "-ua-view-transition-fade-in@html.dark::view-transition-new(root) 250ms",
+     "-ua-mix-blend-mode-plus-lighter@html.dark::view-transition-new(root) 250ms"
+    ]
+   },
+   {
+    "t": 659,
+    "n": 10,
+    "list": [
+     "opacity@div.glass-resting.card.easing-target::before 300ms",
+     "scale@button.toggle-group__item.control-surface.glass-control-edge 120ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 751,
+    "n": 10,
+    "list": [
+     "opacity@div.glass-resting.card.easing-target::before 300ms",
+     "scale@button.toggle-group__item.control-surface.glass-control-edge 120ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 842,
+    "n": 9,
+    "list": [
+     "opacity@div.glass-resting.card.easing-target::before 300ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 933,
+    "n": 9,
+    "list": [
+     "opacity@div.glass-resting.card.easing-target::before 300ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 1025,
+    "n": 8,
+    "list": [
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 1118,
+    "n": 8,
+    "list": [
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 1208,
+    "n": 8,
+    "list": [
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.specimen-drawer NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   }
+  ]
+ },
+ {
+  "target": "Spring",
+  "samples": [
+   {
+    "t": 149,
+    "n": 32,
+    "list": [
+     "transform@svg.lucide.lucide-chevron-right-icon.lucide-chevron-right 200ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "enter@div. 200ms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "disclosure-close@div#glass-disclosure-con.disclosure-content 200ms",
+     "spring-settle-pulse-994f9acf@div.spring-target-marker.settle-pulse.settle-pulse--fire 220ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "-ua-view-transition-group-anim-chrome-dock@html.dark::view-transition-group(chrome-dock) 250ms",
+     "-ua-view-transition-group-anim-scene-subject@html.dark::view-transition-group(scene-subject) 250ms"
+    ]
+   },
+   {
+    "t": 240,
+    "n": 32,
+    "list": [
+     "transform@svg.lucide.lucide-chevron-right-icon.lucide-chevron-right 200ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "enter@div. 200ms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "disclosure-close@div#glass-disclosure-con.disclosure-content 200ms",
+     "spring-settle-pulse-994f9acf@div.spring-target-marker.settle-pulse.settle-pulse--fire 220ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "-ua-view-transition-group-anim-chrome-dock@html.dark::view-transition-group(chrome-dock) 250ms",
+     "-ua-view-transition-group-anim-scene-subject@html.dark::view-transition-group(scene-subject) 250ms"
+    ]
+   },
+   {
+    "t": 331,
+    "n": 32,
+    "list": [
+     "transform@svg.lucide.lucide-chevron-right-icon.lucide-chevron-right 200ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "enter@div. 200ms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "disclosure-close@div#glass-disclosure-con.disclosure-content 200ms",
+     "spring-settle-pulse-994f9acf@div.spring-target-marker.settle-pulse.settle-pulse--fire 220ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "-ua-view-transition-group-anim-chrome-dock@html.dark::view-transition-group(chrome-dock) 250ms",
+     "-ua-view-transition-group-anim-scene-subject@html.dark::view-transition-group(scene-subject) 250ms"
+    ]
+   },
+   {
+    "t": 424,
+    "n": 32,
+    "list": [
+     "transform@svg.lucide.lucide-chevron-right-icon.lucide-chevron-right 200ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "enter@div. 200ms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "disclosure-close@div#glass-disclosure-con.disclosure-content 200ms",
+     "spring-settle-pulse-994f9acf@div.spring-target-marker.settle-pulse.settle-pulse--fire 220ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "-ua-view-transition-group-anim-chrome-dock@html.dark::view-transition-group(chrome-dock) 250ms",
+     "-ua-view-transition-group-anim-scene-subject@html.dark::view-transition-group(scene-subject) 250ms"
+    ]
+   },
+   {
+    "t": 517,
+    "n": 28,
+    "list": [
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "-ua-view-transition-group-anim-chrome-dock@html.dark::view-transition-group(chrome-dock) 250ms",
+     "-ua-view-transition-group-anim-scene-subject@html.dark::view-transition-group(scene-subject) 250ms",
+     "-ua-view-transition-group-anim-root@html.dark::view-transition-group(root) 250ms",
+     "-ua-view-transition-group-anim-transport-dock@html.dark::view-transition-group(transport-dock) 250ms",
+     "-ua-view-transition-fade-in@html.dark::view-transition-new(root) 250ms",
+     "-ua-mix-blend-mode-plus-lighter@html.dark::view-transition-new(root) 250ms"
+    ]
+   },
+   {
+    "t": 608,
+    "n": 9,
+    "list": [
+     "opacity@div.glass-resting.card.spring-target::before 300ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 700,
+    "n": 9,
+    "list": [
+     "opacity@div.glass-resting.card.spring-target::before 300ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 792,
+    "n": 9,
+    "list": [
+     "opacity@div.glass-resting.card.spring-target::before 300ms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 884,
+    "n": 8,
+    "list": [
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 975,
+    "n": 8,
+    "list": [
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 1065,
+    "n": 8,
+    "list": [
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   },
+   {
+    "t": 1156,
+    "n": 8,
+    "list": [
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.controls-surface NaNms",
+     "gl-fade-start-in@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-fade-end-out@div.fading-scroll.fading-scroll--y.flex NaNms",
+     "gl-dock-cap-inline-start@div.dock-plate NaNms",
+     "gl-dock-cap-inline-end@div.dock-plate NaNms"
+    ]
+   }
+  ]
+ }
+]

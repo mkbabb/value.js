@@ -1,11 +1,14 @@
-import { ref, readonly } from "vue";
-import { convertPickerColor, parsePickerColor, serializePickerColor } from "./picker-color";
+import { ref, readonly, shallowRef } from "vue";
+import { namedColorEntry, type NamedColorEntry } from "./named-color-snap";
 import { getApprovedColorNames } from "./color-names";
 import { ApiUnavailableError } from "../platform/transport/availability";
 import type { ProposedColorName } from "./color-names";
 
 const customNameRegistry = ref<Map<string, ProposedColorName>>(new Map());
-const normalizedCustomNames = ref<Map<string, string>>(new Map());
+// The approved names projected into OKLab ONCE, at load — the named snap's
+// custom half (`named-color-snap.ts`). It replaced a full-precision XYZ-string
+// map that matched a bit-identical colour only.
+const customNameEntries = shallowRef<readonly NamedColorEntry[]>([]);
 const loaded = ref(false);
 const loading = ref(false);
 
@@ -15,25 +18,21 @@ export function useCustomColorNames() {
         loading.value = true;
 
         try {
-            const { data: approved } = await getApprovedColorNames();
+            const { data: approved } = await getApprovedColorNames(500);
 
             const registry = new Map<string, ProposedColorName>();
-            const normalized = new Map<string, string>();
+            const entries: NamedColorEntry[] = [];
 
             for (const entry of approved) {
                 const key = entry.name.toLowerCase();
                 registry.set(key, entry);
-
-                try {
-                    const xyz = convertPickerColor(parsePickerColor(entry.css), "xyz");
-                    normalized.set(key, serializePickerColor(xyz));
-                } catch {
-                    // skip entries that fail to parse
-                }
+                // An entry whose css does not parse is skipped, not fatal.
+                const projected = namedColorEntry(key, entry.css, "custom");
+                if (projected) entries.push(projected);
             }
 
             customNameRegistry.value = registry;
-            normalizedCustomNames.value = normalized;
+            customNameEntries.value = entries;
             loaded.value = true;
         } catch (e) {
             // inv-K-5 (K.W2b): custom color names are an OPTIONAL enhancement
@@ -57,20 +56,13 @@ export function useCustomColorNames() {
         }
     }
 
-    function findCustomName(xyzString: string): string | undefined {
-        for (const [name, xyz] of normalizedCustomNames.value) {
-            if (xyz === xyzString) return name;
-        }
-        return undefined;
-    }
-
     function getMetadata(name: string): ProposedColorName | undefined {
         return customNameRegistry.value.get(name.toLowerCase());
     }
 
     function reset(): void {
         customNameRegistry.value = new Map();
-        normalizedCustomNames.value = new Map();
+        customNameEntries.value = [];
         loaded.value = false;
     }
 
@@ -78,7 +70,7 @@ export function useCustomColorNames() {
         loaded: readonly(loaded),
         loading: readonly(loading),
         loadFromAPI,
-        findCustomName,
+        customNameEntries: readonly(customNameEntries),
         getMetadata,
         reset,
     };

@@ -43,6 +43,13 @@
              commit, never a swap-reflow. font-display:fallback's no-late-swap
              arm is a non-case for a preloaded same-origin face (recorded). -->
         <link rel="preload" href="./fonts/fraunces-latin-normal.woff2" as="font" type="font/woff2" crossorigin />
+        <!-- X.W11.h19b (COHESION §0gl.6; C10-1): the latin ITALIC face is
+             used above the fold (the picker title, ColorSpaceSelector's
+             `font-display italic`), so it is preloaded beside the upright
+             face; the size-adjust-tuned italic "Fraunces Fallback" below
+             stays as its metric-compatible landing face. Only the latin
+             italic subset is preloaded — the latin-ext faces stay on use. -->
+        <link rel="preload" href="./fonts/fraunces-latin-italic.woff2" as="font" type="font/woff2" crossorigin />
         <style>
             @font-face {
                 font-family: "Fraunces";
@@ -83,6 +90,28 @@
                 size-adjust: 89.26%;
                 ascent-override: 109.79%;
                 descent-override: 29.13%;
+                line-gap-override: 0%;
+            }
+            /* X.W11.p2 (COHESION §0ge.1(ii); ESC-W11h19-1 arm b) — the ITALIC
+               landing face. The italic Fraunces face is not preloaded: it loads
+               on first use, off the critical path. Until now its fallback was
+               the upright face above, slanted by synthesis — 2.3 % wider than
+               the real italic per glyph run, so the swap re-flowed the italic
+               title (the space label widened 11 px in front of its chevron,
+               C10-1). Georgia Italic, size-adjust-tuned against the real italic
+               face at the title's own setting (42.568 px, wght 400, tracking
+               -0.025em, optical sizing auto; real/Georgia-Italic advance ratio
+               0.9709 over the space names), makes the swap reflow-free. The
+               vertical overrides carry the face's own ascent/descent (1956 /
+               510 of 2000, identical to the upright face) through this
+               size-adjust, as the upright pair does through its own. */
+            @font-face {
+                font-family: "Fraunces Fallback";
+                font-style: italic;
+                src: local("Georgia Italic"), local("Georgia-Italic");
+                size-adjust: 97.09%;
+                ascent-override: 100.94%;
+                descent-override: 26.78%;
                 line-gap-override: 0%;
             }
         </style>
@@ -155,7 +184,14 @@
              `groundRecordInject` → `injectGroundTokens`), so a
              GROUND_RECORD_VERSION bump propagates here automatically and can no
              longer strand the boot. Only the guard LOGIC below is mirrored
-             (inherent to a pre-module reader that cannot import). -->
+             (inherent to a pre-module reader that cannot import).
+             X.W11.h7b (COHESION §0gl.10 · O28-114): a `#/?color=` share link
+             paints its SEEDED ground from the first frame. The derive is not
+             mirrored: vite's `seededGroundInline` bundles the one source
+             module (`boot/seeded-ground.ts`, which useAtmosphere's sink also
+             runs) into the script below in place of its token, exposing
+             `__vjsSeededGround`. -->
+        <script>__GROUND_SEEDED_RESOLVER__</script>
         <script>
             (function() {
                 // B0 — the ground beat (the overture's origin mark; O-4 reads it).
@@ -183,7 +219,14 @@
                 var VERSION = __GROUND_RECORD_VERSION__;
                 var scheme = dark ? 'dark' : 'light';
                 var stops = FIRST_VISIT[scheme];
-                try {
+                // A share-link seed wins, in hydrate's order (URL, then the
+                // record, then the constants): the same pure derive the app's
+                // sink runs, over the same `parseUrlSeed` hydrate reads with.
+                var url = __vjsSeededGround.parseUrlSeed(location.hash);
+                var seeded = url && __vjsSeededGround.seededGroundStops(
+                    url.color.trim().toLowerCase(), dark);
+                if (seeded) stops = seeded;
+                else try {
                     var rec = JSON.parse(localStorage.getItem('color-picker-ground'));
                     if (rec && rec.deriveVersion === VERSION &&
                         rec.scheme === scheme &&
@@ -199,8 +242,33 @@
                 // theme-color rides the ground's base stop from B0.
                 var meta = document.querySelector('meta[name="theme-color"]');
                 if (meta) meta.setAttribute('content', stops[0]);
+
+                // X.W11.p3 (COHESION §0ge.1(iii)) — the FIRST-VIEW decision. The
+                // gh-pages build ships `/` prerendered at its default seed
+                // (scripts/build/prerender-shell.ts). This visit shows and
+                // hydrates that shell only when its first view IS that render:
+                // the home route with no URL seed, no stored seed (the
+                // `color-picker` record — COLOR_STORE_KEY, mirrored like the
+                // ground keys above), and motion allowed (under reduced motion
+                // the dock is first-paint state the shell does not carry).
+                // Anything else stamps `client`: the rule below hides the shell
+                // before paint and main.ts client-renders from an emptied root.
+                var shell = false;
+                try {
+                    var hash = location.hash;
+                    var seed = JSON.parse(localStorage.getItem('color-picker'));
+                    shell = (hash === '' || hash === '#' || hash === '#/') &&
+                        !(seed && typeof seed.inputColor === 'string' && seed.inputColor.trim()) &&
+                        !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                } catch (e) { /* an unreadable record → the client render */ }
+                document.documentElement.setAttribute('data-first-view', shell ? 'shell' : 'client');
             })();
         </script>
+        <style>
+            html:not([data-first-view="shell"]) #app[data-prerendered] {
+                display: none;
+            }
+        </style>
 
         <script type="module" src="./main.ts"></script>
     </head>

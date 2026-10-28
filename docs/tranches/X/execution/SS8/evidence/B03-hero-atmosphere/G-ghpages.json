@@ -1,0 +1,71 @@
+{
+ "eager": [
+  "index-C8_lWVLm.js",
+  "rolldown-runtime-QTnfLwEv.js",
+  "vue.runtime.esm-bundler-CZavfU-W.js",
+  "keyframes-BUfwlxCX.js",
+  "serialize-pk6Y9Kpv-BPw5jFVg.js",
+  "picker-color-DpJgCkYw.js",
+  "color-model-B7lyOlJ3.js",
+  "dist-DMUUKvXY.js",
+  "createLucideIcon-D0wQU3OO.js",
+  "dom-DEPhWXzR.js",
+  "PopperContent-bnvKlz4x.js",
+  "fading-scroll-CTeW3KNS-C1YomUkH.js",
+  "selection-DqIULxRG-CbpwPUhM.js",
+  "Presence-Ctv1Ebts.js",
+  "DropdownMenuTrigger-CKRnhDSQ-DBTf1dZJ.js",
+  "_plugin-vue_export-helper-B3ysoDQm-CkmoDiir.js",
+  "keyboard-BOrFgAc-.js",
+  "PopoverTrigger-U1IvUO0G.js",
+  "popover-DA87hFBx-RbYtnl5y.js",
+  "status-dot-W4LFiJps-Cu9CUpDP.js",
+  "slider-5ChjjWSR-B6lhLycn.js",
+  "useIntersectionPause-CzKR3EyP-wc6qCxjJ.js"
+ ],
+ "eagerTotal": {
+  "raw": 954075,
+  "gzip": 311418
+ },
+ "sigMap": {
+  "goo-blob-canvas": [
+   "HeroBlob-CKIJ_IJy.js"
+  ],
+  "smin(": [
+   "HeroBlob-CKIJ_IJy.js"
+  ],
+  "webglcontextlost": [
+   "index-C8_lWVLm.js"
+  ],
+  "satelliteCount": [
+   "BlobPane-DIeV6Qjn.js",
+   "HeroBlob-CKIJ_IJy.js",
+   "index-C8_lWVLm.js"
+  ],
+  "fissionAmp": [
+   "HeroBlob-CKIJ_IJy.js",
+   "index-C8_lWVLm.js"
+  ]
+ },
+ "engineChunks": {
+  "HeroBlob-CKIJ_IJy.js": {
+   "raw": 94864,
+   "gzip": 34396,
+   "eager": false
+  }
+ },
+ "live": {
+  "#/atmosphere": {
+   "jsCount": 37,
+   "engineLoaded": [],
+   "heroCanvas": 0
+  },
+  "#/": {
+   "jsCount": 37,
+   "engineLoaded": [
+    "HeroBlob-CKIJ_IJy.js"
+   ],
+   "heroCanvas": 1
+  }
+ }
+}

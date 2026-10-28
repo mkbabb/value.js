@@ -62,6 +62,16 @@
                     :space="model.selectedColorSpace"
                     @input="onComponentInput"
                 />
+
+                <!-- The colour's NAME (owner 2026-10-19), IFF it has one: a
+                     CSS keyword or an approved name within ΔE_OK 0.02 of the
+                     current colour (`named-color-snap.ts`). No name, no line —
+                     the readout above is then the colour's only text. -->
+                <p
+                    v-if="currentColorName"
+                    class="picker-color-name"
+                    data-testid="picker-color-name"
+                >{{ currentColorName }}</p>
             </CardHeader>
 
             <!-- The content region is the CONTROLS zone — body voice, never a
@@ -201,6 +211,7 @@ const {
     cssColorOpaque,
     colorComponents,
     currentColorComponentsFormatted,
+    currentColorName,
     formattedCurrentColor,
     canProposeName,
     savedColorStrings,

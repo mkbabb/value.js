@@ -23,7 +23,8 @@ import { resolve } from "node:path";
  * PI (§π): rtl-layout.png + print-artifact.png under docs/tranches/U/audit/w-a11y/pi/.
  */
 
-const PI_DIR = resolve(process.cwd(), "docs/tranches/U/audit/w-a11y/pi");
+// Run output, never committed evidence (COHESION §0gd.2): the dated U pi frames stay as committed.
+const PI_DIR = resolve(process.cwd(), "test-results/a11y-web-modality");
 
 async function ready(page: Page) {
     await page.goto("/");

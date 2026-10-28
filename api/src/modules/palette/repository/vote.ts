@@ -56,6 +56,11 @@ export class VoteRepository {
         return { inserted: result.upsertedCount === 1 };
     }
 
+    /** The palette's live vote count, read from the vote rows themselves. */
+    countForPalette(paletteSlug: string): Promise<number> {
+        return this.col.countDocuments({ paletteSlug });
+    }
+
     /** Returns true iff a vote was found and deleted. */
     async deleteOne(
         userSlug: string,

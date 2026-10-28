@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { mainPane } from "../fixtures/dock";
 import { ATMOSPHERE_TESTID } from "../fixtures/webgl-appearance";
 import { detectRenderer, isSoftwareGL } from "../perf/frame-budget";
+import { useRealGpuCell } from "../perf/real-gpu";
 import { sampleRegion, meanAbsDiff } from "../fixtures/frame-diff";
 
 /**
@@ -39,6 +40,15 @@ import { sampleRegion, meanAbsDiff } from "../fixtures/frame-diff";
  *    so the born-RED is honest on THIS runner too, but the AUTHORITATIVE
  *    perceptibility measurement is the O-3 headed real-GPU annex (owner-attested,
  *    both schemes). The renderer is logged so the record names which path ran.
+ *
+ * ── CELL OF RECORD (X.W11.h6, 2026-10-19; X-W10 DISPOSITION §8 E6, canon §5.1
+ *    Ambient, COHESION §0fr.2): the gate of record is the background real-GPU
+ *    cell (§0ei: installed Chrome, new headless, ANGLE Metal). The file opts in
+ *    with `useRealGpuCell()`, the same idiom as `w12-drag.spec.ts`; the bands
+ *    are unchanged (calm < 2, migration ≥ 4). The SwiftShader reading is
+ *    INFORMATIONAL (the CSS-placeholder still described above).
+ *
+ * Invoke on the real GPU:  W12_REAL_GPU=1 npx playwright test o26-aurora-perceptibility --project=smoke
  */
 
 const MID_C_SEED = "oklch(0.66 0.16 28)"; // a mid-chroma warm seed (the T-26 judge family)
@@ -48,6 +58,8 @@ const MID_C_SEED = "oklch(0.66 0.16 28)"; // a mid-chroma warm seed (the T-26 ju
 // so the thresholds ARE N). PP-10 re-recordable at wave-open, tighten-only.
 const CALM_MAX = 2; // < 2 over a 2s glance
 const MIGRATION_MIN = 4; // ≥ 4 over the 10s window
+
+useRealGpuCell();
 
 test("O-26 aurora perceptibility — the field migrates unmistakably over 10s", async ({
     page,

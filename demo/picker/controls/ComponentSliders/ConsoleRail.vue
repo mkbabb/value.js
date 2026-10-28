@@ -14,7 +14,7 @@
         aria-orientation="vertical"
         aria-label="Color channels"
         class="channel-rail self-stretch"
-        :style="{ '--console-rest-ink': restInk }"
+        :style="mounted ? { '--console-rest-ink': restInk } : undefined"
     >
         <div
             :key="animationKey"
@@ -87,6 +87,7 @@
 
 <script setup lang="ts">
 import { computed, inject, ref } from "vue";
+import { useMounted } from "@vueuse/core";
 import {
     Tooltip,
     TooltipContent,
@@ -134,6 +135,12 @@ const inkAmbient = inject(INK_AMBIENT_KEY, null);
 // truth epoch bump — else its first (pre-style/detached) veil probe caches
 // as undefined and the rest ink certifies against the static model forever.
 bumpProbeEpochOnMount();
+// X.W11.p3b (COHESION §0gl.12): the rest ink is TRULY live — it probes the
+// mounted veil over the live ground — so it is written after mount. Until
+// then the rail reads the scheme-resolved certified de-emphasis token
+// (`--ink-muted`, declared per scheme in foundation.css), which is also what
+// the prerendered first view paints; the hydrated tree matches it exactly.
+const mounted = useMounted();
 const restInk = computed(() =>
     resolveMutedInk(
         resolveSurfaceLightnessLive(
@@ -227,10 +234,13 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
  * law binds any future ring to the dot's own silhouette). Unscoped block
  * (the pre-lift convention — selectors are rail-unique). */
 .channel-rail {
-    /* X-DS pass 1 (V1-21): the 1px accent ring is gone — four letters need no
-     * cage. It was the dock seal's die-rim recipe, which the owner abrogated
-     * on the seal itself (Q12 / T-28). Radius and padding stay: the active
-     * letter's dot still seats in the same column. */
+    /* X-DS pass 1 (V1-21) struck the 1px accent ring (the dock seal's die-rim
+     * recipe, abrogated on the seal itself, Q12 / T-28). COHESION §0gf (owner
+     * OD19-V8) reverses the strike in part: the letters get an enclosure
+     * again, as the in-chrome tier's ONE ink hairline (`--card-edge`, DESIGN
+     * §in-chrome), not the accent die-rim. Radius and padding stay: the
+     * active letter's dot still seats in the same column. */
+    border: 1px solid var(--card-edge);
     border-radius: var(--radius-pill);
     padding: 2px;
 }
@@ -267,7 +277,7 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
     min-height: 1.5rem;
     border-radius: var(--radius-pill);
     cursor: pointer;
-    color: var(--console-rest-ink, var(--muted-foreground));
+    color: var(--console-rest-ink, var(--ink-muted));
     transition:
         color var(--duration-normal) var(--ease-standard),
         background-color var(--duration-normal) var(--ease-standard),

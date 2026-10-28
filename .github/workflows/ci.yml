@@ -4,6 +4,26 @@ on:
     push:
         branches:
             - "**"
+        # X-W11 · COHESION §0gc.3 (ESC-W11-CI-CADENCE): docs carry no product
+        # bytes, and a receipt-only push must not cancel a 2.5 h browser run
+        # (cancel-in-progress below stays). Census at landing: producer, api,
+        # oracle-slate, boot-smoke and lhci read nothing under docs/; e2e-smoke,
+        # e2e-safari and visual read five docs fixtures, so a push touching any
+        # of them still runs CI (X.W11.ci1b, §0gd). `paths` (not `paths-ignore`)
+        # because only `paths` honours `!`; the last matching pattern wins, so
+        # the re-includes follow the exclude. pull_request stays unfiltered.
+        paths:
+            - "**"
+            - "!docs/**"
+            # e2e-smoke · a11y-select-title.spec.ts B3
+            - "docs/tranches/X/waves/evidence/W4/a16-retest-receipt.md"
+            # e2e-smoke · views/gradient.spec.ts L3 (the dated ask + its census addendum)
+            - "docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md"
+            - "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-16.md"
+            # e2e-smoke + e2e-safari · oracles/o25-atmosphere-response.spec.ts (atmo1-ref + four seeds)
+            - "docs/tranches/X/waves/W6-evidence/atmosphere/atmo1-*.png"
+            # visual · golden-integrity.spec.ts
+            - "docs/tranches/X/evidence/w1/visual/MANIFEST.json"
     pull_request:
 
 permissions:
@@ -74,6 +94,9 @@ jobs:
             - run: npx playwright install --with-deps chromium
             - run: npm test
             - run: npm run test:css-equivalence
+            # X.P.W7P step 4: the committed generated grammar tables must match
+            # what the pinned @mkbabb/bbnf-lang `bbnf gen` emits (drift = red).
+            - run: node scripts/gen-grammar.mjs --check
             - name: pack producer bytes
               id: pack
               shell: bash
@@ -158,37 +181,6 @@ jobs:
               if: always()
               with:
                   name: e2e-smoke-report
-                  path: playwright-report/
-                  retention-days: 7
-
-    # ── G-2 · the WebKit arm, HARD ───────────────────────────────────────────
-    # The iOS-Safari engine class (the ValueUnit-nesting frame-294 stack
-    # overflow, WebGL-on-WebKit shader divergence) is unreachable from Chromium.
-    e2e-safari:
-        name: e2e-safari
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: 24
-                  cache: npm
-            - run: npm ci
-            - run: npx playwright install --with-deps webkit
-            - run: npm run build
-            # `oracles-safari` rides here, not in `e2e-smoke`: it is the SAME
-            # engine install and the same WebKit cost centre. It exists because
-            # PH-4 measured the oracles subtree as reachable from no WebKit
-            # project at all while the corpus cited engine-specific rows against
-            # it — G-5 section C reds until a WebKit project collects it.
-            - run: >-
-                  npx playwright test
-                  --project=smoke-safari
-                  --project=oracles-safari
-            - uses: actions/upload-artifact@v4
-              if: always()
-              with:
-                  name: e2e-safari-report
                   path: playwright-report/
                   retention-days: 7
 
@@ -295,104 +287,9 @@ jobs:
               with:
                   name: lhci-report
                   path: .lighthouseci/
+                  # `.lighthouseci/` is a dot-directory: upload-artifact@v4
+                  # excludes hidden files by default, so without this every
+                  # run logged "No files were found" and the reports that
+                  # explain a red budget were never kept.
+                  include-hidden-files: true
                   retention-days: 7
-
-    # ── G-21 · the standing deploy-age check ─────────────────────────────────
-    # DR-11 recurred across M → N → R → S → T because every close reported CI
-    # green ON ITS OWN BRANCH and no gate measured deploy age: the last
-    # successful `deploy-pages` run sat 27 days stale, then 72, unobserved.
-    #
-    # This job reds when the newest successful deploy is OLDER than the newest
-    # close recorded in the repository. It is a job in `ci.yml` and not a third
-    # `scripts/ci/*` path because W1.md's §File Bounds admits exactly two
-    # creates there (WO-3).
-    #
-    # The two override inputs exist for G-21's OWN falsifier — back-date the
-    # comparison input by a day and the check must red. They are read from the
-    # environment, printed, and never defaulted to a value that could turn a red
-    # into a green: with neither set, both sides are measured.
-    deploy-age:
-        name: deploy-age
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-            - name: the newest deploy vs the newest close
-              env:
-                  GH_TOKEN: ${{ github.token }}
-                  VJS_DEPLOY_AGE_DEPLOY_OVERRIDE: ${{ vars.VJS_DEPLOY_AGE_DEPLOY_OVERRIDE }}
-                  VJS_DEPLOY_AGE_CLOSE_OVERRIDE: ${{ vars.VJS_DEPLOY_AGE_CLOSE_OVERRIDE }}
-              shell: bash
-              run: |
-                  set -euo pipefail
-
-                  if [ -n "${VJS_DEPLOY_AGE_DEPLOY_OVERRIDE:-}" ]; then
-                      DEPLOY_AT="$VJS_DEPLOY_AGE_DEPLOY_OVERRIDE"
-                      DEPLOY_SRC="override"
-                  else
-                      DEPLOY_AT="$(gh run list \
-                          --workflow deploy-pages.yml \
-                          --branch master \
-                          --status success \
-                          --limit 1 \
-                          --json createdAt \
-                          --jq '.[0].createdAt // ""')"
-                      DEPLOY_SRC="gh run list --workflow deploy-pages.yml --status success"
-                  fi
-
-                  if [ -n "${VJS_DEPLOY_AGE_CLOSE_OVERRIDE:-}" ]; then
-                      CLOSE_AT="$VJS_DEPLOY_AGE_CLOSE_OVERRIDE"
-                      CLOSE_SRC="override"
-                  else
-                      # The newest close the repository itself records: the most
-                      # recent commit whose subject announces one. Grepping the
-                      # log rather than a hand-maintained date file means the
-                      # input cannot go stale without the close going missing.
-                      CLOSE_AT="$(git log -1 --date=iso-strict --format=%cd \
-                          --extended-regexp --grep='(close|CLOSE|CLOSED|FINAL)' \
-                          -- docs/tranches || true)"
-                      CLOSE_SRC="git log -- docs/tranches (subject names a close)"
-                  fi
-
-                  echo "newest successful deploy : ${DEPLOY_AT:-<none>}  [$DEPLOY_SRC]"
-                  echo "newest recorded close    : ${CLOSE_AT:-<none>}  [$CLOSE_SRC]"
-
-                  # X-W1 repair 1 (Check 1 · D-8). This read `exit 0` — the one
-                  # silent-green path in a job whose entire purpose is to refuse
-                  # a silent green. This repository has recorded closes under
-                  # docs/tranches since tranche A, so an EMPTY reading here does
-                  # not mean "no close exists"; it means the INSTRUMENT broke —
-                  # the path moved, the subject grammar changed, or the checkout
-                  # is shallow (the `|| true` above swallows a git error under
-                  # `set -e`, so a broken query arrives as an empty string, not
-                  # as a failure). A check that measured nothing must not report
-                  # OK: that is the fail-open half of DR-11, which is the disease
-                  # this job exists to end.
-                  if [ -z "$CLOSE_AT" ]; then
-                      echo "FAIL — the close query returned nothing, so this check" \
-                           "measured nothing. Either no commit under docs/tranches" \
-                           "announces a close (impossible in this repository's" \
-                           "history) or the query itself is broken. Fix the input;" \
-                           "do not pass on its absence."
-                      exit 1
-                  fi
-                  if [ -z "$DEPLOY_AT" ]; then
-                      echo "FAIL — no successful deploy-pages run exists at all," \
-                           "while the repository records a close at $CLOSE_AT"
-                      exit 1
-                  fi
-
-                  DEPLOY_EPOCH="$(date -u -d "$DEPLOY_AT" +%s 2>/dev/null || python3 -c \
-                      'import sys,datetime;print(int(datetime.datetime.fromisoformat(sys.argv[1].replace("Z","+00:00")).timestamp()))' "$DEPLOY_AT")"
-                  CLOSE_EPOCH="$(date -u -d "$CLOSE_AT" +%s 2>/dev/null || python3 -c \
-                      'import sys,datetime;print(int(datetime.datetime.fromisoformat(sys.argv[1].replace("Z","+00:00")).timestamp()))' "$CLOSE_AT")"
-
-                  if [ "$DEPLOY_EPOCH" -lt "$CLOSE_EPOCH" ]; then
-                      echo "FAIL — production is older than the newest close by" \
-                           "$(( (CLOSE_EPOCH - DEPLOY_EPOCH) / 86400 )) day(s)."
-                      echo "A close that has not shipped is a close that reported" \
-                           "green on its own branch. That is DR-11."
-                      exit 1
-                  fi
-                  echo "OK — the deploy of record is newer than the newest close."

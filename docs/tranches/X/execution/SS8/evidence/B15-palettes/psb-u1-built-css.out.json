@@ -1,0 +1,49 @@
+{
+ "cssCount": 1,
+ "both": {
+  "family": "Fraunces, \"Fraunces Fallback\", serif",
+  "size": "16px",
+  "weight": "400"
+ },
+ "textSmallOnly": {
+  "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+  "size": "16px",
+  "weight": "400"
+ },
+ "fontDisplayOnly": {
+  "family": "Fraunces, \"Fraunces Fallback\", serif",
+  "size": "18.176px",
+  "weight": "400"
+ },
+ "bare": {
+  "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+  "size": "18.176px",
+  "weight": "400"
+ },
+ "rules": [
+  {
+   "sel": ".text-small",
+   "layer": "components",
+   "text": ".text-small { font-size: var(--type-small); }"
+  },
+  {
+   "sel": ".text-small",
+   "layer": "utilities",
+   "text": ".text-small { font-family: var(--font-text); font-size: var(--type-small); line-height: var(--type-leading-small); font-weight: 400; }"
+  },
+  {
+   "sel": ".font-display",
+   "layer": "utilities",
+   "text": ".font-display { font-family: var(--font-stack-display); }"
+  },
+  {
+   "sel": ".text-small",
+   "layer": "utilities",
+   "text": ".text-small { font-size: var(--type-small); }"
+  }
+ ],
+ "cssFiles": [
+  "index-DCR9CSMC.css"
+ ],
+ "verdict": "font-display WINS family"
+}

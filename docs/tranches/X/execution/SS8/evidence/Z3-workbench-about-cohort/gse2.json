@@ -1,0 +1,269 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "chromium",
+ "at": "2026-10-20T20:30:31.352Z",
+ "out": {
+  "axis2": {
+   "cell": "axis2",
+   "geo": {
+    "x": 224,
+    "y": 239.75,
+    "w": 462,
+    "h": 40,
+    "inset": 12,
+    "bg": [
+     "calc(0% + 12px)",
+     "calc(100% - 12px)"
+    ]
+   },
+   "ends": [
+    {
+     "now": 0,
+     "cx": 236,
+     "rampX": 236,
+     "d": 0
+    },
+    {
+     "now": 100,
+     "cx": 674,
+     "rampX": 674,
+     "d": 0
+    }
+   ],
+   "mints": [
+    {
+     "target": 5,
+     "x": 257.9,
+     "minted": 5,
+     "handleCx": 257.89,
+     "dCx": -0.01
+    },
+    {
+     "target": 37.5,
+     "x": 400.25,
+     "minted": 37.5,
+     "handleCx": 400.25,
+     "dCx": 0
+    },
+    {
+     "target": 95,
+     "x": 652.1,
+     "minted": 95,
+     "handleCx": 652.09,
+     "dCx": -0.01
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3986
+  },
+  "cross": {
+   "cell": "cross",
+   "before": [
+    0,
+    50,
+    100
+   ],
+   "after": [
+    [
+     "",
+     50
+    ],
+    [
+     "dragged",
+     80
+    ],
+    [
+     "",
+     100
+    ]
+   ],
+   "emitted": "linear-gradient(\n  90deg in oklch,\n  oklch(70% 0.165 205deg) 50%,\n  oklch(75% 0.15 145deg) 80%,\n  oklch(65% 0.18 265deg) 100%\n)",
+   "pcts": [
+    50,
+    80,
+    100
+   ],
+   "monotone": true,
+   "verdict": [],
+   "refedCount": 3,
+   "refed": [
+    50,
+    80,
+    100
+   ],
+   "boundary": [],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 6263
+  },
+  "numeric": {
+   "cell": "numeric",
+   "error": "TimeoutError: locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"gradient-stop-position\"]').first()\u001b[22m\n",
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 33258
+  },
+  "coarse": {
+   "cell": "coarse",
+   "mid": 50,
+   "geo": {
+    "hit": [
+     183,
+     297.8,
+     24,
+     24
+    ],
+    "before": {
+     "w": "44px",
+     "h": "44px",
+     "inset": "12px -32px -32px 12px"
+    },
+    "after": {
+     "w": "auto",
+     "h": "auto",
+     "inset": "auto"
+    },
+    "seatBottom": 355.6,
+    "nextTop": null,
+    "over": []
+   },
+   "taps": {
+    "14": {
+     "count": [
+      3,
+      3
+     ],
+     "target": "BUTTON.rail-handle|Gradient stop 2 of 3",
+     "movedTo": 50
+    },
+    "20": {
+     "count": [
+      3,
+      3
+     ],
+     "target": "BUTTON.rail-handle|Gradient stop 2 of 3",
+     "movedTo": 50
+    },
+    "26": {
+     "count": [
+      3,
+      3
+     ],
+     "target": "DIV.stop-inspector|",
+     "movedTo": 50
+    },
+    "34": {
+     "count": [
+      3,
+      3
+     ],
+     "target": "P.text-caption|",
+     "movedTo": 50
+    }
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 7905
+  },
+  "white2": {
+   "cell": "white2",
+   "faces": [
+    {
+     "face": [
+      226,
+      286.1,
+      20,
+      20
+     ],
+     "outsideL": 0.254,
+     "centreL": 0.8987,
+     "ringVsSurround": 3.2,
+     "ringVsFill": 3.23
+    },
+    {
+     "face": [
+      664,
+      286.1,
+      20,
+      20
+     ],
+     "outsideL": 0.2759,
+     "centreL": 0.8573,
+     "ringVsSurround": 2.83,
+     "ringVsFill": 2.93
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 4161
+  },
+  "census": {
+   "cell": "census",
+   "watercolor": [
+    {
+     "pane": "Palettes",
+     "inRail": false,
+     "parent": "BUTTON.button tap-squish focus-ring add-slot-gh",
+     "rect": [
+      1160,
+      276,
+      42,
+      42
+     ]
+    },
+    {
+     "pane": "Palettes",
+     "inRail": false,
+     "parent": "DIV.flex items-end gap-2",
+     "rect": [
+      927,
+      378,
+      32,
+      32
+     ]
+    },
+    {
+     "pane": "Palettes",
+     "inRail": false,
+     "parent": "DIV.flex items-end gap-2",
+     "rect": [
+      967,
+      366,
+      44,
+      44
+     ]
+    },
+    {
+     "pane": "Palettes",
+     "inRail": false,
+     "parent": "DIV.flex items-end gap-2",
+     "rect": [
+      1019,
+      386,
+      24,
+      24
+     ]
+    }
+   ],
+   "headings": [
+    "H1:Gradient:",
+    "H3:Stops:",
+    "H3:Interpolation:",
+    "H3:Easing:",
+    "H3:1 → 2linear:",
+    "H3:CSS:",
+    "H2:My Palettes:"
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2092
+  }
+ }
+}

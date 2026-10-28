@@ -1,0 +1,758 @@
+{
+ "v-light-1440": {
+  "h1": [],
+  "sectionLabels": [
+   {
+    "text": "Image",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 51.1,
+    "h": 30.5
+   },
+   {
+    "text": "Basis",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 43.7,
+    "h": 30.5
+   },
+   {
+    "text": "Contour",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 69.3,
+    "h": 30.5
+   },
+   {
+    "text": "Coefficients",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 96.7,
+    "h": 30.5
+   }
+  ],
+  "layerSubs": [
+   {
+    "text": "resolution",
+    "size": "11px",
+    "weight": "400",
+    "w": 66,
+    "h": 13.8
+   },
+   {
+    "text": "Fourier spectrum",
+    "size": "11px",
+    "weight": "400",
+    "w": 105.6,
+    "h": 13.8
+   }
+  ],
+  "cardTitles": [],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "w-light-1440": {
+  "h1": [
+   {
+    "text": "Draw any outline in circles",
+    "size": "41.888px",
+    "weight": "400",
+    "w": 491.1,
+    "h": 44
+   }
+  ],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [],
+  "dropTitle": [
+   {
+    "lines": [
+     "Draw any outline in circles"
+    ],
+    "box": 491.1,
+    "maxInline": "none"
+   }
+  ],
+  "errTitle": []
+ },
+ "w-empty-light-1440": {
+  "h1": [
+   {
+    "text": "Draw any outline in circles",
+    "size": "41.888px",
+    "weight": "400",
+    "w": 491.1,
+    "h": 44
+   }
+  ],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [],
+  "dropTitle": [
+   {
+    "lines": [
+     "Draw any outline in circles"
+    ],
+    "box": 491.1,
+    "maxInline": "none"
+   }
+  ],
+  "errTitle": []
+ },
+ "equation-light-1440": {
+  "h1": [],
+  "sectionLabels": [
+   {
+    "text": "Function",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 74.1,
+    "h": 30.5
+   },
+   {
+    "text": "Controls",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 71.2,
+    "h": 30.5
+   },
+   {
+    "text": "Coefficients",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 96.7,
+    "h": 30.5
+   }
+  ],
+  "layerSubs": [
+   {
+    "text": "f(t)",
+    "size": "16.4px",
+    "weight": "400",
+    "w": 23.8,
+    "h": 20.5
+   },
+   {
+    "text": "harmonics & display",
+    "size": "11px",
+    "weight": "400",
+    "w": 125.4,
+    "h": 13.8
+   },
+   {
+    "text": "all 21 harmonics, n = −20…20",
+    "size": "11px",
+    "weight": "400",
+    "w": 184.8,
+    "h": 13.8
+   }
+  ],
+  "cardTitles": [],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "gallery-light-1440": {
+  "h1": [],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 246,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 246,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 246,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 246,
+    "h": 20.8
+   }
+  ],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "v-light-390": {
+  "h1": [],
+  "sectionLabels": [
+   {
+    "text": "Image",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 51.1,
+    "h": 30.5
+   },
+   {
+    "text": "Basis",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 43.7,
+    "h": 30.5
+   },
+   {
+    "text": "Contour",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 69.3,
+    "h": 30.5
+   },
+   {
+    "text": "Coefficients",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 96.7,
+    "h": 30.5
+   }
+  ],
+  "layerSubs": [
+   {
+    "text": "resolution",
+    "size": "11px",
+    "weight": "400",
+    "w": 66,
+    "h": 13.8
+   },
+   {
+    "text": "Fourier spectrum",
+    "size": "11px",
+    "weight": "400",
+    "w": 105.6,
+    "h": 13.8
+   }
+  ],
+  "cardTitles": [],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "w-light-390": {
+  "h1": [
+   {
+    "text": "Draw any outline in circles",
+    "size": "25.888px",
+    "weight": "400",
+    "w": 303.5,
+    "h": 27.2
+   }
+  ],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [],
+  "dropTitle": [
+   {
+    "lines": [
+     "Draw any outline in circles"
+    ],
+    "box": 303.5,
+    "maxInline": "none"
+   }
+  ],
+  "errTitle": []
+ },
+ "w-empty-light-390": {
+  "h1": [
+   {
+    "text": "Draw any outline in circles",
+    "size": "25.888px",
+    "weight": "400",
+    "w": 303.5,
+    "h": 27.2
+   }
+  ],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [],
+  "dropTitle": [
+   {
+    "lines": [
+     "Draw any outline in circles"
+    ],
+    "box": 303.5,
+    "maxInline": "none"
+   }
+  ],
+  "errTitle": []
+ },
+ "equation-light-390": {
+  "h1": [],
+  "sectionLabels": [
+   {
+    "text": "Function",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 74.1,
+    "h": 30.5
+   },
+   {
+    "text": "Controls",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 71.2,
+    "h": 30.5
+   },
+   {
+    "text": "Coefficients",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 96.7,
+    "h": 30.5
+   }
+  ],
+  "layerSubs": [
+   {
+    "text": "f(t)",
+    "size": "14px",
+    "weight": "400",
+    "w": 20.3,
+    "h": 17.5
+   },
+   {
+    "text": "harmonics & display",
+    "size": "11px",
+    "weight": "400",
+    "w": 125.4,
+    "h": 13.8
+   },
+   {
+    "text": "all 21 harmonics, n = −20…20",
+    "size": "11px",
+    "weight": "400",
+    "w": 184.8,
+    "h": 13.8
+   }
+  ],
+  "cardTitles": [],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "gallery-light-390": {
+  "h1": [],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 155,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 155,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 155,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 155,
+    "h": 20.8
+   }
+  ],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "v-dark-1440": {
+  "h1": [],
+  "sectionLabels": [
+   {
+    "text": "Image",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 51.1,
+    "h": 30.5
+   },
+   {
+    "text": "Basis",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 43.7,
+    "h": 30.5
+   },
+   {
+    "text": "Contour",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 69.3,
+    "h": 30.5
+   },
+   {
+    "text": "Coefficients",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 96.7,
+    "h": 30.5
+   }
+  ],
+  "layerSubs": [
+   {
+    "text": "resolution",
+    "size": "11px",
+    "weight": "400",
+    "w": 66,
+    "h": 13.8
+   },
+   {
+    "text": "Fourier spectrum",
+    "size": "11px",
+    "weight": "400",
+    "w": 105.6,
+    "h": 13.8
+   }
+  ],
+  "cardTitles": [],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "w-dark-1440": {
+  "h1": [
+   {
+    "text": "Draw any outline in circles",
+    "size": "41.888px",
+    "weight": "400",
+    "w": 491.1,
+    "h": 44
+   }
+  ],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [],
+  "dropTitle": [
+   {
+    "lines": [
+     "Draw any outline in circles"
+    ],
+    "box": 491.1,
+    "maxInline": "none"
+   }
+  ],
+  "errTitle": []
+ },
+ "w-empty-dark-1440": {
+  "h1": [
+   {
+    "text": "Draw any outline in circles",
+    "size": "41.888px",
+    "weight": "400",
+    "w": 491.1,
+    "h": 44
+   }
+  ],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [],
+  "dropTitle": [
+   {
+    "lines": [
+     "Draw any outline in circles"
+    ],
+    "box": 491.1,
+    "maxInline": "none"
+   }
+  ],
+  "errTitle": []
+ },
+ "equation-dark-1440": {
+  "h1": [],
+  "sectionLabels": [
+   {
+    "text": "Function",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 74.1,
+    "h": 30.5
+   },
+   {
+    "text": "Controls",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 71.2,
+    "h": 30.5
+   },
+   {
+    "text": "Coefficients",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 96.7,
+    "h": 30.5
+   }
+  ],
+  "layerSubs": [
+   {
+    "text": "f(t)",
+    "size": "16.4px",
+    "weight": "400",
+    "w": 23.8,
+    "h": 20.5
+   },
+   {
+    "text": "harmonics & display",
+    "size": "11px",
+    "weight": "400",
+    "w": 125.4,
+    "h": 13.8
+   },
+   {
+    "text": "all 21 harmonics, n = −20…20",
+    "size": "11px",
+    "weight": "400",
+    "w": 184.8,
+    "h": 13.8
+   }
+  ],
+  "cardTitles": [],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "gallery-dark-1440": {
+  "h1": [],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 246,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 246,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 246,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 246,
+    "h": 20.8
+   }
+  ],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "v-dark-390": {
+  "h1": [],
+  "sectionLabels": [
+   {
+    "text": "Image",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 51.1,
+    "h": 30.5
+   },
+   {
+    "text": "Basis",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 43.7,
+    "h": 30.5
+   },
+   {
+    "text": "Contour",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 69.3,
+    "h": 30.5
+   },
+   {
+    "text": "Coefficients",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 96.7,
+    "h": 30.5
+   }
+  ],
+  "layerSubs": [
+   {
+    "text": "resolution",
+    "size": "11px",
+    "weight": "400",
+    "w": 66,
+    "h": 13.8
+   },
+   {
+    "text": "Fourier spectrum",
+    "size": "11px",
+    "weight": "400",
+    "w": 105.6,
+    "h": 13.8
+   }
+  ],
+  "cardTitles": [],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "w-dark-390": {
+  "h1": [
+   {
+    "text": "Draw any outline in circles",
+    "size": "25.888px",
+    "weight": "400",
+    "w": 303.5,
+    "h": 27.2
+   }
+  ],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [],
+  "dropTitle": [
+   {
+    "lines": [
+     "Draw any outline in circles"
+    ],
+    "box": 303.5,
+    "maxInline": "none"
+   }
+  ],
+  "errTitle": []
+ },
+ "w-empty-dark-390": {
+  "h1": [
+   {
+    "text": "Draw any outline in circles",
+    "size": "25.888px",
+    "weight": "400",
+    "w": 303.5,
+    "h": 27.2
+   }
+  ],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [],
+  "dropTitle": [
+   {
+    "lines": [
+     "Draw any outline in circles"
+    ],
+    "box": 303.5,
+    "maxInline": "none"
+   }
+  ],
+  "errTitle": []
+ },
+ "equation-dark-390": {
+  "h1": [],
+  "sectionLabels": [
+   {
+    "text": "Function",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 74.1,
+    "h": 30.5
+   },
+   {
+    "text": "Controls",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 71.2,
+    "h": 30.5
+   },
+   {
+    "text": "Coefficients",
+    "size": "20.352px",
+    "weight": "500",
+    "w": 96.7,
+    "h": 30.5
+   }
+  ],
+  "layerSubs": [
+   {
+    "text": "f(t)",
+    "size": "14px",
+    "weight": "400",
+    "w": 20.3,
+    "h": 17.5
+   },
+   {
+    "text": "harmonics & display",
+    "size": "11px",
+    "weight": "400",
+    "w": 125.4,
+    "h": 13.8
+   },
+   {
+    "text": "all 21 harmonics, n = −20…20",
+    "size": "11px",
+    "weight": "400",
+    "w": 184.8,
+    "h": 13.8
+   }
+  ],
+  "cardTitles": [],
+  "dropTitle": [],
+  "errTitle": []
+ },
+ "gallery-dark-390": {
+  "h1": [],
+  "sectionLabels": [],
+  "layerSubs": [],
+  "cardTitles": [
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 155,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 155,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 155,
+    "h": 20.8
+   },
+   {
+    "text": "e2e-seed:f-w14",
+    "size": "16px",
+    "weight": "500",
+    "w": 155,
+    "h": 20.8
+   }
+  ],
+  "dropTitle": [],
+  "errTitle": []
+ }
+}

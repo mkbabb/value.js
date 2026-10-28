@@ -1,0 +1,9 @@
+{
+ "gridH": 120,
+ "gridMinH": "120px",
+ "padY": "0px/0px",
+ "cardH": 120,
+ "gridChildrenH": [
+  120
+ ]
+}

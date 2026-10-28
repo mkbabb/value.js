@@ -1,0 +1,1300 @@
+{
+ "gallery": [
+  {
+   "cls": "DIV.paper-grid.fixed.inset-0.-z-10",
+   "box": [
+    0,
+    0,
+    1440,
+    900
+   ],
+   "bg": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,"
+  },
+  {
+   "cls": "DIV.app-dock.glass-dock.horizontal.shape-pill",
+   "box": [
+    449,
+    12,
+    542,
+    56
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px"
+  },
+  {
+   "cls": "DIV.dock-plate",
+   "box": [
+    449,
+    12,
+    542,
+    56
+   ],
+   "bf": "blur(16px) saturate(1.2)",
+   "an": "gl-dock-cap-inline-start, gl-dock-cap-inline-end/1, 1"
+  },
+  {
+   "cls": "BUTTON.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "box": [
+    939,
+    20,
+    40,
+    40
+   ],
+   "f": "brightness(1)"
+  },
+  {
+   "cls": "INPUT.field-control.glass-control-edge.search-field-input",
+   "box": [
+    201,
+    100,
+    512,
+    40
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "ARTICLE.glass-resting.card.gallery-card.deferred-section",
+   "box": [
+    16,
+    156,
+    272,
+    338
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, "
+  },
+  {
+   "cls": "DIV.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "box": [
+    29,
+    417,
+    88,
+    25
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset"
+  },
+  {
+   "cls": "ARTICLE.glass-resting.card.gallery-card.deferred-section",
+   "box": [
+    300,
+    156,
+    272,
+    338
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, "
+  },
+  {
+   "cls": "DIV.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "box": [
+    313,
+    417,
+    88,
+    25
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset"
+  },
+  {
+   "cls": "ARTICLE.glass-resting.card.gallery-card.deferred-section",
+   "box": [
+    584,
+    156,
+    272,
+    338
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, "
+  },
+  {
+   "cls": "DIV.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "box": [
+    597,
+    417,
+    88,
+    25
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset"
+  },
+  {
+   "cls": "ARTICLE.glass-resting.card.gallery-card.deferred-section",
+   "box": [
+    868,
+    156,
+    272,
+    338
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, "
+  },
+  {
+   "cls": "DIV.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "box": [
+    881,
+    417,
+    88,
+    25
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset"
+  },
+  {
+   "cls": "ARTICLE.glass-resting.card.gallery-card.deferred-section",
+   "box": [
+    1152,
+    156,
+    272,
+    338
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, "
+  },
+  {
+   "cls": "DIV.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "box": [
+    1165,
+    417,
+    88,
+    25
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset"
+  }
+ ],
+ "equation": [
+  {
+   "cls": "DIV.paper-grid.fixed.inset-0.-z-10",
+   "box": [
+    0,
+    0,
+    1440,
+    900
+   ],
+   "bg": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,"
+  },
+  {
+   "cls": "DIV.app-dock.glass-dock.horizontal.shape-pill",
+   "box": [
+    442,
+    12,
+    557,
+    56
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px"
+  },
+  {
+   "cls": "DIV.dock-plate",
+   "box": [
+    442,
+    12,
+    557,
+    56
+   ],
+   "bf": "blur(16px) saturate(1.2)",
+   "an": "gl-dock-cap-inline-start, gl-dock-cap-inline-end/1, 1"
+  },
+  {
+   "cls": "BUTTON.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "box": [
+    946,
+    20,
+    40,
+    40
+   ],
+   "f": "brightness(1)"
+  },
+  {
+   "cls": "DIV.configurator-stage.relative.min-h-0.min-w-0",
+   "box": [
+    16,
+    88,
+    972,
+    800
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, co",
+   "bf": "blur(20px) saturate(1.5)"
+  },
+  {
+   "cls": "DIV.segmented-tabs.segmented-tabs--pill.glass-capsule-track.eq-toggle",
+   "box": [
+    25,
+    104,
+    135,
+    43
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.07) 0px 1px 2px 0px inset",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "DIV.segmented-indicator.segmented-indicator--js.glass-capsule.glass-drag-grabbable",
+   "box": [
+    29,
+    108,
+    64,
+    35
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.07) 0px 1px 2px 0px inset",
+   "bf": "blur(20px) saturate(1.5)"
+  },
+  {
+   "cls": "DIV.glass-dock.horizontal.shape-pill.expanded",
+   "box": [
+    867,
+    97,
+    112,
+    56
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px"
+  },
+  {
+   "cls": "DIV.dock-plate",
+   "box": [
+    867,
+    97,
+    112,
+    56
+   ],
+   "bf": "blur(0px) saturate(1.2)",
+   "an": "gl-dock-cap-inline-start, gl-dock-cap-inline-end/1, 1"
+  },
+  {
+   "cls": "BUTTON.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "box": [
+    879,
+    105,
+    40,
+    40
+   ],
+   "f": "brightness(1)"
+  },
+  {
+   "cls": "BUTTON.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "box": [
+    927,
+    105,
+    40,
+    40
+   ],
+   "f": "brightness(1)"
+  },
+  {
+   "cls": "BUTTON.button.tap-squish.focus-ring.glass-capsule",
+   "box": [
+    29,
+    839,
+    40,
+    40
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    83,
+    856,
+    822,
+    6
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+  },
+  {
+   "cls": "SPAN.slider-range.glass-liquid-fill",
+   "box": [
+    83,
+    856,
+    781,
+    6
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8px -1px",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "ASIDE.configurator-aside.flex.min-h-0.min-w-0",
+   "box": [
+    1000,
+    100,
+    424,
+    788
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, co",
+   "bf": "blur(20px) saturate(1.5)"
+  },
+  {
+   "cls": "INPUT.field-control.glass-control-edge.w-full.fira-code",
+   "box": [
+    1022,
+    189,
+    380,
+    40
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "INPUT.field-control.glass-control-edge.w-20.text-center",
+   "box": [
+    1022,
+    269,
+    80,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "INPUT.field-control.glass-control-edge.w-20.text-center",
+   "box": [
+    1133,
+    269,
+    80,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "BUTTON.button.tap-squish.focus-ring.glass-capsule",
+   "box": [
+    1022,
+    317,
+    380,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px",
+   "bf": "blur(0px) saturate(1.605)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1022,
+    407,
+    96,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1126,
+    407,
+    84,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1217,
+    407,
+    84,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1309,
+    407,
+    84,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1022,
+    451,
+    96,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1126,
+    451,
+    84,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1217,
+    451,
+    84,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1309,
+    451,
+    84,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    1246,
+    581,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1326,
+    581,
+    76,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    1022,
+    648,
+    380,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc(7.07071% + 5.15152px), color(srgb 0.11 0"
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    1048,
+    648,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    1330,
+    684,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    1022,
+    750,
+    380,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc(100% - 6px), color(srgb 0.11 0.098 0.09 "
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    1390,
+    750,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1022,
+    815,
+    74,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1104,
+    815,
+    62,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1174,
+    815,
+    77,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  }
+ ],
+ "morph": [
+  {
+   "cls": "DIV.paper-grid.fixed.inset-0.-z-10",
+   "box": [
+    0,
+    0,
+    1440,
+    900
+   ],
+   "bg": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,"
+  },
+  {
+   "cls": "DIV.app-dock.glass-dock.horizontal.shape-pill",
+   "box": [
+    452,
+    12,
+    537,
+    56
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px"
+  },
+  {
+   "cls": "DIV.dock-plate",
+   "box": [
+    452,
+    12,
+    537,
+    56
+   ],
+   "bf": "blur(16px) saturate(1.2)",
+   "an": "gl-dock-cap-inline-start, gl-dock-cap-inline-end/1, 1"
+  },
+  {
+   "cls": "BUTTON.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "box": [
+    936,
+    20,
+    40,
+    40
+   ],
+   "f": "brightness(1)"
+  },
+  {
+   "cls": "BUTTON.glass-resting.morph-button",
+   "box": [
+    160,
+    192,
+    416,
+    416
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px"
+  },
+  {
+   "cls": "BUTTON.button.tap-squish.focus-ring.glass-capsule",
+   "box": [
+    160,
+    676,
+    94,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "DIV.glass-resting.card.config-card",
+   "box": [
+    596,
+    192,
+    220,
+    268
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, "
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    698,
+    291,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    617,
+    335,
+    178,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.68759 0.136247 0.0725575 / 0.775) 0px, oklab(0.68759 0.136247 0.0725575 / 0.775) calc(13.3333% + 4.4px), color(srgb 0.11 0.098"
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    639,
+    335,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  {
+   "cls": "BUTTON.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)",
+   "box": [
+    617,
+    399,
+    178,
+    40
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "DIV.glass-resting.card.config-card",
+   "box": [
+    828,
+    192,
+    220,
+    268
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, "
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    930,
+    291,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    849,
+    335,
+    178,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.715267 0.139266 -0.0133231 / 0.775) 0px, oklab(0.715267 0.139266 -0.0133231 / 0.775) calc(0% + 6px), color(srgb 0.11 0.098 0.0"
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    849,
+    335,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  {
+   "cls": "BUTTON.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)",
+   "box": [
+    849,
+    399,
+    178,
+    40
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "DIV.glass-resting.card.config-card",
+   "box": [
+    1060,
+    192,
+    220,
+    268
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, "
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    1162,
+    291,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    1081,
+    335,
+    178,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.68759 0.136247 0.0725575 / 0.775) 0px, oklab(0.68759 0.136247 0.0725575 / 0.775) calc(13.3333% + 4.4px), color(srgb 0.11 0.098"
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    1103,
+    335,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  {
+   "cls": "BUTTON.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)",
+   "box": [
+    1081,
+    399,
+    178,
+    40
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "DIV.glass-resting.card.levels-card",
+   "box": [
+    596,
+    472,
+    684,
+    434
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, "
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    685,
+    530,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    769,
+    536,
+    490,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc(8.33333% + 5px), color(srgb 0.11 0.098 0"
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    809,
+    536,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    685,
+    578,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    769,
+    584,
+    490,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc(100% - 6px), color(srgb 0.11 0.098 0.09 "
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    1247,
+    584,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  {
+   "cls": "BUTTON.button.tap-squish.focus-ring.grid-cell",
+   "box": [
+    1137,
+    764,
+    122,
+    122
+   ],
+   "bs": "oklch(0.574 0.216 27.5) 0px 0px 0px 1px"
+  }
+ ],
+ "paper": [
+  {
+   "cls": "DIV.paper-grid.fixed.inset-0.-z-10",
+   "box": [
+    0,
+    0,
+    1440,
+    900
+   ],
+   "bg": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,"
+  },
+  {
+   "cls": "DIV.app-dock.glass-dock.horizontal.shape-pill",
+   "box": [
+    455,
+    12,
+    530,
+    56
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px"
+  },
+  {
+   "cls": "DIV.dock-plate",
+   "box": [
+    455,
+    12,
+    530,
+    56
+   ],
+   "bf": "blur(16px) saturate(1.2)",
+   "an": "gl-dock-cap-inline-start, gl-dock-cap-inline-end/1, 1"
+  },
+  {
+   "cls": "BUTTON.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "box": [
+    933,
+    20,
+    40,
+    40
+   ],
+   "f": "brightness(1)"
+  },
+  {
+   "cls": "SPAN.scroll-progress-rim__fill",
+   "box": [
+    8,
+    895,
+    1424,
+    3
+   ],
+   "bg": "linear-gradient(to right, oklch(0.552 0.192 359.8), oklch(0.552 0.192 359.8))"
+  },
+  {
+   "cls": "NAV.sidebar-nav.glass-quiet.scrollbar-thin",
+   "box": [
+    162,
+    88,
+    312,
+    699
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8px -1px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px"
+  },
+  {
+   "cls": "INPUT.field-control.glass-control-edge.search-field-input",
+   "box": [
+    173,
+    99,
+    290,
+    40
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "ARTICLE.glass-resting.card.paper-article.leading-relaxed",
+   "box": [
+    510,
+    88,
+    768,
+    131470
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, "
+  }
+ ],
+ "w": [
+  {
+   "cls": "DIV.paper-grid.fixed.inset-0.-z-10",
+   "box": [
+    0,
+    0,
+    1440,
+    900
+   ],
+   "bg": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,"
+  },
+  {
+   "cls": "DIV.app-dock.glass-dock.horizontal.shape-pill",
+   "box": [
+    442,
+    12,
+    555,
+    56
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px"
+  },
+  {
+   "cls": "DIV.dock-plate",
+   "box": [
+    442,
+    12,
+    555,
+    56
+   ],
+   "bf": "blur(16px) saturate(1.2)",
+   "an": "gl-dock-cap-inline-start, gl-dock-cap-inline-end/1, 1"
+  },
+  {
+   "cls": "BUTTON.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "box": [
+    946,
+    20,
+    40,
+    40
+   ],
+   "f": "brightness(1)"
+  },
+  {
+   "cls": "DIV.configurator-stage.relative.min-h-0.min-w-0",
+   "box": [
+    16,
+    88,
+    972,
+    800
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, co",
+   "bf": "blur(20px) saturate(1.5)"
+  },
+  {
+   "cls": "DIV.progress-rail.track-well.track-flow.stage-busy-bar",
+   "box": [
+    406,
+    469,
+    192,
+    8
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+  },
+  {
+   "cls": "DIV.glass-dock.horizontal.shape-pill.collapsed",
+   "box": [
+    923,
+    97,
+    56,
+    56
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px"
+  },
+  {
+   "cls": "DIV.dock-plate",
+   "box": [
+    923,
+    97,
+    56,
+    56
+   ],
+   "bf": "blur(0px) saturate(1.2)",
+   "an": "gl-dock-cap-inline-start, gl-dock-cap-inline-end/1, 1"
+  },
+  {
+   "cls": "DIV.animation-dock.glass-dock.horizontal.shape-pill",
+   "box": [
+    451,
+    819,
+    102,
+    56
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px"
+  },
+  {
+   "cls": "DIV.dock-plate",
+   "box": [
+    451,
+    819,
+    102,
+    56
+   ],
+   "bf": "blur(0px) saturate(1.2)",
+   "an": "gl-dock-cap-inline-start, gl-dock-cap-inline-end/1, 1"
+  },
+  {
+   "cls": "BUTTON.dock-icon-button.glass-specular-track.glass-capsule-hover.play-control",
+   "box": [
+    459,
+    827,
+    40,
+    40
+   ],
+   "f": "brightness(1)"
+  },
+  {
+   "cls": "ASIDE.configurator-aside.flex.min-h-0.min-w-0",
+   "box": [
+    1000,
+    100,
+    424,
+    655
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, co",
+   "bf": "blur(20px) saturate(1.5)"
+  },
+  {
+   "cls": "BUTTON.button.tap-squish.focus-ring.glass-capsule",
+   "box": [
+    1094,
+    179,
+    140,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1022,
+    328,
+    115,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1145,
+    328,
+    85,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1238,
+    328,
+    38,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1022,
+    413,
+    114,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "BUTTON.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "box": [
+    1144,
+    413,
+    102,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    1330,
+    461,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    1022,
+    527,
+    380,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.691007 0.123391 0.0739245 / 0.775) 0px, oklab(0.691007 0.123391 0.0739245 / 0.775) calc(39.8798% + 1.21443px), color(srgb 0.11"
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    1169,
+    527,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    1330,
+    559,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    1022,
+    626,
+    380,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.623835 -0.00916075 -0.112976 / 0.775) 0px, oklab(0.623835 -0.00916075 -0.112976 / 0.775) calc(22.5806% + 3.29032px), color(srg"
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    1105,
+    626,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  {
+   "cls": "BUTTON.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)",
+   "box": [
+    1022,
+    748,
+    380,
+    40
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)"
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    1330,
+    804,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    1022,
+    871,
+    380,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 0.0769798 / 0.775) 50%, color(srgb 0.11 0.098 0.09 / 0.15) 5"
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    1206,
+    871,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  {
+   "cls": "INPUT.fira-code.number-field__input.field-control.glass-control-edge",
+   "box": [
+    1330,
+    903,
+    72,
+    36
+   ],
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0p",
+   "bf": "blur(14px) saturate(1.5)"
+  },
+  {
+   "cls": "SPAN.slider-track.track-well",
+   "box": [
+    1022,
+    969,
+    380,
+    24
+   ],
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "bg": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 0.0769798 / 0.775) calc(10% + 4.8px), color(srgb 0.11 0.098 "
+  },
+  {
+   "cls": "SPAN.slider-thumb.glass-specular-track",
+   "box": [
+    1059,
+    969,
+    12,
+    24
+   ],
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  }
+ ]
+}

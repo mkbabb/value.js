@@ -1,0 +1,9 @@
+SERVED MODEL: claude-opus-5-5
+unit: X.W11.b (RESUME sixth, r4) · 2026-10-20 23:42:02 EDT
+tree: v4.1.0^{commit} = a50b976d68cab5b6b752584b301e9313ce2d59b4 (annotated tag object ec2703c07012ed75fe043fe43ca664840fdde349); clean detached worktree, git status --porcelain | wc -l -> 0
+node: v26.0.0 · npm: 11.12.1
+cmd: ~/.claude/guard/guarded --light -- zsh -c "npx vue-tsc -p tsconfig.demo.json --noEmit"
+---
+---
+exit 0
+tree after: git status --porcelain | wc -l -> 0

@@ -1,0 +1,141 @@
+(node:11489) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:11543) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 3 tests using 1 worker
+
+(node:11602) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/3] [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[WebServer] 2:55:52 PM [vite] (client) [Unhandled error] TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer] 
+
+[WebServer] 2:55:52 PM [vite] (client) [console.error] [value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer]     at Array.sort (<anonymous>)
+[WebServer]     at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+
+[WebServer] 2:55:53 PM [vite] (client) [Unhandled error] TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer] 
+
+[WebServer] 2:55:53 PM [vite] (client) [console.error] [value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer]     at Array.sort (<anonymous>)
+[WebServer]     at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+
+[WebServer] 2:55:54 PM [vite] (client) [Unhandled error] TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer] 
+
+[WebServer] 2:55:54 PM [vite] (client) [console.error] [value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer]     at Array.sort (<anonymous>)
+[WebServer]     at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+
+[WebServer] 2:55:55 PM [vite] (client) [Unhandled error] TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer] 
+
+[WebServer] 2:55:55 PM [vite] (client) [console.error] [value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer]     at Array.sort (<anonymous>)
+[WebServer]     at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+
+[WebServer] 2:55:57 PM [vite] (client) [Unhandled error] TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer] 
+
+[WebServer] 2:55:57 PM [vite] (client) [console.error] [value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer]     at Array.sort (<anonymous>)
+[WebServer]     at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+
+[smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[od19-p3] {"width":1440,"warmed":true,"coldDuringGradient":[],"gradient":{"title":544,"firstMove":544,"lastMove":1035,"window":491,"maxFrame":492,"frames":10,"loaf":[[703,334,["render@333","style+layout@334"]]],"movedBy":[[544,[[-24,0,-1],[24,0,-1]]],[694,[[0,0,0.18],[0,0,0.18]]],[702,[[1,0,0.1],[-1,0,0.1]]],[1035,[[24,0,0.72],[-24,0,0.72]]]]},"home":{"title":2,"firstMove":202,"lastMove":719,"window":517,"maxFrame":174,"frames":13,"loaf":[[54,151,["render@150","style+layout@151"]],[510,131,["render@129","style+layout@130"]],[640,88,["render@87","style+layout@88"]]],"movedBy":[[202,[[23,0,-0.96],[-23,0,-0.96]]],[236,[[1,0,-0.03],[-1,0,-0.03]]],[495,[[0,0,0.14],[0,0,0.14]]],[503,[[-1,0,0.12],[1,0,0.12]]],[636,[[-19,0,0.7],[19,0,0.7]]],[719,[[-5,0,0.04],[5,0,0.04]]]]},"mix":{"title":248,"firstMove":207,"lastMove":615,"window":408,"maxFrame":175,"frames":11,"loaf":[[50,162,["render@161","style+layout@162"]],[212,51,["render@50","style+layout@51","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|18"]],[388,59,["render@58","style+layout@59"]],[448,170,["render@168","style+layout@170"]]],"movedBy":[[207,[[0,0,0],[23,0,-0.98]]],[248,[[0,0,0],[1,0,-0.02]]],[382,[[0,0,0],[-4,0,0.51]]],[440,[[0,0,0],[-10,0,0.33]]],[615,[[0,0,0],[-12,0,0.16]]]]},"at":"2026-10-20T18:55:58.454Z"}
+
+  1) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 1440 gradient: input → title (ms)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 400
+    Received:    544
+
+      179 |         ] as const) {
+      180 |             expect(h.title, `${width} ${name}: title paints`).not.toBeNull();
+    > 181 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+          |                                                                      ^
+      182 |             expect(h.window, `${width} ${name}: the swap moves`).not.toBeNull();
+      183 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+      184 |         }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:181:70
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-1-570e2-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+
+(node:14420) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[2/3] [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[WebServer] 2:56:07 PM [vite] (client) [Unhandled error] TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer] 
+
+[WebServer] 2:56:07 PM [vite] (client) [console.error] [value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer]     at Array.sort (<anonymous>)
+[WebServer]     at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+
+[WebServer] 2:56:07 PM [vite] (client) [Unhandled error] TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer] 
+
+[WebServer] 2:56:07 PM [vite] (client) [console.error] [value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer]     at Array.sort (<anonymous>)
+[WebServer]     at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+
+[WebServer] 2:56:09 PM [vite] (client) [Unhandled error] TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer] 
+
+[WebServer] 2:56:09 PM [vite] (client) [console.error] [value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer]     at Array.sort (<anonymous>)
+[WebServer]     at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+
+[WebServer] 2:56:10 PM [vite] (client) [Unhandled error] TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer] 
+
+[WebServer] 2:56:10 PM [vite] (client) [console.error] [value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer]     at Array.sort (<anonymous>)
+[WebServer]     at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+
+[WebServer] 2:56:11 PM [vite] (client) [Unhandled error] TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer] 
+[WebServer] 2:56:11 PM [vite] (client) [console.error] [value.js] unhandled failure (window.error) TypeError: Cannot assign to read only property '0' of object '[object Array]'
+[WebServer]     at Array.sort (<anonymous>)
+[WebServer]     at PerformanceObserver.eval (eval at evaluate (:302:30), <anonymous>:19:462)
+
+[smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[od19-p3] {"width":390,"warmed":true,"coldDuringGradient":[],"gradient":{"title":317,"firstMove":317,"lastMove":975,"window":659,"maxFrame":267,"frames":11,"loaf":[[443,274,["render@273","style+layout@274"]],[718,261,["render@260","style+layout@261"]]],"movedBy":[[317,[[-24,0,-1],[24,434,-1]]],[434,[[0,0,0.15],[0,0,0.15]]],[442,[[1,0,0.11],[-1,0,0.11]]],[709,[[24,0,0.74],[-24,0,0.74]]],[975,[[-1,0,0],[1,0,0]]]]},"home":{"title":1,"firstMove":127,"lastMove":619,"window":492,"maxFrame":134,"frames":21,"loaf":[[44,91,["render@90","style+layout@91"]],[396,61,["render@60","style+layout@61"]]],"movedBy":[[127,[[19,0,-0.78],[-19,0,-0.78]]],[152,[[2,0,-0.09],[-2,0,-0.09]]],[168,[[1,0,-0.04],[-1,0,-0.04]]],[302,[[2,0,-0.08],[-2,-434,-0.08]]],[369,[[0,0,0.16],[0,0,0.16]]],[377,[[-1,0,0.11],[1,0,0.11]]],[394,[[-2,0,0.18],[2,0,0.18]]],[452,[[-9,0,0.36],[9,0,0.36]]],[469,[[-3,0,0.06],[3,0,0.06]]],[494,[[-3,0,0.07],[3,0,0.07]]],[519,[[-3,0,0.04],[3,0,0.04]]],[544,[[-2,0,0.02],[2,0,0.02]]]]},"mix":{"title":383,"firstMove":8,"lastMove":875,"window":867,"maxFrame":342,"frames":10,"loaf":[[42,349,["render@346","style+layout@348","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-DQai_KuN.js|19"]],[392,96,["render@94","style+layout@95"]],[488,89,["render@88","style+layout@89"]],[609,267,["render@266","style+layout@267"]]],"movedBy":[[8,[[0,7715,0],[0,-555,0]]],[33,[[0,-60,0],[0,0,0]]],[383,[[0,-7087,0],[24,0,-1]]],[583,[[0,0,0],[0,0,0.15]]],[606,[[0,0,0],[-2,0,0.28]]],[875,[[0,0,0],[-23,0,0.57]]]]},"at":"2026-10-20T18:56:13.546Z"}
+
+  2) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 390 gradient: moving window (ms)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 450
+    Received:    659
+
+      181 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+      182 |             expect(h.window, `${width} ${name}: the swap moves`).not.toBeNull();
+    > 183 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+          |                                                                       ^
+      184 |         }
+      185 |     });
+      186 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:183:71
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-3-e0f6e-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+
+(node:15093) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[3/3] [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors
+  2 failed
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:134:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+  1 passed (1.6m)

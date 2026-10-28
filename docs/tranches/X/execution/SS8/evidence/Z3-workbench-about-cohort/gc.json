@@ -1,0 +1,822 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "chromium",
+ "at": "2026-10-20T18:48:58.802Z",
+ "out": {
+  "recon": {
+   "cell": "recon",
+   "r": {
+    "swatchCount": 5,
+    "swatches": [
+     {
+      "tag": "BUTTON",
+      "role": null,
+      "aria": "Copy oklch(57.43% 0.1512 247.1deg)",
+      "ariaHidden": null,
+      "tabIndex": 0,
+      "pe": "auto",
+      "cls": "button tap-squish focus-ring swatch-button relative shrink-0 cursor-pointer flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square generate-swatch act",
+      "rect": [
+       237,
+       258.6,
+       80,
+       80
+      ],
+      "hasWatercolorSwatch": true,
+      "transition": "transform, translate, scale, rotate 0.2s"
+     },
+     {
+      "tag": "BUTTON",
+      "role": null,
+      "aria": "Copy oklch(70.12% 0.1899 24.57deg)",
+      "ariaHidden": null,
+      "tabIndex": 0,
+      "pe": "auto",
+      "cls": "button tap-squish focus-ring swatch-button relative shrink-0 cursor-pointer flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square generate-swatch act",
+      "rect": [
+       323,
+       258.6,
+       80,
+       80
+      ],
+      "hasWatercolorSwatch": true,
+      "transition": "transform, translate, scale, rotate 0.2s"
+     },
+     {
+      "tag": "BUTTON",
+      "role": null,
+      "aria": "Copy oklch(66.63% 0.146 162.1deg)",
+      "ariaHidden": null,
+      "tabIndex": 0,
+      "pe": "auto",
+      "cls": "button tap-squish focus-ring swatch-button relative shrink-0 cursor-pointer flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square generate-swatch act",
+      "rect": [
+       409,
+       258.6,
+       80,
+       80
+      ],
+      "hasWatercolorSwatch": true,
+      "transition": "transform, translate, scale, rotate 0.2s"
+     }
+    ],
+    "labels": [
+     "INPUT:Palette name",
+     "BUTTON:Copy oklch(57.43% 0.1512 247.1deg)",
+     "BUTTON:Copy oklch(70.12% 0.1899 24.57deg)",
+     "BUTTON:Copy oklch(66.63% 0.146 162.1deg)",
+     "BUTTON:Copy oklch(77.78% 0.1327 299.6deg)",
+     "BUTTON:Copy oklch(72.83% 0.1523 77.1deg)",
+     "BUTTON:Save palette",
+     "BUTTON:Copy all colors"
+    ],
+    "buttons": [
+     {
+      "name": "Copy oklch(57.43% 0.1512 247.1deg)",
+      "variant": null,
+      "emphasis": "text",
+      "inPlate": true,
+      "vis": "visible",
+      "rect": [
+       237,
+       258.6,
+       80,
+       80
+      ]
+     },
+     {
+      "name": "Copy oklch(70.12% 0.1899 24.57deg)",
+      "variant": null,
+      "emphasis": "text",
+      "inPlate": true,
+      "vis": "visible",
+      "rect": [
+       323,
+       258.6,
+       80,
+       80
+      ]
+     },
+     {
+      "name": "Copy oklch(66.63% 0.146 162.1deg)",
+      "variant": null,
+      "emphasis": "text",
+      "inPlate": true,
+      "vis": "visible",
+      "rect": [
+       409,
+       258.6,
+       80,
+       80
+      ]
+     },
+     {
+      "name": "Copy oklch(77.78% 0.1327 299.6deg)",
+      "variant": null,
+      "emphasis": "text",
+      "inPlate": true,
+      "vis": "visible",
+      "rect": [
+       495,
+       258.6,
+       80,
+       80
+      ]
+     },
+     {
+      "name": "Copy oklch(72.83% 0.1523 77.1deg)",
+      "variant": null,
+      "emphasis": "text",
+      "inPlate": true,
+      "vis": "visible",
+      "rect": [
+       581,
+       258.6,
+       80,
+       80
+      ]
+     },
+     {
+      "name": "Regenerate",
+      "variant": null,
+      "emphasis": "quiet",
+      "inPlate": true,
+      "vis": "visible",
+      "rect": [
+       437,
+       346.6,
+       148,
+       40
+      ]
+     },
+     {
+      "name": "Save palette",
+      "variant": null,
+      "emphasis": "text",
+      "inPlate": true,
+      "vis": "visible",
+      "rect": [
+       593,
+       348.6,
+       36,
+       36
+      ]
+     },
+     {
+      "name": "Copy all colors",
+      "variant": null,
+      "emphasis": "text",
+      "inPlate": true,
+      "vis": "visible",
+      "rect": [
+       637,
+       348.6,
+       36,
+       36
+      ]
+     },
+     {
+      "name": "Vibrant",
+      "variant": null,
+      "emphasis": null,
+      "inPlate": false,
+      "vis": "visible",
+      "rect": [
+       224,
+       441.9,
+       225,
+       36
+      ]
+     },
+     {
+      "name": "Golden",
+      "variant": null,
+      "emphasis": null,
+      "inPlate": false,
+      "vis": "visible",
+      "rect": [
+       461,
+       441.9,
+       225,
+       36
+      ]
+     },
+     {
+      "name": "Add current color oklch(73% 0.185 2deg) to palette",
+      "variant": null,
+      "emphasis": "text",
+      "inPlate": false,
+      "vis": "visible",
+      "rect": [
+       1159,
+       274.6,
+       44,
+       44
+      ]
+     }
+    ],
+    "allRegen": [
+     {
+      "name": "Regenerate",
+      "inPlate": false,
+      "inDock": true,
+      "vis": "visible",
+      "rect": [
+       541.7,
+       20.5,
+       40,
+       40
+      ]
+     },
+     {
+      "name": "Regenerate",
+      "inPlate": true,
+      "inDock": false,
+      "vis": "visible",
+      "rect": [
+       437,
+       346.6,
+       148,
+       40
+      ]
+     }
+    ],
+    "sliders": [
+     {
+      "name": "Number of colors",
+      "labelledby": null,
+      "labelText": null,
+      "now": "5",
+      "min": "1",
+      "max": "12",
+      "text": null,
+      "rect": [
+       392,
+       528.4,
+       0,
+       9
+      ],
+      "trackRect": [
+       392,
+       528.4,
+       0,
+       9
+      ],
+      "trackBg": "none"
+     }
+    ],
+    "live": [
+     {
+      "tag": "DIV",
+      "role": "status",
+      "live": "polite",
+      "text": ""
+     },
+     {
+      "tag": "P",
+      "role": "status",
+      "live": "polite",
+      "text": "Generate view"
+     },
+     {
+      "tag": "DIV",
+      "role": null,
+      "live": "polite",
+      "text": "GenerateCreate pleasing random palettes with aesthetic presets."
+     },
+     {
+      "tag": "DIV",
+      "role": null,
+      "live": "polite",
+      "text": "My PalettesSave, organize, and share your colors."
+     },
+     {
+      "tag": "DIV",
+      "role": null,
+      "live": "polite",
+      "text": ""
+     },
+     {
+      "tag": "DIV",
+      "role": "status",
+      "live": null,
+      "text": "No saved palettes yet.Add colors, then save."
+     },
+     {
+      "tag": "OL",
+      "role": null,
+      "live": "polite",
+      "text": ""
+     }
+    ],
+    "badges": [],
+    "plate": {
+     "rect": [
+      224,
+      201.6,
+      462,
+      196
+     ],
+     "border": "1px oklab(0.216114 0.00343135 0.00508514 / 0.12)",
+     "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.08)",
+     "shadow": "none",
+     "transition": "all 0s"
+    },
+    "card": {
+     "cls": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w-full min-w-0 h-full overflow-hidden",
+     "border": "1px",
+     "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+     "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.109804 0.0980392 0.0901961 / 0.06) 0px -1px 0px 0px inset, "
+    },
+    "tokens": {
+     "card": "light-dark(#fdf5ec,#352a22)",
+     "wellBg": "color-mix(in oklab, light-dark(#1c1917,#e9e6e2) 8%, transparent)"
+    },
+    "title": {
+     "value": "Generated palette",
+     "aria": "Palette name",
+     "rect": [
+      237,
+      212.6,
+      436,
+      36
+     ]
+    },
+    "visibleCountText": [
+     "SPAN:5:shown"
+    ]
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2957
+  },
+  "dark": {
+   "cell": "dark",
+   "plate": {
+    "rect": [
+     224,
+     201.6,
+     462,
+     196
+    ],
+    "border": "1px oklab(0.926146 0.00162765 0.00610709 / 0.12)",
+    "bg": "oklab(0.926146 0.00162765 0.00610709 / 0.08)",
+    "shadow": "none",
+    "transition": "all 0s"
+   },
+   "card": {
+    "cls": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w-full min-w-0 h-full overflow-hidden",
+    "border": "1px",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.913725 0.901961 0.886275 / 0.06) 0px -1px 0px 0px inset, c"
+   },
+   "tokens": {
+    "card": "#352a22",
+    "wellBg": "color-mix(in oklab, #e9e6e2 8%, transparent)"
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2765
+  },
+  "copy": {
+   "cell": "copy",
+   "firstSwatchBefore": {
+    "tag": "BUTTON",
+    "role": null,
+    "aria": "Copy oklch(57.79% 0.2015 12.85deg)",
+    "ariaHidden": null,
+    "tabIndex": 0,
+    "pe": "auto",
+    "cls": "button tap-squish focus-ring swatch-button relative shrink-0 cursor-pointer flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square generate-swatch act",
+    "rect": [
+     237,
+     258.6,
+     80,
+     80
+    ],
+    "hasWatercolorSwatch": true,
+    "transition": "transform, translate, scale, rotate 0.2s"
+   },
+   "hit": {
+    "hitTag": "BUTTON",
+    "hitIsSwatch": true
+   },
+   "clip": "oklch(57.786080125952% 0.201482694517 12.84759904258deg)",
+   "after": {
+    "aria": "Copied oklch(57.79% 0.2015 12.85deg)",
+    "live": [
+     "polite:Generate view",
+     "polite:GenerateCreate pleasing random palettes with aesthetic presets.",
+     "polite:My PalettesSave, organize, and share your colors.",
+     "null:No saved palettes yet.Add colors, then save."
+    ]
+   },
+   "clipAll": "oklch(57.786080125952% 0.201482694517 12.84759904258deg), oklch(79.721519532613% 0.217712423373 150.355363092617deg), oklch(74.84352611471% 0.137252769782 287.863127142655deg), oklch(61.033889733953% 0.122877484853 65.370891192693deg), oklch(63.239320013672% 0.107678898489 202.878655242731deg)",
+   "afterAll": [
+    "polite:Generate view",
+    "polite:GenerateCreate pleasing random palettes with aesthetic presets.",
+    "polite:My PalettesSave, organize, and share your colors.",
+    "null:No saved palettes yet.Add colors, then save."
+   ],
+   "focusable": true,
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 3675
+  },
+  "save": {
+   "cell": "save",
+   "store": {
+    "color-palettes": "{\"version\":1,\"palettes\":[{\"id\":\"5d6c4b80-9812-43e2-889d-9263563ccb3a\",\"name\":\"Z3 witness name\",\"slug\":\"z3-witness-name-6913b697\",\"colors\":[{\"css\":\"oklch(59.407955531497% 0.148620454965 124.6283522062deg)\",\"position\":0},{\"css\":\"oklch(60.536701658275% 0.178801844814 262.136116256238deg)\",\"position\":1},{\"css\":\"oklch(65.835134435911% 0.167263710941 39.643880306276deg)\",\"position\":2},{\"css\":\"oklch(61.898650375661% 0.114655644667 177.151644356314deg)\",\"position\":3},{\"css\":\"oklch(63.361713594059% 0.159559700014 314.659408406352deg)\",\"position\":4}],\"createdAt\":\"2026-10-20T18:48:44.794Z\",\"updatedAt\":\"2026-10-20T18:48:44.794Z\",\"isLocal\":true}]}"
+   },
+   "live": [
+    "Generate view",
+    "GenerateCreate pleasing random palettes with aesthetic presets.",
+    "My Palettes1 (1 saved)Save, organize, and share your colors."
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 4049
+  },
+  "wrap": {
+   "390": {
+    "plateW": 324,
+    "rows": [
+     {
+      "cls": "px-3 pb-1 flex flex-wrap gap-1.5",
+      "kids": 5,
+      "lines": 1,
+      "w": 322,
+      "sw": 322,
+      "cw": 322
+     },
+     {
+      "cls": "px-3 pb-2.5 pt-1 flex items-center gap-2 min-w-0",
+      "kids": 2,
+      "lines": 2,
+      "w": 322,
+      "sw": 322,
+      "cw": 322
+     },
+     {
+      "cls": "ml-auto flex items-center gap-2 shrink-0",
+      "kids": 3,
+      "lines": 2,
+      "w": 138,
+      "sw": 138,
+      "cw": 138
+     }
+    ]
+   },
+   "768": {
+    "plateW": 686,
+    "rows": [
+     {
+      "cls": "px-3 pb-1 flex flex-wrap gap-1.5",
+      "kids": 5,
+      "lines": 1,
+      "w": 684,
+      "sw": 684,
+      "cw": 684
+     },
+     {
+      "cls": "px-3 pb-2.5 pt-1 flex items-center gap-2 min-w-0",
+      "kids": 2,
+      "lines": 2,
+      "w": 684,
+      "sw": 684,
+      "cw": 684
+     },
+     {
+      "cls": "ml-auto flex items-center gap-2 shrink-0",
+      "kids": 3,
+      "lines": 2,
+      "w": 229,
+      "sw": 229,
+      "cw": 229
+     }
+    ]
+   },
+   "1024": {
+    "plateW": 440,
+    "rows": [
+     {
+      "cls": "px-3 pb-1 flex flex-wrap gap-1.5",
+      "kids": 5,
+      "lines": 1,
+      "w": 438,
+      "sw": 438,
+      "cw": 438
+     },
+     {
+      "cls": "px-3 pb-2.5 pt-1 flex items-center gap-2 min-w-0",
+      "kids": 2,
+      "lines": 2,
+      "w": 438,
+      "sw": 438,
+      "cw": 438
+     },
+     {
+      "cls": "ml-auto flex items-center gap-2 shrink-0",
+      "kids": 3,
+      "lines": 2,
+      "w": 232,
+      "sw": 232,
+      "cw": 232
+     }
+    ]
+   },
+   "1440": {
+    "plateW": 462,
+    "rows": [
+     {
+      "cls": "px-3 pb-1 flex flex-wrap gap-1.5",
+      "kids": 5,
+      "lines": 1,
+      "w": 460,
+      "sw": 460,
+      "cw": 460
+     },
+     {
+      "cls": "px-3 pb-2.5 pt-1 flex items-center gap-2 min-w-0",
+      "kids": 2,
+      "lines": 2,
+      "w": 460,
+      "sw": 460,
+      "cw": 460
+     },
+     {
+      "cls": "ml-auto flex items-center gap-2 shrink-0",
+      "kids": 3,
+      "lines": 2,
+      "w": 236,
+      "sw": 236,
+      "cw": 236
+     }
+    ]
+   },
+   "cell": "wrap",
+   "loaded": true,
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 5529
+  },
+  "count": {
+   "cell": "count",
+   "sl": [
+    "0:Number of colors:5/12"
+   ],
+   "idx": 0,
+   "at5": {
+    "now": 5,
+    "min": 1,
+    "max": 12,
+    "swatches": 5,
+    "thumbCentreFrac": 0.364,
+    "thumbWH": [
+     0,
+     9
+    ],
+    "trackW": 462,
+    "gradients": []
+   },
+   "atMax": {
+    "now": 12,
+    "min": 1,
+    "max": 12,
+    "swatches": 12,
+    "thumbCentreFrac": 1,
+    "thumbWH": [
+     0,
+     9
+    ],
+    "trackW": 462,
+    "gradients": []
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 4370
+  },
+  "m390": {
+   "cell": "m390",
+   "sliders": [
+    {
+     "name": "Number of colors",
+     "labelledby": null,
+     "labelText": null,
+     "now": "5",
+     "min": "1",
+     "max": "12",
+     "text": null,
+     "rect": [
+      150.8,
+      566.7,
+      0,
+      9
+     ],
+     "trackRect": [
+      150.8,
+      566.7,
+      0,
+      9
+     ],
+     "trackBg": "none"
+    }
+   ],
+   "swatches": [
+    {
+     "tag": "BUTTON",
+     "role": null,
+     "aria": "Copy oklch(62.54% 0.1364 68.88deg)",
+     "ariaHidden": null,
+     "tabIndex": 0,
+     "pe": "auto",
+     "cls": "button tap-squish focus-ring swatch-button relative shrink-0 cursor-pointer flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square generate-swatch act",
+     "rect": [
+      46,
+      280.1,
+      54.8,
+      60
+     ],
+     "hasWatercolorSwatch": true,
+     "transition": "transform, translate, scale, rotate 0.2s"
+    },
+    {
+     "tag": "BUTTON",
+     "role": null,
+     "aria": "Copy oklch(72.85% 0.1247 206.4deg)",
+     "ariaHidden": null,
+     "tabIndex": 0,
+     "pe": "auto",
+     "cls": "button tap-squish focus-ring swatch-button relative shrink-0 cursor-pointer flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square generate-swatch act",
+     "rect": [
+      106.8,
+      280.1,
+      54.8,
+      60
+     ],
+     "hasWatercolorSwatch": true,
+     "transition": "transform, translate, scale, rotate 0.2s"
+    },
+    {
+     "tag": "BUTTON",
+     "role": null,
+     "aria": "Copy oklch(61.42% 0.2624 343.9deg)",
+     "ariaHidden": null,
+     "tabIndex": 0,
+     "pe": "auto",
+     "cls": "button tap-squish focus-ring swatch-button relative shrink-0 cursor-pointer flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square generate-swatch act",
+     "rect": [
+      167.6,
+      280.1,
+      54.8,
+      60
+     ],
+     "hasWatercolorSwatch": true,
+     "transition": "transform, translate, scale, rotate 0.2s"
+    }
+   ],
+   "buttons": [
+    {
+     "name": "Copy oklch(62.54% 0.1364 68.88deg)",
+     "variant": null,
+     "emphasis": "text",
+     "inPlate": true,
+     "vis": "visible",
+     "rect": [
+      46,
+      280.1,
+      54.8,
+      60
+     ]
+    },
+    {
+     "name": "Copy oklch(72.85% 0.1247 206.4deg)",
+     "variant": null,
+     "emphasis": "text",
+     "inPlate": true,
+     "vis": "visible",
+     "rect": [
+      106.8,
+      280.1,
+      54.8,
+      60
+     ]
+    },
+    {
+     "name": "Copy oklch(61.42% 0.2624 343.9deg)",
+     "variant": null,
+     "emphasis": "text",
+     "inPlate": true,
+     "vis": "visible",
+     "rect": [
+      167.6,
+      280.1,
+      54.8,
+      60
+     ]
+    },
+    {
+     "name": "Copy oklch(62.93% 0.1517 121.4deg)",
+     "variant": null,
+     "emphasis": "text",
+     "inPlate": true,
+     "vis": "visible",
+     "rect": [
+      228.4,
+      280.1,
+      54.8,
+      60
+     ]
+    },
+    {
+     "name": "Copy oklch(74.6% 0.1313 258.9deg)",
+     "variant": null,
+     "emphasis": "text",
+     "inPlate": true,
+     "vis": "visible",
+     "rect": [
+      289.2,
+      280.1,
+      54.8,
+      60
+     ]
+    },
+    {
+     "name": "Regenerate",
+     "variant": null,
+     "emphasis": "quiet",
+     "inPlate": true,
+     "vis": "visible",
+     "rect": [
+      150,
+      353.1,
+      70,
+      44
+     ]
+    },
+    {
+     "name": "Save palette",
+     "variant": null,
+     "emphasis": "text",
+     "inPlate": true,
+     "vis": "visible",
+     "rect": [
+      228,
+      348.1,
+      54,
+      54
+     ]
+    },
+    {
+     "name": "Copy all colors",
+     "variant": null,
+     "emphasis": "text",
+     "inPlate": true,
+     "vis": "visible",
+     "rect": [
+      290,
+      348.1,
+      54,
+      54
+     ]
+    }
+   ],
+   "rows": [
+    {
+     "cls": "px-3 pb-1 flex flex-wrap gap-1.5",
+     "kids": 5,
+     "lines": 1,
+     "w": 322,
+     "sw": 322,
+     "cw": 322
+    },
+    {
+     "cls": "px-3 pb-2.5 pt-1 flex items-center gap-2 min-w-0",
+     "kids": 2,
+     "lines": 2,
+     "w": 322,
+     "sw": 322,
+     "cw": 322
+    },
+    {
+     "cls": "ml-auto flex items-center gap-2 shrink-0",
+     "kids": 3,
+     "lines": 2,
+     "w": 194,
+     "sw": 194,
+     "cw": 194
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2844
+  }
+ }
+}

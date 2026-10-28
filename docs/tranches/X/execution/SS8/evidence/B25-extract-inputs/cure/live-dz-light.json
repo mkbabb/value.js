@@ -1,0 +1,68 @@
+{
+ "theme": "light",
+ "z": {
+  "cls": "group relative transition-colors flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-pointer dashed-well min-h-[180px] max-h-[min(320px,40dvh)]",
+  "rect": {
+   "x": 60,
+   "y": 184.5625,
+   "width": 786.34375,
+   "height": 180,
+   "top": 184.5625,
+   "right": 846.34375,
+   "bottom": 364.5625,
+   "left": 60
+  },
+  "borderStyle": "dashed",
+  "borderWidth": "1px",
+  "borderColor": "oklch(0.292283 0.00386159 34.63)",
+  "borderBytes": [
+   46,
+   43,
+   43,
+   255
+  ],
+  "inkMuted": "oklch(29.228317458622% 0.003861589952 34.629978305623deg)"
+ },
+ "edgeMaxVsOutside": {
+  "px": [
+   43,
+   39,
+   38,
+   255
+  ],
+  "r": 4.339
+ },
+ "borderTokenVsOutside": 4.12,
+ "borderTokenVsInside": 3.389,
+ "outside": [
+  [
+   213,
+   97,
+   176,
+   255
+  ],
+  [
+   202,
+   96,
+   184,
+   255
+  ]
+ ],
+ "inside": [
+  [
+   183,
+   90,
+   172,
+   255
+  ],
+  [
+   200,
+   115,
+   148,
+   255
+  ]
+ ],
+ "errors": [
+  "CONSOLE [value.js] value.js dev is MISCONFIGURED: http://localhost:9125 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+ ]
+}

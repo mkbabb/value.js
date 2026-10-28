@@ -1,0 +1,28 @@
+admin-users 1440 light  viewTrigger=4.02 GOLD C0.080 h84.2 adminShield=4.03 GOLD C0.080 h84.2 adminWord=5.45 GOLD C0.064 h84.2   | seal: seal=4.24 GOLD C0.084 h84.2 
+admin-users 390 light  viewTrigger=4.02 GOLD C0.080 h84.2 adminShield=- adminWord=-    
+admin-users-brown 1440 light  viewTrigger=3.79 GOLD C0.106 h84.2 adminShield=3.79 GOLD C0.106 h84.2 adminWord=5.13 PLATE-INK-FALLBACK C0.000 h56.0  | p17: viewTrigger=5.16 RED C0.001 h84.2 adminShield=5.16 RED C0.001 h84.2 adminWord=5.16 PLATE-INK-FALLBACK C0.001 h84.2 | seal: seal=4.24 GOLD C0.147 h84.2 
+admin-view-menu 1440 light  menuAdminIcon=1.44 GOLD C0.073 h84.2 menuAdminLabel=2.15 PLATE-INK-FALLBACK C0.006 h56.0    
+admin-users 1440 dark  viewTrigger=4.78 GOLD C0.143 h86.0 adminShield=4.78 GOLD C0.143 h86.0 adminWord=4.78 GOLD C0.143 h86.0   | seal: seal=4.26 GOLD C0.084 h86.0 
+admin-users 390 dark  viewTrigger=4.78 GOLD C0.143 h86.0 adminShield=- adminWord=-    
+admin-users-brown 1440 dark  viewTrigger=5.05 GOLD C0.143 h86.0 adminShield=5.05 GOLD C0.143 h86.0 adminWord=5.05 GOLD C0.143 h86.0  | p17: viewTrigger=10.04 RED C0.001 h84.2 adminShield=10.04 RED C0.001 h84.2 adminWord=10.04 PLATE-INK-FALLBACK C0.001 h84.2 | seal: seal=4.27 GOLD C0.143 h86.0 
+admin-view-menu 1440 dark  menuAdminIcon=5.62 GOLD C0.143 h86.0 menuAdminLabel=5.67 GOLD C0.143 h86.0    
+browse-featured 1440 light  featuredGlyph=3.48 GOLD C0.060 h84.2    
+browse-featured 1440 dark  featuredGlyph=4.82 GOLD C0.143 h86.0    
+notfound 1440 light  alertGlyph=5.11   GREEN   | old: alertGlyph=1.74   RED
+notfound 390 light  alertGlyph=5.05   GREEN   | old: alertGlyph=1.71   RED
+admin-tags-error 1440 light  alertGlyph=5.23   GREEN   | old: alertGlyph=1.76   RED
+notfound 1440 dark  alertGlyph=3.99   GREEN   | old: alertGlyph=2.87   RED
+notfound 390 dark  alertGlyph=4.02   GREEN   | old: alertGlyph=2.89   RED
+admin-tags-error 1440 dark  alertGlyph=3.83   GREEN   | old: alertGlyph=2.8   RED
+/#/admin/users 1440 light  1 [{"id":"route-title","text":"Users","px":41.888,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/users 1440 dark  1 [{"id":"route-title","text":"Users","px":41.888,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/users 390 light  1 [{"id":"route-title","text":"Users","px":32.928,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/users 390 dark  1 [{"id":"route-title","text":"Users","px":32.928,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/names 1440 light  1 [{"id":"route-title","text":"Names","px":41.888,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/names 390 light  1 [{"id":"route-title","text":"Names","px":32.928,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/flagged 1440 light  1 [{"id":"route-title","text":"Flagged","px":41.888,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/flagged 390 light  1 [{"id":"route-title","text":"Flagged","px":32.928,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/tags 1440 light  1 [{"id":"route-title","text":"Tags","px":41.888,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/tags 390 light  1 [{"id":"route-title","text":"Tags","px":32.928,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/audit 1440 light  1 [{"id":"route-title","text":"Audit log","px":41.888,"cls":"card-title pane-header-title font-display"}] caption false GREEN
+/#/admin/audit 390 light  1 [{"id":"route-title","text":"Audit log","px":32.928,"cls":"card-title pane-header-title font-display"}] caption false GREEN

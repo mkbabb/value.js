@@ -25,9 +25,12 @@ test("admin-users renders seeded user rows", async ({ page }) => {
     // "Users" also matches it and the read raced the pane title's count
     // ("Users 3") into a strict-mode violation (r4). The leg reads what it
     // always meant — the Users PANE's title, the h2 card title.
+    // X-DS pass 18 (V18C-03): the admin consoles are `titled` regions, so the
+    // pane title IS the route's one <h1 id="route-title"> and App prints no
+    // caption (V8C-01's law); the leg reads it at level 1.
     await expect(
         page
-            .getByRole("heading", { level: 2, name: /^Users\b/ })
+            .getByRole("heading", { level: 1, name: /^Users\b/ })
             .filter({ visible: true }),
     ).toBeVisible();
 

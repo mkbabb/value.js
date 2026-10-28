@@ -1,0 +1,657 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.0.0/bin/node",
+      "/Users/mkbabb/Programming/fourier-analysis/web/node_modules/.bin/playwright",
+      "test",
+      "e2e/f-w14u-vdock.spec.ts",
+      "--project=chromium",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "/Users/mkbabb/Programming/fourier-analysis/web/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome-gpu",
+        "name": "chrome-gpu",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "honest-red",
+        "name": "honest-red",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npx vite build --outDir dist/e2e-preview --emptyOutDir && npx vite preview --outDir dist/e2e-preview --port 4190 --strictPort",
+      "url": "http://localhost:4190/",
+      "reuseExistingServer": true,
+      "timeout": 300000,
+      "stdout": "ignore",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "f-w14u-vdock.spec.ts",
+      "file": "f-w14u-vdock.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "F.W14U.vdock — the animation dock's menus (1440)",
+          "file": "f-w14u-vdock.spec.ts",
+          "line": 80,
+          "column": 10,
+          "specs": [
+            {
+              "title": "v9 — the menu's content fits the menu, speed is one control, sections are labelled, choosing keeps it open",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "v9-fit-Speed",
+                      "description": "{\"overflowX\":0,\"out\":[],\"combobox\":0}"
+                    },
+                    {
+                      "type": "v9-fit-Easing",
+                      "description": "{\"overflowX\":0,\"out\":[],\"combobox\":0}"
+                    },
+                    {
+                      "type": "v137-clearance",
+                      "description": "{\"menuBottom\":824.578125,\"plateTop\":819,\"gap\":-5.578125}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4533,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:16:17.478Z",
+                      "annotations": [
+                        {
+                          "type": "v9-fit-Speed",
+                          "description": "{\"overflowX\":0,\"out\":[],\"combobox\":0}"
+                        },
+                        {
+                          "type": "v9-fit-Easing",
+                          "description": "{\"overflowX\":0,\"out\":[],\"combobox\":0}"
+                        },
+                        {
+                          "type": "v137-clearance",
+                          "description": "{\"menuBottom\":824.578125,\"plateTop\":819,\"gap\":-5.578125}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2b607213f4bd80190307-f340a6554aab139d355d",
+              "file": "f-w14u-vdock.spec.ts",
+              "line": 84,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "F.W14U.vdock — the animation dock's menus (390)",
+          "file": "f-w14u-vdock.spec.ts",
+          "line": 80,
+          "column": 10,
+          "specs": [
+            {
+              "title": "v9 — the menu's content fits the menu, speed is one control, sections are labelled, choosing keeps it open",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "v9-fit-Speed",
+                      "description": "{\"overflowX\":0,\"out\":[],\"combobox\":0}"
+                    },
+                    {
+                      "type": "v9-fit-Easing",
+                      "description": "{\"overflowX\":0,\"out\":[],\"combobox\":0}"
+                    },
+                    {
+                      "type": "v137-clearance",
+                      "description": "{\"menuBottom\":777.25,\"plateTop\":771,\"gap\":-6.25}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4032,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:16:22.188Z",
+                      "annotations": [
+                        {
+                          "type": "v9-fit-Speed",
+                          "description": "{\"overflowX\":0,\"out\":[],\"combobox\":0}"
+                        },
+                        {
+                          "type": "v9-fit-Easing",
+                          "description": "{\"overflowX\":0,\"out\":[],\"combobox\":0}"
+                        },
+                        {
+                          "type": "v137-clearance",
+                          "description": "{\"menuBottom\":777.25,\"plateTop\":771,\"gap\":-6.25}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2b607213f4bd80190307-e99e26437ac324c02021",
+              "file": "f-w14u-vdock.spec.ts",
+              "line": 84,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "F.W14U.vdock — the canvas dock (1440)",
+          "file": "f-w14u-vdock.spec.ts",
+          "line": 144,
+          "column": 10,
+          "specs": [
+            {
+              "title": "v76 — View options opens below its trigger, into the canvas, clear of the app chrome",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "v76",
+                      "description": "{\"triggerBottom\":141,\"contentTop\":149,\"stageTop\":89,\"contentRight\":692.71875,\"vw\":1440}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2622,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:16:26.227Z",
+                      "annotations": [
+                        {
+                          "type": "v76",
+                          "description": "{\"triggerBottom\":141,\"contentTop\":149,\"stageTop\":89,\"contentRight\":692.71875,\"vw\":1440}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2b607213f4bd80190307-6453584b80d06cc12fd3",
+              "file": "f-w14u-vdock.spec.ts",
+              "line": 148,
+              "column": 9
+            },
+            {
+              "title": "v94 — the collapsed canvas dock's face is not the Fullscreen glyph",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1538,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:16:28.862Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2b607213f4bd80190307-1ff84952f503b6ed736e",
+              "file": "f-w14u-vdock.spec.ts",
+              "line": 173,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "F.W14U.vdock — the canvas dock (390)",
+          "file": "f-w14u-vdock.spec.ts",
+          "line": 144,
+          "column": 10,
+          "specs": [
+            {
+              "title": "v76 — View options opens below its trigger, into the canvas, clear of the app chrome",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "v76",
+                      "description": "{\"triggerBottom\":180.9375,\"contentTop\":189,\"stageTop\":128.9375,\"contentRight\":151.125,\"vw\":390}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2032,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:16:30.407Z",
+                      "annotations": [
+                        {
+                          "type": "v76",
+                          "description": "{\"triggerBottom\":180.9375,\"contentTop\":189,\"stageTop\":128.9375,\"contentRight\":151.125,\"vw\":390}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2b607213f4bd80190307-9173efb589fa6cc2275a",
+              "file": "f-w14u-vdock.spec.ts",
+              "line": 148,
+              "column": 9
+            },
+            {
+              "title": "v94 — the collapsed canvas dock's face is not the Fullscreen glyph",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1335,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:16:32.448Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2b607213f4bd80190307-3266b53d25409ff5a7c3",
+              "file": "f-w14u-vdock.spec.ts",
+              "line": 173,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "F.W14U.vdock — fullscreen (1440)",
+          "file": "f-w14u-vdock.spec.ts",
+          "line": 191,
+          "column": 10,
+          "specs": [
+            {
+              "title": "v244 — the takeover is described (F-92 read: its canvas fills the container)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "v92-fill",
+                      "description": "{\"cw\":1440,\"pw\":1440,\"ch\":900,\"ph\":900}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3324,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:16:33.790Z",
+                      "annotations": [
+                        {
+                          "type": "v92-fill",
+                          "description": "{\"cw\":1440,\"pw\":1440,\"ch\":900,\"ph\":900}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2b607213f4bd80190307-325222dd42b84717775b",
+              "file": "f-w14u-vdock.spec.ts",
+              "line": 204,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "F.W14U.vdock — fullscreen (390)",
+          "file": "f-w14u-vdock.spec.ts",
+          "line": 191,
+          "column": 10,
+          "specs": [
+            {
+              "title": "v244 — the takeover is described (F-92 read: its canvas fills the container)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "v92-fill",
+                      "description": "{\"cw\":390,\"pw\":390,\"ch\":844,\"ph\":844}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2715,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:16:37.125Z",
+                      "annotations": [
+                        {
+                          "type": "v92-fill",
+                          "description": "{\"cw\":390,\"pw\":390,\"ch\":844,\"ph\":844}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2b607213f4bd80190307-7c8dd1ea69066650ad33",
+              "file": "f-w14u-vdock.spec.ts",
+              "line": 204,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "F.W14U.vdock — the export dialog (1440)",
+          "file": "f-w14u-vdock.spec.ts",
+          "line": 258,
+          "column": 6,
+          "specs": [
+            {
+              "title": "v181 — glass rows, a description, the title's own rung, remembered choices, every layer switchable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "v181",
+                      "description": "{\"description\":\"Save the current frame as a PNG, with the layers you choose.\",\"titleSizeClass\":false,\"switches\":6,\"glassRows\":6}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29004,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:16:39.853Z",
+                      "annotations": [
+                        {
+                          "type": "v181",
+                          "description": "{\"description\":\"Save the current frame as a PNG, with the layers you choose.\",\"titleSizeClass\":false,\"switches\":6,\"glassRows\":6}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2b607213f4bd80190307-8c147593f263349aaf66",
+              "file": "f-w14u-vdock.spec.ts",
+              "line": 288,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "F.W14U.vdock — the image overlay in dark (1440)",
+          "file": "f-w14u-vdock.spec.ts",
+          "line": 344,
+          "column": 6,
+          "specs": [
+            {
+              "title": "v174 — a white-ground overlay keys out: no pale slab, the ink stays",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "v174",
+                      "description": "{\"slab\":0,\"ink\":31024,\"total\":774060}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3529,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:17:08.865Z",
+                      "annotations": [
+                        {
+                          "type": "v174",
+                          "description": "{\"slab\":0,\"ink\":31024,\"total\":774060}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2b607213f4bd80190307-9b1dbfbec26714d6aec4",
+              "file": "f-w14u-vdock.spec.ts",
+              "line": 348,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T00:16:07.374Z",
+    "duration": 65124.314,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

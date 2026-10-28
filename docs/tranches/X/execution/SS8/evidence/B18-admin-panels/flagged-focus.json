@@ -1,0 +1,33 @@
+{
+  "dismiss": {
+    "before": {
+      "tag": "BUTTON",
+      "label": "Dismiss reports on Ember Tide",
+      "isBody": false
+    },
+    "after": {
+      "tag": "BODY",
+      "label": "→FlaggedTools admin  @mbabb Flagged view",
+      "isBody": true
+    },
+    "pageErrors": []
+  },
+  "delete": {
+    "before": {
+      "tag": "BUTTON",
+      "label": "Delete palette Ember Tide",
+      "isBody": false
+    },
+    "inDialog": {
+      "tag": "BUTTON",
+      "label": "Cancel",
+      "isBody": false
+    },
+    "after": {
+      "tag": "BODY",
+      "label": "→FlaggedTools admin  @mbabb Flagged view",
+      "isBody": true
+    },
+    "pageErrors": []
+  }
+}

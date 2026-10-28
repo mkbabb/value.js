@@ -1,0 +1,5 @@
+e2e/smoke/w12u-x-admin-tags.spec.ts
+e2e/smoke/oracles/w7-mutation-visibility.spec.ts
+e2e/smoke/oracles/w7-destructive-seats.spec.ts
+e2e/smoke/oracles/o10d-display-voice-census.spec.ts
+smoke-admin (whole project)

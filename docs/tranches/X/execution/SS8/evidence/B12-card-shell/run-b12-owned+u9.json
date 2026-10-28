@@ -1,0 +1,76 @@
+[
+ {
+  "cell": "MENU owned remote arm (real API, owner session)",
+  "ms": 12380,
+  "items": [
+   "Make private public",
+   "Remix",
+   "Rename",
+   "Edit Tags",
+   "Export",
+   "Delete"
+  ],
+  "shortcuts": [
+   {
+    "text": "public",
+    "w": 48.09375,
+    "tt": "none",
+    "fv": "normal",
+    "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+    "fs": "14.384px"
+   }
+  ],
+  "fvPointer": {
+   "role": "menuitem",
+   "text": "Make private public",
+   "fv": true,
+   "hl": true,
+   "boxShadow": "none",
+   "outline": "solid 2px",
+   "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+   "ring": "0 0 0 2px color-mix(in srgb,oklch(30.464908167468% 0.121841444973 9.83402284231d"
+  },
+  "firstKb": {
+   "role": "menuitem",
+   "text": "Make private public",
+   "fv": true,
+   "boxShadow": "none"
+  },
+  "fvKb": {
+   "role": "menuitem",
+   "text": "Remix",
+   "fv": true,
+   "boxShadow": "none",
+   "outline": "solid 2px"
+  },
+  "download": {
+   "suggested": "ss8-b12-owned-sunset--r1.svg",
+   "path": "menu-u10-export.svg"
+  },
+  "net": [
+   "GET /palettes?limit=50&sort=newest 200"
+  ],
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U9 malformed colour on the real feed (anon)",
+  "ms": 3701,
+  "arts": [
+   "Palette: probe",
+   "Palette: SS8 B12 Owned Sunset"
+  ],
+  "badPresent": true,
+  "badStrip": [
+   "rgba(0, 0, 0, 0)"
+  ],
+  "badText": "probe 1 0",
+  "expanded": {
+   "cur": "true",
+   "swatches": [
+    "Color swatch rgb(1 2 3 / )"
+   ]
+  },
+  "console": [],
+  "pageErrors": []
+ }
+]

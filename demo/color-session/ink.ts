@@ -1,10 +1,12 @@
 import {
     convertColor,
+    mapColorToGamut,
     mixColors,
     oklch,
     parseCssColor,
     safeAccentColor,
     serializeCssColor,
+    xyz,
     type Color,
 } from "@mkbabb/value.js/color";
 
@@ -251,20 +253,176 @@ export function resolvePaintedLightness(ambientL: number, tint: SurfaceTint): nu
     return lightness(composite(surfaceColor(ambientL), tint));
 }
 
+/** One stop of the atmosphere's resolved field palette (glass `OklchStop`). */
+export interface FieldStop {
+    L: number;
+    C: number;
+    h: number;
+}
+
+const WHITE_XYZ = (() => {
+    const white = convertColor(surfaceColor(1), "xyz");
+    if (!white.ok) throw new Error(`[ink] white point failed: ${white.error.code}`);
+    return white.value.channels as readonly number[];
+})();
+
+/**
+ * The OKLab L of the NEUTRAL with the stop's WCAG luminance: the ground the
+ * achromatic `surfaceColor` stands in for. A chromatic stop's own L is not
+ * that ground (the default seed's dark field: its stop at L 0.42 has
+ * Y 0.069, the neutral at L 0.42 has Y 0.074).
+ */
+function luminanceLightness(stop: FieldStop): number {
+    const raw = oklch(stop.L, stop.C, stop.h, 1);
+    if (!raw.ok) throw new Error(`Invalid field stop: ${raw.error.code}`);
+    const painted = mapColorToGamut(raw.value, "srgb");
+    if (!painted.ok) throw new Error(`Field stop gamut map failed: ${painted.error.code}`);
+    const xyzStop = convertColor(painted.value, "xyz");
+    if (!xyzStop.ok) throw new Error(`Field stop luminance failed: ${xyzStop.error.code}`);
+    const Y = Math.max(0, xyzStop.value.channels[1] as number);
+    const grey = xyz(WHITE_XYZ[0]! * Y, Y, WHITE_XYZ[2]! * Y, 1);
+    if (!grey.ok) throw new Error(`Field stop luminance failed: ${grey.error.code}`);
+    const neutral = convertColor(grey.value, "oklch");
+    if (!neutral.ok) throw new Error(`Field stop luminance failed: ${neutral.error.code}`);
+    return lightness(neutral.value);
+}
+
+/**
+ * THE PAGE-AMBIENT REFERENT (SS8-0259 · CNL-17): the field ground every ink
+ * is certified over. It was the MEAN OKLab L of the field palette, an
+ * achromatic stand-in for a field that varies across the page. A plate sits
+ * over whichever region of the field lies under it, so an ink certified
+ * against the mean failed over the regions on its own side of the mean: the
+ * dark About card sat on the field's crimson region (the plate read
+ * rgb(126 25 44)), and the component ink certified to 5.75:1 against the
+ * mean (L 0.30) read 4.31:1 there.
+ * In dark the field lies wholly below mid-luminance and the ink is light, so
+ * the referent is the field's BRIGHTEST stop at its WCAG luminance: an ink
+ * that clears it clears every region of the field.
+ * Light keeps the mean. Its field can span the 4.58:1 dead band (seed
+ * oklch(0.66 0.16 28): stops L 0.56-0.88), where no ink of either polarity
+ * clears every stop, and a darkest-stop referent there flips the ink light
+ * and fails it over the pale stops. The light arm read 5.64:1 live.
+ */
+export function resolveFieldAmbientLightness(
+    stops: readonly FieldStop[],
+    dark: boolean,
+): number {
+    if (!stops.length) return 0.5;
+    if (dark) return Math.max(...stops.map(luminanceLightness));
+    let sum = 0;
+    for (const stop of stops) sum += stop.L;
+    return sum / stops.length;
+}
+
 /** Certify a concrete CSS color against the surface it actually paints. */
 export function certifyAccentInk(
     css: string,
     surfaceL: number,
     floor: number = TEXT_CONTRAST_FLOOR,
+    headroom: number = CERTIFY_HEADROOM,
 ): string {
     const accent = parseOklch(css);
     if (!accent) return css;
-    const safe = certify(accent, surfaceL, floor);
+    const safe = certify(accent, surfaceL, floor, headroom);
     return safe.channels.every((channel, index) => {
         const source = accent.channels[index];
         return channel === source
             || (typeof channel === "number" && typeof source === "number" && Math.abs(channel - source) < 1e-9);
     }) ? css : serialize(safe);
+}
+
+/**
+ * The share of an identity ink's source chroma its certified walk must keep
+ * for the hue to still read (X-DS pass 18 · V18C-01). Below it the walk has
+ * reached a pole: sRGB holds almost no chroma there, and the hue survives
+ * only as a number in the token. Gold (C 0.147) walked to a pole reads
+ * C ≤ 0.015; its legible light bronzes read C 0.056–0.064. 0.4 (C 0.059)
+ * parts the two: at 0.5 the resting plate's bronze fell back to the plate
+ * ink, and the featured badge lost its mark.
+ */
+export const IDENTITY_CHROMA_HOLD = 0.4;
+
+function chroma(color: Color<"oklch">): number {
+    const C = color.channels[1];
+    return typeof C === "number" ? C : 0;
+}
+
+/** True where `color` already clears `floor` on the surface (the guard
+ *  returns it unwalked). */
+function clearsAt(color: Color<"oklch">, surface: Color<"oklch">, floor: number): boolean {
+    const result = safeAccentColor(color, surface, { minimumRatio: floor, gamut: "srgb" });
+    return result.ok && Math.abs(lightness(result.value) - lightness(color)) < 1e-6;
+}
+
+/**
+ * The most chromatic ink of the accent's hue on the side of the surface
+ * OPPOSITE `walked` that clears `floor`: the clearing lightness nearest the
+ * surface, which is the one furthest from the pole. Null where that side
+ * admits no ink at all.
+ */
+function farSideInk(
+    accent: Color<"oklch">,
+    surfaceL: number,
+    walked: Color<"oklch">,
+    floor: number,
+): Color<"oklch"> | null {
+    const surface = surfaceColor(surfaceL);
+    const pole = lightness(walked) >= surfaceL ? 0 : 1;
+    const hue = accent.channels[2];
+    const at = (L: number): Color<"oklch"> => {
+        const raw = oklch(L, chroma(accent), typeof hue === "number" ? hue : 0, 1);
+        if (!raw.ok) throw new Error(`Ink far-side probe failed: ${raw.error.code}`);
+        const mapped = mapColorToGamut(raw.value, "srgb");
+        if (!mapped.ok) throw new Error(`Ink far-side probe failed: ${mapped.error.code}`);
+        return mapped.value;
+    };
+    if (!clearsAt(at(pole), surface, floor)) return null;
+    let pass = pole;
+    let fail = surfaceL;
+    for (let i = 0; i < 16; i++) {
+        const middle = (pass + fail) / 2;
+        if (clearsAt(at(middle), surface, floor)) pass = middle;
+        else fail = middle;
+    }
+    return at(pass);
+}
+
+/**
+ * THE IDENTITY INK (X-DS pass 18 · V18C-01): an identity hue (the admin
+ * gold) certified on its surface WITHOUT certifying the hue away. §0dm keeps
+ * identity, so a walk that clears the floor by draining the chroma is not a
+ * cure. The ladder:
+ * 1. the house certify (`floor + headroom`), kept where it holds
+ *    `IDENTITY_CHROMA_HOLD` of the source chroma;
+ * 2. else the most chromatic ink on the FAR side of the surface that clears
+ *    the same `floor + headroom`;
+ * 3. else the surface's own plate ink: a word reads in the plate's voice,
+ *    and the identity rides its glyph, certified at the 3:1 floor.
+ * There is no rung that trades the headroom for chroma: on the owner-brown
+ * band a held word below the headroom read 4.31:1 off the frame
+ * (v18-hold-bisect.log), under the floor it was certified to clear.
+ * The headroom stays on every ground, the dock band included: the band's
+ * tint is measured, but the ambient under it is modelled achromatic, and the
+ * frame read a no-headroom glyph at 2.84:1 and its word at 4.23:1 on the
+ * light band (evidence/DS/value/pass-18/c18-2026-10-18/v18-noheadroom.log).
+ */
+export function certifyIdentityInk(
+    css: string,
+    surfaceL: number,
+    dark: boolean,
+    floor: number = TEXT_CONTRAST_FLOOR,
+    headroom: number = CERTIFY_HEADROOM,
+): string {
+    const accent = parseOklch(css);
+    if (!accent) return css;
+    const held = (c: Color<"oklch">) => chroma(c) >= IDENTITY_CHROMA_HOLD * chroma(accent);
+    const preferred = certify(accent, surfaceL, floor, headroom);
+    if (held(preferred)) return certifyAccentInk(css, surfaceL, floor, headroom);
+
+    const far = farSideInk(accent, surfaceL, preferred, floor + headroom);
+    if (far && held(far)) return serialize(far);
+    return resolvePlateInk(surfaceL, dark);
 }
 
 /**
@@ -327,21 +485,35 @@ export function certifyInkOnFill(
     return null;
 }
 
-/** Choose the WCAG-maximal neutral endpoint for a concrete opaque fill. */
+/**
+ * Choose the WCAG-maximal neutral endpoint for a concrete opaque fill.
+ *
+ * SS8-0257b (C-2): TOTAL over opaque fills. The walk used to test the RAW
+ * fill, and a fill outside sRGB (oklch(0.4 0.5 30)) has no in-gamut
+ * luminance, so neither endpoint certified and the chip rendered with no
+ * `color:` at all: 151 of 13,332 cells, L 0.40-0.82 at C >= 0.30. The fill is
+ * now mapped into the gamut a screen paints first; there, one of black or
+ * white always clears 4.58:1, so the 4.5:1 floor holds. The descending floors
+ * after it return the higher-contrast endpoint rather than nothing. Null
+ * remains only for a non-colour or a translucent fill, which has no single
+ * ground to certify against.
+ */
 export function contrastInkFor(fillCss: string): string | null {
-    const fill = parseOklch(fillCss);
-    if (!fill || fill.alpha !== 1) return null;
+    const parsed = parseOklch(fillCss);
+    if (!parsed || parsed.alpha !== 1) return null;
+    const mapped = mapColorToGamut(parsed, "srgb");
+    if (!mapped.ok) return null;
+    const fill = mapped.value;
     const L = lightness(fill);
     const endpoints = L >= 0.5 ? [0, 1] as const : [1, 0] as const;
-    for (const endpoint of endpoints) {
-        const ink = surfaceColor(endpoint);
-        const result = safeAccentColor(ink, fill, {
-            minimumRatio: TEXT_CONTRAST_FLOOR,
-            gamut: "srgb",
-        });
-        if (result.ok && Math.abs(lightness(result.value) - endpoint) < 1e-9) {
-            return endpoint === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
+    for (const minimumRatio of [TEXT_CONTRAST_FLOOR, GRAPHICS_CONTRAST_FLOOR, 1]) {
+        for (const endpoint of endpoints) {
+            const ink = surfaceColor(endpoint);
+            const result = safeAccentColor(ink, fill, { minimumRatio, gamut: "srgb" });
+            if (result.ok && Math.abs(lightness(result.value) - endpoint) < 1e-9) {
+                return endpoint === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
+            }
         }
     }
-    return null;
+    return endpoints[0] === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
 }

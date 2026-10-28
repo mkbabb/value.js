@@ -184,19 +184,19 @@ function figParts(component: string): { int: string; frac: string } {
 }
 .fig-frac {
     font-weight: 300;
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-muted);
 }
 /* X-DS value pass 14 (V14C-04): the unit is a muted italic index in the
  * console's own lowercase spelling ("9.8 deg"). The small-caps and tracking
  * are retired (value-canon §2 Type: no small-caps labels). */
 .fig-unit {
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-muted);
     font-size: 0.55em;
     font-style: italic;
     margin-left: 0.08em;
 }
 .fig-comma {
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-muted);
     font-weight: 300;
 }
 </style>

@@ -1,0 +1,79 @@
+{
+ "cell": "deeplink",
+ "ms": 51107,
+ "at": "2026-10-20T20:02:37.658Z",
+ "out": {
+  "/": {
+   "href": "http://localhost:9419/#/",
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b2",
+    "overture:b3",
+    "overture:b4"
+   ],
+   "blob": 1,
+   "overture": []
+  },
+  "/generate": {
+   "href": "http://localhost:9419/#/generate",
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "blob": 0,
+   "overture": []
+  },
+  "/browse": {
+   "href": "http://localhost:9419/#/browse",
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "blob": 0,
+   "overture": []
+  },
+  "/gradient": {
+   "href": "http://localhost:9419/#/gradient",
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b2",
+    "overture:b3",
+    "overture:b4"
+   ],
+   "blob": 0,
+   "overture": []
+  },
+  "/extract": {
+   "href": "http://localhost:9419/#/extract",
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "blob": 0,
+   "overture": []
+  },
+  "/atmosphere": {
+   "href": "http://localhost:9419/#/atmosphere",
+   "marks": [
+    "overture:b0",
+    "overture:b1",
+    "overture:b3",
+    "overture:b2",
+    "overture:b4"
+   ],
+   "blob": 0,
+   "overture": []
+  }
+ }
+}

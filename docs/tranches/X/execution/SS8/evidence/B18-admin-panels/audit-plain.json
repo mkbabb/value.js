@@ -1,0 +1,342 @@
+{
+  "390": {
+    "action": [
+      33,
+      205.3,
+      128,
+      36
+    ],
+    "target": [
+      169,
+      205.3,
+      188,
+      36
+    ],
+    "count": [
+      245.4,
+      253.5,
+      75.6,
+      19.6
+    ],
+    "refresh": [
+      329,
+      249.3,
+      28,
+      28
+    ],
+    "toolbar": [
+      33,
+      205.3,
+      324,
+      72
+    ],
+    "rows": [
+      [
+        33,
+        289.3,
+        324,
+        88.6
+      ],
+      [
+        33,
+        389.8,
+        324,
+        88.6
+      ],
+      [
+        33,
+        490.4,
+        324,
+        88.6
+      ],
+      [
+        33,
+        591,
+        324,
+        88.6
+      ],
+      [
+        33,
+        691.6,
+        324,
+        88.6
+      ]
+    ],
+    "badge": {
+      "cls": "badge-atom inline-flex items-center justify-center gap-1.5 rounded-badge font-semibold whitespace-nowrap [&_svg:not([class*=size-])]:size-[1em] [&_svg]:shrink-0 [&_svg]:pointer-events-none bg-secondary text-secondary-foreground leading-[1.1] [--mark-pad-block:--spacing(1)] [--mark-pad-inline:--spacing(3)] text-mono-small shrink-0",
+      "slot": "badge",
+      "fontSize": "14px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "lineHeight": "15.4px"
+    },
+    "timestamp": {
+      "fontSize": "14px",
+      "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "lineHeight": "19.6px"
+    },
+    "targetCS": {
+      "fontSize": "14px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "lineHeight": "19.6px"
+    },
+    "pageErrors": []
+  },
+  "768": {
+    "action": [
+      41,
+      206.1,
+      128,
+      36
+    ],
+    "target": [
+      177,
+      206.1,
+      426.5,
+      36
+    ],
+    "count": [
+      611.5,
+      213.8,
+      79.5,
+      20.6
+    ],
+    "refresh": [
+      699,
+      210.1,
+      28,
+      28
+    ],
+    "toolbar": [
+      41,
+      206.1,
+      686,
+      36
+    ],
+    "rows": [
+      [
+        41,
+        254.1,
+        686,
+        68.8
+      ],
+      [
+        41,
+        334.9,
+        686,
+        68.8
+      ],
+      [
+        41,
+        415.7,
+        686,
+        68.8
+      ],
+      [
+        41,
+        496.5,
+        686,
+        68.8
+      ],
+      [
+        41,
+        577.3,
+        686,
+        68.8
+      ]
+    ],
+    "badge": {
+      "cls": "badge-atom inline-flex items-center justify-center gap-1.5 rounded-badge font-semibold whitespace-nowrap [&_svg:not([class*=size-])]:size-[1em] [&_svg]:shrink-0 [&_svg]:pointer-events-none bg-secondary text-secondary-foreground leading-[1.1] [--mark-pad-block:--spacing(1)] [--mark-pad-inline:--spacing(3)] text-mono-small shrink-0",
+      "slot": "badge",
+      "fontSize": "14.72px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "lineHeight": "16.192px"
+    },
+    "timestamp": {
+      "fontSize": "14.72px",
+      "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "lineHeight": "20.608px"
+    },
+    "targetCS": {
+      "fontSize": "14.72px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "lineHeight": "20.608px"
+    },
+    "pageErrors": []
+  },
+  "1024": {
+    "action": [
+      41,
+      193.8,
+      128,
+      36
+    ],
+    "target": [
+      177,
+      193.8,
+      679,
+      36
+    ],
+    "count": [
+      864,
+      201,
+      83,
+      21.5
+    ],
+    "refresh": [
+      955,
+      197.8,
+      28,
+      28
+    ],
+    "toolbar": [
+      41,
+      193.8,
+      942,
+      36
+    ],
+    "rows": [
+      [
+        41,
+        241.8,
+        942,
+        70.4
+      ],
+      [
+        41,
+        324.2,
+        942,
+        70.4
+      ],
+      [
+        41,
+        406.6,
+        942,
+        70.4
+      ],
+      [
+        41,
+        489,
+        942,
+        70.4
+      ],
+      [
+        41,
+        571.3,
+        942,
+        70.4
+      ]
+    ],
+    "badge": {
+      "cls": "badge-atom inline-flex items-center justify-center gap-1.5 rounded-badge font-semibold whitespace-nowrap [&_svg:not([class*=size-])]:size-[1em] [&_svg]:shrink-0 [&_svg]:pointer-events-none bg-secondary text-secondary-foreground leading-[1.1] [--mark-pad-block:--spacing(1)] [--mark-pad-inline:--spacing(3)] text-mono-small shrink-0",
+      "slot": "badge",
+      "fontSize": "15.36px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "lineHeight": "16.896px"
+    },
+    "timestamp": {
+      "fontSize": "15.36px",
+      "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "lineHeight": "21.504px"
+    },
+    "targetCS": {
+      "fontSize": "15.36px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "lineHeight": "21.504px"
+    },
+    "pageErrors": []
+  },
+  "1440": {
+    "action": [
+      224,
+      201.6,
+      128,
+      36
+    ],
+    "target": [
+      360,
+      201.6,
+      723.4,
+      36
+    ],
+    "count": [
+      1091.4,
+      208.1,
+      88.6,
+      23
+    ],
+    "refresh": [
+      1188,
+      205.6,
+      28,
+      28
+    ],
+    "toolbar": [
+      224,
+      201.6,
+      992,
+      36
+    ],
+    "rows": [
+      [
+        224,
+        249.6,
+        992,
+        73
+      ],
+      [
+        224,
+        334.6,
+        992,
+        73
+      ],
+      [
+        224,
+        419.6,
+        992,
+        73
+      ],
+      [
+        224,
+        504.6,
+        992,
+        73
+      ],
+      [
+        224,
+        589.6,
+        992,
+        73
+      ]
+    ],
+    "badge": {
+      "cls": "badge-atom inline-flex items-center justify-center gap-1.5 rounded-badge font-semibold whitespace-nowrap [&_svg:not([class*=size-])]:size-[1em] [&_svg]:shrink-0 [&_svg]:pointer-events-none bg-secondary text-secondary-foreground leading-[1.1] [--mark-pad-block:--spacing(1)] [--mark-pad-inline:--spacing(3)] text-mono-small shrink-0",
+      "slot": "badge",
+      "fontSize": "16.4px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+      "color": "oklch(0.216129 0.00624853 56.0356)",
+      "lineHeight": "18.04px"
+    },
+    "timestamp": {
+      "fontSize": "16.4px",
+      "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "lineHeight": "22.96px"
+    },
+    "targetCS": {
+      "fontSize": "16.4px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+      "color": "oklch(0.292283 0.00386159 34.63)",
+      "lineHeight": "22.96px"
+    },
+    "pageErrors": []
+  }
+}

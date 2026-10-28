@@ -1,0 +1,821 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.0.0/bin/node",
+      "/Users/mkbabb/Programming/fourier-analysis/web/node_modules/.bin/playwright",
+      "test",
+      "e2e/od19-p1-transport-docks.spec.ts",
+      "--project=chromium",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "/Users/mkbabb/Programming/fourier-analysis/web/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome-gpu",
+        "name": "chrome-gpu",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/fourier-analysis/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "honest-red",
+        "name": "honest-red",
+        "testDir": "/Users/mkbabb/Programming/fourier-analysis/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npx vite build --outDir dist/e2e-preview --emptyOutDir && npx vite preview --outDir dist/e2e-preview --port 4190 --strictPort",
+      "url": "http://localhost:4190/",
+      "reuseExistingServer": true,
+      "timeout": 300000,
+      "stdout": "ignore",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "od19-p1-transport-docks.spec.ts",
+      "file": "od19-p1-transport-docks.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "X-OD19 P1 — transport dock (light 1440)",
+          "file": "od19-p1-transport-docks.spec.ts",
+          "line": 44,
+          "column": 10,
+          "specs": [
+            {
+              "title": "F1 — every collapsed-summary kid lies inside the plate",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1939,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:38:41.750Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-df9da674688ad516170a",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 48,
+              "column": 9
+            },
+            {
+              "title": "F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "first-flip (G-F2a)",
+                      "description": "{\"n\":28,\"w0\":102,\"wEnd\":958,\"growing\":1,\"reversals\":0,\"maxPlayJump\":428,\"playTravel\":417.25}"
+                    },
+                    {
+                      "type": "expand-trace",
+                      "description": "{\"n\":42,\"w0\":102,\"wEnd\":958,\"growing\":7,\"reversals\":0,\"maxPlayJump\":208.2388153076172,\"playTravel\":424}"
+                    },
+                    {
+                      "type": "collapse-trace",
+                      "description": "{\"n\":201,\"settled\":102,\"under\":102,\"grows\":0}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14658,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:38:43.802Z",
+                      "annotations": [
+                        {
+                          "type": "first-flip (G-F2a)",
+                          "description": "{\"n\":28,\"w0\":102,\"wEnd\":958,\"growing\":1,\"reversals\":0,\"maxPlayJump\":428,\"playTravel\":417.25}"
+                        },
+                        {
+                          "type": "expand-trace",
+                          "description": "{\"n\":42,\"w0\":102,\"wEnd\":958,\"growing\":7,\"reversals\":0,\"maxPlayJump\":208.2388153076172,\"playTravel\":424}"
+                        },
+                        {
+                          "type": "collapse-trace",
+                          "description": "{\"n\":201,\"settled\":102,\"under\":102,\"grows\":0}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-78e01d142397b2cf6c83",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 63,
+              "column": 9
+            },
+            {
+              "title": "F3 — Speed and Easing are dock seats, each with its own menu",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2526,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:38:58.470Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-e283f7ccec823c246811",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 135,
+              "column": 9
+            },
+            {
+              "title": "F4 — an open menu holds the dock open; closing it lets the dock collapse",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10964,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:39:01.003Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-46500bc596f24bdca584",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 160,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "X-OD19 P1 — transport dock (dark 1440)",
+          "file": "od19-p1-transport-docks.spec.ts",
+          "line": 44,
+          "column": 10,
+          "specs": [
+            {
+              "title": "F1 — every collapsed-summary kid lies inside the plate",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 911,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:39:11.975Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-6b362454ae84fd535f3f",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 48,
+              "column": 9
+            },
+            {
+              "title": "F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "first-flip (G-F2a)",
+                      "description": "{\"n\":32,\"w0\":102,\"wEnd\":958,\"growing\":1,\"reversals\":0,\"maxPlayJump\":428,\"playTravel\":417.28125}"
+                    },
+                    {
+                      "type": "expand-trace",
+                      "description": "{\"n\":43,\"w0\":102,\"wEnd\":958,\"growing\":8,\"reversals\":0,\"maxPlayJump\":178.81503295898438,\"playTravel\":424}"
+                    },
+                    {
+                      "type": "collapse-trace",
+                      "description": "{\"n\":220,\"settled\":102,\"under\":102,\"grows\":0}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14433,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:39:12.896Z",
+                      "annotations": [
+                        {
+                          "type": "first-flip (G-F2a)",
+                          "description": "{\"n\":32,\"w0\":102,\"wEnd\":958,\"growing\":1,\"reversals\":0,\"maxPlayJump\":428,\"playTravel\":417.28125}"
+                        },
+                        {
+                          "type": "expand-trace",
+                          "description": "{\"n\":43,\"w0\":102,\"wEnd\":958,\"growing\":8,\"reversals\":0,\"maxPlayJump\":178.81503295898438,\"playTravel\":424}"
+                        },
+                        {
+                          "type": "collapse-trace",
+                          "description": "{\"n\":220,\"settled\":102,\"under\":102,\"grows\":0}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-003f49023c67190cb565",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 63,
+              "column": 9
+            },
+            {
+              "title": "F3 — Speed and Easing are dock seats, each with its own menu",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2371,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:39:27.336Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-69a0c3c95efcfd55b207",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 135,
+              "column": 9
+            },
+            {
+              "title": "F4 — an open menu holds the dock open; closing it lets the dock collapse",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10940,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:39:29.713Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-1dcf1b1c9ad55835fead",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 160,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "X-OD19 P1 — transport dock (light 390)",
+          "file": "od19-p1-transport-docks.spec.ts",
+          "line": 44,
+          "column": 10,
+          "specs": [
+            {
+              "title": "F1 — every collapsed-summary kid lies inside the plate",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 685,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:39:40.658Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-e44e6a9dd6828484de84",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 48,
+              "column": 9
+            },
+            {
+              "title": "F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "first-flip (G-F2a)",
+                      "description": "{\"n\":169,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                    },
+                    {
+                      "type": "expand-trace",
+                      "description": "{\"n\":154,\"w0\":102,\"wEnd\":340,\"growing\":28,\"reversals\":0,\"maxPlayJump\":19.600006103515625,\"playTravel\":115}"
+                    },
+                    {
+                      "type": "collapse-trace",
+                      "description": "{\"n\":781,\"settled\":102,\"under\":102,\"grows\":0}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14158,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:39:41.351Z",
+                      "annotations": [
+                        {
+                          "type": "first-flip (G-F2a)",
+                          "description": "{\"n\":169,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                        },
+                        {
+                          "type": "expand-trace",
+                          "description": "{\"n\":154,\"w0\":102,\"wEnd\":340,\"growing\":28,\"reversals\":0,\"maxPlayJump\":19.600006103515625,\"playTravel\":115}"
+                        },
+                        {
+                          "type": "collapse-trace",
+                          "description": "{\"n\":781,\"settled\":102,\"under\":102,\"grows\":0}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-8b128bb6b98e41b647d6",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 63,
+              "column": 9
+            },
+            {
+              "title": "F3 — Speed and Easing are dock seats, each with its own menu",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2186,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:39:55.515Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-4ee4232ef3b95e10e797",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 135,
+              "column": 9
+            },
+            {
+              "title": "F4 — an open menu holds the dock open; closing it lets the dock collapse",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10516,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:39:57.706Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-552b219fc96e37784d01",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 160,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "X-OD19 P1 — transport dock (dark 390)",
+          "file": "od19-p1-transport-docks.spec.ts",
+          "line": 44,
+          "column": 10,
+          "specs": [
+            {
+              "title": "F1 — every collapsed-summary kid lies inside the plate",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 568,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:40:08.228Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-23eb36131f312c0bd0e0",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 48,
+              "column": 9
+            },
+            {
+              "title": "F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "first-flip (G-F2a)",
+                      "description": "{\"n\":161,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                    },
+                    {
+                      "type": "expand-trace",
+                      "description": "{\"n\":159,\"w0\":102,\"wEnd\":340,\"growing\":26,\"reversals\":0,\"maxPlayJump\":19.600006103515625,\"playTravel\":115}"
+                    },
+                    {
+                      "type": "collapse-trace",
+                      "description": "{\"n\":774,\"settled\":102,\"under\":102,\"grows\":0}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14197,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:40:08.801Z",
+                      "annotations": [
+                        {
+                          "type": "first-flip (G-F2a)",
+                          "description": "{\"n\":161,\"w0\":102,\"wEnd\":340,\"growing\":1,\"reversals\":0,\"maxPlayJump\":119,\"playTravel\":115}"
+                        },
+                        {
+                          "type": "expand-trace",
+                          "description": "{\"n\":159,\"w0\":102,\"wEnd\":340,\"growing\":26,\"reversals\":0,\"maxPlayJump\":19.600006103515625,\"playTravel\":115}"
+                        },
+                        {
+                          "type": "collapse-trace",
+                          "description": "{\"n\":774,\"settled\":102,\"under\":102,\"grows\":0}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-f533ebbf2ce59b7732d7",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 63,
+              "column": 9
+            },
+            {
+              "title": "F3 — Speed and Easing are dock seats, each with its own menu",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2359,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:40:23.006Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-1d89f89026c836ef920a",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 135,
+              "column": 9
+            },
+            {
+              "title": "F4 — an open menu holds the dock open; closing it lets the dock collapse",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10683,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T00:40:25.373Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00c252576872f8fb5787-93deb078ae79d9f6a120",
+              "file": "od19-p1-transport-docks.spec.ts",
+              "line": 160,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T00:38:31.047Z",
+    "duration": 125121.03600000001,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

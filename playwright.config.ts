@@ -111,6 +111,12 @@ export default defineConfig({
     // (the runtime product is byte-identical to what a user drives); the
     // production bundle is separately proven by the hard-gate `gh-pages ✓ built`.
     workers: 1,
+    // X-W11 §0gc — every browser job in ci.yml uploads `playwright-report/`
+    // `if: always()`, but no reporter wrote it: Playwright's CI default is `dot`
+    // alone, so a red run shipped an empty artifact and its cells were readable
+    // only as `××T` glyphs in the log. CI keeps the `dot` log line AND writes
+    // the HTML report the upload step names. Locally the default is unchanged.
+    reporter: process.env.CI ? [["dot"], ["html", { open: "never" }]] : "list",
     retries: process.env.CI ? 2 : 0,
     timeout: 30000,
     expect: { timeout: 8000 },
@@ -266,6 +272,14 @@ export default defineConfig({
             // reason `smoke-safari` omits them — WebKit has its own GL stack.
             name: "oracles-safari",
             testDir: "./e2e/smoke/oracles",
+            // X.W11.h15 (DISPOSITION §8 E15) — instrument scope, not engine
+            // skip. A leg tagged `@chromium-instrument` measures through a
+            // Chromium-only instrument (`browser.startTracing`, a CDP
+            // session); WebKit has no such instrument, so this project does
+            // not enrol it, and the Chromium `smoke` project, which collects
+            // the same files, runs it. The CSSOM halves (O-11 gate 4a) carry
+            // no tag and run here.
+            grepInvert: /@chromium-instrument/,
             use: {
                 baseURL: E2E_ORIGIN,
                 browserName: "webkit",

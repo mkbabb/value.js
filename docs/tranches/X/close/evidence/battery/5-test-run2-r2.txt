@@ -1,0 +1,464 @@
+SERVED MODEL: claude-opus-5-5
+X.W11.b release battery (r2, re-sit from the top per COHESION §0fz.4, 2026-10-18) — command 5 of 7
+cmd: npm test -- --maxWorkers=2
+tree: 9e88fcce65eb753c92f47c4d65a081b6e61ec9c6 (tranche-u HEAD, clean detached worktree: committed bytes only; npm ci from the committed lockfile)
+worktree status: 0 dirty paths
+started: 2026-10-18T20:24:17-0400
+guard: ~/.claude/guard/guarded heavy
+----- output -----
+
+> @mkbabb/value.js@4.1.0 pretest
+> npm run build
+
+
+> @mkbabb/value.js@4.1.0 build
+> vite build --mode production
+
+vite v8.0.16 building client environment for production...
+(node:20590) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+transforming...✓ 43 modules transformed.
+rendering chunks...
+
+[vite:dts] Start generate declaration files...
+[vite:dts] Start rollup declaration files...
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+[vite:dts] Declaration files built in 4584ms.
+
+computing gzip size...
+dist/subpaths/value.js            0.08 kB │ gzip:  0.09 kB
+dist/subpaths/quantize.js         0.10 kB │ gzip:  0.11 kB
+dist/subpaths/transform.js        0.14 kB │ gzip:  0.13 kB
+dist/value-DqN08Ybn.js            0.25 kB │ gzip:  0.20 kB
+dist/subpaths/math.js             0.26 kB │ gzip:  0.18 kB
+dist/result-CW1McJsL.js           0.48 kB │ gzip:  0.27 kB
+dist/subpaths/easing.js           0.49 kB │ gzip:  0.27 kB
+dist/subpaths/css.js              0.81 kB │ gzip:  0.39 kB
+dist/subpaths/color.js            0.83 kB │ gzip:  0.44 kB
+dist/math-DPCEFs8e.js             1.96 kB │ gzip:  0.78 kB
+dist/serialize-pk6Y9Kpv.js        2.42 kB │ gzip:  0.94 kB
+dist/quantize-lF9QpHZR.js         2.78 kB │ gzip:  1.25 kB
+dist/easing-DAFoO7Y8.js           5.42 kB │ gzip:  1.89 kB
+dist/transform-gw63c0Bi.js        7.45 kB │ gzip:  2.46 kB
+dist/anchors-K_Niq8pl.js          9.88 kB │ gzip:  4.08 kB
+dist/color-ytxV6iNp.js           11.08 kB │ gzip:  3.25 kB
+dist/actions-JeOYWqDs.js         25.35 kB │ gzip:  8.94 kB
+dist/color-grammar-BTLtTd2T.js   68.42 kB │ gzip:  7.19 kB
+dist/css-grammar-B3Yb9IDt.js    248.99 kB │ gzip: 33.09 kB
+
+[PLUGIN_TIMINGS] Your build spent significant time in plugin `vite:dts`. See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 4.79s
+
+> @mkbabb/value.js@4.1.0 test
+> vitest run --maxWorkers=2
+
+
+ RUN  v3.2.6 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt
+
+ ❯ test/ink.test.ts (22 tests | 5 failed) 302ms
+   ✓ D6 — resolveSurfaceLightness (the ladder referent) > page = the live ambient, verbatim 1ms
+   ✓ D6 — resolveSurfaceLightness (the ladder referent) > translucent rungs obey the α-composite law: ambient-monotone, α-damped 2ms
+   ✓ D6 — resolveSurfaceLightness (the ladder referent) > the well is opaque — closed-form, ambient-free (the C5/Q4 dividend) 0ms
+   ✓ D6 — resolveSurfaceLightness (the ladder referent) > the veil is an IN-PLATE composite — quiet-α over the RESTING rung, never the bare ambient (T.W6.5-P · T-34) 1ms
+   ✓ D6 — resolveSurfaceLightness (the ladder referent) > the rail's rest rung clears the 4.5:1 floor on the veil ground (the O-18 channel-letter row's static twin) 20ms
+   ✓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > clears the 4.5:1 text floor — ambient band × surfaces × failure picks (light) 102ms
+   ✓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > clears the 4.5:1 text floor — ambient band × surfaces × failure picks (dark) 124ms
+   ✓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > keeps the ORIGINAL string when it already clears floor + headroom (fidelity) 0ms
+   ✓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > hue survives certification (the guard moves L, never spins H) 1ms
+   ✓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > unparseable input passes through (the null-tolerant house contract) 0ms
+   ✓ D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > ≥4.5:1 on the live resting plate across the ambient band (light) 4ms
+   × D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light) 7ms
+     → expected 0.04626196763326 to be greater than 0.2
+   ✓ D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > ≥4.5:1 on the live resting plate across the ambient band (dark) 8ms
+   × D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark) 7ms
+     → expected 0.9996763108575 to be less than 0.95
+   ✓ X-DS pass 4 · V4C-01 — resolvePlateInk (ONE polarity per plate) > the primary clears 4.5:1 and the muted rung shares its pole, across the ambient band (light) 7ms
+   ✓ X-DS pass 4 · V4C-01 — resolvePlateInk (ONE polarity per plate) > the primary clears 4.5:1 and the muted rung shares its pole, across the ambient band (dark) 13ms
+   ✓ D6 — contrastInkFor (the seal-ink exemplar, generalized — F-3's dependent guard) > light fills stamp dark ink; dark fills stamp light ink 0ms
+   ✓ D6 — contrastInkFor (the seal-ink exemplar, generalized — F-3's dependent guard) > unparseable fill resolves to null (the caller keeps its resting ink) 0ms
+   × T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light) 2ms
+     → the cream collapse is dead — oklch(95.731941972161% 0.021353006857 32deg) keeps the pick's chroma voice: expected 0.021353006857 to be greater than or equal to 0.0455
+   × T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark) 1ms
+     → the cream collapse is dead — oklch(92.309869077057% 0.039601912883 32deg) keeps the pick's chroma voice: expected 0.039601912883 to be greater than or equal to 0.0455
+   × T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp) 1ms
+     → expected 0.021341858048 to be greater than or equal to 0.095375
+   ✓ D6 — the certification headroom (the interim-model tolerance) > is a named, positive constant (dies with the P3/P5 publish swap) 0ms
+ ✓ demo/test/export/byte-exact.test.ts (31 tests) 5420ms
+   ✓ PNG export (§7) > decodes to the W8 raster: filter bytes 0x00 and toRgba8 spans  2461ms
+   ✓ PNG export (§7) > is deterministic: two serializations are byte-identical  2810ms
+ ✓ test/ink-real-composite.test.ts (16 tests) 5139ms
+   ✓ X.W7L.i — ESC-W7Rm-1: the search never throws on a reachable floor > every surface × the full ambient sweep × every pick certifies ≥ the floor (light)  2311ms
+   ✓ X.W7L.i — ESC-W7Rm-1: the search never throws on a reachable floor > every surface × the full ambient sweep × every pick certifies ≥ the floor (dark)  2452ms
+   ✓ X.W7L.i — ESC-W7Rm-1: the search never throws on a reachable floor > where the headroom is out of reach, the ink is the best certified value (the surface's own maximum)  314ms
+ ✓ demo/test/generate/generate-rail.test.ts (1 test) 952ms
+   ✓ GenerateControls count control > V3C-05: Colors is glass's scrubber at the sm rung, with no content-as-track rail  950ms
+(node:21117) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/admin-destructive.test.ts (10 tests) 715ms
+(node:21169) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/admin-crud.test.ts (12 tests) 444ms
+(node:21189) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/admin-u3-cures.test.ts (9 tests) 445ms
+ ✓ demo/test/palettes/n-fixtures/n-fixtures.test.ts (21 tests) 239ms
+ ✓ demo/test/palettes/palette-inspector.test.ts (8 tests) 394ms
+ ✓ demo/test/palettes/checkbox-contract.test.ts (6 tests) 293ms
+ ✓ demo/test/palettes/version-history-verdicts.test.ts (7 tests) 280ms
+ ✓ demo/test/palettes/mini-color-picker-capture.test.ts (6 tests) 251ms
+stderr | demo/test/extract/extract-image-actions.test.ts > ExtractWorkbench · the image actions sit with the source > V9C-06: the row lives in the image column, before the extraction controls
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls class="shrink-0" k=5 found=null  ... >
+  at <ExtractWorkbench ref="VTU_COMPONENT" >
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-image-actions.test.ts > ExtractWorkbench · the image actions sit with the source > R-20 / V3C-05: with no image the drop zone is the one intake; only the camera action shows
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls class="shrink-0" k=5 found=null  ... >
+  at <ExtractWorkbench ref="VTU_COMPONENT" >
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-image-actions.test.ts > ExtractWorkbench · the image actions sit with the source > XW-8: a run in flight stands every image action down
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls class="shrink-0" k=5 found=null  ... >
+  at <ExtractWorkbench ref="VTU_COMPONENT" >
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-image-actions.test.ts > ExtractWorkbench · the image actions sit with the source > XW-8: while the camera is live its control is the way out (pressed), and the rest stand down
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls class="shrink-0" k=5 found=null  ... >
+  at <ExtractWorkbench ref="VTU_COMPONENT" >
+  at <VTUROOT>
+
+(node:21447) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/extract/extract-image-actions.test.ts (4 tests) 142ms
+ ✓ test/css/bbnf-images.test.ts (10 tests) 149ms
+ ✓ test/view-accents.test.ts (34 tests) 126ms
+stderr | demo/test/palettes/copy-verdict.test.ts > N-11 · the verdict renders > the inspector's slug copy — rejected
+[useClipboard] clipboard writeText rejected: Error: denied
+    at Object.writeText (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/demo/test/palettes/copy-verdict.test.ts:71:43)
+    at r (file:///private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/@mkbabb/glass-ui/dist/useClipboard-D36OTaeT.js:9:36)
+    at Proxy.copyWithVerdict (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/demo/palettes/inspector/PaletteInspector.vue:461:26)
+    at onCopySlug._cache.<computed>._cache.<computed> (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/demo/palettes/inspector/PaletteInspector.vue:152:39)
+    at callWithErrorHandling (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:200:19)
+    at callWithAsyncErrorHandling (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:207:17)
+    at emit (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:4421:5)
+    at $props.displaySlug.onClick._cache.<computed>._cache.<computed> (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/demo/palettes/inspector/PaletteCardSwatches.vue:20:25)
+    at callWithErrorHandling (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:200:19)
+    at Object.callWithAsyncErrorHandling (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:207:17)
+
+stderr | demo/test/palettes/copy-verdict.test.ts > N-11 · the verdict renders > the editor's swatch copy — rejected
+[useClipboard] clipboard writeText rejected: Error: denied
+    at Object.writeText (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/demo/test/palettes/copy-verdict.test.ts:71:43)
+    at r (file:///private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/@mkbabb/glass-ui/dist/useClipboard-D36OTaeT.js:9:36)
+    at Object.onCurrentSwatchCopy (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/demo/palettes/browser/card/composables/useSwatchActions.ts:101:30)
+    at onClick (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/demo/test/palettes/copy-verdict.test.ts:97:78)
+    at callWithErrorHandling (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:200:19)
+    at Object.callWithAsyncErrorHandling (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:207:17)
+    at HTMLButtonElement.invoker (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js:704:19)
+    at HTMLButtonElement.callTheUserObjectsOperation (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+    at innerInvokeEventListeners (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+    at invokeEventListeners (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+
+ ✓ demo/test/palettes/copy-verdict.test.ts (5 tests) 140ms
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > EC-9: the readout says what came back when it is not what was asked
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... >
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > EC-9: an exact result (or no result yet) reads the request alone
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... >
+  at <VTUROOT>
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... >
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > EC-25 / V3C-04: with nothing developed no rail is painted; K is a range scalar
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... >
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > EC-25: a developed rail rides the gradient as an IMAGE layer over the ink
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls k=16 chromaWeight=0.5 gradient="linear-gradient(to right, red 0% 50%, blue 50% 100%)"  ... >
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > XW-8: `disabled` reaches both sliders
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... >
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > XW-8: while the camera is live the sliders stand down
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found.
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... >
+  at <VTUROOT>
+
+(node:21563) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/extract/extract-controls.test.ts (6 tests) 158ms
+ ✓ test/css/hex-color.test.ts (6 tests) 127ms
+(node:21604) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/extract/extract-session.test.ts (4 tests) 141ms
+ ✓ test/css/bbnf-frozen.test.ts (22 tests) 125ms
+ ✓ test/v4-c1.test.ts (36 tests) 96ms
+stderr | demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a non-tail removal keeps every surviving chip's DOM node
+[Vue warn]: injection "Symbol(palette.library)" not found.
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: '#111111', source: 'picker' },
+  { css: '#222222', source: 'picker' },
+  { css: '#333333', source: 'picker' },
+  { css: '#444444', source: 'picker' }
+] selectedPalettes= []  ... >
+  at <VTUROOT>
+
+stderr | demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a repeated colour pairs in order; a new selection mints a new node
+[Vue warn]: injection "Symbol(palette.library)" not found.
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: '#111111', source: 'picker' },
+  { css: '#111111', source: 'picker' },
+  { css: '#222222', source: 'picker' }
+] selectedPalettes= []  ... >
+  at <VTUROOT>
+
+ ✓ demo/test/palettes/swatch-identity-keys.test.ts (5 tests) 121ms
+ ✓ demo/test/shell/reka-binding-idiom.test.ts (3 tests) 85ms
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-A · the catch path renders and announces > paints role=alert with the machine-truth detail
+[C-A] role: alert
+[C-A] aria-live: assertive
+[C-A] tabindex: -1
+[C-A] text: "This panel hit an unexpected error.boom-from-render Try again"
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-B · DIAGNOSTIC BLACKOUT > no console.error, no console.warn, no app.config.errorHandler
+[C-B] boundary painted: true
+[C-B] console.error mentioning the throw: false
+[C-B] console.warn mentioning the throw: false
+[C-B] app.config.errorHandler invocations: 0
+[C-B] component emissions on catch: {}
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-C · the recovery button is a LOOP when the cause persists > Try again remounts the same throwing subtree; boundary re-catches
+[C-C] after Try again, error plate still present: true
+[C-C] emitted: {"reset":[[],[]]}
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-D · FOCUS IS NEVER RESTORED on successful recovery > activeElement falls to <body> after reset
+[C-D] activeElement after catch: DIV alert
+[C-D] activeElement before reset: BUTTON
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-D · FOCUS IS NEVER RESTORED on successful recovery > activeElement falls to <body> after reset
+[C-D] error plate gone: true
+[C-D] healthy child mounted: true
+[C-D] activeElement AFTER reset: BODY (=== document.body)
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-E · the boundary never RE-ARMS when the slot content changes > navigating to a healthy pane keeps the dead error plate on screen
+[C-E] after navigating to a HEALTHY pane:
+[C-E]   error plate still rendered: true
+[C-E]   healthy pane mounted: false
+[C-E]   visible text: "This panel hit an unexpected error.boom-from-render Try again"
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-F · no live region exists before the error (Safari/VO announcement hazard) > the aria-live node is created in the same commit as its content
+[C-F] pre-error DOM: "<!-- U.W-A11Y · U-F58 (thrown-error a11y half): a focus-managed,\n         SR-ANNOUNCED error boundary — NEVER a silent white-screen dead plate.\n         When any descendant pane throws during render / lifecycle, this catches\n         it and paints an announced fallback IN PLACE of the dead subtree:\n           · role=\"alert\" + aria-live=\"assertive\" — a status message a screen\n             reader speaks the moment it appears (WCAG 4.1.3 Status Messages);\n           · tabindex=-1 + focus() on catch — focus moves INTO the boundary so a\n             keyboard / SR user LANDS on the recovery affordance instead of being\n             stranded on the now-unmounted tree (WCAG 2.4.3 Focus Order);\n           · a real recovery <button> — never a terminal dead end.\n         X.W7.g (N-9 · EB-9 ≡ ES-6): the plate IS EmptyState's `error`\n         variant — the one failure-register implementation, composed, never\n         cloned. The fork this replaced re-authored the same glyph / Fraunces\n         statement / Fira detail with five drifted magnitudes (gap, block and\n         inline padding, glyph size, both measure caps) and a byte-identical\n         de-emphasis-rung rule;\n         the boundary now adds only what is its own: the assertive live\n         region, the focus target, and the full-region fill. -->\n<!-- X.W12.u3 (UIA-V-184): the fallback stands on the pane's resting\n         surface, filling the region — the composition PaneErrorPlate already\n         uses — never a bare plate painted on the atmosphere ground. The\n         landing target is a screen-reader landing, not a control, so it draws\n         no square UA outline around the region (UIA-V-455); the Try-again\n         button keeps glass's focus ring. -->\n<p id=\"healthy-other\">a different, healthy pane</p>"
+[C-F] pre-error [aria-live] count: 0
+[C-F] pre-error [role=alert] count: 0
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-G · unbounded machine-truth detail > renders an arbitrarily long error message verbatim, unclamped
+[C-G] rendered detail length: 4000
+[C-G] detail classes: text-mono-small plate-ink w-full min-w-0 max-w-[min(44ch,100%)] wrap-anywhere
+
+ ✓ demo/test/shell/error-boundary-recovery.test.ts (7 tests) 83ms
+ ✓ demo/test/shell/pane-popups-and-seats.test.ts (3 tests) 80ms
+ ✓ demo/test/shell/error-boundary.test.ts (6 tests) 60ms
+ ✓ test/css/css-color5.test.ts (23 tests) 61ms
+ ✓ test/easing-export-stability.test.ts (11 tests) 64ms
+ ✓ demo/test/palettes/palette-specimen.test.ts (4 tests) 52ms
+ ✓ demo/test/palettes/compact-counts.test.ts (11 tests) 67ms
+ ✓ demo/test/extract/image-drop-zone.test.ts (7 tests) 58ms
+ ✓ test/demo/palettes/api/admin-palettes.test.ts (2 tests) 19ms
+ ✓ demo/test/palettes/palette-export.test.ts (7 tests) 45ms
+ ✓ test/dock-status-lamp.test.ts (6 tests) 37ms
+ ✓ test/katex-corpus.test.ts (55 tests) 44ms
+ ✓ test/value-domain-clamp.test.ts (6 tests) 26ms
+ ✓ test/v4-quantize.test.ts (7 tests) 26ms
+ ✓ demo/test/color-session/format-color.test.ts (67 tests) 14ms
+ ✓ test/css/bbnf-gap.test.ts (25 tests) 26ms
+ ✓ test/css/bbnf-values.test.ts (11 tests) 19ms
+ ✓ test/css/bbnf-fonts.test.ts (8 tests) 16ms
+ ✓ test/gradient-order-invariant.test.ts (17 tests) 16ms
+ ✓ test/v4-css-emerging.test.ts (22 tests) 24ms
+(node:22130) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/shell/dock-admin-mode.test.ts (2 tests) 20ms
+ ✓ test/parser-totality.test.ts (123 tests) 17ms
+ ✓ test/css/bbnf-color5.test.ts (8 tests) 19ms
+ ✓ test/v4-css-public.test.ts (6 tests) 20ms
+ ✓ test/math.test.ts (70 tests) 16ms
+ ✓ demo/test/glass/aurora-bracket.test.ts (9 tests) 13ms
+stderr | demo/test/shell/dock-command-registry.test.ts > X.W8.dc · the DockCommand registry (S-1) > falsifier: a seat with no provider throws at its inject, never renders empty
+[Vue warn]: Component is missing template or render function:  { setup: [Function: setup], components: {} }
+  at <Anonymous ref="VTU_COMPONENT" >
+  at <VTUROOT>
+
+ ✓ demo/test/shell/dock-command-registry.test.ts (2 tests) 14ms
+ ✓ test/css/bbnf-if-semicolon.test.ts (21 tests) 17ms
+ ✓ test/gradient-parse.test.ts (33 tests) 10ms
+ ✓ test/hsl-achromatic.test.ts (6 tests) 13ms
+ ✓ demo/test/shell/scene-actions-unregistered.test.ts (3 tests) 17ms
+ ✓ test/v4-color-behavior.test.ts (8 tests) 9ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts (43 tests) 12ms
+ ✓ test/css/bbnf-grid.test.ts (8 tests) 11ms
+ ✓ test/css/bbnf-semicolon.test.ts (20 tests) 15ms
+ ✓ demo/test/shell/button-voice.test.ts (8 tests) 12ms
+ ✓ test/css/bbnf-value.test.ts (7 tests) 10ms
+ ✓ test/transform/path-geometry.test.ts (43 tests) 6ms
+ ✓ test/spectrum-luma.test.ts (5 tests) 11ms
+ ✓ test/css/custom-property-case.test.ts (4 tests) 7ms
+ ✓ test/css/css-var-animation.test.ts (4 tests) 13ms
+ ✓ test/css/animation-time-unit.test.ts (4 tests) 8ms
+ ✓ test/css/syntax-custom-ident.test.ts (39 tests) 9ms
+ ✓ test/css/bbnf-depth.test.ts (2 tests) 13ms
+ ✓ test/preview-chips.test.ts (4 tests) 10ms
+ ✓ test/css/custom-property-empty.test.ts (17 tests) 6ms
+ ✓ test/css/bbnf-refusal.test.ts (13 tests) 18ms
+ ✓ test/gamut-verdict.test.ts (4 tests) 8ms
+ ✓ test/status-lamp.test.ts (14 tests) 6ms
+ ✓ test/gradient-v4-consume.test.ts (3 tests) 7ms
+ ✓ test/interpolation-subset.test.ts (5 tests) 6ms
+ ✓ test/css/bbnf-success-path.test.ts (11 tests) 10ms
+ ✓ test/readout-reservation.test.ts (14 tests) 5ms
+ ✓ test/parsing/timeline/parsing-easing.test.ts (5 tests) 5ms
+ ✓ demo/test/extract/image-sampler.test.ts (1 test) 6ms
+(node:22797) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/palette-preflight.test.ts (18 tests) 7ms
+ ✓ demo/test/palettes/revert-contract.test.ts (2 tests) 8ms
+ ✓ test/css/color-entry.test.ts (5 tests) 4ms
+ ✓ test/contrast-floor.test.ts (4 tests) 5ms
+ ✓ test/color-anchors.test.ts (12 tests) 3ms
+ ✓ test/easing.test.ts (5 tests) 3ms
+ ✓ demo/test/extract/camera-capture.test.ts (4 tests) 3ms
+(node:22881) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/palette-reorder.test.ts (4 tests) 2ms
+ ✓ test/image-sampler-v4.test.ts (3 tests) 3ms
+ ✓ test/picker-blob-config.test.ts (3 tests) 5ms
+ ✓ demo/test/palettes/browse-retry-probe.test.ts (3 tests) 3ms
+ ✓ test/mix-v4.test.ts (3 tests) 3ms
+ ✓ test/slider-announcement.test.ts (7 tests) 3ms
+ ✓ demo/test/color-session/palette-rail.test.ts (3 tests) 3ms
+ ✓ demo/test/palettes/dto-parity.test.ts (1 test) 1ms
+ ✓ demo/test/color-session/specimen-format.test.ts (2 tests) 2ms
+ ✓ demo/test/glass/aurora-motion.test.ts (1 test) 2ms
+(node:22977) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:22957) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+G20 390 {"PaletteCardSkeleton.vue:instrument@16":42,"PaletteCardSkeleton.vue:instrument@1":42,"PaletteCardSkeleton.vue@16":124.109375,"PaletteCardSkeleton.vue@1":124.109375,"PaletteCardSkeleton.vue:developing@16":124.109375,"PaletteCardSkeleton.vue:developing@1":124.109375}
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 390 shadow loading 124.109375 settled 124.125
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 390 developing loading 124.109375 settled 124.125
+
+ ✓ demo/test/palettes/palette-card-layout.test.ts (6 tests) 10964ms
+   ✓ G11 · root-only: the cast and the hover register live on the card root > the card casts nothing, and the hover register is the root's own rise  490ms
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+G20 1440 {"PaletteCardSkeleton.vue:instrument@16":42,"PaletteCardSkeleton.vue:instrument@1":42,"PaletteCardSkeleton.vue@16":92.515625,"PaletteCardSkeleton.vue@1":92.515625,"PaletteCardSkeleton.vue:developing@16":92.515625,"PaletteCardSkeleton.vue:developing@1":92.515625}
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 1440 shadow loading 92.515625 settled 92.53125
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 1440 developing loading 92.515625 settled 92.53125
+
+ ✓ demo/test/palettes/plate-mass.test.ts (4 tests) 17976ms
+   ✓ plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them  848ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light)
+AssertionError: expected 0.04626196763326 to be greater than 0.2
+ ❯ test/ink.test.ts:230:33
+    228|                 expect(muted.L).toBeGreaterThan(plateL);
+    229|             } else {
+    230|                 expect(muted.L).toBeGreaterThan(0.2);
+       |                                 ^
+    231|                 expect(muted.L).toBeLessThan(plateL);
+    232|             }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark)
+AssertionError: expected 0.9996763108575 to be less than 0.95
+ ❯ test/ink.test.ts:227:33
+    225|             // the plate: dark ink lightens toward the plate, light in…
+    226|             if (dark) {
+    227|                 expect(muted.L).toBeLessThan(0.95);
+       |                                 ^
+    228|                 expect(muted.L).toBeGreaterThan(plateL);
+    229|             } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light)
+AssertionError: the cream collapse is dead — oklch(95.731941972161% 0.021353006857 32deg) keeps the pick's chroma voice: expected 0.021353006857 to be greater than or equal to 0.0455
+ ❯ test/ink.test.ts:298:15
+    296|                 C,
+    297|                 `the cream collapse is dead — ${ink} keeps the pick's …
+    298|             ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * PICK_C);
+       |               ^
+    299|             expect(Math.abs(H - 32), `hue held: ${ink}`).toBeLessThan(…
+    300|         });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark)
+AssertionError: the cream collapse is dead — oklch(92.309869077057% 0.039601912883 32deg) keeps the pick's chroma voice: expected 0.039601912883 to be greater than or equal to 0.0455
+ ❯ test/ink.test.ts:298:15
+    296|                 C,
+    297|                 `the cream collapse is dead — ${ink} keeps the pick's …
+    298|             ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * PICK_C);
+       |               ^
+    299|             expect(Math.abs(H - 32), `hue held: ${ink}`).toBeLessThan(…
+    300|         });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)
+AssertionError: expected 0.021341858048 to be greater than or equal to 0.095375
+ ❯ test/ink.test.ts:312:19
+    310|         // The P1-4 vivid red holds REAL chroma at its certified L (th…
+    311|         // walk's per-step projection bled it toward neutral).
+    312|         expect(C).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * 0.2725);
+       |                   ^
+    313|     });
+    314| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed | 96 passed (97)
+      Tests  5 failed | 1243 passed (1248)
+   Start at  20:24:24
+   Duration  62.93s (transform 2.51s, setup 4.05s, collect 18.30s, tests 46.52s, environment 25.87s, prepare 4.36s)
+
+----- end output -----
+finished: 2026-10-18T20:25:32-0400
+exit 1
+note: run 2 of 2 (warm worktree). Reading of record for G2's test cell: 5 failed = the owned 5 only (X-W8 O-62 (a)); denominator 1248 = 1242 + 6 (.w9r's test/hsl-achromatic.test.ts).

@@ -1,0 +1,110 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/picker/spectrum-dot-position.test.ts (3 tests) 361ms
+(node:93473) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ demo/test/palettes/ss8-b11-cures.test.ts (75 tests) 2442ms
+(node:94265) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/shell/dock-profile-menus.test.ts (13 tests) 1167ms
+ ✓ demo/test/about/ss8-b09-ink.test.ts (11 tests) 1371ms
+   ✓ SS8-0257b · contrastInkFor is total over opaque fills > every cell of the probe's census grid gets a neutral ink that clears 4.5:1  1352ms
+ ✓ demo/test/generate/ss8-z3-cures.test.ts (5 tests) 1257ms
+   ✓ Z3 · GenerateControls REFUTED rows stay cured > -1/-3/-14: each swatch is a named copy button; a click writes it and names it Copied  995ms
+ ✓ demo/test/extract/ss8-b25-cures.test.ts (6 tests) 1517ms
+   ✓ SS8-0722 · the eyedropper is a modal dialog > role=dialog, aria-modal, named; the workbench behind it is hidden from AT  1209ms
+(node:94896) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/admin-destructive.test.ts (10 tests) 1494ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > color-name delete (AdminNamesPanel)  334ms
+(node:95101) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/gradient/ss8-b20-cures.test.ts (10 tests) 800ms
+   ✓ R-14 (SS8-0590) · a closed easing row mounts no specimen strip > 12 stops, all rows closed: zero strips; one row open: exactly one strip  542ms
+(node:95232) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/ss8-b18-admin-tags.test.ts (2 tests) 124ms
+ ✓ demo/test/palettes/palette-inspector.test.ts (9 tests) 306ms
+ ✓ demo/test/palettes/ss8-b10-browse.test.ts (13 tests) 294ms
+(node:95748) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/ss8-b18-admin-audit.test.ts (4 tests) 149ms
+ ✓ demo/test/palettes/ss8-b16-cures.test.ts (9 tests) 239ms
+ ✓ demo/test/about/ss8-b09-katex.test.ts (3 tests) 112ms
+ ✓ demo/test/glass/aurora-bracket.test.ts (9 tests) 130ms
+ ✓ demo/test/shell/pane-popups-and-seats.test.ts (3 tests) 85ms
+ ✓ demo/test/gradient/ss8-z3-cures.test.ts (5 tests) 93ms
+ ✓ demo/test/gradient/ss8-b21-cures.test.ts (2 tests) 87ms
+(node:96418) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/mix/ss8-b24-cures.test.ts (2 tests) 86ms
+(node:96589) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/ss8-b12-cures.test.ts (3 tests) 117ms
+ ✓ demo/test/palettes/ss8-b14-cures.test.ts (4 tests) 98ms
+ ✓ demo/test/palettes/ss8-b13-cures.test.ts (1 test) 68ms
+ ✓ test/parser-totality.test.ts (132 tests) 28ms
+ ✓ test/hsv-byte-exact.test.ts (2 tests) 30ms
+ ✓ test/dock-status-lamp.test.ts (6 tests) 33ms
+ ✓ demo/test/mix/ss8-b23-cures.test.ts (3 tests) 36ms
+stderr | demo/test/about/ss8-z3-cures.test.ts > Z3 · Markdown REFUTED rows stay cured > -2: the loading bones carry no inert surface/variant attributes
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <Markdown module=fn<pending> ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+(node:96977) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/about/ss8-z3-cures.test.ts (2 tests) 26ms
+ ✓ demo/test/shell/error-plate-detail-ink.test.ts (2 tests) 19ms
+ ✓ test/gradient-order-invariant.test.ts (17 tests) 17ms
+ ✓ demo/test/color-session/missing-channel-outward.test.ts (2 tests) 13ms
+ ✓ test/preview-chips.test.ts (4 tests) 9ms
+ ✓ test/transform/path-geometry.test.ts (43 tests) 7ms
+ ✓ test/status-lamp.test.ts (14 tests) 6ms
+ ✓ demo/test/color-session/ss8-z2-parse-boundary.test.ts (3 tests) 5ms
+ ✓ test/readout-reservation.test.ts (14 tests) 4ms
+ ✓ demo/test/palettes/browse-retry-probe.test.ts (4 tests) 5ms
+stderr | demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugin `externalize-deps`. See https://rolldown.rs/options/checks#plugintimings for more details.
+
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+G20 1440 {"PaletteCardSkeleton.vue:instrument@16":42,"PaletteCardSkeleton.vue:instrument@1":42,"PaletteCardSkeleton.vue@16":92.515625,"PaletteCardSkeleton.vue@1":92.515625,"PaletteCardSkeleton.vue:developing@16":92.515625,"PaletteCardSkeleton.vue:developing@1":92.515625}
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 1440 shadow loading 92.515625 settled 92.53125
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 1440 developing loading 92.515625 settled 92.53125
+
+ ❯ demo/test/palettes/plate-mass.test.ts (4 tests | 2 skipped) 84461ms
+   ↓ plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+   ↓ plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+   ✓ plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them 150ms
+   ✓ plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card 27ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px
+TimeoutError: page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "http://127.0.0.1:5173/", waiting until "load"[22m
+
+ ❯ openHarness demo/test/palettes/n-fixtures/browser.ts:71:16
+     69|     const browser: Browser = await chromium.launch();
+     70|     const page = await browser.newPage({ viewport });
+     71|     await page.goto(`http://127.0.0.1:${address.port}/`);
+       |                ^
+     72|     await page.waitForSelector("[role=article][data-case]");
+     73|     return {
+ ❯ demo/test/palettes/plate-mass.test.ts:85:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 36 passed (37)
+      Tests  452 passed | 2 skipped (454)
+   Start at  21:45:04
+   Duration  85.35s (transform 1.80s, setup 1.65s, collect 12.79s, tests 97.10s, environment 10.14s, prepare 1.66s)
+

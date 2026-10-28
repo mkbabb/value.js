@@ -1,0 +1,11 @@
+{
+ "loadAt": 128,
+ "url": "http://localhost:8124/#/",
+ "pending": [],
+ "failed": [
+  {
+   "url": "http://localhost:3000/colors/approved?limit=500",
+   "fail": "net::ERR_FAILED"
+  }
+ ]
+}

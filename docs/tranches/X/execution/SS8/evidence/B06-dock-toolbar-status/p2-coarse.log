@@ -1,0 +1,302 @@
+[guarded] waiting for headroom (load 40 > 36)
+{
+ "probe": "p2-coarse",
+ "at": "2026-10-19T18:46:49.797Z",
+ "cells": {
+  "coarse-1366x1024": {
+   "env": {
+    "coarse": true,
+    "hoverNone": true,
+    "desktopMQ": true,
+    "appDesktopMQ": true,
+    "rootFont": "16px",
+    "uiScale": "1.5",
+    "touchFloor": "2.75rem"
+   },
+   "dockAtBoot": {
+    "held": null,
+    "collapsed": false,
+    "cls": "glass-dock horizontal shape-pill expanded fit-content"
+   },
+   "toggleAtBoot": {
+    "present": true,
+    "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+    "inert": false,
+    "slotW": 140.8,
+    "opacity": "1",
+    "btnTabindex": null,
+    "btnLabel": "Tools"
+   },
+   "c0155": {
+    "seats": [
+     [
+      44,
+      44
+     ],
+     [
+      44,
+      44
+     ],
+     [
+      44,
+      44
+     ],
+     [
+      44,
+      44
+     ],
+     [
+      44,
+      44
+     ]
+    ],
+    "back": [
+     44,
+     44
+    ],
+    "toggle": [
+     131.83,
+     44
+    ]
+   },
+   "c0156_afterTap1": {
+    "held": null,
+    "collapsed": false,
+    "cls": "glass-dock horizontal shape-pill expanded fit-content"
+   },
+   "c0156_afterTap2": {
+    "held": null,
+    "collapsed": false,
+    "cls": "glass-dock horizontal shape-pill expanded fit-content"
+   },
+   "c0156_after7s": {
+    "held": null,
+    "collapsed": false,
+    "cls": "glass-dock horizontal shape-pill expanded fit-content"
+   }
+  },
+  "coarse-1024x1366": {
+   "env": {
+    "coarse": true,
+    "hoverNone": true,
+    "desktopMQ": true,
+    "appDesktopMQ": false,
+    "rootFont": "16px",
+    "uiScale": "1.5",
+    "touchFloor": "2.75rem"
+   },
+   "dock": {
+    "held": null,
+    "collapsed": false,
+    "cls": "glass-dock horizontal shape-pill expanded fit-content"
+   },
+   "toggle": {
+    "present": true,
+    "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+    "inert": false,
+    "slotW": 137.8,
+    "opacity": "1",
+    "btnTabindex": null,
+    "btnLabel": "Tools"
+   },
+   "dockLayers": [
+    {
+     "active": false,
+     "labels": [
+      "Save edit",
+      "Cancel edit"
+     ]
+    },
+    {
+     "active": false,
+     "labels": [
+      "Switch to slug",
+      "Cancel"
+     ]
+    },
+    {
+     "active": false,
+     "labels": [
+      "Back",
+      "Reset color",
+      "Copy color",
+      "Random color",
+      "Palettes",
+      "Extract palette",
+      "Apply color",
+      "Open color input"
+     ]
+    },
+    {
+     "active": true,
+     "labels": [
+      "Reset color",
+      "Copy color",
+      "Random color",
+      "Palettes",
+      "Extract palette"
+     ]
+    },
+    {
+     "active": false,
+     "labels": [
+      "Apply color"
+     ]
+    },
+    {
+     "active": true,
+     "labels": [
+      "Select view",
+      "Toggle action bar",
+      "Menu"
+     ]
+    }
+   ],
+   "palettesEditControls": []
+  },
+  "phone-390x844": {
+   "env": {
+    "coarse": true,
+    "hoverNone": true,
+    "desktopMQ": false,
+    "appDesktopMQ": false,
+    "rootFont": "16px",
+    "uiScale": "1.5",
+    "touchFloor": "2.75rem"
+   },
+   "c0182_toggle": {
+    "present": true,
+    "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+    "inert": false,
+    "slotW": 56,
+    "opacity": "1",
+    "btnTabindex": null,
+    "btnLabel": ""
+   },
+   "c0159_seatsInDom": 5,
+   "c0159_actionFace": true,
+   "c0171_ariaSnapshot": "- combobox \"Select view\":\n  - img",
+   "c0171_cdp": {
+    "role": "combobox",
+    "name": "Select view",
+    "value": null,
+    "description": null,
+    "props": [
+     "invalid=false",
+     "focusable=true",
+     "hasPopup=listbox",
+     "required=false",
+     "expanded=false"
+    ]
+   },
+   "c0171_textInTrigger": "",
+   "toggleByRoute": {
+    "#/palettes": {
+     "present": true,
+     "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+     "inert": false,
+     "slotW": 56,
+     "opacity": "1",
+     "btnTabindex": null,
+     "btnLabel": ""
+    },
+    "#/mix": {
+     "present": true,
+     "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+     "inert": false,
+     "slotW": 56,
+     "opacity": "1",
+     "btnTabindex": null,
+     "btnLabel": ""
+    },
+    "#/generate": {
+     "present": true,
+     "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+     "inert": false,
+     "slotW": 56,
+     "opacity": "1",
+     "btnTabindex": null,
+     "btnLabel": ""
+    },
+    "#/gradient": {
+     "present": true,
+     "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+     "inert": false,
+     "slotW": 56,
+     "opacity": "1",
+     "btnTabindex": null,
+     "btnLabel": ""
+    }
+   },
+   "c0179_390": {
+    "face": [
+     163.5,
+     132
+    ],
+    "row": [
+     163.5,
+     132
+    ],
+    "seats": [
+     [
+      163.5,
+      44
+     ],
+     [
+      207.5,
+      44
+     ],
+     [
+      251.5,
+      44
+     ]
+    ],
+    "pitch": [
+     44,
+     44
+    ],
+    "states": [
+     "ready",
+     "ready",
+     "ready"
+    ]
+   }
+  }
+ }
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.tap: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.action-bar-toggle-inner button')[22m
+[2m    - locator resolved to <button type="button" data-v-69d6f73e="" data-press-armed="" aria-pressed="true" aria-label="Toggle action bar" class="dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn is-active">…</button>[22m
+[2m  - attempting tap action[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is visible, enabled and stable[22m
+[2m      - scrolling into view if needed[22m
+[2m      - done scrolling[22m
+[2m      - <svg width="24" height="24" fill="none" stroke-width="2" data-v-29f59cb1="" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]">…</svg> from <div tabindex="-1" data-v-c1c2eb17="" class="dock-face is-active">…</div> subtree intercepts pointer events[22m
+[2m    - retrying tap action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is visible, enabled and stable[22m
+[2m      - scrolling into view if needed[22m
+[2m      - done scrolling[22m
+[2m      - <svg width="24" height="24" fill="none" stroke-width="2" data-v-29f59cb1="" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]">…</svg> from <div tabindex="-1" data-v-c1c2eb17="" class="dock-face is-active">…</div> subtree intercepts pointer events[22m
+[2m    - retrying tap action[22m
+[2m      - waiting 100ms[22m
+[2m    58 × waiting for element to be visible, enabled and stable[22m
+[2m       - element is visible, enabled and stable[22m
+[2m       - scrolling into view if needed[22m
+[2m       - done scrolling[22m
+[2m       - <svg width="24" height="24" fill="none" stroke-width="2" data-v-29f59cb1="" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]">…</svg> from <div tabindex="-1" data-v-c1c2eb17="" class="dock-face is-active">…</div> subtree intercepts pointer events[22m
+[2m     - retrying tap action[22m
+[2m       - waiting 500ms[22m
+
+    at /Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B06-dock-toolbar-status/p2-coarse.mjs:119:65 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0

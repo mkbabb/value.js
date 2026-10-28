@@ -1,0 +1,329 @@
+{
+ "before": "oklab(62.5% 0.133 0.0155) | oklab(62.5% 0.1074 0.0799)",
+ "afterCopy": {
+  "title": "Copied!",
+  "clip": "oklab(62.5% 0.132955549577 0.015529142706), oklab("
+ },
+ "msFromCopyToMixClick": 3220,
+ "payloadAfter": "oklab(62.5% 0.133 0.0155) | oklab(62.5% 0.1074 0.0799)",
+ "staleCopiedFramesOverNewPayload": 8,
+ "staleWindow": [
+  33,
+  248
+ ],
+ "timeline": [
+  {
+   "t": 33,
+   "ghost": true,
+   "title": "Copied!",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 80,
+   "ghost": true,
+   "title": "Copied!",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 103,
+   "ghost": true,
+   "title": "Copied!",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 150,
+   "ghost": true,
+   "title": "Copied!",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 151,
+   "ghost": true,
+   "title": "Copied!",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 176,
+   "ghost": true,
+   "title": "Copied!",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 224,
+   "ghost": true,
+   "title": "Copied!",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 248,
+   "ghost": true,
+   "title": "Copied!",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 302,
+   "ghost": true,
+   "title": null,
+   "payload": ""
+  },
+  {
+   "t": 393,
+   "ghost": true,
+   "title": null,
+   "payload": ""
+  },
+  {
+   "t": 507,
+   "ghost": true,
+   "title": null,
+   "payload": ""
+  },
+  {
+   "t": 598,
+   "ghost": true,
+   "title": null,
+   "payload": ""
+  },
+  {
+   "t": 667,
+   "ghost": true,
+   "title": null,
+   "payload": ""
+  },
+  {
+   "t": 756,
+   "ghost": true,
+   "title": null,
+   "payload": ""
+  },
+  {
+   "t": 846,
+   "ghost": true,
+   "title": null,
+   "payload": ""
+  },
+  {
+   "t": 939,
+   "ghost": false,
+   "title": null,
+   "payload": ""
+  },
+  {
+   "t": 1053,
+   "ghost": false,
+   "title": null,
+   "payload": ""
+  },
+  {
+   "t": 1146,
+   "ghost": false,
+   "title": null,
+   "payload": ""
+  },
+  {
+   "t": 1223,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1313,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1403,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1469,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1524,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1566,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1601,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1633,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1666,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1700,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1733,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1766,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1799,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1833,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1866,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1900,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1932,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 1966,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2001,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2033,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2066,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2099,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2133,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2168,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2200,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2233,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2266,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2300,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2335,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2366,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2401,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2433,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2466,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  },
+  {
+   "t": 2500,
+   "ghost": false,
+   "title": "Copy color",
+   "payload": "oklab(62.5% 0.133 0.0155)"
+  }
+ ],
+ "errors": []
+}

@@ -1,0 +1,84 @@
+[
+ {
+  "cell": "META-U4 double-click vote (natural)",
+  "ms": 8632,
+  "voter": "dusty-curving-fawn-bunny",
+  "before": "0 votes, click to vote",
+  "ui": {
+   "label": "1 votes, click to vote",
+   "filled": "lucide lucide-heart-icon lucide-heart w-3.5 h-3.5 transition-colors fill-red-500 text-red-500"
+  },
+  "server": {
+   "voted": true,
+   "voteCount": 1
+  },
+  "wire": [
+   {
+    "k": 1,
+    "t": 6027,
+    "ev": "sent"
+   },
+   {
+    "k": 2,
+    "t": 6029,
+    "ev": "sent"
+   },
+   {
+    "k": 1,
+    "t": 6044,
+    "ev": "server-replied+delivered",
+    "status": 200,
+    "body": "{\"voted\":true,\"voteCount\":0}"
+   },
+   {
+    "k": 2,
+    "t": 6045,
+    "ev": "server-replied+delivered",
+    "status": 200,
+    "body": "{\"voted\":true,\"voteCount\":1}"
+   }
+  ],
+  "pageErrors": []
+ },
+ {
+  "cell": "META-U4 double-click vote (first-delayed-900ms)",
+  "ms": 4351,
+  "voter": "astral-piercing-mango-crab",
+  "before": "1 votes, click to vote",
+  "ui": {
+   "label": "2 votes, click to vote",
+   "filled": "lucide lucide-heart-icon lucide-heart w-3.5 h-3.5 transition-colors fill-red-500 text-red-500"
+  },
+  "server": {
+   "voted": true,
+   "voteCount": 2
+  },
+  "wire": [
+   {
+    "k": 2,
+    "t": 1782,
+    "ev": "server-replied",
+    "status": 200,
+    "body": "{\"voted\":true,\"voteCount\":1}"
+   },
+   {
+    "k": 2,
+    "t": 1782,
+    "ev": "delivered-to-page"
+   },
+   {
+    "k": 1,
+    "t": 1783,
+    "ev": "server-replied",
+    "status": 200,
+    "body": "{\"voted\":true,\"voteCount\":2}"
+   },
+   {
+    "k": 1,
+    "t": 2683,
+    "ev": "delivered-to-page"
+   }
+  ],
+  "pageErrors": []
+ }
+]

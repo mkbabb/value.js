@@ -316,10 +316,18 @@ export function safeAccentColor(
     return ok(candidates[0]!);
 }
 
+/**
+ * Conversion float drift on a byte-scale channel is ~1e-14..1e-12 (several ulps, through the hue
+ * sector or the XYZ matrices); one byte step is 1. A one-ulp tie window let that drift decide ties,
+ * so analytically equal channels quantized apart (M-9). This window absorbs the drift and stays
+ * nine orders of magnitude below a byte step.
+ */
+const TIE_WINDOW = 1e-9;
+
 function roundHalfEven(value: number): number {
     const floor = Math.floor(value);
     const fraction = value - floor;
-    if (Math.abs(fraction - 0.5) < Number.EPSILON * Math.max(1, Math.abs(value))) {
+    if (Math.abs(fraction - 0.5) < TIE_WINDOW) {
         return floor % 2 === 0 ? floor : floor + 1;
     }
     return Math.round(value);

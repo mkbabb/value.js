@@ -1,0 +1,7 @@
+   × SS8-0514 · the loading shadows stand at the rows' rhythm > the skeleton stack spaces its shadows at the panel's row gap 84ms
+     → expected 'gap-2' to be 'gap-3' // Object.is equality
+   ✓ SS8-0509/0510/0513/0515 · the already-landed audit cures hold > 0509 (UIA-V-52): the 6 KB-target row zeroes its own min-width, so the target truncates in the track 23ms
+   ✓ SS8-0509/0510/0513/0515 · the already-landed audit cures hold > 0510/0515 (V16-05): count + Refresh are one non-wrapping ms-auto cluster, with no flex-1 spacer peer 15ms
+   ✓ SS8-0509/0510/0513/0515 · the already-landed audit cures hold > 0513 (AAP-19): Refresh is the xs icon-only seat (28x28 fine / 44x44 coarse), never a wide capsule 14ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  1 failed | 3 passed (4)

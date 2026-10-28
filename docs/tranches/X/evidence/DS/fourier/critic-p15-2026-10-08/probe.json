@@ -1,0 +1,4960 @@
+{
+ "v-light-1440": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    1440,
+    900
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    442,
+    12,
+    555,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    946,
+    20,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-car",
+   "tag": "DIV",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    88,
+    972,
+    800
+   ]
+  },
+  {
+   "cls": "editor-shell",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.11 0.098 0.09 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg",
+   "fl": null,
+   "ts": null,
+   "r": [
+    17,
+    89,
+    970,
+    798
+   ]
+  },
+  {
+   "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+   "tag": "DIV",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    883,
+    97,
+    96,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    952,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1000,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1048,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1117,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    931,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+   "tag": "DIV",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    451,
+    819,
+    102,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsul",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    459,
+    827,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "caret-value glass-floating fira-code",
+   "tag": "SPAN",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    422,
+    798,
+    93,
+    31
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    455,
+    844,
+    54,
+    6
+   ]
+  },
+  {
+   "cls": "slider-range glass-liquid-fill",
+   "tag": "SPAN",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    455,
+    844,
+    15,
+    6
+   ]
+  },
+  {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounde",
+   "tag": "ASIDE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1000,
+    100,
+    424,
+    667
+   ]
+  },
+  {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1094,
+    187,
+    140,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    348,
+    115,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1145,
+    348,
+    85,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1238,
+    348,
+    38,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    431,
+    114,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1144,
+    431,
+    102,
+    36
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    479,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.691007 0.123391 0.0739245 / 0.775) 0px, oklab(0.691007 0.123391 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    545,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1169,
+    545,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    577,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.623835 -0.00916075 -0.112976 / 0.775) 0px, oklab(0.623835 -0.00916",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    621,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1105,
+    621,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    751,
+    380,
+    40
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    807,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    874,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1206,
+    874,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    906,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    973,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1059,
+    973,
+    12,
+    24
+   ]
+  }
+ ],
+ "w-light-1440": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    1440,
+    900
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    442,
+    12,
+    555,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    946,
+    20,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-car",
+   "tag": "DIV",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    88,
+    972,
+    800
+   ]
+  },
+  {
+   "cls": "editor-shell",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.11 0.098 0.09 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg",
+   "fl": null,
+   "ts": null,
+   "r": [
+    17,
+    89,
+    970,
+    798
+   ]
+  },
+  {
+   "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+   "tag": "DIV",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    883,
+    97,
+    96,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    952,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1000,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1048,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1117,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    931,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+   "tag": "DIV",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    451,
+    819,
+    102,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsul",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    459,
+    827,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "caret-value glass-floating fira-code",
+   "tag": "SPAN",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    417,
+    798,
+    93,
+    31
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    455,
+    844,
+    54,
+    6
+   ]
+  },
+  {
+   "cls": "slider-range glass-liquid-fill",
+   "tag": "SPAN",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    455,
+    844,
+    11,
+    6
+   ]
+  },
+  {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounde",
+   "tag": "ASIDE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1000,
+    100,
+    424,
+    667
+   ]
+  },
+  {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1094,
+    187,
+    140,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    348,
+    115,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1145,
+    348,
+    85,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1238,
+    348,
+    38,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    431,
+    114,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1144,
+    431,
+    102,
+    36
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    479,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.691007 0.123391 0.0739245 / 0.775) 0px, oklab(0.691007 0.123391 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    545,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1169,
+    545,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    577,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.623835 -0.00916075 -0.112976 / 0.775) 0px, oklab(0.623835 -0.00916",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    621,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1105,
+    621,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    751,
+    380,
+    40
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    807,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    874,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1206,
+    874,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    906,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    973,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1059,
+    973,
+    12,
+    24
+   ]
+  }
+ ],
+ "gallery-light-1440": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    1440,
+    900
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    449,
+    12,
+    542,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    939,
+    20,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "field-control glass-control-edge search-field-input",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    912,
+    98,
+    512,
+    40
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    156,
+    272,
+    338
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    29,
+    417,
+    88,
+    25
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(oklch(0.216128 0.00625756 55.9827 / 0.05), oklch(0.216128 0.00625756 55.9827 / 0.05)",
+   "fl": null,
+   "ts": null,
+   "r": [
+    300,
+    156,
+    272,
+    338
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    313,
+    417,
+    88,
+    25
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    584,
+    156,
+    272,
+    338
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    597,
+    417,
+    88,
+    25
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    868,
+    156,
+    272,
+    338
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    881,
+    417,
+    88,
+    25
+   ]
+  }
+ ],
+ "paper-light-1440": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    1440,
+    900
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    455,
+    12,
+    530,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    933,
+    20,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "scroll-progress-rim__fill",
+   "tag": "SPAN",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, oklch(0.552 0.192 359.8), oklch(0.552 0.192 359.8))",
+   "fl": null,
+   "ts": null,
+   "r": [
+    8,
+    895,
+    1424,
+    3
+   ]
+  },
+  {
+   "cls": "sidebar-nav glass-quiet glass-opaque scrollbar-thin",
+   "tag": "NAV",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    162,
+    88,
+    312,
+    699
+   ]
+  },
+  {
+   "cls": "field-control glass-control-edge search-field-input",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    173,
+    99,
+    290,
+    40
+   ]
+  },
+  {
+   "cls": "glass-resting card paper-article leading-relaxed",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    510,
+    88,
+    768,
+    131470
+   ]
+  }
+ ],
+ "v-light-390": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    390,
+    844
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    8,
+    358,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    322,
+    16,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounde",
+   "tag": "ASIDE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    128,
+    358,
+    631
+   ]
+  },
+  {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    110,
+    215,
+    126,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    368,
+    102,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    144,
+    368,
+    76,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    223,
+    368,
+    36,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    436,
+    100,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    142,
+    436,
+    91,
+    36
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    484,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.691007 0.123391 0.0739245 / 0.775) 0px, oklab(0.691007 0.123391 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    542,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    158,
+    542,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    574,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.623835 -0.00916075 -0.112976 / 0.775) 0px, oklab(0.623835 -0.00916",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    614,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    106,
+    614,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    741,
+    314,
+    40
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    797,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    855,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    189,
+    855,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    887,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    944,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    68,
+    944,
+    12,
+    24
+   ]
+  }
+ ],
+ "w-light-390": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    390,
+    844
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    8,
+    358,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    322,
+    16,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounde",
+   "tag": "ASIDE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    128,
+    358,
+    631
+   ]
+  },
+  {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    110,
+    215,
+    126,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    368,
+    102,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    144,
+    368,
+    76,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    223,
+    368,
+    36,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    436,
+    100,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    142,
+    436,
+    91,
+    36
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    484,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.691007 0.123391 0.0739245 / 0.775) 0px, oklab(0.691007 0.123391 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    542,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    158,
+    542,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    574,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.623835 -0.00916075 -0.112976 / 0.775) 0px, oklab(0.623835 -0.00916",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    614,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    106,
+    614,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    741,
+    314,
+    40
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    797,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    855,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    189,
+    855,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    887,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.673987 0.0287817 0.0769798 / 0.775) 0px, oklab(0.673987 0.0287817 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    944,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    68,
+    944,
+    12,
+    24
+   ]
+  }
+ ],
+ "gallery-light-390": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    390,
+    844
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    22,
+    8,
+    346,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    316,
+    16,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "field-control glass-control-edge search-field-input",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    138,
+    358,
+    40
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    194,
+    173,
+    243
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    25,
+    371,
+    77,
+    23
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    201,
+    194,
+    173,
+    243
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    210,
+    371,
+    77,
+    23
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    449,
+    173,
+    243
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    25,
+    626,
+    77,
+    23
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    201,
+    449,
+    173,
+    243
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    210,
+    626,
+    77,
+    23
+   ]
+  }
+ ],
+ "paper-light-390": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    390,
+    844
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    27,
+    8,
+    336,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    311,
+    16,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "scroll-progress-rim__fill",
+   "tag": "SPAN",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, oklch(0.552 0.192 359.8), oklch(0.552 0.192 359.8))",
+   "fl": null,
+   "ts": null,
+   "r": [
+    8,
+    839,
+    374,
+    3
+   ]
+  },
+  {
+   "cls": "floating-toc-grid paper-grid",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    72,
+    390,
+    54
+   ]
+  },
+  {
+   "cls": "floating-toc-bar floating-toc-bar--trigger glass-resting glass-opaque",
+   "tag": "DIV",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    80,
+    358,
+    46
+   ]
+  },
+  {
+   "cls": "glass-resting card paper-article leading-relaxed",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    134,
+    358,
+    132341
+   ]
+  }
+ ],
+ "v-dark-1440": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    1440,
+    900
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    442,
+    12,
+    555,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    946,
+    20,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-car",
+   "tag": "DIV",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    88,
+    972,
+    800
+   ]
+  },
+  {
+   "cls": "editor-shell",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.914 0.9 0.886 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg",
+   "fl": null,
+   "ts": null,
+   "r": [
+    17,
+    89,
+    970,
+    798
+   ]
+  },
+  {
+   "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+   "tag": "DIV",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.12) 0px 0px 12px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    883,
+    97,
+    96,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    952,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1000,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1048,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1117,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    931,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+   "tag": "DIV",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.12) 0px 0px 12px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    451,
+    819,
+    102,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsul",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    459,
+    827,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "caret-value glass-floating fira-code",
+   "tag": "SPAN",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    424,
+    798,
+    93,
+    31
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    455,
+    844,
+    54,
+    6
+   ]
+  },
+  {
+   "cls": "slider-range glass-liquid-fill",
+   "tag": "SPAN",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    455,
+    844,
+    17,
+    6
+   ]
+  },
+  {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounde",
+   "tag": "ASIDE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1000,
+    100,
+    424,
+    667
+   ]
+  },
+  {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1094,
+    187,
+    140,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    348,
+    115,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1145,
+    348,
+    85,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1238,
+    348,
+    38,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    431,
+    114,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1144,
+    431,
+    102,
+    36
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    479,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.558328 0.0957182 0.0522984 / 0.775) 0px, oklab(0.558328 0.0957182 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    545,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1169,
+    545,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    577,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.575653 -0.000749313 -0.0733551 / 0.775) 0px, oklab(0.575653 -0.000",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    621,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1105,
+    621,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    751,
+    380,
+    40
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    807,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    874,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1206,
+    874,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    906,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    973,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1059,
+    973,
+    12,
+    24
+   ]
+  }
+ ],
+ "w-dark-1440": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    1440,
+    900
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    442,
+    12,
+    555,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    946,
+    20,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-car",
+   "tag": "DIV",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    88,
+    972,
+    800
+   ]
+  },
+  {
+   "cls": "editor-shell",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.914 0.9 0.886 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg",
+   "fl": null,
+   "ts": null,
+   "r": [
+    17,
+    89,
+    970,
+    798
+   ]
+  },
+  {
+   "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+   "tag": "DIV",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.12) 0px 0px 12px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    883,
+    97,
+    96,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    952,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1000,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1048,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    1117,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    931,
+    105,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+   "tag": "DIV",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.12) 0px 0px 12px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    451,
+    819,
+    102,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsul",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    459,
+    827,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "caret-value glass-floating fira-code",
+   "tag": "SPAN",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    417,
+    798,
+    93,
+    31
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    455,
+    844,
+    54,
+    6
+   ]
+  },
+  {
+   "cls": "slider-range glass-liquid-fill",
+   "tag": "SPAN",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    455,
+    844,
+    11,
+    6
+   ]
+  },
+  {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounde",
+   "tag": "ASIDE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1000,
+    100,
+    424,
+    667
+   ]
+  },
+  {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1094,
+    187,
+    140,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    348,
+    115,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1145,
+    348,
+    85,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1238,
+    348,
+    38,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    431,
+    114,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1144,
+    431,
+    102,
+    36
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    479,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.558328 0.0957182 0.0522984 / 0.775) 0px, oklab(0.558328 0.0957182 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    545,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1169,
+    545,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    577,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.575653 -0.000749313 -0.0733551 / 0.775) 0px, oklab(0.575653 -0.000",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    621,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1105,
+    621,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    751,
+    380,
+    40
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    807,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    874,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1206,
+    874,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1330,
+    906,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    1022,
+    973,
+    380,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    1059,
+    973,
+    12,
+    24
+   ]
+  }
+ ],
+ "gallery-dark-1440": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    1440,
+    900
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    449,
+    12,
+    542,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    939,
+    20,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "field-control glass-control-edge search-field-input",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    912,
+    98,
+    512,
+    40
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    156,
+    272,
+    338
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    29,
+    417,
+    88,
+    25
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(oklch(0.925196 0.00621729 67.4529 / 0.05), oklch(0.925196 0.00621729 67.4529 / 0.05)",
+   "fl": null,
+   "ts": null,
+   "r": [
+    300,
+    156,
+    272,
+    338
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    313,
+    417,
+    88,
+    25
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    584,
+    156,
+    272,
+    338
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    597,
+    417,
+    88,
+    25
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    868,
+    156,
+    272,
+    338
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    881,
+    417,
+    88,
+    25
+   ]
+  }
+ ],
+ "paper-dark-1440": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    1440,
+    900
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    455,
+    12,
+    530,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    933,
+    20,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "scroll-progress-rim__fill",
+   "tag": "SPAN",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, oklch(0.721 0.145 354), oklch(0.721 0.145 354))",
+   "fl": null,
+   "ts": null,
+   "r": [
+    8,
+    895,
+    1424,
+    3
+   ]
+  },
+  {
+   "cls": "sidebar-nav glass-quiet glass-opaque scrollbar-thin",
+   "tag": "NAV",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    162,
+    88,
+    312,
+    699
+   ]
+  },
+  {
+   "cls": "field-control glass-control-edge search-field-input",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    173,
+    99,
+    290,
+    40
+   ]
+  },
+  {
+   "cls": "glass-resting card paper-article leading-relaxed",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    510,
+    88,
+    768,
+    131470
+   ]
+  }
+ ],
+ "v-dark-390": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    390,
+    844
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    8,
+    358,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    322,
+    16,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounde",
+   "tag": "ASIDE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    128,
+    358,
+    631
+   ]
+  },
+  {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    110,
+    215,
+    126,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    368,
+    102,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    144,
+    368,
+    76,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    223,
+    368,
+    36,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    436,
+    100,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    142,
+    436,
+    91,
+    36
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    484,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.558328 0.0957182 0.0522984 / 0.775) 0px, oklab(0.558328 0.0957182 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    542,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    158,
+    542,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    574,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.575653 -0.000749313 -0.0733551 / 0.775) 0px, oklab(0.575653 -0.000",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    614,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    106,
+    614,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    741,
+    314,
+    40
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    797,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    855,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    189,
+    855,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    887,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    944,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    68,
+    944,
+    12,
+    24
+   ]
+  }
+ ],
+ "w-dark-390": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    390,
+    844
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    8,
+    358,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    322,
+    16,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounde",
+   "tag": "ASIDE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    128,
+    358,
+    631
+   ]
+  },
+  {
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    110,
+    215,
+    126,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    368,
+    102,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    144,
+    368,
+    76,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    223,
+    368,
+    36,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    436,
+    100,
+    36
+   ]
+  },
+  {
+   "cls": "toggle-group__item control-surface glass-control-edge glass-capsule-ho",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    142,
+    436,
+    91,
+    36
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    484,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.558328 0.0957182 0.0522984 / 0.775) 0px, oklab(0.558328 0.0957182 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    542,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    158,
+    542,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    574,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.575653 -0.000749313 -0.0733551 / 0.775) 0px, oklab(0.575653 -0.000",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    614,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    106,
+    614,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-",
+   "tag": "BUTTON",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    741,
+    314,
+    40
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    797,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    855,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    189,
+    855,
+    12,
+    24
+   ]
+  },
+  {
+   "cls": "fira-code number-field__input field-control glass-control-edge",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    280,
+    887,
+    72,
+    36
+   ]
+  },
+  {
+   "cls": "slider-track track-well",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "anim": null,
+   "grad": "linear-gradient(to right, oklab(0.642679 0.0167165 0.0776901 / 0.775) 0px, oklab(0.642679 0.0167165 ",
+   "fl": null,
+   "ts": null,
+   "r": [
+    38,
+    944,
+    314,
+    24
+   ]
+  },
+  {
+   "cls": "slider-thumb glass-specular-track",
+   "tag": "SPAN",
+   "sh": 1,
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    68,
+    944,
+    12,
+    24
+   ]
+  }
+ ],
+ "gallery-dark-390": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    390,
+    844
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    22,
+    8,
+    346,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    316,
+    16,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "field-control glass-control-edge search-field-input",
+   "tag": "INPUT",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    138,
+    358,
+    40
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    194,
+    173,
+    243
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    25,
+    371,
+    77,
+    23
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    201,
+    194,
+    173,
+    243
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    210,
+    371,
+    77,
+    23
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    449,
+    173,
+    243
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    25,
+    626,
+    77,
+    23
+   ]
+  },
+  {
+   "cls": "glass-resting card gallery-card deferred-section",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    201,
+    449,
+    173,
+    243
+   ]
+  },
+  {
+   "cls": "badge-atom justify-center rounded-badge whitespace-nowrap [&_svg:not([",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    210,
+    626,
+    77,
+    23
+   ]
+  }
+ ],
+ "paper-dark-390": [
+  {
+   "cls": "paper-grid fixed inset-0 -z-10 pointer-events-none",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    0,
+    390,
+    844
+   ]
+  },
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expan",
+   "tag": "DIV",
+   "sh": 4,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    27,
+    8,
+    336,
+    56
+   ]
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover sun-moon-tog",
+   "tag": "BUTTON",
+   "sh": 0,
+   "anim": null,
+   "grad": null,
+   "fl": "brightness(1)",
+   "ts": null,
+   "r": [
+    311,
+    16,
+    40,
+    40
+   ]
+  },
+  {
+   "cls": "scroll-progress-rim__fill",
+   "tag": "SPAN",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, oklch(0.721 0.145 354), oklch(0.721 0.145 354))",
+   "fl": null,
+   "ts": null,
+   "r": [
+    8,
+    839,
+    374,
+    3
+   ]
+  },
+  {
+   "cls": "floating-toc-grid paper-grid",
+   "tag": "DIV",
+   "sh": 0,
+   "anim": null,
+   "grad": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gra",
+   "fl": null,
+   "ts": null,
+   "r": [
+    0,
+    72,
+    390,
+    54
+   ]
+  },
+  {
+   "cls": "floating-toc-bar floating-toc-bar--trigger glass-resting glass-opaque",
+   "tag": "DIV",
+   "sh": 5,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    80,
+    358,
+    46
+   ]
+  },
+  {
+   "cls": "glass-resting card paper-article leading-relaxed",
+   "tag": "ARTICLE",
+   "sh": 6,
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "anim": null,
+   "grad": null,
+   "fl": null,
+   "ts": null,
+   "r": [
+    16,
+    134,
+    358,
+    132341
+   ]
+  }
+ ]
+}

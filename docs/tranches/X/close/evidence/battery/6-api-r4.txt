@@ -1,0 +1,88 @@
+SERVED MODEL: claude-opus-5-5
+unit: X.W11.b (RESUME sixth, r4) · 2026-10-20 23:45:51 EDT
+tree: v4.1.0^{commit} = a50b976d68cab5b6b752584b301e9313ce2d59b4 (annotated tag object ec2703c07012ed75fe043fe43ca664840fdde349); clean detached worktree, git status --porcelain | wc -l -> 0
+node: v26.0.0 · npm: 11.12.1
+cmd: ~/.claude/guard/guarded --timeout 15 -- zsh -c "cd api && npx tsc --noEmit && npm test"
+---
+
+> palette-api@2.0.0 test
+> vitest run
+
+
+ RUN  v3.2.4 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b4-wt/api
+
+ ✓ src/modules/palette/__tests__/palette-write-contract.test.ts (18 tests) 888ms
+stdout | src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-7: the migration backfills payloadHash + revisionNo and re-stamps currentHash
+[x-w3-migration] palettes scanned:        1
+[x-w3-migration] version rows scanned:    2
+[x-w3-migration] payloadHash written:     2
+[x-w3-migration] revisionNo written:      2
+[x-w3-migration] currentHash re-stamped:  1
+[x-w3-migration] unlisted -> private:     0
+[x-w3-migration] moderation clocked:      1
+
+stdout | src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-15: the migration maps at-rest `unlisted` to `private` and clocks moderation
+[x-w3-migration] palettes scanned:        0
+[x-w3-migration] version rows scanned:    0
+[x-w3-migration] payloadHash written:     0
+[x-w3-migration] revisionNo written:      0
+[x-w3-migration] currentHash re-stamped:  0
+[x-w3-migration] unlisted -> private:     1
+[x-w3-migration] moderation clocked:      2
+
+ ✓ src/modules/palette/__tests__/palette-versions.test.ts (12 tests) 628ms
+ ✓ test/conformance/withTransaction-rollback-h-w1.test.ts (9 tests) 679ms
+ ✓ src/modules/palette/__tests__/palette-policy.test.ts (13 tests) 422ms
+ ✓ test/conformance/idempotency.test.ts (8 tests) 260ms
+ ✓ test/conformance/sessions-colors.test.ts (12 tests) 568ms
+ ✓ src/modules/palette/__tests__/palettes-publish.test.ts (11 tests) 436ms
+ ✓ src/modules/palette/__tests__/palettes-forks.test.ts (8 tests) 293ms
+ ✓ test/conformance/crud.test.ts (8 tests) 241ms
+ ✓ src/modules/palette/__tests__/palette-forks.test.ts (10 tests) 403ms
+ ✓ src/modules/palette/__tests__/palettes-ownership.test.ts (7 tests) 279ms
+ ✓ src/modules/admin/__tests__/admin-impersonate.test.ts (5 tests) 139ms
+stdout | src/modules/meta/__tests__/meta.test.ts > routes.meta — GET /health (real readiness: reachable + primary) > returns 200 ok with mongo reachable AND a primary elected
+Connected to MongoDB
+
+ ✓ src/modules/meta/__tests__/meta.test.ts (8 tests) 346ms
+   ✓ routes.meta — GET /health (real readiness: reachable + primary) > returns 200 ok with mongo reachable AND a primary elected  326ms
+ ✓ test/conformance/envelope.test.ts (18 tests) 8ms
+ ✓ src/modules/palette/__tests__/palette-list.test.ts (4 tests) 477ms
+ ✓ src/modules/palette/__tests__/palettes-votes-flags.test.ts (7 tests) 274ms
+ ✓ test/conformance/withTransaction-rollback.test.ts (2 tests) 103ms
+ ✓ src/modules/palette/__tests__/palette.test.ts (10 tests) 313ms
+ ✓ test/conformance/txn-right-sizing.test.ts (5 tests) 407ms
+ ✓ src/modules/palette/__tests__/palette-crud.test.ts (6 tests) 239ms
+ ✓ test/hono-advisory-floor.test.ts (2 tests) 4ms
+ ✓ src/modules/palette/__tests__/vote.test.ts (8 tests) 221ms
+ ✓ src/modules/admin/__tests__/admin-users.test.ts (5 tests) 357ms
+stdout | test/conformance/db-indexes.test.ts > db.ts index topology
+Connected to MongoDB
+
+ ✓ test/conformance/db-indexes.test.ts (5 tests) 48ms
+ ✓ src/modules/palette/__tests__/palettes-patch-readcount.test.ts (1 test) 99ms
+ ✓ src/modules/palette/__tests__/palette-color-grammar.test.ts (13 tests) 101ms
+ ✓ test/config-truth.test.ts (2 tests) 2ms
+ ✓ src/modules/session/__tests__/session.test.ts (5 tests) 161ms
+ ✓ src/modules/color/__tests__/proposedName.test.ts (5 tests) 152ms
+ ✓ src/modules/palette/__tests__/palette-votes.test.ts (5 tests) 213ms
+ ✓ src/modules/admin/__tests__/admin-palettes.test.ts (4 tests) 192ms
+ ✓ src/modules/session/__tests__/user.test.ts (5 tests) 158ms
+ ✓ src/modules/admin/__tests__/admin-colors.test.ts (5 tests) 131ms
+ ✓ src/modules/palette/__tests__/flag.test.ts (4 tests) 141ms
+ ✓ src/modules/session/__tests__/session-token-at-rest.test.ts (1 test) 73ms
+ ✓ src/modules/palette/__tests__/palette-flags.test.ts (4 tests) 160ms
+ ✓ src/modules/admin/__tests__/admin-tags.test.ts (4 tests) 178ms
+ ✓ src/modules/palette/__tests__/paletteVersion.test.ts (3 tests) 143ms
+ ✓ src/modules/palette/__tests__/palette-ownership.test.ts (2 tests) 88ms
+ ✓ src/modules/admin/__tests__/adminAudit.test.ts (3 tests) 121ms
+ ✓ src/modules/color/__tests__/tag.test.ts (4 tests) 137ms
+
+ Test Files  41 passed (41)
+      Tests  271 passed (271)
+   Start at  23:45:56
+   Duration  27.83s (transform 726ms, setup 0ms, collect 5.78s, tests 10.28s, environment 5ms, prepare 1.76s)
+
+---
+exit 0
+tree after: git status --porcelain | wc -l -> 0

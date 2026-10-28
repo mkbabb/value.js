@@ -1,0 +1,58 @@
+{
+ "reducedMotion": "reduce",
+ "legs": [
+  {
+   "label": "gradient-boot",
+   "cls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "overflow": "visible",
+   "slotW": 141.5
+  },
+  {
+   "label": "→atmosphere",
+   "cls": "action-bar-toggle-slot is-live",
+   "overflow": "hidden",
+   "slotW": 0
+  },
+  {
+   "label": "→gradient",
+   "cls": "action-bar-toggle-slot is-visible is-live",
+   "overflow": "hidden",
+   "slotW": 141.5
+  },
+  {
+   "label": "→atmosphere-2",
+   "cls": "action-bar-toggle-slot is-live",
+   "overflow": "hidden",
+   "slotW": 0
+  },
+  {
+   "label": "→gradient-2",
+   "cls": "action-bar-toggle-slot is-visible is-live",
+   "overflow": "hidden",
+   "slotW": 141.5
+  }
+ ],
+ "hover": {
+  "overflow": "hidden",
+  "btn": [
+   622.82,
+   755.39,
+   18.55,
+   62.55
+  ],
+  "inner": [
+   611.84,
+   753.36,
+   20.55,
+   60.55
+  ],
+  "clippedPx": {
+   "l": -10.97,
+   "r": 2.03,
+   "t": 2,
+   "b": 2
+  },
+  "transform": "none",
+  "boxShadow": "none"
+ }
+}

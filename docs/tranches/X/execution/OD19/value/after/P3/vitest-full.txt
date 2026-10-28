@@ -1,0 +1,5 @@
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  demo/test/palettes/palette-card-layout.test.ts > SS-8 B13 · the expanded swatch band (SwatchHoverMenu L-1 · PaletteCardSwatches L-3) > L-1: each swatch's wrapper is the swatch's own box (no baseline reservation)
+ FAIL  demo/test/palettes/palette-card-layout.test.ts > SS-8 B13 · the expanded swatch band (SwatchHoverMenu L-1 · PaletteCardSwatches L-3) > L-3: the attribution ink speaks the strong muted rung and clears 4.5:1 on the painted fill
+ Test Files  1 failed | 100 passed (101)
+      Tests  2 failed | 1279 passed (1281)

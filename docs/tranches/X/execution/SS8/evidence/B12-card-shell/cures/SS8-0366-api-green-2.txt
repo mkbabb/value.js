@@ -1,0 +1,12 @@
+
+ RUN  v3.2.4 /Users/mkbabb/Programming/value.js/api
+
+ ✓ src/modules/palette/__tests__/palette-votes.test.ts (5 tests) 319ms
+ ✓ src/modules/palette/__tests__/palettes-votes-flags.test.ts (7 tests) 305ms
+ ✓ src/modules/palette/__tests__/vote.test.ts (8 tests) 323ms
+
+ Test Files  3 passed (3)
+      Tests  20 passed (20)
+   Start at  16:20:42
+   Duration  3.15s (transform 164ms, setup 0ms, collect 495ms, tests 948ms, environment 0ms, prepare 112ms)
+

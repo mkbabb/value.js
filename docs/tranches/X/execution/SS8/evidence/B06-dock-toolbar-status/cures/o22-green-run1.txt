@@ -1,0 +1,14 @@
+(node:24125) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:24199) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:58:5 › O-22 · the dock status lamp (W6-6 / T-9) › healthy backend → no lamp; the dead banner stays dead (43.5s)
+  ✓  2 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome (1.5s)
+  ✓  3 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:161:5 › SS-8 B06 · the dock lamp's served face › SS8-0165 — the arrival pulse stops within 5 s (WCAG 2.2.2) (768ms)
+  ✓  4 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:175:9 › SS-8 B06 · the dock lamp's served face › SS8-0162 — the dock label clears 4.5:1 on its own ground (light, 1440) (2.7s)
+  ✓  5 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:175:9 › SS-8 B06 · the dock lamp's served face › SS8-0162 — the dock label clears 4.5:1 on its own ground (dark, 1440) (2.9s)
+
+  5 passed (52.5s)

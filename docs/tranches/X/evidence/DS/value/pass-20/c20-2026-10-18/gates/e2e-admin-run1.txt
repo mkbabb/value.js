@@ -1,0 +1,266 @@
+(node:97289) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:97354) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:97421) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22mFound 16 warnings while optimizing generated CSS:
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #1:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     z-index: var();
+[2m[WebServer] [22m[2m┆[22m                  [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #2:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     z-index: var(--z-*);
+[2m[WebServer] [22m[2m┆[22m                      [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-background\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #3:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     width: var(--icon-*);
+[2m[WebServer] [22m[2m┆[22m                       [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     height: var(--icon-*);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #4:
+[2m[WebServer] [22m[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m[WebServer] [22m[2m│     width: var(--icon-*);[22m
+[2m[WebServer] [22m[2m│[22m     height: var(--icon-*);
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .size-\[var\(--ui-glyph\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #5:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .\[max-height\:var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     max-height: var(...);
+[2m[WebServer] [22m[2m┆[22m                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .max-h-0 {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #6:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     border-radius: var();
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-card\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #7:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-card\/panel\/dialog\/input\/button\/badge\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     border-radius: var(--radius-card/panel/dialog/input/button/badge);
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('/')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-dialog\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #8:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .text-\[var\(…\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     color: var(…);
+[2m[WebServer] [22m[2m┆[22m                [33m[2m^--[22m Unexpected token Ident("…")[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .text-\[…\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #9:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-duration: var();
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-duration: var();[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #10:
+[2m[WebServer] [22m[2m│   .duration-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-duration: var();[22m
+[2m[WebServer] [22m[2m│[22m     transition-duration: var();
+[2m[WebServer] [22m[2m┆[22m                              [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(--duration-fast\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #11:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-duration: var(...);
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-duration: var(...);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #12:
+[2m[WebServer] [22m[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-duration: var(...);[22m
+[2m[WebServer] [22m[2m│[22m     transition-duration: var(...);
+[2m[WebServer] [22m[2m┆[22m                              [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[…\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #13:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-ease: var();
+[2m[WebServer] [22m[2m┆[22m                    [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-timing-function: var();[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #14:
+[2m[WebServer] [22m[2m│   .ease-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-ease: var();[22m
+[2m[WebServer] [22m[2m│[22m     transition-timing-function: var();
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(--ease-standard\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #15:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-ease: var(...);
+[2m[WebServer] [22m[2m┆[22m                    [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-timing-function: var(...);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #16:
+[2m[WebServer] [22m[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-ease: var(...);[22m
+[2m[WebServer] [22m[2m│[22m     transition-timing-function: var(...);
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-accelerate {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m3362 │[0m /* #__PURE__ */
+[2m[WebServer] [22m [38;5;240m     │[0m ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m        ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[33m[plugin builtin:vite-reporter] [33m[1m
+[2m[WebServer] [22m(!) Some chunks are larger than 500 kB after minification. Consider:
+[2m[WebServer] [22m- Using dynamic import() to code-split the application
+[2m[WebServer] [22m- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+[2m[WebServer] [22m- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[0m[33m[39m
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+[2m[WebServer] [22m [38;5;240m     │[0m                       ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[33m[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugins. Here is a breakdown:
+[2m[WebServer] [22m  - source-export (46%)
+[2m[WebServer] [22m  - unplugin-vue-markdown (33%)
+[2m[WebServer] [22m  - value-defer-glass-fonts (10%)
+[2m[WebServer] [22m  - vite:css (8%)
+[2m[WebServer] [22mSee https://rolldown.rs/options/checks#plugintimings for more details.
+[2m[WebServer] [22m[39m
+
+Running 25 tests using 1 worker
+
+(node:97766) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Users populated admin passes accessible-name + target-size (15.8s)
+  ✓   2 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Names populated admin passes accessible-name + target-size (448ms)
+  ✓   3 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Flagged populated admin passes accessible-name + target-size (504ms)
+  ✓   4 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:79:1 › BR-9: the admin user-row expander is keyboard-operable (role + focusable + Enter expands) (502ms)
+[2m[WebServer] [22m[2m10:41:56 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (boundary · render function) TypeError: Cannot read properties of null (reading 'slice')
+[2m[WebServer] [22m    at Proxy.slugHead (http://localhost:9496/@fs/Users/mkbabb/Programming/value.js/demo/palettes/admin/panels/AdminUsersPanel.vue:51:16)
+[2m[WebServer] [22m    at http://localhost:9496/@fs/Users/mkbabb/Programming/value.js/demo/palettes/admin/panels/AdminUsersPanel.vue:488:34
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9496/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9496/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:2260:10)
+[2m[WebServer] [22m    at renderSlot (http://localhost:9496/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9496/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:3901:52)
+[2m[WebServer] [22m    at http://localhost:9496/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9496/deps/collapsible-DFzK29Oh-DfvikRkR.js?v=55dbff19:101:28
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9496/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9496/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:2260:10)
+[2m[WebServer] [22m    at renderSlot (http://localhost:9496/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9496/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:3901:52)
+[2m[WebServer] [22m    at http://localhost:9496/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9496/deps/dist-vzlhttbQ.js?v=55dbff19:4150:29
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9496/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9496/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:2260:10)
+[2m[WebServer] [22m    at normalizeChildren (http://localhost:9496/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9496/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:6542:29)
+  ✓   5 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:123:1 › U-F58: an induced admin render error surfaces a focus-managed role=alert boundary (530ms)
+  ✓   6 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:19:1 › battery: the populated browse wall passes accessible-name + target-size (1.4s)
+  ✓   7 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:45:1 › battery: the authed Profile identity menu passes accessible-name (the login surface) (2.8s)
+  ✓   8 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:13:1 › admin-users renders seeded user rows (810ms)
+  ✓   9 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:61:5 › names moderation at 390px (F-1) › approve/reject stay on-card and operable with long-string rows (3.5s)
+  ✓  10 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:102:1 › admin-flagged renders a seeded flagged palette + moderation actions (855ms)
+  ✘  11 [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors (8.4s)
+(node:99511) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  12 [smoke-admin] › e2e/smoke/admin/flows/color-approve.spec.ts:13:1 › admin approve color name POSTs /admin/colors/<id>/approve (3.8s)
+  ✓  13 [smoke-admin] › e2e/smoke/admin/flows/color-reject.spec.ts:9:1 › admin reject color name POSTs /admin/colors/<id>/reject (2.3s)
+  ✓  14 [smoke-admin] › e2e/smoke/admin/flows/palette-feature.spec.ts:13:1 › admin feature palette POSTs /admin/palettes/<slug>/feature (1.9s)
+  ✓  15 [smoke-admin] › e2e/smoke/admin/flows/tag-create.spec.ts:9:1 › admin tag create POSTs /admin/tags with name+category (1.4s)
+  ✓  16 [smoke-admin] › e2e/smoke/admin/flows/tag-delete.spec.ts:9:1 › admin tag delete DELETEs /admin/tags/<name> (1.5s)
+  ✓  17 [smoke-admin] › e2e/smoke/admin/flows/user-status.spec.ts:15:1 › admin delete user DELETEs /admin/users/<slug> (1.8s)
+  ✓  18 [smoke-admin] › e2e/smoke/admin/o10d-admin-title-voice.spec.ts:17:1 › O-10d (admin) — the flagged-panel palette name speaks the display voice, ≤500, non-italic (627ms)
+  ✓  19 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (light) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground (2.5s)
+  ✓  20 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (light) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground (7.3s)
+  ✓  21 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (dark) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground (2.7s)
+  ✓  22 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (dark) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground (6.3s)
+  ✓  23 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:51:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (417ms)
+  ✓  24 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:72:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect (364ms)
+  ✓  25 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:89:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (345ms)
+
+
+  1) [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)')[22m
+
+
+      70 |         // authenticated before any pane mounts.
+      71 |         await page.goto(path);
+    > 72 |         await expect(main).toBeVisible();
+         |                            ^
+      73 |         // PaneHeader renders twice (mobile + desktop slots); `.first()` picks the
+      74 |         // visible one — the retired per-view specs' proven convention.
+      75 |         await expect(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/admin-walk.spec.ts:72:28
+
+    Error Context: test-results/admin-walk-walk-all-5-admi-f45ec-ly-with-zero-console-errors-smoke-admin/error-context.md
+
+  1 failed
+    [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors 
+  24 passed (1.4m)
+exit 1

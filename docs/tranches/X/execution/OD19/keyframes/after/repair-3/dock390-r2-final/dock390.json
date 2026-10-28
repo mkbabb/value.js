@@ -1,0 +1,118 @@
+[
+ {
+  "cell": "light-390",
+  "face": "spring",
+  "checked": [],
+  "ok": false,
+  "rows": [
+   {
+    "surface": "controls",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "keyframes",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "timeline",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "spring",
+    "checked": "false",
+    "dot": false
+   }
+  ]
+ },
+ {
+  "cell": "dark-390",
+  "face": "spring",
+  "checked": [],
+  "ok": false,
+  "rows": [
+   {
+    "surface": "controls",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "keyframes",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "timeline",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "spring",
+    "checked": "false",
+    "dot": false
+   }
+  ]
+ },
+ {
+  "cell": "light-1440",
+  "face": "spring",
+  "checked": [
+   "spring"
+  ],
+  "ok": true,
+  "rows": [
+   {
+    "surface": "controls",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "keyframes",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "timeline",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "spring",
+    "checked": "true",
+    "dot": true
+   }
+  ]
+ },
+ {
+  "cell": "dark-1440",
+  "face": "spring",
+  "checked": [
+   "spring"
+  ],
+  "ok": true,
+  "rows": [
+   {
+    "surface": "controls",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "keyframes",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "timeline",
+    "checked": "false",
+    "dot": false
+   },
+   {
+    "surface": "spring",
+    "checked": "true",
+    "dot": true
+   }
+  ]
+ }
+]

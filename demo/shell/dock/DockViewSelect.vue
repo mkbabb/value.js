@@ -4,8 +4,9 @@ import { DockTrigger } from "@mkbabb/glass-ui/dock";
 import {
     Select, SelectContent, SelectGroup, SelectItem, SelectSeparator, SelectValue,
 } from "@mkbabb/glass-ui/select";
-import { computed, inject } from "vue";
+import { computed, inject, watch } from "vue";
 import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
+import { preloadView, warmViews } from "../usePaneRouter";
 import type { ViewEntry } from "./composables/useDockAdminMode";
 
 const {
@@ -36,6 +37,14 @@ const emit = defineEmits<{
 const open = defineModel<boolean>("open", { default: false });
 
 const pm = inject(SESSION_PORT_KEY)!;
+
+// OD19-V5 — intent warm: opening the menu queues every option's pane chunks
+// (one at a time, in idle slices — `warmViews`), and an option's
+// pointerenter/focus starts its own NOW, so the commit no longer waits on a
+// cold chunk. Both are idempotent per pane.
+watch(open, (isOpen) => {
+    if (isOpen) warmViews(viewEntries.map((entry) => entry.id));
+});
 
 /**
  * UIA-V-7: glass consumes `--dock-ring` as a whole `box-shadow` (its default is
@@ -113,6 +122,8 @@ const viewRing = computed(() => {
                     :key="entry.id"
                     :value="entry.id"
                     class="py-1.5 px-2.5"
+                    @pointerenter="preloadView(entry.id)"
+                    @focus="preloadView(entry.id)"
                 >
                     <!-- UIA-V-72 · V-216: the current view wears the producer's
                          selected indicator (its check). `hide-indicator` stripped

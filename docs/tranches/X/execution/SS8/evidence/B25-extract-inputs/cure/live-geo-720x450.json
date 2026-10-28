@@ -1,0 +1,39 @@
+{
+ "viewport": {
+  "width": 720,
+  "height": 450
+ },
+ "geo": {
+  "inner": [
+   720,
+   450
+  ],
+  "dialog": {
+   "x": 16,
+   "y": 16,
+   "width": 688,
+   "height": 418,
+   "top": 16,
+   "right": 704,
+   "bottom": 434,
+   "left": 16
+  },
+  "position": "fixed",
+  "role": "dialog",
+  "ariaModal": "true",
+  "name": "Eyedropper",
+  "paneHidden": false,
+  "inPane": false
+ },
+ "withinViewport": true,
+ "overflowPastFold": 0,
+ "tabWalk": {
+  "escapes": 0,
+  "stops": [
+   "Close eyedropper"
+  ]
+ },
+ "errors": [
+  "CONSOLE [value.js] value.js dev is MISCONFIGURED: http://localhost:9125 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+ ]
+}

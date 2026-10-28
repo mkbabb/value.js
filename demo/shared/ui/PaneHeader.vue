@@ -1,15 +1,6 @@
 <template>
-    <!-- T.W3-4 (T-23 · R2 · Q9): THE CONSTITUTIVE VEIL. The material is a
-         property of the surface, not a reward for scrolling — the header
-         rests SHADED at the ratified floor and the scroll earns INTENSITY,
-         never existence (the S.W5-2 rider's zero-at-rest clause is
-         SUPERSEDED; its FEATHER — the band-killer — survives at every
-         state). The veil is the plate's own rung-1 material at a
-         scroll-earned intensity (C2; the CC-3 bespoke recipe is dead), and
-         the whole choreography is compositor-only (the F3 layout-animating
-         fork is dead — O-11 gate 4). -->
     <!-- A2-VA-L1-2 (X-W12U .k2): the header IS glass's `<CardHeader shrink>`.
-         Inside PaneShell's `.card-scroll-host` it condenses on glass's real-box
+         Under a scroll host above it, it condenses on glass's real-box
          discrete condense (hysteresis threshold + sufficiency gate, the
          padding flip under `[data-condensed]`, the caption hidden; the
          rungs it lands on are this file's, X.W10.d / DESIGN.md §3.2 P-2); the
@@ -17,8 +8,10 @@
          ScrollCardHeader knobs land" is retired with them landed. The rest
          top padding rides glass's `--card-pad` (1rem, the retired `pt-4`) so
          glass's condensed flip owns the block-start padding. A SEATED header
-         (no host above it) never condenses. The constitutive VEIL below stays
-         this file's until glass absorbs it (O-74d §1, ADOPT). -->
+         (no host above it) never condenses. SS8-0192: the T.W3-4 constitutive
+         VEIL is deleted — PaneShell seats every header above its port (X-DS
+         tail, `4fe9b05b9`), so nothing scrolls under a header and the veil
+         was never generated (display:none in 48/48 census cells). -->
     <CardHeader
         shrink
         class="pane-header px-4 sm:px-6 pb-(--pane-header-gap) [--card-pad:1rem] sticky top-0 z-header"
@@ -50,11 +43,10 @@
         >
             <slot />
         </CardTitle>
-        <!-- AB-2 (T.W8 remediation_1 · D6): the caption speaks the CERTIFIED
-             de-emphasis rung `--ink-muted` (the boot-stamped floor-clamped
-             plate ink, ≥4.5 on the composited resting plate) — never raw
-             `--muted-foreground`, which measured 4.29:1 on the TRUE header
-             ground (veil `::before` included). The color rides the scoped rule
+        <!-- AB-2 (T.W8 remediation_1 · D6): the caption speaks a CERTIFIED
+             plate rung — never raw `--muted-foreground`. X.W11.d3b (§0gl.3,
+             the referent law): certified against the darkest region under
+             it, the rung is `--ink-primary`. The color rides the scoped rule
              below; glass hides the caption on the condensed strip. -->
         <CardDescription v-if="description" class="pane-header-desc text-caption">{{ description }}</CardDescription>
     </CardHeader>
@@ -77,19 +69,16 @@ const { level = 2, titleId } = defineProps<{
 /* Pane scroll host (D.W4 Lane A §4: colocated from styles/style.css).
  *
  * The `.pane-scroll-fade` host class lives on the ONE scroll owner of every
- * pane (A2-VA-L1-1: PaneShell's `.card-scroll-host`, or its seated FadingScroll
- * port). Because the class is applied by PaneShell, not by a descendant of
- * PaneHeader, the block must be UNSCOPED. It is colocated HERE because
- * PaneHeader owns the only consumer of `--pane-scroll` (the named
- * scroll-timeline defined by this block), so producer + consumer live in one
- * file.
+ * pane (A2-VA-L1-1: PaneShell's FadingScroll port, the header seated above it;
+ * the overlying `.card-scroll-host` branch is retired, X-DS tail). Because
+ * the class is applied by PaneShell, not by a descendant of PaneHeader, the
+ * block must be UNSCOPED.
  *
- * `contain: layout style paint` isolates the named scroll-timeline so
- * PaneHeader animations respond to THIS pane's scroll only, not
- * portal-triggered layout shifts in ancestor containers. */
+ * `contain: layout style paint` isolates the port so its layout and paint
+ * never leak into ancestor containers. The named `--pane-scroll` timeline
+ * this block declared fed only the header veil, and died with it (SS8-0192). */
 .pane-scroll-fade {
     contain: layout style paint;
-    scroll-timeline: --pane-scroll block;
     /* X.W10.d (CC-101): the condensing header's real box shrinks by more than
      * glass's hysteresis band (condense at 20, expand at 12). Scroll anchoring
      * answered that shrink by pulling `scrollTop` back by the same amount, under
@@ -107,65 +96,10 @@ const { level = 2, titleId } = defineProps<{
 .pane-scroll-fade.fading-scroll--y {
     --fade-scroll-width: 1.5rem;
 }
-
-/* X-DS pass 3 (V3C-01): THE SEATED HEADER. A pane whose body scrolls on a
- * FadingScroll port (About, My Palettes, and since pass 4 the config pane)
- * seats its PaneHeader ABOVE the port, as a sibling, so nothing scrolls under
- * the title. */
-/* X-DS pass 4 (V4C-05): a SEATED header paints no veil. Nothing scrolls under
- * it, so the veil had no occlusion job: at rest it laid a darker tone band under
- * the title, and its 14px feather smeared into the top of the port. The port's
- * own top feather already says "scrolled". The pass-3 `timeline-scope` that let
- * this veil swell with the port goes with it. Headers that DO overlie their
- * scrolling body keep the owner-banked rest veil (V2C-15) unchanged. */
-.card:has(> .pane-header ~ .pane-scroll-fade) > .pane-header::before {
-    display: none;
-}
 </style>
 
 <style scoped>
 @reference "../../styles/foundation.css";
-
-/* ── THE VEIL (T.W3-4) ──────────────────────────────────────────────────
- * Constitutive: the ::before paints the header's material AT REST. Fill +
- * filter are the producer RESTING-rung tokens — the same species as the
- * rung-1 plate the header caps (C2's reconciliation; retires the bespoke
- * `--card` 60% / blur(12px) pair, the census's 7th parallel recipe, CC-3).
- * Scheme + `--glass-level` registration ride the tokens by construction.
- *
- * THE REST FLOOR — the Q9 EFFECT bracket, closed-form: rest must add
- * 27–39% card material (= [0.45, 0.65] of the retired 60%-card veil).
- * Against the resting-rung fill (α 0.65 light / 0.72 dark) the floor 0.52
- * composites 33.8% L / 37.4% D — inside the bracket, both schemes, at the
- * eye-judged center's weight (t-header-shading §3: 0.55 × 60% ≈ 33%).
- * The producer rest-floor + bottom-feather knobs are packet P3 (BOOKED
- * swap); this veil + feather are the carried interim.
- *
- * THE FEATHER stays at EVERY state — it is the band-killer (the 2026-07-05
- * ruling's structural half): the mask fades the veil over the last 14px of
- * the header box, so it dissolves into the plate instead of terminating at
- * a box edge (O-11 gate 2). X-DS pass 5 (V5C-01): the feather lives INSIDE
- * the header's own `--pane-header-gap` band (26px). It used to overhang the
- * box by 14px into the body's top padding; V4C-06 moved that padding into
- * the header, so the overhang fell on the first row (a two-tone search
- * field, a fogged drop zone). */
-.pane-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background: var(--glass-plate-resting);
-    -webkit-backdrop-filter: var(--glass-blur-resting);
-    backdrop-filter: var(--glass-blur-resting);
-    mask-image: linear-gradient(to bottom, black calc(100% - 14px), transparent);
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        black calc(100% - 14px),
-        transparent
-    );
-    opacity: var(--pane-veil-rest);
-}
 
 /* T.W4-1 — the pane-title rung (D2 · Q11a): heading → display-1, one full
  * golden step, on the title's OWN rule (the producer `text-heading` utility
@@ -182,12 +116,16 @@ const { level = 2, titleId } = defineProps<{
 }
 
 
-/* AB-2 (D6) — the caption ink: the boot-stamped certified de-emphasis rung.
- * `--ink-muted` is the floor-clamped plate ink useAtmosphereBoot writes on
- * :root (the plate-caption / parse-echo voice, ≥4.5 on the composited resting
- * plate). Falls back to `--muted-foreground` before the boot writer runs. */
+/* AB-2 (D6) — the caption ink, a boot-stamped certified plate rung.
+ * X.W11.d3b (COHESION §0gl.3 · §0gk.2 referent law, B22 U-1 / B09 0259): a
+ * caption is certified against the darkest backdrop region it actually sits
+ * over, not the field mean. Against that region `--ink-muted` (certified on
+ * the mean resting plate) fell under 4.5:1 across the panes, so the caption
+ * takes ONE token step up the plate ladder to `--ink-primary`, the scheme
+ * foreground useAtmosphereBoot certifies on the same plate (a token, never
+ * opacity: B02 0039). Size and the caption rung carry the de-emphasis. */
 .pane-header-desc {
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-primary);
 }
 
 .pane-header {
@@ -210,9 +148,6 @@ const { level = 2, titleId } = defineProps<{
      * (title / subhead = 1.62 at 390); from ~860px display-1 rises past it
      * unchanged. The 400 title / 600 head pairing is kept. */
     --pane-title-size: max(var(--type-title), var(--type-display-1));
-    /* The one tunable: the ratified rest floor (Q9 bracket [0.45, 0.65] of
-     * the veil; effect bracket 27–39% added card material — see above). */
-    --pane-veil-rest: 0.52;
     /* X.W10.d (CC-101 · OM-18): THE CONDENSED PADDING, its own token — never
      * `--card-gap`, which glass's flip borrows and which this header pins as
      * its title-to-caption gap. One φ rung below the rest `--card-pad`
@@ -247,34 +182,5 @@ const { level = 2, titleId } = defineProps<{
  * discrete transition at the threshold, never a scrub. */
 .pane-header[data-condensed="true"] > .pane-header-title {
     font-size: var(--type-heading);
-}
-
-/* ── THE SWELL (compositor-only; SDA-gated) ────────────────────────────
- * The veil's scroll-earned intensity lives inside the @supports gate so the
- * REST state is engine-invariant (O-11 gate 5): non-SDA engines and the base
- * state paint the identical designed rest header; only the swell degrades. A
- * scroll SCRUB of opacity is position-mapped, not time-based motion, so it
- * needs no PRM gate (t-header-shading F5).
- *
- * The veil SWELL completes by 64px — content reaches the title underside by
- * ~24–48px (About/Gradient, the earliest colliders), so the veil is near-full
- * before any ink collision (O-11 gate 3, the F2 double-exposure cure). The
- * earn-range is keyed to OCCLUSION (gap-driven), re-verified at T.W4-7 over
- * the ×φ-taller band. */
-@supports (animation-timeline: scroll()) {
-    .pane-header::before {
-        animation: pane-header-veil linear both;
-        animation-timeline: --pane-scroll;
-        animation-range: 0px 64px;
-    }
-}
-
-@keyframes pane-header-veil {
-    from {
-        opacity: var(--pane-veil-rest);
-    }
-    to {
-        opacity: 1;
-    }
 }
 </style>

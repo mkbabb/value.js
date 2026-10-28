@@ -1,0 +1,429 @@
+{
+ "theme": "light",
+ "pick": "oklch(0.86 0.12 85)",
+ "geo": {
+  "railStyle": "background-color: oklch(0.372828 0.0764099 85); background-image: linear-gradient(to right, oklch(0.730361 0.122996 45.8552) 0%, oklch(0.730361 0.122996 45.8552) 20%, oklch(0.824576 0.123825 88.8351) 20%, oklch(0.824576 0.123825 88.8351) 40%, oklch(0.56431 0.0764137 51.3142) 40%, oklch(0.56431 0.0764137 51.3142) 60%, oklch(0.717896 0.0970611 141.813) 60%, oklch(0.717896 0.0970611 141.813) 80%, oklch(0.436839 0.0384901 349.17) 80%, oklch(0.436839 0.0384901 349.17) 100%); box-shadow: oklch(0.372828 0.0764099 85) 0px 0px 0px 1.5px inset;",
+  "railRect": {
+   "x": 224,
+   "y": 582.03125,
+   "width": 462,
+   "height": 24,
+   "top": 582.03125,
+   "right": 686,
+   "bottom": 606.03125,
+   "left": 224
+  },
+  "bg": "oklch(0.372828 0.0764099 85)",
+  "boxShadow": "oklch(0.372828 0.0764099 85) 0px 0px 0px 1.5px inset",
+  "ringBytes": [
+   83,
+   61,
+   0,
+   255
+  ],
+  "bgBytes": [
+   83,
+   61,
+   0,
+   255
+  ],
+  "trackCls": "slider-track track-well",
+  "trackBg": "rgba(0, 0, 0, 0)",
+  "trackBgImage": "none",
+  "trackTransition": "background 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+  "thumbs": [
+   {
+    "label": "Number of colors",
+    "rect": {
+     "x": 343.984375,
+     "y": 582.03125,
+     "width": 12,
+     "height": 24,
+     "top": 582.03125,
+     "right": 355.984375,
+     "bottom": 606.03125,
+     "left": 343.984375
+    },
+    "root": {
+     "x": 224,
+     "y": 582.03125,
+     "width": 462,
+     "height": 24,
+     "top": 582.03125,
+     "right": 686,
+     "bottom": 606.03125,
+     "left": 224
+    },
+    "thumbSizeVar": "min(1rem,1.25rem)",
+    "rootThumbVar": "min(1rem,1.25rem)"
+   },
+   {
+    "label": "Chroma weight",
+    "rect": {
+     "x": 377.984375,
+     "y": 652.5,
+     "width": 0,
+     "height": 9,
+     "top": 652.5,
+     "right": 377.984375,
+     "bottom": 661.5,
+     "left": 377.984375
+    },
+    "root": {
+     "x": 224,
+     "y": 645,
+     "width": 462,
+     "height": 24,
+     "top": 645,
+     "right": 686,
+     "bottom": 669,
+     "left": 224
+    },
+    "thumbSizeVar": "min(0.5rem,0.5625rem)",
+    "rootThumbVar": "min(0.5rem,0.5625rem)"
+   }
+  ],
+  "focusRingColor": "oklch(29.311849699821% 0.060073618088 85deg)",
+  "focusRingBytes": [
+   58,
+   41,
+   0,
+   255
+  ],
+  "font": [
+   {
+    "text": "5",
+    "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "size": "16.4px",
+    "color": "oklch(0.292283 0.00386159 34.63)",
+    "advanceEm": 0.6805,
+    "box": 9.84375,
+    "scroll": 10,
+    "fontReady": true
+   },
+   {
+    "text": "0.5",
+    "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "size": "16.4px",
+    "color": "oklch(0.292283 0.00386159 34.63)",
+    "advanceEm": 0.6805,
+    "box": 29.53125,
+    "scroll": 30,
+    "fontReady": true
+   }
+  ]
+ },
+ "walked": true,
+ "ringVsGround": [
+  3.679,
+  3.89,
+  3.758,
+  3.885,
+  4.097
+ ],
+ "ground": [
+  [
+   200,
+   144,
+   48,
+   255
+  ],
+  [
+   204,
+   149,
+   53,
+   255
+  ],
+  [
+   199,
+   147,
+   50,
+   255
+  ],
+  [
+   199,
+   151,
+   53,
+   255
+  ],
+  [
+   200,
+   157,
+   57,
+   255
+  ]
+ ],
+ "groundOk": {
+  "L": 0.6966,
+  "C": 0.1261
+ },
+ "inkOk": {
+  "L": 0.3741,
+  "C": 0.0766
+ },
+ "modelledReferent": {
+  "L": 0.692,
+  "bytes": [
+   156,
+   156,
+   156
+  ],
+  "ratioAtRef": 3.758
+ },
+ "sweep": {
+  "min": 1.161,
+  "max": 8.768,
+  "first": 3.694,
+  "last": 1.179
+ },
+ "edgeSample": [
+  [
+   203,
+   142,
+   50,
+   255
+  ],
+  [
+   149,
+   95,
+   45,
+   255
+  ],
+  [
+   147,
+   118,
+   43,
+   255
+  ],
+  [
+   147,
+   117,
+   44,
+   255
+  ],
+  [
+   114,
+   78,
+   35,
+   255
+  ],
+  [
+   100,
+   113,
+   56,
+   255
+  ],
+  [
+   100,
+   112,
+   56,
+   255
+  ],
+  [
+   85,
+   61,
+   38,
+   255
+  ],
+  [
+   203,
+   159,
+   59,
+   255
+  ]
+ ],
+ "rampSample": [
+  [
+   219,
+   133,
+   91,
+   255
+  ],
+  [
+   219,
+   132,
+   90,
+   255
+  ],
+  [
+   213,
+   176,
+   85,
+   255
+  ],
+  [
+   220,
+   182,
+   88,
+   255
+  ],
+  [
+   144,
+   97,
+   69,
+   255
+  ],
+  [
+   122,
+   166,
+   111,
+   255
+  ],
+  [
+   123,
+   169,
+   113,
+   255
+  ],
+  [
+   93,
+   68,
+   77,
+   255
+  ],
+  [
+   93,
+   68,
+   77,
+   255
+  ]
+ ],
+ "focus": [
+  {
+   "label": "Number of colors",
+   "fv": true,
+   "outline": "oklch(0.216129 0.00624853 56.0356) none 3px",
+   "outlineOffset": "0px",
+   "boxShadow": "color(srgb 0.226332 0.161373 0.0000113649 / 0.3) 0px 0px 0px 2px, color(srgb 0.226332 0.161373 0.0000113649 / 0.15) 0px 0px 8px 0px, color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "rect": {
+    "x": 343.984375,
+    "y": 582.03125,
+    "width": 12,
+    "height": 24,
+    "top": 582.03125,
+    "right": 355.984375,
+    "bottom": 606.03125,
+    "left": 343.984375
+   },
+   "ringPx": [
+    [
+     207,
+     170,
+     82,
+     255
+    ],
+    [
+     210,
+     174,
+     84,
+     255
+    ],
+    [
+     198,
+     143,
+     49,
+     255
+    ],
+    [
+     197,
+     144,
+     51,
+     255
+    ]
+   ],
+   "adjacentPx": [
+    [
+     219,
+     180,
+     87,
+     255
+    ],
+    [
+     216,
+     179,
+     86,
+     255
+    ]
+   ],
+   "ringTokenVsAdjacent": [
+    7.133,
+    7.015
+   ],
+   "paintedVsAdjacent": [
+    1.121,
+    1.058
+   ],
+   "ringTokenVsGround": 5.109
+  },
+  {
+   "label": "Chroma weight",
+   "fv": true,
+   "outline": "rgb(0, 95, 204) auto 1px",
+   "outlineOffset": "0px",
+   "boxShadow": "none",
+   "rect": {
+    "x": 377.984375,
+    "y": 652.5,
+    "width": 0,
+    "height": 9,
+    "top": 652.5,
+    "right": 377.984375,
+    "bottom": 661.5,
+    "left": 377.984375
+   },
+   "ringPx": [
+    [
+     51,
+     45,
+     40,
+     255
+    ],
+    [
+     216,
+     186,
+     135,
+     255
+    ],
+    [
+     197,
+     146,
+     51,
+     255
+    ],
+    [
+     196,
+     146,
+     51,
+     255
+    ]
+   ],
+   "adjacentPx": [
+    [
+     52,
+     46,
+     41,
+     255
+    ],
+    [
+     217,
+     189,
+     137,
+     255
+    ]
+   ],
+   "ringTokenVsAdjacent": [
+    1.048,
+    7.742
+   ],
+   "paintedVsAdjacent": [
+    1.014,
+    1.026
+   ],
+   "ringTokenVsGround": 5.109
+  }
+ ],
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

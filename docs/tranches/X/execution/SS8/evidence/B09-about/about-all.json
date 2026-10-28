@@ -1,0 +1,574 @@
+{
+ "d6": [
+  {
+   "scheme": "light",
+   "scrollTop": 120,
+   "headerBottom": 274.52,
+   "portTop": 274.52,
+   "headerInsidePort": false,
+   "portInsideHeader": false,
+   "siblingOrder": "port-after-header",
+   "headerBg": "rgba(0, 0, 0, 0)",
+   "headerBackdrop": "none",
+   "titleHitInHeader": true,
+   "titleHitTag": "card-title pane-header-title font-display"
+  },
+  {
+   "scheme": "light",
+   "scrollTop": 420,
+   "headerBottom": 274.52,
+   "portTop": 274.52,
+   "headerInsidePort": false,
+   "portInsideHeader": false,
+   "siblingOrder": "port-after-header",
+   "headerBg": "rgba(0, 0, 0, 0)",
+   "headerBackdrop": "none",
+   "titleHitInHeader": true,
+   "titleHitTag": "card-title pane-header-title font-display"
+  },
+  {
+   "scheme": "light",
+   "scrollTop": 900,
+   "headerBottom": 274.52,
+   "portTop": 274.52,
+   "headerInsidePort": false,
+   "portInsideHeader": false,
+   "siblingOrder": "port-after-header",
+   "headerBg": "rgba(0, 0, 0, 0)",
+   "headerBackdrop": "none",
+   "titleHitInHeader": true,
+   "titleHitTag": "card-title pane-header-title font-display"
+  },
+  {
+   "scheme": "light",
+   "errors": []
+  },
+  {
+   "scheme": "dark",
+   "scrollTop": 120,
+   "headerBottom": 274.53,
+   "portTop": 274.53,
+   "headerInsidePort": false,
+   "portInsideHeader": false,
+   "siblingOrder": "port-after-header",
+   "headerBg": "rgba(0, 0, 0, 0)",
+   "headerBackdrop": "none",
+   "titleHitInHeader": true,
+   "titleHitTag": "card-title pane-header-title font-display"
+  },
+  {
+   "scheme": "dark",
+   "scrollTop": 420,
+   "headerBottom": 274.53,
+   "portTop": 274.53,
+   "headerInsidePort": false,
+   "portInsideHeader": false,
+   "siblingOrder": "port-after-header",
+   "headerBg": "rgba(0, 0, 0, 0)",
+   "headerBackdrop": "none",
+   "titleHitInHeader": true,
+   "titleHitTag": "card-title pane-header-title font-display"
+  },
+  {
+   "scheme": "dark",
+   "scrollTop": 900,
+   "headerBottom": 274.53,
+   "portTop": 274.53,
+   "headerInsidePort": false,
+   "portInsideHeader": false,
+   "siblingOrder": "port-after-header",
+   "headerBg": "rgba(0, 0, 0, 0)",
+   "headerBackdrop": "none",
+   "titleHitInHeader": true,
+   "titleHitTag": "card-title pane-header-title font-display"
+  },
+  {
+   "scheme": "dark",
+   "errors": []
+  }
+ ],
+ "deeplink": [
+  {
+   "asked": "jzazbz",
+   "href": "http://localhost:9000/#/?space=jzazbz",
+   "aboutCard": true,
+   "facts": "jzazbz",
+   "guide": "none-authored",
+   "title": "About the color spaces, Jzazbz",
+   "boundary": [],
+   "appChildren": 1,
+   "bodyTextLen": 1094,
+   "storageKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pickerSpace": null,
+   "errors": []
+  },
+  {
+   "asked": "ictcp",
+   "href": "http://localhost:9000/#/?space=ictcp",
+   "aboutCard": true,
+   "facts": "ictcp",
+   "guide": "none-authored",
+   "title": "About the color spaces, ICtCp",
+   "boundary": [],
+   "appChildren": 1,
+   "bodyTextLen": 1066,
+   "storageKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pickerSpace": null,
+   "errors": []
+  },
+  {
+   "asked": "display-p3",
+   "href": "http://localhost:9000/#/?space=display-p3",
+   "aboutCard": true,
+   "facts": "display-p3",
+   "guide": "none-authored",
+   "title": "About the color spaces, Display P3",
+   "boundary": [],
+   "appChildren": 1,
+   "bodyTextLen": 1046,
+   "storageKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pickerSpace": null,
+   "errors": []
+  },
+  {
+   "asked": "rec2020",
+   "href": "http://localhost:9000/#/?space=rec2020",
+   "aboutCard": true,
+   "facts": "rec2020",
+   "guide": "none-authored",
+   "title": "About the color spaces, Rec. 2020",
+   "boundary": [],
+   "appChildren": 1,
+   "bodyTextLen": 1059,
+   "storageKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pickerSpace": null,
+   "errors": []
+  },
+  {
+   "asked": "oklch",
+   "href": "http://localhost:9000/#/?space=oklch",
+   "aboutCard": true,
+   "facts": "oklch",
+   "guide": "authored",
+   "title": "About the color spaces, OKLCh",
+   "boundary": [],
+   "appChildren": 1,
+   "bodyTextLen": 1604,
+   "storageKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "pickerSpace": null,
+   "errors": []
+  }
+ ],
+ "none": [
+  {
+   "link": "?space=oklch&color=oklch(none%200.1%20120)",
+   "href": "http://localhost:9000/#/?space=oklch&color=oklch(none%200.1%20120)",
+   "aboutCard": false,
+   "facts": null,
+   "guide": null,
+   "title": null,
+   "boundary": [],
+   "appChildren": 0,
+   "bodyTextLen": 0,
+   "storageKeys": [
+    "color-picker-ground",
+    "vueuse-color-scheme",
+    "color-picker"
+   ],
+   "errors": [
+    "console: [value.js] unhandled failure (vue · setup function) Error: Ink certification failed: color_missing_channel\n    at failed (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:100:9)\n    at certify (http://lo",
+    "console: [value.js] unhandled failure (vue · render function) TypeError: Cannot read properties of undefined (reading 'currentView')\n    at Proxy._sfc_render (http://localhost:9000/App.vue?t=1792433039235:280:37)\n    at renderComponentRoot (http://l",
+    "console: [value.js] unhandled failure (vue · component update) Error: Ink certification failed: color_missing_channel\n    at failed (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:100:9)\n    at certify (http://"
+   ]
+  },
+  {
+   "link": "?space=oklch&color=oklch(0.6%20none%20120)",
+   "href": "http://localhost:9000/#/?space=oklch&color=oklch(0.6%20none%20120)",
+   "aboutCard": false,
+   "facts": null,
+   "guide": null,
+   "title": null,
+   "boundary": [],
+   "appChildren": 0,
+   "bodyTextLen": 0,
+   "storageKeys": [
+    "color-picker-ground",
+    "vueuse-color-scheme",
+    "color-picker"
+   ],
+   "errors": [
+    "console: [value.js] unhandled failure (vue · setup function) Error: Ink certification failed: color_missing_channel\n    at failed (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:100:9)\n    at certify (http://lo",
+    "console: [value.js] unhandled failure (vue · render function) TypeError: Cannot read properties of undefined (reading 'currentView')\n    at Proxy._sfc_render (http://localhost:9000/App.vue?t=1792433083779:280:37)\n    at renderComponentRoot (http://l",
+    "console: [value.js] unhandled failure (vue · component update) Error: Ink certification failed: color_missing_channel\n    at failed (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:100:9)\n    at certify (http://"
+   ]
+  },
+  {
+   "link": "?space=lab&color=lab(none%2020%2030)",
+   "href": "http://localhost:9000/#/?space=lab&color=lab(none%2020%2030)",
+   "aboutCard": false,
+   "facts": null,
+   "guide": null,
+   "title": null,
+   "boundary": [
+    "This panel hit an unexpected error.cssToOklch: color_missing_channel Try again",
+    "This panel hit an unexpected error.[MarkdownColors] OKLCH conversion failed: color_missing_channel Try again"
+   ],
+   "appChildren": 1,
+   "bodyTextLen": 363,
+   "storageKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "errors": [
+    "console: [value.js] unhandled failure (boundary · render function) Error: [MarkdownColors] OKLCH conversion failed: color_missing_channel\n    at ComputedRefImpl.fn (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/markdo",
+    "console: [value.js] unhandled failure (window.error) GlassColorError: cssToOklch: color_missing_channel\n    at r (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/value-DMhh2R94-MKOoV_V_.js?v=55dbff19:7216:19)\n    ",
+    "cssToOklch: color_missing_channel",
+    "console: [value.js] unhandled failure (boundary · native event handler) GlassColorError: cssToOklch: color_missing_channel\n    at r (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/value-DMhh2R94-MKOoV_V_.js?v=55d"
+   ]
+  },
+  {
+   "link": "?space=lch&color=lch(50%25%20none%20120)",
+   "href": "http://localhost:9000/#/?space=lch&color=lch(50%25%20none%20120)",
+   "aboutCard": false,
+   "facts": null,
+   "guide": null,
+   "title": null,
+   "boundary": [
+    "This panel hit an unexpected error.cssToOklch: color_missing_channel Try again",
+    "This panel hit an unexpected error.[MarkdownColors] OKLCH conversion failed: color_missing_channel Try again"
+   ],
+   "appChildren": 1,
+   "bodyTextLen": 363,
+   "storageKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "errors": [
+    "console: [value.js] unhandled failure (boundary · render function) Error: [MarkdownColors] OKLCH conversion failed: color_missing_channel\n    at ComputedRefImpl.fn (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/markdo",
+    "console: [value.js] unhandled failure (window.error) GlassColorError: cssToOklch: color_missing_channel\n    at r (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/value-DMhh2R94-MKOoV_V_.js?v=55dbff19:7216:19)\n    ",
+    "cssToOklch: color_missing_channel",
+    "console: [value.js] unhandled failure (boundary · native event handler) GlassColorError: cssToOklch: color_missing_channel\n    at r (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/value-DMhh2R94-MKOoV_V_.js?v=55d"
+   ]
+  },
+  {
+   "link": "?space=hsl&color=hsl(none%2050%25%2050%25)",
+   "href": "http://localhost:9000/#/?space=hsl&color=hsl(none%2050%25%2050%25)",
+   "aboutCard": false,
+   "facts": null,
+   "guide": null,
+   "title": null,
+   "boundary": [
+    "This panel hit an unexpected error.cssToOklch: color_missing_channel Try again",
+    "This panel hit an unexpected error.[MarkdownColors] OKLCH conversion failed: color_missing_channel Try again"
+   ],
+   "appChildren": 1,
+   "bodyTextLen": 363,
+   "storageKeys": [
+    "color-picker",
+    "color-palettes",
+    "color-picker-ground",
+    "vueuse-color-scheme"
+   ],
+   "errors": [
+    "console: [value.js] unhandled failure (boundary · render function) Error: [MarkdownColors] OKLCH conversion failed: color_missing_channel\n    at ComputedRefImpl.fn (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/markdo",
+    "console: [value.js] unhandled failure (window.error) GlassColorError: cssToOklch: color_missing_channel\n    at r (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/value-DMhh2R94-MKOoV_V_.js?v=55dbff19:7216:19)\n    ",
+    "cssToOklch: color_missing_channel",
+    "console: [value.js] unhandled failure (boundary · native event handler) GlassColorError: cssToOklch: color_missing_channel\n    at r (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/value-DMhh2R94-MKOoV_V_.js?v=55d"
+   ]
+  }
+ ],
+ "d12": [
+  {
+   "scheme": "light",
+   "sentence": {
+    "x": 754,
+    "y": 126,
+    "w": 284.65625,
+    "h": 95.984375
+   },
+   "trigger": {
+    "x": 894.375,
+    "y": 173.984375,
+    "w": 88.625,
+    "h": 47.953125
+   },
+   "sentenceColor": "oklch(0.216129 0.00624853 56.0356)",
+   "triggerColor": "color(srgb 0.362726 0.0000277455 0.128641 / 0.86)",
+   "triggerTextColor": "color(srgb 0.362726 0.0000277455 0.128641 / 0.86)",
+   "triggerDecoration": "rgba(0, 0, 0, 0)",
+   "triggerBg": "rgba(0, 0, 0, 0)",
+   "triggerLabel": "Lab",
+   "triggerTag": "BUTTON[combobox]",
+   "sentencePx": {
+    "bg": [
+     28,
+     25,
+     23
+    ],
+    "ink": [
+     220,
+     134,
+     154
+    ],
+    "ratio": 6.595
+   },
+   "triggerPx": {
+    "bg": [
+     109,
+     17,
+     49
+    ],
+    "ink": [
+     220,
+     130,
+     153
+    ],
+    "ratio": 4.336
+   },
+   "inkVsInk": 1.029,
+   "errors": []
+  },
+  {
+   "scheme": "dark",
+   "sentence": {
+    "x": 754,
+    "y": 126.015625,
+    "w": 284.65625,
+    "h": 95.984375
+   },
+   "trigger": {
+    "x": 894.375,
+    "y": 174,
+    "w": 88.625,
+    "h": 47.953125
+   },
+   "sentenceColor": "oklch(0.925202 0.00618423 67.7483)",
+   "triggerColor": "color(srgb 0.999884 0.924705 0.933067 / 0.86)",
+   "triggerTextColor": "color(srgb 0.999884 0.924705 0.933067 / 0.86)",
+   "triggerDecoration": "rgba(0, 0, 0, 0)",
+   "triggerBg": "rgba(0, 0, 0, 0)",
+   "triggerLabel": "Lab",
+   "triggerTag": "BUTTON[combobox]",
+   "sentencePx": {
+    "bg": [
+     233,
+     230,
+     226
+    ],
+    "ink": [
+     101,
+     19,
+     41
+    ],
+    "ratio": 10.058
+   },
+   "triggerPx": {
+    "bg": [
+     115,
+     23,
+     38
+    ],
+    "ink": [
+     237,
+     207,
+     210
+    ],
+    "ratio": 7.692
+   },
+   "inkVsInk": 8.613,
+   "errors": []
+  }
+ ],
+ "keys": [
+  {
+   "start": "prose-click",
+   "port": {
+    "tabIndex": 0,
+    "role": null,
+    "ariaLabel": null,
+    "sh": 4557,
+    "ch": 459
+   },
+   "rows": [
+    {
+     "key": "ArrowDown",
+     "before": 0,
+     "st": 40,
+     "active": "DIV.fading-scroll fading-scroll--y pane-scro",
+     "listbox": false
+    },
+    {
+     "key": "ArrowDown",
+     "before": 40,
+     "st": 80,
+     "active": "DIV.fading-scroll fading-scroll--y pane-scro",
+     "listbox": false
+    },
+    {
+     "key": "PageDown",
+     "before": 80,
+     "st": 499,
+     "active": "DIV.fading-scroll fading-scroll--y pane-scro",
+     "listbox": false
+    },
+    {
+     "key": "Space",
+     "before": 499,
+     "st": 918,
+     "active": "DIV.fading-scroll fading-scroll--y pane-scro",
+     "listbox": false
+    },
+    {
+     "key": "End",
+     "before": 918,
+     "st": 4192,
+     "active": "DIV.fading-scroll fading-scroll--y pane-scro",
+     "listbox": false
+    },
+    {
+     "key": "Home",
+     "before": 4192,
+     "st": 0,
+     "active": "DIV.fading-scroll fading-scroll--y pane-scro",
+     "listbox": false
+    }
+   ],
+   "errors": []
+  },
+  {
+   "start": "trigger-focus",
+   "port": {
+    "tabIndex": 0,
+    "role": null,
+    "ariaLabel": null,
+    "sh": 7161,
+    "ch": 459
+   },
+   "rows": [
+    {
+     "key": "ArrowDown",
+     "before": 0,
+     "st": 0,
+     "active": "DIV.interactive-item glass-menu-row relative",
+     "listbox": true
+    },
+    {
+     "key": "ArrowDown",
+     "before": 0,
+     "st": 0,
+     "active": "DIV.interactive-item glass-menu-row relative",
+     "listbox": true
+    },
+    {
+     "key": "PageDown",
+     "before": 0,
+     "st": 0,
+     "active": "BUTTON.control-surface glass-control-edge glass",
+     "listbox": false
+    },
+    {
+     "key": "Space",
+     "before": 0,
+     "st": 0,
+     "active": "BUTTON.control-surface glass-control-edge glass",
+     "listbox": false
+    },
+    {
+     "key": "End",
+     "before": 0,
+     "st": 0,
+     "active": "BUTTON.control-surface glass-control-edge glass",
+     "listbox": false
+    },
+    {
+     "key": "Home",
+     "before": 0,
+     "st": 0,
+     "active": "BUTTON.control-surface glass-control-edge glass",
+     "listbox": false
+    }
+   ],
+   "errors": []
+  }
+ ],
+ "c9": {
+  "setup": {
+   "hasWrapper": true,
+   "sliders": 4
+  },
+  "moves": 60,
+  "ms": 4417,
+  "mdStyleMutations": 51,
+  "slider": "L channel",
+  "errors": []
+ },
+ "d14": {
+  "routeHits": [
+   "/Users/mkbabb/Programming/value.js/assets/docs/hsl.md?import"
+  ],
+  "samples": [
+   {
+    "at": 151,
+    "guideH": 181.1,
+    "skeletonCircle": true,
+    "md": false,
+    "portSH": 1168,
+    "title": "About the color spaces, HSL"
+   },
+   {
+    "at": 313,
+    "guideH": 181.1,
+    "skeletonCircle": true,
+    "md": false,
+    "portSH": 1168,
+    "title": "About the color spaces, HSL"
+   },
+   {
+    "at": 902,
+    "guideH": 181.1,
+    "skeletonCircle": true,
+    "md": false,
+    "portSH": 1168,
+    "title": "About the color spaces, HSL"
+   },
+   {
+    "at": 2503,
+    "guideH": 4932.4,
+    "skeletonCircle": false,
+    "md": true,
+    "portSH": 5896,
+    "title": "About the color spaces, HSL"
+   }
+  ],
+  "errors": []
+ }
+}

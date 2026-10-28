@@ -108,11 +108,14 @@ test("walk all user views sequentially with zero console errors", async ({
     /**
      * X.W5.a · gate A5 — the route H1 walk.
      *
-     * Every view carries exactly ONE visible `<h1>`, it speaks that view's own
+     * Every view carries exactly ONE rendered `<h1>`, it speaks that view's own
      * `VIEW_MAP` label, and the `<main>` landmark takes its name from it. Four
-     * distinct failures are caught here — zero headings, two, an invisible
-     * one, and a label that disagrees with the schema — which is why the
-     * assertion is a count plus a text, not a presence check.
+     * distinct failures are caught here — zero headings, two, an unrendered
+     * one (`display:none`/zero box), and a label that disagrees with the
+     * schema — which is why the assertion is a count plus a text, not a
+     * presence check. COHESION §0gf.2(a) (OD19-V4): on an untitled route
+     * (Home) the H1 is visually hidden (`sr-only`), a 1px box that still
+     * renders and so still passes the visibility check.
      *
      * X-DS value pass 9 (V9C-01): on a `titled` route the H1 is the pane title,
      * which SAYS the label — it is the label, or ends on it ("My Palettes" on

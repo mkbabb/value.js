@@ -1,0 +1,909 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B05-dock-actionbar/o33.config.mjs",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "/o33-dock-actionbar-b05\\.spec\\.ts/"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-red-1.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "o33-dock-actionbar-b05.spec.ts",
+      "file": "o33-dock-actionbar-b05.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "B05 · bar-less routes (0122 · 0136 guard)",
+          "file": "o33-dock-actionbar-b05.spec.ts",
+          "line": 111,
+          "column": 6,
+          "specs": [
+            {
+              "title": "/atmosphere: the Tools slot is inert, 0 px and unexposed; the dock keeps its face",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 85383,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:46:05.981Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-7d637caed8c7a003efb5",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 115,
+              "column": 9
+            },
+            {
+              "title": "/browse: the Tools slot is inert, 0 px and unexposed; the dock keeps its face",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 24214,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:47:31.502Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-5ac4b31ccf988374517e",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 115,
+              "column": 9
+            },
+            {
+              "title": "/extract: the Tools slot is inert, 0 px and unexposed; the dock keeps its face",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3368,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:47:55.722Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-24e4dc204460d21bd623",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 115,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "B05 · the action-bar proportion (0125 · 0146)",
+          "file": "o33-dock-actionbar-b05.spec.ts",
+          "line": 137,
+          "column": 6,
+          "specs": [
+            {
+              "title": "0125: the layer root breathes on the face's own gap — both separators get equal air",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 16157,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeCloseTo\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m, \u001b[22mprecision\u001b[2m)\u001b[22m\n\nExpected: \u001b[32m6\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nExpected precision:    1\nExpected difference: < \u001b[32m0.05\u001b[39m\nReceived difference:   \u001b[31m6\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeCloseTo\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m, \u001b[22mprecision\u001b[2m)\u001b[22m\n\nExpected: \u001b[32m6\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nExpected precision:    1\nExpected difference: < \u001b[32m0.05\u001b[39m\nReceived difference:   \u001b[31m6\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:161:29",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 29,
+                          "line": 161
+                        },
+                        "snippet": "  159 |         });\n  160 |         expect(air.faceGap).toBeGreaterThan(0);\n> 161 |         expect(air.rootGap).toBeCloseTo(air.faceGap, 1);\n      |                             ^\n  162 |         // The trailing separator's air matches the leading one's (12 px at HEAD's 6 px gap).\n  163 |         expect(air.rowToSep).toBeCloseTo(air.sepToToggle, 0);\n  164 |         expect(air.rowToSep).toBeGreaterThanOrEqual(air.faceGap * 2 - 0.5);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 29,
+                            "line": 161
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeCloseTo\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m, \u001b[22mprecision\u001b[2m)\u001b[22m\n\nExpected: \u001b[32m6\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nExpected precision:    1\nExpected difference: < \u001b[32m0.05\u001b[39m\nReceived difference:   \u001b[31m6\u001b[39m\n\n  159 |         });\n  160 |         expect(air.faceGap).toBeGreaterThan(0);\n> 161 |         expect(air.rootGap).toBeCloseTo(air.faceGap, 1);\n      |                             ^\n  162 |         // The trailing separator's air matches the leading one's (12 px at HEAD's 6 px gap).\n  163 |         expect(air.rowToSep).toBeCloseTo(air.sepToToggle, 0);\n  164 |         expect(air.rowToSep).toBeGreaterThanOrEqual(air.faceGap * 2 - 0.5);\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:161:29"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:47:59.097Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-artifacts/o33-dock-actionbar-b05-B05-4a8cd-th-separators-get-equal-air/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 29,
+                        "line": 161
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-7ab83cf3192f3646ff86",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 140,
+              "column": 5
+            },
+            {
+              "title": "0146: the seat row is spaced by --dock-layer-gap, not by justify-around slack",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 18871,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31mNaN\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31mNaN\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:182:27",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 27,
+                          "line": 182
+                        },
+                        "snippet": "  180 |             };\n  181 |         });\n> 182 |         expect(row.token).toBeGreaterThan(0);\n      |                           ^\n  183 |         expect(row.gaps.length).toBeGreaterThan(0);\n  184 |         for (const gap of row.gaps) expect(gap).toBeGreaterThanOrEqual(row.token - 0.5);\n  185 |     });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 27,
+                            "line": 182
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31mNaN\u001b[39m\n\n  180 |             };\n  181 |         });\n> 182 |         expect(row.token).toBeGreaterThan(0);\n      |                           ^\n  183 |         expect(row.gaps.length).toBeGreaterThan(0);\n  184 |         for (const gap of row.gaps) expect(gap).toBeGreaterThanOrEqual(row.token - 0.5);\n  185 |     });\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:182:27"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:48:15.693Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-artifacts/o33-dock-actionbar-b05-B05-3cf77-not-by-justify-around-slack/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 27,
+                        "line": 182
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-d8f35da1e4cc87b202d2",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 167,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "B05 · the Tools ink on the dock band (0132 · 0133)",
+          "file": "o33-dock-actionbar-b05.spec.ts",
+          "line": 188,
+          "column": 6,
+          "specs": [
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4401,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.2554922508097635\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.2554922508097635\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:201:50",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 201
+                        },
+                        "snippet": "  199 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  200 |             expect(label).not.toBeNull();\n> 201 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  202 |         });\n  203 |     }\n  204 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 201
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.2554922508097635\u001b[39m\n\n  199 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  200 |             expect(label).not.toBeNull();\n> 201 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  202 |         });\n  203 |     }\n  204 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:201:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:48:35.037Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-artifacts/o33-dock-actionbar-b05-B05-bbb57--the-light-band-seed-hue-0-/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 201
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-117d94e36f4e59468392",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4429,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.353889960838496\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.353889960838496\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:201:50",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 201
+                        },
+                        "snippet": "  199 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  200 |             expect(label).not.toBeNull();\n> 201 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  202 |         });\n  203 |     }\n  204 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 201
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.353889960838496\u001b[39m\n\n  199 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  200 |             expect(label).not.toBeNull();\n> 201 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  202 |         });\n  203 |     }\n  204 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:201:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:48:39.917Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-artifacts/o33-dock-actionbar-b05-B05-d780f-the-light-band-seed-hue-60-/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 201
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-b9d494cb8db68b0df8e2",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4443,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:48:44.866Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-e2c95147defbb3ed9f36",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4286,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:48:49.426Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-a0413a90bae3524318b5",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4311,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:48:53.719Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-02eedb5606ab38ef28ce",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 18109,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.22538420409848\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.22538420409848\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:201:50",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 201
+                        },
+                        "snippet": "  199 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  200 |             expect(label).not.toBeNull();\n> 201 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  202 |         });\n  203 |     }\n  204 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 201
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.22538420409848\u001b[39m\n\n  199 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  200 |             expect(label).not.toBeNull();\n> 201 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  202 |         });\n  203 |     }\n  204 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:201:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:48:58.035Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-artifacts/o33-dock-actionbar-b05-B05-7a902-he-light-band-seed-hue-300-/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 201
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-83cfd66140aabcf811b0",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 85781,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m3\u001b[39m\nReceived:    \u001b[31m2.3492817562508783\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m3\u001b[39m\nReceived:    \u001b[31m2.3492817562508783\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:234:26",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 26,
+                          "line": 234
+                        },
+                        "snippet": "  232 |             const pb = await pixels(page, after, ring);\n  233 |             const best = Math.max(...pa.map((p, i) => contrast(pb[i]!, p)));\n> 234 |             expect(best).toBeGreaterThanOrEqual(3);\n      |                          ^\n  235 |         });\n  236 |     }\n  237 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 26,
+                            "line": 234
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m3\u001b[39m\nReceived:    \u001b[31m2.3492817562508783\u001b[39m\n\n  232 |             const pb = await pixels(page, after, ring);\n  233 |             const best = Math.max(...pa.map((p, i) => contrast(pb[i]!, p)));\n> 234 |             expect(best).toBeGreaterThanOrEqual(3);\n      |                          ^\n  235 |         });\n  236 |     }\n  237 | });\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:234:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:49:16.527Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-artifacts/o33-dock-actionbar-b05-B05-6f814-gainst-the-band-seed-hue-0-/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 26,
+                        "line": 234
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-e9c57486ebb545a8867b",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 206,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 63808,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m3\u001b[39m\nReceived:    \u001b[31m2.4975918451243095\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m3\u001b[39m\nReceived:    \u001b[31m2.4975918451243095\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:234:26",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 26,
+                          "line": 234
+                        },
+                        "snippet": "  232 |             const pb = await pixels(page, after, ring);\n  233 |             const best = Math.max(...pa.map((p, i) => contrast(pb[i]!, p)));\n> 234 |             expect(best).toBeGreaterThanOrEqual(3);\n      |                          ^\n  235 |         });\n  236 |     }\n  237 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 26,
+                            "line": 234
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m3\u001b[39m\nReceived:    \u001b[31m2.4975918451243095\u001b[39m\n\n  232 |             const pb = await pixels(page, after, ring);\n  233 |             const best = Math.max(...pa.map((p, i) => contrast(pb[i]!, p)));\n> 234 |             expect(best).toBeGreaterThanOrEqual(3);\n      |                          ^\n  235 |         });\n  236 |     }\n  237 | });\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:234:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T18:50:43.020Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-artifacts/o33-dock-actionbar-b05-B05-68701-inst-the-band-seed-hue-180-/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 26,
+                        "line": 234
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d762d3d69ffedc99e043-e937e606a950b115b409",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 206,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "B05 · the Tools target and wordmark (0140)",
+          "file": "o33-dock-actionbar-b05.spec.ts",
+          "line": 239,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "coarse 390",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 240,
+              "column": 10,
+              "specs": [
+                {
+                  "title": "the Tools target holds the 44 px coarse floor",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 120000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 7,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 60036,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m43.5\u001b[39m\nReceived:    \u001b[31m40\u001b[39m",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m43.5\u001b[39m\nReceived:    \u001b[31m40\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:245:30",
+                            "location": {
+                              "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                              "column": 30,
+                              "line": 245
+                            },
+                            "snippet": "  243 |             await boot(page, \"/\");\n  244 |             const b = (await page.locator(TOOLS).boundingBox())!;\n> 245 |             expect(b.height).toBeGreaterThanOrEqual(44 - 0.5);\n      |                              ^\n  246 |             expect(b.width).toBeGreaterThanOrEqual(44 - 0.5);\n  247 |         });\n  248 |     });"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                                "column": 30,
+                                "line": 245
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m43.5\u001b[39m\nReceived:    \u001b[31m40\u001b[39m\n\n  243 |             await boot(page, \"/\");\n  244 |             const b = (await page.locator(TOOLS).boundingBox())!;\n> 245 |             expect(b.height).toBeGreaterThanOrEqual(44 - 0.5);\n      |                              ^\n  246 |             expect(b.width).toBeGreaterThanOrEqual(44 - 0.5);\n  247 |         });\n  248 |     });\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:245:30"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T18:51:47.393Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-artifacts/o33-dock-actionbar-b05-B05-02806-olds-the-44-px-coarse-floor/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 30,
+                            "line": 245
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "d762d3d69ffedc99e043-9993990e84f24b0e9131",
+                  "file": "o33-dock-actionbar-b05.spec.ts",
+                  "line": 242,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "zoom 200 % of 1440×900",
+              "file": "o33-dock-actionbar-b05.spec.ts",
+              "line": 250,
+              "column": 10,
+              "specs": [
+                {
+                  "title": "the Tools wordmark survives the zoom",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 120000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 8,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 20155,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[aria-label=\"Toggle action bar\"] span')\nExpected: \u001b[32m\"Tools\"\u001b[39m\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('[aria-label=\"Toggle action bar\"] span')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[aria-label=\"Toggle action bar\"] span')\nExpected: \u001b[32m\"Tools\"\u001b[39m\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('[aria-label=\"Toggle action bar\"] span')\u001b[22m\n\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:254:57",
+                            "location": {
+                              "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                              "column": 57,
+                              "line": 254
+                            },
+                            "snippet": "  252 |         test(\"the Tools wordmark survives the zoom\", async ({ page }) => {\n  253 |             await boot(page, \"/\");\n> 254 |             await expect(page.locator(`${TOOLS} span`)).toHaveText(\"Tools\");\n      |                                                         ^\n  255 |             await expect(page.locator(`${TOOLS} span`)).toBeVisible();\n  256 |         });\n  257 |     });"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                                "column": 57,
+                                "line": 254
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[aria-label=\"Toggle action bar\"] span')\nExpected: \u001b[32m\"Tools\"\u001b[39m\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('[aria-label=\"Toggle action bar\"] span')\u001b[22m\n\n\n  252 |         test(\"the Tools wordmark survives the zoom\", async ({ page }) => {\n  253 |             await boot(page, \"/\");\n> 254 |             await expect(page.locator(`${TOOLS} span`)).toHaveText(\"Tools\");\n      |                                                         ^\n  255 |             await expect(page.locator(`${TOOLS} span`)).toBeVisible();\n  256 |         });\n  257 |     });\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:254:57"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T18:52:48.014Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/evidence/B05-dock-actionbar/o33-artifacts/o33-dock-actionbar-b05-B05-f9b22--wordmark-survives-the-zoom/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 57,
+                            "line": 254
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "d762d3d69ffedc99e043-683946194f27aa83950e",
+                  "file": "o33-dock-actionbar-b05.spec.ts",
+                  "line": 252,
+                  "column": 9
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T18:46:05.408Z",
+    "duration": 422964.186,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 9,
+    "flaky": 0
+  }
+}

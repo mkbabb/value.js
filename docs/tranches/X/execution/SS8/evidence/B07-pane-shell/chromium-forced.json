@@ -1,0 +1,54 @@
+[
+ {
+  "forcedColors": "none",
+  "matchesForced": false,
+  "header": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "color": "oklch(0.216129 0.00624853 56.0356)",
+   "borderColor": "rgb(198, 180, 159)",
+   "forcedColorAdjust": "auto",
+   "backdrop": "none"
+  },
+  "title": {
+   "color": "oklch(0.216129 0.00624853 56.0356)"
+  },
+  "veil": {
+   "display": "none",
+   "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+   "backdrop": "blur(16px) saturate(1.5)",
+   "opacity": "0.52"
+  },
+  "card": {
+   "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+   "border": "oklab(0.216129 0.00349092 0.00518243 / 0.16)",
+   "borderW": "1px",
+   "backdrop": "none"
+  }
+ },
+ {
+  "forcedColors": "active",
+  "matchesForced": true,
+  "header": {
+   "bg": "rgba(255, 255, 255, 0)",
+   "color": "rgb(0, 0, 0)",
+   "borderColor": "rgb(0, 0, 0)",
+   "forcedColorAdjust": "auto",
+   "backdrop": "none"
+  },
+  "title": {
+   "color": "rgb(0, 0, 0)"
+  },
+  "veil": {
+   "display": "none",
+   "bg": "rgb(255, 255, 255)",
+   "backdrop": "blur(0px) saturate(1.5)",
+   "opacity": "0.52"
+  },
+  "card": {
+   "bg": "rgb(255, 255, 255)",
+   "border": "rgb(0, 0, 0)",
+   "borderW": "1px",
+   "backdrop": "none"
+  }
+ }
+]

@@ -1,0 +1,84 @@
+1c1
+< declare type Alpha = number | "none";
+---
+> export declare type Alpha = number | "none";
+31c31
+< declare type AnyColor = {
+---
+> export declare type AnyColor = {
+35c35
+< declare type Channel = number | "none";
+---
+> export declare type Channel = number | "none";
+37c37
+< declare type ChannelsBySpace = {
+---
+> export declare type ChannelsBySpace = {
+78c78
+< declare type Color<S extends SpaceId> = Readonly<{
+---
+> export declare type Color<S extends SpaceId> = Readonly<{
+84c84
+< declare type ColorIssue = Readonly<{
+---
+> export declare type ColorIssue = Readonly<{
+89a90
+>     /** Seconds. */
+90a92,94
+>     /** The `<time>` unit the author wrote for `duration` (UIA-KF-177). */
+>     durationUnit?: CssTimeUnit;
+>     /** Seconds. */
+91a96,97
+>     /** The `<time>` unit the author wrote for `delay` (UIA-KF-177). */
+>     delayUnit?: CssTimeUnit;
+99c105,109
+< declare type CssCall = Readonly<{
+---
+> /**
+>  * A function and its comma-separated arguments. The EMPTY `name` is a `()` simple block
+>  * (css-syntax-3 §5.4.8), e.g. the group in `calc(50% - (1em / 2))`, serialized `( … )`.
+>  */
+> export declare type CssCall = Readonly<{
+116c126
+< declare type CssList = Readonly<{
+---
+> export declare type CssList = Readonly<{
+128c138
+< declare type CssScalar = Readonly<{
+---
+> export declare type CssScalar = Readonly<{
+150a161,163
+> /** A css-values-4 §7.3 `<time>` unit, lowercased. */
+> export declare type CssTimeUnit = "s" | "ms";
+> 
+169c182
+< declare type CssValue = CssScalar | CssCall | CssList;
+---
+> export declare type CssValue = CssScalar | CssCall | CssList;
+195c208
+< declare type JumpPosition = "jump-start" | "jump-end" | "jump-none" | "jump-both";
+---
+> export declare type JumpPosition = "jump-start" | "jump-end" | "jump-none" | "jump-both";
+222a236
+> /** `parseCssColor` — one whole `<color>`. */
+224a239
+> /** `parseCssScalar` — one scalar: a colour, a number with its unit, a string, an operator or a keyword. */
+226a242
+> /** `parseCssValue` — a component-value list (comma, then slash, then space separated). */
+228a245
+> /** `parseCssValues` — `parseCssValue`, always as a list (one item → a one-item space list). */
+238a256
+> /** `parseKeyframeSelector` — one `<keyframe-selector>`. */
+251a270
+> /** `parseTimingFunction` — one `<easing-function>`. */
+267c286
+< declare type Result<T, E> = {
+---
+> export declare type Result<T, E> = {
+283a303,304
+> export declare function serializeCssValue(value: CssValue): Result<string, ColorIssue>;
+> 
+291c312
+< declare type SpaceId = "rgb" | "hsl" | "hsv" | "hwb" | "lab" | "lch" | "oklab" | "oklch" | "xyz" | "kelvin" | "srgb-linear" | "display-p3" | "a98-rgb" | "prophoto-rgb" | "rec2020" | "ictcp" | "jzazbz";
+---
+> export declare type SpaceId = "rgb" | "hsl" | "hsv" | "hwb" | "lab" | "lch" | "oklab" | "oklch" | "xyz" | "kelvin" | "srgb-linear" | "display-p3" | "a98-rgb" | "prophoto-rgb" | "rec2020" | "ictcp" | "jzazbz";

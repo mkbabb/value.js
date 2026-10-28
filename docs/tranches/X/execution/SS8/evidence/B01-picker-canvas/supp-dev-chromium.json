@@ -1,0 +1,92 @@
+{
+  "engine": "chromium",
+  "version": "148.0.7778.96",
+  "base": "http://localhost:9000",
+  "at": "2026-10-19T18:54:34.875Z",
+  "air2": {
+    "error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/?space=oklch&color=oklch(0.6%200.15%2030)\", waiting until \"load\"\u001b[22m\n"
+  },
+  "torn2": {
+    "hasRouter": true,
+    "snapshots": 203,
+    "observedLabelSets": {
+      "r,g,b": 194,
+      "l,a,b": 2,
+      "hex": 7
+    },
+    "tornCount": 0,
+    "tornSample": [],
+    "finalHash": "#/?space=rgb&color=rgb(10+10+200)",
+    "errs": []
+  },
+  "emit": {
+    "typed": [
+      {
+        "step": "selected",
+        "hash": "#/?space=rgb&color=rgb(200 50 50)",
+        "dot": "background-color: rgb(200, 50, 50)",
+        "aria": "Color spectrum, saturation 75%, lightness 78%"
+      },
+      {
+        "step": "typed 1 +150ms",
+        "hash": "#/?space=rgb&color=rgb(200 50 50)",
+        "dot": "background-color: rgb(200, 50, 50)",
+        "aria": "Color spectrum, saturation 75%, lightness 78%"
+      },
+      {
+        "step": "typed 2 +150ms",
+        "hash": "#/?space=rgb&color=rgb(200 50 50)",
+        "dot": "background-color: rgb(200, 50, 50)",
+        "aria": "Color spectrum, saturation 75%, lightness 78%"
+      },
+      {
+        "step": "typed 3 +150ms",
+        "hash": "#/?space=rgb&color=rgb(200 50 50)",
+        "dot": "background-color: rgb(200, 50, 50)",
+        "aria": "Color spectrum, saturation 75%, lightness 78%"
+      },
+      {
+        "step": "settle +800ms",
+        "hash": "#/?space=rgb&color=rgb(123+50+50)",
+        "dot": "background-color: rgb(123, 50, 50)",
+        "aria": "Color spectrum, saturation 59%, lightness 48%"
+      }
+    ],
+    "ime": [
+      {
+        "step": "g selected",
+        "hash": "#/?space=rgb&color=rgb(123+50+50)",
+        "dot": "background-color: rgb(123, 50, 50)",
+        "aria": "Color spectrum, saturation 59%, lightness 48%"
+      },
+      {
+        "step": "composing 9 +400ms",
+        "hash": "#/?space=rgb&color=rgb(123+50+50)",
+        "dot": "background-color: rgb(123, 50, 50)",
+        "aria": "Color spectrum, saturation 59%, lightness 48%"
+      },
+      {
+        "step": "composing 90 +400ms",
+        "hash": "#/?space=rgb&color=rgb(123+50+50)",
+        "dot": "background-color: rgb(123, 50, 50)",
+        "aria": "Color spectrum, saturation 59%, lightness 48%"
+      },
+      {
+        "step": "committed 90 +800ms",
+        "hash": "#/?space=rgb&color=rgb(123+50+50)",
+        "dot": "background-color: rgb(123, 90, 50)",
+        "aria": "Color spectrum, saturation 59%, lightness 48%"
+      }
+    ]
+  },
+  "ax": {
+    "readout": "- heading \"200 50 50\" [level=3]:\n  - textbox \"r component value\"\n  - textbox \"g component value\"\n  - textbox \"b component value\"",
+    "plate": {
+      "role": "img",
+      "label": "Color spectrum, saturation 75%, lightness 78%",
+      "figure": true,
+      "figureLabel": null
+    },
+    "plateSnap": "- img \"Color spectrum, saturation 75%, lightness 78%\""
+  }
+}

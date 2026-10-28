@@ -14,6 +14,7 @@ import {
     defineAsyncComponent,
     defineComponent,
     h,
+    onMounted,
     shallowRef,
     type Component,
     type ComputedRef,
@@ -31,7 +32,7 @@ import { ColorPicker } from "../picker";
 // so: INEFFECTIVE_DYNAMIC_IMPORT).
 import NotFoundPane from "../scenes/notfound/NotFoundPane.vue";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
-import { VIEW_MAP } from "./viewSchema";
+import { VIEW_MAP, type ViewId } from "./viewSchema";
 import PaneLoadingPlate from "./PaneLoadingPlate.vue";
 import PaneErrorPlate, { PaneChunkError } from "./PaneErrorPlate.vue";
 import type {
@@ -336,6 +337,20 @@ const AdminPane = lazyPane("admin", () => import("../palettes/admin/AdminPane.vu
 const AuroraPane = lazyPane("aurora", () => import("../scenes/atmosphere/AuroraPane.vue"));
 const BlobPane = lazyPane("blob", () => import("../scenes/blob/BlobPane.vue"));
 
+/** Every lazy pane, in table order — the idle warm's list. */
+const LAZY_PANES: readonly Component[] = [
+    AboutPane,
+    PalettesPane,
+    BrowsePane,
+    ExtractPane,
+    GeneratePane,
+    GradientPane,
+    MixPane,
+    AdminPane,
+    AuroraPane,
+    BlobPane,
+];
+
 /**
  * The one name→component map this module's header promises — now TOTAL over the
  * schema's pane unions.
@@ -381,6 +396,71 @@ const PANE_COMPONENTS: Record<PaneId, Component> = {
 /** Maps a region's pane name to its component. TOTAL over `PaneId`. */
 function componentFor(pane: PaneId): Component {
     return PANE_COMPONENTS[pane];
+}
+
+/**
+ * OD19-V5 (owner docket 2026-10-19: "the loading of the complex routes is VERY
+ * slow") — the WARM. `preloadPane` ran only at swap commit (`PaneSlot`'s key
+ * watch), so a first visit to /gradient or /mix paid its whole chunk fan-out
+ * after the click. Three callers now start a pane's chunk before the commit:
+ *   · `preloadView` — NOW, for the one option under the pointer or focus;
+ *   · `warmViews`   — the view menu's open: every option, through the queue;
+ *   · the idle warm — once the page has loaded (after the boot's first paint;
+ *                     the boot graph is untouched), every lazy pane.
+ * The queue loads ONE pane at a time, each in its own idle slice: one chunk
+ * graph in flight never lands a burst of module evaluation on the menu or on
+ * input. Safari (no rIC) takes a macrotask hop, as `useOverture`'s b4 does; a
+ * Save-Data client warms nothing ahead. A failed warm is dropped: the swap's
+ * own load reports it (`preloadPane` does not memoize a rejection).
+ */
+const saveData = (): boolean =>
+    (navigator as { connection?: { saveData?: boolean } }).connection?.saveData === true;
+
+export function preloadView(id: ViewId): void {
+    if (saveData()) return;
+    for (const region of VIEW_MAP[id].regions)
+        preloadPane(componentFor(region.pane))?.catch(() => {});
+}
+
+const warmQueue: Component[] = [];
+let warming = false;
+
+function idle(cb: () => void): void {
+    if (typeof window.requestIdleCallback === "function")
+        window.requestIdleCallback(cb, { timeout: 2000 });
+    else setTimeout(cb, 50);
+}
+
+function pumpWarm(): void {
+    const pane = warmQueue.shift();
+    if (pane === undefined) {
+        warming = false;
+        return;
+    }
+    const loading = preloadPane(pane);
+    if (loading === null) idle(pumpWarm);
+    else loading.then(() => idle(pumpWarm), () => idle(pumpWarm));
+}
+
+function enqueueWarm(panes: readonly Component[]): void {
+    if (typeof window === "undefined" || saveData()) return;
+    for (const pane of panes) if (!warmQueue.includes(pane)) warmQueue.push(pane);
+    if (warming) return;
+    warming = true;
+    idle(pumpWarm);
+}
+
+export function warmViews(ids: readonly ViewId[]): void {
+    enqueueWarm(ids.flatMap((id) => VIEW_MAP[id].regions.map((r) => componentFor(r.pane))));
+}
+
+let warmed = false;
+
+function warmLazyPanes(): void {
+    if (warmed || typeof window === "undefined") return;
+    warmed = true;
+    if (document.readyState === "complete") enqueueWarm(LAZY_PANES);
+    else window.addEventListener("load", () => enqueueWarm(LAZY_PANES), { once: true });
 }
 
 /**
@@ -641,6 +721,8 @@ export function usePaneRouter(
     // (S-1 · X.W8.dc) and the dock injects it, so no caller can hand-carry a
     // second copy down a prop chain.
     useSceneActions(viewManager, deps);
+
+    onMounted(warmLazyPanes);
 
     return { regions, bindPane, commitEdit, cancelEdit };
 }

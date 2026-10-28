@@ -1,0 +1,10 @@
+e2e/smoke/oracles/o18-contrast-census.spec.ts
+e2e/smoke/oracles/o15-dock-register.spec.ts
+e2e/smoke/w12-dock.spec.ts
+e2e/smoke/page-load.spec.ts
+e2e/smoke/oracles/o17-easing-composition.spec.ts
+e2e/smoke/views/gradient.spec.ts
+e2e/smoke/w12u-x-admin-tags.spec.ts
+e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts
+e2e/smoke/oracles/o21-space-catalog-truth.spec.ts
+smoke-admin (whole project)

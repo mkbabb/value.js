@@ -37,8 +37,15 @@ async function collectMarks(
     );
 }
 
+// The CPU throttle is a CDP instrument (`Emulation.setCPUThrottlingRate`); a
+// CDP session exists only in Chromium and WebKit has no equivalent, so the
+// DAG-order invariance under throttle is a Chromium cell by construction. Both
+// legs carry `@chromium-instrument`: `smoke` runs them, `oracles-safari` does
+// not enrol them (X.W11.h15 · DISPOSITION §8 E15). Never a skip.
 for (const throttle of [1, 6]) {
-    test(`O-4 order-invariance — beat marks hold the DAG order at ${throttle}× CPU`, async ({
+    test(`O-4 order-invariance — beat marks hold the DAG order at ${throttle}× CPU`, {
+        tag: "@chromium-instrument",
+    }, async ({
         page,
     }) => {
         test.setTimeout(60_000);

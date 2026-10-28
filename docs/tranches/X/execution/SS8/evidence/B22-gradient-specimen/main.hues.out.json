@@ -1,0 +1,19 @@
+{
+ "cell": "hues",
+ "ms": 10842,
+ "result": {
+  "ink": [
+   0.7938,
+   0.1356,
+   205.1
+  ],
+  "sampled": 686,
+  "sameHueChromatic": 0,
+  "hits": [],
+  "pageErrors": [],
+  "consoleErrors": [
+   "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "Failed to load resource: net::ERR_FAILED"
+  ]
+ }
+}

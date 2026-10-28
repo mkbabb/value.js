@@ -1,0 +1,132 @@
+{
+ "v03": {
+  "light-1440": {
+   "error": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+  },
+  "light-390": {
+   "plateSeen": 38,
+   "plateH": 108,
+   "landedH": null,
+   "ratio": null,
+   "withinTenPct": false,
+   "rowYs": [
+    104
+   ],
+   "rowHBeforeLand": 492,
+   "rowHAfterLand": null,
+   "stageHBeforeLand": 108,
+   "stageHAfterLand": null
+  },
+  "dark-1440": {
+   "error": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+  },
+  "dark-390": {
+   "plateSeen": 74,
+   "plateH": 108,
+   "landedH": 955,
+   "ratio": 0.113,
+   "withinTenPct": false,
+   "rowYs": [
+    104
+   ],
+   "rowHBeforeLand": 492,
+   "rowHAfterLand": 1339,
+   "stageHBeforeLand": 108,
+   "stageHAfterLand": 955
+  }
+ },
+ "v05": {
+  "light-390": {
+   "rest": {
+    "chip": {
+     "x": 352,
+     "y": 45,
+     "w": 26,
+     "h": 14
+    },
+    "plate": {
+     "x": 141,
+     "y": 29,
+     "w": 108,
+     "h": 40
+    },
+    "band": {
+     "x": 12,
+     "y": 16,
+     "w": 366,
+     "h": 72
+    },
+    "intersects": false,
+    "scrollW": 390
+   },
+   "tools": {
+    "chip": {
+     "x": 352,
+     "y": 45,
+     "w": 26,
+     "h": 14
+    },
+    "plate": {
+     "x": 30,
+     "y": 28,
+     "w": 330,
+     "h": 42
+    },
+    "band": {
+     "x": 12,
+     "y": 16,
+     "w": 366,
+     "h": 72
+    },
+    "intersects": true,
+    "scrollW": 390
+   }
+  },
+  "dark-390": {
+   "rest": {
+    "chip": {
+     "x": 352,
+     "y": 45,
+     "w": 26,
+     "h": 14
+    },
+    "plate": {
+     "x": 141,
+     "y": 29,
+     "w": 108,
+     "h": 40
+    },
+    "band": {
+     "x": 12,
+     "y": 16,
+     "w": 366,
+     "h": 72
+    },
+    "intersects": false,
+    "scrollW": 390
+   },
+   "tools": {
+    "chip": {
+     "x": 352,
+     "y": 45,
+     "w": 26,
+     "h": 14
+    },
+    "plate": {
+     "x": 30,
+     "y": 28,
+     "w": 330,
+     "h": 42
+    },
+    "band": {
+     "x": 12,
+     "y": 16,
+     "w": 366,
+     "h": 72
+    },
+    "intersects": true,
+    "scrollW": 390
+   }
+  }
+ }
+}

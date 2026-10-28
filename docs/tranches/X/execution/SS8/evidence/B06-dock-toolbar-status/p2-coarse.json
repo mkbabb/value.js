@@ -1,0 +1,265 @@
+{
+  "probe": "p2-coarse",
+  "at": "2026-10-19T18:46:49.797Z",
+  "cells": {
+    "coarse-1366x1024": {
+      "env": {
+        "coarse": true,
+        "hoverNone": true,
+        "desktopMQ": true,
+        "appDesktopMQ": true,
+        "rootFont": "16px",
+        "uiScale": "1.5",
+        "touchFloor": "2.75rem"
+      },
+      "dockAtBoot": {
+        "held": null,
+        "collapsed": false,
+        "cls": "glass-dock horizontal shape-pill expanded fit-content"
+      },
+      "toggleAtBoot": {
+        "present": true,
+        "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+        "inert": false,
+        "slotW": 140.8,
+        "opacity": "1",
+        "btnTabindex": null,
+        "btnLabel": "Tools"
+      },
+      "c0155": {
+        "seats": [
+          [
+            44,
+            44
+          ],
+          [
+            44,
+            44
+          ],
+          [
+            44,
+            44
+          ],
+          [
+            44,
+            44
+          ],
+          [
+            44,
+            44
+          ]
+        ],
+        "back": [
+          44,
+          44
+        ],
+        "toggle": [
+          131.83,
+          44
+        ]
+      },
+      "c0156_afterTap1": {
+        "held": null,
+        "collapsed": false,
+        "cls": "glass-dock horizontal shape-pill expanded fit-content"
+      },
+      "c0156_afterTap2": {
+        "held": null,
+        "collapsed": false,
+        "cls": "glass-dock horizontal shape-pill expanded fit-content"
+      },
+      "c0156_after7s": {
+        "held": null,
+        "collapsed": false,
+        "cls": "glass-dock horizontal shape-pill expanded fit-content"
+      }
+    },
+    "coarse-1024x1366": {
+      "env": {
+        "coarse": true,
+        "hoverNone": true,
+        "desktopMQ": true,
+        "appDesktopMQ": false,
+        "rootFont": "16px",
+        "uiScale": "1.5",
+        "touchFloor": "2.75rem"
+      },
+      "dock": {
+        "held": null,
+        "collapsed": false,
+        "cls": "glass-dock horizontal shape-pill expanded fit-content"
+      },
+      "toggle": {
+        "present": true,
+        "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+        "inert": false,
+        "slotW": 137.8,
+        "opacity": "1",
+        "btnTabindex": null,
+        "btnLabel": "Tools"
+      },
+      "dockLayers": [
+        {
+          "active": false,
+          "labels": [
+            "Save edit",
+            "Cancel edit"
+          ]
+        },
+        {
+          "active": false,
+          "labels": [
+            "Switch to slug",
+            "Cancel"
+          ]
+        },
+        {
+          "active": false,
+          "labels": [
+            "Back",
+            "Reset color",
+            "Copy color",
+            "Random color",
+            "Palettes",
+            "Extract palette",
+            "Apply color",
+            "Open color input"
+          ]
+        },
+        {
+          "active": true,
+          "labels": [
+            "Reset color",
+            "Copy color",
+            "Random color",
+            "Palettes",
+            "Extract palette"
+          ]
+        },
+        {
+          "active": false,
+          "labels": [
+            "Apply color"
+          ]
+        },
+        {
+          "active": true,
+          "labels": [
+            "Select view",
+            "Toggle action bar",
+            "Menu"
+          ]
+        }
+      ],
+      "palettesEditControls": []
+    },
+    "phone-390x844": {
+      "env": {
+        "coarse": true,
+        "hoverNone": true,
+        "desktopMQ": false,
+        "appDesktopMQ": false,
+        "rootFont": "16px",
+        "uiScale": "1.5",
+        "touchFloor": "2.75rem"
+      },
+      "c0182_toggle": {
+        "present": true,
+        "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+        "inert": false,
+        "slotW": 56,
+        "opacity": "1",
+        "btnTabindex": null,
+        "btnLabel": ""
+      },
+      "c0159_seatsInDom": 5,
+      "c0159_actionFace": true,
+      "c0171_ariaSnapshot": "- combobox \"Select view\":\n  - img",
+      "c0171_cdp": {
+        "role": "combobox",
+        "name": "Select view",
+        "value": null,
+        "description": null,
+        "props": [
+          "invalid=false",
+          "focusable=true",
+          "hasPopup=listbox",
+          "required=false",
+          "expanded=false"
+        ]
+      },
+      "c0171_textInTrigger": "",
+      "toggleByRoute": {
+        "#/palettes": {
+          "present": true,
+          "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+          "inert": false,
+          "slotW": 56,
+          "opacity": "1",
+          "btnTabindex": null,
+          "btnLabel": ""
+        },
+        "#/mix": {
+          "present": true,
+          "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+          "inert": false,
+          "slotW": 56,
+          "opacity": "1",
+          "btnTabindex": null,
+          "btnLabel": ""
+        },
+        "#/generate": {
+          "present": true,
+          "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+          "inert": false,
+          "slotW": 56,
+          "opacity": "1",
+          "btnTabindex": null,
+          "btnLabel": ""
+        },
+        "#/gradient": {
+          "present": true,
+          "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+          "inert": false,
+          "slotW": 56,
+          "opacity": "1",
+          "btnTabindex": null,
+          "btnLabel": ""
+        }
+      },
+      "c0179_390": {
+        "face": [
+          163.5,
+          132
+        ],
+        "row": [
+          163.5,
+          132
+        ],
+        "seats": [
+          [
+            163.5,
+            44
+          ],
+          [
+            207.5,
+            44
+          ],
+          [
+            251.5,
+            44
+          ]
+        ],
+        "pitch": [
+          44,
+          44
+        ],
+        "states": [
+          "ready",
+          "ready",
+          "ready"
+        ]
+      }
+    }
+  }
+}

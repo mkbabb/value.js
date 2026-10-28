@@ -1,0 +1,86 @@
+{
+ "app": "http://localhost:9227/",
+ "at": "2026-10-20T22:08:39.833Z",
+ "device": "chromium --use-fake-device-for-media-stream (synthetic)",
+ "desk-camera": {
+  "video": {
+   "objectFit": "contain",
+   "box": {
+    "w": 464,
+    "h": 200
+   },
+   "intrinsic": {
+    "vw": 640,
+    "vh": 480
+   },
+   "fractionShown": 1,
+   "playing": true
+  },
+  "ctrls": [
+   {
+    "title": "Capture frame",
+    "aria": null,
+    "w": 40,
+    "h": 40,
+    "disabled": false
+   },
+   {
+    "title": "Cancel camera",
+    "aria": null,
+    "w": 40,
+    "h": 40,
+    "disabled": false
+   }
+  ],
+  "coarse": false,
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 7604
+ },
+ "phone-camera-coarse": {
+  "video": {
+   "objectFit": "contain",
+   "box": {
+    "w": 326,
+    "h": 200
+   },
+   "intrinsic": {
+    "vw": 640,
+    "vh": 480
+   },
+   "fractionShown": 1,
+   "playing": true
+  },
+  "ctrls": [
+   {
+    "title": "Capture frame",
+    "aria": null,
+    "w": 44,
+    "h": 44,
+    "disabled": false
+   },
+   {
+    "title": "Cancel camera",
+    "aria": null,
+    "w": 44,
+    "h": 44,
+    "disabled": false
+   }
+  ],
+  "coarse": true,
+  "streamsBefore": [
+   "live"
+  ],
+  "afterToggle": {
+   "cameraGroup": false,
+   "toggleText": [
+    "Open camera"
+   ]
+  },
+  "errs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9227 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "ms": 8780
+ }
+}

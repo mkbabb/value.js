@@ -1,0 +1,554 @@
+[
+ {
+  "scheme": "light",
+  "seed": "oklch(0.62 0.16 0)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    176,
+    78,
+    151
+   ],
+   "ink": [
+    19,
+    0,
+    5
+   ],
+   "ratio": 4.26
+  },
+  "viewSelect": {
+   "plate": [
+    176,
+    78,
+    151
+   ],
+   "ink": [
+    19,
+    0,
+    5
+   ],
+   "ratio": 4.26
+  },
+  "labelColor": "oklch(0.122416 0.0496263 0)",
+  "seatGlyph": {
+   "plate": [
+    182,
+    79,
+    151
+   ],
+   "ink": [
+    18,
+    15,
+    13
+   ],
+   "ratio": 4.14
+  },
+  "seatStroke": "oklch(0.170602 0.00624853 56.0356)"
+ },
+ {
+  "scheme": "light",
+  "seed": "oklch(0.62 0.16 60)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    196,
+    79,
+    41
+   ],
+   "ink": [
+    12,
+    4,
+    0
+   ],
+   "ratio": 4.35
+  },
+  "viewSelect": {
+   "plate": [
+    196,
+    79,
+    41
+   ],
+   "ink": [
+    12,
+    3,
+    0
+   ],
+   "ratio": 4.37
+  },
+  "labelColor": "oklch(0.118341 0.0277524 60)",
+  "seatGlyph": {
+   "plate": [
+    201,
+    82,
+    36
+   ],
+   "ink": [
+    18,
+    15,
+    13
+   ],
+   "ratio": 4.29
+  },
+  "seatStroke": "oklch(0.170602 0.00624853 56.0356)"
+ },
+ {
+  "scheme": "light",
+  "seed": "oklch(0.62 0.16 120)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    127,
+    121,
+    16
+   ],
+   "ink": [
+    4,
+    6,
+    0
+   ],
+   "ratio": 4.5
+  },
+  "viewSelect": {
+   "plate": [
+    127,
+    121,
+    16
+   ],
+   "ink": [
+    4,
+    5,
+    0
+   ],
+   "ratio": 4.52
+  },
+  "labelColor": "oklch(0.111459 0.0264623 120)",
+  "seatGlyph": {
+   "plate": [
+    128,
+    123,
+    17
+   ],
+   "ink": [
+    18,
+    15,
+    13
+   ],
+   "ratio": 4.33
+  },
+  "seatStroke": "oklch(0.170602 0.00624853 56.0356)"
+ },
+ {
+  "scheme": "light",
+  "seed": "oklch(0.62 0.16 180)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    26,
+    140,
+    97
+   ],
+   "ink": [
+    0,
+    7,
+    5
+   ],
+   "ratio": 4.81
+  },
+  "viewSelect": {
+   "plate": [
+    26,
+    140,
+    97
+   ],
+   "ink": [
+    0,
+    7,
+    5
+   ],
+   "ratio": 4.81
+  },
+  "labelColor": "oklch(0.112373 0.0203878 180)",
+  "seatGlyph": {
+   "plate": [
+    25,
+    142,
+    102
+   ],
+   "ink": [
+    17,
+    15,
+    13
+   ],
+   "ratio": 4.65
+  },
+  "seatStroke": "oklch(0.170602 0.00624853 56.0356)"
+ },
+ {
+  "scheme": "light",
+  "seed": "oklch(0.62 0.16 240)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    25,
+    131,
+    166
+   ],
+   "ink": [
+    0,
+    6,
+    13
+   ],
+   "ratio": 4.69
+  },
+  "viewSelect": {
+   "plate": [
+    25,
+    131,
+    166
+   ],
+   "ink": [
+    0,
+    6,
+    13
+   ],
+   "ratio": 4.69
+  },
+  "labelColor": "oklch(0.11311 0.0259091 240)",
+  "seatGlyph": {
+   "plate": [
+    26,
+    133,
+    171
+   ],
+   "ink": [
+    17,
+    15,
+    13
+   ],
+   "ratio": 4.54
+  },
+  "seatStroke": "oklch(0.170602 0.00624853 56.0356)"
+ },
+ {
+  "scheme": "light",
+  "seed": "oklch(0.62 0.16 300)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    90,
+    105,
+    207
+   ],
+   "ink": [
+    11,
+    0,
+    28
+   ],
+   "ratio": 4.23
+  },
+  "viewSelect": {
+   "plate": [
+    90,
+    105,
+    207
+   ],
+   "ink": [
+    11,
+    0,
+    28
+   ],
+   "ratio": 4.23
+  },
+  "labelColor": "oklch(0.123864 0.0661177 300)",
+  "seatGlyph": {
+   "plate": [
+    98,
+    106,
+    211
+   ],
+   "ink": [
+    18,
+    15,
+    13
+   ],
+   "ratio": 4.11
+  },
+  "seatStroke": "oklch(0.170602 0.00624853 56.0356)"
+ },
+ {
+  "scheme": "dark",
+  "seed": "oklch(0.62 0.16 0)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    71,
+    2,
+    55
+   ],
+   "ink": [
+    247,
+    121,
+    164
+   ],
+   "ratio": 6.18
+  },
+  "viewSelect": {
+   "plate": [
+    71,
+    2,
+    55
+   ],
+   "ink": [
+    201,
+    184,
+    192
+   ],
+   "ratio": 8.34
+  },
+  "labelColor": "oklch(0.732242 0.16 0)",
+  "seatGlyph": {
+   "plate": [
+    76,
+    2,
+    55
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 12.31
+  },
+  "seatStroke": "oklch(0.925202 0.00618423 67.7483)"
+ },
+ {
+  "scheme": "dark",
+  "seed": "oklch(0.62 0.16 60)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    69,
+    14,
+    0
+   ],
+   "ink": [
+    236,
+    137,
+    33
+   ],
+   "ratio": 6.21
+  },
+  "viewSelect": {
+   "plate": [
+    69,
+    14,
+    0
+   ],
+   "ink": [
+    200,
+    187,
+    181
+   ],
+   "ratio": 8.54
+  },
+  "labelColor": "oklch(0.723172 0.16 60)",
+  "seatGlyph": {
+   "plate": [
+    71,
+    17,
+    0
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 12.52
+  },
+  "seatStroke": "oklch(0.925202 0.00618423 67.7483)"
+ },
+ {
+  "scheme": "dark",
+  "seed": "oklch(0.62 0.16 120)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    37,
+    34,
+    0
+   ],
+   "ink": [
+    147,
+    173,
+    26
+   ],
+   "ratio": 6.3
+  },
+  "viewSelect": {
+   "plate": [
+    37,
+    34,
+    0
+   ],
+   "ink": [
+    194,
+    191,
+    181
+   ],
+   "ratio": 8.73
+  },
+  "labelColor": "oklch(0.702429 0.16 120)",
+  "seatGlyph": {
+   "plate": [
+    38,
+    35,
+    0
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 12.76
+  },
+  "seatStroke": "oklch(0.925202 0.00618423 67.7483)"
+ },
+ {
+  "scheme": "dark",
+  "seed": "oklch(0.62 0.16 180)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    3,
+    42,
+    23
+   ],
+   "ink": [
+    0,
+    182,
+    160
+   ],
+   "ratio": 6.08
+  },
+  "viewSelect": {
+   "plate": [
+    3,
+    42,
+    23
+   ],
+   "ink": [
+    187,
+    193,
+    186
+   ],
+   "ratio": 8.5
+  },
+  "labelColor": "oklch(0.695671 0.126216 180)",
+  "seatGlyph": {
+   "plate": [
+    3,
+    44,
+    25
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 12.25
+  },
+  "seatStroke": "oklch(0.925202 0.00618423 67.7483)"
+ },
+ {
+  "scheme": "dark",
+  "seed": "oklch(0.62 0.16 240)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    3,
+    37,
+    52
+   ],
+   "ink": [
+    11,
+    171,
+    249
+   ],
+   "ratio": 6.23
+  },
+  "viewSelect": {
+   "plate": [
+    3,
+    37,
+    52
+   ],
+   "ink": [
+    187,
+    192,
+    192
+   ],
+   "ratio": 8.66
+  },
+  "labelColor": "oklch(0.706682 0.16 240)",
+  "seatGlyph": {
+   "plate": [
+    3,
+    39,
+    55
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 12.51
+  },
+  "seatStroke": "oklch(0.925202 0.00618423 67.7483)"
+ },
+ {
+  "scheme": "dark",
+  "seed": "oklch(0.62 0.16 300)",
+  "title": "Color Picker",
+  "label": {
+   "plate": [
+    30,
+    5,
+    102
+   ],
+   "ink": [
+    183,
+    141,
+    251
+   ],
+   "ratio": 6.48
+  },
+  "viewSelect": {
+   "plate": [
+    30,
+    5,
+    102
+   ],
+   "ink": [
+    193,
+    185,
+    202
+   ],
+   "ratio": 8.72
+  },
+  "labelColor": "oklch(0.726902 0.16 300)",
+  "seatGlyph": {
+   "plate": [
+    36,
+    3,
+    110
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 12.86
+  },
+  "seatStroke": "oklch(0.925202 0.00618423 67.7483)"
+ }
+]

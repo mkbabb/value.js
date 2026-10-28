@@ -1,0 +1,43 @@
+{
+ "empty": {
+  "cls": "group relative transition-colors flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-pointer dashed-well min-h-[180px] max-h-[min(320px,40dvh)]",
+  "border": "1px dashed oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+  "rect": {
+   "x": 224,
+   "y": 201.5625,
+   "width": 462,
+   "height": 180,
+   "top": 201.5625,
+   "right": 686,
+   "bottom": 381.5625,
+   "left": 224
+  },
+  "panes": [
+   "extract",
+   "palettes"
+  ]
+ },
+ "populated": {
+  "railStyle": "background-color: oklch(0.359304 0.112766 40); background-image: linear-gradient(to right, oklch(0.730361 0.122996 45.8552) 0%, oklch(0.730361 0.122996 45.8552) 20%, oklch(0.824576 0.123825 88.8351) 20%, oklch(0.824576 0.123825 88.8351) 40%, oklch(0.56431 0.0764137 51.3142) 40%, oklch(0.56431 0.0764137 51.3142) 60%, oklch(0.717896 0.0970611 141.813) 60%, oklch(0.717896 0.0970611 141.813) 80%, oklch(0.436839 0.0384901 349.17) 80%, oklch(0.436839 0.0384901 349.17) 100%); box-shadow: oklch(0.359304 0.112766 40) 0px 0px 0px 1.5px inset;",
+  "sliders": [
+   {
+    "cls": "glass-slider relative w-full",
+    "variant": "spectrum",
+    "html": "<span data-v-bfbc09b0=\"\" data-slider-impl=\"\" dir=\"ltr\" data-orientation=\"horizontal\" data-slot=\"slider\" class=\"glass-slider relative w-full\" data-control-target=\"\" data-variant=\"spectrum\" data-size=\"md\" aria-label=\"Number of colors\" aria-disabled=\"false\" style=\"--reka-slider-thumb-transform: translateX(-50%); --glass-slider-track-background: transparent;\"><!--teleport start--><!--teleport end--><!--teleport start--><!--teleport end--><span data-orientation=\"horizontal\" class=\"slider-track track-well\"><!----><span data-orientation=\"horizontal\" class=\"slider-range\" style=\"left: 0%; right: 73.333"
+   },
+   {
+    "cls": "glass-slider w-full",
+    "variant": "scrubber",
+    "html": "<span data-v-bfbc09b0=\"\" data-slider-impl=\"\" dir=\"ltr\" data-orientation=\"horizontal\" data-slot=\"slider\" class=\"glass-slider w-full\" data-control-target=\"\" data-variant=\"scrubber\" data-size=\"sm\" aria-label=\"Chroma weight\" aria-disabled=\"false\" style=\"--reka-slider-thumb-transform: translateX(-50%);\"><!--teleport start--><!--teleport end--><!--teleport start--><!--teleport end--><span data-orientation=\"horizontal\" class=\"slider-track track-well\"><!----><span data-orientation=\"horizontal\" class=\"slider-range glass-liquid-fill\" style=\"left: 0%; right: 66.6667%;\"></span></span><span data-reka-colle"
+   }
+  ],
+  "thumbs": [
+   "Number of colors",
+   "Chroma weight"
+  ]
+ },
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5-5
+## nginx:alpine with nginx/fourier.conf + the publish_record conf (hostile detail: quotes, apostrophe, $x, backslash)
+## conf:
+location = /deploy-record.json { default_type application/json; return 200 '{"repo":"mkbabb/fourier-analysis","outcome":"ROLLED_BACK","deployed_sha":"bbb","previous_sha":"aaa","ci_run_id":"42","recorded_at":"2026-10-19T16:54:10Z","detail":"a quoted its x backslash detail"}'; }
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+--- body
+127.0.0.1 - - [19/Oct/2026:17:00:32 +0000] "GET /deploy-record.json HTTP/1.1" 200 197 "-" "Wget" "-"
+{"repo":"mkbabb/fourier-analysis","outcome":"ROLLED_BACK","deployed_sha":"bbb","previous_sha":"aaa","ci_run_id":"42","recorded_at":"2026-10-19T16:54:10Z","detail":"a quoted its x backslash detail"}
+--- headers
+127.0.0.1 - - [19/Oct/2026:17:00:32 +0000] "GET /deploy-record.json HTTP/1.1" 200 197 "-" "Wget" "-"
+  HTTP/1.1 200 OK
+  Content-Type: application/json
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff

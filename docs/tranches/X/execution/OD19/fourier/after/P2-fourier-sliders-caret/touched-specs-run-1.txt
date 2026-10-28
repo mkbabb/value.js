@@ -1,0 +1,119 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 27 tests using 1 worker
+
+[1/27] [chromium] › e2e/f-w14-control-row.spec.ts:226:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales
+[chromium] › e2e/f-w14-control-row.spec.ts:226:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales
+[G-h after 1440] 15 rows
+
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+
+  image           Sample Points                      idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+
+  edit            Magnet radius                      idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+
+[2/27] [chromium] › e2e/f-w14-control-row.spec.ts:226:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales
+[chromium] › e2e/f-w14-control-row.spec.ts:226:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales
+[G-h after 390] 14 rows
+
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=77.8
+
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=77.8
+
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=60
+
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=60
+
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=60
+
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=60
+
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=60
+
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=77.8
+
+  image           Sample Points                      idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=77.8
+
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=77.8
+
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=77.8
+
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=77.8
+
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=77.8
+
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=77.8
+
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+
+[3/27] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › expanded: every element inside the plate
+[4/27] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › expanded: every element inside the plate
+[5/27] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › expanded: every element inside the plate
+[6/27] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › expanded: every element inside the plate
+[7/27] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › expanded: every element inside the plate
+[8/27] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › expanded: every element inside the plate
+[9/27] [chromium] › e2e/f-w14v-u4.spec.ts:109:9 › X.F.W14V.u4 — the stage surface and its readouts › u68 · UIA-F-68 ⊕ F-168 — no cartoon-card stamp inside the stage (1440)
+[10/27] [chromium] › e2e/f-w14v-u4.spec.ts:109:9 › X.F.W14V.u4 — the stage surface and its readouts › u68 · UIA-F-68 ⊕ F-168 — no cartoon-card stamp inside the stage (390)
+[11/27] [chromium] › e2e/f-w14v-u4.spec.ts:130:5 › X.F.W14V.u4 — the stage surface and its readouts › u170 · UIA-F-170 — the legend and the Harmonics readout agree
+[12/27] [chromium] › e2e/f-w14v-u4.spec.ts:150:5 › X.F.W14V.u4 — the stage surface and its readouts › u74 · UIA-F-74 — at 390 a finished upload shows the canvas
+[13/27] [chromium] › e2e/f-w14v-u4.spec.ts:164:9 › X.F.W14V.u4 — the stage surface and its readouts › u71 · UIA-F-71 — the first upload shows one busy mark, in view (1440)
+[14/27] [chromium] › e2e/f-w14v-u4.spec.ts:164:9 › X.F.W14V.u4 — the stage surface and its readouts › u71 · UIA-F-71 — the first upload shows one busy mark, in view (390)
+[15/27] [chromium] › e2e/f-w14v-u4.spec.ts:175:5 › X.F.W14V.u4 — the stage surface and its readouts › u146 · UIA-F-146 — no tooltip on a non-focusable target; no Tooltip as a TransitionGroup child
+[16/27] [chromium] › e2e/f-w14v-u4.spec.ts:194:5 › X.F.W14V.u4 — the stage surface and its readouts › u172 · UIA-F-172 (non-colour limb) — the magnet's state reads in text
+[17/27] [chromium] › e2e/f-w14v-u4.spec.ts:225:5 › X.F.W14V.u4 — the stage surface and its readouts › u238 · UIA-F-238 — reserved compute row, role=status, the tab strip, the header reset, no orphan
+[18/27] [chromium] › e2e/f-w14v-u4.spec.ts:268:5 › X.F.W14V.u4 — the stage surface and its readouts › u239 · UIA-F-239 — no local GlassTimeline; the caret is glass's floating plate
+[19/27] [chromium] › e2e/f-w14v-u4.spec.ts:299:5 › X.F.W14V.u4 — the stage surface and its readouts › u239b · UIA-F-239 — at 390 the legend is clear of the expanded dock
+[20/27] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — light 1440 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+[21/27] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — light 1440 › OD19-F8 · the hovered timeline caret is whole and on top
+[22/27] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — dark 1440 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+[23/27] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — dark 1440 › OD19-F8 · the hovered timeline caret is whole and on top
+[24/27] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — light 390 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+[25/27] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — light 390 › OD19-F8 · the hovered timeline caret is whole and on top
+[26/27] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — dark 390 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+[27/27] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — dark 390 › OD19-F8 · the hovered timeline caret is whole and on top
+  27 passed (1.4m)

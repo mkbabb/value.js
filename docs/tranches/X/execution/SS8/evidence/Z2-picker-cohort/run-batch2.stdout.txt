@@ -1,0 +1,966 @@
+[
+ {
+  "cell": "ci",
+  "ms": 88938,
+  "rest": {
+   "focused": false,
+   "text": "oklch(73% 0.185 2deg)",
+   "border": "rgb(198, 180, 159)",
+   "outline": "none 3px",
+   "shadow": "none",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": null,
+   "badgeOverlapFracOfSend": null,
+   "title": "Color Picker"
+  },
+  "crownKeyframes": [
+   "crown-appear"
+  ],
+  "focused": {
+   "focused": true,
+   "text": "oklch(73% 0.185 2deg)",
+   "border": "oklch(0.73 0.185 2)",
+   "outline": "none 1px",
+   "shadow": "none",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": null,
+   "badgeOverlapFracOfSend": null,
+   "title": "Color Picker"
+  },
+  "afterDegenerate": {
+   "focused": true,
+   "text": "oklch()",
+   "border": "rgb(219, 36, 36)",
+   "outline": "none 1px",
+   "shadow": "color(srgb 0.86 0.14 0.14 / 0.25) 0px 0px 0px 2px",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": "not a valid color",
+   "badgeOverlapFracOfSend": 0.721,
+   "title": "Color Picker"
+  },
+  "afterWord": {
+   "focused": true,
+   "text": "notacolor",
+   "border": "rgb(219, 36, 36)",
+   "outline": "none 1px",
+   "shadow": "color(srgb 0.86 0.14 0.14 / 0.25) 0px 0px 0px 2px",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": "not a valid color",
+   "badgeOverlapFracOfSend": 0.721,
+   "title": "Color Picker"
+  },
+  "debounce": [
+   {
+    "t": 300,
+    "title": "Color Picker"
+   },
+   {
+    "t": 700,
+    "title": "Color Picker"
+   },
+   {
+    "t": 1300,
+    "title": "Color Picker"
+   },
+   {
+    "t": 2400,
+    "title": "rgb(10 200 30) — Color Picker"
+   }
+  ],
+  "popRest": 0,
+  "popOnKeyboardFocus": 0,
+  "popOnHover": 0,
+  "echo": null,
+  "titleAtEcho": "rgb(10 200 30) — Color Picker",
+  "crown": null,
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "ci-forced",
+  "ms": 8177,
+  "rest": {
+   "focused": false,
+   "text": "oklch(73% 0.185 2deg)",
+   "border": "rgb(0, 0, 0)",
+   "outline": "none 3px",
+   "shadow": "none",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": null,
+   "badgeOverlapFracOfSend": null,
+   "title": "Color Picker"
+  },
+  "crownKeyframes": [
+   "crown-appear"
+  ],
+  "focused": {
+   "focused": true,
+   "text": "oklch(73% 0.185 2deg)",
+   "border": "rgb(0, 0, 0)",
+   "outline": "none 1px",
+   "shadow": "none",
+   "ariaInvalid": null,
+   "describedby": null,
+   "sendType": null,
+   "sendLabel": "Apply color",
+   "badge": null,
+   "badgeOverlapFracOfSend": null,
+   "title": "Color Picker"
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "picker-boot-clock",
+  "ms": 4638,
+  "shellAnims": [
+   {
+    "k": "overture-plate-settle",
+    "dur": 450,
+    "at": 189
+   }
+  ],
+  "token": "calc(0.45s * 1)",
+  "live": [
+   {
+    "cls": "card-header card-header--shrink picker-header font-display m",
+    "text": "OKLCh73.0%,0.2,2.0deg",
+    "inReadoutArea": true
+   },
+   {
+    "cls": "card-header card-header--shrink pane-header px-4 sm:px-6 pb-",
+    "text": "About the color spaces, OKLChThe math, the science, the art, the beauty of color",
+    "inReadoutArea": false
+   }
+  ],
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "picker-390",
+  "ms": 5155,
+  "tops": [
+   195,
+   195,
+   195
+  ],
+  "lines": 1,
+  "readoutW": 199,
+  "cellW": [
+   71,
+   43,
+   60
+  ],
+  "visible": true,
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "picker-390x480-scroll",
+  "ms": 6973,
+  "before": {
+   "h": 119.09,
+   "condensed": "false",
+   "hosts": [],
+   "docOver": 7719,
+   "docTop": 0
+  },
+  "after": {
+   "h": 119.09,
+   "condensed": "false",
+   "hosts": [],
+   "docOver": 7799,
+   "docTop": 720
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "css2",
+  "ms": 94508,
+  "about": [
+   {
+    "sp": "ictcp",
+    "combos": [
+     "OKLCh",
+     "OKLCh"
+    ],
+    "definition": "A cylindrical representation of the OKLab color space.",
+    "guideNext": "Historical ContextOKLCh is the polar form of OKLab, published by Björn Ottosson in 2020 to",
+    "cieRgb": false,
+    "href": "http://localhost:8096/#/?space=oklch&color=oklch(72.999999999998%25+0.185+1.999999999995deg)"
+   },
+   {
+    "sp": "jzazbz",
+    "combos": [
+     "Jzazbz",
+     "Jzazbz"
+    ],
+    "definition": "A perceptually-uniform space (Safdar, Kim, Luo, Cui & Melgosa, 2017) for image signals spa",
+    "guideNext": "No long-form guide is written for Jzazbz yet — its definition, white point, gamut, compone",
+    "cieRgb": false,
+    "href": "http://localhost:8096/#/?space=jzazbz&color=oklch(72.999999999997%25+0.185+1.999999999994deg)"
+   },
+   {
+    "sp": "a98-rgb",
+    "combos": [
+     "Adobe RGB",
+     "Adobe RGB"
+    ],
+    "definition": "Adobe's 1998 wide-gamut RGB working space, defined to encompass most colors reachable by C",
+    "guideNext": "No long-form guide is written for Adobe RGB yet — its definition, white point, gamut, comp",
+    "cieRgb": false,
+    "href": "http://localhost:8096/#/?space=a98-rgb&color=color(a98-rgb+0.889950622483+0.4268757578+0.609645189884)"
+   }
+  ],
+  "secondCount": 2,
+  "viaSecond": {
+   "before": {
+    "href": "http://localhost:8096/#/?space=a98-rgb&color=color(a98-rgb+0.889950622483+0.4268757578+0.609645189884)",
+    "readout": "0.9,0.4,0.6"
+   },
+   "after": {
+    "href": "http://localhost:8096/#/?space=lab&color=lab(66.387762887317%25+60.461020605511+3.340544394206)",
+    "readout": "66.4,60.5,3.3",
+    "combos": [
+     "Lab",
+     "Lab"
+    ],
+    "secondHost": "About the color spaces, \nLab\n\nThe math, "
+   }
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "csp-clip",
+  "ms": 6647,
+  "label": "Copied\nReset",
+  "clip": "{\n  \"geometry\": {\n    \"canvasSize\": 200,\n    \"bodyRadius\": 0",
+  "live": [],
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "csp-390-visible",
+  "ms": 6005,
+  "inDom": 31,
+  "rendered": 0,
+  "inViewport": 0,
+  "paneRect": {
+   "x": 16,
+   "w": 358,
+   "y": 104
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ }
+]
+[
+ {
+  "cell": "css",
+  "ms": 20308,
+  "rows": 18,
+  "census": [
+   {
+    "space": "rgb",
+    "caption": "color(srgb 1.009 0.4286 0.6218)",
+    "captionTitle": "Outside RGB's gamut — shown as measured, not mapped",
+    "maxDecimals": 4,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "143",
+    "filter": "url(\"#watercolor-filter-v-106\")"
+   },
+   {
+    "space": "hsl",
+    "caption": "hsl · 340 · 103.2 · 71.88",
+    "captionTitle": "Outside HSL's gamut — shown as measured, not mapped",
+    "maxDecimals": 2,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "155",
+    "filter": "url(\"#watercolor-filter-v-108\")"
+   },
+   {
+    "space": "hsv",
+    "caption": "hsv · 340 · 0.5753 · 1.009",
+    "captionTitle": "Outside HSV's gamut — shown as measured, not mapped",
+    "maxDecimals": 4,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "165",
+    "filter": "url(\"#watercolor-filter-v-110\")"
+   },
+   {
+    "space": "hwb",
+    "caption": "hwb · 340 · 42.86 · -0.9097",
+    "captionTitle": "Outside HWB's gamut — shown as measured, not mapped",
+    "maxDecimals": 4,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "21",
+    "filter": "url(\"#watercolor-filter-v-112\")"
+   },
+   {
+    "space": "lab",
+    "caption": "lab(66.39% 60.46 3.341)",
+    "captionTitle": null,
+    "maxDecimals": 3,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "67",
+    "filter": "url(\"#watercolor-filter-v-114\")"
+   },
+   {
+    "space": "lch",
+    "caption": "lch(66.39% 60.55 3.162deg)",
+    "captionTitle": null,
+    "maxDecimals": 3,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "139",
+    "filter": "url(\"#watercolor-filter-v-116\")"
+   },
+   {
+    "space": "oklab",
+    "caption": "oklab(73% 0.1849 0.0065)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "189",
+    "filter": "url(\"#watercolor-filter-v-118\")"
+   },
+   {
+    "space": "oklch",
+    "caption": "oklch(73% 0.185 2deg)",
+    "captionTitle": null,
+    "maxDecimals": 3,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "5",
+    "filter": "url(\"#watercolor-filter-v-120\")"
+   },
+   {
+    "space": "xyz",
+    "caption": "color(xyz 0.5382 0.3519 0.3656)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "127",
+    "filter": "url(\"#watercolor-filter-v-122\")"
+   },
+   {
+    "space": "kelvin",
+    "caption": "kelvin · 2980",
+    "captionTitle": null,
+    "maxDecimals": 0,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "125",
+    "filter": "url(\"#watercolor-filter-v-124\")"
+   },
+   {
+    "space": "srgb-linear",
+    "caption": "color(srgb-linear 1.021 0.1538 0.3446)",
+    "captionTitle": "Outside sRGB Linear's gamut — shown as measured, not mapped",
+    "maxDecimals": 4,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "106",
+    "filter": "url(\"#watercolor-filter-v-126\")"
+   },
+   {
+    "space": "display-p3",
+    "caption": "color(display-p3 0.939 0.4644 0.62)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "250",
+    "filter": "url(\"#watercolor-filter-v-128\")"
+   },
+   {
+    "space": "a98-rgb",
+    "caption": "color(a98-rgb 0.89 0.4269 0.6096)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "206",
+    "filter": "url(\"#watercolor-filter-v-130\")"
+   },
+   {
+    "space": "prophoto-rgb",
+    "caption": "color(prophoto-rgb 0.7801 0.4572 0.5434)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "55",
+    "filter": "url(\"#watercolor-filter-v-132\")"
+   },
+   {
+    "space": "rec2020",
+    "caption": "color(rec2020 0.865 0.5279 0.6371)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "18",
+    "filter": "url(\"#watercolor-filter-v-134\")"
+   },
+   {
+    "space": "ictcp",
+    "caption": "ictcp · 0.4782 · 0.0634 · 0.1333",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "7",
+    "filter": "url(\"#watercolor-filter-v-136\")"
+   },
+   {
+    "space": "jzazbz",
+    "caption": "jzazbz · 0.1589 · 0.0894 · 0.0146",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "111",
+    "filter": "url(\"#watercolor-filter-v-138\")"
+   },
+   {
+    "space": "hex",
+    "caption": "#ff6d9f",
+    "captionTitle": "Outside Hex's gamut — shown as measured, not mapped",
+    "maxDecimals": 0,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "217",
+    "filter": "url(\"#watercolor-filter-v-140\")"
+   }
+  ],
+  "about": [
+   {
+    "sp": "display-p3",
+    "readoutTitle": "Display P3",
+    "mentionsCIERGB": false,
+    "heads": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Display P3",
+      "nextText": "The math, the science, the art, the beauty of color spaces."
+     },
+     {
+      "tag": "H2",
+      "text": "Definition",
+      "nextText": "A display-referred wide-gamut space: the DCI-P3 primaries ca"
+     },
+     {
+      "tag": "H2",
+      "text": "Basic information",
+      "nextText": "Device dependency:Device-dependent (P3 primaries)White point"
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "nextText": "Red0 to 1Green0 to 1Blue0 to 1"
+     },
+     {
+      "tag": "H2",
+      "text": "Key properties",
+      "nextText": "Perceptual uniformity:NoHue linearity:NoLightness separation"
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion graph",
+      "nextText": "Display P3XYZDisplay P3XYZRGBDisplay P3XYZOKLab"
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "nextText": "Common applications: Wide-gamut web content, Photography on "
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "nextText": "No long-form guide is written for Display P3 yet — its defin"
+     }
+    ],
+    "aboutHead": "About the color spaces, Display P3 The math, the science, the art, the beauty of color spaces. Definition A display-referred wide-gamut space: the DCI-P3 pr"
+   },
+   {
+    "sp": "rec2020",
+    "readoutTitle": "Rec. 2020",
+    "mentionsCIERGB": false,
+    "heads": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Rec. 2020",
+      "nextText": "The math, the science, the art, the beauty of color spaces."
+     },
+     {
+      "tag": "H2",
+      "text": "Definition",
+      "nextText": "The ultra-high-definition broadcast space whose red, green a"
+     },
+     {
+      "tag": "H2",
+      "text": "Basic information",
+      "nextText": "Device dependency:Device-dependent (BT.2020 primaries)White "
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "nextText": "Red0 to 1Green0 to 1Blue0 to 1"
+     },
+     {
+      "tag": "H2",
+      "text": "Key properties",
+      "nextText": "Perceptual uniformity:NoHue linearity:NoLightness separation"
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion graph",
+      "nextText": "Rec. 2020XYZRec. 2020XYZRGBRec. 2020ICtCp"
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "nextText": "Common applications: UHD and HDR broadcast, 4K and 8K master"
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "nextText": "No long-form guide is written for Rec. 2020 yet — its defini"
+     }
+    ],
+    "aboutHead": "About the color spaces, Rec. 2020 The math, the science, the art, the beauty of color spaces. Definition The ultra-high-definition broadcast space whose red"
+   },
+   {
+    "sp": "ictcp",
+    "readoutTitle": "OKLCh",
+    "mentionsCIERGB": false,
+    "heads": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, OKLCh",
+      "nextText": "The math, the science, the art, the beauty of color spaces."
+     },
+     {
+      "tag": "H2",
+      "text": "Definition",
+      "nextText": "A cylindrical representation of the OKLab color space."
+     },
+     {
+      "tag": "H2",
+      "text": "Basic information",
+      "nextText": "Device dependency:Device-independentWhite point:D65Gamut:Unl"
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "nextText": "L (Lightness)0% to 100%C (Chroma)0 to 0.5h (hue)0deg to 360d"
+     },
+     {
+      "tag": "H2",
+      "text": "Key properties",
+      "nextText": "Perceptual uniformity:Yes (inherited from OKLab)Hue linearit"
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion graph",
+      "nextText": "OKLChOKLabOKLChOKLabXYZOKLChOKLabXYZLab"
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "nextText": "Common applications: Color selection, Color harmony, Gradien"
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "nextText": "Historical ContextOKLCh is the polar form of OKLab, publishe"
+     }
+    ],
+    "aboutHead": "About the color spaces, OKLCh The math, the science, the art, the beauty of color spaces. Definition A cylindrical representation of the OKLab color space. "
+   },
+   {
+    "sp": "jzazbz",
+    "readoutTitle": "OKLCh",
+    "mentionsCIERGB": false,
+    "heads": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, OKLCh",
+      "nextText": "The math, the science, the art, the beauty of color spaces."
+     },
+     {
+      "tag": "H2",
+      "text": "Definition",
+      "nextText": "A cylindrical representation of the OKLab color space."
+     },
+     {
+      "tag": "H2",
+      "text": "Basic information",
+      "nextText": "Device dependency:Device-independentWhite point:D65Gamut:Unl"
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "nextText": "L (Lightness)0% to 100%C (Chroma)0 to 0.5h (hue)0deg to 360d"
+     },
+     {
+      "tag": "H2",
+      "text": "Key properties",
+      "nextText": "Perceptual uniformity:Yes (inherited from OKLab)Hue linearit"
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion graph",
+      "nextText": "OKLChOKLabOKLChOKLabXYZOKLChOKLabXYZLab"
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "nextText": "Common applications: Color selection, Color harmony, Gradien"
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "nextText": "Historical ContextOKLCh is the polar form of OKLab, publishe"
+     }
+    ],
+    "aboutHead": "About the color spaces, OKLCh The math, the science, the art, the beauty of color spaces. Definition A cylindrical representation of the OKLab color space. "
+   },
+   {
+    "sp": "lab",
+    "readoutTitle": "Lab",
+    "mentionsCIERGB": false,
+    "heads": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Lab",
+      "nextText": "The math, the science, the art, the beauty of color spaces."
+     },
+     {
+      "tag": "H2",
+      "text": "Definition",
+      "nextText": "The L*a*b* color space is a three-dimensional color model de"
+     },
+     {
+      "tag": "H2",
+      "text": "Basic information",
+      "nextText": "Device dependency:Device-independentWhite point:Variable (ty"
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "nextText": "L* (Lightness)0% to 100%a* (Green-Red)-125 to 125b* (Blue-Ye"
+     },
+     {
+      "tag": "H2",
+      "text": "Key properties",
+      "nextText": "Perceptual uniformity:YesHue linearity:NoLightness separatio"
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion graph",
+      "nextText": "LabXYZLabLChLabXYZOKLabLabLChOKLCh"
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "nextText": "Common applications: Color 
+[
+ {
+  "cell": "parity-1440",
+  "ms": 91318,
+  "rest": [
+   {
+    "n": "Reset color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Copy color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Random color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Palettes",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Extract palette",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Open color input",
+    "inDom": 1,
+    "visible": 0
+   }
+  ],
+  "steps": [
+   {
+    "label": "Toggle action bar",
+    "clickable": true,
+    "after": [
+     {
+      "n": "Reset color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Copy color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Random color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Palettes",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Extract palette",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Open color input",
+      "inDom": 1,
+      "visible": 1
+     }
+    ],
+    "menuItems": []
+   },
+   {
+    "label": "Menu",
+    "clickable": false
+   }
+  ],
+  "colorEntry": {
+   "openVisible": true,
+   "fieldVisible": false
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "parity-390",
+  "ms": 43195,
+  "rest": [
+   {
+    "n": "Reset color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Copy color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Random color",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Palettes",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Extract palette",
+    "inDom": 1,
+    "visible": 0
+   },
+   {
+    "n": "Open color input",
+    "inDom": 1,
+    "visible": 0
+   }
+  ],
+  "steps": [
+   {
+    "label": "Toggle action bar",
+    "clickable": true,
+    "after": [
+     {
+      "n": "Reset color",
+      "inDom": 0,
+      "visible": 0
+     },
+     {
+      "n": "Copy color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Random color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Palettes",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Extract palette",
+      "inDom": 0,
+      "visible": 0
+     },
+     {
+      "n": "Open color input",
+      "inDom": 1,
+      "visible": 1
+     }
+    ],
+    "menuItems": []
+   },
+   {
+    "label": "Menu",
+    "clickable": true,
+    "after": [
+     {
+      "n": "Reset color",
+      "inDom": 0,
+      "visible": 0
+     },
+     {
+      "n": "Copy color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Random color",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Palettes",
+      "inDom": 1,
+      "visible": 1
+     },
+     {
+      "n": "Extract palette",
+      "inDom": 0,
+      "visible": 0
+     },
+     {
+      "n": "Open color input",
+      "inDom": 1,
+      "visible": 1
+     }
+    ],
+    "menuItems": []
+   }
+  ],
+  "colorEntry": {
+   "openVisible": true,
+   "fieldVisible": true,
+   "titleAfter": "rgb(10 200 30) — Color Picker"
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "0": {
+   "tag": "DIV",
+   "role": null,
+   "live": "polite",
+   "cls": "card-header card-header--shrink picker-header font-display m-0 pb-0 [--card-pad:",
+   "text": "OKLCh73.0%,0.2,2.0deg",
+   "inReadout": false,
+   "pane": "73.0%,0.2,2.0deg"
+  },
+  "1

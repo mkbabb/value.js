@@ -1,0 +1,507 @@
+{
+ "cell": "light",
+ "ms": 76959,
+ "result": {
+  "base": {
+   "port": {
+    "w": 462,
+    "h": 472.59375,
+    "scrollW": 462,
+    "clientW": 462,
+    "rowDisplay": "grid"
+   },
+   "tiles": 27,
+   "tileHist": {
+    "47.26x47.26": 1,
+    "44x44": 26
+   },
+   "geo": [
+    {
+     "id": "linear",
+     "w": 47.26,
+     "h": 47.26,
+     "radius": "0px",
+     "labelW": 36.94,
+     "labelOverTile": -10.33,
+     "labelTopGap": 2.37
+    },
+    {
+     "id": "ease",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 32.75,
+     "labelOverTile": -11.25,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 11.77,
+     "labelOverTile": -32.23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-out",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 21,
+     "labelOverTile": -23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-out",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 37.78,
+     "labelOverTile": -6.22,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-sine",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 11.77,
+     "labelOverTile": -32.23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-out-sine",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 21,
+     "labelOverTile": -23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-out-sine",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 37.78,
+     "labelOverTile": -6.22,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-quad",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 11.77,
+     "labelOverTile": -32.23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-out-quad",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 21,
+     "labelOverTile": -23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-out-quad",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 37.78,
+     "labelOverTile": -6.22,
+     "labelTopGap": 4
+    },
+    {
+     "id": "smooth-step-3",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 49.53,
+     "labelOverTile": 5.53,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-cubic",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 11.77,
+     "labelOverTile": -32.23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-out-cubic",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 21,
+     "labelOverTile": -23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-out-cubic",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 37.78,
+     "labelOverTile": -6.22,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-expo",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 11.77,
+     "labelOverTile": -32.23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-out-expo",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 21,
+     "labelOverTile": -23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-out-expo",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 37.78,
+     "labelOverTile": -6.22,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-circ",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 11.77,
+     "labelOverTile": -32.23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-out-circ",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 21,
+     "labelOverTile": -23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-out-circ",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 37.78,
+     "labelOverTile": -6.22,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-back",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 11.77,
+     "labelOverTile": -32.23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-out-back",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 21,
+     "labelOverTile": -23,
+     "labelTopGap": 4
+    },
+    {
+     "id": "ease-in-out-back",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 37.78,
+     "labelOverTile": -6.22,
+     "labelTopGap": 4
+    },
+    {
+     "id": "steps",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 34.02,
+     "labelOverTile": -9.98,
+     "labelTopGap": 4
+    },
+    {
+     "id": "step-start",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 29.38,
+     "labelOverTile": -14.63,
+     "labelTopGap": 4
+    },
+    {
+     "id": "step-end",
+     "w": 44,
+     "h": 44,
+     "radius": "0px",
+     "labelW": 25.2,
+     "labelOverTile": -18.8,
+     "labelTopGap": 4
+    }
+   ],
+   "labelsWiderThanTile": 1,
+   "tile0": {
+    "cls": "glass-chip glass-capsule accent-tone inline-flex items-center justify-center font-sans text-muted-foreground select-none glass-chip--interactive glass-capsule-hover focus-ring cursor-pointer disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-disabled gap-1.5 px-3.5 py-1.5 text-small glass-chip--icon aspect-square p-0 size-10 specimen-tile",
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "backdrop": "blur(20px) saturate(1.5)",
+    "radius": "0px"
+   },
+   "selectedId": "linear",
+   "motionAccent": "oklch(28.678697193973% 0.048973056413 205deg)",
+   "selLabelColor": "oklch(0.286787 0.0489731 205)",
+   "selLabelWeight": "600",
+   "unselLabelColor": "oklch(0.292283 0.00386159 34.63)",
+   "eyebrowColor": "oklch(0.292283 0.00386159 34.63)",
+   "selGlyphStroke": "oklch(0.286787 0.0489731 205)",
+   "restGlyphStroke": "oklab(0.216129 0.00349092 0.00518243 / 0.65)",
+   "type": {
+    "tileLabel": "14.384px",
+    "eyebrow": "14.384px",
+    "readout": "16.4px",
+    "headName": "16.4px",
+    "readoutFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+   },
+   "chain": [
+    {
+     "el": "div.fading-scroll.fading-scroll--x.specimen-strip",
+     "boxShadow": "none",
+     "bg": "rgba(0, 0, 0, 0)"
+    },
+    {
+     "el": "div.disclosure-content-body.easing-row-body.flex",
+     "boxShadow": "none",
+     "bg": "rgba(0, 0, 0, 0)"
+    },
+    {
+     "el": "div.disclosure-content",
+     "boxShadow": "none",
+     "bg": "rgba(0, 0, 0, 0)"
+    },
+    {
+     "el": "div.disclosure-item.easing-row.border-card-edge",
+     "boxShadow": "none",
+     "bg": "rgba(0, 0, 0, 0)"
+    },
+    {
+     "el": "div.disclosure.easing-panel.flex",
+     "boxShadow": "none",
+     "bg": "rgba(0, 0, 0, 0)"
+    },
+    {
+     "el": "div.flex.flex-col.gap-5",
+     "boxShadow": "none",
+     "bg": "rgba(0, 0, 0, 0)"
+    }
+   ],
+   "rowShadow": "none",
+   "panelShadow": "none",
+   "dom": {
+    "all": 589,
+    "strips": 1,
+    "stripEls": 161,
+    "share": 27.3,
+    "perStrip": 161
+   },
+   "radius": {
+    "root": "0.625rem",
+    "input": "",
+    "railBtn": "10px",
+    "railBtnResolved": "10px"
+   }
+  },
+  "px": {
+   "trough": {
+    "on": {
+     "rgb": [
+      186.6,
+      100.4,
+      144.3
+     ],
+     "L": 0.2175,
+     "n": 72
+    },
+    "off": {
+     "rgb": [
+      207.8,
+      111.2,
+      159.6
+     ],
+     "L": 0.2732,
+     "n": 72
+    },
+    "dL": 0.0557
+   },
+   "below": {
+    "on": {
+     "rgb": [
+      190,
+      102.7,
+      146.1
+     ],
+     "L": 0.2268,
+     "n": 216
+    },
+    "off": {
+     "rgb": [
+      207.7,
+      111,
+      159.4
+     ],
+     "L": 0.2726,
+     "n": 216
+    },
+    "dL": 0.0458
+   },
+   "control": {
+    "on": {
+     "rgb": [
+      164.8,
+      93.1,
+      131.1
+     ],
+     "L": 0.2005,
+     "n": 1820
+    },
+    "off": {
+     "rgb": [
+      165.8,
+      93.7,
+      132
+     ],
+     "L": 0.2032,
+     "n": 1820
+    },
+    "dL": 0.0027
+   },
+   "tileFill": {
+    "on": {
+     "rgb": [
+      196.8,
+      137.6,
+      168.1
+     ],
+     "L": 0.3273,
+     "n": 64
+    },
+    "off": {
+     "rgb": [
+      197.1,
+      137.5,
+      168.1
+     ],
+     "L": 0.3277,
+     "n": 64
+    },
+    "dL": 0.0004
+   },
+   "selFill": {
+    "on": {
+     "rgb": [
+      196.8,
+      137.6,
+      168.1
+     ],
+     "L": 0.3273,
+     "n": 64
+    },
+    "off": {
+     "rgb": [
+      197.1,
+      137.5,
+      168.1
+     ],
+     "L": 0.3277,
+     "n": 64
+    },
+    "dL": 0.0004
+   },
+   "selLabBg": {
+    "on": {
+     "rgb": [
+      199.8,
+      106.6,
+      151.9
+     ],
+     "L": 0.2496,
+     "n": 156
+    },
+    "off": {
+     "rgb": [
+      209.3,
+      111.2,
+      159.1
+     ],
+     "L": 0.2752,
+     "n": 156
+    },
+    "dL": 0.0256
+   },
+   "whole": {
+    "on": {
+     "rgb": [
+      205.4,
+      125.4,
+      149.4
+     ],
+     "L": 0.3048,
+     "n": 873180
+    },
+    "off": {
+     "rgb": [
+      207.8,
+      126.7,
+      151.1
+     ],
+     "L": 0.3119,
+     "n": 873180
+    },
+    "dL": 0.0071
+   }
+  },
+  "diff": {
+   "changedPx": 214981,
+   "totalPx": 874104,
+   "pct": 24.59,
+   "maxSumDelta": 91
+  },
+  "contrast": {
+   "selVsUnselLabel": 1.003,
+   "selLabelOnPlate": 4.013,
+   "selGlyphOnCapsule": 5.057,
+   "unselLabelOnPlate": 4.002,
+   "eyebrowOnPlate": 3.002,
+   "inkOklch": [
+    0.2859,
+    0.0489,
+    205.6
+   ]
+  },
+  "pageErrors": [],
+  "consoleErrors": [
+   "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9022' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "Failed to load resource: net::ERR_FAILED"
+  ]
+ }
+}

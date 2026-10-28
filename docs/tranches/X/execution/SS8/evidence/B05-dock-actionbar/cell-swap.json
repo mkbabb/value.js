@@ -1,0 +1,33 @@
+{
+ "before": {
+  "seat": "gradient.copyCSS",
+  "hints": [
+   {
+    "text": "Copy CSSCopy the gradient CSS to clipboard.",
+    "x": 598
+   }
+  ],
+  "tokens": [
+   "gradient.reset",
+   "gradient.copyCSS",
+   "gradient.seedFromPalette"
+  ]
+ },
+ "after": {
+  "hash": "#/mix",
+  "barPresent": true,
+  "tokens": [
+   "mix.clearSelection",
+   "mix.startMix",
+   "mix.copyResult"
+  ],
+  "hints": [
+   {
+    "text": "MixMix the selected colors.",
+    "x": 598.2
+   }
+  ],
+  "underPointer": "Mix"
+ },
+ "note": "route change driven by location.hash (keyboard-equivalent: no pointer event), pointer never moved"
+}

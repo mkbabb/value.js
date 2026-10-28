@@ -96,10 +96,32 @@ function rightPanes(): string[] {
     return [
         ...new Set(
             [...src.matchAll(/role: "inspector", pane: "([a-z][a-z-]*)"/g)].map((m) =>
-                required(m[1], "viewSchema.ts inspector region: a pane matched with no capture"),
+                required(
+                    m[1],
+                    "viewSchema.ts inspector region: a pane matched with no capture",
+                ),
             ),
         ),
     ];
+}
+
+/** VIEW_MAP[id].regions[].pane, in order, read from `viewSchema.ts` as bytes. */
+function regionPanes(id: string): string[] {
+    const src = readFileSync(VIEW_SCHEMA, "utf8");
+    const key = id.includes("-") ? `"${id}"` : id;
+    const entry = new RegExp(
+        `\\n {4}${key}: \\{[\\s\\S]*?regions: \\[([\\s\\S]*?)\\]`,
+    ).exec(src);
+    const body = required(
+        entry?.[1],
+        `viewSchema.ts VIEW_MAP.${id} declares no \`regions: [ … ]\``,
+    );
+    return [...body.matchAll(/pane: "([a-z][a-z-]*)"/g)].map((m) =>
+        required(
+            m[1],
+            `viewSchema.ts VIEW_MAP.${id}: a region pane matched with no capture`,
+        ),
+    );
 }
 
 test("the visual census is exactly the router's route table", () => {
@@ -122,7 +144,7 @@ test("the visual census is exactly viewSchema's ViewId union", () => {
 test("every pane-hosted surface is reachable by some cell", () => {
     // R34's Katex R6 limb: About is a PANE, not a route, so a route-only matrix
     // can never photograph it. Each inspector pane must be the `right` of at
-    // least one census route, and at 390 that pane must get its own cell.
+    // least one census route; the frame that photographs the route holds it.
     // `Set<string>`, not `Set<CensusRightPane>`: the members come from the
     // product's own source text (`rightPanes()` reads `viewSchema.ts` as bytes),
     // so they are `string` by construction. A `Set` keyed on the literal union
@@ -141,19 +163,33 @@ test("every pane-hosted surface is reachable by some cell", () => {
     }
 
     for (const route of ROUTE_CENSUS) {
-        const mobilePanes = panesFor(route, "390");
-        if (route.right === null) {
+        // X.W11.h14 (2026-10-20, E14): the shell mounts every region at every
+        // width and stacks them into one column where two tracks do not fit, so
+        // a full-page frame witnesses the whole scene at 390 as at desktop —
+        // one cell per (route, viewport, scheme). The regions themselves are
+        // held to viewSchema by the next test, and `showPane` proves each frame
+        // holds them.
+        for (const viewport of VIEWPORTS)
             expect(
-                mobilePanes,
-                `${route.id} is single-pane and must mint one mobile cell`,
+                panesFor(route, viewport.id),
+                `${route.id} at ${viewport.id}: every region is in the one frame, so one cell`,
             ).toEqual([0]);
-        } else {
-            expect(
-                mobilePanes,
-                `${route.id} hosts "${route.right}" in its right pane; at 390 only one pane ` +
-                    "renders, so BOTH panes need their own cell or the sibling is unwitnessed",
-            ).toEqual([0, 1]);
-        }
+    }
+});
+
+test("every census route names exactly viewSchema's regions, in order", () => {
+    // The census's `left`/`right` are a copy of VIEW_MAP[id].regions[].pane;
+    // a copy that drifts photographs a scene the product no longer renders
+    // (measured at E14: the five admin consoles kept a `palettes` companion
+    // X.W5.c's M-DU11 had removed, and their 390 sibling cells read
+    // "unreachable"). So the copy is checked against the bytes.
+    for (const route of ROUTE_CENSUS) {
+        const declared =
+            route.right === null ? [route.left] : [route.left, route.right];
+        expect(
+            declared,
+            `census.ts ${route.id} and viewSchema.ts VIEW_MAP.${route.id}.regions disagree`,
+        ).toEqual(regionPanes(route.id));
     }
 });
 

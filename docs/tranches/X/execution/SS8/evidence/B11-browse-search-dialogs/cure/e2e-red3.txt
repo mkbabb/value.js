@@ -1,0 +1,79 @@
+(node:98933) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:98981) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+Running 4 tests using 1 worker
+(node:99093) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1/4] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason
+  1) [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason 
+    Error: expect(locator).toBeVisible() failed
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)')
+      41 |     await page.goto("/#/browse");
+      42 |     const main = mainPane(page);
+    > 43 |     await expect(main).toBeVisible();
+         |                        ^
+      44 |     await main.getByRole("button", { name: "Palette menu" }).first().click();
+      45 |     await page.getByRole("menuitem", { name: /Report/ }).click();
+      46 |     // FlagReportDialog: Spam radio + Report button.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-flag.spec.ts:43:24
+    Error Context: test-results/flows-palette-flag-flag-a--15b16-ettes-slug-flag-with-reason-smoke/error-context.md
+(node:2434) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger
+  2) [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger 
+    Error: expect(locator).toBeVisible() failed
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)')
+      76 |         await page.goto("/#/browse");
+      77 |         const main = mainPane(page);
+    > 78 |         await expect(main).toBeVisible();
+         |                            ^
+      79 |         const trigger = main.getByRole("button", { name: /Palette menu/ }).first();
+      80 |         await trigger.click();
+      81 |         await page.getByRole("menuitem", { name: /Report/ }).click();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-flag.spec.ts:78:28
+    Error Context: test-results/flows-palette-flag-SS8-030-a78f2-to-the-Palette-menu-trigger-smoke/error-context.md
+(node:6555) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/4] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger
+  3) [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger 
+    Error: expect(locator).toBeFocused() failed
+    Locator:  locator('main[aria-labelledby="route-title"]:has(h1#route-title)').getByRole('button', { name: /Palette menu/ }).first()
+    Expected: focused
+    Received: inactive
+    Timeout:  8000ms
+    Call log:
+      - Expect "toBeFocused" with timeout 8000ms
+      - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)').getByRole('button', { name: /Palette menu/ }).first()
+        20 × locator resolved to <button type="button" data-size="sm" data-v-720004ec="" data-tone="neutral" data-press-armed="" data-state="closed" aria-haspopup="menu" data-emphasis="quiet" data-icon-only="true" aria-expanded="false" data-control-target="" data-slot="menu-trigger" id="reka-dropdown-menu-trigger-v-3" aria-label="Palette menu for Shady Spam" class="button tap-squish focus-ring menu__trigger shrink-0">…</button>
+           - unexpected value "inactive"
+      93 |
+      94 |         await expect(dialog).toHaveCount(0);
+    > 95 |         await expect(trigger).toBeFocused();
+         |                               ^
+      96 |     });
+      97 | }
+      98 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-flag.spec.ts:95:31
+    Error Context: test-results/flows-palette-flag-SS8-030-ac479-to-the-Palette-menu-trigger-smoke/error-context.md
+(node:7517) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[4/4] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Escape returns focus to the Palette menu trigger
+  3 failed
+    [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason 
+    [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger 
+    [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger 
+  1 passed (2.3m)
+exit=1

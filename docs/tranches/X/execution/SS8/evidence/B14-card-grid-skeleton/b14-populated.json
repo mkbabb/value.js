@@ -1,0 +1,113 @@
+{
+ "gridContain": [
+  {
+   "cls": "[120px] transition-opacity duration-fast",
+   "contain": "content",
+   "h": 825
+  },
+  {
+   "cls": "-3 min-h-[120px] palettes-companion-grid",
+   "contain": "content",
+   "h": 120
+  }
+ ],
+ "articleHeights": [
+  127.5
+ ],
+ "articleCount": 6,
+ "firstArticleRows": [
+  {
+   "tag": "DIV",
+   "cls": "palette-specimen",
+   "h": 0
+  },
+  {
+   "tag": "DIV",
+   "cls": "overflow-hidden flex h-10 w-full palette-specimen_",
+   "h": 40
+  },
+  {
+   "tag": "DIV",
+   "cls": "palette-specimen__head",
+   "h": 50.5
+  },
+  {
+   "tag": "DIV",
+   "cls": "palette-meta",
+   "h": 35
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "flex items-center gap-1 px-1.5 py-0.5 rounded-sm h",
+   "h": 27
+  },
+  {
+   "tag": "DIV",
+   "cls": "disclosure contents",
+   "h": 0
+  },
+  {
+   "tag": "DIV",
+   "cls": "palette-card__menu flex items-center gap-1",
+   "h": 36
+  },
+  {
+   "tag": "DIV",
+   "cls": "palette-card__detail",
+   "h": 0
+  }
+ ],
+ "nameRow": {
+  "cls": "palette-specimen",
+  "h": 0
+ },
+ "axLists": [
+  {
+   "name": "",
+   "ignored": false,
+   "childRoles": []
+  },
+  {
+   "name": "",
+   "ignored": false,
+   "childRoles": [
+    "article",
+    "article",
+    "article",
+    "article",
+    "article",
+    "article"
+   ]
+  },
+  {
+   "name": "",
+   "ignored": false,
+   "childRoles": [
+    "status"
+   ]
+  }
+ ],
+ "castRest": {
+  "caster": "none in card subtree",
+  "rootTransform": "none",
+  "rootScale": "none"
+ },
+ "castPressed": {
+  "caster": "none in card subtree",
+  "rootTransform": "none",
+  "rootScale": "1.0093 0.9514"
+ },
+ "containDiff": {
+  "clip": {
+   "x": 200,
+   "y": 225.5625,
+   "width": 510,
+   "height": 674.4375
+  },
+  "w": 510,
+  "h": 674,
+  "changedPx": 0,
+  "maxDelta": 0,
+  "bbox": null
+ }
+}

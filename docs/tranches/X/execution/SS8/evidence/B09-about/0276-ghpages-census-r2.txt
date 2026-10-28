@@ -1,0 +1,13 @@
+built: npx vite build --mode gh-pages --outDir <scratch>/ghp (guarded, exit 0) at HEAD a63439fcd + working tree, 2026-10-19T18:47:29Z
+files total:      166
+assets/:      158
+KaTeX font files:       60
+vendor chunks:
+32060 vendor-highlight-D9VP3A7h.js
+28482 vendor-katex-BorAY7qD.css
+258876 vendor-katex-DJ58vqXJ.js
+modulepreload count:       21
+vendor-katex in index.html modulepreload set:        0
+importers of vendor-katex:
+Katex-PdJgJR1F.js
+index-CBUay0Sx.js

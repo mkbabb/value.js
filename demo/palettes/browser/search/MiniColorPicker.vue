@@ -15,10 +15,14 @@
                 @pointercancel="endDrag"
                 @lostpointercapture="endDrag"
             >
-                <!-- Thumb -->
+                <!-- Thumb. SS8-0319/0323 (MCP-16's X-W7 rider): the ring takes the
+                     plate's own field-aware ink (`spectrumFieldIsLight`, the
+                     predicate the main picker's dot and needle share), so it
+                     clears 3:1 against every field; the fixed white border +
+                     black/40 ring read 1.27-2.86:1 on light fields. -->
                 <div
-                    class="absolute w-4 h-4 rounded-full border-2 border-white ring-1 ring-black/40 pointer-events-none -translate-x-1/2 -translate-y-1/2"
-                    :style="{ left: `${sat * 100}%`, top: `${(1 - val) * 100}%`, background: currentHex }"
+                    class="absolute w-4 h-4 rounded-full border-2 pointer-events-none -translate-x-1/2 -translate-y-1/2"
+                    :style="{ left: `${sat * 100}%`, top: `${(1 - val) * 100}%`, background: currentHex, borderColor: thumbInk }"
                 />
             </div>
 
@@ -33,9 +37,11 @@
                 @pointercancel="endDrag"
                 @lostpointercapture="endDrag"
             >
+                <!-- SS8-0323: the rail under the handle is hsv(hue, 1, 1); its ink
+                     reads that field through the same predicate. -->
                 <div
-                    class="absolute w-3 h-3 rounded-full border-2 border-white ring-1 ring-black/40 pointer-events-none -translate-x-1/2"
-                    :style="{ left: `${(hue / 360) * 100}%`, background: `hsl(${hue}, 100%, 50%)` }"
+                    class="absolute w-3 h-3 rounded-full border-2 pointer-events-none -translate-x-1/2"
+                    :style="{ left: `${(hue / 360) * 100}%`, background: `hsl(${hue}, 100%, 50%)`, borderColor: handleInk }"
                 />
             </div>
 
@@ -64,6 +70,7 @@
 import { ref, computed, watch, useTemplateRef, onScopeDispose } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import { Button } from "@mkbabb/glass-ui/button";
+import { spectrumFieldIsLight } from "../../../picker/controls/spectrumLuma";
 
 const { open, hex } = defineProps<{
     open: boolean;
@@ -147,6 +154,12 @@ const currentHex = computed(() => {
 });
 
 watch(currentHex, (hex) => emit("update:hex", hex));
+
+// SS8-0319/0323: each marker's ring is whichever of the plate's two strokes
+// (black, white) contrasts more with the field under it: >= 4.58:1 at every hue.
+const markerInk = (light: boolean) => (light ? "#000" : "#fff");
+const thumbInk = computed(() => markerInk(spectrumFieldIsLight(hue.value, sat.value, val.value)));
+const handleInk = computed(() => markerInk(spectrumFieldIsLight(hue.value, 1, 1)));
 
 // Parse incoming hex prop
 watch(() => hex, (incomingHex) => {

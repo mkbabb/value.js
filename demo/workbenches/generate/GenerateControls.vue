@@ -59,7 +59,7 @@ const emit = defineEmits<{
     save: [colors: string[], name: string];
 }>();
 
-const paletteName = ref("Generated Palette");
+const paletteName = ref("Generated palette");
 
 /** The bench-note seed — fixed-width hex, a specimen label's provenance. */
 const seedHex = computed(() => seed.value.toString(16).padStart(8, "0"));
@@ -195,7 +195,13 @@ defineExpose({ regenerate, save, copyColors });
                  that Regenerate re-rolls — the provenance and the verb that
                  changes it share one line, and the title row stays whole. -->
             <div class="px-3 pb-2.5 pt-1 flex items-center gap-2 min-w-0">
-                <p class="min-w-0 truncate text-mono-small text-muted-foreground tabular-nums select-all">
+                <!-- SS8-0741 (R-2): the bench note wears the plate's primary
+                     ink, as the Regenerate verb beside it does. The well washes
+                     the live ambient, and over the default pink the muted rung
+                     read 4.08:1 light (bare --ink-muted 3.71); only the primary
+                     pole clears 4.5 (4.62 light, 9.04 dark). The mono-small
+                     rung keeps it a caption. -->
+                <p class="min-w-0 truncate text-mono-small text-foreground tabular-nums select-all">
                     seed: {{ seedHex }}
                 </p>
                 <div class="ml-auto flex items-center gap-2 shrink-0">
@@ -306,8 +312,9 @@ defineExpose({ regenerate, save, copyColors });
              voice from Extract's, with a thumb that sat mid-segment rather than
              on a count. The swatches already show on the plate above, so the
              count is glass's scrubber at the `sm` rung, Extract's idle
-             register. -->
-        <div class="flex flex-col gap-1 w-full min-w-0">
+             register. SS8-0705 (EC-16): the row carries its O-18 hook, so the
+             contrast census reads this RANGE as it reads Extract's twin. -->
+        <div data-o18="generate-count" class="flex flex-col gap-1 w-full min-w-0">
             <div class="flex items-center justify-between gap-2">
                 <Label>Colors</Label>
                 <span class="text-mono-small plate-ink tabular-nums">{{ count }}</span>

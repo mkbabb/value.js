@@ -1,0 +1,68 @@
+{
+ "before": {
+  "t": {
+   "panX": 0,
+   "panY": 34.5917,
+   "zoom": 0.614965,
+   "w": 1600,
+   "h": 1000
+  },
+  "loupeCentre": [
+   307.1875,
+   284.796875
+  ],
+  "imagePx": [
+   499,
+   406
+  ],
+  "under": [
+   235,
+   160,
+   142,
+   255
+  ],
+  "loupeCentrePx": [
+   235,
+   160,
+   142,
+   255
+  ],
+  "pinned": true
+ },
+ "after": {
+  "t": {
+   "panX": -679.212,
+   "panY": -318.865,
+   "zoom": 1.23743,
+   "w": 1600,
+   "h": 1000
+  },
+  "loupeCentre": [
+   -61.0625,
+   184.59375
+  ],
+  "imagePx": [
+   499,
+   406
+  ],
+  "under": [
+   235,
+   160,
+   142,
+   255
+  ],
+  "loupeCentrePx": [
+   235,
+   160,
+   142,
+   255
+  ],
+  "pinned": true
+ },
+ "loupeVsUnderBefore": 0,
+ "loupeVsUnderAfter": 0,
+ "samePixel": true,
+ "errors": [
+  "CONSOLE [value.js] value.js dev is MISCONFIGURED: http://localhost:9125 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+ ]
+}

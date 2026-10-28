@@ -1,0 +1,218 @@
+{
+ "light": {
+  "colorScheme": "light",
+  "p5": {
+   "E": [
+    133,
+    134,
+    134
+   ],
+   "F": [
+    148,
+    140,
+    0
+   ],
+   "G": [
+    51,
+    65,
+    127
+   ]
+  },
+  "p6": {
+   "oklch/longer": {
+    "chipN": 17,
+    "truthN": 42,
+    "max": 7,
+    "mean": 0.98,
+    "cols>4": 1,
+    "cols": 42
+   },
+   "hsv/shorter": {
+    "chipN": 17,
+    "truthN": 42,
+    "max": 2,
+    "mean": 0.26,
+    "cols>4": 0,
+    "cols": 42
+   },
+   "xyz/shorter": {
+    "chipN": 17,
+    "truthN": 42,
+    "max": 1,
+    "mean": 0.12,
+    "cols>4": 0,
+    "cols": 42
+   },
+   "hsl/longer": {
+    "chipN": 17,
+    "truthN": 42,
+    "max": 15,
+    "mean": 4.21,
+    "cols>4": 15,
+    "cols": 42
+   }
+  },
+  "ring": {
+   "css": {
+    "ringOverWhite": "oklab(0.90593 0.00046019 0.000640079)",
+    "ringOverBlack": "oklab(0.0259354 0.00042009 0.000622403)",
+    "fg": "rgb(28, 25, 23)"
+   },
+   "px": {
+    "ringOverWhite": [
+     224,
+     224,
+     223
+    ],
+    "ringOverBlack": [
+     0,
+     0,
+     0
+    ],
+    "fg": [
+     28,
+     25,
+     23
+    ]
+   },
+   "cr_ringOverWhite": 1.321,
+   "cr_ringOverBlack": 1.0
+  }
+ },
+ "dark": {
+  "colorScheme": "dark",
+  "p5": {
+   "E": [
+    133,
+    134,
+    134
+   ],
+   "F": [
+    148,
+    140,
+    0
+   ],
+   "G": [
+    51,
+    65,
+    127
+   ]
+  },
+  "p6": {
+   "oklch/longer": {
+    "chipN": 17,
+    "truthN": 42,
+    "max": 7,
+    "mean": 0.98,
+    "cols>4": 1,
+    "cols": 42
+   },
+   "hsv/shorter": {
+    "chipN": 17,
+    "truthN": 42,
+    "max": 2,
+    "mean": 0.26,
+    "cols>4": 0,
+    "cols": 42
+   },
+   "xyz/shorter": {
+    "chipN": 17,
+    "truthN": 42,
+    "max": 1,
+    "mean": 0.12,
+    "cols>4": 0,
+    "cols": 42
+   },
+   "hsl/longer": {
+    "chipN": 17,
+    "truthN": 42,
+    "max": 15,
+    "mean": 4.21,
+    "cols>4": 15,
+    "cols": 42
+   }
+  },
+  "ring": {
+   "css": {
+    "ringOverWhite": "oklab(0.991018 0.000326177 0.000706725)",
+    "ringOverBlack": "oklab(0.111024 0.000286077 0.000689049)",
+    "fg": "rgb(233, 230, 226)"
+   },
+   "px": {
+    "ringOverWhite": [
+     252,
+     252,
+     251
+    ],
+    "ringOverBlack": [
+     5,
+     4,
+     4
+    ],
+    "fg": [
+     233,
+     230,
+     226
+    ]
+   },
+   "cr_ringOverWhite": 1.027,
+   "cr_ringOverBlack": 1.026
+  }
+ },
+ "D11-light": {
+  "chipDevPx": [
+   167,
+   66
+  ],
+  "max": 16,
+  "px>4": 1267,
+  "of": 11022,
+  "innerMax(excl. 1 CSS px rim)": 15,
+  "rowsWithDelta": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "colsRange": [
+   0,
+   166
+  ]
+ },
+ "D11-dark": {
+  "chipDevPx": [
+   167,
+   66
+  ],
+  "max": 11,
+  "px>4": 1127,
+  "of": 11022,
+  "innerMax(excl. 1 CSS px rim)": 11,
+  "rowsWithDelta": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "colsRange": [
+   0,
+   166
+  ]
+ }
+}

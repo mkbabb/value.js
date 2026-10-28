@@ -1,6 +1,5 @@
 <template>
     <PaneShell
-        seated
         follow
         :gutter="false"
         card-class="about-card"

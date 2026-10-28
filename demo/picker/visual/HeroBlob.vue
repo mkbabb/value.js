@@ -24,6 +24,7 @@ import {
     computed,
     inject,
     onActivated,
+    onBeforeUnmount,
     reactive,
     shallowRef,
     toRaw,
@@ -33,6 +34,7 @@ import {
 import { Blob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/blob";
 import type { BlobConfig } from "@mkbabb/glass-ui/blob";
 import { BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
+import { isSoftwareWebGLRenderer } from "@mkbabb/glass-ui/aurora";
 import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
 import type { OklchStop } from "@mkbabb/glass-ui/color";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
@@ -117,6 +119,12 @@ function reseedHeroStops(css: string) {
                 stopCount: 4,
                 harmony: "analogous",
                 chromaCeiling: Math.max(0.16, seed.C),
+                // Canon §4.2 C-1 (X.W11.h8, DISPOSITION §8 E8): the body
+                // stop is a data surface, so it holds the seed's OWN L and the
+                // producer's gamut map reaches the buffer's cusp chroma at that
+                // L (the default ramp centres on the seed, landing the body at
+                // L − spread/2, where the cusp chroma is lower).
+                bodyLightness: seed.L,
             }),
         ).map(oklchStopToHex);
     } catch {
@@ -313,5 +321,78 @@ function onEmergeEnd(e: AnimationEvent) {
     if (e.animationName !== "blob-emerge") return;
     blobRef.value?.pause();
     blobRef.value?.resume();
+    if (softwareParked) blobRef.value?.pause();
+}
+
+// --- X-W11 lhci (G-4 TBT): THE SOFTWARE-RASTER TIER ---------------------------
+// On a device whose WebGL2 is a CPU rasteriser (SwiftShader / llvmpipe / MS
+// Basic Render — the GPU-less or GPU-blocklisted user, and the CI runner), the
+// bead's live loop is the page's whole main-thread bill: every frame of the
+// metaball field is rastered on the CPU and read back for the software
+// compositor, ~83 ms of main thread per frame back-to-back, so the page never
+// goes idle (measured on Chrome 155 + SwiftShader Subzero: 172 long tasks /
+// 11.1 s busy in a 15 s window WITH the bead, 0 / 0 with the HeroBlob chunk
+// withheld). It is the same device tier the atmosphere already answers with
+// the producer's `isSoftwareWebGLRenderer` (useAtmosphere → `"css"`), and the
+// same answer the producer gives reduced motion: paint the composed bead, then
+// park. The bead keeps its body, palette and ink floor — it is drawn, never
+// stripped — and repaints exactly ONE frame per register change (colour,
+// ramp, scheme, BlobPane tuning), so it still answers the picker. A GPU
+// device never takes this branch (an unprovable probe returns false).
+const softwareRaster = isSoftwareWebGLRenderer(); // mount-time device tier
+let softwareParked = false;
+
+/** One synchronous frame on a parked engine: resume() paints immediately, pause() cancels the loop it would schedule.
+ *
+ *  OD19 repair 1 (C1-V-06): the repaint is coalesced to ONE per animation frame
+ *  and runs inside that frame's callback. glass's `resume()` re-measures the
+ *  backing store (`getBoundingClientRect`, the producer's resize seam), and the
+ *  register watch fires in the post-flush of every colour write, after that
+ *  write's root `setProperty` calls had dirtied style. So each repaint forced a
+ *  synchronous style + layout in the input path (417 ms inclusive per drag,
+ *  P2 r2). Inside the frame callback the measure reads the layout the frame
+ *  computes anyway, and a run of register writes inside one frame repaints once.
+ *  The measure itself is glass's (O-102: a parked engine has no repaint seam
+ *  that skips the re-measure). */
+let repaintFrame = 0;
+function repaintParked() {
+    if (repaintFrame) return;
+    repaintFrame = requestAnimationFrame(() => {
+        repaintFrame = 0;
+        const blob = blobRef.value;
+        if (!blob || !softwareParked) return;
+        blob.resume();
+        blob.pause();
+    });
+}
+onBeforeUnmount(() => cancelAnimationFrame(repaintFrame));
+
+if (softwareRaster) {
+    // Park only once the engine's own first frame has landed: `ready` can
+    // report before that frame, and the engine's rAF is registered first, so
+    // two frames after `ready` the bead is painted.
+    const stopReadyWatch = watch(
+        () => blobRef.value?.rendererStatus.phase,
+        (phase) => {
+            if (phase !== "ready") return;
+            stopReadyWatch();
+            requestAnimationFrame(() =>
+                requestAnimationFrame(() => {
+                    blobRef.value?.pause();
+                    softwareParked = true;
+                }),
+            );
+        },
+        { immediate: true },
+    );
+    // `flush: "post"` — the register has been written into `heroConfig` and the
+    // producer's own watchers have run before the frame is drawn.
+    watch(
+        heroRegister,
+        () => {
+            if (softwareParked) repaintParked();
+        },
+        { deep: true, flush: "post" },
+    );
 }
 </script>

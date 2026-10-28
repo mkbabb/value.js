@@ -1,0 +1,38 @@
+## 14:45:25 eb.mjs eb-contrast try 1
+eb-contrast light {"regions":["color-picker","palettes"],"stmt":{"raw":[28,25,23,1],"rect":[814.71875,360.15625,340.5625,27.984375],"ink":"oklch(0.216129 0.00624853 56.0356)","eff":[28,25,23,1],"ground":[156,94,176,1],"cr":3.865,"stack":["glass-resting card paper-grain-overlay w-full h-fu=50,35,21,0.14","relative=173,104,201,1"],"notes":["relative:bgimg"]},"glyph":{"raw":[96,0,4,1],"rect":[973,326.15625,24,24],"ink":"oklch(0.307178 0.125362 27.4847)","eff":[96,0,4,1],"ground":[156,94,176,1],"cr":3.096,"stack":["glass-resting card paper-grain-overlay w-full h-fu=50,35,21,0.14","relative=173,104,201,1"],"notes":["relative:bgimg"]},"detail":{"raw":[39,36,35,1],"rect":[768.515625,398.140625,432.953125,22.96875],"ink":"oklab(0.263192 0.0032972 0.00333585)","eff":[39,36,35,1],"ground":[156,94,176,1],"cr":3.406,"stack":["glass-resting card paper-grain-overlay w-full h-fu=50,35,21,0.14","relative=173,104,201,1"],"notes":["relative:bgimg"]},"detailText":"SS8 probe: induced render throw in palettes","hit":{"stmt":"self","glyph":"self","detail":"self"},"plateViewportPct":24.5,"inkViewportPct":1.55,"role":"alert","live":"assertive","served":{"stmt":{"ground":[214,121,156],"ink":[28,25,23],"cr":5.89},"glyph":{"ground":[214,127,151],"ink":[96,0,4],"cr":4.9},"detail":{"ground":[214,120,157],"ink":[39,36,35],"cr":5.16}},"statementPixels":{"inkPx":9180,"totalPx":9180,"minLuma":24}}
+eb-contrast dark {"regions":["color-picker","palettes"],"stmt":{"raw":[233,230,226,1],"rect":[814.71875,360.15625,340.5625,27.984375],"ink":"oklch(0.925202 0.00618423 67.7483)","eff":[233,230,226,1],"ground":[33,2,26,1],"cr":15.512,"stack":["glass-resting card paper-grain-overlay w-full h-fu=22,11,0,0.18","relative=36,0,32,1"],"notes":["relative:bgimg"]},"glyph":{"raw":[255,121,108,1],"rect":[973,326.15625,24,24],"ink":"oklch(0.730581 0.165869 27.5)","eff":[255,121,108,1],"ground":[33,2,26,1],"cr":7.538,"stack":["glass-resting card paper-grain-overlay w-full h-fu=22,11,0,0.18","relative=36,0,32,1"],"notes":["relative:bgimg"]},"detail":{"raw":[190,187,185,1],"rect":[768.515625,398.140625,432.953125,22.96875],"ink":"oklab(0.793914 0.00265344 0.00376283)","eff":[190,187,185,1],"ground":[33,2,26,1],"cr":10.106,"stack":["glass-resting card paper-grain-overlay w-full h-fu=22,11,0,0.18","relative=36,0,32,1"],"notes":["relative:bgimg"]},"detailText":"SS8 probe: induced render throw in palettes","hit":{"stmt":"self","glyph":"self","detail":"self"},"plateViewportPct":24.5,"inkViewportPct":1.55,"role":"alert","live":"assertive","served":{"stmt":{"ground":[115,24,49],"ink":[233,230,226],"cr":8.87},"glyph":{"ground":[122,24,46],"ink":[255,121,108],"cr":4.11},"detail":{"ground":[115,24,50],"ink":[190,187,185],"cr":5.77}},"statementPixels":{"inkPx":9180,"totalPx":9180,"minLuma":50}}
+## done
+## 14:53:10 eb.mjs eb-contrast try 1
+## 15:22:50 (try at 14:53 was killed in the guard queue before launch) eb.mjs eb-contrast run 2
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.goto: Timeout 120000ms exceeded.
+Call log:
+[2m  - navigating to "http://localhost:9000/#/palettes", waiting until "load"[22m
+
+    at boot (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B08/eb.mjs:30:14)
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B08/eb.mjs:47:33 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0
+## cell eb-contrast exit 1
+## 15:24:46 eb.mjs eb-contrast try 2
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.goto: Timeout 120000ms exceeded.
+Call log:
+[2m  - navigating to "http://localhost:9000/#/palettes", waiting until "load"[22m
+
+    at boot (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B08/eb.mjs:30:14)
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B08/eb.mjs:47:33 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0
+## cell eb-contrast exit 1
+## done

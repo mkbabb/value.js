@@ -16,7 +16,7 @@ import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
 import DockViewSelect from "./DockViewSelect.vue";
 import ApiStatusChip from "../../shared/ui/api-status/ApiStatusChip.vue";
-import { useMediaQuery } from "@vueuse/core";
+import { useMediaQuery, useMutationObserver } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../useViewManager";
 import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
@@ -25,6 +25,7 @@ import { useDockAdminMode } from "./composables/useDockAdminMode";
 import { injectDockCommands } from "../useSceneActions";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { goldIdentityCss, useChromeAccentFn } from "../../color-session/useContrastSafeColor";
+import { GRAPHICS_CONTRAST_FLOOR, TEXT_CONTRAST_FLOOR } from "../../color-session/ink";
 import type { EditTarget } from "../../color-session/color-model";
 
 const { linkCopied, editTarget } = defineProps<{
@@ -99,6 +100,12 @@ const isDesktop = useMediaQuery("(min-width: 1024px)");
 const mobileEditActive = computed(() => !isDesktop.value && !!editTarget);
 const anyEditActive = computed(() => !!editTarget);
 const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>("dockRef");
+// SS-8 Z-Dock-13 (Dock G-P): the dock floats over the atmosphere field, so its
+// live backdrop sampler reads that canvas (App.vue stamps it with glass's
+// `data-glass-field-canvas` convention). Unbound, GlassDock hands its sampler a
+// getter that answers null, and the sample sat at `source-unavailable`.
+const fieldCanvas = () =>
+    document.querySelector<HTMLCanvasElement>("canvas[data-glass-field-canvas]");
 
 // X-DS pass 17 (V17C-01): the admin gold, certified on the dock BAND it sits
 // on (the band's measured tint over the ambient, the same instrument the
@@ -107,9 +114,54 @@ const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>("dockRef");
 // the crown) reads the band's gold: raw gold read 1.09:1 on the light band.
 const dockHost = useTemplateRef<HTMLElement>("dockHost");
 const dockPlate = computed(() => dockHost.value?.querySelector(".dock-plate") ?? null);
-const { safeCss: bandSafeCss } = useChromeAccentFn(dockPlate);
+// X-DS pass 18 (V18C-01): the gold holds its chroma (`certifyIdentityInk`):
+// the word at the text floor, falling back to the band's plate ink where no
+// gold clears it; the glyphs (the view icon, the admin shield, the crown) at
+// the 3:1 graphics floor, as the seal already does. At the text floor plus
+// the headroom, a mid-dark band drained the gold to white.
+const {
+    safeCss: bandSafeCss,
+    identityCss: bandIdentityCss,
+    plateCss: bandPlateCss,
+} = useChromeAccentFn(dockPlate);
 const { isDark } = useGlobalDark();
-const bandGold = computed(() => bandSafeCss(goldIdentityCss(isDark.value)));
+const bandGoldStyle = computed(() => {
+    const gold = goldIdentityCss(isDark.value);
+    const word = bandIdentityCss(gold, TEXT_CONTRAST_FLOOR);
+    const glyph = bandIdentityCss(gold, GRAPHICS_CONTRAST_FLOOR);
+    return word && glyph ? { "--ink-gold": word, "--ink-gold-glyph": glyph } : undefined;
+});
+// SS-8 B05 · 0132 (ABT-8): the Tools wordmark and glyph sit on the dock band, a
+// floating rung, not the resting plate SAFE_ACCENT_KEY is certified against
+// (light band: 4.23-4.81:1 measured, 3 of 6 seeds under 4.5). The band's own
+// instrument certifies the accent at the text floor; before the band mounts the
+// resting ink stands in.
+const toolsInk = computed(
+    () => bandSafeCss(safeAccent.value, TEXT_CONTRAST_FLOOR) ?? safeAccent.value,
+);
+// X-DS pass 19 (V19C-02): the dock's PLAIN words read the band's plate ink,
+// the same instrument and scope as the gold above. glass seats its dock ink on
+// `.glass-dock` itself (`--dock-fg-on-aurora` and `--muted-foreground` from
+// `--foreground`, or `contrast-color(var(--card))`, a ground the band is not),
+// so the rebinding rides GlassDock's root, through glass's own token seam: the
+// words follow the band they sit on (the owner brown flips them to the light
+// pole) and no glass rule is overridden.
+const bandInkStyle = computed(() => {
+    const ink = bandPlateCss();
+    // SS-8 B05 · 0133 (ABT-11): the dock's focus ring is non-text ink on the
+    // band, so it is certified there at the 3:1 graphics floor. The scoped rule
+    // below paints it opaque: glass's 48 % mix of a resting-rung accent read
+    // 2.08:1 on the light band, and no hue-holding ink clears 3:1 through it.
+    const ring = bandSafeCss(safeAccent.value, GRAPHICS_CONTRAST_FLOOR);
+    return ink && ring
+        ? {
+              "--foreground": ink,
+              "--dock-fg-on-aurora": ink,
+              "--muted-foreground": ink,
+              "--focus-ring-color": ring,
+          }
+        : undefined;
+});
 
 watch(
     () => dockRef.value?.expanded,
@@ -144,19 +196,35 @@ const activeLayer = ref("main");
 
 // ── The view-select moment (R.W4 Lane B / B3) — within the CURRENT dock
 //    surface only (the dock-morph gate rides the U6 BOOK, not this wave):
-//    a one-shot morph-family settle (vj-settle keyframe, snappy spring) on
-//    the dock body confirms every view switch. The rAF re-arm lets rapid
-//    switches restart the beat; @animationend clears it. ──
+//    a one-shot morph-family settle (vj-settle keyframe, snappy spring)
+//    confirms every view switch. OD19-V2: the beat is seated on the view
+//    glyph's carrier (the expanded trigger, the collapsed seal), never the
+//    dock host, and it is ARMED only once `.glass-dock` has left glass's
+//    `[data-morphing]` width morph, so the two never compound on one plate.
+//    Glass's morph is only read (its attribute), never copied. The rAF
+//    re-arm lets rapid switches restart the beat; @animationend clears it. ──
 const dockSettle = ref(false);
+let settlePending = false;
+function armSettle() {
+    if (!settlePending) return;
+    if ((dockRef.value?.$el as HTMLElement | undefined)?.hasAttribute("data-morphing")) return;
+    settlePending = false;
+    dockSettle.value = true;
+}
 watch(
     () => viewManager.currentView.value,
     () => {
         dockSettle.value = false;
-        requestAnimationFrame(() => {
-            dockSettle.value = true;
-        });
+        settlePending = true;
+        requestAnimationFrame(armSettle);
     },
 );
+useMutationObserver(() => dockRef.value?.$el as HTMLElement | undefined, armSettle, {
+    attributeFilter: ["data-morphing"],
+});
+function onSettleEnd(e: AnimationEvent) {
+    if (e.animationName === "vj-settle") dockSettle.value = false;
+}
 watch(
     [mobileEditActive, slugEditMode, actionBarLayerActive],
     () => {
@@ -180,11 +248,13 @@ watch(
     <div
         ref="dockHost"
         :class="dockSettle && 'dock-settle'"
-        :style="bandGold ? { '--ink-gold': bandGold } : undefined"
-        @animationend.self="dockSettle = false"
+        :style="bandGoldStyle"
+        @animationend="onSettleEnd"
     >
         <GlassDock
             ref="dockRef"
+            :style="bandInkStyle"
+            :background-canvas="fieldCanvas"
             :collapse="isDesktop ? 'open' : false"
             :fit-content="true"
         >
@@ -261,10 +331,9 @@ watch(
                     <ActionBarToggle
                         :visible="hasAnyActionBar"
                         :active="actionBarLayerActive"
-                        :is-desktop="isDesktop"
                         :icon="actionSet?.icon ?? Paintbrush"
                         :label="actionSet?.label ?? 'Tools'"
-                        :accent="safeAccent"
+                        :accent="toolsInk"
                         @toggle="toggleActionBar"
                     />
 
@@ -384,16 +453,41 @@ watch(
          collapsible layer. Dev-gated; variant matrix in
          shared/ui/api-status/api-status.ts (O-22; the one status chip,
          A2-VA-L1-9). -->
-    <ApiStatusChip seat="dock" />
+    <!-- SS-8 B06 · SS8-0162: the lamp sits on the same band as the dock's
+         words, so it reads the same plate-certified band ink. -->
+    <ApiStatusChip seat="dock" :style="bandInkStyle" />
 </template>
 
 <style scoped>
 @reference "../../styles/foundation.css";
 
 /* The B3 settle beat — the vj-settle keyframe lives in animations.css
-   (keyframes are global); the class is dock-local. */
-.dock-settle {
+   (keyframes are global); the class is dock-local. OD19-V2: the host only
+   carries the state; the beat plays on the view glyph's carrier (the trigger
+   expanded, the seal collapsed), so it never scales the plate glass morphs.
+   `transform` here composes with the trigger's own press `scale`. */
+.dock-settle :deep(.view-select-trigger),
+.dock-settle .dock-seal {
     animation: vj-settle var(--spring-dock-duration) var(--spring-dock);
+}
+
+/* SS-8 B05 · 0133 (ABT-11): the dock's focus ring paints the band-certified
+   `--focus-ring-color` (3:1, bandInkStyle) whole. glass seats each control's
+   ring at a 48 % mix of that knob, which halves a certified ink back under the
+   graphics floor on a light band; the re-seat rides glass's own
+   `--dock-ring-color` hook, the control set its rule names. */
+.glass-dock
+    :deep(
+        :is(
+                .dock-layer-tab,
+                .dock-icon-button,
+                .dark-mode-toggle-button,
+                .dock-tab-button,
+                .dock-select-trigger,
+                .dock-dropdown-trigger
+            )
+    ) {
+    --dock-ring-color: var(--focus-ring-color);
 }
 
 /* The action-bar toggle slot machine (S.W7-6 boot seat · W6-8 T-29 settle
@@ -439,6 +533,7 @@ watch(
        the band, so the seal rebinds `--ink-gold` to the wax-certified gold
        (useViewAccents); where none clears the wax, the seal's own ink. */
     --ink-gold: var(--seal-ink-gold, var(--seal-ink, var(--foreground)));
+    --ink-gold-glyph: var(--ink-gold);
 }
 .dock-seal-wax,
 .dock-seal-ink {

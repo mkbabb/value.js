@@ -57,6 +57,16 @@ const status = computed(() => resolveApiStatus(availability.value, isDev, seat))
     white-space: nowrap;
 }
 
+/* SS-8 B06 · SS8-0162: the dock seat speaks the BAND's ink, not glass's muted
+ * chip ink (`chipVariants` → `text-muted-foreground`): the pill's capsule is
+ * translucent over the band, and the muted rung read 3.31:1 there in light.
+ * `--dock-fg-on-aurora` is glass's band-ink seam; Dock.vue hands this seat the
+ * same plate-certified ink its own words read (`bandInkStyle`). Declared before
+ * the misconfigured face so that face's destructive ink still wins. */
+.api-status-chip[data-seat="dock"] {
+    color: var(--dock-fg-on-aurora);
+}
+
 /* The `misconfigured` face — a dev-config ERROR, the loud register: the
  * destructive ink on its own tint. Distinct by construction from the muted
  * `unknown` mark (misconfigured ≠ unavailable — the S.W0-1 contract). */
@@ -80,6 +90,19 @@ const status = computed(() => resolveApiStatus(availability.value, isDev, seat))
     pointer-events: none;
 }
 @media (max-width: 1023.98px) {
+    /* OD19 repair 2 (C2-V-05): below the desktop band the pill's widest
+     * state reaches the lamp. At 390 the Tools layer widens the dock to
+     * 330 px (x 30-360) and the lamp, centred on the pill's axis at the
+     * band's inline end (x 352-378), sat on the dock's end cap. The band is
+     * floored taller than the pill (72 px around a 42 px pill), so the lamp
+     * takes the band's block-end corner, under the pill's edge: off the dock
+     * row whatever width the dock morphs to, still band chrome, still out of
+     * flow (no centring shift). */
+    .api-status-chip[data-seat="dock"] {
+        top: auto;
+        bottom: 0;
+        translate: none;
+    }
     .api-status-chip[data-seat="dock"] .api-status-label {
         position: absolute;
         width: 1px;
@@ -92,11 +115,13 @@ const status = computed(() => resolveApiStatus(availability.value, isDev, seat))
 
 /* X.W12.e: lamp-dot-pulse lives in styles/animations.css (moved, never
  * deleted; the surface chip's identical `offline-dot-pulse` folds into it).
- * X-DS pass 1 (V1-11): the pulse plays three times when the chip ARRIVES (it
- * is v-if'd, so its mount is the state's entry), then rests. */
+ * X-DS pass 1 (V1-11): the pulse plays when the chip ARRIVES (it is v-if'd,
+ * so its mount is the state's entry), then rests. SS-8 B06 · SS8-0165: twice
+ * (4.8 s), inside WCAG 2.2.2's 5 s bound for automatic motion with no pause
+ * control; three beats ran 7.2 s. */
 @media (prefers-reduced-motion: no-preference) {
     .api-status-dot {
-        animation: lamp-dot-pulse 2.4s var(--ease-standard) 3;
+        animation: lamp-dot-pulse 2.4s var(--ease-standard) 2;
     }
 }
 </style>

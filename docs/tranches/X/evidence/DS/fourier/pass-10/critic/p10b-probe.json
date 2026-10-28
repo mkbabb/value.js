@@ -1,0 +1,54 @@
+{
+ "light-1440": {
+  "hrefs": [
+   "/v/hazy-etching-cream-elk"
+  ],
+  "canvas": [
+   502,
+   488,
+   970,
+   798
+  ],
+  "anims": [],
+  "eqAnims": [],
+  "menuErr": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('header button, .glass-dock button').filte"
+ },
+ "light-390": {
+  "hrefs": [
+   "/v/hazy-etching-cream-elk"
+  ],
+  "canvas": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "anims": []
+ },
+ "dark-1440": {
+  "hrefs": [
+   "/v/hazy-etching-cream-elk"
+  ],
+  "canvas": [
+   502,
+   488,
+   970,
+   798
+  ],
+  "anims": [],
+  "eqAnims": [],
+  "menuErr": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('header button, .glass-dock button').filte"
+ },
+ "dark-390": {
+  "hrefs": [
+   "/v/hazy-etching-cream-elk"
+  ],
+  "canvas": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "anims": []
+ }
+}

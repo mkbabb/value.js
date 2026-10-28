@@ -1,0 +1,311 @@
+node     acc      parseCssColor          rep0a0 n=31 median 0.588 [0.544, 0.616] ub95 0.616 GREEN | n31-read1-acc-parseCssColor.json
+node     acc      parseCssScalar         rep0a0 n=31 median 0.582 [0.556, 0.611] ub95 0.611 GREEN | n31-read1-acc-parseCssScalar.json
+node     acc      parseCssValue          rep0a0 n=31 median 0.368 [0.352, 0.408] ub95 0.396 GREEN | n31-read1-acc-parseCssValue.json
+node     acc      parseCssValues         rep0a0 n=31 median 0.381 [0.356, 0.401] ub95 0.400 GREEN | n31-read1-acc-parseCssValues.json
+node     acc      parseKeyframeSelector  rep0a0 n=31 median 0.716 [0.673, 0.739] ub95 0.738 GREEN | n31-read1-acc-parseKeyframeSelector.json
+node     acc      parseStylesheet        rep0a0 n=31 median 0.628 [0.590, 0.637] ub95 0.637 GREEN | n31-read1-acc-parseStylesheet.json
+node     acc      parseTimingFunction    rep0a0 n=31 median 0.534 [0.515, 0.577] ub95 0.563 GREEN | n31-read1-acc-parseTimingFunction.json
+node     large-eq parseStylesheet        rep0a0 n=31 median 0.646 [0.590, 0.738] ub95 0.726 GREEN | n31-read1-large-eq-parseStylesheet.json
+node     rej      parseCssColor          rep0a0 n=31 median 0.706 [0.689, 0.722] ub95 0.718 GREEN | n31-read1-rej-parseCssColor.json
+node     rej      parseCssScalar         rep0a0 n=31 median 0.609 [0.580, 0.632] ub95 0.630 GREEN | n31-read1-rej-parseCssScalar.json
+node     rej      parseCssValue          rep0a0 n=31 median 0.488 [0.452, 0.539] ub95 0.516 GREEN | n31-read1-rej-parseCssValue.json
+node     rej      parseCssValues         rep0a0 n=31 median 0.479 [0.439, 0.536] ub95 0.511 GREEN | n31-read1-rej-parseCssValues.json
+node     rej      parseKeyframeSelector  rep0a0 n=31 median 0.725 [0.714, 0.741] ub95 0.741 GREEN | n31-read1-rej-parseKeyframeSelector.json
+node     rej      parseStylesheet        rep0a0 n=31 median 0.527 [0.521, 0.545] ub95 0.545 GREEN | n31-read1-rej-parseStylesheet.json
+node     rej      parseTimingFunction    rep0a0 n=31 median 0.679 [0.651, 0.688] ub95 0.684 GREEN | n31-read1-rej-parseTimingFunction.json
+node     acc      parseCssColor          rep1a0 n=31 median 0.627 [0.590, 0.656] ub95 0.656 GREEN | n31-read2-acc-parseCssColor.json
+node     acc      parseCssScalar         rep1a0 n=31 median 0.602 [0.555, 0.628] ub95 0.627 GREEN | n31-read2-acc-parseCssScalar.json
+node     acc      parseCssValue          rep1a0 n=31 median 0.381 [0.342, 0.405] ub95 0.398 GREEN | n31-read2-acc-parseCssValue.json
+node     acc      parseCssValues         rep1a0 n=31 median 0.391 [0.369, 0.432] ub95 0.410 GREEN | n31-read2-acc-parseCssValues.json
+node     acc      parseKeyframeSelector  rep1a0 n=31 median 0.775 [0.701, 0.808] ub95 0.799 GREEN | n31-read2-acc-parseKeyframeSelector.json
+node     acc      parseStylesheet        rep1a0 n=31 median 0.555 [0.513, 0.651] ub95 0.631 GREEN | n31-read2-acc-parseStylesheet.json
+node     acc      parseTimingFunction    rep1a0 n=31 median 0.540 [0.530, 0.553] ub95 0.553 GREEN | n31-read2-acc-parseTimingFunction.json
+node     large-eq parseStylesheet        rep1a0 n=31 median 0.636 [0.602, 0.816] ub95 0.809 GREEN | n31-read2-large-eq-parseStylesheet.json
+node     rej      parseCssColor          rep1a0 n=31 median 0.721 [0.682, 0.767] ub95 0.751 GREEN | n31-read2-rej-parseCssColor.json
+node     rej      parseCssScalar         rep1a0 n=31 median 0.609 [0.584, 0.634] ub95 0.628 GREEN | n31-read2-rej-parseCssScalar.json
+node     rej      parseCssValue          rep1a0 n=31 median 0.542 [0.518, 0.570] ub95 0.555 GREEN | n31-read2-rej-parseCssValue.json
+node     rej      parseCssValues         rep1a0 n=31 median 0.533 [0.451, 0.710] ub95 0.710 GREEN | n31-read2-rej-parseCssValues.json
+node     rej      parseKeyframeSelector  rep1a0 n=31 median 0.734 [0.671, 0.798] ub95 0.785 GREEN | n31-read2-rej-parseKeyframeSelector.json
+node     rej      parseStylesheet        rep1a0 n=31 median 0.544 [0.449, 0.640] ub95 0.635 GREEN | n31-read2-rej-parseStylesheet.json
+node     rej      parseTimingFunction    rep1a0 n=31 median 0.561 [0.476, 0.720] ub95 0.708 GREEN | n31-read2-rej-parseTimingFunction.json
+chromium acc-eq   parseCssColor          rep0a0 n=31 median 0.551 [0.547, 0.556] ub95 0.556 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseCssScalar         rep0a0 n=31 median 0.520 [0.515, 0.526] ub95 0.526 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseCssValue          rep0a0 n=31 median 0.320 [0.317, 0.321] ub95 0.321 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseCssValues         rep0a0 n=31 median 0.320 [0.318, 0.327] ub95 0.327 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseKeyframeSelector  rep0a0 n=31 median 0.722 [0.719, 0.725] ub95 0.725 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseTimingFunction    rep0a0 n=31 median 0.596 [0.588, 0.598] ub95 0.597 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseStylesheet        rep0a0 n=31 median 0.532 [0.511, 0.540] ub95 0.533 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseCssColor          rep0a0 n=31 median 0.438 [0.428, 0.443] ub95 0.443 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseCssScalar         rep0a0 n=31 median 0.371 [0.360, 0.373] ub95 0.372 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseCssValue          rep0a0 n=31 median 0.456 [0.448, 0.462] ub95 0.461 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseCssValues         rep0a0 n=31 median 0.468 [0.463, 0.482] ub95 0.480 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseKeyframeSelector  rep0a0 n=31 median 0.699 [0.688, 0.710] ub95 0.707 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseTimingFunction    rep0a0 n=31 median 0.622 [0.614, 0.627] ub95 0.625 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseStylesheet        rep0a0 n=31 median 0.482 [0.472, 0.495] ub95 0.495 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseCssScalar         rep1a0 n=31 median 0.634 [0.625, 0.641] ub95 0.640 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseCssValue          rep1a0 n=31 median 0.319 [0.313, 0.324] ub95 0.323 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseCssValues         rep1a0 n=31 median 0.331 [0.328, 0.333] ub95 0.333 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseKeyframeSelector  rep1a0 n=31 median 0.836 [0.822, 0.843] ub95 0.843 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseTimingFunction    rep1a0 n=31 median 0.642 [0.633, 0.649] ub95 0.648 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseStylesheet        rep1a0 n=31 median 0.515 [0.506, 0.521] ub95 0.519 GREEN | w7pz-chromium-n31-eq.json
+chromium acc-eq   parseCssColor          rep1a0 n=31 median 0.717 [0.709, 0.727] ub95 0.727 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseCssScalar         rep1a0 n=31 median 0.371 [0.367, 0.376] ub95 0.375 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseCssValue          rep1a0 n=31 median 0.443 [0.436, 0.450] ub95 0.446 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseCssValues         rep1a0 n=31 median 0.458 [0.450, 0.468] ub95 0.467 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseKeyframeSelector  rep1a0 n=31 median 0.708 [0.699, 0.715] ub95 0.713 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseTimingFunction    rep1a0 n=31 median 0.623 [0.612, 0.628] ub95 0.627 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseStylesheet        rep1a0 n=31 median 0.517 [0.512, 0.525] ub95 0.524 GREEN | w7pz-chromium-n31-eq.json
+chromium rej-eq   parseCssColor          rep1a0 n=31 median 0.442 [0.438, 0.445] ub95 0.444 GREEN | w7pz-chromium-n31-eq.json
+chromium acc      parseCssColor          rep0a0 n=31 median 0.496 [0.490, 0.503] ub95 0.502 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseCssScalar         rep0a0 n=31 median 0.469 [0.462, 0.474] ub95 0.474 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseCssValue          rep0a0 n=31 median 0.304 [0.300, 0.305] ub95 0.305 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseCssValues         rep0a0 n=31 median 0.302 [0.299, 0.306] ub95 0.306 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseKeyframeSelector  rep0a0 n=31 median 0.727 [0.721, 0.730] ub95 0.730 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseTimingFunction    rep0a0 n=31 median 0.532 [0.529, 0.537] ub95 0.534 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseStylesheet        rep0a0 n=31 median 0.537 [0.523, 0.544] ub95 0.543 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseCssColor          rep0a0 n=31 median 0.548 [0.536, 0.554] ub95 0.554 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseCssScalar         rep0a0 n=31 median 0.479 [0.473, 0.486] ub95 0.486 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseCssValue          rep0a0 n=31 median 0.452 [0.446, 0.454] ub95 0.454 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseCssValues         rep0a0 n=31 median 0.447 [0.444, 0.450] ub95 0.450 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseKeyframeSelector  rep0a0 n=31 median 0.700 [0.696, 0.704] ub95 0.703 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseTimingFunction    rep0a0 n=31 median 0.631 [0.629, 0.639] ub95 0.637 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseStylesheet        rep0a0 n=31 median 0.465 [0.457, 0.471] ub95 0.469 GREEN | w7pz-chromium-n31-main.json
+chromium large-eq parseStylesheet        rep0a0 n=31 median 0.553 [0.543, 0.561] ub95 0.558 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseCssScalar         rep1a0 n=31 median 0.474 [0.467, 0.481] ub95 0.479 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseCssValue          rep1a0 n=31 median 0.300 [0.298, 0.304] ub95 0.303 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseCssValues         rep1a0 n=31 median 0.298 [0.291, 0.301] ub95 0.301 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseKeyframeSelector  rep1a0 n=31 median 0.726 [0.718, 0.732] ub95 0.730 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseTimingFunction    rep1a0 n=31 median 0.531 [0.528, 0.536] ub95 0.535 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseStylesheet        rep1a0 n=31 median 0.522 [0.519, 0.529] ub95 0.527 GREEN | w7pz-chromium-n31-main.json
+chromium acc      parseCssColor          rep1a0 n=31 median 0.492 [0.490, 0.496] ub95 0.496 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseCssScalar         rep1a0 n=31 median 0.479 [0.472, 0.482] ub95 0.482 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseCssValue          rep1a0 n=31 median 0.452 [0.444, 0.455] ub95 0.453 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseCssValues         rep1a0 n=31 median 0.440 [0.439, 0.447] ub95 0.446 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseKeyframeSelector  rep1a0 n=31 median 0.701 [0.695, 0.710] ub95 0.710 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseTimingFunction    rep1a0 n=31 median 0.635 [0.630, 0.655] ub95 0.652 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseStylesheet        rep1a0 n=31 median 0.453 [0.449, 0.470] ub95 0.469 GREEN | w7pz-chromium-n31-main.json
+chromium rej      parseCssColor          rep1a0 n=31 median 0.538 [0.531, 0.547] ub95 0.546 GREEN | w7pz-chromium-n31-main.json
+chromium large-eq parseStylesheet        rep1a0 n=31 median 0.547 [0.533, 0.551] ub95 0.551 GREEN | w7pz-chromium-n31-main.json
+firefox  acc      parseCssColor          rep0a0 n=31 median 0.838 [0.833, 0.843] ub95 0.842 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseCssScalar         rep0a0 n=31 median 0.701 [0.697, 0.705] ub95 0.704 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseCssValue          rep0a0 n=31 median 0.471 [0.467, 0.479] ub95 0.477 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseCssValues         rep0a0 n=31 median 0.473 [0.472, 0.477] ub95 0.476 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseKeyframeSelector  rep0a0 n=31 median 0.894 [0.887, 0.900] ub95 0.900 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseTimingFunction    rep0a0 n=31 median 0.659 [0.649, 0.675] ub95 0.664 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseStylesheet        rep0a0 n=31 median 0.776 [0.763, 0.785] ub95 0.779 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseCssScalar         rep1a0 n=31 median 0.716 [0.711, 0.717] ub95 0.717 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseCssValue          rep1a0 n=31 median 0.468 [0.466, 0.475] ub95 0.474 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseCssValues         rep1a0 n=31 median 0.475 [0.470, 0.478] ub95 0.477 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseKeyframeSelector  rep1a0 n=31 median 0.890 [0.887, 0.892] ub95 0.892 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseTimingFunction    rep1a0 n=31 median 0.654 [0.647, 0.662] ub95 0.658 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseStylesheet        rep1a0 n=31 median 0.764 [0.743, 0.770] ub95 0.770 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc      parseCssColor          rep1a0 n=31 median 0.855 [0.850, 0.860] ub95 0.860 GREEN | w7pz-firefox-n31-acc.json
+firefox  acc-eq   parseCssColor          rep0a0 n=31 median 0.909 [0.904, 0.916] ub95 0.915 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseCssScalar         rep0a0 n=31 median 0.752 [0.746, 0.762] ub95 0.761 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseCssValue          rep0a0 n=31 median 0.481 [0.476, 0.488] ub95 0.488 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseCssValues         rep0a0 n=31 median 0.476 [0.475, 0.480] ub95 0.480 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseKeyframeSelector  rep0a0 n=31 median 0.887 [0.882, 0.889] ub95 0.888 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseTimingFunction    rep0a0 n=31 median 0.673 [0.670, 0.688] ub95 0.686 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseStylesheet        rep0a0 n=31 median 0.753 [0.736, 0.765] ub95 0.760 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseCssColor          rep0a0 n=31 median 0.759 [0.751, 0.770] ub95 0.766 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseCssScalar         rep0a0 n=31 median 0.560 [0.553, 0.565] ub95 0.565 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseCssValue          rep0a0 n=31 median 0.860 [0.842, 0.864] ub95 0.863 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseCssValues         rep0a0 n=31 median 0.876 [0.869, 0.886] ub95 0.886 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseKeyframeSelector  rep0a0 n=31 median 0.991 [0.942, 0.998] ub95 0.995 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseTimingFunction    rep0a0 n=31 median 0.899 [0.892, 0.932] ub95 0.922 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseStylesheet        rep0a0 n=31 median 0.921 [0.910, 0.929] ub95 0.927 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseCssScalar         rep1a0 n=31 median 0.789 [0.781, 0.792] ub95 0.792 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseCssValue          rep1a0 n=31 median 0.478 [0.476, 0.484] ub95 0.484 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseCssValues         rep1a0 n=31 median 0.504 [0.501, 0.507] ub95 0.506 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseKeyframeSelector  rep1a0 n=31 median 0.938 [0.931, 0.945] ub95 0.944 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseTimingFunction    rep1a0 n=31 median 0.724 [0.718, 0.730] ub95 0.727 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseStylesheet        rep1a0 n=31 median 0.746 [0.735, 0.772] ub95 0.772 GREEN | w7pz-firefox-n31-eq.json
+firefox  acc-eq   parseCssColor          rep1a0 n=31 median 0.941 [0.930, 0.957] ub95 0.957 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseCssScalar         rep1a0 n=31 median 0.540 [0.535, 0.547] ub95 0.547 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseCssValue          rep1a0 n=31 median 0.819 [0.812, 0.838] ub95 0.833 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseCssValues         rep1a0 n=31 median 0.781 [0.776, 0.793] ub95 0.793 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseKeyframeSelector  rep1a0 n=31 median 0.935 [0.921, 0.939] ub95 0.938 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseTimingFunction    rep1a0 n=31 median 0.934 [0.914, 0.938] ub95 0.937 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseStylesheet        rep1a0 n=31 median 0.902 [0.894, 0.922] ub95 0.921 GREEN | w7pz-firefox-n31-eq.json
+firefox  rej-eq   parseCssColor          rep1a0 n=31 median 0.731 [0.724, 0.740] ub95 0.737 GREEN | w7pz-firefox-n31-eq.json
+firefox  large-eq parseStylesheet        rep0a0 n=31 median 0.562 [0.555, 0.578] ub95 0.572 GREEN | w7pz-firefox-n31-leq.json
+firefox  large-eq parseStylesheet        rep1a0 n=31 median 0.572 [0.546, 0.582] ub95 0.582 GREEN | w7pz-firefox-n31-leq.json
+firefox  rej      parseCssColor          rep0a0 n=31 median 0.911 [0.906, 0.920] ub95 0.918 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseCssScalar         rep0a0 n=31 median 0.676 [0.667, 0.679] ub95 0.679 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseCssValue          rep0a0 n=31 median 0.869 [0.859, 0.875] ub95 0.874 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseCssValues         rep0a0 n=31 median 0.867 [0.862, 0.873] ub95 0.873 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseKeyframeSelector  rep0a0 n=31 median 0.915 [0.883, 0.930] ub95 0.929 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseTimingFunction    rep0a0 n=31 median 0.909 [0.896, 0.935] ub95 0.928 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseStylesheet        rep0a0 n=31 median 0.962 [0.949, 0.969] ub95 0.967 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseCssScalar         rep1a0 n=31 median 0.700 [0.698, 0.707] ub95 0.707 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseCssValue          rep1a0 n=31 median 0.846 [0.842, 0.856] ub95 0.851 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseCssValues         rep1a0 n=31 median 0.851 [0.829, 0.865] ub95 0.865 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseKeyframeSelector  rep1a0 n=31 median 0.930 [0.918, 0.937] ub95 0.937 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseTimingFunction    rep1a0 n=31 median 0.883 [0.876, 0.909] ub95 0.906 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseStylesheet        rep1a0 n=31 median 0.925 [0.917, 0.933] ub95 0.931 GREEN | w7pz-firefox-n31-rej.json
+firefox  rej      parseCssColor          rep1a0 n=31 median 0.921 [0.911, 0.927] ub95 0.925 GREEN | w7pz-firefox-n31-rej.json
+firefox  whole    parseCssScalar         rep0a0 n=31 median 0.672 [0.666, 0.678] ub95 0.677 GREEN | w7pz-firefox-n31-whole.json
+firefox  whole    parseCssScalar         rep1a0 n=31 median 0.666 [0.660, 0.671] ub95 0.668 GREEN | w7pz-firefox-n31-whole.json
+webkit   acc-eq   parseCssColor          rep0a0 n=31 median 0.783 [0.762, 0.789] ub95 0.789 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseCssScalar         rep0a0 n=31 median 0.692 [0.680, 0.720] ub95 0.720 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseCssValue          rep0a0 n=31 median 0.380 [0.371, 0.388] ub95 0.386 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseCssValues         rep0a0 n=31 median 0.389 [0.378, 0.397] ub95 0.397 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseKeyframeSelector  rep0a0 n=31 median 0.750 [0.697, 0.786] ub95 0.786 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseTimingFunction    rep0a0 n=31 median 0.450 [0.429, 0.476] ub95 0.476 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseStylesheet        rep0a0 n=31 median 0.522 [0.520, 0.560] ub95 0.545 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseCssColor          rep0a0 n=31 median 0.667 [0.652, 0.680] ub95 0.679 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseCssScalar         rep0a0 n=31 median 0.457 [0.444, 0.472] ub95 0.472 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseCssValue          rep0a0 n=31 median 0.630 [0.625, 0.644] ub95 0.644 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseCssValues         rep0a0 n=31 median 0.625 [0.614, 0.635] ub95 0.630 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseKeyframeSelector  rep0a0 n=31 median 0.871 [0.853, 0.900] ub95 0.882 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseTimingFunction    rep0a0 n=31 median 0.737 [0.727, 0.789] ub95 0.789 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseStylesheet        rep0a0 n=31 median 0.659 [0.650, 0.673] ub95 0.673 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseCssScalar         rep1a0 n=31 median 0.692 [0.680, 0.720] ub95 0.720 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseCssValue          rep1a0 n=31 median 0.397 [0.387, 0.414] ub95 0.406 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseCssValues         rep1a0 n=31 median 0.412 [0.403, 0.424] ub95 0.424 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseKeyframeSelector  rep1a0 n=31 median 0.826 [0.808, 0.826] ub95 0.826 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseTimingFunction    rep1a0 n=31 median 0.533 [0.529, 0.545] ub95 0.543 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseStylesheet        rep1a0 n=31 median 0.560 [0.538, 0.577] ub95 0.571 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc-eq   parseCssColor          rep1a0 n=31 median 0.789 [0.759, 0.800] ub95 0.794 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseCssScalar         rep1a0 n=31 median 0.460 [0.444, 0.472] ub95 0.471 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseCssValue          rep1a0 n=31 median 0.623 [0.611, 0.635] ub95 0.635 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseCssValues         rep1a0 n=31 median 0.628 [0.614, 0.646] ub95 0.646 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseKeyframeSelector  rep1a0 n=31 median 0.849 [0.844, 0.871] ub95 0.871 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseTimingFunction    rep1a0 n=31 median 0.762 [0.737, 0.780] ub95 0.773 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseStylesheet        rep1a0 n=31 median 0.650 [0.634, 0.667] ub95 0.667 GREEN | w7pz-webkit-n31-eq.json
+webkit   rej-eq   parseCssColor          rep1a0 n=31 median 0.652 [0.619, 0.682] ub95 0.680 GREEN | w7pz-webkit-n31-eq.json
+webkit   acc      parseCssColor          rep0a0 n=31 median 0.722 [0.722, 0.765] ub95 0.737 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseCssScalar         rep0a0 n=31 median 0.636 [0.609, 0.652] ub95 0.652 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseCssValue          rep0a0 n=31 median 0.370 [0.362, 0.377] ub95 0.375 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseCssValues         rep0a0 n=31 median 0.361 [0.350, 0.375] ub95 0.373 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseKeyframeSelector  rep0a0 n=31 median 0.760 [0.690, 0.760] ub95 0.760 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseTimingFunction    rep0a0 n=31 median 0.469 [0.455, 0.484] ub95 0.484 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseStylesheet        rep0a0 n=31 median 0.529 [0.500, 0.545] ub95 0.543 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseCssColor          rep0a0 n=31 median 0.821 [0.793, 0.828] ub95 0.828 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseCssScalar         rep0a0 n=31 median 0.575 [0.575, 0.590] ub95 0.585 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseCssValue          rep0a0 n=31 median 0.628 [0.610, 0.640] ub95 0.637 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseCssValues         rep0a0 n=31 median 0.630 [0.617, 0.646] ub95 0.646 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseKeyframeSelector  rep0a0 n=31 median 0.839 [0.839, 0.871] ub95 0.862 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseTimingFunction    rep0a0 n=31 median 0.722 [0.722, 0.762] ub95 0.762 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseStylesheet        rep0a0 n=31 median 0.652 [0.638, 0.660] ub95 0.660 GREEN | w7pz-webkit-n31-main.json
+webkit   large-eq parseStylesheet        rep0a0 n=31 median 0.393 [0.379, 0.414] ub95 0.407 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseCssScalar         rep1a0 n=31 median 0.613 [0.594, 0.613] ub95 0.613 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseCssValue          rep1a0 n=31 median 0.359 [0.354, 0.367] ub95 0.364 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseCssValues         rep1a0 n=31 median 0.366 [0.359, 0.377] ub95 0.375 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseKeyframeSelector  rep1a0 n=31 median 0.762 [0.727, 0.789] ub95 0.762 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseTimingFunction    rep1a0 n=31 median 0.462 [0.448, 0.478] ub95 0.467 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseStylesheet        rep1a0 n=31 median 0.536 [0.500, 0.556] ub95 0.556 GREEN | w7pz-webkit-n31-main.json
+webkit   acc      parseCssColor          rep1a0 n=31 median 0.700 [0.684, 0.714] ub95 0.714 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseCssScalar         rep1a0 n=31 median 0.581 [0.563, 0.588] ub95 0.581 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseCssValue          rep1a0 n=31 median 0.614 [0.597, 0.625] ub95 0.621 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseCssValues         rep1a0 n=31 median 0.627 [0.614, 0.633] ub95 0.633 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseKeyframeSelector  rep1a0 n=31 median 0.870 [0.840, 0.880] ub95 0.875 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseTimingFunction    rep1a0 n=31 median 0.774 [0.742, 0.793] ub95 0.786 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseStylesheet        rep1a0 n=31 median 0.667 [0.649, 0.676] ub95 0.676 GREEN | w7pz-webkit-n31-main.json
+webkit   rej      parseCssColor          rep1a0 n=31 median 0.783 [0.762, 0.809] ub95 0.809 GREEN | w7pz-webkit-n31-main.json
+webkit   large-eq parseStylesheet        rep1a0 n=31 median 0.400 [0.381, 0.417] ub95 0.409 GREEN | w7pz-webkit-n31-main.json
+
+GATE (largest banked rounds per cell; ofRecord = attempt 0 per rep; strict = every attempt GREEN)
+node|acc|parseCssColor                     rep0 n=31 0.588 ub 0.616 GREEN · rep1 n=31 0.627 ub 0.656 GREEN → GREEN
+node|acc|parseCssScalar                    rep0 n=31 0.582 ub 0.611 GREEN · rep1 n=31 0.602 ub 0.628 GREEN → GREEN
+node|acc|parseCssValue                     rep0 n=31 0.368 ub 0.408 GREEN · rep1 n=31 0.381 ub 0.405 GREEN → GREEN
+node|acc|parseCssValues                    rep0 n=31 0.381 ub 0.401 GREEN · rep1 n=31 0.391 ub 0.432 GREEN → GREEN
+node|acc|parseKeyframeSelector             rep0 n=31 0.716 ub 0.739 GREEN · rep1 n=31 0.775 ub 0.808 GREEN → GREEN
+node|acc|parseStylesheet                   rep0 n=31 0.628 ub 0.637 GREEN · rep1 n=31 0.555 ub 0.651 GREEN → GREEN
+node|acc|parseTimingFunction               rep0 n=31 0.534 ub 0.577 GREEN · rep1 n=31 0.540 ub 0.553 GREEN → GREEN
+node|large-eq|parseStylesheet              rep0 n=31 0.646 ub 0.738 GREEN · rep1 n=31 0.636 ub 0.816 GREEN → GREEN
+node|rej|parseCssColor                     rep0 n=31 0.706 ub 0.722 GREEN · rep1 n=31 0.721 ub 0.767 GREEN → GREEN
+node|rej|parseCssScalar                    rep0 n=31 0.609 ub 0.632 GREEN · rep1 n=31 0.609 ub 0.634 GREEN → GREEN
+node|rej|parseCssValue                     rep0 n=31 0.488 ub 0.539 GREEN · rep1 n=31 0.542 ub 0.570 GREEN → GREEN
+node|rej|parseCssValues                    rep0 n=31 0.479 ub 0.536 GREEN · rep1 n=31 0.533 ub 0.710 GREEN → GREEN
+node|rej|parseKeyframeSelector             rep0 n=31 0.725 ub 0.741 GREEN · rep1 n=31 0.734 ub 0.798 GREEN → GREEN
+node|rej|parseStylesheet                   rep0 n=31 0.527 ub 0.545 GREEN · rep1 n=31 0.544 ub 0.640 GREEN → GREEN
+node|rej|parseTimingFunction               rep0 n=31 0.679 ub 0.688 GREEN · rep1 n=31 0.561 ub 0.720 GREEN → GREEN
+chromium|acc-eq|parseCssColor              rep0 n=31 0.551 ub 0.556 GREEN · rep1 n=31 0.717 ub 0.727 GREEN → GREEN
+chromium|acc-eq|parseCssScalar             rep0 n=31 0.520 ub 0.526 GREEN · rep1 n=31 0.634 ub 0.641 GREEN → GREEN
+chromium|acc-eq|parseCssValue              rep0 n=31 0.320 ub 0.321 GREEN · rep1 n=31 0.319 ub 0.324 GREEN → GREEN
+chromium|acc-eq|parseCssValues             rep0 n=31 0.320 ub 0.327 GREEN · rep1 n=31 0.331 ub 0.333 GREEN → GREEN
+chromium|acc-eq|parseKeyframeSelector      rep0 n=31 0.722 ub 0.725 GREEN · rep1 n=31 0.836 ub 0.843 GREEN → GREEN
+chromium|acc-eq|parseTimingFunction        rep0 n=31 0.596 ub 0.598 GREEN · rep1 n=31 0.642 ub 0.649 GREEN → GREEN
+chromium|acc-eq|parseStylesheet            rep0 n=31 0.532 ub 0.540 GREEN · rep1 n=31 0.515 ub 0.521 GREEN → GREEN
+chromium|rej-eq|parseCssColor              rep0 n=31 0.438 ub 0.443 GREEN · rep1 n=31 0.442 ub 0.445 GREEN → GREEN
+chromium|rej-eq|parseCssScalar             rep0 n=31 0.371 ub 0.373 GREEN · rep1 n=31 0.371 ub 0.376 GREEN → GREEN
+chromium|rej-eq|parseCssValue              rep0 n=31 0.456 ub 0.462 GREEN · rep1 n=31 0.443 ub 0.450 GREEN → GREEN
+chromium|rej-eq|parseCssValues             rep0 n=31 0.468 ub 0.482 GREEN · rep1 n=31 0.458 ub 0.468 GREEN → GREEN
+chromium|rej-eq|parseKeyframeSelector      rep0 n=31 0.699 ub 0.710 GREEN · rep1 n=31 0.708 ub 0.715 GREEN → GREEN
+chromium|rej-eq|parseTimingFunction        rep0 n=31 0.622 ub 0.627 GREEN · rep1 n=31 0.623 ub 0.628 GREEN → GREEN
+chromium|rej-eq|parseStylesheet            rep0 n=31 0.482 ub 0.495 GREEN · rep1 n=31 0.517 ub 0.525 GREEN → GREEN
+chromium|acc|parseCssColor                 rep0 n=31 0.496 ub 0.503 GREEN · rep1 n=31 0.492 ub 0.496 GREEN → GREEN
+chromium|acc|parseCssScalar                rep0 n=31 0.469 ub 0.474 GREEN · rep1 n=31 0.474 ub 0.481 GREEN → GREEN
+chromium|acc|parseCssValue                 rep0 n=31 0.304 ub 0.305 GREEN · rep1 n=31 0.300 ub 0.304 GREEN → GREEN
+chromium|acc|parseCssValues                rep0 n=31 0.302 ub 0.306 GREEN · rep1 n=31 0.298 ub 0.301 GREEN → GREEN
+chromium|acc|parseKeyframeSelector         rep0 n=31 0.727 ub 0.730 GREEN · rep1 n=31 0.726 ub 0.732 GREEN → GREEN
+chromium|acc|parseTimingFunction           rep0 n=31 0.532 ub 0.537 GREEN · rep1 n=31 0.531 ub 0.536 GREEN → GREEN
+chromium|acc|parseStylesheet               rep0 n=31 0.537 ub 0.544 GREEN · rep1 n=31 0.522 ub 0.529 GREEN → GREEN
+chromium|rej|parseCssColor                 rep0 n=31 0.548 ub 0.554 GREEN · rep1 n=31 0.538 ub 0.547 GREEN → GREEN
+chromium|rej|parseCssScalar                rep0 n=31 0.479 ub 0.486 GREEN · rep1 n=31 0.479 ub 0.482 GREEN → GREEN
+chromium|rej|parseCssValue                 rep0 n=31 0.452 ub 0.454 GREEN · rep1 n=31 0.452 ub 0.455 GREEN → GREEN
+chromium|rej|parseCssValues                rep0 n=31 0.447 ub 0.450 GREEN · rep1 n=31 0.440 ub 0.447 GREEN → GREEN
+chromium|rej|parseKeyframeSelector         rep0 n=31 0.700 ub 0.704 GREEN · rep1 n=31 0.701 ub 0.710 GREEN → GREEN
+chromium|rej|parseTimingFunction           rep0 n=31 0.631 ub 0.639 GREEN · rep1 n=31 0.635 ub 0.655 GREEN → GREEN
+chromium|rej|parseStylesheet               rep0 n=31 0.465 ub 0.471 GREEN · rep1 n=31 0.453 ub 0.470 GREEN → GREEN
+chromium|large-eq|parseStylesheet          rep0 n=31 0.553 ub 0.561 GREEN · rep1 n=31 0.547 ub 0.551 GREEN → GREEN
+firefox|acc|parseCssColor                  rep0 n=31 0.838 ub 0.843 GREEN · rep1 n=31 0.855 ub 0.860 GREEN → GREEN
+firefox|acc|parseCssScalar                 rep0 n=31 0.701 ub 0.705 GREEN · rep1 n=31 0.716 ub 0.717 GREEN → GREEN
+firefox|acc|parseCssValue                  rep0 n=31 0.471 ub 0.479 GREEN · rep1 n=31 0.468 ub 0.475 GREEN → GREEN
+firefox|acc|parseCssValues                 rep0 n=31 0.473 ub 0.477 GREEN · rep1 n=31 0.475 ub 0.478 GREEN → GREEN
+firefox|acc|parseKeyframeSelector          rep0 n=31 0.894 ub 0.900 GREEN · rep1 n=31 0.890 ub 0.892 GREEN → GREEN
+firefox|acc|parseTimingFunction            rep0 n=31 0.659 ub 0.675 GREEN · rep1 n=31 0.654 ub 0.662 GREEN → GREEN
+firefox|acc|parseStylesheet                rep0 n=31 0.776 ub 0.785 GREEN · rep1 n=31 0.764 ub 0.770 GREEN → GREEN
+firefox|acc-eq|parseCssColor               rep0 n=31 0.909 ub 0.916 GREEN · rep1 n=31 0.941 ub 0.957 GREEN → GREEN
+firefox|acc-eq|parseCssScalar              rep0 n=31 0.752 ub 0.762 GREEN · rep1 n=31 0.789 ub 0.792 GREEN → GREEN
+firefox|acc-eq|parseCssValue               rep0 n=31 0.481 ub 0.488 GREEN · rep1 n=31 0.478 ub 0.484 GREEN → GREEN
+firefox|acc-eq|parseCssValues              rep0 n=31 0.476 ub 0.480 GREEN · rep1 n=31 0.504 ub 0.507 GREEN → GREEN
+firefox|acc-eq|parseKeyframeSelector       rep0 n=31 0.887 ub 0.889 GREEN · rep1 n=31 0.938 ub 0.945 GREEN → GREEN
+firefox|acc-eq|parseTimingFunction         rep0 n=31 0.673 ub 0.688 GREEN · rep1 n=31 0.724 ub 0.730 GREEN → GREEN
+firefox|acc-eq|parseStylesheet             rep0 n=31 0.753 ub 0.765 GREEN · rep1 n=31 0.746 ub 0.772 GREEN → GREEN
+firefox|rej-eq|parseCssColor               rep0 n=31 0.759 ub 0.770 GREEN · rep1 n=31 0.731 ub 0.740 GREEN → GREEN
+firefox|rej-eq|parseCssScalar              rep0 n=31 0.560 ub 0.565 GREEN · rep1 n=31 0.540 ub 0.547 GREEN → GREEN
+firefox|rej-eq|parseCssValue               rep0 n=31 0.860 ub 0.864 GREEN · rep1 n=31 0.819 ub 0.838 GREEN → GREEN
+firefox|rej-eq|parseCssValues              rep0 n=31 0.876 ub 0.886 GREEN · rep1 n=31 0.781 ub 0.793 GREEN → GREEN
+firefox|rej-eq|parseKeyframeSelector       rep0 n=31 0.991 ub 0.998 GREEN · rep1 n=31 0.935 ub 0.939 GREEN → GREEN
+firefox|rej-eq|parseTimingFunction         rep0 n=31 0.899 ub 0.932 GREEN · rep1 n=31 0.934 ub 0.938 GREEN → GREEN
+firefox|rej-eq|parseStylesheet             rep0 n=31 0.921 ub 0.929 GREEN · rep1 n=31 0.902 ub 0.922 GREEN → GREEN
+firefox|large-eq|parseStylesheet           rep0 n=31 0.562 ub 0.578 GREEN · rep1 n=31 0.572 ub 0.582 GREEN → GREEN
+firefox|rej|parseCssColor                  rep0 n=31 0.911 ub 0.920 GREEN · rep1 n=31 0.921 ub 0.927 GREEN → GREEN
+firefox|rej|parseCssScalar                 rep0 n=31 0.676 ub 0.679 GREEN · rep1 n=31 0.700 ub 0.707 GREEN → GREEN
+firefox|rej|parseCssValue                  rep0 n=31 0.869 ub 0.875 GREEN · rep1 n=31 0.846 ub 0.856 GREEN → GREEN
+firefox|rej|parseCssValues                 rep0 n=31 0.867 ub 0.873 GREEN · rep1 n=31 0.851 ub 0.865 GREEN → GREEN
+firefox|rej|parseKeyframeSelector          rep0 n=31 0.915 ub 0.930 GREEN · rep1 n=31 0.930 ub 0.937 GREEN → GREEN
+firefox|rej|parseTimingFunction            rep0 n=31 0.909 ub 0.935 GREEN · rep1 n=31 0.883 ub 0.909 GREEN → GREEN
+firefox|rej|parseStylesheet                rep0 n=31 0.962 ub 0.969 GREEN · rep1 n=31 0.925 ub 0.933 GREEN → GREEN
+firefox|whole|parseCssScalar               rep0 n=31 0.672 ub 0.678 GREEN · rep1 n=31 0.666 ub 0.671 GREEN → GREEN
+webkit|acc-eq|parseCssColor                rep0 n=31 0.783 ub 0.789 GREEN · rep1 n=31 0.789 ub 0.800 GREEN → GREEN
+webkit|acc-eq|parseCssScalar               rep0 n=31 0.692 ub 0.720 GREEN · rep1 n=31 0.692 ub 0.720 GREEN → GREEN
+webkit|acc-eq|parseCssValue                rep0 n=31 0.380 ub 0.388 GREEN · rep1 n=31 0.397 ub 0.414 GREEN → GREEN
+webkit|acc-eq|parseCssValues               rep0 n=31 0.389 ub 0.397 GREEN · rep1 n=31 0.412 ub 0.424 GREEN → GREEN
+webkit|acc-eq|parseKeyframeSelector        rep0 n=31 0.750 ub 0.786 GREEN · rep1 n=31 0.826 ub 0.826 GREEN → GREEN
+webkit|acc-eq|parseTimingFunction          rep0 n=31 0.450 ub 0.476 GREEN · rep1 n=31 0.533 ub 0.545 GREEN → GREEN
+webkit|acc-eq|parseStylesheet              rep0 n=31 0.522 ub 0.560 GREEN · rep1 n=31 0.560 ub 0.577 GREEN → GREEN
+webkit|rej-eq|parseCssColor                rep0 n=31 0.667 ub 0.680 GREEN · rep1 n=31 0.652 ub 0.682 GREEN → GREEN
+webkit|rej-eq|parseCssScalar               rep0 n=31 0.457 ub 0.472 GREEN · rep1 n=31 0.460 ub 0.472 GREEN → GREEN
+webkit|rej-eq|parseCssValue                rep0 n=31 0.630 ub 0.644 GREEN · rep1 n=31 0.623 ub 0.635 GREEN → GREEN
+webkit|rej-eq|parseCssValues               rep0 n=31 0.625 ub 0.635 GREEN · rep1 n=31 0.628 ub 0.646 GREEN → GREEN
+webkit|rej-eq|parseKeyframeSelector        rep0 n=31 0.871 ub 0.900 GREEN · rep1 n=31 0.849 ub 0.871 GREEN → GREEN
+webkit|rej-eq|parseTimingFunction          rep0 n=31 0.737 ub 0.789 GREEN · rep1 n=31 0.762 ub 0.780 GREEN → GREEN
+webkit|rej-eq|parseStylesheet              rep0 n=31 0.659 ub 0.673 GREEN · rep1 n=31 0.650 ub 0.667 GREEN → GREEN
+webkit|acc|parseCssColor                   rep0 n=31 0.722 ub 0.765 GREEN · rep1 n=31 0.700 ub 0.714 GREEN → GREEN
+webkit|acc|parseCssScalar                  rep0 n=31 0.636 ub 0.652 GREEN · rep1 n=31 0.613 ub 0.613 GREEN → GREEN
+webkit|acc|parseCssValue                   rep0 n=31 0.370 ub 0.377 GREEN · rep1 n=31 0.359 ub 0.367 GREEN → GREEN
+webkit|acc|parseCssValues                  rep0 n=31 0.361 ub 0.375 GREEN · rep1 n=31 0.366 ub 0.377 GREEN → GREEN
+webkit|acc|parseKeyframeSelector           rep0 n=31 0.760 ub 0.760 GREEN · rep1 n=31 0.762 ub 0.789 GREEN → GREEN
+webkit|acc|parseTimingFunction             rep0 n=31 0.469 ub 0.484 GREEN · rep1 n=31 0.462 ub 0.478 GREEN → GREEN
+webkit|acc|parseStylesheet                 rep0 n=31 0.529 ub 0.545 GREEN · rep1 n=31 0.536 ub 0.556 GREEN → GREEN
+webkit|rej|parseCssColor                   rep0 n=31 0.821 ub 0.828 GREEN · rep1 n=31 0.783 ub 0.809 GREEN → GREEN
+webkit|rej|parseCssScalar                  rep0 n=31 0.575 ub 0.590 GREEN · rep1 n=31 0.581 ub 0.588 GREEN → GREEN
+webkit|rej|parseCssValue                   rep0 n=31 0.628 ub 0.640 GREEN · rep1 n=31 0.614 ub 0.625 GREEN → GREEN
+webkit|rej|parseCssValues                  rep0 n=31 0.630 ub 0.646 GREEN · rep1 n=31 0.627 ub 0.633 GREEN → GREEN
+webkit|rej|parseKeyframeSelector           rep0 n=31 0.839 ub 0.871 GREEN · rep1 n=31 0.870 ub 0.880 GREEN → GREEN
+webkit|rej|parseTimingFunction             rep0 n=31 0.722 ub 0.762 GREEN · rep1 n=31 0.774 ub 0.793 GREEN → GREEN
+webkit|rej|parseStylesheet                 rep0 n=31 0.652 ub 0.660 GREEN · rep1 n=31 0.667 ub 0.676 GREEN → GREEN
+webkit|large-eq|parseStylesheet            rep0 n=31 0.393 ub 0.414 GREEN · rep1 n=31 0.400 ub 0.417 GREEN → GREEN

@@ -1,0 +1,74 @@
+[
+ {
+  "vp": "390x844",
+  "atHome": {
+   "route": "#/",
+   "dockMobilePanes": 0,
+   "segmented": 0,
+   "dock": {
+    "cls": "dock-band overture-dock-land",
+    "w": 358,
+    "h": 72,
+    "x": 16
+   }
+  },
+  "atHomePlus6s": {
+   "route": "#/",
+   "dockMobilePanes": 0,
+   "segmented": 0,
+   "dock": {
+    "cls": "dock-band overture-dock-land",
+    "w": 358,
+    "h": 72,
+    "x": 16
+   }
+  },
+  "atAtmosphere": {
+   "route": "#/atmosphere",
+   "dockMobilePanes": 0,
+   "segmented": 0,
+   "dock": {
+    "cls": "dock-band overture-dock-land",
+    "w": 358,
+    "h": 72,
+    "x": 16
+   }
+  }
+ },
+ {
+  "vp": "1024x1366",
+  "atHome": {
+   "route": "#/",
+   "dockMobilePanes": 0,
+   "segmented": 0,
+   "dock": {
+    "cls": "dock-band overture-dock-land",
+    "w": 992,
+    "h": 72,
+    "x": 16
+   }
+  },
+  "atHomePlus6s": {
+   "route": "#/",
+   "dockMobilePanes": 0,
+   "segmented": 0,
+   "dock": {
+    "cls": "dock-band overture-dock-land",
+    "w": 992,
+    "h": 72,
+    "x": 16
+   }
+  },
+  "atAtmosphere": {
+   "route": "#/atmosphere",
+   "dockMobilePanes": 0,
+   "segmented": 0,
+   "dock": {
+    "cls": "dock-band overture-dock-land",
+    "w": 992,
+    "h": 72,
+    "x": 16
+   }
+  }
+ }
+]

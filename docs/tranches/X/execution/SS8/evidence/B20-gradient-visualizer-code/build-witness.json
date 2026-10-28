@@ -1,0 +1,9 @@
+{
+ "L-5 (SS8-0571)": {"cmd": "guarded --light -- npx esbuild probes/B20/hl.mjs --bundle --minify --format=esm; wc -c; gzip -9 -c | wc -c", "highlightjs": "11.11.1", "raw": 34368, "gz": 12670},
+ "R-7 (SS8-0583)": {"glassUi": "10.1.0",
+   "esbuild": {"root": {"raw": 14402, "gz": 5415, "inputs": 90}, "subpath": {"raw": 13519, "gz": 5132, "inputs": 10}},
+   "rolldown": {"cmd": "guarded --light -- node probes/B20/r7-rolldown.mjs", "root": {"raw": 13320, "gz": 5073, "shippedModules": 9}, "subpath": {"raw": 13320, "gz": 5073, "shippedModules": 9}}},
+ "R-8 (SS8-0584)": {"cmd": "guarded --light -- node probes/B20/r8-graph.mjs <root> demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+   "at_54a97489": {"full": 107, "withoutPortsEdge": 35, "delta": 72},
+   "at_HEAD_e0c871d7b": {"full": 93, "withoutPortsEdge": 57, "delta": 36}}
+}

@@ -1,0 +1,144 @@
+{
+  "light-1440": {
+    "rest": {
+      "plate": 40,
+      "field": 45.91,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toTools": [
+      42,
+      45,
+      126
+    ],
+    "tools": {
+      "plate": 45,
+      "field": 45.91,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toBack": [
+      45,
+      45,
+      184
+    ],
+    "back": {
+      "plate": 45,
+      "field": 45.91,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "peak": "45px",
+    "verdict": "RED"
+  },
+  "dark-1440": {
+    "rest": {
+      "plate": 40,
+      "field": 45.91,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toTools": [
+      42,
+      45,
+      113
+    ],
+    "tools": {
+      "plate": 45,
+      "field": 45.91,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toBack": [
+      45,
+      45,
+      179
+    ],
+    "back": {
+      "plate": 45,
+      "field": 45.91,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "peak": "45px",
+    "verdict": "RED"
+  },
+  "light-390": {
+    "rest": {
+      "plate": 40,
+      "field": 42,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toTools": [
+      40,
+      42,
+      206
+    ],
+    "tools": {
+      "plate": 42,
+      "field": 42,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toBack": [
+      42,
+      42,
+      209
+    ],
+    "back": {
+      "plate": 42,
+      "field": 42,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "peak": "42px",
+    "verdict": "RED"
+  },
+  "dark-390": {
+    "rest": {
+      "plate": 40,
+      "field": 42,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toTools": [
+      40,
+      42,
+      210
+    ],
+    "tools": {
+      "plate": 42,
+      "field": 42,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "toBack": [
+      42,
+      42,
+      209
+    ],
+    "back": {
+      "plate": 42,
+      "field": 42,
+      "layer": "max( calc( 2.5rem * 1 ),0px )",
+      "control": "max( calc( 2.5rem * 1 ),0px )",
+      "layerPx": 40
+    },
+    "peak": "42px",
+    "verdict": "RED"
+  },
+  "mode": "keyboard",
+  "verdict": "RED"
+}

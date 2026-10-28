@@ -1,0 +1,440 @@
+{
+ "errs": [],
+ "band": {
+  "kids": [
+   {
+    "cls": "dock-separator",
+    "text": "",
+    "x": 746.3,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "cls": "menu__trigger.dock-trigger",
+    "text": "Profile",
+    "x": 757.3,
+    "y": 25.1,
+    "w": 104.9,
+    "h": 31
+   },
+   {
+    "cls": "dock-separator",
+    "text": "",
+    "x": 872.1,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "cls": "menu__trigger.dock-trigger",
+    "text": "@mbabb",
+    "x": 885.1,
+    "y": 25.1,
+    "w": 75,
+    "h": 31
+   }
+  ],
+  "air": [
+   10,
+   9.9,
+   12
+  ],
+  "plate": [
+   "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)"
+  ],
+  "accentLive": "oklch(73.088006787933% 0.165445750817 25deg)",
+  "dark": true
+ },
+ "trigInk": [
+  {
+   "i": 0,
+   "text": "Profile",
+   "color": "oklch(0.734762 0.16237 25)",
+   "fontSize": "16.4px",
+   "fontWeight": "700",
+   "opacity": "1",
+   "rect": {
+    "x": 757.25,
+    "y": 25.0625,
+    "width": 104.890625,
+    "height": 30.96875
+   },
+   "ground": [
+    94,
+    2,
+    23
+   ],
+   "ink": [
+    255,
+    123,
+    116
+   ],
+   "ratio": 5.57
+  },
+  {
+   "i": 1,
+   "text": "@mbabb",
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "fontSize": "16.4px",
+   "fontWeight": "400",
+   "opacity": "1",
+   "rect": {
+    "x": 885.140625,
+    "y": 25.0625,
+    "width": 75.046875,
+    "height": 30.96875
+   },
+   "ground": [
+    97,
+    5,
+    17
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 10.98
+  }
+ ],
+ "inst": {
+  "propCssColorOpaque": "oklch(73.088006787933% 0.165445750817 25deg)",
+  "triggerInk": "oklch(73.476237176784% 0.162370447054 25deg)",
+  "menuInk": "oklch(73.088006787933% 0.165445750817 25deg)",
+  "chromeOfRaw": "oklch(73.476237173192% 0.162370447076 25deg)",
+  "chromeOfSafe": "oklch(73.476237176784% 0.162370447054 25deg)",
+  "floatOfRaw": "oklch(72.775685232133% 0.167938598508 25deg)",
+  "contrast": {
+   "triggerInk": 5.569,
+   "chromeOfRaw": 5.569,
+   "raw": 5.498
+  }
+ },
+ "menu": {
+  "menuBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+  "menuBf": "blur(20px) saturate(1.5)",
+  "glassLevel": "1",
+  "chain": [
+   {
+    "cls": "glass-floating glass-overlay-plate glass-reveal z-popover mi",
+    "bf": "blur(20px) saturate(1.5)",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)"
+   }
+  ],
+  "inner": [],
+  "rect": [
+   784,
+   73,
+   176,
+   216
+  ],
+  "rows": [
+   {
+    "role": "menuitem",
+    "text": "Share color",
+    "h": 44,
+    "w": 150,
+    "lines": 2,
+    "svg": [
+     "14.0x14.0"
+    ]
+   },
+   {
+    "role": "menuitem",
+    "text": "GitHub",
+    "h": 44,
+    "w": 150,
+    "lines": 2,
+    "svg": [
+     "14.0x14.0"
+    ]
+   },
+   {
+    "role": "menuitemcheckbox",
+    "text": "Dark mode",
+    "h": 44,
+    "w": 150,
+    "lines": 2,
+    "svg": [
+     "24.0x24.0"
+    ]
+   }
+  ],
+  "avatar": {
+   "cls": "avatar w-7 h-7",
+   "w": 28,
+   "h": 28,
+   "img": true,
+   "imgComplete": true,
+   "imgNatural": 384,
+   "fallbackText": ""
+  }
+ },
+ "menuInk": [
+  {
+   "i": 0,
+   "text": "@mbabb",
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "fontSize": "16.4px",
+   "fontWeight": "400",
+   "opacity": "1",
+   "rect": {
+    "x": 841,
+    "y": 94.515625,
+    "width": 59.046875,
+    "height": 22.96875
+   },
+   "ground": [
+    97,
+    8,
+    15
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 10.89
+  },
+  {
+   "i": 1,
+   "text": "Share color",
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "fontSize": "16.4px",
+   "fontWeight": "400",
+   "opacity": "1",
+   "rect": {
+    "x": 797,
+    "y": 135,
+    "width": 150,
+    "height": 44
+   },
+   "ground": [
+    112,
+    15,
+    15
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 9.57
+  },
+  {
+   "i": 2,
+   "text": "GitHub",
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "fontSize": "16.4px",
+   "fontWeight": "400",
+   "opacity": "1",
+   "rect": {
+    "x": 797,
+    "y": 179,
+    "width": 150,
+    "height": 44
+   },
+   "ground": [
+    113,
+    16,
+    12
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 9.48
+  },
+  {
+   "i": 3,
+   "text": "Dark mode",
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "fontSize": "16.4px",
+   "fontWeight": "400",
+   "opacity": "1",
+   "rect": {
+    "x": 797,
+    "y": 232,
+    "width": 150,
+    "height": 44
+   },
+   "ground": [
+    114,
+    19,
+    9
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 9.31
+  }
+ ],
+ "github": {
+  "rowH": 44,
+  "rowW": 150,
+  "hitFraction": 1,
+  "tag": "DIV",
+  "anchorsInside": 0
+ },
+ "preTrig": {
+  "o18": [
+   "profile-trigger:1"
+  ],
+  "layers": [
+   "dock-layer dock-layer--full dock-run is-active"
+  ]
+ },
+ "profileMenu": [
+  "faint-bracing-ecru-puf|27.0",
+  "Copy slug|44.0",
+  "Switch account|44.0",
+  "Logout|44.0",
+  "Regenerate slug|44.0"
+ ],
+ "profileInk": [
+  {
+   "i": 0,
+   "text": "faint-bracing-ecru-puffin",
+   "color": "oklch(0.73088 0.165446 25)",
+   "fontSize": "16.4px",
+   "fontWeight": "700",
+   "opacity": "1",
+   "rect": {
+    "x": 577,
+    "y": 89,
+    "width": 264,
+    "height": 27
+   },
+   "ground": [
+    91,
+    4,
+    23
+   ],
+   "ink": [
+    255,
+    121,
+    114
+   ],
+   "ratio": 5.58
+  },
+  {
+   "i": 1,
+   "text": "Copy slug",
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "fontSize": "16.4px",
+   "fontWeight": "400",
+   "opacity": "1",
+   "rect": {
+    "x": 569,
+    "y": 120.96875,
+    "width": 280,
+    "height": 44
+   },
+   "ground": [
+    110,
+    15,
+    27
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 9.66
+  },
+  {
+   "i": 2,
+   "text": "Switch account",
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "fontSize": "16.4px",
+   "fontWeight": "400",
+   "opacity": "1",
+   "rect": {
+    "x": 569,
+    "y": 164.96875,
+    "width": 280,
+    "height": 44
+   },
+   "ground": [
+    112,
+    15,
+    26
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 9.53
+  },
+  {
+   "i": 3,
+   "text": "Logout",
+   "color": "oklch(0.925202 0.00618423 67.7483)",
+   "fontSize": "16.4px",
+   "fontWeight": "400",
+   "opacity": "1",
+   "rect": {
+    "x": 569,
+    "y": 208.96875,
+    "width": 280,
+    "height": 44
+   },
+   "ground": [
+    112,
+    15,
+    19
+   ],
+   "ink": [
+    233,
+    230,
+    226
+   ],
+   "ratio": 9.56
+  },
+  {
+   "i": 4,
+   "text": "Regenerate slug",
+   "color": "oklch(0.707777 0.00382185 41.8684)",
+   "fontSize": "16.4px",
+   "fontWeight": "400",
+   "opacity": "1",
+   "rect": {
+    "x": 569,
+    "y": 261.96875,
+    "width": 280,
+    "height": 44
+   },
+   "ground": [
+    114,
+    15,
+    13
+   ],
+   "ink": [
+    163,
+    160,
+    159
+   ],
+   "ratio": 4.52
+  }
+ ],
+ "swap": [
+  {
+   "mbabbOpenMs": 25.7,
+   "profileGoneMs": null
+  },
+  {
+   "mbabbOpenMs": 21.1,
+   "profileGoneMs": null
+  },
+  {
+   "mbabbOpenMs": 19.2,
+   "profileGoneMs": null
+  }
+ ],
+ "errsAfter": []
+}

@@ -1,0 +1,113 @@
+{
+ "engine": "chromium",
+ "rest": {
+  "media": {
+   "hover": true,
+   "anyHover": true,
+   "coarse": false,
+   "forced": false
+  },
+  "rows": {
+   "desc": "Harbor dusk — 3 versions",
+   "rows": [
+    "v3 (current)Sep 30, 08:00 PMHARBOR r3",
+    "v2 Sep 30, 07:00 PM Revert HARBOR r2",
+    "v1 Sep 30, 06:00 PM Revert HARBOR r1"
+   ]
+  },
+  "clip": {
+   "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklch(0.959463 0.0329277 82) 0px 0px 0px 2px, rgba(0, 0, 0",
+   "outline": "none",
+   "row": {
+    "l": 21,
+    "r": 359,
+    "t": 1020.4
+   },
+   "scroller": {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "ox": "auto",
+    "oy": "auto",
+    "l": 21,
+    "r": 359,
+    "t": 1020.4,
+    "pl": "0px",
+    "pr": "0px",
+    "scrollTop": 0
+   },
+   "roomLeft": 0,
+   "roomRight": 0,
+   "roomTop": 0,
+   "markerLeftPx": false
+  },
+  "actions": [
+   {
+    "text": "Revert",
+    "opacity": "1",
+    "visibility": "visible",
+    "w": 82.5,
+    "h": 28
+   },
+   {
+    "text": "Revert",
+    "opacity": "1",
+    "visibility": "visible",
+    "w": 82.5,
+    "h": 28
+   }
+  ],
+  "baseline": {
+   "sheet": {
+    "x": 0,
+    "w": 380,
+    "h": 451.6
+   },
+   "well": {
+    "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "border": "rgb(198, 180, 159)",
+    "radius": "16px",
+    "h": 94.7
+   },
+   "swatch": {
+    "bg": "oklch(0.7 0.12 180)",
+    "fca": "auto"
+   },
+   "ringColor": "oklch(95.946345393267% 0.032927706055 82deg)"
+  },
+  "errs": []
+ },
+ "coarse": {
+  "error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/browse\", waiting until \"domcontentloaded\"\u001b[22m\n"
+ },
+ "race": {
+  "media": {
+   "hover": true,
+   "anyHover": true,
+   "coarse": false,
+   "forced": false
+  },
+  "crossPalette": {
+   "desc": "Moss bank — 3 versions",
+   "rows": [
+    "v3 (current)Sep 30, 08:00 PMMOSS r3",
+    "v2 Sep 30, 07:00 PM Revert MOSS r2",
+    "v1 Sep 30, 06:00 PM Revert MOSS r1"
+   ]
+  },
+  "rapidReopen": {
+   "fetches": 2,
+   "descTimeline": [
+    "Harbor dusk — loading versions…",
+    "Harbor dusk — 3 versions"
+   ],
+   "final": {
+    "desc": "Harbor dusk — 3 versions",
+    "rows": [
+     "v3 (current)Sep 30, 08:00 PMHARBOR r3",
+     "v2 Sep 30, 07:00 PM Revert HARBOR r2",
+     "v1 Sep 30, 06:00 PM Revert HARBOR r1"
+    ]
+   }
+  },
+  "errs": []
+ }
+}

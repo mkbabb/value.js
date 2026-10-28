@@ -1,0 +1,71 @@
+(node:73572) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:73635) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 4 tests using 1 worker
+
+[1A[2K(node:74221) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/4] [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:45:5 › R-1 · section headings clear 4.5:1 over the live ground (1440, light)
+[1A[2K[2/4] [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:45:5 › R-1 · section headings clear 4.5:1 over the live ground (1440, dark)
+[1A[2K[3/4] [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:79:5 › R-6 + R-15 · the interpolation band stacks unclipped and the tile is near-square (390)
+[1A[2K  1) [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:79:5 › R-6 + R-15 · the interpolation band stacks unclipped and the tile is near-square (390) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('textbox', { name: 'Gradient CSS' }).last()
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 30000ms[22m
+    [2m  - waiting for getByRole('textbox', { name: 'Gradient CSS' }).last()[22m
+
+
+      28 |     }, dark);
+      29 |     await page.goto("/#/gradient", { waitUntil: "domcontentloaded" });
+    > 30 |     await expect(page.getByRole("textbox", { name: "Gradient CSS" }).last()).toBeVisible({ timeout: 30_000 });
+         |                                                                              ^
+      31 |     await page.waitForTimeout(1500);
+      32 | }
+      33 |
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b20-gradient.spec.ts:30:78)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b20-gradient.spec.ts:81:9
+
+    Error Context: test-results/ss8-b20-gradient-R-6-R-15--7a839-he-tile-is-near-square-390--smoke/error-context.md
+
+
+[1A[2K(node:83590) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/4] [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:79:5 › R-6 + R-15 · the interpolation band stacks unclipped and the tile is near-square (320)
+[1A[2K  2) [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:79:5 › R-6 + R-15 · the interpolation band stacks unclipped and the tile is near-square (320) 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:8120/#/gradient", waiting until "domcontentloaded"[22m
+
+
+      27 |         }
+      28 |     }, dark);
+    > 29 |     await page.goto("/#/gradient", { waitUntil: "domcontentloaded" });
+         |                ^
+      30 |     await expect(page.getByRole("textbox", { name: "Gradient CSS" }).last()).toBeVisible({ timeout: 30_000 });
+      31 |     await page.waitForTimeout(1500);
+      32 | }
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b20-gradient.spec.ts:29:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b20-gradient.spec.ts:81:9
+
+    Error Context: test-results/ss8-b20-gradient-R-6-R-15--f7562-he-tile-is-near-square-320--smoke/error-context.md
+
+
+[1A[2K  2 failed
+    [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:79:5 › R-6 + R-15 · the interpolation band stacks unclipped and the tile is near-square (390) 
+    [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:79:5 › R-6 + R-15 · the interpolation band stacks unclipped and the tile is near-square (320) 
+  2 passed (4.0m)

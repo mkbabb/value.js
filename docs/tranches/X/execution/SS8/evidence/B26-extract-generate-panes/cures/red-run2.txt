@@ -1,0 +1,63 @@
+(node:37694) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:37723) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, light) (24.0s)
+(node:39489) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  2 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, dark) (7.0s)
+  ✘  3 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:84:5 › X-5 · phone › X-5 · Add to palette in the eyedropper is announced politely (390, touch) (8.9s)
+
+
+  1) [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, light) 
+
+    Error: {"ink":[39,36,35],"ground":[199,93,169],"ratio":4.08}
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.08[39m
+
+      75 |         const ink = [r * a + ground[0]! * (1 - a), g * a + ground[1]! * (1 - a), b * a + ground[2]! * (1 - a)];
+      76 |         const reading = { ink: ink.map(Math.round), ground: ground.map(Math.round), ratio: +ratio(ink, ground).toFixed(2) };
+    > 77 |         expect(reading.ratio, JSON.stringify(reading)).toBeGreaterThanOrEqual(4.5);
+         |                                                        ^
+      78 |     });
+      79 | }
+      80 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b26-cures.spec.ts:77:56
+
+    Error Context: test-results/ss8-b26-cures-R-2-·-the-se-8d4a6--painted-ground-1440-light--smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:84:5 › X-5 · phone › X-5 · Add to palette in the eyedropper is announced politely (390, touch) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('dialog', { name: 'Eyedropper' }).locator('[role="status"][aria-live="polite"]')
+    Expected pattern: [32m/added to palette/i[39m
+    Timeout: 2000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toHaveText" with timeout 2000ms[22m
+    [2m  - waiting for getByRole('dialog', { name: 'Eyedropper' }).locator('[role="status"][aria-live="polite"]')[22m
+
+
+      122 |         // The region lives inside the modal (the page behind is aria-hidden).
+      123 |         const status = dialog.locator('[role="status"][aria-live="polite"]');
+    > 124 |         await expect(status).toHaveText(/added to palette/i, { timeout: 2_000 });
+          |                              ^
+      125 |         // A repeat Add of the same colour is announced again (cleared, rewritten).
+      126 |         await add.tap();
+      127 |         await expect(status).toHaveText(/added to palette/i, { timeout: 2_000 });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b26-cures.spec.ts:124:30
+
+    Error Context: test-results/ss8-b26-cures-X-5-·-phone--9975b-nounced-politely-390-touch--smoke/error-context.md
+
+  2 failed
+    [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, light) 
+    [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:84:5 › X-5 · phone › X-5 · Add to palette in the eyedropper is announced politely (390, touch) 
+  1 passed (41.5s)

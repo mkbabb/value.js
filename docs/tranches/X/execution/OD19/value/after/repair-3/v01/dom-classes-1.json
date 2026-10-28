@@ -1,0 +1,12 @@
+{
+  "cells": [
+    "light-1440",
+    "dark-1440",
+    "light-390",
+    "dark-390"
+  ],
+  "domClasses": 597,
+  "lostSelectors": 1230,
+  "inDomAndLost": [],
+  "verdict": "GREEN"
+}

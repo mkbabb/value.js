@@ -1,0 +1,8 @@
+gpu {"renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","parallel":true}
+base Cube 90 0 [[25,90]]
+base Spring 55 0 [[41,55]]
+base Amiga 63 0 [[36,63]]
+base Spring 62 0 [[34,62]]
+base Cube 85 0 [[24,85]]
+base Amiga 60 0 [[52,60]]
+base Cube 72 0 [[21,72]]

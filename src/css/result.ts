@@ -39,3 +39,10 @@ export const failure = <T>(
     const diagnostics = Object.freeze([issue]) as readonly [ParseIssue];
     return Object.freeze({ ok: false, diagnostics });
 };
+
+/**
+ * The JS-boundary answer: every public parse entry is typed `source: string`,
+ * but a JS caller (or an `any`) can pass anything. A non-string is an ordinary
+ * failure in the declared shape, never a `charCodeAt`/`trim` throw.
+ */
+export const notText = <T>(): ParseResult<T> => failure("", "css_syntax", ["string"]);

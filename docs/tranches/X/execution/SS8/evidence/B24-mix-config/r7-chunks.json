@@ -1,0 +1,93 @@
+{
+ "build": "vite build --mode gh-pages (VITE_API_URL=http://localhost:3000) -> demo/app/node_modules/.cache/ss8-b24-ghp, HEAD a40ab6613 + dirty tree 2026-10-20 15:27",
+ "previewStripChunks": [
+  {
+   "file": "./PreviewStrip-DAED6_cp.js",
+   "bytes": 739
+  },
+  {
+   "file": "./PreviewStrip-DYDbdjGZ.css",
+   "bytes": 486
+  }
+ ],
+ "sites": [
+  {
+   "route": "about",
+   "chunk": "AboutPane-fDX0okZR.js",
+   "chunkBytes": 8638,
+   "preloadsPreviewStrip": false
+  },
+  {
+   "route": "palettes",
+   "chunk": "PalettesPane-CkZuGkAX.js",
+   "chunkBytes": 52653,
+   "preloadsPreviewStrip": false
+  },
+  {
+   "route": "browse",
+   "chunk": "BrowsePane-DhK_7ypC.js",
+   "chunkBytes": 22050,
+   "preloadsPreviewStrip": false
+  },
+  {
+   "route": "extract",
+   "chunk": "ExtractPane-DmS2Dbo5.js",
+   "chunkBytes": 26413,
+   "preloadsPreviewStrip": false
+  },
+  {
+   "route": "generate",
+   "chunk": "GeneratePane-Bj-V5ph6.js",
+   "chunkBytes": 6022,
+   "preloadsPreviewStrip": true
+  },
+  {
+   "route": "gradient",
+   "chunk": "GradientPane-C8jYuigW.js",
+   "chunkBytes": 182079,
+   "preloadsPreviewStrip": false
+  },
+  {
+   "route": "mix",
+   "chunk": "MixPane-CGs7LLFJ.js",
+   "chunkBytes": 18818,
+   "preloadsPreviewStrip": false
+  },
+  {
+   "route": "admin",
+   "chunk": "AdminPane-DM9BGZQg.js",
+   "chunkBytes": 39874,
+   "preloadsPreviewStrip": false
+  },
+  {
+   "route": "aurora",
+   "chunk": "AuroraPane-Dc25Xa3R.js",
+   "chunkBytes": 4374,
+   "preloadsPreviewStrip": true
+  },
+  {
+   "route": "blob",
+   "chunk": "BlobPane-4m6Q2iUZ.js",
+   "chunkBytes": 2204,
+   "preloadsPreviewStrip": false
+  }
+ ],
+ "mixStaticImports": [
+  "vue.runtime.esm-bundler-CZavfU-W.js",
+  "dom-B8jQkpUZ.js",
+  "button-BOFTUPyU-Bok0b4TX.js",
+  "collapsible-DFzK29Oh-Cr0jVE9Y.js",
+  "keyframes-C-PLekfv.js",
+  "PaletteSpecimen-BAsOqeDs.js",
+  "check-CSJHZTkI.js",
+  "dock-bEF2lzIc.js",
+  "badge-BO6BC4G5-aX03Q28U.js",
+  "index-rl3s9uLe.js",
+  "SwatchButton-DWRCYoKh.js",
+  "usePanePopups-fO-3SFLj.js",
+  "tabs-rdRXKXxd-CUMpFQ_v.js",
+  "sample-CopMSLOc.js",
+  "InterpolationFields-D2mfv_6d.js",
+  "labeled-field-CjWqHot1.js"
+ ]
+}

@@ -1,0 +1,1169 @@
+{
+ "base": "http://localhost:9000/",
+ "at": "2026-10-19T18:03:07.394Z",
+ "cells": {
+  "r1_plainDesktop": {
+   "s0": {
+    "n": 4,
+    "label": "R channel",
+    "valuenow": "0.5019607843137255",
+    "meter": "128",
+    "rect": {
+     "x": 275.140625,
+     "y": 542.9375,
+     "w": 340.625,
+     "h": 24
+    },
+    "ontouchstart": false,
+    "coarse": false,
+    "anyCoarse": false,
+    "gateActive": false
+   },
+   "click1": {
+    "valuenow": "0.193",
+    "meter": "49",
+    "gateActive": false
+   },
+   "click2": {
+    "valuenow": "0.858",
+    "meter": "219",
+    "gateActive": false
+   }
+  },
+  "r1_touchCapableDesktop": {
+   "s0": {
+    "n": 4,
+    "label": "R channel",
+    "valuenow": "0.5019607843137255",
+    "meter": "128",
+    "rect": {
+     "x": 280.140625,
+     "y": 544.640625,
+     "w": 335.625,
+     "h": 24
+    },
+    "ontouchstart": true,
+    "coarse": true,
+    "anyCoarse": true,
+    "gateActive": false
+   },
+   "click1": {
+    "valuenow": "0.5019607843137255",
+    "meter": "128",
+    "gateActive": true
+   },
+   "click2": {
+    "valuenow": "0.859",
+    "meter": "219",
+    "gateActive": true
+   }
+  },
+  "r2_cold_none_link": {
+   "appInnerTextLen": 363,
+   "hasConsole": false,
+   "hasAlert": true,
+   "alertText": "This panel hit an unexpected error.cssToOklch: color_missing_channel Try again",
+   "hash": "#/?space=rgb&color=rgb(none%2050%2050)",
+   "bodyBg": "rgb(224, 91, 74)",
+   "errs": [
+    "console: [value.js] unhandled failure (boundary · render function) Error: [MarkdownColors] OKLCH conversion failed: color_missing_channel\n    at ComputedRefImpl.fn (http://localhost:9000/@fs/Users/mkbabb/Progr",
+    "console: [value.js] unhandled failure (window.error) GlassColorError: cssToOklch: color_missing_channel\n    at r (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/value-DMhh2",
+    "cssToOklch: color_missing_channel",
+    "console: [value.js] unhandled failure (boundary · native event handler) GlassColorError: cssToOklch: color_missing_channel\n    at r (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vi"
+   ],
+   "errCount": 4
+  },
+  "r2_warm_none": {
+   "steps": [
+    {
+     "tag": "boot",
+     "hasConsole": true,
+     "alerts": [],
+     "meters": [
+      "200",
+      "50",
+      "50",
+      "100%"
+     ],
+     "hash": "#/?space=rgb&color=rgb(200 50 50)",
+     "errsSoFar": 0
+    },
+    {
+     "tag": "after-none-commit",
+     "hasConsole": false,
+     "alerts": [
+      "This panel hit an unexpected error.cssToOklch: color_missing_channel Try again",
+      "This panel hit an unexpected error.[MarkdownColors] OKLCH conversion failed: color_missing"
+     ],
+     "meters": [],
+     "hash": "#/?space=rgb&color=rgb(none 50 50)",
+     "errsSoFar": 4
+    },
+    {
+     "tag": "after-valid-commit",
+     "hasConsole": false,
+     "alerts": [
+      "This panel hit an unexpected error.cssToOklch: color_missing_channel Try again",
+      "This panel hit an unexpected error.[MarkdownColors] OKLCH conversion failed: color_missing"
+     ],
+     "meters": [],
+     "hash": "#/?space=rgb&color=rgb(20 180 90)",
+     "errsSoFar": 4
+    },
+    {
+     "tag": "after-pointer-move",
+     "hasConsole": false,
+     "alerts": [
+      "This panel hit an unexpected error.cssToOklch: color_missing_channel Try again",
+      "This panel hit an unexpected error.[MarkdownColors] OKLCH conversion failed: color_missing"
+     ],
+     "meters": [],
+     "hash": "#/?space=rgb&color=rgb(20 180 90)",
+     "errsSoFar": 4
+    },
+    {
+     "tag": "after-try-again",
+     "hasConsole": true,
+     "alerts": [],
+     "meters": [
+      "20",
+      "180",
+      "90",
+      "100%"
+     ],
+     "hash": "#/?space=rgb&color=rgb(20 180 90)",
+     "errsSoFar": 4,
+     "tryAgainClicked": 2
+    }
+   ],
+   "errTotal": 4,
+   "errSample": [
+    "console: [value.js] unhandled failure (boundary · render function) Error: [MarkdownColors] OKLCH conversion failed: color_missing_channel\n    at Comp",
+    "console: [value.js] unhandled failure (window.error) GlassColorError: cssToOklch: color_missing_channel\n    at r (http://localhost:9000/@fs/Users/mkb",
+    "pageerror: cssToOklch: color_missing_channel",
+    "console: [value.js] unhandled failure (boundary · native event handler) GlassColorError: cssToOklch: color_missing_channel\n    at r (http://localhost"
+   ]
+  },
+  "r3_baseline_unforced": {
+   "forced": false,
+   "rest": [
+    {
+     "active": false,
+     "outline": "solid 3px rgba(0, 0, 0, 0)",
+     "trackBgImage": "linear-gradient(to right, rgb(0, 80, 40) 0%, rgb(26, 80, 40) 10%, rgb(51, 80, 40",
+     "trackBoxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(0, 0, 0, 0)",
+     "thumbBorder": "rgb(251, 250, 248)"
+    },
+    {
+     "active": false,
+     "outline": "solid 3px rgba(0, 0, 0, 0)",
+     "trackBgImage": "linear-gradient(to right, rgb(200, 0, 40) 0%, rgb(200, 26, 40) 10%, rgb(200, 51,",
+     "trackBoxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(0, 0, 0, 0)",
+     "thumbBorder": "rgb(251, 250, 248)"
+    },
+    {
+     "active": false,
+     "outline": "solid 3px rgba(0, 0, 0, 0)",
+     "trackBgImage": "linear-gradient(to right, rgb(200, 80, 0) 0%, rgb(200, 80, 26) 10%, rgb(200, 80,",
+     "trackBoxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(0, 0, 0, 0)",
+     "thumbBorder": "rgb(251, 250, 248)"
+    },
+    {
+     "active": false,
+     "outline": "solid 3px rgba(0, 0, 0, 0)",
+     "trackBgImage": "linear-gradient(to right, rgba(200, 80, 40, 0) 0%, rgba(200, 80, 40, 0.1) 10%, r",
+     "trackBoxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(0, 0, 0, 0)",
+     "thumbBorder": "rgb(251, 250, 248)"
+    }
+   ],
+   "activeRow0": null
+  },
+  "r5_retention": {
+   "spaces": [
+    "hsl",
+    "hsv",
+    "hwb",
+    "lab",
+    "lch",
+    "oklab",
+    "oklch",
+    "xyz"
+   ],
+   "seen": [
+    "H channel,S channel,L channel,ALPHA channel",
+    "H channel,S channel,V channel,ALPHA channel",
+    "H channel,W channel,B channel,ALPHA channel",
+    "L channel,A channel,B channel,ALPHA channel",
+    "L channel,C channel,H channel,ALPHA channel",
+    "L channel,A channel,B channel,ALPHA channel",
+    "L channel,C channel,H channel,ALPHA channel",
+    "X channel,Y channel,Z channel,ALPHA channel"
+   ],
+   "census": {
+    "mapKeys": 14,
+    "detached": 10,
+    "keys": [
+     "l",
+     "a",
+     "b",
+     "alpha",
+     "r",
+     "g",
+     "h",
+     "s",
+     "v",
+     "w",
+     "c",
+     "x",
+     "y",
+     "z"
+    ],
+    "connected": [
+     "alpha",
+     "x",
+     "y",
+     "z"
+    ]
+   }
+  },
+  "geom_mobile": {
+   "coarse": true,
+   "strips": [
+    [
+     91,
+     458.8,
+     253.7,
+     32
+    ],
+    [
+     91,
+     505.3,
+     253.7,
+     32
+    ],
+    [
+     91,
+     551.8,
+     253.7,
+     32
+    ],
+    [
+     91,
+     598.3,
+     253.7,
+     32
+    ]
+   ],
+   "stripPitch": 46.5,
+   "rowGap": "6px",
+   "root": [
+    91,
+    462.8,
+    201.91,
+    24
+   ],
+   "thumb": [
+    265.7,
+    462.8,
+    12,
+    24
+   ],
+   "thumbParent": [
+    91,
+    462.8,
+    201.91,
+    24
+   ],
+   "track": [
+    91,
+    462.8,
+    201.91,
+    24
+   ],
+   "before": {
+    "content": "\"\"",
+    "position": "absolute",
+    "height": "44px",
+    "top": "12px",
+    "inset": "12px 0px -32px"
+   }
+  },
+  "geom_desktop": {
+   "coarse": false,
+   "strips": [
+    [
+     273,
+     537,
+     402.48,
+     35.83
+    ],
+    [
+     273,
+     580.5,
+     402.48,
+     35.83
+    ],
+    [
+     273,
+     624,
+     402.48,
+     35.83
+    ],
+    [
+     273,
+     667.5,
+     402.48,
+     35.83
+    ]
+   ],
+   "stripPitch": 43.5,
+   "rowGap": "7.68px",
+   "root": [
+    273,
+    542.9,
+    342.72,
+    24
+   ],
+   "thumb": [
+    577.3,
+    542.9,
+    12,
+    24
+   ],
+   "thumbParent": [
+    273,
+    542.9,
+    342.72,
+    24
+   ],
+   "track": [
+    273,
+    542.9,
+    342.72,
+    24
+   ],
+   "before": {
+    "content": "none",
+    "position": "static",
+    "height": "auto",
+    "top": "auto",
+    "inset": "auto"
+   }
+  },
+  "r4_sweep": {
+   "rows": [
+    {
+     "vw": 360,
+     "container": "pane-wrapper",
+     "containerW": 328,
+     "containerContentW": 328,
+     "rowGap": "6px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 380,
+     "container": "pane-wrapper",
+     "containerW": 348,
+     "containerContentW": 348,
+     "rowGap": "6px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 400,
+     "container": "pane-wrapper",
+     "containerW": 368,
+     "containerContentW": 368,
+     "rowGap": "6px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 420,
+     "container": "pane-wrapper",
+     "containerW": 388,
+     "containerContentW": 388,
+     "rowGap": "6px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 440,
+     "container": "pane-wrapper",
+     "containerW": 408,
+     "containerContentW": 408,
+     "rowGap": "6.12px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 460,
+     "container": "pane-wrapper",
+     "containerW": 428,
+     "containerContentW": 428,
+     "rowGap": "6.42px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 480,
+     "container": "pane-wrapper",
+     "containerW": 448,
+     "containerContentW": 448,
+     "rowGap": "6.72px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 500,
+     "container": "pane-wrapper",
+     "containerW": 468,
+     "containerContentW": 468,
+     "rowGap": "7.02px",
+     "stripMinBlock": "32.76px",
+     "stripH": 32.75
+    },
+    {
+     "vw": 520,
+     "container": "pane-wrapper",
+     "containerW": 488,
+     "containerContentW": 488,
+     "rowGap": "7.32px",
+     "stripMinBlock": "34.16px",
+     "stripH": 34.16
+    },
+    {
+     "vw": 540,
+     "container": "pane-wrapper",
+     "containerW": 508,
+     "containerContentW": 508,
+     "rowGap": "7.62px",
+     "stripMinBlock": "35.56px",
+     "stripH": 35.55
+    },
+    {
+     "vw": 560,
+     "container": "pane-wrapper",
+     "containerW": 528,
+     "containerContentW": 528,
+     "rowGap": "7.92px",
+     "stripMinBlock": "36.96px",
+     "stripH": 36.95
+    },
+    {
+     "vw": 580,
+     "container": "pane-wrapper",
+     "containerW": 548,
+     "containerContentW": 548,
+     "rowGap": "8px",
+     "stripMinBlock": "38.36px",
+     "stripH": 38.36
+    },
+    {
+     "vw": 600,
+     "container": "pane-wrapper",
+     "containerW": 568,
+     "containerContentW": 568,
+     "rowGap": "8px",
+     "stripMinBlock": "39.76px",
+     "stripH": 39.75
+    },
+    {
+     "vw": 620,
+     "container": "pane-wrapper",
+     "containerW": 588,
+     "containerContentW": 588,
+     "rowGap": "8px",
+     "stripMinBlock": "41.16px",
+     "stripH": 41.16
+    },
+    {
+     "vw": 640,
+     "container": "pane-wrapper",
+     "containerW": 608,
+     "containerContentW": 608,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 660,
+     "container": "pane-wrapper",
+     "containerW": 628,
+     "containerContentW": 628,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 680,
+     "container": "pane-wrapper",
+     "containerW": 648,
+     "containerContentW": 648,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 700,
+     "container": "pane-wrapper",
+     "containerW": 668,
+     "containerContentW": 668,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 720,
+     "container": "pane-wrapper",
+     "containerW": 688,
+     "containerContentW": 688,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 740,
+     "container": "pane-wrapper",
+     "containerW": 708,
+     "containerContentW": 708,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 760,
+     "container": "pane-wrapper",
+     "containerW": 728,
+     "containerContentW": 728,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 780,
+     "container": "pane-wrapper",
+     "containerW": 748,
+     "containerContentW": 748,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 800,
+     "container": "pane-wrapper",
+     "containerW": 768,
+     "containerContentW": 768,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 820,
+     "container": "pane-wrapper",
+     "containerW": 788,
+     "containerContentW": 788,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 840,
+     "container": "pane-wrapper",
+     "containerW": 808,
+     "containerContentW": 808,
+     "rowGap": "8px",
+     "stripMinBlock": "42px",
+     "stripH": 42
+    },
+    {
+     "vw": 860,
+     "container": "pane-wrapper",
+     "containerW": 408.6,
+     "containerContentW": 409,
+     "rowGap": "6.12937px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 880,
+     "container": "pane-wrapper",
+     "containerW": 418.5,
+     "containerContentW": 419,
+     "rowGap": "6.2775px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 900,
+     "container": "pane-wrapper",
+     "containerW": 428.4,
+     "containerContentW": 428,
+     "rowGap": "6.42562px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 920,
+     "container": "pane-wrapper",
+     "containerW": 438.3,
+     "containerContentW": 438,
+     "rowGap": "6.57375px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 940,
+     "container": "pane-wrapper",
+     "containerW": 448.1,
+     "containerContentW": 448,
+     "rowGap": "6.72188px",
+     "stripMinBlock": "32px",
+     "stripH": 32
+    },
+    {
+     "vw": 960,
+     "container": "pane-wrapper",
+     "containerW": 458,
+     "containerContentW": 458,
+     "rowGap": "6.87px",
+     "stripMinBlock": "32.06px",
+     "stripH": 32.05
+    },
+    {
+     "vw": 980,
+     "container": "pane-wrapper",
+     "containerW": 467.9,
+     "containerContentW": 468,
+     "rowGap": "7.01813px",
+     "stripMinBlock": "32.7513px",
+     "stripH": 32.75
+    },
+    {
+     "vw": 1000,
+     "container": "pane-wrapper",
+     "containerW": 477.8,
+     "containerContentW": 478,
+     "rowGap": "7.16625px",
+     "stripMinBlock": "33.4425px",
+     "stripH": 33.44
+    },
+    {
+     "vw": 1020,
+     "container": "pane-wrapper",
+     "containerW": 487.6,
+     "containerContentW": 488,
+     "rowGap": "7.31437px",
+     "stripMinBlock": "34.1338px",
+     "stripH": 34.13
+    },
+    {
+     "vw": 1040,
+     "container": "pane-wrapper",
+     "containerW": 497.5,
+     "containerContentW": 498,
+     "rowGap": "7.4625px",
+     "stripMinBlock": "34.825px",
+     "stripH": 34.81
+    },
+    {
+     "vw": 1060,
+     "container": "pane-wrapper",
+     "containerW": 507.4,
+     "containerContentW": 507,
+     "rowGap": "7.61062px",
+     "stripMinBlock": "35.5163px",
+     "stripH": 35.52
+    },
+    {
+     "vw": 1080,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1100,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1120,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1140,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1160,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1180,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1200,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1220,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1240,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1260,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1280,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1300,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1320,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1340,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1360,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1380,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1400,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1420,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1440,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1460,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1480,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1500,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1520,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1540,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1560,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1580,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1600,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1620,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1640,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1660,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1680,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1700,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1720,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1740,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1760,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1780,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1800,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1820,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1840,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1860,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1880,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1900,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    },
+    {
+     "vw": 1920,
+     "container": "pane-wrapper",
+     "containerW": 512,
+     "containerContentW": 512,
+     "rowGap": "7.68px",
+     "stripMinBlock": "35.84px",
+     "stripH": 35.83
+    }
+   ]
+  },
+  "r3_forced_rest": {
+   "forced": true,
+   "rest": [
+    {
+     "active": false,
+     "outline": "solid 3px rgb(0, 0, 0)",
+     "trackBgImage": "none",
+     "trackBoxShadow": "none",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(5, 0, 73, 0.8)",
+     "thumbBorder": "rgb(0, 0, 0)"
+    },
+    {
+     "active": false,
+     "outline": "solid 3px rgb(0, 0, 0)",
+     "trackBgImage": "none",
+     "trackBoxShadow": "none",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(5, 0, 73, 0.8)",
+     "thumbBorder": "rgb(0, 0, 0)"
+    },
+    {
+     "active": false,
+     "outline": "solid 3px rgb(0, 0, 0)",
+     "trackBgImage": "none",
+     "trackBoxShadow": "none",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(5, 0, 73, 0.8)",
+     "thumbBorder": "rgb(0, 0, 0)"
+    },
+    {
+     "active": false,
+     "outline": "solid 3px rgb(0, 0, 0)",
+     "trackBgImage": "none, none",
+     "trackBoxShadow": "none",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(5, 0, 73, 0.8)",
+     "thumbBorder": "rgb(0, 0, 0)"
+    }
+   ],
+   "activeRow0": null
+  },
+  "r3_forced_gate_active": {
+   "forced": true,
+   "rest": [
+    {
+     "active": false,
+     "outline": "solid 3px rgb(0, 0, 0)",
+     "trackBgImage": "none",
+     "trackBoxShadow": "none",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(5, 0, 73, 0.8)",
+     "thumbBorder": "rgb(0, 0, 0)"
+    },
+    {
+     "active": false,
+     "outline": "solid 3px rgb(0, 0, 0)",
+     "trackBgImage": "none",
+     "trackBoxShadow": "none",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(5, 0, 73, 0.8)",
+     "thumbBorder": "rgb(0, 0, 0)"
+    },
+    {
+     "active": false,
+     "outline": "solid 3px rgb(0, 0, 0)",
+     "trackBgImage": "none",
+     "trackBoxShadow": "none",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(5, 0, 73, 0.8)",
+     "thumbBorder": "rgb(0, 0, 0)"
+    },
+    {
+     "active": false,
+     "outline": "solid 3px rgb(0, 0, 0)",
+     "trackBgImage": "none, none",
+     "trackBoxShadow": "none",
+     "trackFCA": "auto",
+     "thumbBg": "rgba(5, 0, 73, 0.8)",
+     "thumbBorder": "rgb(0, 0, 0)"
+    }
+   ],
+   "activeRow0": {
+    "active": true,
+    "outline": "solid 3px rgb(0, 0, 0)",
+    "trackBgImage": "none",
+    "trackBoxShadow": "none",
+    "trackFCA": "auto",
+    "thumbBg": "rgba(5, 0, 73, 0.8)",
+    "thumbBorder": "rgb(0, 0, 0)"
+   }
+  }
+ }
+}

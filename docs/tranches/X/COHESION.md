@@ -4278,3 +4278,344 @@ X-W10 CLOSED on §0fy. X-W11 halted correctly before the irreversible act: no ta
 3. **The tag.** `v4.1.0` exists only as a local annotated tag at `6636e039c` (never pushed). It is re-minted at the commit that carries (1) and (2). Deleting an unpushed local tag rewrites nothing published.
 4. **Order:** `.w9r → .b from the top → .c (push the tag → release.yml → artefacts → §0j.F merge → deploy → boot-smoke) → .d → .e → close → check`. The npm publish wall (E401/EOTP) is an owner act; if it is hit, `.c` banks the wall and the receipt names the owner act; nothing is substituted.
 W11.md ADDENDUM (2026-10-18) carries this ruling.
+
+## §0ga — 2026-10-18: ESC-W11c-POSTTAG-DEMO-BYTES RULED arm (b): the release of record is the tag's commit; master merges `v4.1.0^{commit}`
+`.w9r` landed (`83964c120` W9.22 CSS Color 4 rgb→hsl; `00b218326` zero runtime dependencies) and the local `v4.1.0` was re-minted at `00b218326`. `.b`'s battery ran at `9e88fcce6`, a descendant of the tag with no `src/`, `demo/`, `e2e/`, `scripts/` or manifest difference (`git diff --stat v4.1.0 9e88fcce6 -- …` → empty), so the battery covers the tag's product bytes. A sibling X-DS seat then landed `22782b1cb` (15 `demo/**` paths plus one e2e spec) on `tranche-u`.
+1. **Arm (b) is ruled. §0j.F word (2) is amended for X-W11:** the merge-to-master merges `v4.1.0^{commit}` (`00b218326`), not `tranche-u` HEAD. The deploy of record is built from that merge commit, so G6's ancestry clause (the deployed commit's tree is the tag's tree, plus the merge) holds by construction. All other words of §0j.F stand (both-changed paths resolve to `tranche-u`'s bytes at the tag; local `master` is fast-forwarded to `origin/master` first; no rebase).
+2. **Why not arm (a).** Re-minting at a moving HEAD while other tracks keep landing `demo/**` would race again, and holding the other workflows' landings would stall work for a release that does not need their bytes. The library tarball is unaffected either way (`src/**` and `package.json` are unchanged since the tag).
+3. **`22782b1cb` and later `tranche-u` landings deploy in the next ordinary merge**, after X-DS's own critic passes cover them (X-DS's stopping rule), never riding the release.
+4. **Order:** `.c` re-sits whole: push the tag → `release.yml` → artefacts → the §0j.F merge of `v4.1.0^{commit}` → deploy → boot-smoke. Then `.d`, `.e`, the close and the check. An npm E401/EOTP wall is banked as the owner act.
+W11.md ADDENDUM (second, 2026-10-18) carries this ruling.
+
+## §0gb — 2026-10-18: ESC-W11c-RELEASE-TEST-RED RULED: release.yml installs its browser; the five INK-VEIL-MIDBAND cases become a producer-held manifest; the unconsumed tag is re-minted
+`.c` pushed `v4.1.0` (→ `00b218326`). `release.yml` run 39185855047 failed at `npx vitest run`, so pack, publish and the registry coordinate were skipped: 0 artefacts, npm `latest` is still 4.0.0, and 4.1.0 is E404. No npm version was consumed, so G29 (one bump, one tag) survives. The local §0j.F merge `7ad18e580` was not pushed.
+1. **Cause (ii), the browser, is X-W1's `release.yml` defect. It is cured at the workflow.** `release.yml` installs Playwright's Chromium (`npx playwright install --with-deps chromium`) before its test step, exactly as `ci.yml`'s producer job does, and runs `npm test` as `ci.yml` does, so CI and the release run one definition of "test". The demo mount tests are not skipped and not excluded.
+2. **Cause (i), the five `test/ink.test.ts` cases, is producer-held, by manifest, with a self-lifting falsifier (the fourier `web/e2e/producer-held.json` precedent, §0ew).**
+   - The cases model glass 10.1.0's `--glass-veil-ink` composite (`test/ink.test.ts:48-59` hard-reads `oklch(0.28 0.035 70)` / `oklch(0.17 0.03 70)`). Across the veil's mid-band no ink can be both quieter than the foreground and clear the floor, and no plate can keep the pick's chroma voice. That is INK-VEIL-MIDBAND, O-62 (a), and glass banked the token cure (I-45, glass `95068476`) for its BL cut and the 10.2.0 repin.
+   - **Mechanism:** one committed manifest `test/producer-held.json` lists the five cases by exact full name, each with its O-id and expiry ("lifts at the glass 10.2.0 repin"). `test/ink.test.ts` registers exactly those names through one helper. The helper runs the unchanged body and passes only if the body throws an `AssertionError`; any other error fails it, and a body that passes fails it ("glass landed: adopt it and delete the row"). A manifest row that matches no test fails the file. No assertion is loosened, no threshold moves, and no case is skipped.
+   - The other 22 cases stay ordinary.
+3. **Unit `X.W11.rel1`, orchestrator-granted:** `.github/workflows/release.yml`, `test/ink.test.ts` (the registration only; every body byte-identical, proven by a diff that touches only the call sites), and the new `test/producer-held.json`. **Oracle ×2:** a full `npx vitest run --maxWorkers=2` reads 0 failed, with the five held cases reported as held-passing; a mutant that makes one held body pass fails the file; a mutant row with an unknown name fails the file; `release.yml` lints (`actionlint` if present, else a YAML parse) and its test step text equals `ci.yml`'s browser-install plus `npm test` pair.
+4. **The tag is re-minted at the `.rel1` commit.** The pushed `v4.1.0` resolved to no release (0 artefacts, no npm version), so `git push origin :refs/tags/v4.1.0`, then a local re-mint and re-push, rewrites nothing anyone consumed. No branch is force-pushed, and no history is rewritten.
+5. **The local master merge** is not reset. The new tag commit is merged on top of `7ad18e580`, so master's tree equals the new tag's tree and G6's ancestry holds.
+6. **Order:** `.rel1 → .b re-reads G2 (vitest) at the new tag → .c re-sits whole (tag push → release.yml → artefacts → master merge of v4.1.0^{commit} → deploy → boot-smoke) → .d → .e → close → check`. An npm E401/EOTP wall is banked as the owner act.
+W11.md ADDENDUM (third, 2026-10-18) carries this ruling.
+
+## §0gc — 2026-10-19: CI-GREEN read — four cures land, four escalations RULED, the deploy gate is BLOCKED-ON-OWNER; the release re-sits on cold-green `npm test`
+Source: workflow `x-ci-green` (`wf_c8be8949-52c`, 20 seats, 0 errors). Receipts are under `## CI-GREEN (§0gc)` in `docs/tranches/X/execution/A/X-W11.md`. Real CI runs: 39229786770 (r1 @ `113b00bb1`) and 39251853153 (r2 @ `b675df143`). Both read 4/10 green (producer ×2, api, boot-smoke) and 6 red (oracle slate, lhci, deploy-age, e2e-smoke 23, visual 219, e2e-safari 72–80). r3 (39279012104 @ `dd3a74011`) was still queued when the seat ended. Kernel zone was 13.22M at this ruling (≥ 13M), so `guarded` refuses local heavy runs. The owner has declined a reboot for now (2026-10-19).
+1. **Cured at root, landed:**
+   - **ESC-W11c-RELEASE-PLATE-MASS-RED** CURED `51347e257`. The harness pre-scans late mounts (`optimizeDeps.entries`) and keys its dep cache by mount set. The cold `npm test` is 1253/1253 ×3 locally, and the producer jobs on Node 22 and 24 are GREEN on CI 39191264707 and both later runs. `release.yml` now runs the same test definition (§0gb.1), so the release path is unblocked.
+   - **boot-smoke** CURED `c1fb8958a`. It owns the dev server's whole process tree, which was the Linux 6 h orphan hang. It is GREEN on CI.
+   - **oracle slate ENOBUFS** CURED `f37669ffb`: `maxBuffer: Infinity`, plus a memoized listing.
+   - **Supporting fixes:**
+     - `80734737c` writes the HTML report;
+     - `48c2009c5` makes lhci keep its reports;
+     - `f71767898` moves e2e-safari to `macos-15`, because Linux WPE WebKit wedges once WebGL starts.
+2. **ESC-W11-DEPLOY-AGE-SELF-LOCK RULED arm (A).**
+   - A gate must not sit inside the workflow whose success it gates. `deploy-age` leaves `ci.yml`.
+   - It becomes (i) a post-ship step in `deploy-pages.yml` that verifies the served build is the deployed sha, and (ii) a scheduled workflow (daily, plus `workflow_run` after deploy-pages) that reds when production is older than the newest close.
+   - **Close grammar:** "close" means an annotated tag matching `tranche-*-close` or a release tag `v*`, reachable from `origin/master`. It is never a free-text grep of message bodies.
+   - DR-11/G-21 keep their bar, 0 days stale after a close. Only where the bar is measured moves.
+   - Unit **X.W11.ci1** (granted `.github/workflows/{ci,deploy-pages}.yml`, the new `.github/workflows/deploy-age.yml`, `scripts/ci/deploy-age*`).
+3. **ESC-W11-CI-CADENCE RULED.**
+   - `ci.yml`'s `push` trigger takes `paths-ignore: ['docs/**']`. A receipt-only push cannot cancel a 2.5 h browser run, and docs carry no product bytes.
+   - `cancel-in-progress` stays.
+   - Before landing, the seat proves that no `ci.yml` job reads `docs/**` as input. The oracle slate's tracked-file census is checked specifically. If one does, that job's own trigger is ruled in the receipt, never silently dropped.
+   - This is in unit X.W11.ci1.
+4. **ESC-W11-ORACLE-ORDINAL-R47 RULED: renumber the W6 mints.**
+   - The three 2026-09-19 W6 specs take the next free ordinals, never reusing a shipped T-era one: `o21-space-catalog-truth`, `o22-specimen-legibility` and `o24-specimen-dot-identity`. Their in-file declarations and every live (non-dated) reference move with them.
+   - E-3: dated records are not rewritten. One dated alias table, `docs/tranches/X/waves/W6-ADDENDUM-2026-10-19-ordinals.md` (old → new, with the reason R47/NG-14), resolves the 61–152 historical citations.
+   - Oracle: the slate's D section reads 0, ×2.
+   - Unit **X.W11.ci2** (granted the three spec files and their renames, live references under `e2e/**` and `scripts/ci/**`, and the addendum).
+5. **ESC-W11-ADMIN-PANE-DEV-FRAGMENT RULED: land it.**
+   - X-DS is CLOSED (`7c0fb2710`), so the file is free. Unit **X.W11.ci3** (granted `demo/palettes/admin/AdminPane.vue`) moves the root-level `<!-- A2-VA-L1-1 … -->` comment inside `<PaneShell>`, so the dev root is one element.
+   - Oracle: admin-walk and w7-destructive-seats, read on CI, which is the Linux witness, plus a local darwin read when the zone gate admits one.
+6. **ESC-W11-DOCK-390-OVERFLOW RULED: diagnose and cure at the root.**
+   - Unit **X.W11.ci4** (granted the consumer dock seat under `demo/**`): at 390 the full-layer morph must not widen the document (`scrollWidth == clientWidth`).
+   - A consumer cause is cured in the dock's own layout, never by a page-level clip.
+   - A producer cause is the next O-row (ADOPT-AT-LANDING, INBOX plus BK mirror), with o21:328 held honest-RED on it.
+7. **Owner-held (OD-W11-1). These keep `ci.yml` RED on master, so `deploy-pages` stays skipped. The deploy of record is BLOCKED-ON-OWNER, not substituted.** No `workflow_dispatch`, no `if:` guard, no budget move.
+   - (a) **lhci:**
+     - ESC-W11-LHCI-SOFTWARE-RASTER-BEAD: arms A, B and C. Arm A parks identity motion on GPU-less machines, so it is a §0dm owner ruling. The patch is banked at `docs/tranches/X/evidence/X-W11-lhci/heroblob-software-raster-tier.patch`.
+     - CC-036, the TBT boot floor of 2.7–3.4 s.
+     - ESC-W11-LHCI-LCP-STRUCTURAL: a prerendered first-view shell or a halved critical path, in the Q14 lineage.
+   - (b) **ESC-W11-SAFARI-HOSTED-GPU:** a runner with real GPU WebKit is an owner billing or infrastructure act.
+   - (c) **e2e-smoke's ruled rows:** X-W10 E1–E9, the X-W2 perf bars, and o10.
+   - (d) **visual:** ESC-W11-VISUAL-E14-REPLAN, the single darwin refresh after E1–E13.
+8. **Release order (W11.md ADDENDUM, fourth).** `.ci1 ∥ .ci2 ∥ .ci3 ∥ .ci4` (disjoint writable sets), then:
+   - the LOCAL tag `v4.1.0` is re-minted at the commit carrying them. The tag was never pushed after `.rel1`, so `git tag -d` and an annotated re-mint rewrite nothing that was consumed;
+   - `.b` reads G2 at the tag;
+   - `.c` re-sits whole: tag push → `release.yml` (its `npm test` is the cold witness) → artefacts and the npm coordinate → the §0j.F merge of `v4.1.0^{commit}` on top of local master `7ad18e580` (never reset) → push master → deploy;
+   - **if `ci.yml` on that master push is RED only on OD-W11-1 rows, `.c` banks the deploy as BLOCKED-ON-OWNER (OD-W11-1) and boot-smokes the release artefacts, not production;**
+   - then `.d`, `.e`, close (honest-RED on OD-W11-1), check.
+   An npm E401/EOTP wall is banked as the owner act.
+9. **Zone gate.** While `zone.log` reads ≥ 13M, a seat's local heavy arm is banked ZONE-REFUSED (ESC-W8i-3, owner reboot owed). The same gate is read from the CI job that runs the identical command on a cold hosted runner at the same sha, cited by run and job id. A local arm is never substituted by `--light`. The darwin-only arms (WebKit, the real-GPU witness) stay owed until a reboot.
+
+## §0gd — 2026-10-19: the constellation read (wf_3eed4b93-1e7) — ESC-W10-h-1 RULED and homed in X-W11; .e gains the ESC census, the RC-P(V) re-read and the owner close report; SS-8 dispatched; records and mail brought to the bytes
+Source: the read-only constellation analysis (7 surface readers and a synthesis; every gap was re-verified by command). The Mac rebooted at 12:10 (zone 2,063), so §0gc.9's ZONE-REFUSED banks are re-witnessed locally.
+1. **§0gc.7(c) is corrected (E-3 erratum).**
+   - ESC-W10-h-1 (`evidence/W10/homed/DISPOSITION.md` §8, E1–E19) was never ruled. §8 gives each row an agent cure path, so E1–E9 are **not** owner-held.
+   - **RULED:** E1–E19 home in X-W11 as orchestrator-granted units **X.W11.h1–h19**, each with exactly the paths and canon clauses §8 names. Locks:
+     - nothing deletes, skips or weakens an assertion;
+     - `test.skip` is never an engine scope;
+     - glass halves go by mail as the next O-rows.
+   - **E2's library half** (`src/color/operations.ts` `safeAccentColor`) rides 4.1.0, so every h-unit lands BEFORE the re-mint.
+   - **E10:** the orchestrator accepts "neither arm; composition as shipped" (§3). Identity atmosphere is kept (§0dm). The single DESIGN.md §2 canon clause names the console veil as the sanctioned in-plate veil fixture (T.W6.5-P).
+   - **E14** (the one attributed darwin golden refresh, including the 390 re-plan, the `not-found` enrolment and RENDERER.json read live) lands after h1–h13. It is the last product-adjacent commit before the re-mint.
+   - **E18** (fourier `web/Dockerfile`, `nginx/fourier.conf`, `docker-compose.prod.yml`: one nginx authority and a stated build context) is granted on fourier `m/w1-bump-migration`. The certbot half is a host read, cited by command.
+   - **Order:** `.ci4 ∥ h-units` (disjoint writable sets; never a path dirty with another seat's hunks) → E14 → re-mint → `.b` → `.c` → `.d` → `.e`.
+2. **Test-written evidence.** Smoke specs `x-w7l-detached` and `scene-action-contract`, the W4 action-bar spec and the c3-o16 probe write into committed, dated evidence (E-3 violation at runtime). Unit **X.W11.ev1** moves every such output under the run's own output dir (`test-results/`) at its root. It then restores the clobbered dated files to their committed bytes, which restores the record and rewrites nothing: the X-W7L a-frames, the W4 action-bar PNGs, `c3-o16-o12-2026-09-22.json` and `probe-share-dark.txt`. `CARRY-LEDGER.md`'s Codex-era hunk is not this unit's, and stays owner-held.
+3. **`.e` gains three steps.**
+   - (a) **ESC census:** every id in `execution/A/census/esc-nohome-2026-10-19.txt` (109 ids found in neither COHESION nor close/) gets a one-line disposition in FINAL's annex: ruled-at, cured-at, honest-RED-with-owner, or superseded-by. No id is silent.
+   - (b) **RC-P(V) re-read** at the published 4.1.0 coordinate. KF.W3 opens, or a record that it does not open, with the measurement.
+   - (c) **The owner close report (§0ao)**, authored by `.e` as `docs/tranches/X/close/OWNER-REPORT.md`: the per-app state, every owner act in one list, and the honest-RED census.
+   - The glass 10.2.0 repin is a BLOCKED-ON re-trigger row (glass `git diff v10.1.0 HEAD -- src` is empty; no cut is imminent). It has a named re-trigger, and the kf half of §0fl.2 rides it.
+4. **SS-8 is dispatched now** (runbook §4.1; beside the tracks, not a wave). A dedicated workflow runs live witnesses of the ~751 UNPROVEN residue items in `V/megatranche/registry/adjudicated/**`, plus the 14-record zero-residue cohort. Statuses travel verbatim; UNPROVEN is upgraded only by a cited live witness. Headless only, through guarded.
+5. **Records brought to the bytes** (LEDGER dated event lines; row cells changed by minimal in-place edits):
+   - X.P.W5 is STOPPED-by-ruling §0by: `.f`/`.g` were superseded by X.P.W6, and `.d`/`.e` are homed in X.P.W7P.
+   - SS-13 is carried by KF.W9 and F.W3/F.W4.
+   - SS-1/SS-2 and KF.W11–13 are executed and CLOSED.
+   - F.REL ESC-FREL-pd-1 was RULED arm (a) at §0fs.
+   - New rows: X-DS (CLOSED 7c0fb2710, tail running) and F.CT (C pipeline at `bf16b1e`; the phase-4 decision is owner-held).
+6. **Mail (E13).** Each item below is to be done:
+   - an I-row for glass `49fd90aef` (O-100 placed);
+   - O-98 and O-99 mirrored to glass BK/coordination;
+   - the value↔glass id map recorded (value O-97 = glass O-98; value O-99 takes a fresh glass id);
+   - glass receipts for O-90/O-91/O-94a/O-97 rowed;
+   - an E-3 erratum at I-45 (`950684768`);
+   - a preamble addendum naming glass `BL/audit/INBOUND.md` (the sweep reads depth ≥ 2);
+   - keyframes' three untracked inbound letters committed.
+7. **Sibling work with no home, now homed:**
+   - kf R-K1-a: at `s===1` the spring settles exactly on its target (`src/**` progress.ts:349-362, falsifier RED→GREEN ×2).
+   - latex-paper: `changeset version`, build and test through guarded, then push master fast-forward and tag v0.3.0. The npm publish is the owner's npm act.
+   - fourier: a read-only re-probe of R-h1.
+   - The 38 untracked fourier DS evidence paths in value.js are committed with the X-DS tail addendum.
+8. **Owner acts, unchanged and de-duplicated:**
+   - OD-W11-1(a)/(b);
+   - G8 Safari.app pass;
+   - R-h1;
+   - npm login/OTP: parse-that 2.0.0 → bbnf-lang 0.2.0 → latex-paper 0.3.0 → the keyframes release semver. value.js uses CI's NPM_TOKEN;
+   - the F.CT phase;
+   - design rulings KF-C3-02, ESC-DS-F10X-C2, DS-F12X-C1, DS-F3R-C4, DS-F6X-T2;
+   - fourier R-4;
+   - the glass session's questions and its 10.2.0 go;
+   - housekeeping: bbnf-lang/parse-that dirty masters, prune of stale worktrees.
+
+## §0ge — 2026-10-19: the owner delegates every open owner item to the orchestrator ("npm login is done--ratify the rest with your best judgement, based on our heretofore changes and decisions")
+Owner verbatim, 2026-10-19: *"npm login is done--ratify the rest with your best judgement, based on our heretofore changes and decisions."* Every item below was BLOCKED-ON-OWNER and is RULED here. Each ruling cites the earlier ruling or canon it follows.
+1. **OD-W11-1(a), lhci.**
+   - **SOFTWARE-RASTER-BEAD: arm (A).** This follows §0fr.2 (the cell of record is the real-GPU cell) and §0dm (identity motion is kept wherever the device can carry it).
+     - On a software rasterizer (`isSoftwareWebGLRenderer()`), the hero bead paints, then parks, and repaints one frame per register change. Banked patch: `evidence/X-W11-lhci/heroblob-software-raster-tier.patch`.
+     - GPU devices keep the live bead unchanged.
+     - The four specs (w12-picker-blob "bead still moves", webgl-blob-idle gate 1, perf/idle-frame-budget, o12-blob-seat O-12·3) assert liveness on the real-GPU cell (`useRealGpuCell()`). On SwiftShader they assert the tier's contract: painted, parked, and repainted on a register change. Each assertion is re-specified, not weakened.
+   - **CC-036 and LCP-STRUCTURAL: cure at the root.** No budget moves (LCP ≤ 2500, TBT ≤ 300).
+     - (i) The boot mount yields between its phases (the first-paint pane in the first task; registries, workers and the non-visible panes after paint). This continues X-W12U `.o5b`.
+     - (ii) The critical path is cut at its root: KaTeX loads only with its markdown/About consumer; Fraunces italic loads on first use; modulepreloads are pruned to the first-paint graph; the render-blocking CSS splits into critical and deferred parts. No feature is cut, and no first-paint state is deferred.
+     - (iii) **If lhci still reads LCP over budget after (i)+(ii), the build prerenders the static first-view shell** (the picker plate's HTML/CSS emitted at build and hydrated in place).
+   - Unit X.W11.p1–p3, lhci read ×3 on CI.
+2. **OD-W11-1(b), hosted macOS WebKit:** no billing.
+   - The hosted macos-15 VM's GPU is not a user surface (measured: WebGL context lost ×18→129, byte-identical A/B), so under §0fr.2 it is not a cell of record.
+   - `e2e-safari` moves out of `ci.yml` into its own `webkit-hosted.yml`. That workflow runs on the same triggers, keeps every assertion, and reports, but it does not gate `deploy-pages`.
+   - The WebKit cell of record is the darwin real-GPU run (`guarded --exclusive webkit`), banked per release in X-W11 `.d` with its run log.
+   - Unit X.W11.s1.
+3. **G8, the Safari.app pass, is retired.** The machine law (2026-10-14, WindowServer abort) forbids headed browsers, and Safari.app automation is headed. G8 is discharged by the darwin real-GPU headless WebKit witness (2). §0ei.3's Safari.app clause is superseded.
+4. **R-h1, the fourier deploy alert.** The alert sink no longer needs an owner secret: a failed deploy opens or updates a GitHub issue in the fourier repo, labelled `deploy-alert`, through the deploy workflow's own `GITHUB_TOKEN`. `FOURIER_DEPLOY_ALERT_WEBHOOK` becomes an optional second sink. F.REL `.d` re-sits on this. Unit F.REL.h1; its falsifier is a dry-run alert on a forced-failure fixture.
+5. **npm:** the owner logged in (`npm whoami` = mkbabb). The account's 2FA is `auth-and-writes`, so each local publish still takes a fresh one-time password at the moment of publish. The seat stages each publish to its clean, gated tree, and the owner types the one command (`! npm publish … --otp=<code>`); the OTP is never written to a file. Order: parse-that 2.0.0 → bbnf-lang lockfile regen and gates → bbnf-lang 0.2.0 → latex-paper 0.3.0 → keyframes.js. value.js 4.1.0 publishes through CI's `NPM_TOKEN`.
+   - **The keyframes semver** is measured by a public `.d.ts` diff since v6.0.0: any removed or changed export means 7.0.0, additive changes mean 6.1.0, and fixes only mean 6.0.1.
+   - X.P.W7P opens: steps 4–5 (the value.js devDependency move, `.z` re-reads, `gh pr merge` of bbnf-lang PR #1) follow the publishes.
+6. **F.CT:** the C pipeline shipped at fourier `bf16b1e` is ACCEPTED as terminal. Phase 4 does not open (KISS; no measured deficit names it).
+7. **Design rulings, each in the direction of the original styles (the X-DS canon), the a11y floors, and §0dm identity:**
+   - **KF-C3-02:** keyframes' home title wave and hero dots are KEPT as identity motion. They must honour `prefers-reduced-motion` (static under PRM) and park when the page is hidden or the element is offscreen. Unit KF.DS.r1.
+   - **P5-B1: Pole B.** The light ramp re-centres cool: violet 300, rose 350, coral 30. The warm end keeps its chroma voice (C 0.155 against 0.08) at Pole A's own measured contrast, as one resolver change.
+   - **P6-B1 (VC6-04 / V12-01): Pole B.** The original `684c818f` dark stamp returns: `--shadow-color: color-mix(in oklab, var(--foreground) 34%, var(--background))`, opaque, at the same 8/10 px geometry. Only `--shadow-color` / `--shadow-cartoon(-hover)` move.
+   - **VC5-01 / VC4-09 / V20C-04:** the route h1 stays the shell-level caption under the dock, as A5 and `<main>` labelling require. Closed as is.
+   - **Header veil (V2C-15 / V16-07) and VC6-T1/T2:** take the arm that conforms to the X-DS canon and the original styles while holding every contrast floor. Where both arms hold the floor, the flatter arm wins. The seat cites the arm.
+   - Units X.W11.d1–d3 (value).
+   - **fourier:**
+     - ESC-DS-F10X-C2: the gallery KEEPS the shared page gutter, because au1 L3-6's single content edge across routes stands.
+     - DS-F12X-C1's tone arm: REFUSED, because the WCAG 1.4.11 3:1 floor (HLG-37) wins.
+     - DS-F3R-C4: the ℱ glyph stays on both chips (§0dc).
+     - DS-F6X-T2: `auto-fill` is kept.
+     - None of these needs a cure.
+8. **fourier R-4:** the five production drafts are hard-deleted with the admin token, after a durable export of each one (JSON, under fourier `ops/backups/2026-10-19-r4/`, gitignored if it holds user data). The receipt cites the export and the delete responses. Unit F.REL.r4.
+9. **glass:** the orchestrator answers glass's open questions (Q-10, Q-5+Q-15, Q-2+Q-3, Q-13, Q-12, Q-4, R-21) by mail, consistent with §0dm, O-87/O-88 and the rulings above. It relays the owner's go for the 10.2.0 cut once glass's BL loops converge. 10.1.1 (atlas O-99) is glass's call. The repin follows any cut (the X-W11 re-trigger).
+10. **Housekeeping:**
+    - bbnf-lang local master is NEVER touched (standing law).
+    - parse-that master's 35 dirty paths and value.js `CARRY-LEDGER.md`'s Codex-era hunk are preserved as found; they are not X's.
+    - Local worktrees that are clean and whose branch is merged are pruned (`git worktree remove`, which refuses a dirty tree). Remote falsifier branches are kept.
+    - `.vite-critic-*` caches are deleted.
+
+## §0gf — 2026-10-19: the owner's live docket (OD19, 25 rows across value, keyframes and fourier) — minted as the X-OD19 wave, dispatched now
+The owner reviewed all three running apps and filed `docs/tranches/X/waves/owner-2026-10-19/DOCKET.md` (verbatim text, 19 frames, 25 rows).
+1. **Every row is in scope and is cured at its root.** Each row is read on the served app, headless, light and dark, at 1440 and 390, with BEFORE/AFTER frames and a falsifier where the row is testable. Identity colours, type and motion are kept (§0dm). KISS and glass-first: a consumer never copies producer behaviour.
+2. **Reversals of §0ge.7 by owner word.**
+   - (a) **VC5-01 / VC4-09:** the route caption ("Home") is removed from view. The `h1#route-title` stays in `<main>` for A5 and labelling, as visually-hidden text, so it no longer occupies or shifts layout. A5's label check reads the DOM, and the e2e `MAIN_PANE` selector holds.
+   - (b) **KF-C3-02:** the "Pause the title animation" control is removed. The motion still stops under `prefers-reduced-motion` and parks when hidden or offscreen (§0ge.7 otherwise stands).
+3. **glass rows** (the dock ellipse layer, in-place dock motion from the centre or side, dropdowns collapsing with the dock, a skeleton shimmer primitive, the integrated-thumb slider) are the owner's ask "fixed in the root glass-ui, too".
+   - glass-ui stays READ-ONLY to this session, and an active glass session owns it.
+   - The rows go to that session NOW as O-102 (letter plus a direct session message), marked owner-priority.
+   - Consumers cure every consumer-side cause, and adopt the glass cure the moment it lands. They never patch glass behaviour locally.
+4. **Loading (OD19-ALL, V5):**
+   - every route of every app gets a cold-load budget read (headless, guarded): route-level code splitting, data prefetch on intent, and the skeleton (V6) in place of the text loader;
+   - the gradient and mix load failures are defects, cured first;
+   - value's boot path is Track A's X.W11.p2 and is not duplicated here: the X-OD19 value lane takes route-level loading, and p2 takes boot.
+5. **Collision law.** Track A (X-W11) is editing the value dock seat (ci4), the boot path (p2) and the design tokens (d1–d3). Track C is editing the fourier deploy. X-OD19 never touches a path dirty with another seat's hunks (stage only your own hunks). It sequences behind a sibling's unit on the same file, and never reverts a sibling's work.
+6. **X-DS tail** (`wf_3f36a4ef-2d8`) is stopped and subsumed. X-OD19 ends with one fresh adversarial critic per app over the whole docket and the X-DS canon, which discharges the tail's stopping rule. The value PaneShell seated-prop retirement is carried into the value lane.
+
+## §0gg — 2026-10-19: erratum to §0ge.9 / O-103 — the glass 10.1.1 cut is the owner's confirmed ask
+§0ge.9 and the O-103 letter (`0122db2e0`) both called 10.1.1 "glass's call". That is superseded. The orchestrator relayed the cut live as O-102a (10.1.1 for atlas O-99 G-3, the dropdown-close on dock collapse and the clipped dock popover, plus a shimmer variant on Skeleton), and the owner confirmed it verbatim in the value.js session: *"Agree."* The confirmation was relayed to the glass session. The live relay O-102a stands.
+
+**keyframes semver.** The public `.d.ts` diff since v6.0.0 measures **7.0.0**: `TimingFunctionNames` drops `"steps"`, and `InputAnimationOptions.timingFunction` narrows to `CssEasingLiteral`. The bump waits until the X-OD19 keyframes lane's hero work lands.
+
+## §0gh — 2026-10-19: ESC-FREL-m1-1 RULED, CI mirrors production (owner-delegated, §0ge); F.REL R-4 discharged by the orchestrator; a production host security review was held privately
+1. **ESC-FREL-m1-1 RULED, a fourth arm: the CI cell of record is production's own OS and database version (§0fr.2).**
+   - Production runs mongod **8.0.20** on Ubuntu 22.04 with a 6.8 kernel, measured on the host 2026-10-19. That kernel is untouched by SERVER-121912.
+   - The floating `mongo:8.0` tag (8.0.34 on runners with ≥ 6.19 kernels) is the defect: CI tested a database and kernel that production does not run, and the next production pull would have silently jumped the patch.
+   - **Unit F.REL.m2:**
+     - pin `mongo:8.0.20` EXACTLY at fourier `ci.yml:55,298` and `docker-compose.yml:38`, so production inherits it through the deploy-hook overlay;
+     - every CI job that boots mongo runs on `ubuntu-22.04`, which matches production's OS and kernel family; the seat verifies the label is still supported and states the deprecation date;
+     - master CI is GREEN ×2.
+   - **Rejected:** arm (b), because a production major upgrade (9.0) is not owed by a CI defect; and arm (c), environment bypasses of the guard.
+   - When 8.0.35 ships, the upgrade is a deliberate, separate act on both production and CI together.
+2. **Master e2e's non-mongo reds** (fourier visual-checkpoint items 1·6·7 / 2 / 8, baseline 39292117114): X-DS is CLOSED, so these move to unit **F.REL.v3**. Each is cured at its root, or re-baselined once with an attribution, never blind. It never touches a path dirty with the X-OD19 fourier lane.
+3. **R-4 DISCHARGED by the orchestrator** (2026-10-19, through the owner's VPN SSH). The five rows were the `F.REL .d probe 0/1` drafts that our own prod-verify seats created on 10-09 and 10-16.
+   - Three checks before deleting: exactly five drafts with probe titles; 0 flags; lineage references held by 8 other versions.
+   - A verified private backup was taken (sha256 `2700e016…`), then the 5 drafts and their 5 version rows were deleted, with 5 `admin_audit` `delete:hard` rows written.
+   - After: visualizations 19→14, slugs 404, health 200.
+   - **Incident, owned:** an earlier read-only `mongosh` run inside the 512 MiB-capped mongo container caused a cgroup OOM and a 6 s restart at 18:27:48Z. Journal recovery was clean, with no data loss (19 = 19). Every later database op ran through the backend's own client over stdin.
+4. **Production host security review: done, kept PRIVATE.** The infrastructure details are not for this public repo; the findings are the owner's. The host's posture is sound: SSH is key-only on a non-default port behind the VPN, ufw denies by default, and no database port is published. The findings were routed to the owner:
+   - an unused-but-open cloud firewall rule;
+   - a pending reboot and security packages;
+   - root key login;
+   - production running without its production boot guard or admin token;
+   - the mongo memory limit.
+
+## §0gi — 2026-10-19: the owner delegates the production host's hardening in full ("Ratify what you think is best for the server in totality and for us hereof for the server")
+Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in totality and for us hereof for the server."* The host carries only the owner's own sites. Each act below is checked before and after, and the details stay in the private review; this public record names acts, not infrastructure.
+1. **Host acts, now, by the orchestrator:**
+   - (a) Revoke the cloud firewall rule that opens the database ports to the internet. The rule is unused and nothing listens on those ports; it is saved verbatim before it is revoked.
+   - (b) Disable root SSH login (`PermitRootLogin no` as a drop-in). Validate with `sshd -t`, reload, and prove a fresh session before closing the old one.
+   - (c) Apply the pending package upgrades.
+   - (d) Reboot so that 223 days of kernel and libc security patches go live. First record every service and container, and confirm each one is enabled to return. After the reboot, every site answers, every container is healthy, and the database counts are unchanged.
+   - (e) Generate a production admin token. It lives only in the host's deploy secret store (mode 600) and the owner's macOS keychain, and is never in a repo.
+2. **Repo acts (fourier, Track C unit F.REL.s1, before the `.d` deploy):**
+   - production runs `ENV=production`, so the boot guard is live;
+   - the backend reads `ADMIN_TOKEN` from the host secret store through the compose env;
+   - the mongo container gets headroom: a 1 GiB memory limit, or a WiredTiger cache sized to the limit;
+   - the mongo healthcheck stops issuing unauthenticated commands (`ping` without the shell's startup probes).
+   These ship through the standing deploy path; the host is never hand-edited for them.
+3. **Kept as is:** SSH stays reachable only over the VPN, with keys only. The VPN requirement is NOT removed, because it is the stronger posture.
+
+## ADDENDUM 2026-10-19 — X.P.W7P `.z`: the release chain landed; RES-x-1 and OC-1's speed half GREEN on the published pins; BBNF-TS-TOOLCHAIN discharged (release-chain seat, `claude-opus-5-5`, under §0ge.5)
+1. **The chain (W7P.md steps 1–4).**
+   - `@mkbabb/parse-that@2.0.0` is published (tag `v2.0.0` at parse-that-x-p-w7 `96e68e9`).
+   - bbnf-lang's lockfile was regenerated against it (`5c7411f2c`; vitest 299/299, tsc 0, build).
+   - `@mkbabb/bbnf-lang@0.2.0` is published (tag `v0.2.0`).
+   - value.js `4038dce5a` (ESC-W7v-1): `@mkbabb/bbnf-lang` is an exact `0.2.0` devDependency. The direct `@mkbabb/parse-that` pin is removed, because value.js imports none (grep: comments only). It resolves transitively at 2.0.0, one copy of each package, with lockfile integrity equal to the registry `dist.integrity` for both.
+   - `node scripts/gen-grammar.mjs --check` is a CI step after `test:css-equivalence`. Readings: `--check` current on both tables; vitest 98 files / 1,266 tests; `test:css-equivalence` 19/19 with DEFECTS 0.
+2. **Z-1/Z-2, the bench of record on the published pins** (`bench/records/W7Pz/`, MANIFEST 59 files). This is the `.lg1c3` sitting re-pointed: node read ×2 plus Chromium, WebKit and Firefox at 2 reps; acc, rej, large-eq, acc-eq and rej-eq, with Firefox's whole `parseCssScalar` cell added; 31 rounds; every invocation guarded.
+   - **103/103 cells GREEN** by §0ev.1 (`bootstrap.mjs`, B = 10,000; `bootstrap-read.txt` `07c8c2b1…`, re-derived byte-identically ×2). Per engine: node 15, Chromium 29, WebKit 29, Firefox 30. 0 STRADDLE, 0 RED.
+   - Highest upper bound per engine: node 0.816, Chromium 0.843, WebKit 0.900, Firefox 0.998. The Firefox cell is rej-eq `parseKeyframeSelector` rep 0 (median 0.991; rep 1 0.935). It is the same known-thin cell as `.lg1c3`, where rej read ub 0.994.
+   - **Load is RECORDED, not quiet:** 1-minute load per cell was node 28–43, Chromium 23–32, WebKit 21–45 and Firefox 11–46, with sibling sessions active. The read does not meet W7's quiet-host bar (< 8). It is a confirmatory read: the interleaved paired ratio is common-mode to load. The quiet-window independent re-read stays owed at X.P.W8's close (§0eq).
+   - **The pin move cannot move this read:** both bundles carry 0 parse-that bytes, the retired bundle is byte-identical (`a65bcc4c…`), and the product bundle is HEAD's generated tables (`f729913c…`).
+   - **RES-x-1 → GREEN** (BBNF below the retired hand parser on every entry, every class, every engine). **OC-1's speed half → GREEN** (R-3: faster than the retired parser on every bench entry).
+3. **Z-3.**
+   - **BBNF-TS-TOOLCHAIN → DISCHARGED.** The TypeScript BBNF compiler has a maintained source: bbnf-lang `typescript/`, merged to origin/master. It is published as 0.2.0 on parse-that 2.x (R-2, §0ci).
+   - F-b-1..3 and F-p-EOF are cured at the root (`.v` `3cdd4888`). F-b-4 is accepted as spec-correct (§0ck).
+   - Relays filed: INBOX O-104, `V/coordination/valuejs-outbound-2026-10-19-x-p-w7p-release-chain.md`, covering parse-that T/U (U.W7 retires; VALUEJS-PT-E closed), bbnf-lang SK-V26, and latex-paper (no action). The letter is file-only, so the acknowledgements are owed. Delivery is the orchestrator's.
+4. **Z-4.** bbnf-lang PR #1 was MERGED by `gh pr merge --merge --match-head-commit 5c7411f2c` as `2fe18f9c`. The preflight before the merge:
+   - head `5c7411f2c`, MERGEABLE, 95 files all under `typescript/`;
+   - CI reds were the Rust shards' `preflight — regen check` and `nextest` steps, the same failing steps as on base master `d2b32f6e` (a pre-existing infra red: sccache absent on runners);
+   - the Extension job was GREEN;
+   - the Release workflow red is the `v0.2.0` tag push's Rust/marketplace job, not a PR gate.
+   - Local bbnf-lang master is untouched (`af15f63e`).
+5. **X.P.W7P → CLOSED 2026-10-19** (honest residuals: the O-104 acknowledgements; the quiet-host L-G1 re-read at X.P.W8's close).
+
+## §0gj — 2026-10-19 21:50: kernel-zone hold; ESC-FREL-v3-1 routed; resume order after the reboot
+1. **Hold.** data.kalloc.1024 read 8.38M at 21:44, past the 8M owner-notification mark and climbing about 90k a minute from fleet-wide headless-browser churn, the 2026-10-15 panic signature. value.js stopped SS-8 at 19:55 and X-OD19 and Track A at 21:50. All three resume from their journals after the owner's reboot. Track C is idle-BLOCKED.
+2. **ESC-FREL-v3-1 RULED: the X-OD19 fourier lane owns the cure.**
+   - m/w1 CI 39348303989 is RED on 8 e2e tests introduced by 976a704 (P2 sliders: the `--row-fill` / Terms-track probes) and 2a3651d (P3 route crossfade; od19-p3:98 sees vtFrames 1 on CI; a hover colour is read mid-fade at alpha 0.98). e928541 (P1) has not been read by CI yet.
+   - X-OD19's resume note carries a fourier CI-green unit: each red is cured at its root. A test reads its state after the crossfade settles, not mid-fade. CI's single-frame view transition counts as a lawful arm of the falsifier, which never fakes a frame count.
+   - Then m/w1 CI GREEN.
+3. **Track C after that:** a fresh m/w1 CI GREEN → `merge --no-ff` to master → master CI ×2 → .d deploy. .d reads 403 rather than 503 on `/api/admin/verify` (the token is wired). The first deploy recreates the production mongo once, behind the hook's cold backup.
+   - F.REL.m2 (`a60c542`, `9519b6f`) and .s1 (`c83b7ea`, `563814d`) are landed.
+4. **Resume order after the reboot:** Track A, X-OD19 (with ESC-FREL-v3-1), SS-8, then Track C once m/w1 is green. Never more than 4 concurrently, and each browser run uses one browser.
+
+## §0gk — 2026-10-20: SS-8 is SWEPT-WITH-RESIDUE (`ecbf3f53c`); its owner rows are ruled by the delegate (§0ge); the residue moves to SS-8.r; the glass rows go out as one letter
+1. **Read:** 999 rows: 320 PROVEN, 422 REFUTED (each with a cure commit or a route, CLOSE §4/§5), and 257 UNPROVEN, each with its measured reason (CLOSE §6). All 14 records of the zero-residue cohort are swept, so §4.1's completion condition is met.
+2. **Owner rows (CLOSE §4.3), ruled:**
+   - **B02 0054 (deploy source):** discharged by Track A's `.c` deploy-on-green. Its receipt records the served source tree by SHA.
+   - **B02 0039:** a consumer cure. The caption reaches its ink through a token step, never through `opacity`.
+   - **B03 0061 (SelectContent α):** glass material, relayed as part of D3.
+   - **B03 0085:** move the clip. The hero clips at the viewport, and the bead placement is unchanged.
+   - **B05 0140:** the 390 Tools seat is icon-only BY DESIGN, carrying its accessible name.
+   - **B10 R-3:** the regrade is accepted; the glyph passes 1.4.11.
+   - **B13 L-3:** **the 4.5:1 text floor wins** over the X-DS P9R-04 meta rung, the same law as §0ge's header veil. The attribution ink takes the token step that reaches ≥4.5:1 in both schemes.
+   - **B15 0440:** YES, elevation reads the same in both schemes. Add a scheme-aware `--well-bg` lift at `foundation.css:407`.
+   - **B15 0422 / 0444:** record only; no law binds them.
+   - **B24 R-9:** record only. `server.host: true` is the owner's chosen LAN device-testing setup, and the firewall is the boundary.
+   - **B24 U-11:** the SS-8.r seat reads it and cures it at root by the default rule.
+   - **B22 U-1 / B09 0259 (the referent law):** a caption's contrast is certified against the **darkest backdrop region it actually sits over**, not the field mean. Wherever that falls under 4.5:1, the ink takes a token step.
+   - **Z4 band-17 (publish 4.1.0):** an owner act DELEGATED. It rides Track A's re-mint of v4.1.0 at X-W9.f.
+3. **SS-8.r, dispatched after X-OD19's glass 10.1.1 adoption lands**, because the B19 red was read on a tree with that bump uncommitted. Each item is a root cure with a falsifier, GREEN ×2 on committed bytes:
+   - B19 R-13 (SS8-0537 rim step), with the glass bump attributed or excluded;
+   - Z-ColorPicker-14: Z1's golden split collides with the W20 title-row reservation, so one owner of the seam is chosen;
+   - B05 0132 (4.42 vs 4.5), 0125 and 0146;
+   - o14 dark and B26 X-5, where each flake is cured, not re-run;
+   - the B11 0309 palette-flag reach and the `plate-mass` 390 `page.goto` timeout;
+   - the consumer rulings in 2: 0039, B13 L-3, 0440, the referent law, 0085 and U-11.
+4. **Glass rows (CLOSE §4.2):** relayed as one letter, `docs/tranches/V/coordination/valuejs-outbound-2026-10-20-ss8-glass-rows.md`, pointing at CLOSE §4.2 for the measured evidence. The rows already named (O-59, I-20, B-3, B-4) are cited, not re-filed.
+
+## §0gl — 2026-10-20: X-W11's escalations ruled (delegate, §0ge); Track A resumes
+1. **The release chain (ESC-W11b → c → d → e).** The cause is two SS-8 landings red under G2:
+   - the unused `eslint-disable-next-line no-new-func` at `e2e/smoke/admin/ss8-b17-admin-names.spec.ts:71` (b43de3e18);
+   - the npm-test failure V16-06 at `ImageEyedropper.vue:20` (sr-only DialogTitle, 605daabe7).
+   **Ruled:** unit **X.W11.b2** cures both at the root. Delete the directive only if the code beneath truly no longer needs it, otherwise cure the code. The eyedropper dialog keeps an accessible title that the test reads. G2 must be GREEN ×2 on tranche-u HEAD. Then re-mint v4.1.0 locally at that HEAD; the old local tag has never been pushed, so it is replaced. Then .b, .c (push tag, npm publish 4.1.0 with the owner's token, deploy-pages), .d and .e run in order. The owner's 4.1.0 publish is DELEGATED (§0gk.2).
+2. **ESC-W11ci4-1 (the 390 morph overflow): arm (i), the producer arm.** The cause is glass `dist/dock.js:456`: the expanded endpoint latches only while the dock is expanded, so a breakpoint narrowing during a collapse reserves a stale `--dock-expanded-px`. All four consumer arms stay REFUSED (masking or copying producer state). The cause is relayed to glass for **10.1.2**, which is in flight on the same dock code, not 10.2.0. `o21:328` stays honest-RED, ADOPT-AT-LANDING at the 10.1.2 adoption.
+3. **ESC-W11d3-1:** arm B is landed in product (PaneHeader.vue is clean at HEAD; the SS-8 B07 seat committed SS8-0192). SS-8 is CLOSED, so its uncommitted twin re-aim at `e2e/smoke/oracles/o11-header-gates.spec.ts` is ORPHANED and **adopted by X.W11.d3b**. That seat reads the hunk, keeps it if it is the lawful re-aim, and commits it.
+   - The 29 caption cells under 4.5:1 cure under §0gk.2's referent law (the darkest backdrop the caption sits over) with one caption-ink token step, ×2.
+4. **h16:** re-dispatched; the load is now normal. The planned WebKit `Alt+Tab` traversal lands per DISPOSITION §8 E16.
+5. **h17:** accepted as honest-RED on glass O-106, ADOPT-AT-LANDING.
+6. **ESC-W11h19-1 (C10-1 CLS 0.00001):** the root is the italic Fraunces swap. Cure: `index.html` also preloads `fraunces-latin-italic` (the face used above the fold), and an italic `Fraunces Fallback` face is tuned the same way as the normal one (size-adjust and ascent metrics). Writable: `demo/app/index.html` and the font-face CSS.
+7. **ESC-W11h2 (O18-992 light identity):** the floor is physically unsatisfiable at a near-white accent: the library already returns the gamut-maximal chroma (0.00688 at L 0.9859, h 31.58). **Ruled:** the identity floor reads `min(0.037181, Cmax(h, L))`, the gamut-maximal chroma the library computes, cited to this ruling. This corrects an impossible constant; it does not weaken a reachable one.
+8. **ESC-W11h3:** the cure is already at the bytes; the instrument is wrong. `censusElement` samples during `overture-dock-land`. Cure the instrument: wait for `nav.dock-band`'s `getAnimations()` to finish, then sample. The assertions are unchanged.
+9. **ESC-W11h5:** the gamut-hatch surface was retired by the RULED retirements in a68ecdc1c ("ruled retirements"). o19's canvas legs a–d retire with the surface, cited to a68ecdc1c and this ruling. The orphaned `--gamut-hatch*` tokens at `foundation.css:368/372` are deleted if nothing reads them, and the oracle's token leg goes with them.
+10. **ESC-W11h7 (the pre-paint URL-seed ground):** a static table cannot work (ΔE about 0.2). **Ruled:** the pre-paint script runs the SAME pure calibrated-field function the app uses (`useAtmosphere.ts:208`'s derive), inlined at build from its one source module by the existing Vite build (a pure, dependency-free module, or its minimal pure core extracted), never hand-copied. Writable set widened to that module plus the build config.
+11. **ESC-W11h8: arm (i).** The M-9 ink floor (an accessibility law) stands. The residual body-stop ΔC is booked to glass O-105 plus the floor, held honest-RED and ADOPT-AT-LANDING.
+12. **ESC-W11p2-1 / p3-1 (boot LCP/TBT and the prerendered shell):**
+    - **p3 continues.** The hydration mismatches are cured at their root: every first-view inline style computed from the visitor's environment moves into CSS:
+      - `touch-action` goes to `@media (pointer: coarse)` (useSpectrumPlateStyle.ts:41-43, ComponentSliders.vue:219-220);
+      - scheme- and ground-dependent inks become CSS custom properties resolved under the scheme class or `prefers-color-scheme` (ConsoleRail.vue:137-146, ColorSpaceSelector);
+      - anything truly live is written after mount.
+      Writable set widened to those files.
+    - Gate: 0 mismatches in 4/4 shell cells, then lhci ×3 on CI. If LCP/TBT are still over budget after hydration is clean, the seat names the remaining critical-path tasks with a profile and proposes the next cut; it never defers the first-paint pane.
+
+## §0gm — 2026-10-21: X-W11's second escalation set ruled (delegate, §0ge)
+1. **ESC-W11c-TAG-CI-RED.** Two e2e rows red in CI's `npm run typecheck` and the oracle slate, introduced by this wave's own units.
+   - **Units:**
+     - **X.W11.d3c** cures the 12 TS errors in `e2e/smoke/oracles/o11-header-gates.spec.ts` (from 4004bcdf7) at root.
+     - **X.W11.h4b** cures the slate's DEAD ATTRIBUTE `[data-o18-census]` (from 241d65567): the product carries the attribute the oracle reads, or the oracle reads a selector that exists. The census is not weakened.
+   - **.b's reading becomes ci.yml's own:** `npm run typecheck` (all four programs) and the oracle slate join G2, so a green .b now means a green CI tag.
+   - **Then:** re-mint LOCAL v4.1.0 at HEAD, then .b and .c re-sit.
+2. **The library release does not wait on demo LCP.** When lhci is the only red left, **publish @mkbabb/value.js 4.1.0** (tag push, release.yml, npm with provenance). The library's surface and gates are independent of the demo's boot budget.
+   - **The demo deploy (deploy-pages) is HELD** until lhci is green or ruled again. Its deploy gate is not weakened.
+   - **.d and .e** read the published library (G9, G12 packets) now; their deploy-dependent legs wait for the deploy.
+3. **ESC-W11p3b-1 (lhci after clean hydration): N1, N2 and N3 are granted to a new unit X.W11.p4, in order, with lhci ×3 on CI read after each:**
+   - **N1:** reduce .h7b's inline pre-paint script to its pure seeded-ground core (185 KB → only the `boot/seeded-ground.ts` import closure).
+   - **N2:** hydrate the first-paint pane eagerly, and every non-visible region and registry lazily (`hydrateOnIdle` / `hydrateOnVisible`; App.vue + demo/shell/**).
+   - **N3:** demote post-paint modulepreloads under the shell. The italic Fraunces preload STAYS (§0gl.6, the above-the-fold title) unless N3 measures that the italic is not used in the first viewport at either width.
+   - **N4 is conditional:** only if still over budget after N1–N3. The paper grain is identity and stays (§0dm), but it may move off the LCP candidate's own background (for example to a pseudo-element or a shared tiled asset), measured both ways.
+4. **ESC-W11d3b-1 (3 light-390 caption cells at 3.22:1 over the hot aurora band): arm (a).** The ground side is cured: at 390 the resting header plate takes glass's denser resting rung that holds the 4.5:1 caption floor over its darkest backdrop region, measured on the 3 cells ×2 with the other 49 unchanged. If no published rung does it, X.W11.d3c relays the plate-α ask to glass with the numbers, and the 3 cells are held honest-RED. Arm (c), the polarity flip, is refused, and arm (b), moving the aurora, would change identity placement.
+
+## §0gn — 2026-10-21: ESC-W11c-TAG-CI-RED-2 and ESC-W11p4-1 ruled (delegate, §0ge)
+1. **SS8-0257b (`demo/test/about/ss8-b09-ink.test.ts`) times out on CI Node 22: 5,410 ms against vitest's 5 s default; 3,310 ms on Node 24; 757 ms locally.**
+   - **Unit X.W11.c2 profiles it first.** If the time is avoidable cost (repeated parsing, per-cell setup that can be hoisted, a wasted await), it is cured at that cost.
+   - If the time is the census's own inherent work, the D59 precedent applies (2026-07-17: the W51 PNG tests): an explicit per-test timeout with the measured CI headroom stated (at least 3× the worst CI reading), and the assertions untouched.
+   - Either way, Node 22 and Node 24 producer jobs are both GREEN on CI. Then re-mint LOCAL v4.1.0, and .b and .c re-sit.
+   - §0gm.2 stands: publish when lhci is the only red; the deploy is held.
+2. **ESC-W11p4-1 (N1 measured impossible as specified: the inline script already IS the seeded-ground closure; 99.8 KB of it is dead glass shader source that rolldown keeps).** Ruled:
+   - **(c):** the N1→N2→N3 order lock is LIFTED. N2 (lazy hydration of the 1,020 ms task) and N3 (modulepreload demotion) proceed now, with lhci ×3 on CI after each.
+   - **(b):** §0gl.10 is refined, not reversed. The inline script keeps only the boot plus `parseUrlSeed`. The derive becomes a hashed classic asset built from the SAME one source module, loaded parser-blocking ONLY when a `#`/`?color=` seed is present. The first-frame seeded ground (O28-114) is kept, and every unseeded document, `/` included, drops about 59 KB gz.
+   - **(a):** relayed to glass as a producer row: ship `deriveAurora` and its config in a module free of shader strings. Adopted at landing, which shrinks the seeded path too.
+
+### §0gn erratum — 2026-10-21
+§0gn.2(a)'s glass row is **O-107** (AURORA-DERIVE-SHADER-FREE, W-D.1; glass 16782fcef). O-105 stays BLOB-LIT-LIGHTNESS (§0gl.11, X.W11.h8, W-G.5), and O-106 stays DELIBERATE-TRAILING-ACTIVATION (X.W11.h17, W-E.4).

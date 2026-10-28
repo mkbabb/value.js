@@ -1,0 +1,43 @@
+=== BEFORE-1
+SS8-0408 light {"peak":1.1233614475395644,"trough":1.087548642571407}
+  ✘  1 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) (44.2s)
+SS8-0408 dark {"peak":1.1476793146125228,"trough":1.0634129146408282}
+  ✘  2 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) (10.3s)
+  1) [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) 
+    Expected: >= [32m1.1[39m
+    Received:    [31m1.087548642571407[39m
+      86 |         console.log(`SS8-0408 ${scheme}`, JSON.stringify(read));
+  2) [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) 
+    Expected: >= [32m1.1[39m
+    Received:    [31m1.0634129146408282[39m
+      86 |         console.log(`SS8-0408 ${scheme}`, JSON.stringify(read));
+  2 failed
+    [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) 
+    [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) 
+=== BEFORE-2
+SS8-0408 light {"peak":1.1015131708167631,"trough":1.0410681863296871}
+  ✘  1 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) (54.9s)
+SS8-0408 dark {"peak":1.220998040279642,"trough":1.112510644829347}
+  ✓  2 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) (9.2s)
+  1) [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) 
+    Expected: >= [32m1.1[39m
+    Received:    [31m1.0410681863296871[39m
+      86 |         console.log(`SS8-0408 ${scheme}`, JSON.stringify(read));
+  1 failed
+    [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) 
+  1 passed (1.1m)
+=== cure applied
+=== AFTER-1
+SS8-0408 light {"peak":1.2588067164701984,"trough":1.115723933313068}
+  ✓  1 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) (49.4s)
+  ✘  2 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) (1.6m)
+  1) [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) 
+  1 failed
+    [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) 
+  1 passed (2.5m)
+=== AFTER-2
+SS8-0408 light {"peak":1.3037744597566274,"trough":1.159060371752978}
+  ✓  1 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) (47.3s)
+SS8-0408 dark {"peak":1.420186038611531,"trough":1.1788420315102552}
+  ✓  2 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) (53.9s)
+  2 passed (1.7m)

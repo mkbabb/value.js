@@ -1,0 +1,29 @@
+{
+ "cell": "tablet",
+ "ms": 4360,
+ "at": "2026-10-20T21:21:09.822Z",
+ "out": {
+  "mobileMenu": [],
+  "desktopProfile": [
+   "@mbabb"
+  ],
+  "allLabels": [
+   "Save edit",
+   "Cancel edit",
+   "Switch to slug",
+   "Cancel",
+   "Back",
+   "Reset color",
+   "Copy color",
+   "Random color",
+   "Palettes",
+   "Extract palette",
+   "Apply color",
+   "Open color input",
+   "Select view",
+   "Toggle action bar",
+   "Login",
+   "@mbabb"
+  ]
+ }
+}

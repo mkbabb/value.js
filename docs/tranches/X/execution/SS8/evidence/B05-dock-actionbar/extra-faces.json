@@ -1,0 +1,338 @@
+{
+ "trace": [
+  {
+   "step": "boot /",
+   "hash": "#/",
+   "faceCount": 6,
+   "activeIdx": 3,
+   "labels0": [
+    "Save edit",
+    "Switch to slug",
+    "Back",
+    "Reset color",
+    "Apply color",
+    "Select view"
+   ]
+  },
+  {
+   "step": "bar open /",
+   "hash": "#/",
+   "faceCount": 6,
+   "activeIdx": 2,
+   "labels0": [
+    "Save edit",
+    "Switch to slug",
+    "Back",
+    "Reset color",
+    "Apply color",
+    "Select view"
+   ]
+  },
+  {
+   "step": "-> #/atmosphere",
+   "hash": "#/atmosphere",
+   "faceCount": 3,
+   "activeIdx": 2,
+   "labels0": [
+    "Save edit",
+    "Switch to slug",
+    "Select view"
+   ]
+  },
+  {
+   "step": "-> #/",
+   "hash": "#/",
+   "faceCount": 6,
+   "activeIdx": 3,
+   "labels0": [
+    "Save edit",
+    "Switch to slug",
+    "Back",
+    "Reset color",
+    "Apply color",
+    "Select view"
+   ]
+  },
+  {
+   "step": "-> #/gradient",
+   "hash": "#/gradient",
+   "faceCount": 5,
+   "activeIdx": 3,
+   "labels0": [
+    "Save edit",
+    "Switch to slug",
+    "Back",
+    "Reset",
+    "Select view"
+   ]
+  },
+  {
+   "step": "-> #/browse",
+   "hash": "#/browse",
+   "faceCount": 3,
+   "activeIdx": 2,
+   "labels0": [
+    "Save edit",
+    "Switch to slug",
+    "Select view"
+   ]
+  },
+  {
+   "step": "-> #/mix",
+   "hash": "#/mix",
+   "faceCount": 5,
+   "activeIdx": 3,
+   "labels0": [
+    "Save edit",
+    "Switch to slug",
+    "Back",
+    "Clear",
+    "Select view"
+   ]
+  }
+ ],
+ "restRects": {
+  "dock": {
+   "x": 476.3,
+   "y": 12.5,
+   "w": 487.3,
+   "h": 56,
+   "r": 963.7,
+   "b": 68.5
+  },
+  "crossfades": [
+   {
+    "depth": 0,
+    "box": {
+     "x": 488.3,
+     "y": 20.5,
+     "w": 463.3,
+     "h": 40,
+     "r": 951.7,
+     "b": 60.5
+    },
+    "pos": "relative",
+    "display": "grid",
+    "parentCls": "dock-layer-group horizontal switcher-start",
+    "faces": [
+     {
+      "id": "",
+      "active": false,
+      "inert": true,
+      "pos": "absolute",
+      "x": 488.3,
+      "y": 20.5,
+      "w": 463.3,
+      "h": 40,
+      "r": 951.7,
+      "b": 60.5,
+      "firstLabel": "Save edit"
+     },
+     {
+      "id": "",
+      "active": false,
+      "inert": true,
+      "pos": "absolute",
+      "x": 488.3,
+      "y": 20.5,
+      "w": 463.3,
+      "h": 40,
+      "r": 951.7,
+      "b": 60.5,
+      "firstLabel": "Switch to slug"
+     },
+     {
+      "id": "",
+      "active": false,
+      "inert": true,
+      "pos": "absolute",
+      "x": 488.3,
+      "y": 20.5,
+      "w": 463.3,
+      "h": 40,
+      "r": 951.7,
+      "b": 60.5,
+      "firstLabel": "Back"
+     },
+     {
+      "id": "",
+      "active": true,
+      "inert": false,
+      "pos": "relative",
+      "x": 488.3,
+      "y": 20.5,
+      "w": 463.3,
+      "h": 40,
+      "r": 951.7,
+      "b": 60.5,
+      "firstLabel": "Select view"
+     }
+    ]
+   },
+   {
+    "depth": 1,
+    "box": {
+     "x": 553.3,
+     "y": 20.5,
+     "w": 200,
+     "h": 40,
+     "r": 753.3,
+     "b": 60.5
+    },
+    "pos": "relative",
+    "display": "grid",
+    "parentCls": "flex items-center gap-0 min-w-0",
+    "faces": [
+     {
+      "id": "",
+      "active": true,
+      "inert": false,
+      "pos": "relative",
+      "x": 553.3,
+      "y": 20.5,
+      "w": 200,
+      "h": 40,
+      "r": 753.3,
+      "b": 60.5,
+      "firstLabel": "Reset color"
+     },
+     {
+      "id": "",
+      "active": false,
+      "inert": true,
+      "pos": "absolute",
+      "x": 553.3,
+      "y": 20.5,
+      "w": 200,
+      "h": 40,
+      "r": 753.3,
+      "b": 60.5,
+      "firstLabel": "Apply color"
+     }
+    ]
+   }
+  ]
+ },
+ "barRects": {
+  "dock": {
+   "x": 549,
+   "y": 10,
+   "w": 342,
+   "h": 61,
+   "r": 891,
+   "b": 71
+  },
+  "crossfades": [
+   {
+    "depth": 0,
+    "box": {
+     "x": 561,
+     "y": 18,
+     "w": 318,
+     "h": 45,
+     "r": 879,
+     "b": 63
+    },
+    "pos": "relative",
+    "display": "grid",
+    "parentCls": "dock-layer-group horizontal switcher-start",
+    "faces": [
+     {
+      "id": "",
+      "active": false,
+      "inert": true,
+      "pos": "absolute",
+      "x": 561,
+      "y": 18,
+      "w": 318,
+      "h": 45,
+      "r": 879,
+      "b": 63,
+      "firstLabel": "Save edit"
+     },
+     {
+      "id": "",
+      "active": false,
+      "inert": true,
+      "pos": "absolute",
+      "x": 561,
+      "y": 18,
+      "w": 318,
+      "h": 45,
+      "r": 879,
+      "b": 63,
+      "firstLabel": "Switch to slug"
+     },
+     {
+      "id": "",
+      "active": true,
+      "inert": false,
+      "pos": "relative",
+      "x": 561,
+      "y": 18,
+      "w": 318,
+      "h": 45,
+      "r": 879,
+      "b": 63,
+      "firstLabel": "Back"
+     },
+     {
+      "id": "",
+      "active": false,
+      "inert": true,
+      "pos": "absolute",
+      "x": 561,
+      "y": 18,
+      "w": 318,
+      "h": 45,
+      "r": 879,
+      "b": 63,
+      "firstLabel": "Select view"
+     }
+    ]
+   },
+   {
+    "depth": 1,
+    "box": {
+     "x": 626,
+     "y": 20.5,
+     "w": 200,
+     "h": 40,
+     "r": 826,
+     "b": 60.5
+    },
+    "pos": "relative",
+    "display": "grid",
+    "parentCls": "flex items-center gap-0 min-w-0",
+    "faces": [
+     {
+      "id": "",
+      "active": true,
+      "inert": false,
+      "pos": "relative",
+      "x": 626,
+      "y": 20.5,
+      "w": 200,
+      "h": 40,
+      "r": 826,
+      "b": 60.5,
+      "firstLabel": "Reset color"
+     },
+     {
+      "id": "",
+      "active": false,
+      "inert": true,
+      "pos": "absolute",
+      "x": 626,
+      "y": 20.5,
+      "w": 200,
+      "h": 40,
+      "r": 826,
+      "b": 60.5,
+      "firstLabel": "Apply color"
+     }
+    ]
+   }
+  ]
+ }
+}

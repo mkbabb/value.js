@@ -1,0 +1,204 @@
+{
+ "light-1440": {
+  "equation": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 "
+   ],
+   "tsh": []
+  },
+  "morph": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 "
+   ],
+   "tsh": []
+  },
+  "paper": {
+   "loops": [],
+   "drop": [],
+   "grad": [],
+   "tsh": []
+  },
+  "v": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 "
+   ],
+   "tsh": []
+  },
+  "galleryHover": {
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "transform": "none",
+   "bg": "oklch(0.953918 0.0148539 67.5222)",
+   "grid": "272px 272px 272px 272px 272px",
+   "parentW": 1408
+  }
+ },
+ "light-390": {
+  "equation": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 "
+   ],
+   "tsh": []
+  },
+  "morph": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 "
+   ],
+   "tsh": []
+  },
+  "paper": {
+   "loops": [],
+   "drop": [],
+   "grad": [],
+   "tsh": []
+  },
+  "v": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 ",
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 "
+   ],
+   "tsh": []
+  }
+ },
+ "dark-1440": {
+  "equation": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0."
+   ],
+   "tsh": []
+  },
+  "morph": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0."
+   ],
+   "tsh": []
+  },
+  "paper": {
+   "loops": [],
+   "drop": [],
+   "grad": [],
+   "tsh": []
+  },
+  "v": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0."
+   ],
+   "tsh": []
+  },
+  "galleryHover": {
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "transform": "none",
+   "bg": "oklch(0.314869 0.0216345 59.1819)",
+   "grid": "272px 272px 272px 272px 272px",
+   "parentW": 1408
+  }
+ },
+ "dark-390": {
+  "equation": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0."
+   ],
+   "tsh": []
+  },
+  "morph": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0."
+   ],
+   "tsh": []
+  },
+  "paper": {
+   "loops": [],
+   "drop": [],
+   "grad": [],
+   "tsh": []
+  },
+  "v": {
+   "loops": [],
+   "drop": [],
+   "grad": [
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.",
+    "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md) linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0."
+   ],
+   "tsh": []
+  }
+ }
+}

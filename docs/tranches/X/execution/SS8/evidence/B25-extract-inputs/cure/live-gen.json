@@ -1,0 +1,6 @@
+{
+ "hooks": [
+  "generate-count"
+ ],
+ "range": true
+}

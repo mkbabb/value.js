@@ -1,0 +1,163 @@
+{
+  "skel": {
+    "kids": [
+      [
+        250.1,
+        54.2
+      ],
+      [
+        312.1,
+        54.2
+      ],
+      [
+        374.1,
+        54.2
+      ]
+    ],
+    "gap": "8px",
+    "statusRect": [
+      250.12509155273438,
+      178.19094848632812
+    ],
+    "pageErrors": []
+  },
+  "rows": {
+    "rs": [
+      [
+        250,
+        73
+      ],
+      [
+        335,
+        73
+      ],
+      [
+        420,
+        73
+      ],
+      [
+        505,
+        73
+      ],
+      [
+        590.1,
+        73
+      ]
+    ],
+    "gap": "12px",
+    "gaps": [
+      12,
+      12,
+      12,
+      12.1
+    ],
+    "pageErrors": []
+  },
+  "empty": {
+    "pane": [
+      199,
+      88,
+      1042,
+      804
+    ],
+    "main": [
+      16,
+      88,
+      1408,
+      804
+    ],
+    "vw": 1440,
+    "chain": [
+      {
+        "tag": "div",
+        "slot": null,
+        "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--stage",
+        "rect": [
+          199,
+          88,
+          1042,
+          804
+        ],
+        "cw": 1042,
+        "sw": 1074,
+        "ch": 804,
+        "sh": 804,
+        "ox": "visible"
+      },
+      {
+        "tag": "div",
+        "slot": null,
+        "cls": "pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded",
+        "rect": [
+          199,
+          88,
+          1042,
+          334.1
+        ],
+        "cw": 1042,
+        "sw": 1074,
+        "ch": 334,
+        "sh": 366,
+        "ox": "visible"
+      },
+      {
+        "tag": "div",
+        "slot": "card",
+        "cls": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w",
+        "rect": [
+          199,
+          88,
+          1042,
+          334.1
+        ],
+        "cw": 1040,
+        "sw": 1040,
+        "ch": 332,
+        "sh": 332,
+        "ox": "hidden"
+      },
+      {
+        "tag": "div",
+        "slot": "card-header",
+        "cls": "card-header card-header--shrink pane-header px-4 sm:px-6 pb-(--pane-header-gap) ",
+        "rect": [
+          200,
+          89,
+          1040,
+          112.6
+        ],
+        "cw": 1040,
+        "sw": 1040,
+        "ch": 113,
+        "sh": 113,
+        "ox": "visible"
+      },
+      {
+        "tag": "h1",
+        "slot": "card-title",
+        "cls": "card-title pane-header-title font-display",
+        "rect": [
+          224,
+          105,
+          992,
+          44
+        ],
+        "cw": 992,
+        "sw": 992,
+        "ch": 44,
+        "sh": 48,
+        "ox": "visible"
+      }
+    ],
+    "plate": {
+      "text": "No audit entries found.",
+      "rect": [
+        224,
+        249.6,
+        992,
+        143.6
+      ]
+    },
+    "pageErrors": []
+  }
+}

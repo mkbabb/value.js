@@ -1,0 +1,236 @@
+[
+ {
+  "0": {
+   "space": "rgb",
+   "form": "css",
+   "oog": "true",
+   "text": "color(srgb 1.009 0.4286 0.6218)",
+   "scrollW": 267,
+   "clientW": 267,
+   "overflows": false
+  },
+  "1": {
+   "space": "hsl",
+   "form": "channels",
+   "oog": "true",
+   "text": "hsl · 340 · 103.2 · 71.88",
+   "scrollW": 216,
+   "clientW": 216,
+   "overflows": false
+  },
+  "2": {
+   "space": "hsv",
+   "form": "channels",
+   "oog": "true",
+   "text": "hsv · 340 · 0.5753 · 1.009",
+   "scrollW": 224,
+   "clientW": 224,
+   "overflows": false
+  },
+  "3": {
+   "space": "hwb",
+   "form": "channels",
+   "oog": "true",
+   "text": "hwb · 340 · 42.86 · -0.9097",
+   "scrollW": 233,
+   "clientW": 233,
+   "overflows": false
+  },
+  "4": {
+   "space": "lab",
+   "form": "css",
+   "oog": "false",
+   "text": "lab(66.39% 60.46 3.341)",
+   "scrollW": 198,
+   "clientW": 198,
+   "overflows": false
+  },
+  "5": {
+   "space": "lch",
+   "form": "css",
+   "oog": "false",
+   "text": "lch(66.39% 60.55 3.162deg)",
+   "scrollW": 224,
+   "clientW": 224,
+   "overflows": false
+  },
+  "6": {
+   "space": "oklab",
+   "form": "css",
+   "oog": "false",
+   "text": "oklab(73% 0.1849 0.0065)",
+   "scrollW": 207,
+   "clientW": 207,
+   "overflows": false
+  },
+  "7": {
+   "space": "oklch",
+   "form": "css",
+   "oog": "false",
+   "text": "oklch(73% 0.185 2deg)",
+   "scrollW": 181,
+   "clientW": 181,
+   "overflows": false
+  },
+  "8": {
+   "space": "xyz",
+   "form": "css",
+   "oog": "false",
+   "text": "color(xyz 0.5382 0.3519 0.3656)",
+   "scrollW": 267,
+   "clientW": 267,
+   "overflows": false
+  },
+  "9": {
+   "space": "kelvin",
+   "form": "channels",
+   "oog": "false",
+   "text": "kelvin · 2980",
+   "scrollW": 112,
+   "clientW": 112,
+   "overflows": false
+  },
+  "10": {
+   "space": "srgb-linear",
+   "form": "css",
+   "oog": "true",
+   "text": "color(srgb-linear 1.021 0.1538 0.3446)",
+   "scrollW": 328,
+   "clientW": 328,
+   "overflows": false
+  },
+  "11": {
+   "space": "display-p3",
+   "form": "css",
+   "oog": "false",
+   "text": "color(display-p3 0.939 0.4644 0.62)",
+   "scrollW": 302,
+   "clientW": 302,
+   "overflows": false
+  },
+  "12": {
+   "space": "a98-rgb",
+   "form": "css",
+   "oog": "false",
+   "text": "color(a98-rgb 0.89 0.4269 0.6096)",
+   "scrollW": 285,
+   "clientW": 285,
+   "overflows": false
+  },
+  "13": {
+   "space": "prophoto-rgb",
+   "form": "css",
+   "oog": "false",
+   "text": "color(prophoto-rgb 0.7801 0.4572 0.5434)",
+   "scrollW": 345,
+   "clientW": 345,
+   "overflows": false
+  },
+  "14": {
+   "space": "rec2020",
+   "form": "css",
+   "oog": "false",
+   "text": "color(rec2020 0.865 0.5279 0.6371)",
+   "scrollW": 293,
+   "clientW": 293,
+   "overflows": false
+  },
+  "15": {
+   "space": "ictcp",
+   "form": "channels",
+   "oog": "false",
+   "text": "ictcp · 0.4782 · 0.0634 · 0.1333",
+   "scrollW": 276,
+   "clientW": 276,
+   "overflows": false
+  },
+  "16": {
+   "space": "jzazbz",
+   "form": "channels",
+   "oog": "false",
+   "text": "jzazbz · 0.1589 · 0.0894 · 0.0146",
+   "scrollW": 285,
+   "clientW": 285,
+   "overflows": false
+  },
+  "17": {
+   "space": "hex",
+   "form": "css",
+   "oog": "true",
+   "text": "#ff6d9f",
+   "scrollW": 60,
+   "clientW": 60,
+   "overflows": false
+  },
+  "cell": "css-forms",
+  "ms": 77810,
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "csp-forced",
+  "ms": 7290,
+  "forcedMatches": true,
+  "slider": {
+   "tag": "SPAN",
+   "role": "slider",
+   "label": "Body radius",
+   "fv": true,
+   "outline": "solid 2px rgba(5, 0, 73, 0.8)",
+   "boxShadow": "none"
+  },
+  "actionButton": {
+   "tag": "BUTTON",
+   "role": null,
+   "label": "Copy JSON",
+   "fv": true,
+   "outline": "solid 2px rgba(5, 0, 73, 0.8)",
+   "boxShadow": "none"
+  },
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ },
+ {
+  "cell": "csp-390-reach",
+  "ms": 261995,
+  "atRest": 0,
+  "visibleControls": [
+   "Save edit",
+   "Cancel edit",
+   "Switch to slug",
+   "Cancel",
+   "Back",
+   "Reset color",
+   "Copy color",
+   "Random color",
+   "Palettes",
+   "Extract palette",
+   "Apply color",
+   "Open color input",
+   "Select view",
+   "Toggle action bar",
+   "Menu"
+  ],
+  "tries": [
+   {
+    "name": "Save edit",
+    "renderedAfter": 0,
+    "href": "#/blob"
+   },
+   {
+    "name": "Cancel edit",
+    "renderedAfter": 0,
+    "href": "#/blob"
+   },
+   {
+    "name": "Switch to slug",
+    "renderedAfter": 0,
+  

@@ -81,3 +81,25 @@
 .picker-header[data-condensed="true"] .title-row {
     min-height: 0;
 }
+
+/* ── The colour's name (owner 2026-10-19) ────────────────────────────────
+ * Shown under the readout only when the colour HAS a name (the named snap,
+ * `named-color-snap.ts`). The display voice in italic — an identity caption,
+ * never control text (DESIGN §Fraunces) — on the caption rung, in the
+ * certified plate-caption ink. On condense the line leaves the layout (Law
+ * P-2: a hidden caption must not keep its box). */
+.picker-color-name {
+    margin: 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--type-subheading);
+    line-height: var(--type-leading-heading);
+    color: var(--ink-muted);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.picker-header[data-condensed="true"] .picker-color-name {
+    display: none;
+}

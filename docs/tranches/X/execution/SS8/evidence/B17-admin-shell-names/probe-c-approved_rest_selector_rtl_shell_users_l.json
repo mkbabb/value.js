@@ -1,0 +1,528 @@
+{
+  "approved-light": {
+    "pendingActions": [
+      [
+        1141,
+        325.58,
+        62,
+        28
+      ],
+      [
+        1141,
+        403.52,
+        62,
+        28
+      ]
+    ],
+    "approvedActions": [
+      [
+        1175,
+        325.58,
+        28,
+        28
+      ],
+      [
+        1175,
+        403.52,
+        28,
+        28
+      ]
+    ],
+    "pageErrors": []
+  },
+  "approved-dark": {
+    "pendingActions": [
+      [
+        1141,
+        325.58,
+        62,
+        28
+      ],
+      [
+        1141,
+        403.52,
+        62,
+        28
+      ]
+    ],
+    "approvedActions": [
+      [
+        1175,
+        325.58,
+        28,
+        28
+      ],
+      [
+        1175,
+        403.52,
+        28,
+        28
+      ]
+    ],
+    "pageErrors": []
+  },
+  "rest-light": {
+    "color": "oklch(0.289468 0.00386159 34.63)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "rowBg": "rgba(0, 0, 0, 0)",
+    "rect": [
+      1175,
+      325.578125,
+      28,
+      28
+    ],
+    "pageErrors": []
+  },
+  "rest-dark": {
+    "color": "oklch(0.712763 0.00382185 41.8684)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "rowBg": "rgba(0, 0, 0, 0)",
+    "rect": [
+      1175,
+      325.140625,
+      28,
+      28
+    ],
+    "pageErrors": []
+  },
+  "selector-390": {
+    "panes": [
+      "admin-names"
+    ],
+    "tablists": [
+      {
+        "text": "Pending · 6 Approved · 4",
+        "inPane": "admin-names"
+      }
+    ],
+    "palettesLabelNodes": [],
+    "pageErrors": []
+  },
+  "selector-320": {
+    "panes": [
+      "admin-names"
+    ],
+    "tablists": [
+      {
+        "text": "Pending · 6 Approved · 4",
+        "inPane": "admin-names"
+      }
+    ],
+    "palettesLabelNodes": [],
+    "pageErrors": []
+  },
+  "rtl-ltr": {
+    "h1": [
+      224,
+      105,
+      992,
+      43.98
+    ],
+    "rowKids": [
+      {
+        "tag": "H1",
+        "cls": "card-title pane-header-title font-display",
+        "r": [
+          224,
+          105,
+          992,
+          43.98
+        ],
+        "ml": "0px",
+        "mr": "0px"
+      },
+      {
+        "tag": "P",
+        "cls": "card-description pane-header-desc text-caption",
+        "r": [
+          224,
+          156.98,
+          992,
+          18.7
+        ],
+        "ml": "0px",
+        "mr": "0px"
+      }
+    ],
+    "badges": 0,
+    "mlTwo": 0,
+    "pageErrors": []
+  },
+  "rtl-rtl": {
+    "h1": [
+      224,
+      105.44,
+      992,
+      43.98
+    ],
+    "rowKids": [
+      {
+        "tag": "H1",
+        "cls": "card-title pane-header-title font-display",
+        "r": [
+          224,
+          105.44,
+          992,
+          43.98
+        ],
+        "ml": "0px",
+        "mr": "0px"
+      },
+      {
+        "tag": "P",
+        "cls": "card-description pane-header-desc text-caption",
+        "r": [
+          224,
+          157.42,
+          992,
+          18.7
+        ],
+        "ml": "0px",
+        "mr": "0px"
+      }
+    ],
+    "badges": 0,
+    "mlTwo": 0,
+    "pageErrors": []
+  },
+  "shell": {
+    "shellCls": "pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded",
+    "shellMargins": [
+      "0px",
+      "0px"
+    ],
+    "shellW": 1042,
+    "parentW": 1042,
+    "parentDisplay": "flex",
+    "cardCls": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w-full min-w-0 h-full overflow-hidden",
+    "cardDisplay": "flex",
+    "cardMinH": "0px",
+    "cardParentDisplay": "block",
+    "cardShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px",
+    "splitCols": "none",
+    "pageErrors": []
+  },
+  "users": {
+    "distinctSlugs": 50,
+    "maxSlug": "user-049",
+    "pager": true,
+    "pagerText": [
+      "Users Manage accounts and permissions.",
+      "",
+      "Page 1 of 3"
+    ],
+    "countText": [
+      "120 users",
+      "0\nuser-001",
+      "0\nuser-008",
+      "0\nuser-015"
+    ],
+    "requests": [
+      "/admin/users?limit=50&offset=0"
+    ],
+    "pageErrors": []
+  },
+  "leak": {
+    "namesRowsFiltered": 1,
+    "hops": {
+      "#/palettes": [],
+      "#/browse": [
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": "Search your palettes",
+          "value": ""
+        }
+      ],
+      "#/admin/users": [
+        {
+          "label": "Search users",
+          "value": ""
+        }
+      ]
+    },
+    "namesValueOnReturn": "",
+    "pageErrors": []
+  },
+  "forced-light": {
+    "fc": true,
+    "body": {
+      "backgroundColor": "rgb(255, 255, 255)",
+      "color": "rgb(0, 0, 0)"
+    },
+    "row": {
+      "borderTopColor": "rgb(0, 0, 0)",
+      "borderTopStyle": "solid",
+      "backgroundColor": "rgba(255, 255, 255, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    "tab": {
+      "color": "rgb(0, 0, 0)",
+      "backgroundColor": "rgba(255, 255, 255, 0)",
+      "outlineStyle": "none"
+    },
+    "ind": {
+      "backgroundColor": "rgb(255, 255, 255)",
+      "borderTopStyle": "solid",
+      "borderTopColor": "rgb(0, 0, 0)",
+      "forcedColorAdjust": "auto",
+      "opacity": "1"
+    },
+    "input": {
+      "borderTopStyle": "solid",
+      "borderTopColor": "rgb(0, 0, 0)",
+      "backgroundColor": "rgba(255, 255, 255, 0.08)"
+    },
+    "card": {
+      "borderTopStyle": "solid",
+      "borderTopColor": "rgb(0, 0, 0)",
+      "backgroundColor": "rgb(255, 255, 255)"
+    },
+    "pageErrors": []
+  },
+  "forced-dark": {
+    "fc": true,
+    "body": {
+      "backgroundColor": "rgb(0, 0, 0)",
+      "color": "rgb(255, 255, 255)"
+    },
+    "row": {
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopStyle": "solid",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)"
+    },
+    "tab": {
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "outlineStyle": "none"
+    },
+    "ind": {
+      "backgroundColor": "rgb(0, 0, 0)",
+      "borderTopStyle": "solid",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "forcedColorAdjust": "auto",
+      "opacity": "1"
+    },
+    "input": {
+      "borderTopStyle": "solid",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0.08)"
+    },
+    "card": {
+      "borderTopStyle": "solid",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "backgroundColor": "rgb(0, 0, 0)"
+    },
+    "pageErrors": []
+  },
+  "zoom200": {
+    "rootFs": "32px",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "rows": [
+      {
+        "r": [
+          81,
+          579,
+          1278,
+          128
+        ],
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          false,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      },
+      {
+        "r": [
+          81,
+          723,
+          1278,
+          128
+        ],
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          false,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      },
+      {
+        "r": [
+          81,
+          867,
+          1278,
+          128
+        ],
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          false,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      },
+      {
+        "r": [
+          81,
+          1010,
+          1278,
+          128
+        ],
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          false,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      },
+      {
+        "r": [
+          81,
+          1154,
+          1278,
+          128
+        ],
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          false,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      },
+      {
+        "r": [
+          81,
+          1298,
+          1278,
+          128
+        ],
+        "actionsRight": 1334,
+        "rowRight": 1359,
+        "truncated": [
+          true,
+          false
+        ],
+        "titles": [
+          null,
+          null
+        ]
+      }
+    ],
+    "pageErrors": []
+  },
+  "keys": {
+    "seq": [
+      {
+        "label": "Approve color name Probe Ember",
+        "fv": true,
+        "ring": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+        "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.0"
+      },
+      {
+        "label": "Reject color name Probe Ember",
+        "fv": true,
+        "ring": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+        "shadow": "none"
+      },
+      {
+        "label": "Approve color name Harbor Slate",
+        "fv": true,
+        "ring": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+        "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.0"
+      },
+      {
+        "label": "Reject color name Harbor Slate",
+        "fv": true,
+        "ring": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+        "shadow": "none"
+      },
+      {
+        "label": "Approve color name Moss Lantern",
+        "fv": true,
+        "ring": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+        "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.0"
+      },
+      {
+        "label": "Reject color name Moss Lantern",
+        "fv": true,
+        "ring": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+        "shadow": "none"
+      },
+      {
+        "label": "Approve color name Saffron Tide",
+        "fv": true,
+        "ring": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+        "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.0"
+      },
+      {
+        "label": "Reject color name Saffron Tide",
+        "fv": true,
+        "ring": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+        "shadow": "none"
+      }
+    ],
+    "pageErrors": []
+  },
+  "acreage-empty": {
+    "card": [
+      199,
+      88,
+      1042,
+      389
+    ],
+    "panel": [
+      224,
+      304,
+      992,
+      144
+    ],
+    "contentBottom": 448,
+    "emptyBelowContent": 29,
+    "text": "No pending proposals.",
+    "textChars": 21,
+    "pageErrors": []
+  },
+  "acreage-error": {
+    "card": [
+      199,
+      88,
+      1042,
+      450
+    ],
+    "panel": [
+      224,
+      305,
+      992,
+      205
+    ],
+    "contentBottom": 510,
+    "emptyBelowContent": 29,
+    "text": "Couldn't load proposals.\n\nThe palette service is not answering.\n\nRetry",
+    "textChars": 70,
+    "pageErrors": []
+  }
+}

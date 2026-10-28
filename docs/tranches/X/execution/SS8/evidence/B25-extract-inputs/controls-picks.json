@@ -1,0 +1,998 @@
+[
+ {
+  "theme": "light",
+  "pick": null,
+  "style": "background-color: oklch(0.39244 0.158452 2); background-imag",
+  "ring": [
+   130,
+   0,
+   63,
+   255
+  ],
+  "railTransition": "all",
+  "rect": {
+   "x": 224,
+   "y": 582.03125,
+   "width": 462,
+   "height": 24,
+   "top": 582.03125,
+   "right": 686,
+   "bottom": 606.03125,
+   "left": 224
+  },
+  "ringVsGround": [
+   3.158,
+   3.238,
+   3.482
+  ],
+  "inkOk": {
+   "L": 0.3918,
+   "C": 0.1582
+  },
+  "focus": {
+   "label": "Number of colors",
+   "fv": true,
+   "rect": {
+    "x": 343.984375,
+    "y": 582.03125,
+    "width": 12,
+    "height": 24,
+    "top": 582.03125,
+    "right": 355.984375,
+    "bottom": 606.03125,
+    "left": 343.984375
+   },
+   "bs": "color(srgb 0.362727 0.0000282761 0.167897 / 0.3) 0px 0px 0px 2px, color(srgb 0.362727 0.0000282761 0.167897 / 0.15) 0px 0px 8px 0px, color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    8
+   ],
+   "focused": [
+    [
+     172,
+     117,
+     69,
+     255
+    ],
+    [
+     172,
+     118,
+     69,
+     255
+    ],
+    [
+     208,
+     170,
+     83,
+     255
+    ],
+    [
+     211,
+     172,
+     84,
+     255
+    ],
+    [
+     215,
+     176,
+     86,
+     255
+    ],
+    [
+     215,
+     178,
+     86,
+     255
+    ],
+    [
+     223,
+     186,
+     90,
+     255
+    ]
+   ],
+   "blurred": [
+    [
+     216,
+     179,
+     87,
+     255
+    ],
+    [
+     213,
+     176,
+     85,
+     255
+    ],
+    [
+     213,
+     176,
+     85,
+     255
+    ],
+    [
+     215,
+     178,
+     86,
+     255
+    ],
+    [
+     216,
+     179,
+     87,
+     255
+    ],
+    [
+     217,
+     180,
+     87,
+     255
+    ],
+    [
+     223,
+     186,
+     90,
+     255
+    ]
+   ],
+   "ringVsAdj": [
+    2.1,
+    2.082,
+    1.183,
+    1.154,
+    1.105,
+    1.088,
+    1
+   ],
+   "focusedVsBlurred": [
+    1.951,
+    1.873,
+    1.064,
+    1.061,
+    1.027,
+    1.022,
+    1
+   ],
+   "maxRingVsAdj": 2.1
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ {
+  "theme": "light",
+  "pick": "oklch(0.78 0.147 85)",
+  "style": "background-color: oklch(0.407386 0.0834924 85); background-i",
+  "ring": [
+   94,
+   69,
+   0,
+   255
+  ],
+  "railTransition": "all",
+  "rect": {
+   "x": 224,
+   "y": 582.03125,
+   "width": 462,
+   "height": 24,
+   "top": 582.03125,
+   "right": 686,
+   "bottom": 606.03125,
+   "left": 224
+  },
+  "ringVsGround": [
+   3.554,
+   3.7,
+   3.988
+  ],
+  "inkOk": {
+   "L": 0.4066,
+   "C": 0.0833
+  },
+  "focus": {
+   "label": "Number of colors",
+   "fv": true,
+   "rect": {
+    "x": 343.984375,
+    "y": 582.03125,
+    "width": 12,
+    "height": 24,
+    "top": 582.03125,
+    "right": 355.984375,
+    "bottom": 606.03125,
+    "left": 343.984375
+   },
+   "bs": "color(srgb 0.274024 0.198053 0.0000165931 / 0.3) 0px 0px 0px 2px, color(srgb 0.274024 0.198053 0.0000165931 / 0.15) 0px 0px 8px 0px, color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    8
+   ],
+   "focused": [
+    [
+     163,
+     133,
+     56,
+     255
+    ],
+    [
+     164,
+     133,
+     57,
+     255
+    ],
+    [
+     207,
+     171,
+     82,
+     255
+    ],
+    [
+     211,
+     173,
+     83,
+     255
+    ],
+    [
+     214,
+     177,
+     86,
+     255
+    ],
+    [
+     215,
+     178,
+     86,
+     255
+    ],
+    [
+     223,
+     186,
+     90,
+     255
+    ]
+   ],
+   "blurred": [
+    [
+     216,
+     179,
+     87,
+     255
+    ],
+    [
+     213,
+     176,
+     85,
+     255
+    ],
+    [
+     213,
+     176,
+     85,
+     255
+    ],
+    [
+     215,
+     178,
+     86,
+     255
+    ],
+    [
+     216,
+     179,
+     87,
+     255
+    ],
+    [
+     217,
+     180,
+     87,
+     255
+    ],
+    [
+     223,
+     186,
+     90,
+     255
+    ]
+   ],
+   "ringVsAdj": [
+    1.894,
+    1.887,
+    1.178,
+    1.146,
+    1.1,
+    1.088,
+    1
+   ],
+   "focusedVsBlurred": [
+    1.76,
+    1.697,
+    1.059,
+    1.053,
+    1.022,
+    1.022,
+    1
+   ],
+   "maxRingVsAdj": 1.894
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ {
+  "theme": "light",
+  "pick": "oklch(0.55 0.2 145)",
+  "style": "background-color: oklch(0.160332 0.050427 145); background-i",
+  "ring": [
+   0,
+   19,
+   1,
+   255
+  ],
+  "railTransition": "all",
+  "rect": {
+   "x": 224,
+   "y": 582.03125,
+   "width": 462,
+   "height": 24,
+   "top": 582.03125,
+   "right": 686,
+   "bottom": 606.03125,
+   "left": 224
+  },
+  "ringVsGround": [
+   4.307,
+   4.459,
+   4.937
+  ],
+  "inkOk": {
+   "L": 0.1621,
+   "C": 0.0522
+  },
+  "focus": {
+   "label": "Number of colors",
+   "fv": true,
+   "rect": {
+    "x": 343.984375,
+    "y": 582.03125,
+    "width": 12,
+    "height": 24,
+    "top": 582.03125,
+    "right": 355.984375,
+    "bottom": 606.03125,
+    "left": 343.984375
+   },
+   "bs": "color(srgb -3.74071e-7 0.00196097 0.000130926 / 0.3) 0px 0px 0px 2px, color(srgb -3.74071e-7 0.00196097 0.000130926 / 0.15) 0px 0px 8px 0px, color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    8
+   ],
+   "focused": [
+    [
+     140,
+     116,
+     56,
+     255
+    ],
+    [
+     141,
+     117,
+     56,
+     255
+    ],
+    [
+     203,
+     169,
+     82,
+     255
+    ],
+    [
+     208,
+     172,
+     83,
+     255
+    ],
+    [
+     212,
+     175,
+     85,
+     255
+    ],
+    [
+     215,
+     178,
+     86,
+     255
+    ],
+    [
+     222,
+     185,
+     90,
+     255
+    ]
+   ],
+   "blurred": [
+    [
+     216,
+     178,
+     86,
+     255
+    ],
+    [
+     213,
+     177,
+     86,
+     255
+    ],
+    [
+     213,
+     175,
+     85,
+     255
+    ],
+    [
+     215,
+     178,
+     86,
+     255
+    ],
+    [
+     216,
+     178,
+     86,
+     255
+    ],
+    [
+     217,
+     179,
+     86,
+     255
+    ],
+    [
+     223,
+     185,
+     89,
+     255
+    ]
+   ],
+   "ringVsAdj": [
+    2.397,
+    2.364,
+    1.199,
+    1.153,
+    1.112,
+    1.077,
+    1
+   ],
+   "focusedVsBlurred": [
+    2.232,
+    2.166,
+    1.081,
+    1.07,
+    1.036,
+    1.014,
+    1.003
+   ],
+   "maxRingVsAdj": 2.397
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ {
+  "theme": "dark",
+  "pick": null,
+  "style": "background-color: oklch(0.73 0.179343 2); background-image: ",
+  "ring": [
+   255,
+   112,
+   159,
+   255
+  ],
+  "railTransition": "all",
+  "rect": {
+   "x": 224,
+   "y": 582.03125,
+   "width": 462,
+   "height": 24,
+   "top": 582.03125,
+   "right": 686,
+   "bottom": 606.03125,
+   "left": 224
+  },
+  "ringVsGround": [
+   4.655,
+   4.538,
+   4.268
+  ],
+  "inkOk": {
+   "L": 0.7303,
+   "C": 0.1791
+  },
+  "focus": {
+   "label": "Number of colors",
+   "fv": true,
+   "rect": {
+    "x": 343.984375,
+    "y": 582.03125,
+    "width": 12,
+    "height": 24,
+    "top": 582.03125,
+    "right": 355.984375,
+    "bottom": 606.03125,
+    "left": 343.984375
+   },
+   "bs": "color(srgb 0.999939 0.450098 0.628776 / 0.3) 0px 0px 0px 2px, color(srgb 0.999939 0.450098 0.628776 / 0.15) 0px 0px 8px 0px, color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    8
+   ],
+   "focused": [
+    [
+     237,
+     172,
+     126,
+     255
+    ],
+    [
+     239,
+     172,
+     124,
+     255
+    ],
+    [
+     230,
+     193,
+     107,
+     255
+    ],
+    [
+     231,
+     194,
+     107,
+     255
+    ],
+    [
+     232,
+     196,
+     108,
+     255
+    ],
+    [
+     232,
+     198,
+     107,
+     255
+    ],
+    [
+     233,
+     200,
+     109,
+     255
+    ]
+   ],
+   "blurred": [
+    [
+     228,
+     195,
+     107,
+     255
+    ],
+    [
+     228,
+     194,
+     104,
+     255
+    ],
+    [
+     229,
+     196,
+     104,
+     255
+    ],
+    [
+     230,
+     196,
+     105,
+     255
+    ],
+    [
+     230,
+     197,
+     106,
+     255
+    ],
+    [
+     232,
+     199,
+     107,
+     255
+    ],
+    [
+     233,
+     200,
+     109,
+     255
+    ]
+   ],
+   "ringVsAdj": [
+    1.198,
+    1.192,
+    1.061,
+    1.05,
+    1.032,
+    1.018,
+    1
+   ],
+   "focusedVsBlurred": [
+    1.14,
+    1.125,
+    1.018,
+    1.011,
+    1.001,
+    1.007,
+    1
+   ],
+   "maxRingVsAdj": 1.198
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ {
+  "theme": "dark",
+  "pick": "oklch(0.78 0.147 85)",
+  "style": "background-color: oklch(0.78 0.147 85); background-image: li",
+  "ring": [
+   226,
+   175,
+   46,
+   255
+  ],
+  "railTransition": "all",
+  "rect": {
+   "x": 224,
+   "y": 582.03125,
+   "width": 462,
+   "height": 24,
+   "top": 582.03125,
+   "right": 686,
+   "bottom": 606.03125,
+   "left": 224
+  },
+  "ringVsGround": [
+   6.123,
+   6.043,
+   5.73
+  ],
+  "inkOk": {
+   "L": 0.7803,
+   "C": 0.1472
+  },
+  "focus": {
+   "label": "Number of colors",
+   "fv": true,
+   "rect": {
+    "x": 343.984375,
+    "y": 582.03125,
+    "width": 12,
+    "height": 24,
+    "top": 582.03125,
+    "right": 355.984375,
+    "bottom": 606.03125,
+    "left": 343.984375
+   },
+   "bs": "color(srgb 0.886961 0.685281 0.181756 / 0.3) 0px 0px 0px 2px, color(srgb 0.886961 0.685281 0.181756 / 0.15) 0px 0px 8px 0px, color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    8
+   ],
+   "focused": [
+    [
+     228,
+     191,
+     91,
+     255
+    ],
+    [
+     230,
+     191,
+     89,
+     255
+    ],
+    [
+     229,
+     196,
+     102,
+     255
+    ],
+    [
+     230,
+     195,
+     103,
+     255
+    ],
+    [
+     232,
+     197,
+     106,
+     255
+    ],
+    [
+     232,
+     198,
+     106,
+     255
+    ],
+    [
+     233,
+     200,
+     109,
+     255
+    ]
+   ],
+   "blurred": [
+    [
+     228,
+     195,
+     107,
+     255
+    ],
+    [
+     228,
+     194,
+     104,
+     255
+    ],
+    [
+     229,
+     196,
+     104,
+     255
+    ],
+    [
+     230,
+     196,
+     105,
+     255
+    ],
+    [
+     230,
+     197,
+     106,
+     255
+    ],
+    [
+     232,
+     199,
+     107,
+     255
+    ],
+    [
+     233,
+     200,
+     109,
+     255
+    ]
+   ],
+   "ringVsAdj": [
+    1.088,
+    1.082,
+    1.043,
+    1.047,
+    1.025,
+    1.018,
+    1
+   ],
+   "focusedVsBlurred": [
+    1.035,
+    1.021,
+    1.001,
+    1.008,
+    1.005,
+    1.008,
+    1
+   ],
+   "maxRingVsAdj": 1.088
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ {
+  "theme": "dark",
+  "pick": "oklch(0.55 0.2 145)",
+  "style": "background-color: oklch(0.613434 0.192935 145); background-i",
+  "ring": [
+   0,
+   160,
+   42,
+   255
+  ],
+  "railTransition": "all",
+  "rect": {
+   "x": 224,
+   "y": 582.03125,
+   "width": 462,
+   "height": 24,
+   "top": 582.03125,
+   "right": 686,
+   "bottom": 606.03125,
+   "left": 224
+  },
+  "ringVsGround": [
+   3.495,
+   3.484,
+   3.262
+  ],
+  "inkOk": {
+   "L": 0.6134,
+   "C": 0.1931
+  },
+  "focus": {
+   "label": "Number of colors",
+   "fv": true,
+   "rect": {
+    "x": 343.984375,
+    "y": 582.03125,
+    "width": 12,
+    "height": 24,
+    "top": 582.03125,
+    "right": 355.984375,
+    "bottom": 606.03125,
+    "left": 343.984375
+   },
+   "bs": "color(srgb 0.170811 0.729357 0.254556 / 0.3) 0px 0px 0px 2px, color(srgb 0.170811 0.729357 0.254556 / 0.15) 0px 0px 8px 0px, color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    8
+   ],
+   "focused": [
+    [
+     171,
+     194,
+     96,
+     255
+    ],
+    [
+     173,
+     194,
+     95,
+     255
+    ],
+    [
+     222,
+     196,
+     103,
+     255
+    ],
+    [
+     225,
+     195,
+     104,
+     255
+    ],
+    [
+     229,
+     198,
+     106,
+     255
+    ],
+    [
+     230,
+     198,
+     106,
+     255
+    ],
+    [
+     233,
+     200,
+     109,
+     255
+    ]
+   ],
+   "blurred": [
+    [
+     228,
+     195,
+     107,
+     255
+    ],
+    [
+     228,
+     194,
+     104,
+     255
+    ],
+    [
+     229,
+     196,
+     104,
+     255
+    ],
+    [
+     230,
+     196,
+     105,
+     255
+    ],
+    [
+     230,
+     197,
+     106,
+     255
+    ],
+    [
+     232,
+     199,
+     107,
+     255
+    ],
+    [
+     233,
+     200,
+     109,
+     255
+    ]
+   ],
+   "ringVsAdj": [
+    1.219,
+    1.215,
+    1.061,
+    1.061,
+    1.026,
+    1.023,
+    1
+   ],
+   "focusedVsBlurred": [
+    1.16,
+    1.146,
+    1.019,
+    1.021,
+    1.005,
+    1.013,
+    1
+   ],
+   "maxRingVsAdj": 1.219
+  },
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ }
+]

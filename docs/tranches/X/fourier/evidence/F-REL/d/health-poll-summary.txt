@@ -1,0 +1,17 @@
+SERVED MODEL: claude-opus-5-5
+# off-host poller (health-poll.sh) 17:12:05Z..17:57:21Z; push of 24a524a = webhook delivery 17:12:15.762Z (static-reads-1.txt)
+# polls by health code:
+   3 health=000
+ 737 health=200
+# record content types:
+   4 
+ 736 text/html
+# the only non-200 lines (time_total ~1 ms = local resolver/network at the poller's end, the predecessor seat's kill; not a server answer):
+17:57:17 health=000 0.001553 record=000 
+17:57:19 health=000 0.001343 record=000 
+17:57:21 health=000 0.001382 record=000 
+# first 2 / last 2 200 lines:
+17:12:05 health=200 0.147355 record=200 text/html
+17:12:07 health=200 0.111591 record=200 text/html
+17:57:12 health=200 0.079518 record=200 text/html
+17:57:14 health=200 0.073345 record=200 text/html

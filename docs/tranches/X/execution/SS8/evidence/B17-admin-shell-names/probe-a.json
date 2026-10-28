@@ -1,0 +1,2532 @@
+{
+  "1440-light": {
+    "dir": "ltr",
+    "regions": [
+      {
+        "pane": "admin-names",
+        "rect": [
+          199,
+          88.44,
+          1042,
+          804
+        ]
+      }
+    ],
+    "tablists": [
+      {
+        "label": null,
+        "text": "Pending · 6 Approved · 4",
+        "rect": [
+          224,
+          202,
+          992,
+          42.61
+        ],
+        "inNames": true
+      }
+    ],
+    "tabs": {
+      "track": [
+        224,
+        202,
+        992,
+        42.61
+      ],
+      "indicator": [
+        228.04,
+        211.19,
+        492.33,
+        39.75
+      ],
+      "activeButton": [
+        228,
+        206,
+        492,
+        34.61
+      ],
+      "indStyle": "left: 0px; top: 0px; width: 492.335px; height: 39.7596px; translate: 4.04167px 9.19379px; opacity: 1;",
+      "indMinusButton": {
+        "left": -0.04,
+        "right": 0.37,
+        "top": -5.19,
+        "bottom": 10.33
+      },
+      "indicatorBottomMinusTrackBottom": 6.33,
+      "indicatorTopMinusTrackTop": 9.19,
+      "trackStyle": {
+        "paddingTop": "4px",
+        "paddingBottom": "4px",
+        "height": "42.6094px",
+        "--tab-indicator-duration": "calc(0.21s * 1)"
+      },
+      "indStyleCS": {
+        "transitionProperty": "translate, width, height, scale, box-shadow, opacity",
+        "transitionDuration": "0.21s, 0.21s, 0.21s, 0.21s, 0.18s, 0.2s",
+        "transitionTimingFunction": "linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, -0.012 6%, -0.038 12%, -0.018 18%, 0.18 34%, 0.62 46%, 0.98 56%, 1.14 64%, 1.22 70%, 1.16 78%, 1.06 86%, 1.012 92%, 1 100%), cubic-bezier(0.4, 0, 0.2, 1), ease",
+        "--tab-indicator-duration": "calc(0.21s * 1)"
+      },
+      "rootDuration": "calc(0.21s * 1)",
+      "buttons": [
+        [
+          228,
+          206,
+          492,
+          34.61
+        ],
+        [
+          720,
+          206,
+          492,
+          34.61
+        ]
+      ]
+    },
+    "rows": [
+      {
+        "rect": [
+          224,
+          304.61,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          315.61,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            315.61,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            340.58,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          325.58,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          224,
+          382.55,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          393.55,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            393.55,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            418.52,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          403.52,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          224,
+          460.48,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          471.48,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            471.48,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            496.45,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          481.45,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          224,
+          538.42,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          549.42,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            549.42,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            574.39,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          559.39,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          224,
+          616.36,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          627.36,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            627.36,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            652.33,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          637.33,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          224,
+          694.3,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          705.3,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            705.3,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            730.27,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          715.27,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "cardInfo": {
+      "rect": [
+        199,
+        88.44,
+        1042,
+        704.8
+      ],
+      "display": "flex",
+      "minHeight": "0px",
+      "height": "704.797px",
+      "flexGrow": "0",
+      "flexShrink": "1",
+      "parentDisplay": "block",
+      "parentClass": "pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded",
+      "grand": "flex",
+      "port": {
+        "scrollHeight": 590,
+        "clientHeight": 590
+      },
+      "contentBottom": 764.23
+    },
+    "seated": [
+      {
+        "tag": "DIV",
+        "cls": "input-bar search-seated",
+        "hasInput": true
+      }
+    ],
+    "h1": [
+      224,
+      105.44,
+      992,
+      43.98
+    ],
+    "h1Sibs": [
+      {
+        "tag": "H1",
+        "cls": "card-title pane-header-title font-display",
+        "rect": [
+          224,
+          105.44,
+          992,
+          43.98
+        ]
+      },
+      {
+        "tag": "P",
+        "cls": "card-description pane-header-desc text-caption",
+        "rect": [
+          224,
+          157.42,
+          992,
+          18.7
+        ]
+      }
+    ],
+    "rowGaps": [
+      8,
+      7.99,
+      8,
+      8,
+      8
+    ],
+    "contrast": {
+      "secondaryInk": [
+        45,
+        43,
+        42,
+        1
+      ],
+      "fill": [
+        193,
+        137,
+        120
+      ],
+      "secondaryCR": 4.77,
+      "primaryInk": [
+        28,
+        25,
+        23,
+        1
+      ],
+      "primaryCR": 7.11
+    },
+    "rejectRest": {
+      "color": "oklch(0.289468 0.00386159 34.63)",
+      "bg": "rgba(0, 0, 0, 0)"
+    },
+    "rejectHover": {
+      "color": "oklch(0.304141 0.124122 27.4847)",
+      "bg": "oklab(0.304141 0.110113 0.0572838 / 0.1)"
+    },
+    "focusLanded": "Reject color name Probe Ember",
+    "rejectFocus": {
+      "color": "oklch(0.304141 0.124122 27.4847)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "ring": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48) | none",
+      "focusVisible": true
+    },
+    "pageErrors": []
+  },
+  "1440-dark": {
+    "dir": "ltr",
+    "regions": [
+      {
+        "pane": "admin-names",
+        "rect": [
+          199,
+          88.44,
+          1042,
+          804
+        ]
+      }
+    ],
+    "tablists": [
+      {
+        "label": null,
+        "text": "Pending · 6 Approved · 4",
+        "rect": [
+          224,
+          202,
+          992,
+          42.61
+        ],
+        "inNames": true
+      }
+    ],
+    "tabs": {
+      "track": [
+        224,
+        202,
+        992,
+        42.61
+      ],
+      "indicator": [
+        228.04,
+        211.19,
+        492.33,
+        39.75
+      ],
+      "activeButton": [
+        228,
+        206,
+        492,
+        34.61
+      ],
+      "indStyle": "left: 0px; top: 0px; width: 492.335px; height: 39.7596px; translate: 4.04167px 9.19379px; opacity: 1;",
+      "indMinusButton": {
+        "left": -0.04,
+        "right": 0.37,
+        "top": -5.19,
+        "bottom": 10.33
+      },
+      "indicatorBottomMinusTrackBottom": 6.33,
+      "indicatorTopMinusTrackTop": 9.19,
+      "trackStyle": {
+        "paddingTop": "4px",
+        "paddingBottom": "4px",
+        "height": "42.6094px",
+        "--tab-indicator-duration": "calc(0.21s * 1)"
+      },
+      "indStyleCS": {
+        "transitionProperty": "translate, width, height, scale, box-shadow, opacity",
+        "transitionDuration": "0.21s, 0.21s, 0.21s, 0.21s, 0.18s, 0.2s",
+        "transitionTimingFunction": "linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, -0.012 6%, -0.038 12%, -0.018 18%, 0.18 34%, 0.62 46%, 0.98 56%, 1.14 64%, 1.22 70%, 1.16 78%, 1.06 86%, 1.012 92%, 1 100%), cubic-bezier(0.4, 0, 0.2, 1), ease",
+        "--tab-indicator-duration": "calc(0.21s * 1)"
+      },
+      "rootDuration": "calc(0.21s * 1)",
+      "buttons": [
+        [
+          228,
+          206,
+          492,
+          34.61
+        ],
+        [
+          720,
+          206,
+          492,
+          34.61
+        ]
+      ]
+    },
+    "rows": [
+      {
+        "rect": [
+          224,
+          304.61,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          315.61,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            315.61,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            340.58,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          325.58,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          224,
+          382.55,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          393.55,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            393.55,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            418.52,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          403.52,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          224,
+          460.48,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          471.48,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            471.48,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            496.45,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          481.45,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          224,
+          538.42,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          549.42,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            549.42,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            574.39,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          559.39,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          224,
+          616.36,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          627.36,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            627.36,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            652.33,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          637.33,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          224,
+          694.3,
+          992,
+          69.94
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          281,
+          705.3,
+          848,
+          47.94
+        ],
+        "primary": {
+          "rect": [
+            281,
+            705.3,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            281,
+            730.27,
+            848,
+            22.97
+          ],
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          1141,
+          715.27,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "cardInfo": {
+      "rect": [
+        199,
+        88.44,
+        1042,
+        704.8
+      ],
+      "display": "flex",
+      "minHeight": "0px",
+      "height": "704.797px",
+      "flexGrow": "0",
+      "flexShrink": "1",
+      "parentDisplay": "block",
+      "parentClass": "pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded",
+      "grand": "flex",
+      "port": {
+        "scrollHeight": 590,
+        "clientHeight": 590
+      },
+      "contentBottom": 764.23
+    },
+    "seated": [
+      {
+        "tag": "DIV",
+        "cls": "input-bar search-seated",
+        "hasInput": true
+      }
+    ],
+    "h1": [
+      224,
+      105.44,
+      992,
+      43.98
+    ],
+    "h1Sibs": [
+      {
+        "tag": "H1",
+        "cls": "card-title pane-header-title font-display",
+        "rect": [
+          224,
+          105.44,
+          992,
+          43.98
+        ]
+      },
+      {
+        "tag": "P",
+        "cls": "card-description pane-header-desc text-caption",
+        "rect": [
+          224,
+          157.42,
+          992,
+          18.7
+        ]
+      }
+    ],
+    "rowGaps": [
+      8,
+      7.99,
+      8,
+      8,
+      8
+    ],
+    "contrast": {
+      "secondaryInk": [
+        164,
+        162,
+        160,
+        1
+      ],
+      "fill": [
+        126,
+        45,
+        39
+      ],
+      "secondaryCR": 3.6,
+      "primaryInk": [
+        233,
+        230,
+        226,
+        1
+      ],
+      "primaryCR": 6.85
+    },
+    "rejectRest": {
+      "color": "oklch(0.712763 0.00382185 41.8684)",
+      "bg": "rgba(0, 0, 0, 0)"
+    },
+    "rejectHover": {
+      "color": "oklch(0.729793 0.166496 27.5)",
+      "bg": "oklab(0.729793 0.147684 0.0768793 / 0.1)"
+    },
+    "focusLanded": "Reject color name Probe Ember",
+    "rejectFocus": {
+      "color": "oklch(0.729793 0.166496 27.5)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "ring": "solid 2px oklab(0.925202 0.00234182 0.00572368 / 0.48) | none",
+      "focusVisible": true
+    },
+    "pageErrors": []
+  },
+  "390-light": {
+    "dir": "ltr",
+    "regions": [
+      {
+        "pane": "admin-names",
+        "rect": [
+          16,
+          104,
+          358,
+          732
+        ]
+      }
+    ],
+    "tablists": [
+      {
+        "label": null,
+        "text": "Pending · 6 Approved · 4",
+        "rect": [
+          33,
+          205.25,
+          324,
+          32.25
+        ],
+        "inNames": true
+      }
+    ],
+    "tabs": {
+      "track": [
+        33,
+        205.25,
+        324,
+        32.25
+      ],
+      "indicator": [
+        36.03,
+        209.95,
+        159.27,
+        27.91
+      ],
+      "activeButton": [
+        36,
+        208.25,
+        159,
+        26.25
+      ],
+      "indStyle": "left: 0px; top: 0px; width: 159.266px; height: 27.9136px; translate: 3.03125px 4.69626px; opacity: 1;",
+      "indMinusButton": {
+        "left": -0.03,
+        "right": 0.3,
+        "top": -1.7,
+        "bottom": 3.36
+      },
+      "indicatorBottomMinusTrackBottom": 0.36,
+      "indicatorTopMinusTrackTop": 4.7,
+      "trackStyle": {
+        "paddingTop": "3px",
+        "paddingBottom": "3px",
+        "height": "32.25px",
+        "--tab-indicator-duration": "calc(0.21s * 1)"
+      },
+      "indStyleCS": {
+        "transitionProperty": "translate, width, height, scale, box-shadow, opacity",
+        "transitionDuration": "0.21s, 0.21s, 0.21s, 0.21s, 0.18s, 0.2s",
+        "transitionTimingFunction": "linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, -0.012 6%, -0.038 12%, -0.018 18%, 0.18 34%, 0.62 46%, 0.98 56%, 1.14 64%, 1.22 70%, 1.16 78%, 1.06 86%, 1.012 92%, 1 100%), cubic-bezier(0.4, 0, 0.2, 1), ease",
+        "--tab-indicator-duration": "calc(0.21s * 1)"
+      },
+      "rootDuration": "calc(0.21s * 1)",
+      "buttons": [
+        [
+          36,
+          208.25,
+          159,
+          26.25
+        ],
+        [
+          195,
+          208.25,
+          159,
+          26.25
+        ]
+      ]
+    },
+    "rows": [
+      {
+        "rect": [
+          33,
+          297.5,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          308.5,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            308.5,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            330.09,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          282,
+          315.09,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          368.69,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          379.69,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            379.69,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            401.28,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          282,
+          386.28,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          439.88,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          450.88,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            450.88,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            472.47,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          282,
+          457.47,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          511.06,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          522.06,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            522.06,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            543.66,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          282,
+          528.66,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          582.25,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          593.25,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            593.25,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            614.84,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          282,
+          599.84,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          653.44,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          664.44,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            664.44,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            686.03,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": true
+        },
+        "actions": [
+          282,
+          671.03,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "cardInfo": {
+      "rect": [
+        16,
+        104,
+        358,
+        641.63
+      ],
+      "display": "flex",
+      "minHeight": "0px",
+      "height": "641.625px",
+      "flexGrow": "0",
+      "flexShrink": "1",
+      "parentDisplay": "block",
+      "parentClass": "pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded",
+      "grand": "flex",
+      "port": {
+        "scrollHeight": 539,
+        "clientHeight": 539
+      },
+      "contentBottom": 716.63
+    },
+    "seated": [
+      {
+        "tag": "DIV",
+        "cls": "input-bar search-seated",
+        "hasInput": true
+      }
+    ],
+    "h1": [
+      33,
+      121,
+      324,
+      34.56
+    ],
+    "h1Sibs": [
+      {
+        "tag": "H1",
+        "cls": "card-title pane-header-title font-display",
+        "rect": [
+          33,
+          121,
+          324,
+          34.56
+        ]
+      },
+      {
+        "tag": "P",
+        "cls": "card-description pane-header-desc text-caption",
+        "rect": [
+          33,
+          163.56,
+          324,
+          15.81
+        ]
+      }
+    ],
+    "rowGaps": [
+      8,
+      8,
+      7.99,
+      8,
+      8
+    ],
+    "contrast": {
+      "secondaryInk": [
+        45,
+        43,
+        42,
+        1
+      ],
+      "fill": [
+        204,
+        129,
+        133
+      ],
+      "secondaryCR": 4.73,
+      "primaryInk": [
+        28,
+        25,
+        23,
+        1
+      ],
+      "primaryCR": 6.1
+    },
+    "rejectRest": {
+      "color": "oklch(0.289468 0.00386159 34.63)",
+      "bg": "rgba(0, 0, 0, 0)"
+    },
+    "rejectHover": {
+      "color": "oklch(0.304141 0.124122 27.4847)",
+      "bg": "oklab(0.304141 0.110113 0.0572838 / 0.1)"
+    },
+    "focusLanded": "Reject color name Probe Ember",
+    "rejectFocus": {
+      "color": "oklch(0.304141 0.124122 27.4847)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "ring": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48) | none",
+      "focusVisible": true
+    },
+    "pageErrors": []
+  },
+  "390-dark": {
+    "dir": "ltr",
+    "regions": [
+      {
+        "pane": "admin-names",
+        "rect": [
+          16,
+          104,
+          358,
+          732
+        ]
+      }
+    ],
+    "tablists": [
+      {
+        "label": null,
+        "text": "Pending · 6 Approved · 4",
+        "rect": [
+          33,
+          205.25,
+          324,
+          32.25
+        ],
+        "inNames": true
+      }
+    ],
+    "tabs": {
+      "track": [
+        33,
+        205.25,
+        324,
+        32.25
+      ],
+      "indicator": [
+        36.03,
+        209.95,
+        159.27,
+        27.91
+      ],
+      "activeButton": [
+        36,
+        208.25,
+        159,
+        26.25
+      ],
+      "indStyle": "left: 0px; top: 0px; width: 159.266px; height: 27.9136px; translate: 3.03125px 4.69626px; opacity: 1;",
+      "indMinusButton": {
+        "left": -0.03,
+        "right": 0.3,
+        "top": -1.7,
+        "bottom": 3.36
+      },
+      "indicatorBottomMinusTrackBottom": 0.36,
+      "indicatorTopMinusTrackTop": 4.7,
+      "trackStyle": {
+        "paddingTop": "3px",
+        "paddingBottom": "3px",
+        "height": "32.25px",
+        "--tab-indicator-duration": "calc(0.21s * 1)"
+      },
+      "indStyleCS": {
+        "transitionProperty": "translate, width, height, scale, box-shadow, opacity",
+        "transitionDuration": "0.21s, 0.21s, 0.21s, 0.21s, 0.18s, 0.2s",
+        "transitionTimingFunction": "linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, -0.012 6%, -0.038 12%, -0.018 18%, 0.18 34%, 0.62 46%, 0.98 56%, 1.14 64%, 1.22 70%, 1.16 78%, 1.06 86%, 1.012 92%, 1 100%), cubic-bezier(0.4, 0, 0.2, 1), ease",
+        "--tab-indicator-duration": "calc(0.21s * 1)"
+      },
+      "rootDuration": "calc(0.21s * 1)",
+      "buttons": [
+        [
+          36,
+          208.25,
+          159,
+          26.25
+        ],
+        [
+          195,
+          208.25,
+          159,
+          26.25
+        ]
+      ]
+    },
+    "rows": [
+      {
+        "rect": [
+          33,
+          297.5,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          308.5,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            308.5,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            330.09,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          282,
+          315.09,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          368.69,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          379.69,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            379.69,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            401.28,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          282,
+          386.28,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          439.88,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          450.88,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            450.88,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            472.47,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          282,
+          457.47,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          511.06,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          522.06,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            522.06,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            543.66,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          282,
+          528.66,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          582.25,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          593.25,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            593.25,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            614.84,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": false
+        },
+        "actions": [
+          282,
+          599.84,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          653.44,
+          324,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          664.44,
+          180,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            664.44,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.925202 0.00618423 67.7483)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            686.03,
+            180,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.712763 0.00382185 41.8684)",
+          "overflow": true
+        },
+        "actions": [
+          282,
+          671.03,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "cardInfo": {
+      "rect": [
+        16,
+        104,
+        358,
+        641.63
+      ],
+      "display": "flex",
+      "minHeight": "0px",
+      "height": "641.625px",
+      "flexGrow": "0",
+      "flexShrink": "1",
+      "parentDisplay": "block",
+      "parentClass": "pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded",
+      "grand": "flex",
+      "port": {
+        "scrollHeight": 539,
+        "clientHeight": 539
+      },
+      "contentBottom": 716.63
+    },
+    "seated": [
+      {
+        "tag": "DIV",
+        "cls": "input-bar search-seated",
+        "hasInput": true
+      }
+    ],
+    "h1": [
+      33,
+      121,
+      324,
+      34.56
+    ],
+    "h1Sibs": [
+      {
+        "tag": "H1",
+        "cls": "card-title pane-header-title font-display",
+        "rect": [
+          33,
+          121,
+          324,
+          34.56
+        ]
+      },
+      {
+        "tag": "P",
+        "cls": "card-description pane-header-desc text-caption",
+        "rect": [
+          33,
+          163.56,
+          324,
+          15.81
+        ]
+      }
+    ],
+    "rowGaps": [
+      8,
+      8,
+      7.99,
+      8,
+      8
+    ],
+    "contrast": {
+      "secondaryInk": [
+        164,
+        162,
+        160,
+        1
+      ],
+      "fill": [
+        110,
+        36,
+        38
+      ],
+      "secondaryCR": 4.25,
+      "primaryInk": [
+        233,
+        230,
+        226,
+        1
+      ],
+      "primaryCR": 8.45
+    },
+    "rejectRest": {
+      "color": "oklch(0.712763 0.00382185 41.8684)",
+      "bg": "rgba(0, 0, 0, 0)"
+    },
+    "rejectHover": {
+      "color": "oklch(0.729793 0.166496 27.5)",
+      "bg": "oklab(0.729793 0.147684 0.0768793 / 0.1)"
+    },
+    "focusLanded": "Reject color name Probe Ember",
+    "rejectFocus": {
+      "color": "oklch(0.729793 0.166496 27.5)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "ring": "solid 2px oklab(0.925202 0.00234182 0.00572368 / 0.48) | none",
+      "focusVisible": true
+    },
+    "pageErrors": []
+  },
+  "320-light": {
+    "dir": "ltr",
+    "regions": [
+      {
+        "pane": "admin-names",
+        "rect": [
+          16,
+          104,
+          288,
+          641.25
+        ]
+      }
+    ],
+    "tablists": [
+      {
+        "label": null,
+        "text": "Pending · 6 Approved · 4",
+        "rect": [
+          33,
+          205.08,
+          254,
+          32.05
+        ],
+        "inNames": true
+      }
+    ],
+    "tabs": {
+      "track": [
+        33,
+        205.08,
+        254,
+        32.05
+      ],
+      "indicator": [
+        36.03,
+        209.41,
+        124.27,
+        27.34
+      ],
+      "activeButton": [
+        36,
+        208.08,
+        124,
+        26.05
+      ],
+      "indStyle": "left: 0px; top: 0px; width: 124.266px; height: 27.3439px; translate: 3.03125px 4.32974px; opacity: 1;",
+      "indMinusButton": {
+        "left": -0.03,
+        "right": 0.3,
+        "top": -1.33,
+        "bottom": 2.62
+      },
+      "indicatorBottomMinusTrackBottom": -0.38,
+      "indicatorTopMinusTrackTop": 4.33,
+      "trackStyle": {
+        "paddingTop": "3px",
+        "paddingBottom": "3px",
+        "height": "32.0469px",
+        "--tab-indicator-duration": "calc(0.21s * 1)"
+      },
+      "indStyleCS": {
+        "transitionProperty": "translate, width, height, scale, box-shadow, opacity",
+        "transitionDuration": "0.21s, 0.21s, 0.21s, 0.21s, 0.18s, 0.2s",
+        "transitionTimingFunction": "linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, 0.00382 2.041%, 0.0145 4.082%, 0.03097 6.122%, 0.05224 8.163%, 0.07746 10.204%, 0.10587 12.245%, 0.13678 14.286%, 0.16961 16.327%, 0.20383 18.367%, 0.23897 20.408%, 0.27465 22.449%, 0.31051 24.49%, 0.34627 26.531%, 0.38167 28.571%, 0.41651 30.612%, 0.4506 32.653%, 0.4838 34.694%, 0.51599 36.735%, 0.54708 38.776%, 0.577 40.816%, 0.6057 42.857%, 0.63315 44.898%, 0.65931 46.939%, 0.68419 48.98%, 0.70779 51.02%, 0.73011 53.061%, 0.75118 55.102%, 0.77103 57.143%, 0.78968 59.184%, 0.80717 61.224%, 0.82354 63.265%, 0.83883 65.306%, 0.85309 67.347%, 0.86636 69.388%, 0.87869 71.429%, 0.89012 73.469%, 0.90069 75.51%, 0.91046 77.551%, 0.91947 79.592%, 0.92776 81.633%, 0.93538 83.673%, 0.94237 85.714%, 0.94877 87.755%, 0.95461 89.796%, 0.95993 91.837%, 0.96478 93.878%, 0.96918 95.918%, 0.97317 97.959%, 1 100%), linear(0 0%, -0.012 6%, -0.038 12%, -0.018 18%, 0.18 34%, 0.62 46%, 0.98 56%, 1.14 64%, 1.22 70%, 1.16 78%, 1.06 86%, 1.012 92%, 1 100%), cubic-bezier(0.4, 0, 0.2, 1), ease",
+        "--tab-indicator-duration": "calc(0.21s * 1)"
+      },
+      "rootDuration": "calc(0.21s * 1)",
+      "buttons": [
+        [
+          36,
+          208.08,
+          124,
+          26.05
+        ],
+        [
+          160,
+          208.08,
+          124,
+          26.05
+        ]
+      ]
+    },
+    "rows": [
+      {
+        "rect": [
+          33,
+          297.13,
+          254,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          308.13,
+          110,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            308.13,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            329.72,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          212,
+          314.72,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          368.31,
+          254,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          379.31,
+          110,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            379.31,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            400.91,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          212,
+          385.91,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          439.5,
+          254,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          450.5,
+          110,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            450.5,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            472.09,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          212,
+          457.09,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          510.69,
+          254,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          521.69,
+          110,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            521.69,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            543.28,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          212,
+          528.28,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          581.88,
+          254,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          592.88,
+          110,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            592.88,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            614.47,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": false
+        },
+        "actions": [
+          212,
+          599.47,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "rect": [
+          33,
+          653.06,
+          254,
+          63.19
+        ],
+        "pad": {
+          "paddingTop": "10px",
+          "paddingLeft": "12px"
+        },
+        "col": [
+          90,
+          664.06,
+          110,
+          41.19
+        ],
+        "primary": {
+          "rect": [
+            90,
+            664.06,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "color": "oklch(0.216129 0.00624853 56.0356)"
+        },
+        "secondary": {
+          "rect": [
+            90,
+            685.66,
+            110,
+            19.59
+          ],
+          "fontSize": "14px",
+          "lineHeight": "19.6px",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "color": "oklch(0.289468 0.00386159 34.63)",
+          "overflow": true
+        },
+        "actions": [
+          212,
+          670.66,
+          62,
+          28
+        ],
+        "slotsEmpty": [
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "cardInfo": {
+      "rect": [
+        16,
+        104,
+        288,
+        641.25
+      ],
+      "display": "flex",
+      "minHeight": "0px",
+      "height": "641.25px",
+      "flexGrow": "0",
+      "flexShrink": "1",
+      "parentDisplay": "block",
+      "parentClass": "pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded",
+      "grand": "flex",
+      "port": {
+        "scrollHeight": 539,
+        "clientHeight": 539
+      },
+      "contentBottom": 716.25
+    },
+    "seated": [
+      {
+        "tag": "DIV",
+        "cls": "input-bar search-seated",
+        "hasInput": true
+      }
+    ],
+    "h1": [
+      33,
+      121,
+      254,
+      34.56
+    ],
+    "h1Sibs": [
+      {
+        "tag": "H1",
+        "cls": "card-title pane-header-title font-display",
+        "rect": [
+          33,
+          121,
+          254,
+          34.56
+        ]
+      },
+      {
+        "tag": "P",
+        "cls": "card-description pane-header-desc text-caption",
+        "rect": [
+          33,
+          163.56,
+          254,
+          15.64
+        ]
+      }
+    ],
+    "rowGaps": [
+      7.99,
+      8,
+      8,
+      8,
+      7.99
+    ],
+    "contrast": {
+      "secondaryInk": [
+        45,
+        43,
+        42,
+        1
+      ],
+      "fill": [
+        201,
+        141,
+        125
+      ],
+      "secondaryCR": 5.09,
+      "primaryInk": [
+        28,
+        25,
+        23,
+        1
+      ],
+      "primaryCR": 6.5
+    },
+    "pageErrors": []
+  }
+}

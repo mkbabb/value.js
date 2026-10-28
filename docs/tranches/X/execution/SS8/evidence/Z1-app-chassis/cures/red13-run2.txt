@@ -1,0 +1,41 @@
+(node:4901) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:4947) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:4990) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:164:5 › Z1-app-chassis — the dock › Z-Dock-13 — the dock's sampler is bound to the atmosphere field (44.4s)
+
+
+  1) [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:164:5 › Z1-app-chassis — the dock › Z-Dock-13 — the dock's sampler is bound to the atmosphere field 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).not.[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('.glass-dock').first()
+    Expected: not [32m"source-unavailable"[39m
+    Received: [31m"[7msource-unavailable[27m"[39m
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "not toHaveAttribute" with timeout 8000ms[22m
+    [2m  - waiting for locator('.glass-dock').first()[22m
+    [2m    19 × locator resolved to <div data-v-c1c2eb17="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>[22m
+    [2m       - unexpected value "source-unavailable"[22m
+
+
+      173 |         await expect(dock).toHaveAttribute("data-backdrop-sample-state", /.+/, { timeout: 20_000 });
+      174 |         await page.waitForTimeout(1500);
+    > 175 |         await expect(dock).not.toHaveAttribute("data-backdrop-sample-reason", "source-unavailable");
+          |                                ^
+      176 |     });
+      177 |
+      178 |     test("Z-Dock-5 — Open color input focuses the field and typing lands in it", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-z1-app-chassis.spec.ts:175:32
+
+    Error Context: test-results/ss8-z1-app-chassis-Z1-app--585ae-und-to-the-atmosphere-field-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:164:5 › Z1-app-chassis — the dock › Z-Dock-13 — the dock's sampler is bound to the atmosphere field 

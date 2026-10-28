@@ -1,0 +1,637 @@
+{
+ "light": {
+  "scheme": "light",
+  "darkClass": false,
+  "main": {
+   "x": 16,
+   "y": 88,
+   "w": 1408,
+   "h": 804,
+   "t": "Atmosphere viewAtmospher"
+  },
+  "card": {
+   "x": 464,
+   "y": 88,
+   "w": 512,
+   "h": 683.53125,
+   "t": "AtmosphereAurora palette"
+  },
+  "cardOverMainW": 0.3636,
+  "cardOverMainArea": 0.3092,
+  "triggers": [
+   [
+    "Analogous",
+    604.2,
+    331.8,
+    36
+   ],
+   [
+    "Scattered",
+    604.2,
+    331.8,
+    36
+   ],
+   [
+    "Smooth",
+    604.2,
+    331.8,
+    36
+   ],
+   [
+    "Drifting",
+    604.2,
+    331.8,
+    36
+   ]
+  ],
+  "triggerLeftSpread": 0,
+  "labels": [
+   {
+    "t": "Harmony",
+    "css": "oklch(0.216129 0.00624853 56.0356)",
+    "color": "rgba(28, 25, 23, 1.000)",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ground": [
+     199.3,
+     94.3,
+     147.2
+    ],
+    "ratio": 4.557
+   },
+   {
+    "t": "Arrangement",
+    "css": "oklch(0.216129 0.00624853 56.0356)",
+    "color": "rgba(28, 25, 23, 1.000)",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ground": [
+     199.3,
+     97.5,
+     146.2
+    ],
+    "ratio": 4.647
+   },
+   {
+    "t": "Medium",
+    "css": "oklch(0.216129 0.00624853 56.0356)",
+    "color": "rgba(28, 25, 23, 1.000)",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ground": [
+     199.3,
+     100.7,
+     145.2
+    ],
+    "ratio": 4.746
+   },
+   {
+    "t": "Motion",
+    "css": "oklch(0.216129 0.00624853 56.0356)",
+    "color": "rgba(28, 25, 23, 1.000)",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ground": [
+     199.3,
+     103.9,
+     143.6
+    ],
+    "ratio": 4.841
+   }
+  ],
+  "sliderAria": [
+   {
+    "root": "Color energy",
+    "thumb": "Color energy",
+    "rootRole": null
+   },
+   {
+    "root": "Noise",
+    "thumb": "Noise",
+    "rootRole": null
+   },
+   {
+    "root": "Zones",
+    "thumb": "Zones",
+    "rootRole": null
+   }
+  ],
+  "menu": {
+   "chain": [
+    {
+     "tag": "div",
+     "slot": "select-content",
+     "cls": "relative z-popover overflow-hidden rounded-card text-popover",
+     "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.22)",
+     "bf": "blur(20px) saturate(1.5)",
+     "op": "1",
+     "w": 333.8,
+     "h": 256
+    },
+    {
+     "tag": "div",
+     "slot": null,
+     "cls": "",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bf": "none",
+     "op": "1",
+     "w": 333.8,
+     "h": 256
+    }
+   ],
+   "strips": [
+    {
+     "opt": "Analogous",
+     "stops": "oklch(0.63 0.2316 323.402)|oklch(0.7367 0.1847 354.3567)|oklch(0.8433 0.0858 25.3114)|oklch(0.95 0.0298 56.266)",
+     "w": 41.88,
+     "fs": "16.4px"
+    },
+    {
+     "opt": "Complementary",
+     "stops": "oklch(0.63 0.2316 0.682)|oklch(0.7367 0.1752 306.7834)|oklch(0.8433 0.0824 246.7834)|oklch(0.95 0.0717 180.682)",
+     "w": 41.88,
+     "fs": "16.4px"
+    },
+    {
+     "opt": "Split Complementary",
+     "stops": "oklch(0.63 0.1261 168.986)|oklch(0.7367 0.1787 56.7834)|oklch(0.8433 0.1356 322.8847)|oklch(0.95 0.0434 210.682)",
+     "w": 41.88,
+     "fs": "16.4px"
+    },
+    {
+     "opt": "Triad",
+     "stops": "oklch(0.63 0.2316 0.682)|oklch(0.7367 0.1508 92.8847)|oklch(0.8433 0.1733 166.7834)|oklch(0.95 0.0265 240.682)",
+     "w": 41.88,
+     "fs": "16.4px"
+    },
+    {
+     "opt": "Tetradic",
+     "stops": "oklch(0.63 0.2316 0.682)|oklch(0.7367 0.1548 102.8847)|oklch(0.8433 0.1474 186.7834)|oklch(0.95 0.0253 288.986)",
+     "w": 41.88,
+     "fs": "16.4px"
+    },
+    {
+     "opt": "Monochrome",
+     "stops": "oklch(0.63 0.2316 0.682)|oklch(0.7367 0.1686 6.7834)|oklch(0.8433 0.0872 12.8847)|oklch(0.95 0.0249 18.986)",
+     "w": 41.88,
+     "fs": "16.4px"
+    }
+   ],
+   "optBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+   "optSelBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+   "overlap": {
+    "contentArea": 85448,
+    "under": [
+     {
+      "t": "Scattered",
+      "px2": 11944
+     },
+     {
+      "t": "Smooth",
+      "px2": 11944
+     },
+     {
+      "t": "Drifting",
+      "px2": 11944
+     },
+     {
+      "t": "Color energy",
+      "px2": 7968
+     }
+    ],
+    "total": 43800
+   }
+  },
+  "tier": {
+   "canvasW": 300,
+   "canvasH": 150,
+   "bodyBgImage": "linear-gradient(135deg, rgb(200, 70, 215) 0%, rgb(255, 113, 177) 33%, rgb(255, 1",
+   "rootBgImage": "none"
+  },
+  "knobs": [
+   {
+    "step": "baseline-repeat(2s)",
+    "hash": "c60bb4829074b6c7",
+    "sameAsPrev": true,
+    "delta": {
+     "mean": 0,
+     "max": 0
+    }
+   },
+   {
+    "step": "noise→End",
+    "hash": "c60bb4829074b6c7",
+    "sameAsPrev": true,
+    "delta": {
+     "mean": 0,
+     "max": 0
+    }
+   },
+   {
+    "step": "zones→End",
+    "hash": "c60bb4829074b6c7",
+    "sameAsPrev": true,
+    "delta": {
+     "mean": 0,
+     "max": 0
+    }
+   },
+   {
+    "step": "arrangement→Centred",
+    "hash": "c60bb4829074b6c7",
+    "sameAsPrev": true,
+    "delta": {
+     "mean": 0,
+     "max": 0
+    }
+   },
+   {
+    "step": "medium→Oil",
+    "hash": "c60bb4829074b6c7",
+    "sameAsPrev": true,
+    "delta": {
+     "mean": 0,
+     "max": 0
+    }
+   },
+   {
+    "step": "motion→Still",
+    "hash": "c60bb4829074b6c7",
+    "sameAsPrev": true,
+    "delta": {
+     "mean": 0,
+     "max": 0
+    }
+   },
+   {
+    "step": "CONTROL colorEnergy→Home",
+    "hash": "4d807d6326bdf00c",
+    "sameAsPrev": false,
+    "delta": {
+     "mean": 11.341,
+     "max": 54
+    }
+   },
+   {
+    "step": "CONTROL harmony→Triad",
+    "hash": "de395766dd8a5384",
+    "sameAsPrev": false,
+    "delta": {
+     "mean": 72.164,
+     "max": 176
+    }
+   }
+  ],
+  "atomsAfter": [
+   "Triad",
+   "Centred",
+   "Oil",
+   "Still"
+  ]
+ },
+ "dark": {
+  "scheme": "dark",
+  "darkClass": true,
+  "main": {
+   "x": 16,
+   "y": 88,
+   "w": 1408,
+   "h": 804,
+   "t": "Atmosphere viewAtmospher"
+  },
+  "card": {
+   "x": 464,
+   "y": 87.671875,
+   "w": 512,
+   "h": 683.53125,
+   "t": "AtmosphereAurora palette"
+  },
+  "cardOverMainW": 0.3636,
+  "cardOverMainArea": 0.3092,
+  "triggers": [
+   [
+    "Analogous",
+    604.2,
+    331.8,
+    36
+   ],
+   [
+    "Scattered",
+    604.2,
+    331.8,
+    36
+   ],
+   [
+    "Smooth",
+    604.2,
+    331.8,
+    36
+   ],
+   [
+    "Drifting",
+    604.2,
+    331.8,
+    36
+   ]
+  ],
+  "triggerLeftSpread": 0,
+  "labels": [
+   {
+    "t": "Harmony",
+    "css": "oklch(0.925202 0.00618423 67.7483)",
+    "color": "rgba(233, 230, 226, 1.000)",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ground": [
+     110.2,
+     39.7,
+     65.4
+    ],
+    "ratio": 8.264
+   },
+   {
+    "t": "Arrangement",
+    "css": "oklch(0.925202 0.00618423 67.7483)",
+    "color": "rgba(233, 230, 226, 1.000)",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ground": [
+     112.4,
+     39.7,
+     63.8
+    ],
+    "ratio": 8.166
+   },
+   {
+    "t": "Medium",
+    "css": "oklch(0.925202 0.00618423 67.7483)",
+    "color": "rgba(233, 230, 226, 1.000)",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ground": [
+     114.4,
+     39.7,
+     62
+    ],
+    "ratio": 8.079
+   },
+   {
+    "t": "Motion",
+    "css": "oklch(0.925202 0.00618423 67.7483)",
+    "color": "rgba(233, 230, 226, 1.000)",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ground": [
+     116.7,
+     39.7,
+     60.6
+    ],
+    "ratio": 7.969
+   }
+  ],
+  "sliderAria": [
+   {
+    "root": "Color energy",
+    "thumb": "Color energy",
+    "rootRole": null
+   },
+   {
+    "root": "Noise",
+    "thumb": "Noise",
+    "rootRole": null
+   },
+   {
+    "root": "Zones",
+    "thumb": "Zones",
+    "rootRole": null
+   }
+  ],
+  "menu": {
+   "chain": [
+    {
+     "tag": "div",
+     "slot": "select-content",
+     "cls": "relative z-popover overflow-hidden rounded-card text-popover",
+     "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.26)",
+     "bf": "blur(20px) saturate(1.5)",
+     "op": "1",
+     "w": 333.8,
+     "h": 256
+    },
+    {
+     "tag": "div",
+     "slot": null,
+     "cls": "",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bf": "none",
+     "op": "1",
+     "w": 333.8,
+     "h": 256
+    }
+   ],
+   "strips": [
+    {
+     "opt": "Analogous",
+     "stops": "oklch(0.63 0.2316 323.402)|oklch(0.7367 0.1847 354.3567)|oklch(0.8433 0.0858 25.3114)|oklch(0.95 0.0298 56.266)",
+     "w": 41.88,
+     "fs": "16.4px"
+    },
+    {
+     "opt": "Complementary",
+     "stops": "oklch(0.63 0.2316 0.682)|oklch(0.7367 0.1752 306.7834)|oklch(0.8433 0.0824 246.7834)|oklch(0.95 0.0717 180.682)",
+     "w": 41.88,
+     "fs": "16.4px"
+    },
+    {
+     "opt": "Split Complementary",
+     "stops": "oklch(0.63 0.1261 168.986)|oklch(0.7367 0.1787 56.7834)|oklch(0.8433 0.1356 322.8847)|oklch(0.95 0.0434 210.682)",
+     "w": 41.88,
+     "fs": "16.4px"
+    },
+    {
+     "opt": "Triad",
+     "stops": "oklch(0.63 0.2316 0.682)|oklch(0.7367 0.1508 92.8847)|oklch(0.8433 0.1733 166.7834)|oklch(0.95 0.0265 240.682)",
+     "w": 41.88,
+     "fs": "16.4px"
+    },
+    {
+     "opt": "Tetradic",
+     "stops": "oklch(0.63 0.2316 0.682)|oklch(0.7367 0.1548 102.8847)|oklch(0.8433 0.1474 186.7834)|oklch(0.95 0.0253 288.986)",
+     "w": 41.88,
+     "fs": "16.4px"
+    },
+    {
+     "opt": "Monochrome",
+     "stops": "oklch(0.63 0.2316 0.682)|oklch(0.7367 0.1686 6.7834)|oklch(0.8433 0.0872 12.8847)|oklch(0.95 0.0249 18.986)",
+     "w": 41.88,
+     "fs": "16.4px"
+    }
+   ],
+   "optBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+   "optSelBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+   "overlap": {
+    "contentArea": 85448,
+    "under": [
+     {
+      "t": "Scattered",
+      "px2": 11944
+     },
+     {
+      "t": "Smooth",
+      "px2": 11944
+     },
+     {
+      "t": "Drifting",
+      "px2": 11944
+     },
+     {
+      "t": "Color energy",
+      "px2": 7968
+     }
+    ],
+    "total": 43800
+   }
+  }
+ },
+ "coarse390": {
+  "coarse": true,
+  "uiScale": "1.5",
+  "controlHmd": "max(calc(2.5rem * 1.5),2.75rem)",
+  "controlHmdPx": 60,
+  "controlHsmPx": 54,
+  "controlFloor": "2.75rem",
+  "triggers": [
+   [
+    "Analogous",
+    173,
+    169,
+    54
+   ],
+   [
+    "Scattered",
+    173,
+    169,
+    54
+   ],
+   [
+    "Smooth",
+    173,
+    169,
+    54
+   ],
+   [
+    "Drifting",
+    173,
+    169,
+    54
+   ]
+  ],
+  "triggerLeftSpread": 0
+ },
+ "narrow320": {
+  "menus": [
+   {
+    "name": "Harmony",
+    "triggerW": 136.67,
+    "content": {
+     "w": 182.34,
+     "x": 122,
+     "minW": "176px",
+     "maxW": "none"
+    }
+   },
+   {
+    "name": "Arrangement",
+    "triggerW": 136.67,
+    "content": {
+     "w": 176,
+     "x": 128,
+     "minW": "176px",
+     "maxW": "none"
+    }
+   },
+   {
+    "name": "Medium",
+    "triggerW": 136.67,
+    "content": {
+     "w": 176,
+     "x": 128,
+     "minW": "176px",
+     "maxW": "none"
+    }
+   },
+   {
+    "name": "Motion",
+    "triggerW": 133.78,
+    "content": {
+     "w": 176,
+     "x": 128,
+     "minW": "176px",
+     "maxW": "none"
+    }
+   }
+  ]
+ },
+ "cardSweep": [
+  {
+   "vp": "1024x768",
+   "main": {
+    "x": 16,
+    "y": 88,
+    "w": 992,
+    "h": 672,
+    "t": "Atmosphere viewAtmospher"
+   },
+   "card": {
+    "x": 256,
+    "y": 88,
+    "w": 512,
+    "h": 671.34375,
+    "t": "AtmosphereAurora palette"
+   },
+   "wRatio": 0.5161,
+   "hRatio": 0.999,
+   "areaRatio": 0.5156
+  },
+  {
+   "vp": "1280x800",
+   "main": {
+    "x": 16,
+    "y": 88,
+    "w": 1248,
+    "h": 704,
+    "t": "Atmosphere viewAtmospher"
+   },
+   "card": {
+    "x": 384,
+    "y": 88,
+    "w": 512,
+    "h": 679.03125,
+    "t": "AtmosphereAurora palette"
+   },
+   "wRatio": 0.4103,
+   "hRatio": 0.9645,
+   "areaRatio": 0.3957
+  },
+  {
+   "vp": "1920x1080",
+   "main": {
+    "x": 16,
+    "y": 88,
+    "w": 1888,
+    "h": 984,
+    "t": "Atmosphere viewAtmospher"
+   },
+   "card": {
+    "x": 704,
+    "y": 87.65625,
+    "w": 512,
+    "h": 689.796875,
+    "t": "AtmosphereAurora palette"
+   },
+   "wRatio": 0.2712,
+   "hRatio": 0.701,
+   "areaRatio": 0.1901
+  }
+ ]
+}

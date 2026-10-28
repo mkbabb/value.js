@@ -1,0 +1,23 @@
+# built d.ts of the HEAD export 4d5d0dbdc (git archive → vite build --mode production), 2026-10-20
+$ grep -cE "^declare " dist/subpaths/*.d.ts
+dist/subpaths/math.d.ts:0
+dist/subpaths/color.d.ts:0
+dist/subpaths/css.d.ts:0
+dist/subpaths/easing.d.ts:0
+dist/subpaths/quantize.d.ts:0
+dist/subpaths/value.d.ts:0
+dist/subpaths/transform.d.ts:0
+$ grep -oE "[A-Za-z]+_2" dist/subpaths/css.d.ts | wc -l
+       0
+$ wc -l dist/subpaths/*.d.ts | tail -1
+     974 total
+$ max src/ file LoC (R-T1 ratchet; record: 899 then, 609 locked after split)
+     672 src/transform/path.ts
+     522 src/css/rules.ts
+     501 src/css/bbnf/mix.ts
+     452 src/color/operations.ts
+     416 src/css/stylesheet.ts
+$ grep -rn "sampleColorRamp\|mixColorsInto\|toRgba8Into" src | wc -l
+       6
+$ grep -n strictTypes scripts/**/verify-packed-surface.mjs
+scripts/ci/verify-packed-surface.mjs:14: * hardcoded `strictTypes: 62` that no check produced. A runtime export that

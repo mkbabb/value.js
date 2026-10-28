@@ -1,0 +1,16 @@
+{
+  "cell": "listErr",
+  "text": "Users Manage accounts and permissions. Couldn't load users. Internal Server Error Retry",
+  "zeroUsers": false,
+  "errorPlate": true,
+  "noUsersFound": false,
+  "requests": [
+    {
+      "t": 1792531757044,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

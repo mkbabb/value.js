@@ -305,7 +305,8 @@ ONE opt-in `.search-seated` (`demo/styles/utils.css`):
 - the `--card-edge` ink hairline and the chip-scale cartoon stamp;
 - the column measure (the dock cap dies) and the plate's text voice.
 
-Its consumers are the Palettes, Browse and Admin pane search bars. A search in the dock or an
+Its consumers are the Palettes, Browse and Admin pane search bars, and the Admin consoles' filter
+and create fields (X-DS V19C-03). A search in the dock or an
 overlay keeps the floating pill. This is an INTERIM demo seat, booked onto the producer's P3
 seated field-chrome rung (ASK-D, with the ASK-B font and ASK-C cap seams).
 
@@ -313,6 +314,17 @@ seated field-chrome rung (ASK-D, with the ASK-B font and ASK-C cap seams).
 host. Heavier-than-host glass is reserved for surfaces that float. Over a full-chroma aurora an
 alpha spread IS a hue spread. With rungs 1–2 in place, every in-view surface is at least ~0.7
 effective alpha of ONE neutral family, so the hue fork dies by construction.
+
+**The sanctioned in-plate veil fixture (RC-2's one exemption; dated 2026-10-19, X·W11.h10 —
+DISPOSITION §8 E10, COHESION §0gd.1)**: the picker's sliders console
+(`demo/picker/controls/ComponentSliders/ComponentSliders.vue`, `<Card surface="veil" tier="quiet">`)
+is the ONE interior fixture that may wear heavier glass than its host, the quiet backdrop-blur
+that IS the veil's definition, seated inside the unblurred resting picker plate. Provenance:
+T.W6.5-P (T-34 · t33-audit-02), owner verbatim _"use a glass-ui veil card, too"_
+(`docs/tranches/T/MANDATE-2026-07-06.md:191`), which re-seated it from the rung-2 WELL onto the
+veil; `e2e/smoke/oracles/o7-card-census.spec.ts` asserts the row positively. The composition is
+accepted as shipped (no atmosphere pause, no unblurred console). No other interior fixture
+inherits this exemption; re-opening it is an owner mark on T.W6.5-P, never a cure.
 
 **Interim mints, booked swaps (T.W3 §BOOKS)**: `--well-bg` is demo-owned until the producer ships
 its `.glass-well` / `--glass-bg-well` rung (packet P3, sized by the D1 bracket). The header veil's
@@ -526,19 +538,22 @@ Layout tokens (`:root` in `demo/styles/foundation.css`):
 - **`--dock-h`**: the dock band's `min-height` floor.
 - **`--dock-gap`**: the DESIGNED gap between the two bands (the grid row-gap). `--dock-total` died
   with the padding reservation at T-31.
-- **`--app-gutter: 1rem`**: the shell's INLINE gutter, both sides. It is `.app-layout`'s horizontal
-  padding, and the amount `.pane-container`'s inline clamp subtracts.
+- **`--app-gutter: clamp(0.75rem, 2.5cqi, 3rem)`**: the shell's INLINE gutter, both sides
+  (12px@390 · 36px@1440 · 48px@3440). It is `.app-layout`'s horizontal padding.
 - **There is no block-axis cap token.** X.W5.b deleted the pane-container height cap and its
   aspect-keyed re-pins. The shell FLOORS the block axis
   (`.app-layout { min-block-size: 100svh }`) and caps it nowhere, so a scene taller than the
   viewport grows the document instead of being clipped. The token is deliberately absent:
   "cap the page by viewport aspect" is unrepresentable (L-8).
-- **`--pane-min: 25rem` / `--pane-max: 32rem` / `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`**:
-  the pane clamp ladder (S FINAL.md Ruling #1, "card width ~1/3 smaller"). The GRID owns the clamp:
-    - `.pane-container` is `max-width: min(100vw − 2·--app-gutter, 2·--pane-max + --pane-gap)`;
-    - the dual grid is `repeat(2, minmax(var(--pane-min), 1fr))`;
-    - cards grow fluidly from 1024 to 1536 and then clamp, with equal columns always;
+- **`--pane-min: 25rem` / `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`**: the pane row. It has
+  **no page cap** (layout-gestalt UL-1; SS-8 Z1):
+    - `.pane-container` spans the scene band; `auto-fit` decides one track or two;
+    - two tracks take the route's ratio from `.app-layout[data-view]`: golden 61.8/38.2 (stage
+      major) on Picker, Generate, Gradient, Extract and Mix; 2 : 1 (field major) on Browse and
+      Library; equal elsewhere; each track floors at `--pane-min`;
     - **pane shells never self-clamp** (`w-full` only), and there is no per-width media staircase.
+- **`--card-measure: 32rem`**: the owner's card width (S FINAL.md Ruling #1, "card width ~1/3
+  smaller"), worn only by a LONE card centred in a one-region scene (Atmosphere, Not found).
 - **`--menu-min-w: 11rem`**: the shared dropdown/select panel width, consumed as `min-w-menu`.
 
 **Short viewports and safe areas (X.W12U.m).**
@@ -581,8 +596,9 @@ viewport-variant kill class. Display type rungs are the named exception (viewpor
 | Token                                      | Consumed at                                            | Idiom                                             |
 | ------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------- |
 | `--dock-inset`                             | `.app-layout` padding (`demo/styles/shell.css`)        | direct CSS: the shell owns its band inset         |
-| `--app-gutter`                             | `.app-layout` padding + `.pane-container` inline clamp | direct CSS: one token, both sides of the coupling |
-| `--pane-min` / `--pane-max` / `--pane-gap` | `.pane-container`                                      | direct CSS: the grid owns the clamp               |
+| `--app-gutter`                             | `.app-layout` padding                                  | direct CSS: one token, both sides                 |
+| `--pane-min` / `--pane-gap`                | `.pane-container`                                      | direct CSS: the grid owns the tracks              |
+| `--card-measure`                           | AuroraPane · NotFoundPane                              | `max-w-(--card-measure)`                          |
 | `--menu-min-w`                             | every DropdownMenuContent + SelectContent              | `min-w-menu`                                      |
 | `--dock-h` / `--dock-gap`                  | `.dock-band` min-height / `.app-layout` row-gap        | direct CSS: the band grid owns them               |
 
@@ -673,20 +689,13 @@ bespoke resolver. The rest of the axis:
 - The per-view accents gamut-map to the cusp, then re-guard L, then hold WCAG ≥ 3:1, all through
   library ops (`demo/app/composables/boot/useViewAccents.ts`).
 
-**The gamut ink/paper pairs (R.W3 Lane B / B1; recalibrated T.W6-1 / T-6).** Out-of-gamut is a
-designed state. The truth-line overlay's whole vocabulary is two pairs in `:root` of
-`demo/styles/foundation.css`:
-
-- ink, from `--foreground`: `--gamut-edge` / `--gamut-hatch`;
-- paper, from `--background`: `--gamut-edge-paper` / `--gamut-hatch-paper`.
-
-They form a 45%/65% edge pair and a 22%/28% hatch pair (the R5 recalibrated band; O-19 guards the
-≥ 59/45 per-255 luma-delta floor). Each contour segment applies them by the field's own luminance,
-through the one hue-aware predicate `spectrumFieldIsLight(h, s, v)`
-(`demo/picker/controls/spectrumLuma.ts`). That predicate is the same one the WatercolorDot border
-and the needle ink flip on. It is one function, never a copied constant, and it picks the stroke
-that contrasts more against the field colour's real relative luminance. This is measurement chrome
-only: the overlay reads in ink and the live colour, never in gold, never in the crayons.
+**The gamut ink/paper edge pair (R.W3 Lane B / B1).** Out-of-gamut is a designed state. Its live
+vocabulary is one pair in `:root` of `demo/styles/foundation.css`: the ink `--gamut-edge` (from
+`--foreground`, 45%) and the paper `--gamut-edge-paper` (from `--background`, 65%). The out-of-gamut
+specimen caption underline (`ColorSpaceSelector.vue`) reads the ink. The spectrum truth-line
+overlay and its hatch netting were retired with the perceived-space plate at `a68ecdc1c` (V-A73 C1
+ruled retirements); the hatch tokens and the O-19 netting oracle went with them (COHESION
+§0gl.9). This is measurement chrome only: it reads in ink, never in gold, never in the crayons.
 
 **The alpha checker ground (`--alpha-checker`, S owner-ruling 2026-07-05).** ONE recipe, one home:
 the transparency ground that every alpha-carrying ramp or well composes UNDER its colour layer.
@@ -723,6 +732,14 @@ Demo accent tokens (`demo/styles/foundation.css`, `@theme`):
   measured tint), the seal's wax on the collapsed seal (`--seal-ink-gold`, `useViewAccents`, the
   3:1 glyph floor), and the floating plate on menus (`--ink-gold-floating`, `shell.css`). The
   `crown-appear` keyframe settles on `--ink-gold` too.
+- **The walk holds the hue (X-DS pass 18, V18C-01).** Every gold twin certifies through
+  `certifyIdentityInk` (`demo/color-session/ink.ts`): a walk that clears the floor by draining
+  the chroma below 0.4 of the source's (gold: C 0.059) is refused (§0dm keeps identity). The ladder is the house
+  certify, then the most chromatic clearing ink on the far side of the ground, and else the
+  ground's own plate ink for the word. The headroom stays on the dock band too: its ambient is
+  modelled, and without it the frame read the glyph at 2.84:1. A gold glyph reads `--ink-gold-glyph` (the 3:1 graphics floor,
+  set on the band and the seal; `svg.gold-ink` in `utils.css`, and the crown's keyframe), so the
+  shield and the crown keep the gold where the word beside them falls back.
 - Gold stays OUT of the measurement chrome (the overlay, the readout, the thumbs). Those read in
   ink and the live colour.
 - `--color-gold-light: #F5E6A3` is the counterpoint tint, consumed only by the `crown-appear`

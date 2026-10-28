@@ -1,5 +1,5 @@
 <template>
-    <PaneShell seated title="Browse" description="Discover palettes from the community." :gap="3">
+    <PaneShell title="Browse" description="Discover palettes from the community." :gap="3">
         <!-- A2-VA-L1-1: the one pane shell. -->
         <!-- S.W5-7: the twin placeholder is scoped — this one searches
              the public wall.
@@ -501,7 +501,7 @@ function onTagsUpdated(tags: string[]) {
 // inspector that asked for it, never dropped (W7-failure-dispositions 14-17).
 async function onVote(palette: Palette) {
     const result = await pm.onVote(palette);
-    if (!result.success) showVerdict(palette.slug, result.message, false);
+    if (result && !result.success) showVerdict(palette.slug, result.message, false);
 }
 
 async function onRename(palette: Palette, name: string) {

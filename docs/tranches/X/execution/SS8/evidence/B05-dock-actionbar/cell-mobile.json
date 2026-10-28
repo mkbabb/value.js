@@ -1,0 +1,117 @@
+[
+ {
+  "route": "/",
+  "coarse": true,
+  "slotW": 56,
+  "slotVisible": "action-bar-toggle-slot is-visible is-live is-settled",
+  "btn": {
+   "x": 179,
+   "y": 29,
+   "w": 48,
+   "h": 40
+  },
+  "label": null,
+  "svgs": [
+   [
+    24,
+    24
+   ],
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "route": "/mix",
+  "coarse": true,
+  "slotW": 56,
+  "slotVisible": "action-bar-toggle-slot is-visible is-live is-settled",
+  "btn": {
+   "x": 179,
+   "y": 29,
+   "w": 48,
+   "h": 40
+  },
+  "label": null,
+  "svgs": [
+   [
+    24,
+    24
+   ],
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "route": "/gradient",
+  "coarse": true,
+  "slotW": 56,
+  "slotVisible": "action-bar-toggle-slot is-visible is-live is-settled",
+  "btn": {
+   "x": 179,
+   "y": 29,
+   "w": 48,
+   "h": 40
+  },
+  "label": null,
+  "svgs": [
+   [
+    24,
+    24
+   ],
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "route": "/generate",
+  "coarse": true,
+  "slotW": 56,
+  "slotVisible": "action-bar-toggle-slot is-visible is-live is-settled",
+  "btn": {
+   "x": 179,
+   "y": 29,
+   "w": 48,
+   "h": 40
+  },
+  "label": null,
+  "svgs": [
+   [
+    24,
+    24
+   ],
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "route": "/palettes",
+  "coarse": true,
+  "slotW": 56,
+  "slotVisible": "action-bar-toggle-slot is-visible is-live is-settled",
+  "btn": {
+   "x": 179,
+   "y": 29,
+   "w": 48,
+   "h": 40
+  },
+  "label": null,
+  "svgs": [
+   [
+    24,
+    24
+   ],
+   [
+    0,
+    0
+   ]
+  ]
+ }
+]

@@ -1,0 +1,15 @@
+{
+ "base": "http://localhost:9000/",
+ "at": "2026-10-20T19:33:37.969Z",
+ "cells": {
+  "cold_none_link": {
+   "error": "TimeoutError: page.goto: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/?space=rgb&color=rgb(none%2050%2050)\", waiting until \"load\"\u001b[22m\n"
+  },
+  "cold_none_about": {
+   "error": "TimeoutError: page.goto: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/about?space=rgb&color=rgb(none%2050%2050)\", waiting until \"load\"\u001b[22m\n"
+  },
+  "warm_none_commit": {
+   "error": "TimeoutError: page.goto: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/?space=rgb&color=rgb(200%2050%2050)\", waiting until \"load\"\u001b[22m\n"
+  }
+ }
+}

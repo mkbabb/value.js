@@ -1,0 +1,220 @@
+{
+ "light-1440": {
+  "v8_rail": {
+   "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+   "outline": "oklch(0.216129 0.00624853 56.0356) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 3620,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 52.5,
+    "p95": 170.2,
+    "max": 229.3
+   },
+   "frameInterval": {
+    "n": 66,
+    "p50": 49.1,
+    "p95": 150.8,
+    "max": 214.5
+   },
+   "loaf": {
+    "n": 30,
+    "totalMs": 2806,
+    "blockingMs": 866
+   },
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r2-base/demo/color-session/useAtmosphere::publish",
+     1332
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r2-base/node_modules/.vite-r2-8391/deps/::invoker",
+     355
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r2-base/demo/picker/visual/HeroBlob.vue::FrameRequestCallback",
+     90
+    ],
+    [
+     "/composables/boot/useViewAccents.ts::mintRamps",
+     74
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r2-base/node_modules/.vite-r2-8391/deps/::FrameRequestCallback",
+     32
+    ]
+   ]
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 857,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 18.3,
+    "p95": 50.9,
+    "max": 57.2
+   },
+   "frameInterval": {
+    "n": 89,
+    "p50": 10.6,
+    "p95": 27.8,
+    "max": 45.9
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": []
+  },
+  "v5_gradient": {
+   "tLoadEvent": 157,
+   "tTitleVisible": 341,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 154,
+    "load": 156,
+    "fcp": 304,
+    "resources": 250
+   },
+   "requests": 448,
+   "errors": [
+    "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8391' has been blocked by CORS policy: Response to preflight ",
+    "Failed to load resource: net::ERR_FAILED"
+   ],
+   "failed": [
+    "http://localhost:3000/colors/approved?limit=500"
+   ],
+   "tInAppSecondVisit": 262
+  },
+  "v5_mix": {
+   "tLoadEvent": 191,
+   "tTitleVisible": 239,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 183,
+    "load": 190,
+    "fcp": 228,
+    "resources": 250
+   },
+   "requests": 448,
+   "errors": [
+    "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8391' has been blocked by CORS policy: Response to preflight ",
+    "Failed to load resource: net::ERR_FAILED"
+   ],
+   "failed": [
+    "http://localhost:3000/colors/approved?limit=500"
+   ],
+   "tInAppSecondVisit": 278
+  },
+  "v6_plate": null
+ },
+ "light-390": {
+  "v8_rail": {
+   "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+   "outline": "oklch(0.216129 0.00624853 56.0356) none 3px",
+   "boxShadow": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "radius": "9999px"
+  },
+  "v3_pickerSlider": {
+   "label": "picker channel slider",
+   "wallMs": 2828,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 38.3,
+    "p95": 149.8,
+    "max": 182.1
+   },
+   "frameInterval": {
+    "n": 150,
+    "p50": 8.8,
+    "p95": 102.7,
+    "max": 172
+   },
+   "loaf": {
+    "n": 13,
+    "totalMs": 1400,
+    "blockingMs": 706
+   },
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r2-base/demo/color-session/useAtmosphere::publish",
+     975
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/.worktrees/r2-base/node_modules/.vite-r2-8391/deps/::invoker",
+     198
+    ]
+   ]
+  },
+  "v3_gradientSlider": {
+   "label": "gradient pane first [role=slider]",
+   "wallMs": 400,
+   "inputToPaint": {
+    "n": 42,
+    "p50": 7.1,
+    "p95": 14.9,
+    "max": 20.3
+   },
+   "frameInterval": {
+    "n": 96,
+    "p50": 8.1,
+    "p95": 13.5,
+    "max": 16.5
+   },
+   "loaf": {
+    "n": 0,
+    "totalMs": 0,
+    "blockingMs": 0
+   },
+   "topScripts": []
+  },
+  "v5_gradient": {
+   "tLoadEvent": 150,
+   "tTitleVisible": 302,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 147,
+    "load": 149,
+    "fcp": 248,
+    "resources": 250
+   },
+   "requests": 448,
+   "errors": [
+    "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8391' has been blocked by CORS policy: Response to preflight ",
+    "Failed to load resource: net::ERR_FAILED"
+   ],
+   "failed": [
+    "http://localhost:3000/colors/approved?limit=500"
+   ],
+   "tInAppSecondVisit": 246
+  },
+  "v5_mix": {
+   "tLoadEvent": 186,
+   "tTitleVisible": 236,
+   "plateSeen": false,
+   "nav": {
+    "dcl": 178,
+    "load": 184,
+    "fcp": 196,
+    "resources": 250
+   },
+   "requests": 448,
+   "errors": [
+    "Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8391' has been blocked by CORS policy: Response to preflight ",
+    "Failed to load resource: net::ERR_FAILED"
+   ],
+   "failed": [
+    "http://localhost:3000/colors/approved?limit=500"
+   ],
+   "tInAppSecondVisit": 248
+  },
+  "v6_plate": null
+ }
+}

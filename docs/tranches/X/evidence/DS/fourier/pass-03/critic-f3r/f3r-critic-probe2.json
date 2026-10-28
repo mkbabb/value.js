@@ -1,0 +1,5314 @@
+{
+ "light-1440": {
+  "eq": [
+   {
+    "t": "Compute",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover compute-btn",
+    "attrs": "data-v-38855d39= data-slot=button data-emphasis=primary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     1022,
+     317,
+     380,
+     36
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.958891 0.0089115 0.0269842)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "14.384px",
+    "fw": "600",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(0px) saturate(1.605)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   null,
+   {
+    "t": "Functionf(t)ExpressionDomaintoComputePre",
+    "tag": "ASIDE",
+    "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+    "attrs": "",
+    "box": [
+     1000,
+     100,
+     424,
+     788
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(20px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Function",
+    "tag": "SPAN",
+    "cls": "configurator-section-label truncate",
+    "attrs": "data-v-2f76a595=",
+    "box": [
+     1022,
+     110,
+     74,
+     31
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "20.352px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "-0.5088px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "DIV",
+    "cls": "labeled-field",
+    "attrs": "data-v-ea78fd3a= data-v-38855d39= data-slot=labeled-field data-layout=default",
+    "box": [
+     1022,
+     161,
+     380,
+     68
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "DIV",
+    "cls": "labeled-field-copy",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     1022,
+     161,
+     380,
+     20
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "LABEL",
+    "cls": "label",
+    "attrs": "data-v-fa2ffe4d= data-v-ea78fd3a= data-slot=label",
+    "box": [
+     1022,
+     161,
+     380,
+     20
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "DIV",
+    "cls": "labeled-field-control",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     1022,
+     189,
+     380,
+     40
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domainto",
+    "tag": "DIV",
+    "cls": "labeled-field",
+    "attrs": "data-v-ea78fd3a= data-v-38855d39= data-slot=labeled-field data-layout=default",
+    "box": [
+     1022,
+     241,
+     380,
+     64
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domain",
+    "tag": "DIV",
+    "cls": "labeled-field-copy",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     1022,
+     241,
+     380,
+     20
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domain",
+    "tag": "LABEL",
+    "cls": "label",
+    "attrs": "data-v-fa2ffe4d= data-v-ea78fd3a= data-slot=label",
+    "box": [
+     1022,
+     241,
+     380,
+     20
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "eqAsideKids": [
+   {
+    "n": "before",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0",
+    "blend": "plus-lighter"
+   },
+   {
+    "n": "before",
+    "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0",
+    "blend": "plus-lighter"
+   }
+  ],
+  "w": [
+   {
+    "t": "Browse the gallery",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring",
+    "attrs": "data-v-bf700a2f= data-slot=button data-emphasis=text data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     657,
+     571,
+     126,
+     36
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.384px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Choose an image",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover drop-target-button",
+    "attrs": "data-v-bf700a2f= data-slot=button data-emphasis=primary data-tone=neutral data-size=md data-control-target= data-press-armed=",
+    "box": [
+     621,
+     497,
+     198,
+     40
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.958891 0.0089115 0.0269842)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "16.4px",
+    "fw": "600",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(0px) saturate(1.605)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "morph": [
+   {
+    "t": "phase",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     160,
+     616,
+     59,
+     22
+    ],
+    "color": "rgb(124, 102, 80)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.363528px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "idle",
+    "tag": "SPAN",
+    "cls": "phase-value",
+    "attrs": "data-v-2ad49bc1=",
+    "box": [
+     227,
+     617,
+     98,
+     16
+    ],
+    "color": "oklab(0.216128 0.00350075 0.00518669)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16.4px",
+    "fw": "650",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "-0.41px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "n",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     160,
+     646,
+     13,
+     22
+    ],
+    "color": "rgb(124, 102, 80)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.363528px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "shape",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     223,
+     646,
+     59,
+     22
+    ],
+    "color": "rgb(124, 102, 80)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.363528px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Sun",
+    "tag": "SPAN",
+    "cls": "shape-value",
+    "attrs": "data-v-2ad49bc1=",
+    "box": [
+     290,
+     647,
+     44,
+     16
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16.4px",
+    "fw": "650",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "-0.41px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "total",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     346,
+     646,
+     59,
+     22
+    ],
+    "color": "rgb(124, 102, 80)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.363528px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Fourier Morph",
+    "tag": "H1",
+    "cls": "demo-title",
+    "attrs": "data-v-84315058=",
+    "box": [
+     160,
+     92,
+     1120,
+     44
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "41.888px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Tune the morph transition between sun an",
+    "tag": "P",
+    "cls": "demo-subtitle",
+    "attrs": "data-v-84315058=",
+    "box": [
+     160,
+     144,
+     576,
+     28
+    ],
+    "color": "rgb(124, 102, 80)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Export",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover",
+    "attrs": "data-v-84315058= data-slot=button data-emphasis=secondary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     160,
+     676,
+     94,
+     36
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "14.384px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Linear",
+    "tag": "BUTTON",
+    "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-m",
+    "attrs": "data-v-b5a4107b= data-slot=select-trigger aria-labelledby=v-5 v-4 aria-controls=reka-select-content-v-7 aria-expanded=false aria-required=false aria-autocomplet",
+    "box": [
+     617,
+     399,
+     178,
+     40
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15), color(srgb 0.994 0.96 0.926 / 0.15))",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "16.4px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "INPUT",
+    "cls": "fira-code number-field__input field-control glass-control-edge",
+    "attrs": "data-v-c53848d0= aria-roledescription=Number field aria-valuenow=150 aria-valuemin=50 aria-valuemax=800 aria-label=Duration data-slot=input data-kind=input data",
+    "box": [
+     698,
+     291,
+     72,
+     36
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgb(243, 236, 226)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "16.4px",
+    "fw": "400",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "gallery": [
+   {
+    "t": "",
+    "tag": "INPUT",
+    "cls": "field-control glass-control-edge search-field-input",
+    "attrs": "data-v-59b2cf6a= aria-label=Search gallery data-slot=input data-kind=input data-size=md data-state=default",
+    "box": [
+     201,
+     98,
+     512,
+     40
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgb(243, 236, 226)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "16.4px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "LABEL",
+    "cls": "search-field search-pill",
+    "attrs": "data-v-59b2cf6a= data-v-c83194d6= data-size=md data-actions=",
+    "box": [
+     201,
+     98,
+     512,
+     40
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "DIV",
+    "cls": "separator h-5 shrink-0",
+    "attrs": "data-v-64dda6b9= data-v-c83194d6= data-orientation=vertical data-slot=separator",
+    "box": [
+     670,
+     104,
+     1,
+     20
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "e2e-seed:f-w14plush-evening-olive-squid1",
+    "tag": "ARTICLE",
+    "cls": "glass-resting card gallery-card deferred-section",
+    "attrs": "data-v-7dfef4b2= data-v-96279855= data-slot=card data-shadow=true data-size=md data-surface=opaque",
+    "box": [
+     16,
+     156,
+     272,
+     338
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   null
+  ],
+  "v": [
+   {
+    "t": "Replace image",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover",
+    "attrs": "data-v-fcf6c19f= data-slot=button data-emphasis=secondary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     1094,
+     179,
+     140,
+     36
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.958891 0.0089115 0.0269842)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "14.384px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Fourier",
+    "tag": "SPAN",
+    "cls": "basis-group-label",
+    "attrs": "data-v-8864faae= aria-hidden=true",
+    "box": [
+     1022,
+     300,
+     51,
+     23
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16.4px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Polynomial",
+    "tag": "SPAN",
+    "cls": "basis-group-label",
+    "attrs": "data-v-8864faae= aria-hidden=true",
+    "box": [
+     1022,
+     383,
+     80,
+     23
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16.4px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Harmonics",
+    "tag": "LABEL",
+    "cls": "label control-row-label",
+    "attrs": "data-v-fa2ffe4d= data-v-c53848d0= data-row-label= data-slot=label",
+    "box": [
+     1022,
+     470,
+     68,
+     20
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "N, the terms in each basis sum",
+    "tag": "SPAN",
+    "cls": "control-row-sub",
+    "attrs": "data-v-c53848d0= data-row-sub=",
+    "box": [
+     1022,
+     502,
+     380,
+     19
+    ],
+    "color": "rgb(112, 89, 66)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.384px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Sample Points",
+    "tag": "LABEL",
+    "cls": "label control-row-label",
+    "attrs": "data-v-fa2ffe4d= data-v-c53848d0= data-row-label= data-slot=label",
+    "box": [
+     1022,
+     569,
+     91,
+     20
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "t = 0.131×",
+    "tag": "DIV",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "attrs": "",
+    "box": [
+     16,
+     88,
+     972,
+     800
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(20px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "CANVAS",
+    "cls": "canvas-el",
+    "attrs": "data-v-9a00431e=",
+    "box": [
+     17,
+     89,
+     970,
+     798
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "t = 0.131×",
+    "tag": "DIV",
+    "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+    "attrs": "data-v-3c550e2c= data-v-bf700a2f= data-backdrop-mode=live data-backdrop-sample-state=unavailable data-backdrop-sample-source=canvas data-backdrop-sample-reason=",
+    "box": [
+     451,
+     819,
+     102,
+     56
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "vStageGrad": [
+   {
+    "n": "before",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "self",
+    "cls": "editor-shell",
+    "bgi": "linear-gradient(color(srgb 0.11 0.098 0.09 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, color(srgb 0.11 0.098 0.09 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), none",
+    "op": "1"
+   },
+   {
+    "n": "before",
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger view-layers-trigger",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsule play-control",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0.16"
+   },
+   {
+    "n": "before",
+    "cls": "caret-value glass-floating fira-code",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "slider-thumb glass-specular-track",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   }
+  ]
+ },
+ "light-390": {
+  "eq": [
+   {
+    "t": "Compute",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover compute-btn",
+    "attrs": "data-v-38855d39= data-slot=button data-emphasis=primary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     38,
+     382,
+     314,
+     44
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.958891 0.0089115 0.0269842)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "18.2685px",
+    "fw": "600",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(0px) saturate(1.605)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   null,
+   {
+    "t": "Functionf(t)ExpressionDomaintoComputePre",
+    "tag": "ASIDE",
+    "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+    "attrs": "",
+    "box": [
+     16,
+     132,
+     358,
+     708
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(20px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Function",
+    "tag": "SPAN",
+    "cls": "configurator-section-label truncate",
+    "attrs": "data-v-2f76a595=",
+    "box": [
+     38,
+     142,
+     74,
+     31
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "20.352px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "-0.5088px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "DIV",
+    "cls": "labeled-field",
+    "attrs": "data-v-ea78fd3a= data-v-38855d39= data-slot=labeled-field data-layout=default",
+    "box": [
+     38,
+     192,
+     314,
+     90
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "DIV",
+    "cls": "labeled-field-copy",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     38,
+     192,
+     314,
+     26
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "LABEL",
+    "cls": "label",
+    "attrs": "data-v-fa2ffe4d= data-v-ea78fd3a= data-slot=label",
+    "box": [
+     38,
+     192,
+     314,
+     26
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "DIV",
+    "cls": "labeled-field-control",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     38,
+     222,
+     314,
+     60
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domainto",
+    "tag": "DIV",
+    "cls": "labeled-field",
+    "attrs": "data-v-ea78fd3a= data-v-38855d39= data-slot=labeled-field data-layout=default",
+    "box": [
+     38,
+     290,
+     314,
+     84
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domain",
+    "tag": "DIV",
+    "cls": "labeled-field-copy",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     38,
+     290,
+     314,
+     26
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domain",
+    "tag": "LABEL",
+    "cls": "label",
+    "attrs": "data-v-fa2ffe4d= data-v-ea78fd3a= data-slot=label",
+    "box": [
+     38,
+     290,
+     314,
+     26
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "eqAsideKids": [
+   {
+    "n": "before",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0",
+    "blend": "plus-lighter"
+   },
+   {
+    "n": "before",
+    "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0",
+    "blend": "plus-lighter"
+   }
+  ],
+  "w": [
+   {
+    "t": "Browse the gallery",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring",
+    "attrs": "data-v-bf700a2f= data-slot=button data-emphasis=text data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     116,
+     539,
+     158,
+     44
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.2685px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Choose an image",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover drop-target-button",
+    "attrs": "data-v-bf700a2f= data-slot=button data-emphasis=primary data-tone=neutral data-size=md data-control-target= data-press-armed=",
+    "box": [
+     64,
+     464,
+     261,
+     44
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.958891 0.0089115 0.0269842)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "21px",
+    "fw": "600",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(0px) saturate(1.605)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "morph": [
+   {
+    "t": "phase",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     144,
+     179,
+     76,
+     28
+    ],
+    "color": "rgb(124, 102, 80)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.465493px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "idle",
+    "tag": "SPAN",
+    "cls": "phase-value",
+    "attrs": "data-v-2ad49bc1=",
+    "box": [
+     228,
+     186,
+     32,
+     14
+    ],
+    "color": "oklab(0.216128 0.00350075 0.00518669)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14px",
+    "fw": "650",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "-0.35px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "n",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     144,
+     211,
+     17,
+     28
+    ],
+    "color": "rgb(124, 102, 80)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.465493px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "shape",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     144,
+     243,
+     76,
+     28
+    ],
+    "color": "rgb(124, 102, 80)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.465493px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Sun",
+    "tag": "SPAN",
+    "cls": "shape-value",
+    "attrs": "data-v-2ad49bc1=",
+    "box": [
+     228,
+     250,
+     24,
+     14
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14px",
+    "fw": "650",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "-0.35px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "total",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     144,
+     275,
+     75,
+     28
+    ],
+    "color": "rgb(124, 102, 80)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.465493px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Fourier Morph",
+    "tag": "H1",
+    "cls": "demo-title",
+    "attrs": "data-v-84315058=",
+    "box": [
+     16,
+     84,
+     358,
+     27
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "25.888px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Tune the morph transition between sun an",
+    "tag": "P",
+    "cls": "demo-subtitle",
+    "attrs": "data-v-84315058=",
+    "box": [
+     16,
+     115,
+     358,
+     48
+    ],
+    "color": "rgb(124, 102, 80)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Export",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover",
+    "attrs": "data-v-84315058= data-slot=button data-emphasis=secondary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     16,
+     320,
+     132,
+     44
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "18.2685px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Linear",
+    "tag": "BUTTON",
+    "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-m",
+    "attrs": "data-v-b5a4107b= data-slot=select-trigger aria-labelledby=v-5 v-4 aria-controls=reka-select-content-v-7 aria-expanded=false aria-required=false aria-autocomplet",
+    "box": [
+     29,
+     561,
+     332,
+     60
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15), color(srgb 0.994 0.96 0.926 / 0.15))",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "21px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "INPUT",
+    "cls": "fira-code number-field__input field-control glass-control-edge",
+    "attrs": "data-v-c53848d0= aria-roledescription=Number field aria-valuenow=150 aria-valuemin=50 aria-valuemax=800 aria-label=Duration data-slot=input data-kind=input data",
+    "box": [
+     270,
+     441,
+     72,
+     54
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgb(243, 236, 226)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "14px",
+    "fw": "400",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "gallery": [
+   {
+    "t": "",
+    "tag": "INPUT",
+    "cls": "field-control glass-control-edge search-field-input",
+    "attrs": "data-v-59b2cf6a= aria-label=Search gallery data-slot=input data-kind=input data-size=md data-state=default",
+    "box": [
+     16,
+     142,
+     358,
+     60
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgb(243, 236, 226)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "14px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "LABEL",
+    "cls": "search-field search-pill",
+    "attrs": "data-v-59b2cf6a= data-v-c83194d6= data-size=md data-actions=",
+    "box": [
+     16,
+     142,
+     358,
+     60
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "DIV",
+    "cls": "separator h-5 shrink-0",
+    "attrs": "data-v-64dda6b9= data-v-c83194d6= data-orientation=vertical data-slot=separator",
+    "box": [
+     315,
+     150,
+     1,
+     20
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "e2e-seed:f-w14plush-evening-olive-squid1",
+    "tag": "ARTICLE",
+    "cls": "glass-resting card gallery-card deferred-section",
+    "attrs": "data-v-7dfef4b2= data-v-96279855= data-slot=card data-shadow=true data-size=md data-surface=opaque",
+    "box": [
+     16,
+     218,
+     173,
+     243
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   null
+  ],
+  "v": [
+   {
+    "t": "Replace image",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover",
+    "attrs": "data-v-fcf6c19f= data-slot=button data-emphasis=secondary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     110,
+     206,
+     191,
+     44
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.958891 0.0089115 0.0269842)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "18.2685px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Fourier",
+    "tag": "SPAN",
+    "cls": "basis-group-label",
+    "attrs": "data-v-8864faae= aria-hidden=true",
+    "box": [
+     38,
+     339,
+     44,
+     20
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Polynomial",
+    "tag": "SPAN",
+    "cls": "basis-group-label",
+    "attrs": "data-v-8864faae= aria-hidden=true",
+    "box": [
+     38,
+     425,
+     69,
+     20
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Harmonics",
+    "tag": "LABEL",
+    "cls": "label control-row-label",
+    "attrs": "data-v-fa2ffe4d= data-v-c53848d0= data-row-label= data-slot=label",
+    "box": [
+     38,
+     528,
+     86,
+     26
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "N, the terms in each basis sum",
+    "tag": "SPAN",
+    "cls": "control-row-sub",
+    "attrs": "data-v-c53848d0= data-row-sub=",
+    "box": [
+     38,
+     570,
+     314,
+     16
+    ],
+    "color": "rgb(112, 89, 66)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "12.179px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Sample Points",
+    "tag": "LABEL",
+    "cls": "label control-row-label",
+    "attrs": "data-v-fa2ffe4d= data-v-c53848d0= data-row-label= data-slot=label",
+    "box": [
+     38,
+     636,
+     116,
+     26
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "t = 0.001×",
+    "tag": "DIV",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "attrs": "",
+    "box": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(20px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "CANVAS",
+    "cls": "canvas-el",
+    "attrs": "data-v-9a00431e=",
+    "box": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "t = 0.001×",
+    "tag": "DIV",
+    "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+    "attrs": "data-v-3c550e2c= data-v-bf700a2f= data-backdrop-mode=live data-backdrop-sample-state=unavailable data-backdrop-sample-source=canvas data-backdrop-sample-reason=",
+    "box": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "vStageGrad": [
+   {
+    "n": "before",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "self",
+    "cls": "editor-shell",
+    "bgi": "linear-gradient(color(srgb 0.11 0.098 0.09 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, color(srgb 0.11 0.098 0.09 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), none",
+    "op": "1"
+   },
+   {
+    "n": "before",
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger view-layers-trigger",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsule play-control",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0.16"
+   },
+   {
+    "n": "before",
+    "cls": "caret-value glass-floating fira-code",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "slider-thumb glass-specular-track",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   }
+  ]
+ },
+ "dark-1440": {
+  "eq": [
+   {
+    "t": "Compute",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover compute-btn",
+    "attrs": "data-v-38855d39= data-slot=button data-emphasis=primary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     1022,
+     317,
+     380,
+     36
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.31489 0.0117949 0.0248798)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "14.384px",
+    "fw": "600",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(0px) saturate(1.8)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   null,
+   {
+    "t": "Functionf(t)ExpressionDomaintoComputePre",
+    "tag": "ASIDE",
+    "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+    "attrs": "",
+    "box": [
+     1000,
+     100,
+     424,
+     788
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(20px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Function",
+    "tag": "SPAN",
+    "cls": "configurator-section-label truncate",
+    "attrs": "data-v-2f76a595=",
+    "box": [
+     1022,
+     110,
+     74,
+     31
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "20.352px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "-0.5088px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "DIV",
+    "cls": "labeled-field",
+    "attrs": "data-v-ea78fd3a= data-v-38855d39= data-slot=labeled-field data-layout=default",
+    "box": [
+     1022,
+     161,
+     380,
+     68
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "DIV",
+    "cls": "labeled-field-copy",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     1022,
+     161,
+     380,
+     20
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "LABEL",
+    "cls": "label",
+    "attrs": "data-v-fa2ffe4d= data-v-ea78fd3a= data-slot=label",
+    "box": [
+     1022,
+     161,
+     380,
+     20
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "DIV",
+    "cls": "labeled-field-control",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     1022,
+     189,
+     380,
+     40
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domainto",
+    "tag": "DIV",
+    "cls": "labeled-field",
+    "attrs": "data-v-ea78fd3a= data-v-38855d39= data-slot=labeled-field data-layout=default",
+    "box": [
+     1022,
+     241,
+     380,
+     64
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domain",
+    "tag": "DIV",
+    "cls": "labeled-field-copy",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     1022,
+     241,
+     380,
+     20
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domain",
+    "tag": "LABEL",
+    "cls": "label",
+    "attrs": "data-v-fa2ffe4d= data-v-ea78fd3a= data-slot=label",
+    "box": [
+     1022,
+     241,
+     380,
+     20
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "eqAsideKids": [
+   {
+    "n": "before",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0",
+    "blend": "plus-lighter"
+   },
+   {
+    "n": "before",
+    "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0",
+    "blend": "plus-lighter"
+   }
+  ],
+  "w": [
+   {
+    "t": "Browse the gallery",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring",
+    "attrs": "data-v-bf700a2f= data-slot=button data-emphasis=text data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     657,
+     571,
+     126,
+     36
+    ],
+    "color": "oklch(0.739 0.134 318.1)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.384px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Choose an image",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover drop-target-button",
+    "attrs": "data-v-bf700a2f= data-slot=button data-emphasis=primary data-tone=neutral data-size=md data-control-target= data-press-armed=",
+    "box": [
+     621,
+     497,
+     198,
+     40
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.31489 0.0117949 0.0248798)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "16.4px",
+    "fw": "600",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(0px) saturate(1.8)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "morph": [
+   {
+    "t": "phase",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     160,
+     616,
+     59,
+     22
+    ],
+    "color": "rgb(172, 160, 145)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.363528px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "idle",
+    "tag": "SPAN",
+    "cls": "phase-value",
+    "attrs": "data-v-2ad49bc1=",
+    "box": [
+     227,
+     617,
+     98,
+     16
+    ],
+    "color": "oklab(0.925196 0.00238398 0.00574207)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16.4px",
+    "fw": "650",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "-0.41px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "n",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     160,
+     646,
+     13,
+     22
+    ],
+    "color": "rgb(172, 160, 145)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.363528px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "shape",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     223,
+     646,
+     59,
+     22
+    ],
+    "color": "rgb(172, 160, 145)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.363528px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Sun",
+    "tag": "SPAN",
+    "cls": "shape-value",
+    "attrs": "data-v-2ad49bc1=",
+    "box": [
+     290,
+     647,
+     44,
+     16
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16.4px",
+    "fw": "650",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "-0.41px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "total",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     346,
+     646,
+     59,
+     22
+    ],
+    "color": "rgb(172, 160, 145)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.363528px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Fourier Morph",
+    "tag": "H1",
+    "cls": "demo-title",
+    "attrs": "data-v-84315058=",
+    "box": [
+     160,
+     92,
+     1120,
+     44
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "41.888px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Tune the morph transition between sun an",
+    "tag": "P",
+    "cls": "demo-subtitle",
+    "attrs": "data-v-84315058=",
+    "box": [
+     160,
+     144,
+     576,
+     28
+    ],
+    "color": "rgb(172, 160, 145)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Export",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover",
+    "attrs": "data-v-84315058= data-slot=button data-emphasis=secondary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     160,
+     676,
+     94,
+     36
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "14.384px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Linear",
+    "tag": "BUTTON",
+    "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-m",
+    "attrs": "data-v-b5a4107b= data-slot=select-trigger aria-labelledby=v-5 v-4 aria-controls=reka-select-content-v-7 aria-expanded=false aria-required=false aria-autocomplet",
+    "box": [
+     617,
+     399,
+     178,
+     40
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.165013 0.1326 / 0.15), color(srgb 0.2074 0.165013 0.1326 / 0.15))",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "16.4px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "INPUT",
+    "cls": "fira-code number-field__input field-control glass-control-edge",
+    "attrs": "data-v-c53848d0= aria-roledescription=Number field aria-valuenow=150 aria-valuemin=50 aria-valuemax=800 aria-label=Duration data-slot=input data-kind=input data",
+    "box": [
+     698,
+     291,
+     72,
+     36
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgb(63, 55, 49)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "16.4px",
+    "fw": "400",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "gallery": [
+   {
+    "t": "",
+    "tag": "INPUT",
+    "cls": "field-control glass-control-edge search-field-input",
+    "attrs": "data-v-59b2cf6a= aria-label=Search gallery data-slot=input data-kind=input data-size=md data-state=default",
+    "box": [
+     201,
+     98,
+     512,
+     40
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgb(63, 55, 49)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "16.4px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "LABEL",
+    "cls": "search-field search-pill",
+    "attrs": "data-v-59b2cf6a= data-v-c83194d6= data-size=md data-actions=",
+    "box": [
+     201,
+     98,
+     512,
+     40
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "DIV",
+    "cls": "separator h-5 shrink-0",
+    "attrs": "data-v-64dda6b9= data-v-c83194d6= data-orientation=vertical data-slot=separator",
+    "box": [
+     670,
+     104,
+     1,
+     20
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "e2e-seed:f-w14plush-evening-olive-squid1",
+    "tag": "ARTICLE",
+    "cls": "glass-resting card gallery-card deferred-section",
+    "attrs": "data-v-7dfef4b2= data-v-96279855= data-slot=card data-shadow=true data-size=md data-surface=opaque",
+    "box": [
+     16,
+     156,
+     272,
+     338
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   null
+  ],
+  "v": [
+   {
+    "t": "Replace image",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover",
+    "attrs": "data-v-fcf6c19f= data-slot=button data-emphasis=secondary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     1094,
+     179,
+     140,
+     36
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.31489 0.0117949 0.0248798)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "14.384px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Fourier",
+    "tag": "SPAN",
+    "cls": "basis-group-label",
+    "attrs": "data-v-8864faae= aria-hidden=true",
+    "box": [
+     1022,
+     300,
+     51,
+     23
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16.4px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Polynomial",
+    "tag": "SPAN",
+    "cls": "basis-group-label",
+    "attrs": "data-v-8864faae= aria-hidden=true",
+    "box": [
+     1022,
+     383,
+     80,
+     23
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16.4px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Harmonics",
+    "tag": "LABEL",
+    "cls": "label control-row-label",
+    "attrs": "data-v-fa2ffe4d= data-v-c53848d0= data-row-label= data-slot=label",
+    "box": [
+     1022,
+     470,
+     68,
+     20
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "N, the terms in each basis sum",
+    "tag": "SPAN",
+    "cls": "control-row-sub",
+    "attrs": "data-v-c53848d0= data-row-sub=",
+    "box": [
+     1022,
+     502,
+     380,
+     19
+    ],
+    "color": "rgb(195, 185, 172)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.384px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Sample Points",
+    "tag": "LABEL",
+    "cls": "label control-row-label",
+    "attrs": "data-v-fa2ffe4d= data-v-c53848d0= data-row-label= data-slot=label",
+    "box": [
+     1022,
+     569,
+     91,
+     20
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14.5411px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "t = 0.281×",
+    "tag": "DIV",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "attrs": "",
+    "box": [
+     16,
+     88,
+     972,
+     800
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(20px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "CANVAS",
+    "cls": "canvas-el",
+    "attrs": "data-v-9a00431e=",
+    "box": [
+     17,
+     89,
+     970,
+     798
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "t = 0.281×",
+    "tag": "DIV",
+    "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+    "attrs": "data-v-3c550e2c= data-v-bf700a2f= data-backdrop-mode=live data-backdrop-sample-state=unavailable data-backdrop-sample-source=canvas data-backdrop-sample-reason=",
+    "box": [
+     451,
+     819,
+     102,
+     56
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "color(srgb 0.914 0.9 0.886 / 0.12) 0px 0px 12px 0px",
+    "fs": "18.608px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "vStageGrad": [
+   {
+    "n": "before",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "self",
+    "cls": "editor-shell",
+    "bgi": "linear-gradient(color(srgb 0.914 0.9 0.886 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, color(srgb 0.914 0.9 0.886 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), none",
+    "op": "1"
+   },
+   {
+    "n": "before",
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger view-layers-trigger",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsule play-control",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0.12"
+   },
+   {
+    "n": "before",
+    "cls": "caret-value glass-floating fira-code",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "slider-thumb glass-specular-track",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   }
+  ]
+ },
+ "dark-390": {
+  "eq": [
+   {
+    "t": "Compute",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover compute-btn",
+    "attrs": "data-v-38855d39= data-slot=button data-emphasis=primary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     38,
+     382,
+     314,
+     44
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.31489 0.0117949 0.0248798)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "18.2685px",
+    "fw": "600",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(0px) saturate(1.8)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   null,
+   {
+    "t": "Functionf(t)ExpressionDomaintoComputePre",
+    "tag": "ASIDE",
+    "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+    "attrs": "",
+    "box": [
+     16,
+     132,
+     358,
+     708
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(20px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Function",
+    "tag": "SPAN",
+    "cls": "configurator-section-label truncate",
+    "attrs": "data-v-2f76a595=",
+    "box": [
+     38,
+     142,
+     74,
+     31
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "20.352px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "-0.5088px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "DIV",
+    "cls": "labeled-field",
+    "attrs": "data-v-ea78fd3a= data-v-38855d39= data-slot=labeled-field data-layout=default",
+    "box": [
+     38,
+     192,
+     314,
+     90
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "DIV",
+    "cls": "labeled-field-copy",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     38,
+     192,
+     314,
+     26
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Expression",
+    "tag": "LABEL",
+    "cls": "label",
+    "attrs": "data-v-fa2ffe4d= data-v-ea78fd3a= data-slot=label",
+    "box": [
+     38,
+     192,
+     314,
+     26
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "DIV",
+    "cls": "labeled-field-control",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     38,
+     222,
+     314,
+     60
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domainto",
+    "tag": "DIV",
+    "cls": "labeled-field",
+    "attrs": "data-v-ea78fd3a= data-v-38855d39= data-slot=labeled-field data-layout=default",
+    "box": [
+     38,
+     290,
+     314,
+     84
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domain",
+    "tag": "DIV",
+    "cls": "labeled-field-copy",
+    "attrs": "data-v-ea78fd3a=",
+    "box": [
+     38,
+     290,
+     314,
+     26
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Domain",
+    "tag": "LABEL",
+    "cls": "label",
+    "attrs": "data-v-fa2ffe4d= data-v-ea78fd3a= data-slot=label",
+    "box": [
+     38,
+     290,
+     314,
+     26
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "eqAsideKids": [
+   {
+    "n": "before",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0",
+    "blend": "plus-lighter"
+   },
+   {
+    "n": "before",
+    "cls": "configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0",
+    "blend": "plus-lighter"
+   }
+  ],
+  "w": [
+   {
+    "t": "Browse the gallery",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring",
+    "attrs": "data-v-bf700a2f= data-slot=button data-emphasis=text data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     116,
+     539,
+     158,
+     44
+    ],
+    "color": "oklch(0.739 0.134 318.1)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.2685px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Choose an image",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover drop-target-button",
+    "attrs": "data-v-bf700a2f= data-slot=button data-emphasis=primary data-tone=neutral data-size=md data-control-target= data-press-armed=",
+    "box": [
+     64,
+     464,
+     261,
+     44
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.31489 0.0117949 0.0248798)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "21px",
+    "fw": "600",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(0px) saturate(1.8)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "morph": [
+   {
+    "t": "phase",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     144,
+     179,
+     76,
+     28
+    ],
+    "color": "rgb(172, 160, 145)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.465493px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "idle",
+    "tag": "SPAN",
+    "cls": "phase-value",
+    "attrs": "data-v-2ad49bc1=",
+    "box": [
+     228,
+     186,
+     32,
+     14
+    ],
+    "color": "oklab(0.925196 0.00238398 0.00574207)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14px",
+    "fw": "650",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "-0.35px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "n",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     144,
+     211,
+     17,
+     28
+    ],
+    "color": "rgb(172, 160, 145)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.465493px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "shape",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     144,
+     243,
+     76,
+     28
+    ],
+    "color": "rgb(172, 160, 145)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.465493px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Sun",
+    "tag": "SPAN",
+    "cls": "shape-value",
+    "attrs": "data-v-2ad49bc1=",
+    "box": [
+     228,
+     250,
+     24,
+     14
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14px",
+    "fw": "650",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "-0.35px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "total",
+    "tag": "SPAN",
+    "cls": "metric__label",
+    "attrs": "",
+    "box": [
+     144,
+     275,
+     75,
+     28
+    ],
+    "color": "rgb(172, 160, 145)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "550",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "0.465493px",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Fourier Morph",
+    "tag": "H1",
+    "cls": "demo-title",
+    "attrs": "data-v-84315058=",
+    "box": [
+     16,
+     84,
+     358,
+     27
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "25.888px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Tune the morph transition between sun an",
+    "tag": "P",
+    "cls": "demo-subtitle",
+    "attrs": "data-v-84315058=",
+    "box": [
+     16,
+     115,
+     358,
+     48
+    ],
+    "color": "rgb(172, 160, 145)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Export",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover",
+    "attrs": "data-v-84315058= data-slot=button data-emphasis=secondary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     16,
+     320,
+     132,
+     44
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "18.2685px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Linear",
+    "tag": "BUTTON",
+    "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-m",
+    "attrs": "data-v-b5a4107b= data-slot=select-trigger aria-labelledby=v-5 v-4 aria-controls=reka-select-content-v-7 aria-expanded=false aria-required=false aria-autocomplet",
+    "box": [
+     29,
+     561,
+     332,
+     60
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.165013 0.1326 / 0.15), color(srgb 0.2074 0.165013 0.1326 / 0.15))",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "21px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "INPUT",
+    "cls": "fira-code number-field__input field-control glass-control-edge",
+    "attrs": "data-v-c53848d0= aria-roledescription=Number field aria-valuenow=150 aria-valuemin=50 aria-valuemax=800 aria-label=Duration data-slot=input data-kind=input data",
+    "box": [
+     270,
+     441,
+     72,
+     54
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgb(63, 55, 49)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "14px",
+    "fw": "400",
+    "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "gallery": [
+   {
+    "t": "",
+    "tag": "INPUT",
+    "cls": "field-control glass-control-edge search-field-input",
+    "attrs": "data-v-59b2cf6a= aria-label=Search gallery data-slot=input data-kind=input data-size=md data-state=default",
+    "box": [
+     16,
+     142,
+     358,
+     60
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgb(63, 55, 49)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "fs": "14px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "LABEL",
+    "cls": "search-field search-pill",
+    "attrs": "data-v-59b2cf6a= data-v-c83194d6= data-size=md data-actions=",
+    "box": [
+     16,
+     142,
+     358,
+     60
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "DIV",
+    "cls": "separator h-5 shrink-0",
+    "attrs": "data-v-64dda6b9= data-v-c83194d6= data-orientation=vertical data-slot=separator",
+    "box": [
+     315,
+     150,
+     1,
+     20
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "e2e-seed:f-w14plush-evening-olive-squid1",
+    "tag": "ARTICLE",
+    "cls": "glass-resting card gallery-card deferred-section",
+    "attrs": "data-v-7dfef4b2= data-v-96279855= data-slot=card data-shadow=true data-size=md data-surface=opaque",
+    "box": [
+     16,
+     218,
+     173,
+     243
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   null
+  ],
+  "v": [
+   {
+    "t": "Replace image",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover",
+    "attrs": "data-v-fcf6c19f= data-slot=button data-emphasis=secondary data-tone=neutral data-size=sm data-control-target= data-press-armed=",
+    "box": [
+     110,
+     206,
+     191,
+     44
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.31489 0.0117949 0.0248798)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "18.2685px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(14px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Fourier",
+    "tag": "SPAN",
+    "cls": "basis-group-label",
+    "attrs": "data-v-8864faae= aria-hidden=true",
+    "box": [
+     38,
+     339,
+     44,
+     20
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Polynomial",
+    "tag": "SPAN",
+    "cls": "basis-group-label",
+    "attrs": "data-v-8864faae= aria-hidden=true",
+    "box": [
+     38,
+     425,
+     69,
+     20
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "14px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Harmonics",
+    "tag": "LABEL",
+    "cls": "label control-row-label",
+    "attrs": "data-v-fa2ffe4d= data-v-c53848d0= data-row-label= data-slot=label",
+    "box": [
+     38,
+     528,
+     86,
+     26
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "N, the terms in each basis sum",
+    "tag": "SPAN",
+    "cls": "control-row-sub",
+    "attrs": "data-v-c53848d0= data-row-sub=",
+    "box": [
+     38,
+     570,
+     314,
+     16
+    ],
+    "color": "rgb(195, 185, 172)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "12.179px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "Sample Points",
+    "tag": "LABEL",
+    "cls": "label control-row-label",
+    "attrs": "data-v-fa2ffe4d= data-v-c53848d0= data-row-label= data-slot=label",
+    "box": [
+     38,
+     636,
+     116,
+     26
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "18.6197px",
+    "fw": "500",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "t = 0.001×",
+    "tag": "DIV",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "attrs": "",
+    "box": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "bgi": "none",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "blur(20px) saturate(1.5)",
+    "anim": "none",
+    "before": {
+     "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+     "sh": "none",
+     "op": "0",
+     "content": "\"\""
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "",
+    "tag": "CANVAS",
+    "cls": "canvas-el",
+    "attrs": "data-v-9a00431e=",
+    "box": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "none",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   },
+   {
+    "t": "t = 0.001×",
+    "tag": "DIV",
+    "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+    "attrs": "data-v-3c550e2c= data-v-bf700a2f= data-backdrop-mode=live data-backdrop-sample-state=unavailable data-backdrop-sample-source=canvas data-backdrop-sample-reason=",
+    "box": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgi": "none",
+    "shadow": "color(srgb 0.914 0.9 0.886 / 0.12) 0px 0px 12px 0px",
+    "fs": "16px",
+    "fw": "400",
+    "ff": "\"Computer Modern Serif\", \"Latin Modern R",
+    "ls": "normal",
+    "bdf": "none",
+    "anim": "none",
+    "before": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    },
+    "after": {
+     "bgi": "none",
+     "sh": "none",
+     "op": "1",
+     "content": "none"
+    }
+   }
+  ],
+  "vStageGrad": [
+   {
+    "n": "before",
+    "cls": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "self",
+    "cls": "editor-shell",
+    "bgi": "linear-gradient(color(srgb 0.914 0.9 0.886 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, color(srgb 0.914 0.9 0.886 / 0.05) 1px, rgba(0, 0, 0, 0) 1px), none",
+    "op": "1"
+   },
+   {
+    "n": "before",
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger view-layers-trigger",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsule play-control",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0.12"
+   },
+   {
+    "n": "before",
+    "cls": "caret-value glass-floating fira-code",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "slider-thumb glass-specular-track",
+    "bgi": "radial-gradient(36% 36%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   },
+   {
+    "n": "before",
+    "cls": "menu__trigger dock-trigger dock-dropdown-trigger",
+    "bgi": "radial-gradient(22% 22%, oklch(0.947126 0.0136975 84.4089 / 0.5) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+    "op": "0"
+   }
+  ]
+ }
+}

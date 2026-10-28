@@ -1,0 +1,6 @@
+SERVED MODEL: claude-opus-5-5
+# F-REL.d static reads 2026-10-19 ~17:13Z (before the CI-gated ship)
+fourier.babb.dev notAfter=Dec 22 20:13:07 2026 GMT
+api.fourier.babb.dev notAfter=Jan  4 15:19:06 2027 GMT
+openapi 42 0.2.0 ['diff', 'publish', 'remix', 'unpublish']
+webhook delivery for 24a524a: 3849213977131237400 2026-10-19T17:12:15.762Z status 200 push (response body unreadable: gh lacks admin:repo_hook)

@@ -124,8 +124,13 @@ function valueOrThrow<T, E extends Readonly<{ code: string }>>(result: Result<T,
  * Measured: `parseCssColor("oklch(0.6 0.2 none)")` succeeds, same-space
  * conversion and serialization both succeed, and ONLY the cross-space
  * conversion returns `color_missing_channel`.
+ *
+ * SS8-0035 — exported for the pipeline's OUTWARD strings (`cssColor`,
+ * `cssColorOpaque`): those leave the picker for consumers that convert across
+ * spaces (glass-ui `cssToOklch` in the atmosphere, the About markdown's OKLCH
+ * read), so they carry the resolved colour; the model keeps `none`.
  */
-function withResolvedMissing(color: AnyColor): AnyColor {
+export function resolveMissingChannels(color: AnyColor): AnyColor {
     if (!color.channels.some((channel) => channel === "none")) return color;
     return buildColor(
         color.space,
@@ -134,8 +139,14 @@ function withResolvedMissing(color: AnyColor): AnyColor {
     );
 }
 
+/** The parse Result, unconverted — for a reader whose invalid text is the
+ *  user's to fix (the colour field), so a parse failure is DATA, not a throw. */
+export function readPickerColor(source: string): ReturnType<typeof parseCssColor> {
+    return parseCssColor(source.trim());
+}
+
 export function parsePickerColor(source: string): CssColor {
-    const result = parseCssColor(source.trim());
+    const result = readPickerColor(source);
     if (result.ok) return result.value;
     throw new PickerColorError("Invalid CSS color", result.diagnostics);
 }
@@ -144,7 +155,7 @@ export function parsePickerColor(source: string): CssColor {
 export function convertPickerColor<S extends SpaceId>(color: AnyColor, space: S): PickerColorIn<S> {
     const direct = convertColor(color, space);
     if (direct.ok) return direct.value as unknown as PickerColorIn<S>;
-    const resolved = convertColor(withResolvedMissing(color), space);
+    const resolved = convertColor(resolveMissingChannels(color), space);
     if (resolved.ok) return resolved.value as unknown as PickerColorIn<S>;
     // Not a missing-component failure: the two spaces genuinely do not compose.
     throw new PickerColorError(resolved.error.code);
@@ -156,7 +167,7 @@ export function mapPickerOklabToSrgb(color: PickerColorIn<"oklab">): PickerColor
     const direct = mapColorToGamut(color, "srgb");
     if (direct.ok) return direct.value;
     const resolved = mapColorToGamut(
-        withResolvedMissing(color) as PickerColorIn<"oklab">,
+        resolveMissingChannels(color) as PickerColorIn<"oklab">,
         "srgb",
     );
     if (resolved.ok) return resolved.value;
@@ -287,7 +298,7 @@ export function serializePickerColor(color: AnyColor): string {
  *  projects, so a `none` channel yields a colour rather than an exception. */
 export function pickerColorToHex(color: AnyColor): string {
     const direct = toRgba8(color, { gamut: "clip" });
-    const read = direct.ok ? direct : toRgba8(withResolvedMissing(color), { gamut: "clip" });
+    const read = direct.ok ? direct : toRgba8(resolveMissingChannels(color), { gamut: "clip" });
     if (!read.ok) throw new PickerColorError(read.error.code);
     const projected = read.value;
     const hex = (value: number) => value.toString(16).padStart(2, "0");

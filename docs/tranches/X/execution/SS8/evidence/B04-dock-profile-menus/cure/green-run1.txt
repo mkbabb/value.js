@@ -1,0 +1,15 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:76971) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/shell/dock-profile-menus.test.ts (13 tests) 1573ms
+   ✓ SS8-0091 · 0108 · 0097 — the GitHub row is the menu item > ProfileSection: one menuitem, no nested anchor; click and Enter open the repository  370ms
+   ✓ SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (light): 7/7 picks paint safeCss_floating(pick), idempotent  576ms
+   ✓ SS8-0089 — the twin's slug ink is one certification of the raw pick > MobileMenuDropdown (dark): 7/7 picks paint safeCss_floating(pick), idempotent  323ms
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  15:15:00
+   Duration  4.23s (transform 360ms, setup 54ms, collect 1.85s, tests 1.57s, environment 479ms, prepare 63ms)
+

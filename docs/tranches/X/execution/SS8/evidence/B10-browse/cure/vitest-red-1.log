@@ -1,0 +1,118 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ❯ demo/test/palettes/ss8-b10-browse.test.ts (13 tests | 6 failed) 284ms
+   × SS8-0291 · the pager turns one page per load > two synchronous next() calls during one load request ONE page 7ms
+     → expected "spy" to be called 1 times, but got 2 times
+   × SS8-0291 · the pager turns one page per load > prev() is gated the same way, and a failed load releases the gate 1ms
+     → expected "spy" to be called 1 times, but got 2 times
+   × SS8-0291 · the pager turns one page per load > mounted: two clicks on Next inside one load turn one page 60ms
+     → expected "spy" to be called 1 times, but got 2 times
+   ✓ SS8-0294 · PaginationBar ships no inert variant attribute > neither button carries a `variant` attribute 8ms
+   × SS8-0285 · the colour strip is a colour surface > the strip root carries [data-color-surface] (forced-color-adjust: none, print exact) 9ms
+     → expected false to be true // Object.is equality
+   × SS8-0285 · the colour strip is a colour surface > the summary (≥100 colours) strip is a colour surface too 26ms
+     → expected false to be true // Object.is equality
+   × SS8-0288 · the vote button speaks a type rung of its own > the vote button itself carries the canon's text-mono-small rung 5ms
+     → expected [ 'flex', 'items-center', …(14) ] to include 'text-mono-small'
+   ✓ SS8-0282 · the error plate is one element root > variant=error mounts a single element (no fragment anchor) 2ms
+   ✓ SS8-0289 · the search barrel carries no admin module > the barrel's names are the browse cluster only 0ms
+   ✓ SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0277: the trigger is the glass sm square — no consumer size, shape or radius 61ms
+   ✓ SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0306: an active filter rides the trigger's accessible name 38ms
+   ✓ SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0302/0304: Sort is one horizontal toggle row of three — no radio column 35ms
+   ✓ SS8-0277 / 0302 / 0303 / 0304 / 0306 · the filters trigger and menu > 0303: tags are wrapping selectable chips — no checkboxes, no nested scroller 32ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/ss8-b10-browse.test.ts > SS8-0291 · the pager turns one page per load > two synchronous next() calls during one load request ONE page
+AssertionError: expected "spy" to be called 1 times, but got 2 times
+ ❯ demo/test/palettes/ss8-b10-browse.test.ts:56:24
+     54|         pager.next();
+     55|         pager.next();
+     56|         expect(reload).toHaveBeenCalledTimes(1);
+       |                        ^
+     57|         expect(pager.page).toBe(2);
+     58|         settleAll();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  demo/test/palettes/ss8-b10-browse.test.ts > SS8-0291 · the pager turns one page per load > prev() is gated the same way, and a failed load releases the gate
+AssertionError: expected "spy" to be called 1 times, but got 2 times
+ ❯ demo/test/palettes/ss8-b10-browse.test.ts:76:28
+     74|             pager.prev();
+     75|             pager.prev();
+     76|             expect(reload).toHaveBeenCalledTimes(1);
+       |                            ^
+     77|             expect(pager.page).toBe(2);
+     78|             await flushPromises();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  demo/test/palettes/ss8-b10-browse.test.ts > SS8-0291 · the pager turns one page per load > mounted: two clicks on Next inside one load turn one page
+AssertionError: expected "spy" to be called 1 times, but got 2 times
+ ❯ demo/test/palettes/ss8-b10-browse.test.ts:98:24
+     96|         await next.trigger("click");
+     97|         await next.trigger("click");
+     98|         expect(reload).toHaveBeenCalledTimes(1);
+       |                        ^
+     99|         expect(w.text()).toContain("Page 2 of 3");
+    100|         settleAll();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  demo/test/palettes/ss8-b10-browse.test.ts > SS8-0285 · the colour strip is a colour surface > the strip root carries [data-color-surface] (forced-color-adjust: none, print exact)
+AssertionError: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ demo/test/palettes/ss8-b10-browse.test.ts:121:60
+    119|         const w = mount(PaletteColorStrip, { props: { colors: fixtureC…
+    120|         mounted.push(w);
+    121|         expect(w.element.hasAttribute("data-color-strip")).toBe(true);
+       |                                                            ^
+    122|         expect(w.element.hasAttribute("data-color-surface")).toBe(true…
+    123|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  demo/test/palettes/ss8-b10-browse.test.ts > SS8-0285 · the colour strip is a colour surface > the summary (≥100 colours) strip is a colour surface too
+AssertionError: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ demo/test/palettes/ss8-b10-browse.test.ts:128:56
+    126|         const w = mount(PaletteColorStrip, { props: { colors: fixtureC…
+    127|         mounted.push(w);
+    128|         expect(w.element.hasAttribute("data-summary")).toBe(true);
+       |                                                        ^
+    129|         expect(w.element.hasAttribute("data-color-surface")).toBe(true…
+    130|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  demo/test/palettes/ss8-b10-browse.test.ts > SS8-0288 · the vote button speaks a type rung of its own > the vote button itself carries the canon's text-mono-small rung
+AssertionError: expected [ 'flex', 'items-center', …(14) ] to include 'text-mono-small'
+ ❯ demo/test/palettes/ss8-b10-browse.test.ts:138:32
+    136|         mounted.push(w);
+    137|         const vote = w.get("button[aria-label$='votes, click to vote']…
+    138|         expect(vote.classes()).toContain("text-mono-small");
+       |                                ^
+    139|     });
+    140| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 7 passed (13)
+   Start at  15:48:41
+   Duration  2.19s (transform 535ms, setup 53ms, collect 1.23s, tests 284ms, environment 377ms, prepare 60ms)
+

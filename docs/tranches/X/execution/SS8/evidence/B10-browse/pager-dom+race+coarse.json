@@ -1,0 +1,110 @@
+{
+ "dom_error": "Error: page.screenshot: Clipped area is either empty or outside the resulting image\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n",
+ "doubleActivation": {
+  "before": "Page 1 of 3",
+  "after": "Page 3 of 3",
+  "firstRow": "40",
+  "offsetsRequested": [
+   0,
+   20,
+   40
+  ]
+ },
+ "outOfOrder": {
+  "disabledAt200": false,
+  "timeline": [
+   [
+    400,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    600,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    800,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    1000,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    1200,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    1400,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    1600,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    1800,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    2000,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    2200,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    2400,
+    "Page 3 of 3",
+    "40"
+   ],
+   [
+    2600,
+    "Page 3 of 3",
+    "40"
+   ]
+  ],
+  "finalCaption": "Page 3 of 3",
+  "finalFirstRow": "40",
+  "responses": [
+   {
+    "off": 0,
+    "ms": 0
+   },
+   {
+    "off": 40,
+    "ms": 102
+   },
+   {
+    "off": 20,
+    "ms": 1502
+   }
+  ]
+ },
+ "coarse": {
+  "pointerCoarse": true,
+  "button": {
+   "w": 64,
+   "h": 44,
+   "radius": "27px",
+   "minH": "44px",
+   "minW": "44px",
+   "padding": "0px 23px"
+  },
+  "glyph": {
+   "w": 16,
+   "h": 16
+  }
+ },
+ "coarse_error": "Error: page.screenshot: Clipped area is either empty or outside the resulting image\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+}

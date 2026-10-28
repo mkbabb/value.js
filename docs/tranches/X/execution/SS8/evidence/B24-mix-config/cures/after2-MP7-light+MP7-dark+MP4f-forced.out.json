@@ -1,0 +1,64 @@
+{
+ "label": "after2",
+ "base": "http://localhost:8126",
+ "at": "2026-10-20T22:54:17.773Z",
+ "MP7-light": {
+  "ink": {
+   "wc": "oklch(39.243986773305% 0.158451683021 2deg)",
+   "borderColor": "oklch(0.39244 0.158452 2)"
+  },
+  "ground": [
+   213,
+   122,
+   154
+  ],
+  "ring": [
+   123,
+   0,
+   58
+  ],
+  "ringVsGround": 3.72,
+  "GREEN": true,
+  "errors": [],
+  "ms": 2987
+ },
+ "MP7-dark": {
+  "ink": {
+   "wc": "oklch(74.359592008172% 0.167650062812 2deg)",
+   "borderColor": "oklch(0.743596 0.16765 2)"
+  },
+  "ground": [
+   117,
+   25,
+   51
+  ],
+  "ring": [
+   255,
+   133,
+   171
+  ],
+  "ringVsGround": 4.732,
+  "GREEN": true,
+  "errors": [],
+  "ms": 2807
+ },
+ "MP4f-forced": {
+  "EMULATED": true,
+  "mq": true,
+  "slot": {
+   "fca": "auto",
+   "border": "rgb(0, 0, 0)"
+  },
+  "dot": {
+   "fca": "auto",
+   "border": "rgb(0, 0, 0)"
+  },
+  "stroke": {
+   "fca": "auto",
+   "border": "rgb(0, 0, 0)"
+  },
+  "GREEN": true,
+  "errors": [],
+  "ms": 1553
+ }
+}

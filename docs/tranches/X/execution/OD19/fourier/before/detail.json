@@ -1,0 +1,111 @@
+{
+ "light-1440": {
+  "eqApi": [
+   "equations/compute start=2897 dur=2209 ttfb=2208"
+  ],
+  "F7": [
+   ".control-row-track 380x24 border=0px rgb(28, 25, 23) shadow=none bg=rgba(0, 0, 0, 0) r=0px",
+   ".slider-track 380x24 border=0px rgb(28, 25, 23) shadow=oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset bg=image r=9999px",
+   ".track-well 380x24 border=0px rgb(28, 25, 23) shadow=oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset bg=image r=9999px",
+   ".slider-range 27x24 border=0px rgb(28, 25, 23) shadow=none bg=rgba(0, 0, 0, 0) r=0px",
+   ".slider-thumb 12x24 border=2px rgb(251, 250, 248) shadow=color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px bg=oklch(0.579 0.201 30.4) r=6.4px"
+  ],
+  "F6": [
+   "Navigate — curre box=24x24 ink=12x16",
+   "Navigate — curre box=16x16 ink=8x4",
+   "Log in box=24x24 ink=18x18",
+   "Dark mode box=24x24 ink=20x19"
+  ],
+  "F5": [
+   "DIV.configurator-layer 1001,101 422x144 bw=1px r=4px ctx=1rem inset=1.25rem floor=4px shadow=none bg=rgba(0, 0, 0, 0)",
+   "ASIDE.configurator-aside flex min-h-0 min-w-0 flex-col g 1000,100 424x655 bw=1px r=16px ctx=1rem inset=1.25rem floor=4px shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px bg=color(srgb 0.994 0.96 0.92",
+   "MAIN.relative flex-1 min-h-0 flex flex-col overflow-y-a 0,79 1440x821 bw=1px r=0px ctx=1rem inset=0px floor=4px shadow=none bg=rgba(0, 0, 0, 0)",
+   "DIV.app-shell h-dvh flex flex-col bg-background text-f 0,0 1440x900 bw=0px r=0px ctx=1rem inset=0px floor=4px shadow=none bg=rgb(251, 250, 248)"
+  ]
+ },
+ "light-390": {
+  "eqApi": [
+   "equations/compute start=168 dur=1697 ttfb=1696",
+   "equations/simplify start=2067 dur=26 ttfb=26"
+  ],
+  "F7": [
+   ".control-row-track 314x24 border=0px rgb(28, 25, 23) shadow=none bg=rgba(0, 0, 0, 0) r=0px",
+   ".slider-track 314x24 border=0px rgb(28, 25, 23) shadow=oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset bg=image r=9999px",
+   ".track-well 314x24 border=0px rgb(28, 25, 23) shadow=oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset bg=image r=9999px",
+   ".slider-range 22x24 border=0px rgb(28, 25, 23) shadow=none bg=rgba(0, 0, 0, 0) r=0px",
+   ".slider-thumb 12x24 border=2px rgb(251, 250, 248) shadow=color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px bg=oklch(0.579 0.201 30.4) r=6.4px"
+  ],
+  "F6": [
+   "Navigate — curre box=24x24 ink=12x16",
+   "Navigate — curre box=16x16 ink=8x4",
+   "Log in box=24x24 ink=18x18",
+   "Dark mode box=24x24 ink=20x19"
+  ],
+  "F5": [
+   "DIV.configurator-layer 17,129 356x144 bw=1px r=4px ctx=1rem inset=1.25rem floor=4px shadow=none bg=rgba(0, 0, 0, 0)",
+   "ASIDE.configurator-aside flex min-h-0 min-w-0 flex-col g 16,128 358x615 bw=1px r=16px ctx=1rem inset=1.25rem floor=4px shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px bg=color(srgb 0.994 0.96 0.92",
+   "MAIN.relative flex-1 min-h-0 flex flex-col overflow-y-a 0,71 390x773 bw=1px r=0px ctx=1rem inset=0px floor=4px shadow=none bg=rgba(0, 0, 0, 0)",
+   "DIV.app-shell h-dvh flex flex-col bg-background text-f 0,0 390x844 bw=0px r=0px ctx=1rem inset=0px floor=4px shadow=none bg=rgb(251, 250, 248)"
+  ]
+ },
+ "dark-1440": {
+  "eqApi": [
+   "equations/compute start=180 dur=1903 ttfb=1903",
+   "equations/simplify start=2286 dur=9 ttfb=8"
+  ],
+  "F7": [
+   ".control-row-track 380x24 border=0px rgb(233, 230, 226) shadow=none bg=rgba(0, 0, 0, 0) r=0px",
+   ".slider-track 380x24 border=0px rgb(233, 230, 226) shadow=oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset bg=image r=9999px",
+   ".track-well 380x24 border=0px rgb(233, 230, 226) shadow=oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset bg=image r=9999px",
+   ".slider-range 27x24 border=0px rgb(233, 230, 226) shadow=none bg=rgba(0, 0, 0, 0) r=0px",
+   ".slider-thumb 12x24 border=2px rgb(11, 10, 9) shadow=color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px bg=oklch(0.693 0.151 28.1) r=6.4px"
+  ],
+  "F6": [
+   "Navigate — curre box=24x24 ink=12x16",
+   "Navigate — curre box=16x16 ink=8x4",
+   "Log in box=24x24 ink=18x18",
+   "Dark mode box=24x24 ink=13x17"
+  ],
+  "F5": [
+   "DIV.configurator-layer 1001,101 422x144 bw=1px r=4px ctx=1rem inset=1.25rem floor=4px shadow=none bg=color(srgb 0.914 0.9 0.886",
+   "ASIDE.configurator-aside flex min-h-0 min-w-0 flex-col g 1000,100 424x655 bw=1px r=16px ctx=1rem inset=1.25rem floor=4px shadow=rgba(255, 255, 255, 0.08) 0px 1px 0px 0p bg=color(srgb 0.2074 0.165013",
+   "MAIN.relative flex-1 min-h-0 flex flex-col overflow-y-a 0,79 1440x821 bw=1px r=0px ctx=1rem inset=0px floor=4px shadow=none bg=rgba(0, 0, 0, 0)",
+   "DIV.app-shell h-dvh flex flex-col bg-background text-f 0,0 1440x900 bw=0px r=0px ctx=1rem inset=0px floor=4px shadow=none bg=rgb(11, 10, 9)"
+  ]
+ },
+ "dark-390": {
+  "eqApi": [
+   "equations/compute start=147 dur=2529 ttfb=2528"
+  ],
+  "F7": [
+   ".control-row-track 314x24 border=0px rgb(233, 230, 226) shadow=none bg=rgba(0, 0, 0, 0) r=0px",
+   ".slider-track 314x24 border=0px rgb(233, 230, 226) shadow=oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset bg=image r=9999px",
+   ".track-well 314x24 border=0px rgb(233, 230, 226) shadow=oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset bg=image r=9999px",
+   ".slider-range 22x24 border=0px rgb(233, 230, 226) shadow=none bg=rgba(0, 0, 0, 0) r=0px",
+   ".slider-thumb 12x24 border=2px rgb(11, 10, 9) shadow=color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px bg=oklch(0.693 0.151 28.1) r=6.4px"
+  ],
+  "F6": [
+   "Navigate — curre box=24x24 ink=12x16",
+   "Navigate — curre box=16x16 ink=8x4",
+   "Log in box=24x24 ink=18x18",
+   "Dark mode box=24x24 ink=13x17"
+  ],
+  "F5": [
+   "DIV.configurator-layer 17,129 356x144 bw=1px r=4px ctx=1rem inset=1.25rem floor=4px shadow=none bg=color(srgb 0.914 0.9 0.886",
+   "ASIDE.configurator-aside flex min-h-0 min-w-0 flex-col g 16,128 358x615 bw=1px r=16px ctx=1rem inset=1.25rem floor=4px shadow=rgba(255, 255, 255, 0.08) 0px 1px 0px 0p bg=color(srgb 0.2074 0.165013",
+   "MAIN.relative flex-1 min-h-0 flex flex-col overflow-y-a 0,71 390x773 bw=1px r=0px ctx=1rem inset=0px floor=4px shadow=none bg=rgba(0, 0, 0, 0)",
+   "DIV.app-shell h-dvh flex flex-col bg-background text-f 0,0 390x844 bw=0px r=0px ctx=1rem inset=0px floor=4px shadow=none bg=rgb(11, 10, 9)"
+  ]
+ },
+ "V1": {
+  "360": "app:291x56 run=267/267 plateR=9999px/9999px · small:0x0 run=0/0 plateR=calc(0% + 16px)/50% · anim:0x0 run=0/0 plateR=calc(0% + 16px)/50%",
+  "390": "app:358x56 run=334/334 plateR=9999px/9999px · small:0x0 run=0/0 plateR=calc(0% + 16px)/50% · anim:0x0 run=0/0 plateR=calc(0% + 16px)/50%",
+  "480": "app:358x56 run=334/334 plateR=9999px/9999px · small:0x0 run=0/0 plateR=calc(0% + 16px)/50% · anim:0x0 run=0/0 plateR=calc(0% + 16px)/50%",
+  "600": "app:359x56 run=335/335 plateR=9999px/9999px · small:0x0 run=0/0 plateR=calc(0% + 16px)/50% · anim:0x0 run=0/0 plateR=calc(0% + 16px)/50%",
+  "768": "app:543x56 run=519/519 plateR=9999px/9999px · small:0x0 run=0/0 plateR=calc(0% + 16px)/50% · anim:0x0 run=0/0 plateR=calc(0% + 16px)/50%",
+  "900": "app:546x56 run=522/522 plateR=9999px/9999px · small:96x56 run=274/96 plateR=50%/calc(0% + 16px) · anim:102x56 run=102/102 plateR=9999px/9999px",
+  "1024": "app:548x56 run=524/524 plateR=9999px/9999px · small:96x56 run=274/96 plateR=50%/calc(0% + 16px) · anim:102x56 run=102/102 plateR=9999px/9999px",
+  "1280": "app:553x56 run=529/529 plateR=9999px/9999px · small:96x56 run=274/96 plateR=50%/calc(0% + 16px) · anim:102x56 run=102/102 plateR=9999px/9999px",
+  "1440": "app:555x56 run=531/531 plateR=9999px/9999px · small:96x56 run=274/96 plateR=50%/calc(0% + 16px) · anim:102x56 run=102/102 plateR=9999px/9999px"
+ }
+}

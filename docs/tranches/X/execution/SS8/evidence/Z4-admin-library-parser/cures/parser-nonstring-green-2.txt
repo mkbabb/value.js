@@ -1,0 +1,10 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/parser-totality.test.ts (132 tests) 21ms
+
+ Test Files  1 passed (1)
+      Tests  132 passed (132)
+   Start at  17:56:54
+   Duration  805ms (transform 219ms, setup 52ms, collect 290ms, tests 21ms, environment 218ms, prepare 47ms)
+

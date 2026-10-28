@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, useTemplateRef } from "vue";
+import { ref, computed, watch, onBeforeUnmount, onMounted, useTemplateRef } from "vue";
 import { debounce } from "../../../shared/debounce";
 
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
+// X.W11.p2 — the house code-plate ink rides its consumer (foundation.css no longer imports it).
+import "../../../styles/hljs.css";
 
 hljs.registerLanguage("css", css);
 
@@ -78,7 +80,28 @@ watch(() => modelValue, (newVal) => {
     render(newVal);
 });
 
-onMounted(() => render(modelValue));
+// OD19 repair 1 (C1-V-05): the mount paints the text PLAIN and leaves the
+// highlighting to an idle slice. hljs's tokenizer ran inside the incoming
+// pane's mount frame on the Home → Gradient switch (12–13 ms of a 72–93 ms
+// frame on ANGLE-Metal, `OD19/value/after/repair-1/v05/`), for a well that sits
+// below the fold. The plain text is the same characters in the same box, so
+// the crayons arrive with no layout change. Safari has no
+// `requestIdleCallback`; a short timer stands in.
+let cancelIdle = () => {};
+onMounted(() => {
+    if (editorRef.value) editorRef.value.textContent = modelValue;
+    const paint = () => {
+        if (!focused.value) render(modelValue);
+    };
+    if (typeof requestIdleCallback === "function") {
+        const id = requestIdleCallback(paint, { timeout: 1000 });
+        cancelIdle = () => cancelIdleCallback(id);
+    } else {
+        const id = window.setTimeout(paint, 200);
+        cancelIdle = () => window.clearTimeout(id);
+    }
+});
+onBeforeUnmount(() => cancelIdle());
 </script>
 
 <template>

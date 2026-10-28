@@ -1,0 +1,250 @@
+{
+ "theme": "dark",
+ "viewport": {
+  "width": 1440,
+  "height": 900
+ },
+ "geo": {
+  "inner": [
+   1440,
+   900
+  ],
+  "overlay": {
+   "x": 224,
+   "y": 201.5625,
+   "width": 462,
+   "height": 713.625,
+   "top": 201.5625,
+   "right": 686,
+   "bottom": 915.1875,
+   "left": 224
+  },
+  "workbenchRoot": {
+   "x": 224,
+   "y": 201.5625,
+   "width": 462,
+   "height": 713.625,
+   "top": 201.5625,
+   "right": 686,
+   "bottom": 915.1875,
+   "left": 224
+  },
+  "pane": {
+   "x": 199,
+   "y": 88,
+   "width": 512,
+   "height": 844.1875,
+   "top": 88,
+   "right": 711,
+   "bottom": 932.1875,
+   "left": 199
+  },
+  "viewport": {
+   "x": 225,
+   "y": 258.5625,
+   "width": 460,
+   "height": 655.625,
+   "top": 258.5625,
+   "right": 685,
+   "bottom": 914.1875,
+   "left": 225
+  },
+  "canvasDrawn": {
+   "x": 225,
+   "y": 442.625,
+   "width": 460,
+   "height": 287.5,
+   "top": 442.625,
+   "right": 685,
+   "bottom": 730.125,
+   "left": 225
+  },
+  "transform": {
+   "panX": 2.84217e-14,
+   "panY": 184.062,
+   "zoom": 0.2875,
+   "w": 1600,
+   "h": 1000
+  },
+  "scroller": null,
+  "docScroll": [
+   940,
+   900
+  ],
+  "letterbox": {
+   "top": 184.1,
+   "bottom": 184.1,
+   "left": 0,
+   "right": 0
+  }
+ },
+ "contrast": {
+  "readoutVsGround": [
+   2.204,
+   1.513,
+   1.289
+  ],
+  "readoutGround": [
+   [
+    154,
+    82,
+    70,
+    255
+   ],
+   [
+    208,
+    94,
+    59,
+    255
+   ],
+   [
+    208,
+    117,
+    50,
+    255
+   ]
+  ],
+  "iconVsGround": 6.839,
+  "iconGround": [
+   86,
+   72,
+   88,
+   255
+  ],
+  "readout": {
+   "text": "Click to sample",
+   "color": "oklch(0.707439 0.00382185 41.8684)",
+   "bytes": [
+    163,
+    160,
+    159,
+    255
+   ],
+   "cls": "text-mono-small text-muted-foreground truncate select-all",
+   "rect": {
+    "x": 342,
+    "y": 219.078125,
+    "width": 147.609375,
+    "height": 22.96875,
+    "top": 219.078125,
+    "right": 489.609375,
+    "bottom": 242.046875,
+    "left": 342
+   }
+  },
+  "icon": {
+   "color": "color(srgb 0.914 0.9 0.886 / 0.8)",
+   "bytes": [
+    232,
+    230,
+    226,
+    204
+   ],
+   "rect": {
+    "x": 249,
+    "y": 222.5625,
+    "width": 16,
+    "height": 16,
+    "top": 222.5625,
+    "right": 265,
+    "bottom": 238.5625,
+    "left": 249
+   }
+  }
+ },
+ "hover": {
+  "w": 285.4,
+  "text": "oklch(76.95% 0.1276 63.13deg)"
+ },
+ "pinned": {
+  "w": 227,
+  "text": "oklch(76.95% 0.1276 63.13deg)"
+ },
+ "reflowPx": -58.4,
+ "buttons": [
+  "Close eyedropper",
+  "Add to palette",
+  "Apply as current color"
+ ],
+ "loupe": {
+  "borderColor": "oklch(0.73424 0.175657 122)",
+  "bytes": [
+   151,
+   185,
+   13,
+   255
+  ],
+  "rect": {
+   "x": 400,
+   "y": 531.375,
+   "width": 110,
+   "height": 110,
+   "top": 531.375,
+   "right": 510,
+   "bottom": 641.375,
+   "left": 400
+  },
+  "cls": "loupe loupe-pinned"
+ },
+ "ring": {
+  "tokenVsOutside": [
+   1.271,
+   1.414,
+   1.148,
+   1.229
+  ],
+  "outside": [
+   [
+    240,
+    181,
+    153,
+    255
+   ],
+   [
+    243,
+    198,
+    106,
+    255
+   ],
+   [
+    249,
+    165,
+    109,
+    255
+   ],
+   [
+    234,
+    182,
+    101,
+    255
+   ]
+  ],
+  "paintedBand": [
+   [
+    166,
+    196,
+    37,
+    255
+   ],
+   [
+    168,
+    195,
+    35,
+    255
+   ]
+  ]
+ },
+ "census": {
+  "tabbableInDocument": 20,
+  "insideOverlay": 3,
+  "outsideOverlay": 17,
+  "inPane": 16,
+  "behindOverlayInPane": 13,
+  "overlayRole": null,
+  "ariaModal": null
+ },
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

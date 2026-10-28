@@ -1,0 +1,164 @@
+{
+ "empty": {
+  "label": "Upload image",
+  "cls": "group relative transition-colors flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-pointer dashed-well min-h-[180px] max-h-[min(320",
+  "borderStyle": "dashed",
+  "borderWidth": "1px",
+  "borderColor": "rgb(0, 0, 0)",
+  "forced": true
+ },
+ "populated": {
+  "label": "Sample colors from the image",
+  "cls": "group relative transition-colors flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-crosshair rounded-panel border border-transparen",
+  "borderStyle": "solid",
+  "borderWidth": "1px",
+  "borderColor": "rgb(0, 0, 0)",
+  "forced": true
+ },
+ "populatedTopEdgePx": [
+  [
+   0,
+   0,
+   0,
+   255
+  ],
+  [
+   0,
+   0,
+   0,
+   255
+  ],
+  [
+   0,
+   0,
+   0,
+   255
+  ],
+  [
+   0,
+   0,
+   0,
+   255
+  ],
+  [
+   0,
+   0,
+   0,
+   255
+  ],
+  [
+   0,
+   0,
+   0,
+   255
+  ],
+  [
+   0,
+   0,
+   0,
+   255
+  ],
+  [
+   0,
+   0,
+   0,
+   255
+  ],
+  [
+   0,
+   0,
+   0,
+   255
+  ],
+  [
+   0,
+   0,
+   0,
+   255
+  ]
+ ],
+ "hovered": {
+  "label": "Sample colors from the image",
+  "cls": "group relative transition-colors flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-crosshair rounded-panel border border-transparen",
+  "borderStyle": "solid",
+  "borderWidth": "1px",
+  "borderColor": "rgb(0, 0, 0)",
+  "forced": true
+ },
+ "ec8Rail": {
+  "bg": "rgb(255, 255, 255)",
+  "bgImage": "none",
+  "boxShadow": "none",
+  "forcedAdjust": "auto",
+  "rect": {
+   "x": 224,
+   "y": 582.03125,
+   "width": 462,
+   "height": 24,
+   "top": 582.03125,
+   "right": 686,
+   "bottom": 606.03125,
+   "left": 224
+  },
+  "railPx": [
+   [
+    53,
+    49,
+    102,
+    255
+   ],
+   [
+    52,
+    48,
+    100,
+    255
+   ],
+   [
+    0,
+    0,
+    0,
+    255
+   ],
+   [
+    239,
+    235,
+    230,
+    255
+   ],
+   [
+    239,
+    235,
+    230,
+    255
+   ],
+   [
+    241,
+    237,
+    232,
+    255
+   ],
+   [
+    242,
+    238,
+    233,
+    255
+   ],
+   [
+    240,
+    235,
+    231,
+    255
+   ],
+   [
+    240,
+    236,
+    232,
+    255
+   ]
+  ]
+ },
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

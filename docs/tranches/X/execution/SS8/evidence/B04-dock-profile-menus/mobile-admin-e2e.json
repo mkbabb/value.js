@@ -1,0 +1,46 @@
+{
+ "tokenPresent": true,
+ "steps": [
+  {
+   "before": [
+    "Login",
+    "Share color",
+    "GitHub"
+   ]
+  },
+  {
+   "afterSubmit": {
+    "adminStored": true,
+    "slugLayerActive": false,
+    "alerts": [],
+    "fieldError": null,
+    "invalid": null
+   }
+  },
+  {
+   "adminMenu": [
+    "admin",
+    "Switch account",
+    "Sign out of admin",
+    "Share color",
+    "GitHub"
+   ]
+  },
+  {
+   "afterSignOut": {
+    "adminStored": false
+   }
+  },
+  {
+   "menuAfterSignOut": [
+    "Login",
+    "Share color",
+    "GitHub"
+   ]
+  }
+ ],
+ "net": [
+  "GET /admin/tags 200"
+ ],
+ "errs": []
+}

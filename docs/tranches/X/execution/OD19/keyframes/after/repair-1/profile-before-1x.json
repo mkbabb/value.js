@@ -1,0 +1,292 @@
+{
+ "profileTop": [
+  "1399.0ms (idle) :-1:-1",
+  "255.7ms (program) :-1:-1",
+  "25.8ms getPropertyValue :-1:-1",
+  "21.7ms getBoundingClientRect :-1:-1",
+  "19.3ms Ic index-lqyUIOgd.js:1:67047",
+  "14.9ms Fc index-lqyUIOgd.js:1:66986",
+  "8.8ms elementsFromPoint :-1:-1",
+  "7.4ms focus :-1:-1",
+  "6.4ms f index-lqyUIOgd.js:14:4617",
+  "6.1ms (garbage collector) :-1:-1",
+  "5.1ms Je keyboard-Ch7CoaCR.js:1:16274",
+  "4.8ms resolve :-1:-1",
+  "3.5ms r index-lqyUIOgd.js:2:3501",
+  "3.4ms Jf vendor-reka-ui-C_Tr5-Vi.js:2:108174",
+  "2.9ms get offsetWidth :-1:-1",
+  "2.8ms get vendor-reka-ui-C_Tr5-Vi.js:0:12776",
+  "2.5ms getAnimations :-1:-1",
+  "2.2ms Y vendor-reka-ui-C_Tr5-Vi.js:2:41275",
+  "2.2ms Al index-lqyUIOgd.js:1:93203",
+  "2.2ms jl index-lqyUIOgd.js:1:93636",
+  "2.0ms s vendor-reka-ui-C_Tr5-Vi.js:2:26978",
+  "1.8ms il vendor-reka-ui-C_Tr5-Vi.js:2:54312",
+  "1.8ms (anon) index-lqyUIOgd.js:1:93713",
+  "1.8ms Ln vendor-reka-ui-C_Tr5-Vi.js:0:22709",
+  "1.8ms co vendor-reka-ui-C_Tr5-Vi.js:2:20553",
+  "1.8ms In vendor-reka-ui-C_Tr5-Vi.js:0:22643",
+  "1.7ms r vendor-reka-ui-C_Tr5-Vi.js:0:25084",
+  "1.6ms zc vendor-reka-ui-C_Tr5-Vi.js:2:52043",
+  "1.4ms setProperty :-1:-1",
+  "1.3ms set vendor-reka-ui-C_Tr5-Vi.js:0:13387"
+ ],
+ "base": [
+  {
+   "target": "Easing",
+   "rest": 35,
+   "worst": 159,
+   "over50": 5,
+   "marks": {
+    "prepare": 44,
+    "total": 641,
+    "commit": 135
+   },
+   "loaf": [
+    [
+     -145,
+     145,
+     4,
+     0
+    ],
+    [
+     105,
+     164,
+     16,
+     139
+    ],
+    [
+     312,
+     91,
+     8,
+     0
+    ],
+    [
+     405,
+     98,
+     6,
+     0
+    ],
+    [
+     512,
+     86,
+     6,
+     0
+    ],
+    [
+     599,
+     88,
+     6,
+     0
+    ]
+   ]
+  },
+  {
+   "target": "Spring",
+   "rest": 10,
+   "worst": 102,
+   "over50": 5,
+   "marks": {
+    "prepare": 6,
+    "total": 524,
+    "commit": 73
+   },
+   "loaf": [
+    [
+     45,
+     99,
+     13,
+     77
+    ],
+    [
+     173,
+     89,
+     7,
+     0
+    ],
+    [
+     262,
+     94,
+     7,
+     0
+    ],
+    [
+     357,
+     99,
+     11,
+     7
+    ],
+    [
+     457,
+     85,
+     6,
+     0
+    ]
+   ]
+  }
+ ],
+ "noBackdrop": [
+  {
+   "target": "Easing",
+   "rest": 11,
+   "worst": 144,
+   "over50": 5,
+   "marks": {
+    "prepare": 40,
+    "total": 534,
+    "commit": 123
+   },
+   "loaf": [
+    [
+     85,
+     154,
+     18,
+     127
+    ],
+    [
+     317,
+     53,
+     6,
+     0
+    ],
+    [
+     370,
+     71,
+     6,
+     0
+    ],
+    [
+     442,
+     73,
+     7,
+     0
+    ],
+    [
+     516,
+     52,
+     6,
+     0
+    ]
+   ]
+  },
+  {
+   "target": "Spring",
+   "rest": 11,
+   "worst": 95,
+   "over50": 4,
+   "marks": {
+    "prepare": 6,
+    "total": 440,
+    "commit": 76
+   },
+   "loaf": [
+    [
+     51,
+     102,
+     16,
+     79
+    ],
+    [
+     183,
+     52,
+     7,
+     0
+    ],
+    [
+     235,
+     62,
+     7,
+     0
+    ],
+    [
+     298,
+     60,
+     6,
+     0
+    ],
+    [
+     359,
+     65,
+     11,
+     6
+    ]
+   ]
+  }
+ ],
+ "noVtAnim": [
+  {
+   "target": "Easing",
+   "rest": 32,
+   "worst": 138,
+   "over50": 4,
+   "marks": {
+    "prepare": 9,
+    "total": 195,
+    "commit": 121
+   },
+   "loaf": [
+    [
+     89,
+     142,
+     11,
+     123
+    ],
+    [
+     276,
+     52,
+     4,
+     0
+    ],
+    [
+     329,
+     53,
+     1,
+     0
+    ],
+    [
+     443,
+     55,
+     1,
+     0
+    ]
+   ]
+  },
+  {
+   "target": "Spring",
+   "rest": 11,
+   "worst": 91,
+   "over50": 4,
+   "marks": {
+    "prepare": 5,
+    "total": 124,
+    "commit": 75
+   },
+   "loaf": [
+    [
+     53,
+     95,
+     12,
+     72
+    ],
+    [
+     235,
+     60,
+     3,
+     0
+    ],
+    [
+     324,
+     66,
+     5,
+     0
+    ],
+    [
+     390,
+     63,
+     5,
+     0
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,422 @@
+(node:50534) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 15 tests using 1 worker
+
+[1A[2K(node:50563) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/ content=811ms paneRequestGap=401ms
+
+[1A[2K  1) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: AboutPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m401[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-02d03-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:50863) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/palettes content=606ms paneRequestGap=300ms
+
+[1A[2K  2) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: PalettesPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m300[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-0096e-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:51125) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/browse content=858ms paneRequestGap=286ms
+
+[1A[2K  3) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: BrowsePane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m286[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-6ba89-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:51390) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/extract cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/extract cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/extract content=641ms paneRequestGap=280ms
+
+[1A[2K  4) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/extract cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: ExtractPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m280[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-ca677-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:51683) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/mix content=825ms paneRequestGap=406ms
+
+[1A[2K  5) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: MixPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m406[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-73485-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:51947) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[6/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/generate cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/generate cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/generate content=663ms paneRequestGap=286ms
+
+[1A[2K  6) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/generate cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: GeneratePane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m286[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-ab54a-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:52165) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[7/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/gradient cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/gradient cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/gradient content=710ms paneRequestGap=259ms
+
+[1A[2K  7) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/gradient cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: GradientPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m259[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-ac333-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:52429) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[8/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/atmosphere content=412ms paneRequestGap=258ms
+
+[1A[2K  8) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: AuroraPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m258[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-4f533-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:52655) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[9/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/blob cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/blob cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/blob content=571ms paneRequestGap=268ms
+
+[1A[2K  9) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/blob cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: BlobPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m268[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-17a56-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:52946) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[10/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/users cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/users cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/admin/users content=726ms paneRequestGap=294ms
+
+[1A[2K  10) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/users cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: AdminPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m294[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-864dc-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:53272) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[11/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/names cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/names cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/admin/names content=749ms paneRequestGap=313ms
+
+[1A[2K  11) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/names cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: AdminPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m313[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-e07c8-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:53625) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[12/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/admin/audit content=683ms paneRequestGap=279ms
+
+[1A[2K  12) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: AdminPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m279[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-aef97-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:53947) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[13/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/admin/flagged content=604ms paneRequestGap=261ms
+
+[1A[2K  13) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: AdminPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m261[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-33f07-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:54246) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[14/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms
+[od19-route-load] #/admin/tags content=722ms paneRequestGap=291ms
+
+[1A[2K  14) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+
+    Error: AdminPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m291[39m
+
+      153 |             if (chunk) {
+      154 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 155 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      156 |                     PANE_REQUEST_GAP_MS,
+      157 |                 );
+      158 |             }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/od19-route-load.spec.ts:155:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-a3869-ent-≤-2500-ms-hop-≤-2500-ms-smoke-perf/error-context.md
+
+
+[1A[2K(node:54616) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[15/15] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/no-such-route cold: pane chunk early, content ≤ 1500 ms, hop ≤ 2500 ms
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/no-such-route cold: pane chunk early, content ≤ 1500 ms, hop ≤ 2500 ms
+[od19-route-load] #/no-such-route content=81ms paneRequestGap=nullms
+
+[1A[2K[od19-route-load] #/no-such-route hop=896ms
+
+[1A[2K  14 failed
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/extract cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/generate cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/gradient cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/blob cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/users cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/names cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:122:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop ≤ 2500 ms 
+  1 passed (1.9m)

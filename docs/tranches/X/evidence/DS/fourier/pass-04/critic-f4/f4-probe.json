@@ -1,0 +1,274 @@
+{
+ "shadows-light": [
+  {
+   "t": "ℱourier analysis",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Visualize",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Log in",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Image",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Replace image",
+   "emph": "secondary",
+   "bg": "oklab(0.958891 0.0089115 0.0269842)",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in"
+  },
+  {
+   "t": "Basis",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "emph": "quiet",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "ℱ Epicycles",
+   "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in"
+  },
+  {
+   "t": "ℱ Series",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in"
+  },
+  {
+   "t": "Off",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in"
+  },
+  {
+   "t": "Tₙ Chebyshev",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in"
+  },
+  {
+   "t": "Pₙ Legendre",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in"
+  },
+  {
+   "t": "Contour",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Auto",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in"
+  },
+  {
+   "t": "Advanced",
+   "emph": "quiet",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Coefficients201 harmonic",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Show more",
+   "emph": "quiet",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  }
+ ],
+ "shadows-dark": [
+  {
+   "t": "ℱourier analysis",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Visualize",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Log in",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Image",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Replace image",
+   "emph": "secondary",
+   "bg": "oklab(0.31489 0.0117949 0.0248798)",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i"
+  },
+  {
+   "t": "Basis",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "",
+   "emph": "quiet",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "ℱ Epicycles",
+   "bg": "color(srgb 0.921569 0.45098 0.4 / 0.12)",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i"
+  },
+  {
+   "t": "ℱ Series",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i"
+  },
+  {
+   "t": "Off",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i"
+  },
+  {
+   "t": "Tₙ Chebyshev",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i"
+  },
+  {
+   "t": "Pₙ Legendre",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i"
+  },
+  {
+   "t": "Contour",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Auto",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i"
+  },
+  {
+   "t": "Advanced",
+   "emph": "quiet",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Coefficients201 harmonic",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  },
+  {
+   "t": "Show more",
+   "emph": "quiet",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bs": "none"
+  }
+ ]
+}

@@ -1,0 +1,2439 @@
+{
+ "light-1440": {
+  "load": {
+   "/": {
+    "wallLoad": 137,
+    "sceneReadyWall": 276,
+    "dcl": 134,
+    "load": 136,
+    "fcp": 252,
+    "nRes": 250,
+    "xferKB": 8189
+   },
+   "/cube": {
+    "wallLoad": 131,
+    "sceneReadyWall": 308,
+    "dcl": 129,
+    "load": 130,
+    "fcp": 280,
+    "nRes": 250,
+    "xferKB": 8177
+   },
+   "/spring": {
+    "wallLoad": 109,
+    "sceneReadyWall": 300,
+    "dcl": 107,
+    "load": 109,
+    "fcp": 216,
+    "nRes": 250,
+    "xferKB": 8177
+   },
+   "/easing": {
+    "wallLoad": 118,
+    "sceneReadyWall": 358,
+    "dcl": 116,
+    "load": 118,
+    "fcp": 224,
+    "nRes": 250,
+    "xferKB": 8177
+   },
+   "/sequence": {
+    "wallLoad": 316,
+    "sceneReadyWall": 351,
+    "dcl": 136,
+    "load": 312,
+    "fcp": 252,
+    "nRes": 250,
+    "xferKB": 8177
+   },
+   "/amiga": {
+    "wallLoad": 131,
+    "sceneReadyWall": 363,
+    "dcl": 128,
+    "load": 129,
+    "fcp": 248,
+    "nRes": 250,
+    "xferKB": 8177
+   },
+   "/square": {
+    "wallLoad": 144,
+    "sceneReadyWall": 391,
+    "dcl": 141,
+    "load": 143,
+    "fcp": 268,
+    "nRes": 250,
+    "xferKB": 8177
+   }
+  },
+  "K1": {
+   "present": true,
+   "x": 28.1875,
+   "y": 685.234375,
+   "w": 216.9375,
+   "h": 36
+  },
+  "viewportCx": 720,
+  "K2": {
+   "topBand": {
+    "x": 475.2,
+    "w": 964.8,
+    "y": 43.3,
+    "h": 62.9,
+    "cx": 957.6,
+    "radius": "0px",
+    "overflowX": "visible",
+    "scrollW": 965,
+    "clientW": 965
+   },
+   "topDock": {
+    "x": 929.6,
+    "w": 56,
+    "y": 43.3,
+    "h": 56,
+    "cx": 957.6,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 56,
+    "clientW": 56
+   },
+   "bottomBand": {
+    "x": 475.2,
+    "w": 964.8,
+    "y": 758.2,
+    "h": 72.9,
+    "cx": 957.6,
+    "radius": "0px",
+    "overflowX": "visible",
+    "scrollW": 965,
+    "clientW": 965
+   },
+   "bottomDock": {
+    "x": 929.6,
+    "w": 56,
+    "y": 764.2,
+    "h": 56,
+    "cx": 957.6,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 56,
+    "clientW": 56
+   },
+   "insetToken": "475.2px",
+   "pane": {
+    "x": 43.2,
+    "w": 475.2,
+    "y": 54,
+    "h": 779.1,
+    "cx": 280.8,
+    "radius": "0px",
+    "overflowX": "hidden",
+    "scrollW": 475,
+    "clientW": 475
+   },
+   "afterPane": {
+    "topDock": {
+     "x": 503.3,
+     "w": 433.4,
+     "y": 43.3,
+     "h": 56,
+     "cx": 720,
+     "radius": "9999px",
+     "overflowX": "visible",
+     "scrollW": 433,
+     "clientW": 433
+    },
+    "bottomDock": {
+     "x": 692,
+     "w": 56,
+     "y": 764.2,
+     "h": 56,
+     "cx": 720,
+     "radius": "9999px",
+     "overflowX": "visible",
+     "scrollW": 56,
+     "clientW": 56
+    },
+    "insetToken": ""
+   }
+  },
+  "K8": {
+   "plate": {
+    "x": 740.9,
+    "w": 433.4,
+    "y": 43.3,
+    "h": 56,
+    "cx": 957.6,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 433,
+    "clientW": 433
+   },
+   "plateChildren": [
+    {
+     "cls": "dock-layer dock-layer--full dock-run is-active",
+     "ox": "auto",
+     "radius": "0px",
+     "x": 753,
+     "w": 409,
+     "sw": 409,
+     "cw": 409,
+     "sl": 0,
+     "mask": "none"
+    }
+   ],
+   "surfaceItems": [
+    {
+     "label": "Controls",
+     "surface": "controls",
+     "disabled": false
+    },
+    {
+     "label": "Keyframes",
+     "surface": "keyframes",
+     "disabled": false
+    },
+    {
+     "label": "Timeline",
+     "surface": "timeline",
+     "disabled": false
+    },
+    {
+     "label": "Matrix: select the Matrix channel",
+     "surface": "matrix-controls",
+     "disabled": false
+    }
+   ]
+  },
+  "paneOpen": false,
+  "K3": [
+   {
+    "text": "alternate",
+    "svgs": 1
+   },
+   {
+    "text": "forwards",
+    "svgs": 1
+   }
+  ],
+  "K4": {
+   "rowH": 36,
+   "rowY": 616,
+   "trackH": 64,
+   "trackY": 660
+  },
+  "K5": [
+   {
+    "tag": "BUTTON",
+    "cls": "dock-trigger dock-select-trigger dock-label max-[399px]:min-h-[calc(1lh_+_2_*_var(--dock-t",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+    "radius": "9999px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-layer dock-layer--full dock-run is-active",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "auto hidden"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-layers",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-controls",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "9999px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "pointer-events-auto dock-vt-group",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   }
+  ],
+  "K7": {
+   "distinctInks": [
+    [
+     "rgb(28, 25, 23)",
+     25
+    ],
+    [
+     "rgb(124, 102, 80)",
+     26
+    ],
+    [
+     "rgb(126, 90, 204)",
+     8
+    ]
+   ],
+   "status": "Keyframes"
+  },
+  "routeTrace": {
+   "frames": 236,
+   "maxDt": 114,
+   "framesOver34ms": 7,
+   "pathChangeAt": 443,
+   "skeletonFrames": 0,
+   "topDockXW": [
+    "741:433",
+    "736:443"
+   ],
+   "sample": [
+    [
+     4,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     54,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     104,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     167,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     204,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     253,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     304,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     478,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     839,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     927,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     997,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1066,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1146,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1196,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1246,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1296,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1346,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1396,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1446,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1496,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1547,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1596,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1646,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1696,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1746,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1796,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1846,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1896,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1946,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1996,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2046,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2096,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2146,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2196,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2246,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2296,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2346,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2396,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2446,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2496,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ]
+   ]
+  }
+ },
+ "light-390": {
+  "load": {
+   "/": {
+    "wallLoad": 115,
+    "sceneReadyWall": 246,
+    "dcl": 113,
+    "load": 115,
+    "fcp": 228,
+    "nRes": 250,
+    "xferKB": 8136
+   },
+   "/cube": {
+    "wallLoad": 152,
+    "sceneReadyWall": 368,
+    "dcl": 149,
+    "load": 151,
+    "fcp": 332,
+    "nRes": 250,
+    "xferKB": 8178
+   },
+   "/spring": {
+    "wallLoad": 168,
+    "sceneReadyWall": 410,
+    "dcl": 163,
+    "load": 166,
+    "fcp": 292,
+    "nRes": 250,
+    "xferKB": 8181
+   },
+   "/easing": {
+    "wallLoad": 178,
+    "sceneReadyWall": 523,
+    "dcl": 174,
+    "load": 177,
+    "fcp": 316,
+    "nRes": 250,
+    "xferKB": 8173
+   },
+   "/sequence": {
+    "wallLoad": 181,
+    "sceneReadyWall": 436,
+    "dcl": 177,
+    "load": 179,
+    "fcp": 332,
+    "nRes": 250,
+    "xferKB": 8178
+   },
+   "/amiga": {
+    "wallLoad": 183,
+    "sceneReadyWall": 492,
+    "dcl": 179,
+    "load": 181,
+    "fcp": 332,
+    "nRes": 250,
+    "xferKB": 8185
+   },
+   "/square": {
+    "wallLoad": 163,
+    "sceneReadyWall": 470,
+    "dcl": 160,
+    "load": 162,
+    "fcp": 304,
+    "nRes": 250,
+    "xferKB": 8128
+   }
+  },
+  "K1": {
+   "present": true,
+   "x": 99.359375,
+   "y": 654.171875,
+   "w": 191.28125,
+   "h": 36
+  },
+  "viewportCx": 195,
+  "K2": {
+   "topBand": {
+    "x": 0,
+    "w": 390,
+    "y": 29.5,
+    "h": 62,
+    "cx": 195,
+    "radius": "0px",
+    "overflowX": "visible",
+    "scrollW": 390,
+    "clientW": 390
+   },
+   "topDock": {
+    "x": 167,
+    "w": 56,
+    "y": 29.5,
+    "h": 56,
+    "cx": 195,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 56,
+    "clientW": 56
+   },
+   "bottomBand": {
+    "x": 0,
+    "w": 390,
+    "y": 722.6,
+    "h": 72,
+    "cx": 195,
+    "radius": "0px",
+    "overflowX": "visible",
+    "scrollW": 390,
+    "clientW": 390
+   },
+   "bottomDock": {
+    "x": 167,
+    "w": 56,
+    "y": 728.6,
+    "h": 56,
+    "cx": 195,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 56,
+    "clientW": 56
+   },
+   "insetToken": "",
+   "pane": {
+    "x": 146.3,
+    "w": 206.8,
+    "y": 348.7,
+    "h": 236.1,
+    "cx": 249.7,
+    "radius": "10px",
+    "overflowX": "visible",
+    "scrollW": 196,
+    "clientW": 195
+   },
+   "afterPane": {
+    "topDock": {
+     "x": 16.7,
+     "w": 356.6,
+     "y": 29.5,
+     "h": 56,
+     "cx": 195,
+     "radius": "9999px",
+     "overflowX": "visible",
+     "scrollW": 357,
+     "clientW": 357
+    },
+    "bottomDock": {
+     "x": 167,
+     "w": 56,
+     "y": 728.6,
+     "h": 56,
+     "cx": 195,
+     "radius": "9999px",
+     "overflowX": "visible",
+     "scrollW": 56,
+     "clientW": 56
+    },
+    "insetToken": ""
+   }
+  },
+  "K8": {
+   "plate": {
+    "x": 16.7,
+    "w": 356.6,
+    "y": 29.5,
+    "h": 56,
+    "cx": 195,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 357,
+    "clientW": 357
+   },
+   "plateChildren": [
+    {
+     "cls": "dock-layer dock-layer--full dock-run is-active",
+     "ox": "auto",
+     "radius": "0px",
+     "x": 29,
+     "w": 333,
+     "sw": 333,
+     "cw": 333,
+     "sl": 0,
+     "mask": "none"
+    }
+   ],
+   "surfaceItems": [
+    {
+     "label": "Controls",
+     "surface": "controls",
+     "disabled": false
+    },
+    {
+     "label": "Keyframes",
+     "surface": "keyframes",
+     "disabled": false
+    },
+    {
+     "label": "Timeline",
+     "surface": "timeline",
+     "disabled": false
+    },
+    {
+     "label": "Matrix: select the Matrix channel",
+     "surface": "matrix-controls",
+     "disabled": false
+    }
+   ]
+  },
+  "paneOpen": true,
+  "K3": [
+   {
+    "text": "alternate",
+    "svgs": 1
+   },
+   {
+    "text": "forwards",
+    "svgs": 1
+   }
+  ],
+  "K4": {
+   "rowH": 36,
+   "rowY": 582,
+   "trackH": 64,
+   "trackY": 626
+  },
+  "K5": [
+   {
+    "tag": "BUTTON",
+    "cls": "dock-trigger dock-select-trigger dock-label max-[399px]:min-h-[calc(1lh_+_2_*_var(--dock-t",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+    "radius": "9999px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-layer dock-layer--full dock-run is-active",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "auto hidden"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-layers",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-controls",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "9999px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "pointer-events-auto dock-vt-group",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   }
+  ],
+  "K7": {
+   "distinctInks": [
+    [
+     "rgb(28, 25, 23)",
+     29
+    ],
+    [
+     "rgb(124, 102, 80)",
+     26
+    ],
+    [
+     "rgb(126, 90, 204)",
+     8
+    ]
+   ],
+   "status": "Keyframes"
+  },
+  "routeTrace": {
+   "frames": 249,
+   "maxDt": 135,
+   "framesOver34ms": 6,
+   "pathChangeAt": 474,
+   "skeletonFrames": 0,
+   "topDockXW": [
+    "17:357"
+   ],
+   "sample": [
+    [
+     5,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     56,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     112,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     179,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     231,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     281,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     331,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     555,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     728,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     840,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     916,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     973,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1032,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1088,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1142,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1189,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1239,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1289,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1340,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1389,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1439,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1489,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1539,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1589,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1639,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1689,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1738,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1790,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1839,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1889,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1939,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1989,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2039,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2089,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2139,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2189,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2239,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2289,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2339,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2389,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ]
+   ]
+  }
+ },
+ "dark-1440": {
+  "load": {
+   "/": {
+    "wallLoad": 175,
+    "sceneReadyWall": 362,
+    "dcl": 172,
+    "load": 174,
+    "fcp": 324,
+    "nRes": 250,
+    "xferKB": 8187
+   },
+   "/cube": {
+    "wallLoad": 167,
+    "sceneReadyWall": 437,
+    "dcl": 164,
+    "load": 166,
+    "fcp": 392,
+    "nRes": 250,
+    "xferKB": 8190
+   },
+   "/spring": {
+    "wallLoad": 202,
+    "sceneReadyWall": 514,
+    "dcl": 197,
+    "load": 200,
+    "fcp": 352,
+    "nRes": 250,
+    "xferKB": 8178
+   },
+   "/easing": {
+    "wallLoad": 163,
+    "sceneReadyWall": 505,
+    "dcl": 159,
+    "load": 161,
+    "fcp": 304,
+    "nRes": 250,
+    "xferKB": 8178
+   },
+   "/sequence": {
+    "wallLoad": 160,
+    "sceneReadyWall": 413,
+    "dcl": 157,
+    "load": 160,
+    "fcp": 324,
+    "nRes": 250,
+    "xferKB": 8187
+   },
+   "/amiga": {
+    "wallLoad": 173,
+    "sceneReadyWall": 521,
+    "dcl": 169,
+    "load": 172,
+    "fcp": 324,
+    "nRes": 250,
+    "xferKB": 8216
+   },
+   "/square": {
+    "wallLoad": 290,
+    "sceneReadyWall": 621,
+    "dcl": 284,
+    "load": 286,
+    "fcp": 472,
+    "nRes": 250,
+    "xferKB": 8202
+   }
+  },
+  "K1": {
+   "present": true,
+   "x": 28.1875,
+   "y": 685.234375,
+   "w": 216.9375,
+   "h": 36
+  },
+  "viewportCx": 720,
+  "K2": {
+   "topBand": {
+    "x": 475.2,
+    "w": 964.8,
+    "y": 43.3,
+    "h": 62.9,
+    "cx": 957.6,
+    "radius": "0px",
+    "overflowX": "visible",
+    "scrollW": 965,
+    "clientW": 965
+   },
+   "topDock": {
+    "x": 929.6,
+    "w": 56,
+    "y": 43.3,
+    "h": 56,
+    "cx": 957.6,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 56,
+    "clientW": 56
+   },
+   "bottomBand": {
+    "x": 475.2,
+    "w": 964.8,
+    "y": 758.2,
+    "h": 72.9,
+    "cx": 957.6,
+    "radius": "0px",
+    "overflowX": "visible",
+    "scrollW": 965,
+    "clientW": 965
+   },
+   "bottomDock": {
+    "x": 929.6,
+    "w": 56,
+    "y": 764.2,
+    "h": 56,
+    "cx": 957.6,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 56,
+    "clientW": 56
+   },
+   "insetToken": "475.2px",
+   "pane": {
+    "x": 43.2,
+    "w": 475.2,
+    "y": 54,
+    "h": 779.1,
+    "cx": 280.8,
+    "radius": "0px",
+    "overflowX": "hidden",
+    "scrollW": 475,
+    "clientW": 475
+   },
+   "afterPane": {
+    "topDock": {
+     "x": 503.3,
+     "w": 433.4,
+     "y": 43.3,
+     "h": 56,
+     "cx": 720,
+     "radius": "9999px",
+     "overflowX": "visible",
+     "scrollW": 433,
+     "clientW": 433
+    },
+    "bottomDock": {
+     "x": 692,
+     "w": 56,
+     "y": 764.2,
+     "h": 56,
+     "cx": 720,
+     "radius": "9999px",
+     "overflowX": "visible",
+     "scrollW": 56,
+     "clientW": 56
+    },
+    "insetToken": ""
+   }
+  },
+  "K8": {
+   "plate": {
+    "x": 740.9,
+    "w": 433.4,
+    "y": 43.3,
+    "h": 56,
+    "cx": 957.6,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 433,
+    "clientW": 433
+   },
+   "plateChildren": [
+    {
+     "cls": "dock-layer dock-layer--full dock-run is-active",
+     "ox": "auto",
+     "radius": "0px",
+     "x": 753,
+     "w": 409,
+     "sw": 409,
+     "cw": 409,
+     "sl": 0,
+     "mask": "none"
+    }
+   ],
+   "surfaceItems": [
+    {
+     "label": "Controls",
+     "surface": "controls",
+     "disabled": false
+    },
+    {
+     "label": "Keyframes",
+     "surface": "keyframes",
+     "disabled": false
+    },
+    {
+     "label": "Timeline",
+     "surface": "timeline",
+     "disabled": false
+    },
+    {
+     "label": "Matrix: select the Matrix channel",
+     "surface": "matrix-controls",
+     "disabled": false
+    }
+   ]
+  },
+  "paneOpen": false,
+  "K3": [
+   {
+    "text": "alternate",
+    "svgs": 1
+   },
+   {
+    "text": "forwards",
+    "svgs": 1
+   }
+  ],
+  "K4": {
+   "rowH": 36,
+   "rowY": 616,
+   "trackH": 64,
+   "trackY": 660
+  },
+  "K5": [
+   {
+    "tag": "BUTTON",
+    "cls": "dock-trigger dock-select-trigger dock-label max-[399px]:min-h-[calc(1lh_+_2_*_var(--dock-t",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+    "radius": "9999px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-layer dock-layer--full dock-run is-active",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "auto hidden"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-layers",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-controls",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "9999px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "pointer-events-auto dock-vt-group",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   }
+  ],
+  "K7": {
+   "distinctInks": [
+    [
+     "rgb(233, 230, 226)",
+     25
+    ],
+    [
+     "rgb(172, 160, 145)",
+     26
+    ],
+    [
+     "rgb(190, 149, 236)",
+     8
+    ]
+   ],
+   "status": "Keyframes"
+  },
+  "routeTrace": {
+   "frames": 202,
+   "maxDt": 176,
+   "framesOver34ms": 11,
+   "pathChangeAt": 519,
+   "skeletonFrames": 0,
+   "topDockXW": [
+    "741:433",
+    "736:443"
+   ],
+   "sample": [
+    [
+     1,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     52,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     104,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     154,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     211,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     260,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     310,
+     741,
+     433,
+     930,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     545,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1028,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1170,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1283,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1395,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1434,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1484,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1534,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1584,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1634,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1684,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1734,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1784,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1833,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1881,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1931,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1981,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2030,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2081,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2130,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2180,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2231,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2280,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2331,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2380,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2430,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2480,
+     736,
+     443,
+     930,
+     56,
+     0,
+     "#/spring"
+    ]
+   ]
+  }
+ },
+ "dark-390": {
+  "load": {
+   "/": {
+    "wallLoad": 695,
+    "sceneReadyWall": 1177,
+    "dcl": 686,
+    "load": 690,
+    "fcp": 1080,
+    "nRes": 250,
+    "xferKB": 8213
+   },
+   "/cube": {
+    "wallLoad": 844,
+    "sceneReadyWall": 1508,
+    "dcl": 835,
+    "load": 838,
+    "fcp": 1380,
+    "nRes": 250,
+    "xferKB": 8173
+   },
+   "/spring": {
+    "wallLoad": 892,
+    "sceneReadyWall": 1515,
+    "dcl": 886,
+    "load": 889,
+    "fcp": 1180,
+    "nRes": 250,
+    "xferKB": 8178
+   },
+   "/easing": {
+    "wallLoad": 732,
+    "sceneReadyWall": 1356,
+    "dcl": 722,
+    "load": 725,
+    "fcp": 976,
+    "nRes": 250,
+    "xferKB": 8178
+   },
+   "/sequence": {
+    "wallLoad": 303,
+    "sceneReadyWall": 757,
+    "dcl": 292,
+    "load": 296,
+    "fcp": 612,
+    "nRes": 250,
+    "xferKB": 8136
+   },
+   "/amiga": {
+    "wallLoad": 886,
+    "sceneReadyWall": 1493,
+    "dcl": 842,
+    "load": 846,
+    "fcp": 1188,
+    "nRes": 250,
+    "xferKB": 8173
+   },
+   "/square": {
+    "wallLoad": 640,
+    "sceneReadyWall": 1307,
+    "dcl": 633,
+    "load": 636,
+    "fcp": 936,
+    "nRes": 250,
+    "xferKB": 8104
+   }
+  },
+  "K1": {
+   "present": true,
+   "x": 99.359375,
+   "y": 654.171875,
+   "w": 191.28125,
+   "h": 36
+  },
+  "viewportCx": 195,
+  "K2": {
+   "topBand": {
+    "x": 0,
+    "w": 390,
+    "y": 29.5,
+    "h": 62,
+    "cx": 195,
+    "radius": "0px",
+    "overflowX": "visible",
+    "scrollW": 390,
+    "clientW": 390
+   },
+   "topDock": {
+    "x": 167,
+    "w": 56,
+    "y": 29.5,
+    "h": 56,
+    "cx": 195,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 56,
+    "clientW": 56
+   },
+   "bottomBand": {
+    "x": 0,
+    "w": 390,
+    "y": 722.6,
+    "h": 72,
+    "cx": 195,
+    "radius": "0px",
+    "overflowX": "visible",
+    "scrollW": 390,
+    "clientW": 390
+   },
+   "bottomDock": {
+    "x": 167,
+    "w": 56,
+    "y": 728.6,
+    "h": 56,
+    "cx": 195,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 56,
+    "clientW": 56
+   },
+   "insetToken": "",
+   "pane": {
+    "x": 149.5,
+    "w": 204.1,
+    "y": 349.6,
+    "h": 236.9,
+    "cx": 251.5,
+    "radius": "10px",
+    "overflowX": "visible",
+    "scrollW": 196,
+    "clientW": 195
+   },
+   "afterPane": {
+    "topDock": {
+     "x": 16.7,
+     "w": 356.6,
+     "y": 29.5,
+     "h": 56,
+     "cx": 195,
+     "radius": "9999px",
+     "overflowX": "visible",
+     "scrollW": 357,
+     "clientW": 357
+    },
+    "bottomDock": {
+     "x": 167,
+     "w": 56,
+     "y": 728.6,
+     "h": 56,
+     "cx": 195,
+     "radius": "9999px",
+     "overflowX": "visible",
+     "scrollW": 56,
+     "clientW": 56
+    },
+    "insetToken": ""
+   }
+  },
+  "K8": {
+   "plate": {
+    "x": 16.7,
+    "w": 356.6,
+    "y": 29.5,
+    "h": 56,
+    "cx": 195,
+    "radius": "9999px",
+    "overflowX": "visible",
+    "scrollW": 357,
+    "clientW": 357
+   },
+   "plateChildren": [
+    {
+     "cls": "dock-layer dock-layer--full dock-run is-active",
+     "ox": "auto",
+     "radius": "0px",
+     "x": 29,
+     "w": 333,
+     "sw": 333,
+     "cw": 333,
+     "sl": 0,
+     "mask": "none"
+    }
+   ],
+   "surfaceItems": [
+    {
+     "label": "Controls",
+     "surface": "controls",
+     "disabled": false
+    },
+    {
+     "label": "Keyframes",
+     "surface": "keyframes",
+     "disabled": false
+    },
+    {
+     "label": "Timeline",
+     "surface": "timeline",
+     "disabled": false
+    },
+    {
+     "label": "Matrix: select the Matrix channel",
+     "surface": "matrix-controls",
+     "disabled": false
+    }
+   ]
+  },
+  "paneOpen": true,
+  "K3": [
+   {
+    "text": "alternate",
+    "svgs": 1
+   },
+   {
+    "text": "forwards",
+    "svgs": 1
+   }
+  ],
+  "K4": {
+   "rowH": 36,
+   "rowY": 582,
+   "trackH": 64,
+   "trackY": 626
+  },
+  "K5": [
+   {
+    "tag": "BUTTON",
+    "cls": "dock-trigger dock-select-trigger dock-label max-[399px]:min-h-[calc(1lh_+_2_*_var(--dock-t",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+    "radius": "9999px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-layer dock-layer--full dock-run is-active",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "auto hidden"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-layers",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "dock-controls",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "9999px",
+    "overflow": "visible"
+   },
+   {
+    "tag": "DIV",
+    "cls": "pointer-events-auto dock-vt-group",
+    "bg": "rgba(0, 0, 0, 0)",
+    "radius": "0px",
+    "overflow": "visible"
+   }
+  ],
+  "K7": {
+   "distinctInks": [
+    [
+     "rgb(233, 230, 226)",
+     29
+    ],
+    [
+     "rgb(172, 160, 145)",
+     26
+    ],
+    [
+     "rgb(190, 149, 236)",
+     8
+    ]
+   ],
+   "status": "Keyframes"
+  },
+  "routeTrace": {
+   "frames": 149,
+   "maxDt": 380,
+   "framesOver34ms": 13,
+   "pathChangeAt": 765,
+   "skeletonFrames": 0,
+   "topDockXW": [
+    "17:357"
+   ],
+   "sample": [
+    [
+     22,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     135,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     332,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/cube"
+    ],
+    [
+     829,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1213,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1360,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1549,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1617,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1667,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1717,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1767,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1817,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1867,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1917,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     1967,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2016,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2068,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2117,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2167,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2217,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2266,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2316,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2367,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2417,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ],
+    [
+     2467,
+     17,
+     357,
+     167,
+     56,
+     0,
+     "#/spring"
+    ]
+   ]
+  }
+ }
+}

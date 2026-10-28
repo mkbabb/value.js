@@ -1,0 +1,87 @@
+[
+ {
+  "cell": "MENU owned remote arm (real API, owner session)",
+  "ms": 8226,
+  "items": [
+   "Make private public",
+   "Remix",
+   "Rename",
+   "Edit Tags",
+   "Export",
+   "Delete"
+  ],
+  "shortcuts": [
+   {
+    "text": "public",
+    "w": 48.09375,
+    "tt": "none",
+    "fv": "normal",
+    "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+    "fs": "14.384px"
+   }
+  ],
+  "fvPointer": {
+   "role": "menuitem",
+   "text": "Make private public",
+   "fv": true,
+   "hl": true,
+   "boxShadow": "none",
+   "outline": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48) off=2px",
+   "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+   "ring": "0 0 0 2px color-mix(in srgb,oklch(30.776197486324% 0.124262102015 2deg) 30%,tran"
+  },
+  "firstKb": {
+   "role": "menuitem",
+   "text": "Make private public",
+   "fv": true,
+   "boxShadow": "none"
+  },
+  "fvKb": {
+   "role": "menuitem",
+   "text": "Remix",
+   "fv": true,
+   "boxShadow": "none",
+   "outline": "solid 2px"
+  },
+  "download": {
+   "suggested": "ss8-b12-owned-sunset--r1.svg",
+   "path": "menu-u10-export.svg"
+  },
+  "net": [
+   "GET /palettes?limit=50&sort=newest 200"
+  ],
+  "pageErrors": []
+ },
+ {
+  "cell": "MENU-U10 export SVG of a hostile palette (real API)",
+  "error": "TimeoutError: page.waitForEvent: Timeout 10000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+ },
+ {
+  "cell": "WRITE-PATH one vote click, no interception",
+  "ms": 4797,
+  "ev": [
+   {
+    "ev": "req",
+    "m": "POST",
+    "url": "/palettes/ss8-b12-owned-sunset/vote",
+    "hdrs": [
+     "idempotency-key",
+     "x-session-token",
+     "content-type"
+    ]
+   },
+   {
+    "ev": "failed",
+    "m": "POST",
+    "url": "/palettes/ss8-b12-owned-sunset/vote",
+    "why": "net::ERR_FAILED"
+   }
+  ],
+  "console": [
+   "Access to fetch at 'http://localhost:3000/palettes/ss8-b12-owned-sunset/vote' from origin 'http://localhost:9000' has been blocked by CORS policy: Request header field idempotency-key is not allowed by Access-Control-All",
+   "Failed to load resource: net::ERR_FAILED"
+  ],
+  "label": "0 votes, click to vote",
+  "pageErrors": []
+ }
+]

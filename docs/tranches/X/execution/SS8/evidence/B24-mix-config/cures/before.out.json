@@ -1,0 +1,125 @@
+{
+ "label": "before",
+ "base": "http://localhost:8126",
+ "at": "2026-10-20T22:36:35.818Z",
+ "R11-swap": {
+  "frames": 79,
+  "footFirst": 145.4,
+  "footLast": 221.7,
+  "growth": 76.3,
+  "framesWithGrowth": 1,
+  "maxOneFrameFootStep": 76.3,
+  "at": [
+   {
+    "t": 365.1,
+    "footH": 145.4,
+    "mixTop": 638.9
+   },
+   {
+    "t": 442.8,
+    "footH": 221.7,
+    "mixTop": 638.9
+   }
+  ],
+  "GREEN": false,
+  "errors": [],
+  "ms": 4362
+ },
+ "MP2-timeline": {
+  "frames": 170,
+  "plateLast": 162.5,
+  "framesWithStep": 3,
+  "steps": [
+   {
+    "t": 847.8,
+    "d": 31,
+    "ghost": true
+   },
+   {
+    "t": 1102.8,
+    "d": 98.5,
+    "ghost": true
+   },
+   {
+    "t": 2036.3,
+    "d": 32,
+    "ghost": false
+   }
+  ],
+  "maxOneFramePlateStep": 98.5,
+  "at": [
+   {
+    "t": 1045.2,
+    "plateH": 32,
+    "ghost": true
+   },
+   {
+    "t": 1102.8,
+    "plateH": 130.5,
+    "ghost": true
+   }
+  ],
+  "GREEN": false,
+  "errors": [],
+  "ms": 6200
+ },
+ "MP7-light": {
+  "ink": {
+   "wc": "oklch(73% 0.185 2deg)",
+   "borderColor": "oklch(0.73 0.185 2)"
+  },
+  "ground": [
+   213,
+   113,
+   161
+  ],
+  "ring": [
+   245,
+   103,
+   147
+  ],
+  "ringVsGround": 1.08,
+  "GREEN": false,
+  "errors": [],
+  "ms": 2617
+ },
+ "MP7-dark": {
+  "ink": {
+   "wc": "oklch(73% 0.185 2deg)",
+   "borderColor": "oklch(0.73 0.185 2)"
+  },
+  "ground": [
+   110,
+   25,
+   54
+  ],
+  "ring": [
+   255,
+   123,
+   167
+  ],
+  "ringVsGround": 4.659,
+  "GREEN": true,
+  "errors": [],
+  "ms": 2754
+ },
+ "MP4f-forced": {
+  "EMULATED": true,
+  "mq": true,
+  "slot": {
+   "fca": "none",
+   "border": "rgb(198, 180, 159)"
+  },
+  "dot": {
+   "fca": "none",
+   "border": "rgb(198, 180, 159)"
+  },
+  "stroke": {
+   "fca": "none",
+   "border": "oklch(0.73 0.185 2)"
+  },
+  "GREEN": false,
+  "errors": [],
+  "ms": 1529
+ }
+}

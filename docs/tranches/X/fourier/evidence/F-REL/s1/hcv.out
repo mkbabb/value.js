@@ -1,0 +1,8 @@
+== [A pre-.s1 idiom (mongosh -u -p --tls --eval ping)] rc=0  accepted=4 authOK=1 notAuthenticating=1 authzFailed=0 unauthorizedReplies=0
+   commands:  1 aggregate 1 buildInfo 1 endSessions 1 getParameter 2 ismaster 1 ping 1 saslContinue 
+== [B mongosh --nodb --norc + new Mongo(uri) ping] rc=0  accepted=2 authOK=1 notAuthenticating=1 authzFailed=0 unauthorizedReplies=0
+   commands:  1 endSessions 2 ismaster 1 ping 1 saslContinue 
+== [C mongosh --norc <uri> --eval ping] rc=0  accepted=4 authOK=1 notAuthenticating=1 authzFailed=0 unauthorizedReplies=0
+   commands:  1 aggregate 1 buildInfo 1 endSessions 1 getParameter 2 ismaster 1 ping 1 saslContinue 
+== [D B with a wrong password (must fail: rc != 0)] rc=1  accepted=2 authOK=0 notAuthenticating=1 authzFailed=0 unauthorizedReplies=0
+   commands:  2 ismaster 1 saslContinue 

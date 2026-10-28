@@ -1,0 +1,16 @@
+# HEAD export 4d5d0dbdc (cwd = git-archive export, built vite --mode production)
+ok   LIB-01  easing(name) is total over the Object.prototype key set
+ok   LIB-01  control: easing('ease') ok, unknown name -> easing_name_unknown
+RED  LIB-02  31 published functions throw on a JS-boundary value (7-value corpus, all 7 subpaths)
+RED  LIB-02  by subpath: color=1 value=1 css=19 easing=1 math=6 transform=3
+RED  LIB-02  G1 (r1-published-totality.mjs) names 9 ./css parsers only — 12 of these are outside its FNS list
+ok   LIB-03  every emitted subpath type is exported
+RED  LIB-03  ./css exports serializeCssColor but withholds the general serializers: serializeKeyframeSelector (src/css/grammar.ts:429)
+ok   LIB-03  ColorFactory reaches ./color
+ok   LIB-03  ./css names its own return types
+ok   LIB-04  no duplicated declarations in css.d.ts
+ok   LIB-04  colour types cross src/color/'s boundary through the barrel only
+RED  LIB-05  7 src files over the 350-LoC cap: src/transform/path.ts=672 src/css/rules.ts=522 src/css/bbnf/mix.ts=501 src/color/operations.ts=452 src/css/stylesheet.ts=416 src/color/anchors.ts=400 src/css/bbnf/value.ts=381
+
+RED — 5 failing assertion(s)
+exit 1

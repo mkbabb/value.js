@@ -1,0 +1,106 @@
+{
+ "origin": "http://localhost:8293",
+ "width": 1440,
+ "cpu": 4,
+ "rttMs": 150,
+ "downKbps": 1600,
+ "at": "2026-10-20T23:42:35.486Z",
+ "rows": [
+  {
+   "route": "gradient",
+   "rep": 0,
+   "contentMs": 5947,
+   "entryEnd": 2885,
+   "paneStart": 2958,
+   "paneEnd": 3427
+  },
+  {
+   "route": "mix",
+   "rep": 0,
+   "contentMs": 4208,
+   "entryEnd": 2887,
+   "paneStart": 2947,
+   "paneEnd": 3195
+  },
+  {
+   "route": "palettes",
+   "rep": 0,
+   "contentMs": 4154,
+   "entryEnd": 2880,
+   "paneStart": 2938,
+   "paneEnd": 3283
+  },
+  {
+   "route": "extract",
+   "rep": 0,
+   "contentMs": 4445,
+   "entryEnd": 2886,
+   "paneStart": 2954,
+   "paneEnd": 3244
+  },
+  {
+   "route": "generate",
+   "rep": 0,
+   "contentMs": 4237,
+   "entryEnd": 2879,
+   "paneStart": 2946,
+   "paneEnd": 3144
+  },
+  {
+   "route": "blob",
+   "rep": 0,
+   "contentMs": 3614,
+   "entryEnd": 2880,
+   "paneStart": 2949,
+   "paneEnd": 3114
+  },
+  {
+   "route": "gradient",
+   "rep": 1,
+   "contentMs": 5058,
+   "entryEnd": 2879,
+   "paneStart": 2936,
+   "paneEnd": 3407
+  },
+  {
+   "route": "mix",
+   "rep": 1,
+   "contentMs": 3991,
+   "entryEnd": 2872,
+   "paneStart": 2952,
+   "paneEnd": 3201
+  },
+  {
+   "route": "palettes",
+   "rep": 1,
+   "contentMs": 4022,
+   "entryEnd": 2870,
+   "paneStart": 2948,
+   "paneEnd": 3287
+  },
+  {
+   "route": "extract",
+   "rep": 1,
+   "contentMs": 4321,
+   "entryEnd": 2881,
+   "paneStart": 2938,
+   "paneEnd": 3229
+  },
+  {
+   "route": "generate",
+   "rep": 1,
+   "contentMs": 4220,
+   "entryEnd": 2873,
+   "paneStart": 2939,
+   "paneEnd": 3142
+  },
+  {
+   "route": "blob",
+   "rep": 1,
+   "contentMs": 3432,
+   "entryEnd": 2880,
+   "paneStart": 2930,
+   "paneEnd": 3091
+  }
+ ]
+}

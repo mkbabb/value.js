@@ -1,0 +1,57 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js/.worktrees/r1-red
+
+ ❯ demo/test/gradient/code-editor-idle-highlight.test.ts (1 test | 1 failed) 42ms
+   × OD19 repair 1 — the code well highlights after mount, in an idle slice > mount shows the plain text and does not call the tokenizer; the idle slice highlights it 41ms
+     → expected "highlight" to not be called at all, but actually been called 1 times[90m
+
+Received: 
+
+[1m  1st highlight call:
+
+[22m    Array [
+      "linear-gradient(90deg in oklch, red 0%, blue 100%)",
+      Object {
+        "language": "css",
+      },
+    ]
+[39m[90m
+
+Number of calls: [1m1[22m
+[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/gradient/code-editor-idle-highlight.test.ts > OD19 repair 1 — the code well highlights after mount, in an idle slice > mount shows the plain text and does not call the tokenizer; the idle slice highlights it
+AssertionError: expected "highlight" to not be called at all, but actually been called 1 times[90m
+
+Received: 
+
+[1m  1st highlight call:
+
+[22m    Array [
+      "linear-gradient(90deg in oklch, red 0%, blue 100%)",
+      Object {
+        "language": "css",
+      },
+    ]
+[39m[90m
+
+Number of calls: [1m1[22m
+[39m
+ ❯ demo/test/gradient/code-editor-idle-highlight.test.ts:32:25
+     30|         const well = w.get('[role="textbox"]').element;
+     31| 
+     32|         expect(spy).not.toHaveBeenCalled();
+       |                         ^
+     33|         expect(well.textContent).toBe(CSS);
+     34| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  23:25:04
+   Duration  763ms (transform 84ms, setup 55ms, collect 92ms, tests 42ms, environment 277ms, prepare 58ms)
+

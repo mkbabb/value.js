@@ -1,0 +1,6 @@
+== cured run 1
+ ✓ demo/test/mix/ss8-b23-cures.test.ts (3 tests) 71ms
+      Tests  3 passed (3)
+== cured run 2
+ ✓ demo/test/mix/ss8-b23-cures.test.ts (3 tests) 35ms
+      Tests  3 passed (3)

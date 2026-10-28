@@ -4,6 +4,7 @@ import {
     PICKER_CHANNELS,
     channelNumber,
     convertPickerColor,
+    resolveMissingChannels,
     serializePickerColor,
     withAlpha,
     withChannel,
@@ -96,9 +97,16 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     // --- Derived colors (ONE set) ---
     const currentPhysicalColor = computed(() => model.value.color);
 
-    const cssColor = computed(() => serializePickerColor(model.value.color));
+    // SS8-0035 — the OUTWARD strings resolve a missing component (CSS Color 4
+    // §4.2: `none` is zero once converted). Every consumer of these two
+    // converts across spaces; a `rgb(none 50 50)` deep link threw
+    // `color_missing_channel` out of the atmosphere and the About markdown.
+    // The model, the echo and the persisted string keep `none` (gate N4).
+    const outwardColor = computed(() => resolveMissingChannels(model.value.color));
 
-    const cssColorOpaque = computed(() => serializePickerColor(withAlpha(model.value.color, 1)));
+    const cssColor = computed(() => serializePickerColor(outwardColor.value));
+
+    const cssColorOpaque = computed(() => serializePickerColor(withAlpha(outwardColor.value, 1)));
 
     const HSVCurrentColor = computed(() => {
         const hsv = convertPickerColor(model.value.color, "hsv");
@@ -138,7 +146,6 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         updateModel,
         parseAndSetColor,
         parseColor,
-        cssColor,
     });
 
     const {
@@ -154,6 +161,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     });
 
     const {
+        currentColorName,
         formattedCurrentColor,
         savedColorLabel,
         currentColorMeta,
@@ -293,6 +301,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         currentColorSpace,
         colorComponents,
         // Name resolution
+        currentColorName,
         formattedCurrentColor,
         savedColorLabel,
         currentColorMeta,

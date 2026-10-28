@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5-5
+## DEPLOY_ALERT_DRY_ISSUE="" scripts/deploy-alert.sh --dry-run --sha 1111...(40) --record-url file://<work>/rec.json (ROLLED_BACK) --health-url file://<work>/h.json --timeout 2 --interval 1
+[deploy-alert] watching the API deploy of 1111111111111111111111111111111111111111 (record file://<work>/rec.json; bound 2s, every 1s)
+[deploy-alert] DRY-RUN gh label create deploy-alert --repo mkbabb/fourier-analysis --color B60205 --description A\ fourier\ API\ deploy\ did\ not\ reach\ a\ healthy\ OK\ \(scripts/deploy-alert.sh\) --force
+[deploy-alert] DRY-RUN gh issue list --repo mkbabb/fourier-analysis --label deploy-alert --state open --json number --jq .\[0\].number\ //\ empty
+[deploy-alert] opening a deploy-alert issue
+[deploy-alert] DRY-RUN gh issue create --repo mkbabb/fourier-analysis --title deploy-alert:\ the\ fourier\ API\ deploy\ did\ not\ reach\ a\ healthy\ OK --label deploy-alert --body $'**FAILED (ROLLED_BACK)** - the API deploy of `1111111111111111111111111111111111111111` did not reach outcome OK with a live API.\n\nThe host recorded outcome ROLLED_BACK at 1111111111111111111111111111111111111111 (fixture: forced ROLLED_BACK).\n\n- deploy-of-record: file://<work>/rec.json\n- health: file://<work>/h.json\n- watcher run: <local>\n- observed: 2026-10-19T16:59:59Z'
+rc=1
+## DEPLOY_ALERT_DRY_ISSUE="17" scripts/deploy-alert.sh --dry-run --sha 1111...(40) --record-url file://<work>/rec.json (ROLLED_BACK) --health-url file://<work>/h.json --timeout 2 --interval 1
+[deploy-alert] watching the API deploy of 1111111111111111111111111111111111111111 (record file://<work>/rec.json; bound 2s, every 1s)
+[deploy-alert] DRY-RUN gh label create deploy-alert --repo mkbabb/fourier-analysis --color B60205 --description A\ fourier\ API\ deploy\ did\ not\ reach\ a\ healthy\ OK\ \(scripts/deploy-alert.sh\) --force
+[deploy-alert] DRY-RUN gh issue list --repo mkbabb/fourier-analysis --label deploy-alert --state open --json number --jq .\[0\].number\ //\ empty
+[deploy-alert] updating the open deploy-alert issue #17
+[deploy-alert] DRY-RUN gh issue comment 17 --repo mkbabb/fourier-analysis --body $'**FAILED (ROLLED_BACK)** - the API deploy of `1111111111111111111111111111111111111111` did not reach outcome OK with a live API.\n\nThe host recorded outcome ROLLED_BACK at 1111111111111111111111111111111111111111 (fixture: forced ROLLED_BACK).\n\n- deploy-of-record: file://<work>/rec.json\n- health: file://<work>/h.json\n- watcher run: <local>\n- observed: 2026-10-19T16:59:59Z'
+rc=1

@@ -1,0 +1,12 @@
+(node:51454) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:51487) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, light) (29.5s)
+  ✓  2 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, dark) (3.3s)
+  ✓  3 [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:84:5 › X-5 · phone › X-5 · Add to palette in the eyedropper is announced politely (390, touch) (6.6s)
+
+  3 passed (40.7s)

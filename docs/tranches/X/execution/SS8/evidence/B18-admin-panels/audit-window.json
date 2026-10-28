@@ -1,0 +1,12 @@
+{
+  "p1Last": "tag:t19",
+  "p2First": "tag:t19",
+  "duplicated": [
+    "tag:t19"
+  ],
+  "requests": [
+    "GET /admin/audit?limit=20&offset=0",
+    "GET /admin/audit?limit=20&offset=20"
+  ],
+  "pageErrors": []
+}

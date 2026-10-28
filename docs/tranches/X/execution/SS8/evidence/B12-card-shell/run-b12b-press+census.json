@@ -1,0 +1,68 @@
+[
+ {
+  "cell": "MENU-U7 census at N=200",
+  "ms": 72126,
+  "dom": {
+   "docNodes": 7237,
+   "articles": 200,
+   "menuTriggers": 200,
+   "popoverTriggersPerFirstRow": 2,
+   "teleportComments": 824,
+   "comments": 8194
+  },
+  "heapUsedMB": 0,
+  "keyToFrameMs": [
+   227,
+   172,
+   131,
+   110,
+   118,
+   119,
+   66
+  ],
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U7/U11 press register: control, Space in rename, drag traverse",
+  "ms": 64194,
+  "control": {
+   "frames": 24,
+   "min": 0.9512,
+   "max": 1.0094
+  },
+  "focused": {
+   "autoFocused": "BUTTON",
+   "tag": "INPUT",
+   "inCard": true,
+   "inputs": 1
+  },
+  "restAfterClick": {
+   "frames": 11,
+   "min": 1,
+   "max": 1
+  },
+  "spaceInInput": {
+   "frames": 40,
+   "min": 0.9512,
+   "max": 1.0094
+  },
+  "inputValueAfterSpace": "Local 0 ",
+  "dragOverCard1": {
+   "frames": 75,
+   "min": 1,
+   "max": 1
+  },
+  "dragOverCard2": {
+   "frames": 75,
+   "min": 1,
+   "max": 1
+  },
+  "orderAfterDrag": [
+   "Palette: Local 1",
+   "Palette: Local 0",
+   "Palette: Local 2",
+   "Palette: Local 3"
+  ],
+  "pageErrors": []
+ }
+]

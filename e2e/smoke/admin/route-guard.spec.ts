@@ -46,7 +46,7 @@ const ADMIN_ROUTES: { path: string; heading: string }[] = [
 ];
 
 /** The not-found pane's heading (`demo/scenes/notfound/NotFoundPane.vue`). */
-const NOT_FOUND_HEADING = "Not Found";
+const NOT_FOUND_HEADING = "Not found";
 
 test("G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts", async ({
     page,

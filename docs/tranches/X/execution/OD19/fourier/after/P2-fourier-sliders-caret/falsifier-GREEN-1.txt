@@ -1,0 +1,32 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — light 1440 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+[2/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — light 1440 › OD19-F8 · the hovered timeline caret is whole and on top
+[3/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — dark 1440 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+[4/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — dark 1440 › OD19-F8 · the hovered timeline caret is whole and on top
+[5/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — light 390 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+[6/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — light 390 › OD19-F8 · the hovered timeline caret is whole and on top
+[7/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — dark 390 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+[8/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — dark 390 › OD19-F8 · the hovered timeline caret is whole and on top
+  8 passed (22.0s)

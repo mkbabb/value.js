@@ -18,6 +18,7 @@ import {
 } from "./perf/frame-budget";
 import { convertColor, mapColorToGamut } from "../../dist/subpaths/color.js";
 import { parseCssColor } from "../../dist/subpaths/css.js";
+import { useRealGpuCell } from "./perf/real-gpu";
 
 /**
  * X.W12U.b (COHESION §0dm, ESC-W12d-1) — THE LIVE HERO'S IDLE FRAME COST.
@@ -47,6 +48,16 @@ import { parseCssColor } from "../../dist/subpaths/css.js";
  *   4 · PRM PARKS — under prefers-reduced-motion the producer renders one
  *       static frame and parks: 0 draws over the idle window (measured 0/0/0
  *       at 1440 and at 390).
+ *
+ * X.W11.p1 (COHESION §0ge.1, OD-W11-1(a) arm A) — THE DEVICE TIER. On a
+ * software WebGL rasteriser (`isSoftwareWebGLRenderer()`) HeroBlob paints the
+ * bead, parks it, and repaints ONE frame per register change; a GPU device
+ * keeps the live bead. Gate 1's LIVE half is therefore asserted on the
+ * real-GPU cell (`useRealGpuCell()`, `W12_REAL_GPU=1`); on a software renderer
+ * gate 1 asserts the tier's contract in its place — PAINTED (the bead drew
+ * before the window), PARKED (0 draws over the idle window), REPAINTED on a
+ * register change (a picker click draws ≥ 1 frame) and PARKED AGAIN after it
+ * (0 draws over a second window). Gates 2 and 3 hold on both tiers unchanged.
  */
 
 /** Idle before the window: past the first draw's boot beats. */
@@ -70,6 +81,34 @@ async function bootHero(page: import("@playwright/test").Page) {
         .toBeGreaterThan(0);
 }
 
+useRealGpuCell();
+
+/** One register change: a click on the picker surface moves the colour, which re-seeds the hero's ramp. */
+async function changeRegister(page: import("@playwright/test").Page) {
+    const surface = page.locator(".spectrum-picker").first();
+    const b = await surface.boundingBox();
+    if (!b) throw new Error("webgl-blob-idle: picker surface not laid out");
+    await page.mouse.click(b.x + b.width * 0.72, b.y + b.height * 0.28);
+}
+
+/** rAF timestamp jitter between two reads of one engine's frame clock (ms) — O-12·3's constant. */
+const RAF_JITTER_MS = 1;
+
+/** The same page's idle frame p50 under prefers-reduced-motion (the hero parked, 0 draws): the clock's own floor. */
+async function parkedFloorP50(browser: import("@playwright/test").Browser): Promise<number> {
+    const parked = await browser.newContext({ viewport: { width: 1280, height: 720 }, reducedMotion: "reduce" });
+    try {
+        const ref = await parked.newPage();
+        await bootHero(ref);
+        await waitMs(ref, IDLE_MS);
+        await resetFrames(ref);
+        await waitMs(ref, WINDOW_MS);
+        return percentile(await readFrames(ref), 50);
+    } finally {
+        await parked.close();
+    }
+}
+
 /** Blob draws and displayed frames over one idle window. */
 async function idleWindow(page: import("@playwright/test").Page) {
     const before = await lastCanvasDrawCount(page, GOO_BLOB_TESTID);
@@ -82,6 +121,7 @@ async function idleWindow(page: import("@playwright/test").Page) {
 
 test("hero blob idle frame cost: live, one draw per frame, cadence in budget (the settled seam, no wall-clock park)", async ({
     page,
+    browser,
 }) => {
     test.setTimeout(90_000);
     await bootHero(page);
@@ -101,7 +141,27 @@ test("hero blob idle frame cost: live, one draw per frame, cadence in budget (th
             `draws=${draws} frames=${frames.length} p50=${p50.toFixed(1)}ms`,
     );
 
-    expect(draws, "the idle hero drew nothing — the live blob parked (the retired wall-clock park)").toBeGreaterThan(0);
+    if (soft) {
+        // The software-raster tier (§0ge.1 arm A): painted (bootHero polled a
+        // draw), parked over the window, one repaint per register change, parked again.
+        expect(draws, `the software-tier hero drew ${draws} times over ${WINDOW_MS}ms of idle — it is not parked`).toBe(0);
+        const beforeChange = await lastCanvasDrawCount(page, GOO_BLOB_TESTID);
+        await changeRegister(page);
+        await expect
+            .poll(() => lastCanvasDrawCount(page, GOO_BLOB_TESTID), {
+                timeout: 15_000,
+                message: "the parked hero did not repaint on a register change",
+            })
+            .toBeGreaterThan(beforeChange);
+        await waitMs(page, IDLE_MS);
+        const after = await idleWindow(page);
+        console.log(
+            `[blob-idle-cost] software tier: register change → ${(await lastCanvasDrawCount(page, GOO_BLOB_TESTID)) - beforeChange} draws · then window draws=${after.draws} frames=${after.frames.length}`,
+        );
+        expect(after.draws, `the hero drew ${after.draws} times after its repaint — it did not park again`).toBe(0);
+    } else {
+        expect(draws, "the idle hero drew nothing — the live blob parked (the retired wall-clock park)").toBeGreaterThan(0);
+    }
     expect(
         draws,
         `the hero drew ${draws} times over ${frames.length} displayed frames — more than one draw per frame`,
@@ -112,8 +172,15 @@ test("hero blob idle frame cost: live, one draw per frame, cadence in budget (th
             SOFT_CEIL.idleP50Ms,
         );
     } else {
-        expect(p50, `idle p50 ${p50.toFixed(1)}ms over the §6.2 ≤${GATE.idleP50Ms}ms gate with the hero live`).toBeLessThanOrEqual(
-            GATE.idleP50Ms,
+        // The real-GPU cell's frame clock is 60 Hz (§0ei background Chrome;
+        // `perf/real-gpu.ts`): any page reads p50 16.7 ms there, above the
+        // 120 Hz-cell 13 ms. The budget is therefore O-12·3's law — the §6.2
+        // gate or, where the engine's own clock sits above it, the hero's own
+        // idle cost: live p50 ≤ the PRM-parked p50 (0 hero draws) + 1 ms.
+        const budget = Math.max(GATE.idleP50Ms, (await parkedFloorP50(browser)) + RAF_JITTER_MS);
+        console.log(`[blob-idle-cost] real-GPU budget ${budget.toFixed(1)}ms`);
+        expect(p50, `idle p50 ${p50.toFixed(1)}ms over max(§6.2 ${GATE.idleP50Ms}ms, parked floor + ${RAF_JITTER_MS}ms) with the hero live`).toBeLessThanOrEqual(
+            budget,
         );
     }
 });
@@ -146,7 +213,6 @@ test("hero blob under prefers-reduced-motion: one static frame, then parked (0 i
     expect(frames.length, "the rAF loop stalled").toBeGreaterThanOrEqual(SOFT_CEIL.idleMinFrames);
     expect(draws, `the PRM hero drew ${draws} times over ${WINDOW_MS}ms of idle — it is not parked`).toBe(0);
 });
-
 
 /**
  * X.W6.h · h1 — "hero blob carries current chroma" (CC-061 · MT-F032), the

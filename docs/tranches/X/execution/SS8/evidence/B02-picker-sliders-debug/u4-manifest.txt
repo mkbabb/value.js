@@ -1,0 +1,19 @@
+# U-4 manifest fetch 2026-10-19T18:19:47Z (SS-8 B02 seat re-run)
+local origin/gh-pages: 17c10267f 2026-03-24 00:45:58 +0000 css=assets/index-DS-0HlXP.css 
+remote: 17c10267f86504c76d050ff1e4b2500b09cb25b2	refs/heads/gh-pages
+== https://color.babb.dev/
+assets/index-D9U9KwTn.js
+assets/index-DJ8Ije_5.css
+server: cloudflare
+== https://mkbabb.github.io/value.js/
+assets/index-D9U9KwTn.js
+assets/index-DJ8Ije_5.css
+server: GitHub.com
+server: cloudflare
+== gh api repos/mkbabb/value.js/pages (build_type, source)
+legacy
+{"branch":"gh-pages","path":"/"}
+== gh api pages/builds/latest (commit, created_at, status)
+17c10267f86504c76d050ff1e4b2500b09cb25b2
+2026-03-24T00:46:00Z
+built

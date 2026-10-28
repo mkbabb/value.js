@@ -1,0 +1,16 @@
+{
+ "401": {
+  "browseGridPresent": false,
+  "browseGridEmptyPlate": "",
+  "statusTexts": [
+   "Couldn't load palettes.Unauthorized Retry"
+  ]
+ },
+ "403": {
+  "browseGridPresent": false,
+  "browseGridEmptyPlate": "",
+  "statusTexts": [
+   "Couldn't load palettes.Forbidden Retry"
+  ]
+ }
+}

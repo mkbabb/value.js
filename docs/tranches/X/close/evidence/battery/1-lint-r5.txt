@@ -1,0 +1,13 @@
+SERVED MODEL: claude-opus-5-5
+unit: X.W11.b (RESUME seventh, r5) · 2026-10-21 03:15:19 EDT
+tree: v4.1.0^{commit} = 1aafad6e60c1abcb5c175d65e86755262c360b82 (annotated tag object 0f48210b0cbec955b896d14f47f5a503693c635f); clean detached worktree, git status --porcelain | wc -l -> 0
+node: v26.0.0 · npm: 11.12.1
+cmd: ~/.claude/guard/guarded --light --timeout 15 -- zsh -c "npm run lint"
+---
+
+> @mkbabb/value.js@4.1.0 lint
+> eslint . --max-warnings=0
+
+---
+exit 0
+tree after: git status --porcelain | wc -l -> 0

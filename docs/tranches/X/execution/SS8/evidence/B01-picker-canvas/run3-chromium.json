@@ -1,0 +1,1403 @@
+{
+  "engine": "chromium",
+  "version": "148.0.7778.96",
+  "base": "http://localhost:9000",
+  "at": "2026-10-19T18:03:11.534Z",
+  "ch": {
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+    "fontSize": 41.888,
+    "fontWeight": "400",
+    "fontVariantNumeric": "lining-nums tabular-nums",
+    "fontsReady": "loaded",
+    "ch1": 26.78125,
+    "zeroTnumW400": 27.0125,
+    "zeroTnumW600": 27.0125,
+    "zeroPropW400": 25.74375,
+    "oneTnumW400": 27.0125,
+    "oneDigitPropW400": 17.128125,
+    "chOverEm": 0.6394,
+    "tnumOverEm": 0.6449,
+    "propOverEm": 0.6146,
+    "gapPx": 20.0924
+  },
+  "c1": {
+    "focused": {
+      "afterType": [
+        {
+          "label": "r component value",
+          "text": "120",
+          "html": "<span class=\"fig-int\">120</span><!--v-if-->"
+        },
+        {
+          "label": "g component value",
+          "text": "50",
+          "html": "<span class=\"fig-int\">50</span><!--v-if-->"
+        },
+        {
+          "label": "b component value",
+          "text": "50",
+          "html": "<span class=\"fig-int\">50</span><!--v-if-->"
+        }
+      ],
+      "afterSwitch": [
+        {
+          "label": "r component value",
+          "text": "120",
+          "html": "<span class=\"fig-int\">120</span><!--v-if-->"
+        },
+        {
+          "label": "g component value",
+          "text": "50",
+          "html": "<span class=\"fig-int\">50</span><!--v-if-->"
+        },
+        {
+          "label": "b component value",
+          "text": "50",
+          "html": "<span class=\"fig-int\">50</span><!--v-if-->"
+        }
+      ],
+      "afterSecondWrite": [
+        {
+          "label": "r component value",
+          "text": "30",
+          "html": "<span class=\"fig-int\">30</span><!--v-if-->"
+        },
+        {
+          "label": "g component value",
+          "text": "200",
+          "html": "<span class=\"fig-int\">200</span><!--v-if-->"
+        },
+        {
+          "label": "b component value",
+          "text": "90",
+          "html": "<span class=\"fig-int\">90</span><!--v-if-->"
+        }
+      ],
+      "hash": "#/?space=rgb&color=rgb(30+200+90)",
+      "errs": []
+    },
+    "blurred": {
+      "afterType": [
+        {
+          "label": "r component value",
+          "text": "120",
+          "html": "<span class=\"fig-int\">120</span><!--v-if-->"
+        },
+        {
+          "label": "g component value",
+          "text": "50",
+          "html": "<span class=\"fig-int\">50</span><!--v-if-->"
+        },
+        {
+          "label": "b component value",
+          "text": "50",
+          "html": "<span class=\"fig-int\">50</span><!--v-if-->"
+        }
+      ],
+      "afterSwitch": [
+        {
+          "label": "r component value",
+          "text": "120",
+          "html": "<span class=\"fig-int\">120</span><!--v-if-->"
+        },
+        {
+          "label": "g component value",
+          "text": "50",
+          "html": "<span class=\"fig-int\">50</span><!--v-if-->"
+        },
+        {
+          "label": "b component value",
+          "text": "50",
+          "html": "<span class=\"fig-int\">50</span><!--v-if-->"
+        }
+      ],
+      "afterSecondWrite": [
+        {
+          "label": "r component value",
+          "text": "30",
+          "html": "<span class=\"fig-int\">30</span><!--v-if-->"
+        },
+        {
+          "label": "g component value",
+          "text": "200",
+          "html": "<span class=\"fig-int\">200</span><!--v-if-->"
+        },
+        {
+          "label": "b component value",
+          "text": "90",
+          "html": "<span class=\"fig-int\">90</span><!--v-if-->"
+        }
+      ],
+      "hash": "#/?space=rgb&color=rgb(30+200+90)",
+      "errs": []
+    }
+  },
+  "c1b": {
+    "steps": [
+      {
+        "why": "boot display-p3",
+        "hash": "#/?space=display-p3&color=rgb(200 50 50)",
+        "figs": [
+          "r: <span class=\"fig-int\">0</span><span class=\"fig-frac\">.7</span>",
+          "g: <span class=\"fig-int\">0</span><span class=\"fig-frac\">.2</span>",
+          "b: <span class=\"fig-int\">0</span><span class=\"fig-frac\">.2</span>"
+        ],
+        "errs": 0
+      },
+      {
+        "why": "after select-all + type 0.3 in g",
+        "hash": "#/?space=display-p3&color=rgb(200 50 50)",
+        "figs": [
+          "r: <span class=\"fig-int\">0</span><span class=\"fig-frac\">.7</span>",
+          "g: <b>0.3</b>",
+          "b: <span class=\"fig-int\">0</span><span class=\"fig-frac\">.2</span>"
+        ],
+        "errs": 0
+      },
+      {
+        "why": "external write, same space",
+        "hash": "#/?space=rgb&color=rgb(30+200+90)",
+        "figs": [],
+        "errs": 1
+      },
+      {
+        "why": "decimal->integer (display-p3->rgb)",
+        "hash": "#/?space=rgb&color=rgb(30 200 90)",
+        "figs": [],
+        "errs": 1
+      },
+      {
+        "why": "external write in rgb",
+        "hash": "#/?space=rgb&color=rgb(90 10 220)",
+        "figs": [],
+        "errs": 1
+      },
+      {
+        "why": "integer->decimal (rgb->display-p3)",
+        "hash": "#/?space=display-p3&color=color(display-p3+0.322037948233+0.072974507247+0.828699364604)",
+        "figs": [],
+        "errs": 1
+      },
+      {
+        "why": "external write after return",
+        "hash": "#/?space=display-p3&color=color(display-p3+0.980392156863+0.980392156863+0.323725172131)",
+        "figs": [],
+        "errs": 1
+      }
+    ],
+    "errs": [
+      "console: [value.js] unhandled failure (boundary · component update) TypeError: Cannot read properties of null (reading 'insertBefore')\n    at insert (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:7135:10)\n    at processComme"
+    ]
+  },
+  "caret": {
+    "seq": [
+      {
+        "typed": "0",
+        "active": "g component value",
+        "text": "0",
+        "inHost": true,
+        "off": 1,
+        "collapsed": true
+      },
+      {
+        "typed": ".",
+        "active": "g component value",
+        "text": "0.",
+        "inHost": true,
+        "off": 2,
+        "collapsed": true
+      },
+      {
+        "typed": "5",
+        "active": "g component value",
+        "text": "0.5",
+        "inHost": true,
+        "off": 3,
+        "collapsed": true
+      },
+      {
+        "typed": "5",
+        "active": "g component value",
+        "text": "0.55",
+        "inHost": true,
+        "off": 4,
+        "collapsed": true
+      },
+      {
+        "typed": "(settle 600ms)",
+        "active": "g component value",
+        "text": "0.55",
+        "inHost": true,
+        "off": 4,
+        "collapsed": true
+      }
+    ],
+    "figs": [
+      {
+        "label": "r component value",
+        "text": "0.6",
+        "html": "<span class=\"fig-int\">0</span><span class=\"fig-frac\">.6</span>"
+      },
+      {
+        "label": "g component value",
+        "text": "0.55",
+        "html": "<b>0.55</b>"
+      },
+      {
+        "label": "b component value",
+        "text": "0.0",
+        "html": "<span class=\"fig-int\">0</span><span class=\"fig-frac\">.0</span>"
+      }
+    ],
+    "errs": []
+  },
+  "ime": {
+    "events": [
+      {
+        "t": "compositionstart",
+        "data": "200",
+        "isComposing": null,
+        "txt": "200"
+      },
+      {
+        "t": "compositionupdate",
+        "data": "1",
+        "isComposing": null,
+        "txt": "200"
+      },
+      {
+        "t": "beforeinput",
+        "data": "1",
+        "isComposing": true,
+        "txt": "200"
+      },
+      {
+        "t": "input",
+        "data": "1",
+        "isComposing": true,
+        "txt": "1"
+      },
+      {
+        "t": "compositionupdate",
+        "data": "12",
+        "isComposing": null,
+        "txt": "1"
+      },
+      {
+        "t": "beforeinput",
+        "data": "12",
+        "isComposing": true,
+        "txt": "1"
+      },
+      {
+        "t": "input",
+        "data": "12",
+        "isComposing": true,
+        "txt": "12"
+      },
+      {
+        "t": "compositionupdate",
+        "data": "123",
+        "isComposing": null,
+        "txt": "12"
+      },
+      {
+        "t": "beforeinput",
+        "data": "123",
+        "isComposing": true,
+        "txt": "12"
+      },
+      {
+        "t": "input",
+        "data": "123",
+        "isComposing": true,
+        "txt": "123"
+      },
+      {
+        "t": "compositionupdate",
+        "data": "123",
+        "isComposing": null,
+        "txt": "123"
+      },
+      {
+        "t": "beforeinput",
+        "data": "123",
+        "isComposing": true,
+        "txt": "123"
+      },
+      {
+        "t": "input",
+        "data": "123",
+        "isComposing": true,
+        "txt": "123"
+      },
+      {
+        "t": "compositionend",
+        "data": "123",
+        "isComposing": null,
+        "txt": "123"
+      }
+    ],
+    "dotColors": [
+      "rgb(200, 50, 50)",
+      "rgb(200, 50, 50)",
+      "rgb(200, 50, 50)",
+      "rgb(200, 50, 50)",
+      "rgb(200, 50, 50)"
+    ],
+    "figs": [
+      {
+        "label": "r component value",
+        "text": "123",
+        "html": "<span class=\"fig-int\">123</span><!--v-if-->"
+      },
+      {
+        "label": "g component value",
+        "text": "50",
+        "html": "<span class=\"fig-int\">50</span><!--v-if-->"
+      },
+      {
+        "label": "b component value",
+        "text": "50",
+        "html": "<span class=\"fig-int\">50</span><!--v-if-->"
+      }
+    ]
+  },
+  "focus": [
+    {
+      "color": "rgb(200 50 50)",
+      "active": true,
+      "focusVisible": true,
+      "outline": "none 3px oklch(0.0438474 0.00624853 56.0356)",
+      "boxShadow": "color(srgb 0.00196057 3.63630e-8 0.0000380546 / 0.3) 0px 0px 0px 2px, color(srgb 0.00196057 3.63630e-8 0.0000380546 / 0.15) 0px 0px 8px 0px",
+      "ringToken": "0 0 0 2px color-mix(in srgb,oklch(3.358022410301% 0.013642235148 25.844155977435deg) 30%,transparent),0 0 8px color-mix(in srgb,oklch(3.358022410301% 0.013642235148 25.844155977435deg) 15%,transparent)",
+      "ringPx": 681,
+      "ratioMin": 1.033,
+      "ratioMedian": 1.056,
+      "ratioP90": 1.787,
+      "ratioMax": 1.83,
+      "shareGE3": 0
+    },
+    {
+      "color": "rgb(240 220 120)",
+      "active": true,
+      "focusVisible": true,
+      "outline": "none 3px oklch(0.216129 0.00624853 56.0356)",
+      "boxShadow": "color(srgb 0.198013 0.167009 0.00000999014 / 0.3) 0px 0px 0px 2px, color(srgb 0.198013 0.167009 0.00000999014 / 0.15) 0px 0px 8px 0px",
+      "ringToken": "0 0 0 2px color-mix(in srgb,oklch(28.742342767231% 0.059445322971 98.265275394125deg) 30%,transparent),0 0 8px color-mix(in srgb,oklch(28.742342767231% 0.059445322971 98.265275394125deg) 15%,transparent)",
+      "ringPx": 861,
+      "ratioMin": 1.029,
+      "ratioMedian": 1.055,
+      "ratioP90": 1.621,
+      "ratioMax": 1.654,
+      "shareGE3": 0
+    },
+    {
+      "color": "rgb(40 60 160)",
+      "active": true,
+      "focusVisible": true,
+      "outline": "none 3px oklch(0.953265 0.00624853 56.0356)",
+      "boxShadow": "color(srgb 0.915705 0.939266 1.00007 / 0.3) 0px 0px 0px 2px, color(srgb 0.915705 0.939266 1.00007 / 0.15) 0px 0px 8px 0px",
+      "ringToken": "0 0 0 2px color-mix(in srgb,oklch(95.368780017597% 0.021810059883 269.050199654863deg) 30%,transparent),0 0 8px color-mix(in srgb,oklch(95.368780017597% 0.021810059883 269.050199654863deg) 15%,transparent)",
+      "ringPx": 867,
+      "ratioMin": 1.03,
+      "ratioMedian": 1.06,
+      "ratioP90": 2.021,
+      "ratioMax": 2.108,
+      "shareGE3": 0
+    }
+  ],
+  "focus:forced": [
+    {
+      "color": "rgb(200 50 50)",
+      "active": true,
+      "focusVisible": true,
+      "outline": "none 3px rgba(5, 0, 73, 0.8)",
+      "boxShadow": "none",
+      "ringToken": "0 0 0 2px color-mix(in srgb,oklch(3.358022410301% 0.013642235148 25.844155977435deg) 30%,transparent),0 0 8px color-mix(in srgb,oklch(3.358022410301% 0.013642235148 25.844155977435deg) 15%,transparent)",
+      "ringPx": 3,
+      "ratioMin": 19.602,
+      "ratioMedian": 19.602,
+      "ratioP90": 19.773,
+      "ratioMax": 19.773,
+      "shareGE3": 1
+    },
+    {
+      "color": "rgb(240 220 120)",
+      "active": true,
+      "focusVisible": true,
+      "outline": "none 3px rgba(5, 0, 73, 0.8)",
+      "boxShadow": "none",
+      "ringToken": "0 0 0 2px color-mix(in srgb,oklch(28.742342767231% 0.059445322971 98.265275394125deg) 30%,transparent),0 0 8px color-mix(in srgb,oklch(28.742342767231% 0.059445322971 98.265275394125deg) 15%,transparent)",
+      "ringPx": 3,
+      "ratioMin": 19.602,
+      "ratioMedian": 19.602,
+      "ratioP90": 19.773,
+      "ratioMax": 19.773,
+      "shareGE3": 1
+    },
+    {
+      "color": "rgb(40 60 160)",
+      "active": true,
+      "focusVisible": true,
+      "outline": "none 3px rgba(5, 0, 73, 0.8)",
+      "boxShadow": "none",
+      "ringToken": "0 0 0 2px color-mix(in srgb,oklch(95.368780017597% 0.021810059883 269.050199654863deg) 30%,transparent),0 0 8px color-mix(in srgb,oklch(95.368780017597% 0.021810059883 269.050199654863deg) 15%,transparent)",
+      "ringPx": 3,
+      "ratioMin": 19.468,
+      "ratioMedian": 19.651,
+      "ratioP90": 19.823,
+      "ratioMax": 19.823,
+      "shareGE3": 1
+    }
+  ],
+  "focus:dark": [
+    {
+      "color": "rgb(200 50 50)",
+      "active": true,
+      "focusVisible": true,
+      "outline": "none 3px oklch(0.925202 0.00618423 67.7483)",
+      "boxShadow": "color(srgb 0.999937 0.472592 0.437263 / 0.3) 0px 0px 0px 2px, color(srgb 0.999937 0.472592 0.437263 / 0.15) 0px 0px 8px 0px",
+      "ringToken": "0 0 0 2px color-mix(in srgb,oklch(73.05100612173% 0.165768976986 25.844155977435deg) 30%,transparent),0 0 8px color-mix(in srgb,oklch(73.05100612173% 0.165768976986 25.844155977435deg) 15%,transparent)",
+      "ringPx": 594,
+      "ratioMin": 1.031,
+      "ratioMedian": 1.058,
+      "ratioP90": 1.796,
+      "ratioMax": 1.824,
+      "shareGE3": 0
+    },
+    {
+      "color": "rgb(240 220 120)",
+      "active": true,
+      "focusVisible": true,
+      "outline": "none 3px oklch(0.925202 0.00618423 67.7483)",
+      "boxShadow": "color(srgb 0.941176 0.862745 0.470588 / 0.3) 0px 0px 0px 2px, color(srgb 0.941176 0.862745 0.470588 / 0.15) 0px 0px 8px 0px",
+      "ringToken": "0 0 0 2px color-mix(in srgb,rgb(240 220 120) 30%,transparent),0 0 8px color-mix(in srgb,rgb(240 220 120) 15%,transparent)",
+      "ringPx": 1119,
+      "ratioMin": 1.034,
+      "ratioMedian": 1.063,
+      "ratioP90": 2.417,
+      "ratioMax": 2.478,
+      "shareGE3": 0
+    },
+    {
+      "color": "rgb(40 60 160)",
+      "active": true,
+      "focusVisible": true,
+      "outline": "none 3px oklch(0.925202 0.00618423 67.7483)",
+      "boxShadow": "color(srgb 0.494936 0.617685 1.00006 / 0.3) 0px 0px 0px 2px, color(srgb 0.494936 0.617685 1.00006 / 0.15) 0px 0px 8px 0px",
+      "ringToken": "0 0 0 2px color-mix(in srgb,oklch(71.653384651391% 0.146697491413 269.050199654863deg) 30%,transparent),0 0 8px color-mix(in srgb,oklch(71.653384651391% 0.146697491413 269.050199654863deg) 15%,transparent)",
+      "ringPx": 876,
+      "ratioMin": 1.021,
+      "ratioMedian": 1.047,
+      "ratioP90": 1.827,
+      "ratioMax": 1.874,
+      "shareGE3": 0
+    }
+  ],
+  "torn": {
+    "snapshots": 190,
+    "legalSets": [
+      "r,g,b",
+      "h,s,l",
+      "h,s,v",
+      "h,w,b",
+      "l,a,b",
+      "l,c,h",
+      "x,y,z",
+      "kelvin",
+      "i,ct,cp",
+      "jz,az,bz",
+      "hex"
+    ],
+    "observedLabelSets": {
+      "r,g,b": 180,
+      "l,a,b": 2,
+      "hex": 8
+    },
+    "tornCount": 0,
+    "tornSample": [],
+    "errs": []
+  },
+  "air": [
+    {
+      "viewport": "512x900",
+      "space": "oklch",
+      "readoutH": 30.67,
+      "inkH": 30.67,
+      "airAbove": 0,
+      "airBelow": 0,
+      "lines": 1,
+      "minHeight": "30.679px",
+      "fontSize": "27.392px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "512x900",
+      "space": "lab",
+      "readoutH": 30.67,
+      "inkH": 30.67,
+      "airAbove": 0,
+      "airBelow": 0,
+      "lines": 1,
+      "minHeight": "30.679px",
+      "fontSize": "27.392px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "512x900",
+      "space": "rgb",
+      "readoutH": 30.67,
+      "inkH": 30.67,
+      "airAbove": 0,
+      "airBelow": 0,
+      "lines": 1,
+      "minHeight": "30.679px",
+      "fontSize": "27.392px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "390x844",
+      "space": "oklch",
+      "readoutH": 28.98,
+      "inkH": 28.98,
+      "airAbove": 0,
+      "airBelow": 0,
+      "lines": 1,
+      "minHeight": "28.9946px",
+      "fontSize": "25.888px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "390x844",
+      "space": "lab",
+      "readoutH": 28.98,
+      "inkH": 28.98,
+      "airAbove": 0,
+      "airBelow": 0,
+      "lines": 1,
+      "minHeight": "28.9946px",
+      "fontSize": "25.888px",
+      "linesVar": "1"
+    },
+    {
+      "viewport": "390x844",
+      "space": "rgb",
+      "readoutH": 28.98,
+      "inkH": 28.98,
+      "airAbove": 0,
+      "airBelow": 0,
+      "lines": 1,
+      "minHeight": "28.9946px",
+      "fontSize": "25.888px",
+      "linesVar": "1"
+    }
+  ],
+  "c3": [
+    {
+      "space": "rgb",
+      "t80": [
+        391,
+        373.3
+      ],
+      "t1080": [
+        391,
+        373.3
+      ],
+      "jumpPx": 0,
+      "spaceAtBoot": "#/?space=rgb&color=rgb(200 50 50)",
+      "labelsAtBoot": "r,g,b",
+      "hash": "#/?space=rgb&color=rgb(147.899990471042+93.176989297819+93.176989297819)"
+    },
+    {
+      "space": "hex",
+      "t80": [
+        391,
+        373.3
+      ],
+      "t1080": [
+        391.8,
+        373.3
+      ],
+      "jumpPx": 0.75,
+      "spaceAtBoot": "#/?space=hex&color=rgb(200 50 50)",
+      "labelsAtBoot": "hex",
+      "hash": "#/?space=hex&color=#945d5d"
+    },
+    {
+      "space": "hsl",
+      "t80": [
+        391,
+        373.3
+      ],
+      "t1080": [
+        391,
+        373.3
+      ],
+      "jumpPx": 0,
+      "spaceAtBoot": "#/?space=hsl&color=rgb(200 50 50)",
+      "labelsAtBoot": "h,s,l",
+      "hash": "#/?space=hsl&color=hsl(0deg+22.699388894655%+47.26999603311%)"
+    },
+    {
+      "space": "hwb",
+      "t80": [
+        391,
+        373.3
+      ],
+      "t1080": [
+        391,
+        373.3
+      ],
+      "jumpPx": 0,
+      "spaceAtBoot": "#/?space=hwb&color=rgb(200 50 50)",
+      "labelsAtBoot": "h,w,b",
+      "hash": "#/?space=hwb&color=hwb(0deg+36.539995803066%+42.000003736846%)"
+    },
+    {
+      "space": "lab",
+      "t80": [
+        391,
+        373.3
+      ],
+      "t1080": [
+        391,
+        373.3
+      ],
+      "jumpPx": 0,
+      "spaceAtBoot": "#/?space=lab&color=rgb(200 50 50)",
+      "labelsAtBoot": "l,a,b",
+      "hash": "#/?space=lab&color=lab(45.803102034851%+23.01504225529+9.856140781953)"
+    },
+    {
+      "space": "lch",
+      "t80": [
+        391,
+        373.4
+      ],
+      "t1080": [
+        391,
+        373.3
+      ],
+      "jumpPx": 0.02,
+      "spaceAtBoot": "#/?space=lch&color=rgb(200 50 50)",
+      "labelsAtBoot": "l,c,h",
+      "hash": "#/?space=lch&color=lch(45.803102034851%+25.036686704243+23.182922513169deg)"
+    },
+    {
+      "space": "oklab",
+      "t80": [
+        391,
+        373.4
+      ],
+      "t1080": [
+        391,
+        373.3
+      ],
+      "jumpPx": 0.02,
+      "spaceAtBoot": "#/?space=oklab&color=rgb(200 50 50)",
+      "labelsAtBoot": "l,a,b",
+      "hash": "#/?space=oklab&color=oklab(53.918122219598%+0.067877174178+0.024293926986)"
+    },
+    {
+      "space": "oklch",
+      "t80": [
+        391,
+        373.3
+      ],
+      "t1080": [
+        391,
+        373.3
+      ],
+      "jumpPx": 0,
+      "spaceAtBoot": "#/?space=oklch&color=rgb(200 50 50)",
+      "labelsAtBoot": "l,c,h",
+      "hash": "#/?space=oklch&color=oklch(53.918122219598%+0.072093728318+19.692802121994deg)"
+    },
+    {
+      "space": "xyz",
+      "t80": [
+        391,
+        373.3
+      ],
+      "t1080": [
+        391,
+        373.3
+      ],
+      "jumpPx": 0,
+      "spaceAtBoot": "#/?space=xyz&color=rgb(200 50 50)",
+      "labelsAtBoot": "x,y,z",
+      "hash": "#/?space=xyz&color=color(xyz+0.181075421549+0.149405646486+0.123275534646)"
+    },
+    {
+      "space": "kelvin",
+      "t80": [
+        391,
+        373.3
+      ],
+      "t1080": [
+        681.5,
+        291
+      ],
+      "jumpPx": 301.92,
+      "spaceAtBoot": "#/?space=kelvin&color=rgb(200 50 50)",
+      "labelsAtBoot": "kelvin",
+      "hash": "#/?space=kelvin&color=oklch(65.925252512236%+0.230113845068+35.205812402185deg)"
+    }
+  ],
+  "kelvin": [
+    {
+      "pick": [
+        0.2,
+        0.15
+      ],
+      "readout": "4085.0",
+      "hash": "#/?space=kelvin&color=oklch(88.893159565014%+0.073052964846+60.528356179765deg)",
+      "aria": "Color spectrum, saturation 33%, lightness 100%"
+    },
+    {
+      "pick": [
+        0.6,
+        0.5
+      ],
+      "readout": "1000.0",
+      "hash": "#/?space=kelvin&color=oklch(65.925252512236%+0.230113845068+35.205812402185deg)",
+      "aria": "Color spectrum, saturation 100%, lightness 100%"
+    },
+    {
+      "pick": [
+        0.95,
+        0.85
+      ],
+      "readout": "1000.0",
+      "hash": "#/?space=kelvin&color=oklch(65.925252512236%+0.230113845068+35.205812402185deg)",
+      "aria": "Color spectrum, saturation 95%, lightness 10%"
+    }
+  ],
+  "gate:touch": {
+    "seq": [
+      {
+        "why": "rest",
+        "active": false,
+        "inlineTA": "pan-y",
+        "computedTA": "pan-y",
+        "outline": "solid 3px rgba(0, 0, 0, 0)",
+        "outlineOffset": "1px"
+      },
+      {
+        "why": "after tap (+600ms, past the outline-color transition)",
+        "active": true,
+        "inlineTA": "none",
+        "computedTA": "none",
+        "outline": "solid 3px oklab(0.0438474 0.00349091 0.00518243 / 0.387913)",
+        "outlineOffset": "1px"
+      },
+      {
+        "why": "after tap +3.5s",
+        "active": false,
+        "inlineTA": "pan-y",
+        "computedTA": "pan-y",
+        "outline": "solid 3px rgba(0, 0, 0, 0)",
+        "outlineOffset": "1px"
+      },
+      {
+        "why": "after 2nd tap",
+        "active": true,
+        "inlineTA": "none",
+        "computedTA": "none",
+        "outline": "solid 3px oklab(0.0438474 0.00349091 0.00518243 / 0.143785)",
+        "outlineOffset": "1px"
+      }
+    ],
+    "ringPx": 666,
+    "ratioMin": 1.039,
+    "ratioMedian": 2.448,
+    "ratioMax": 2.576
+  },
+  "gate:touch:dark": {
+    "seq": [
+      {
+        "why": "rest",
+        "active": false,
+        "inlineTA": "pan-y",
+        "computedTA": "pan-y",
+        "outline": "solid 3px rgba(0, 0, 0, 0)",
+        "outlineOffset": "1px"
+      },
+      {
+        "why": "after tap (+600ms, past the outline-color transition)",
+        "active": true,
+        "inlineTA": "none",
+        "computedTA": "none",
+        "outline": "solid 3px oklab(0.925202 0.00234208 0.00572366 / 0.431253)",
+        "outlineOffset": "1px"
+      },
+      {
+        "why": "after tap +3.5s",
+        "active": false,
+        "inlineTA": "pan-y",
+        "computedTA": "pan-y",
+        "outline": "solid 3px rgba(0, 0, 0, 0)",
+        "outlineOffset": "1px"
+      },
+      {
+        "why": "after 2nd tap",
+        "active": true,
+        "inlineTA": "none",
+        "computedTA": "none",
+        "outline": "solid 3px oklab(0.925202 0.00234208 0.00572366 / 0.228604)",
+        "outlineOffset": "1px"
+      }
+    ],
+    "ringPx": 668,
+    "ratioMin": 1.038,
+    "ratioMedian": 3.65,
+    "ratioMax": 3.816
+  },
+  "d05": {
+    "top@10% (white side)": {
+      "inside": [
+        251,
+        225,
+        225
+      ],
+      "outside": [
+        200,
+        54,
+        99
+      ],
+      "ratio": 4.073
+    },
+    "left@10% (white side)": {
+      "inside": [
+        230,
+        228,
+        228
+      ],
+      "outside": [
+        197,
+        52,
+        100
+      ],
+      "ratio": 4.095
+    },
+    "top@90% (hue side)": {
+      "inside": [
+        251,
+        26,
+        26
+      ],
+      "outside": [
+        212,
+        57,
+        74
+      ],
+      "ratio": 1.174
+    },
+    "left@90% (black side)": {
+      "inside": [
+        25,
+        25,
+        25
+      ],
+      "outside": [
+        205,
+        51,
+        88
+      ],
+      "ratio": 3.525
+    },
+    "TL corner diag": {
+      "inside": [
+        248,
+        244,
+        244
+      ],
+      "outside": [
+        196,
+        54,
+        103
+      ],
+      "ratio": 4.726
+    }
+  },
+  "d05:forced": {
+    "top@10% (white side)": {
+      "inside": [
+        251,
+        225,
+        225
+      ],
+      "outside": [
+        243,
+        240,
+        234
+      ],
+      "ratio": 1.089
+    },
+    "left@10% (white side)": {
+      "inside": [
+        230,
+        228,
+        228
+      ],
+      "outside": [
+        243,
+        240,
+        235
+      ],
+      "ratio": 1.114
+    },
+    "top@90% (hue side)": {
+      "inside": [
+        251,
+        26,
+        26
+      ],
+      "outside": [
+        240,
+        235,
+        231
+      ],
+      "ratio": 3.37
+    },
+    "left@90% (black side)": {
+      "inside": [
+        25,
+        25,
+        25
+      ],
+      "outside": [
+        239,
+        235,
+        230
+      ],
+      "ratio": 14.816
+    },
+    "TL corner diag": {
+      "inside": [
+        248,
+        244,
+        244
+      ],
+      "outside": [
+        243,
+        240,
+        235
+      ],
+      "ratio": 1.041
+    }
+  },
+  "d05:dark": {
+    "top@10% (white side)": {
+      "inside": [
+        251,
+        225,
+        225
+      ],
+      "outside": [
+        91,
+        26,
+        41
+      ],
+      "ratio": 10.439
+    },
+    "left@10% (white side)": {
+      "inside": [
+        230,
+        228,
+        228
+      ],
+      "outside": [
+        89,
+        25,
+        40
+      ],
+      "ratio": 10.4
+    },
+    "top@90% (hue side)": {
+      "inside": [
+        251,
+        26,
+        26
+      ],
+      "outside": [
+        102,
+        21,
+        29
+      ],
+      "ratio": 3.115
+    },
+    "left@90% (black side)": {
+      "inside": [
+        25,
+        25,
+        25
+      ],
+      "outside": [
+        94,
+        22,
+        36
+      ],
+      "ratio": 1.353
+    },
+    "TL corner diag": {
+      "inside": [
+        248,
+        244,
+        244
+      ],
+      "outside": [
+        90,
+        26,
+        41
+      ],
+      "ratio": 11.916
+    }
+  },
+  "m1": [
+    {
+      "t": 0,
+      "anim": true,
+      "name": "field-paint-in-ad23e00d",
+      "opacity": "0",
+      "bgSize": "120% 120%, 120% 120%",
+      "arrival": "first",
+      "rect": [
+        461.100341796875,
+        224.07794189453125
+      ],
+      "ariaAfterClick": "Color spectrum, saturation 50%, lightness 84%",
+      "pixel": [
+        217,
+        50,
+        94
+      ],
+      "ground": [
+        217,
+        50,
+        94
+      ],
+      "seeS": null
+    },
+    {
+      "t": 250,
+      "anim": true,
+      "name": "field-paint-in-ad23e00d",
+      "opacity": "0.0851055",
+      "bgSize": "118.298% 118.298%, 118.298% 118.298%",
+      "arrival": "first",
+      "rect": [
+        461.11669921875,
+        224.11154174804688
+      ],
+      "ariaAfterClick": "Color spectrum, saturation 50%, lightness 84%",
+      "pixel": [
+        217,
+        55,
+        96
+      ],
+      "ground": [
+        217,
+        50,
+        94
+      ],
+      "seeS": 0.499
+    },
+    {
+      "t": 330,
+      "anim": true,
+      "name": "field-paint-in-ad23e00d",
+      "opacity": "0.51764",
+      "bgSize": "109.647% 109.647%, 109.647% 109.647%",
+      "arrival": "first",
+      "rect": [
+        461.14501953125,
+        224.169921875
+      ],
+      "ariaAfterClick": "Color spectrum, saturation 50%, lightness 84%",
+      "pixel": [
+        211,
+        82,
+        104
+      ],
+      "ground": [
+        217,
+        50,
+        94
+      ],
+      "seeS": 0.456
+    },
+    {
+      "t": 420,
+      "anim": true,
+      "name": "field-paint-in-ad23e00d",
+      "opacity": "0.851947",
+      "bgSize": "102.961% 102.961%, 102.961% 102.961%",
+      "arrival": "first",
+      "rect": [
+        461.10540771484375,
+        224.08837890625
+      ],
+      "ariaAfterClick": "Color spectrum, saturation 50%, lightness 84%",
+      "pixel": [
+        206,
+        97,
+        103
+      ],
+      "ground": [
+        217,
+        50,
+        94
+      ],
+      "seeS": 0.488
+    },
+    {
+      "t": 520,
+      "anim": true,
+      "name": "field-paint-in-ad23e00d",
+      "opacity": "0.977772",
+      "bgSize": "100.445% 100.445%, 100.445% 100.445%",
+      "arrival": "first",
+      "rect": [
+        461.0625,
+        224
+      ],
+      "ariaAfterClick": "Color spectrum, saturation 50%, lightness 84%",
+      "pixel": [
+        203,
+        100,
+        102
+      ],
+      "ground": [
+        217,
+        50,
+        94
+      ],
+      "seeS": 0.501
+    },
+    {
+      "t": 2000,
+      "anim": true,
+      "name": "field-paint-in-ad23e00d",
+      "opacity": "1",
+      "bgSize": "100% 100%, 100% 100%",
+      "arrival": "first",
+      "rect": [
+        461.139892578125,
+        224.15924072265625
+      ],
+      "ariaAfterClick": "Color spectrum, saturation 50%, lightness 84%",
+      "pixel": [
+        202,
+        101,
+        101
+      ],
+      "ground": [
+        217,
+        50,
+        94
+      ],
+      "seeS": 0.5
+    }
+  ],
+  "d18": {
+    "plate": [
+      460,
+      223
+    ],
+    "full": {
+      "pixels": 102580,
+      "dark": 12598,
+      "pct": 12.281
+    },
+    "inset12": {
+      "pixels": 97228,
+      "dark": 11990,
+      "pct": 12.332
+    },
+    "rowsDerivedPct": 12.549
+  },
+  "l1": {
+    "h:0..348/12 x s,v:0..1/18": {
+      "n": 10830,
+      "disagree": 1392,
+      "pct": 12.853,
+      "maxChannelDelta": 1,
+      "examples": [
+        {
+          "H": 0,
+          "s": 0,
+          "v": 0.16666666666666666,
+          "lib": "#2a2a2a",
+          "mini": "#2b2b2b"
+        },
+        {
+          "H": 0,
+          "s": 0,
+          "v": 0.8333333333333334,
+          "lib": "#d4d4d4",
+          "mini": "#d5d5d5"
+        },
+        {
+          "H": 0,
+          "s": 0.05555555555555555,
+          "v": 0.16666666666666666,
+          "lib": "#2a2828",
+          "mini": "#2b2828"
+        },
+        {
+          "H": 0,
+          "s": 0.05555555555555555,
+          "v": 0.8333333333333334,
+          "lib": "#d4c9c9",
+          "mini": "#d5c9c9"
+        }
+      ]
+    },
+    "h:0..348/12 x s,v:.05..0.95/.05": {
+      "n": 10830,
+      "disagree": 1300,
+      "pct": 12.004,
+      "maxChannelDelta": 1,
+      "examples": [
+        {
+          "H": 0,
+          "s": 0.05,
+          "v": 0.3,
+          "lib": "#4c4949",
+          "mini": "#4d4949"
+        },
+        {
+          "H": 0,
+          "s": 0.05,
+          "v": 0.7,
+          "lib": "#b2aaaa",
+          "mini": "#b3aaaa"
+        },
+        {
+          "H": 0,
+          "s": 0.1,
+          "v": 0.3,
+          "lib": "#4c4545",
+          "mini": "#4d4545"
+        },
+        {
+          "H": 0,
+          "s": 0.1,
+          "v": 0.7,
+          "lib": "#b2a1a1",
+          "mini": "#b3a1a1"
+        }
+      ]
+    },
+    "h:0..360/19 x s,v:0..1/18 (19x19x30?)": {
+      "n": 10830,
+      "disagree": 1230,
+      "pct": 11.357,
+      "maxChannelDelta": 1,
+      "examples": [
+        {
+          "H": 0,
+          "s": 0,
+          "v": 0.16666666666666666,
+          "lib": "#2a2a2a",
+          "mini": "#2b2b2b"
+        },
+        {
+          "H": 0,
+          "s": 0,
+          "v": 0.8333333333333334,
+          "lib": "#d4d4d4",
+          "mini": "#d5d5d5"
+        },
+        {
+          "H": 0,
+          "s": 0.05555555555555555,
+          "v": 0.16666666666666666,
+          "lib": "#2a2828",
+          "mini": "#2b2828"
+        },
+        {
+          "H": 0,
+          "s": 0.05555555555555555,
+          "v": 0.8333333333333334,
+          "lib": "#d4c9c9",
+          "mini": "#d5c9c9"
+        }
+      ]
+    }
+  },
+  "trace": {
+    "fireAnimationFrame": 381,
+    "layoutsTotal": 302,
+    "layoutsInsideRaf": 190,
+    "styleRecalcsTotal": 309,
+    "styleRecalcsInsideRaf": 190,
+    "rafMsP50": 0.119,
+    "rafMsMax": 220.699,
+    "inRafSample": [
+      {
+        "dur": 664,
+        "args": "{\"beginData\":{\"dirtyObjects\":69,\"frame\":\"E4D6F7FBDFFCFA68E377834278199458\",\"partialLayout\":false,\"totalObjects\":550}}"
+      },
+      {
+        "dur": 151,
+        "args": "{\"beginData\":{\"dirtyObjects\":39,\"frame\":\"E4D6F7FBDFFCFA68E377834278199458\",\"partialLayout\":false,\"totalObjects\":550}}"
+      },
+      {
+        "dur": 168,
+        "args": "{\"beginData\":{\"dirtyObjects\":39,\"frame\":\"E4D6F7FBDFFCFA68E377834278199458\",\"partialLayout\":false,\"totalObjects\":550}}"
+      }
+    ]
+  },
+  "pos": {
+    "position": "absolute",
+    "classes": "spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none watercolor-swatch",
+    "sheets": [
+      "(inline)",
+      "(inline)",
+      "(inline)",
+      "(inline)",
+      "(inline)",
+      "(inline)",
+      "(inline)",
+      "(inline)",
+      "(inline)",
+      "(inline)",
+      "(inline)",
+      "(inline)"
+    ]
+  },
+  "none": {
+    "spectrum": false,
+    "readout": "",
+    "hash": "#/?space=oklch&color=oklch(0.6 none 30)",
+    "errs": [
+      "error: [value.js] unhandled failure (vue · setup function) Error: Ink certification failed: color_missing_channel\n    at failed (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/color-session",
+      "error: [value.js] unhandled failure (vue · render function) TypeError: Cannot read properties of undefined (reading 'currentView')\n    at Proxy._sfc_render (http://localhost:9000/App.vue?t=1792433178947:280:",
+      "error: [value.js] unhandled failure (vue · component update) Error: Ink certification failed: color_missing_channel\n    at failed (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/color-sessi"
+    ]
+  },
+  "d01": {
+    "identical": true,
+    "distinct": 1,
+    "sample": "linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 0))",
+    "perSpace": {
+      "rgb": "linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 0))",
+      "hsl": "linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 0))",
+      "lab": "linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 0))",
+      "oklch": "linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 0))",
+      "xyz": "linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 0))",
+      "display-p3": "linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 0))"
+    },
+    "readoutPerSpace": {
+      "rgb": "r=200,g=50,b=50",
+      "hsl": "h=0,s=60,l=49",
+      "lab": "l=46.1,a=59.0,b=38.0",
+      "oklch": "l=55.1,c=0.2,h=25.8",
+      "xyz": "x=26,y=15,z=5",
+      "display-p3": "r=0.7,g=0.2,b=0.2"
+    }
+  }
+}

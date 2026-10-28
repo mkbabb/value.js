@@ -1,0 +1,539 @@
+{
+  "320": {
+    "chipsBefore": 0,
+    "doorCount": 1,
+    "chipsAfter1": 0,
+    "Color space": {
+      "n": 9,
+      "chips": 9,
+      "aspect": 2.9911,
+      "listbox": {
+        "x": 32,
+        "y": 144,
+        "w": 224.438,
+        "h": 384
+      },
+      "overflow": [
+        {
+          "label": "RGB Device linear",
+          "optRight": 256.44,
+          "maxChildRight": 176.59,
+          "childOverflow": -79.84,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "HSL Web-native cylindric",
+          "optRight": 256.44,
+          "maxChildRight": 221.91,
+          "childOverflow": -34.53,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "HSV Hue-saturation-value",
+          "optRight": 256.44,
+          "maxChildRight": 217,
+          "childOverflow": -39.44,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "HWB Hue-whiteness-blackn",
+          "optRight": 256.44,
+          "maxChildRight": 241.38,
+          "childOverflow": -15.06,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Lab CIE perceptual",
+          "optRight": 256.44,
+          "maxChildRight": 186.22,
+          "childOverflow": -70.22,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "LCh CIE cylindrical",
+          "optRight": 256.44,
+          "maxChildRight": 182.98,
+          "childOverflow": -73.45,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "OKLab Perceptual, smooth",
+          "optRight": 256.44,
+          "maxChildRight": 209.31,
+          "childOverflow": -47.13,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "OKLCh Perceptual, hue-pr",
+          "optRight": 256.44,
+          "maxChildRight": 248.44,
+          "childOverflow": -8,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "XYZ CIE absolute",
+          "optRight": 256.44,
+          "maxChildRight": 175.95,
+          "childOverflow": -80.48,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        }
+      ],
+      "worstChildOverflow": -8,
+      "anyOffViewport": false
+    },
+    "Hue method": {
+      "n": 4,
+      "chips": 4,
+      "aspect": 2.9911,
+      "listbox": {
+        "x": 124,
+        "y": 348,
+        "w": 180.156,
+        "h": 180
+      },
+      "overflow": [
+        {
+          "label": "Shorter Nearest arc",
+          "optRight": 304.16,
+          "maxChildRight": 261.53,
+          "childOverflow": -42.63,
+          "scroll": [
+            180,
+            180
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Longer Far arc",
+          "optRight": 304.16,
+          "maxChildRight": 238.44,
+          "childOverflow": -65.72,
+          "scroll": [
+            180,
+            180
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Increasing Always clockw",
+          "optRight": 304.16,
+          "maxChildRight": 291.02,
+          "childOverflow": -13.14,
+          "scroll": [
+            180,
+            180
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Decreasing Counter-clock",
+          "optRight": 304.16,
+          "maxChildRight": 296.16,
+          "childOverflow": -8,
+          "scroll": [
+            180,
+            180
+          ],
+          "offViewport": false
+        }
+      ],
+      "worstChildOverflow": -8,
+      "anyOffViewport": false
+    },
+    "pageErrors": []
+  },
+  "390": {
+    "chipsBefore": 0,
+    "doorCount": 1,
+    "chipsAfter1": 0,
+    "Color space": {
+      "n": 9,
+      "chips": 9,
+      "aspect": 2.9911,
+      "listbox": {
+        "x": 32,
+        "y": 144,
+        "w": 224.438,
+        "h": 384
+      },
+      "overflow": [
+        {
+          "label": "RGB Device linear",
+          "optRight": 256.44,
+          "maxChildRight": 176.59,
+          "childOverflow": -79.84,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "HSL Web-native cylindric",
+          "optRight": 256.44,
+          "maxChildRight": 221.91,
+          "childOverflow": -34.53,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "HSV Hue-saturation-value",
+          "optRight": 256.44,
+          "maxChildRight": 217,
+          "childOverflow": -39.44,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "HWB Hue-whiteness-blackn",
+          "optRight": 256.44,
+          "maxChildRight": 241.38,
+          "childOverflow": -15.06,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Lab CIE perceptual",
+          "optRight": 256.44,
+          "maxChildRight": 186.22,
+          "childOverflow": -70.22,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "LCh CIE cylindrical",
+          "optRight": 256.44,
+          "maxChildRight": 182.98,
+          "childOverflow": -73.45,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "OKLab Perceptual, smooth",
+          "optRight": 256.44,
+          "maxChildRight": 209.31,
+          "childOverflow": -47.13,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "OKLCh Perceptual, hue-pr",
+          "optRight": 256.44,
+          "maxChildRight": 248.44,
+          "childOverflow": -8,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "XYZ CIE absolute",
+          "optRight": 256.44,
+          "maxChildRight": 175.95,
+          "childOverflow": -80.48,
+          "scroll": [
+            224,
+            224
+          ],
+          "offViewport": false
+        }
+      ],
+      "worstChildOverflow": -8,
+      "anyOffViewport": false
+    },
+    "Hue method": {
+      "n": 4,
+      "chips": 4,
+      "aspect": 2.9911,
+      "listbox": {
+        "x": 194,
+        "y": 572,
+        "w": 180.156,
+        "h": 180
+      },
+      "overflow": [
+        {
+          "label": "Shorter Nearest arc",
+          "optRight": 374.16,
+          "maxChildRight": 331.53,
+          "childOverflow": -42.63,
+          "scroll": [
+            180,
+            180
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Longer Far arc",
+          "optRight": 374.16,
+          "maxChildRight": 308.44,
+          "childOverflow": -65.72,
+          "scroll": [
+            180,
+            180
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Increasing Always clockw",
+          "optRight": 374.16,
+          "maxChildRight": 361.02,
+          "childOverflow": -13.14,
+          "scroll": [
+            180,
+            180
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Decreasing Counter-clock",
+          "optRight": 374.16,
+          "maxChildRight": 366.16,
+          "childOverflow": -8,
+          "scroll": [
+            180,
+            180
+          ],
+          "offViewport": false
+        }
+      ],
+      "worstChildOverflow": -8,
+      "anyOffViewport": false
+    },
+    "pageErrors": []
+  },
+  "1440": {
+    "chipsBefore": 0,
+    "doorCount": 1,
+    "chipsAfter1": 0,
+    "Color space": {
+      "n": 9,
+      "chips": 9,
+      "aspect": 2.5548,
+      "listbox": {
+        "x": 753,
+        "y": 162,
+        "w": 228,
+        "h": 384
+      },
+      "overflow": [
+        {
+          "label": "RGB Device linear",
+          "optRight": 981,
+          "maxChildRight": 897.59,
+          "childOverflow": -83.41,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "HSL Web-native cylindric",
+          "optRight": 981,
+          "maxChildRight": 942.91,
+          "childOverflow": -38.09,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "HSV Hue-saturation-value",
+          "optRight": 981,
+          "maxChildRight": 938,
+          "childOverflow": -43,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "HWB Hue-whiteness-blackn",
+          "optRight": 981,
+          "maxChildRight": 962.38,
+          "childOverflow": -18.63,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Lab CIE perceptual",
+          "optRight": 981,
+          "maxChildRight": 907.22,
+          "childOverflow": -73.78,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "LCh CIE cylindrical",
+          "optRight": 981,
+          "maxChildRight": 903.98,
+          "childOverflow": -77.02,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "OKLab Perceptual, smooth",
+          "optRight": 981,
+          "maxChildRight": 930.31,
+          "childOverflow": -50.69,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "OKLCh Perceptual, hue-pr",
+          "optRight": 981,
+          "maxChildRight": 969.44,
+          "childOverflow": -11.56,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "XYZ CIE absolute",
+          "optRight": 981,
+          "maxChildRight": 896.95,
+          "childOverflow": -84.05,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        }
+      ],
+      "worstChildOverflow": -11.56,
+      "anyOffViewport": false
+    },
+    "Hue method": {
+      "n": 4,
+      "chips": 4,
+      "aspect": 2.5548,
+      "listbox": {
+        "x": 989,
+        "y": 590,
+        "w": 228,
+        "h": 204
+      },
+      "overflow": [
+        {
+          "label": "Shorter Nearest arc",
+          "optRight": 1217,
+          "maxChildRight": 1126.53,
+          "childOverflow": -90.47,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Longer Far arc",
+          "optRight": 1217,
+          "maxChildRight": 1103.44,
+          "childOverflow": -113.56,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Increasing Always clockw",
+          "optRight": 1217,
+          "maxChildRight": 1156.02,
+          "childOverflow": -60.98,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        },
+        {
+          "label": "Decreasing Counter-clock",
+          "optRight": 1217,
+          "maxChildRight": 1161.16,
+          "childOverflow": -55.84,
+          "scroll": [
+            228,
+            228
+          ],
+          "offViewport": false
+        }
+      ],
+      "worstChildOverflow": -55.84,
+      "anyOffViewport": false
+    },
+    "pageErrors": []
+  }
+}

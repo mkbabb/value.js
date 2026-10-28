@@ -1,7 +1,8 @@
-import type { Page } from "@playwright/test";
+import type { ElementHandle, Locator, Page } from "@playwright/test";
 import { userTest as test, expect } from "../fixtures/user-auth";
 import { expandDock, mainPane } from "../fixtures/dock";
 import { routeBrowsePalettes } from "../fixtures/browse-palettes";
+import { mapColorToGamut, oklch } from "../../../dist/subpaths/color.js";
 
 /**
  * T.W3 W3-5 · O-18 — THE POPULATION CONTRAST CENSUS (SYNTHESIS §6.1 O-18).
@@ -117,16 +118,30 @@ interface CensusRow {
  * In-page census toolkit: format-agnostic color resolution (dual-ground
  * canvas draw → color + alpha), ancestor ground compositing, WCAG ratio.
  * One evaluate per element keeps the spec deterministic and inspectable.
+ *
+ * `target` is either a CSS selector (the document's first match; `null` when
+ * absent) or a Locator that names ONE element by itself — a population row is
+ * bound by its own item, never re-found through a stamped attribute.
  */
 async function censusElement(
     page: Page,
-    selector: string,
+    target: string | Locator,
     name: string,
 ): Promise<CensusRow | null> {
-    return page.evaluate(
-        ({ selector, name }) => {
-            const el = document.querySelector<HTMLElement>(selector);
-            if (!el) return null;
+    const handle: ElementHandle | null =
+        typeof target === "string"
+            ? (
+                  await page.evaluateHandle(
+                      (selector) => document.querySelector(selector),
+                      target,
+                  )
+              ).asElement()
+            : await target.elementHandle();
+    if (!handle) return null;
+    return handle.evaluate(
+        (node, { name }) => {
+            if (!(node instanceof HTMLElement)) return null;
+            const el = node;
 
             const cv = document.createElement("canvas");
             cv.width = cv.height = 1;
@@ -238,7 +253,7 @@ async function censusElement(
                 stack,
             };
         },
-        { selector, name },
+        { name },
     );
 }
 
@@ -423,6 +438,32 @@ async function resolveRgbInPage(
 /** The identity floor: the certified accent keeps ≥ this fraction of the
  *  pick's chroma (gamut-permitting — §5.2's stated leg). */
 const IDENTITY_C_FLOOR = 0.35;
+
+/** The sRGB gamut-maximal chroma at (L, H), as the LIBRARY computes it:
+ *  `mapColorToGamut` holds L and H and bisects the greatest representable C,
+ *  so a chroma request past any sRGB ceiling (0.5) returns the ceiling. */
+function gamutMaxChroma(L: number, H: number): number {
+    const probe = oklch(L, 0.5, H);
+    if (!probe.ok) throw new Error(`oklch(${L} 0.5 ${H}): ${probe.error.code}`);
+    const mapped = mapColorToGamut(probe.value, "srgb");
+    if (!mapped.ok) throw new Error(`gamut map oklch(${L} 0.5 ${H}): ${mapped.error.code}`);
+    return mapped.value.channels[1] as number;
+}
+
+/** COHESION §0gl.7 (ESC-W11h2, O18-992): the floor is
+ *  min(IDENTITY_C_FLOOR × pick C, Cmax(h, L)) at the measured accent's own
+ *  hue and lightness. A near-white certified accent (L ≈ 0.986 at the owner
+ *  seed, light) cannot hold 0.35× the pick's C inside sRGB at all; the bare
+ *  0.35× constant was physically unsatisfiable there. This corrects an
+ *  impossible constant and never weakens a reachable one: wherever the slice
+ *  admits 0.35× the pick, that is still the floor. The 8-bit sample sits ON
+ *  the boundary when the library clamps, and the inline converter and the
+ *  library's agree to ~2e-8 there, so the comparison carries a 1e-6
+ *  converter tolerance (four orders below any identity-bearing chroma). */
+const GAMUT_CONVERTER_EPS = 1e-6;
+function identityChromaFloor(pickC: number, accent: { L: number; H: number }): number {
+    return Math.min(IDENTITY_C_FLOOR * pickC, gamutMaxChroma(accent.L, accent.H));
+}
 
 /** Boot to the owner color and wait for the ink writers (boot contract). */
 async function bootAtOwnerColor(page: Page) {
@@ -1008,14 +1049,15 @@ for (const scheme of ["light", "dark"] as const) {
                     .trim(),
             );
             const accent = rgbToOklch(await resolveRgbInPage(page, accentCss));
+            const chromaFloor = identityChromaFloor(pick.C, accent);
             expect(
                 hueDeltaDeg(accent.H, pick.H),
                 `accent hue ≈ pick hue (accent ${accentCss}; pick H ${pick.H.toFixed(1)})`,
             ).toBeLessThanOrEqual(12);
             expect(
                 accent.C,
-                `accent chroma ≥ ${IDENTITY_C_FLOOR}× pick (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
-            ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C);
+                `accent chroma ≥ min(${IDENTITY_C_FLOOR}× pick, Cmax(h, L)) = ${chromaFloor.toFixed(6)} (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
+            ).toBeGreaterThanOrEqual(chromaFloor - GAMUT_CONVERTER_EPS);
 
             // 2 — the owner's NAMED instance (t33-audit-03's shot): the "Lab"
             //     space trigger wears `--space-title-ink` = the safe accent at
@@ -1040,8 +1082,8 @@ for (const scheme of ["light", "dark"] as const) {
             ).toBeLessThanOrEqual(15);
             expect(
                 triggerInk.C,
-                `trigger ink chroma ≥ ${IDENTITY_C_FLOOR}×α× pick (ink ${row!.ink} α ${row!.effectiveAlpha})`,
-            ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C * row!.effectiveAlpha);
+                `trigger ink chroma ≥ α × min(${IDENTITY_C_FLOOR}× pick, Cmax(h, L)) (ink ${row!.ink} α ${row!.effectiveAlpha})`,
+            ).toBeGreaterThanOrEqual(chromaFloor * row!.effectiveAlpha - GAMUT_CONVERTER_EPS);
         });
 
         test("the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)", async ({
@@ -1152,6 +1194,32 @@ for (const scheme of ["light", "dark"] as const) {
             );
             expect(kRail, "K range mounted").not.toBeNull();
             expect(kRail!.ratio, diag(kRail!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+        });
+
+        // SS8-0705 (EC-16 · L-22): Generate's count row is Extract's K twin; the
+        // O-18 cure and its hook had landed on one copy only, so the census
+        // could not fail on the other. The same RANGE reading, the same floor.
+        test("the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 · WCAG 1.4.11)", async ({
+            page,
+        }) => {
+            await page.goto(
+                "/#/generate?space=lab&color=" + encodeURIComponent(OWNER_COLOR),
+            );
+            await expect(mainPane(page)).toBeVisible();
+            const selector = '[data-o18="generate-count"] .slider-range';
+            await expect(page.locator(selector)).toBeVisible();
+            const deadline = Date.now() + 8000;
+            let row: CensusRow | null = null;
+            for (;;) {
+                row = await censusSurface(page, selector, "generate-count-range");
+                if ((row && row.ratio >= GRAPHICS_FLOOR) || Date.now() > deadline) break;
+                await page.waitForTimeout(250);
+            }
+            expect(row, "count range mounted").not.toBeNull();
+            expect(
+                row!.ratio,
+                `${row!.name} fill ${row!.ink} vs ground ${row!.ground} — raw ${row!.rawColor} α ${row!.effectiveAlpha} stack [${row!.stack.join(" | ")}]`,
+            ).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
         });
     });
 }
@@ -1307,6 +1375,33 @@ for (const scheme of ["light", "dark"] as const) {
                 "the admin branch mounts — if this fails the census is still blind and the row below proves nothing",
             ).toBeVisible({ timeout: 8000 });
 
+            // X.W11.h3b (COHESION §0gl.8) — sample the pill AT REST. The band
+            // reveals through `overture-dock-land` (opacity 0→1) after the
+            // producer morph, and the census multiplies the ancestor opacity
+            // into the ink, so a sample taken mid-entrance reads the arrival,
+            // not the ink (ESC-W11h3-1: ink == ground at band opacity 0).
+            // Wait for the reveal (veil class gone), then for every TIMED
+            // animation under the band to finish. The dock plate's caps
+            // (`gl-dock-cap-inline-*`) run on a scroll/view timeline, whose
+            // `finished` never settles by definition (duration "auto"); they
+            // are not an entrance, so only document-timeline animations count.
+            await page.waitForFunction(
+                () =>
+                    !document
+                        .querySelector("nav.dock-band")
+                        ?.classList.contains("overture-dock-veiled"),
+            );
+            await page.evaluate(async () => {
+                const band = document.querySelector("nav.dock-band");
+                if (!band) return;
+                await Promise.all(
+                    band
+                        .getAnimations({ subtree: true })
+                        .filter((a) => a.timeline instanceof DocumentTimeline)
+                        .map((a) => a.finished),
+                );
+            });
+
             const row = await censusElement(
                 page,
                 '[data-o18="admin-trigger"]',
@@ -1338,14 +1433,49 @@ for (const scheme of ["light", "dark"] as const) {
                 "the profile menu publishes rows — the census enrolls the population, not a sample",
             ).toBeGreaterThan(0);
 
+            // Bind EACH row by its own item. A positional `:nth-of-type`
+            // counts the menu's label div as a sibling, so it read the row
+            // before the one it named and never read the last (X.W10.h,
+            // o18-1322-menu-probe: off by one). The census reads the row's
+            // own `menuitem` Locator (the role population, indexed among
+            // menuitems only), so nothing is stamped onto the product DOM and
+            // every binding names an element the product renders.
+            const names: string[] = [];
+            for (let i = 0; i < count; i++) {
+                names.push((await items.nth(i).textContent())?.trim() ?? `row ${i}`);
+            }
+            const readRow = (i: number) =>
+                censusElement(page, items.nth(i), `profile-row-${i}`);
+
+            // Settle past the menu's entrance with the file's deadline idiom.
+            // The entrance is the MENU's — one ancestor opacity chain over
+            // every row; mid-fade it drives the ink to the ground (α 0),
+            // which is the entrance, not the row. Poll that chain (a cheap
+            // read; the census evaluate is heavy) until two consecutive reads
+            // agree and are non-zero; if it never settles, the census below
+            // reports what it reads.
+            const opacityChain = () =>
+                items.nth(0).evaluate((el) => {
+                    let o = 1;
+                    for (let n: Element | null = el; n; n = n.parentElement) {
+                        o *= Number(getComputedStyle(n).opacity);
+                    }
+                    return o;
+                });
+            const deadline = Date.now() + 8000;
+            let prev = -1;
+            for (;;) {
+                const o = await opacityChain();
+                if (o > 0 && o === prev) break;
+                if (Date.now() > deadline) break;
+                prev = o;
+                await page.waitForTimeout(250);
+            }
+
             const failures: string[] = [];
             for (let i = 0; i < count; i++) {
-                const name = (await items.nth(i).textContent())?.trim() ?? `row ${i}`;
-                const row = await censusElement(
-                    page,
-                    `[role="menu"] [role="menuitem"]:nth-of-type(${i + 1})`,
-                    `profile-row-${i}`,
-                );
+                const name = names[i];
+                const row = await readRow(i);
                 if (!row) {
                     failures.push(`${name}: not measurable`);
                     continue;

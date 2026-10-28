@@ -155,11 +155,11 @@ async function copyLiteral(index: number, css: string) {
                     <span class="specimen-dot" :style="{ '--dot-c': row.c0 }" />
                     <span class="specimen-dot" :style="{ '--dot-c': row.c1 }" />
                 </span>
+                <!-- X-DS pass 18 (V18C-04): no frame. The card-edge hairline
+                     read ~1.1:1 on the saturated ground (a smudge, not a plot
+                     box); the glyph sits in a labelled row (dots, curve,
+                     name), and the open interval shows the full plot. -->
                 <svg class="head-glyph shrink-0" viewBox="0 0 1 1" aria-hidden="true">
-                    <!-- X-DS value pass 16 (V16C-03): the unit-square frame, so
-                         the curve reads as a plot, not a "/" between the dots
-                         and the name (a bare linear diagonal is a slash). -->
-                    <rect class="head-glyph-frame" width="1" height="1" vector-effect="non-scaling-stroke" />
                     <path :d="row.glyph" vector-effect="non-scaling-stroke" />
                 </svg>
                 <!-- text-mono-SMALL: curve identifiers are case-sensitive;
@@ -343,12 +343,6 @@ async function copyLiteral(index: number, css: string) {
     block-size: 1rem;
     overflow: visible;
 }
-/* The frame: one hairline in the card-edge ink, no fill (the tune plot's box). */
-.head-glyph-frame {
-    fill: none;
-    stroke: var(--card-edge);
-    stroke-width: 1;
-}
 .head-glyph path {
     fill: none;
     stroke: var(--motion-accent, var(--muted-foreground));
@@ -385,7 +379,7 @@ async function copyLiteral(index: number, css: string) {
 .rail-caption {
     font-size: var(--text-caption);
     line-height: 1.2;
-    color: var(--ink-muted, var(--muted-foreground));
+    color: var(--ink-muted);
 }
 
 /* ── Motion, declared only where motion is wanted (X-W6 · X.W6.e — e2) ──

@@ -1,0 +1,39 @@
+{
+  "root": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/z4-head",
+  "transformExports": [
+    "PathGeometry",
+    "getPointAtLength",
+    "getTotalLength"
+  ],
+  "mathExports": [
+    "clamp",
+    "cubicBezier",
+    "cubicBezierToString",
+    "deCasteljau",
+    "interpBezier",
+    "lerp",
+    "lerpArray",
+    "logerp",
+    "scale"
+  ],
+  "deCasteljauEmpty": {
+    "threw": "RangeError: deCasteljau: points must hold at least one control point; received an empty array"
+  },
+  "lerpArrayMismatch": {
+    "threw": "RangeError: lerpArray: start, stop and out must share one length; received 3, 2, 3"
+  },
+  "scaleDegenerate": {
+    "threw": "RangeError: scale: fromMax and fromMin cannot be equal"
+  },
+  "getTotalLengthTruncated": {
+    "value": "0"
+  },
+  "arcExpanded": {
+    "value": "31.403311569547522"
+  },
+  "arcCompact": {
+    "value": "31.403311569547522"
+  },
+  "decomposeMatrix3DInSrc": "ABSENT from src/",
+  "decomposeExports": []
+}

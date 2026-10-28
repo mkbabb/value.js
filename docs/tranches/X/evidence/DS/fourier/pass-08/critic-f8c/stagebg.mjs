@@ -1,0 +1,5 @@
+import { chromium } from "/Users/mkbabb/Programming/fourier-analysis/web/node_modules/playwright/index.mjs";
+const b = await chromium.launch({ channel: "chrome", headless: true });
+try { for (const [t,path] of [["dark","/w"],["dark","/w/placid-stirring-opal-viper"],["light","/w"]]) { const ctx = await b.newContext({viewport:{width:390,height:844}, colorScheme:t, isMobile:true, hasTouch:true}); await ctx.addInitScript((t)=>{try{localStorage.setItem("vueuse-color-scheme",t);localStorage.setItem("theme",t)}catch{}},t); const p = await ctx.newPage(); await p.goto("http://localhost:3148"+path); await p.waitForTimeout(6000);
+ console.log(t,path,JSON.stringify(await p.evaluate(()=>{const s=document.querySelector(".configurator-stage"); if(!s) return null; const cs=getComputedStyle(s); const c=document.querySelector(".configurator-stage canvas"); return {cls:s.className, bg:cs.backgroundColor, bgi:cs.backgroundImage.slice(0,100), bf:cs.backdropFilter, opaque: !!s.closest(".glass-opaque"), canvas: c? [c.width,c.height]:null, kids:[...s.children].map(k=>k.className.toString().slice(0,40))};})));
+ await ctx.close(); } } finally { await b.close(); }

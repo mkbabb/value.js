@@ -1,0 +1,452 @@
+{
+ "r1_r7_r11": {
+  "valueOnOpen": "",
+  "attrOnOpen": null,
+  "valueAfterPickerOpen": "",
+  "readoutAfterPickerOpen": "#4488cc",
+  "padding": {
+   "cls": "glass-floating glass-overlay-plate glass-reveal z-popover w-52 p-2.5",
+   "pt": "10px",
+   "pl": "10px",
+   "rootFont": "16px",
+   "rules": [
+    {
+     "sel": "*, ::after, ::before, ::backdrop, ::file-selector-button",
+     "layer": "base",
+     "pad": "padding: 0px"
+    },
+    {
+     "sel": ".p-2\\.5",
+     "layer": "utilities",
+     "pad": "padding: calc(var(--spacing) * 2.5)"
+    },
+    {
+     "sel": ".glass-overlay-plate",
+     "layer": "components",
+     "pad": "padding: var(--overlay-pad)"
+    }
+   ]
+  },
+  "focusAfterPickerSearch": "button\"Open color picker, current color #4488cc\"",
+  "pickerMountedAfterSearch": 0,
+  "focusAfterPickerEscape": "button\"Open color picker, current color #4488cc\"",
+  "trayStillOpen": 1,
+  "valueAfterType": "rebeccapurple",
+  "valueWhileClosed": "<unmounted>",
+  "valueOnReopen": "rebeccapurple"
+ },
+ "r3": {
+  "before": "#4488cc",
+  "duringPress": "#7d98b3",
+  "pickerMountedMidPress": 0,
+  "afterReopen": "#7d98b3",
+  "afterBareHover": "#7d98b3",
+  "stuckDrag": false
+ },
+ "r4": {
+  "default": {
+   "thumb": {
+    "rect": [
+     397.6725769042969,
+     416.5259704589844,
+     16.002044677734375,
+     16.06396484375
+    ],
+    "bg": "rgb(68, 136, 204)",
+    "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0 0 0 / 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "rgb(255, 255, 255)"
+   },
+   "readout": "#4488cc",
+   "scan": "84,145,206 | 83,144,205 | 83,144,206 | 82,144,205 | 82,144,206 | 81,143,205 | 81,143,206 | 80,143,205 | 79,143,206 | 79,142,205 | 79,142,206 | 51,94,136 | 46,85,123 | 229,234,238 | 255,255,255 | 255,255,255 | 255,255,255 | 102,157,213 | 68,136,204 | 68,136,204 | 68,136,204 | 68,136,204 | 68,136,204 | 68,136,204 | 68,136,204 | 68,136,204",
+   "field": [
+    83,
+    144,
+    206
+   ],
+   "ring": [
+    51,
+    94,
+    136
+   ],
+   "border": [
+    229,
+    234,
+    238
+   ],
+   "ringVsField": 2.017,
+   "borderVsField": 2.774,
+   "ringVsBorder": 5.597
+  },
+  "light-field": {
+   "thumb": {
+    "rect": [
+     278.671875,
+     397.65625,
+     16,
+     16
+    ],
+    "bg": "rgb(245, 247, 250)",
+    "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0 0 0 / 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "rgb(255, 255, 255)"
+   },
+   "readout": "#f5f7fa",
+   "scan": "186,61,112 | 191,62,114 | 193,64,116 | 193,64,116 | 193,64,116 | 193,64,116 | 193,64,116 | 193,64,117 | 193,64,117 | 193,64,117 | 193,64,117 | 191,64,117 | 191,64,117 | 191,64,119 | 190,64,119 | 190,65,119 | 190,65,119 | 188,65,119 | 188,65,120 | 188,65,120 | 188,65,120 | 188,65,120 | 186,65,121 | 186,65,121 | 195,153,149 | 198,180,159",
+   "field": [
+    193,
+    64,
+    116
+   ],
+   "ring": [
+    191,
+    64,
+    117
+   ],
+   "border": [
+    191,
+    64,
+    119
+   ],
+   "ringVsField": 1.011,
+   "borderVsField": 1.009,
+   "ringVsBorder": 1.002
+  },
+  "mid-field": {
+   "thumb": {
+    "rect": [
+     367.421875,
+     411.890625,
+     16,
+     16
+    ],
+    "bg": "rgb(108, 152, 217)",
+    "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0 0 0 / 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "rgb(255, 255, 255)"
+   },
+   "readout": "#6c98d9",
+   "scan": "124,161,216 | 123,161,216 | 122,160,216 | 122,160,216 | 121,159,216 | 121,160,216 | 120,159,216 | 120,159,216 | 119,158,216 | 77,103,140 | 70,95,129 | 230,233,238 | 255,255,255 | 255,255,255 | 255,255,255 | 127,165,222 | 108,152,217 | 108,152,217 | 108,152,217 | 108,152,217 | 108,152,217 | 108,152,217 | 108,152,217 | 108,152,217 | 108,152,217 | 108,152,217",
+   "field": [
+    122,
+    160,
+    216
+   ],
+   "ring": [
+    230,
+    233,
+    238
+   ],
+   "border": [
+    255,
+    255,
+    255
+   ],
+   "ringVsField": 2.199,
+   "borderVsField": 2.676,
+   "ringVsBorder": 1.217
+  }
+ },
+ "r5": {
+  "cs": {
+   "sv": {
+    "fca": "auto",
+    "bgImage": "none, none",
+    "bg": "rgba(255, 255, 255, 0)",
+    "border": "solid rgb(0, 0, 0)"
+   },
+   "thumb": {
+    "fca": "auto",
+    "bgImage": "none",
+    "bg": "rgb(255, 255, 255)",
+    "border": "solid rgb(0, 0, 0)"
+   },
+   "hue": {
+    "fca": "auto",
+    "bgImage": "none",
+    "bg": "rgba(255, 255, 255, 0)",
+    "border": "solid rgb(0, 0, 0)"
+   },
+   "handle": {
+    "fca": "auto",
+    "bgImage": "none",
+    "bg": "rgb(255, 255, 255)",
+    "border": "solid rgb(0, 0, 0)"
+   }
+  },
+  "census": {
+   "sv": {
+    "px": 20832,
+    "distinctColours5bit": 26
+   },
+   "hue": {
+    "px": 2232,
+    "distinctColours5bit": 15
+   }
+  }
+ },
+ "geo-desktop-1280": {
+  "trayOpen": {
+   "vp": [
+    1280,
+    900
+   ],
+   "swatch": [
+    271,
+    595.1,
+    299,
+    623.2
+   ],
+   "tray": [
+    258,
+    239.3,
+    594,
+    640.3
+   ],
+   "picker": null,
+   "eclipsePctOfTrigger": null,
+   "traySideAttr": "bottom",
+   "trayScrollers": [],
+   "pickerMaxH": null,
+   "pickerOverflow": null,
+   "docScroll": [
+    900,
+    900
+   ]
+  },
+  "swatchClick": "ok",
+  "pickerOpen": {
+   "vp": [
+    1280,
+    900
+   ],
+   "swatch": [
+    271,
+    593.3,
+    299,
+    621.3
+   ],
+   "tray": [
+    258,
+    239,
+    594,
+    638.3
+   ],
+   "picker": [
+    271,
+    390.7,
+    479,
+    588.9
+   ],
+   "pickerSide": "top",
+   "eclipsePctOfTrigger": 0,
+   "traySideAttr": "bottom",
+   "trayScrollers": [],
+   "pickerMaxH": "none",
+   "pickerOverflow": "hidden",
+   "docScroll": [
+    900,
+    900
+   ]
+  },
+  "touchAction": [
+   "auto",
+   "auto"
+  ]
+ },
+ "geo-iphone14": {
+  "trayOpen": {
+   "vp": [
+    390,
+    664
+   ],
+   "swatch": [
+    21,
+    728.5,
+    49,
+    756.6
+   ],
+   "tray": [
+    8,
+    263.5,
+    344,
+    782.7
+   ],
+   "picker": null,
+   "eclipsePctOfTrigger": null,
+   "traySideAttr": "bottom",
+   "trayScrollers": [],
+   "pickerMaxH": null,
+   "pickerOverflow": null,
+   "docScroll": [
+    1296,
+    664
+   ]
+  },
+  "swatchClick": "FAILED: locator.click: Timeout 4000ms exceeded.",
+  "pickerOpen": {
+   "vp": [
+    390,
+    664
+   ],
+   "swatch": [
+    21,
+    727,
+    49,
+    755
+   ],
+   "tray": [
+    8,
+    263.3,
+    344,
+    781
+   ],
+   "picker": null,
+   "eclipsePctOfTrigger": null,
+   "traySideAttr": "bottom",
+   "trayScrollers": [],
+   "pickerMaxH": null,
+   "pickerOverflow": null,
+   "docScroll": [
+    1296,
+    664
+   ]
+  },
+  "touchAction": null
+ },
+ "geo-zoom200-of-1280x900": {
+  "trayOpen": {
+   "vp": [
+    640,
+    450
+   ],
+   "swatch": [
+    263,
+    559.3,
+    291,
+    587.3
+   ],
+   "tray": [
+    250,
+    222.2,
+    586,
+    604.4
+   ],
+   "picker": null,
+   "eclipsePctOfTrigger": null,
+   "traySideAttr": "bottom",
+   "trayScrollers": [],
+   "pickerMaxH": null,
+   "pickerOverflow": null,
+   "docScroll": [
+    1076,
+    450
+   ]
+  },
+  "swatchClick": "FAILED: locator.click: Timeout 4000ms exceeded.",
+  "pickerOpen": {
+   "vp": [
+    640,
+    450
+   ],
+   "swatch": [
+    263,
+    558.1,
+    291,
+    586.1
+   ],
+   "tray": [
+    250,
+    222,
+    586,
+    603.1
+   ],
+   "picker": null,
+   "eclipsePctOfTrigger": null,
+   "traySideAttr": "bottom",
+   "trayScrollers": [],
+   "pickerMaxH": null,
+   "pickerOverflow": null,
+   "docScroll": [
+    1076,
+    450
+   ]
+  },
+  "touchAction": null
+ },
+ "geo-zoom200-of-iphone14": {
+  "trayOpen": {
+   "vp": [
+    195,
+    332
+   ],
+   "swatch": [
+    13,
+    143.7,
+    41,
+    171.8
+   ],
+   "tray": [
+    0,
+    -587.6,
+    171,
+    197.9
+   ],
+   "picker": null,
+   "eclipsePctOfTrigger": null,
+   "traySideAttr": "top",
+   "trayScrollers": [],
+   "pickerMaxH": null,
+   "pickerOverflow": null,
+   "docScroll": [
+    1371,
+    332
+   ]
+  },
+  "swatchClick": "ok",
+  "pickerOpen": {
+   "vp": [
+    195,
+    332
+   ],
+   "swatch": [
+    13,
+    143.6,
+    41,
+    171.6
+   ],
+   "tray": [
+    0,
+    -585.3,
+    171,
+    197.6
+   ],
+   "picker": [
+    0,
+    175.7,
+    208,
+    381.7
+   ],
+   "pickerSide": "bottom",
+   "eclipsePctOfTrigger": 0,
+   "traySideAttr": "top",
+   "trayScrollers": [],
+   "pickerMaxH": "none",
+   "pickerOverflow": "hidden",
+   "docScroll": [
+    1371,
+    332
+   ]
+  },
+  "touchAction": [
+   "auto",
+   "auto"
+  ]
+ },
+ "r10": {
+  "alert": [
+   "“#zzzzzz” is not a CSS color."
+  ],
+  "swatchLabel": "Open color picker, current color #4488cc",
+  "hueVar": "210",
+  "readout": "#4488cc",
+  "engineNaN": "rgb(255, 0, 0)"
+ }
+}

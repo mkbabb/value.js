@@ -1,7 +1,9 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 
-import type { ViewId } from "../../shell/viewSchema";
+import { isViewId, type ViewId } from "../../shell/viewSchema";
+import { preloadView } from "../../shell/usePaneRouter";
+import { useAdminAuth } from "../../platform/auth/useAdminAuth";
 
 import { installDocumentTitle } from "./useDocumentTitle";
 import { installAdminGuard } from "./guards";
@@ -70,3 +72,19 @@ installAdminGuard(router);
 // pane — instead of the static "Color Picker". Registered here (the canonical
 // navigation-guard home) so no header/mount file is touched. See useDocumentTitle.
 installDocumentTitle(router);
+
+// OD19-ALL (owner docket 2026-10-19: "All loading times for all apps needs to be
+// improved, every page") — the DEEP LINK's pane chunks start at module evaluation.
+// Before, a cold `#/gradient` requested its pane graph only when PaneSlot mounted,
+// after the entry chunk had evaluated, the router had resolved and the app had
+// begun its mount: measured on the built bundle at CPU 4x, the entry finished at
+// 54 ms and `GradientPane` was requested at 654 ms (OD19/value.md "### load").
+// The hash is the whole address under hash history, so `resolve` names the view
+// synchronously here; the chunk then downloads and compiles off-thread while the
+// boot evaluates. An admin view is warmed only for a held token: the guard would
+// refuse it anyway, and a refused link fetches nothing it will not render.
+if (typeof window !== "undefined") {
+    const linked = router.resolve(window.location.hash.slice(1) || "/");
+    if (isViewId(linked.name) && (!linked.meta.admin || useAdminAuth().isAuthenticated.value))
+        preloadView(linked.name);
+}

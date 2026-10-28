@@ -1,0 +1,147 @@
+{
+ "base": "http://localhost:9000/",
+ "at": "2026-10-19T18:25:00.446Z",
+ "cells": {
+  "d2_06_grown": {
+   "rest": {
+    "rail": [
+     234.47,
+     537.53,
+     265.14,
+     703.86
+    ],
+    "btn": [
+     236.55,
+     547.52,
+     263.05,
+     571.88
+    ],
+    "dot": [
+     235.55,
+     546.52,
+     264.05,
+     572.88
+    ],
+    "btnTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "clearL": 1.08,
+    "clearR": 1.09
+   },
+   "hover": {
+    "rail": [
+     234.47,
+     537.53,
+     265.14,
+     703.86
+    ],
+    "btn": [
+     236.55,
+     547.52,
+     263.05,
+     571.88
+    ],
+    "dot": [
+     235.55,
+     546.52,
+     264.05,
+     572.88
+    ],
+    "btnTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "clearL": 1.08,
+    "clearR": 1.09
+   },
+   "pressed": {
+    "rail": [
+     234.47,
+     537.53,
+     265.14,
+     703.86
+    ],
+    "btn": [
+     236.55,
+     547.52,
+     263.05,
+     571.88
+    ],
+    "dot": [
+     235.55,
+     546.52,
+     264.05,
+     572.88
+    ],
+    "btnTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "clearL": 1.08,
+    "clearR": 1.09
+   }
+  },
+  "del_r2_baseline": {
+   "short": {
+    "rowH": 16,
+    "etypeH": 13,
+    "etypeLines": 1,
+    "etypeLH": 13,
+    "etypeFont": "600 10px / 13px \"SF Mono\", \"Fira Code\", monospace",
+    "etypeText": "sl:r:up",
+    "eventW": 258,
+    "etypeW": 60,
+    "scrollH": 218.4,
+    "visibleFull": 8
+   },
+   "worst24": {
+    "rowH": 33,
+    "etypeH": 13,
+    "etypeLines": 1,
+    "etypeLH": 13,
+    "etypeFont": "600 10px / 13px \"SF Mono\", \"Fira Code\", monospace",
+    "etypeText": "sl:kelvin:cancel-release",
+    "eventW": 258,
+    "etypeW": 148.4,
+    "scrollH": 218.4,
+    "visibleFull": 3
+   }
+  },
+  "del_r4_orphan_repro": {
+   "activePointers": null,
+   "frozen": false,
+   "stateKeys": [
+    "enabled",
+    "events",
+    "gauges",
+    "frozen",
+    "frozenSince"
+   ],
+   "events": [
+    "sl:r:down",
+    "sl:r:lostcap"
+   ],
+   "rows": [
+    [
+     "debug-event-lost",
+     "rgba(255, 150, 0, 0.1)",
+     "sl:r:lostcap"
+    ],
+    [
+     "debug-event-down",
+     "rgba(60, 180, 255, 0.08)",
+     "sl:r:down"
+    ]
+   ],
+   "headerText": "Debug"
+  },
+  "u3_dock_nav": [
+   {
+    "tag": "boot",
+    "hash": "#/?debug=1",
+    "overlay": true
+   },
+   {
+    "tag": "tools-button-count",
+    "n": 0
+   },
+   {
+    "tag": "reload",
+    "hash": "#/?debug=1",
+    "overlay": true
+   }
+  ]
+ }
+}

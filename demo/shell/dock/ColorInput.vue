@@ -16,7 +16,7 @@
                         autocapitalize="off"
                         autocorrect="off"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
-                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-media px-3 py-2 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center"
+                        class="color-input w-full block border overflow-hidden bg-background rounded-media px-3 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center"
                         :class="{
                             'color-input-error': parseError && !proposeMode,
                             'color-input-mode-flash': modeTransition,
@@ -345,7 +345,15 @@ defineExpose({
     --input-action-size: max(1.5rem, var(--control-floor));
 }
 
+/* OD19 C3-V-02: the field is a dock control, so its block size is the dock's
+ * control size (glass `--dock-control-size`, the 40 px row the other seats
+ * take), not its text's line box plus `py-2` and the border: that measured
+ * 46 px at 1440 and 42 px at 390, and since this face shares the dock-layer
+ * grid the dock grew on the first Tools visit and never came back to 40.
+ * `align-content` centres the one line inside that box. */
 .color-input {
+    block-size: var(--dock-control-size);
+    align-content: center;
     border-color: var(--input);
     transition:
         border-color var(--duration-fast) var(--ease-standard),

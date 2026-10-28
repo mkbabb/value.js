@@ -1,0 +1,73 @@
+[
+ {
+  "s": "oklch()",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":7,\"expected\":[\"color\"],\"actual\":\"oklch()\"}]"
+ },
+ {
+  "s": "rgb()",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":5,\"expected\":[\"color\"],\"actual\":\"rgb()\"}]"
+ },
+ {
+  "s": "hsl()",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":5,\"expected\":[\"color\"],\"actual\":\"hsl()\"}]"
+ },
+ {
+  "s": "lab()",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":5,\"expected\":[\"color\"],\"actual\":\"lab()\"}]"
+ },
+ {
+  "s": "lch()",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":5,\"expected\":[\"color\"],\"actual\":\"lch()\"}]"
+ },
+ {
+  "s": "color()",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":7,\"expected\":[\"color\"],\"actual\":\"color()\"}]"
+ },
+ {
+  "s": "oklab()",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":7,\"expected\":[\"color\"],\"actual\":\"oklab()\"}]"
+ },
+ {
+  "s": "hsl(  )",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":7,\"expected\":[\"color\"],\"actual\":\"hsl(  )\"}]"
+ },
+ {
+  "s": "oklch(",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":6,\"expected\":[\"color\"],\"actual\":\"oklch(\"}]"
+ },
+ {
+  "s": ")",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":1,\"expected\":[\"color\"],\"actual\":\")\"}]"
+ },
+ {
+  "s": "notacolor",
+  "threw": false,
+  "ok": false,
+  "diag": "[{\"code\":\"css_syntax\",\"start\":0,\"end\":9,\"expected\":[\"<named-color>\"],\"actual\":\"notacolor\"}"
+ },
+ {
+  "s": "oklch(0.7 0.1 200)",
+  "threw": false,
+  "ok": true
+ }
+]

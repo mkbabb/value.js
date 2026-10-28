@@ -1,0 +1,475 @@
+{
+ "base": "http://localhost:9000/",
+ "at": "2026-10-19T18:08:02.480Z",
+ "cells": {
+  "d2_11_ring_light": {
+   "border": "0px solid rgb(198, 180, 159)",
+   "boxShadow": "none",
+   "outline": "none 3px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "letterInk": "oklch(0.046262 0.00386159 34.63)",
+   "restInkVar": "oklch(4.626196763875% 0.003861589952 34.629978305623deg)",
+   "rect": [
+    234.46875,
+    537.53125,
+    30.671875,
+    166.328125
+   ]
+  },
+  "d2_11_ring_dark": {
+   "border": "0px solid rgb(101, 87, 73)",
+   "boxShadow": "none",
+   "outline": "none 3px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "letterInk": "oklch(0.700848 0.00382185 41.8684)",
+   "restInkVar": "oklch(70.084760886474% 0.003821851545 41.86844006185deg)",
+   "rect": [
+    234.46875,
+    537.515625,
+    30.671875,
+    166.328125
+   ]
+  },
+  "d2_13_caption_light": {
+   "text": "(0 - 255)",
+   "color": "oklch(0.0207099 0.00506602 56.0356)",
+   "opacity": "1",
+   "chainOpacity": 1,
+   "cls": "text-mono-small text-muted-foreground mt-0.5",
+   "fontSize": "16.4px",
+   "rect": [
+    135,
+    560.46875,
+    88.5625,
+    22.96875
+   ]
+  },
+  "d2_13_caption_dark": {
+   "text": "(0 - 255)",
+   "color": "oklch(0.707777 0.00382185 41.8684)",
+   "opacity": "1",
+   "chainOpacity": 1,
+   "cls": "text-mono-small text-muted-foreground mt-0.5",
+   "fontSize": "16.4px",
+   "rect": [
+    135,
+    560.46875,
+    88.5625,
+    22.96875
+   ]
+  },
+  "d2_02_dot_forced": {
+   "forced": true,
+   "swatchClass": "rail-dot watercolor-swatch",
+   "fca": "none",
+   "rect": [
+    238.46875,
+    588.34375,
+    28.671875,
+    26.359375
+   ]
+  },
+  "d2_02_dot_unforced": {
+   "forced": false,
+   "swatchClass": "rail-dot watercolor-swatch",
+   "fca": "auto",
+   "rect": [
+    235.46875,
+    586.84375,
+    28.671875,
+    26.359375
+   ]
+  },
+  "d2_06_clearance": {
+   "rest": {
+    "rail": [
+     234.47,
+     537.53,
+     265.14,
+     703.86
+    ],
+    "btn": [
+     236.55,
+     547.52,
+     263.05,
+     571.88
+    ],
+    "seat": [
+     235.55,
+     546.52,
+     264.05,
+     572.88
+    ],
+    "dot": [
+     235.55,
+     546.52,
+     264.05,
+     572.88
+    ],
+    "filters": [
+     "url(\"#watercolor-filter-v-104\")"
+    ]
+   },
+   "clip": {
+    "x": 226.47,
+    "y": 529.53,
+    "width": 46.66999999999999,
+    "height": 182.33000000000004
+   },
+   "dpr": 2
+  },
+  "d2_12_rendered_font": {
+   "ictcp": [
+    {
+     "glyph": "I",
+     "fonts": [
+      {
+       "familyName": "Fraunces",
+       "postScriptName": "Fraunces-Italic_opsz145A16_wght2580000",
+       "isCustomFont": true,
+       "glyphCount": 1
+      }
+     ]
+    },
+    {
+     "glyph": "Cᴛ",
+     "fonts": [
+      {
+       "familyName": "Lucida Grande",
+       "postScriptName": "LucidaGrande-Bold",
+       "isCustomFont": false,
+       "glyphCount": 1
+      },
+      {
+       "familyName": "Fraunces",
+       "postScriptName": "Fraunces-Italic_opsz145A16_wght2580000",
+       "isCustomFont": true,
+       "glyphCount": 1
+      }
+     ]
+    },
+    {
+     "glyph": "Cᴘ",
+     "fonts": [
+      {
+       "familyName": "Helvetica",
+       "postScriptName": "Helvetica-BoldOblique",
+       "isCustomFont": false,
+       "glyphCount": 1
+      },
+      {
+       "familyName": "Fraunces",
+       "postScriptName": "Fraunces-Italic_opsz145A16_wght2580000",
+       "isCustomFont": true,
+       "glyphCount": 1
+      }
+     ]
+    },
+    {
+     "glyph": "α",
+     "fonts": [
+      {
+       "familyName": "SF Mono",
+       "postScriptName": "SFMono-Regular",
+       "isCustomFont": false,
+       "glyphCount": 1
+      }
+     ]
+    }
+   ],
+   "ictcp_rects": [
+    [
+     "I",
+     8.09,
+     25
+    ],
+    [
+     "Cᴛ",
+     24.59,
+     25
+    ],
+    [
+     "Cᴘ",
+     24.16,
+     25
+    ],
+    [
+     "α",
+     12.58,
+     27
+    ]
+   ],
+   "jzazbz": [
+    {
+     "glyph": "Jᴢ",
+     "fonts": [
+      {
+       "familyName": "Lucida Grande",
+       "postScriptName": "LucidaGrande-Bold",
+       "isCustomFont": false,
+       "glyphCount": 1
+      },
+      {
+       "familyName": "Fraunces",
+       "postScriptName": "Fraunces-Italic_opsz145A16_wght2580000",
+       "isCustomFont": true,
+       "glyphCount": 1
+      }
+     ]
+    },
+    {
+     "glyph": "aᴢ",
+     "fonts": [
+      {
+       "familyName": "Lucida Grande",
+       "postScriptName": "LucidaGrande-Bold",
+       "isCustomFont": false,
+       "glyphCount": 1
+      },
+      {
+       "familyName": "Fraunces",
+       "postScriptName": "Fraunces-Italic_opsz145A16_wght2580000",
+       "isCustomFont": true,
+       "glyphCount": 1
+      }
+     ]
+    },
+    {
+     "glyph": "bᴢ",
+     "fonts": [
+      {
+       "familyName": "Lucida Grande",
+       "postScriptName": "LucidaGrande-Bold",
+       "isCustomFont": false,
+       "glyphCount": 1
+      },
+      {
+       "familyName": "Fraunces",
+       "postScriptName": "Fraunces-Italic_opsz145A16_wght2580000",
+       "isCustomFont": true,
+       "glyphCount": 1
+      }
+     ]
+    },
+    {
+     "glyph": "α",
+     "fonts": [
+      {
+       "familyName": "SF Mono",
+       "postScriptName": "SFMono-Regular",
+       "isCustomFont": false,
+       "glyphCount": 1
+      }
+     ]
+    }
+   ],
+   "jzazbz_rects": [
+    [
+     "Jᴢ",
+     19.47,
+     25
+    ],
+    [
+     "aᴢ",
+     23.23,
+     25
+    ],
+    [
+     "bᴢ",
+     23.2,
+     25
+    ],
+    [
+     "α",
+     12.58,
+     27
+    ]
+   ]
+  },
+  "d2_03_stagger_census": [
+   {
+    "route": "#/",
+    "containers": 2,
+    "children": 8,
+    "hits": 1,
+    "sample": [
+     {
+      "sel": ".channel-rail-item:active",
+      "el": "button.channel-rail-item.font-display.text-subheading",
+      "tf": "scale(0.96)"
+     }
+    ]
+   },
+   {
+    "route": "#/palettes",
+    "containers": 2,
+    "children": 8,
+    "hits": 1,
+    "sample": [
+     {
+      "sel": ".channel-rail-item:active",
+      "el": "button.channel-rail-item.font-display.text-subheading",
+      "tf": "scale(0.96)"
+     }
+    ]
+   },
+   {
+    "route": "#/browse",
+    "containers": 0,
+    "children": 0,
+    "hits": 0,
+    "sample": []
+   },
+   {
+    "route": "#/extract",
+    "containers": 0,
+    "children": 0,
+    "hits": 0,
+    "sample": []
+   },
+   {
+    "route": "#/mix",
+    "containers": 0,
+    "children": 0,
+    "hits": 0,
+    "sample": []
+   },
+   {
+    "route": "#/generate",
+    "containers": 0,
+    "children": 0,
+    "hits": 0,
+    "sample": []
+   },
+   {
+    "route": "#/gradient",
+    "containers": 0,
+    "children": 0,
+    "hits": 0,
+    "sample": []
+   },
+   {
+    "route": "#/atmosphere",
+    "containers": 0,
+    "children": 0,
+    "hits": 0,
+    "sample": []
+   },
+   {
+    "route": "#/blob",
+    "containers": 0,
+    "children": 0,
+    "hits": 0,
+    "sample": []
+   }
+  ],
+  "miss6_gate_bleed": {
+   "afterTapRgbB": true,
+   "labLabels": "L channel,A channel,B channel,ALPHA channel",
+   "samplesMsActive": [
+    [
+     650,
+     true
+    ],
+    [
+     903,
+     true
+    ],
+    [
+     1156,
+     true
+    ],
+    [
+     1407,
+     true
+    ],
+    [
+     1659,
+     true
+    ],
+    [
+     1912,
+     true
+    ],
+    [
+     2167,
+     true
+    ],
+    [
+     2419,
+     true
+    ],
+    [
+     2671,
+     true
+    ],
+    [
+     2925,
+     false
+    ]
+   ]
+  },
+  "d2_01_boot_selection": [
+   [
+    "l channel",
+    "false",
+    "0",
+    false
+   ],
+   [
+    "a channel",
+    "false",
+    "-1",
+    false
+   ],
+   [
+    "b channel",
+    "false",
+    "-1",
+    false
+   ],
+   [
+    "alpha channel",
+    "false",
+    "-1",
+    false
+   ]
+  ],
+  "miss4_announce_posture": {
+   "meterLive": [
+    "off",
+    "off",
+    "off",
+    "off"
+   ],
+   "thumbs": [
+    {
+     "label": "R channel",
+     "valuetext": "Red 128",
+     "valuenow": "0.5029999999999999"
+    },
+    {
+     "label": "G channel",
+     "valuetext": "Green 128",
+     "valuenow": "0.5019607843137255"
+    },
+    {
+     "label": "B channel",
+     "valuetext": "Blue 128",
+     "valuenow": "0.5019607843137255"
+    },
+    {
+     "label": "ALPHA channel",
+     "valuetext": "Alpha 100%",
+     "valuenow": "1"
+    }
+   ],
+   "liveRegions": [
+    "channel-meter font-mono:off",
+    "channel-meter font-mono:off",
+    "channel-meter font-mono:off",
+    "channel-meter font-mono:off"
+   ]
+  }
+ }
+}

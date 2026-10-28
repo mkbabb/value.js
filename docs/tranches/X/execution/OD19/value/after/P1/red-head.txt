@@ -1,0 +1,133 @@
+(node:53776) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:53838) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:53898) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Math-Italic.woff2" is outside of Vite serving allow list.
+[WebServer] 
+[WebServer] - /Users/mkbabb/Programming/value.js/.worktrees/p1-red
+[WebServer] - /Users/mkbabb/Programming/value.js/node_modules/vite/dist/client
+[WebServer] 
+[WebServer] Refer to docs https://vite.dev/config/server-options.html#server-fs-allow for configurations and more details.
+[WebServer] 
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Main-Regular.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Math-Italic.woff" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Main-Regular.woff" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Main-Regular.ttf" is outside of Vite serving allow list.
+  ✓  1 [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors (11.2s)
+  ✓  2 [smoke] › e2e/smoke/page-load.spec.ts:73:1 › an unknown address announces its destination and is distinct from home (1.8s)
+  ✘  3 [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 1440 (1.5s)
+(node:54636) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  4 [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 390 (1.0s)
+(node:54783) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Math-Italic.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Main-Regular.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Math-Italic.woff" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Main-Regular.woff" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Main-Regular.ttf" is outside of Vite serving allow list.
+  ✘  5 [smoke] › e2e/smoke/page-load.spec.ts:135:1 › OD19-V6: the pane-loading plate is wordless and named on its status (8.6s)
+(node:55261) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  6 [smoke] › e2e/smoke/page-load.spec.ts:164:1 › OD19-V8: the channel rail carries one hairline (4.1s)
+
+
+  1) [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 1440 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 88
+    Received: 113
+
+      120 |         await expect(page.getByRole("heading", { level: 1 })).toHaveText("Home");
+      121 |         await expect(page.getByRole("main", { name: "Home" })).toBeVisible();
+    > 122 |         expect(await rowY()).toBe(before);
+          |                              ^
+      123 |     });
+      124 | }
+      125 |
+        at /Users/mkbabb/Programming/value.js/.worktrees/p1-red/e2e/smoke/page-load.spec.ts:122:30
+
+    Error Context: test-results/page-load-OD19-V4-titled-r-30bbd--holds-the-pane-row-at-1440-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 390 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 104
+    Received: 127
+
+      120 |         await expect(page.getByRole("heading", { level: 1 })).toHaveText("Home");
+      121 |         await expect(page.getByRole("main", { name: "Home" })).toBeVisible();
+    > 122 |         expect(await rowY()).toBe(before);
+          |                              ^
+      123 |     });
+      124 | }
+      125 |
+        at /Users/mkbabb/Programming/value.js/.worktrees/p1-red/e2e/smoke/page-load.spec.ts:122:30
+
+    Error Context: test-results/page-load-OD19-V4-titled-r-08d55-e-holds-the-pane-row-at-390-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/page-load.spec.ts:135:1 › OD19-V6: the pane-loading plate is wordless and named on its status 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.pane-plate[role=\'status\']').first()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for locator('.pane-plate[role=\'status\']').first()
+
+
+      147 |     const status = page.locator(".pane-plate[role='status']").first();
+      148 |     try {
+    > 149 |         await expect(status).toBeVisible();
+          |                              ^
+      150 |         await expect(status).toHaveAttribute("aria-busy", "true");
+      151 |         await expect(status).toHaveAttribute("aria-label", "Loading the scene");
+      152 |         expect((await status.innerText()).trim()).toBe("");
+        at /Users/mkbabb/Programming/value.js/.worktrees/p1-red/e2e/smoke/page-load.spec.ts:149:30
+
+    Error Context: test-results/page-load-OD19-V6-the-pane-98728-ess-and-named-on-its-status-smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/page-load.spec.ts:164:1 › OD19-V8: the channel rail carries one hairline ──
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "left": "1px",
+    +   "left": "0px",
+        "style": "solid",
+    -   "top": "1px",
+    +   "top": "0px",
+      }
+
+      170 |         return { top: cs.borderTopWidth, style: cs.borderTopStyle, left: cs.borderLeftWidth };
+      171 |     });
+    > 172 |     expect(edge).toEqual({ top: "1px", style: "solid", left: "1px" });
+          |                  ^
+      173 | });
+      174 |
+        at /Users/mkbabb/Programming/value.js/.worktrees/p1-red/e2e/smoke/page-load.spec.ts:172:18
+
+    Error Context: test-results/page-load-OD19-V8-the-channel-rail-carries-one-hairline-smoke/error-context.md
+
+  4 failed
+    [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 1440 
+    [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 390 
+    [smoke] › e2e/smoke/page-load.spec.ts:135:1 › OD19-V6: the pane-loading plate is wordless and named on its status 
+    [smoke] › e2e/smoke/page-load.spec.ts:164:1 › OD19-V8: the channel rail carries one hairline ───
+  2 passed (32.1s)

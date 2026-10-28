@@ -1,0 +1,835 @@
+(node:4164) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:4418) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:4902) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize (1.6m)
+(node:21444) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (21.0s)
+(node:25790) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  3 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (light) (17.0s)
+(node:28996) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m[2m9:16:39 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: pane chunk not settled after 20000 ms
+[2m[WebServer] [22m    at http://localhost:8190/@fs/Users/mkbabb/Programming/value.js/demo/shell/usePaneRouter.ts?t=1792545337190:126:41
+[2m[WebServer] [22m[2m9:16:39 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: pane chunk not settled after 20000 ms
+[2m[WebServer] [22m    at http://localhost:8190/@fs/Users/mkbabb/Programming/value.js/demo/shell/usePaneRouter.ts?t=1792545337190:126:41
+  ✘  4 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (2.0m)
+(node:53770) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  5 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (dark) (58.1s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize 
+
+    Error: Color space chip 0: perceptible vs menu surface rgb(156 153 150) (max 1.07:1)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m1.2[39m
+    Received:    [31m1.0694397220789853[39m
+
+      604 |                     m.maxRatio,
+      605 |                     `${tag}: perceptible vs menu surface ${m.ground} (max ${m.maxRatio.toFixed(2)}:1)`,
+    > 606 |                 ).toBeGreaterThanOrEqual(1.2);
+          |                   ^
+      607 |             }
+      608 |             await page.keyboard.press("Escape");
+      609 |         }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:606:19
+
+    Error Context: docs/tranches/X/execution/SS8/evidence/B19-color-chips/logs/pw-red2/oracles-o14-preview-truth--05305-mpler-would-still-serialize-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+
+    Error: ramp chip 0: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.216129 0.00349092 0.00518243 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 0: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 0: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.21612[7m8[27m 0.00[7m350075 0.00518669 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.21612[7m9[27m 0.00[7m624853 56.0356[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    Error: ramp chip 0: head rim step 20 vs interior slope 3 (rim 98,177,102, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m7[39m
+    Received:    [31m20[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error: ramp chip 1: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.216129 0.00349092 0.00518243 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 1: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 1: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.21612[7m8[27m 0.00[7m350075 0.00518669 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.21612[7m9[27m 0.00[7m624853 56.0356[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    Error: ramp chip 1: head rim step 22 vs interior slope 3 (rim 98,178,102, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m7[39m
+    Received:    [31m22[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error: ramp chip 2: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.216129 0.00349092 0.00518243 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 2: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 2: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.21612[7m8[27m 0.00[7m350075 0.00518669 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.21612[7m9[27m 0.00[7m624853 56.0356[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    Error: ramp chip 2: head rim step 22 vs interior slope 3 (rim 98,178,102, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m7[39m
+    Received:    [31m22[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error: ramp chip 3: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.216129 0.00349092 0.00518243 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 3: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 3: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.21612[7m8[27m 0.00[7m350075 0.00518669 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.21612[7m9[27m 0.00[7m624853 56.0356[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    Error: ramp chip 3: head rim step 22 vs interior slope 4 (rim 98,178,102, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m8[39m
+    Received:    [31m22[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error: ramp chip 4: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.216129 0.00349092 0.00518243 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 4: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 4: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.21612[7m8[27m 0.00[7m350075 0.00518669 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.21612[7m9[27m 0.00[7m624853 56.0356[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    Error: ramp chip 4: head rim step 20 vs interior slope 3 (rim 98,177,102, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m7[39m
+    Received:    [31m20[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error: ramp chip 5: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.216129 0.00349092 0.00518243 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 5: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 5: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.21612[7m8[27m 0.00[7m350075 0.00518669 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.21612[7m9[27m 0.00[7m624853 56.0356[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    Error: ramp chip 5: head rim step 21 vs interior slope 10 (rim 96,178,102, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m14[39m
+    Received:    [31m21[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error: ramp chip 6: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.216129 0.00349092 0.00518243 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 6: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 6: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.21612[7m8[27m 0.00[7m350075 0.00518669 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.21612[7m9[27m 0.00[7m624853 56.0356[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    Error: ramp chip 6: head rim step 20 vs interior slope 4 (rim 98,177,102, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m8[39m
+    Received:    [31m20[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error: ramp chip 7: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.216129 0.00349092 0.00518243 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 7: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 7: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.21612[7m8[27m 0.00[7m350075 0.00518669 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.21612[7m9[27m 0.00[7m624853 56.0356[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    Error: ramp chip 7: head rim step 21 vs interior slope 10 (rim 96,178,102, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m14[39m
+    Received:    [31m21[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error: ramp chip 8: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.216129 0.00349092 0.00518243 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 8: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 8: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.21612[7m8[27m 0.00[7m350075 0.00518669 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.21612[7m9[27m 0.00[7m624853 56.0356[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    Error: ramp chip 8: head rim step 20 vs interior slope 6 (rim 98,177,103, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m10[39m
+    Received:    [31m20[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error Context: docs/tranches/X/execution/SS8/evidence/B19-color-chips/logs/pw-red2/ss8-b19-color-chips-R-13-·-e662b-s-the-endpoint-stops-light--smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (light) 
+
+    Error: the chip carries its own opaque stage (alpha)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m1[39m
+    Received: [31m0[39m
+
+      184 |                 return 1 - (over("#fff") - over("#000")) / 255;
+      185 |             });
+    > 186 |             expect.soft(stage, "the chip carries its own opaque stage (alpha)").toBe(1);
+          |                                                                                 ^
+      187 |
+      188 |             // ONE fixed whole-CSS-px clip for both frames (a fractional clip is
+      189 |             // rounded by the capture, which would re-register the frames).
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:186:81
+
+    Error: Vibrant chip content (2286 device px inside the r=4 shape less 1px, registered dx 0 dy 2): highlighted vs not, worst channel delta at 81,6; boxes {"x":88,"y":473.59283447265625,"width":41.875,"height":16.390625} {"x":88,"y":472.62176513671875,"width":41.875,"height":16.390625}
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m12[39m
+
+      285 |                 worst,
+      286 |                 `Vibrant chip content (${compared} device px inside the r=${rIn} shape less 1px, registered dx ${dx} dy ${dy}): highlighted vs not, worst channel delta at ${at}; boxes ${JSON.stringify(a.box)} ${JSON.stringify(b.box)}`,
+    > 287 |             ).toBeLessThanOrEqual(4);
+          |               ^
+      288 |             await page.keyboard.press("Escape");
+      289 |         } finally {
+      290 |             await ctx.close();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:287:15
+
+    Error Context: docs/tranches/X/execution/SS8/evidence/B19-color-chips/logs/pw-red2/ss8-b19-color-chips-D-11-·-39507-ght-never-reaches-it-light--smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+
+    Error: ramp chip 0: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.925202 0.00234182 0.00572368 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 0: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 0: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.925[7m196[27m 0.00[7m238398 0.00574207 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.925[7m202[27m 0.00[7m618423 67.7483[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    Error: ramp chip 0: head rim step 16 vs interior slope 3 (rim 122,202,127, first stop 107,198,112)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m7[39m
+    Received:    [31m16[39m
+
+      134 |                     });
+      135 |                 }
+    > 136 |                 expect.soft(headEdge, `${tag}: head rim step ${headEdge} vs interior slope ${headSlope} (rim ${px(img, 0, mid)}, first stop ${s.first})`).toBeLessThanOrEqual(headSlope + 4);
+          |                                                                                                                                                           ^
+      137 |                 expect.soft(tailEdge, `${tag}: tail rim step ${tailEdge} vs interior slope ${tailSlope} (rim ${px(img, w - 1, mid)}, last stop ${s.last})`).toBeLessThanOrEqual(tailSlope + 4);
+      138 |             }
+      139 |             await page.keyboard.press("Escape");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:136:155
+
+    Error: ramp chip 1: no inset ring painted over the specimen
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"none"[39m
+    Received: [31m"oklab(0.925202 0.00234182 0.00572368 / 0.12) 0px 0px 0px 1px inset"[39m
+
+      105 |                 });
+      106 |                 const tag = `ramp chip ${i}`;
+    > 107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+          |                                                                                             ^
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:107:93
+
+    Error: ramp chip 1: the boundary is an outset outline
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"solid"[39m
+    Received: [31m"none"[39m
+
+      106 |                 const tag = `ramp chip ${i}`;
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+    > 108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+          |                                                                                          ^
+      109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:108:90
+
+    Error: ramp chip 1: the outline is the one --card-edge mint
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"okl[7mab[27m(0.925[7m196[27m 0.00[7m238398 0.00574207 / 0.12[27m)"[39m
+    Received: [31m"okl[7mch[27m(0.925[7m202[27m 0.00[7m618423 67.7483[27m)"[39m
+
+      107 |                 expect.soft(s.boxShadow, `${tag}: no inset ring painted over the specimen`).toBe("none");
+      108 |                 expect.soft(s.outlineStyle, `${tag}: the boundary is an outset outline`).toBe("solid");
+    > 109 |                 expect.soft(s.outlineColor, `${tag}: the outline is the one --card-edge mint`).toBe(s.edge);
+          |                                                                                                ^
+      110 |
+      111 |                 // The listbox scrolls to the selected row; centre this chip in its
+      112 |                 // viewport, clear of the select's scroll buttons.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:109:96
+
+    [31mTest timeout of 120000ms exceeded.[39m
+
+    Error: browserContext.close: Protocol error (Target.disposeBrowserContext): Failed to find context with id 2E713D90DDAA5F0E93F2392BE1457A6D
+
+      139 |             await page.keyboard.press("Escape");
+      140 |         } finally {
+    > 141 |             await ctx.close();
+          |             ^
+      142 |         }
+      143 |     });
+      144 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:141:13
+
+    Error Context: docs/tranches/X/execution/SS8/evidence/B19-color-chips/logs/pw-red2/ss8-b19-color-chips-R-13-·-bfba2-ls-the-endpoint-stops-dark--smoke/error-context.md
+
+  5) [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (dark) 
+
+    Error: the chip carries its own opaque stage (alpha)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m1[39m
+    Received: [31m0[39m
+
+      184 |                 return 1 - (over("#fff") - over("#000")) / 255;
+      185 |             });
+    > 186 |             expect.soft(stage, "the chip carries its own opaque stage (alpha)").toBe(1);
+          |                                                                                 ^
+      187 |
+      188 |             // ONE fixed whole-CSS-px clip for both frames (a fractional clip is
+      189 |             // rounded by the capture, which would re-register the frames).
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:186:81
+
+    Error: Vibrant chip content (2286 device px inside the r=4 shape less 1px, registered dx 0 dy 2): highlighted vs not, worst channel delta at 81,22; boxes {"x":88,"y":473.60223388671875,"width":41.875,"height":16.390625} {"x":88,"y":472.6206359863281,"width":41.875,"height":16.390625}
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m4[39m
+    Received:    [31m10[39m
+
+      285 |                 worst,
+      286 |                 `Vibrant chip content (${compared} device px inside the r=${rIn} shape less 1px, registered dx ${dx} dy ${dy}): highlighted vs not, worst channel delta at ${at}; boxes ${JSON.stringify(a.box)} ${JSON.stringify(b.box)}`,
+    > 287 |             ).toBeLessThanOrEqual(4);
+          |               ^
+      288 |             await page.keyboard.press("Escape");
+      289 |         } finally {
+      290 |             await ctx.close();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/ss8-b19-color-chips.spec.ts:287:15
+
+    Error Context: docs/tranches/X/execution/SS8/evidence/B19-color-chips/logs/pw-red2/ss8-b19-color-chips-D-11-·-af921-ight-never-reaches-it-dark--smoke/error-context.md
+
+  5 failed
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (light) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) 
+    [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:145:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (dark) 

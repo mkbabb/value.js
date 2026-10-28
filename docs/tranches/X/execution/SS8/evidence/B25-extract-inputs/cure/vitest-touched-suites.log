@@ -1,0 +1,82 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/generate/generate-rail.test.ts (1 test) 1178ms
+   ✓ GenerateControls count control > V3C-05: Colors is glass's scrubber at the sm rung, with no content-as-track rail  1177ms
+ ✓ demo/test/extract/ss8-b25-cures.test.ts (6 tests) 1236ms
+   ✓ SS8-0722 · the eyedropper is a modal dialog > role=dialog, aria-modal, named; the workbench behind it is hidden from AT  1072ms
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > EC-9: the readout says what came back when it is not what was asked
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > EC-9: an exact result (or no result yet) reads the request alone
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... > 
+  at <VTUROOT>
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > EC-25 / V3C-04: with nothing developed no rail is painted; K is a range scalar
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > EC-25: a developed rail rides the gradient as an IMAGE layer over the ink
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls k=16 chromaWeight=0.5 gradient="linear-gradient(to right, red 0% 50%, blue 50% 100%)"  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > XW-8: `disabled` reaches both sliders
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-controls.test.ts > ExtractControls > XW-8: while the camera is live the sliders stand down
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls k=16 chromaWeight=0.5 gradient=null  ... > 
+  at <VTUROOT>
+
+(node:98891) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/extract/extract-controls.test.ts (6 tests) 136ms
+stderr | demo/test/extract/extract-image-actions.test.ts > ExtractWorkbench · the image actions sit with the source > V9C-06: the row lives in the image column, before the extraction controls
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls class="shrink-0" k=5 found=null  ... > 
+  at <ExtractWorkbench ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-image-actions.test.ts > ExtractWorkbench · the image actions sit with the source > R-20 / V3C-05: with no image the drop zone is the one intake; only the camera action shows
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls class="shrink-0" k=5 found=null  ... > 
+  at <ExtractWorkbench ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-image-actions.test.ts > ExtractWorkbench · the image actions sit with the source > XW-8: a run in flight stands every image action down
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls class="shrink-0" k=5 found=null  ... > 
+  at <ExtractWorkbench ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | demo/test/extract/extract-image-actions.test.ts > ExtractWorkbench · the image actions sit with the source > XW-8: while the camera is live its control is the way out (pressed), and the rest stand down
+[Vue warn]: injection "Symbol(INK_AMBIENT_KEY)" not found. 
+  at <ExtractControls class="shrink-0" k=5 found=null  ... > 
+  at <ExtractWorkbench ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+(node:98887) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/extract/extract-image-actions.test.ts (4 tests) 154ms
+(node:98927) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/extract/extract-session.test.ts (4 tests) 147ms
+ ✓ demo/test/extract/image-drop-zone.test.ts (7 tests) 58ms
+ ✓ demo/test/extract/image-sampler.test.ts (1 test) 5ms
+ ✓ demo/test/extract/camera-capture.test.ts (4 tests) 5ms
+
+ Test Files  8 passed (8)
+      Tests  33 passed (33)
+   Start at  17:36:17
+   Duration  4.51s (transform 880ms, setup 351ms, collect 1.43s, tests 2.92s, environment 1.95s, prepare 361ms)
+

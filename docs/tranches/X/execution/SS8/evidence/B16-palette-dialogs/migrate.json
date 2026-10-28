@@ -1,0 +1,691 @@
+{
+ "served": "http://localhost:9000/",
+ "cells": {
+  "1440-light": {
+   "lazyModulesOnOpen": {
+    "count": 1,
+    "sample": [
+     "/@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css"
+    ]
+   },
+   "dialog": {
+    "className": "fixed left-1/2 top-1/2 z-modal glass-floating max-h-[calc(100dvh-2rem)] overflow-y-auto",
+    "roundedDialogCount": 0,
+    "rect": {
+     "x": 464,
+     "y": 236.5,
+     "w": 512,
+     "h": 426.9,
+     "right": 976
+    },
+    "vw": 1440,
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "backdrop": "blur(20px) saturate(1.5)",
+    "opacity": "1",
+    "title": {
+     "x": 485,
+     "y": 257.5,
+     "w": 470,
+     "h": 35.5,
+     "right": 955
+    },
+    "titleText": "Switch to quiet-amber-harbor-fox?",
+    "close": null,
+    "buttons": [
+     {
+      "text": "Publish, then switch",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,aria-describedby,style",
+      "emphasis": "secondary",
+      "color": "oklch(0.95994 0.00624853 56.0356)",
+      "x": 485,
+      "y": 340.9,
+      "w": 210.1,
+      "h": 40,
+      "right": 695.1
+     },
+     {
+      "text": "Transfer to new account",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,aria-describedby,style",
+      "emphasis": "secondary",
+      "color": "oklch(0.95994 0.00624853 56.0356)",
+      "x": 485,
+      "y": 434.4,
+      "w": 242,
+      "h": 40,
+      "right": 727
+     },
+     {
+      "text": "Just switch",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,aria-describedby,style",
+      "emphasis": "quiet",
+      "color": "oklch(0.959935 0.00386159 34.63)",
+      "x": 485,
+      "y": 527.8,
+      "w": 142.2,
+      "h": 40,
+      "right": 627.2
+     },
+     {
+      "text": "Cancel",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,style",
+      "emphasis": "text",
+      "color": "oklch(0.961149 0.0215055 49.834)",
+      "x": 891.4,
+      "y": 602.5,
+      "w": 63.6,
+      "h": 40,
+      "right": 955
+     }
+    ],
+    "active": "BUTTON:Cancel",
+    "overlay": null
+   },
+   "captionContrast": {
+    "capColor": "oklch(0.959935 0.00386159 34.63)",
+    "capRgb": [
+     244,
+     241,
+     240
+    ],
+    "groundMean": [
+     93.5,
+     38.7,
+     45.9
+    ],
+    "ratio": 10.4,
+    "text": "Publish the 3 palettes publicly under your current slug, then switch to quiet-amber-harbor-fox."
+   },
+   "panelAlpha": 0.18,
+   "a5": {
+    "mutedRef": "rgb(124, 102, 80)",
+    "btnColorWithUtility": "oklab(0.95994 0.00349092 0.00518243)",
+    "utilityWins": false,
+    "colorRulesInCascadeOrder": [
+     {
+      "selector": "input, textarea, select, button",
+      "layers": "",
+      "value": "fieldtext"
+     },
+     {
+      "selector": "input[type=\"button\" i], input[type=\"submit\" i], input[type=\"reset\" i], input[type=\"file\" i]::-webkit-file-upload-button, button",
+      "layers": "",
+      "value": "buttontext"
+     },
+     {
+      "selector": "button, input, select, optgroup, textarea, ::file-selector-button",
+      "layers": "base",
+      "value": "inherit | inherit"
+     },
+     {
+      "selector": ".button",
+      "layers": "components",
+      "value": "var(--button-ink) | var(--button-ink)"
+     },
+     {
+      "selector": ".text-muted-foreground, .text-muted-foreground\\/60",
+      "layers": "components",
+      "value": "var(--muted-foreground) | var(--muted-foreground)"
+     },
+     {
+      "selector": ".text-muted-foreground",
+      "layers": "utilities",
+      "value": "var(--muted-foreground) | var(--muted-foreground)"
+     }
+    ],
+    "mutedVarOnNode": [
+     {
+      "selector": ":where(.feedback-tone, .glass-capsule, .glass-capsule-track)",
+      "layers": "components",
+      "value": "var(--on-glass-muted-strong) | var(--on-glass-muted-strong)",
+      "origin": "regular",
+      "sheet": "style-sheet-45146-26"
+     }
+    ],
+    "mutedVarInherited": [
+     {
+      "depth": 3,
+      "inline": [],
+      "rules": [
+       {
+        "selector": ":where(.glass-card, .glass-resting, .glass-quiet, .glass-wash, .glass-floating, .glass-overlay)",
+        "layers": "components",
+        "value": "var(--on-glass-muted) | var(--on-glass-muted)",
+        "origin": "regular",
+        "sheet": "style-sheet-45146-26"
+       },
+       {
+        "selector": ".glass-floating",
+        "layers": "",
+        "value": "var(--ink-floating-muted, var(--ink-muted)) | var(--ink-floating-muted, var(--ink-muted))",
+        "origin": "regular",
+        "sheet": "style-sheet-45146-26"
+       },
+       {
+        "selector": ".glass-floating[role=\"dialog\"]",
+        "layers": "",
+        "value": "var(--ink-modal-muted, var(--ink-floating-muted)) | var(--ink-modal-muted, var(--ink-floating-muted))",
+        "origin": "regular",
+        "sheet": "style-sheet-45146-26"
+       }
+      ]
+     },
+     {
+      "depth": 5,
+      "inline": [],
+      "rules": [
+       {
+        "selector": ":root",
+        "layers": "",
+        "value": "var(--neutral-5) | var(--neutral-5)",
+        "origin": "regular",
+        "sheet": "style-sheet-45146-26"
+       }
+      ]
+     }
+    ],
+    "varProbe": {
+     "chain": [
+      "BUTTON.button.tap-squish.focus-ring = color-mix(\n        in oklab,\n        oklch(95.99352490404% 0.003861589952 34.629978305623deg),\n        oklch(95.993967869014% 0.00624852743 56.035563601331deg) 38.2%\n    )",
+      "DIV.flex.flex-col.items-start = oklch(95.99352490404% 0.003861589952 34.629978305623deg)",
+      "DIV.flex.flex-col.gap-3 = oklch(95.99352490404% 0.003861589952 34.629978305623deg)",
+      "DIV.fixed.left-1/2.top-1/2 = oklch(95.99352490404% 0.003861589952 34.629978305623deg)"
+     ],
+     "inlineStyle": "--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;",
+     "buttonInk": "oklch(95.993967869014% 0.00624852743 56.035563601331deg)"
+    }
+   },
+   "afterEscape": {
+    "open": false,
+    "active": "BODY",
+    "activeLabel": null
+   },
+   "afterCancel": {
+    "open": false,
+    "active": "BODY",
+    "activeLabel": null
+   },
+   "api": [],
+   "errs": []
+  },
+  "1440-dark": {
+   "lazyModulesOnOpen": {
+    "count": 0,
+    "sample": []
+   },
+   "dialog": {
+    "className": "fixed left-1/2 top-1/2 z-modal glass-floating max-h-[calc(100dvh-2rem)] overflow-y-auto",
+    "roundedDialogCount": 0,
+    "rect": {
+     "x": 464,
+     "y": 236.5,
+     "w": 512,
+     "h": 426.9,
+     "right": 976
+    },
+    "vw": 1440,
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+    "backdrop": "blur(20px) saturate(1.5)",
+    "opacity": "1",
+    "title": {
+     "x": 485,
+     "y": 257.5,
+     "w": 470,
+     "h": 35.5,
+     "right": 955
+    },
+    "titleText": "Switch to quiet-amber-harbor-fox?",
+    "close": null,
+    "buttons": [
+     {
+      "text": "Publish, then switch",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,aria-describedby,style",
+      "emphasis": "secondary",
+      "color": "oklch(0.925202 0.00618423 67.7483)",
+      "x": 485,
+      "y": 340.9,
+      "w": 210.1,
+      "h": 40,
+      "right": 695.1
+     },
+     {
+      "text": "Transfer to new account",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,aria-describedby,style",
+      "emphasis": "secondary",
+      "color": "oklch(0.925202 0.00618423 67.7483)",
+      "x": 485,
+      "y": 434.4,
+      "w": 242,
+      "h": 40,
+      "right": 727
+     },
+     {
+      "text": "Just switch",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,aria-describedby,style",
+      "emphasis": "quiet",
+      "color": "oklch(0.682918 0.00382185 41.8684)",
+      "x": 485,
+      "y": 527.8,
+      "w": 142.2,
+      "h": 40,
+      "right": 627.2
+     },
+     {
+      "text": "Cancel",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,style",
+      "emphasis": "text",
+      "color": "oklch(0.958322 0.0231202 49.834)",
+      "x": 891.4,
+      "y": 602.5,
+      "w": 63.6,
+      "h": 40,
+      "right": 955
+     }
+    ],
+    "active": "BUTTON:Cancel",
+    "overlay": null
+   },
+   "captionContrast": {
+    "capColor": "oklch(0.682918 0.00382185 41.8684)",
+    "capRgb": [
+     155,
+     152,
+     151
+    ],
+    "groundMean": [
+     74.6,
+     20,
+     25.6
+    ],
+    "ratio": 5.2,
+    "text": "Publish the 3 palettes publicly under your current slug, then switch to quiet-amber-harbor-fox."
+   },
+   "panelAlpha": 0.22,
+   "a5": {
+    "mutedRef": "rgb(172, 160, 145)",
+    "btnColorWithUtility": "oklab(0.925202 0.00234182 0.00572368)",
+    "utilityWins": false,
+    "colorRulesInCascadeOrder": [
+     {
+      "selector": "input, textarea, select, button",
+      "layers": "",
+      "value": "fieldtext"
+     },
+     {
+      "selector": "input[type=\"button\" i], input[type=\"submit\" i], input[type=\"reset\" i], input[type=\"file\" i]::-webkit-file-upload-button, button",
+      "layers": "",
+      "value": "buttontext"
+     },
+     {
+      "selector": "button, input, select, optgroup, textarea, ::file-selector-button",
+      "layers": "base",
+      "value": "inherit | inherit"
+     },
+     {
+      "selector": ".button",
+      "layers": "components",
+      "value": "var(--button-ink) | var(--button-ink)"
+     },
+     {
+      "selector": ".text-muted-foreground, .text-muted-foreground\\/60",
+      "layers": "components",
+      "value": "var(--muted-foreground) | var(--muted-foreground)"
+     },
+     {
+      "selector": ".text-muted-foreground",
+      "layers": "utilities",
+      "value": "var(--muted-foreground) | var(--muted-foreground)"
+     }
+    ],
+    "mutedVarOnNode": [
+     {
+      "selector": ":where(.feedback-tone, .glass-capsule, .glass-capsule-track)",
+      "layers": "components",
+      "value": "var(--on-glass-muted-strong) | var(--on-glass-muted-strong)",
+      "origin": "regular",
+      "sheet": "style-sheet-46269-29"
+     }
+    ],
+    "mutedVarInherited": [
+     {
+      "depth": 3,
+      "inline": [],
+      "rules": [
+       {
+        "selector": ":where(.glass-card, .glass-resting, .glass-quiet, .glass-wash, .glass-floating, .glass-overlay)",
+        "layers": "components",
+        "value": "var(--on-glass-muted) | var(--on-glass-muted)",
+        "origin": "regular",
+        "sheet": "style-sheet-46269-29"
+       },
+       {
+        "selector": ".glass-floating",
+        "layers": "",
+        "value": "var(--ink-floating-muted, var(--ink-muted)) | var(--ink-floating-muted, var(--ink-muted))",
+        "origin": "regular",
+        "sheet": "style-sheet-46269-29"
+       },
+       {
+        "selector": ".glass-floating[role=\"dialog\"]",
+        "layers": "",
+        "value": "var(--ink-modal-muted, var(--ink-floating-muted)) | var(--ink-modal-muted, var(--ink-floating-muted))",
+        "origin": "regular",
+        "sheet": "style-sheet-46269-29"
+       }
+      ]
+     },
+     {
+      "depth": 5,
+      "inline": [],
+      "rules": [
+       {
+        "selector": ":root",
+        "layers": "",
+        "value": "var(--neutral-5) | var(--neutral-5)",
+        "origin": "regular",
+        "sheet": "style-sheet-46269-29"
+       }
+      ]
+     }
+    ],
+    "varProbe": {
+     "chain": [
+      "BUTTON.button.tap-squish.focus-ring = color-mix(\n        in oklab,\n        oklch(68.291768442785% 0.003821851545 41.86844006185deg),\n        oklch(92.520158240924% 0.006184225801 67.748284889725deg) 38.2%\n    )",
+      "DIV.flex.flex-col.items-start = oklch(68.291768442785% 0.003821851545 41.86844006185deg)",
+      "DIV.flex.flex-col.gap-3 = oklch(68.291768442785% 0.003821851545 41.86844006185deg)",
+      "DIV.fixed.left-1/2.top-1/2 = oklch(68.291768442785% 0.003821851545 41.86844006185deg)"
+     ],
+     "inlineStyle": "--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;",
+     "buttonInk": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)"
+    }
+   },
+   "afterEscape": {
+    "open": false,
+    "active": "BODY",
+    "activeLabel": null
+   },
+   "afterCancel": {
+    "open": false,
+    "active": "BODY",
+    "activeLabel": null
+   },
+   "api": [],
+   "errs": []
+  },
+  "320-light": {
+   "dialog": {
+    "className": "fixed left-1/2 top-1/2 z-modal glass-floating max-h-[calc(100dvh-2rem)] overflow-y-auto",
+    "roundedDialogCount": 0,
+    "rect": {
+     "x": 20,
+     "y": 129.7,
+     "w": 280,
+     "h": 460.5,
+     "right": 300
+    },
+    "vw": 320,
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "backdrop": "blur(20px) saturate(1.5)",
+    "opacity": "1",
+    "title": {
+     "x": 33,
+     "y": 142.7,
+     "w": 254,
+     "h": 61.1,
+     "right": 287
+    },
+    "titleText": "Switch to quiet-amber-harbor-fox?",
+    "close": null,
+    "buttons": [
+     {
+      "text": "Publish, then switch",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,aria-describedby,style",
+      "emphasis": "secondary",
+      "color": "oklch(0.95994 0.00624853 56.0356)",
+      "x": 33,
+      "y": 263.8,
+      "w": 183.8,
+      "h": 40,
+      "right": 216.8
+     },
+     {
+      "text": "Transfer to new account",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,aria-describedby,style",
+      "emphasis": "secondary",
+      "color": "oklch(0.95994 0.00624853 56.0356)",
+      "x": 33,
+      "y": 366.7,
+      "w": 211,
+      "h": 40,
+      "right": 244
+     },
+     {
+      "text": "Just switch",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,aria-describedby,style",
+      "emphasis": "quiet",
+      "color": "oklch(0.959935 0.00386159 34.63)",
+      "x": 33,
+      "y": 454,
+      "w": 125.8,
+      "h": 40,
+      "right": 158.8
+     },
+     {
+      "text": "Cancel",
+      "aria": null,
+      "variantAttr": null,
+      "attrs": "data-slot,data-emphasis,data-tone,data-size,data-control-target,data-press-armed,type,class,style",
+      "emphasis": "text",
+      "color": "oklch(0.961149 0.0215055 49.834)",
+      "x": 231.3,
+      "y": 537.3,
+      "w": 55.7,
+      "h": 40,
+      "right": 287
+     }
+    ],
+    "active": "BUTTON:Cancel",
+    "overlay": null
+   },
+   "geometry": {
+    "x": 20,
+    "w": 280,
+    "sideMargin": 20,
+    "titleClosePx": null,
+    "closeBox": "no close button"
+   },
+   "errs": []
+  },
+  "1440-light-enter-hold": {
+   "events": [
+    {
+     "t": 11239.900000000023,
+     "key": "Enter",
+     "repeat": false,
+     "active": ""
+    },
+    {
+     "t": 11240.5,
+     "tag": "BUTTON",
+     "text": ""
+    },
+    {
+     "t": 11298,
+     "key": "Enter",
+     "repeat": true,
+     "active": "Cancel"
+    },
+    {
+     "t": 11298.29999999993,
+     "tag": "BUTTON",
+     "text": "Cancel"
+    },
+    {
+     "t": 11335,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11370.099999999977,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11404.900000000023,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11440.5,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11477,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11514.599999999977,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11549.79999999993,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11585.5,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11620.5,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11656,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11691.099999999977,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11726.29999999993,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11761.5,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11797.599999999977,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11833,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11869.400000000023,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11905.29999999993,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11942.599999999977,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    },
+    {
+     "t": 11978,
+     "key": "Enter",
+     "repeat": true,
+     "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+    }
+   ],
+   "after": {
+    "open": false,
+    "active": "→lab(92% 88.8 20 / 82.7%)Palet"
+   },
+   "apiWrites": [],
+   "apiAll": [
+    {
+     "t": 1792433424705,
+     "m": "GET",
+     "p": "/colors/approved"
+    }
+   ],
+   "errs": []
+  },
+  "1440-light-just-switch": {
+   "hashBefore": "#/palettes",
+   "after": {
+    "open": false,
+    "hash": "#/palettes",
+    "slugLS": "brave-quiet-amber-fox",
+    "active": "BODY"
+   },
+   "apiNonGet": [
+    {
+     "t": 1792433441101,
+     "m": "POST",
+     "p": "/sessions/login"
+    }
+   ],
+   "errs": []
+  }
+ }
+}

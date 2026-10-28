@@ -1,0 +1,32 @@
+{
+ "aliases": [
+  [
+   "/^@mkbabb\\/value\\.js\\/color$/",
+   "/Users/mkbabb/Programming/value.js/dist/subpaths/color.js"
+  ],
+  [
+   "/^@mkbabb\\/value\\.js\\/value$/",
+   "/Users/mkbabb/Programming/value.js/dist/subpaths/value.js"
+  ],
+  [
+   "/^@mkbabb\\/value\\.js\\/css$/",
+   "/Users/mkbabb/Programming/value.js/dist/subpaths/css.js"
+  ],
+  [
+   "/^@mkbabb\\/value\\.js\\/easing$/",
+   "/Users/mkbabb/Programming/value.js/dist/subpaths/easing.js"
+  ],
+  [
+   "/^@mkbabb\\/value\\.js\\/math$/",
+   "/Users/mkbabb/Programming/value.js/dist/subpaths/math.js"
+  ],
+  [
+   "/^@mkbabb\\/value\\.js\\/transform$/",
+   "/Users/mkbabb/Programming/value.js/dist/subpaths/transform.js"
+  ],
+  [
+   "/^@mkbabb\\/value\\.js\\/quantize$/",
+   "/Users/mkbabb/Programming/value.js/dist/subpaths/quantize.js"
+  ]
+ ]
+}

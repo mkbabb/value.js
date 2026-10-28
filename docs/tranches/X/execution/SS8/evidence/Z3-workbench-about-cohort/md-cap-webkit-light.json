@@ -1,0 +1,126 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "webkit",
+ "at": "2026-10-20T22:03:03.967Z",
+ "out": {
+  "cap": {
+   "shots": {
+    "rgb": {
+     "cell": "cap-rgb",
+     "name": "md-guide-webkit-light-rgb",
+     "box": [
+      462,
+      6206
+     ],
+     "scheme": {
+      "dark": false,
+      "mq": false,
+      "bodyBg": "rgb(173, 104, 201)"
+     },
+     "h2": {
+      "color": "oklch(0.307762 0.124262 2)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1607.203125,
+       462,
+       200
+      ]
+     },
+     "code": {
+      "color": "oklch(0.307762 0.124262 2)",
+      "bg": "oklab(0.216115 0.003422 0.005081 / 0.08)",
+      "rect": [
+       795.875,
+       3845.36572265625,
+       16.6302490234375,
+       22.8720703125
+      ]
+     },
+     "state": "authored",
+     "errors": [
+      "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+     ]
+    },
+    "oklch": {
+     "cell": "cap-oklch",
+     "name": "md-guide-webkit-light-oklch",
+     "box": [
+      462,
+      6266
+     ],
+     "scheme": {
+      "dark": false,
+      "mq": false,
+      "bodyBg": "rgb(173, 104, 201)"
+     },
+     "h2": {
+      "color": "oklch(0.307762 0.124262 2)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1660.15625,
+       462,
+       200
+      ]
+     },
+     "code": {
+      "color": "oklch(0.307762 0.124262 2)",
+      "bg": "oklab(0.216115 0.003422 0.005081 / 0.08)",
+      "rect": [
+       829.4719848632812,
+       1463.6939697265625,
+       16.63031005859375,
+       22.8719482421875
+      ]
+     },
+     "state": "authored",
+     "errors": [
+      "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+     ]
+    },
+    "lch": {
+     "cell": "cap-lch",
+     "name": "md-guide-webkit-light-lch",
+     "box": [
+      462,
+      4704
+     ],
+     "scheme": {
+      "dark": false,
+      "mq": false,
+      "bodyBg": "rgb(135, 67, 162)"
+     },
+     "h2": {
+      "color": "oklch(0.01318 0.005322 2)",
+      "font": "Fraunces",
+      "size": "30px",
+      "rect": [
+       754,
+       1508.375,
+       462,
+       200
+      ]
+     },
+     "code": {
+      "color": "oklch(0.01318 0.005322 2)",
+      "bg": "oklab(0.216115 0.003422 0.005081 / 0.08)",
+      "rect": [
+       1102.76806640625,
+       1255.9127197265625,
+       16.6302490234375,
+       22.8719482421875
+      ]
+     },
+     "state": "authored",
+     "errors": [
+      "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+     ]
+    }
+   },
+   "ms": 10774
+  }
+ }
+}

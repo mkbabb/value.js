@@ -1,0 +1,52 @@
+[
+  {
+    "route": "",
+    "ok": true,
+    "ms": 287
+  },
+  {
+    "route": "palettes",
+    "ok": true,
+    "ms": 13
+  },
+  {
+    "route": "browse",
+    "ok": true,
+    "ms": 22
+  },
+  {
+    "route": "extract",
+    "ok": true,
+    "ms": 11
+  },
+  {
+    "route": "mix",
+    "ok": true,
+    "ms": 12
+  },
+  {
+    "route": "generate",
+    "ok": true,
+    "ms": 13
+  },
+  {
+    "route": "gradient",
+    "ok": true,
+    "ms": 17
+  },
+  {
+    "route": "atmosphere",
+    "ok": true,
+    "ms": 10
+  },
+  {
+    "route": "blob",
+    "ok": true,
+    "ms": 14
+  },
+  {
+    "route": "admin/users",
+    "ok": true,
+    "ms": 13
+  }
+]

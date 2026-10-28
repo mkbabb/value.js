@@ -1,0 +1,243 @@
+[
+ {
+  "cell": "PC-U1 PRM expand/collapse retention",
+  "ms": 14294,
+  "s0": {
+   "t": "collapsed-initial",
+   "docNodes": 438,
+   "cardNodes": 36,
+   "detailChildren": 0,
+   "detailH": 0,
+   "dcState": "closed",
+   "dcHidden": true,
+   "zeroHeightWithKids": 1,
+   "copySlug": [
+    {
+     "label": "Switch to slug",
+     "h": 24,
+     "tabbable": false
+    }
+   ]
+  },
+  "s1": {
+   "t": "expanded",
+   "docNodes": 567,
+   "cardNodes": 109,
+   "detailChildren": 73,
+   "detailH": 113.96875,
+   "dcState": "open",
+   "dcHidden": false,
+   "zeroHeightWithKids": 25,
+   "copySlug": [
+    {
+     "label": "Switch to slug",
+     "h": 24,
+     "tabbable": false
+    },
+    {
+     "label": "Copy slug gallery",
+     "h": 36,
+     "tabbable": true
+    }
+   ]
+  },
+  "s2": {
+   "t": "re-collapsed",
+   "docNodes": 438,
+   "cardNodes": 36,
+   "detailChildren": 0,
+   "detailH": 0,
+   "dcState": "closed",
+   "dcHidden": true,
+   "zeroHeightWithKids": 1,
+   "copySlug": [
+    {
+     "label": "Switch to slug",
+     "h": 24,
+     "tabbable": false
+    }
+   ]
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U2 hover panel geometry (successor popover)",
+  "ms": 5350,
+  "swatch": {
+   "x": 285,
+   "y": 530.5625,
+   "width": 40,
+   "height": 40
+  },
+  "panel": {
+   "found": true,
+   "floatingPanelNodes": 0,
+   "label": "Actions for #2563eb",
+   "x": 240,
+   "y": 579,
+   "w": 130,
+   "h": 50,
+   "position": "fixed",
+   "inViewport": true,
+   "buttons": [
+    "Add #2563eb to current palette",
+    "Edit color #2563eb",
+    "Copy color #2563eb"
+   ]
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U3 WHCM + print of the compact strip",
+  "ms": 2262,
+  "whcm": {
+   "attrs": [
+    "data-v-4589874a=",
+    "aria-hidden=true",
+    "role=presentation",
+    "data-color-strip=",
+    "data-orientation=horizontal",
+    "class=overflow-hidden flex h-10 w-full palette-specimen__strip"
+   ],
+   "fca": "auto",
+   "pca": "economy",
+   "kids": [
+    {
+     "bg": "rgb(255, 255, 255)",
+     "fca": "auto",
+     "pca": "economy",
+     "dcs": false
+    },
+    {
+     "bg": "rgb(255, 255, 255)",
+     "fca": "auto",
+     "pca": "economy",
+     "dcs": false
+    },
+    {
+     "bg": "rgb(255, 255, 255)",
+     "fca": "auto",
+     "pca": "economy",
+     "dcs": false
+    },
+    {
+     "bg": "rgb(255, 255, 255)",
+     "fca": "auto",
+     "pca": "economy",
+     "dcs": false
+    },
+    {
+     "bg": "rgb(255, 255, 255)",
+     "fca": "auto",
+     "pca": "economy",
+     "dcs": false
+    }
+   ]
+  },
+  "print": {
+   "attrs": [
+    "data-v-4589874a=",
+    "aria-hidden=true",
+    "role=presentation",
+    "data-color-strip=",
+    "data-orientation=horizontal",
+    "class=overflow-hidden flex h-10 w-full palette-specimen__strip"
+   ],
+   "fca": "auto",
+   "pca": "exact",
+   "kids": [
+    {
+     "bg": "rgb(225, 29, 72)",
+     "fca": "auto",
+     "pca": "exact",
+     "dcs": false
+    },
+    {
+     "bg": "rgb(37, 99, 235)",
+     "fca": "auto",
+     "pca": "exact",
+     "dcs": false
+    },
+    {
+     "bg": "rgb(22, 163, 74)",
+     "fca": "auto",
+     "pca": "exact",
+     "dcs": false
+    },
+    {
+     "bg": "rgb(245, 158, 11)",
+     "fca": "auto",
+     "pca": "exact",
+     "dcs": false
+    },
+    {
+     "bg": "rgb(124, 58, 237)",
+     "fca": "auto",
+     "pca": "exact",
+     "dcs": false
+    }
+   ]
+  },
+  "pageErrors": []
+ },
+ {
+  "cell": "PC-U4 corner caster vs grid contain",
+  "ms": 2283,
+  "boxShadow": "none",
+  "border": "1px",
+  "radius": "16px",
+  "filter": "none",
+  "castChild": false,
+  "chain": [
+   {
+    "cls": "palette-card-grid.grid.grid-cols-1",
+    "contain": "content",
+    "overflow": "visible",
+    "pad": "0px"
+   },
+   {
+    "cls": "grid.gap-3.pb-3",
+    "contain": "none",
+    "overflow": "visible",
+    "pad": "0px 0px 12px"
+   },
+   {
+    "cls": "pane-body.flex.flex-col",
+    "contain": "none",
+    "overflow": "visible",
+    "pad": "0px 24px 16px"
+   },
+   {
+    "cls": "fading-scroll.fading-scroll--y.pane-scroll-fade",
+    "contain": "content",
+    "overflow": "hidden auto",
+    "pad": "0px"
+   },
+   {
+    "cls": "glass-resting.card.pane-shell__card",
+    "contain": "paint",
+    "overflow": "hidden",
+    "pad": "0px"
+   },
+   {
+    "cls": "pane-shell.relative.w-full",
+    "contain": "none",
+    "overflow": "visible",
+    "pad": "0px"
+   },
+   {
+    "cls": "pane-wrapper.w-full.min-w-0",
+    "contain": "layout",
+    "overflow": "visible",
+    "pad": "0px"
+   },
+   {
+    "cls": "pane-container",
+    "contain": "none",
+    "overflow": "visible",
+    "pad": "0px"
+   }
+  ],
+  "pageErrors": []
+ }
+]

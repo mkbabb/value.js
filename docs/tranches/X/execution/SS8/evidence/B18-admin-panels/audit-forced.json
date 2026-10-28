@@ -1,0 +1,19 @@
+{
+  "forcedActive": true,
+  "badge": {
+    "cls": "badge-atom inline-flex items-center justify-center gap-1.5 rounded-badge font-semibold whitespace-nowrap [&_svg:not([class*=size-])]:size-[1em] [&_svg]:shrink-0 [&_svg]:pointer-events-none bg-secondary text-secondary-foreground leading-[1.1] [--mark-pad-block:--spacing(1)] [--mark-pad-inline:--spacing(3)] text-mono-small shrink-0",
+    "bg": "rgb(255, 255, 255)",
+    "border": "0px solid rgb(0, 0, 0)",
+    "boxShadow": "none",
+    "outline": "rgb(0, 0, 0) none 3px",
+    "fca": "auto",
+    "color": "rgb(0, 0, 0)"
+  },
+  "badgeNoForced": {
+    "bg": "rgb(237, 230, 222)",
+    "border": "0px solid rgb(198, 180, 159)",
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset",
+    "pageErrors": []
+  },
+  "pageErrors": []
+}

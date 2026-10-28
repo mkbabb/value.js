@@ -1,0 +1,2 @@
+[guarded] waiting for headroom (load 152 > 36)
+killed queued run (never admitted: guard held it 2h40m for headroom, load 81-163)

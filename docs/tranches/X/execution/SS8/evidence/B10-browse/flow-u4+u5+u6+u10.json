@@ -1,0 +1,500 @@
+{
+ "u4": {
+  "before": {
+   "cards": 12,
+   "skeletons": 0,
+   "alert": false,
+   "alertText": null,
+   "retry": false,
+   "emptyText": ""
+  },
+  "after": {
+   "cards": 12,
+   "skeletons": 0,
+   "alert": false,
+   "alertText": null,
+   "retry": false,
+   "emptyText": ""
+  },
+  "firstBefore": "stub palette 0",
+  "firstAfter": "stub palette 0",
+  "sortPressedAfterFailure": [
+   "Popular"
+  ],
+  "gridDimmed": false,
+  "requests": [
+   "GET /palettes?limit=50&sort=newest",
+   "GET /palettes?limit=50&sort=popular"
+  ]
+ },
+ "u5_delay0": {
+  "settled": 1389.21875,
+  "min": 1389.2,
+  "collapsePx": 0,
+  "framesWithSkeleton": 0,
+  "refetchedOnReentry": 1,
+  "traceHead": [
+   [
+    21,
+    null,
+    0
+   ],
+   [
+    157,
+    null,
+    0
+   ],
+   [
+    233,
+    null,
+    0
+   ],
+   [
+    303,
+    1404.4,
+    0
+   ],
+   [
+    356,
+    1400.6,
+    0
+   ],
+   [
+    453,
+    1391.4,
+    0
+   ],
+   [
+    624,
+    1389.9,
+    0
+   ],
+   [
+    741,
+    1389.3,
+    0
+   ],
+   [
+    828,
+    1389.2,
+    0
+   ],
+   [
+    878,
+    1389.2,
+    0
+   ],
+   [
+    928,
+    1389.2,
+    0
+   ],
+   [
+    978,
+    1389.2,
+    0
+   ],
+   [
+    1028,
+    1389.2,
+    0
+   ],
+   [
+    1078,
+    1389.2,
+    0
+   ],
+   [
+    1128,
+    1389.2,
+    0
+   ],
+   [
+    1178,
+    1389.2,
+    0
+   ],
+   [
+    1227,
+    1389.2,
+    0
+   ],
+   [
+    1278,
+    1389.2,
+    0
+   ],
+   [
+    1328,
+    1389.2,
+    0
+   ],
+   [
+    1378,
+    1389.2,
+    0
+   ],
+   [
+    1427,
+    1389.2,
+    0
+   ],
+   [
+    1478,
+    1389.2,
+    0
+   ],
+   [
+    1528,
+    1389.2,
+    0
+   ],
+   [
+    1577,
+    1389.2,
+    0
+   ],
+   [
+    1627,
+    1389.2,
+    0
+   ]
+  ]
+ },
+ "u5_delay400": {
+  "settled": 1389.21875,
+  "min": 556,
+  "collapsePx": 833.2,
+  "framesWithSkeleton": 15,
+  "refetchedOnReentry": 1,
+  "traceHead": [
+   [
+    33,
+    null,
+    0
+   ],
+   [
+    263,
+    null,
+    0
+   ],
+   [
+    368,
+    570.9,
+    4
+   ],
+   [
+    487,
+    561.1,
+    4
+   ],
+   [
+    708,
+    1389.6,
+    0
+   ],
+   [
+    912,
+    1389.2,
+    0
+   ],
+   [
+    1003,
+    1389.2,
+    0
+   ],
+   [
+    1044,
+    1389.2,
+    0
+   ],
+   [
+    1094,
+    1389.2,
+    0
+   ],
+   [
+    1144,
+    1389.2,
+    0
+   ],
+   [
+    1194,
+    1389.2,
+    0
+   ],
+   [
+    1244,
+    1389.2,
+    0
+   ],
+   [
+    1294,
+    1389.2,
+    0
+   ],
+   [
+    1344,
+    1389.2,
+    0
+   ],
+   [
+    1394,
+    1389.2,
+    0
+   ],
+   [
+    1444,
+    1389.2,
+    0
+   ],
+   [
+    1494,
+    1389.2,
+    0
+   ],
+   [
+    1544,
+    1389.2,
+    0
+   ],
+   [
+    1594,
+    1389.2,
+    0
+   ],
+   [
+    1644,
+    1389.2,
+    0
+   ],
+   [
+    1694,
+    1389.2,
+    0
+   ],
+   [
+    1744,
+    1389.2,
+    0
+   ],
+   [
+    1794,
+    1389.2,
+    0
+   ],
+   [
+    1844,
+    1389.2,
+    0
+   ],
+   [
+    1894,
+    1389.2,
+    0
+   ]
+  ]
+ },
+ "u6": {
+  "s0_load": {
+   "cards": 0,
+   "skeletons": 0,
+   "alert": true,
+   "alertText": "Couldn't reach the palette service. No response — the network or the service's TLS certificate failed. Retry",
+   "retry": true,
+   "emptyText": ""
+  },
+  "s1_retryTimeline": [
+   [
+    150,
+    true,
+    0,
+    0
+   ],
+   [
+    300,
+    true,
+    0,
+    0
+   ],
+   [
+    450,
+    true,
+    0,
+    0
+   ],
+   [
+    600,
+    true,
+    0,
+    0
+   ],
+   [
+    750,
+    true,
+    0,
+    0
+   ],
+   [
+    900,
+    true,
+    0,
+    0
+   ],
+   [
+    1050,
+    true,
+    0,
+    0
+   ],
+   [
+    1200,
+    true,
+    0,
+    0
+   ],
+   [
+    1350,
+    true,
+    0,
+    0
+   ],
+   [
+    1500,
+    true,
+    0,
+    0
+   ],
+   [
+    1650,
+    true,
+    0,
+    0
+   ],
+   [
+    1800,
+    true,
+    0,
+    0
+   ],
+   [
+    1950,
+    true,
+    0,
+    0
+   ],
+   [
+    2100,
+    true,
+    0,
+    0
+   ],
+   [
+    2250,
+    true,
+    0,
+    0
+   ]
+  ],
+  "s1_afterRetry": {
+   "cards": 0,
+   "skeletons": 0,
+   "alert": true,
+   "alertText": "Couldn't reach the palette service. No response — the network or the service's TLS certificate failed. Retry",
+   "retry": true,
+   "emptyText": ""
+  },
+  "s2_searchClear": {
+   "cards": 0,
+   "skeletons": 0,
+   "alert": true,
+   "alertText": "Couldn't reach the palette service. No response — the network or the service's TLS certificate failed. Retry",
+   "retry": true,
+   "emptyText": ""
+  },
+  "s3_routeRoundTrip": {
+   "cards": 0,
+   "skeletons": 0,
+   "alert": true,
+   "alertText": "Couldn't reach the palette service. No response — the network or the service's TLS certificate failed. Retry",
+   "retry": true,
+   "emptyText": ""
+  },
+  "s4_restoreThenRetry": {
+   "cards": 6,
+   "skeletons": 0,
+   "alert": false,
+   "alertText": null,
+   "retry": false,
+   "emptyText": ""
+  },
+  "requests": 3
+ },
+ "u10": {
+  "regBefore": {
+   "status": 0,
+   "live": 1,
+   "alert": 0
+  },
+  "regAfter": {
+   "status": 0,
+   "live": 1,
+   "alert": 0
+  },
+  "cardsAfter": 53,
+  "focusTranscript": [
+   [
+    -1,
+    "BUTTON:Load more"
+   ],
+   [
+    150,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    300,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    450,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    600,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    750,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    900,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    1050,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    1200,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    1350,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    1500,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    1650,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ],
+   [
+    1800,
+    "BODY:→\nBrowse\nTools\nLogin"
+   ]
+  ]
+ }
+}

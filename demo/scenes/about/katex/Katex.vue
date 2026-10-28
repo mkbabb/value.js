@@ -1,10 +1,19 @@
 <template>
-    <div class="inline-block" ref="katexElement"></div>
+    <FadingScroll v-if="displayMode" axis="x" class="katex-row">
+        <div ref="katexElement"></div>
+    </FadingScroll>
+    <div v-else class="inline-block" ref="katexElement"></div>
 </template>
 
 <script setup lang="ts">
-import { useTemplateRef, onMounted, watch } from "vue";
-import katex from "katex";
+import { useTemplateRef, onMounted, onBeforeUnmount, watch } from "vue";
+// SS8-0267 (X-W6 R1/R10): a display formula is a scroll ROW on glass's scroll
+// primitive. Wide derivations overflow the card (26 of 37 rows at 390 px, up
+// to 352 px off the edge); the port feathers whichever edge holds more of the
+// formula and takes keyboard focus, the shape the easing specimen strip
+// rides. Inline math stays an inline box. (No template comment: one beside
+// the root makes a dev-mode fragment, which drops the scope attribute.)
+import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
 // AB-1 (T.W8 remediation_1) — the KaTeX stylesheet is a GLOBAL import, script-
 // side. It was `@import "katex/dist/katex.min.css"` INSIDE a `<style scoped>`
 // block, which Vite's SFC transform suffixed EVERY selector with this
@@ -17,7 +26,20 @@ import katex from "katex";
 // unscopeable by construction — the exact dead-scoped-CSS class the R.W4-C1
 // rider cured in Markdown.vue, here cured at the root. The self-hosted
 // `KaTeX_*` @font-face rules (S.W4-6 / a409feb) ship through this same import.
-import "katex/dist/katex.min.css";
+//
+// X.W11.p2 (COHESION §0ge.1(ii)) — KaTeX loads WITH ITS CONSUMER: the engine
+// (vendor-katex, ~74 KB gz) and its stylesheet are imported by THIS component,
+// dynamically, the first time a formula comes within a viewport of being seen.
+// The About pane is a region of the home route at every width, so a static
+// import put the whole engine on the boot path of `/` even where every formula
+// sits below the fold (the 412 px lab cell). The stylesheet stays a script-side
+// import — still unscopeable — and arrives in the same chunk load as the engine.
+// The observer's one-viewport lead renders a formula before it is scrolled to.
+// (The module registry memoizes the chunk: every instance shares one load.)
+const loadKatex = () =>
+    Promise.all([import("katex"), import("katex/dist/katex.min.css")]).then(
+        ([engine]) => engine.default,
+    );
 
 const { expression, displayMode = true } = defineProps<{
     expression: string;
@@ -26,11 +48,19 @@ const { expression, displayMode = true } = defineProps<{
 
 const katexElement = useTemplateRef<HTMLElement>("katexElement");
 
-const renderKatex = () => {
+let visible = false;
+const renderKatex = async () => {
+    if (!visible) return;
+    const katex = await loadKatex();
     if (katexElement.value) {
         katex.render(expression, katexElement.value, {
             displayMode,
             throwOnError: false,
+            // SS8-0272 (R5): a formula KaTeX cannot parse prints its source in
+            // the error colour. KaTeX's #cc0000 read 2.35:1 light / 2.03:1 dark
+            // on the tinted card; the in-pane destructive ink is certified on
+            // this plate (shell.css `--destructive: var(--ink-destructive)`).
+            errorColor: "var(--destructive)",
             // htmlAndMathml (P2-1 / S-22): the KaTeX HTML layer renders with the
             // self-hosted KaTeX fonts (shipped via the katex.min.css import
             // above) for cross-browser typeset consistency; the MathML layer
@@ -40,10 +70,44 @@ const renderKatex = () => {
             // MathML-Core is the least mature, an S-22 (Safari-truth) risk.
             output: "htmlAndMathml",
         });
+        // SS8-0272 (VC:83): an error is never colour-only. The failed source
+        // is named for assistive tech, and the wavy underline (below) marks it
+        // for sight.
+        for (const error of katexElement.value.querySelectorAll(".katex-error")) {
+            error.setAttribute("role", "img");
+            error.setAttribute(
+                "aria-label",
+                `Formula could not be rendered: ${error.textContent ?? ""}`,
+            );
+        }
     }
 };
 
-onMounted(renderKatex);
+let observer: IntersectionObserver | null = null;
+onMounted(() => {
+    const el = katexElement.value;
+    if (!el) return;
+    observer = new IntersectionObserver(
+        (entries) => {
+            if (!entries.some((e) => e.isIntersecting)) return;
+            observer?.disconnect();
+            observer = null;
+            visible = true;
+            void renderKatex();
+        },
+        { rootMargin: "100% 0px" },
+    );
+    observer.observe(el);
+});
+onBeforeUnmount(() => observer?.disconnect());
 
 watch(() => expression, renderKatex);
 </script>
+
+<style scoped>
+/* SS8-0272: the non-colour error cue (KaTeX renders the span into this root). */
+:deep(.katex-error) {
+    text-decoration: underline wavy;
+    text-underline-offset: 0.2em;
+}
+</style>

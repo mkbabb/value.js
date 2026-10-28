@@ -1,0 +1,8 @@
+{
+ "build": "npx vite build --mode gh-pages --outDir node_modules/.cache/ss8-b15-ghp (root demo/app) at HEAD df97486e2, 2026-10-19",
+ "entryChunk": "assets/index-CBUay0Sx.js",
+ "entryBytes": 537196,
+ "modulepreloadRefsInIndexHtml": 21,
+ "jsChunks": 76,
+ "palettesPaneChunkBytes": 52547
+}

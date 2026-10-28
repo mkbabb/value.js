@@ -8,12 +8,13 @@ import {
     type Ref,
 } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import type { Color } from "@mkbabb/value.js/color";
+import { convertColor, parseCssColor, type Color } from "@mkbabb/value.js/color";
 import { parseColorIn } from "./color-utils";
 import { INK_AMBIENT_KEY } from "./keys";
 import {
     certifyAccentInk,
-    TEXT_CONTRAST_FLOOR,
+    certifyIdentityInk,
+    GRAPHICS_CONTRAST_FLOOR,
     resolveMutedInk,
     resolvePaintedLightness,
     resolvePlateInk,
@@ -47,7 +48,7 @@ import {
 // The referent is the tier's ACTUAL painted recipe, read live: a hidden probe
 // in the document's own cascade resolves the rung's background token
 // (color-mix, tint knob and all) to a concrete color+alpha. In non-browser
-// contexts (jsdom — no canvas) the resolver yields null and the static
+// contexts (jsdom — no resolved cascade) the resolver yields null and the static
 // producer MODEL in `./ink` serves; the O-18 census enforces the live path in
 // the real browser. The dock band has NO model (X.W8.d · G-13): it is probed
 // off the element that actually paints it (`useChromeAccentFn`, below), and an
@@ -78,6 +79,18 @@ const TIER_BG_TOKEN: Partial<Record<LiveLayer, string>> = {
  * probes re-drive through ordinary reactivity. No polling, no workaround.
  */
 const probeEpoch = ref(0);
+/**
+ * OD19 repair 1 (C1-V-05): a probe has MISSED since the last bump — a live
+ * read found no painted referent (the subtree was still detached, or no
+ * cascade was mounted). The bump re-drives exactly those reads. A mount
+ * whose consumers all read a referent that was already measured has nothing
+ * to re-drive: the recipe is scheme-scoped (the stamps below), so bumping
+ * anyway invalidated every tint memo in the app and re-ran every live-ink
+ * computed inside the incoming pane's mount frame (measured on the Home →
+ * Gradient switch: 60–70 ms of `useContrastSafeColor`/`ink`/colour parsing
+ * in an 89–109 ms frame, ANGLE-Metal, `value/after/repair-1/v05/`).
+ */
+let probeMissed = true;
 export function bumpProbeEpochOnMount(): void {
     // Composables may be exercised outside a component (unit probes) — the
     // epoch is a mount-truth signal, so no instance simply means no bump.
@@ -86,54 +99,57 @@ export function bumpProbeEpochOnMount(): void {
     // consumer like any other — it must register the mount bump from its
     // setup, or its first (possibly detached/pre-style) probe result caches
     // until some OTHER consumer happens to bump the epoch.
-    if (getCurrentInstance()) onMounted(() => probeEpoch.value++);
+    if (getCurrentInstance())
+        onMounted(() => {
+            if (!probeMissed) return;
+            probeMissed = false;
+            probeEpoch.value++;
+        });
 }
 
-let probeCtx: CanvasRenderingContext2D | null | undefined;
-function canvasCtx(): CanvasRenderingContext2D | null {
-    if (probeCtx === undefined) {
-        try {
-            const cv = document.createElement("canvas");
-            cv.width = cv.height = 1;
-            probeCtx = cv.getContext("2d", { willReadFrequently: true });
-        } catch {
-            probeCtx = null;
-        }
-    }
-    return probeCtx ?? null;
-}
-
-/** Resolve ANY computed CSS color to sRGB + alpha via dual-ground draws. */
+/**
+ * Resolve a computed CSS colour to sRGB (0–255) + alpha, EXACTLY: the
+ * library parses the string the cascade computed (`color(srgb … / α)`,
+ * `rgb()`, `oklch()` …) — the plate recipe as the browser composites it.
+ *
+ * X.W11.h1 (O18-712 · C-3): the former instrument re-read the colour off a
+ * 1×1 canvas (dual-ground draws). Every channel came back as a byte and was
+ * divided by the alpha, so a low-alpha plate was mis-read by up to 0.5/α
+ * bytes per channel: glass 10's dark resting plate (α 0.18,
+ * `color(srgb 0.0928 0.0504 0.0088)`) read `rgb(22.2 11.1 0)` at α 0.1804,
+ * a ground darker than the one painted, and the walk certified the raw
+ * ink at 5.751:1 against a plate it actually reads 5.727:1 on (the census
+ * measured 5.74 under the 5.75 target). Reading the computed value removes
+ * the quantization, so the walk measures the ground it paints on.
+ *
+ * Null when nothing is measurable: an empty or unparsable computed value
+ * (jsdom resolves no `var()` cascade), where the static producer model in
+ * `./ink` serves (the dock band has no model and fails loudly instead).
+ */
 function resolveCssColorAlpha(
     css: string,
 ): { r: number; g: number; b: number; alpha: number } | null {
-    const ctx = canvasCtx();
-    if (!ctx || !css) return null;
-    const draw = (ground: string) => {
-        ctx.fillStyle = ground;
-        ctx.fillRect(0, 0, 1, 1);
-        ctx.fillStyle = "#000";
-        ctx.fillStyle = css;
-        ctx.fillRect(0, 0, 1, 1);
-        return ctx.getImageData(0, 0, 1, 1).data;
-    };
-    const onBlack = draw("#000");
-    const onWhite = draw("#fff");
-    const alpha = 1 - ((onWhite[0] ?? 0) - (onBlack[0] ?? 0)) / 255;
-    if (alpha <= 0.001) return { r: 0, g: 0, b: 0, alpha: 0 };
-    return {
-        r: (onBlack[0] ?? 0) / alpha,
-        g: (onBlack[1] ?? 0) / alpha,
-        b: (onBlack[2] ?? 0) / alpha,
-        alpha,
-    };
+    if (!css) return null;
+    const parsed = parseCssColor(css);
+    if (!parsed.ok) return null;
+    const srgb = convertColor(parsed.value, "rgb");
+    if (!srgb.ok) return null;
+    const [r, g, b] = srgb.value.channels;
+    const alpha = srgb.value.alpha;
+    if (typeof r !== "number" || typeof g !== "number" || typeof b !== "number" || typeof alpha !== "number") {
+        return null;
+    }
+    if (alpha <= 0) return { r: 0, g: 0, b: 0, alpha: 0 };
+    return { r, g, b, alpha };
 }
 
 /** The opaque OKLCh colour of an sRGB triple, memoized (library-resolved,
- *  never local math) — a live layer's colour for the sRGB composite. */
+ *  never local math) — a live layer's colour for the sRGB composite. The
+ *  key is the exact triple: rounding it to bytes would re-introduce the
+ *  quantization the resolver above removes. */
 const tintColorCache = new Map<string, Color<"oklch">>();
 function srgbColor(r: number, g: number, b: number): Color<"oklch"> {
-    const key = `${Math.round(r)},${Math.round(g)},${Math.round(b)}`;
+    const key = `${r} ${g} ${b}`;
     const hit = tintColorCache.get(key);
     if (hit !== undefined) return hit;
     const color = parseColorIn(`rgb(${key})`, "oklch");
@@ -277,8 +293,30 @@ function resolveLiveTintCached(surface: LiveLayer): SurfaceTint | undefined {
         return hit.tint;
     }
     const tint = resolveLiveTint(surface);
+    if (tint === undefined && surface !== "page") probeMissed = true;
     liveTintCache.set(surface, { darkClass, epoch, tint });
     return tint;
+}
+
+/**
+ * The certified accent, memoised per (colour, ground, floor) (OD19-V3).
+ * `certifyAccentInk` is a pure WCAG walk, and one colour frame asks it the
+ * same question from several consumers: the boot writer's `safeAccentCss`
+ * and the Nutrition label both certify the live pick on the resting rung,
+ * and the profile menu and the mobile menu both certify it on the floating
+ * rung. The walk runs once per distinct question; the answer is the walk's
+ * own string, so every consumer reads exactly what it read before. Bounded
+ * like the tint colour cache: a drag asks new questions every frame.
+ */
+const certifiedCache = new Map<string, string>();
+function certifyAccentInkOnce(css: string, surfaceL: number, floor?: number): string {
+    const key = `${css}|${surfaceL}|${floor ?? ""}`;
+    const hit = certifiedCache.get(key);
+    if (hit !== undefined) return hit;
+    const safe = certifyAccentInk(css, surfaceL, floor);
+    if (certifiedCache.size >= 64) certifiedCache.clear();
+    certifiedCache.set(key, safe);
+    return safe;
 }
 
 /** The surface referent, live-first: probe the painted recipe, compose with
@@ -336,7 +374,7 @@ export function useContrastSafeColor(
     bumpProbeEpochOnMount();
 
     const safeAccentCss = computed(() =>
-        certifyAccentInk(
+        certifyAccentInkOnce(
             cssColorOpaque.value,
             surfaceLightnessNow(
                 "resting",
@@ -404,6 +442,20 @@ export function useContrastSafeColor(
         ),
     );
 
+    // X-DS pass 18 (V18C-02): the destructive red on the RESTING plate, the
+    // modal twin's sibling. The error plate's alert glyph painted glass's raw
+    // red at 80 % (1.77:1 read off the light Not Found frame). The hue is kept
+    // and only the lightness walks. The token also carries the plate's error
+    // LINES (text-destructive inherits it through `.pane-wrapper`), so it is
+    // certified at the text floor, which clears the glyph's 3:1 a fortiori.
+    // The boot writer stamps `--ink-destructive`.
+    const destructiveInkCss = computed(() =>
+        certifyAccentInk(
+            schemeTokenCss("--destructive", isDark.value, "hsl(0 72% 50%)"),
+            restingL.value,
+        ),
+    );
+
     // X-DS pass 15 (V15-01): the GOLD identity ink, certified on the same
     // resting plate. Gold (`--color-gold`, luminance 0.45) can never clear a
     // floor against a light plate raw (its ceiling against white is 2.10:1),
@@ -415,8 +467,11 @@ export function useContrastSafeColor(
     // lighter than a saturated aurora patch under a card: at the graphics
     // floor the frame measured 2.64:1, at the text floor 3.45:1
     // (evidence/DS/value/pass-15/v15.json). The boot writer stamps `--ink-gold`.
+    // X-DS pass 18 (V18C-01): the walk holds the hue (`certifyIdentityInk`):
+    // where clearing the floor would drain gold to a pole, the far side or
+    // the plate's own ink answers instead of a hueless "gold".
     const goldInkCss = computed(() =>
-        certifyAccentInk(goldIdentityCss(isDark.value), restingL.value, TEXT_CONTRAST_FLOOR),
+        certifyIdentityInk(goldIdentityCss(isDark.value), restingL.value, isDark.value),
     );
     // X-DS pass 17 (V17C-01): its floating twin. The view menu's "Admin" row
     // sits on glass's floating plate (portaled to <body>), so it certifies on
@@ -424,7 +479,25 @@ export function useContrastSafeColor(
     // writer stamps `--ink-gold-floating`, and `shell.css` seats it as
     // `--ink-gold` on the floating plate.
     const floatingGoldInkCss = computed(() =>
-        certifyAccentInk(goldIdentityCss(isDark.value), floatingL.value, TEXT_CONTRAST_FLOOR),
+        certifyIdentityInk(goldIdentityCss(isDark.value), floatingL.value, isDark.value),
+    );
+    // X-DS pass 18 (V18C-01): the GLYPH rung of both twins. A glyph keeps the
+    // word's gold wherever that gold holds its chroma: these plates are
+    // MODELLED, and at the 3:1 floor the featured badge's mark read 2.67:1
+    // off the light frame (pass 15 read 2.64), where the word's rung reads
+    // 3.45. Where the word falls back to the plate's ink, the glyph drops to
+    // the graphics floor, so the mark (the badge, the menu's shield) keeps
+    // the gold. The boot writer stamps `--ink-gold-glyph` /
+    // `--ink-gold-floating-glyph`.
+    const glyphRung = (word: string, plate: string, surfaceL: number) =>
+        word !== plate
+            ? word
+            : certifyIdentityInk(goldIdentityCss(isDark.value), surfaceL, isDark.value, GRAPHICS_CONTRAST_FLOOR);
+    const goldGlyphInkCss = computed(() =>
+        glyphRung(goldInkCss.value, plateInkCss.value, restingL.value),
+    );
+    const floatingGoldGlyphInkCss = computed(() =>
+        glyphRung(floatingGoldInkCss.value, floatingInkCss.value, floatingL.value),
     );
 
     return {
@@ -437,8 +510,11 @@ export function useContrastSafeColor(
         modalInkCss,
         modalMutedInkCss,
         modalDestructiveInkCss,
+        destructiveInkCss,
         goldInkCss,
         floatingGoldInkCss,
+        goldGlyphInkCss,
+        floatingGoldGlyphInkCss,
     };
 }
 
@@ -450,11 +526,32 @@ export function goldIdentityCss(dark: boolean): string {
 }
 
 /** A root colour token as this scheme paints it (one arm of a `light-dark()`
- *  pair), or `fallback` where no cascade is mounted. */
+ *  pair), or `fallback` where no cascade is mounted.
+ *
+ *  OD19-V3: these tokens are scheme constants, but their callers are colour
+ *  computeds, so an unmemoised read ran `getComputedStyle` once per colour
+ *  frame, after that frame's root `setProperty` writes, forcing a full style
+ *  recalc (839 ms of `getPropertyValue` over one drag). The cascade is read
+ *  once per token per scheme, the tint cache's idiom above: the memo is
+ *  dropped when the scheme flips, stamped from DOM truth (the root `.dark`
+ *  class) as well as the caller's `dark`, so a read that raced the class flip
+ *  self-corrects, and by the probe epoch, so a pre-mount read re-drives. An
+ *  empty read (no cascade mounted yet) is not memoised. */
+const schemeTokenMemo = new Map<string, string>();
+let schemeTokenStamp = "";
 function schemeTokenCss(token: string, dark: boolean, fallback: string): string {
-    const live = typeof document === "undefined"
-        ? ""
-        : getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+    if (typeof document === "undefined") return fallback;
+    const stamp = `${dark}|${document.documentElement.classList.contains("dark")}|${probeEpoch.value}`;
+    if (stamp !== schemeTokenStamp) {
+        schemeTokenMemo.clear();
+        schemeTokenStamp = stamp;
+    }
+    let live = schemeTokenMemo.get(token);
+    if (live === undefined) {
+        live = getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+        if (live) schemeTokenMemo.set(token, live);
+        else probeMissed = true;
+    }
     return lightDarkArm(live, dark) || fallback;
 }
 
@@ -495,7 +592,7 @@ export function useSafeAccentFn(surface: InkSurface = "page") {
      *  `GRAPHICS_CONTRAST_FLOOR` (3) for non-text ink (WCAG 1.4.11: slider
      *  tracks, rails — the T-44a rung); defaults to the 4.5 text floor. */
     function safeCss(css: string, floor?: number): string {
-        return certifyAccentInk(
+        return certifyAccentInkOnce(
             css,
             surfaceLightnessNow(surface, ambient.value, isDark.value),
             floor,
@@ -532,14 +629,39 @@ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
     function safeCss(css: string, floor?: number): string | undefined {
         const el = host.value;
         if (!el) return undefined;
-        return certifyAccentInk(
+        return certifyAccentInkOnce(
             css,
             resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
             floor,
         );
     }
 
-    return { safeCss };
+    /** X-DS pass 18 (V18C-01): an identity hue on the band, its chroma held
+     *  (`certifyIdentityInk`). */
+    function identityCss(css: string, floor: number): string | undefined {
+        const el = host.value;
+        if (!el) return undefined;
+        return certifyIdentityInk(
+            css,
+            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+            isDark.value,
+            floor,
+        );
+    }
+
+    /** X-DS pass 19 (V19C-02): the band's own plate ink (the one polarity
+     *  decision, `resolvePlateInk`), certified on the same measured ground:
+     *  the dock's plain words read it, as the gold's last rung already does. */
+    function plateCss(): string | undefined {
+        const el = host.value;
+        if (!el) return undefined;
+        return resolvePlateInk(
+            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+            isDark.value,
+        );
+    }
+
+    return { safeCss, identityCss, plateCss };
 }
 
 /**

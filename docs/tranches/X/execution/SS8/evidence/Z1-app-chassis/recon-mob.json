@@ -1,0 +1,8 @@
+{
+ "cell": "mob",
+ "ms": 90056,
+ "at": "2026-10-20T18:40:01.441Z",
+ "out": {
+  "error": "page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/\", waiting until \"load\"\u001b[22m\n\n    at boot (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/Z1-app-chassis/lib.mjs:12:16)\n    at async Object.mob (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/Z1-app-chassis/recon.mjs:31:98)\n    at async runCells (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/Z1-app-chassis/lib.mjs:29:25)\n    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/Z1-app-chassis/recon.mjs:24:1"
+ }
+}

@@ -1,0 +1,661 @@
+{
+  "pixelLight": {
+    "scheme": "light",
+    "fillName": [
+      200,
+      94,
+      148
+    ],
+    "fillSlug": [
+      201,
+      102,
+      148
+    ],
+    "nameInk": [
+      28,
+      25,
+      23
+    ],
+    "nameCR": 4.57,
+    "slugInk": [
+      45,
+      43,
+      42
+    ],
+    "slugCR": 3.9,
+    "seamPx": [
+      185,
+      94,
+      137
+    ],
+    "belowSeam": [
+      197,
+      101,
+      144
+    ],
+    "seamCR": 1.12,
+    "rings": [
+      {
+        "label": "Copy slug gallery",
+        "boxShadow": "none",
+        "outline": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+        "rect": [
+          332.859375,
+          479.5625,
+          36,
+          36
+        ],
+        "ringPx": [
+          [
+            199,
+            95,
+            148
+          ],
+          [
+            199,
+            95,
+            148
+          ],
+          [
+            200,
+            98,
+            147
+          ]
+        ]
+      },
+      {
+        "label": "Color swatch #e11d48",
+        "boxShadow": "none",
+        "outline": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+        "rect": [
+          237,
+          527.5625,
+          40,
+          40
+        ],
+        "ringPx": [
+          [
+            204,
+            97,
+            152
+          ],
+          [
+            200,
+            93,
+            148
+          ],
+          [
+            202,
+            99,
+            151
+          ]
+        ]
+      }
+    ],
+    "pageErrors": []
+  },
+  "pixelDark": {
+    "scheme": "dark",
+    "fillName": [
+      110,
+      40,
+      66
+    ],
+    "fillSlug": [
+      117,
+      44,
+      67
+    ],
+    "nameInk": [
+      233,
+      230,
+      226
+    ],
+    "nameCR": 8.25,
+    "slugInk": [
+      164,
+      162,
+      160
+    ],
+    "slugCR": 3.76,
+    "seamPx": [
+      124,
+      58,
+      79
+    ],
+    "belowSeam": [
+      114,
+      41,
+      64
+    ],
+    "seamCR": 1.22,
+    "rings": [
+      {
+        "label": "Copy slug gallery",
+        "boxShadow": "none",
+        "outline": "solid 2px oklab(0.925202 0.00234182 0.00572368 / 0.48)",
+        "rect": [
+          332.859375,
+          479.5625,
+          36,
+          36
+        ],
+        "ringPx": [
+          [
+            112,
+            40,
+            65
+          ],
+          [
+            111,
+            39,
+            65
+          ],
+          [
+            114,
+            40,
+            64
+          ]
+        ]
+      },
+      {
+        "label": "Color swatch #e11d48",
+        "boxShadow": "none",
+        "outline": "solid 2px oklab(0.925202 0.00234182 0.00572368 / 0.48)",
+        "rect": [
+          237,
+          527.5625,
+          40,
+          40
+        ],
+        "ringPx": [
+          [
+            113,
+            45,
+            70
+          ],
+          [
+            110,
+            41,
+            66
+          ],
+          [
+            114,
+            43,
+            68
+          ]
+        ]
+      }
+    ],
+    "pageErrors": []
+  },
+  "pressHover": {
+    "v4": {
+      "underSwatch": {
+        "n": 50,
+        "peakPressT": 0,
+        "h": [
+          307.41,
+          307.41
+        ],
+        "transforms": [
+          "none|none"
+        ]
+      },
+      "cardBody": {
+        "n": 56,
+        "peakPressT": 1.0147,
+        "h": [
+          125.22,
+          307.41
+        ],
+        "transforms": [
+          "none|none",
+          "none|1.001 0.9948",
+          "none|1.0041 0.9793",
+          "none|1.0067 0.9655",
+          "none|1.0084 0.957"
+        ]
+      }
+    },
+    "v7": {
+      "frames": 666,
+      "p50": 8.3,
+      "p95": 9,
+      "max": 24.6,
+      "over16_7": 8,
+      "longTasks": [],
+      "mutationsPerHost": {},
+      "swatchesSwept": 12,
+      "popoversOpenedOnDwell": 0
+    },
+    "pageErrors": []
+  },
+  "prm": {
+    "prmMatch": true,
+    "seq": [
+      {
+        "after": "expand Probe Five",
+        "copySlug": [
+          {
+            "w": 36,
+            "h": 36,
+            "tab": 0,
+            "inert": false,
+            "vis": "visible"
+          }
+        ],
+        "cardH": 201.46875
+      },
+      {
+        "after": "expand Probe Two",
+        "copySlug": [
+          {
+            "w": 36,
+            "h": 36,
+            "tab": 0,
+            "inert": false,
+            "vis": "visible"
+          }
+        ],
+        "cardH": 201.46875
+      },
+      {
+        "after": "expand Probe Six",
+        "copySlug": [
+          {
+            "w": 36,
+            "h": 36,
+            "tab": 0,
+            "inert": false,
+            "vis": "visible"
+          }
+        ],
+        "cardH": 201.46875
+      },
+      {
+        "after": "collapse Six",
+        "copySlug": []
+      }
+    ],
+    "stops": [
+      "1 votes, click to vote|40x27",
+      "Colors of Probe Zero|36x36",
+      "Palette menu|36x36",
+      "Palette: Probe Five|462x128",
+      "1 votes, click to vote|40x27",
+      "Colors of Probe Five|36x36",
+      "Palette menu|36x36",
+      "Palette: Probe Twentyfour|462x128",
+      "1 votes, click to vote|40x27",
+      "Colors of Probe Twentyfour|36x36",
+      "Palette menu|36x36",
+      "Palette: Probe Two|462x128",
+      "1 votes, click to vote|40x27",
+      "Colors of Probe Two|36x36",
+      "Palette menu|36x36",
+      "Palette: Probe Twelve|462x128",
+      "1 votes, click to vote|40x27",
+      "Colors of Probe Twelve|36x36",
+      "Palette menu|36x36",
+      "Palette: Probe Six|462x128",
+      "1 votes, click to vote|40x27",
+      "Colors of Probe Six|36x36",
+      "Palette menu|36x36",
+      "Palette: Probe Three|462x128",
+      "1 votes, click to vote|40x27",
+      "Colors of Probe Three|36x36",
+      "Palette menu|36x36",
+      "undefined|510x284",
+      "Search your palettes|414x25",
+      "Add current color oklch(95.8|44x44"
+    ],
+    "rewrap": {
+      "before": {
+        "h": 219.90625,
+        "sh": 220,
+        "parentStyle": "--reka-collapsible-content-height: 219.90625px; --reka-collapsible-content-width: 460px;"
+      },
+      "after": {
+        "h": 214.046875,
+        "sh": 214,
+        "parentH": 214.046875,
+        "parentStyle": "--reka-collapsible-content-height: 219.90625px; --reka-collapsible-content-width: 460px;",
+        "clipped": false,
+        "swatch": 36
+      }
+    },
+    "pageErrors": []
+  },
+  "hoverTouch": {
+    "mq": {
+      "hover": false,
+      "coarse": true,
+      "anyCoarse": true
+    },
+    "open": true,
+    "rect": [
+      219,
+      613,
+      184,
+      68
+    ],
+    "padding": "6px",
+    "paddingInline": "6px",
+    "paddingBlock": "6px",
+    "width": "184px",
+    "className": "glass-floating glass-overlay-plate glass-reveal z-popover w-auto p-1.5 flex items-center gap-1",
+    "buttons": [
+      [
+        54,
+        54
+      ],
+      [
+        54,
+        54
+      ],
+      [
+        54,
+        54
+      ]
+    ],
+    "pageErrors": []
+  },
+  "mobile": {
+    "mq": {
+      "hover": false,
+      "coarse": true,
+      "anyCoarse": true
+    },
+    "open": true,
+    "rect": [
+      28,
+      593.3,
+      184,
+      68
+    ],
+    "padding": "6px",
+    "paddingInline": "6px",
+    "paddingBlock": "6px",
+    "width": "184px",
+    "className": "glass-floating glass-overlay-plate glass-reveal z-popover w-auto p-1.5 flex items-center gap-1",
+    "buttons": [
+      [
+        54,
+        54
+      ],
+      [
+        54,
+        54
+      ],
+      [
+        54,
+        54
+      ]
+    ],
+    "pageErrors": []
+  },
+  "forced": {
+    "strip": [
+      225,
+      597.0625,
+      460,
+      40
+    ],
+    "bands": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "fca": "auto",
+    "printAdj": "economy",
+    "painted": [
+      [
+        241,
+        237,
+        232
+      ],
+      [
+        242,
+        238,
+        233
+      ],
+      [
+        241,
+        237,
+        233
+      ],
+      [
+        244,
+        241,
+        236
+      ],
+      [
+        243,
+        240,
+        235
+      ],
+      [
+        240,
+        236,
+        232
+      ]
+    ],
+    "pageErrors": []
+  },
+  "print": {
+    "strip": [
+      225,
+      773.0625,
+      460,
+      40
+    ],
+    "bands": [
+      "rgb(225, 29, 72)",
+      "rgb(37, 99, 235)",
+      "rgb(22, 163, 74)",
+      "rgb(245, 158, 11)",
+      "rgb(124, 58, 237)",
+      "rgb(8, 145, 178)"
+    ],
+    "fca": "auto",
+    "printAdj": "exact",
+    "painted": [
+      [
+        225,
+        29,
+        72
+      ],
+      [
+        37,
+        99,
+        235
+      ],
+      [
+        22,
+        163,
+        74
+      ],
+      [
+        245,
+        158,
+        11
+      ],
+      [
+        124,
+        58,
+        237
+      ],
+      [
+        8,
+        145,
+        178
+      ]
+    ],
+    "pageErrors": []
+  },
+  "corner": {
+    "card": [
+      224,
+      596.0625
+    ],
+    "radius": "16px",
+    "stripRadius": "15px",
+    "stripClip": "visible",
+    "at": [
+      224,
+      596.0625
+    ],
+    "pageErrors": []
+  },
+  "routes": {
+    "#/generate": {
+      "strips": [],
+      "vertical": 0,
+      "addSlot": [
+        {
+          "tag": "BUTTON",
+          "label": "Add current color oklch(95.83% 0.2725 9.834deg) to palette",
+          "role": null,
+          "ariaHidden": null,
+          "svg": 2,
+          "w": 44
+        }
+      ],
+      "apiChip": [],
+      "afterMin": []
+    },
+    "#/mix": {
+      "strips": [],
+      "vertical": 0,
+      "addSlot": [
+        {
+          "tag": "BUTTON",
+          "label": "Add current color to the mix",
+          "role": null,
+          "ariaHidden": null,
+          "svg": 2,
+          "w": 44
+        }
+      ],
+      "apiChip": [],
+      "roleLocator": 1
+    },
+    "#/extract": {
+      "strips": [],
+      "vertical": 0,
+      "addSlot": [
+        {
+          "tag": "BUTTON",
+          "label": "Add current color lab(92% 88.8 20) to palette",
+          "role": null,
+          "ariaHidden": null,
+          "svg": 2,
+          "w": 44
+        }
+      ],
+      "apiChip": []
+    },
+    "#/palettes": {
+      "strips": [],
+      "vertical": 0,
+      "addSlot": [
+        {
+          "tag": "BUTTON",
+          "label": "Add current color lab(92% 88.8 20) to palette",
+          "role": null,
+          "ariaHidden": null,
+          "svg": 2,
+          "w": 44
+        }
+      ],
+      "apiChip": [],
+      "roleLocatorPal": 1
+    },
+    "#/browse": {
+      "strips": [
+        {
+          "o": "horizontal",
+          "bands": 0,
+          "w": 460,
+          "h": 40,
+          "hostH": 128,
+          "share": 31.4
+        },
+        {
+          "o": "horizontal",
+          "bands": 5,
+          "w": 460,
+          "h": 40,
+          "hostH": 128,
+          "share": 31.4
+        },
+        {
+          "o": "horizontal",
+          "bands": 24,
+          "w": 460,
+          "h": 40,
+          "hostH": 128,
+          "share": 31.4
+        },
+        {
+          "o": "horizontal",
+          "bands": 2,
+          "w": 460,
+          "h": 40,
+          "hostH": 128,
+          "share": 31.4
+        },
+        {
+          "o": "horizontal",
+          "bands": 12,
+          "w": 460,
+          "h": 40,
+          "hostH": 128,
+          "share": 31.4
+        },
+        {
+          "o": "horizontal",
+          "bands": 6,
+          "w": 460,
+          "h": 40,
+          "hostH": 128,
+          "share": 31.4
+        },
+        {
+          "o": "horizontal",
+          "bands": 3,
+          "w": 460,
+          "h": 40,
+          "hostH": 128,
+          "share": 31.4
+        }
+      ],
+      "vertical": 0,
+      "addSlot": [
+        {
+          "tag": "BUTTON",
+          "label": "Add current color lab(92% 88.8 20) to palette",
+          "role": null,
+          "ariaHidden": null,
+          "svg": 2,
+          "w": 44
+        }
+      ],
+      "apiChip": []
+    },
+    "emptyStripSeenOn": [
+      "#/browse"
+    ],
+    "pageErrors": []
+  },
+  "liveApi": {
+    "cards": 0,
+    "chips": [],
+    "text": "Browse view\n\nBrowse\n\nDiscover palettes from the community.\n\nNo palettes published yet.\n\nPublish one of yours from My Palettes.\n\nMy Palettes\n\nSave, organize, and share your colors.\n\nStart a new palette",
+    "pageErrors": []
+  }
+}

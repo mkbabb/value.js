@@ -61,7 +61,9 @@ const ENGINE_ROUTED_SUBTREES = [
 ];
 
 /** The workflow files that may satisfy a project's CI-job obligation. */
-const WORKFLOWS = [".github/workflows/ci.yml"];
+// `webkit-hosted.yml` carries `e2e-safari` (smoke-safari + oracles-safari)
+// since X.W11.s1 / COHESION §0ge.2: a reporting, non-gating hosted-WebKit run.
+const WORKFLOWS = [".github/workflows/ci.yml", ".github/workflows/webkit-hosted.yml"];
 
 const findings = [];
 /**
@@ -85,12 +87,24 @@ function route(section, owner, message, detail) {
 
 // ── helpers ─────────────────────────────────────────────────────────────────
 
+// `maxBuffer: Infinity` — NOT a fixed ceiling. execFileSync's default is 1 MiB,
+// and `git ls-files -z` is a measure of the tracked tree, which only grows:
+// 607,859 B when this slate landed (ec6541584, 2026-09-18), past 1 MiB by
+// 2026-09-25, 2,041,222 B / 27,861 paths at X-W11 — where CI died with
+// `spawnSync git ENOBUFS`. Any constant here is that bug again, deferred.
 function git(...args) {
-    return execFileSync("git", args, { cwd: ROOT, encoding: "utf8" });
+    return execFileSync("git", args, {
+        cwd: ROOT,
+        encoding: "utf8",
+        maxBuffer: Infinity,
+    });
 }
 
+// The tracked set cannot change during one run; list it once, not per section.
+let trackedCache = null;
 function trackedFiles() {
-    return git("ls-files", "-z").split("\0").filter(Boolean);
+    trackedCache ??= git("ls-files", "-z").split("\0").filter(Boolean);
+    return trackedCache;
 }
 
 /** Minimal glob → RegExp, enough for eslint `files:` globs (`**`, `*`, `{a,b}`). */

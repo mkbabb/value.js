@@ -29,20 +29,16 @@ import {
     type AuroraAtoms,
     type AuroraConfig,
 } from "@mkbabb/glass-ui/aurora";
-import { resolveCalibratedAtmosphere } from "./atmosphere-calibration";
+import { resolveAtmosphereField } from "./atmosphere-calibration";
+import { resolveFieldAmbientLightness } from "../../../color-session/ink";
 import { debounce } from "../../../shared/debounce";
 import { safeSetItem } from "../../../platform/storage/useSafeStorage";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "../../../scenes/atmosphere/aurora-atoms";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
-import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
-import { clamp } from "@mkbabb/value.js/math";
-import {
-    GROUND_STORE_KEY,
-    buildGroundRecord,
-    normalizeGroundStops,
-    type GroundRecord,
-} from "./ground";
+import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
+import { GROUND_STORE_KEY, buildGroundRecord, type GroundRecord } from "./ground";
+import { fieldAtomsFor, groundPaletteFor, groundStopsFor } from "./seeded-ground";
 
 /**
  * W6-7 — the pointer-as-light strength fed to the aurora cursor model. The
@@ -50,65 +46,6 @@ import {
  * arm — the light LEANS toward the pointer (a lerp weight, not a spotlight).
  */
 const ATMOSPHERE_POINTER_STRENGTH = 0.45;
-
-// --- T.W8 · P9-R3 / T-37 — THE DERIVE-SEAM GUARANTEE ---------------------------
-// The collapsed dock's WAX SEAL is the LIVE picked colour (a WatercolorDot on
-// `cssColorOpaque`); the atmosphere FIELD behind it is DERIVED from the SAME
-// seed. At the owner's brick reference the two collided — wax↔field ΔL 0.004
-// (WCAG 1.03:1) light / 0.016 dark — so the seal's swatch identity vanished
-// into the field, carried only by the producer's collapsed-pill glass halo
-// (which is strong over dark fields and DISSOLVES over light ones — the §6.4
-// self-camouflage class). t33-research §6.4 named the idiomatic cure: "the
-// field is DERIVED, so the demo owns a GUARANTEED delta at the derive seam —
-// the atmosphere's lBand never equals the wax L". The true `lBand` atom is
-// producer-gated at the consumed dist (Q2-FULL, P1-booked), so the demo owns
-// the guarantee HERE, as a MATERIAL lightness offset on the derived field — a
-// figure-ground standoff, NEVER a ring or rim (Q12 ABROGATE + the register law
-// stand; O-15a's negative border watch stays green through this cure). The same
-// closed-form floor idiom the HeroBlob ink-floor uses (bead↔plate) applied to
-// the field↔wax seam: one mean, one bounded uniform shift, zero iteration.
-//
-// It fires ONLY when the field mean L would otherwise land within the floor of
-// the wax L (most seeds derive a field whose L naturally stands off, so the
-// composition is untouched); when it fires, the whole palette shifts uniformly
-// AWAY from the wax (internal spread preserved), clamped to the derive domain.
-const DERIVE_SEAM_FLOOR = 0.06;
-
-function seedLightness(seed: AuroraAtoms["seed"]): number | null {
-    if (typeof seed !== "string") {
-        return typeof seed === "object" && seed ? seed.L : null;
-    }
-    try {
-        return cssToOklch(seed).L;
-    } catch {
-        return null;
-    }
-}
-
-/**
- * Guarantee |field mean L − wax L| ≥ DERIVE_SEAM_FLOOR by shifting the whole
- * derived palette uniformly away from the seed when they would collide. Pure;
- * the seed-lightness read is throw-free (an un-parseable seed skips the guard).
- */
-function guaranteeSeamOffset(config: AuroraConfig, seed: AuroraAtoms["seed"]): AuroraConfig {
-    const seedL = seedLightness(seed);
-    const palette = config.palette;
-    if (seedL == null || !palette?.length) return config;
-    const meanL = palette.reduce((sum, stop) => sum + stop.L, 0) / palette.length;
-    const delta = meanL - seedL;
-    if (Math.abs(delta) >= DERIVE_SEAM_FLOOR) return config;
-    // Push AWAY from the wax on the side the field already leans; flip if that
-    // side has no headroom (closed-form — two branches, zero iteration).
-    let dir = delta >= 0 ? 1 : -1;
-    const need = DERIVE_SEAM_FLOOR - Math.abs(delta);
-    const headroom = dir === 1 ? 0.98 - meanL : meanL - 0.02;
-    if (headroom < need) dir = -dir;
-    const push = dir * (DERIVE_SEAM_FLOOR - dir * delta);
-    return {
-        ...config,
-        palette: palette.map((stop) => ({ ...stop, L: clamp(stop.L + push, 0.02, 0.98) })),
-    };
-}
 
 export function useAtmosphere(
     atmosphereCanvas: Readonly<ShallowRef<HTMLCanvasElement | null>>,
@@ -163,9 +100,10 @@ export function useAtmosphere(
     // ride `resolveAtoms(atoms, base)`; the atoms door itself is untouched
     // (AuroraPane's live tuning flows through exactly as before).
     // P9-R3: the seam guarantee wraps the calibrated derive at the ONE place
-    // the field is resolved — the WebGL getter AND the resolvedPalette below
-    // consume the SAME guarded config, so the painted field, the CSS fallback,
-    // and the D6 ink referent all agree on the offset field lightness.
+    // the field is resolved (`resolveAtmosphereField`) — the WebGL getter,
+    // the resolvedPalette below AND AuroraPane's harmony strips consume the
+    // SAME guarded config, so the painted field, the CSS fallback, the D6 ink
+    // referent and the strip all agree on the offset field lightness.
     const { isDark } = useGlobalDark();
 
     // --- X-W6 · X.W6.i (i2): THE DARK lBAND DOOR, LANDED ON THE FIELD ---
@@ -187,16 +125,13 @@ export function useAtmosphere(
     // `lBand` authored in AuroraPane WINS, because this only supplies the
     // band the shell implies when the atoms have not spoken. The ground's own
     // scheme-banding (below) is a separate contract and is untouched.
-    const fieldAtoms = (): AuroraAtoms =>
-        !isDark.value ||
-        auroraAtoms.lightnessScheme !== undefined ||
-        auroraAtoms.lBand !== undefined
-            ? auroraAtoms
-            : { ...auroraAtoms, lightnessScheme: "dark" };
+    // X.W11.h7b: the rule is `seeded-ground.ts`'s `fieldAtomsFor`, the one
+    // source the pre-paint boot also runs.
+    const fieldAtoms = (): AuroraAtoms => fieldAtomsFor(auroraAtoms, isDark.value);
 
     const aurora = useAurora(
         atmosphereCanvas,
-        () => guaranteeSeamOffset(resolveCalibratedAtmosphere(fieldAtoms()), auroraAtoms.seed),
+        () => resolveAtmosphereField(fieldAtoms()),
         { onInitError: (err) => console.warn("[aurora] init failed:", err) },
         { renderMode: auroraRenderMode },
     );
@@ -206,27 +141,26 @@ export function useAtmosphere(
     // per frame under a drag (the seed is the rAF-coalesced colour), so the
     // extra resolve here stays off the per-event hot path.
     const resolvedPalette = computed(
-        () =>
-            guaranteeSeamOffset(resolveCalibratedAtmosphere(fieldAtoms()), auroraAtoms.seed)
-                .palette,
+        () => resolveAtmosphereField(fieldAtoms()).palette,
     );
 
     // --- M-15 (T.W2-routed cross-wave hunk; D6 THE INK-ON-TIER CONTRACT) ---
-    // The atmosphere EXPOSES its live derived lightness — the mean OKLab L of
-    // the resolved field palette, i.e. the page-ambient the ink actually sits
-    // over. The D6 law: the contrast referent is a property of the SURFACE the
+    // The atmosphere EXPOSES its live derived lightness — the page-ambient
+    // referent the ink certifies over (see SS8-0259 below). The D6 law: the
+    // contrast referent is a property of the SURFACE the
     // text sits on, never a global constant (A11Y-F1: the BG_LIGHTNESS_DARK/
     // LIGHT pair 0.15/0.97 is a FALSE referent everywhere — the measured
     // composited ambient runs 0.376–0.936). useViewAccents consumes this ref;
     // W3-5 threads it to the non-boot consumers (the same round's parallel
     // wave — the routed-hunk seam, h-wave-w2-w3 M1 ≡ h-dag D-1).
-    const derivedLightness = computed(() => {
-        const palette = resolvedPalette.value;
-        if (!palette.length) return 0.5;
-        let sum = 0;
-        for (const stop of palette) sum += stop.L;
-        return sum / palette.length;
-    });
+    // SS8-0259 (CNL-17): in dark the referent is no longer the palette's MEAN
+    // L. The field varies across the page and a plate sits over whatever
+    // region lies under it, so the light ink certifies against the field's
+    // brightest stop at its WCAG luminance; light keeps the mean
+    // (`resolveFieldAmbientLightness`, ink.ts, says why).
+    const derivedLightness = computed(() =>
+        resolveFieldAmbientLightness(resolvedPalette.value, isDark.value),
+    );
 
     // The CSS-gradient fallback for the `"css"` substrate — the same derived
     // palette `resolveAtoms` feeds the WebGL field, rendered as a static
@@ -264,17 +198,14 @@ export function useAtmosphere(
     // the ground is pinned to the RAW producer derive by the
     // FIRST_VISIT_GROUND byte-identity above, while the field rides the
     // calibrated base; collapsing them would silently re-point that pin.
-    const groundPalette = computed(() => {
-        const fieldPalette = resolvedPalette.value; // tracks seed/atom edits
-        if (!isDark.value) return fieldPalette;
-        const seed = auroraAtoms.seed;
-        if (typeof seed !== "string") return fieldPalette;
-        try {
-            return deriveAurora(seed, { scheme: "dark" });
-        } catch {
-            return fieldPalette;
-        }
-    });
+    // X.W11.h7b (COHESION §0gl.10): the banding is `seeded-ground.ts`'s
+    // `groundPaletteFor` and the stop set its `groundStopsFor` — the same pure
+    // derive the build inlines into the pre-paint boot script, so a seeded
+    // first paint and this sink's first write are one function's output.
+    const groundPalette = computed(() =>
+        // resolvedPalette is always read: it tracks seed/atom edits.
+        groundPaletteFor(auroraAtoms, isDark.value, resolvedPalette.value),
+    );
     const persistGround = debounce(
         (record: GroundRecord) =>
             safeSetItem("local", GROUND_STORE_KEY, JSON.stringify(record)),
@@ -284,7 +215,7 @@ export function useAtmosphere(
         [groundPalette, isDark],
         ([palette, dark]) => {
             if (!palette?.length) return;
-            const stops = normalizeGroundStops(palette.map(oklchStopToHex));
+            const stops = groundStopsFor(palette);
             const root = document.documentElement.style;
             stops.forEach((stop, i) => root.setProperty(`--saved-bg-${i}`, stop));
             const base = stops[0];

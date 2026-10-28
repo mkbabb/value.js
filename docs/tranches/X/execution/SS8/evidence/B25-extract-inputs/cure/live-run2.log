@@ -1,0 +1,7 @@
+dzLight {"theme":"light","borderColor":"oklch(0.292283 0.00386159 34.63)","edgeMax":4.339,"tokOut":4.12,"tokIn":3.389}
+dzDark {"theme":"dark","borderColor":"oklch(0.807897 0.00382185 41.8684)","edgeMax":7.725,"tokOut":7.257,"tokIn":6.584}
+geo1440 {"viewport":"1440x900","dialog":[208,66,1024,768],"position":"fixed","role":"dialog","ariaModal":"true","name":"Eyedropper","paneHidden":false,"inPane":false,"within":true,"overflow":0,"tabEscapes":0,"stops":["Close eyedropper"]}
+geo720 {"viewport":"720x450","dialog":[16,16,688,418],"position":"fixed","role":"dialog","ariaModal":"true","name":"Eyedropper","paneHidden":false,"inPane":false,"within":true,"overflow":0,"tabEscapes":0,"stops":["Close eyedropper"]}
+stalepin {"zoom":[0.614965,1.23743],"px":[[499,406],[499,406]],"loupe":[[235,160,142,255],[235,160,142,255]],"under":[[235,160,142,255],[235,160,142,255]],"dBefore":0,"dAfter":0,"pinned":true}
+gen {"hooks":["generate-count"],"range":true}
+exit 0

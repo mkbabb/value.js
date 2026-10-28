@@ -27,15 +27,18 @@
                 Prune empty
             </Button>
             <!-- UIA-V-49: while the error plate offers Retry, the header's
-                 duplicate Refresh stands down; both are the recovery probe. -->
+                 duplicate Refresh stands down; both are the recovery probe.
+                 X-DS pass 19 (V19C-04): one Refresh grammar across the four
+                 consoles, the named icon button Audit, Flagged and Tags use. -->
             <Button
+                emphasis="secondary"
                 size="xs"
-                class="px-2.5 cursor-pointer text-caption gap-1.5"
+                icon-only
+                aria-label="Refresh users"
                 :disabled="loading"
                 @click="pm.retryAdminUsers()"
             >
-                <RefreshCw class="w-3 h-3" :class="loading && 'animate-spin'" />
-                Refresh
+                <RefreshCw class="h-3 w-3" :class="loading && 'animate-spin'" aria-hidden="true" />
             </Button>
         </div>
 
@@ -124,10 +127,14 @@
                     <component
                         :is="user.paletteCount ? CollapsibleTrigger : 'div'"
                         :class="[
-                            'flex-1 basis-40 min-w-0 flex items-center gap-2 ps-3 py-2.5 text-left transition-colors',
-                            user.paletteCount ? 'cursor-pointer hover:bg-accent/50' : 'cursor-default',
+                            'flex-1 basis-40 min-w-0 flex items-center gap-2 ps-3 py-2.5 text-left',
+                            user.paletteCount ? 'cursor-pointer' : 'cursor-default',
                         ]"
                     >
+                        <!-- X-DS pass 20 (V20C-02): the hover capsule is gone (a
+                             plate inside the row's hairline frame); the trigger's
+                             affordance is the chevron at its end, turned while
+                             open (the Browse card's idiom). -->
                         <!-- Ag-11: slug-pill class replaces copy-pasted cluster.
                              W5-12 (F-13): tail-priority truncation — the head
                              ellipsizes, the last chars (the identity-bearing
@@ -145,6 +152,11 @@
                             class="text-mono-small tabular-nums text-muted-foreground shrink-0"
                             :title="`${user.paletteCount ?? 0} palette${(user.paletteCount ?? 0) === 1 ? '' : 's'}`"
                         >{{ user.paletteCount ?? 0 }}</span>
+                        <ChevronDown
+                            v-if="user.paletteCount"
+                            class="user-row__chevron ms-auto w-4 h-4 shrink-0 text-muted-foreground"
+                            aria-hidden="true"
+                        />
                     </component>
                     <div class="ms-auto flex items-center gap-1.5 shrink-0 py-1.5">
                         <!-- W5-12 (F-8): the disabled delete on 0-palette
@@ -194,6 +206,10 @@
                         :detail="userPalettesError"
                     />
                     <EmptyState v-else-if="userPalettes.length === 0" message="No palettes." />
+                    <!-- X-DS pass 20 (V20C-03): the nest is two frames, not three —
+                         the palette keeps the bg-well tone step and drops its
+                         own card border; its name reads on the row-body rung
+                         (style below), under the user it belongs to. -->
                     <!-- X.W7.d (DAG §2.3 row 6): the Admin scene owns exactly its own
                          verbs. The palette renders as the props-only specimen and
                          the row's action seat carries Feature and Delete — the user
@@ -202,7 +218,7 @@
                         <li
                             v-for="palette in userPalettes"
                             :key="palette.slug"
-                            class="admin-palette rounded-card border border-card-edge bg-well"
+                            class="admin-palette rounded-card bg-well"
                             :data-admin-palette="palette.slug"
                         >
                             <PaletteSpecimen :palette="palette" />
@@ -220,7 +236,10 @@
                                     @click="pm.onFeaturePalette(palette)"
                                 >
                                     <Star class="w-3 h-3" aria-hidden="true" />
-                                    {{ palette.tier === 'featured' ? 'Unfeature' : 'Feature' }}
+                                    <!-- V20C-03: below sm the toggle is the star alone
+                                         (its aria-label and aria-pressed carry it), so
+                                         the palette's name keeps the width. -->
+                                    <span class="max-sm:hidden">{{ palette.tier === 'featured' ? 'Unfeature' : 'Feature' }}</span>
                                 </Button>
                                 <Button
                                     emphasis="quiet"
@@ -291,7 +310,7 @@ import {
     DialogDescription,
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
-import { Loader2, Trash2, Eraser, RefreshCw, Star, UserX } from "@lucide/vue";
+import { ChevronDown, Loader2, Trash2, Eraser, RefreshCw, Star, UserX } from "@lucide/vue";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/glass-ui/collapsible";
 import type { Palette } from "../../types";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
@@ -486,7 +505,25 @@ function toggleUserExpand(slug: string) {
         "strip strip"
         "head actions";
     align-items: center;
-    --specimen-radius: calc(var(--radius-card) - 1px);
+    /* V20C-03: no border, so the strip's corners are the plate's own. */
+    --specimen-radius: var(--radius-card);
+}
+/* X-DS pass 20 (V20C-03): in the admin nest the child palette's name sits on
+ * the row-body rung the Names rows use (small, medium), in its display face
+ * (T-15), so it never outranks the user slug it belongs to. */
+.admin-palette :deep(.palette-specimen__name) {
+    font-size: var(--type-small);
+    line-height: var(--type-leading-small);
+}
+/* V20C-02: the disclosure chevron turns with the row (glass stamps
+ * `data-state` on the trigger), as the Browse card's does. */
+[data-state="open"] > .user-row__chevron {
+    rotate: 180deg;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .user-row__chevron {
+        transition: rotate var(--duration-fast) var(--ease-standard);
+    }
 }
 .admin-palette__actions {
     grid-area: actions;

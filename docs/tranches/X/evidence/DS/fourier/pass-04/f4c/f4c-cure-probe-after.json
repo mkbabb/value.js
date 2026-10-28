@@ -1,0 +1,90 @@
+{
+ "light-1440": {
+  "c1": {
+   "label": "Polynomial",
+   "marginTop": "12px",
+   "gapAbove": 20,
+   "gapBelow": 8,
+   "chipH": 36
+  },
+  "c2": {
+   "box": [
+    14,
+    2
+   ],
+   "borderTop": "2px dashed rgb(112, 89, 66)",
+   "radius": "0px",
+   "borderLeft": "solid",
+   "axisOffset": 0,
+   "dotAxisOffset": 0,
+   "labelLeftDelta": 0,
+   "centreDelta": 0
+  }
+ },
+ "light-390": {
+  "c1": {
+   "label": "Polynomial",
+   "marginTop": "8px",
+   "gapAbove": 12,
+   "gapBelow": 4,
+   "chipH": 54
+  },
+  "c2": {
+   "box": [
+    14,
+    2
+   ],
+   "borderTop": "2px dashed rgb(112, 89, 66)",
+   "radius": "0px",
+   "borderLeft": "solid",
+   "axisOffset": 0,
+   "dotAxisOffset": 0,
+   "labelLeftDelta": 61.9,
+   "centreDelta": 61.9
+  }
+ },
+ "dark-1440": {
+  "c1": {
+   "label": "Polynomial",
+   "marginTop": "12px",
+   "gapAbove": 20,
+   "gapBelow": 8,
+   "chipH": 36
+  },
+  "c2": {
+   "box": [
+    14,
+    2
+   ],
+   "borderTop": "2px dashed rgb(195, 185, 172)",
+   "radius": "0px",
+   "borderLeft": "solid",
+   "axisOffset": 0,
+   "dotAxisOffset": 0,
+   "labelLeftDelta": 0,
+   "centreDelta": 0
+  }
+ },
+ "dark-390": {
+  "c1": {
+   "label": "Polynomial",
+   "marginTop": "8px",
+   "gapAbove": 12,
+   "gapBelow": 4,
+   "chipH": 54
+  },
+  "c2": {
+   "box": [
+    14,
+    2
+   ],
+   "borderTop": "2px dashed rgb(195, 185, 172)",
+   "radius": "0px",
+   "borderLeft": "solid",
+   "axisOffset": 0,
+   "dotAxisOffset": 0,
+   "labelLeftDelta": 61.9,
+   "centreDelta": 61.9
+  }
+ }
+}

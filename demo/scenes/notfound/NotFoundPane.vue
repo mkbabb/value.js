@@ -1,6 +1,6 @@
 <!-- SERVED MODEL: claude-opus-5[1m] -->
 <template>
-    <PaneShell title="Not Found" seated :gutter="false" class="max-w-(--pane-max)">
+    <PaneShell title="Not found" :gutter="false" class="max-w-(--card-measure)">
         <!-- A2-VA-L1-1: the one pane shell.
              X.W12.u3 — the dead end speaks the app's EmptyState register
              (UIA-V-447): one statement, the address that missed as the
@@ -11,8 +11,8 @@
              X-DS pass 7 (V7C-01/-03): the plate is SEATED, the shell's own
              contract for a header with nothing scrolling under it, so the
              header paints no rest veil (V4C-05's rule) and the 3-line plate
-             loses the tone band that ended in a step. It takes one pane column
-             (`--pane-max`), the single-pane measure Atmosphere already uses. -->
+             loses the tone band that ended in a step. It takes the lone-card
+             measure (`--card-measure`) Atmosphere already uses. -->
         <!-- X-DS value pass 8 (V8C-03): the plate is `compact` under its
              title (no top padding), and the one way home takes the default
              size, so it outranks the address line. -->

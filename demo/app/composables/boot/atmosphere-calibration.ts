@@ -54,6 +54,7 @@ import {
 } from "@mkbabb/glass-ui/aurora";
 import type { AuroraConfig } from "@mkbabb/glass-ui/aurora";
 import { cssToOklch } from "@mkbabb/glass-ui/color";
+import { clamp } from "@mkbabb/value.js/math";
 
 /** Tempo: the 40s breath is arithmetic-invisible (±3.25% luminance over 40s
  *  — F-8's stills); 26s crosses the perceptual floor while a 2s glance stays
@@ -110,4 +111,75 @@ export function resolveCalibratedAtmosphere(atoms: AuroraAtoms): AuroraConfig {
         vividness: vividnessForSeedChroma(seedChroma(atoms.seed)),
     };
     return resolveAtoms(atoms, base);
+}
+
+// --- T.W8 · P9-R3 / T-37 — THE DERIVE-SEAM GUARANTEE ---------------------------
+// The collapsed dock's WAX SEAL is the LIVE picked colour (a WatercolorDot on
+// `cssColorOpaque`); the atmosphere FIELD behind it is DERIVED from the SAME
+// seed. At the owner's brick reference the two collided — wax↔field ΔL 0.004
+// (WCAG 1.03:1) light / 0.016 dark — so the seal's swatch identity vanished
+// into the field, carried only by the producer's collapsed-pill glass halo
+// (which is strong over dark fields and DISSOLVES over light ones — the §6.4
+// self-camouflage class). t33-research §6.4 named the idiomatic cure: "the
+// field is DERIVED, so the demo owns a GUARANTEED delta at the derive seam —
+// the atmosphere's lBand never equals the wax L". The true `lBand` atom is
+// producer-gated at the consumed dist (Q2-FULL, P1-booked), so the demo owns
+// the guarantee HERE, as a MATERIAL lightness offset on the derived field — a
+// figure-ground standoff, NEVER a ring or rim (Q12 ABROGATE + the register law
+// stand; O-15a's negative border watch stays green through this cure). The same
+// closed-form floor idiom the HeroBlob ink-floor uses (bead↔plate) applied to
+// the field↔wax seam: one mean, one bounded uniform shift, zero iteration.
+//
+// It fires ONLY when the field mean L would otherwise land within the floor of
+// the wax L (most seeds derive a field whose L naturally stands off, so the
+// composition is untouched); when it fires, the whole palette shifts uniformly
+// AWAY from the wax (internal spread preserved), clamped to the derive domain.
+export const DERIVE_SEAM_FLOOR = 0.06;
+
+function seedLightness(seed: AuroraAtoms["seed"]): number | null {
+    if (typeof seed !== "string") {
+        return typeof seed === "object" && seed ? seed.L : null;
+    }
+    try {
+        return cssToOklch(seed).L;
+    } catch {
+        return null;
+    }
+}
+
+/**
+ * Guarantee |field mean L − wax L| ≥ DERIVE_SEAM_FLOOR by shifting the whole
+ * derived palette uniformly away from the seed when they would collide. Pure;
+ * the seed-lightness read is throw-free (an un-parseable seed skips the guard).
+ */
+function guaranteeSeamOffset(config: AuroraConfig, seed: AuroraAtoms["seed"]): AuroraConfig {
+    const seedL = seedLightness(seed);
+    const palette = config.palette;
+    if (seedL == null || !palette?.length) return config;
+    const meanL = palette.reduce((sum, stop) => sum + stop.L, 0) / palette.length;
+    const delta = meanL - seedL;
+    if (Math.abs(delta) >= DERIVE_SEAM_FLOOR) return config;
+    // Push AWAY from the wax on the side the field already leans; flip if that
+    // side has no headroom (closed-form — two branches, zero iteration).
+    let dir = delta >= 0 ? 1 : -1;
+    const need = DERIVE_SEAM_FLOOR - Math.abs(delta);
+    const headroom = dir === 1 ? 0.98 - meanL : meanL - 0.02;
+    if (headroom < need) dir = -dir;
+    const push = dir * (DERIVE_SEAM_FLOOR - dir * delta);
+    return {
+        ...config,
+        palette: palette.map((stop) => ({ ...stop, L: clamp(stop.L + push, 0.02, 0.98) })),
+    };
+}
+
+/**
+ * THE FIELD RESOLVER — the calibrated resolve under the derive-seam guarantee.
+ * The ONE function the painted field (useAtmosphere's WebGL getter + CSS
+ * fallback + D6 ink referent) AND AuroraPane's harmony strips resolve
+ * through, so a strip is byte-identical to the field selecting it paints
+ * (O-14; AP-5 / SS8-0063: the strip once read the UN-guarded resolve and
+ * diverged from the field on 210/510 seed×harmony cells, up to 61 rgb).
+ */
+export function resolveAtmosphereField(atoms: AuroraAtoms): AuroraConfig {
+    return guaranteeSeamOffset(resolveCalibratedAtmosphere(atoms), atoms.seed);
 }

@@ -1,0 +1,8 @@
+# git archive HEAD 4d5d0dbdc → scratch export; ~/.claude/guard/guarded --timeout 10 -- npx vite build --mode production (2026-10-20, built in 4.39s)
+2cac1cf55d286f996616321e6e2c6a1de657647b89ac30ca2b64c8074a8a74ba  dist/subpaths/color.js
+04dbe069ef20f3b95cb4853bb14ae1a1af4da7c534d8a1d3944a8f7e76aab528  dist/subpaths/css.js
+64be03ab058ef854cf0c9ce983c29d7dfb3d3bcf80e8d124dda17551e175af67  dist/subpaths/easing.js
+59d76ead73de41ee67de11381b44065cd3f691761a872b9dfea6b8087623d892  dist/subpaths/math.js
+ab30ceaa722e80b58d39a8244eea77cb32f3acc2f6c8e5d3bf1304e35a70eeac  dist/subpaths/quantize.js
+84614d8fa92ad36674d2fcecb47eaa873a3657b36f0fe6a96ea6868d78ccb7df  dist/subpaths/transform.js
+c4525c1de4685d5d310077e7dfebec9f31a8315c4298cc50ef4bd6a2512a75c3  dist/subpaths/value.js

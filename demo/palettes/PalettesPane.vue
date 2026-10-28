@@ -1,5 +1,5 @@
 <template>
-    <PaneShell seated follow :gutter="false" title="My Palettes" description="Save, organize, and share your colors.">
+    <PaneShell follow :gutter="false" title="My Palettes" description="Save, organize, and share your colors.">
         <!-- X-DS value pass 9 (V9C-01): `title` is the plain name the shell
              matches against the route (on /palettes this title is the route
              H1); the `#title` slot below still paints it, ramp and count. -->

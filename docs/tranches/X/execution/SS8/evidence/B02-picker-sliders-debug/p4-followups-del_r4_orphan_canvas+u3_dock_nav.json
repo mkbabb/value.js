@@ -1,0 +1,46 @@
+{
+ "base": "http://localhost:9000/",
+ "at": "2026-10-19T18:48:23.286Z",
+ "cells": {
+  "del_r4_orphan_canvas": {
+   "frozen": true,
+   "frozenSince": 11429.30000000028,
+   "events": [
+    "spec:move",
+    "FREEZE_DETECTED"
+   ],
+   "rows": [
+    [
+     "debug-event-freeze",
+     "rgba(255, 40, 40, 0.2)",
+     "FREEZE_DETECTED"
+    ],
+    [
+     "",
+     "rgba(0, 0, 0, 0)",
+     "spec:move"
+    ]
+   ]
+  },
+  "u3_dock_nav": [
+   {
+    "tag": "boot",
+    "hash": "#/?debug=1",
+    "overlay": true
+   },
+   {
+    "tag": "dock->gradient:no-trigger",
+    "trigger": "Home"
+   },
+   {
+    "tag": "dock->home:no-trigger",
+    "trigger": "/gradient/i"
+   },
+   {
+    "tag": "reload",
+    "hash": "#/?debug=1",
+    "overlay": true
+   }
+  ]
+ }
+}

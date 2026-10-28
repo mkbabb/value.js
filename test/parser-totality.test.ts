@@ -38,7 +38,10 @@ import {
     parseCssColor,
     parseCssScalar,
     parseCssValue,
+    parseAnimationRange,
+    parseAnimationTimeline,
     parseCssValues,
+    parseKeyframeSelector,
     parseStylesheet,
     parseTimingFunction,
 } from "../src/subpaths/css";
@@ -230,4 +233,40 @@ describe("X-W9.a §5 · easing(name) is total over Object.prototype keys", () =>
             error: { code: "easing_name_unknown" },
         });
     });
+});
+
+// ── §6 · the JS-boundary non-string leg (SS-8 Z-parser-band-3, debt 4) ───────
+//
+// The `.d.ts` says `source: string`, but a JS caller (or an `any`) can hand an
+// entry anything. Every one of the nine `./css` parse entries threw on all
+// seven of these (`charCodeAt` / `trim` of a non-string); a non-string is an
+// ordinary failure in the declared shape, never a throw.
+
+const NON_STRINGS = [undefined, null, 0, Number.NaN, {}, [], true] as const;
+
+const PARSE_ENTRIES = [
+    ["parseCssColor", parseCssColor],
+    ["parseCssScalar", parseCssScalar],
+    ["parseCssValue", parseCssValue],
+    ["parseCssValues", parseCssValues],
+    ["parseKeyframeSelector", parseKeyframeSelector],
+    ["parseStylesheet", parseStylesheet],
+    ["parseTimingFunction", parseTimingFunction],
+    ["parseAnimationTimeline", parseAnimationTimeline],
+    ["parseAnimationRange", parseAnimationRange],
+] as const;
+
+describe("SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values)", () => {
+    for (const [entry, fn] of PARSE_ENTRIES) {
+        it(`${entry} answers every non-string with ok:false and one css_syntax issue`, () => {
+            for (const input of NON_STRINGS) {
+                const outcome = call(() => (fn as (source: unknown) => unknown)(input));
+                expect(threw(outcome), String(input)).toBe("");
+                expect(outcome).toMatchObject({
+                    ok: false,
+                    diagnostics: [{ code: "css_syntax", expected: ["string"], actual: null }],
+                });
+            }
+        });
+    }
 });

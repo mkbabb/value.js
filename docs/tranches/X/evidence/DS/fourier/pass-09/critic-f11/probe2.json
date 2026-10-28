@@ -1,0 +1,78 @@
+{
+ "morph-light": {
+  "rest": {
+   "t": "none",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "w": 416
+  },
+  "hov": {
+   "t": "matrix(1.02, 0, 0, 1.02, 0, 0)",
+   "w": 424.3200378417969,
+   "bc": "color(srgb 0.859497 0.139733 0.139504 / 0.5)"
+  }
+ },
+ "eq-light": [
+  {
+   "lab": "About this approximation",
+   "primary": "primary",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover",
+   "bg": "oklab(0.958891 0.0089115 0.0269842)"
+  },
+  {
+   "lab": "Copy LaTeX",
+   "primary": "primary",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover",
+   "bg": "oklab(0.958891 0.0089115 0.0269842)"
+  },
+  {
+   "lab": "Pause the convergence sweep",
+   "primary": "primary",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover play-btn",
+   "bg": "oklab(0.958891 0.0089115 0.0269842)"
+  },
+  {
+   "lab": "Compute",
+   "primary": "primary",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover compute-btn",
+   "bg": "oklab(0.958891 0.0089115 0.0269842)"
+  }
+ ],
+ "morph-dark": {
+  "rest": {
+   "t": "none",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "w": 416
+  },
+  "hov": {
+   "t": "matrix(1.02, 0, 0, 1.02, 0, 0)",
+   "w": 424.3200378417969,
+   "bc": "color(srgb 0.877849 0.362313 0.362194 / 0.5)"
+  }
+ },
+ "eq-dark": [
+  {
+   "lab": "About this approximation",
+   "primary": "primary",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover",
+   "bg": "oklab(0.31489 0.0117949 0.0248798)"
+  },
+  {
+   "lab": "Copy LaTeX",
+   "primary": "primary",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover",
+   "bg": "oklab(0.31489 0.0117949 0.0248798)"
+  },
+  {
+   "lab": "Pause the convergence sweep",
+   "primary": "primary",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover play-btn",
+   "bg": "oklab(0.31489 0.0117949 0.0248798)"
+  },
+  {
+   "lab": "Compute",
+   "primary": "primary",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover compute-btn",
+   "bg": "oklab(0.31489 0.0117949 0.0248798)"
+  }
+ ]
+}

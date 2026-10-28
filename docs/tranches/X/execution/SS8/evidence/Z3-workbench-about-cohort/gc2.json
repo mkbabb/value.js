@@ -1,0 +1,534 @@
+{
+ "origin": "http://127.0.0.1:4417/",
+ "engine": "chromium",
+ "at": "2026-10-20T19:22:34.873Z",
+ "out": {
+  "lines": {
+   "cell": "lines",
+   "res": {
+    "390": [
+     {
+      "cls": "px-3 py-2.5 flex items-center min-w-0",
+      "w": 322,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "FORM",
+        "cls": "palette-name-input flex items-center gap",
+        "name": "",
+        "x": 46,
+        "top": 216.3,
+        "bottom": 252.3,
+        "w": 298
+       }
+      ]
+     },
+     {
+      "cls": "px-3 pb-1 flex flex-wrap gap-1.5",
+      "w": 322,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(70.36% 0.1534",
+        "x": 46,
+        "top": 262.3,
+        "bottom": 317.1,
+        "w": 55
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(67.01% 0.201 ",
+        "x": 107,
+        "top": 262.3,
+        "bottom": 317.1,
+        "w": 55
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(59.26% 0.1238",
+        "x": 168,
+        "top": 262.3,
+        "bottom": 317.1,
+        "w": 55
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(65.18% 0.1151",
+        "x": 228,
+        "top": 262.3,
+        "bottom": 317.1,
+        "w": 55
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(75.15% 0.1746",
+        "x": 289,
+        "top": 262.3,
+        "bottom": 317.1,
+        "w": 55
+       }
+      ]
+     },
+     {
+      "cls": "px-3 pb-2.5 pt-1 flex items-center gap-2",
+      "w": 322,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "P",
+        "cls": "min-w-0 truncate text-mono-small text-mu",
+        "name": "seed: 744dbc96",
+        "x": 46,
+        "top": 335.3,
+        "bottom": 354.9,
+        "w": 118
+       },
+       {
+        "tag": "DIV",
+        "cls": "ml-auto flex items-center gap-2 shrink-0",
+        "name": "Regenerate",
+        "x": 206,
+        "top": 325.1,
+        "bottom": 365.1,
+        "w": 138
+       }
+      ]
+     }
+    ],
+    "768": [
+     {
+      "cls": "px-3 py-2.5 flex items-center min-w-0",
+      "w": 684,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "FORM",
+        "cls": "palette-name-input flex items-center gap",
+        "name": "",
+        "x": 54,
+        "top": 217.3,
+        "bottom": 253.3,
+        "w": 660
+       }
+      ]
+     },
+     {
+      "cls": "px-3 pb-1 flex flex-wrap gap-1.5",
+      "w": 684,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(70.36% 0.1534",
+        "x": 54,
+        "top": 263.3,
+        "bottom": 343.3,
+        "w": 80
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(67.01% 0.201 ",
+        "x": 140,
+        "top": 263.3,
+        "bottom": 343.3,
+        "w": 80
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(59.26% 0.1238",
+        "x": 226,
+        "top": 263.3,
+        "bottom": 343.3,
+        "w": 80
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(65.18% 0.1151",
+        "x": 312,
+        "top": 263.3,
+        "bottom": 343.3,
+        "w": 80
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(75.15% 0.1746",
+        "x": 398,
+        "top": 263.3,
+        "bottom": 343.3,
+        "w": 80
+       }
+      ]
+     },
+     {
+      "cls": "px-3 pb-2.5 pt-1 flex items-center gap-2",
+      "w": 684,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "P",
+        "cls": "min-w-0 truncate text-mono-small text-mu",
+        "name": "seed: 744dbc96",
+        "x": 54,
+        "top": 361,
+        "bottom": 381.6,
+        "w": 124
+       },
+       {
+        "tag": "DIV",
+        "cls": "ml-auto flex items-center gap-2 shrink-0",
+        "name": "Regenerate",
+        "x": 485,
+        "top": 351.3,
+        "bottom": 391.3,
+        "w": 229
+       }
+      ]
+     }
+    ],
+    "1024": [
+     {
+      "cls": "px-3 py-2.5 flex items-center min-w-0",
+      "w": 438,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "FORM",
+        "cls": "palette-name-input flex items-center gap",
+        "name": "",
+        "x": 54,
+        "top": 204.8,
+        "bottom": 240.8,
+        "w": 414
+       }
+      ]
+     },
+     {
+      "cls": "px-3 pb-1 flex flex-wrap gap-1.5",
+      "w": 438,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(70.36% 0.1534",
+        "x": 54,
+        "top": 250.8,
+        "bottom": 328.7,
+        "w": 78
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(67.01% 0.201 ",
+        "x": 138,
+        "top": 250.8,
+        "bottom": 328.7,
+        "w": 78
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(59.26% 0.1238",
+        "x": 222,
+        "top": 250.8,
+        "bottom": 328.7,
+        "w": 78
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(65.18% 0.1151",
+        "x": 306,
+        "top": 250.8,
+        "bottom": 328.7,
+        "w": 78
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(75.15% 0.1746",
+        "x": 390,
+        "top": 250.8,
+        "bottom": 328.7,
+        "w": 78
+       }
+      ]
+     },
+     {
+      "cls": "px-3 pb-2.5 pt-1 flex items-center gap-2",
+      "w": 438,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "P",
+        "cls": "min-w-0 truncate text-mono-small text-mu",
+        "name": "seed: 744dbc96",
+        "x": 54,
+        "top": 346,
+        "bottom": 367.5,
+        "w": 129
+       },
+       {
+        "tag": "DIV",
+        "cls": "ml-auto flex items-center gap-2 shrink-0",
+        "name": "Regenerate",
+        "x": 235,
+        "top": 336.7,
+        "bottom": 376.7,
+        "w": 232
+       }
+      ]
+     }
+    ],
+    "1440": [
+     {
+      "cls": "px-3 py-2.5 flex items-center min-w-0",
+      "w": 460,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "FORM",
+        "cls": "palette-name-input flex items-center gap",
+        "name": "",
+        "x": 237,
+        "top": 212.2,
+        "bottom": 248.2,
+        "w": 436
+       }
+      ]
+     },
+     {
+      "cls": "px-3 pb-1 flex flex-wrap gap-1.5",
+      "w": 460,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(70.36% 0.1534",
+        "x": 237,
+        "top": 258.2,
+        "bottom": 338.2,
+        "w": 80
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(67.01% 0.201 ",
+        "x": 323,
+        "top": 258.2,
+        "bottom": 338.2,
+        "w": 80
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(59.26% 0.1238",
+        "x": 409,
+        "top": 258.2,
+        "bottom": 338.2,
+        "w": 80
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(65.18% 0.1151",
+        "x": 495,
+        "top": 258.2,
+        "bottom": 338.2,
+        "w": 80
+       },
+       {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring swatch-butt",
+        "name": "Copy oklch(75.15% 0.1746",
+        "x": 581,
+        "top": 258.2,
+        "bottom": 338.2,
+        "w": 80
+       }
+      ]
+     },
+     {
+      "cls": "px-3 pb-2.5 pt-1 flex items-center gap-2",
+      "w": 460,
+      "lines": 1,
+      "overflowX": 0,
+      "kids": [
+       {
+        "tag": "P",
+        "cls": "min-w-0 truncate text-mono-small text-mu",
+        "name": "seed: 744dbc96",
+        "x": 237,
+        "top": 354.8,
+        "bottom": 377.7,
+        "w": 138
+       },
+       {
+        "tag": "DIV",
+        "cls": "ml-auto flex items-center gap-2 shrink-0",
+        "name": "Regenerate",
+        "x": 437,
+        "top": 346.2,
+        "bottom": 386.2,
+        "w": 236
+       }
+      ]
+     }
+    ]
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 5567
+  },
+  "scrub": {
+   "cell": "scrub",
+   "r": {
+    "roleSliderRect": [
+     392,
+     528.4,
+     0,
+     9
+    ],
+    "name": "Number of colors",
+    "labelledby": null,
+    "visibleLabel": {
+     "text": "Colors",
+     "for": null
+    },
+    "root": [
+     224,
+     520.9,
+     462,
+     24
+    ],
+    "painted": [
+     {
+      "tag": "SPAN",
+      "cls": "glass-slider w-full",
+      "rect": [
+       224,
+       520.9,
+       462,
+       24
+      ],
+      "bg": "rgba(0, 0, 0, 0)",
+      "img": "none"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "slider-track track-well",
+      "rect": [
+       224,
+       528.4,
+       462,
+       9
+      ],
+      "bg": "color(srgb 0.964706 0.952941 0.937255 / 0.5)",
+      "img": "none"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "slider-range glass-liquid-fill",
+      "rect": [
+       224,
+       528.4,
+       168,
+       9
+      ],
+      "bg": "oklab(0.216114 0.00343135 0.00508514 / 0.88)",
+      "img": "none"
+     }
+    ]
+   },
+   "html": "<span data-reka-collection-item=\"\" aria-label=\"Number of colors\" class=\"slider-thumb glass-specular-track\" role=\"slider\" tabindex=\"0\" data-orientation=\"horizontal\" aria-valuemin=\"1\" aria-valuemax=\"12\" aria-orientation=\"horizontal\" aria-valuenow=\"5\" style=\"transform: var(--reka-slider-thumb-transform); position: absolute; left: calc(36.3636% + 0px);\"></span>",
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 2826
+  },
+  "verbs": {
+   "cell": "verbs",
+   "dead": {
+    "dataColorSurface": 5,
+    "generateSwatch": 5,
+    "genWithWatercolor": 5
+   },
+   "allAfter": {
+    "label": "Copy all colors",
+    "text": ""
+   },
+   "allLabelsAfter": [
+    "Copy all colors"
+   ],
+   "regen": {
+    "n": 1,
+    "rolls": [
+     {
+      "i": 0,
+      "vis": true,
+      "inPlate": true,
+      "changed": true
+     }
+    ]
+   },
+   "motion": {
+    "f0": "oklch(0.55751 0.125323 160.396) / oklch(0.307762 0.0523632 202) / background-color: oklch(0.55751 0.125323 160.396); border-radius: 67.8499% 32.15",
+    "samples": [
+     {
+      "t": 0,
+      "f": "oklch(0.758958 0.129139 197.448) / oklch(0.307762 0.0523632 202) / background-color: oklch(0.758958 0.129139 197.448); border-radius: 36.0919% 63.9"
+     },
+     {
+      "t": 30,
+      "f": "oklch(0.758958 0.129139 197.448) / oklch(0.307762 0.0523632 202) / background-color: oklch(0.758958 0.129139 197.448); border-radius: 36.0919% 63.9"
+     },
+     {
+      "t": 80,
+      "f": "oklch(0.758958 0.129139 197.448) / oklch(0.307762 0.0523632 202) / background-color: oklch(0.758958 0.129139 197.448); border-radius: 36.0919% 63.9"
+     },
+     {
+      "t": 200,
+      "f": "oklch(0.758958 0.129139 197.448) / oklch(0.307762 0.0523632 202) / background-color: oklch(0.758958 0.129139 197.448); border-radius: 36.0919% 63.9"
+     },
+     {
+      "t": 600,
+      "f": "oklch(0.758958 0.129139 197.448) / oklch(0.307762 0.0523632 202) / background-color: oklch(0.758958 0.129139 197.448); border-radius: 36.0919% 63.9"
+     }
+    ],
+    "trans": {
+     "swatch": "transform, translate, scale, rotate 0.2s",
+     "face": "transform, border-radius, filter 0.2s, 0.6s, 0.2s",
+     "anims": 0
+    }
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4417 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+   ],
+   "ms": 4291
+  }
+ }
+}

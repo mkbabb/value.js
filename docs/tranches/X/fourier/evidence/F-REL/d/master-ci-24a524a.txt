@@ -1,0 +1,13 @@
+SERVED MODEL: claude-opus-5-5
+# master CI on the .d merge 24a524a (parents 67e503b dc30e5e); runner image per job read from each job log ('Version: 2026…' second line)
+run 39292091987 push failure 24a524a1b30e97217874dcf6c27a86a4756778e3
+  118195083962 web (vue-tsc + vite build) success runner-image=20261012.334.1
+  118195084203 e2e (Playwright, COMPUTE_RATE_LIMIT=1000) failure runner-image=20261018.339.1
+  118195084298 production compose boot + health success runner-image=20261012.334.1
+  118195084531 api/tests (with live Mongo) success runner-image=20261012.334.1
+  118196671369 inv-27 evidence (covering run id + SHA) skipped runner-image=
+# the e2e job's fatal (job 118195084203):
+"msg":"MongoDB cannot start: Linux kernel versions 6.19 and newer has a known incompatibility with this version of MongoDB. See https://jira.mongodb.org/browse/SERVER-121912 for more information."}
+##[error]Failed to initialize container mongo:8.0
+##[error]One or more containers failed to start.
+##[error]Process completed with exit code 127.

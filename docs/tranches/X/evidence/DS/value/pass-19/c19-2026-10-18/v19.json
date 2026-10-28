@@ -1,0 +1,1006 @@
+{
+ "base": "http://localhost:9491",
+ "headers": [
+  {
+   "sub": "users",
+   "width": 1440,
+   "theme": "light",
+   "file": "admin-users-1440-light.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     215,
+     133,
+     124
+    ],
+    "body": [
+     199,
+     123,
+     119
+    ],
+    "maxChannelStep": 16
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh users",
+     "text": "",
+     "w": 28
+    },
+    "counts": [
+     "2 users"
+    ],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "names",
+   "width": 1440,
+   "theme": "light",
+   "file": "admin-names-1440-light.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     215,
+     133,
+     124
+    ],
+    "body": [
+     197,
+     122,
+     116
+    ],
+    "maxChannelStep": 18
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": null,
+    "counts": [],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "audit",
+   "width": 1440,
+   "theme": "light",
+   "file": "admin-audit-1440-light.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     215,
+     133,
+     124
+    ],
+    "body": [
+     200,
+     125,
+     119
+    ],
+    "maxChannelStep": 15
+   },
+   "seated": true,
+   "fields": [
+    {
+     "label": "Filter by action",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    },
+    {
+     "label": "Filter by target",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    }
+   ],
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh audit log",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "flagged",
+   "width": 1440,
+   "theme": "light",
+   "file": "admin-flagged-1440-light.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     215,
+     133,
+     124
+    ],
+    "body": [
+     213,
+     131,
+     125
+    ],
+    "maxChannelStep": 2
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh flagged palettes",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": "No flagged palettes."
+   }
+  },
+  {
+   "sub": "tags",
+   "width": 1440,
+   "theme": "light",
+   "file": "admin-tags-1440-light.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     215,
+     133,
+     124
+    ],
+    "body": [
+     212,
+     131,
+     125
+    ],
+    "maxChannelStep": 3
+   },
+   "seated": true,
+   "fields": [
+    {
+     "label": "New tag name",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    },
+    {
+     "label": "New tag category",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    }
+   ],
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh tags",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": "No tags yet."
+   }
+  },
+  {
+   "sub": "users",
+   "width": 390,
+   "theme": "light",
+   "file": "admin-users-390-light.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     215,
+     132,
+     125
+    ],
+    "body": [
+     199,
+     122,
+     121
+    ],
+    "maxChannelStep": 16
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh users",
+     "text": "",
+     "w": 28
+    },
+    "counts": [
+     "2 users"
+    ],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "names",
+   "width": 390,
+   "theme": "light",
+   "file": "admin-names-390-light.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     215,
+     132,
+     125
+    ],
+    "body": [
+     197,
+     120,
+     117
+    ],
+    "maxChannelStep": 18
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": null,
+    "counts": [],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "audit",
+   "width": 390,
+   "theme": "light",
+   "file": "admin-audit-390-light.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     215,
+     132,
+     125
+    ],
+    "body": [
+     200,
+     123,
+     121
+    ],
+    "maxChannelStep": 15
+   },
+   "seated": true,
+   "fields": [
+    {
+     "label": "Filter by action",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    },
+    {
+     "label": "Filter by target",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    }
+   ],
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh audit log",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "flagged",
+   "width": 390,
+   "theme": "light",
+   "file": "admin-flagged-390-light.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     215,
+     132,
+     125
+    ],
+    "body": [
+     213,
+     130,
+     128
+    ],
+    "maxChannelStep": 3
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh flagged palettes",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": "No flagged palettes."
+   }
+  },
+  {
+   "sub": "tags",
+   "width": 390,
+   "theme": "light",
+   "file": "admin-tags-390-light.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     215,
+     132,
+     125
+    ],
+    "body": [
+     213,
+     130,
+     128
+    ],
+    "maxChannelStep": 3
+   },
+   "seated": true,
+   "fields": [
+    {
+     "label": "New tag name",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    },
+    {
+     "label": "New tag category",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    }
+   ],
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh tags",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": "No tags yet."
+   }
+  },
+  {
+   "sub": "users",
+   "width": 1440,
+   "theme": "dark",
+   "file": "admin-users-1440-dark.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     137,
+     32,
+     30
+    ],
+    "body": [
+     144,
+     48,
+     49
+    ],
+    "maxChannelStep": 19
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh users",
+     "text": "",
+     "w": 28
+    },
+    "counts": [
+     "2 users"
+    ],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "names",
+   "width": 1440,
+   "theme": "dark",
+   "file": "admin-names-1440-dark.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     137,
+     32,
+     30
+    ],
+    "body": [
+     122,
+     33,
+     31
+    ],
+    "maxChannelStep": 15
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": null,
+    "counts": [],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "audit",
+   "width": 1440,
+   "theme": "dark",
+   "file": "admin-audit-1440-dark.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     137,
+     32,
+     30
+    ],
+    "body": [
+     142,
+     47,
+     47
+    ],
+    "maxChannelStep": 17
+   },
+   "seated": true,
+   "fields": [
+    {
+     "label": "Filter by action",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    },
+    {
+     "label": "Filter by target",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    }
+   ],
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh audit log",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "flagged",
+   "width": 1440,
+   "theme": "dark",
+   "file": "admin-flagged-1440-dark.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     137,
+     32,
+     30
+    ],
+    "body": [
+     133,
+     33,
+     33
+    ],
+    "maxChannelStep": 4
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh flagged palettes",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": "No flagged palettes."
+   }
+  },
+  {
+   "sub": "tags",
+   "width": 1440,
+   "theme": "dark",
+   "file": "admin-tags-1440-dark.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     137,
+     32,
+     30
+    ],
+    "body": [
+     134,
+     33,
+     33
+    ],
+    "maxChannelStep": 3
+   },
+   "seated": true,
+   "fields": [
+    {
+     "label": "New tag name",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    },
+    {
+     "label": "New tag category",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    }
+   ],
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh tags",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": "No tags yet."
+   }
+  },
+  {
+   "sub": "users",
+   "width": 390,
+   "theme": "dark",
+   "file": "admin-users-390-dark.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     136,
+     32,
+     31
+    ],
+    "body": [
+     142,
+     48,
+     50
+    ],
+    "maxChannelStep": 19
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh users",
+     "text": "",
+     "w": 28
+    },
+    "counts": [
+     "2 users"
+    ],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "names",
+   "width": 390,
+   "theme": "dark",
+   "file": "admin-names-390-dark.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     136,
+     32,
+     31
+    ],
+    "body": [
+     120,
+     33,
+     32
+    ],
+    "maxChannelStep": 16
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": null,
+    "counts": [],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "audit",
+   "width": 390,
+   "theme": "dark",
+   "file": "admin-audit-390-dark.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     136,
+     32,
+     31
+    ],
+    "body": [
+     140,
+     48,
+     50
+    ],
+    "maxChannelStep": 19
+   },
+   "seated": true,
+   "fields": [
+    {
+     "label": "Filter by action",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    },
+    {
+     "label": "Filter by target",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    }
+   ],
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh audit log",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": null
+   }
+  },
+  {
+   "sub": "flagged",
+   "width": 390,
+   "theme": "dark",
+   "file": "admin-flagged-390-dark.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     136,
+     32,
+     31
+    ],
+    "body": [
+     131,
+     33,
+     35
+    ],
+    "maxChannelStep": 5
+   },
+   "seated": true,
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh flagged palettes",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": "No flagged palettes."
+   }
+  },
+  {
+   "sub": "tags",
+   "width": 390,
+   "theme": "dark",
+   "file": "admin-tags-390-dark.png",
+   "header": {
+    "found": true,
+    "veil": "none",
+    "veilOpacity": "0.52",
+    "head": [
+     136,
+     32,
+     31
+    ],
+    "body": [
+     131,
+     33,
+     35
+    ],
+    "maxChannelStep": 5
+   },
+   "seated": true,
+   "fields": [
+    {
+     "label": "New tag name",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    },
+    {
+     "label": "New tag category",
+     "seated": true,
+     "font": "\"Plus Jakarta Sans\"",
+     "placeholderFont": "\"Plus Jakarta Sans\"",
+     "h": 36
+    }
+   ],
+   "toolbar": {
+    "refresh": {
+     "label": "Refresh tags",
+     "text": "",
+     "w": 28
+    },
+    "counts": [],
+    "emptyPlate": "No tags yet."
+   }
+  }
+ ],
+ "roster": [
+  {
+   "theme": "light",
+   "width": 1440,
+   "users": 60,
+   "before": {
+    "portScrollH": 3932,
+    "portClientH": 689,
+    "portScrollTop": 0,
+    "docScrollH": 900,
+    "innerH": 900,
+    "headerTop": 89,
+    "veil": "none"
+   },
+   "after": {
+    "portScrollH": 3932,
+    "portClientH": 689,
+    "portScrollTop": 600,
+    "docScrollH": 900,
+    "innerH": 900,
+    "headerTop": 89,
+    "veil": "none"
+   },
+   "file": "admin-users-roster-1440-light.png",
+   "verdict": "GREEN"
+  },
+  {
+   "theme": "dark",
+   "width": 1440,
+   "users": 60,
+   "before": {
+    "portScrollH": 3932,
+    "portClientH": 689,
+    "portScrollTop": 0,
+    "docScrollH": 900,
+    "innerH": 900,
+    "headerTop": 89,
+    "veil": "none"
+   },
+   "after": {
+    "portScrollH": 3932,
+    "portClientH": 689,
+    "portScrollTop": 600,
+    "docScrollH": 900,
+    "innerH": 900,
+    "headerTop": 89,
+    "veil": "none"
+   },
+   "file": "admin-users-roster-1440-dark.png",
+   "verdict": "GREEN"
+  }
+ ],
+ "dockInk": [
+  {
+   "ground": "default",
+   "theme": "light",
+   "width": 1440,
+   "file": "dock-default-1440-light.png",
+   "wordmark": {
+    "found": true,
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "ground": "rgb(234,141,133)",
+    "ink": "rgb(28,25,23)",
+    "ratio": 7.2
+   },
+   "viewLabel": {
+    "found": true,
+    "color": "color(srgb 0.109982 0.0980077 0.09001 / 0.8)",
+    "ground": "rgb(234,141,133)",
+    "ink": "rgb(69,48,45)",
+    "ratio": 5.05
+   },
+   "adminWord": {
+    "found": true,
+    "color": "oklch(0.310735 0.0637586 84.2)",
+    "ground": "rgb(234,141,135)",
+    "ink": "rgb(63,45,0)",
+    "ratio": 5.46
+   },
+   "tokens": {
+    "fg": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+    "dockFg": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+    "muted": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+    "contrastColor": true
+   },
+   "verdict": "GREEN"
+  },
+  {
+   "ground": "owner-brown",
+   "theme": "light",
+   "width": 1440,
+   "file": "dock-owner-brown-1440-light.png",
+   "wordmark": {
+    "found": true,
+    "color": "oklch(0.999276 0.000415318 56.0356)",
+    "ground": "rgb(176,83,25)",
+    "ink": "rgb(255,255,255)",
+    "ratio": 5.13
+   },
+   "viewLabel": {
+    "found": true,
+    "color": "color(srgb 0.999871 0.99887 0.998109 / 0.8)",
+    "ground": "rgb(176,82,25)",
+    "ink": "rgb(239,220,209)",
+    "ratio": 3.89
+   },
+   "adminWord": {
+    "found": true,
+    "color": "oklch(0.999276 0.000415318 56.0356)",
+    "ground": "rgb(176,82,25)",
+    "ink": "rgb(255,255,255)",
+    "ratio": 5.16
+   },
+   "tokens": {
+    "fg": "oklch(99.927619327739% 0.00041531773 56.035563601331deg)",
+    "dockFg": "oklch(99.927619327739% 0.00041531773 56.035563601331deg)",
+    "muted": "oklch(99.927619327739% 0.00041531773 56.035563601331deg)",
+    "contrastColor": true
+   },
+   "verdict": "RED"
+  },
+  {
+   "ground": "default",
+   "theme": "dark",
+   "width": 1440,
+   "file": "dock-default-1440-dark.png",
+   "wordmark": {
+    "found": true,
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "ground": "rgb(140,17,19)",
+    "ink": "rgb(233,230,226)",
+    "ratio": 7.66
+   },
+   "viewLabel": {
+    "found": true,
+    "color": "color(srgb 0.913884 0.900048 0.886063 / 0.8)",
+    "ground": "rgb(140,17,19)",
+    "ink": "rgb(214,187,185)",
+    "ratio": 5.29
+   },
+   "adminWord": {
+    "found": true,
+    "color": "oklch(0.784 0.143 86)",
+    "ground": "rgb(140,17,20)",
+    "ink": "rgb(225,177,55)",
+    "ratio": 4.78
+   },
+   "tokens": {
+    "fg": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+    "dockFg": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+    "muted": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+    "contrastColor": true
+   },
+   "verdict": "GREEN"
+  },
+  {
+   "ground": "owner-brown",
+   "theme": "dark",
+   "width": 1440,
+   "file": "dock-owner-brown-1440-dark.png",
+   "wordmark": {
+    "found": true,
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "ground": "rgb(126,31,14)",
+    "ink": "rgb(233,230,226)",
+    "ratio": 8.08
+   },
+   "viewLabel": {
+    "found": true,
+    "color": "color(srgb 0.913884 0.900048 0.886063 / 0.8)",
+    "ground": "rgb(126,31,14)",
+    "ink": "rgb(211,190,184)",
+    "ratio": 5.66
+   },
+   "adminWord": {
+    "found": true,
+    "color": "oklch(0.784 0.143 86)",
+    "ground": "rgb(126,31,14)",
+    "ink": "rgb(225,177,55)",
+    "ratio": 5.05
+   },
+   "tokens": {
+    "fg": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+    "dockFg": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+    "muted": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+    "contrastColor": true
+   },
+   "verdict": "GREEN"
+  }
+ ],
+ "fields": [],
+ "counts": [],
+ "misc": {
+  "stepTiles": [
+   {
+    "label": "",
+    "d": "M 0.000 1.000 L 0.021 1.000 L 0.042 1.00"
+   },
+   {
+    "label": "",
+    "d": "M 0.000 1.000 L 0.000 0.000 L 0.021 0.00"
+   },
+   {
+    "label": "",
+    "d": "M 0.000 1.000 L 0.021 1.000 L 0.042 1.00"
+   }
+  ],
+  "notFound": {
+   "h1": "Not found",
+   "title": "Not found — Color Picker",
+   "dock": "Not found"
+  },
+  "aboutLabels": [
+   "Device dependency:",
+   "White point:",
+   "Gamut:",
+   "Created:",
+   "to",
+   "to",
+   "to",
+   "Perceptual uniformity:",
+   "Hue linearity:",
+   "Lightness separation:",
+   "Common applications:",
+   "Industries:",
+   "Historical Context",
+   "Advantages",
+   "Disadvantages",
+   "White Points",
+   "Components",
+   "Representation",
+   "XYZ to Lab",
+   "Lab to XYZ"
+  ],
+  "spaceRows": [
+   "RGBcolor(srgb 1.511 0.5623 0.7829 / 82.7%) (outside RGB's gamut)",
+   "HSLhsl(346deg -1295% 103.7% / 82.7%) (outside HSL's gamut)",
+   "HSVhsv · 346 · 0.6279 · 1.511 / 82.7% (outside HSV's gamut)",
+   "OKLChoklch(95.83% 0.2725 9.834deg / 82.7%)"
+  ]
+ }
+}

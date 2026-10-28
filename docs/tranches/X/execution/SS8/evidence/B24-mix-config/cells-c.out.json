@@ -1,0 +1,87 @@
+{
+ "reduced-motion-1024": {
+  "file": "u10-reduced-motion-1024.png",
+  "prm": true,
+  "forced": false,
+  "dir": "ltr",
+  "vw": 1024,
+  "vh": 768,
+  "dpr": 1,
+  "focus": "BODY.relative [→MixTools Login  @mbabb Mix vi] fv=false",
+  "h3": [
+   "73.0%,0.2,2.0deg",
+   "Selected",
+   "Saved palettes"
+  ],
+  "errors": [],
+  "ms": 1578
+ },
+ "forced-colors-1024-EMULATED": {
+  "file": "u10-forced-colors-1024-EMULATED.png",
+  "prm": false,
+  "forced": true,
+  "dir": "ltr",
+  "vw": 1024,
+  "vh": 768,
+  "dpr": 1,
+  "focus": "BODY.relative [→MixTools Login  @mbabb Mix vi] fv=false",
+  "h3": [
+   "73.0%,0.2,2.0deg",
+   "Selected",
+   "Saved palettes"
+  ],
+  "errors": [],
+  "ms": 1541
+ },
+ "zoom-200-720x450-dsf2-EMULATED": {
+  "file": "u10-zoom-200-720x450-dsf2-EMULATED.png",
+  "prm": false,
+  "forced": false,
+  "dir": "ltr",
+  "vw": 720,
+  "vh": 450,
+  "dpr": 2,
+  "focus": "BODY.relative [→ Login  @mbabb Mix viewOKLCh7] fv=false",
+  "h3": [
+   "73.0%,0.2,2.0deg",
+   "Selected",
+   "Saved palettes"
+  ],
+  "errors": [],
+  "ms": 1719
+ },
+ "rtl-1024": {
+  "file": "u10-rtl-1024.png",
+  "prm": false,
+  "forced": false,
+  "dir": "rtl",
+  "vw": 1024,
+  "vh": 768,
+  "dpr": 1,
+  "focus": "BODY.relative [→MixTools Login  @mbabb Mix vi] fv=false",
+  "h3": [
+   "73.0%,0.2,2.0deg",
+   "Selected",
+   "Saved palettes"
+  ],
+  "errors": [],
+  "ms": 2429
+ },
+ "keyboard-focus-1024": {
+  "file": "u10-keyboard-focus-1024.png",
+  "prm": false,
+  "forced": false,
+  "dir": "ltr",
+  "vw": 1024,
+  "vh": 768,
+  "dpr": 1,
+  "focus": "BUTTON.button tap-squish focus-ring add-slot-ghost shrink [Add current color to the mix] fv=true",
+  "h3": [
+   "73.0%,0.2,2.0deg",
+   "Selected",
+   "Saved palettes"
+  ],
+  "errors": [],
+  "ms": 1937
+ }
+}

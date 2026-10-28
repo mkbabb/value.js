@@ -222,7 +222,6 @@ const { borderRadius, transform } = useWatercolorBlob(colorRef, {
         transform var(--duration-fast) var(--ease-standard),
         border-radius 0.6s var(--ease-standard),
         filter var(--duration-fast) var(--ease-standard);
-    position: relative;
     /* The ghost dashed-outline axis (ghost-only): the hand-drawn-placeholder dash
        pattern, tunable per consumer. The CSS dashed border's pitch is UA-derived, so
        these document the dash register + carry the OPTION-B path-stroke escape; the
@@ -230,6 +229,19 @@ const { borderRadius, transform } = useWatercolorBlob(colorRef, {
     --watercolor-dash: 8px;
     --watercolor-gap: 5px;
     --watercolor-ghost-weight: 2px;
+}
+
+/* The dot's own placement is a DEFAULT, never a claim: it sits in `@layer components`,
+   so a consumer that places the dot (a Tailwind `absolute` utility, or an unlayered
+   scoped rule such as `.spectrum-dot`) wins by cascade layer, whatever order the
+   stylesheets are emitted in. Unlayered here, it tied at (0,2,0) and emission order
+   picked the winner (SS-8 SS8-0012, D-02/D-08; ConsoleRail's `.rail-dot` hit the same
+   tie). Relative stays the default so the absolute ghost stroke and filter host keep
+   their containing block. */
+@layer components {
+    .watercolor-swatch {
+        position: relative;
+    }
 }
 
 /* The GHOST register — the box keeps the SAME seeded

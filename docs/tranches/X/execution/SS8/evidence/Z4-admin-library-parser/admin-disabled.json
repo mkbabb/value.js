@@ -1,0 +1,49 @@
+{
+  "cell": "disabled",
+  "prune": {
+    "label": "Prune empty",
+    "variant": null,
+    "emphasis": "secondary",
+    "size": "xs",
+    "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-control-target data-press-armed type disabled class style",
+    "h": 28,
+    "w": 123.6,
+    "minH": "28px",
+    "disabled": true,
+    "opacity": "1",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fs": "14.384px",
+    "ff": "\"Plus Jakarta Sans\", \"Plus J",
+    "fst": "normal",
+    "inTab": false
+  },
+  "refresh": {
+    "label": "Refresh users",
+    "variant": null,
+    "emphasis": "secondary",
+    "size": "xs",
+    "attrs": "data-v-16795e8c data-slot data-emphasis data-tone data-size data-icon-only data-control-target data-press-armed type class aria-label style",
+    "h": 28,
+    "w": 28,
+    "minH": "28px",
+    "disabled": false,
+    "opacity": "1",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fs": "18.608px",
+    "ff": "\"Plus Jakarta Sans\", \"Plus J",
+    "fst": "normal",
+    "inTab": true
+  },
+  "toolbarText": "Users Manage accounts and permissions. 3 users Prune empty amber -otter-1733 3 Delete all palettes cobalt -heron-9021 2 Delete all palettes an-extraordinarily-long-user-slug-that-keeps -going-4471 1 D",
+  "requests": [
+    {
+      "t": 1792531755160,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

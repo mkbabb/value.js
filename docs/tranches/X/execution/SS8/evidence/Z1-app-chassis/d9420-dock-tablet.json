@@ -1,0 +1,8 @@
+{
+ "cell": "tablet",
+ "ms": 0,
+ "at": "2026-10-20T20:53:12.661Z",
+ "out": {
+  "error": "browser.newContext: Target page, context or browser has been closed\n    at async Object.tablet (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/Z1-app-chassis/dock.mjs:104:21)\n    at async runCells (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/Z1-app-chassis/lib.mjs:32:25)\n    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/Z1-app-chassis/dock.mjs:21:1"
+ }
+}

@@ -1,0 +1,704 @@
+{
+ "2": {
+  "drops": 2,
+  "well": {
+   "cx": 65.85000610351562,
+   "cy": 495.1240539550781,
+   "r": 19.399993896484375
+  },
+  "frames": 27,
+  "window": [
+   {
+    "t": 710,
+    "center": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 722,
+    "center": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 768,
+    "center": [
+     204,
+     102,
+     102,
+     5
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 769,
+    "center": [
+     212,
+     106,
+     106,
+     12
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 814,
+    "center": [
+     218,
+     106,
+     112,
+     41
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 815,
+    "center": [
+     223,
+     96,
+     96,
+     8
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 838,
+    "center": [
+     191,
+     128,
+     128,
+     4
+    ],
+    "edge": [
+     255,
+     102,
+     102,
+     5
+    ]
+   },
+   {
+    "t": 861,
+    "center": [
+     255,
+     128,
+     128,
+     2
+    ],
+    "edge": [
+     204,
+     102,
+     102,
+     5
+    ]
+   }
+  ],
+  "maxCenterAlphaStep": {
+   "d": -33,
+   "from": {
+    "t": 814,
+    "center": [
+     218,
+     106,
+     112,
+     41
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "to": {
+    "t": 815,
+    "center": [
+     223,
+     96,
+     96,
+     8
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  "maxEdgeAlphaStep": {
+   "d": 5,
+   "from": {
+    "t": 815,
+    "center": [
+     223,
+     96,
+     96,
+     8
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "to": {
+    "t": 838,
+    "center": [
+     191,
+     128,
+     128,
+     4
+    ],
+    "edge": [
+     255,
+     102,
+     102,
+     5
+    ]
+   }
+  },
+  "grads": 49,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ "3": {
+  "drops": 3,
+  "well": {
+   "cx": 65.85000610351562,
+   "cy": 495.1240539550781,
+   "r": 19.399993896484375
+  },
+  "frames": 34,
+  "window": [
+   {
+    "t": 614,
+    "center": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 625,
+    "center": [
+     218,
+     106,
+     112,
+     41
+    ],
+    "edge": [
+     191,
+     116,
+     128,
+     44
+    ]
+   },
+   {
+    "t": 660,
+    "center": [
+     225,
+     105,
+     112,
+     34
+    ],
+    "edge": [
+     200,
+     115,
+     121,
+     42
+    ]
+   },
+   {
+    "t": 703,
+    "center": [
+     219,
+     102,
+     117,
+     35
+    ],
+    "edge": [
+     203,
+     118,
+     118,
+     39
+    ]
+   },
+   {
+    "t": 704,
+    "center": [
+     219,
+     102,
+     117,
+     35
+    ],
+    "edge": [
+     198,
+     113,
+     120,
+     36
+    ]
+   },
+   {
+    "t": 746,
+    "center": [
+     219,
+     102,
+     117,
+     35
+    ],
+    "edge": [
+     198,
+     113,
+     120,
+     36
+    ]
+   },
+   {
+    "t": 768,
+    "center": [
+     223,
+     128,
+     128,
+     8
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 768,
+    "center": [
+     234,
+     106,
+     106,
+     12
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 811,
+    "center": [
+     218,
+     106,
+     112,
+     41
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 812,
+    "center": [
+     223,
+     96,
+     96,
+     8
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 854,
+    "center": [
+     204,
+     102,
+     102,
+     5
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 875,
+    "center": [
+     255,
+     128,
+     128,
+     2
+    ],
+    "edge": [
+     204,
+     102,
+     102,
+     5
+    ]
+   },
+   {
+    "t": 875,
+    "center": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  ],
+  "maxCenterAlphaStep": {
+   "d": 41,
+   "from": {
+    "t": 614,
+    "center": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "to": {
+    "t": 625,
+    "center": [
+     218,
+     106,
+     112,
+     41
+    ],
+    "edge": [
+     191,
+     116,
+     128,
+     44
+    ]
+   }
+  },
+  "maxEdgeAlphaStep": {
+   "d": 44,
+   "from": {
+    "t": 614,
+    "center": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "to": {
+    "t": 625,
+    "center": [
+     218,
+     106,
+     112,
+     41
+    ],
+    "edge": [
+     191,
+     116,
+     128,
+     44
+    ]
+   }
+  },
+  "grads": 97,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ "8": {
+  "drops": 8,
+  "well": {
+   "cx": 65.85000610351562,
+   "cy": 495.1240539550781,
+   "r": 19.399993896484375
+  },
+  "frames": 27,
+  "window": [
+   {
+    "t": 696,
+    "center": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 736,
+    "center": [
+     212,
+     120,
+     120,
+     53
+    ],
+    "edge": [
+     202,
+     117,
+     117,
+     24
+    ]
+   },
+   {
+    "t": 763,
+    "center": [
+     204,
+     102,
+     102,
+     5
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 763,
+    "center": [
+     212,
+     106,
+     106,
+     12
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 814,
+    "center": [
+     218,
+     106,
+     112,
+     41
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 815,
+    "center": [
+     223,
+     96,
+     96,
+     8
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "t": 866,
+    "center": [
+     191,
+     128,
+     128,
+     4
+    ],
+    "edge": [
+     255,
+     102,
+     102,
+     5
+    ]
+   },
+   {
+    "t": 866,
+    "center": [
+     255,
+     255,
+     255,
+     1
+    ],
+    "edge": [
+     255,
+     85,
+     85,
+     3
+    ]
+   }
+  ],
+  "maxCenterAlphaStep": {
+   "d": 53,
+   "from": {
+    "t": 696,
+    "center": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "to": {
+    "t": 736,
+    "center": [
+     212,
+     120,
+     120,
+     53
+    ],
+    "edge": [
+     202,
+     117,
+     117,
+     24
+    ]
+   }
+  },
+  "maxEdgeAlphaStep": {
+   "d": 24,
+   "from": {
+    "t": 696,
+    "center": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "edge": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "to": {
+    "t": 736,
+    "center": [
+     212,
+     120,
+     120,
+     53
+    ],
+    "edge": [
+     202,
+     117,
+     117,
+     24
+    ]
+   }
+  },
+  "grads": 80,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ "12": {
+  "drops": 12,
+  "well": {
+   "cx": 65.85000610351562,
+   "cy": 494.6553039550781,
+   "r": 19.399993896484375
+  },
+  "frames": 5,
+  "window": [],
+  "maxCenterAlphaStep": {
+   "d": 0
+  },
+  "maxEdgeAlphaStep": {
+   "d": 0
+  },
+  "grads": 12,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ }
+}

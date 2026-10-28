@@ -1,0 +1,66 @@
+{
+ "light-1440": {
+  "boxShadows": [
+   {
+    "c": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+    "s": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+   },
+   {
+    "c": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "s": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+   },
+   {
+    "c": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover drop-target-button",
+    "s": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+   }
+  ]
+ },
+ "light-390": {
+  "boxShadows": [
+   {
+    "c": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+    "s": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+   },
+   {
+    "c": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "s": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+   },
+   {
+    "c": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover drop-target-button",
+    "s": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+   }
+  ]
+ },
+ "dark-1440": {
+  "boxShadows": [
+   {
+    "c": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+    "s": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+   },
+   {
+    "c": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "s": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+   },
+   {
+    "c": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover drop-target-button",
+    "s": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+   }
+  ]
+ },
+ "dark-390": {
+  "boxShadows": [
+   {
+    "c": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+    "s": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+   },
+   {
+    "c": "configurator-stage relative min-h-0 min-w-0 glass-floating rounded-card border border-border/60 overflow-hidden",
+    "s": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+   },
+   {
+    "c": "button tap-squish focus-ring glass-capsule glass-specular-track glass-deep glass-capsule-hover drop-target-button",
+    "s": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+   }
+  ]
+ }
+}

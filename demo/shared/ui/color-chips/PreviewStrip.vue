@@ -15,8 +15,9 @@
  * count 8 — is not taken here; the cap arm keeps the description-lane
  * rhythm fixed.)
  *
- * Proportion/material: the F7 law — 1em tall, one golden plate wide,
- * `radius-sm`, inset hairline ring, `aria-hidden`, static paint.
+ * Proportion/material: the module's ONE recipe in `./chip.css` (1em tall,
+ * one golden plate wide, `radius-sm`, the opaque specimen well the masked
+ * tail fades into, the outset `--card-edge` ring); `aria-hidden`, static paint.
  */
 import { computed } from "vue";
 import { stampStops } from "./sample";
@@ -52,18 +53,9 @@ const visible = computed(() =>
     </span>
 </template>
 
-<style scoped>
-.preview-chip {
-    display: inline-flex;
-    flex: none;
-    inline-size: 2.618rem; /* one golden plate — φ² × 1em (F7) */
-    block-size: 1em;
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    box-shadow: inset 0 0 0 1px
-        color-mix(in oklab, var(--foreground) 12%, transparent);
-}
+<style scoped src="./chip.css"></style>
 
+<style scoped>
 .preview-strip-segment {
     flex: 1 1 0;
     block-size: 100%;

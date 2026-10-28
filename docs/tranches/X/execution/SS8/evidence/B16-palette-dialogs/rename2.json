@@ -1,0 +1,98 @@
+{
+ "no-preference": {
+  "focusTimeline": [
+   {
+    "t": 16,
+    "k": "DIV{menu}"
+   },
+   {
+    "t": 27,
+    "ev": "focusin",
+    "k": "DIV{menuitem}"
+   },
+   {
+    "t": 43,
+    "ev": "focusin",
+    "k": "INPUT[Palette name]"
+   },
+   {
+    "t": 45,
+    "k": "INPUT[Palette name]"
+   },
+   {
+    "t": 219,
+    "ev": "focusin",
+    "k": "BUTTON[Palette menu]"
+   },
+   {
+    "t": 245,
+    "k": "BUTTON[Palette menu]"
+   }
+  ],
+  "selAfterOpen": {
+   "start": 0,
+   "end": 23,
+   "focused": false
+  },
+  "focusedAfterClick": true,
+  "valueAfter": "Harbor dusk at low tide x  ",
+  "press": {
+   "frames": 111,
+   "maxScaleDev": 0,
+   "maxPressT": 0,
+   "framesPressed": 0,
+   "distinctTf": [
+    "none"
+   ]
+  },
+  "errs": []
+ },
+ "reduce": {
+  "focusTimeline": [
+   {
+    "t": 0,
+    "k": "DIV{menu}"
+   },
+   {
+    "t": 30,
+    "ev": "focusin",
+    "k": "DIV{menuitem}"
+   },
+   {
+    "t": 46,
+    "ev": "focusin",
+    "k": "INPUT[Palette name]"
+   },
+   {
+    "t": 47,
+    "k": "INPUT[Palette name]"
+   },
+   {
+    "t": 88,
+    "ev": "focusin",
+    "k": "BUTTON[Palette menu]"
+   },
+   {
+    "t": 112,
+    "k": "BUTTON[Palette menu]"
+   }
+  ],
+  "selAfterOpen": {
+   "start": 0,
+   "end": 23,
+   "focused": false
+  },
+  "focusedAfterClick": true,
+  "valueAfter": "Harbor dusk at low tide x  ",
+  "press": {
+   "frames": 250,
+   "maxScaleDev": 0,
+   "maxPressT": 1,
+   "framesPressed": 1,
+   "distinctTf": [
+    "none"
+   ]
+  },
+  "errs": []
+ }
+}

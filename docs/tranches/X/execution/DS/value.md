@@ -1687,3 +1687,174 @@ Critic V17C named one medium consumer row (V17C-01) and four glass rows (V17C-G1
   - The o18 A-1 instrument should composite the band's `.dock-plate` and read the ink after the dock's morph settles.
   - The 390 seal is unframed, because the mobile dock does not idle shut.
 - The glass rows (V17C-G1..G4) wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 18 (2026-10-18): critic V18C — the admin gold holds its hue, the error plate's red is certified, the admin consoles say their name once, the head glyph drops its frame
+
+Critic V18C named four consumer rows (V18C-01 medium, -02 low, -03 low, -04 trivial) and two glass rows (V18C-G1 low, -G2 low). All four consumer rows are cured at the root. V18C-01 has one named deviation from the asked cure: the dock band keeps the house headroom, because the frame refuted the premise that it needs none. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-18/c18-2026-10-18/`.
+
+**Commits.** value.js `22782b1cb` (the cure: 17 paths) and `4980c6fa9` (frames, probes, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-18/c18-2026-10-18/`) |
+|---|---|---|---|
+| V18C-01 (medium) | **CURED at the token. One named deviation: the headroom stays on the band.** | **One rule in `ink.ts`, `certifyIdentityInk`**, inherited by every gold twin (root, floating, dock band). The ladder: (1) the house certify, kept only while it holds `IDENTITY_CHROMA_HOLD` = 0.4 of the source chroma (gold: C ≥ 0.059); (2) else the most chromatic ink on the far side of the ground that clears the same target; (3) else the ground's own plate ink, so a word speaks the plate's voice. **Glyphs read a glyph rung**, `--ink-gold-glyph`. The `.gold-ink` recipe paints it on `svg.gold-ink` / `.gold-ink svg`, and so do the crown keyframe and the featured badge. On the band it certifies at the 3:1 graphics floor (`Dock.vue`), on the seal it is the wax gold, and on the modelled plates it is the word's rung where that holds, else the graphics floor (`useContrastSafeColor`, stamped by `useAtmosphereBoot`, seated on `.glass-floating` in `shell.css`). **Deviation:** the critic asked for no headroom on the MEASURED band. Only the band's tint is measured; the ambient under it is modelled achromatic. With no headroom, the frame read the light band's glyph at **2.84** and its word at **4.23**, both under their floors (`v18-noheadroom.log`). A rung that trades headroom for chroma read the brown band's word at **4.31** (`v18-hold-bisect.log`). Both were refused. DESIGN.md Law C-4 names the rule. | `v18.json`, the painted ink's oklch per site and the frame ratio. **Owner brown (lab(38% 32 24)), light:** view trigger and shield **C 0.001 → 0.106**, h 84.2, **3.79:1**. The word falls back to the plate ink (5.13:1). The pass-17 band gold (`oklch(0.9995 0.0005 84.2)`), re-injected in the same page, reads RED on every site. **Default light:** glyphs **C 0.064 → 0.080** (L 0.31 → 0.39) at **4.02:1**. The word stays bronze, C 0.064 at 5.45:1 (≥ 0.06 per the witness), the gold that clears text on that ground. The seal is 4.24, C 0.084. **Dark:** unchanged, gold C 0.143, 4.78 to 5.05. **Featured badge (Browse, light):** 3.48:1, C 0.0597, which is pass 17's bronze, unchanged (by 0.0003 under the critic's 0.06; within the code's hold). **View menu, light:** the Admin word falls back to the floating plate ink (the named fallback); the shield keeps the gold (C 0.073) but reads 1.44:1 over live content. That is V18C-G2's floater, where the floater's own neutral ink reads 2.25. The 390 trigger reads 4.02. The 390 admin trigger is desktop-only, and the 390 seal does not idle shut. |
+| V18C-02 (low) | **CURED at the token.** | `--ink-destructive`: glass's `--destructive` certified on the resting plate (`useContrastSafeColor`, the modal twin's sibling), stamped by `useAtmosphereBoot` and seated as `--destructive` on `.pane-wrapper` (`shell.css`). `EmptyState`'s alert glyph reads it at full strength; the `/80` is dropped. The plate's error lines inherit the same token (ExtractWorkbench, BrowsePane, GradientCodeEditor, SearchFilterBar, AdminTagsPanel). It certifies at the text floor because it carries text; the glyph clears 3:1 a fortiori. | **Not Found:** **1.74 → 5.11** (1440 light), **1.71 → 5.05** (390 light), **2.87 → 3.99** (1440 dark), **2.89 → 4.02** (390 dark). **Admin tags error plate:** 1.76 → 5.23 light, 2.80 → 3.83 dark. The old rule (raw red at 80 %) re-injected reads RED in every cell. |
+| V18C-03 (low) | **CURED.** | The five admin regions are `titled: true` (`viewSchema.ts`). `AdminPane` passes `:title`, and its `#title` slot is deleted (it existed for the count chip that V15-02 removed). The pane title is now the route's one `<h1 id=route-title>`, and App prints no caption. No new component. | One visible H1 inside `<main>`, `route-title`, text equal to the view label, no caption, on all 5 consoles at 1440 and 390 (`v18.json` `admin[]`, 12 rows GREEN). |
+| V18C-04 (trivial) | **CURED (deleted).** | The `head-glyph-frame` rect and its style are gone. The glyph sits in a labelled row. | `gradient-*`: capture manifest `glyph.frame: false`. |
+| V18C-G1 (low) | **Glass-owned: honest-RED on O-87 FLAT-LIGHTING**, folded into V1C-G4 (Chip `data-state=on` lit, not toned). | No local override. Re-judge at the 10.2.0 repin. | `easing-open-*`. |
+| V18C-G2 (low) | **Glass-owned: honest-RED on O-87 / O-88** (the standing rows: the SegmentedTabs indicator overhang, the floater bloom, the EasingPicker ghost, the bead, the dock, the census rows). | No local override. | Census below. |
+
+**Census** (`census-after.json`, `--base :9481 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** It is identical to pass 17: glass 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients, max 6 layers on one element, floater max 8.
+- **Consumer:** 116 single layers, and 0 on every allowance line.
+
+**Frames.** Headless real Chrome (§0ei). There is one browser per script run and a new context per cell, and both are closed in a `finally`.
+- `capture-c18.mjs` took 40 of 40 route cells on the first attempt, plus `easing-open-*` and `tune-*`.
+- `overlays.mjs` took the 8 overlay cells.
+- `v18.mjs` took the witness cells.
+- `nav.mjs` probed the admin hash walk (see Gates).
+- The guarded dev server on :9481 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`). The host ran at load 32–41.
+- **Type-check:** 0 ×2.
+- **vitest:** 1242/1247 ×2. The standing 5 are unchanged; the 5 new `certifyIdentityInk` cases pass.
+- **e2e** (headless, workers 1, one guarded call per spec):
+  - **GREEN ×2:** o15 6/6, w12-dock 6/6, page-load 2/2, w12u-x-admin-tags 6/6.
+  - **o17:** 4/5 in run 1, a click timeout under load; 5/5 in run 2.
+  - **o18:** the four standing rows only. The A-1 admin pill is GREEN in both schemes in run 1. In run 2 it is RED in dark with ink equal to ground at stack []. This is pass 17's instrument fault, and the dark gold is unchanged.
+  - **views/gradient:** cold-route timeouts in openView/paneSettled (9–11 of 12). An A/B run on the HEAD demo fails 4 of 12 the same way (`gates/ab-head/`). It is not this cure.
+  - **smoke-admin:** 23/25 ×2. admin-populated read the Users title at level 2. V18C-03 makes it the level-1 H1 by design, so the leg is re-read at level 1 (a named spec re-baseline in `22782b1cb`); it is GREEN after.
+  - **admin-walk is RED:** after hash navigation from users to names, the Names region renders EMPTY. A/B: with every pass-18 demo path restored to HEAD, it fails the same way, at the Names control step (`gates/ab-head/admin-walk-HEAD-demo-error-context.md`). **This was pre-existing at HEAD during this run, not this cure. Carried.**
+- No visual golden was re-baselined. At the next visual run, two sets of cells need a named owner-ruling re-baseline (§0ej):
+  - the light admin dock glyphs (the bronze moves from L 0.31 to L 0.39 / C 0.080);
+  - the five admin console heads (the caption is gone and the title is the H1).
+
+**Loop state.**
+- V18C-01..04 are cured.
+- For the next critic:
+  - (a) The admin-walk empty Names pane after users → names hash navigation is pre-existing at HEAD. It has no owner in this pass, and a router or KeepAlive seat should take it.
+  - (b) On a mid-L plate (the owner brown), `--ink-destructive` walks to near white (C 0.007). It is legible, but the red no longer reads. Judge whether the destructive twin should join `certifyIdentityInk`.
+  - (c) The o18 A-1 instrument should composite the band's `.dock-plate` (carried from pass 17).
+  - (d) The light view menu's Admin row waits on V18C-G2.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 19 (2026-10-18): critic V19C — the admin consoles seat their header, the dock's plain words read the band's ink, one field register and one Refresh grammar, the step-start riser, sentence case, the HSV alpha
+
+Critic V19C named seven consumer rows (V19C-01 medium, -02 medium, -03 low, -04 low, -05 low, -06 low, -07 trivial) and two glass rows (V19C-08 low, -G1 low). All seven consumer rows are cured at the root. V19C-02 leaves one residual on the owner-brown light band (the view label); it is glass-owned and cited on O-87. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-19/c19-2026-10-18/`.
+
+**Commits.** value.js `98aca278a` (the cure: 21 paths) and `b7e787cf7` (frames, witnesses, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-19/c19-2026-10-18/`) |
+|---|---|---|---|
+| V19C-01 (medium) | **CURED (no new component).** | `AdminPane` takes `seated`, the About / My Palettes contract (V3C-01/V4C-05): the header sits above the FadingScroll port, so V4C-05's rule paints no veil. `--pane-veil-rest` is untouched. The desktop ceiling (A2-VA-X-14) was keyed on the overlying class. It is re-keyed `pane-shell--bounded`, which a seated one-region owner opts into with PaneShell's `bounded` prop, and which an overlying owner always wears. A long roster scrolls inside the port. | `v19.json` `headers[]`: `.pane-header::before` is `display: none` on all 5 consoles × 1440/390 × light/dark. At 1440 light the header reads **(215,133,124)**, the critic's body tone (215,134,127), against pass 18's (202,126,114). The step is ≤ 5 levels where the strip below is plain plate (Flagged, Tags); on Users, Names and Audit the strip falls on the seated field. **60-user roster** (`roster[]`, light and dark): port 3932 over 689 scrolls, the document stays 900 = innerHeight, the header holds y 89 after a 600 px port scroll. GREEN. |
+| V19C-02 (medium) | **CURED at the token. One residual is glass-owned.** | `useChromeAccentFn` gains `plateCss()`: `resolvePlateInk` on the band's measured ground (the gold's instrument). Dock.vue rebinds `--foreground`, `--dock-fg-on-aurora` and `--muted-foreground` on GlassDock's root, through glass's own token seam (glass declares them on `.glass-dock` with `:where`, from `--foreground` or `contrast-color(var(--card))`, a ground the band is not). No glass rule is overridden. The wordmark drops `/70`. **Residual:** glass's `.dock-select-trigger` rest recipe paints its ink at `--opacity-icon-muted` (0.8, `triggers.css`). On the mid-L owner-brown light band, white at 80 % peaks at 3.89, where full white peaks at 5.13, so no consumer ink clears it. This is cited on **O-87** (the trigger's rest cut) and not overridden locally. | Peak pixel against the band median (`dockInk[]`). **@mbabb:** **4.02 → 7.20** default light, **4.35 → 7.66** default dark, **2.52 → 5.13** brown light, 8.08 brown dark. **View label 'Users':** 5.05 default light, 5.29 default dark, 5.66 brown dark, **3.55 → 3.89** brown light (the glass residual). Admin word: 5.46 / 4.78 / 5.16 / 5.05. |
+| V19C-03 (low) | **CURED.** | Audit's two filters and Tags' two create fields wear the one seated register (`.input-bar search-seated` over a native `.input-bar-field`, DESIGN.md:301) in the body voice. `font-mono` is gone, and so are both glass `Input` imports. DESIGN.md's register-law consumer list names them. | `headers[].fields`: 4 fields × 4 cells, all `seated: true`, field and placeholder `"Plus Jakarta Sans"`, 36 px, the Users search's height. Frames `admin-audit-*`, `admin-tags-*`. |
+| V19C-04 (low) | **CURED.** | Audit's guard (`&& count > 0`) is on the Flagged and Tags counts. Users' Refresh becomes the named icon button the other three use (`emphasis=secondary`, `icon-only`, `aria-label="Refresh users"`). | `headers[].toolbar`: no count over 'No flagged palettes.' / 'No tags yet.'; four Refresh buttons, each 28 px, aria-labelled, no text. |
+| V19C-05 (low) | **CURED in the one painter.** | `glyphPath` opens at `M 0 1` when `fn(0) ≠ 0`, so the t = 0 riser is drawn. The curve math and the catalogue are unchanged. | `misc.stepTiles`: start tile `M 0.000 1.000 L 0.000 0.000 …`. Frame `easing-steps-1440-light.png`. |
+| V19C-06 (low) | **CURED.** | 'Not found' in the schema label and the pane title. The About card reads 'Basic information', 'Key properties', 'Device dependency:', 'White point:', 'Perceptual uniformity:', 'Hue linearity:', 'Lightness separation:', 'Conversion graph', 'Common applications:'. 'Generated palette' is the default name. | `misc.notFound`: H1, document title and dock label all read 'Not found'. Named spec re-reads (copy only): page-load, route-guard, w12u-x-admin-tags. |
+| V19C-07 (trivial) | **CURED.** | One alpha clause is computed once in `formatSpecimen` and appended by the `color(srgb …)` and channels forms. | `misc.spaceRows`: `hsv · 346 · 0.6279 · 1.511 / 82.7%`. |
+| V19C-08 (low) | **Glass-owned: honest-RED on O-87** (the ornament and hierarchy row: EasingPicker resolves no preset from its points). | No local override. | `tune-*`. |
+| V19C-G1 (low) | **Glass-owned: honest-RED on O-87 / O-88** (the standing rows). | No local override. Re-judge at the 10.2.0 repin. | Census below. |
+
+**Census** (`census-after.json`, `--base :9491 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** It is identical to pass 18: glass 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients, max 6 layers on one element, floater max 8.
+- **Consumer:** unchanged from pass 18, and 0 on every allowance line. This pass added no lighting and removed none.
+
+**Frames.** Headless real Chrome (§0ei). There is one browser per script run and a new context per cell, and both are closed in a `finally`.
+- `capture-c19.mjs` took 40 of 40 route cells on the first attempt, plus `easing-open-*` and `tune-*`.
+- `overlays.mjs` took the 8 overlay cells.
+- `v19.mjs` took the witness cells (20 admin console cells, 2 roster cells, 4 dock-band cells, and the misc reads).
+- The guarded dev server on :9491 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`). The host ran at load 15–19.
+- **Type-check:** 0 ×2.
+- **vitest:**
+  - Run 1 was 1245/1253: the standing 5, plus admin-crud row 3 and two plate-mass harness flakes. Row 3 found Refresh by its visible word, which V19C-04 removes by design, so it is re-read by its accessible name (a named spec re-baseline in `98aca278a`).
+  - Run 2 was 1248/1253, the standing 5 only.
+  - Run 3 on the final tree was **1253/1253**.
+- **e2e** (headless, workers 1, one guarded call per spec):
+  - **GREEN ×2:** o15 6/6, w12-dock 6/6, page-load 2/2, views/gradient 12/12, w12u-x-admin-tags 6/6, o21 1/1.
+  - **o17:** the desktop leg's click timed out in both gate runs (4/5). It passed on the pre-cure demo A/B, then went 5/5 and 5/5 on the cure. This is load, not the cure.
+  - **o18:** the four standing rows, plus A-1 with ink equal to ground and stack [], which is the pass-17 instrument fault. The frame witness above reads the admin word at 4.78–5.46.
+  - **o23 is RED ×2 on the HSL row** ('hsl channel 1 printed 0 against −12.95'). That is a CSS-form row V19C-07 does not touch, and it fails identically on the pre-cure demo (`gates/ab-head/`). **Pre-existing. Carried.**
+  - **smoke-admin:** 24/25 ×2. admin-walk is the pass-18 carry, and it fails identically on the pre-cure demo.
+- No visual golden was re-baselined. At the next visual run, these cells need a named owner-ruling re-baseline (§0ej):
+  - the five admin consoles (seated head, no veil band; the seated fields on Audit and Tags; Users' icon Refresh);
+  - every route's dock wordmark (full plate ink);
+  - Not Found's title;
+  - the About card's labels;
+  - the step-start glyph.
+
+**Loop state.**
+- V19C-01..07 are cured.
+- For the next critic:
+  - (a) Users, Names, Audit, Flagged and Tags now all seat their header. No titled pane uses PaneShell's overlying branch now, so a later pass may retire it, along with the `seated` prop, at its ~~9~~ 10 call sites [2026-10-20 · OD19 repair 1, C1-V-07: the count is 10. `4fe9b05b9` retired the prop at all 10 call sites, and a census finds 10 `<PaneShell` users].
+  - (b) At 390, Tags' toolbar row holds only the Refresh icon when the list is empty. Judge whether it belongs beside the create row.
+  - (c) The o23 HSL-row failure and the admin-walk empty Names pane are pre-existing at HEAD, and neither has an owner yet.
+  - (d) The brown-band view label waits on glass's trigger rest cut (O-87).
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 20 (2026-10-18): critic V20C — every admin glyph has a home, the user row discloses, the nest is two frames
+
+Critic V20C named five consumer rows (V20C-01 low, -02 low, -03 low, -04 trivial, -05 trivial) and one glass row (V20C-G1 low). V20C-01..03 are cured at the root. V20C-04 is held on the owner's VC5-01 call. V20C-05 is accepted as the shared plate grammar. The glass row stays honest-RED on O-87 / O-88, and its measured indicator geometry is now a falsifier in the O-87 relay. Evidence is in `pass-20/c20-2026-10-18/`.
+
+**Commits.** value.js `77798e2c8` (the cure: 3 paths), `152f6a43d` (the O-87 relay addendum) and `385f31822` (frames, witness, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-20/c20-2026-10-18/v20.json`) |
+|---|---|---|---|
+| V20C-01 (low) | **CURED (no new component).** | Flagged: the toolbar row stands only while `total > 0`. Over the empty plate, the EmptyState's `#action` seat carries the same named icon Refresh (the Users empty-plate pattern). Tags: Refresh moves to the end of the create form row, after 'Add tag' (Audit's one action row; on its second line below sm). The count row stands only with a count. | Flagged empty, all 4 cells: one Refresh (28 px, `aria-label` 'Refresh flagged palettes'), under 'No flagged palettes.' (1440 at x 706, y 323, centred under the plate's message), no count row. Tags, empty and populated, all 8 cells: the form's buttons read `['Add tag', 'Refresh tags']`. At 1440 Refresh is at x 1188 at the form's end; at 390 it is on the second line beside 'Add tag'. Populated, the count row reads '3 tags'. Frames `admin-flagged-*`, `admin-tags-*`, `admin-tags-populated-*`. |
+| V20C-02 (low) | **CURED.** | The trigger's `hover:bg-accent/50` capsule and its `transition-colors` are deleted. A `ChevronDown` sits at the trigger's end (`ms-auto`, inside the control it labels), rotated 180° on `[data-state=open]` with a reduced-motion-guarded `rotate` transition: the Browse card's idiom. A 0-palette user, with no trigger, has no chevron. | `users-open-*`: the chevron is a child of the trigger, `rotate: none` closed and `180deg` open. The trigger background is `rgba(0,0,0,0)`. 1440: chevron at x 981 within trigger 225–997. 390: x 328 within 34–344. |
+| V20C-03 (low) | **CURED (tokens and classes only).** | The admin-palette li drops `border border-card-edge`, keeps the `bg-well` tone step, and sets `--specimen-radius` to the plate radius, so the nest is two frames. The specimen's name, in the admin nest only (scoped `:deep(.palette-specimen__name)`), sits on the row-body rung: `--type-small` / `--type-leading-small`, medium. It keeps its display face (the T-15 user-data-name law, O-10d). Below sm, Feature is the star alone (`max-sm:hidden` on the word). Its `aria-label` and `aria-pressed` are unchanged. | li border `0px`. Name 'Fraunces 16.4px 500' against slug 16.4px at 1440, and 14px against 14px at 390, so the name no longer outranks its user. At 390 'Harbor at Dusk' reads whole (not truncated), and Feature is a 30 px star (`aria-label` 'Unfeature Harbor at Dusk', `aria-pressed` true). At 1440 it keeps its word. |
+| V20C-04 (trivial) | **HELD: owner ruling (VC5-01).** | No seat cure without the ruling. | — |
+| V20C-05 (trivial) | **ACCEPTED: the shared plate grammar.** | Not Found speaks the app's one EmptyState register (UIA-V-447, pass 7–8), whose centred trio is the grammar Flagged, Tags and Users also use under a left-seated head. Offsetting this one plate would split the grammar. | — |
+| V20C-G1 (low) | **Glass-owned: honest-RED on O-87 / O-88.** | No local override. The (a) geometry is in the O-87 relay as the falsifier 'the indicator box equals the active tab box, ±1 px' (`152f6a43d`). Re-judge at the 10.2.0 repin. | Census below. |
+
+**Census** (`census-after.json`, `--base http://localhost:9495 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** It is identical to pass 19: glass 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients, max 6 layers on one element, floater max 8.
+- **Consumer:** 0 on every allowance line. This pass added no lighting. It removed one hover fill, which the census does not count.
+
+**Frames.** Headless real Chrome (§0ei). There is one browser per script run and a new context per cell, and both are closed in a `finally`.
+- `v20.mjs` took 16 of 16 cells (admin-flagged, admin-tags, admin-tags-populated and users-open, each at 1440/390 × light/dark) and the witness reads, with the admin API answered by an in-page fetch shim.
+- The guarded dev server on :9495 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** runs 1 and 2 hit plate-mass harness flakes ('Execution context was destroyed'; 'Failed to fetch dynamically imported module …PaletteCardSkeleton.vue' from its :5173 harness server). No pass-20 path is in that harness's import graph. Runs 3 and 4 on the final tree were **1253/1253 ×2**.
+- **e2e** (headless, workers 1, one guarded call per spec):
+  - **GREEN ×2:** w12u-x-admin-tags 6/6, w7-mutation-visibility 16/16, w7-destructive-seats 7/7, o10d-display-voice-census 6/6.
+  - **smoke-admin:** 24/25 ×2. The one failure is admin-walk, the identical pass-18/19 carry (no `h1#route-title` after hash navigation). Its Refresh-by-name rows resolve.
+- No visual golden was re-baselined. At the next visual run, these cells need a named owner-ruling re-baseline (§0ej):
+  - Flagged's empty plate (no toolbar row; Refresh in the plate);
+  - Tags' create row (Refresh at its end; no lone toolbar row);
+  - the Users row (chevron, no hover capsule);
+  - the expanded nest (borderless palette plate, small name, icon-only Feature below sm).
+
+**Loop state.**
+- V20C-01..03 are cured. V20C-04 waits on the owner (VC5-01). V20C-05 is accepted.
+- For the next critic:
+  - (a) Pass 19's note (a) still stands: PaneShell's overlying branch and the `seated` prop can be retired at their ~~9~~ 10 call sites [2026-10-20 · OD19 repair 1, C1-V-07: the count is 10. `4fe9b05b9` retired the prop at all 10 call sites, and a census finds 10 `<PaneShell` users].
+  - (b) The admin-walk carry and the o23 HSL row still have no owner.
+  - (c) If hover feedback on the Users row is wanted, it belongs on the whole bordered row (V20C-02's 'if wanted'). This pass judged the chevron sufficient.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The SegmentedTabs falsifier is ±1 px.
+
+### tail: PaneShell seated prop
+
+Owed by CLOSE.md §4 (V19C note (a); pass 20's note (a)). **CURED, no compat shim.**
+
+- **Definition:** `demo/shell/PaneShell.vue` declared `seated?: boolean` (default false) and two template branches: the seated one (PaneHeader above glass's `FadingScroll` port, then `#footer`) and the overlying one (`.card-scroll-host` with a sticky PaneHeader inside it).
+- **Consumers (grep `<PaneShell`):** there are **10** call sites, not 9. AdminPane joined at pass 19 (V19C-01). Every one passed `seated`: GradientPane, MixPane, GeneratePane, ExtractPane, NotFoundPane, AboutPane, ConfigSliderPane, AdminPane, BrowsePane and PalettesPane. No call site rendered the overlying branch, so that branch was dead code.
+- **Cure at the root:**
+  - The `seated` prop and the overlying branch are deleted. The seated layout is now the shell's only layout.
+  - The desktop bound `(!seated || bounded) && 'pane-shell--bounded'` becomes `bounded && 'pane-shell--bounded'`. Only AdminPane passes `bounded`, and it renders the same bound.
+  - The `seated` attribute is removed at all 10 call sites. `bounded`, `follow`, `gutter`, `gap` and `card-class` are unchanged.
+  - The stale `.card-scroll-host` prose in PaneShell's comment and style block, and in PaneHeader's two comments, now names the one port.
+  - The picker's own `.card-scroll-host` (ColorPicker.vue and header.css) is a separate owner and is untouched.
+- **DOM:** byte-equivalent to the seated path before the change. Each pane renders the same elements and classes, so no frames were needed.
+- **Gates:**
+  - **vue-tsc:** `npm run typecheck` (lib, demo, test, e2e) exits 0.
+  - **vitest:** `--maxWorkers=2` ×2 gives 97 files and **1253/1253** each run.
+  - **e2e smoke** (`--workers=1`, private ports 8197/8198) covers page-load, w12-about-clip, `views/` (browse ×2, companion-pane, gradient, mix), walk and dual-pane-1440.
+    - Run 1: 26/27. `walk.spec.ts` timed out on a view swap. It failed the same way with this change reverted (a baseline run on the HEAD bytes of these 12 files: `locator.click` timeout at walk.spec.ts:134). That makes it a pre-existing timing flake, not this change.
+    - Then **27/27 ×2** on consecutive runs.
+  - **smoke-admin** (admin-populated, route-guard, o10d-admin-title-voice, admin-walk): **8/8 ×2**.
+  - **smoke-mobile** blob-presence-mobile: 2/2.
+- **Files:** `demo/shell/PaneShell.vue`, `demo/shared/ui/PaneHeader.vue` (comments only), and the 10 pane files above.

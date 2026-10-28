@@ -28,7 +28,7 @@ import {
     scopePrelude,
     syntaxText,
 } from "./bbnf/sheet";
-import { failure, success } from "./result";
+import { failure, notText, success } from "./result";
 import {
     animationCascade,
     collectDeclarations,
@@ -349,6 +349,7 @@ function parseItems(source: string): ParseResult<Stylesheet> {
 }
 
 export function parseStylesheet(source: string): ParseResult<Stylesheet> {
+    if (typeof source !== "string") return notText();
     return parseItems(source);
 }
 

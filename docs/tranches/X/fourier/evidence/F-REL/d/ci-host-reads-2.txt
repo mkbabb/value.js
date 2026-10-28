@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5-5
+# F-REL.d seat 2, 2026-10-19T18:05:29Z
+## dispatch run 39292117114 (24a524a), jobs:
+  118195173831 e2e (Playwright, COMPUTE_RATE_LIMIT=1000) in_progress 
+  118195174337 production compose boot + health completed failure
+  118195174363 web (vue-tsc + vite build) completed success
+  118195174364 api/tests (with live Mongo) completed success
+## compose-boot job 118195174337 runner: 4:2026-10-19T17:12:30.8820356Z Version: 20261015.610
+2026-10-19T17:13:35.6415985Z dependency failed to start: container fourier-prod-smoke-mongo-1 is unhealthy
+2026-10-19T17:13:35.8898293Z mongo-1  | {"t":{"$date":"2026-10-19T17:13:35.181Z"},"s":"F",  "c":"CONTROL",  "id":12257600,"ctx":"main","msg":"MongoDB cannot start: Linux kernel versions 6.19 and newer has a known incompatibility with this version of MongoDB. S
+2026-10-19T17:13:35.8900000Z mongo-1  | {"t":{"$date":"2026-10-19T17:13:35.429Z"},"s":"F",  "c":"CONTROL",  "id":12257600,"ctx":"main","msg":"MongoDB cannot start: Linux kernel versions 6.19 and newer has a known incompatibility with this version of MongoDB. S
+## mongo pins at 24a524a: ci.yml:55 + ci.yml:298 + docker-compose.yml:38 = mongo:8.0
+## host reach: nc -z -w 8 34.197.214.67 1022 -> rc 1; :22 -> rc 1 (18:03Z)
+## prod: /api/health 200; /deploy-record.json 200 text/html (SPA fallback = old 79f1a43 hook still on host, REFUSE before fetch)
+## deploy-alert: dispatch run 39292952791 -> TIMEOUT -> issue #1 'deploy-alert: the fourier API deploy did not reach a healthy OK' OPEN [deploy-alert]

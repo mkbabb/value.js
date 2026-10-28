@@ -471,6 +471,7 @@ describe("Value 4 CSS and easing contracts", () => {
 describe("Value 4 exact runtime surfaces", () => {
     it("contains no extra, default, root-facade, or retired runtime name", () => {
         expect(Object.keys(color).sort()).toEqual([
+            "NAMED_COLORS",
             "a98Rgb",
             "convertColor",
             "displayP3",

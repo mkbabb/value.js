@@ -130,12 +130,14 @@ export function useMixingAnimation(
      * THE one teardown: stop the clock, drop the stage and the context, and
      * give the backing store back (a zero-area canvas holds no pixels). The
      * canvas element itself is the component's; only what `arm` allocated is
-     * released here.
+     * released here. `arm` sizes the canvas BEFORE it asks for a context, so
+     * the store is returned from the canvas itself, never via the context: a
+     * null `getContext` must not leave the pane-extent store behind.
      */
     function release() {
         loop.stop();
         stage = null;
-        const canvas = ctx?.canvas ?? null;
+        const canvas = ctx?.canvas ?? canvasRef.value;
         ctx = null;
         if (canvas) {
             canvas.width = 0;

@@ -1,0 +1,98 @@
+{
+ "seq": [
+  {
+   "step": "1100x800 pinned",
+   "inner": [
+    1100,
+    800
+   ],
+   "overlay": true,
+   "pinned": true,
+   "previewLoaded": true,
+   "rail": true,
+   "panes": [
+    "extract",
+    "palettes"
+   ]
+  },
+  {
+   "step": "1100x640",
+   "inner": [
+    1100,
+    640
+   ],
+   "overlay": true,
+   "pinned": true,
+   "previewLoaded": true,
+   "rail": true,
+   "panes": [
+    "extract",
+    "palettes"
+   ]
+  },
+  {
+   "step": "1000x800",
+   "inner": [
+    1000,
+    800
+   ],
+   "overlay": true,
+   "pinned": true,
+   "previewLoaded": true,
+   "rail": true,
+   "panes": [
+    "extract",
+    "palettes"
+   ]
+  },
+  {
+   "step": "1000x640",
+   "inner": [
+    1000,
+    640
+   ],
+   "overlay": true,
+   "pinned": true,
+   "previewLoaded": true,
+   "rail": true,
+   "panes": [
+    "extract",
+    "palettes"
+   ]
+  },
+  {
+   "step": "760x640",
+   "inner": [
+    760,
+    640
+   ],
+   "overlay": true,
+   "pinned": true,
+   "previewLoaded": true,
+   "rail": true,
+   "panes": [
+    "extract",
+    "palettes"
+   ]
+  },
+  {
+   "step": "1100x800",
+   "inner": [
+    1100,
+    800
+   ],
+   "overlay": true,
+   "pinned": true,
+   "previewLoaded": true,
+   "rail": true,
+   "panes": [
+    "extract",
+    "palettes"
+   ]
+  }
+ ],
+ "errors": [
+  "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9026' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+  "CONSOLE Failed to load resource: net::ERR_FAILED"
+ ]
+}

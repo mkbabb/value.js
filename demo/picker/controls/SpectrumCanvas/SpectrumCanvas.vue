@@ -234,7 +234,7 @@ const dotPos = computed(() => {
 // Plate presentation (style + dot needle + aria) — colocated composable
 // (R.W3 Lane E cohesion lift; the B3 shared-luma regime lives there).
 const { spectrumAriaLabel, spectrumStyle, spectrumDotStyle } =
-    useSpectrumPlateStyle({ HSVCurrentColor, cssColorOpaque, dotPos, spectrumGate });
+    useSpectrumPlateStyle({ HSVCurrentColor, cssColorOpaque, dotPos });
 
 onUnmounted(() => {
     releaseCapture();
@@ -266,6 +266,16 @@ onUnmounted(() => {
     --spectrum-stamp-ink: color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
     box-shadow: var(--spectrum-stamp, 8px) var(--spectrum-stamp, 8px) 0px 0px var(--spectrum-stamp-ink);
     overflow: visible;
+    /* X.W11.p3b (COHESION §0gl.12): the plate owns every gesture on a fine
+     * pointer; on a coarse one it lets the page pan until the touch gate
+     * activates it. The pointer class is CSS's to read, never a setup-time
+     * inline style the prerendered first view would have to guess. */
+    touch-action: none;
+}
+@media (pointer: coarse) {
+    .spectrum-picker:not(.touch-gate-active) {
+        touch-action: pan-y;
+    }
 }
 .dark .spectrum-picker {
     /* The live hue at the stone caster's band (--shadow-color, L ~0.2, near

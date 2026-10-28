@@ -1,0 +1,29 @@
+{
+  "cell": "pruneHdr",
+  "headers": [
+    {
+      "authorization": "Bearer test-…"
+    }
+  ],
+  "requests": [
+    {
+      "t": 1792531751154,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    },
+    {
+      "t": 1792531753418,
+      "m": "POST",
+      "p": "/admin/users/prune-empty",
+      "body": null
+    },
+    {
+      "t": 1792531753824,
+      "m": "GET",
+      "p": "/admin/users?limit=50&offset=0",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

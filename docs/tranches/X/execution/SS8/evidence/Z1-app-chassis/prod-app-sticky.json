@@ -1,0 +1,24 @@
+{
+ "cell": "sticky",
+ "ms": 10012,
+ "at": "2026-10-20T21:22:22.634Z",
+ "out": {
+  "/blob": {
+   "sliders": 35,
+   "scrollY": 2240,
+   "stageCanvases": [
+    {
+     "cls": "goo-blob-canvas",
+     "area": 32108,
+     "visibleArea": 28956,
+     "pos": "relative"
+    }
+   ]
+  },
+  "/atmosphere": {
+   "sliders": 3,
+   "scrollY": 29,
+   "stageCanvases": []
+  }
+ }
+}

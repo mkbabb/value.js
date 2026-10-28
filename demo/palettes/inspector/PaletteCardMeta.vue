@@ -48,10 +48,12 @@
             </PopoverContent>
         </Popover>
 
-        <!-- Vote count -->
+        <!-- Vote count. SS-8 B10 (SS8-0288): the button speaks the count's
+             rung itself, so its box is not sized by the meta row's inherited
+             body size. -->
         <button
             v-if="!palette.isLocal"
-            class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors duration-fast cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+            class="flex items-center gap-1 px-1.5 py-0.5 text-mono-small rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors duration-fast cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
             :aria-label="`${palette.voteCount ?? 0} votes, click to vote`"
             @click.stop="emit('vote', palette)"
         >

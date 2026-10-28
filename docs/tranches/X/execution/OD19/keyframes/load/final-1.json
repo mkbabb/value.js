@@ -1,0 +1,249 @@
+{
+ "rate": 4,
+ "cold": {
+  "home": {
+   "ready": 553,
+   "fcp": 548,
+   "jsKBtoReady": 1096,
+   "cssKBtoReady": 574,
+   "jsKBtotal": 1704,
+   "longTasks": 2,
+   "longMs": 441,
+   "worstTask": 359,
+   "postLongMs": 0,
+   "aurora": true,
+   "reqs": 20,
+   "chunks": [
+    "HeroAurora.js",
+    "HeroAurora.css"
+   ]
+  },
+  "cube": {
+   "ready": 652,
+   "fcp": 648,
+   "jsKBtoReady": 885,
+   "cssKBtoReady": 574,
+   "jsKBtotal": 885,
+   "longTasks": 2,
+   "longMs": 540,
+   "worstTask": 458,
+   "postLongMs": 0,
+   "aurora": false,
+   "reqs": 18,
+   "chunks": []
+  },
+  "amiga": {
+   "ready": 699,
+   "fcp": 468,
+   "jsKBtoReady": 1424,
+   "cssKBtoReady": 575,
+   "jsKBtotal": 4254,
+   "longTasks": 3,
+   "longMs": 560,
+   "worstTask": 280,
+   "postLongMs": 799,
+   "aurora": false,
+   "reqs": 22,
+   "chunks": [
+    "AmigaScene.js",
+    "AmigaScene.css"
+   ]
+  },
+  "square": {
+   "ready": 729,
+   "fcp": 456,
+   "jsKBtoReady": 901,
+   "cssKBtoReady": 578,
+   "jsKBtotal": 4254,
+   "longTasks": 3,
+   "longMs": 605,
+   "worstTask": 271,
+   "postLongMs": 331,
+   "aurora": false,
+   "reqs": 23,
+   "chunks": [
+    "SquareScene.js",
+    "SquareScene.css"
+   ]
+  },
+  "easing": {
+   "ready": 794,
+   "fcp": 472,
+   "jsKBtoReady": 898,
+   "cssKBtoReady": 576,
+   "jsKBtotal": 4254,
+   "longTasks": 3,
+   "longMs": 655,
+   "worstTask": 282,
+   "postLongMs": 343,
+   "aurora": false,
+   "reqs": 25,
+   "chunks": [
+    "EasingScene.js",
+    "EasingScene.css"
+   ]
+  },
+  "spring": {
+   "ready": 651,
+   "fcp": 424,
+   "jsKBtoReady": 927,
+   "cssKBtoReady": 588,
+   "jsKBtotal": 4254,
+   "longTasks": 3,
+   "longMs": 520,
+   "worstTask": 245,
+   "postLongMs": 334,
+   "aurora": false,
+   "reqs": 26,
+   "chunks": [
+    "SpringScene.js",
+    "SpringScene.css"
+   ]
+  },
+  "sequence": {
+   "ready": 577,
+   "fcp": 476,
+   "jsKBtoReady": 894,
+   "cssKBtoReady": 577,
+   "jsKBtotal": 1494,
+   "longTasks": 3,
+   "longMs": 452,
+   "worstTask": 276,
+   "postLongMs": 0,
+   "aurora": false,
+   "reqs": 22,
+   "chunks": [
+    "SequenceScene.js",
+    "SequenceScene.css"
+   ]
+  }
+ },
+ "warm": {
+  "cube->amiga": {
+   "prepare": 90,
+   "total": 949,
+   "commit": 257,
+   "frames": 20,
+   "maxFrame": 348,
+   "over34": 5,
+   "over50": 5,
+   "longTasks": 4,
+   "worstTask": 346,
+   "newKB": 3466
+  },
+  "amiga->square": {
+   "prepare": 4,
+   "total": 688,
+   "commit": 270,
+   "frames": 18,
+   "maxFrame": 299,
+   "over34": 6,
+   "over50": 5,
+   "longTasks": 1,
+   "worstTask": 268,
+   "newKB": 0
+  },
+  "square->easing": {
+   "prepare": 6,
+   "total": 891,
+   "commit": 431,
+   "frames": 15,
+   "maxFrame": 473,
+   "over34": 7,
+   "over50": 6,
+   "longTasks": 2,
+   "worstTask": 445,
+   "newKB": 0
+  },
+  "easing->spring": {
+   "prepare": 4,
+   "total": 842,
+   "commit": 318,
+   "frames": 19,
+   "maxFrame": 364,
+   "over34": 7,
+   "over50": 6,
+   "longTasks": 3,
+   "worstTask": 325,
+   "newKB": 0
+  },
+  "spring->sequence": {
+   "prepare": 1,
+   "total": 551,
+   "commit": 146,
+   "frames": 15,
+   "maxFrame": 182,
+   "over34": 8,
+   "over50": 6,
+   "longTasks": 1,
+   "worstTask": 153,
+   "newKB": 0
+  },
+  "sequence->cube": {
+   "prepare": 3,
+   "total": 980,
+   "commit": 211,
+   "frames": 7,
+   "maxFrame": 337,
+   "over34": 4,
+   "over50": 3,
+   "longTasks": 1,
+   "worstTask": 224,
+   "newKB": 0
+  },
+  "cube->home": {
+   "prepare": 13,
+   "total": 433,
+   "commit": 30,
+   "frames": 18,
+   "maxFrame": 116,
+   "over34": 6,
+   "over50": 5,
+   "longTasks": 1,
+   "worstTask": 79,
+   "newKB": 211
+  },
+  "home->easing": {
+   "prepare": 4,
+   "total": 823,
+   "commit": 413,
+   "frames": 16,
+   "maxFrame": 453,
+   "over34": 7,
+   "over50": 4,
+   "longTasks": 1,
+   "worstTask": 430,
+   "newKB": 0
+  }
+ },
+ "surf": {
+  "Keyframes/idle3s": {
+   "toContent": 763,
+   "maxFrame": 190,
+   "over50": 4,
+   "longTasks": 4,
+   "worstTask": 174
+  },
+  "Keyframes/first": {
+   "toContent": 862,
+   "maxFrame": 184,
+   "over50": 3,
+   "longTasks": 4,
+   "worstTask": 216
+  },
+  "Timeline/idle3s": {
+   "toContent": 103,
+   "maxFrame": 175,
+   "over50": 3,
+   "longTasks": 3,
+   "worstTask": 172
+  },
+  "Timeline/first": {
+   "toContent": 129,
+   "maxFrame": 194,
+   "over50": 5,
+   "longTasks": 4,
+   "worstTask": 189
+  }
+ }
+}

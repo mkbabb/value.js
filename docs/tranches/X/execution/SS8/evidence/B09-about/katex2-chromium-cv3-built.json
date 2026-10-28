@@ -1,0 +1,30 @@
+{
+ "engine": "chromium",
+ "version": "148.0.7778.96",
+ "cv3": {
+  "target": {
+   "idx": 1,
+   "tabIndex": -1,
+   "tabAttr": null,
+   "role": null,
+   "aria": null,
+   "sw": 684,
+   "cw": 332,
+   "overflowX": "auto",
+   "cv": "auto"
+  },
+  "setByArrowRight": 160,
+  "away": {
+   "rowTop": -309,
+   "vh": 844,
+   "sw": 778,
+   "cw": 332,
+   "scrollLeft": 160,
+   "skippedLike": false
+  },
+  "after": 160,
+  "errors": [
+   "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+  ]
+ }
+}

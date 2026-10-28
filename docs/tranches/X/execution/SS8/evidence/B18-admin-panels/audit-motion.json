@@ -1,0 +1,15 @@
+{
+  "transitionsAtRest": [
+    "div|box-shadow, border-color|0.18s, 0.18s",
+    "p|opacity, visibility|0.3s, 0.3s",
+    "div|box-shadow, border-color|0.2s, 0.2s",
+    "button|background-color, border-color, box-shadow, color, opacity, scale|0.18s, 0.18s, 0.18s, 0.18s, 0.18s, 0.12s"
+  ],
+  "animationsDuringRefetch": [
+    "CSSTransition|opacity|300|DIV",
+    "CSSAnimation|gl-fade-start-in|auto|DIV",
+    "CSSAnimation|gl-fade-end-out|auto|DIV",
+    "CSSAnimation|spin|1000|svg"
+  ],
+  "pageErrors": []
+}

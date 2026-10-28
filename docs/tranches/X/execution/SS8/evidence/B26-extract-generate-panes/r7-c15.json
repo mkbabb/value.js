@@ -1,0 +1,48 @@
+{
+ "at": "2026-10-20T21:42:56.233Z",
+ "count0": {
+  "ok": true,
+  "len": 0,
+  "head": []
+ },
+ "countNeg1": {
+  "ok": true,
+  "len": 0,
+  "head": []
+ },
+ "countNaN": {
+  "ok": true,
+  "len": 0,
+  "head": []
+ },
+ "count1": {
+  "ok": true,
+  "len": 1,
+  "head": [
+   "oklch(55.068393029505% 0.105051596247 225.746618611738deg)"
+  ]
+ },
+ "count50": {
+  "ok": true,
+  "len": 50,
+  "head": [
+   "oklch(55.068393029505% 0.105051596247 225.746618611738deg)",
+   "oklch(79.526274186792% 0.125335508162 3.254382661776deg)"
+  ]
+ },
+ "count51": {
+  "ok": true,
+  "len": 51,
+  "head": [
+   "oklch(55.068393029505% 0.105051596247 225.746618611738deg)",
+   "oklch(79.526274186792% 0.125335508162 3.254382661776deg)"
+  ]
+ },
+ "alias_1_vs_1p5": true,
+ "alias_0_vs_2pow32": true,
+ "alias_1_vs_2pow32plus1": true,
+ "alias_2pow31_vs_neg2pow31": true,
+ "distinct_1_vs_2": true,
+ "deterministic_same_seed": true,
+ "uiSeedDomain": "useColorGeneration.ts: Math.floor(Math.random()*0xffffffff) — integers in [0, 2^32-1); UI count slider bounds the count"
+}

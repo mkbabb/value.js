@@ -1,0 +1,137 @@
+{
+ "cell": "viewmenu",
+ "ms": 10295,
+ "at": "2026-10-20T21:21:05.462Z",
+ "out": {
+  "light": [
+   {
+    "t": "Home",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.216129 0.00624853 56.0356)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Palettes",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.216129 0.00624853 56.0356)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Browse",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.216129 0.00624853 56.0356)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Extract",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.216129 0.00624853 56.0356)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Mix",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.216129 0.00624853 56.0356)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Generate",
+    "sel": "true",
+    "st": "checked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.216129 0.00624853 56.0356)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Gradient",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.216129 0.00624853 56.0356)",
+    "fw": "400",
+    "ind": "1/block"
+   }
+  ],
+  "dark": [
+   {
+    "t": "Home",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.925202 0.00618423 67.7483)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Palettes",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.925202 0.00618423 67.7483)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Browse",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.925202 0.00618423 67.7483)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Extract",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.925202 0.00618423 67.7483)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Mix",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.925202 0.00618423 67.7483)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Generate",
+    "sel": "true",
+    "st": "checked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.925202 0.00618423 67.7483)",
+    "fw": "400",
+    "ind": "1/block"
+   },
+   {
+    "t": "Gradient",
+    "sel": "false",
+    "st": "unchecked",
+    "bg": "rgba(0, 0, 0, 0)",
+    "col": "oklch(0.925202 0.00618423 67.7483)",
+    "fw": "400",
+    "ind": "1/block"
+   }
+  ]
+ }
+}

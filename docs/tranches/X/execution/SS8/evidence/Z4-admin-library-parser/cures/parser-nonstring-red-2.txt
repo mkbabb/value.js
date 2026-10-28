@@ -1,0 +1,180 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ❯ test/parser-totality.test.ts (132 tests | 9 failed) 22ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > enumerates exactly 56 vectors 1ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgb()") returns a typed result, never a TypeError 1ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgb(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgba()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgba(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsl()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsl(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsla()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsla(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hwb()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hwb(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lab()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lab(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lch()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lch(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklab()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklab(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklch()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklch(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("calc()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("calc(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("linear-gradient()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("linear-gradient(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color-mix()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color-mix(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("steps()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("steps(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgb()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgb(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgba()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgba(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsl()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsl(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsla()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsla(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hwb()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hwb(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lab()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lab(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lch()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lch(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklab()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklab(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklch()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklch(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("calc()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("calc(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("linear-gradient()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("linear-gradient(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color-mix()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color-mix(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("steps()") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("steps(   )") returns a typed result, never a TypeError 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgb()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgb(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgba()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgba(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsl()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsl(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsla()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsla(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hwb()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hwb(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lab()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lab(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lch()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lch(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklab()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklab(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklch()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklch(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("color()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("color(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgb()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgb(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgba()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgba(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsl()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsl(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsla()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsla(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hwb()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hwb(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lab()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lab(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lch()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lch(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklab()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklab(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklch()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklch(   )") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("color()") returns a typed result 0ms
+   ✓ X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("color(   )") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssColor("constructor") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssColor("__proto__") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssScalar("constructor") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssScalar("__proto__") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValue("constructor") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValue("__proto__") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValues("constructor") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValues("__proto__") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > coerceToSyntax("constructor") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > coerceToSyntax("__proto__") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssColor never resolves a prototype member as a named colour 1ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{color:constructor}") returns a typed result 1ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{color:__proto__}") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("@keyframes k{from{color:constructor}}") returns a typed result 0ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{background:linear-gradient(constructor,red)}") returns a typed result 1ms
+   ✓ X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{animation:x 1s steps(2,constructor)}") returns a typed result 1ms
+   ✓ X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > parseTimingFunction("steps(2, constructor)") never returns a non-string position 0ms
+   ✓ X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > parseTimingFunction("steps(2, __proto__)") never returns a non-string position 0ms
+   ✓ X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > parseTimingFunction("steps(2, toString)") never returns a non-string position 0ms
+   ✓ X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > collectAnimationOptions never yields a non-string steps position 0ms
+   ✓ X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("constructor") rejects instead of throwing 0ms
+   ✓ X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("__proto__") rejects instead of throwing 0ms
+   ✓ X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("toString") rejects instead of throwing 0ms
+   ✓ X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("valueOf") rejects instead of throwing 0ms
+   ✓ X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("hasOwnProperty") rejects instead of throwing 0ms
+   ✓ X-W9.a §5 · easing(name) is total over Object.prototype keys > the control arms are unchanged 0ms
+   × SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseCssColor answers every non-string with ok:false and one css_syntax issue 4ms
+     → undefined: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseCssScalar answers every non-string with ok:false and one css_syntax issue 0ms
+     → undefined: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseCssValue answers every non-string with ok:false and one css_syntax issue 0ms
+     → undefined: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseCssValues answers every non-string with ok:false and one css_syntax issue 0ms
+     → undefined: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseKeyframeSelector answers every non-string with ok:false and one css_syntax issue 0ms
+     → undefined: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseStylesheet answers every non-string with ok:false and one css_syntax issue 0ms
+     → undefined: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseTimingFunction answers every non-string with ok:false and one css_syntax issue 0ms
+     → undefined: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseAnimationTimeline answers every non-string with ok:false and one css_syntax issue 0ms
+     → undefined: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseAnimationRange answers every non-string with ok:false and one css_syntax issue 0ms
+     → undefined: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/parser-totality.test.ts > SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseCssColor answers every non-string with ok:false and one css_syntax issue
+ FAIL  test/parser-totality.test.ts > SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseCssScalar answers every non-string with ok:false and one css_syntax issue
+ FAIL  test/parser-totality.test.ts > SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseCssValue answers every non-string with ok:false and one css_syntax issue
+ FAIL  test/parser-totality.test.ts > SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseCssValues answers every non-string with ok:false and one css_syntax issue
+ FAIL  test/parser-totality.test.ts > SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseKeyframeSelector answers every non-string with ok:false and one css_syntax issue
+ FAIL  test/parser-totality.test.ts > SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseStylesheet answers every non-string with ok:false and one css_syntax issue
+ FAIL  test/parser-totality.test.ts > SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseTimingFunction answers every non-string with ok:false and one css_syntax issue
+ FAIL  test/parser-totality.test.ts > SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseAnimationTimeline answers every non-string with ok:false and one css_syntax issue
+ FAIL  test/parser-totality.test.ts > SS-8 §6 · a non-string source is an ordinary failure (9 entries × 7 values) > parseAnimationRange answers every non-string with ok:false and one css_syntax issue
+AssertionError: undefined: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[31m+ TypeError: Cannot read properties of undefined (reading 'charCodeAt')[39m
+
+ ❯ test/parser-totality.test.ts:264:55
+    262|             for (const input of NON_STRINGS) {
+    263|                 const outcome = call(() => (fn as (source: unknown) =>…
+    264|                 expect(threw(outcome), String(input)).toBe("");
+       |                                                       ^
+    265|                 expect(outcome).toMatchObject({
+    266|                     ok: false,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  9 failed | 123 passed (132)
+   Start at  17:56:27
+   Duration  868ms (transform 228ms, setup 46ms, collect 309ms, tests 22ms, environment 222ms, prepare 51ms)
+

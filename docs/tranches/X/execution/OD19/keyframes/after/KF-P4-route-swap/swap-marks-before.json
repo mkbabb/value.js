@@ -1,0 +1,185 @@
+{
+ "light-1440": {
+  "inputToHash": null,
+  "maxDt": 100,
+  "over34": 7,
+  "over50": 4,
+  "vtFrames": 9,
+  "measures": {
+   "prepare": 321,
+   "total": 740,
+   "commit": 77
+  },
+  "hash": "#/spring",
+  "longRows": [
+   [
+    424,
+    100,
+    1
+   ],
+   [
+    494,
+    36,
+    1
+   ],
+   [
+    573,
+    80,
+    1
+   ],
+   [
+    653,
+    80,
+    1
+   ],
+   [
+    699,
+    46,
+    1
+   ],
+   [
+    739,
+    39,
+    1
+   ],
+   [
+    796,
+    53,
+    0
+   ]
+  ],
+  "stripMs": [
+   440,
+   936,
+   1236,
+   1499,
+   1753
+  ]
+ },
+ "light-390": {
+  "inputToHash": null,
+  "maxDt": 114,
+  "over34": 3,
+  "over50": 1,
+  "vtFrames": 15,
+  "measures": {
+   "prepare": 306,
+   "total": 710,
+   "commit": 101
+  },
+  "hash": "#/spring",
+  "longRows": [
+   [
+    422,
+    114,
+    1
+   ],
+   [
+    570,
+    36,
+    1
+   ],
+   [
+    684,
+    37,
+    1
+   ]
+  ],
+  "stripMs": [
+   237,
+   294,
+   352,
+   707,
+   961
+  ]
+ },
+ "dark-1440": {
+  "inputToHash": null,
+  "maxDt": 92,
+  "over34": 7,
+  "over50": 5,
+  "vtFrames": 10,
+  "measures": {
+   "prepare": 320,
+   "total": 800,
+   "commit": 79
+  },
+  "hash": "#/spring",
+  "longRows": [
+   [
+    415,
+    92,
+    1
+   ],
+   [
+    551,
+    92,
+    1
+   ],
+   [
+    632,
+    81,
+    1
+   ],
+   [
+    717,
+    85,
+    1
+   ],
+   [
+    798,
+    81,
+    1
+   ],
+   [
+    837,
+    39,
+    0
+   ],
+   [
+    909,
+    39,
+    0
+   ]
+  ],
+  "stripMs": [
+   498,
+   1271,
+   1605,
+   1861,
+   2116
+  ]
+ },
+ "dark-390": {
+  "inputToHash": null,
+  "maxDt": 114,
+  "over34": 2,
+  "over50": 1,
+  "vtFrames": 15,
+  "measures": {
+   "prepare": 308,
+   "total": 696,
+   "commit": 101
+  },
+  "hash": "#/spring",
+  "longRows": [
+   [
+    425,
+    114,
+    1
+   ],
+   [
+    592,
+    35,
+    1
+   ]
+  ],
+  "stripMs": [
+   254,
+   326,
+   522,
+   879,
+   1013
+  ]
+ }
+}

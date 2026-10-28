@@ -1,0 +1,26 @@
+
+ RUN  v4.1.8 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/kf-head
+
+ ❯ |demo| test/demo/scenes/curve-plot-cost.test.ts (3 tests | 1 failed) 64ms
+     × (1) a continuous curve is called <= 1200 times, a staircase <= 400 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/scenes/curve-plot-cost.test.ts > C1-KF-03: a tile plot costs what its curve needs > (1) a continuous curve is called <= 1200 times, a staircase <= 400
+AssertionError: linear: expected 3201 to be less than or equal to 1200
+ ❯ test/demo/scenes/curve-plot-cost.test.ts:69:37
+     67|             const c = counted(fnFor(name));
+     68|             curvePlot(c.fn, unitEasingFrame());
+     69|             expect(c.calls(), name).toBeLessThanOrEqual(name === "step…
+       |                                     ^
+     70|         }
+     71|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  19:12:34
+   Duration  982ms (transform 79ms, setup 27ms, import 79ms, tests 64ms, environment 605ms)
+

@@ -1,0 +1,37 @@
+{
+ "1440": {
+  "faces": 12,
+  "rowWidth": 430,
+  "facesPerRow": [
+   9,
+   3
+  ],
+  "stripH": 16,
+  "stripW": 430,
+  "plateW": 462,
+  "docOverflowX": 0,
+  "actionsVisible": 15,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ "400pct-320x256": {
+  "faces": 12,
+  "rowWidth": 222,
+  "facesPerRow": [
+   4,
+   4,
+   4
+  ],
+  "stripH": 16,
+  "stripW": 222,
+  "plateW": 254,
+  "docOverflowX": 0,
+  "actionsVisible": 15,
+  "errors": [
+   "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:9119' has been blocked by CORS policy: Response to preflight request doesn't pass access control chec",
+   "CONSOLE Failed to load resource: net::ERR_FAILED"
+  ]
+ }
+}

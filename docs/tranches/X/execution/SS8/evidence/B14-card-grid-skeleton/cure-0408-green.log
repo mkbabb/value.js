@@ -1,0 +1,12 @@
+=== AFTER-3
+SS8-0408 light {"peak":1.2738867457176826,"trough":1.159060371752978}
+  ✓  1 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) (42.0s)
+SS8-0408 dark {"peak":1.420186038611531,"trough":1.1804501152025737}
+  ✓  2 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) (2.5s)
+  2 passed (47.8s)
+=== AFTER-4
+SS8-0408 light {"peak":1.2588067164701984,"trough":1.115723933313068}
+  ✓  1 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light) (41.9s)
+SS8-0408 dark {"peak":1.420186038611531,"trough":1.1788420315102552}
+  ✓  2 [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark) (2.6s)
+  2 passed (47.5s)

@@ -1,0 +1,16 @@
+{
+ "at": "2026-10-20T23:02:18.326Z",
+ "results": [
+  {
+   "row": "R-6",
+   "mutant": "KILLED (RED)",
+   "tally": "",
+   "why": [
+    "Expected: 1",
+    "Received: 3",
+    "toBeGreaterThanOrEqual(3);",
+    "toMatchObject({ clipped: false, overlapsTile: false, offRight: false });"
+   ]
+  }
+ ]
+}

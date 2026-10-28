@@ -34,7 +34,8 @@ import { resolve } from "node:path";
  * 1.60 → driven via CDP `Emulation.setEmulatedMedia { features }`.
  */
 
-const PI_DIR = resolve(process.cwd(), "docs/tranches/U/audit/w-a11y/pi");
+// Run output, never committed evidence (COHESION §0gd.2): the dated U pi frames stay as committed.
+const PI_DIR = resolve(process.cwd(), "test-results/a11y-modality-support");
 
 function ensurePiDir() {
     mkdirSync(PI_DIR, { recursive: true });

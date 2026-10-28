@@ -1,0 +1,815 @@
+{
+  "probe": "p3-latch",
+  "at": "2026-10-19T18:51:44.147Z",
+  "cells": {
+    "light-1440-default": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          1181.6,
+          32.8,
+          242.4,
+          22.4
+        ],
+        "plate": [
+          476.3,
+          12.5,
+          487.3,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(198, 180, 159)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(91, 70, 51)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 211.25,
+          "h": 14.391
+        },
+        "min": 3.313,
+        "p10": 3.313,
+        "median": 3.401,
+        "groundLum": [
+          0.342,
+          0.366
+        ],
+        "px": 2954
+      }
+    },
+    "light-1440-paleYellow": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          1181.6,
+          32.8,
+          242.4,
+          22.4
+        ],
+        "plate": [
+          476.3,
+          12.5,
+          487.3,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(198, 180, 159)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(91, 70, 51)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 211.25,
+          "h": 14.391
+        },
+        "min": 3.313,
+        "p10": 3.313,
+        "median": 3.401,
+        "groundLum": [
+          0.342,
+          0.366
+        ],
+        "px": 2954
+      }
+    },
+    "light-1440-deepNavy": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          1181.6,
+          32.8,
+          242.4,
+          22.4
+        ],
+        "plate": [
+          476.3,
+          12.5,
+          487.3,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(198, 180, 159)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(91, 70, 51)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 211.25,
+          "h": 14.391
+        },
+        "min": 3.313,
+        "p10": 3.313,
+        "median": 3.401,
+        "groundLum": [
+          0.342,
+          0.366
+        ],
+        "px": 2954
+      }
+    },
+    "light-390-default": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          347.9,
+          45,
+          26.1,
+          14.1
+        ],
+        "plate": [
+          101,
+          17.5,
+          188,
+          63
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(198, 180, 159)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(91, 70, 51)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 1,
+          "h": 1
+        },
+        "min": 2.18,
+        "p10": 2.18,
+        "median": 2.18,
+        "groundLum": [
+          0.208,
+          0.208
+        ],
+        "px": 1
+      }
+    },
+    "light-390-paleYellow": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          347.9,
+          45,
+          26.1,
+          14.1
+        ],
+        "plate": [
+          101,
+          17.5,
+          188,
+          63
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(198, 180, 159)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(91, 70, 51)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 1,
+          "h": 1
+        },
+        "min": 2.152,
+        "p10": 2.152,
+        "median": 2.152,
+        "groundLum": [
+          0.205,
+          0.205
+        ],
+        "px": 1
+      }
+    },
+    "light-390-deepNavy": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          347.9,
+          45,
+          26.1,
+          14.1
+        ],
+        "plate": [
+          101,
+          17.5,
+          188,
+          63
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(198, 180, 159)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(91, 70, 51)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 1,
+          "h": 1
+        },
+        "min": 2.088,
+        "p10": 2.088,
+        "median": 2.088,
+        "groundLum": [
+          0.197,
+          0.197
+        ],
+        "px": 1
+      }
+    },
+    "dark-1440-default": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          1181.6,
+          32.8,
+          242.4,
+          22.4
+        ],
+        "plate": [
+          476.3,
+          12.5,
+          487.3,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(101, 87, 73)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(213, 208, 200)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 211.25,
+          "h": 14.391
+        },
+        "min": 7.761,
+        "p10": 7.81,
+        "median": 8.038,
+        "groundLum": [
+          0.033,
+          0.038
+        ],
+        "px": 2954
+      }
+    },
+    "dark-1440-paleYellow": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          1181.6,
+          32.8,
+          242.4,
+          22.4
+        ],
+        "plate": [
+          476.3,
+          12.5,
+          487.3,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(101, 87, 73)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(213, 208, 200)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 211.25,
+          "h": 14.391
+        },
+        "min": 7.761,
+        "p10": 7.81,
+        "median": 8.038,
+        "groundLum": [
+          0.033,
+          0.038
+        ],
+        "px": 2954
+      }
+    },
+    "dark-1440-deepNavy": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          1181.6,
+          32.8,
+          242.4,
+          22.4
+        ],
+        "plate": [
+          476.3,
+          12.5,
+          487.3,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(101, 87, 73)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(213, 208, 200)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 211.25,
+          "h": 14.391
+        },
+        "min": 7.761,
+        "p10": 7.81,
+        "median": 8.038,
+        "groundLum": [
+          0.033,
+          0.038
+        ],
+        "px": 2954
+      }
+    },
+    "dark-390-default": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          347.9,
+          45,
+          26.1,
+          14.1
+        ],
+        "plate": [
+          101,
+          17.5,
+          188,
+          63
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(101, 87, 73)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(213, 208, 200)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 1,
+          "h": 1
+        },
+        "min": 5.198,
+        "p10": 5.198,
+        "median": 5.198,
+        "groundLum": [
+          0.082,
+          0.082
+        ],
+        "px": 1
+      }
+    },
+    "dark-390-deepNavy": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          347.9,
+          45,
+          26.1,
+          14.1
+        ],
+        "plate": [
+          101,
+          17.5,
+          188,
+          63
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(101, 87, 73)",
+        "reducedMotion": false
+      },
+      "contrast": {
+        "ink": {
+          "css": "rgb(213, 208, 200)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 1,
+          "h": 1
+        },
+        "min": 4.68,
+        "p10": 4.68,
+        "median": 4.68,
+        "groundLum": [
+          0.096,
+          0.096
+        ],
+        "px": 1
+      }
+    },
+    "mid-session": {
+      "atBoot": null,
+      "after": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          1181.6,
+          32.8,
+          242.4,
+          22.4
+        ],
+        "plate": [
+          471.2,
+          12.5,
+          497.6,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(198, 180, 159)",
+        "reducedMotion": false
+      },
+      "insertions": [
+        {
+          "t": 3011.6999999997206,
+          "hasText": true,
+          "role": "status"
+        }
+      ]
+    },
+    "collide-1024": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          778.9,
+          33.2,
+          229.1,
+          21.5
+        ],
+        "plate": [
+          274.9,
+          12.9,
+          474.1,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(198, 180, 159)",
+        "reducedMotion": false
+      },
+      "dockLayer": 474.1
+    },
+    "collide-1060": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          813.7,
+          33.2,
+          230.3,
+          21.6
+        ],
+        "plate": [
+          292.4,
+          12.8,
+          475.3,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(198, 180, 159)",
+        "reducedMotion": false
+      },
+      "dockLayer": 475.3
+    },
+    "collide-1100": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          852.4,
+          33.2,
+          231.6,
+          21.7
+        ],
+        "plate": [
+          311.7,
+          12.7,
+          476.6,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(198, 180, 159)",
+        "reducedMotion": false
+      },
+      "dockLayer": 476.6
+    },
+    "forced-light": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          1181.6,
+          32.8,
+          242.4,
+          22.4
+        ],
+        "plate": [
+          476.3,
+          12.5,
+          487.3,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(255, 255, 255, 0)",
+        "dotBorder": "0px solid rgb(0, 0, 0)",
+        "reducedMotion": false
+      },
+      "forced": true,
+      "dotPixels": {
+        "w": 7.1875,
+        "h": 7.1875,
+        "bg": "rgba(255, 255, 255, 0)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderWidth": "0px",
+        "outline": "rgb(0, 0, 0) none 3px",
+        "boxShadow": "none",
+        "forcedColorAdjust": "auto"
+      }
+    },
+    "forced-dark": {
+      "chip": {
+        "role": "status",
+        "ariaLive": null,
+        "variant": "unavailable",
+        "seat": "dock",
+        "label": "backend offline — saved locally",
+        "rect": [
+          1181.6,
+          32.8,
+          242.4,
+          22.4
+        ],
+        "plate": [
+          476.3,
+          12.5,
+          487.3,
+          56
+        ],
+        "overlapArea": 0,
+        "animations": [
+          {
+            "el": "status-dot api-status-dot",
+            "ps": null,
+            "name": "lamp-dot-pulse",
+            "dur": "2.4s",
+            "iter": "3"
+          }
+        ],
+        "dotBg": "rgba(0, 0, 0, 0)",
+        "dotBorder": "0px solid rgb(255, 255, 255)",
+        "reducedMotion": false
+      },
+      "forced": true,
+      "dotPixels": {
+        "w": 7.1875,
+        "h": 7.1875,
+        "bg": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "outline": "rgb(255, 255, 255) none 3px",
+        "boxShadow": "none",
+        "forcedColorAdjust": "auto"
+      }
+    }
+  }
+}

@@ -1,0 +1,591 @@
+{
+  "probe": "p1-desktop",
+  "at": "2026-10-19T18:23:12.570Z",
+  "cells": {
+    "light": {
+      "errors": [],
+      "scheme": "light",
+      "c0168_label": {
+        "ink": {
+          "css": "color(srgb 0.109982 0.0980077 0.09001 / 0.8)",
+          "effAlpha": 0.8
+        },
+        "box": {
+          "w": 46.938,
+          "h": 22.969
+        },
+        "min": 4.231,
+        "p10": 4.231,
+        "median": 4.247,
+        "groundLum": [
+          0.288,
+          0.292
+        ],
+        "px": 1012
+      },
+      "c0168_icon": {
+        "ink": {
+          "css": "oklch(0.307762 0.124262 2)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 24,
+          "h": 24
+        },
+        "min": 4.456,
+        "p10": 4.456,
+        "median": 4.456,
+        "groundLum": [
+          0.282,
+          0.283
+        ],
+        "px": 576
+      },
+      "c0172": {
+        "accents": {
+          "picker": "oklch(0.307762 0.124262 2)",
+          "palettes": "oklch(0.307762 0.0928702 42)",
+          "browse": "oklch(0.307762 0.0634163 82)",
+          "extract": "oklch(0.307762 0.074654 122)",
+          "mix": "oklch(0.307762 0.0674957 162)",
+          "generate": "oklch(0.307762 0.0523632 202)",
+          "gradient": "oklch(0.307762 0.0730341 242)"
+        },
+        "oklabL": {
+          "picker": 0.307,
+          "palettes": 0.307,
+          "browse": 0.309,
+          "extract": 0.308,
+          "mix": 0.308,
+          "generate": 0.307,
+          "gradient": 0.308
+        },
+        "oklabC": {
+          "picker": 0.124,
+          "palettes": 0.093,
+          "browse": 0.064,
+          "extract": 0.074,
+          "mix": 0.068,
+          "generate": 0.052,
+          "gradient": 0.073
+        },
+        "maxPairwiseOKLab": 0.1889,
+        "pair": [
+          "picker",
+          "mix"
+        ]
+      },
+      "c0169": {
+        "options": 7,
+        "highlighted": [],
+        "selected": [
+          "Home"
+        ],
+        "activeElement": "combobox:Home"
+      },
+      "c0173": {
+        "triggerBottom": 56.546875,
+        "plateBottom": 71.046875,
+        "bandBottom": 80,
+        "contentTop": 57,
+        "listboxTop": 61,
+        "overlapPlate": 14.05,
+        "overlapBand": 23,
+        "gapFromTrigger": 0.45
+      },
+      "c0155_fine": {
+        "seats": [
+          [
+            40,
+            40
+          ],
+          [
+            44,
+            44
+          ],
+          [
+            40,
+            40
+          ],
+          [
+            40,
+            40
+          ],
+          [
+            40,
+            40
+          ]
+        ],
+        "back": [
+          40,
+          40
+        ],
+        "rootFont": "16px",
+        "uiScale": "1",
+        "pointerCoarse": false
+      },
+      "c0157": {
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "outlineColor": "color(srgb 0.362727 0.0000282761 0.167897 / 0.48)",
+        "outlineOffset": "2px",
+        "boxShadow": "none",
+        "color": "color(srgb 0.109982 0.0980077 0.09001 / 0.8)",
+        "ringVsGround": {
+          "px": 1104,
+          "min": 1.373,
+          "median": 2.075
+        },
+        "ringRgba": [
+          91.97,
+          0,
+          43.89,
+          0.48
+        ]
+      },
+      "c0158_pre": {
+        "collapsed": true,
+        "active": "daraksha"
+      },
+      "c0158": {
+        "frames": 51,
+        "framesWithMidOpacityFace": 15,
+        "sampleMid": [
+          {
+            "t": 251.7,
+            "o": [
+              0,
+              0,
+              0.95,
+              1,
+              0,
+              0.05
+            ],
+            "a": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "t": 301.4,
+            "o": [
+              0,
+              0,
+              0.773,
+              1,
+              0,
+              0.227
+            ],
+            "a": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "t": 347.2,
+            "o": [
+              0,
+              0,
+              0.441,
+              1,
+              0,
+              0.559
+            ],
+            "a": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "t": 349.4,
+            "o": [
+              0,
+              0,
+              0.176,
+              1,
+              0,
+              0.824
+            ],
+            "a": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "t": 394.4,
+            "o": [
+              0,
+              0,
+              0.101,
+              1,
+              0,
+              0.899
+            ],
+            "a": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "t": 442.2,
+            "o": [
+              0,
+              0,
+              0.053,
+              1,
+              0,
+              0.947
+            ],
+            "a": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          }
+        ],
+        "first": {
+          "t": 35.7,
+          "o": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "a": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        "last": {
+          "t": 1416.9,
+          "o": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "a": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ]
+        }
+      },
+      "c0156_fine": {
+        "hoverOpen": {
+          "held": null,
+          "collapsed": false,
+          "cls": "glass-dock horizontal shape-pill expanded fit-content"
+        },
+        "afterClick": {
+          "held": null,
+          "collapsed": false,
+          "cls": "glass-dock horizontal shape-pill expanded fit-content"
+        },
+        "after7s": {
+          "held": null,
+          "collapsed": true,
+          "cls": "glass-dock horizontal shape-pill collapsed fit-content"
+        },
+        "hash": "#/extract"
+      },
+      "c0156_control": {
+        "held": null,
+        "collapsed": true,
+        "cls": "glass-dock horizontal shape-pill collapsed fit-content"
+      },
+      "c0179_1440": {
+        "plate": [
+          615.5,
+          209
+        ],
+        "face": [
+          692.5,
+          120
+        ],
+        "row": [
+          692.5,
+          120
+        ],
+        "seats": [
+          [
+            692.5,
+            40
+          ],
+          [
+            732.5,
+            40
+          ],
+          [
+            772.5,
+            40
+          ]
+        ],
+        "gaps": [
+          0,
+          0
+        ],
+        "pitch": [
+          40,
+          40
+        ],
+        "rowJustify": "space-around",
+        "rowFlex": "1"
+      },
+      "c0180": {
+        "firstClickChanged": true,
+        "midHash": "#/mix",
+        "endHash": "#/generate",
+        "stateAfterReturn": "ready",
+        "secondClickChanged": true,
+        "sigLen": 165
+      }
+    },
+    "dark": {
+      "errors": [],
+      "scheme": "dark",
+      "c0168_label": {
+        "ink": {
+          "css": "color(srgb 0.913884 0.900048 0.886063 / 0.8)",
+          "effAlpha": 0.8
+        },
+        "box": {
+          "w": 46.938,
+          "h": 22.969
+        },
+        "min": 8.243,
+        "p10": 8.243,
+        "median": 8.243,
+        "groundLum": [
+          0.017,
+          0.017
+        ],
+        "px": 1012
+      },
+      "c0168_icon": {
+        "ink": {
+          "css": "oklch(0.733859 0.175986 2)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 24,
+          "h": 24
+        },
+        "min": 6.121,
+        "p10": 6.121,
+        "median": 6.121,
+        "groundLum": [
+          0.017,
+          0.017
+        ],
+        "px": 576
+      },
+      "c0172": {
+        "accents": {
+          "picker": "oklch(0.733859 0.175986 2)",
+          "palettes": "oklch(0.733859 0.170467 42)",
+          "browse": "oklch(0.733859 0.151216 82)",
+          "extract": "oklch(0.733859 0.175986 122)",
+          "mix": "oklch(0.733859 0.160944 162)",
+          "generate": "oklch(0.733859 0.12486 202)",
+          "gradient": "oklch(0.733859 0.151185 242)"
+        },
+        "oklabL": {
+          "picker": 0.734,
+          "palettes": 0.734,
+          "browse": 0.735,
+          "extract": 0.734,
+          "mix": 0.733,
+          "generate": 0.733,
+          "gradient": 0.733
+        },
+        "oklabC": {
+          "picker": 0.175,
+          "palettes": 0.17,
+          "browse": 0.151,
+          "extract": 0.176,
+          "mix": 0.161,
+          "generate": 0.125,
+          "gradient": 0.152
+        },
+        "maxPairwiseOKLab": 0.3308,
+        "pair": [
+          "picker",
+          "mix"
+        ]
+      },
+      "c0169": {
+        "options": 7,
+        "highlighted": [],
+        "selected": [
+          "Home"
+        ],
+        "activeElement": "combobox:Home"
+      },
+      "c0173": {
+        "triggerBottom": 56.546875,
+        "plateBottom": 71.046875,
+        "bandBottom": 80,
+        "contentTop": 57,
+        "listboxTop": 61,
+        "overlapPlate": 14.05,
+        "overlapBand": 23,
+        "gapFromTrigger": 0.45
+      },
+      "c0155_fine": {
+        "seats": [
+          [
+            40,
+            40
+          ],
+          [
+            44,
+            44
+          ],
+          [
+            40,
+            40
+          ],
+          [
+            40,
+            40
+          ],
+          [
+            40,
+            40
+          ]
+        ],
+        "back": [
+          40,
+          40
+        ],
+        "rootFont": "16px",
+        "uiScale": "1",
+        "pointerCoarse": false
+      },
+      "c0157": {
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "outlineColor": "color(srgb 0.999939 0.449066 0.628254 / 0.48)",
+        "outlineOffset": "2px",
+        "boxShadow": "none",
+        "color": "color(srgb 0.913884 0.900048 0.886063 / 0.8)",
+        "ringVsGround": {
+          "px": 1104,
+          "min": 1.544,
+          "median": 2.392
+        },
+        "ringRgba": [
+          255,
+          114.96,
+          160.94,
+          0.48
+        ]
+      }
+    },
+    "admin-light": {
+      "c0175": {
+        "hash": "#/atmosphere",
+        "goldInk": true,
+        "color": "oklch(0.389772 0.0799759 84.2)",
+        "stroke": "oklch(0.389772 0.0799759 84.2)",
+        "fill": "none",
+        "bgImage": "none",
+        "tokens": {
+          "--color-gold": "light-dark(oklch(0.751 0.147 84.2),oklch(0.784 0.143 86.0))",
+          "--color-gold-light": "light-dark(oklch(0.890 0.183 96.1),oklch(0.898 0.182 97.4))",
+          "--gold": "light-dark(oklch(0.751 0.147 84.2),oklch(0.784 0.143 86.0))",
+          "--gold-ink": ""
+        }
+      },
+      "c0175_rendered": {
+        "ink": {
+          "css": "oklch(0.389772 0.0799759 84.2)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 24,
+          "h": 24
+        },
+        "min": 3.132,
+        "p10": 3.132,
+        "median": 3.132,
+        "groundLum": [
+          0.292,
+          0.295
+        ],
+        "px": 784
+      }
+    },
+    "admin-dark": {
+      "c0175": {
+        "hash": "#/atmosphere",
+        "goldInk": true,
+        "color": "oklch(0.784 0.143 86)",
+        "stroke": "oklch(0.784 0.143 86)",
+        "fill": "none",
+        "bgImage": "none",
+        "tokens": {
+          "--color-gold": "oklch(0.784 0.143 86.0)",
+          "--color-gold-light": "oklch(0.898 0.182 97.4)",
+          "--gold": "oklch(0.784 0.143 86.0)",
+          "--gold-ink": ""
+        }
+      },
+      "c0175_rendered": {
+        "ink": {
+          "css": "oklch(0.784 0.143 86)",
+          "effAlpha": 1
+        },
+        "box": {
+          "w": 24,
+          "h": 24
+        },
+        "min": 7.702,
+        "p10": 7.702,
+        "median": 7.793,
+        "groundLum": [
+          0.017,
+          0.018
+        ],
+        "px": 784
+      }
+    }
+  }
+}

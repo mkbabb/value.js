@@ -1,0 +1,8 @@
+2026-10-20 npm pack @mkbabb/value.js@4.0.0 vs working-tree dist (package.json 4.1.0, head 6aa74e30f)
+   43972 pkg/package/dist/subpaths/css.js
+     813 /Users/mkbabb/Programming/value.js/dist/subpaths/css.js
+   44785 total
+pkg/package/dist/subpaths/css.js /Users/mkbabb/Programming/value.js/dist/subpaths/css.js differ: char 10, line 1
+cmp rc=1
+registry chunks:        4  tree chunks:       13
+subpath names identical

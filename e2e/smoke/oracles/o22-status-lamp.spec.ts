@@ -128,3 +128,118 @@ test.describe("O-22 · the dock status lamp (W6-6 / T-9)", () => {
         expect(lampMidY).toBeLessThan(dockBox.y + dockBox.height + 1);
     });
 });
+
+/**
+ * SS-8 B06 (packets/B06-dock-toolbar-status.md §cures) — the lamp's two
+ * served-face rows, measured on the live band under the same REAL transport
+ * failure as above.
+ *
+ *   SS8-0165 · WCAG 2.2.2 — automatic motion that starts with the content
+ *       and runs beside it stops within 5 s: the dot's pulse, summed over
+ *       every iteration, is ≤ 5 s (it read 2.4 s × 3 = 7.2 s).
+ *   SS8-0162 · the dock seat's label clears 4.5:1 against the ground it is
+ *       actually painted on (the capsule fill composited over the band), in
+ *       both schemes at 1440 — it read 3.31:1 in light (glass's muted chip
+ *       ink on the translucent band). The ground is a screenshot of the
+ *       label's own box with its ink made transparent; the resolved ink is
+ *       composited over every ground pixel and the WORST pixel is asserted.
+ */
+async function lightTheLamp(page: import("@playwright/test").Page) {
+    await page.route(/\/(colors|sessions|palettes|users)\//, (route) => {
+        const type = route.request().resourceType();
+        return type === "fetch" || type === "xhr"
+            ? route.abort("connectionrefused")
+            : route.continue();
+    });
+    await page.goto("/");
+    const lamp = page.locator(".api-status-chip[data-seat=dock]");
+    await expect(lamp).toBeVisible({ timeout: 10000 });
+    return lamp;
+}
+
+test.describe("SS-8 B06 · the dock lamp's served face", () => {
+    test("SS8-0165 — the arrival pulse stops within 5 s (WCAG 2.2.2)", async ({ page }) => {
+        await page.emulateMedia({ reducedMotion: "no-preference" });
+        const lamp = await lightTheLamp(page);
+        const runs = await lamp.evaluate((el) =>
+            el.getAnimations({ subtree: true }).map((a) => {
+                const t = a.effect!.getComputedTiming();
+                return { name: (a as CSSAnimation).animationName, total: Number(t.endTime) };
+            }),
+        );
+        expect(runs.length, "the arrival beat is part of the lamp's identity").toBeGreaterThan(0);
+        for (const r of runs) expect(r.total, `${r.name} runs ${r.total} ms`).toBeLessThanOrEqual(5000);
+    });
+
+    for (const scheme of ["light", "dark"] as const) {
+        test(`SS8-0162 — the dock label clears 4.5:1 on its own ground (${scheme}, 1440)`, async ({
+            page,
+        }) => {
+            await page.setViewportSize({ width: 1440, height: 900 });
+            await page.emulateMedia({ colorScheme: scheme, reducedMotion: "reduce" });
+            const lamp = await lightTheLamp(page);
+            const label = lamp.locator(".api-status-label");
+            // let the band's boot inks settle before reading the ground
+            await page.waitForTimeout(1200);
+            const ink = await label.evaluate((el) => {
+                const cv = document.createElement("canvas");
+                cv.width = cv.height = 1;
+                const ctx = cv.getContext("2d", { willReadFrequently: true })!;
+                const draw = (ground: string, css: string) => {
+                    ctx.fillStyle = ground;
+                    ctx.fillRect(0, 0, 1, 1);
+                    ctx.fillStyle = "#000";
+                    ctx.fillStyle = css;
+                    ctx.fillRect(0, 0, 1, 1);
+                    return ctx.getImageData(0, 0, 1, 1).data;
+                };
+                const css = getComputedStyle(el).color;
+                const b = draw("#000", css);
+                const w = draw("#fff", css);
+                const [b0, b1, b2] = [b[0]!, b[1]!, b[2]!];
+                const a = 1 - (w[0]! - b0) / 255;
+                let op = 1;
+                for (let n: Element | null = el; n; n = n.parentElement)
+                    op *= Number(getComputedStyle(n).opacity);
+                const rgb: [number, number, number] = a > 0 ? [b0 / a, b1 / a, b2 / a] : [0, 0, 0];
+                return { css, rgb, alpha: a * op };
+            });
+            await label.evaluate((el) => {
+                el.style.setProperty("color", "transparent", "important");
+                el.style.setProperty("transition", "none", "important");
+            });
+            await page.waitForTimeout(100);
+            const shot = await label.screenshot();
+            const min = await page.evaluate(
+                async ({ b64, ink }) => {
+                    const img = new Image();
+                    img.src = "data:image/png;base64," + b64;
+                    await img.decode();
+                    const c = document.createElement("canvas");
+                    c.width = img.width;
+                    c.height = img.height;
+                    const x = c.getContext("2d")!;
+                    x.drawImage(img, 0, 0);
+                    const d = x.getImageData(0, 0, c.width, c.height).data;
+                    const lin = (v: number) => {
+                        const s = v / 255;
+                        return s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+                    };
+                    const L = (r: number, g: number, b: number) =>
+                        0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+                    const a = ink.alpha;
+                    let worst = Infinity;
+                    for (let i = 0; i < d.length; i += 4) {
+                        const [r, g, b] = [d[i]!, d[i + 1]!, d[i + 2]!];
+                        const l1 = L(a * ink.rgb[0] + (1 - a) * r, a * ink.rgb[1] + (1 - a) * g, a * ink.rgb[2] + (1 - a) * b);
+                        const l2 = L(r, g, b);
+                        worst = Math.min(worst, (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05));
+                    }
+                    return worst;
+                },
+                { b64: shot.toString("base64"), ink },
+            );
+            expect(min, `label ink ${ink.css} — worst-pixel contrast`).toBeGreaterThanOrEqual(4.5);
+        });
+    }
+});

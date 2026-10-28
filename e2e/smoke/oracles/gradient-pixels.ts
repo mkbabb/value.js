@@ -1,5 +1,6 @@
 /**
- * Shared pixel-probe helpers for the Lane-G gradient oracles (O-19 / O-21).
+ * Shared pixel-probe helpers for the Lane-G gradient oracle (O-21; O-19
+ * retired with its referent, COHESION §0gl.9).
  *
  * The probes judge COMPOSITED pixels (element screenshot → decoded IN PAGE
  * via an own-origin canvas — a data-URL image never taints), not canvas
@@ -34,35 +35,6 @@ export async function screenshotPixels(
         const d = ctx.getImageData(0, 0, c.width, c.height);
         return { w: c.width, h: c.height, data: Array.from(d.data) };
     }, buf.toString("base64"));
-}
-
-/**
- * Robust luma spread (p97 − p3 of BT.709 luma) over a fractional window —
- * the hatch-line-vs-paper delta of a netting region: the window holds both
- * stroke cores and paper ground; percentiles reject AA tails and the
- * paper-grain dither.
- */
-export function lumaDelta(
-    png: DecodedPNG,
-    x0f: number,
-    x1f: number,
-    y0f: number,
-    y1f: number,
-): number {
-    const { w, h, data } = png;
-    const lumas: number[] = [];
-    for (let y = Math.round(h * y0f); y < h * y1f; y++) {
-        for (let x = Math.round(w * x0f); x < w * x1f; x++) {
-            const i = 4 * (y * w + x);
-            lumas.push(
-                0.2126 * data[i]! + 0.7152 * data[i + 1]! + 0.0722 * data[i + 2]!,
-            );
-        }
-    }
-    lumas.sort((a, b) => a - b);
-    const p = (q: number) =>
-        lumas[Math.min(lumas.length - 1, Math.floor(q * lumas.length))]!;
-    return p(0.97) - p(0.03);
 }
 
 /** Mean RGB over an absolute-x / fractional-y window. */

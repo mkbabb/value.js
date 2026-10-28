@@ -1,0 +1,139 @@
+# SS-8 packet — B07-pane-shell
+
+**SERVED MODEL:** `claude-opus-5-5` (Opus 5.5), the model ID in this seat's own system prompt.
+**Seat:** SS-8 WITNESS · 2026-10-19 · authority: EXECUTION-RUNBOOK §4.1, COHESION §0gd.4.
+**Records:** PaneHeader (12) · shell-panesegmentedcontrol (9) · shell-paneslot (10) = 31 items (SS8-0188..0218).
+**Tally:** PROVEN 6 · REFUTED 13 · UNPROVEN 12.
+
+## Served state and apparatus
+- **Served app:** `http://localhost:9000` (value.js vite dev, Vue 3.5.35) on `tranche-u`. HEAD moved from `e8c9abd11` to `df97486e2` while this seat ran.
+  - `demo/shared/ui/PaneHeader.vue` and `demo/shell/PaneShell.vue` were dirty with X-DS tail hunks when the seat opened. Those hunks were committed as `4fe9b05b9` at 12:44:21 ("retire PaneShell's seated prop and overlying branch at all 10 call sites"). Every run after that served bytes identical to that commit.
+  - The earliest cells (`forced` and `zoom`, 12:43–12:44) served the same bytes from the working tree.
+- **Probes** (`P/` = `docs/tranches/X/execution/SS8/probes/B07-pane-shell/`):
+  - `recon.mjs` and `recon-wrapper.mjs` for discovery.
+  - `probe-chromium.mjs` with cells `census · forced · zoom · hops · keys · b3 · engine · dock`.
+  - `probe-engine.mjs`, run once per engine.
+  - `closure.py`, a static import-closure count.
+- **Browsers and runs:** every browser run was headless, with one browser per run, a new context per cell, and everything closed in `finally`. The runs were:
+  - `~/.claude/guard/guarded --timeout 20 -- node P/probe-chromium.mjs engine,forced,zoom,b3,dock,keys`
+  - `~/.claude/guard/guarded --timeout 40 -- node P/probe-chromium.mjs keys,hops,census`
+  - `KEY_ARMS=cmdk-home,ctrlk-home,cmdk ~/.claude/guard/guarded --timeout 10 -- node P/probe-chromium.mjs keys`
+  - `~/.claude/guard/guarded --timeout 20 -- node P/probe-chromium.mjs hops` (the hop sampler re-cut to pane identity; this is the run cited)
+  - `~/.claude/guard/guarded --exclusive webkit --timeout 20 -- node P/probe-engine.mjs webkit`
+  - `~/.claude/guard/guarded --timeout 20 -- node P/probe-engine.mjs chromium`
+  - `python3 -I P/closure.py`
+  - `~/.claude/guard/guarded --timeout 10 -- node P/recon.mjs > E/recon-1440.jsonl` (re-run 2026-10-19 14:0x by the re-deployed seat, after a machine reboot: the earlier file had been clobbered by a guard wait line. `PaneHeader.vue`, `PaneShell.vue` and `PaneSlot.vue` were unchanged since `4fe9b05b9`, so every cell above still describes the served subject. The re-run reproduces 0196: 11 routes, one visible seated header per region, `hostOverlying` false, title `transform: none`, veil `display: none`.)
+  - `npm pack @mkbabb/value.js@4.0.0`, extracted to the session scratchpad and read with `wc`/`grep` only.
+- **Engines:** Chromium = HeadlessChrome 148.0.7778.96. WebKit = Playwright WebKit, UA `Version/26.4 Safari/605.1.15`. **Shipping Safari was not run.** The law allows headless only, and Safari.app has no headless mode.
+- **Evidence** (`E/` = `docs/tranches/X/execution/SS8/evidence/B07-pane-shell/`):
+  - `chromium-{census,forced,zoom,hops,keys,b3,engine,dock}.json`
+  - `webkit-engine.json` and `chromium-engine.json` (from `probe-engine.mjs`)
+  - `closure-L5.json`
+  - PNGs: the backdrop pairs for both engines, the forced-colors header pair, the zoom-equivalent frames, and the B3 at-home frames
+- **Subject changes at HEAD (they decide most rows):**
+  1. **PaneHeader** is glass `<CardHeader shrink>` (A2-VA-L1-2). The per-frame title-scale / caption scrub is retired, along with `--pane-title-shrink-ratio` / `tan(atan2())`. Since `4fe9b05b9`, every pane header is SEATED above PaneShell's FadingScroll port. `census`: 48/48 cells (5 viewports × 5 routes, 1440 also dark) show:
+     - `port.seated=true`, with header↔port overlap **0 px**
+     - `data-condensed="false"` at every scroll y (0/64/120/300/max)
+     - title `transform: none`
+     - veil `::before` **`display: none`** (the seated rule `.card:has(> .pane-header ~ .pane-scroll-fade) > .pane-header::before`)
+  2. **`PaneSegmentedControl.vue` is DELETED** (`50633f195`, X.W5.c: "DELETE demo/shell/PaneSegmentedControl.vue with the Dock Picker|Blob toggle"). It has no successor: `dock` cell, 390 and 1024: `.dock-mobile-panes` = 0 and segmented/tabs-indicator = 0. Per the SS-8 README, a deleted subject leaves the item UNPROVEN, and the row records that the subject is gone.
+  3. **PaneSlot** runs `mode="out-in"`. The shell mounts one `regions[]` path (X.W5.c), and every region has its own ErrorBoundary.
+
+## Verdicts
+
+| SID · item | claim (abridged; verbatim in INVENTORY.json) | probe | verdict | evidence |
+|---|---|---|---|---|
+| 0188 · PH engine | Does shipping Safari (vs the Playwright WebKit build) show PH-1? | `engine` cell: resolve `scale: calc(tan(atan2(var(--type-heading), var(--type-display-1))))` at 7 widths in each engine; `render` cell: title transform under scroll | **UNPROVEN**: shipping Safari cannot be run headless, so the engine-attribution question stays open. Measured in Playwright WebKit 26.4: the PH-1 arithmetic **reproduces to six figures** (1440 → 0.310808, 1024 → 10.868346, 1280 → −7.39094, 1300 → 13.171055, 390 → 1.619775). Chromium gives the true ratio (0.618029 …). The literal `tan(atan2(24px,48px))` = 0.5 in WebKit, so the fault is in the token or vw path. At HEAD the expression is not consumed (title `transform: none` in both engines at every y), so no live surface shows it. | `E/webkit-engine.json` `arith`,`render`; `E/chromium-engine.json` |
+| 0189 · PH-3 | Parked poses 0.9775/0.2375/0.806 (1440×900) and 0.5425 (1512×982), plus maxScroll figures | `census` scrub y = 0/64/120/300/max, 1440×900 + 1512×982 (+3 more viewports): title transform/fs, caption display, condensed | **REFUTED** at HEAD: nothing parks at a fractional pose. Title `transform: none` and font-size constant (41.888 px at 1440/1512) at every y. Caption visible, `data-condensed` never true. Document maxScroll: 1440 `/gradient` 75, all other 1440/1512 routes 0. | `E/chromium-census.json` |
+| 0190 · C-8(ii) | Rescue overflow ≈ 211 px on Gradient at 1280×720 | `census` 1280×720 `/gradient`: document and port maxScroll | **REFUTED**: overflow is **247 px** (document), and the ports overflow 0. The luck limb is moot: gate 3 read the veil's opacity at 64 px, and the veil is not generated (display:none) at HEAD. | `E/chromium-census.json` (1280x720 /gradient) |
+| 0191 · D-3 | The WebKit frames render band content SHARP because backdrop-filter is plausibly inert in that headless build; Chromium still leaks | `probe-engine` backdrop cell: authored 4 px b/w stripes under a transparent fixed probe; screenshot with `backdrop-filter: none` vs `blur(16px)`; luma std and delta | **PROVEN** (the qualifier's premise): Playwright WebKit headless computes `blur(16px)` but paints nothing. Δluma **0**, std 127.5 → 127.5. Chromium blurs live: Δ 128, std 127.5 → 0.5. WebKit-headless frames therefore cannot credit `--glass-blur-resting` with any occlusion. PH-11 severity is moot at HEAD because the veil is not generated. | `E/webkit-engine.json` `backdrop`; `E/webkit-backdrop-{none,blur16}.png`; `E/chromium-engine.json`; `E/chromium-backdrop-*.png` |
+| 0192 · C-11 | About 18 % of main-thread scrub cost is attributable to the veil | `census` + `forced`: veil `::before` display/animation in every cell | **REFUTED** at HEAD: the veil pseudo is `display: none` in 48/48 cells, and a pseudo that is not generated has nothing to animate or paint. The attributable cost is 0, so no trace was needed. | `E/chromium-census.json` `veil.display` |
+| 0193 · D-14 | Forced-colors computed values (locally unhandled) | `forced` cell: Chromium `forcedColors: active`, `/gradient` 1440; computed header/title/veil/card values vs the `none` control | **PROVEN** (measured live; still unhandled locally): `matches (forced-colors: active)` = true and `forced-color-adjust: auto`. There is no authored arm, so the UA forces the values: title `rgb(0,0,0)`, header border `rgb(0,0,0)`, card bg `rgb(255,255,255)` with a 1 px black border, veil bg `rgb(255,255,255)` and backdrop `blur(0px) saturate(1.5)`. D-14's "52 % Canvas wash" limb no longer paints, because the veil is `display:none`. | `E/chromium-forced.json`; `E/chromium-forced-{none,active}-gradient-header.png` |
+| 0194 · D-15 | Zoom 200 %: pole at 768 px → −6.38, rendered consequence unobserved | `engine` arithmetic at 768; `render` at 720×450@2 and 768×491@2 (layout-equivalent to 200 % zoom), y = 0/64/120/300, both engines | **REFUTED** at HEAD (rendered consequence): titles render `transform: none` at 32.928 px with no overflow, in viewport, in both engines. The arithmetic limb holds: WebKit 768 → **−6.375695**. | `E/{webkit,chromium}-engine.json`; `E/chromium-zoom.json`; `E/{webkit,chromium}-zoom200eq-768-gradient-y300.png` |
+| 0195 · C-4 | Dead band 63.8 px / 7.1 % viewport, plus hit-test sampling | `census` scrub: condensed state, caption display, header↔title geometry | **REFUTED** at HEAD: no collapse state can be reached. `data-condensed` is false at all y in 48/48 cells, so the post-collapse, pointer-opaque `opacity:0` caption never exists. The band under the title holds the visible caption: 49.7–70.4 px across viewports. | `E/chromium-census.json` `deadBandPx`,`desc` |
+| 0196 · L2-3 | Route-instance arithmetic: host contract broken on 2 of 11; ghost double-mounts on /#/browse and /#/generate | `recon` (11 routes, 1440) + `census`: headers per route, visibility, host relation | **REFUTED** at HEAD: one `.pane-header` per region and no hidden instance. `/browse` = Browse + My Palettes, and `/generate` = Generate + My Palettes; these are the two regions, both visible. On every route `.pane-scroll-fade` is PaneShell's port, a sibling of the header, so the contract holds everywhere. | `E/recon-1440.jsonl`; `E/chromium-census.json` |
+| 0197 · veil alphas | Exact resolved veil alphas 0.65 / 0.72 | `census` token read (`--glass-plate-resting`, `--glass-bg-resting`) light + dark; veil `::before` background | **REFUTED**: the veil fill is `--glass-plate-resting` = α **0.14** light and **0.18** dark. `--glass-bg-resting` resolves to `rgba(0,0,0,0)`, so it is unset, and the veil is not generated anyway. | `E/chromium-census.json` `rest.tokens` |
+| 0198 · division cure | `calc(len/len)` → number is safe across engines (needs one live WebKit confirmation) | `engine` cell: `scale: calc(var(--type-heading) / var(--type-display-1))` and `calc(24px/48px)` at 7 widths | **PROVEN**: WebKit 26.4 resolves both: 0.618029 at 1440, 0.727518 at 1024, 0.822154 at 768, 1 at 390, literal 0.5, `CSS.supports` true. These are identical to Chromium. | `E/webkit-engine.json`, `E/chromium-engine.json` `arith.divScale` |
+| 0199 · PH-13 | Occlusion geometry: 68.97–136.6 px bands; zero `scroll-padding` | `census`: header height, port `scroll-padding-block-start`, header↔port overlap, all scroll ys | **REFUTED** (no occlusion): every header is seated, with overlap **0 px** in 48/48 cells. The band heights differ from the record: 85.9–165.8 px at 1440, 100.3–153.8 px at 390. The zero-padding fact still holds (`scroll-padding-block-start: auto` on every port), but nothing sits over the scroller. | `E/chromium-census.json` |
+| 0200 · PSC RTL | Decisive native-RTL first-paint probe | `dock` census 390 + 1024 | **UNPROVEN**: the subject is DELETED (`50633f195`), and the dock has no segmented control or indicator to paint. The BJ relay's precondition cannot be met and the relay is moot. | `E/chromium-dock.json` |
+| 0201 · PSC D-1 | Raw RTL indicator geometry 134.94/49.36 vs 184.00/49.09 @390 | — | **UNPROVEN**: the subject is deleted. | `E/chromium-dock.json` |
+| 0202 · PSC D-2 | Resolved colours, 1.20/1.24:1, plus the Chromium `contrast-color()` cell | `engine` cell | **UNPROVEN**: the subject is deleted. Engine sub-cell, recorded only: `CSS.supports("color","contrast-color(red)")` = **true** in Chromium 148 and in WebKit 26.4. | `E/chromium-engine.json`, `E/webkit-engine.json` |
+| 0203 · PSC 639/641 | Discontinuity table and L-2's 1024×1366 boxes | — | **UNPROVEN**: the subject is deleted. | — |
+| 0204 · PSC C-3 | End-to-end keyboard journey | — | **UNPROVEN**: the subject is deleted. | — |
+| 0205 · PSC D-7 | Rendered UA focus ring | — | **UNPROVEN**: the subject is deleted. | — |
+| 0206 · PSC C-9 | Mutation results #1/#2/#5 | — | **UNPROVEN**: the subject is deleted, so there is nothing to mutate. | — |
+| 0207 · PSC-9 + atmosphere jolt | 5 s auto-collapse marooning at 1024×1366; dock fit-content jolt on `/#/atmosphere` | `dock` cell: dock box at home, home +6 s, `/atmosphere` | **UNPROVEN**: the subject is deleted. Sub-cell: `.dock-mobile-panes` is absent (0), and the dock band is unchanged across the hop (358×72 @390, 992×72 @1024). Only end states were sampled, not frame-by-frame. | `E/chromium-dock.json` |
+| 0208 · PSC PRM | `reduce` transition measurements | — | **UNPROVEN**: the subject is deleted. | — |
+| 0209 · PS out-in | Does `mode="out-in"` still strand under vite dev on Vue 3.5.35 with the real configuration? | `hops`: real dev app (out-in shipped), rAF sampler per region (child count, pane identity via the dev `__vueParentComponent`, `-active` classes), hops `/gradient /mix /extract /generate /` ×2 at 1440, 390 and 1440-`reduce` | **REFUTED**: there is no strand. **30/30** hops settle on the correct pane in every region, max **1** child per region (no co-mount), and both `leave-active` and `enter-active` frames are observed on each hop (the leave/enter order was not sampled). | `E/chromium-hops.json` |
+| 0210 · PS D-2/3/4 | Pixel figures (674→1254 mobile wrapper, 722 px teleport, 512→1042 width, 26–27-frame censuses, PRM byte-identical table) | `hops` per-frame region h/w and container height | **REFUTED** at HEAD: there is no co-mount geometry. Region width is constant across every hop (512 @1440, 358 @390), and no region ever holds two panes. Under `reduce`, leave/enter run 2 frames each with `transition-duration: 0s`. The figures describe the retired default-mode slot. | `E/chromium-hops.json` |
+| 0211 · PS-1 | The 2 190 ms hold | `hops` swap timing | **UNPROVEN**: PS-1's quantity is the window in which App files the outgoing instance under the incoming key. At HEAD `onMount(instance, key)` makes that unrepresentable by construction, and no live instrument reads it. Measured only for context: warm swaps put the incoming pane present at 239–325 ms and settle at 711–890 ms (no-preference). That is a different quantity. | `E/chromium-hops.json` |
+| 0212 · PS D-6 | Cold-route durations 2121/2505/2107/2110 ms (dev) | `hops` first visit per chunk in a fresh context | **REFUTED** as figures: first-visit incoming-present is 260–466 ms and settle is 776–991 ms at 1440 (no-preference), so most first visits beat the record's figures. One `reduce` cold `/generate` took **2886 ms** (24 empty-region frames), which is dev chunk latency. The numbers do not reproduce as a stable figure. | `E/chromium-hops.json` |
+| 0213 · PS keys | Cmd+K / Escape / Enter swallow on a non-picker route | `keys`: start at `/#/`, enter edit through the picker's exposed `onStartEdit` (dev instance), hop to `/#/gradient` (picker deactivated, not in DOM), press the key, read `defaultPrevented` from a later window listener; controls: idle Escape, Cmd+K and Ctrl+K on `/#/` | **PROVEN** (Escape and Enter): on `/#/gradient` with the picker cached, **Escape → `defaultPrevented: true`**, and the off-screen edit was cancelled (`isEditing` true → false). **Enter → prevented**, and the edit committed off-screen. Idle Escape → not prevented. The Cmd+K limb stays UNPROVEN: it was not prevented even on `/#/` with the picker live, so the synthetic chord does not reach that arm and the instrument is negative. | `E/chromium-keys.json` |
+| 0214 · PS B3 | Deep-link cold boot → return to `/#/` → hero blob absent | `b3`: cold boot `/gradient` and `/browse`, then hash `/`, settle 6 s; control: cold `/` | **REFUTED** at HEAD: after both deep-link boots, `.hero-blob-anchor` is present with 1 canvas at 113×113, the same as the control, and the blob is visible in the frame. | `E/chromium-b3.json`; `E/chromium-b3-start{gradient,browse,home}-at-home.png` |
+| 0215 · PS L-5 | Closure 135 files / 54 palettes / 40 % | `closure.py`: static import closure of `demo/shell/dock/index.ts` (relative specifiers; dynamic `import()` excluded) | **REFUTED** as figures: **82 files / 28 palettes / 34.1 %** (all static edges), or 69 / 27 / 39.1 % (runtime edges only). The edges still stand: `SESSION_PORT_KEY` is still defined in `demo/palettes/usePalettePorts.ts` and imported by 5 shell files. | `E/closure-L5.json` |
+| 0216 · PS L-10 | Regression baseline: npm 4.0.0's `css.d.ts` = 350 lines | `npm pack @mkbabb/value.js@4.0.0` (the registry tops out at 4.0.0); `wc -l` / `grep -c '_2\b'` | **PROVEN**: npm 4.0.0 `dist/subpaths/css.d.ts` = **350** lines with 0 `_2` privates. Today's local build (12:21) = 371 lines, also 0 `_2`, so the 382/25 duplication does not reproduce in the current dist. | command output in this packet's run (scratchpad extract) |
+| 0217 · PS-4 + D-5 | PS-4's 360-write counter; D-5's add=3/rem=0 listener rows | `hops` with `window.add/removeEventListener('keydown')` counting via `addInitScript` | **UNPROVEN**: the PS-4 write counter was not instrumented. D-5 measured **add=4 / rem=0** over boot plus 10 hops (0/0 per hop) in all three runs. The shape holds (cached panes never remove), but the record's 3 does not reproduce. | `E/chromium-hops.json` `kdTotal`,`kdDelta` |
+| 0218 · PS-9 | Swap-announcement AFTER witness | `hops`: the `p[role=status][aria-live=polite]` text after each hop | **PROVEN**: every hop in all three runs announces the arrived view (`"Gradient view"`, `"Mix view"`, `"Extract view"`, `"Generate view"`, `"Home view"`). The route H1 names the pane once the swap settles. | `E/chromium-hops.json` `announce`,`h1` |
+
+## REFUTED: owner and root cure
+
+| SID | owner | root cure |
+|---|---|---|
+| 0189 PH-3 | consumer | Already cured at HEAD: A2-VA-L1-2 retired the scrub, and seated headers never condense. Strike the parked-pose and maxScroll figures from carried prose. |
+| 0190 C-8(ii) | consumer | No code cure. Any gate still keyed to "Gradient overflows ≈211 at 1280×720" must re-base on HEAD (247 px, document scroller) or, better, measure against the pane's own travel. |
+| 0192 C-11 | consumer | The veil pays no cost because it is not generated. Root residue: since `4fe9b05b9` retired the overlying branch, `PaneHeader.vue`'s veil block (`::before` fill and filter, the `@supports (animation-timeline)` swell, `@keyframes pane-header-veil`, the seated `display:none` rule and `--pane-veil-rest`) is **dead CSS**. Delete it, or re-home it to glass (O-74d §1), in the next touch of the file. |
+| 0194 D-15 | consumer | Already cured: the title does not scale. If any rung ratio returns, write it as `calc(len / len)` (proven safe, 0198) and never as `tan(atan2())`, which still poles in WebKit 26.4. |
+| 0195 C-4 | consumer | Already cured: glass condense uses `display:none` on the caption, and seated headers never condense. Strike the 63.8 px / 7.1 % figures. |
+| 0196 L2-3 | consumer | Already cured: the host class sits on PaneShell's FadingScroll port on every route, and there is no ghost instance. |
+| 0197 veil alphas | consumer | Strike 0.65/0.72. The PaneHeader.vue comment that claims "resting-rung fill (α 0.65 light / 0.72 dark) … 33.8 % L / 37.4 % D" is now false: the fill is `--glass-plate-resting` α 0.14 / 0.18, and `--glass-bg-resting` is unset. That comment dies with the dead veil block (see 0192). |
+| 0199 PH-13 | consumer | No occluder at HEAD: every header is seated and overlaps its port by 0 px. The zero-`scroll-padding` fact stands but is harmless while headers stay seated. Re-open only if an overlying header returns. |
+| 0209 PS out-in | consumer | Already cured: X.W5.d2 shipped out-in, and the picker's root comment moved inside its root element. Keep `out-in-reprobe.mjs`'s dev arm as the regression gate. |
+| 0210 PS D-2/3/4 | owner-ruling | Retire the figures; they describe the deleted default-mode co-mount. Re-base any carried geometry on HEAD's out-in slot (1 pane per region, constant width). |
+| 0212 PS D-6 | owner-ruling | Do not quote 2.1–2.5 s. Measured dev cold first-visits run 0.26–2.89 s, so any loading-plate threshold must be set from a built-bundle measurement, not dev. |
+| 0214 PS B3 | consumer | Already cured at HEAD: the hero blob mounts after a deep-link cold boot. Strike the strand from carried prose. |
+| 0215 PS L-5 | consumer | Re-base the figures to 82/28/34.1 % (runtime 69/27/39.1 %). The cure stays as booked: X-W8 moves `SESSION_PORT_KEY` from `palettes/usePalettePorts.ts` to `platform/auth/` (5 one-line rewrites). |
+
+**Defects standing behind PROVEN rows** (no owner change, for the orchestrator):
+- **0213:** `ColorPicker.vue` adds its `window` keydown listener in `onMounted` and removes it only in `onUnmounted`. That violates PaneSlot's own activation contract. The cure is consumer: move add/remove to `onActivated`/`onDeactivated`, or gate `handleKeydown` on activation.
+- **0191:** a WebKit-headless frame can never witness backdrop-filter. Any gate that reads blur from WebKit-headless pixels is vacuous. This is an apparatus fact for every SS-8 and SS-13 seat.
+
+## cures
+
+**Seat:** SS-8 CURE, batch B07-pane-shell · 2026-10-20 · SERVED MODEL `claude-opus-5-5`. The verdicts above stay as written (E-3). This section records only the cure acts and their witnesses.
+
+**Code cure commit:** `8f4822853`. It deletes the dead T.W3-4 veil from `demo/shared/ui/PaneHeader.vue`:
+- the `::before` fill/filter/feather
+- the `@supports (animation-timeline)` swell and `@keyframes pane-header-veil`
+- the `--pane-veil-rest` token
+- the `scroll-timeline: --pane-scroll`, whose only consumer was the veil
+- the seated `display:none` rule
+- the false "α 0.65 / 0.72" comment
+
+Glass's own `<CardHeader shrink>` is untouched. No glass copy, no shim. The identity type and motion (title rung, condense) are kept.
+
+**Falsifier:** `e2e/smoke/ss8-b07-pane-shell.spec.ts`, in the `smoke` testDir. It runs through `P/pw.cure.config.ts`, which has the same Chromium engine and swiftshader args as the `smoke` project but no webServer. `P/cure-arm.sh` serves a given worktree on a private port and runs the spec N times, all under one `guarded` tree.
+
+**Witnesses** (headless Chromium; `--workers=1`; each run via `~/.claude/guard/guarded`):
+- **BEFORE (HEAD `4d5d0dbdc` bytes, worktree vite :8097), ×2:** `SS8-0192/0197 — no stylesheet carries the dead pane-header veil` **RED both runs**. It found `.card:has(> .pane-header ~ .pane-scroll-fade) > .pane-header::before` and `.pane-header[data-v-19daabcf]::before` ×2.
+  - Run 1 also had 2 `Execution context was destroyed` failures. Those came from vite's first-visit optimizer reload ("optimized dependencies changed. reloading"), not from the subject. Run 2: 1 failed (the veil), 8 passed.
+- **AFTER, isolated (HEAD `01026e7aa` + this cure's `PaneHeader.vue` only, worktree vite :8197), ×3:** **10/10 GREEN in each run** (39.4 s, 36.9 s, 30.9 s). Evidence: `E/cure-after-HEAD+cure.txt`.
+- **AFTER, shared working tree (:8090):** run 1 at 9 tests: 9 passed. Run 2 at 10 tests: 10 passed. Run 3: every test failed on `page.goto` timeout or refusal because the shared :8090 server went down (`curl` 000). That is environmental, so the run is not counted.
+- **Type-check:** `tsc -p tsconfig.e2e.json` reports 0 errors in `ss8-b07-pane-shell.spec.ts`. The remaining errors are in other seats' files, e.g. `ss8-b17-admin-names.spec.ts`. `vue-tsc -p tsconfig.demo.json` reports 0 errors in `PaneHeader.vue`. Its 1 remaining error is in `demo/test/picker/spectrum-dot-position.test.ts`, which this seat did not touch.
+- **RED-before for the already-cured rows: NOT WITNESSED.** Their cures predate this seat: `94ec8d527` (A2-VA-L1-2), `4fe9b05b9` (X-DS tail) and X.W5.d2.
+  - At `4fe9b05b9^` = `7f045c25c`, the seated arm was GREEN. Every pane was already seated, so that commit is not a RED for 0196/0199.
+  - At `94ec8d527^` = `ca65ae049`, the app did not boot against today's `node_modules`/`dist`: `main .pane-header` not found in 10/10 ×2. That is a precondition failure, not a falsification. Evidence: `E/cure-before-ca65ae049.txt`.
+  - These tests stand as regression guards. They are GREEN at HEAD before and after the cure.
+
+| SID | cure act | commit |
+|---|---|---|
+| 0189 PH-3 | Already cured (A2-VA-L1-2). Regression guard: the `seated` arm asserts at y = 0/64/120/300/max on 6 routes that the title has `transform: none`, its font-size is constant, and `data-condensed` is never `"true"`. Figures struck here, not in the record (E-3). | `8f4822853` (falsifier) |
+| 0190 C-8(ii) | No code cure. No gate in `e2e/**` is keyed to "≈211 px" (`grep` empty). Any future gate re-bases on 247 px (document) or on pane travel. | n/a, nothing to change |
+| 0192 C-11 | **CURED:** the dead veil block is deleted (root). RED ×2 → GREEN ×3 as above. | `8f4822853` |
+| 0194 D-15 | Already cured. New regression falsifier: no shipped CSS rule contains `tan(atan2(`. GREEN at HEAD and after the cure. `git grep 'tan(atan2' demo e2e` is empty. Rung ratios use `calc(len / len)` (0198). | `8f4822853` |
+| 0195 C-4 | Already cured. The guard is the same `seated` arm: never condensed, so no dead band. Figures struck here. | `8f4822853` (falsifier) |
+| 0196 L2-3 | Already cured. Guard: one visible `.pane-header` per PaneShell region, seated as a sibling before its `.pane-scroll-fade` port, on 6 routes. | `8f4822853` (falsifier) |
+| 0197 veil alphas | **CURED with 0192:** the false α 0.65/0.72 comment and the veil it described are deleted. The falsifier also asserts that every `main .pane-header::before` is absent or at opacity 0. | `8f4822853` |
+| 0199 PH-13 | Already cured. Guard: header↔port layout overlap = 0 px at every depth (offset boxes). Reopen only if an overlying header returns. | `8f4822853` (falsifier) |
+| 0209 PS out-in | Already cured (X.W5.d2). The standing regression gate is `out-in-reprobe.mjs`'s dev arm, as booked. This seat added nothing new. | n/a |
+| 0214 PS B3 | Already cured. Guard: cold boot `/gradient` and `/browse` → `#/` → `.hero-blob-anchor canvas` count 1 with width > 0. | `8f4822853` (falsifier) |
+| 0215 PS L-5 | **ROUTED to X-W8 (booked):** move `SESSION_PORT_KEY` from `palettes/usePalettePorts.ts` to `platform/auth/`. The consumer files `Dock.vue`, `ProfileSection.vue` and `MobileMenuDropdown.vue` are dirty with other seats' hunks (Track A / B04). The figures are re-based here to 82 / 28 / 34.1 % static (69 / 27 / 39.1 % runtime). | routed |

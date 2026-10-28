@@ -33,7 +33,9 @@
             class="atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"
             :class="overture.b2.value && 'atmosphere-canvas--arrived'"
             :style="
-                auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined
+                mounted && auroraCssGradient
+                    ? { backgroundImage: auroraCssGradient }
+                    : undefined
             "
             aria-hidden="true"
             data-testid="atmosphere-canvas"
@@ -58,8 +60,9 @@
             @transitionend.capture="onDockMorphSettled"
             @animationend="onDockLandEnd"
         >
-            <Dock
-                v-if="dockMounted"
+            <component
+                :is="dockComponent"
+                v-if="dockMounted && dockComponent"
                 :link-copied="linkCopied"
                 :edit-target="activeEditTarget"
                 @share-link="shareLink"
@@ -74,23 +77,26 @@
              `aria-label="Color tool panes"` named one through every catch and
              every route change). -->
         <main class="pane-main" :aria-labelledby="ROUTE_TITLE_ID">
-            <!-- X.W5.a · gate A5 (MT-F003 / App D-4) — ONE VISIBLE route H1
-                 inside <main>, speaking the schema's own label. The sr-only
-                 cure is STRUCK and uncitable: §5.1 requires a visible H1, and
-                 the constitution's seven focus origins target this node, which
-                 is why it is focusable-by-script (`tabindex="-1"`) and not
-                 focusable by tab.
+            <!-- X.W5.a · gate A5 (MT-F003 / App D-4) — ONE route H1 inside
+                 <main>, speaking the schema's own label. The constitution's
+                 seven focus origins target this node, which is why it is
+                 focusable-by-script (`tabindex="-1"`) and not focusable by tab.
                  X-DS value pass 8 (V8C-01): the name is said ONCE. Where a
                  pane title says the view's label (a `titled` region: Browse,
                  Extract, Mix, Generate, Gradient, Atmosphere, Blob, Not Found;
-                 pass 9 · V9C-01: Palettes, whose "My Palettes" ends on it)
-                 that title is this H1 (PaneShell), and no caption prints here.
-                 Where no pane says it ("Home", the admin consoles) the caption
-                 stays, seated on the row's leading edge. -->
+                 pass 9 · V9C-01: Palettes, whose "My Palettes" ends on it;
+                 pass 18 · V18C-03: the five admin consoles) that title is
+                 this H1 (PaneShell), and no caption prints here.
+                 COHESION §0gf.2(a) (owner OD19-V4, reversing §0ge.7 VC5-01):
+                 where no pane says it ("Home") the H1 stays in <main> as
+                 visually-hidden text. The visible caption mounted in flow on
+                 every titled→Home swap and pushed the pane row down 23–25 px;
+                 hidden, it names <main> and takes focus but occupies no
+                 layout. -->
             <h1
                 v-if="!routeTitledByPane"
                 :id="ROUTE_TITLE_ID"
-                class="route-title font-display"
+                class="sr-only"
                 tabindex="-1"
             >
                 {{ currentConfig.label }}
@@ -185,7 +191,12 @@
          (availability.ts + the loud console.error) is byte-preserved. -->
 
     <!-- Global modals -->
+    <!-- X.W11.p2 (COHESION §0ge.1(i)) — a closed dialog is not first-paint
+         state: its chunk was fetched by the boot because the async wrapper
+         rendered while closed. It now mounts the first time it is asked to
+         open, and stays mounted so its own close transition plays. -->
     <MigratePalettesDialog
+        v-if="migrateDialogWanted"
         :open="paletteManager.migration.showMigrateDialog.value"
         :count="paletteManager.library.savedPalettes.value.length"
         :mode="paletteManager.migration.migrateMode.value"
@@ -199,7 +210,10 @@
     <!-- X.W11.api (§0eh limb (a)): glass's Toaster, mounted ONCE — the seat
          the transport seam's palette-service failure toast renders into
          (`reportServiceProblem`, useApiClient.ts). -->
-    <Toaster />
+    <!-- X.W11.p2 (§0ge.1(i)) — the toast seat holds nothing at first paint and
+         mounts in the task after it; a toast raised earlier waits in glass's
+         module-level queue and renders when the seat mounts. -->
+    <Toaster v-if="afterFirstPaint" />
 </template>
 
 <script setup lang="ts">
@@ -214,12 +228,12 @@ import {
     watch,
 } from "vue";
 import { useRoute } from "vue-router";
+import { useMounted } from "@vueuse/core";
 
 import type { ColorModel, EditTarget } from "../color-session/color-model";
 import { ColorPicker } from "../picker";
 import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "../color-session/keys";
 
-import { Dock } from "../shell/dock";
 import PaneSlot from "../shell/PaneSlot.vue";
 // U.W-A11Y · U-F58: the focus-managed / SR-announced boundary that catches a
 // pane render throw instead of white-screening (never a silent dead plate).
@@ -238,7 +252,9 @@ import { Toaster } from "@mkbabb/glass-ui/toast";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
 import { resolveHydratedBootModel } from "./composables/boot/hydrate";
 import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
-import { useDockArrival } from "./composables/boot/useDockArrival";
+// X.W11.p2 (COHESION §0ge.1(ii)) — the dock is not imported here: its chunk left
+// the first-paint graph and `dockComponent` is resolved by useDockArrival.
+import { dockComponent, useDockArrival } from "./composables/boot/useDockArrival";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 // X.W12U.g2d (COHESION §0fr.1): the migrate dialog opens only on a login that
@@ -328,6 +344,10 @@ const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
     cssColorOpaqueFrame,
     currentConfig,
 );
+// X.W11.p3b (COHESION §0gl.12): the CSS-substrate gradient exists only on a
+// device the WebGL field cannot serve — a property of the visitor, not of the
+// first view — so it is written after mount, never into the hydrated markup.
+const mounted = useMounted();
 
 // --- W2-3 (T.W2) — THE OVERTURE: the named beat-gating DAG (B0–B4) ---
 // One choreography, ordered by GATING (see useOverture's header). B2's field
@@ -448,8 +468,32 @@ if (hydration.source !== "url") restoreFromStorage();
 // --- Custom color names ---
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
+// --- X.W11.p2 (COHESION §0ge.1(i)) — the boot yields at first paint ---
+// The mount task paints the scene: the pane, its inks and the veiled band. What
+// no first frame shows runs in the task AFTER that frame, by the same primitive
+// the dock's mount uses (useDockArrival): the frame's rAF posts a message, and
+// the message's task is the first one after first paint. That covers the
+// custom-names registry request, the toast seat and (on first ask) the
+// migration dialog.
+const afterFirstPaint = ref(false);
+const migrateDialogWanted = ref(false);
+watch(
+    () => paletteManager.migration.showMigrateDialog.value,
+    (open) => {
+        if (open) migrateDialogWanted.value = true;
+    },
+    { immediate: true },
+);
 onMounted(() => {
-    loadCustomColorNames();
+    requestAnimationFrame(() => {
+        const { port1, port2 } = new MessageChannel();
+        port1.onmessage = () => {
+            port1.close();
+            afterFirstPaint.value = true;
+            loadCustomColorNames();
+        };
+        port2.postMessage(null);
+    });
 });
 </script>
 
@@ -465,45 +509,6 @@ onMounted(() => {
 
 /* The atmosphere-canvas arrival + PRM opacity pin moved to the overture
    grammar sheet (composables/boot/overture.css — the B2 voice + gate 5b). */
-
-/* X.W5.a · gate A5 — the visible route title.
-   ONE per route, inside <main>, speaking the schema's own label. A quiet
-   register on purpose: the dock already carries the view's identity as an
-   affordance, so the heading is the DOCUMENT's answer to "what is this scene",
-   not a second banner competing with it. It rides the certified de-emphasis
-   rung (`--ink-muted`, boot-stamped and floor-clamped), so it adds no new
-   contrast debt.
-   X-DS value pass 8 (V8C-01): it prints only where no pane title says the
-   label, and it sits on the row's leading edge, which is the stage card's
-   edge: the row's own inline clamp (`--pane-row-max`, shell.css) and
-   `text-align: start`. Centred, it hung over the gutter between two cards. */
-.route-title {
-    flex: none;
-    width: 100%;
-    max-width: var(--pane-row-max);
-    margin: 0 auto 0.5rem;
-    text-align: start;
-    /* X.W12U.m3 · R-m-2 (COHESION §0fh.5): the H1 sits on the type scale's
-     * nearest rung — caption (glass `--type-caption`, 12–16 px; 13.1 px at
-     * 844) — in place of the off-scale 0.8125rem; its 1.2 line box (15.8 px at
-     * 844×390) fits the measured 16 px title band. No new rung; the display
-     * face is kept. */
-    font-size: var(--text-caption);
-    font-weight: 500;
-    line-height: 1.2;
-    /* X-DS pass 1 (V1C-03): the schema's own label in sentence case — the
-     * original set no uppercase tracking anywhere (value-canon §2 Type). */
-    color: var(--ink-muted, var(--muted-foreground));
-}
-
-/* X.W12U.m · A2-VA-L2-4 — a short viewport folds the title's own margin
-   (the band tokens fold in foundation.css under the same query). The title
-   stays VISIBLE: gate A5 struck the sr-only cure. */
-@media (max-height: 30rem) {
-    .route-title {
-        margin-block-end: 0;
-    }
-}
 
 /* X.W5.a — ROLE-KEYED stagger. The plate-land delay follows the region's ROLE
    (stage first, inspector behind it), so when X.W5.d re-keys the motion family

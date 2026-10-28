@@ -1,0 +1,1361 @@
+{
+  "base": "http://localhost:9481",
+  "cells": [
+    {
+      "cell": "admin-users",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-users-1440-light.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.388598 0.079735 84.2)",
+          "ground": "rgb(234,141,132)",
+          "ink": "rgb(88,64,0)",
+          "inkOklch": {
+            "L": 0.387,
+            "C": 0.079,
+            "H": 84.4
+          },
+          "ratio": 4.02,
+          "critic06": true,
+          "painted": {
+            "L": 0.388598,
+            "C": 0.079735,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.388598 0.079735 84.2)",
+          "ground": "rgb(234,141,133)",
+          "ink": "rgb(88,64,0)",
+          "inkOklch": {
+            "L": 0.387,
+            "C": 0.079,
+            "H": 84.4
+          },
+          "ratio": 4.03,
+          "critic06": true,
+          "painted": {
+            "L": 0.388598,
+            "C": 0.079735,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.310735 0.0637586 84.2)",
+          "ground": "rgb(234,141,133)",
+          "ink": "rgb(63,45,0)",
+          "inkOklch": {
+            "L": 0.31,
+            "C": 0.064,
+            "H": 84.6
+          },
+          "ratio": 5.45,
+          "critic06": true,
+          "painted": {
+            "L": 0.310735,
+            "C": 0.0637586,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "rootInkGoldGlyph": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloatingGlyph": "oklch(35.4869320194% 0.072814334858 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockInkGoldGlyph": "oklch(38.859793368052% 0.079734985427 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      },
+      "sealFile": "admin-seal-1440-light.png",
+      "seal": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.409504 0.0840245 84.2)",
+          "ground": "rgb(255,143,200)",
+          "ink": "rgb(95,70,0)",
+          "inkOklch": {
+            "L": 0.41,
+            "C": 0.084,
+            "H": 85.2
+          },
+          "ratio": 4.24,
+          "critic06": true,
+          "painted": {
+            "L": 0.409504,
+            "C": 0.0840245,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        }
+      ]
+    },
+    {
+      "cell": "admin-users",
+      "theme": "light",
+      "width": 390,
+      "file": "admin-users-390-light.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.388598 0.079735 84.2)",
+          "ground": "rgb(234,141,132)",
+          "ink": "rgb(88,64,0)",
+          "inkOklch": {
+            "L": 0.387,
+            "C": 0.079,
+            "H": 84.4
+          },
+          "ratio": 4.02,
+          "critic06": true,
+          "painted": {
+            "L": 0.388598,
+            "C": 0.079735,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": false,
+          "verdict": "absent"
+        },
+        {
+          "name": "adminWord",
+          "found": false,
+          "verdict": "absent"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "rootInkGoldGlyph": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloatingGlyph": "oklch(35.4869320194% 0.072814334858 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockInkGoldGlyph": "oklch(38.859793368052% 0.079734985427 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      }
+    },
+    {
+      "cell": "admin-users-brown",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-users-brown-1440-light.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.899624 0.10589 84.2)",
+          "ground": "rgb(176,83,25)",
+          "ink": "rgb(255,217,138)",
+          "inkOklch": {
+            "L": 0.901,
+            "C": 0.106,
+            "H": 84.7
+          },
+          "ratio": 3.79,
+          "critic06": true,
+          "painted": {
+            "L": 0.899624,
+            "C": 0.10589,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.899624 0.10589 84.2)",
+          "ground": "rgb(176,83,25)",
+          "ink": "rgb(255,217,138)",
+          "inkOklch": {
+            "L": 0.901,
+            "C": 0.106,
+            "H": 84.7
+          },
+          "ratio": 3.79,
+          "critic06": true,
+          "painted": {
+            "L": 0.899624,
+            "C": 0.10589,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.999276 0.000415318 56.0356)",
+          "ground": "rgb(176,83,25)",
+          "ink": "rgb(255,255,255)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0,
+            "H": null
+          },
+          "ratio": 5.13,
+          "critic06": false,
+          "painted": {
+            "L": 0.999276,
+            "C": 0.000415318,
+            "H": 56.0356
+          },
+          "verdict": "PLATE-INK-FALLBACK"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(98.617361351765% 0.00624852743 56.035563601331deg)",
+        "inkGoldFloating": "oklch(97.124383062667% 0.00624852743 56.035563601331deg)",
+        "rootInkGoldGlyph": "oklch(88.750980634335% 0.119286367824 84.2deg)",
+        "inkGoldFloatingGlyph": "oklch(87.438137941831% 0.133980306908 84.2deg)",
+        "sealInkGold": "oklch(83.774269130197% 0.147 84.2deg)",
+        "dockInkGold": "oklch(99.927619327739% 0.00041531773 56.035563601331deg)",
+        "dockInkGoldGlyph": "oklch(89.962353465706% 0.105889569116 84.2deg)",
+        "inkDestructive": "oklch(98.536298843429% 0.007084072071 27.484704066596deg)",
+        "dockCollapsed": false
+      },
+      "pass17Rule": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(176,82,25)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 5.16,
+          "critic06": false,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "RED"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(176,82,25)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 5.16,
+          "critic06": false,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "RED"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(176,82,25)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 5.16,
+          "critic06": false,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "PLATE-INK-FALLBACK"
+        }
+      ],
+      "sealFile": "admin-seal-brown-1440-light.png",
+      "seal": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.837743 0.147 84.2)",
+          "ground": "rgb(142,66,53)",
+          "ink": "rgb(246,193,71)",
+          "inkOklch": {
+            "L": 0.838,
+            "C": 0.147,
+            "H": 84.5
+          },
+          "ratio": 4.24,
+          "critic06": true,
+          "painted": {
+            "L": 0.837743,
+            "C": 0.147,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        }
+      ]
+    },
+    {
+      "cell": "admin-view-menu",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-view-menu-1440-light.png",
+      "after": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.354869 0.0728143 84.2)",
+          "ground": "rgb(135,58,62)",
+          "ink": "rgb(77,56,0)",
+          "inkOklch": {
+            "L": 0.355,
+            "C": 0.073,
+            "H": 85
+          },
+          "ratio": 1.44,
+          "critic06": true,
+          "painted": {
+            "L": 0.354869,
+            "C": 0.0728143,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "ground": "rgb(132,55,57)",
+          "ink": "rgb(28,25,23)",
+          "inkOklch": {
+            "L": 0.216,
+            "C": 0.006,
+            "H": 56
+          },
+          "ratio": 2.15,
+          "critic06": false,
+          "painted": {
+            "L": 0.216129,
+            "C": 0.00624853,
+            "H": 56.0356
+          },
+          "verdict": "PLATE-INK-FALLBACK"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "rootInkGoldGlyph": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloatingGlyph": "oklch(35.4869320194% 0.072814334858 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockInkGoldGlyph": "oklch(38.859793368052% 0.079734985427 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      }
+    },
+    {
+      "cell": "admin-users",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-users-1440-dark.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(140,17,18)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 4.78,
+          "critic06": true,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(140,17,18)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 4.78,
+          "critic06": true,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(140,17,18)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 4.78,
+          "critic06": true,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "rootInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloatingGlyph": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      },
+      "sealFile": "admin-seal-1440-dark.png",
+      "seal": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.41002 0.0839327 86)",
+          "ground": "rgb(255,143,200)",
+          "ink": "rgb(94,70,0)",
+          "inkOklch": {
+            "L": 0.409,
+            "C": 0.084,
+            "H": 86.2
+          },
+          "ratio": 4.26,
+          "critic06": true,
+          "painted": {
+            "L": 0.41002,
+            "C": 0.0839327,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ]
+    },
+    {
+      "cell": "admin-users",
+      "theme": "dark",
+      "width": 390,
+      "file": "admin-users-390-dark.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(140,17,18)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 4.78,
+          "critic06": true,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": false,
+          "verdict": "absent"
+        },
+        {
+          "name": "adminWord",
+          "found": false,
+          "verdict": "absent"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "rootInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloatingGlyph": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      }
+    },
+    {
+      "cell": "admin-users-brown",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-users-brown-1440-dark.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 5.05,
+          "critic06": true,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 5.05,
+          "critic06": true,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 5.05,
+          "critic06": true,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "rootInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloatingGlyph": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(83.808249155618% 0.143 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      },
+      "pass17Rule": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 10.04,
+          "critic06": false,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "RED"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 10.04,
+          "critic06": false,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "RED"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 10.04,
+          "critic06": false,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "PLATE-INK-FALLBACK"
+        }
+      ],
+      "sealFile": "admin-seal-brown-1440-dark.png",
+      "seal": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.838082 0.143 86)",
+          "ground": "rgb(142,66,53)",
+          "ink": "rgb(243,195,77)",
+          "inkOklch": {
+            "L": 0.839,
+            "C": 0.143,
+            "H": 86.3
+          },
+          "ratio": 4.27,
+          "critic06": true,
+          "painted": {
+            "L": 0.838082,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ]
+    },
+    {
+      "cell": "admin-view-menu",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-view-menu-1440-dark.png",
+      "after": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(106,34,42)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 5.62,
+          "critic06": true,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(113,24,36)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 5.67,
+          "critic06": true,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "rootInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloatingGlyph": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      }
+    },
+    {
+      "cell": "browse-featured",
+      "theme": "light",
+      "width": 1440,
+      "file": "browse-featured-1440-light.png",
+      "after": [
+        {
+          "name": "featuredGlyph",
+          "found": true,
+          "color": "oklch(0.291126 0.0597351 84.2)",
+          "ground": "rgb(199,81,138)",
+          "ink": "rgb(55,37,1)",
+          "inkOklch": {
+            "L": 0.279,
+            "C": 0.057,
+            "H": 80.3
+          },
+          "ratio": 3.48,
+          "critic06": false,
+          "painted": {
+            "L": 0.291126,
+            "C": 0.0597351,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "rootInkGoldGlyph": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloatingGlyph": "oklch(35.4869320194% 0.072814334858 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockInkGoldGlyph": "oklch(38.859793368052% 0.079734985427 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      }
+    },
+    {
+      "cell": "browse-featured",
+      "theme": "dark",
+      "width": 1440,
+      "file": "browse-featured-1440-dark.png",
+      "after": [
+        {
+          "name": "featuredGlyph",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(118,51,71)",
+          "ink": "rgb(228,184,71)",
+          "inkOklch": {
+            "L": 0.802,
+            "C": 0.137,
+            "H": 87.2
+          },
+          "ratio": 4.82,
+          "critic06": true,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "rootInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloatingGlyph": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      }
+    },
+    {
+      "cell": "notfound",
+      "theme": "light",
+      "width": 1440,
+      "file": "notfound-1440-light.png",
+      "after": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "oklch(0.304141 0.124122 27.4847)",
+          "ground": "rgb(213,128,129)",
+          "ink": "rgb(88,0,4)",
+          "inkOklch": {
+            "L": 0.29,
+            "C": 0.118,
+            "H": 27
+          },
+          "ratio": 5.11
+        }
+      ],
+      "raw": "rgb(219, 36, 36)",
+      "oldRule": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "color(srgb 0.858823 0.141176 0.141176 / 0.8)",
+          "ground": "rgb(212,127,128)",
+          "ink": "rgb(205,51,52)",
+          "inkOklch": {
+            "L": 0.561,
+            "C": 0.191,
+            "H": 25.6
+          },
+          "ratio": 1.74
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "rootInkGoldGlyph": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloatingGlyph": "oklch(35.4869320194% 0.072814334858 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockInkGoldGlyph": "oklch(38.859793368052% 0.079734985427 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      },
+      "verdict": "GREEN",
+      "oldVerdict": "RED"
+    },
+    {
+      "cell": "notfound",
+      "theme": "light",
+      "width": 390,
+      "file": "notfound-390-light.png",
+      "after": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "oklch(0.304141 0.124122 27.4847)",
+          "ground": "rgb(212,127,129)",
+          "ink": "rgb(88,0,4)",
+          "inkOklch": {
+            "L": 0.29,
+            "C": 0.118,
+            "H": 27
+          },
+          "ratio": 5.05
+        }
+      ],
+      "raw": "rgb(219, 36, 36)",
+      "oldRule": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "color(srgb 0.858823 0.141176 0.141176 / 0.8)",
+          "ground": "rgb(212,126,128)",
+          "ink": "rgb(206,51,53)",
+          "inkOklch": {
+            "L": 0.563,
+            "C": 0.192,
+            "H": 25.3
+          },
+          "ratio": 1.71
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "rootInkGoldGlyph": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloatingGlyph": "oklch(35.4869320194% 0.072814334858 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockInkGoldGlyph": "oklch(38.859793368052% 0.079734985427 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      },
+      "verdict": "GREEN",
+      "oldVerdict": "RED"
+    },
+    {
+      "cell": "admin-tags-error",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-tags-error-1440-light.png",
+      "after": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "oklch(0.304141 0.124122 27.4847)",
+          "ground": "rgb(213,131,123)",
+          "ink": "rgb(87,0,4)",
+          "inkOklch": {
+            "L": 0.287,
+            "C": 0.117,
+            "H": 27
+          },
+          "ratio": 5.23
+        }
+      ],
+      "raw": "rgb(219, 36, 36)",
+      "oldRule": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "color(srgb 0.858823 0.141176 0.141176 / 0.8)",
+          "ground": "rgb(213,130,125)",
+          "ink": "rgb(206,52,50)",
+          "inkOklch": {
+            "L": 0.564,
+            "C": 0.191,
+            "H": 26.4
+          },
+          "ratio": 1.76
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "rootInkGoldGlyph": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloatingGlyph": "oklch(35.4869320194% 0.072814334858 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockInkGoldGlyph": "oklch(38.859793368052% 0.079734985427 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      },
+      "verdict": "GREEN",
+      "oldVerdict": "RED"
+    },
+    {
+      "cell": "notfound",
+      "theme": "dark",
+      "width": 1440,
+      "file": "notfound-1440-dark.png",
+      "after": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "oklch(0.729793 0.166496 27.5)",
+          "ground": "rgb(133,34,36)",
+          "ink": "rgb(255,135,120)",
+          "inkOklch": {
+            "L": 0.753,
+            "C": 0.148,
+            "H": 28.5
+          },
+          "ratio": 3.99
+        }
+      ],
+      "raw": "oklch(0.702 0.184 27.5)",
+      "oldRule": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "color(srgb 0.990965 0.408387 0.360154 / 0.8)",
+          "ground": "rgb(132,33,35)",
+          "ink": "rgb(229,102,92)",
+          "inkOklch": {
+            "L": 0.664,
+            "C": 0.16,
+            "H": 26.8
+          },
+          "ratio": 2.87
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "rootInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloatingGlyph": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      },
+      "verdict": "GREEN",
+      "oldVerdict": "RED"
+    },
+    {
+      "cell": "notfound",
+      "theme": "dark",
+      "width": 390,
+      "file": "notfound-390-dark.png",
+      "after": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "oklch(0.729793 0.166496 27.5)",
+          "ground": "rgb(132,33,36)",
+          "ink": "rgb(255,134,120)",
+          "inkOklch": {
+            "L": 0.752,
+            "C": 0.149,
+            "H": 28
+          },
+          "ratio": 4.02
+        }
+      ],
+      "raw": "oklch(0.702 0.184 27.5)",
+      "oldRule": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "color(srgb 0.990965 0.408387 0.360154 / 0.8)",
+          "ground": "rgb(131,33,39)",
+          "ink": "rgb(229,102,93)",
+          "inkOklch": {
+            "L": 0.665,
+            "C": 0.16,
+            "H": 26.4
+          },
+          "ratio": 2.89
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "rootInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloatingGlyph": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      },
+      "verdict": "GREEN",
+      "oldVerdict": "RED"
+    },
+    {
+      "cell": "admin-tags-error",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-tags-error-1440-dark.png",
+      "after": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "oklch(0.729793 0.166496 27.5)",
+          "ground": "rgb(138,34,33)",
+          "ink": "rgb(255,134,120)",
+          "inkOklch": {
+            "L": 0.752,
+            "C": 0.149,
+            "H": 28
+          },
+          "ratio": 3.83
+        }
+      ],
+      "raw": "oklch(0.702 0.184 27.5)",
+      "oldRule": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "color(srgb 0.990965 0.408387 0.360154 / 0.8)",
+          "ground": "rgb(138,33,32)",
+          "ink": "rgb(231,103,91)",
+          "inkOklch": {
+            "L": 0.669,
+            "C": 0.162,
+            "H": 27.6
+          },
+          "ratio": 2.8
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "rootInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloatingGlyph": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      },
+      "verdict": "GREEN",
+      "oldVerdict": "RED"
+    }
+  ],
+  "admin": [
+    {
+      "route": "/#/admin/users",
+      "width": 1440,
+      "theme": "light",
+      "label": "Users",
+      "file": "admin-users-1440-light.png (shot above)",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Users",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/users",
+      "width": 1440,
+      "theme": "dark",
+      "label": "Users",
+      "file": "admin-users-1440-dark.png (shot above)",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Users",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/users",
+      "width": 390,
+      "theme": "light",
+      "label": "Users",
+      "file": "admin-users-390-light.png (shot above)",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Users",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/users",
+      "width": 390,
+      "theme": "dark",
+      "label": "Users",
+      "file": "admin-users-390-dark.png (shot above)",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Users",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/names",
+      "width": 1440,
+      "theme": "light",
+      "label": "Names",
+      "file": "admin-names-1440-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Names",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/names",
+      "width": 390,
+      "theme": "light",
+      "label": "Names",
+      "file": "admin-names-390-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Names",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/flagged",
+      "width": 1440,
+      "theme": "light",
+      "label": "Flagged",
+      "file": "admin-flagged-1440-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Flagged",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/flagged",
+      "width": 390,
+      "theme": "light",
+      "label": "Flagged",
+      "file": "admin-flagged-390-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Flagged",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/tags",
+      "width": 1440,
+      "theme": "light",
+      "label": "Tags",
+      "file": "admin-tags-1440-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Tags",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/tags",
+      "width": 390,
+      "theme": "light",
+      "label": "Tags",
+      "file": "admin-tags-390-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Tags",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/audit",
+      "width": 1440,
+      "theme": "light",
+      "label": "Audit log",
+      "file": "admin-audit-1440-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Audit log",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/audit",
+      "width": 390,
+      "theme": "light",
+      "label": "Audit log",
+      "file": "admin-audit-390-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Audit log",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    }
+  ]
+}

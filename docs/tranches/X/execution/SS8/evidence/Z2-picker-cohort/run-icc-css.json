@@ -1,0 +1,455 @@
+[
+ {
+  "cell": "css",
+  "ms": 20308,
+  "rows": 18,
+  "census": [
+   {
+    "space": "rgb",
+    "caption": "color(srgb 1.009 0.4286 0.6218)",
+    "captionTitle": "Outside RGB's gamut — shown as measured, not mapped",
+    "maxDecimals": 4,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "143",
+    "filter": "url(\"#watercolor-filter-v-106\")"
+   },
+   {
+    "space": "hsl",
+    "caption": "hsl · 340 · 103.2 · 71.88",
+    "captionTitle": "Outside HSL's gamut — shown as measured, not mapped",
+    "maxDecimals": 2,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "155",
+    "filter": "url(\"#watercolor-filter-v-108\")"
+   },
+   {
+    "space": "hsv",
+    "caption": "hsv · 340 · 0.5753 · 1.009",
+    "captionTitle": "Outside HSV's gamut — shown as measured, not mapped",
+    "maxDecimals": 4,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "165",
+    "filter": "url(\"#watercolor-filter-v-110\")"
+   },
+   {
+    "space": "hwb",
+    "caption": "hwb · 340 · 42.86 · -0.9097",
+    "captionTitle": "Outside HWB's gamut — shown as measured, not mapped",
+    "maxDecimals": 4,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "21",
+    "filter": "url(\"#watercolor-filter-v-112\")"
+   },
+   {
+    "space": "lab",
+    "caption": "lab(66.39% 60.46 3.341)",
+    "captionTitle": null,
+    "maxDecimals": 3,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "67",
+    "filter": "url(\"#watercolor-filter-v-114\")"
+   },
+   {
+    "space": "lch",
+    "caption": "lch(66.39% 60.55 3.162deg)",
+    "captionTitle": null,
+    "maxDecimals": 3,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "139",
+    "filter": "url(\"#watercolor-filter-v-116\")"
+   },
+   {
+    "space": "oklab",
+    "caption": "oklab(73% 0.1849 0.0065)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "189",
+    "filter": "url(\"#watercolor-filter-v-118\")"
+   },
+   {
+    "space": "oklch",
+    "caption": "oklch(73% 0.185 2deg)",
+    "captionTitle": null,
+    "maxDecimals": 3,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "5",
+    "filter": "url(\"#watercolor-filter-v-120\")"
+   },
+   {
+    "space": "xyz",
+    "caption": "color(xyz 0.5382 0.3519 0.3656)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "127",
+    "filter": "url(\"#watercolor-filter-v-122\")"
+   },
+   {
+    "space": "kelvin",
+    "caption": "kelvin · 2980",
+    "captionTitle": null,
+    "maxDecimals": 0,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "125",
+    "filter": "url(\"#watercolor-filter-v-124\")"
+   },
+   {
+    "space": "srgb-linear",
+    "caption": "color(srgb-linear 1.021 0.1538 0.3446)",
+    "captionTitle": "Outside sRGB Linear's gamut — shown as measured, not mapped",
+    "maxDecimals": 4,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "106",
+    "filter": "url(\"#watercolor-filter-v-126\")"
+   },
+   {
+    "space": "display-p3",
+    "caption": "color(display-p3 0.939 0.4644 0.62)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "250",
+    "filter": "url(\"#watercolor-filter-v-128\")"
+   },
+   {
+    "space": "a98-rgb",
+    "caption": "color(a98-rgb 0.89 0.4269 0.6096)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "206",
+    "filter": "url(\"#watercolor-filter-v-130\")"
+   },
+   {
+    "space": "prophoto-rgb",
+    "caption": "color(prophoto-rgb 0.7801 0.4572 0.5434)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "55",
+    "filter": "url(\"#watercolor-filter-v-132\")"
+   },
+   {
+    "space": "rec2020",
+    "caption": "color(rec2020 0.865 0.5279 0.6371)",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "18",
+    "filter": "url(\"#watercolor-filter-v-134\")"
+   },
+   {
+    "space": "ictcp",
+    "caption": "ictcp · 0.4782 · 0.0634 · 0.1333",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "7",
+    "filter": "url(\"#watercolor-filter-v-136\")"
+   },
+   {
+    "space": "jzazbz",
+    "caption": "jzazbz · 0.1589 · 0.0894 · 0.0146",
+    "captionTitle": null,
+    "maxDecimals": 4,
+    "gamutMark": false,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "111",
+    "filter": "url(\"#watercolor-filter-v-138\")"
+   },
+   {
+    "space": "hex",
+    "caption": "#ff6d9f",
+    "captionTitle": "Outside Hex's gamut — shown as measured, not mapped",
+    "maxDecimals": 0,
+    "gamutMark": true,
+    "dotTag": null,
+    "dotRadius": "0px",
+    "turbSeed": "217",
+    "filter": "url(\"#watercolor-filter-v-140\")"
+   }
+  ],
+  "about": [
+   {
+    "sp": "display-p3",
+    "readoutTitle": "Display P3",
+    "mentionsCIERGB": false,
+    "heads": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Display P3",
+      "nextText": "The math, the science, the art, the beauty of color spaces."
+     },
+     {
+      "tag": "H2",
+      "text": "Definition",
+      "nextText": "A display-referred wide-gamut space: the DCI-P3 primaries ca"
+     },
+     {
+      "tag": "H2",
+      "text": "Basic information",
+      "nextText": "Device dependency:Device-dependent (P3 primaries)White point"
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "nextText": "Red0 to 1Green0 to 1Blue0 to 1"
+     },
+     {
+      "tag": "H2",
+      "text": "Key properties",
+      "nextText": "Perceptual uniformity:NoHue linearity:NoLightness separation"
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion graph",
+      "nextText": "Display P3XYZDisplay P3XYZRGBDisplay P3XYZOKLab"
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "nextText": "Common applications: Wide-gamut web content, Photography on "
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "nextText": "No long-form guide is written for Display P3 yet — its defin"
+     }
+    ],
+    "aboutHead": "About the color spaces, Display P3 The math, the science, the art, the beauty of color spaces. Definition A display-referred wide-gamut space: the DCI-P3 pr"
+   },
+   {
+    "sp": "rec2020",
+    "readoutTitle": "Rec. 2020",
+    "mentionsCIERGB": false,
+    "heads": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Rec. 2020",
+      "nextText": "The math, the science, the art, the beauty of color spaces."
+     },
+     {
+      "tag": "H2",
+      "text": "Definition",
+      "nextText": "The ultra-high-definition broadcast space whose red, green a"
+     },
+     {
+      "tag": "H2",
+      "text": "Basic information",
+      "nextText": "Device dependency:Device-dependent (BT.2020 primaries)White "
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "nextText": "Red0 to 1Green0 to 1Blue0 to 1"
+     },
+     {
+      "tag": "H2",
+      "text": "Key properties",
+      "nextText": "Perceptual uniformity:NoHue linearity:NoLightness separation"
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion graph",
+      "nextText": "Rec. 2020XYZRec. 2020XYZRGBRec. 2020ICtCp"
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "nextText": "Common applications: UHD and HDR broadcast, 4K and 8K master"
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "nextText": "No long-form guide is written for Rec. 2020 yet — its defini"
+     }
+    ],
+    "aboutHead": "About the color spaces, Rec. 2020 The math, the science, the art, the beauty of color spaces. Definition The ultra-high-definition broadcast space whose red"
+   },
+   {
+    "sp": "ictcp",
+    "readoutTitle": "OKLCh",
+    "mentionsCIERGB": false,
+    "heads": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, OKLCh",
+      "nextText": "The math, the science, the art, the beauty of color spaces."
+     },
+     {
+      "tag": "H2",
+      "text": "Definition",
+      "nextText": "A cylindrical representation of the OKLab color space."
+     },
+     {
+      "tag": "H2",
+      "text": "Basic information",
+      "nextText": "Device dependency:Device-independentWhite point:D65Gamut:Unl"
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "nextText": "L (Lightness)0% to 100%C (Chroma)0 to 0.5h (hue)0deg to 360d"
+     },
+     {
+      "tag": "H2",
+      "text": "Key properties",
+      "nextText": "Perceptual uniformity:Yes (inherited from OKLab)Hue linearit"
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion graph",
+      "nextText": "OKLChOKLabOKLChOKLabXYZOKLChOKLabXYZLab"
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "nextText": "Common applications: Color selection, Color harmony, Gradien"
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "nextText": "Historical ContextOKLCh is the polar form of OKLab, publishe"
+     }
+    ],
+    "aboutHead": "About the color spaces, OKLCh The math, the science, the art, the beauty of color spaces. Definition A cylindrical representation of the OKLab color space. "
+   },
+   {
+    "sp": "jzazbz",
+    "readoutTitle": "OKLCh",
+    "mentionsCIERGB": false,
+    "heads": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, OKLCh",
+      "nextText": "The math, the science, the art, the beauty of color spaces."
+     },
+     {
+      "tag": "H2",
+      "text": "Definition",
+      "nextText": "A cylindrical representation of the OKLab color space."
+     },
+     {
+      "tag": "H2",
+      "text": "Basic information",
+      "nextText": "Device dependency:Device-independentWhite point:D65Gamut:Unl"
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "nextText": "L (Lightness)0% to 100%C (Chroma)0 to 0.5h (hue)0deg to 360d"
+     },
+     {
+      "tag": "H2",
+      "text": "Key properties",
+      "nextText": "Perceptual uniformity:Yes (inherited from OKLab)Hue linearit"
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion graph",
+      "nextText": "OKLChOKLabOKLChOKLabXYZOKLChOKLabXYZLab"
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "nextText": "Common applications: Color selection, Color harmony, Gradien"
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "nextText": "Historical ContextOKLCh is the polar form of OKLab, publishe"
+     }
+    ],
+    "aboutHead": "About the color spaces, OKLCh The math, the science, the art, the beauty of color spaces. Definition A cylindrical representation of the OKLab color space. "
+   },
+   {
+    "sp": "lab",
+    "readoutTitle": "Lab",
+    "mentionsCIERGB": false,
+    "heads": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Lab",
+      "nextText": "The math, the science, the art, the beauty of color spaces."
+     },
+     {
+      "tag": "H2",
+      "text": "Definition",
+      "nextText": "The L*a*b* color space is a three-dimensional color model de"
+     },
+     {
+      "tag": "H2",
+      "text": "Basic information",
+      "nextText": "Device dependency:Device-independentWhite point:Variable (ty"
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "nextText": "L* (Lightness)0% to 100%a* (Green-Red)-125 to 125b* (Blue-Ye"
+     },
+     {
+      "tag": "H2",
+      "text": "Key properties",
+      "nextText": "Perceptual uniformity:YesHue linearity:NoLightness separatio"
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion graph",
+      "nextText": "LabXYZLabLChLabXYZOKLabLabLChOKLCh"
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "nextText": "Common applications: Color management, Image processing, Col"
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "nextText": ""
+     }
+    ],
+    "aboutHead": "About the color spaces, Lab The math, the science, the art, the beauty of color spaces. Definition The L*a*b* color space is a three-dimensional color model"
+   }
+  ],
+  "pageErrors": [],
+  "console": [
+   "error: Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://localhost:8096' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' hea",
+   "error: Failed to load resource: net::ERR_FAILED",
+   "warning: No available adapters."
+  ]
+ }
+]

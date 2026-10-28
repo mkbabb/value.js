@@ -1,0 +1,50 @@
+{
+  "light-1440": {
+    "field": [
+      20.5,
+      40
+    ],
+    "plate": [
+      20.5,
+      40
+    ],
+    "text": "oklch(73% 0.185 2deg)",
+    "textMidOffset": -0.95
+  },
+  "dark-1440": {
+    "field": [
+      20.5,
+      40
+    ],
+    "plate": [
+      20.5,
+      40
+    ],
+    "text": "oklch(73% 0.185 2deg)",
+    "textMidOffset": -0.95
+  },
+  "light-390": {
+    "field": [
+      29,
+      40
+    ],
+    "plate": [
+      29,
+      40
+    ],
+    "text": "oklch(73% 0.185 2deg)",
+    "textMidOffset": -0.5
+  },
+  "dark-390": {
+    "field": [
+      29,
+      40
+    ],
+    "plate": [
+      29,
+      40
+    ],
+    "text": "oklch(73% 0.185 2deg)",
+    "textMidOffset": -0.5
+  }
+}

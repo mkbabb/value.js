@@ -66,11 +66,23 @@ function cycleToolbarMode() {
     }
     if (toolbarMode.value === "actions") {
         toolbarMode.value = "input";
+        void focusField();
     } else if (toolbarMode.value === "input") {
         toolbarMode.value = arm.canProposeName ? "propose" : "actions";
     } else {
         toolbarMode.value = "actions";
     }
+}
+
+// SS-8 Z-Dock-5 (Dock G-K(ii)): opening the input face hands focus to the
+// colour field, so typing lands there. The toggle keeps focus otherwise (it is
+// the control the user pressed, now labelled "Propose color name"), and the
+// typed text went nowhere. The face is un-inerted by the crossfade's own
+// update, so the focus waits a frame past it.
+const colorInput = useTemplateRef<{ focus: () => void }>("colorInput");
+async function focusField(): Promise<void> {
+    await nextTick();
+    requestAnimationFrame(() => colorInput.value?.focus());
 }
 
 const currentToggleIcon = computed(() => {
@@ -221,7 +233,10 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </script>
 
 <template>
-    <div ref="root" class="flex items-center gap-0 min-w-0">
+    <!-- SS-8 B05 · 0125 (MISS-1): the layer root breathes on the face's own
+         `--dock-layer-gap`, so the trailing separator gets the same air as the
+         leading one (the retired `gap-0` gave it half). -->
+    <div ref="root" class="flex items-center gap-(--dock-layer-gap) min-w-0">
         <DockCrossfade
             :key="kept"
             :active="activeSubLayer"
@@ -237,6 +252,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
             </DockLayer>
             <DockLayer v-if="inputArm" id="input">
                 <ColorInput
+                    ref="colorInput"
                     :propose-mode="toolbarMode === 'propose'"
                     class="min-w-0"
                     @proposed="onProposed"

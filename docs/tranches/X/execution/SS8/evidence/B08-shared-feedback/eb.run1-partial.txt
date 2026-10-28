@@ -1,0 +1,16 @@
+eb-contrast light {"regions":["color-picker","palettes"],"stmt":{"raw":[28,25,23,1],"rect":[814.71875,375.9375,340.5625,27.984375],"ink":"oklch(0.216129 0.00624853 56.0356)","eff":[28,25,23,1],"ground":[156,94,176,1],"cr":3.865,"stack":["glass-resting card paper-grain-overlay w-full h-fu=50,35,21,0.14","relative=173,104,201,1"],"notes":["relative:bgimg"]},"glyph":{"raw":[96,0,4,1],"rect":[973,341.9375,24,24],"ink":"oklch(0.307178 0.125362 27.4847)","eff":[96,0,4,1],"ground":[156,94,176,1],"cr":3.096,"stack":["glass-resting card paper-grain-overlay w-full h-fu=50,35,21,0.14","relative=173,104,201,1"],"notes":["relative:bgimg"]},"detail":{"raw":[46,43,43,1],"rect":[768.515625,413.921875,432.953125,22.96875],"ink":"oklch(0.292283 0.00386159 34.63)","eff":[46,43,43,1],"ground":[156,94,176,1],"cr":3.101,"stack":["glass-resting card paper-grain-overlay w-full h-fu=50,35,21,0.14","relative=173,104,201,1"],"notes":["relative:bgimg"]},"detailText":"SS8 probe: induced render throw in palettes","hit":{"stmt":"self","glyph":"self","detail":"self"},"plateViewportPct":25.8,"inkViewportPct":1.55,"role":"alert","live":"assertive","statementPixels":{"inkPx":9180,"totalPx":9180,"minLuma":24}}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.goto: Timeout 120000ms exceeded.
+Call log:
+[2m  - navigating to "http://localhost:9000/#/palettes", waiting until "load"[22m
+
+    at boot (/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B08/eb.mjs:30:14)
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/execution/SS8/probes/B08/eb.mjs:47:33 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0
+exit 1
