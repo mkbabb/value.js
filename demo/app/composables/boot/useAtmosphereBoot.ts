@@ -112,19 +112,24 @@ export function useAtmosphereBoot(
             start();
             return;
         }
-        // Every certifying region (this one and the per-view accents) starts
-        // in the same idle callback, after the same frame.
+        // Every certifying region (this one and the per-view accents) waits
+        // for the same frame and idle period. X.W11.p4d T2 (COHESION §0gs.4):
+        // each region then certifies in its OWN task, so the deferred
+        // certification is a run of short tasks the main thread can interleave
+        // input with, not one long task (146 ms at 4×, `.p4c` act 8).
         pending.push(start);
         if (pending.length > 1) return;
         requestAnimationFrame(() => {
-            const run = () => {
-                const starts = pending.splice(0);
-                if (scope.active) scope.run(() => starts.forEach((s) => s()));
+            const next = () => {
+                const region = pending.shift();
+                if (region === undefined || !scope.active) return;
+                scope.run(region);
+                if (pending.length > 0) setTimeout(next, 0);
             };
             if ("requestIdleCallback" in window) {
-                window.requestIdleCallback(run, { timeout: CERTIFY_IDLE_TIMEOUT_MS });
+                window.requestIdleCallback(next, { timeout: CERTIFY_IDLE_TIMEOUT_MS });
             } else {
-                setTimeout(run, 0);
+                setTimeout(next, 0);
             }
         });
     };

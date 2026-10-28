@@ -42,6 +42,8 @@ const TOKENS = [
     "--accent-view",
     "--seal-ink",
 ] as const;
+/** The per-view accent region's tokens (useViewAccents). */
+const VIEW_TOKENS: readonly string[] = ["--accent-view", "--seal-ink"];
 const root = () => document.documentElement.style;
 const stamped = () => TOKENS.filter((t) => root().getPropertyValue(t) !== "");
 
@@ -98,6 +100,11 @@ describe("X.W11.p4c (b) — the first certification follows first paint", () => 
         const idle = idles.splice(0);
         expect(idle.length).toBe(1);
         idle.forEach((cb) => cb({ didTimeout: false, timeRemaining: () => 50 }));
+        await nextTick();
+        // X.W11.p4d T2 (COHESION §0gs.4): one task per region. The idle task
+        // certifies the root inks; the per-view accents follow in the next.
+        expect(stamped()).toEqual(TOKENS.filter((t) => !VIEW_TOKENS.includes(t)));
+        await new Promise((resolve) => setTimeout(resolve, 0));
         await nextTick();
         expect(stamped()).toEqual([...TOKENS]);
 

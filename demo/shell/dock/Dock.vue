@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, ref, watch, useTemplateRef } from "vue";
+import { computed, inject, onMounted, ref, watch, useTemplateRef } from "vue";
 import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import {
     GlassDock,
@@ -113,7 +113,17 @@ const fieldCanvas = () =>
 // subtree, so every `.gold-ink` here (the view trigger, the admin trigger,
 // the crown) reads the band's gold: raw gold read 1.09:1 on the light band.
 const dockHost = useTemplateRef<HTMLElement>("dockHost");
-const dockPlate = computed(() => dockHost.value?.querySelector(".dock-plate") ?? null);
+// X.W11.p4d T2 (COHESION §0gs.4): the band's inks are a live backdrop read and
+// a WCAG walk per ink. They certify in their own task after the dock mounts
+// (the dock lands veiled, and until then the resting inks stand in, as before
+// the band exists), so the dock's mount task carries none of that work.
+const bandCertified = ref(false);
+onMounted(() => {
+    setTimeout(() => (bandCertified.value = true), 0);
+});
+const dockPlate = computed(() =>
+    bandCertified.value ? (dockHost.value?.querySelector(".dock-plate") ?? null) : null,
+);
 // X-DS pass 18 (V18C-01): the gold holds its chroma (`certifyIdentityInk`):
 // the word at the text floor, falling back to the band's plate ink where no
 // gold clears it; the glyphs (the view icon, the admin shield, the crown) at
