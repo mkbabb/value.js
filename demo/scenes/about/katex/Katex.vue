@@ -1,5 +1,5 @@
 <template>
-    <FadingScroll v-if="displayMode" axis="x" class="katex-row">
+    <FadingScroll v-if="displayMode" axis="x" class="katex-row" aria-label="Formula">
         <div ref="katexElement"></div>
     </FadingScroll>
     <div v-else class="inline-block" ref="katexElement"></div>
@@ -13,6 +13,11 @@ import { useTemplateRef, onMounted, onBeforeUnmount, watch } from "vue";
 // formula and takes keyboard focus, the shape the easing specimen strip
 // rides. Inline math stays an inline box. (No template comment: one beside
 // the root makes a dev-mode fragment, which drops the scope attribute.)
+// X.W11.v1 (A4): glass's FadingScroll always takes keyboard focus
+// (`tabindex="0"`) and becomes a named `region` only when it is given a label.
+// An unnamed focus stop is A4's nameless control (e2e a11y-control-targets:
+// four `.katex-row` stops on `/`), so the row names itself "Formula". The
+// KaTeX MathML layer inside the row carries the formula's own reading.
 import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
 // AB-1 (T.W8 remediation_1) — the KaTeX stylesheet is a GLOBAL import, script-
 // side. It was `@import "katex/dist/katex.min.css"` INSIDE a `<style scoped>`
