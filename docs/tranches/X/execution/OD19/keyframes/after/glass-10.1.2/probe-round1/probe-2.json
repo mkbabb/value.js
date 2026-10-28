@@ -1,0 +1,1899 @@
+{
+ "origin": "http://localhost:5391",
+ "at": "2026-10-27T23:53:25.160Z",
+ "keyboard": {
+  "home@1440": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       692,
+       43,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-select-trigger dock-label max-[399px]:min-",
+        "name": "Scene",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger dock-label",
+        "name": "@mbabb menu",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 2,
+      "allDeclared": true,
+      "role": "toolbar",
+      "ariaOrientation": "horizontal",
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e2"
+      ],
+      "ok": true,
+      "undeclared": [],
+      "home": "d0-e0",
+      "end": "d0-e2"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 1,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       692,
+       764,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d1-e1",
+        "tag": "DIV",
+        "cls": "transport-row flex items-center",
+        "name": "",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d1-e0",
+          "name": "Channel to edit",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 0,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [],
+      "runStopOk": true,
+      "persistent": [
+       {
+        "id": "d1-e2",
+        "name": "Play animation"
+       }
+      ],
+      "expected": [
+       "d1-e2",
+       "d1-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d1-e2",
+       "d1-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [],
+      "walk": [],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d1-e0",
+        "name": "Channel to edit",
+        "after": "d1-e0",
+        "ontoSeat": false
+       }
+      ]
+     },
+     "ok": true
+    }
+   ],
+   "ok": true
+  },
+  "home@390": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       167,
+       30,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-select-trigger dock-label max-[399px]:min-",
+        "name": "Scene",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger dock-label",
+        "name": "@mbabb menu",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 2,
+      "allDeclared": true,
+      "role": "toolbar",
+      "ariaOrientation": "horizontal",
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e2"
+      ],
+      "ok": true,
+      "undeclared": [],
+      "home": "d0-e0",
+      "end": "d0-e2"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 1,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       167,
+       729,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d1-e1",
+        "tag": "DIV",
+        "cls": "transport-row flex items-center",
+        "name": "",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d1-e0",
+          "name": "Channel to edit",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 0,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [],
+      "runStopOk": true,
+      "persistent": [
+       {
+        "id": "d1-e2",
+        "name": "Play animation"
+       }
+      ],
+      "expected": [
+       "d1-e2",
+       "d1-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d1-e2",
+       "d1-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [],
+      "walk": [],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d1-e0",
+        "name": "Channel to edit",
+        "after": "d1-e0",
+        "ontoSeat": false
+       }
+      ]
+     },
+     "ok": true
+    }
+   ],
+   "ok": true
+  },
+  "cube@1440": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       692,
+       43,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-select-trigger dock-label max-[399px]:min-",
+        "name": "Scene",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger",
+        "name": "Editor surfaces",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e3",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e4",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger dock-label",
+        "name": "@mbabb menu",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 3,
+      "allDeclared": true,
+      "role": "toolbar",
+      "ariaOrientation": "horizontal",
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e4"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e4",
+       "d0-e4"
+      ],
+      "ok": true,
+      "undeclared": [],
+      "home": "d0-e0",
+      "end": "d0-e4"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 1,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       692,
+       764,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d1-e2",
+        "tag": "DIV",
+        "cls": "transport-row flex items-center",
+        "name": "Rotations",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d1-e0",
+          "name": "Channel to edit",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         },
+         {
+          "id": "d1-e1",
+          "name": "Reset animation",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 0,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [],
+      "runStopOk": true,
+      "persistent": [
+       {
+        "id": "d1-e3",
+        "name": "Play animation"
+       }
+      ],
+      "expected": [
+       "d1-e3",
+       "d1-e0",
+       "d1-e1"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d1-e3",
+       "d1-e0",
+       "d1-e1"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [],
+      "walk": [],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d1-e0",
+        "name": "Channel to edit",
+        "after": "d1-e0",
+        "ontoSeat": false
+       },
+       {
+        "id": "d1-e1",
+        "name": "Reset animation",
+        "after": "DIV.dock-layer dock-layer--summary",
+        "ontoSeat": false
+       }
+      ]
+     },
+     "ok": true
+    }
+   ],
+   "ok": true
+  },
+  "cube@390": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       167,
+       30,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-select-trigger dock-label max-[399px]:min-",
+        "name": "Scene",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger",
+        "name": "Editor surfaces",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e3",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e4",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger dock-label",
+        "name": "@mbabb menu",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 3,
+      "allDeclared": true,
+      "role": "toolbar",
+      "ariaOrientation": "horizontal",
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e4"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e4",
+       "d0-e4"
+      ],
+      "ok": true,
+      "undeclared": [],
+      "home": "d0-e0",
+      "end": "d0-e4"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 1,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       167,
+       729,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d1-e2",
+        "tag": "DIV",
+        "cls": "transport-row flex items-center",
+        "name": "Rotations",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d1-e0",
+          "name": "Channel to edit",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         },
+         {
+          "id": "d1-e1",
+          "name": "Reset animation",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 0,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [],
+      "runStopOk": true,
+      "persistent": [
+       {
+        "id": "d1-e3",
+        "name": "Play animation"
+       }
+      ],
+      "expected": [
+       "d1-e3",
+       "d1-e0",
+       "d1-e1"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d1-e3",
+       "d1-e0",
+       "d1-e1"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [],
+      "walk": [],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d1-e0",
+        "name": "Channel to edit",
+        "after": "d1-e0",
+        "ontoSeat": false
+       },
+       {
+        "id": "d1-e1",
+        "name": "Reset animation",
+        "after": "DIV.dock-layer dock-layer--summary",
+        "ontoSeat": false
+       }
+      ]
+     },
+     "ok": true
+    }
+   ],
+   "ok": true
+  },
+  "easing@1440": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       692,
+       43,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-select-trigger dock-label max-[399px]:min-",
+        "name": "Scene",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger",
+        "name": "Editor surfaces",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e3",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e4",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger dock-label",
+        "name": "@mbabb menu",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 3,
+      "allDeclared": true,
+      "role": "toolbar",
+      "ariaOrientation": "horizontal",
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e4"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e4",
+       "d0-e4"
+      ],
+      "ok": true,
+      "undeclared": [],
+      "home": "d0-e0",
+      "end": "d0-e4"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 1,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       692,
+       764,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d1-e1",
+        "tag": "DIV",
+        "cls": "transport-row flex items-center",
+        "name": "",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d1-e0",
+          "name": "Reset animation",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 0,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [],
+      "runStopOk": true,
+      "persistent": [
+       {
+        "id": "d1-e2",
+        "name": "Play animation"
+       }
+      ],
+      "expected": [
+       "d1-e2",
+       "d1-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d1-e2",
+       "d1-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [],
+      "walk": [],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d1-e0",
+        "name": "Reset animation",
+        "after": "d1-e0",
+        "ontoSeat": false
+       }
+      ]
+     },
+     "ok": true
+    }
+   ],
+   "ok": true
+  },
+  "easing@390": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       167,
+       30,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-select-trigger dock-label max-[399px]:min-",
+        "name": "Scene",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger",
+        "name": "Editor surfaces",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e3",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e4",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger dock-label",
+        "name": "@mbabb menu",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 3,
+      "allDeclared": true,
+      "role": "toolbar",
+      "ariaOrientation": "horizontal",
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e4"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e4",
+       "d0-e4"
+      ],
+      "ok": true,
+      "undeclared": [],
+      "home": "d0-e0",
+      "end": "d0-e4"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 1,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       167,
+       729,
+       56,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d1-e1",
+        "tag": "DIV",
+        "cls": "transport-row flex items-center",
+        "name": "",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d1-e0",
+          "name": "Reset animation",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 0,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [],
+      "runStopOk": true,
+      "persistent": [
+       {
+        "id": "d1-e2",
+        "name": "Play animation"
+       }
+      ],
+      "expected": [
+       "d1-e2",
+       "d1-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d1-e2",
+       "d1-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [],
+      "walk": [],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d1-e0",
+        "name": "Reset animation",
+        "after": "d1-e0",
+        "ontoSeat": false
+       }
+      ]
+     },
+     "ok": true
+    }
+   ],
+   "ok": true
+  }
+ },
+ "resize": {
+  "home": {
+   "pre": [
+    "glass-dock horizontal shape-pill collapsed fit-content",
+    "glass-dock horizontal shape-pill collapsed fit-content"
+   ],
+   "htmlOverflowX": [
+    "hidden",
+    "hidden"
+   ],
+   "phases": [
+    {
+     "phase": "collapsed 1440->390",
+     "frames": 326,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2501,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "184px",
+        "w": 56,
+        "over": -167
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "135px",
+        "w": 56,
+        "over": -167
+       }
+      ]
+     }
+    },
+    {
+     "phase": "expand at 390 · dock 0",
+     "frames": 239,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1804,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "192px",
+        "w": 192,
+        "over": -99
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "135px",
+        "w": 56,
+        "over": -167
+       }
+      ]
+     },
+     "dock": 0
+    },
+    {
+     "phase": "expand at 390 · dock 1",
+     "frames": 235,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1807,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "192px",
+        "w": 56,
+        "over": -167
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "149px",
+        "w": 149,
+        "over": -120
+       }
+      ]
+     },
+     "dock": 1
+    },
+    {
+     "phase": "collapsed 390->1440",
+     "frames": 331,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2507,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "274px",
+        "w": 56,
+        "over": -692
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "149px",
+        "w": 56,
+        "over": -692
+       }
+      ]
+     }
+    },
+    {
+     "phase": "expand at 1440 · dock 0",
+     "frames": 237,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1805,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "274px",
+        "w": 274,
+        "over": -583
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "149px",
+        "w": 56,
+        "over": -692
+       }
+      ]
+     },
+     "dock": 0
+    },
+    {
+     "phase": "expand at 1440 · dock 1",
+     "frames": 241,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1803,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "274px",
+        "w": 56,
+        "over": -692
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "149px",
+        "w": 149,
+        "over": -645
+       }
+      ]
+     },
+     "dock": 1
+    }
+   ],
+   "ok": true
+  },
+  "cube": {
+   "pre": [
+    "glass-dock horizontal shape-pill collapsed fit-content",
+    "glass-dock horizontal shape-pill collapsed fit-content"
+   ],
+   "htmlOverflowX": [
+    "hidden",
+    "hidden"
+   ],
+   "phases": [
+    {
+     "phase": "collapsed 1440->390",
+     "frames": 188,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2506,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "249px",
+        "w": 56,
+        "over": -167
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "245px",
+        "w": 56,
+        "over": -167
+       }
+      ]
+     }
+    },
+    {
+     "phase": "expand at 390 · dock 0",
+     "frames": 149,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1800,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "257px",
+        "w": 257,
+        "over": -67
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "245px",
+        "w": 56,
+        "over": -167
+       }
+      ]
+     },
+     "dock": 0
+    },
+    {
+     "phase": "expand at 390 · dock 1",
+     "frames": 148,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1812,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "257px",
+        "w": 56,
+        "over": -167
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "259px",
+        "w": 259,
+        "over": -66
+       }
+      ]
+     },
+     "dock": 1
+    },
+    {
+     "phase": "collapsed 390->1440",
+     "frames": 212,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2505,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "333px",
+        "w": 56,
+        "over": -692
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "271px",
+        "w": 56,
+        "over": -692
+       }
+      ]
+     }
+    },
+    {
+     "phase": "expand at 1440 · dock 0",
+     "frames": 151,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1808,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "333px",
+        "w": 333,
+        "over": -553
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "271px",
+        "w": 56,
+        "over": -692
+       }
+      ]
+     },
+     "dock": 0
+    },
+    {
+     "phase": "expand at 1440 · dock 1",
+     "frames": 211,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1806,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "333px",
+        "w": 56,
+        "over": -692
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "271px",
+        "w": 271,
+        "over": -585
+       }
+      ]
+     },
+     "dock": 1
+    }
+   ],
+   "ok": true
+  },
+  "easing": {
+   "pre": [
+    "glass-dock horizontal shape-pill collapsed fit-content",
+    "glass-dock horizontal shape-pill collapsed fit-content"
+   ],
+   "htmlOverflowX": [
+    "hidden",
+    "hidden"
+   ],
+   "phases": [
+    {
+     "phase": "collapsed 1440->390",
+     "frames": 264,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2506,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "249px",
+        "w": 56,
+        "over": -167
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "115px",
+        "w": 56,
+        "over": -167
+       }
+      ]
+     }
+    },
+    {
+     "phase": "expand at 390 · dock 0",
+     "frames": 200,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1805,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "257px",
+        "w": 257,
+        "over": -67
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "115px",
+        "w": 56,
+        "over": -167
+       }
+      ]
+     },
+     "dock": 0
+    },
+    {
+     "phase": "expand at 390 · dock 1",
+     "frames": 195,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1805,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "257px",
+        "w": 56,
+        "over": -167
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "129px",
+        "w": 129,
+        "over": -130
+       }
+      ]
+     },
+     "dock": 1
+    },
+    {
+     "phase": "collapsed 390->1440",
+     "frames": 293,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2506,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "344px",
+        "w": 56,
+        "over": -692
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "129px",
+        "w": 56,
+        "over": -692
+       }
+      ]
+     }
+    },
+    {
+     "phase": "expand at 1440 · dock 0",
+     "frames": 204,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1804,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "344px",
+        "w": 344,
+        "over": -548
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "129px",
+        "w": 56,
+        "over": -692
+       }
+      ]
+     },
+     "dock": 0
+    },
+    {
+     "phase": "expand at 1440 · dock 1",
+     "frames": 202,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1803,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": false,
+        "m": false,
+        "px": "344px",
+        "w": 56,
+        "over": -692
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "129px",
+        "w": 129,
+        "over": -655
+       }
+      ]
+     },
+     "dock": 1
+    }
+   ],
+   "ok": true
+  }
+ }
+}

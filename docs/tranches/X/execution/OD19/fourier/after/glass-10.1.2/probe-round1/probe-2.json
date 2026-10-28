@@ -1,0 +1,2083 @@
+{
+ "origin": "http://localhost:4191",
+ "at": "2026-10-28T00:12:34.741Z",
+ "keyboard": {
+  "home@1440": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+      "visible": true,
+      "box": [
+       455,
+       12,
+       530,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-dropdown-trigger logo-trigger",
+        "name": "About Fourier analysis",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger nav-trigger",
+        "name": "Navigate — current section Paper",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e3",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e5",
+        "tag": "DIV",
+        "cls": "contents",
+        "name": "Account",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d0-e4",
+          "name": "Log in",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e6",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e7",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover su",
+        "name": "Dark mode",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 3,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0",
+       "d0-e4"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0",
+       "d0-e4"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7",
+       "d0-e7"
+      ],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d0-e4",
+        "name": "Log in",
+        "after": "d0-e4",
+        "ontoSeat": false
+       }
+      ],
+      "home": "d0-e0",
+      "end": "d0-e7"
+     },
+     "ok": true
+    }
+   ],
+   "ok": true
+  },
+  "home@390": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+      "visible": true,
+      "box": [
+       27,
+       8,
+       336,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-dropdown-trigger logo-trigger",
+        "name": "About Fourier analysis",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger nav-trigger",
+        "name": "Navigate — current section Paper",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e3",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e5",
+        "tag": "DIV",
+        "cls": "contents",
+        "name": "Account",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d0-e4",
+          "name": "Log in",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e6",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e7",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover su",
+        "name": "Dark mode",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 3,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0",
+       "d0-e4"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0",
+       "d0-e4"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7",
+       "d0-e7"
+      ],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d0-e4",
+        "name": "Log in",
+        "after": "d0-e4",
+        "ontoSeat": false
+       }
+      ],
+      "home": "d0-e0",
+      "end": "d0-e7"
+     },
+     "ok": true
+    }
+   ],
+   "ok": true
+  },
+  "viz@1440": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+      "visible": true,
+      "box": [
+       442,
+       12,
+       555,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-dropdown-trigger logo-trigger",
+        "name": "About Fourier analysis",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger nav-trigger",
+        "name": "Navigate — current section Visualize",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e3",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e5",
+        "tag": "DIV",
+        "cls": "contents",
+        "name": "Account",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d0-e4",
+          "name": "Log in",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e6",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e7",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover su",
+        "name": "Dark mode",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 3,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0",
+       "d0-e4"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0",
+       "d0-e4"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7",
+       "d0-e7"
+      ],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d0-e4",
+        "name": "Log in",
+        "after": "d0-e4",
+        "ontoSeat": false
+       }
+      ],
+      "home": "d0-e0",
+      "end": "d0-e7"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 1,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       883,
+       97,
+       96,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d1-e0",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger view-layers",
+        "name": "View options",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e2",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "name": "Publish to Gallery",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e3",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "name": "Equation",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e4",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "name": "Export frame",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e5",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e6",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "name": "Fullscreen",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 5,
+      "allDeclared": true,
+      "role": "toolbar",
+      "ariaOrientation": "horizontal",
+      "roleOk": true,
+      "runStops": [
+       "d1-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [
+       {
+        "id": "d1-e7",
+        "name": "Edit contour"
+       }
+      ],
+      "expected": [
+       "d1-e7",
+       "d1-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d1-e0",
+       "d1-e7"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d1-e0",
+       "d1-e2",
+       "d1-e3",
+       "d1-e4",
+       "d1-e6"
+      ],
+      "walk": [
+       "d1-e0",
+       "d1-e2",
+       "d1-e3",
+       "d1-e4",
+       "d1-e6",
+       "d1-e6"
+      ],
+      "ok": true,
+      "undeclared": [],
+      "home": "d1-e0",
+      "end": "d1-e6"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 2,
+      "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+      "visible": true,
+      "box": [
+       451,
+       819,
+       102,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d2-e2",
+        "tag": "DIV",
+        "cls": "transport-face flex items-center gap-2",
+        "name": "1× 01",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d2-e0",
+          "name": "Playback speed",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         },
+         {
+          "id": "d2-e1",
+          "name": "Easing",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 0,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [],
+      "runStopOk": true,
+      "persistent": [
+       {
+        "id": "d2-e3",
+        "name": "Pause animation"
+       }
+      ],
+      "expected": [
+       "d2-e3",
+       "d2-e0",
+       "d2-e1"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d2-e3",
+       "SPAN.slider-thumb glass-specular-tr",
+       "d2-e0",
+       "d2-e1"
+      ],
+      "missing": [],
+      "extra": [
+       "SPAN.slider-thumb glass-specular-tr"
+      ],
+      "ok": false
+     },
+     "arrows": {
+      "declared": [],
+      "walk": [],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d2-e0",
+        "name": "Playback speed",
+        "after": "d2-e0",
+        "ontoSeat": false
+       },
+       {
+        "id": "d2-e1",
+        "name": "Easing",
+        "after": "DIV.dock-layer dock-layer--summary",
+        "ontoSeat": false
+       }
+      ]
+     },
+     "ok": false
+    }
+   ],
+   "ok": false
+  },
+  "viz@390": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+      "visible": true,
+      "box": [
+       16,
+       8,
+       358,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-dropdown-trigger logo-trigger",
+        "name": "About Fourier analysis",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger nav-trigger",
+        "name": "Navigate — current section Visualize",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e3",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e5",
+        "tag": "DIV",
+        "cls": "contents",
+        "name": "Account",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d0-e4",
+          "name": "Log in",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e6",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e7",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover su",
+        "name": "Dark mode",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 3,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0",
+       "d0-e4"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0",
+       "d0-e4"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7",
+       "d0-e7"
+      ],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d0-e4",
+        "name": "Log in",
+        "after": "d0-e4",
+        "ontoSeat": false
+       }
+      ],
+      "home": "d0-e0",
+      "end": "d0-e7"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 1,
+      "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+      "visible": true,
+      "box": [
+       269,
+       137,
+       96,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d1-e0",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger view-layers",
+        "name": "View options",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e2",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "name": "Publish to Gallery",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e3",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "name": "Equation",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e4",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "name": "Export frame",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e5",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e6",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "name": "Fullscreen",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 5,
+      "allDeclared": true,
+      "role": "toolbar",
+      "ariaOrientation": "horizontal",
+      "roleOk": true,
+      "runStops": [
+       "d1-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [
+       {
+        "id": "d1-e7",
+        "name": "Edit contour"
+       }
+      ],
+      "expected": [
+       "d1-e7",
+       "d1-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d1-e0",
+       "d1-e7"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d1-e0",
+       "d1-e2",
+       "d1-e3",
+       "d1-e4",
+       "d1-e6"
+      ],
+      "walk": [
+       "d1-e0",
+       "d1-e2",
+       "d1-e3",
+       "d1-e4",
+       "d1-e6",
+       "d1-e6"
+      ],
+      "ok": true,
+      "undeclared": [],
+      "home": "d1-e0",
+      "end": "d1-e6"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 2,
+      "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+      "visible": true,
+      "box": [
+       144,
+       771,
+       102,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d2-e2",
+        "tag": "DIV",
+        "cls": "transport-face flex items-center gap-2",
+        "name": "1× 01",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d2-e0",
+          "name": "Playback speed",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         },
+         {
+          "id": "d2-e1",
+          "name": "Easing",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 0,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [],
+      "runStopOk": true,
+      "persistent": [
+       {
+        "id": "d2-e3",
+        "name": "Pause animation"
+       }
+      ],
+      "expected": [
+       "d2-e3",
+       "d2-e0",
+       "d2-e1"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d2-e3",
+       "SPAN.slider-thumb glass-specular-tr",
+       "d2-e0",
+       "d2-e1"
+      ],
+      "missing": [],
+      "extra": [
+       "SPAN.slider-thumb glass-specular-tr"
+      ],
+      "ok": false
+     },
+     "arrows": {
+      "declared": [],
+      "walk": [],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d2-e0",
+        "name": "Playback speed",
+        "after": "d2-e0",
+        "ontoSeat": false
+       },
+       {
+        "id": "d2-e1",
+        "name": "Easing",
+        "after": "DIV.dock-layer dock-layer--summary",
+        "ontoSeat": false
+       }
+      ]
+     },
+     "ok": false
+    }
+   ],
+   "ok": false
+  },
+  "equation@1440": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+      "visible": true,
+      "box": [
+       442,
+       12,
+       557,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-dropdown-trigger logo-trigger",
+        "name": "About Fourier analysis",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger nav-trigger",
+        "name": "Navigate — current section Equation",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e3",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e5",
+        "tag": "DIV",
+        "cls": "contents",
+        "name": "Account",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d0-e4",
+          "name": "Log in",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e6",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e7",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover su",
+        "name": "Dark mode",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 3,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0",
+       "d0-e4"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0",
+       "d0-e4"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7",
+       "d0-e7"
+      ],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d0-e4",
+        "name": "Log in",
+        "after": "d0-e4",
+        "ontoSeat": false
+       }
+      ],
+      "home": "d0-e0",
+      "end": "d0-e7"
+     },
+     "ok": true
+    },
+    {
+     "dock": {
+      "i": 1,
+      "cls": "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded",
+      "visible": true,
+      "box": [
+       867,
+       97,
+       112,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d1-e0",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "name": "About this approximation",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d1-e1",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "name": "Copy LaTeX",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 2,
+      "allDeclared": true,
+      "role": "toolbar",
+      "ariaOrientation": "horizontal",
+      "roleOk": true,
+      "runStops": [
+       "d1-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d1-e0"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d1-e0"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d1-e0",
+       "d1-e1"
+      ],
+      "walk": [
+       "d1-e0",
+       "d1-e1",
+       "d1-e1"
+      ],
+      "ok": true,
+      "undeclared": [],
+      "home": "d1-e0",
+      "end": "d1-e1"
+     },
+     "ok": true
+    }
+   ],
+   "ok": true
+  },
+  "equation@390": {
+   "docks": [
+    {
+     "dock": {
+      "i": 0,
+      "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+      "visible": true,
+      "box": [
+       16,
+       8,
+       359,
+       56
+      ]
+     },
+     "expanded": true,
+     "anatomy": {
+      "orientation": "horizontal",
+      "kids": [
+       {
+        "id": "d0-e0",
+        "tag": "BUTTON",
+        "cls": "dock-trigger dock-dropdown-trigger logo-trigger",
+        "name": "About Fourier analysis",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": 0,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e1",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e2",
+        "tag": "BUTTON",
+        "cls": "menu__trigger dock-trigger dock-dropdown-trigger nav-trigger",
+        "name": "Navigate — current section Equation",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e3",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e5",
+        "tag": "DIV",
+        "cls": "contents",
+        "name": "Account",
+        "declared": false,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [
+         {
+          "id": "d0-e4",
+          "name": "Log in",
+          "tag": "BUTTON",
+          "tabIndex": 0
+         }
+        ],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e6",
+        "tag": "DIV",
+        "cls": "dock-separator",
+        "name": "",
+        "declared": false,
+        "sep": true,
+        "formSelect": false,
+        "tabIndex": null,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       },
+       {
+        "id": "d0-e7",
+        "tag": "BUTTON",
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover su",
+        "name": "Dark mode",
+        "declared": true,
+        "sep": false,
+        "formSelect": false,
+        "tabIndex": -1,
+        "ariaDisabled": null,
+        "nativeDisabled": false,
+        "undeclaredTabbables": [],
+        "undeclaredMinus1": []
+       }
+      ],
+      "declaredCount": 3,
+      "allDeclared": false,
+      "role": null,
+      "ariaOrientation": null,
+      "roleOk": true,
+      "runStops": [
+       "d0-e0"
+      ],
+      "runStopOk": true,
+      "persistent": [],
+      "expected": [
+       "d0-e0",
+       "d0-e4"
+      ]
+     },
+     "tab": {
+      "walked": [
+       "d0-e0",
+       "d0-e4"
+      ],
+      "missing": [],
+      "extra": [],
+      "ok": true
+     },
+     "arrows": {
+      "declared": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7"
+      ],
+      "walk": [
+       "d0-e0",
+       "d0-e2",
+       "d0-e7",
+       "d0-e7"
+      ],
+      "ok": true,
+      "undeclared": [
+       {
+        "id": "d0-e4",
+        "name": "Log in",
+        "after": "d0-e4",
+        "ontoSeat": false
+       }
+      ],
+      "home": "d0-e0",
+      "end": "d0-e7"
+     },
+     "ok": true
+    }
+   ],
+   "ok": true
+  }
+ },
+ "resize": {
+  "home": {
+   "pre": [
+    "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded"
+   ],
+   "htmlOverflowX": [
+    "visible",
+    "visible"
+   ],
+   "phases": [
+    {
+     "phase": "collapsed 1440->390",
+     "frames": 331,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2501,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "336px",
+        "w": 336,
+        "over": -27
+       }
+      ]
+     }
+    },
+    {
+     "phase": "collapsed 390->1440",
+     "frames": 332,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2503,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "530px",
+        "w": 530,
+        "over": -455
+       }
+      ]
+     }
+    }
+   ],
+   "ok": true
+  },
+  "viz": {
+   "pre": [
+    "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+    "glass-dock horizontal shape-pill collapsed fit-content",
+    "animation-dock glass-dock horizontal shape-pill collapsed"
+   ],
+   "htmlOverflowX": [
+    "visible",
+    "visible"
+   ],
+   "phases": [
+    {
+     "phase": "collapsed 1440->390",
+     "frames": 309,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2502,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "358px",
+        "w": 358,
+        "over": -16
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "330px",
+        "w": 0,
+        "over": 0
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "340px",
+        "w": 0,
+        "over": 0
+       }
+      ]
+     }
+    },
+    {
+     "phase": "expand at 390 · dock 1",
+     "frames": 215,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1801,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "358px",
+        "w": 358,
+        "over": -16
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "338px",
+        "w": 338,
+        "over": -25
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "332px",
+        "w": 102,
+        "over": -144
+       }
+      ]
+     },
+     "dock": 1
+    },
+    {
+     "phase": "expand at 390 · dock 2",
+     "frames": 211,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1805,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "358px",
+        "w": 358,
+        "over": -16
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "338px",
+        "w": 96,
+        "over": -25
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "340px",
+        "w": 340,
+        "over": -25
+       }
+      ]
+     },
+     "dock": 2
+    },
+    {
+     "phase": "collapsed 390->1440",
+     "frames": 75,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2504,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "555px",
+        "w": 555,
+        "over": -442
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "338px",
+        "w": 96,
+        "over": -461
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "958px",
+        "w": 102,
+        "over": -451
+       }
+      ]
+     }
+    },
+    {
+     "phase": "expand at 1440 · dock 1",
+     "frames": 43,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1822,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "555px",
+        "w": 555,
+        "over": -442
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "338px",
+        "w": 338,
+        "over": -461
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "958px",
+        "w": 102,
+        "over": -451
+       }
+      ]
+     },
+     "dock": 1
+    },
+    {
+     "phase": "expand at 1440 · dock 2",
+     "frames": 48,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 1832,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "555px",
+        "w": 555,
+        "over": -442
+       },
+       {
+        "exp": false,
+        "m": false,
+        "px": "338px",
+        "w": 96,
+        "over": -461
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "958px",
+        "w": 958,
+        "over": -23
+       }
+      ]
+     },
+     "dock": 2
+    }
+   ],
+   "ok": true
+  },
+  "equation": {
+   "pre": [
+    "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+    "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded"
+   ],
+   "htmlOverflowX": [
+    "visible",
+    "visible"
+   ],
+   "phases": [
+    {
+     "phase": "collapsed 1440->390",
+     "frames": 291,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2504,
+      "sw": 390,
+      "cw": 390,
+      "bsw": 390,
+      "bcw": 390,
+      "iw": 390,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "359px",
+        "w": 359,
+        "over": -16
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "112px",
+        "w": 0,
+        "over": 0
+       }
+      ]
+     }
+    },
+    {
+     "phase": "collapsed 390->1440",
+     "frames": 113,
+     "overflowFrames": 0,
+     "dockPastViewportFrames": 0,
+     "maxDockPastViewport": 0,
+     "maxOverflow": 0,
+     "firstBad": null,
+     "last": {
+      "t": 2546,
+      "sw": 1440,
+      "cw": 1440,
+      "bsw": 1440,
+      "bcw": 1440,
+      "iw": 1440,
+      "ds": [
+       {
+        "exp": true,
+        "m": false,
+        "px": "557px",
+        "w": 557,
+        "over": -442
+       },
+       {
+        "exp": true,
+        "m": false,
+        "px": "112px",
+        "w": 112,
+        "over": -461
+       }
+      ]
+     }
+    }
+   ],
+   "ok": true
+  }
+ }
+}

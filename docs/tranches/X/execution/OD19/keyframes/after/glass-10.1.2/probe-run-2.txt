@@ -1,0 +1,16 @@
+{
+ "keyboard": {
+  "home@1440": "dock0:ok role=toolbar declared=2/3 undeclTabbables=0 | dock1:ok role=null declared=0/1 undeclTabbables=1",
+  "home@390": "dock0:ok role=toolbar declared=2/3 undeclTabbables=0 | dock1:ok role=null declared=0/1 undeclTabbables=1",
+  "cube@1440": "dock0:ok role=toolbar declared=3/5 undeclTabbables=0 | dock1:ok role=null declared=0/1 undeclTabbables=2",
+  "cube@390": "dock0:ok role=toolbar declared=3/5 undeclTabbables=0 | dock1:ok role=null declared=0/1 undeclTabbables=2",
+  "easing@1440": "dock0:ok role=toolbar declared=3/5 undeclTabbables=0 | dock1:ok role=null declared=0/1 undeclTabbables=1",
+  "easing@390": "dock0:ok role=toolbar declared=3/5 undeclTabbables=0 | dock1:ok role=null declared=0/1 undeclTabbables=1"
+ },
+ "resize": {
+  "home": "collapsed 1440->390: 0/330 max 0 dockPast 0 max 0 | expand at 390 · dock 0: 0/244 max 0 dockPast 0 max 0 | expand at 390 · dock 1: 0/237 max 0 dockPast 0 max 0 | collapsed 390->1440: 0/335 max 0 dockPast 0 max 0 | expand at 1440 · dock 0: 0/239 max 0 dockPast 0 max 0 | expand at 1440 · dock 1: 0/242 max 0 dockPast 0 max 0",
+  "cube": "collapsed 1440->390: 0/195 max 0 dockPast 0 max 0 | expand at 390 · dock 0: 0/139 max 0 dockPast 0 max 0 | expand at 390 · dock 1: 0/166 max 0 dockPast 0 max 0 | collapsed 390->1440: 0/245 max 0 dockPast 0 max 0 | expand at 1440 · dock 0: 0/170 max 0 dockPast 0 max 0 | expand at 1440 · dock 1: 0/172 max 0 dockPast 0 max 0",
+  "easing": "collapsed 1440->390: 0/292 max 0 dockPast 0 max 0 | expand at 390 · dock 0: 0/209 max 0 dockPast 0 max 0 | expand at 390 · dock 1: 0/209 max 0 dockPast 0 max 0 | collapsed 390->1440: 0/301 max 0 dockPast 0 max 0 | expand at 1440 · dock 0: 0/215 max 0 dockPast 0 max 0 | expand at 1440 · dock 1: 0/212 max 0 dockPast 0 max 0"
+ }
+}
+rc=0

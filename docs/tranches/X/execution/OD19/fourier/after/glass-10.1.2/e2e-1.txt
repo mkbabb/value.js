@@ -1,0 +1,87 @@
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 66 tests using 1 worker
+
+  ✓   1 [chromium] › e2e/f-w14u-d.spec.ts:105:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d1 — the collapsed summary is one readout, inside the plate (1.8s)
+  ✓   2 [chromium] › e2e/f-w14u-d.spec.ts:132:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate (8.2s)
+  ✓   3 [chromium] › e2e/f-w14u-d.spec.ts:105:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d1 — the collapsed summary is one readout, inside the plate (1.6s)
+  ✓   4 [chromium] › e2e/f-w14u-d.spec.ts:132:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate (8.1s)
+  ✓   5 [chromium] › e2e/f-w14u-d.spec.ts:105:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d1 — the collapsed summary is one readout, inside the plate (1.1s)
+  ✓   6 [chromium] › e2e/f-w14u-d.spec.ts:132:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate (7.6s)
+  ✓   7 [chromium] › e2e/f-w14u-vdock.spec.ts:84:9 › F.W14U.vdock — the animation dock's menus (1440) › v9 — the menu's content fits the menu, speed is one control, sections are labelled, choosing keeps it open (4.5s)
+  ✓   8 [chromium] › e2e/f-w14u-vdock.spec.ts:84:9 › F.W14U.vdock — the animation dock's menus (390) › v9 — the menu's content fits the menu, speed is one control, sections are labelled, choosing keeps it open (3.8s)
+  ✓   9 [chromium] › e2e/f-w14u-vdock.spec.ts:148:9 › F.W14U.vdock — the canvas dock (1440) › v76 — View options opens below its trigger, into the canvas, clear of the app chrome (2.7s)
+  ✓  10 [chromium] › e2e/f-w14u-vdock.spec.ts:173:9 › F.W14U.vdock — the canvas dock (1440) › v94 — the collapsed canvas dock's face is not the Fullscreen glyph (1.4s)
+  ✓  11 [chromium] › e2e/f-w14u-vdock.spec.ts:148:9 › F.W14U.vdock — the canvas dock (390) › v76 — View options opens below its trigger, into the canvas, clear of the app chrome (1.8s)
+  ✓  12 [chromium] › e2e/f-w14u-vdock.spec.ts:173:9 › F.W14U.vdock — the canvas dock (390) › v94 — the collapsed canvas dock's face is not the Fullscreen glyph (1.2s)
+  ✓  13 [chromium] › e2e/f-w14u-vdock.spec.ts:204:9 › F.W14U.vdock — fullscreen (1440) › v244 — the takeover is described (F-92 read: its canvas fills the container) (3.0s)
+  ✓  14 [chromium] › e2e/f-w14u-vdock.spec.ts:204:9 › F.W14U.vdock — fullscreen (390) › v244 — the takeover is described (F-92 read: its canvas fills the container) (2.4s)
+  ✓  15 [chromium] › e2e/f-w14u-vdock.spec.ts:288:5 › F.W14U.vdock — the export dialog (1440) › v181 — glass rows, a description, the title's own rung, remembered choices, every layer switchable (23.3s)
+  ✓  16 [chromium] › e2e/f-w14u-vdock.spec.ts:348:5 › F.W14U.vdock — the image overlay in dark (1440) › v174 — a white-ground overlay keys out: no pale slab, the ink stays (3.3s)
+  ✓  17 [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (light 1440) › F1 — every collapsed-summary kid lies inside the plate (791ms)
+  ✓  18 [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (light 1440) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots (14.4s)
+  ✓  19 [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (light 1440) › F3 — Speed and Easing are dock seats, each with its own menu (2.4s)
+  ✓  20 [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (light 1440) › F4 — an open menu holds the dock open; closing it lets the dock collapse (10.8s)
+  ✓  21 [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (dark 1440) › F1 — every collapsed-summary kid lies inside the plate (821ms)
+  ✓  22 [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (dark 1440) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots (14.4s)
+  ✓  23 [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (dark 1440) › F3 — Speed and Easing are dock seats, each with its own menu (2.4s)
+  ✓  24 [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (dark 1440) › F4 — an open menu holds the dock open; closing it lets the dock collapse (10.9s)
+  ✓  25 [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (light 390) › F1 — every collapsed-summary kid lies inside the plate (591ms)
+  ✓  26 [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (light 390) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots (14.2s)
+  ✓  27 [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (light 390) › F3 — Speed and Easing are dock seats, each with its own menu (2.1s)
+  ✓  28 [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (light 390) › F4 — an open menu holds the dock open; closing it lets the dock collapse (10.4s)
+  ✓  29 [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (dark 390) › F1 — every collapsed-summary kid lies inside the plate (491ms)
+  ✓  30 [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (dark 390) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots (14.1s)
+  ✓  31 [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (dark 390) › F3 — Speed and Easing are dock seats, each with its own menu (2.2s)
+  ✓  32 [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (dark 390) › F4 — an open menu holds the dock open; closing it lets the dock collapse (10.5s)
+  ✓  33 [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — light 1440 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge (502ms)
+  ✓  34 [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — light 1440 › OD19-F8 · the hovered timeline caret is whole and on top (2.1s)
+  ✓  35 [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — dark 1440 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge (523ms)
+  ✓  36 [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — dark 1440 › OD19-F8 · the hovered timeline caret is whole and on top (2.1s)
+  ✓  37 [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — light 390 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge (380ms)
+  ✓  38 [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — light 390 › OD19-F8 · the hovered timeline caret is whole and on top (1.9s)
+  ✓  39 [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — dark 390 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge (372ms)
+  ✓  40 [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — dark 390 › OD19-F8 · the hovered timeline caret is whole and on top (1.9s)
+  ✓  41 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:161:9 › OD19 P3 light 1440 › F5 · the flush layer stack's first layer is concentric with the aside (r ≥ 14px) (872ms)
+  ✓  42 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:179:9 › OD19 P3 light 1440 › F5 · ALL — every route push crossfades (≥ 6 frames), the dock holds still, no text loader (8.2s)
+  ✓  43 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:204:9 › OD19 P3 light 1440 › F6 · the toggle's ink fills its 24px glyph box (≥ 22px) (754ms)
+  ✓  44 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:161:9 › OD19 P3 dark 1440 › F5 · the flush layer stack's first layer is concentric with the aside (r ≥ 14px) (1.0s)
+  ✓  45 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:179:9 › OD19 P3 dark 1440 › F5 · ALL — every route push crossfades (≥ 6 frames), the dock holds still, no text loader (8.3s)
+  ✓  46 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:204:9 › OD19 P3 dark 1440 › F6 · the toggle's ink fills its 24px glyph box (≥ 22px) (749ms)
+  ✓  47 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:161:9 › OD19 P3 light 390 › F5 · the flush layer stack's first layer is concentric with the aside (r ≥ 14px) (608ms)
+  ✓  48 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:179:9 › OD19 P3 light 390 › F5 · ALL — every route push crossfades (≥ 6 frames), the dock holds still, no text loader (8.1s)
+  ✓  49 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:204:9 › OD19 P3 light 390 › F6 · the toggle's ink fills its 24px glyph box (≥ 22px) (656ms)
+  ✓  50 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:161:9 › OD19 P3 dark 390 › F5 · the flush layer stack's first layer is concentric with the aside (r ≥ 14px) (650ms)
+  ✓  51 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:179:9 › OD19 P3 dark 390 › F5 · ALL — every route push crossfades (≥ 6 frames), the dock holds still, no text loader (8.1s)
+  ✓  52 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:204:9 › OD19 P3 dark 390 › F6 · the toggle's ink fills its 24px glyph box (≥ 22px) (677ms)
+  ✓  53 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:227:5 › OD19 P3 · loading states are glass Skeletons in the stage's shape › /v cold load: the stage is a busy Skeleton, no text (432ms)
+  ✓  54 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:242:5 › OD19 P3 · loading states are glass Skeletons in the stage's shape › /equation cold compute: the stage is a busy Skeleton, no text (440ms)
+  ✓  55 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:258:5 › OD19 P3 · loading states are glass Skeletons in the stage's shape › reduced motion: a route push swaps with no transition (1.4s)
+  ✓  56 [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:274:5 › OD19 P3 · ALL — /equation is ready < 1 s after nav intent › hover the Equation section, then open it: the series paints within 1000 ms (4.6s)
+  ✓  57 [chromium] › e2e/shell-header.spec.ts:48:5 › Shell header (G-F9-12) › the logo trigger is named and opens its attribution card (384ms)
+  ✓  58 [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (1440) (443ms)
+  ✓  59 [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (1440) (799ms)
+  ✓  60 [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (1024) (431ms)
+  ✓  61 [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (1024) (796ms)
+  ✓  62 [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (768) (421ms)
+  ✓  63 [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (768) (782ms)
+  ✓  64 [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (390) (420ms)
+  ✓  65 [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (390) (765ms)
+  ✓  66 [chromium] › e2e/shell-header.spec.ts:112:5 › Shell header (G-F9-12) › the dark-mode toggle announces its state through aria-pressed (466ms)
+
+  66 passed (4.3m)
+rc=0
