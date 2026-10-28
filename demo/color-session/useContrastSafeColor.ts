@@ -8,7 +8,7 @@ import {
     type Ref,
 } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import { convertColor, parseCssColor, type Color } from "@mkbabb/value.js/color";
+import { convertColor, mixColors, parseCssColor, xyz, type Color } from "@mkbabb/value.js/color";
 import { parseColorIn } from "./color-utils";
 import { INK_AMBIENT_KEY } from "./keys";
 import {
@@ -676,4 +676,97 @@ export function resolveSurfaceLightnessLive(
     dark: boolean,
 ): number {
     return surfaceLightnessNow(surface, ambientL, dark);
+}
+
+// --- THE FLOATING PAIR OVER ITS REAL GROUND (X.W11.f1 · COHESION §0gr.2) ----
+//
+// `floatingL` above composites the floating rung over the BARE ambient: the
+// right referent for a floater over the page field. A floater that sits over
+// painted content is certified against the composite it ACTUALLY sits on
+// (the §0gk.2 referent law): the live floating rung laid over every ground
+// region under its text. ESC-SS8r-0039 measured the light rail tooltip over
+// the channel ramps at WCAG luminance 0.09–0.16, where the bare-ambient pair
+// (the dark pole, L 0.018) read 2.80–3.39:1 and only the light pole clears.
+
+/** A CSS colour in `space`, library-parsed; a malformed ground is loud. */
+function parseStrict<S extends "rgb" | "xyz" | "oklch">(css: string, space: S): Color<S> {
+    const parsed = parseCssColor(css);
+    if (!parsed.ok) throw new Error(`Ground colour unparseable: ${css}`);
+    const out = convertColor(parsed.value, space);
+    if (!out.ok) throw new Error(`Ground colour failed: ${out.error.code}`);
+    return out.value;
+}
+
+/** sRGB white in XYZ — the neutral axis a luminance-equivalent grey sits on. */
+let whiteXyz: readonly number[] | undefined;
+function neutralLightnessOfY(Y: number): number {
+    if (!whiteXyz) whiteXyz = parseStrict("white", "xyz").channels as readonly number[];
+    const grey = xyz(whiteXyz[0]! * Y, Y, whiteXyz[2]! * Y, 1);
+    if (!grey.ok) throw new Error(`Ground lightness failed: ${grey.error.code}`);
+    const L = convertColor(grey.value, "oklch");
+    if (!L.ok) throw new Error(`Ground lightness failed: ${L.error.code}`);
+    return L.value.channels[0] as number;
+}
+
+/**
+ * The ground a painted colour presents to ink: the OKLab L of the NEUTRAL
+ * with its WCAG luminance (the achromatic stand-in the ink walk certifies
+ * against; `ink.ts` `luminanceLightness` is the field-stop twin). A
+ * translucent colour is first laid over `under` (source-over, sRGB — the
+ * browser's paint), so an alpha ramp stop reads over the checker it shows.
+ */
+export function groundLightness(css: string, under?: string): number {
+    let color: Color<"rgb"> = parseStrict(css, "rgb");
+    if (under !== undefined && typeof color.alpha === "number" && color.alpha < 1) {
+        const ground = parseStrict(under, "rgb");
+        const mixed = mixColors(ground, { ...color, alpha: 1 }, color.alpha, { space: "rgb" });
+        if (!mixed.ok) throw new Error(`Ground composite failed: ${mixed.error.code}`);
+        color = mixed.value;
+    }
+    const Y = convertColor(color, "xyz");
+    if (!Y.ok) throw new Error(`Ground lightness failed: ${Y.error.code}`);
+    return neutralLightnessOfY(Math.max(0, Y.value.channels[1] as number));
+}
+
+/** A colour expression as the live cascade paints it (`var()`, `color-mix()`),
+ *  read off the hidden tier probe; `undefined` where no cascade is mounted. */
+export function resolvePaintCss(expr: string): string | undefined {
+    const probe = probeEl();
+    if (!probe) return undefined;
+    probe.style.backgroundColor = expr;
+    const css = getComputedStyle(probe).backgroundColor;
+    probe.style.backgroundColor = "";
+    return css || undefined;
+}
+
+/**
+ * The floating pair (title + caption) certified against the real composite:
+ * the live floating rung laid over each ground lightness under the floater's
+ * text. ONE pair-wide polarity, chosen by the real referent and never per
+ * line (§0gm.4): a light ink is worst over the LIGHTEST composited region, a
+ * dark ink over the DARKEST, so each pole is certified against its own worst
+ * region, and the pole that clears it wins. The scheme's own pole is kept
+ * wherever it clears. Where neither pole clears every region (a ground that
+ * spans the mid-luminance dead band), the scheme's pole is walked against its
+ * worst region — the best the ground admits, the floor's failure left visible
+ * to the census rather than hidden.
+ */
+export function resolveFloatingPairOver(
+    grounds: readonly number[],
+    dark: boolean,
+): { primary: string; muted: string } {
+    const composited = grounds.map((L) => surfaceLightnessNow("floating", L, dark));
+    const lightest = Math.max(...composited);
+    const darkest = Math.min(...composited);
+    // A pole "holds" when the walk certified from its seed stays on its side
+    // of its own worst region (it never had to cross to the other pole).
+    const inkL = (css: string) => parseStrict(css, "oklch").channels[0] as number;
+    const lightHolds = inkL(resolvePlateInk(lightest, true)) > lightest;
+    const darkHolds = inkL(resolvePlateInk(darkest, false)) < darkest;
+    const lightPole = dark ? lightHolds || !darkHolds : lightHolds && !darkHolds;
+    const referent = lightPole ? lightest : darkest;
+    return {
+        primary: resolvePlateInk(referent, lightPole),
+        muted: resolveMutedInk(referent, lightPole),
+    };
 }
