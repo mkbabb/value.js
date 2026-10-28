@@ -92,11 +92,14 @@
                  visually-hidden text. The visible caption mounted in flow on
                  every titled→Home swap and pushed the pane row down 23–25 px;
                  hidden, it names <main> and takes focus but occupies no
-                 layout. -->
+                 layout. X.W11.v1 (O-10d): hidden is not voiceless; the
+                 route H1 keeps the display face it spoke while visible
+                 (`font-display`, dropped at bdd97b752), so the heading
+                 census still reads one title voice across the walk. -->
             <h1
                 v-if="!routeTitledByPane"
                 :id="ROUTE_TITLE_ID"
-                class="sr-only"
+                class="sr-only font-display"
                 tabindex="-1"
             >
                 {{ currentConfig.label }}
