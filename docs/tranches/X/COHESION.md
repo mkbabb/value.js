@@ -4695,3 +4695,29 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
    - the `blob-presence-mobile` idle leg, RED on HEAD bytes (the parked 390 hero draws 0), as unit **X.W11.o2**: cure at root, or prove the park lawful and re-aim the leg with the ruling cited;
    - the darwin golden re-baselines attributed to `6bcd3e562` and `ea6e054b4`, into X.W11.v1 (E14 lineage).
 5. **Recorded:** Vite 8 ignores the harness's `server.port: 0` and binds the shared 5173. X.W11.v1 cures the harness at its root (an explicit free port).
+
+## §0gs — 2026-10-27: X-W11's third set ruled (delegate, §0ge)
+1. **ESC-W11c-NPM-TOKEN: discharged by the orchestrator.**
+   - Cause: release.yml's publish got E404 on the PUT because the repo secret `NPM_TOKEN` (set 2026-06-03) is rejected.
+   - The orchestrator set it to the owner-supplied automation token ("Use it", 2026-10-19). The token went through `gh secret set` from the session environment only and was never written to a file or record.
+   - Then it re-ran the failed publish job of run 39596724330 at the pushed tag v4.1.0. .c, .d and .e re-sit on the result.
+   - The owner should still rotate that token at leisure, since it passed through a chat.
+2. **ESC-W11v1c-VISUAL-LINEAGE: re-mint granted.**
+   - 17bda9aba is a real root cure: the cascade-layer order is stated once, so preflight no longer outranks glass components. Reverting it is refused.
+   - Unit **X.W11.v1d** gets `e2e/visual/**` + `MANIFEST.json`. It re-mints the darwin goldens, each attributed to 17bda9aba (and to 0894a192b where its cell moves), read per arm from the diff masks, never blind.
+   - Gate: CI visual GREEN ×2 at HEAD.
+3. **ESC-W11v1c-INHERITED-DIRTY: adopted.**
+   - The three uncommitted hunks in `App.vue` (O-10d), `ComponentSliders.vue` (BR-8) and `Katex.vue` (A4) belonged to Track A's own killed predecessor seat.
+   - **X.W11.v1d** reads each one and finishes it with a falsifier ×2 against its target row (o10d:171, a11y-slider-operation:34, A4/A4-coarse), then commits it. A hunk that is wrong is reverted by this owner, with the reason recorded.
+4. **ESC-W11p4c-1:** after p4c the shell paints contentful before any script runs (CI FCP = LCP ≈ 200 ms observed). The remaining simulated LCP is Lantern counting every request that finished before that paint. **The cuts are granted in order, with lhci ×3 on CI read after each:**
+   - (L1): on the shell path, the module graph starts after first paint;
+   - (L2): `glass-fonts.css` after first paint, measured both ways;
+   - (T1): the stage region hydrates outside the App mount task, with `hydrateOnIdle` plus `hydrateOnInteraction`, so a first input hydrates at once and interactivity never waits on idle. App.vue is granted.
+   - (T2): the deferred certification and the dock-band inks yield one task per region (useAtmosphereBoot.ts + demo/shell/dock/**), after rereading git status for sibling hunks.
+   - The budgets are unchanged.
+5. **Queued for Track A (from §0gq/§0gr and glass 10.1.2):**
+   - **X.W11.g12** (after the 4.1.0 publish): bump glass to 10.1.2 exact; mark custom dock seats with `data-glass-dock-seat` (MIGRATION 10.1.2); re-read ci4's `o21:328` (O-101 shipped).
+   - **X.W11.o1:** the displayed-pane `order` key (§0gq.2a).
+   - **X.W11.f1:** floating pairs certified against their real referent (§0gr.2).
+   - **X.W11.o2:** the `blob-presence-mobile` idle leg (§0gr.4).
+   - The Vite `server.port: 0` harness fix goes in v1d.
