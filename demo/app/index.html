@@ -322,7 +322,10 @@
              `<script type="module">` and its modulepreloads, unchanged, into
              the inert `<template id="vjs-after-paint">` that ends the head
              (scripts/build/prerender-shell.ts), so the first paint's fetch set
-             is the document, its render-blocking sheet and the fonts. This is
+             is the document, its render-blocking sheet and the Fraunces
+             preloads. L2: the glass font corpus link (`data-after-paint`,
+             plugins/vite-defer-glass-fonts.ts) rides the same template; its
+             metric-compatible fallback faces are in the critical sheet. This is
              the decision, read from the head's first-view stamp:
              - `client`: the tags are written here, parser-inserted, so the
                entry keeps a static module script's deferred timing.

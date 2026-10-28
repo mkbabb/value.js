@@ -33,9 +33,12 @@ const MOUNT = '<div id="app"></div>';
 const BODY_END = "</body>";
 const HEAD_END = "</head>";
 
-/** Vite's emitted entry and modulepreload tags (the client module graph). */
+/**
+ * Vite's emitted entry and modulepreload tags (the client module graph), and
+ * every tag a plugin marks `data-after-paint` (the glass font corpus, L2).
+ */
 const GRAPH_TAG =
-    /[ \t]*(?:<script type="module" crossorigin src="[^"]+"><\/script>|<link rel="modulepreload" crossorigin href="[^"]+">)\n?/g;
+    /[ \t]*(?:<script type="module" crossorigin src="[^"]+"><\/script>|<link rel="modulepreload" crossorigin href="[^"]+">|<link [^>]*\bdata-after-paint\b[^>]*>)\n?/g;
 
 /**
  * X.W11.p4d L1 (COHESION §0gs.4): the module graph leaves the first paint's
