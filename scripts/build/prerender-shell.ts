@@ -31,6 +31,28 @@ const RENDERER = path.resolve(import.meta.dirname, "render-shell.mjs");
 const WORK_DIR = path.resolve(ROOT, "node_modules/.vjs-prerender");
 const MOUNT = '<div id="app"></div>';
 const BODY_END = "</body>";
+const HEAD_END = "</head>";
+
+/** Vite's emitted entry and modulepreload tags (the client module graph). */
+const GRAPH_TAG =
+    /[ \t]*(?:<script type="module" crossorigin src="[^"]+"><\/script>|<link rel="modulepreload" crossorigin href="[^"]+">)\n?/g;
+
+/**
+ * X.W11.p4d L1 (COHESION §0gs.4): the module graph leaves the first paint's
+ * fetch set. Vite's tags move, byte-unchanged, into one inert template that
+ * ends the head; the body's first script (demo/app/index.html) writes them
+ * back at once on a client first view, and after first paint on the shell.
+ */
+function afterPaintGraph(index: string): string {
+    const tags = index.match(GRAPH_TAG) ?? [];
+    if (tags.filter((tag) => tag.includes("<script")).length !== 1) {
+        throw new Error(
+            "[prerender-shell] index.html must carry exactly one entry module script",
+        );
+    }
+    const template = `<template id="vjs-after-paint">\n${tags.join("")}</template>\n`;
+    return index.replace(GRAPH_TAG, "").replace(HEAD_END, `${template}${HEAD_END}`);
+}
 
 /** The SSR bundle renders markup only: every stylesheet is the client build's. */
 function stylelessSsr(): Plugin {
@@ -105,12 +127,14 @@ export function prerenderShell(): Plugin {
                 }
                 writeFileSync(
                     indexPath,
-                    index
-                        .replace(
-                            MOUNT,
-                            `<div id="app" data-prerendered>${rendered.html}</div>`,
-                        )
-                        .replace(BODY_END, `${body}${BODY_END}`),
+                    afterPaintGraph(
+                        index
+                            .replace(
+                                MOUNT,
+                                `<div id="app" data-prerendered>${rendered.html}</div>`,
+                            )
+                            .replace(BODY_END, `${body}${BODY_END}`),
+                    ),
                 );
             } finally {
                 rmSync(WORK_DIR, { recursive: true, force: true });

@@ -317,6 +317,47 @@
          resolve against (its load-bearing status is unproven either way, and
          no gate asks for its deletion — so it is not deleted). -->
     <body class="relative" data-paper-field>
+        <!-- X.W11.p4d L1 (COHESION §0gs.4): on the shell path the module graph
+             starts after first paint. The gh-pages build moves the entry
+             `<script type="module">` and its modulepreloads, unchanged, into
+             the inert `<template id="vjs-after-paint">` that ends the head
+             (scripts/build/prerender-shell.ts), so the first paint's fetch set
+             is the document, its render-blocking sheet and the fonts. This is
+             the decision, read from the head's first-view stamp:
+             - `client`: the tags are written here, parser-inserted, so the
+               entry keeps a static module script's deferred timing.
+             - `shell`: the painted shell needs no script to be contentful, so
+               the tags go in after the document is parsed and one frame has
+               painted (rAF, then a task). A hidden document paints nothing,
+               so it starts at once.
+             The dev server serves the static entry and no template. -->
+        <script>
+            (function () {
+                var graph = document.getElementById("vjs-after-paint");
+                if (!graph) return;
+                if (document.documentElement.getAttribute("data-first-view") !== "shell") {
+                    document.write(graph.innerHTML);
+                    return;
+                }
+                function start() {
+                    var tags = graph.content.children;
+                    for (var i = 0; i < tags.length; i++) {
+                        var el = document.createElement(tags[i].localName);
+                        for (var a = 0; a < tags[i].attributes.length; a++) {
+                            el.setAttribute(tags[i].attributes[a].name, tags[i].attributes[a].value);
+                        }
+                        document.head.appendChild(el);
+                    }
+                }
+                function afterPaint() {
+                    if (document.visibilityState === "hidden") start();
+                    else requestAnimationFrame(function () { setTimeout(start, 0); });
+                }
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", afterPaint, { once: true });
+                } else afterPaint();
+            })();
+        </script>
         <!-- X-W12 Repair 1 (H-1): the ground's 200ms material clock runs on
              this descendant-less fixed plate, never on :root (foundation.css
              `.ground-breath`). -->
