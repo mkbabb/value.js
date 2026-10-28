@@ -8,6 +8,7 @@
  * Chromium at the gate's viewport.
  */
 import { createHash } from "node:crypto";
+import { createServer as createNetServer } from "node:net";
 import path from "node:path";
 import { createServer, type ViteDevServer } from "vite";
 import { chromium, type Browser, type Page } from "@playwright/test";
@@ -32,6 +33,23 @@ export interface HarnessOptions {
      * is complete before the first navigation.
      */
     mounts?: readonly string[];
+}
+
+/** A port the OS reports free on 127.0.0.1: listen on 0, read it, close. */
+function freePort(): Promise<number> {
+    return new Promise((resolve, reject) => {
+        const probe = createNetServer();
+        probe.once("error", reject);
+        probe.listen(0, "127.0.0.1", () => {
+            const address = probe.address();
+            if (!address || typeof address === "string") {
+                probe.close();
+                reject(new Error("free-port probe has no port"));
+                return;
+            }
+            probe.close(() => resolve(address.port));
+        });
+    });
 }
 
 /** "" for the bare harness; a stable suffix naming any other entry set. */
@@ -60,7 +78,12 @@ export async function openHarness(
         // `entries` replaces the default (the root's `index.html`), so the
         // harness page is named alongside the suite's late mounts.
         optimizeDeps: { entries: ["index.html", ...mounts] },
-        server: { port: 0, host: "127.0.0.1", strictPort: false },
+        // An explicit free port, never `port: 0`: Vite 8 reads 0 as "unset"
+        // and binds the shared default 5173 (X-W11 §0gr.5), so a seat could
+        // land on — or collide with — another server. The OS names a free
+        // port; `strictPort` makes a lost race fail loudly instead of
+        // drifting to a neighbour's port.
+        server: { port: await freePort(), host: "127.0.0.1", strictPort: true },
         logLevel: "error",
     });
     await server.listen();
