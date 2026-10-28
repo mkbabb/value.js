@@ -517,9 +517,23 @@
  * the subject. Home (`[data-view="picker"]`) is the one view whose stage IS
  * its subject, so it keeps the picker first. `order` changes the visual
  * sequence only; the DOM keeps the schema order, so the regions' tab order
- * still runs picker → subject (the register's specified cure, A2-VA-L2-5). */
+ * still runs picker → subject (the register's specified cure, A2-VA-L2-5).
+ *
+ * X.W11.o1 (COHESION §0gq.2(a), OD19-V7-390-ORDER) — THE ORDER READS THE
+ * DISPLAYED PANES, never the route. The rule keyed on `[data-view]` and the
+ * wrapper's `[data-pane]`, which App.vue binds from the route, and the route
+ * moves at the input. Each slot commits its displayed pane only after its
+ * rAF/preload hold, and its out-in leave comes after that. So on Home → Mix
+ * at 390 the order flipped about 9 ms after the tap: the picker dropped below
+ * 7.6k px of the outgoing About, and About was the text that faded out (the
+ * mix window read 500 ms ×3 on the GPU cell against 450). App.vue now stamps
+ * `data-shown` on each region wrapper from that slot's own mount report. The
+ * rule is keyed on the stage showing the picker while the inspector shows
+ * something other than About (Home is the one picker view whose inspector is
+ * About). The settled order is unchanged, and the flip moves to the commit. */
 @container pane-row not (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
-    .app-layout:not([data-view="picker"]) .pane-wrapper--stage[data-pane="color-picker"] {
+    .pane-container:has(> .pane-wrapper--inspector:not([data-shown="about"]))
+        > .pane-wrapper--stage[data-shown="color-picker"] {
         order: 1;
     }
 }

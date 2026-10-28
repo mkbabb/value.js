@@ -149,6 +149,7 @@
                     class="pane-wrapper w-full min-w-0 min-h-0"
                     :class="`pane-wrapper--${region.role}`"
                     :data-pane="region.key"
+                    :data-shown="shownPane[region.role] ?? region.key"
                     role="region"
                     :aria-label="region.label"
                 >
@@ -345,11 +346,27 @@ const slotReportsByRole = new Map<
         onAppeared: (el: Element | null) => void;
     }
 >();
+// X.W11.o1 (COHESION §0gq.2(a), OD19-V7-390-ORDER) — the pane each region
+// DISPLAYS, as its slot reports it, stamped as the wrapper's `data-shown`.
+// The route-time `data-pane` moves at the input, but the slot commits its pane
+// after its hold and swaps it after the leave. shell.css's one-track order
+// rule reads this stamp, so the regions reorder when the panes do. A null
+// report is an unmount, and it carries the slot's NEXT key, so it never
+// stamps. Until a region's first report (and again after the region leaves
+// the scene), the stamp is the route key, which is what a freshly mounted
+// slot commits at once.
+const shownPane = ref<Partial<Record<RegionRole, string>>>({});
+
 function slotReports(role: RegionRole) {
     let reports = slotReportsByRole.get(role);
     if (reports === undefined) {
+        const bind = bindPane(role);
         reports = {
-            onMount: bindPane(role),
+            onMount: (instance: unknown, key: string) => {
+                if (instance !== null && shownPane.value[role] !== key)
+                    shownPane.value[role] = key;
+                bind(instance, key);
+            },
             onAppeared: (el: Element | null) =>
                 role === "stage"
                     ? overture.noteLeftPlateSettled(el)
@@ -495,6 +512,15 @@ const { regions, bindPane, commitEdit, cancelEdit } = usePaneRouter(
         updateModel: (v: ColorModel) => {
             model.value = v;
         },
+    },
+);
+// X.W11.o1 — a region that leaves the scene drops its `data-shown` stamp
+// (`shownPane`, above), so a later return reads its route key again.
+watch(
+    () => regions.value.map((region) => region.role),
+    (roles) => {
+        for (const role of Object.keys(shownPane.value) as RegionRole[])
+            if (!roles.includes(role)) delete shownPane.value[role];
     },
 );
 
