@@ -1,0 +1,139 @@
+{
+  "config": {
+    "configFile": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/docs/tranches/X/close/evidence/browser/falsifier/falsifier.config.ts",
+    "rootDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/docs/tranches/X/close/evidence/browser/falsifier",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-falsifier",
+        "name": "smoke-falsifier",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/docs/tranches/X/close/evidence/browser/falsifier",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "browse-loading.falsifier.spec.ts",
+      "file": "browse-loading.falsifier.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "browse mid-fetch renders developing-plate skeletons, never a spinner",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-falsifier",
+              "projectName": "smoke-falsifier",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19386,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('[data-slot=\"palette-card-skeleton\"]').filter({ visible: true })\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('[data-slot=\"palette-card-skeleton\"]').filter({ visible: true })\u001b[22m\n\u001b[2m    20 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('[data-slot=\"palette-card-skeleton\"]').filter({ visible: true })\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('[data-slot=\"palette-card-skeleton\"]').filter({ visible: true })\u001b[22m\n\u001b[2m    20 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/docs/tranches/X/close/evidence/browser/falsifier/browse-loading.falsifier.spec.ts:47:29",
+                    "location": {
+                      "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/docs/tranches/X/close/evidence/browser/falsifier/browse-loading.falsifier.spec.ts",
+                      "column": 29,
+                      "line": 47
+                    },
+                    "snippet": "  45 |     const cards = main.getByRole(\"article\").filter({ visible: true });\n  46 |     await expect(cards).toHaveCount(PAGE1_COUNT, { timeout: 15_000 });\n> 47 |     await expect(skeletons).toHaveCount(1); // X.W11.d DELIBERATE BREAK (true value: 0)\n     |                             ^\n  48 |\n  49 |     expect(consoleErrors).toEqual([]);\n  50 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/docs/tranches/X/close/evidence/browser/falsifier/browse-loading.falsifier.spec.ts",
+                        "column": 29,
+                        "line": 47
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('[data-slot=\"palette-card-skeleton\"]').filter({ visible: true })\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('[data-slot=\"palette-card-skeleton\"]').filter({ visible: true })\u001b[22m\n\u001b[2m    20 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  45 |     const cards = main.getByRole(\"article\").filter({ visible: true });\n  46 |     await expect(cards).toHaveCount(PAGE1_COUNT, { timeout: 15_000 });\n> 47 |     await expect(skeletons).toHaveCount(1); // X.W11.d DELIBERATE BREAK (true value: 0)\n     |                             ^\n  48 |\n  49 |     expect(consoleErrors).toEqual([]);\n  50 | });\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/docs/tranches/X/close/evidence/browser/falsifier/browse-loading.falsifier.spec.ts:47:29"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T19:20:17.580Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/browse-loading.falsifier-b-668ac-e-skeletons-never-a-spinner-smoke-falsifier/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/docs/tranches/X/close/evidence/browser/falsifier/browse-loading.falsifier.spec.ts",
+                    "column": 29,
+                    "line": 47
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fc0b3427a07052a3bbe0-2f5fb1054d1745fb61b7",
+          "file": "browse-loading.falsifier.spec.ts",
+          "line": 19,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-28T19:20:13.479Z",
+    "duration": 23820.604,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

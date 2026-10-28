@@ -1,0 +1,1471 @@
+(node:92733) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:92848) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 66 tests using 1 worker
+
+[1A[2K(node:93058) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/66] [smoke] › e2e/smoke/flows/color-propose.spec.ts:34:1 › propose cycle reaches 'Propose color name' state for an unnamed color
+[1A[2K[2/66] [smoke] › e2e/smoke/flows/color-propose.spec.ts:89:1 › the sub-layer cycle keeps exactly one active layer, the other inert
+[1A[2K[3/66] [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes'
+[1A[2K  1) [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes' 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('.add-slot-ghost').filter({ visible: true }).first()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('.add-slot-ghost').filter({ visible: true }).first()[22m
+
+
+      43 |     // this wave's Triumvirate trigger); the oracle is made honest.
+      44 |     const addSlot = main.locator(".add-slot-ghost").filter({ visible: true }).first();
+    > 45 |     await expect(addSlot).toBeVisible();
+         |                           ^
+      46 |     await expect(
+      47 |         addSlot,
+      48 |         "the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)",
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/palette-save.spec.ts:45:27
+
+    Error Context: test-results/flows-palette-save-save-cu-cc5fe-ocalStorage-color-palettes--smoke/error-context.md
+
+
+[1A[2K(node:95264) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/66] [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:105:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/gradient: 5 fresh contexts × cold first navigation → 0 stuck enter states
+[1A[2K[5/66] [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:105:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/: 5 fresh contexts × cold first navigation → 0 stuck enter states
+[1A[2K  2) [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:105:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/: 5 fresh contexts × cold first navigation → 0 stuck enter states 
+
+    Error: the loading plate shows on a slow chunk
+
+    the loading plate shows on a slow chunk
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+    Call Log:
+    - Timeout 30000ms exceeded while waiting on the predicate
+
+      88 |             timeout: 30_000,
+      89 |         })
+    > 90 |         .toBeGreaterThan(0);
+         |          ^
+      91 |     // `networkidle` outlasts the held chunks, so every pane has RESOLVED before
+      92 |     // the stuck-state poll starts. Without it the poll can read 0 while a lazy
+      93 |     // pane is still in flight, before the dropped enter has happened at all.
+        at coldNavigate (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:90:10)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:109:39
+
+    Error Context: test-results/oracles-cold-nav-scene-ent-1ee49-tion-→-0-stuck-enter-states-smoke/error-context.md
+
+
+[1A[2K(node:97502) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[6/66] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:272:9 › O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 1440)
+[1A[2K[7/66] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:272:9 › O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 390)
+[1A[2K  3) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:272:9 › O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 390) 
+
+    Error: /browse (light 390) "Discover palettes from the commu": ink rgb(28,25,23) vs the darkest region rgb(211,69,145) = 4.18:1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.184417272517689[39m
+
+      321 |                             `${route} (${scheme} ${w}) "${c.text}": ink rgb(${c.ink.slice(0, 3).join(",")}) vs the darkest region rgb(${at.map(Math.round).join(",")}) = ${worst.toFixed(2)}:1`,
+      322 |                         )
+    > 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);
+          |                          ^
+      324 |                 }
+      325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));
+      326 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26
+
+    Error Context: test-results/oracles-o11-header-gates-O-93b40-egion-it-sits-on-light-390--smoke/error-context.md
+
+
+[1A[2K(node:797) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[8/66] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:272:9 › O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (dark 1440)
+[1A[2K[9/66] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:272:9 › O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (dark 390)
+[1A[2K[10/66] [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 1440
+[1A[2K  4) [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 1440 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('button.interval-head').first()[22m
+    [2m    - locator resolved to <button type="button" data-state="closed" aria-expanded="false" data-orientation="vertical" data-reka-collection-item="" data-slot="accordion-trigger" id="glass-disclosure-trigger-v-128" aria-controls="glass-disclosure-content-v-128" class="disclosure-trigger disclosure-group-trigger interval-head w-full flex items-center gap-2.5 py-2 px-(--easing-inset) text-left">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      42 |     await expect(head).toBeVisible();
+      43 |     // The bench mounts with row 0 open; normalize in case a prior step closed it.
+    > 44 |     if ((await head.getAttribute("aria-expanded")) !== "true") await head.click();
+         |                                                                           ^
+      45 |     const row = main.locator(`[id="${await head.getAttribute("aria-controls")}"]`);
+      46 |     await expect(row).toBeVisible();
+      47 |     return row;
+        at openEasingBench (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o17-easing-composition.spec.ts:44:75)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o17-easing-composition.spec.ts:168:21
+
+    Error Context: test-results/oracles-o17-easing-composi-febe5-the-plot-it-controls-—-1440-smoke/error-context.md
+
+
+[1A[2K(node:6614) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[11/66] [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 390
+[1A[2K  5) [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 390 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - performing click action[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openEasingBench (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o17-easing-composition.spec.ts:36:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o17-easing-composition.spec.ts:168:21
+
+    Error Context: test-results/oracles-o17-easing-composi-c87e2--the-plot-it-controls-—-390-smoke/error-context.md
+
+
+[1A[2K(node:7600) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[12/66] [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:221:1 › O-17 composition: stamps, dot rest, one-literal, mint law
+[1A[2K  6) [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:221:1 › O-17 composition: stamps, dot rest, one-literal, mint law 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('button.interval-head').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('button.interval-head').first()[22m
+
+
+      40 |     // its own aria-controls names (glass mints the ids).
+      41 |     const head = main.locator("button.interval-head").first();
+    > 42 |     await expect(head).toBeVisible();
+         |                        ^
+      43 |     // The bench mounts with row 0 open; normalize in case a prior step closed it.
+      44 |     if ((await head.getAttribute("aria-expanded")) !== "true") await head.click();
+      45 |     const row = main.locator(`[id="${await head.getAttribute("aria-controls")}"]`);
+        at openEasingBench (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o17-easing-composition.spec.ts:42:24)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o17-easing-composition.spec.ts:223:17
+
+    Error Context: test-results/oracles-o17-easing-composi-02be9-t-rest-one-literal-mint-law-smoke/error-context.md
+
+
+[1A[2K(node:8929) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[13/66] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:694:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[1A[2K  7) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:694:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) 
+
+    Error: profile-trigger ink rgb(22 22 22) vs ground rgb(109 109 109) — raw oklab(0 0 0 / 0.8) α 0.8 stack []
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m3.5[39m
+
+      731 |             );
+      732 |             expect(triggerRow, "profile trigger mounted").not.toBeNull();
+    > 733 |             expect(triggerRow!.ratio, diag(triggerRow!)).toBeGreaterThanOrEqual(
+          |                                                          ^
+      734 |                 TEXT_FLOOR,
+      735 |             );
+      736 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o18-contrast-census.spec.ts:733:58
+
+    Error Context: test-results/oracles-o18-contrast-censu-6bf84--floating-rung-ink-A11Y-F2--smoke/error-context.md
+
+
+[1A[2K(node:9752) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[14/66] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:769:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[1A[2K  8) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:769:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: resting node ink rgb(254 249 247) vs rgb(121 120 118)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.23[39m
+
+      785 |                 resting!.ratio,
+      786 |                 `resting node ink ${resting!.ink} vs ${resting!.ground}`,
+    > 787 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+          |               ^
+      788 |
+      789 |             // Hovered: the fill goes live-colored and the ink derives from
+      790 |             // the FILL (contrastInkFor — WCAG-maximal, a pass by construction).
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o18-contrast-census.spec.ts:787:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-86c2e--fill-derived-ink-together--smoke/error-context.md
+
+
+[1A[2K(node:10307) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[15/66] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:823:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[1A[2K  9) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:823:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) 
+
+    Error: code ink rgb(255 249 247) vs rgb(121 120 118)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.24[39m
+
+      851 |                     code.ratio,
+      852 |                     `code ink ${code.ink} vs ${code.ground}`,
+    > 853 |                 ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+          |                   ^
+      854 |             }
+      855 |         });
+      856 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o18-contrast-census.spec.ts:853:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-76d2a-he-rung-1-plate-h-gaps-G-2--smoke/error-context.md
+
+
+[1A[2K(node:10977) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[16/66] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:694:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[1A[2K  10) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:694:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.waitForTimeout: Test timeout of 30000ms exceeded.
+
+      720 |                     if (row && row.ratio >= TEXT_FLOOR) return row;
+      721 |                     if (Date.now() > deadline) return row;
+    > 722 |                     await page.waitForTimeout(250);
+          |                                ^
+      723 |                 }
+      724 |             };
+      725 |             const diag = (row: CensusRow) =>
+        at settle (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o18-contrast-census.spec.ts:722:32)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o18-contrast-census.spec.ts:741:29
+
+    Error Context: test-results/oracles-o18-contrast-censu-92589--floating-rung-ink-A11Y-F2--smoke/error-context.md
+
+
+[1A[2K(node:12336) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[17/66] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:769:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[1A[2K  11) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:769:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: Test timeout of 30000ms exceeded
+
+      799 |                     return row?.ratio ?? 0;
+      800 |                 })
+    > 801 |                 .toBeGreaterThanOrEqual(TEXT_FLOOR);
+          |                  ^
+      802 |
+      803 |             // The component-name letters (the split's TEXT role, resting rung).
+      804 |             //
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o18-contrast-census.spec.ts:801:18
+
+    Error Context: test-results/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/error-context.md
+
+
+[1A[2K(node:13526) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[18/66] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:823:9 › O-18 census (dark) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[1A[2K[19/66] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K  12) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      40 |     await openView(page, "Gradient");
+      41 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 42 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      43 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      44 |     // enter transition otherwise screenshots the rail mid-flight (see
+      45 |     // paneSettled).
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o21-gradient-rail.spec.ts:42:74)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o21-gradient-rail.spec.ts:197:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--c9334-pixel-reads-its-own-ordinal-smoke/error-context.md
+
+
+[1A[2K(node:14628) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[20/66] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K  13) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.evaluate: Target page, context or browser has been closed
+
+       at smoke/fixtures/dock.ts:115
+
+      113 |         .poll(
+      114 |             () =>
+    > 115 |                 page.evaluate(() =>
+          |                      ^
+      116 |                     [".pane-container", ".pane-wrapper", ".pane-wrapper > *"]
+      117 |                         .flatMap((sel) => [
+      118 |                             ...document.querySelectorAll(sel),
+        at expect.poll.timeout (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:115:22)
+        at paneSettled (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:112:5)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o21-gradient-rail.spec.ts:46:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o21-gradient-rail.spec.ts:264:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--677eb-andles-stay-inside-the-rail-smoke/error-context.md
+
+
+[1A[2K(node:15564) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[21/66] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K  14) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o21-gradient-rail.spec.ts:40:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o21-gradient-rail.spec.ts:332:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--e6126-nal-mints-at-any-rail-width-smoke/error-context.md
+
+
+[1A[2K(node:16498) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[22/66] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[1A[2K  15) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - performing click action[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o21-gradient-rail.spec.ts:40:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o21-gradient-rail.spec.ts:385:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--73481-the-ordinal-the-rail-paints-smoke/error-context.md
+
+
+[1A[2K(node:17560) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[23/66] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason
+[1A[2K  16) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o21-gradient-rail.spec.ts:40:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o21-gradient-rail.spec.ts:513:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--99cb5-control-carrying-its-reason-smoke/error-context.md
+
+
+[1A[2K(node:18489) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[24/66] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — blob: the preview repaints after a forced WebGL context loss
+[1A[2K  17) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-testid="goo-blob-canvas"]').first()
+    Expected: attached
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeAttached" with timeout 15000ms[22m
+    [2m  - waiting for locator('[data-testid="goo-blob-canvas"]').first()[22m
+
+
+      403 |         await openScene(page, hash, stageLabel);
+      404 |         const canvas = page.locator(selector).first();
+    > 405 |         await expect(canvas).toBeAttached({ timeout: 15_000 });
+          |                              ^
+      406 |
+      407 |         if (hash === "atmosphere") {
+      408 |             // The atmosphere's SUBSTRATE is the producer's device-tier law
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o29-scene-contracts.spec.ts:405:30
+
+    Error Context: test-results/oracles-o29-scene-contract-3ec41-a-forced-WebGL-context-loss-smoke/error-context.md
+
+
+[1A[2K(node:19048) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[25/66] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss
+[1A[2K[26/66] [smoke] › e2e/smoke/oracles/o30-space-catalog-truth.spec.ts:111:1 › every offered space states its own facts, and the guide is never a bare heading
+[1A[2K  18) [smoke] › e2e/smoke/oracles/o30-space-catalog-truth.spec.ts:111:1 › every offered space states its own facts, and the guide is never a bare heading 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeHidden[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('listbox')
+    Expected: hidden
+    Received: visible
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toBeHidden" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('listbox')[22m
+    [2m    13 × locator resolved to <div dir="ltr" tabindex="-1" role="listbox" bodylock="true" position="popper" data-reveal="menu" data-side="bottom" data-align="start" data-state="closed" data-dismissable-layer="" data-slot="select-content" id="reka-select-content-v-43" disableoutsidepointerevents="true" class="relative z-popover min-w-(--overlay-min-width) overflow-hidden rounded-card text-popover-foreground glass-reveal data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=to…>…</div>[22m
+    [2m       - unexpected value "visible"[22m
+
+
+      150 |     for (const { label } of spaces) {
+      151 |         const listbox = await pick(label);
+    > 152 |         await expect(listbox).toBeHidden();
+          |                               ^
+      153 |         await expect
+      154 |             .poll(() => card.evaluate((root) => (root.textContent ?? "").length), {
+      155 |                 timeout: 15_000,
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o30-space-catalog-truth.spec.ts:152:31
+
+    Error Context: test-results/oracles-o30-space-catalog--f856a-ide-is-never-a-bare-heading-smoke/error-context.md
+
+
+[1A[2K(node:20641) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[27/66] [smoke] › e2e/smoke/oracles/o31-specimen-legibility.spec.ts:78:1 › every specimen caption fits its box
+[1A[2K  19) [smoke] › e2e/smoke/oracles/o31-specimen-legibility.spec.ts:78:1 › every specimen caption fits its box 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.screenshot: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - taking element screenshot[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - attempting scroll into view action[22m
+    [2m    - waiting for element to be stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying scroll into view action[22m
+    [2m    - waiting for element to be stable[22m
+
+
+      83 |     // §8 — the AFTER frame is taken by the gate that measures it, so witness and
+      84 |     // measurement can never drift apart.
+    > 85 |     await listbox.screenshot({
+         |                   ^
+      86 |         path: testInfo.outputPath("after-catalog-open.png"),
+      87 |     });
+      88 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o31-specimen-legibility.spec.ts:85:19
+
+    Error Context: test-results/oracles-o31-specimen-legib-97176-ecimen-caption-fits-its-box-smoke/error-context.md
+
+
+[1A[2K(node:21548) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[28/66] [smoke] › e2e/smoke/oracles/o32-specimen-dot-identity.spec.ts:75:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url
+[1A[2K  20) [smoke] › e2e/smoke/oracles/o32-specimen-dot-identity.spec.ts:75:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.screenshot: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - taking element screenshot[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - attempting scroll into view action[22m
+    [2m    - waiting for element to be stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying scroll into view action[22m
+    [2m    - waiting for element to be stable[22m
+
+
+      51 |
+      52 |     // §8 — the AFTER frame for the dot census, taken by its own gate.
+    > 53 |     await listbox.screenshot({
+         |                   ^
+      54 |         path: testInfo.outputPath("after-specimen-dots.png"),
+      55 |     });
+      56 |
+        at openCatalog (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o32-specimen-dot-identity.spec.ts:53:19)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o32-specimen-dot-identity.spec.ts:79:18
+
+    Error Context: test-results/oracles-o32-specimen-dot-i-c3209-seed-and-not-the-filter-url-smoke/error-context.md
+
+
+[1A[2K(node:22383) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[29/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:152:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K  21) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:152:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the Tools slot is inert, 0 px and unexposed; the dock keeps its face 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 1[39m
+
+    [2m  Object {[22m
+    [2m    "inert": true,[22m
+    [32m-   "width": 0,[39m
+    [31m+   "width": 0.4188232421875,[39m
+    [2m  }[22m
+
+      159 |                 width: el.getBoundingClientRect().width,
+      160 |             }));
+    > 161 |             expect(slot).toEqual({ inert: true, width: 0 });
+          |                          ^
+      162 |             const cdp = await page.context().newCDPSession(page);
+      163 |             const ax = await cdp.send("Accessibility.getFullAXTree");
+      164 |             const node = ax.nodes.find(
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:161:26
+
+    Error Context: test-results/oracles-o33-dock-actionbar-c0840-sed-the-dock-keeps-its-face-smoke/error-context.md
+
+
+[1A[2K(node:22993) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[30/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:152:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K  22) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:152:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the Tools slot is inert, 0 px and unexposed; the dock keeps its face 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 1[39m
+
+    [2m  Object {[22m
+    [2m    "inert": true,[22m
+    [32m-   "width": 0,[39m
+    [31m+   "width": 0.41888427734375,[39m
+    [2m  }[22m
+
+      159 |                 width: el.getBoundingClientRect().width,
+      160 |             }));
+    > 161 |             expect(slot).toEqual({ inert: true, width: 0 });
+          |                          ^
+      162 |             const cdp = await page.context().newCDPSession(page);
+      163 |             const ax = await cdp.send("Accessibility.getFullAXTree");
+      164 |             const node = ax.nodes.find(
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:161:26
+
+    Error Context: test-results/oracles-o33-dock-actionbar-37fc2-sed-the-dock-keeps-its-face-smoke/error-context.md
+
+
+[1A[2K(node:23866) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[31/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:152:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K  23) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:152:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the Tools slot is inert, 0 px and unexposed; the dock keeps its face 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 1[39m
+
+    [2m  Object {[22m
+    [2m    "inert": true,[22m
+    [32m-   "width": 0,[39m
+    [31m+   "width": 0.41888427734375,[39m
+    [2m  }[22m
+
+      159 |                 width: el.getBoundingClientRect().width,
+      160 |             }));
+    > 161 |             expect(slot).toEqual({ inert: true, width: 0 });
+          |                          ^
+      162 |             const cdp = await page.context().newCDPSession(page);
+      163 |             const ax = await cdp.send("Accessibility.getFullAXTree");
+      164 |             const node = ax.nodes.find(
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:161:26
+
+    Error Context: test-results/oracles-o33-dock-actionbar-534d2-sed-the-dock-keeps-its-face-smoke/error-context.md
+
+
+[1A[2K(node:24858) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[32/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)
+[1A[2K  24) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+      102 |
+      103 | async function pixels(page: Page, png: Buffer, pts: Array<[number, number]>): Promise<RGB[]> {
+    > 104 |     return page.evaluate(
+          |                 ^
+      105 |         async ({ b64, pts }) => {
+      106 |             const img = new Image();
+      107 |             img.src = `data:image/png;base64,${b64}`;
+        at pixels (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:104:17)
+        at inkRatio (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:144:35)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:250:20
+
+    Error Context: test-results/oracles-o33-dock-actionbar-e66f8--the-light-band-seed-hue-0--smoke/error-context.md
+
+
+[1A[2K(node:25956) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[33/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)
+[1A[2K  25) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+      102 |
+      103 | async function pixels(page: Page, png: Buffer, pts: Array<[number, number]>): Promise<RGB[]> {
+    > 104 |     return page.evaluate(
+          |                 ^
+      105 |         async ({ b64, pts }) => {
+      106 |             const img = new Image();
+      107 |             img.src = `data:image/png;base64,${b64}`;
+        at pixels (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:104:17)
+        at inkRatio (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:144:35)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:250:20
+
+    Error Context: test-results/oracles-o33-dock-actionbar-3345d-the-light-band-seed-hue-60--smoke/error-context.md
+
+
+[1A[2K(node:26775) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[34/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)
+[1A[2K[35/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)
+[1A[2K[36/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)
+[1A[2K[37/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)
+[1A[2K  26) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.314620947553472[39m
+
+      248 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      249 |             expect(label).not.toBeNull();
+    > 250 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      251 |         });
+      252 |     }
+      253 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:250:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-89a7f-he-light-band-seed-hue-300--smoke/error-context.md
+
+
+[1A[2K(node:28506) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[38/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:255:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 0)
+[1A[2K  27) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:255:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 0) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+      264 |             for (let i = 0; i < 30 && !reached; i++) {
+      265 |                 await page.keyboard.press("Tab");
+    > 266 |                 reached = await page.evaluate(
+          |                                      ^
+      267 |                     () => document.activeElement?.getAttribute("aria-label") === "Toggle action bar",
+      268 |                 );
+      269 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:266:38
+
+    Error Context: test-results/oracles-o33-dock-actionbar-782e9-gainst-the-band-seed-hue-0--smoke/error-context.md
+
+
+[1A[2K(node:29323) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[39/66] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:255:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 180)
+[1A[2K[40/66] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:410:1 › O-7 seat row · t-mobile F-7 — the 768 frame: the cap class stays dead where it bit (captures attached)
+[1A[2K[41/66] [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:52:1 › SS8-0442 · a focused saved card's ring paints on all four edges
+[1A[2K  28) [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:52:1 › SS8-0442 · a focused saved card's ring paints on all four edges 
+
+    Error: outer-vs-gap step per edge: [{"edge":"top","unfocused":17.41,"focused":17.41},{"edge":"bottom","unfocused":9.66,"focused":10.21},{"edge":"left","unfocused":2.88,"focused":52.35},{"edge":"right","unfocused":2.98,"focused":55.21}]
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  -  1[39m
+    [31m+ Received  + 12[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   Object {[39m
+    [31m+     "edge": "top",[39m
+    [31m+     "focused": 17.41,[39m
+    [31m+     "unfocused": 17.41,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "edge": "bottom",[39m
+    [31m+     "focused": 10.21,[39m
+    [31m+     "unfocused": 9.66,[39m
+    [31m+   },[39m
+    [31m+ ][39m
+
+      116 |     test.info().annotations.push({ type: "edge-steps", description: JSON.stringify(steps) });
+      117 |     const unpainted = steps.filter((s) => !(s.focused > Math.max(s.unfocused * 2, s.unfocused + 8)));
+    > 118 |     expect(unpainted, `outer-vs-gap step per edge: ${JSON.stringify(steps)}`).toEqual([]);
+          |                                                                               ^
+      119 | });
+      120 |
+      121 | test("SS8-0446 · the saved-card scroller keeps its bottom fade (regression arm)", async ({ page }) => {
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/ss8-b15-palette-cards.spec.ts:118:79
+
+    Error Context: test-results/ss8-b15-palette-cards-SS8--813b5-ng-paints-on-all-four-edges-smoke/error-context.md
+
+
+[1A[2K(node:30896) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[42/66] [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:294:5 › Z2 picker cohort — mobile 390 › P1 · CI5 · CI13 · P16 · P20 — every action reachable; free-text entry; the readout band
+[1A[2K[2m[WebServer] [22m[2m4:54:22 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[2m[WebServer] [22m[39m > ../../../../../../../../../../@vite/client:531:50
+[2m[WebServer] [22m
+
+[1A[2K[2m[WebServer] [22m[2m4:54:22 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) ResizeObserver loop completed with undelivered notifications.
+
+[1A[2K[43/66] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › light · seed default
+[1A[2K[44/66] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › light · seed oklch(0.62 0.16 240)
+[1A[2K[45/66] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › dark · seed default
+[1A[2K[46/66] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › dark · seed oklch(0.62 0.16 240)
+[1A[2K[47/66] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › light · five-seed sweep
+[1A[2K  29) [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › light · five-seed sweep 
+
+    Error: default:4.89 ink 39,36,35 ground lum 0.283/0.310/0.333 oklch(0.62 0.16 0):3.35 ink 6,5,3 ground lum 0.123/0.156/0.253
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m3.3515057938324735[39m
+
+      168 |                 if (min < 4.5) await page.screenshot({ path: test.info().outputPath(`l3-${scheme}-${color ?? "default"}.png`) });
+      169 |                 // RED before (bare muted ink on the sinking well): light 3.41..3.82.
+    > 170 |                 expect(min, worst.join(" ")).toBeGreaterThanOrEqual(4.5);
+          |                                              ^
+      171 |             }
+      172 |         });
+      173 |     }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/ss8r-ruled-rows.spec.ts:170:46
+
+    Error Context: test-results/ss8r-ruled-rows-B13-L-3-·--961e4-und-light-·-five-seed-sweep-smoke/error-context.md
+
+
+[1A[2K(node:32969) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[48/66] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › dark · five-seed sweep
+[1A[2K  30) [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › dark · five-seed sweep 
+
+    Error: default:2.72 ink 209,206,204 ground lum 0.039/0.154/0.197
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.718046501718394[39m
+
+      168 |                 if (min < 4.5) await page.screenshot({ path: test.info().outputPath(`l3-${scheme}-${color ?? "default"}.png`) });
+      169 |                 // RED before (bare muted ink on the sinking well): light 3.41..3.82.
+    > 170 |                 expect(min, worst.join(" ")).toBeGreaterThanOrEqual(4.5);
+          |                                              ^
+      171 |             }
+      172 |         });
+      173 |     }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/ss8r-ruled-rows.spec.ts:170:46
+
+    Error Context: test-results/ss8r-ruled-rows-B13-L-3-·--b5310-ound-dark-·-five-seed-sweep-smoke/error-context.md
+
+
+[1A[2K(node:33826) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[49/66] [smoke] › e2e/smoke/views/gradient.spec.ts:172:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict
+[1A[2K  31) [smoke] › e2e/smoke/views/gradient.spec.ts:172:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:176:18
+
+    Error Context: test-results/views-gradient-neighbour-c-a8543--re-applies-with-no-verdict-smoke/error-context.md
+
+
+[1A[2K(node:34816) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[50/66] [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints
+[1A[2K  32) [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      22 |     await openView(page, "Gradient");
+      23 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 24 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      25 |     // The swap spring must be at rest before interactions — the cold-load
+      26 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      27 |     // stability check (see paneSettled).
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:24:74)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:268:18
+
+    Error Context: test-results/views-gradient-a-grab-is-n-2555f-d-no-secondary-button-mints-smoke/error-context.md
+
+
+[1A[2K(node:36188) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[51/66] [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove
+[1A[2K  33) [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:304:18
+
+    Error Context: test-results/views-gradient-stop-add-ba-2271f--drag-and-touch-true-remove-smoke/error-context.md
+
+
+[1A[2K(node:37118) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[52/66] [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved
+[1A[2K  34) [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:366:18
+
+    Error Context: test-results/views-gradient-round-trip--0e4a5-lly-with-literals-preserved-smoke/error-context.md
+
+
+[1A[2K(node:38242) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[53/66] [smoke] › e2e/smoke/views/gradient.spec.ts:393:1 › garbage input fails LOUD and leaves the model untouched
+[1A[2K  35) [smoke] › e2e/smoke/views/gradient.spec.ts:393:1 › garbage input fails LOUD and leaves the model untouched 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      22 |     await openView(page, "Gradient");
+      23 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 24 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      25 |     // The swap spring must be at rest before interactions — the cold-load
+      26 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      27 |     // stability check (see paneSettled).
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:24:74)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:395:18
+
+    Error Context: test-results/views-gradient-garbage-inp-9b0f0--leaves-the-model-untouched-smoke/error-context.md
+
+
+[1A[2K(node:39330) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[54/66] [smoke] › e2e/smoke/views/gradient.spec.ts:417:1 › radial geometry is model-or-reject, never a silent drop
+[1A[2K  36) [smoke] › e2e/smoke/views/gradient.spec.ts:417:1 › radial geometry is model-or-reject, never a silent drop 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      22 |     await openView(page, "Gradient");
+      23 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 24 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      25 |     // The swap spring must be at rest before interactions — the cold-load
+      26 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      27 |     // stability check (see paneSettled).
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:24:74)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:419:18
+
+    Error Context: test-results/views-gradient-radial-geom-dc505--reject-never-a-silent-drop-smoke/error-context.md
+
+
+[1A[2K(node:40438) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[55/66] [smoke] › e2e/smoke/views/gradient.spec.ts:614:1 › gradient selector aurora
+[1A[2K  37) [smoke] › e2e/smoke/views/gradient.spec.ts:614:1 › gradient selector aurora ──────────────────
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.screenshot: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - taking page screenshot[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+
+
+      698 |     const frames: Buffer[] = [];
+      699 |     for (let i = 0; i < 5; i++) {
+    > 700 |         frames.push(await page.screenshot({ clip: box!, animations: "allow" }));
+          |                                ^
+      701 |         await page.waitForTimeout(300);
+      702 |     }
+      703 |     const decoded = frames.map(decodePng);
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:700:32
+
+    Error Context: test-results/views-gradient-gradient-selector-aurora-smoke/error-context.md
+
+
+[1A[2K(node:42187) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[56/66] [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget
+[1A[2K  38) [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Mix', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-109" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/mix.spec.ts:34:5
+
+    Error Context: test-results/views-mix-mix-flow-converg-60bbb--result-plate-within-budget-smoke/error-context.md
+
+
+[1A[2K(node:43299) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[57/66] [smoke] › e2e/smoke/w12-dock.spec.ts:372:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:372:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census
+{
+ "focusVisible": true,
+ "frames": {
+  "rest": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "hover": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "selected": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "focus-visible": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ]
+ }
+}
+
+[1A[2K[58/66] [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget
+[1A[2K[smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget
+[w12-drag SOFTWARE-GL] surface: moves=7 frames=7 p50=253.9 p95=810.2 longTasks=5 maxTask=74
+    hot: Re@@mkbabb_glass-ui_dock.js:430=111ms · Be@@mkbabb_glass-ui_dock.js:447=41ms · s@color-BU4JS6bH.js:143=20ms · getBoundingClientRect@:0=17ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=16ms · (garbage collector)@:0=11ms
+
+[1A[2K[w12-drag SOFTWARE-GL] slider L: moves=7 frames=6 p50=333.1 p95=428.3 longTasks=7 maxTask=79
+    hot: Re@@mkbabb_glass-ui_dock.js:430=145ms · getBoundingClientRect@:0=58ms · Be@@mkbabb_glass-ui_dock.js:447=50ms · s@color-BU4JS6bH.js:143=21ms · O@color-BU4JS6bH.js:162=19ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=14ms
+
+[1A[2K[w12-drag SOFTWARE-GL] slider a: moves=8 frames=7 p50=289.3 p95=320.3 longTasks=8 maxTask=72
+    hot: Re@@mkbabb_glass-ui_dock.js:430=159ms · getBoundingClientRect@:0=63ms · Be@@mkbabb_glass-ui_dock.js:447=56ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=18ms · s@color-BU4JS6bH.js:143=17ms · O@color-BU4JS6bH.js:162=14ms
+
+[1A[2K[w12-drag SOFTWARE-GL] slider b: moves=8 frames=7 p50=311.0 p95=406.8 longTasks=7 maxTask=67
+    hot: Re@@mkbabb_glass-ui_dock.js:430=138ms · getBoundingClientRect@:0=54ms · Be@@mkbabb_glass-ui_dock.js:447=48ms · s@color-BU4JS6bH.js:143=28ms · O@color-BU4JS6bH.js:162=11ms · k@color-BU4JS6bH.js:173=11ms
+
+[1A[2K[w12-drag SOFTWARE-GL] slider alpha: moves=26 frames=25 p50=56.3 p95=187.0 longTasks=0 maxTask=0
+    hot: Re@@mkbabb_glass-ui_dock.js:430=85ms · Be@@mkbabb_glass-ui_dock.js:447=48ms · getBoundingClientRect@:0=16ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=10ms · setFullProps@vue.runtime.esm-bundler-Bk1yvsSk.js:4933=4ms · setStyle@vue.runtime.esm-bundler-Bk1yvsSk.js:7535=3ms
+
+[1A[2K[w12-drag] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev T=8.00 budget p50<=9.00 p95<=17.00
+
+[1A[2K[59/66] [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/)
+[1A[2K[smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/)
+[w12-ground #/] cold+1s black=0 backing=300x150 box=1440x900 49,0,38 | 74,0,43 | 116,20,17 | 125,47,3
+
+[1A[2K[w12-ground #/] cold+3s black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/] idle+6s black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/] idle+12s black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/] idle+20s black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/] idle+32s black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/] hide(frozen+visibilitychange)/show black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/] resize-small black=0 backing=300x150 box=1100x760 47,0,44 | 76,0,43 | 115,20,17 | 123,49,2
+
+[1A[2K[w12-ground #/] resize-back black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/] drag black=0 backing=300x150 box=1440x900 31,20,33 | 50,32,42 | 79,59,57 | 90,71,64
+
+[1A[2K[w12-ground #/] scrolled black=0 backing=300x150 box=1440x900 31,20,33 | 50,32,42 | 79,59,57 | 90,71,64
+
+[1A[2K[w12-ground #/] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev samples=44 black=0 maxBacking=300 gpuErrors=0
+
+[1A[2K[60/66] [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/mix→#/)
+[1A[2K[smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/mix→#/)
+[w12-ground #/mix→#/] cold+1s black=0 backing=300x150 box=1440x900 50,0,36 | 74,0,43 | 117,19,19 | 127,43,4
+
+[1A[2K[w12-ground #/mix→#/] cold+3s black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/mix→#/] nav→/ black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/mix→#/] idle+6s black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/mix→#/] idle+12s black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/mix→#/] idle+20s black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/mix→#/] idle+32s black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/mix→#/] hide(frozen+visibilitychange)/show black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/mix→#/] resize-small black=0 backing=300x150 box=1100x760 47,0,44 | 76,0,43 | 115,20,17 | 123,49,2
+
+[1A[2K[w12-ground #/mix→#/] resize-back black=0 backing=300x150 box=1440x900 46,0,44 | 74,0,44 | 115,22,16 | 123,50,2
+
+[1A[2K[w12-ground #/mix→#/] drag black=0 backing=300x150 box=1440x900 31,20,33 | 50,32,42 | 79,59,57 | 90,71,64
+
+[1A[2K[w12-ground #/mix→#/] scrolled black=0 backing=300x150 box=1440x900 31,20,33 | 50,32,42 | 79,59,57 | 90,71,64
+
+[1A[2K[w12-ground #/mix→#/] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev samples=48 black=0 maxBacking=300 gpuErrors=0
+
+[1A[2K[61/66] [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame
+[1A[2K[smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame
+[w12u-p SOFTWARE-GL] surface: moves=10 frames=10 p50=282.5 p95=370.7 longTasks=8 maxTask=78 dockRoving=0/0f dockText=8
+    dock: 
+    main: UpdateLayoutTree=331ms · Layout=69ms · PrePaint=9ms · Paint=16ms · Layerize=3ms · Commit=3ms · FunctionCall=333ms · RunTask=830ms
+    self: Re@@mkbabb_glass-ui_dock.js:430=180ms · Be@@mkbabb_glass-ui_dock.js:447=66ms · s@color-BU4JS6bH.js:143=27ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=20ms · O@color-BU4JS6bH.js:162=18ms · getBoundingClientRect@:0=17ms
+    layout: getBoundingClientRect<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=10ms · getBoundingClientRect<-n@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:4<-d@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:115=7ms · getComputedStyle<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=-0ms
+    demo: certify@ink.ts:93=100ms · walkToFloor@ink.ts:121=100ms · attempt@ink.ts:123=100ms · certifyAccentInk@ink.ts:278=91ms · resolvePalettesRamp@palettes-ramp.ts:130=52ms · (anon)@useContrastSafeColor.ts:324=13ms
+
+[1A[2K[w12u-p SOFTWARE-GL] slider L: moves=7 frames=6 p50=327.2 p95=349.4 longTasks=7 maxTask=73 dockRoving=0/0f dockText=7
+    dock: 
+    main: UpdateLayoutTree=240ms · Layout=56ms · PrePaint=6ms · Paint=10ms · Layerize=2ms · Commit=2ms · FunctionCall=311ms · RunTask=626ms
+    self: Re@@mkbabb_glass-ui_dock.js:430=137ms · getBoundingClientRect@:0=52ms · Be@@mkbabb_glass-ui_dock.js:447=45ms · s@color-BU4JS6bH.js:143=26ms · O@color-BU4JS6bH.js:162=16ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=15ms
+    layout: getBoundingClientRect<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=45ms · getBoundingClientRect<-n@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:4<-d@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:115=8ms · getBoundingClientRect<-De@@mkbabb_glass-ui_dock.js:93<-C@@mkbabb_glass-ui_dock.js:198=-0ms
+    demo: certify@ink.ts:93=79ms · walkToFloor@ink.ts:121=79ms · attempt@ink.ts:123=79ms · certifyAccentInk@ink.ts:278=71ms · resolvePalettesRamp@palettes-ramp.ts:130=47ms · (anon)@useContrastSafeColor.ts:332=10ms
+
+[1A[2K[w12u-p SOFTWARE-GL] slider a: moves=8 frames=8 p50=287.6 p95=385.2 longTasks=7 maxTask=72 dockRoving=0/0f dockText=7
+    dock: 
+    main: UpdateLayoutTree=250ms · Layout=56ms · PrePaint=6ms · Paint=12ms · Layerize=2ms · Commit=3ms · FunctionCall=301ms · RunTask=612ms
+    self: Re@@mkbabb_glass-ui_dock.js:430=142ms · getBoundingClientRect@:0=51ms · Be@@mkbabb_glass-ui_dock.js:447=47ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=20ms · s@color-BU4JS6bH.js:143=19ms · O@color-BU4JS6bH.js:162=17ms
+    layout: getBoundingClientRect<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=38ms · getBoundingClientRect<-n@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:4<-d@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:115=13ms
+    demo: certify@ink.ts:93=69ms · walkToFloor@ink.ts:121=68ms · attempt@ink.ts:123=68ms · certifyAccentInk@ink.ts:278=61ms · resolvePalettesRamp@palettes-ramp.ts:130=36ms · (anon)@HeroBlob.vue:295=14ms
+
+[1A[2K[w12u-p SOFTWARE-GL] slider b: moves=8 frames=7 p50=354.6 p95=404.8 longTasks=8 maxTask=69 dockRoving=0/0f dockText=8
+    dock: 
+    main: UpdateLayoutTree=266ms · Layout=60ms · PrePaint=7ms · Paint=12ms · Layerize=2ms · Commit=3ms · FunctionCall=343ms · RunTask=645ms
+    self: Re@@mkbabb_glass-ui_dock.js:430=159ms · getBoundingClientRect@:0=58ms · Be@@mkbabb_glass-ui_dock.js:447=53ms · s@color-BU4JS6bH.js:143=26ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=22ms · O@color-BU4JS6bH.js:162=12ms
+    layout: getBoundingClientRect<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=43ms · getBoundingClientRect<-n@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:4<-d@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:115=15ms
+    demo: certify@ink.ts:93=72ms · walkToFloor@ink.ts:121=72ms · attempt@ink.ts:123=72ms · certifyAccentInk@ink.ts:278=67ms · resolvePalettesRamp@palettes-ramp.ts:130=42ms · (anon)@HeroBlob.vue:295=18ms
+
+[1A[2K[w12u-p SOFTWARE-GL] slider alpha: moves=16 frames=15 p50=80.4 p95=353.9 longTasks=0 maxTask=0 dockRoving=0/0f dockText=8
+    dock: 
+    main: UpdateLayoutTree=128ms · Layout=40ms · PrePaint=5ms · Paint=6ms · Layerize=2ms · Commit=3ms · FunctionCall=172ms · RunTask=299ms
+    self: Re@@mkbabb_glass-ui_dock.js:430=82ms · Be@@mkbabb_glass-ui_dock.js:447=54ms · getBoundingClientRect@:0=21ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=9ms · guardReactiveProps@vue.runtime.esm-bundler-Bk1yvsSk.js:6467=4ms · setFullProps@vue.runtime.esm-bundler-Bk1yvsSk.js:4933=4ms
+    layout: getBoundingClientRect<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=21ms
+    demo: _sfc_render@WatercolorDot.vue:113=2ms · (anon)@ColorSpaceSelector.vue:202=2ms · _sfc_render@ColorSpaceSelector.vue:165=1ms · _sfc_render@ColorNutritionLabel.vue:137=1ms · (anon)@ColorSpaceSelector.vue:230=1ms · _sfc_render@Markdown.vue:84=1ms
+
+[1A[2K[w12u-p] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev bisect=none T=8.00 budget p50<=9.00 p95<=17.00
+
+[1A[2K[62/66] [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors
+[1A[2K[63/66] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 1.0000 C 0.00000 h 4.38 · ΔC -0.02105 (stated ±0.04) · px 3066
+
+[1A[2K[64/66] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.8832 C 0.22343 h 142.69 · ΔC 0.04442 (stated ±0.04) · px 3066
+
+[1A[2K  39) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+
+    Error: painted dominant chroma 0.22343 vs the gamut-mapped current chroma 0.17901
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.044424143314160836[39m
+
+      354 |             Math.abs(paintedC - targetC),
+      355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      357 |     });
+      358 | }
+      359 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/webgl-blob-idle.spec.ts:356:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md
+
+
+[1A[2K(node:54949) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[65/66] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.7897 C 0.18925 h 323.54 · ΔC -0.06400 (stated ±0.04) · px 3066
+
+[1A[2K  40) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+
+    Error: painted dominant chroma 0.18925 vs the gamut-mapped current chroma 0.25325
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.06399525623397456[39m
+
+      354 |             Math.abs(paintedC - targetC),
+      355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      357 |     });
+      358 | }
+      359 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/webgl-blob-idle.spec.ts:356:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md
+
+
+[1A[2K(node:55641) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[66/66] [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost
+[1A[2K  41) [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)')
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)')[22m
+
+
+      59 |     // Switch away → switch back. Exercises unmount/remount.
+      60 |     await openView(page, "Browse");
+    > 61 |     await expect(mainPane(page)).toBeVisible();
+         |                                  ^
+      62 |
+      63 |     await openView(page, "Home");
+      64 |     const blob = page.getByTestId("goo-blob-canvas").last();
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/webgl-blob.spec.ts:61:34
+
+    Error Context: test-results/webgl-blob-goo-blob-canvas-bf729-ch-without-webglcontextlost-smoke/error-context.md
+
+
+[1A[2K  41 failed
+    [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes' 
+    [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:105:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/: 5 fresh contexts × cold first navigation → 0 stuck enter states 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:272:9 › O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 390) 
+    [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 1440 
+    [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 390 
+    [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:221:1 › O-17 composition: stamps, dot rest, one-literal, mint law 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:694:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:769:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:823:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:694:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:769:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+    [smoke] › e2e/smoke/oracles/o30-space-catalog-truth.spec.ts:111:1 › every offered space states its own facts, and the guide is never a bare heading 
+    [smoke] › e2e/smoke/oracles/o31-specimen-legibility.spec.ts:78:1 › every specimen caption fits its box 
+    [smoke] › e2e/smoke/oracles/o32-specimen-dot-identity.spec.ts:75:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:152:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the Tools slot is inert, 0 px and unexposed; the dock keeps its face 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:152:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the Tools slot is inert, 0 px and unexposed; the dock keeps its face 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:152:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the Tools slot is inert, 0 px and unexposed; the dock keeps its face 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:255:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 0) 
+    [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:52:1 › SS8-0442 · a focused saved card's ring paints on all four edges 
+    [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › light · five-seed sweep 
+    [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › dark · five-seed sweep 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:172:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:393:1 › garbage input fails LOUD and leaves the model untouched 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:417:1 › radial geometry is model-or-reject, never a silent drop 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:614:1 › gradient selector aurora ────────────────────
+    [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+    [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost 
+  25 passed (34.8m)

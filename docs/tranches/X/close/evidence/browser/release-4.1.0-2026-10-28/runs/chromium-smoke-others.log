@@ -1,0 +1,2598 @@
+(node:65929) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:66055) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 73 tests using 1 worker
+
+[1A[2K(node:66279) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/73] [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Users populated admin passes accessible-name + target-size
+[1A[2K[2/73] [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Names populated admin passes accessible-name + target-size
+[1A[2K[3/73] [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Flagged populated admin passes accessible-name + target-size
+[1A[2K[4/73] [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:79:1 › BR-9: the admin user-row expander is keyboard-operable (role + focusable + Enter expands)
+[1A[2K[5/73] [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:123:1 › U-F58: an induced admin render error surfaces a focus-managed role=alert boundary
+[1A[2K[2m[WebServer] [22m[2m2:21:46 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (boundary · render function) TypeError: Cannot read properties of null (reading 'slice')
+[2m[WebServer] [22m    at Proxy.slugHead (http://localhost:8390/@fs/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/demo/palettes/admin/panels/AdminUsersPanel.vue:51:16)
+[2m[WebServer] [22m    at http://localhost:8390/@fs/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/demo/palettes/admin/panels/AdminUsersPanel.vue:488:34
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:8390/@fs/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/node_modules/.vite-e2e-8390/deps/vue.runtime.esm-bundler-Bk1yvsSk.js?v=06b971c2:2260:10)
+[2m[WebServer] [22m    at renderSlot (http://localhost:8390/@fs/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/node_modules/.vite-e2e-8390/deps/vue.runtime.esm-bundler-Bk1yvsSk.js?v=06b971c2:3901:52)
+[2m[WebServer] [22m    at http://localhost:8390/@fs/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/node_modules/.vite-e2e-8390/deps/collapsible-DFzK29Oh-CL0jTBUP.js?v=06b971c2:101:28
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:8390/@fs/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/node_modules/.vite-e2e-8390/deps/vue.runtime.esm-bundler-Bk1yvsSk.js?v=06b971c2:2260:10)
+[2m[WebServer] [22m    at renderSlot (http://localhost:8390/@fs/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/node_modules/.vite-e2e-8390/deps/vue.runtime.esm-bundler-Bk1yvsSk.js?v=06b971c2:3901:52)
+[2m[WebServer] [22m    at http://localhost:8390/@fs/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/node_modules/.vite-e2e-8390/deps/dist-DLYkPMlH.js?v=06b971c2:4150:29
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:8390/@fs/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/node_modules/.vite-e2e-8390/deps/vue.runtime.esm-bundler-Bk1yvsSk.js?v=06b971c2:2260:10)
+[2m[WebServer] [22m    at normalizeChildren (http://localhost:8390/@fs/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/node_modules/.vite-e2e-8390/deps/vue.runtime.esm-bundler-Bk1yvsSk.js?v=06b971c2:6542:29)
+
+[1A[2K[6/73] [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:19:1 › battery: the populated browse wall passes accessible-name + target-size
+[1A[2K[7/73] [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:45:1 › battery: the authed Profile identity menu passes accessible-name (the login surface)
+[1A[2K[8/73] [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:13:1 › admin-users renders seeded user rows
+[1A[2K[9/73] [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:61:5 › names moderation at 390px (F-1) › approve/reject stay on-card and operable with long-string rows
+[1A[2K[10/73] [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:102:1 › admin-flagged renders a seeded flagged palette + moderation actions
+[1A[2K[11/73] [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors
+[1A[2K[12/73] [smoke-admin] › e2e/smoke/admin/flows/color-approve.spec.ts:13:1 › admin approve color name POSTs /admin/colors/<id>/approve
+[1A[2K[13/73] [smoke-admin] › e2e/smoke/admin/flows/color-reject.spec.ts:9:1 › admin reject color name POSTs /admin/colors/<id>/reject
+[1A[2K[14/73] [smoke-admin] › e2e/smoke/admin/flows/palette-feature.spec.ts:13:1 › admin feature palette POSTs /admin/palettes/<slug>/feature
+[1A[2K[15/73] [smoke-admin] › e2e/smoke/admin/flows/tag-create.spec.ts:9:1 › admin tag create POSTs /admin/tags with name+category
+[1A[2K[16/73] [smoke-admin] › e2e/smoke/admin/flows/tag-delete.spec.ts:9:1 › admin tag delete DELETEs /admin/tags/<name>
+[1A[2K[17/73] [smoke-admin] › e2e/smoke/admin/flows/user-status.spec.ts:15:1 › admin delete user DELETEs /admin/users/<slug>
+[1A[2K[18/73] [smoke-admin] › e2e/smoke/admin/o10d-admin-title-voice.spec.ts:17:1 › O-10d (admin) — the flagged-panel palette name speaks the display voice, ≤500, non-italic
+[1A[2K[19/73] [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (light) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground
+[1A[2K[20/73] [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (light) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground
+[1A[2K[21/73] [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (dark) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground
+[1A[2K[22/73] [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (dark) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground
+[1A[2K[23/73] [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:51:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts
+[1A[2K[24/73] [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:72:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect
+[1A[2K[25/73] [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:89:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route
+[1A[2K[26/73] [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:95:13 › B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440
+[1A[2K[smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:95:13 › B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440
+[0478 light 1440] min 4.92 · h25: 4.92/4.99/5.35 ink oklch(0.113836 0.00624853 56.0356) · h145: 5.18/5.40/6.28 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.01/5.13/5.40 ink oklch(0.113836 0.00624853 56.0356)
+
+[1A[2K[27/73] [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:95:13 › B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390
+[1A[2K[smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:95:13 › B17 names · light › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390
+[0478 light 390] min 5.45 · h25: 5.45/5.71/5.57 ink oklch(0.113836 0.00624853 56.0356) · h145: 6.42/6.91/6.88 ink oklch(0.113836 0.00624853 56.0356) · h265: 5.53/5.81/5.66 ink oklch(0.113836 0.00624853 56.0356)
+
+[1A[2K[28/73] [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:130:9 › B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light
+[1A[2K[smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:130:9 › B17 names · light › SS8-0483 + SS8-0487 skeleton ink register and column · light
+[0483/0487 light] 1440: dL -0.040/-0.041/-0.041 col 47.88 vs live 47.94 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.552846 vsAboveBelow -0.041/-0.041/-0.041 t 7396ms · 390: dL -0.048/-0.049/-0.050 col 41.19 vs live 41.19 ink oklab(0.216129 0.00349092 0.00518243 / 0.16)@0.787047 vsAboveBelow -0.039/-0.040/-0.041 t 4763ms
+
+[1A[2K[29/73] [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:95:13 › B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440
+[1A[2K[smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:95:13 › B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 1440
+[0478 dark 1440] min 6.48 · h25: 7.23/7.04/6.48 ink oklch(0.814639 0.00382185 41.8684) · h145: 7.69/7.51/6.78 ink oklch(0.830262 0.00382185 41.8684) · h265: 7.10/6.96/6.55 ink oklch(0.802087 0.00382185 41.8684)
+
+[1A[2K[30/73] [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:95:13 › B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390
+[1A[2K[smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:95:13 › B17 names · dark › SS8-0478 secondary line ≥ 4.5:1 over its ground · 390
+[0478 dark 390] min 5.87 · h25: 6.26/5.87/5.96 ink oklch(0.814639 0.00382185 41.8684) · h145: 6.32/5.90/6.08 ink oklch(0.830262 0.00382185 41.8684) · h265: 6.28/5.94/6.13 ink oklch(0.802087 0.00382185 41.8684)
+
+[1A[2K[31/73] [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:130:9 › B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark
+[1A[2K[smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:130:9 › B17 names · dark › SS8-0483 + SS8-0487 skeleton ink register and column · dark
+[0483/0487 dark] 1440: dL 0.079/0.076/0.075 col 47.88 vs live 47.94 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.963687 vsAboveBelow 0.086/0.084/0.082 t 6594ms · 390: dL 0.043/0.039/0.037 col 41.19 vs live 41.19 ink oklab(0.925202 0.00234182 0.00572368 / 0.16)@0.556104 vsAboveBelow 0.054/0.051/0.049 t 4919ms
+
+[1A[2K[32/73] [smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:203:5 › B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors
+[1A[2K[smoke-admin] › e2e/smoke/admin/ss8-b17-admin-names.spec.ts:203:5 › B17 names · forced colors › SS8-0504 each proposal swatch keeps its colour under forced-colors
+[0504] swatch Δ 0/0/1
+
+[1A[2K[33/73] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+[1A[2K[smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+SS8-0514 {"skel":{"h":[84.19053649902344,84.19052124023438,84.19052124023438],"gaps":[-0.21075439453125,-0.21075439453125]},"rows":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]}}
+
+[1A[2K  1) [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.5[39m
+    Received:    [31m12.21075439453125[39m
+
+      83 |         test.slow();
+      84 |         const { skel, rows } = await shadowsVsRows(page);
+    > 85 |         for (const g of skel.gaps) expect(Math.abs(g - rows.gaps[0]!)).toBeLessThanOrEqual(0.5);
+         |                                                                        ^
+      86 |     });
+      87 |     // The height limb rides AdminListSkeleton's column: B17's SS8-0487 column
+      88 |     // landed at 4c4506b9a, so the SS-8 CLOSE seat re-armed it (was test.fixme).
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:85:72
+
+    Error Context: test-results/ss8-b18-admin-panels-SS8-0-32430-w-rhythm-shadow-gap-row-gap-smoke-admin/error-context.md
+
+
+[1A[2K(node:76857) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[34/73] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:89:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+[1A[2K[smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:89:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+SS8-0514 {"skel":{"h":[84.19053649902344,84.19052124023438,84.19052124023438],"gaps":[-0.21075439453125,-0.21075439453125]},"rows":{"h":[84.19053649902344,84.19052124023438,84.19052124023438],"gaps":[-0.21075439453125,-0.21075439453125]}}
+
+[1A[2K[35/73] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:117:5 › coarse 390 › SS8-0529 · the Tags create placeholders fit their fields
+[1A[2K[smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:117:5 › coarse 390 › SS8-0529 · the Tags create placeholders fit their fields
+SS8-0529 New tag name {"text":115.2,"box":306,"field":306.3,"coarse":true,"uiScale":"1.5"}
+
+[1A[2KSS8-0529 New tag category {"text":106.2,"box":112,"field":112.2,"coarse":true,"uiScale":"1.5"}
+
+[1A[2K[36/73] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:127:5 › coarse 390 › SS8-0513 · Audit Refresh is 44×44 coarse
+[1A[2K[37/73] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:133:5 › coarse 390 › SS8-0524 · Flagged Dismiss and delete are ≥ 44 px (Chromium arm)
+[1A[2K[38/73] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:145:5 › fine pointer pins › SS8-0509 · a ~6 KB target never widens its row past the track (320)
+[1A[2K[39/73] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:164:5 › fine pointer pins › SS8-0510/0515 · no flex-1 spacer; the count + Refresh cluster ends the toolbar at 390
+[1A[2K[40/73] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:181:5 › fine pointer pins › SS8-0513 · Audit Refresh is 28×28 fine
+[1A[2K[41/73] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:187:5 › fine pointer pins › SS8-0523 · the flag badge renders at --type-small
+[1A[2K[42/73] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:202:5 › fine pointer pins › SS8-0526 · no repeating admin poll; a query before the hash still routes
+[1A[2K(node:77721) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[43/73] [smoke-mobile] › e2e/smoke/mobile/a11y-control-targets.spec.ts:316:1 › A2 · coarse-pointer target size — every attributed target box is ≥24×24
+[1A[2K[smoke-mobile] › e2e/smoke/mobile/a11y-control-targets.spec.ts:316:1 › A2 · coarse-pointer target size — every attributed target box is ≥24×24
+[W4-CENSUS-COARSE] {"route":"/","rows":[{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Save edit","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Cancel edit","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"input","id":"","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","name":"Slug or admin token","w":26,"h":54,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Switch to slug","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Cancel","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Back","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"reka-popover-trigger-v-46","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Reset color","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"reka-popover-trigger-v-47","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Copy color","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"reka-popover-trigger-v-48","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Random color","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"reka-popover-trigger-v-49","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Palettes","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"reka-popover-trigger-v-50","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Extract palette","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"send-btn","name":"Apply color","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Open color input","w":44,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal","name":"Select view","w":56,"h":32,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn","name":"Toggle action bar","w":48,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"reka-dropdown-menu-trigger-v-52","cls":"menu__trigger dock-trigger dock-dropdown-trigger","name":"Menu","w":40,"h":32,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]","name":"Select color space","w":120.3,"h":52.7,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"l channel","w":31.7,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"c channel","w":31.7,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"h channel","w":31.7,"h":44,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"alpha channel","w":31.7,"h":44,"attributedTo":"self"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"L channel","w":227.3,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"C channel","w":227.3,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"H channel","w":227.3,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"ALPHA channel","w":227.3,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em] space-trigger--inline","name":"Select color space","w":120.2,"h":38.9,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"DefinitionA cylindrical representation of the OKLab color space. Basic information Device dependency:Device-independentWhite point:D65Gamut:UnlimitedCreated:2019 Components L (Lightness)0% to 100%C (Chroma)0 to 0.5h (hue)0deg to 360deg Key properties Perceptual uniformity:Yes (inherited from OKLab)Hue linearity:YesLightness separation:Yes Conversion graph OKLChOKLabOKLChOKLabXYZOKLChOKLabXYZLabUsageCommon applications: Color selection, Color harmony, Gradient creationIndustries: Web design, User interface design, Digital artDetailed GuideHistorical ContextOKLCh is the polar form of OKLab, published by Björn Ottosson in 2020 to address the perceptual non-uniformities in older Lab/LCh models. The relationship is the same—Cartesian a/b re-expressed as chroma and hue—but the underlying OKLab space produces better uniformity, especially in blues and purples where CIE L*a*b* shows significant error. OKLCh is a first-class color function in CSS Color Level 4.Key CharacteristicsBetter uniformity than CIE LCh. Equal chroma steps look more consistent across the hue circle.Polar coordinates. Lightness, chroma, and hue—same intuitive axes as LCh.Stable lightness. Changing chroma or hue doesn’t shift perceived brightness the way it does in HSL.CSS-native. oklch() is supported in all modern browsers as of 2024.AdvantagesMarkedly better perceptual uniformity than HSL, HSV, or CIE LChPerceived brightness stays stable when you adjust chroma or hueDirect CSS support—no conversion step for web useClean gradients and palette generation with minimal hue shiftDisadvantagesNewer; less support in legacy tools and older design softwareConversion chain is longer than RGB or HSL (OKLCh → OKLab → XYZ → linear RGB → sRGB)Not directly displayable—still needs gamut mapping to a device spaceThe 0–1 lightness scale differs from Lab/LCh’s 0–100, which can cause confusionColor ModelComponentsL (Lightness): 0 (black) to 1 (white). Note the 0–1 range, not 0–100 as in CIE L*.C (Chroma): 0 (achromatic) to roughly 0.4 for the most saturated colors. The scale is much smaller than CIE LCh’s.H (Hue): 0 to 360 degrees (or 0–1 normalized). Same angular concept as LCh, but hue spacing is more perceptually even—the “blue problem” in CIE LCh (where blues compress into a narrow hue range) is largely resolved.Relationship to OKLabOKLCh relates to OKLab exactly as CIE LCh relates to CIE Lab: same data, polar vs. Cartesian. C = sqrt(a^2 + b^2), H = atan2(b, a). The lightness channel is shared directly.Color ConversionsOKLCh to OKLabPolar to Cartesian—recover the a/b axes from chroma and hue:OKLab to OKLChCartesian to polar—extract chroma (magnitude) and hue (angle) from the a/b plane:OKLab to XYZInvert the two linear transforms around a cube operation. The cube reverses the perceptual cube-root compression applied in the forward path:XYZ to OKLabTwo matrix multiplications sandwiching a cube root. The first maps XYZ to LMS cone responses; the cube root models the perceptual non-linearity; the second projects into OKLab:ApplicationsCSS oklch(). Supported in Chrome, Safari, and Firefox; increasingly adopted for design systems.Design system palettes. Step through L or C to build scales that look evenly spaced to the human eye.Accessible color. Adjust L to meet WCAG contrast targets without disturbing hue or saturation.Perceptual gradients. Interpolating in OKLCh avoids the hue shifts and muddy midpoints of RGB or HSL blends.Data visualization. Build color ramps where perceptual distance tracks data distance.","w":463.4,"h":7396.1,"attributedTo":"self"},{"route":"/","tag":"a","id":"","cls":"","name":"OKLab","w":52.6,"h":29.5,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--x katex-row","name":"Formula","w":364.3,"h":223.5,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--x katex-row","name":"Formula","w":364.3,"h":223.5,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--x katex-row","name":"Formula","w":364.3,"h":223.5,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--x katex-row","name":"Formula","w":364.3,"h":223.5,"attributedTo":"self"}]}
+
+[1A[2K[W4-CENSUS-COARSE] {"route":"/#/gradient","rows":[{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Save edit","w":44.5,"h":44.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Cancel edit","w":44.5,"h":44.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"input","id":"","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","name":"Slug or admin token","w":26.6,"h":54.3,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Switch to slug","w":44.5,"h":44.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Cancel","w":44.5,"h":44.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Back","w":44.5,"h":44.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"reka-popover-trigger-v-3","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Reset","w":44.5,"h":44.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"reka-popover-trigger-v-4","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Copy CSS","w":44.5,"h":44.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"reka-popover-trigger-v-5","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Seed from palette","w":44.5,"h":44.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal","name":"Select view","w":56.3,"h":32.6,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn","name":"Toggle action bar","w":48.5,"h":44.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"reka-dropdown-menu-trigger-v-7","cls":"menu__trigger dock-trigger dock-dropdown-trigger","name":"Menu","w":40.3,"h":32.4,"attributedTo":"self"},{"route":"/#/gradient","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"Stops Select a stop on the rail to set its position or remove it.  Interpolation TypeLinear Color spaceOKLCh Hue methodShorter Direction90degEasing1 → 2linearCSSlinear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)","w":386,"h":977,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-caret rail-swatch absolute rounded-full border-2 border-dashed border-white/70 z-0","name":"Add gradient stop at 50%","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0","name":"Gradient stop 1 of 2","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0","name":"Gradient stop 2 of 2","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Type","w":354,"h":54,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Color space","w":354,"h":54,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Hue method","w":354,"h":54,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"glass-disclosure-trigger-v-31","cls":"disclosure-trigger disclosure-group-trigger interval-head w-full flex items-center gap-2.5 py-2 px-(--easing-inset) text-left","name":"1 → 2linear","w":352,"h":44,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact","name":"Copy rendered CSS (easing baked in)","w":28,"h":28,"attributedTo":"self"},{"route":"/#/gradient","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"Start a new paletteNo saved palettes yet.Add colors, then save.","w":386,"h":323,"attributedTo":"self"},{"route":"/#/gradient","tag":"input","id":"","cls":"input-bar-field","name":"Search your palettes","w":299,"h":31.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"button tap-squish focus-ring add-slot-ghost shrink-0 cursor-pointer","name":"Add current color oklch(73% 0.185 2deg) to palette","w":66,"h":66,"attributedTo":"self"}]}
+
+[1A[2K[W4-A2] undersized=0
+
+
+[1A[2K[44/73] [smoke-mobile] › e2e/smoke/mobile/a11y-control-targets.spec.ts:345:1 › A3-coarse · the size axis owns control height AND takes the coarse lift
+[1A[2K[smoke-mobile] › e2e/smoke/mobile/a11y-control-targets.spec.ts:345:1 › A3-coarse · the size axis owns control height AND takes the coarse lift
+[W4-SIZED-COARSE] {"route":"/","rows":[{"route":"/","tag":"input","slot":"input","size":"sm","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","blockSize":54,"token":0,"controlFloor":0}]}
+
+[1A[2K[W4-SIZED-COARSE] {"route":"/#/gradient","rows":[{"route":"/#/gradient","tag":"input","slot":"input","size":"sm","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","blockSize":54,"token":0,"controlFloor":0},{"route":"/#/gradient","tag":"button","slot":"button","size":"lg","cls":"button tap-squish focus-ring add-slot-ghost shrink-0 cursor-pointer","blockSize":66,"token":66,"controlFloor":44}]}
+
+[1A[2K[W4-A3-COARSE] measured=1 mismatches=0 unlifted=0
+
+
+[1A[2K[45/73] [smoke-mobile] › e2e/smoke/mobile/a11y-control-targets.spec.ts:403:1 › A4-coarse · zero nameless interactive elements
+[1A[2K[smoke-mobile] › e2e/smoke/mobile/a11y-control-targets.spec.ts:403:1 › A4-coarse · zero nameless interactive elements
+[W4-A4-COARSE] nameless=0
+
+
+[1A[2K(node:78910) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[46/73] [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:140:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law)
+[1A[2K  2) [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:140:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+
+    Error: the parked hero did not repaint on a register change at 390
+
+    the parked hero did not repaint on a register change at 390
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m2[39m
+    Received:   [31m2[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      255 |                 message: "the parked hero did not repaint on a register change at 390",
+      256 |             })
+    > 257 |             .toBeGreaterThan(beforeChange);
+          |              ^
+      258 |         await waitMs(page, IDLE_MS);
+      259 |         const reparkBefore = await lastCanvasDrawCount(page, GOO_BLOB_TESTID);
+      260 |         await waitMs(page, WINDOW_MS);
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/mobile/blob-presence-mobile.spec.ts:257:14
+
+    Error Context: test-results/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/error-context.md
+
+
+[1A[2K(node:80140) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[47/73] [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:312:1 › hero blob at 390 under prefers-reduced-motion: one static frame, then parked (0 idle draws)
+[1A[2K[smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:312:1 › hero blob at 390 under prefers-reduced-motion: one static frame, then parked (0 idle draws)
+[blob-390] PRM window=3000ms draws=0 frames=385
+
+[1A[2K[48/73] [smoke-mobile] › e2e/smoke/mobile/page-load-mobile.spec.ts:39:1 › mobile boot: both regions render + dock visible + zero console errors
+[1A[2K[49/73] [smoke-mobile] › e2e/smoke/mobile/walk.spec.ts:75:1 › mobile walk: every region of every scene is present, across routes and back
+[1A[2K(node:81552) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[50/73] [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:42:1 › spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths
+[1A[2K[smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:42:1 › spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths
+[reactivity-instant] spectrum-drag deltas (ms): 6.40, 7.60, 30.40, 41.00, 47.10
+
+[1A[2K[reactivity-instant] spectrum-drag median (ms): 30.40
+
+[1A[2K[51/73] [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:137:1 › slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps
+[1A[2K[smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:137:1 › slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps
+[reactivity-instant] slider-keyboard deltas (ms): 44.70, 47.90, 98.50
+
+[1A[2K[reactivity-instant] slider-keyboard median (ms): 47.90
+
+[1A[2K(node:82297) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[52/73] [smoke-perf] › e2e/smoke/perf/drag-frame-budget.spec.ts:33:1 › slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate)
+[1A[2K  3) [smoke-perf] › e2e/smoke/perf/drag-frame-budget.spec.ts:33:1 › slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: mouse.move: Test timeout of 30000ms exceeded.
+
+      60 |     const STEPS = 24;
+      61 |     for (let i = 1; i <= STEPS; i++) {
+    > 62 |         await page.mouse.move(x0 + ((x1 - x0) * i) / STEPS, y, { steps: 3 });
+         |                          ^
+      63 |         await page.waitForTimeout(30);
+      64 |     }
+      65 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/drag-frame-budget.spec.ts:62:26
+
+    Error Context: test-results/drag-frame-budget-slider-d-8d7ac-sks-50ms-built-bundle-gate--smoke-perf/error-context.md
+
+
+[1A[2K(node:83357) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[53/73] [smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:313:1 › X-W2 G2 — the eager module set's JS gzip budget, from the built artifact
+[1A[2K[smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:313:1 › X-W2 G2 — the eager module set's JS gzip budget, from the built artifact
+dist: dist/gh-pages   (index.html raw=53609 gz=14032)
+eager JS modules: 20
+    ./assets/index-DSqs2Qxm.js  raw=474434  gz=155108  (entry-module)
+    ./assets/preload-helper-kNaey6uv.js  raw=1208  gz=689  (modulepreload)
+    ./assets/rolldown-runtime-QTnfLwEv.js  raw=694  gz=423  (modulepreload)
+    ./assets/vue.runtime.esm-bundler-2l_pzWEZ.js  raw=109885  gz=41735  (modulepreload)
+    ./assets/dist-CVCggHGb.js  raw=17137  gz=7136  (modulepreload)
+    ./assets/createLucideIcon-C9maEmXC.js  raw=8116  gz=3434  (modulepreload)
+    ./assets/dom-BLrshDUK.js  raw=13518  gz=5634  (modulepreload)
+    ./assets/PopperContent-CJa0pX0k.js  raw=34876  gz=12694  (modulepreload)
+    ./assets/useResizeObserver-CdUlm2QZ-7ORH9RJ4.js  raw=862  gz=516  (modulepreload)
+    ./assets/fading-scroll-CTeW3KNS-CWoCn7t5.js  raw=2640  gz=1279  (modulepreload)
+    ./assets/keyframes-iZdbN1lK.js  raw=16652  gz=5564  (modulepreload)
+    ./assets/button-BOFTUPyU-BZ9MeoVG.js  raw=17739  gz=6410  (modulepreload)
+    ./assets/pointerFieldMappings-DXwlU5uj-xcV98pq_.js  raw=2684  gz=1347  (modulepreload)
+    ./assets/selection-DqIULxRG-BMmrjQ8z.js  raw=4169  gz=1805  (modulepreload)
+    ./assets/slider-5uoY-cLG-Du6hH6jo.js  raw=17936  gz=5722  (modulepreload)
+    ./assets/useIntersectionPause-CzKR3EyP-sTwMuMYY.js  raw=1240  gz=683  (modulepreload)
+    ./assets/Presence-CDtI5ZR_.js  raw=3360  gz=1577  (modulepreload)
+    ./assets/serialize-BtpoAFZw-C086w664.js  raw=73129  gz=19870  (modulepreload)
+    ./assets/picker-color-vxPFipSO.js  raw=4395  gz=1659  (modulepreload)
+    ./assets/color-model-EyquewSU.js  raw=295  gz=224  (modulepreload)
+eager JS   raw= 804969  gz= 273509 = 267.1 KiB   (bar 286720 B) -> GREEN
+render-block CSS raw= 435117  gz= 74228 = 72.5 KiB   (measured, NOT gated)
+    excluded (async): ./assets/glass-fonts-PBJY3762.css  raw=132840  gz=100386  media=print
+TOTAL eager gz= 347737 = 339.6 KiB
+
+[1A[2K[X-W2 G2] eager JS modules=20 raw=804969 gz=273509 (267.1 KiB) bar=286720 B → GREEN
+
+[1A[2K[X-W2 G2]   entry-module   ./assets/index-DSqs2Qxm.js  raw=474434 gz=155108
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/preload-helper-kNaey6uv.js  raw=1208 gz=689
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/rolldown-runtime-QTnfLwEv.js  raw=694 gz=423
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/vue.runtime.esm-bundler-2l_pzWEZ.js  raw=109885 gz=41735
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/dist-CVCggHGb.js  raw=17137 gz=7136
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/createLucideIcon-C9maEmXC.js  raw=8116 gz=3434
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/dom-BLrshDUK.js  raw=13518 gz=5634
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/PopperContent-CJa0pX0k.js  raw=34876 gz=12694
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/useResizeObserver-CdUlm2QZ-7ORH9RJ4.js  raw=862 gz=516
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/fading-scroll-CTeW3KNS-CWoCn7t5.js  raw=2640 gz=1279
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/keyframes-iZdbN1lK.js  raw=16652 gz=5564
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/button-BOFTUPyU-BZ9MeoVG.js  raw=17739 gz=6410
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/pointerFieldMappings-DXwlU5uj-xcV98pq_.js  raw=2684 gz=1347
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/selection-DqIULxRG-BMmrjQ8z.js  raw=4169 gz=1805
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/slider-5uoY-cLG-Du6hH6jo.js  raw=17936 gz=5722
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/useIntersectionPause-CzKR3EyP-sTwMuMYY.js  raw=1240 gz=683
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/Presence-CDtI5ZR_.js  raw=3360 gz=1577
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/serialize-BtpoAFZw-C086w664.js  raw=73129 gz=19870
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/picker-color-vxPFipSO.js  raw=4395 gz=1659
+
+[1A[2K[X-W2 G2]   modulepreload  ./assets/color-model-EyquewSU.js  raw=295 gz=224
+
+[1A[2K[X-W2 G2] render-block CSS raw=435117 gz=74228 (72.5 KiB) — measured, NOT gated
+
+[1A[2K[X-W2 G2] TOTAL eager gz=347737 (339.6 KiB)
+
+[1A[2K[54/73] [smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:377:1 › X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs
+[1A[2K[smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:377:1 › X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs
+[X-W2 CWV] pin: macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8391
+
+[1A[2K[X-W2 CWV] renderer(raw): ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)
+
+[1A[2K[X-W2 CWV] origin=http://localhost:8391 route=#/ N=20 settle=3000ms cold-cache=CDP Network.setCacheDisabled
+
+[1A[2K[X-W2 CWV desktop-unthrottled] warmup (DISCARDED from p75): lcp=3056ms tbt=644ms fcp=3056ms longTasks=2
+
+[1A[2K[X-W2 CWV desktop-unthrottled] N=20 p75 LCP=1452ms p75 TBT=1859ms p75 FCP=1452ms p75 TBT[FCP,end]=1852ms (reported, not gated) p75 CLS=0.0000 median longTasks=4 p75 longest task=1606ms max TBT=2136ms median transfer(uncompressed, diagnostic)=1862214 B resources=53
+
+[1A[2K[X-W2 CWV mobile-4x-cpu] warmup (DISCARDED from p75): lcp=1864ms tbt=2801ms fcp=1864ms longTasks=9
+
+[1A[2K[X-W2 CWV mobile-4x-cpu] N=20 p75 LCP=1192ms p75 TBT=3600ms p75 FCP=1192ms p75 TBT[FCP,end]=3257ms (reported, not gated) p75 CLS=0.0000 median longTasks=11 p75 longest task=2085ms max TBT=4187ms median transfer(uncompressed, diagnostic)=1862214 B resources=53
+
+[1A[2K[X-W2 CWV] record
+{
+  "schema": "x-w2.cwv/1",
+  "gate": "W2.md §6 G3 (p75 TBT ≤ 300 ms) · G4 (p75 LCP ≤ 2500 ms)",
+  "generatedAt": "2026-10-28T18:35:55.567Z",
+  "pin": "macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8391",
+  "rendererRaw": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+  "origin": "http://localhost:8391",
+  "originKind": "BUILT dist/gh-pages via e2e/smoke/perf/serve-built.mjs (MT-F011: never a dev server)",
+  "route": "#/",
+  "n": 20,
+  "settleMs": 3000,
+  "coldCache": "CDP Network.setCacheDisabled + a fresh browser context per load",
+  "tbtDefinition": "Lighthouse calculateSumOfBlockingTime (every long task ≥ 50 ms, CLIPPED to the window, contributes clippedDuration − 50 ms), evaluated over TWO windows. GATED: [navigationStart, observationEnd]. REPORTED BESIDE IT: Lighthouse's strict [FCP, TTI≈observationEnd], which reads 0 on this product because FCP===LCP — nothing paints until Vue mounts, so the boot's blocking task ends before first paint and the strict window is structurally blind to the cost this wave cuts (L-19). observationEnd (per-sample `windowEndMs`) stands in for TTI, which this harness cannot derive without a trace.",
+  "configs": {
+    "desktop-unthrottled": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "cpuThrottleRate": 1,
+      "n": 20,
+      "warmupLoadsDiscarded": 1,
+      "warmup": {
+        "lcp": 3056,
+        "fcp": 3056,
+        "tbt": 644,
+        "tbtLighthouseWindow": 636,
+        "cls": 0,
+        "longTasks": 2,
+        "tasks": [
+          {
+            "start": 21,
+            "dur": 58
+          },
+          {
+            "start": 3097.7999999970198,
+            "dur": 686
+          }
+        ],
+        "windowEndMs": 3838.2999999970198,
+        "transferBytes": 1776266,
+        "resources": 43
+      },
+      "p75Lcp": 1452,
+      "p75Tbt": 1859,
+      "p75Fcp": 1452,
+      "p75TbtLighthouseWindow": 1852,
+      "medianLcp": 1080,
+      "medianTbt": 1359,
+      "maxTbt": 2136,
+      "p75LongestTaskMs": 1606,
+      "p75Cls": 0,
+      "medianLongTasks": 4,
+      "medianTransferBytesUncompressed": 1862214,
+      "medianResources": 53,
+      "gates": {
+        "G3 p75 TBT ≤ 300 ms": {
+          "measured": 1859,
+          "window": "[navigationStart, observationEnd] — the gated window",
+          "bar": 300,
+          "verdict": "RED",
+          "lighthouseWindowReading": 1852,
+          "lighthouseWindowNote": "[FCP, TTI≈observationEnd]. Reads 0 because FCP===LCP on this product — the boot's blocking task ends before first paint, so the strict window cannot see it (L-19)."
+        },
+        "G4 p75 LCP ≤ 2500 ms": {
+          "measured": 1452,
+          "bar": 2500,
+          "verdict": "GREEN"
+        }
+      },
+      "samples": [
+        {
+          "lcp": 1984,
+          "fcp": 1984,
+          "tbt": 1450,
+          "tbtLighthouseWindow": 1444,
+          "cls": 0,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 32.600000001490116,
+              "dur": 56
+            },
+            {
+              "start": 2013.8000000044703,
+              "dur": 1494
+            }
+          ],
+          "windowEndMs": 3551.4000000059605,
+          "transferBytes": 1776266,
+          "resources": 43
+        },
+        {
+          "lcp": 980,
+          "fcp": 980,
+          "tbt": 1859,
+          "tbtLighthouseWindow": 1852,
+          "cls": 0,
+          "longTasks": 3,
+          "tasks": [
+            {
+              "start": 18.299999997019768,
+              "dur": 57
+            },
+            {
+              "start": 1019.2000000029802,
+              "dur": 1754
+            },
+            {
+              "start": 2841.2000000029802,
+              "dur": 198
+            }
+          ],
+          "windowEndMs": 3127.7999999970198,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1452,
+          "fcp": 1452,
+          "tbt": 1129,
+          "tbtLighthouseWindow": 1102,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 25.600000001490116,
+              "dur": 77
+            },
+            {
+              "start": 1483.5,
+              "dur": 976
+            },
+            {
+              "start": 2526.60000000149,
+              "dur": 213
+            },
+            {
+              "start": 2962.2000000029802,
+              "dur": 63
+            }
+          ],
+          "windowEndMs": 3167.10000000149,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1092,
+          "fcp": 1092,
+          "tbt": 1486,
+          "tbtLighthouseWindow": 1481,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 20.5,
+              "dur": 55
+            },
+            {
+              "start": 1137,
+              "dur": 1307
+            },
+            {
+              "start": 2523.8000000044703,
+              "dur": 227
+            },
+            {
+              "start": 2949.2000000029802,
+              "dur": 97
+            }
+          ],
+          "windowEndMs": 3122,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1600,
+          "fcp": 1600,
+          "tbt": 1525,
+          "tbtLighthouseWindow": 1494,
+          "cls": 0,
+          "longTasks": 3,
+          "tasks": [
+            {
+              "start": 28.30000000447035,
+              "dur": 81
+            },
+            {
+              "start": 1621.8000000044703,
+              "dur": 1435
+            },
+            {
+              "start": 3137.60000000149,
+              "dur": 159
+            }
+          ],
+          "windowEndMs": 3311.8000000044703,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1236,
+          "fcp": 1236,
+          "tbt": 1173,
+          "tbtLighthouseWindow": 1160,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 18.700000002980232,
+              "dur": 63
+            },
+            {
+              "start": 1278.7000000029802,
+              "dur": 993
+            },
+            {
+              "start": 2341.5,
+              "dur": 215
+            },
+            {
+              "start": 2776.89999999851,
+              "dur": 102
+            }
+          ],
+          "windowEndMs": 3162.8000000044703,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 896,
+          "fcp": 896,
+          "tbt": 2136,
+          "tbtLighthouseWindow": 2125,
+          "cls": 0,
+          "longTasks": 3,
+          "tasks": [
+            {
+              "start": 19.19999999552965,
+              "dur": 61
+            },
+            {
+              "start": 939.1000000014901,
+              "dur": 2033
+            },
+            {
+              "start": 3047.10000000149,
+              "dur": 192
+            }
+          ],
+          "windowEndMs": 3255.5,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1528,
+          "fcp": 1528,
+          "tbt": 1039,
+          "tbtLighthouseWindow": 1004,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 30,
+              "dur": 85
+            },
+            {
+              "start": 1551.4000000059605,
+              "dur": 876
+            },
+            {
+              "start": 2517.10000000149,
+              "dur": 187
+            },
+            {
+              "start": 2932.2000000029802,
+              "dur": 91
+            }
+          ],
+          "windowEndMs": 3198.4000000059605,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1088,
+          "fcp": 1088,
+          "tbt": 866,
+          "tbtLighthouseWindow": 858,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 17.600000001490116,
+              "dur": 58
+            },
+            {
+              "start": 1114.3000000044703,
+              "dur": 680
+            },
+            {
+              "start": 1858.1000000014901,
+              "dur": 251
+            },
+            {
+              "start": 2297,
+              "dur": 77
+            }
+          ],
+          "windowEndMs": 3138.89999999851,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 820,
+          "fcp": 820,
+          "tbt": 2031,
+          "tbtLighthouseWindow": 2012,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 26.600000001490116,
+              "dur": 69
+            },
+            {
+              "start": 849.2000000029802,
+              "dur": 1632
+            },
+            {
+              "start": 2557.4000000059605,
+              "dur": 442
+            },
+            {
+              "start": 3010.2000000029802,
+              "dur": 88
+            }
+          ],
+          "windowEndMs": 3163.3000000044703,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1056,
+          "fcp": 1056,
+          "tbt": 590,
+          "tbtLighthouseWindow": 569,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 21.69999999552965,
+              "dur": 71
+            },
+            {
+              "start": 1082.5,
+              "dur": 475
+            },
+            {
+              "start": 1624.6999999955297,
+              "dur": 151
+            },
+            {
+              "start": 2060.89999999851,
+              "dur": 93
+            }
+          ],
+          "windowEndMs": 3151.1999999955297,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 772,
+          "fcp": 772,
+          "tbt": 1350,
+          "tbtLighthouseWindow": 1320,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 24.30000000447035,
+              "dur": 80
+            },
+            {
+              "start": 830.7000000029802,
+              "dur": 1193
+            },
+            {
+              "start": 2090.3000000044703,
+              "dur": 205
+            },
+            {
+              "start": 2529.3000000044703,
+              "dur": 72
+            }
+          ],
+          "windowEndMs": 3156.8000000044703,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1024,
+          "fcp": 1024,
+          "tbt": 1496,
+          "tbtLighthouseWindow": 1472,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 23.799999997019768,
+              "dur": 74
+            },
+            {
+              "start": 1043.7999999970198,
+              "dur": 1318
+            },
+            {
+              "start": 2430.89999999851,
+              "dur": 200
+            },
+            {
+              "start": 2866.5999999940395,
+              "dur": 104
+            }
+          ],
+          "windowEndMs": 3176.1999999955297,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1080,
+          "fcp": 1080,
+          "tbt": 1359,
+          "tbtLighthouseWindow": 1322,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 26.399999998509884,
+              "dur": 87
+            },
+            {
+              "start": 1114,
+              "dur": 1257
+            },
+            {
+              "start": 2433.7000000029802,
+              "dur": 126
+            },
+            {
+              "start": 2875.7000000029802,
+              "dur": 89
+            }
+          ],
+          "windowEndMs": 3178.5,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1736,
+          "fcp": 1736,
+          "tbt": 771,
+          "tbtLighthouseWindow": 751,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 22.299999997019768,
+              "dur": 70
+            },
+            {
+              "start": 1760.1000000014901,
+              "dur": 637
+            },
+            {
+              "start": 2478.10000000149,
+              "dur": 171
+            },
+            {
+              "start": 2902.2000000029802,
+              "dur": 93
+            }
+          ],
+          "windowEndMs": 3155.7999999970198,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 960,
+          "fcp": 960,
+          "tbt": 1942,
+          "tbtLighthouseWindow": 1934,
+          "cls": 0,
+          "longTasks": 3,
+          "tasks": [
+            {
+              "start": 19.700000002980232,
+              "dur": 58
+            },
+            {
+              "start": 999.7999999970198,
+              "dur": 1606
+            },
+            {
+              "start": 2706.7000000029802,
+              "dur": 428
+            }
+          ],
+          "windowEndMs": 3234.7999999970198,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1052,
+          "fcp": 1052,
+          "tbt": 1325,
+          "tbtLighthouseWindow": 1284,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 28.30000000447035,
+              "dur": 91
+            },
+            {
+              "start": 1073.8999999985099,
+              "dur": 1163
+            },
+            {
+              "start": 2312.10000000149,
+              "dur": 180
+            },
+            {
+              "start": 2741.2000000029802,
+              "dur": 91
+            }
+          ],
+          "windowEndMs": 3192.5,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 812,
+          "fcp": 812,
+          "tbt": 1975,
+          "tbtLighthouseWindow": 1949,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 21.599999994039536,
+              "dur": 76
+            },
+            {
+              "start": 844.0999999940395,
+              "dur": 1771
+            },
+            {
+              "start": 2682.7999999970198,
+              "dur": 248
+            },
+            {
+              "start": 3119.6999999955297,
+              "dur": 80
+            }
+          ],
+          "windowEndMs": 3229.7999999970198,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1404,
+          "fcp": 1404,
+          "tbt": 894,
+          "tbtLighthouseWindow": 878,
+          "cls": 0.0013981422037090622,
+          "longTasks": 5,
+          "tasks": [
+            {
+              "start": 19.5,
+              "dur": 66
+            },
+            {
+              "start": 1450.3999999985099,
+              "dur": 826
+            },
+            {
+              "start": 2337.7000000029802,
+              "dur": 62
+            },
+            {
+              "start": 2401.3000000044703,
+              "dur": 127
+            },
+            {
+              "start": 2780.89999999851,
+              "dur": 63
+            }
+          ],
+          "windowEndMs": 3135.89999999851,
+          "transferBytes": 1871851,
+          "resources": 55
+        },
+        {
+          "lcp": 988,
+          "fcp": 988,
+          "tbt": 1319,
+          "tbtLighthouseWindow": 1302,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 21,
+              "dur": 67
+            },
+            {
+              "start": 1016.2000000029802,
+              "dur": 1192
+            },
+            {
+              "start": 2278.2000000029802,
+              "dur": 170
+            },
+            {
+              "start": 2710.8000000044703,
+              "dur": 90
+            }
+          ],
+          "windowEndMs": 3145,
+          "transferBytes": 1862214,
+          "resources": 53
+        }
+      ]
+    },
+    "mobile-4x-cpu": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "cpuThrottleRate": 4,
+      "n": 20,
+      "warmupLoadsDiscarded": 1,
+      "warmup": {
+        "lcp": 1864,
+        "fcp": 1864,
+        "tbt": 2801,
+        "tbtLighthouseWindow": 2439,
+        "cls": 0,
+        "longTasks": 9,
+        "tasks": [
+          {
+            "start": 85.5,
+            "dur": 338
+          },
+          {
+            "start": 529.1999999955297,
+            "dur": 124
+          },
+          {
+            "start": 1914.3999999985099,
+            "dur": 1117
+          },
+          {
+            "start": 3041.60000000149,
+            "dur": 129
+          },
+          {
+            "start": 3248.5,
+            "dur": 74
+          },
+          {
+            "start": 3323,
+            "dur": 90
+          },
+          {
+            "start": 3436.1999999955297,
+            "dur": 79
+          },
+          {
+            "start": 3516.7999999970198,
+            "dur": 1240
+          },
+          {
+            "start": 4759.19999999553,
+            "dur": 60
+          }
+        ],
+        "windowEndMs": 5668.79999999702,
+        "transferBytes": 1862214,
+        "resources": 53
+      },
+      "p75Lcp": 1192,
+      "p75Tbt": 3600,
+      "p75Fcp": 1192,
+      "p75TbtLighthouseWindow": 3257,
+      "medianLcp": 944,
+      "medianTbt": 3244,
+      "maxTbt": 4187,
+      "p75LongestTaskMs": 2085,
+      "p75Cls": 0,
+      "medianLongTasks": 11,
+      "medianTransferBytesUncompressed": 1862214,
+      "medianResources": 53,
+      "gates": {
+        "G3 p75 TBT ≤ 300 ms": {
+          "measured": 3600,
+          "window": "[navigationStart, observationEnd] — the gated window",
+          "bar": 300,
+          "verdict": "RED",
+          "lighthouseWindowReading": 3257,
+          "lighthouseWindowNote": "[FCP, TTI≈observationEnd]. Reads 0 because FCP===LCP on this product — the boot's blocking task ends before first paint, so the strict window cannot see it (L-19)."
+        },
+        "G4 p75 LCP ≤ 2500 ms": {
+          "measured": 1192,
+          "bar": 2500,
+          "verdict": "GREEN"
+        }
+      },
+      "samples": [
+        {
+          "lcp": 1052,
+          "fcp": 1052,
+          "tbt": 3866,
+          "tbtLighthouseWindow": 3470,
+          "cls": 0,
+          "longTasks": 4,
+          "tasks": [
+            {
+              "start": 98.79999999701977,
+              "dur": 372
+            },
+            {
+              "start": 565.0999999940395,
+              "dur": 124
+            },
+            {
+              "start": 1116.6999999955297,
+              "dur": 3453
+            },
+            {
+              "start": 4577.89999999851,
+              "dur": 117
+            }
+          ],
+          "windowEndMs": 4901.29999999702,
+          "transferBytes": 1776266,
+          "resources": 43
+        },
+        {
+          "lcp": 916,
+          "fcp": 916,
+          "tbt": 3637,
+          "tbtLighthouseWindow": 3257,
+          "cls": 0,
+          "longTasks": 9,
+          "tasks": [
+            {
+              "start": 134.60000000149012,
+              "dur": 349
+            },
+            {
+              "start": 589.3999999985099,
+              "dur": 131
+            },
+            {
+              "start": 988.1000000014901,
+              "dur": 2151
+            },
+            {
+              "start": 3150.7000000029802,
+              "dur": 123
+            },
+            {
+              "start": 3346.7000000029802,
+              "dur": 75
+            },
+            {
+              "start": 3423.10000000149,
+              "dur": 69
+            },
+            {
+              "start": 3514.5,
+              "dur": 86
+            },
+            {
+              "start": 3601.39999999851,
+              "dur": 1031
+            },
+            {
+              "start": 4634.20000000298,
+              "dur": 72
+            }
+          ],
+          "windowEndMs": 5598.89999999851,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 796,
+          "fcp": 796,
+          "tbt": 4187,
+          "tbtLighthouseWindow": 3733,
+          "cls": 0,
+          "longTasks": 10,
+          "tasks": [
+            {
+              "start": 114.20000000298023,
+              "dur": 327
+            },
+            {
+              "start": 442.6000000014901,
+              "dur": 126
+            },
+            {
+              "start": 674.7000000029802,
+              "dur": 151
+            },
+            {
+              "start": 920.8000000044703,
+              "dur": 2498
+            },
+            {
+              "start": 3430.2000000029802,
+              "dur": 134
+            },
+            {
+              "start": 3634.10000000149,
+              "dur": 69
+            },
+            {
+              "start": 3707.9000000059605,
+              "dur": 75
+            },
+            {
+              "start": 3810.8000000044703,
+              "dur": 88
+            },
+            {
+              "start": 3899.9000000059605,
+              "dur": 1156
+            },
+            {
+              "start": 5058.5,
+              "dur": 63
+            }
+          ],
+          "windowEndMs": 5947.5,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 748,
+          "fcp": 748,
+          "tbt": 3927,
+          "tbtLighthouseWindow": 3503.39999999851,
+          "cls": 0,
+          "longTasks": 7,
+          "tasks": [
+            {
+              "start": 50.69999999552965,
+              "dur": 53
+            },
+            {
+              "start": 117.19999999552965,
+              "dur": 240
+            },
+            {
+              "start": 361.29999999701977,
+              "dur": 206
+            },
+            {
+              "start": 673.3999999985099,
+              "dur": 127
+            },
+            {
+              "start": 879.7999999970198,
+              "dur": 92
+            },
+            {
+              "start": 1003.5,
+              "dur": 3454
+            },
+            {
+              "start": 4463.5999999940395,
+              "dur": 105
+            }
+          ],
+          "windowEndMs": 4694,
+          "transferBytes": 1820526,
+          "resources": 48
+        },
+        {
+          "lcp": 2036,
+          "fcp": 2036,
+          "tbt": 2044,
+          "tbtLighthouseWindow": 1606,
+          "cls": 0,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 51.30000000447035,
+              "dur": 52
+            },
+            {
+              "start": 160.20000000298023,
+              "dur": 369
+            },
+            {
+              "start": 530.6000000014901,
+              "dur": 85
+            },
+            {
+              "start": 716.6000000014901,
+              "dur": 132
+            },
+            {
+              "start": 2124.5,
+              "dur": 1528
+            },
+            {
+              "start": 3663.10000000149,
+              "dur": 124
+            },
+            {
+              "start": 3862.7000000029802,
+              "dur": 74
+            },
+            {
+              "start": 3942.7000000029802,
+              "dur": 80
+            }
+          ],
+          "windowEndMs": 4053.10000000149,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 944,
+          "fcp": 944,
+          "tbt": 3162,
+          "tbtLighthouseWindow": 2687,
+          "cls": 0,
+          "longTasks": 11,
+          "tasks": [
+            {
+              "start": 55.20000000298023,
+              "dur": 57
+            },
+            {
+              "start": 126,
+              "dur": 352
+            },
+            {
+              "start": 482.6000000014901,
+              "dur": 124
+            },
+            {
+              "start": 703.7000000029802,
+              "dur": 142
+            },
+            {
+              "start": 1008.7999999970198,
+              "dur": 95
+            },
+            {
+              "start": 1175.3999999985099,
+              "dur": 1675
+            },
+            {
+              "start": 2857.39999999851,
+              "dur": 101
+            },
+            {
+              "start": 3004.7999999970198,
+              "dur": 59
+            },
+            {
+              "start": 3101.60000000149,
+              "dur": 64
+            },
+            {
+              "start": 3166.7000000029802,
+              "dur": 980
+            },
+            {
+              "start": 4149.39999999851,
+              "dur": 63
+            }
+          ],
+          "windowEndMs": 5030.79999999702,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1192,
+          "fcp": 1192,
+          "tbt": 2601,
+          "tbtLighthouseWindow": 2219,
+          "cls": 0,
+          "longTasks": 9,
+          "tasks": [
+            {
+              "start": 89.39999999850988,
+              "dur": 359
+            },
+            {
+              "start": 526.3999999985099,
+              "dur": 123
+            },
+            {
+              "start": 1259.2000000029802,
+              "dur": 1172
+            },
+            {
+              "start": 2439.7999999970198,
+              "dur": 103
+            },
+            {
+              "start": 2600.7999999970198,
+              "dur": 63
+            },
+            {
+              "start": 2668.10000000149,
+              "dur": 63
+            },
+            {
+              "start": 2755.7000000029802,
+              "dur": 65
+            },
+            {
+              "start": 2822.5,
+              "dur": 1036
+            },
+            {
+              "start": 3860.89999999851,
+              "dur": 67
+            }
+          ],
+          "windowEndMs": 4846,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 808,
+          "fcp": 808,
+          "tbt": 3244,
+          "tbtLighthouseWindow": 2895,
+          "cls": 0,
+          "longTasks": 11,
+          "tasks": [
+            {
+              "start": 130.10000000149012,
+              "dur": 332
+            },
+            {
+              "start": 551.1999999955297,
+              "dur": 117
+            },
+            {
+              "start": 864.8999999985099,
+              "dur": 1048
+            },
+            {
+              "start": 1920.7999999970198,
+              "dur": 80
+            },
+            {
+              "start": 2160.39999999851,
+              "dur": 72
+            },
+            {
+              "start": 2233.1999999955297,
+              "dur": 961
+            },
+            {
+              "start": 3196.39999999851,
+              "dur": 72
+            },
+            {
+              "start": 3319.39999999851,
+              "dur": 616
+            },
+            {
+              "start": 3935.89999999851,
+              "dur": 198
+            },
+            {
+              "start": 4138.19999999553,
+              "dur": 135
+            },
+            {
+              "start": 4273.89999999851,
+              "dur": 163
+            }
+          ],
+          "windowEndMs": 4451.29999999702,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 944,
+          "fcp": 944,
+          "tbt": 3600,
+          "tbtLighthouseWindow": 3222,
+          "cls": 0,
+          "longTasks": 10,
+          "tasks": [
+            {
+              "start": 99.20000000298023,
+              "dur": 334
+            },
+            {
+              "start": 434.70000000298023,
+              "dur": 74
+            },
+            {
+              "start": 590.7000000029802,
+              "dur": 120
+            },
+            {
+              "start": 1010.7000000029802,
+              "dur": 2085
+            },
+            {
+              "start": 3106.2000000029802,
+              "dur": 137
+            },
+            {
+              "start": 3313.10000000149,
+              "dur": 83
+            },
+            {
+              "start": 3400.5,
+              "dur": 75
+            },
+            {
+              "start": 3500.2999999970198,
+              "dur": 92
+            },
+            {
+              "start": 3593.10000000149,
+              "dur": 1031
+            },
+            {
+              "start": 4627.39999999851,
+              "dur": 69
+            }
+          ],
+          "windowEndMs": 5634.89999999851,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 816,
+          "fcp": 816,
+          "tbt": 3567,
+          "tbtLighthouseWindow": 3163,
+          "cls": 0,
+          "longTasks": 10,
+          "tasks": [
+            {
+              "start": 137.20000000298023,
+              "dur": 333
+            },
+            {
+              "start": 472.29999999701977,
+              "dur": 74
+            },
+            {
+              "start": 642.2000000029802,
+              "dur": 147
+            },
+            {
+              "start": 891.3999999985099,
+              "dur": 1917
+            },
+            {
+              "start": 2819.60000000149,
+              "dur": 136
+            },
+            {
+              "start": 3034.2999999970198,
+              "dur": 75
+            },
+            {
+              "start": 3110.10000000149,
+              "dur": 77
+            },
+            {
+              "start": 3215.39999999851,
+              "dur": 91
+            },
+            {
+              "start": 3307.2000000029802,
+              "dur": 1145
+            },
+            {
+              "start": 4455.79999999702,
+              "dur": 72
+            }
+          ],
+          "windowEndMs": 5531.29999999702,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 2316,
+          "fcp": 2316,
+          "tbt": 2032,
+          "tbtLighthouseWindow": 1579,
+          "cls": 0,
+          "longTasks": 6,
+          "tasks": [
+            {
+              "start": 48.79999999701977,
+              "dur": 52
+            },
+            {
+              "start": 115.39999999850988,
+              "dur": 360
+            },
+            {
+              "start": 477.20000000298023,
+              "dur": 105
+            },
+            {
+              "start": 689.5,
+              "dur": 136
+            },
+            {
+              "start": 2407.39999999851,
+              "dur": 1555
+            },
+            {
+              "start": 3971.7999999970198,
+              "dur": 124
+            }
+          ],
+          "windowEndMs": 4353.70000000298,
+          "transferBytes": 1776266,
+          "resources": 43
+        },
+        {
+          "lcp": 1640,
+          "fcp": 1640,
+          "tbt": 2582,
+          "tbtLighthouseWindow": 2103,
+          "cls": 0,
+          "longTasks": 9,
+          "tasks": [
+            {
+              "start": 96.10000000149012,
+              "dur": 440
+            },
+            {
+              "start": 645.3999999985099,
+              "dur": 139
+            },
+            {
+              "start": 1723.1999999955297,
+              "dur": 894
+            },
+            {
+              "start": 2625,
+              "dur": 101
+            },
+            {
+              "start": 2783.60000000149,
+              "dur": 75
+            },
+            {
+              "start": 2863,
+              "dur": 66
+            },
+            {
+              "start": 2952.7999999970198,
+              "dur": 65
+            },
+            {
+              "start": 3018,
+              "dur": 1187
+            },
+            {
+              "start": 4207.79999999702,
+              "dur": 65
+            }
+          ],
+          "windowEndMs": 5167.79999999702,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 704,
+          "fcp": 704,
+          "tbt": 3463,
+          "tbtLighthouseWindow": 3127,
+          "cls": 0,
+          "longTasks": 12,
+          "tasks": [
+            {
+              "start": 81.5,
+              "dur": 325
+            },
+            {
+              "start": 502.8999999985099,
+              "dur": 111
+            },
+            {
+              "start": 758.3999999985099,
+              "dur": 1336
+            },
+            {
+              "start": 2104.89999999851,
+              "dur": 122
+            },
+            {
+              "start": 2284.0999999940395,
+              "dur": 67
+            },
+            {
+              "start": 2352.0999999940395,
+              "dur": 70
+            },
+            {
+              "start": 2444.89999999851,
+              "dur": 60
+            },
+            {
+              "start": 2505.5,
+              "dur": 1056
+            },
+            {
+              "start": 3564.2999999970198,
+              "dur": 67
+            },
+            {
+              "start": 3681.6999999955297,
+              "dur": 545
+            },
+            {
+              "start": 4226.89999999851,
+              "dur": 209
+            },
+            {
+              "start": 4439,
+              "dur": 95
+            }
+          ],
+          "windowEndMs": 4687.39999999851,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 528,
+          "fcp": 528,
+          "tbt": 2948,
+          "tbtLighthouseWindow": 2700,
+          "cls": 0,
+          "longTasks": 13,
+          "tasks": [
+            {
+              "start": 72.70000000298023,
+              "dur": 284
+            },
+            {
+              "start": 426.20000000298023,
+              "dur": 64
+            },
+            {
+              "start": 576.5,
+              "dur": 1035
+            },
+            {
+              "start": 1620.8000000044703,
+              "dur": 94
+            },
+            {
+              "start": 1768.6000000014901,
+              "dur": 53
+            },
+            {
+              "start": 1822.2000000029802,
+              "dur": 54
+            },
+            {
+              "start": 1893.6000000014901,
+              "dur": 64
+            },
+            {
+              "start": 1958.9000000059605,
+              "dur": 904
+            },
+            {
+              "start": 2864.3000000044703,
+              "dur": 53
+            },
+            {
+              "start": 2967.4000000059605,
+              "dur": 598
+            },
+            {
+              "start": 3566,
+              "dur": 210
+            },
+            {
+              "start": 3779.7000000029802,
+              "dur": 96
+            },
+            {
+              "start": 3876.4000000059605,
+              "dur": 89
+            }
+          ],
+          "windowEndMs": 3970.3000000044703,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 468,
+          "fcp": 468,
+          "tbt": 3471,
+          "tbtLighthouseWindow": 3316,
+          "cls": 0,
+          "longTasks": 13,
+          "tasks": [
+            {
+              "start": 86.89999999850988,
+              "dur": 191
+            },
+            {
+              "start": 350.5,
+              "dur": 64
+            },
+            {
+              "start": 512.8999999985099,
+              "dur": 52
+            },
+            {
+              "start": 589.7000000029802,
+              "dur": 50
+            },
+            {
+              "start": 645.7000000029802,
+              "dur": 1655
+            },
+            {
+              "start": 2306.7000000029802,
+              "dur": 103
+            },
+            {
+              "start": 2530.39999999851,
+              "dur": 60
+            },
+            {
+              "start": 2591.10000000149,
+              "dur": 781
+            },
+            {
+              "start": 3373.7000000029802,
+              "dur": 61
+            },
+            {
+              "start": 3486.2000000029802,
+              "dur": 628
+            },
+            {
+              "start": 4114.20000000298,
+              "dur": 196
+            },
+            {
+              "start": 4314.10000000149,
+              "dur": 140
+            },
+            {
+              "start": 4454.10000000149,
+              "dur": 140
+            }
+          ],
+          "windowEndMs": 4598.80000000447,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1060,
+          "fcp": 1060,
+          "tbt": 3514,
+          "tbtLighthouseWindow": 3146,
+          "cls": 0,
+          "longTasks": 13,
+          "tasks": [
+            {
+              "start": 96,
+              "dur": 342
+            },
+            {
+              "start": 438.19999999552965,
+              "dur": 54
+            },
+            {
+              "start": 576.5999999940395,
+              "dur": 122
+            },
+            {
+              "start": 1150,
+              "dur": 1385
+            },
+            {
+              "start": 2545,
+              "dur": 100
+            },
+            {
+              "start": 2703.2999999970198,
+              "dur": 65
+            },
+            {
+              "start": 2772.7999999970198,
+              "dur": 73
+            },
+            {
+              "start": 2871.5,
+              "dur": 76
+            },
+            {
+              "start": 2948.39999999851,
+              "dur": 991
+            },
+            {
+              "start": 3942,
+              "dur": 80
+            },
+            {
+              "start": 4025.89999999851,
+              "dur": 60
+            },
+            {
+              "start": 4089.1999999955297,
+              "dur": 584
+            },
+            {
+              "start": 4673.29999999702,
+              "dur": 232
+            }
+          ],
+          "windowEndMs": 4910.0999999940395,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1356,
+          "fcp": 1356,
+          "tbt": 3219,
+          "tbtLighthouseWindow": 2804,
+          "cls": 0,
+          "longTasks": 11,
+          "tasks": [
+            {
+              "start": 48.100000001490116,
+              "dur": 53
+            },
+            {
+              "start": 159.80000000447035,
+              "dur": 347
+            },
+            {
+              "start": 508.1000000014901,
+              "dur": 79
+            },
+            {
+              "start": 686.7000000029802,
+              "dur": 136
+            },
+            {
+              "start": 1449,
+              "dur": 1657
+            },
+            {
+              "start": 3115.7000000029802,
+              "dur": 121
+            },
+            {
+              "start": 3314.39999999851,
+              "dur": 69
+            },
+            {
+              "start": 3384.39999999851,
+              "dur": 77
+            },
+            {
+              "start": 3485.3000000044703,
+              "dur": 75
+            },
+            {
+              "start": 3561.60000000149,
+              "dur": 1076
+            },
+            {
+              "start": 4640,
+              "dur": 79
+            }
+          ],
+          "windowEndMs": 5582.60000000149,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 1000,
+          "fcp": 1000,
+          "tbt": 2849,
+          "tbtLighthouseWindow": 2510,
+          "cls": 0,
+          "longTasks": 13,
+          "tasks": [
+            {
+              "start": 79.5,
+              "dur": 326
+            },
+            {
+              "start": 512.5,
+              "dur": 113
+            },
+            {
+              "start": 1069.1999999955297,
+              "dur": 783
+            },
+            {
+              "start": 1861.6000000014901,
+              "dur": 96
+            },
+            {
+              "start": 2018.6000000014901,
+              "dur": 68
+            },
+            {
+              "start": 2090.10000000149,
+              "dur": 61
+            },
+            {
+              "start": 2171.89999999851,
+              "dur": 64
+            },
+            {
+              "start": 2237.5,
+              "dur": 951
+            },
+            {
+              "start": 3191.10000000149,
+              "dur": 60
+            },
+            {
+              "start": 3300.89999999851,
+              "dur": 537
+            },
+            {
+              "start": 3838.89999999851,
+              "dur": 161
+            },
+            {
+              "start": 4004.39999999851,
+              "dur": 114
+            },
+            {
+              "start": 4118.89999999851,
+              "dur": 165
+            }
+          ],
+          "windowEndMs": 4288.39999999851,
+          "transferBytes": 1862214,
+          "resources": 53
+        },
+        {
+          "lcp": 696,
+          "fcp": 696,
+          "tbt": 1888,
+          "tbtLighthouseWindow": 1578,
+          "cls": 0.002380031405519377,
+          "longTasks": 13,
+          "tasks": [
+            {
+              "start": 89.5,
+              "dur": 278
+            },
+            {
+              "start": 367.6000000014901,
+              "dur": 73
+            },
+            {
+              "start": 518.6000000014901,
+              "dur": 109
+            },
+            {
+              "start": 756.7000000029802,
+              "dur": 798
+            },
+            {
+              "start": 1560.8999999985099,
+              "dur": 57
+            },
+            {
+              "start": 1659.8000000044703,
+              "dur": 57
+            },
+            {
+              "start": 1824.5,
+              "dur": 418
+            },
+            {
+              "start": 2292,
+              "dur": 233
+            },
+            {
+              "start": 2525.7000000029802,
+              "dur": 70
+            },
+            {
+              "start": 2597.2000000029802,
+              "dur": 76
+            },
+            {
+              "start": 2673.8000000044703,
+              "dur": 63
+            },
+            {
+              "start": 2749.2000000029802,
+              "dur": 243
+            },
+            {
+              "start": 3380.60000000149,
+              "dur": 63
+            }
+          ],
+          "windowEndMs": 3639.2000000029802,
+          "transferBytes": 1879636,
+          "resources": 58
+        },
+        {
+          "lcp": 348,
+          "fcp": 348,
+          "tbt": 2170,
+          "tbtLighthouseWindow": 2057,
+          "cls": 0.002380031405519377,
+          "longTasks": 11,
+          "tasks": [
+            {
+              "start": 43.20000000298023,
+              "dur": 163
+            },
+            {
+              "start": 258.6000000014901,
+              "dur": 50
+            },
+            {
+              "start": 452.30000000447035,
+              "dur": 888
+            },
+            {
+              "start": 1344.5,
+              "dur": 54
+            },
+            {
+              "start": 1520.1000000014901,
+              "dur": 583
+            },
+            {
+              "start": 2167.5,
+              "dur": 343
+            },
+            {
+              "start": 2511.2000000029802,
+              "dur": 99
+            },
+            {
+              "start": 2611.4000000059605,
+              "dur": 77
+            },
+            {
+              "start": 2688.8000000044703,
+              "dur": 114
+            },
+            {
+              "start": 2841.3000000044703,
+              "dur": 298
+            },
+            {
+              "start": 3195.2000000029802,
+              "dur": 51
+            }
+          ],
+          "windowEndMs": 3318.8000000044703,
+          "transferBytes": 1871851,
+          "resources": 55
+        }
+      ]
+    }
+  }
+}
+
+[1A[2K  4) [smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:377:1 › X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs 
+
+    Error: G3 desktop-unthrottled: p75 TBT 1859ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8391]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m300[39m
+    Received:    [31m1859[39m
+
+      531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,
+      532 |             )
+    > 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);
+          |              ^
+      534 |         expect
+      535 |             .soft(
+      536 |                 s.p75Lcp,
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/eager-payload.spec.ts:533:14
+
+    Error: G3 mobile-4x-cpu: p75 TBT 3600ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8391]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m300[39m
+    Received:    [31m3600[39m
+
+      531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,
+      532 |             )
+    > 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);
+          |              ^
+      534 |         expect
+      535 |             .soft(
+      536 |                 s.p75Lcp,
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/eager-payload.spec.ts:533:14
+
+    Error Context: test-results/eager-payload-X-W2-G3-G4-—-2a4c3-≥20-cold-loads-both-configs-smoke-perf/error-context.md
+
+
+[1A[2K(node:89943) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[55/73] [smoke-perf] › e2e/smoke/perf/idle-frame-budget.spec.ts:71:1 › idle picker frame budget with the hero live: one draw per frame, p50 ≤ 13ms (built-bundle gate)
+[1A[2K[smoke-perf] › e2e/smoke/perf/idle-frame-budget.spec.ts:71:1 › idle picker frame budget with the hero live: one draw per frame, p50 ≤ 13ms (built-bundle gate)
+[frame-budget:idle] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))
+  hero software tier: draws=0 over frames=328 window=3000ms p50=8.3ms p95=9.7ms
+  §6.2 GATE: idle p50 ≤ 13ms (hero live)  [asserted on real GPU — probe-idle-cost.mjs GPU=1]
+
+[1A[2K[frame-budget:idle] software tier: register change → 1 draws · then window draws=0
+
+[1A[2K[56/73] [smoke-perf] › e2e/smoke/perf/o24-lcp-identity.spec.ts:100:1 › O-24 LCP identity + reveal-only law — both schemes, built bundle
+[1A[2K[smoke-perf] › e2e/smoke/perf/o24-lcp-identity.spec.ts:100:1 › O-24 LCP identity + reveal-only law — both schemes, built bundle
+[O-24 light] candidate sequence:
+  1284ms size=20571 <h2> card-title pane-header-title font-display
+
+[1A[2K[O-24 dark] candidate sequence:
+  1860ms size=20571 <h2> card-title pane-header-title font-display
+
+[1A[2K[O-24 light] t=1284ms size=20571 <h2> testid= id= cls="card-title pane-header-title font-display" text="About the color spaces," opacity=1
+
+[1A[2K[O-24 dark ] t=1860ms size=20571 <h2> testid= id= cls="card-title pane-header-title font-display" text="About the color spaces," opacity=1
+
+[1A[2K[57/73] [smoke-perf] › e2e/smoke/perf/o5-boot-pacing.spec.ts:93:1 › O-5 boot pacing — no jitter spike over the boot window
+[1A[2K[smoke-perf] › e2e/smoke/perf/o5-boot-pacing.spec.ts:93:1 › O-5 boot pacing — no jitter spike over the boot window
+[O-5 SOFTWARE-GL liveness] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) frames=13 max=1638.2ms
+
+[1A[2K[58/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/ content=456ms paneRequestGap=nullms
+
+[1A[2K  5) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: the entry chunk loaded
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeDefined[2m()[22m
+
+    Received: [31mundefined[39m
+
+      155 |             );
+      156 |
+    > 157 |             expect(entry, "the entry chunk loaded").toBeDefined();
+          |                                                     ^
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+      160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:157:53
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-0dcf4-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:91987) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[59/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/palettes content=4776ms paneRequestGap=261ms
+
+[1A[2K  6) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: PalettesPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m261[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-efc72-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:92644) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[60/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/browse content=1847ms paneRequestGap=290ms
+
+[1A[2K  7) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: BrowsePane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m290[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-e20a4-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:93326) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[61/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/extract cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/extract cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/extract content=1142ms paneRequestGap=221ms
+
+[1A[2K  8) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/extract cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: ExtractPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m221[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-b9396-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:93979) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[62/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/mix content=5537ms paneRequestGap=308ms
+
+[1A[2K  9) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: MixPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m308[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-ffe7f-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:95200) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[63/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/generate cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/generate cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/generate content=1940ms paneRequestGap=247ms
+
+[1A[2K  10) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/generate cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: GeneratePane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m247[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-19bf6-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:95741) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[64/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/gradient cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/gradient cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/gradient content=2516ms paneRequestGap=256ms
+
+[1A[2K  11) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/gradient cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: GradientPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m256[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-4b820-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:96940) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[65/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/atmosphere content=1282ms paneRequestGap=265ms
+
+[1A[2K  12) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: AuroraPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m265[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-643b4-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:97508) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[66/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/blob cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/blob cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/blob content=6786ms paneRequestGap=244ms
+
+[1A[2K  13) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/blob cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: BlobPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m244[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-97baa-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:98243) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[67/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/users cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/users cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/admin/users content=1265ms paneRequestGap=235ms
+
+[1A[2K  14) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/users cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: AdminPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m235[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-8915d-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:98921) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[68/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/names cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/names cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/admin/names content=1379ms paneRequestGap=252ms
+
+[1A[2K  15) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/names cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: AdminPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m252[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-5d3ef-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:99759) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[69/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/admin/audit content=1401ms paneRequestGap=324ms
+
+[1A[2K  16) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: AdminPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m324[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-9b96c-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:671) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[70/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/admin/flagged content=858ms paneRequestGap=209ms
+
+[1A[2K  17) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: AdminPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m209[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-a614a-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:1292) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[71/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/admin/tags content=1362ms paneRequestGap=269ms
+
+[1A[2K  18) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: AdminPane requested ≤ 180 ms after the entry
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m180[39m
+    Received:    [31m269[39m
+
+      158 |             if (chunk) {
+      159 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+    > 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+          |                                                                                                ^
+      161 |                     PANE_REQUEST_GAP_MS,
+      162 |                 );
+      163 |             }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-931c5-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[1A[2K(node:1936) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[72/73] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/no-such-route cold: pane chunk early, content ≤ 1500 ms, hop reaches content
+[1A[2K[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/no-such-route cold: pane chunk early, content ≤ 1500 ms, hop reaches content
+[od19-route-load] #/no-such-route content=102ms paneRequestGap=nullms
+
+[1A[2K[od19-route-load] #/no-such-route hop=814ms
+
+[1A[2K[73/73] [smoke-perf] › e2e/smoke/perf/view-switch-frame-budget.spec.ts:43:1 › view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (built-bundle gate)
+[1A[2K[smoke-perf] › e2e/smoke/perf/view-switch-frame-budget.spec.ts:43:1 › view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (built-bundle gate)
+[frame-budget:view-switch] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))
+  firstFrame=255.9ms maxTask=1932ms
+  §6.2 GATE: first frame ≤ 100ms · long task ≤ 50ms  [first-frame asserted on real GPU — see w3-frame-budget-measure.md]
+
+[1A[2K  18 failed
+    [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap 
+    [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:140:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+    [smoke-perf] › e2e/smoke/perf/drag-frame-budget.spec.ts:33:1 › slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate) 
+    [smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:377:1 › X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/palettes cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/browse cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/extract cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/generate cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/gradient cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/blob cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/users cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/names cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:127:9 › OD19-ALL route load (built bundle, CPU 4x) › #/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+  55 passed (21.4m)

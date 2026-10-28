@@ -1,0 +1,390 @@
+{
+  "config": {
+    "configFile": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/playwright.config.ts",
+    "rootDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "visual/modality.visual.spec.ts",
+      "file": "visual/modality.visual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "rtl-mobile · dir=\"rtl\" at mobile width — the second half of R-21's NO-WAVE-OWNER witness",
+          "file": "visual/modality.visual.spec.ts",
+          "line": 168,
+          "column": 10,
+          "specs": [
+            {
+              "title": "picker",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "visual",
+                  "projectName": "visual",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30913,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/fixtures.ts",
+                            "column": 13,
+                            "line": 169
+                          },
+                          "message": "Error: screencast.showOverlays: Target page, context or browser has been closed\n\n   at visual/fixtures.ts:169\n\n  167 |             // measured floors and for what it deliberately does NOT cover.\n  168 |             await assertRendered(page, name);\n> 169 |             await expect(page).toHaveScreenshot(name, {\n      |             ^\n  170 |                 fullPage: true,\n  171 |                 animations: \"disabled\",\n  172 |                 caret: \"hide\",\n    at Object.shot (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/fixtures.ts:169:13)\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/modality.visual.spec.ts:183:17"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:19:43.858Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/modality.visual-rtl-mobile-9b6f6-O-WAVE-OWNER-witness-picker-visual/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d6a635f7305c841226c7-aa37013e9109fd3cad20",
+              "file": "visual/modality.visual.spec.ts",
+              "line": 172,
+              "column": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "visual/routes.visual.spec.ts",
+      "file": "visual/routes.visual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "at-rest · 390",
+          "file": "visual/routes.visual.spec.ts",
+          "line": 56,
+          "column": 10,
+          "specs": [
+            {
+              "title": "picker · both · light",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "visual",
+                  "projectName": "visual",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 36621,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/fixtures.ts",
+                            "column": 13,
+                            "line": 169
+                          },
+                          "message": "Error: screencast.showOverlays: Target page, context or browser has been closed\n\n   at visual/fixtures.ts:169\n\n  167 |             // measured floors and for what it deliberately does NOT cover.\n  168 |             await assertRendered(page, name);\n> 169 |             await expect(page).toHaveScreenshot(name, {\n      |             ^\n  170 |                 fullPage: true,\n  171 |                 animations: \"disabled\",\n  172 |                 caret: \"hide\",\n    at Object.shot (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/fixtures.ts:169:13)\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/routes.visual.spec.ts:89:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:20:16.285Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/routes.visual-at-rest-·-390-picker-·-both-·-light-visual/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "5105b56072a40afec2f4-b44d29d7cd72a99833b1",
+              "file": "visual/routes.visual.spec.ts",
+              "line": 63,
+              "column": 21
+            },
+            {
+              "title": "picker · both · dark",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "visual",
+                  "projectName": "visual",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 51578,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/fixtures.ts",
+                            "column": 13,
+                            "line": 169
+                          },
+                          "message": "Error: screencast.showOverlays: Target page, context or browser has been closed\n\n   at visual/fixtures.ts:169\n\n  167 |             // measured floors and for what it deliberately does NOT cover.\n  168 |             await assertRendered(page, name);\n> 169 |             await expect(page).toHaveScreenshot(name, {\n      |             ^\n  170 |                 fullPage: true,\n  171 |                 animations: \"disabled\",\n  172 |                 caret: \"hide\",\n    at Object.shot (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/fixtures.ts:169:13)\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/routes.visual.spec.ts:89:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:20:54.722Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/routes.visual-at-rest-·-390-picker-·-both-·-dark-visual/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "5105b56072a40afec2f4-eb3adeb978dfb26a9101",
+              "file": "visual/routes.visual.spec.ts",
+              "line": 63,
+              "column": 21
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-28T21:19:34.908Z",
+    "duration": 132019.37,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

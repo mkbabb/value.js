@@ -1,0 +1,27 @@
+# registry @mkbabb/value.js@4.1.0 (npm pack, shasum d488535c9bfc747e318895417c28a753a3b7b3d6) package/dist sha256 vs clean-worktree HEAD 624af6b0b548025d1a8645654038d1b3339c7b2c dist/ (npm run build); diff exit 0
+ee6e74a2b9fd3812fbc824bde0a64a4967060f41e0a1c8d92554b545285f7642  ./actions-BHL-LzPw.js
+53366bc904fbd4231efd8a813f92a5acded9319b3c28a925d6b7a6d77b974d23  ./anchors-K_Niq8pl.js
+3b17ac947fda1df7f8cfefcc7a1ad044cac1139c2dd08481d21122cf85647692  ./color-BU4JS6bH.js
+84f81ad3bdf51cc8ba5177a70b05536cf62de1c7de658caff46598081123f184  ./color-grammar-CaAaicsD.js
+4a4a0395c86d477acc95f48715d8978d69bf6ba7a6241625132153c48e04d5f5  ./css-grammar-Cgj9gMD-.js
+1d581d31fed7550fd2025c0035b47d79d445f42d639c35b36e4a01b4b798696c  ./easing-CkGcfPe7.js
+328368546086f0f31c2c00ba5481a7681bec48ac7f4c321eaa0c1bd2ce436134  ./math-DPCEFs8e.js
+a2041834f3797566e81d4c2b815c9fc47aba3ee26e83ff146e78843be4a9b98d  ./quantize-D7Wowya3.js
+4cdf2a2c840f0a9a10dbd5ca5bb6d9e6047bae8e024016484c08ece6712b8762  ./result-EF-v7PGs.js
+aecc4ae0c6dceaa7c0711cf3524fe57cde1fff75c2841b11e877fded63ed25e6  ./serialize-BtpoAFZw.js
+f8a4960cb1760c1b3ad33fb56f17c8dfa5b3f37c7474210fe618d73766669ecb  ./subpaths/color.d.ts
+2f8b59e5368aba5285439d024c1c2b4e2a83d7d9845ce3072cc350d94334800f  ./subpaths/color.js
+97d5768456e785e810c84f2ee8cc2f12d5a5662785b579e1bd8b5d01fd4e2a42  ./subpaths/css.d.ts
+cd745ca9a7cc3bb382ba0fec98e833beeea0c4b6c8e726e81c72b6c6d229173b  ./subpaths/css.js
+7941cc03a117fb43e9c8fd9993ca93b3f3e8b463bdfbaa887e7377261c1aa43a  ./subpaths/easing.d.ts
+f6c39d796d471020b924abd2f449bb83b8114faf63ac4c0f909b54daaa998074  ./subpaths/easing.js
+3db427041da8a6c94a9853cef09f0fb5a46cf78a4b725443797a83d12cbb55e7  ./subpaths/math.d.ts
+59d76ead73de41ee67de11381b44065cd3f691761a872b9dfea6b8087623d892  ./subpaths/math.js
+e154477e2a8bbaa18c85cc03afe1ee8b71653a7e76d3f21aa580e94f11d60f7f  ./subpaths/quantize.d.ts
+de700706a81fb04835fbcb6908805dfc89626744321939d27aa2a1ecdf51062e  ./subpaths/quantize.js
+0effaf9b83ca8a568e72027cf7474abf1c7d847d7a76a9a111dbeeffeeaf3d1e  ./subpaths/transform.d.ts
+9fcfef0f334acbb4c024b2ddd8a09f9a9c5b8dbf31d1c3f46c53a263b78b0b01  ./subpaths/transform.js
+cbfbc9a4adc1eb2a840e3a0455f0d5a34ae034f2203e831d29227ad92d3541ad  ./subpaths/value.d.ts
+c4525c1de4685d5d310077e7dfebec9f31a8315c4298cc50ef4bd6a2512a75c3  ./subpaths/value.js
+661566faa00e501a47337d7be5eb204b180eb0043fa5e57c81acb49d7a165020  ./transform-BYipona6.js
+e40a96cf04f320fa962464088fad6f4d76099c61e01487af413ff831e05fcd7e  ./value-DqN08Ybn.js

@@ -1,0 +1,2586 @@
+{
+  "origin": "dist/gh-pages @ bare loopback",
+  "browser": "webkit 26.4 headless (darwin darwin arm64, no GL flags)",
+  "renderers": [
+    "Apple GPU"
+  ],
+  "routerRecords": 15,
+  "viewports": [
+    "desktop 1440x900",
+    "phone 390x844",
+    "short-landscape 720x450"
+  ],
+  "expectedCells": 45,
+  "executed": 45,
+  "passed": 45,
+  "failed": 0,
+  "assertionsReached": 270,
+  "zeroNodeAssertions": [],
+  "cells": [
+    {
+      "route": "/",
+      "visit": "/",
+      "name": "picker",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Home"
+      ],
+      "title": "Color Picker",
+      "hash": "#/",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "picker-desktop.png",
+      "sha256": "237754aa7bf5360c4948475d85c0e10ffe95ea6ba69036ae0d78240aae792857"
+    },
+    {
+      "route": "/palettes",
+      "visit": "/palettes",
+      "name": "palettes",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "My Palettes"
+      ],
+      "title": "Palettes — Color Picker",
+      "hash": "#/palettes",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "palettes-desktop.png",
+      "sha256": "56579568dafb2fa1bdbd300d1139cf6f4e2ee515897fb3fbf64e0b03078c26f8"
+    },
+    {
+      "route": "/browse",
+      "visit": "/browse",
+      "name": "browse",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Browse"
+      ],
+      "title": "Browse — Color Picker",
+      "hash": "#/browse",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "browse-desktop.png",
+      "sha256": "3edd7fa62da859151d17303e4013dc289a746946354ac100502a5515705edf61"
+    },
+    {
+      "route": "/extract",
+      "visit": "/extract",
+      "name": "extract",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Extract"
+      ],
+      "title": "Extract — Color Picker",
+      "hash": "#/extract",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "extract-desktop.png",
+      "sha256": "aa237b3a2d809ad45700b57cff29b926a3fd820390eee633924a5d0180a69848"
+    },
+    {
+      "route": "/mix",
+      "visit": "/mix",
+      "name": "mix",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Mix"
+      ],
+      "title": "Mix — Color Picker",
+      "hash": "#/mix",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "mix-desktop.png",
+      "sha256": "11c7ce42567ddcdb10e4acd761d101d2b52413d06a0f00696718bcbbcc8e43a9"
+    },
+    {
+      "route": "/generate",
+      "visit": "/generate",
+      "name": "generate",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Generate"
+      ],
+      "title": "Generate — Color Picker",
+      "hash": "#/generate",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "generate-desktop.png",
+      "sha256": "bdc0494bcb617925077425a42c8685e671211ce8561d6fb672917a3e7d17f24c"
+    },
+    {
+      "route": "/gradient",
+      "visit": "/gradient",
+      "name": "gradient",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Gradient"
+      ],
+      "title": "Gradient — Color Picker",
+      "hash": "#/gradient",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "gradient-desktop.png",
+      "sha256": "353aa8e551f5776bf4523023f4ec9de2cf7990a807b070ffd25be9d356107540"
+    },
+    {
+      "route": "/atmosphere",
+      "visit": "/atmosphere",
+      "name": "atmosphere",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Atmosphere"
+      ],
+      "title": "Atmosphere — Color Picker",
+      "hash": "#/atmosphere",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "atmosphere-desktop.png",
+      "sha256": "13d6230a4ba548b5536151c9948a7df1098b5b21d6b76ebf282b1cdf49a077fc"
+    },
+    {
+      "route": "/blob",
+      "visit": "/blob",
+      "name": "blob",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Blob"
+      ],
+      "title": "Blob — Color Picker",
+      "hash": "#/blob",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "blob-desktop.png",
+      "sha256": "867e24c87e41336edb3634f0c9a1f8590051b076a5bdfc19380a950076ebd880"
+    },
+    {
+      "route": "/admin/users",
+      "visit": "/admin/users",
+      "name": "admin-users",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/users",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-users-desktop.png",
+      "sha256": "947a78c2e28960f4a1af3e43438da304c2bbde13a3a9dea404741bd3284882db"
+    },
+    {
+      "route": "/admin/names",
+      "visit": "/admin/names",
+      "name": "admin-names",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/names",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-names-desktop.png",
+      "sha256": "cea92777d6676ea1f253fb7d6801f525f3b98c8290437b495a7acadddb76b0d4"
+    },
+    {
+      "route": "/admin/audit",
+      "visit": "/admin/audit",
+      "name": "admin-audit",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/audit",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-audit-desktop.png",
+      "sha256": "2010babbb8e957e52c74e4c40e88524a4120a3180f33ba0153cff9f434484361"
+    },
+    {
+      "route": "/admin/flagged",
+      "visit": "/admin/flagged",
+      "name": "admin-flagged",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/flagged",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-flagged-desktop.png",
+      "sha256": "c54fe4515f766eb1002bacfc229a9f1c7fc08edfffeafb0fece8425a6bbb2570"
+    },
+    {
+      "route": "/admin/tags",
+      "visit": "/admin/tags",
+      "name": "admin-tags",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/tags",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-tags-desktop.png",
+      "sha256": "ffaceee6da04574d83b2ec9360ed27326d5575c0b122116f41796ccdea128953"
+    },
+    {
+      "route": "/:pathMatch(.*)*",
+      "visit": "/does-not-exist",
+      "name": "not-found",
+      "viewport": "desktop",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/does-not-exist",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "not-found-desktop.png",
+      "sha256": "4b0857a04157e4595fe21bedc983750c2c87afe106d72be61679bf7481eaafee"
+    },
+    {
+      "route": "/",
+      "visit": "/",
+      "name": "picker",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Home"
+      ],
+      "title": "Color Picker",
+      "hash": "#/",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "picker-phone.png",
+      "sha256": "701896f02f769bf0a7624e3a0cfaeb1466177b1995a595c6772f5131e7864088"
+    },
+    {
+      "route": "/palettes",
+      "visit": "/palettes",
+      "name": "palettes",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "My Palettes"
+      ],
+      "title": "Palettes — Color Picker",
+      "hash": "#/palettes",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "palettes-phone.png",
+      "sha256": "c3278f3dcb13b1140f3904d74a7cf604c52e3b8e4b3b69b511b16f327be0e1e8"
+    },
+    {
+      "route": "/browse",
+      "visit": "/browse",
+      "name": "browse",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Browse"
+      ],
+      "title": "Browse — Color Picker",
+      "hash": "#/browse",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "browse-phone.png",
+      "sha256": "a871fe46571cd2fb0e0b147f758d16f083dca007f338e77014b5d112b506f345"
+    },
+    {
+      "route": "/extract",
+      "visit": "/extract",
+      "name": "extract",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Extract"
+      ],
+      "title": "Extract — Color Picker",
+      "hash": "#/extract",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "extract-phone.png",
+      "sha256": "cc0bedf08da5d49824780176b38f9516e77ff45b1a729973960d812f5965e821"
+    },
+    {
+      "route": "/mix",
+      "visit": "/mix",
+      "name": "mix",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Mix"
+      ],
+      "title": "Mix — Color Picker",
+      "hash": "#/mix",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "mix-phone.png",
+      "sha256": "f220c95311c5fd2a46d26a35bfb7e2f9975c825d915db5c929045fcb048bb019"
+    },
+    {
+      "route": "/generate",
+      "visit": "/generate",
+      "name": "generate",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Generate"
+      ],
+      "title": "Generate — Color Picker",
+      "hash": "#/generate",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "generate-phone.png",
+      "sha256": "5413c20a96c0ccd1aed453c7a1098bd9abab3c9cb1c0e1256a20589f58cc92b2"
+    },
+    {
+      "route": "/gradient",
+      "visit": "/gradient",
+      "name": "gradient",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Gradient"
+      ],
+      "title": "Gradient — Color Picker",
+      "hash": "#/gradient",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "gradient-phone.png",
+      "sha256": "77fae71263a56ba4fe15e75f2aa44749c8ea6d87a80d7e7a02b9b8f819a74d33"
+    },
+    {
+      "route": "/atmosphere",
+      "visit": "/atmosphere",
+      "name": "atmosphere",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Atmosphere"
+      ],
+      "title": "Atmosphere — Color Picker",
+      "hash": "#/atmosphere",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "atmosphere-phone.png",
+      "sha256": "0d597694c1f241f3f2e0dc25165893195d2e2b9f6d02363852484ae17fa1e03b"
+    },
+    {
+      "route": "/blob",
+      "visit": "/blob",
+      "name": "blob",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Blob"
+      ],
+      "title": "Blob — Color Picker",
+      "hash": "#/blob",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "blob-phone.png",
+      "sha256": "b1f7d3345dec5851b7b464810c275fc045f9b92eec9a091abb4b0f957fa87603"
+    },
+    {
+      "route": "/admin/users",
+      "visit": "/admin/users",
+      "name": "admin-users",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/users",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-users-phone.png",
+      "sha256": "3060ea4a82c69c6428397d2c3615bc0fb07b7b65993fecfc7fee56970384fc3c"
+    },
+    {
+      "route": "/admin/names",
+      "visit": "/admin/names",
+      "name": "admin-names",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/names",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-names-phone.png",
+      "sha256": "45f059084115793267dc991cf8e2d089974820278f967242d6fbf4d1fe3ddac9"
+    },
+    {
+      "route": "/admin/audit",
+      "visit": "/admin/audit",
+      "name": "admin-audit",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/audit",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-audit-phone.png",
+      "sha256": "4f2c2bc2bd3d4a6098d7a3f822c037e1c786466a45bd22dc809241095e896712"
+    },
+    {
+      "route": "/admin/flagged",
+      "visit": "/admin/flagged",
+      "name": "admin-flagged",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/flagged",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-flagged-phone.png",
+      "sha256": "87039f7e511a6a2d0c8da0d802472f4a7f335557ff69a9ac43d22ebf9e99a0d1"
+    },
+    {
+      "route": "/admin/tags",
+      "visit": "/admin/tags",
+      "name": "admin-tags",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/tags",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-tags-phone.png",
+      "sha256": "63ae0ca4684c28bd995907f6b2a5d1181264877fc1eb6ef9d8a3a71c9671b3a7"
+    },
+    {
+      "route": "/:pathMatch(.*)*",
+      "visit": "/does-not-exist",
+      "name": "not-found",
+      "viewport": "phone",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/does-not-exist",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "not-found-phone.png",
+      "sha256": "78e4de4310345ede31d8da83a97462d4f6f3d222b0fff55e5d52b0082cf05331"
+    },
+    {
+      "route": "/",
+      "visit": "/",
+      "name": "picker",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Home"
+      ],
+      "title": "Color Picker",
+      "hash": "#/",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "picker-short-landscape.png",
+      "sha256": "6e476ce3cbf97ff815871f83a93a1c3b57ca80b998116237d7ed07fedbd87a99"
+    },
+    {
+      "route": "/palettes",
+      "visit": "/palettes",
+      "name": "palettes",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "My Palettes"
+      ],
+      "title": "Palettes — Color Picker",
+      "hash": "#/palettes",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "palettes-short-landscape.png",
+      "sha256": "a1d0784b39e0d2c8a2d6bb946caee83fdcd64ae0723ca455a1017fd4782e6e50"
+    },
+    {
+      "route": "/browse",
+      "visit": "/browse",
+      "name": "browse",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Browse"
+      ],
+      "title": "Browse — Color Picker",
+      "hash": "#/browse",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "browse-short-landscape.png",
+      "sha256": "2f4ce8d43691c1fbb5fe3e0e8cf6189232ed6da540dc9f7646ae8bce3e678a1e"
+    },
+    {
+      "route": "/extract",
+      "visit": "/extract",
+      "name": "extract",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Extract"
+      ],
+      "title": "Extract — Color Picker",
+      "hash": "#/extract",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "extract-short-landscape.png",
+      "sha256": "37cabcfe017a8fed3c1fe1a73fc685bd8f8c329b56c35cc1010a1b83ccd5819a"
+    },
+    {
+      "route": "/mix",
+      "visit": "/mix",
+      "name": "mix",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Mix"
+      ],
+      "title": "Mix — Color Picker",
+      "hash": "#/mix",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "mix-short-landscape.png",
+      "sha256": "bba1436d68bf9a48a146f1db2815a2733e757f343f31eae3b76fab5baf2c8dca"
+    },
+    {
+      "route": "/generate",
+      "visit": "/generate",
+      "name": "generate",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Generate"
+      ],
+      "title": "Generate — Color Picker",
+      "hash": "#/generate",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "generate-short-landscape.png",
+      "sha256": "f9f6894b2ff5d3015b6ad8c11bee4c325a7250618f82a50f40a5562c0fee7500"
+    },
+    {
+      "route": "/gradient",
+      "visit": "/gradient",
+      "name": "gradient",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Gradient"
+      ],
+      "title": "Gradient — Color Picker",
+      "hash": "#/gradient",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "gradient-short-landscape.png",
+      "sha256": "b626a0c134fc31b21200a6cbfc05447d53a1cab1b962b939aa9c082221e2794f"
+    },
+    {
+      "route": "/atmosphere",
+      "visit": "/atmosphere",
+      "name": "atmosphere",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Atmosphere"
+      ],
+      "title": "Atmosphere — Color Picker",
+      "hash": "#/atmosphere",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "atmosphere-short-landscape.png",
+      "sha256": "fe8c8674677c75c70d6637f6d5fea407ed1905d7e1e41d2cd9140208cd73beb5"
+    },
+    {
+      "route": "/blob",
+      "visit": "/blob",
+      "name": "blob",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Blob"
+      ],
+      "title": "Blob — Color Picker",
+      "hash": "#/blob",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "blob-short-landscape.png",
+      "sha256": "81458b40ce42785260e675099785d605f73444e2560675ee183de6611c2a8a2d"
+    },
+    {
+      "route": "/admin/users",
+      "visit": "/admin/users",
+      "name": "admin-users",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/users",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-users-short-landscape.png",
+      "sha256": "34fb434056e3812d159a631b44bf1f637a7f317daf06a823f0f6a49d76b4f92e"
+    },
+    {
+      "route": "/admin/names",
+      "visit": "/admin/names",
+      "name": "admin-names",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/names",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-names-short-landscape.png",
+      "sha256": "bc137fcde7864b5cafcb480e965652174eb47e408f0984146f0eb3b6583b0f84"
+    },
+    {
+      "route": "/admin/audit",
+      "visit": "/admin/audit",
+      "name": "admin-audit",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/audit",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-audit-short-landscape.png",
+      "sha256": "59b69b6f65098dd42d1fd3e25f66bc07c76d33a03d4cdd0ed5c6ca5caabc226c"
+    },
+    {
+      "route": "/admin/flagged",
+      "visit": "/admin/flagged",
+      "name": "admin-flagged",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/flagged",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-flagged-short-landscape.png",
+      "sha256": "f2efbbacc75305cb663090e50f5d899aa977b39ff203f22c00f24714a5f019f0"
+    },
+    {
+      "route": "/admin/tags",
+      "visit": "/admin/tags",
+      "name": "admin-tags",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/admin/tags",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "admin-tags-short-landscape.png",
+      "sha256": "2f28cb635a1b72320e9eb430f8c422a634bcee9e4d193b534a81c75c517bb5bf"
+    },
+    {
+      "route": "/:pathMatch(.*)*",
+      "visit": "/does-not-exist",
+      "name": "not-found",
+      "viewport": "short-landscape",
+      "label": "WEBKIT-ENGINE-REAL-GPU",
+      "gl": {
+        "webgl2": true,
+        "renderer": "Apple GPU",
+        "vendor": "Apple Inc."
+      },
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not found"
+      ],
+      "title": "Not found — Color Picker",
+      "hash": "#/does-not-exist",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "WebGL2 renderer is a hardware GPU (not SwiftShader/llvmpipe/software)",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 6,
+      "pass": true,
+      "png": "not-found-short-landscape.png",
+      "sha256": "2fd9d10923393752be546356984acfad84b0fd418aa594dd5196e32280716b5c"
+    }
+  ]
+}

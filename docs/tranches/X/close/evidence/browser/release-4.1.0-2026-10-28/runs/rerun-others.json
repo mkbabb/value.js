@@ -1,0 +1,1500 @@
+{
+  "config": {
+    "configFile": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/playwright.config.ts",
+    "rootDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/admin/ss8-b18-admin-panels.spec.ts",
+      "file": "smoke/admin/ss8-b18-admin-panels.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SS8-0514 · Audit shadows keep the row rhythm",
+          "file": "smoke/admin/ss8-b18-admin-panels.spec.ts",
+          "line": 79,
+          "column": 6,
+          "specs": [
+            {
+              "title": "shadow gap = row gap",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "slow",
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts",
+                        "line": 83,
+                        "column": 14
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-admin",
+                  "projectName": "smoke-admin",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 14786,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.5\u001b[39m\nReceived:    \u001b[31m2.69989013671875\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.5\u001b[39m\nReceived:    \u001b[31m2.69989013671875\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:85:72",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts",
+                          "column": 72,
+                          "line": 85
+                        },
+                        "snippet": "  83 |         test.slow();\n  84 |         const { skel, rows } = await shadowsVsRows(page);\n> 85 |         for (const g of skel.gaps) expect(Math.abs(g - rows.gaps[0]!)).toBeLessThanOrEqual(0.5);\n     |                                                                        ^\n  86 |     });\n  87 |     // The height limb rides AdminListSkeleton's column: B17's SS8-0487 column\n  88 |     // landed at 4c4506b9a, so the SS-8 CLOSE seat re-armed it (was test.fixme)."
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts",
+                            "column": 72,
+                            "line": 85
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.5\u001b[39m\nReceived:    \u001b[31m2.69989013671875\u001b[39m\n\n  83 |         test.slow();\n  84 |         const { skel, rows } = await shadowsVsRows(page);\n> 85 |         for (const g of skel.gaps) expect(Math.abs(g - rows.gaps[0]!)).toBeLessThanOrEqual(0.5);\n     |                                                                        ^\n  86 |     });\n  87 |     // The height limb rides AdminListSkeleton's column: B17's SS8-0487 column\n  88 |     // landed at 4c4506b9a, so the SS-8 CLOSE seat re-armed it (was test.fixme).\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:85:72"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "SS8-0514 {\"skel\":{\"h\":[74.920166015625,74.92013549804688,74.92013549804688],\"gaps\":[9.06396484375,9.06396484375]},\"rows\":{\"h\":[72.22052001953125,72.22052001953125,72.22052001953125],\"gaps\":[11.76385498046875,11.76385498046875]}}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:06:58.374Z",
+                      "annotations": [
+                        {
+                          "type": "slow",
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts",
+                            "line": 83,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/ss8-b18-admin-panels-SS8-0-32430-w-rhythm-shadow-gap-row-gap-smoke-admin/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts",
+                        "column": 72,
+                        "line": 85
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "93b3fee52d6b625e2d31-a6d6251b76ae99d64252",
+              "file": "smoke/admin/ss8-b18-admin-panels.spec.ts",
+              "line": 80,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/mobile/blob-presence-mobile.spec.ts",
+      "file": "smoke/mobile/blob-presence-mobile.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 37437,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[blob-390] software tier: register change → 1 draws · then window draws=0\n"
+                    },
+                    {
+                      "text": "[blob-390] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))\n  canvas=179.2px (formula 179.2) scrollWidth=390 idle draws=0 frames=382 idle p50=8.2ms (§6.2 gate ≤13ms — asserted on real GPU)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T21:07:14.581Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7439aca74411744a3e2e-ffab1df391e40ca0b205",
+          "file": "smoke/mobile/blob-presence-mobile.spec.ts",
+          "line": 140,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/perf/drag-frame-budget.spec.ts",
+      "file": "smoke/perf/drag-frame-budget.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 27178,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('slider', { name: 'L channel' }).first()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('slider', { name: 'L channel' }).first()\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('slider', { name: 'L channel' }).first()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('slider', { name: 'L channel' }).first()\u001b[22m\n\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/drag-frame-budget.spec.ts:45:26",
+                    "location": {
+                      "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/drag-frame-budget.spec.ts",
+                      "column": 26,
+                      "line": 45
+                    },
+                    "snippet": "  43 |\n  44 |     const slider = page.getByRole(\"slider\", { name: \"L channel\" }).first();\n> 45 |     await expect(slider).toBeVisible();\n     |                          ^\n  46 |     const box = await slider.boundingBox();\n  47 |     if (!box) throw new Error(\"L channel slider not laid out\");\n  48 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/drag-frame-budget.spec.ts",
+                        "column": 26,
+                        "line": 45
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('slider', { name: 'L channel' }).first()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('slider', { name: 'L channel' }).first()\u001b[22m\n\n\n  43 |\n  44 |     const slider = page.getByRole(\"slider\", { name: \"L channel\" }).first();\n> 45 |     await expect(slider).toBeVisible();\n     |                          ^\n  46 |     const box = await slider.boundingBox();\n  47 |     if (!box) throw new Error(\"L channel slider not laid out\");\n  48 |\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/drag-frame-budget.spec.ts:45:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T21:07:53.504Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/drag-frame-budget-slider-d-8d7ac-sks-50ms-built-bundle-gate--smoke-perf/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/drag-frame-budget.spec.ts",
+                    "column": 26,
+                    "line": 45
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0dcc027130b82bc329ac-3aee31975a04101acb9a",
+          "file": "smoke/perf/drag-frame-budget.spec.ts",
+          "line": 33,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/perf/eager-payload.spec.ts",
+      "file": "smoke/perf/eager-payload.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1200000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 255141,
+                  "error": {
+                    "message": "Error: G3 desktop-unthrottled: p75 TBT 2009ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8391]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m2009\u001b[39m",
+                    "stack": "Error: G3 desktop-unthrottled: p75 TBT 2009ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8391]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m2009\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/eager-payload.spec.ts:533:14",
+                    "location": {
+                      "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/eager-payload.spec.ts",
+                      "column": 14,
+                      "line": 533
+                    },
+                    "snippet": "  531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,\n  532 |             )\n> 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);\n      |              ^\n  534 |         expect\n  535 |             .soft(\n  536 |                 s.p75Lcp,"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/eager-payload.spec.ts",
+                        "column": 14,
+                        "line": 533
+                      },
+                      "message": "Error: G3 desktop-unthrottled: p75 TBT 2009ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8391]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m2009\u001b[39m\n\n  531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,\n  532 |             )\n> 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);\n      |              ^\n  534 |         expect\n  535 |             .soft(\n  536 |                 s.p75Lcp,\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/eager-payload.spec.ts:533:14"
+                    },
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/eager-payload.spec.ts",
+                        "column": 14,
+                        "line": 533
+                      },
+                      "message": "Error: G3 mobile-4x-cpu: p75 TBT 3254ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8391]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m3254\u001b[39m\n\n  531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,\n  532 |             )\n> 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);\n      |              ^\n  534 |         expect\n  535 |             .soft(\n  536 |                 s.p75Lcp,\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/eager-payload.spec.ts:533:14"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[X-W2 CWV] pin: macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8391\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV] renderer(raw): ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV] origin=http://localhost:8391 route=#/ N=20 settle=3000ms cold-cache=CDP Network.setCacheDisabled\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV desktop-unthrottled] warmup (DISCARDED from p75): lcp=0ms tbt=15ms fcp=0ms longTasks=1\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV desktop-unthrottled] N=20 p75 LCP=1528ms p75 TBT=2009ms p75 FCP=1528ms p75 TBT[FCP,end]=1993ms (reported, not gated) p75 CLS=0.0000 median longTasks=4 p75 longest task=1744ms max TBT=2331ms median transfer(uncompressed, diagnostic)=1862214 B resources=53\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV mobile-4x-cpu] warmup (DISCARDED from p75): lcp=1300ms tbt=2532ms fcp=1300ms longTasks=4\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV mobile-4x-cpu] N=20 p75 LCP=1312ms p75 TBT=3254ms p75 FCP=1312ms p75 TBT[FCP,end]=2914ms (reported, not gated) p75 CLS=0.0000 median longTasks=8 p75 longest task=2802ms max TBT=4420ms median transfer(uncompressed, diagnostic)=1862214 B resources=53\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV] record\n{\n  \"schema\": \"x-w2.cwv/1\",\n  \"gate\": \"W2.md §6 G3 (p75 TBT ≤ 300 ms) · G4 (p75 LCP ≤ 2500 ms)\",\n  \"generatedAt\": \"2026-10-28T21:12:38.416Z\",\n  \"pin\": \"macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8391\",\n  \"rendererRaw\": \"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)\",\n  \"origin\": \"http://localhost:8391\",\n  \"originKind\": \"BUILT dist/gh-pages via e2e/smoke/perf/serve-built.mjs (MT-F011: never a dev server)\",\n  \"route\": \"#/\",\n  \"n\": 20,\n  \"settleMs\": 3000,\n  \"coldCache\": \"CDP Network.setCacheDisabled + a fresh browser context per load\",\n  \"tbtDefinition\": \"Lighthouse calculateSumOfBlockingTime (every long task ≥ 50 ms, CLIPPED to the window, contributes clippedDuration − 50 ms), evaluated over TWO windows. GATED: [navigationStart, observationEnd]. REPORTED BESIDE IT: Lighthouse's strict [FCP, TTI≈observationEnd], which reads 0 on this product because FCP===LCP — nothing paints until Vue mounts, so the boot's blocking task ends before first paint and the strict window is structurally blind to the cost this wave cuts (L-19). observationEnd (per-sample `windowEndMs`) stands in for TTI, which this harness cannot derive without a trace.\",\n  \"configs\": {\n    \"desktop-unthrottled\": {\n      \"viewport\": {\n        \"width\": 1440,\n        \"height\": 900\n      },\n      \"cpuThrottleRate\": 1,\n      \"n\": 20,\n      \"warmupLoadsDiscarded\": 1,\n      \"warmup\": {\n        \"lcp\": 0,\n        \"fcp\": 0,\n        \"tbt\": 15,\n        \"tbtLighthouseWindow\": 15,\n        \"cls\": 0,\n        \"longTasks\": 1,\n        \"tasks\": [\n          {\n            \"start\": 22.599999994039536,\n            \"dur\": 65\n          }\n        ],\n        \"windowEndMs\": 3153.7999999970198,\n        \"transferBytes\": 639142,\n        \"resources\": 3\n      },\n      \"p75Lcp\": 1528,\n      \"p75Tbt\": 2009,\n      \"p75Fcp\": 1528,\n      \"p75TbtLighthouseWindow\": 1993,\n      \"medianLcp\": 1040,\n      \"medianTbt\": 1317,\n      \"maxTbt\": 2331,\n      \"p75LongestTaskMs\": 1744,\n      \"p75Cls\": 0,\n      \"medianLongTasks\": 4,\n      \"medianTransferBytesUncompressed\": 1862214,\n      \"medianResources\": 53,\n      \"gates\": {\n        \"G3 p75 TBT ≤ 300 ms\": {\n          \"measured\": 2009,\n          \"window\": \"[navigationStart, observationEnd] — the gated window\",\n          \"bar\": 300,\n          \"verdict\": \"RED\",\n          \"lighthouseWindowReading\": 1993,\n          \"lighthouseWindowNote\": \"[FCP, TTI≈observationEnd]. Reads 0 because FCP===LCP on this product — the boot's blocking task ends before first paint, so the strict window cannot see it (L-19).\"\n        },\n        \"G4 p75 LCP ≤ 2500 ms\": {\n          \"measured\": 1528,\n          \"bar\": 2500,\n          \"verdict\": \"GREEN\"\n        }\n      },\n      \"samples\": [\n        {\n          \"lcp\": 1752,\n          \"fcp\": 1752,\n          \"tbt\": 1734,\n          \"tbtLighthouseWindow\": 1694,\n          \"cls\": 0,\n          \"longTasks\": 2,\n          \"tasks\": [\n            {\n              \"start\": 42.20000000298023,\n              \"dur\": 90\n            },\n            {\n              \"start\": 1777.0999999940395,\n              \"dur\": 1744\n            }\n          ],\n          \"windowEndMs\": 3570.9000000059605,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        },\n        {\n          \"lcp\": 528,\n          \"fcp\": 528,\n          \"tbt\": 2146,\n          \"tbtLighthouseWindow\": 2144,\n          \"cls\": 0,\n          \"longTasks\": 3,\n          \"tasks\": [\n            {\n              \"start\": 18.400000005960464,\n              \"dur\": 52\n            },\n            {\n              \"start\": 552.5,\n              \"dur\": 2119\n            },\n            {\n              \"start\": 2724.0999999940395,\n              \"dur\": 125\n            }\n          ],\n          \"windowEndMs\": 3107.5999999940395,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 764,\n          \"fcp\": 764,\n          \"tbt\": 806,\n          \"tbtLighthouseWindow\": 806,\n          \"cls\": 0,\n          \"longTasks\": 3,\n          \"tasks\": [\n            {\n              \"start\": 782.8000000119209,\n              \"dur\": 761\n            },\n            {\n              \"start\": 1621.9000000059605,\n              \"dur\": 127\n            },\n            {\n              \"start\": 2051.300000011921,\n              \"dur\": 68\n            }\n          ],\n          \"windowEndMs\": 3107,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 2276,\n          \"fcp\": 2276,\n          \"tbt\": 1207,\n          \"tbtLighthouseWindow\": 1165,\n          \"cls\": 0,\n          \"longTasks\": 2,\n          \"tasks\": [\n            {\n              \"start\": 29.899999991059303,\n              \"dur\": 92\n            },\n            {\n              \"start\": 2304.0999999940395,\n              \"dur\": 1215\n            }\n          ],\n          \"windowEndMs\": 3564.8999999910593,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        },\n        {\n          \"lcp\": 900,\n          \"fcp\": 900,\n          \"tbt\": 2331,\n          \"tbtLighthouseWindow\": 2320,\n          \"cls\": 0,\n          \"longTasks\": 3,\n          \"tasks\": [\n            {\n              \"start\": 17.399999991059303,\n              \"dur\": 61\n            },\n            {\n              \"start\": 935.7999999970198,\n              \"dur\": 2060\n            },\n            {\n              \"start\": 3077.2000000029802,\n              \"dur\": 360\n            }\n          ],\n          \"windowEndMs\": 3449.0999999940395,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1080,\n          \"fcp\": 1080,\n          \"tbt\": 2009,\n          \"tbtLighthouseWindow\": 1993,\n          \"cls\": 0,\n          \"longTasks\": 2,\n          \"tasks\": [\n            {\n              \"start\": 21,\n              \"dur\": 66\n            },\n            {\n              \"start\": 1112.800000011921,\n              \"dur\": 2043\n            }\n          ],\n          \"windowEndMs\": 3202.9000000059605,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        },\n        {\n          \"lcp\": 1252,\n          \"fcp\": 1252,\n          \"tbt\": 886,\n          \"tbtLighthouseWindow\": 866,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 21.899999991059303,\n              \"dur\": 70\n            },\n            {\n              \"start\": 1279.8999999910593,\n              \"dur\": 778\n            },\n            {\n              \"start\": 2120.5,\n              \"dur\": 150\n            },\n            {\n              \"start\": 2563.199999988079,\n              \"dur\": 88\n            }\n          ],\n          \"windowEndMs\": 3149,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 792,\n          \"fcp\": 792,\n          \"tbt\": 2159,\n          \"tbtLighthouseWindow\": 2144,\n          \"cls\": 0,\n          \"longTasks\": 3,\n          \"tasks\": [\n            {\n              \"start\": 21.299999997019768,\n              \"dur\": 65\n            },\n            {\n              \"start\": 836.8999999910593,\n              \"dur\": 2019\n            },\n            {\n              \"start\": 2919.5999999940395,\n              \"dur\": 225\n            }\n          ],\n          \"windowEndMs\": 3169.8999999910593,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1564,\n          \"fcp\": 1564,\n          \"tbt\": 1068,\n          \"tbtLighthouseWindow\": 1059,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 20.700000002980232,\n              \"dur\": 59\n            },\n            {\n              \"start\": 1594.0999999940395,\n              \"dur\": 818\n            },\n            {\n              \"start\": 2505.5999999940395,\n              \"dur\": 303\n            },\n            {\n              \"start\": 2916.3999999910593,\n              \"dur\": 88\n            }\n          ],\n          \"windowEndMs\": 3131.7999999970198,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 712,\n          \"fcp\": 712,\n          \"tbt\": 1265,\n          \"tbtLighthouseWindow\": 1253,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 23,\n              \"dur\": 62\n            },\n            {\n              \"start\": 736.9000000059605,\n              \"dur\": 1192\n            },\n            {\n              \"start\": 1989.9000000059605,\n              \"dur\": 133\n            },\n            {\n              \"start\": 2434.5,\n              \"dur\": 78\n            }\n          ],\n          \"windowEndMs\": 3140.2000000029802,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1100,\n          \"fcp\": 1100,\n          \"tbt\": 2130,\n          \"tbtLighthouseWindow\": 2124,\n          \"cls\": 0,\n          \"longTasks\": 3,\n          \"tasks\": [\n            {\n              \"start\": 19.299999997019768,\n              \"dur\": 56\n            },\n            {\n              \"start\": 1120.199999988079,\n              \"dur\": 1428\n            },\n            {\n              \"start\": 2631.5999999940395,\n              \"dur\": 796\n            }\n          ],\n          \"windowEndMs\": 3571.2999999970198,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1284,\n          \"fcp\": 1284,\n          \"tbt\": 805,\n          \"tbtLighthouseWindow\": 765,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 28.30000001192093,\n              \"dur\": 90\n            },\n            {\n              \"start\": 1309,\n              \"dur\": 704\n            },\n            {\n              \"start\": 2072.4000000059605,\n              \"dur\": 133\n            },\n            {\n              \"start\": 2517,\n              \"dur\": 78\n            }\n          ],\n          \"windowEndMs\": 3184.300000011921,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 776,\n          \"fcp\": 776,\n          \"tbt\": 880,\n          \"tbtLighthouseWindow\": 864,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 21,\n              \"dur\": 66\n            },\n            {\n              \"start\": 801.5999999940395,\n              \"dur\": 787\n            },\n            {\n              \"start\": 1651.5999999940395,\n              \"dur\": 144\n            },\n            {\n              \"start\": 2092.2999999970198,\n              \"dur\": 83\n            }\n          ],\n          \"windowEndMs\": 3136.8999999910593,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 608,\n          \"fcp\": 608,\n          \"tbt\": 1336,\n          \"tbtLighthouseWindow\": 1326,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 20.799999997019768,\n              \"dur\": 60\n            },\n            {\n              \"start\": 636.7999999970198,\n              \"dur\": 1256\n            },\n            {\n              \"start\": 1946.9000000059605,\n              \"dur\": 129\n            },\n            {\n              \"start\": 2396.9000000059605,\n              \"dur\": 91\n            }\n          ],\n          \"windowEndMs\": 3127.5,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1004,\n          \"fcp\": 1004,\n          \"tbt\": 919,\n          \"tbtLighthouseWindow\": 889,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 23.700000002980232,\n              \"dur\": 80\n            },\n            {\n              \"start\": 1025.7000000029802,\n              \"dur\": 774\n            },\n            {\n              \"start\": 1860.0999999940395,\n              \"dur\": 187\n            },\n            {\n              \"start\": 2304.2000000029802,\n              \"dur\": 78\n            }\n          ],\n          \"windowEndMs\": 3156.4000000059605,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1008,\n          \"fcp\": 1008,\n          \"tbt\": 1317,\n          \"tbtLighthouseWindow\": 1300,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 19.700000002980232,\n              \"dur\": 67\n            },\n            {\n              \"start\": 1033.8999999910593,\n              \"dur\": 1218\n            },\n            {\n              \"start\": 2329.2999999970198,\n              \"dur\": 169\n            },\n            {\n              \"start\": 2756.3999999910593,\n              \"dur\": 63\n            }\n          ],\n          \"windowEndMs\": 3138.5,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1040,\n          \"fcp\": 1040,\n          \"tbt\": 770,\n          \"tbtLighthouseWindow\": 753,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 20.799999997019768,\n              \"dur\": 67\n            },\n            {\n              \"start\": 1066.6000000089407,\n              \"dur\": 697\n            },\n            {\n              \"start\": 1822.4000000059605,\n              \"dur\": 136\n            },\n            {\n              \"start\": 2267.7000000029802,\n              \"dur\": 70\n            }\n          ],\n          \"windowEndMs\": 3142.2999999970198,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1768,\n          \"fcp\": 1768,\n          \"tbt\": 1172,\n          \"tbtLighthouseWindow\": 1149,\n          \"cls\": 0,\n          \"longTasks\": 3,\n          \"tasks\": [\n            {\n              \"start\": 23.30000001192093,\n              \"dur\": 73\n            },\n            {\n              \"start\": 1800.6000000089407,\n              \"dur\": 1090\n            },\n            {\n              \"start\": 2951.6000000089407,\n              \"dur\": 159\n            }\n          ],\n          \"windowEndMs\": 3153,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 904,\n          \"fcp\": 904,\n          \"tbt\": 1485,\n          \"tbtLighthouseWindow\": 1476,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 18.299999997019768,\n              \"dur\": 59\n            },\n            {\n              \"start\": 927.7999999970198,\n              \"dur\": 1226\n            },\n            {\n              \"start\": 2240.8999999910593,\n              \"dur\": 298\n            },\n            {\n              \"start\": 2659.5999999940395,\n              \"dur\": 102\n            }\n          ],\n          \"windowEndMs\": 3125.7999999970198,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1528,\n          \"fcp\": 1528,\n          \"tbt\": 1326,\n          \"tbtLighthouseWindow\": 1313,\n          \"cls\": 0,\n          \"longTasks\": 3,\n          \"tasks\": [\n            {\n              \"start\": 21,\n              \"dur\": 63\n            },\n            {\n              \"start\": 1552.0999999940395,\n              \"dur\": 1277\n            },\n            {\n              \"start\": 2890.2000000029802,\n              \"dur\": 136\n            }\n          ],\n          \"windowEndMs\": 3135.2999999970198,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        }\n      ]\n    },\n    \"mobile-4x-cpu\": {\n      \"viewport\": {\n        \"width\": 390,\n        \"height\": 844\n      },\n      \"cpuThrottleRate\": 4,\n      \"n\": 20,\n      \"warmupLoadsDiscarded\": 1,\n      \"warmup\": {\n        \"lcp\": 1300,\n        \"fcp\": 1300,\n        \"tbt\": 2532,\n        \"tbtLighthouseWindow\": 2321,\n        \"cls\": 0,\n        \"longTasks\": 4,\n        \"tasks\": [\n          {\n            \"start\": 53.5,\n            \"dur\": 230\n          },\n          {\n            \"start\": 355.79999999701977,\n            \"dur\": 81\n          },\n          {\n            \"start\": 1382,\n            \"dur\": 2311\n          },\n          {\n            \"start\": 3701.8999999910593,\n            \"dur\": 110\n          }\n        ],\n        \"windowEndMs\": 4014.5,\n        \"transferBytes\": 1776266,\n        \"resources\": 43\n      },\n      \"p75Lcp\": 1312,\n      \"p75Tbt\": 3254,\n      \"p75Fcp\": 1312,\n      \"p75TbtLighthouseWindow\": 2914,\n      \"medianLcp\": 1168,\n      \"medianTbt\": 2980,\n      \"maxTbt\": 4420,\n      \"p75LongestTaskMs\": 2802,\n      \"p75Cls\": 0,\n      \"medianLongTasks\": 8,\n      \"medianTransferBytesUncompressed\": 1862214,\n      \"medianResources\": 53,\n      \"gates\": {\n        \"G3 p75 TBT ≤ 300 ms\": {\n          \"measured\": 3254,\n          \"window\": \"[navigationStart, observationEnd] — the gated window\",\n          \"bar\": 300,\n          \"verdict\": \"RED\",\n          \"lighthouseWindowReading\": 2914,\n          \"lighthouseWindowNote\": \"[FCP, TTI≈observationEnd]. Reads 0 because FCP===LCP on this product — the boot's blocking task ends before first paint, so the strict window cannot see it (L-19).\"\n        },\n        \"G4 p75 LCP ≤ 2500 ms\": {\n          \"measured\": 1312,\n          \"bar\": 2500,\n          \"verdict\": \"GREEN\"\n        }\n      },\n      \"samples\": [\n        {\n          \"lcp\": 1148,\n          \"fcp\": 1148,\n          \"tbt\": 2504,\n          \"tbtLighthouseWindow\": 2168,\n          \"cls\": 0,\n          \"longTasks\": 10,\n          \"tasks\": [\n            {\n              \"start\": 89.90000000596046,\n              \"dur\": 297\n            },\n            {\n              \"start\": 387.6000000089407,\n              \"dur\": 82\n            },\n            {\n              \"start\": 548.7000000029802,\n              \"dur\": 107\n            },\n            {\n              \"start\": 1221.4000000059605,\n              \"dur\": 1086\n            },\n            {\n              \"start\": 2315.800000011921,\n              \"dur\": 108\n            },\n            {\n              \"start\": 2486.5,\n              \"dur\": 71\n            },\n            {\n              \"start\": 2557.7000000029802,\n              \"dur\": 71\n            },\n            {\n              \"start\": 2650.4000000059605,\n              \"dur\": 64\n            },\n            {\n              \"start\": 2715.6000000089407,\n              \"dur\": 1067\n            },\n            {\n              \"start\": 3784.300000011921,\n              \"dur\": 51\n            }\n          ],\n          \"windowEndMs\": 4564.4000000059605,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1136,\n          \"fcp\": 1136,\n          \"tbt\": 2512,\n          \"tbtLighthouseWindow\": 2182,\n          \"cls\": 0,\n          \"longTasks\": 5,\n          \"tasks\": [\n            {\n              \"start\": 74.59999999403954,\n              \"dur\": 331\n            },\n            {\n              \"start\": 483,\n              \"dur\": 99\n            },\n            {\n              \"start\": 1231.5999999940395,\n              \"dur\": 95\n            },\n            {\n              \"start\": 1399.7000000029802,\n              \"dur\": 2135\n            },\n            {\n              \"start\": 3541.5,\n              \"dur\": 102\n            }\n          ],\n          \"windowEndMs\": 3779.3999999910593,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        },\n        {\n          \"lcp\": 1168,\n          \"fcp\": 1168,\n          \"tbt\": 2980,\n          \"tbtLighthouseWindow\": 2616,\n          \"cls\": 0,\n          \"longTasks\": 9,\n          \"tasks\": [\n            {\n              \"start\": 83.40000000596046,\n              \"dur\": 336\n            },\n            {\n              \"start\": 521.4000000059605,\n              \"dur\": 128\n            },\n            {\n              \"start\": 1234.2999999970198,\n              \"dur\": 1611\n            },\n            {\n              \"start\": 2854.5,\n              \"dur\": 109\n            },\n            {\n              \"start\": 3024.1000000089407,\n              \"dur\": 68\n            },\n            {\n              \"start\": 3094.5,\n              \"dur\": 66\n            },\n            {\n              \"start\": 3180.7999999970198,\n              \"dur\": 58\n            },\n            {\n              \"start\": 3239.2999999970198,\n              \"dur\": 989\n            },\n            {\n              \"start\": 4230.5,\n              \"dur\": 65\n            }\n          ],\n          \"windowEndMs\": 5284.100000008941,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1148,\n          \"fcp\": 1148,\n          \"tbt\": 2632,\n          \"tbtLighthouseWindow\": 2325,\n          \"cls\": 0,\n          \"longTasks\": 8,\n          \"tasks\": [\n            {\n              \"start\": 118.29999999701977,\n              \"dur\": 294\n            },\n            {\n              \"start\": 511.09999999403954,\n              \"dur\": 113\n            },\n            {\n              \"start\": 1213,\n              \"dur\": 1419\n            },\n            {\n              \"start\": 2640.5999999940395,\n              \"dur\": 117\n            },\n            {\n              \"start\": 2825.0999999940395,\n              \"dur\": 76\n            },\n            {\n              \"start\": 2901.5999999940395,\n              \"dur\": 71\n            },\n            {\n              \"start\": 2992.7000000029802,\n              \"dur\": 66\n            },\n            {\n              \"start\": 3059.2999999970198,\n              \"dur\": 876\n            }\n          ],\n          \"windowEndMs\": 4576.5,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 964,\n          \"fcp\": 964,\n          \"tbt\": 4420,\n          \"tbtLighthouseWindow\": 4113,\n          \"cls\": 0,\n          \"longTasks\": 12,\n          \"tasks\": [\n            {\n              \"start\": 69.79999999701977,\n              \"dur\": 301\n            },\n            {\n              \"start\": 464.29999999701977,\n              \"dur\": 106\n            },\n            {\n              \"start\": 1051.3999999910593,\n              \"dur\": 1639\n            },\n            {\n              \"start\": 2700.8999999910593,\n              \"dur\": 144\n            },\n            {\n              \"start\": 2928.7000000029802,\n              \"dur\": 84\n            },\n            {\n              \"start\": 3018.5999999940395,\n              \"dur\": 84\n            },\n            {\n              \"start\": 3124.5999999940395,\n              \"dur\": 88\n            },\n            {\n              \"start\": 3213.7000000029802,\n              \"dur\": 1094\n            },\n            {\n              \"start\": 4311.0999999940395,\n              \"dur\": 738\n            },\n            {\n              \"start\": 5050,\n              \"dur\": 357\n            },\n            {\n              \"start\": 5454.70000000298,\n              \"dur\": 164\n            },\n            {\n              \"start\": 5619.79999999702,\n              \"dur\": 221\n            }\n          ],\n          \"windowEndMs\": 5846.79999999702,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1652,\n          \"fcp\": 1652,\n          \"tbt\": 3075,\n          \"tbtLighthouseWindow\": 2692,\n          \"cls\": 0,\n          \"longTasks\": 11,\n          \"tasks\": [\n            {\n              \"start\": 50.79999999701977,\n              \"dur\": 52\n            },\n            {\n              \"start\": 158.79999999701977,\n              \"dur\": 326\n            },\n            {\n              \"start\": 486.6000000089407,\n              \"dur\": 83\n            },\n            {\n              \"start\": 646.2000000029802,\n              \"dur\": 122\n            },\n            {\n              \"start\": 1748.1000000089407,\n              \"dur\": 1589\n            },\n            {\n              \"start\": 3346,\n              \"dur\": 101\n            },\n            {\n              \"start\": 3519.7999999970198,\n              \"dur\": 68\n            },\n            {\n              \"start\": 3588.2999999970198,\n              \"dur\": 72\n            },\n            {\n              \"start\": 3679.1000000089407,\n              \"dur\": 64\n            },\n            {\n              \"start\": 3743.7999999970198,\n              \"dur\": 1091\n            },\n            {\n              \"start\": 4836.79999999702,\n              \"dur\": 57\n            }\n          ],\n          \"windowEndMs\": 5814.79999999702,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 2116,\n          \"fcp\": 2116,\n          \"tbt\": 3254,\n          \"tbtLighthouseWindow\": 2914,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 82.5,\n              \"dur\": 326\n            },\n            {\n              \"start\": 509.19999998807907,\n              \"dur\": 114\n            },\n            {\n              \"start\": 2173.7999999970198,\n              \"dur\": 2890\n            },\n            {\n              \"start\": 5075.29999999702,\n              \"dur\": 124\n            }\n          ],\n          \"windowEndMs\": 5459.5999999940395,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        },\n        {\n          \"lcp\": 1256,\n          \"fcp\": 1256,\n          \"tbt\": 2439,\n          \"tbtLighthouseWindow\": 2110,\n          \"cls\": 0,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 103.29999999701977,\n              \"dur\": 296\n            },\n            {\n              \"start\": 400.3999999910593,\n              \"dur\": 81\n            },\n            {\n              \"start\": 556.5,\n              \"dur\": 102\n            },\n            {\n              \"start\": 1342.3999999910593,\n              \"dur\": 73\n            },\n            {\n              \"start\": 1441.7999999970198,\n              \"dur\": 2071\n            },\n            {\n              \"start\": 3520.5,\n              \"dur\": 108\n            },\n            {\n              \"start\": 3679.8999999910593,\n              \"dur\": 58\n            }\n          ],\n          \"windowEndMs\": 3772.8999999910593,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 728,\n          \"fcp\": 728,\n          \"tbt\": 2954,\n          \"tbtLighthouseWindow\": 2755,\n          \"cls\": 0,\n          \"longTasks\": 9,\n          \"tasks\": [\n            {\n              \"start\": 67.5,\n              \"dur\": 211\n            },\n            {\n              \"start\": 349.90000000596046,\n              \"dur\": 88\n            },\n            {\n              \"start\": 771.2000000029802,\n              \"dur\": 1632\n            },\n            {\n              \"start\": 2412.5,\n              \"dur\": 117\n            },\n            {\n              \"start\": 2598.5,\n              \"dur\": 70\n            },\n            {\n              \"start\": 2668.7999999970198,\n              \"dur\": 70\n            },\n            {\n              \"start\": 2760.6000000089407,\n              \"dur\": 68\n            },\n            {\n              \"start\": 2829.6000000089407,\n              \"dur\": 1080\n            },\n            {\n              \"start\": 3912,\n              \"dur\": 68\n            }\n          ],\n          \"windowEndMs\": 4884.20000000298,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1108,\n          \"fcp\": 1108,\n          \"tbt\": 2473,\n          \"tbtLighthouseWindow\": 2114,\n          \"cls\": 0,\n          \"longTasks\": 8,\n          \"tasks\": [\n            {\n              \"start\": 92.1000000089407,\n              \"dur\": 328\n            },\n            {\n              \"start\": 504.6000000089407,\n              \"dur\": 131\n            },\n            {\n              \"start\": 1185.9000000059605,\n              \"dur\": 1207\n            },\n            {\n              \"start\": 2401.4000000059605,\n              \"dur\": 99\n            },\n            {\n              \"start\": 2558.5,\n              \"dur\": 69\n            },\n            {\n              \"start\": 2631.1000000089407,\n              \"dur\": 67\n            },\n            {\n              \"start\": 2717.1000000089407,\n              \"dur\": 64\n            },\n            {\n              \"start\": 2782.5,\n              \"dur\": 908\n            }\n          ],\n          \"windowEndMs\": 4327,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1172,\n          \"fcp\": 1172,\n          \"tbt\": 2584,\n          \"tbtLighthouseWindow\": 2340,\n          \"cls\": 0,\n          \"longTasks\": 9,\n          \"tasks\": [\n            {\n              \"start\": 64.79999999701977,\n              \"dur\": 259\n            },\n            {\n              \"start\": 409.79999999701977,\n              \"dur\": 85\n            },\n            {\n              \"start\": 1215.7999999970198,\n              \"dur\": 967\n            },\n            {\n              \"start\": 2188.5,\n              \"dur\": 119\n            },\n            {\n              \"start\": 2495.5,\n              \"dur\": 703\n            },\n            {\n              \"start\": 3200.2000000029802,\n              \"dur\": 51\n            },\n            {\n              \"start\": 3293.7000000029802,\n              \"dur\": 549\n            },\n            {\n              \"start\": 3843.6000000089407,\n              \"dur\": 183\n            },\n            {\n              \"start\": 4032.1000000089407,\n              \"dur\": 118\n            }\n          ],\n          \"windowEndMs\": 4154.4000000059605,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 912,\n          \"fcp\": 912,\n          \"tbt\": 3185,\n          \"tbtLighthouseWindow\": 2909,\n          \"cls\": 0,\n          \"longTasks\": 8,\n          \"tasks\": [\n            {\n              \"start\": 135.20000000298023,\n              \"dur\": 296\n            },\n            {\n              \"start\": 508.5,\n              \"dur\": 80\n            },\n            {\n              \"start\": 947.5999999940395,\n              \"dur\": 1926\n            },\n            {\n              \"start\": 2882.4000000059605,\n              \"dur\": 99\n            },\n            {\n              \"start\": 3048,\n              \"dur\": 64\n            },\n            {\n              \"start\": 3112.9000000059605,\n              \"dur\": 67\n            },\n            {\n              \"start\": 3198.4000000059605,\n              \"dur\": 67\n            },\n            {\n              \"start\": 3266.7000000029802,\n              \"dur\": 986\n            }\n          ],\n          \"windowEndMs\": 5131.20000000298,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1216,\n          \"fcp\": 1216,\n          \"tbt\": 2659,\n          \"tbtLighthouseWindow\": 2349,\n          \"cls\": 0,\n          \"longTasks\": 8,\n          \"tasks\": [\n            {\n              \"start\": 77.80000001192093,\n              \"dur\": 296\n            },\n            {\n              \"start\": 473.20000000298023,\n              \"dur\": 114\n            },\n            {\n              \"start\": 1270.9000000059605,\n              \"dur\": 1467\n            },\n            {\n              \"start\": 2745.4000000059605,\n              \"dur\": 96\n            },\n            {\n              \"start\": 2898,\n              \"dur\": 60\n            },\n            {\n              \"start\": 2962.7000000029802,\n              \"dur\": 66\n            },\n            {\n              \"start\": 3047.2000000029802,\n              \"dur\": 66\n            },\n            {\n              \"start\": 3114.5,\n              \"dur\": 894\n            }\n          ],\n          \"windowEndMs\": 4834.300000011921,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 1288,\n          \"fcp\": 1288,\n          \"tbt\": 3647,\n          \"tbtLighthouseWindow\": 3303,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 76.1000000089407,\n              \"dur\": 336\n            },\n            {\n              \"start\": 515.1000000089407,\n              \"dur\": 108\n            },\n            {\n              \"start\": 1399,\n              \"dur\": 3274\n            },\n            {\n              \"start\": 4684.9000000059605,\n              \"dur\": 129\n            }\n          ],\n          \"windowEndMs\": 5074.100000008941,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        },\n        {\n          \"lcp\": 1992,\n          \"fcp\": 1992,\n          \"tbt\": 2982,\n          \"tbtLighthouseWindow\": 2547,\n          \"cls\": 0,\n          \"longTasks\": 5,\n          \"tasks\": [\n            {\n              \"start\": 111.5,\n              \"dur\": 367\n            },\n            {\n              \"start\": 480.20000000298023,\n              \"dur\": 84\n            },\n            {\n              \"start\": 657.2999999970198,\n              \"dur\": 134\n            },\n            {\n              \"start\": 2094.2000000029802,\n              \"dur\": 2496\n            },\n            {\n              \"start\": 4601,\n              \"dur\": 151\n            }\n          ],\n          \"windowEndMs\": 5020.9000000059605,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        },\n        {\n          \"lcp\": 1020,\n          \"fcp\": 1020,\n          \"tbt\": 3749,\n          \"tbtLighthouseWindow\": 3304,\n          \"cls\": 0,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 53.099999994039536,\n              \"dur\": 51\n            },\n            {\n              \"start\": 119.19999998807907,\n              \"dur\": 247\n            },\n            {\n              \"start\": 368.8999999910593,\n              \"dur\": 207\n            },\n            {\n              \"start\": 683.8999999910593,\n              \"dur\": 140\n            },\n            {\n              \"start\": 1115.699999988079,\n              \"dur\": 3287\n            },\n            {\n              \"start\": 4413.5,\n              \"dur\": 117\n            }\n          ],\n          \"windowEndMs\": 4776,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        },\n        {\n          \"lcp\": 1604,\n          \"fcp\": 1604,\n          \"tbt\": 3247,\n          \"tbtLighthouseWindow\": 2823,\n          \"cls\": 0,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 51,\n              \"dur\": 52\n            },\n            {\n              \"start\": 156.40000000596046,\n              \"dur\": 318\n            },\n            {\n              \"start\": 476,\n              \"dur\": 113\n            },\n            {\n              \"start\": 692.2999999970198,\n              \"dur\": 141\n            },\n            {\n              \"start\": 1699.9000000059605,\n              \"dur\": 2802\n            },\n            {\n              \"start\": 4511,\n              \"dur\": 121\n            }\n          ],\n          \"windowEndMs\": 4857.79999999702,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        },\n        {\n          \"lcp\": 1312,\n          \"fcp\": 1312,\n          \"tbt\": 2771,\n          \"tbtLighthouseWindow\": 2421,\n          \"cls\": 0,\n          \"longTasks\": 5,\n          \"tasks\": [\n            {\n              \"start\": 87,\n              \"dur\": 312\n            },\n            {\n              \"start\": 399.29999999701977,\n              \"dur\": 67\n            },\n            {\n              \"start\": 541.8999999910593,\n              \"dur\": 121\n            },\n            {\n              \"start\": 1381.2999999970198,\n              \"dur\": 2421\n            },\n            {\n              \"start\": 3810,\n              \"dur\": 100\n            }\n          ],\n          \"windowEndMs\": 4111.699999988079,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        },\n        {\n          \"lcp\": 852,\n          \"fcp\": 852,\n          \"tbt\": 2855,\n          \"tbtLighthouseWindow\": 2517,\n          \"cls\": 0,\n          \"longTasks\": 9,\n          \"tasks\": [\n            {\n              \"start\": 129.29999999701977,\n              \"dur\": 296\n            },\n            {\n              \"start\": 427.3999999910593,\n              \"dur\": 68\n            },\n            {\n              \"start\": 572.7000000029802,\n              \"dur\": 124\n            },\n            {\n              \"start\": 919.3999999910593,\n              \"dur\": 1704\n            },\n            {\n              \"start\": 2632.7999999970198,\n              \"dur\": 94\n            },\n            {\n              \"start\": 2788.5999999940395,\n              \"dur\": 67\n            },\n            {\n              \"start\": 2855.8999999910593,\n              \"dur\": 67\n            },\n            {\n              \"start\": 2948.8999999910593,\n              \"dur\": 57\n            },\n            {\n              \"start\": 3007.5999999940395,\n              \"dur\": 828\n            }\n          ],\n          \"windowEndMs\": 4627.20000000298,\n          \"transferBytes\": 1862214,\n          \"resources\": 53\n        },\n        {\n          \"lcp\": 876,\n          \"fcp\": 876,\n          \"tbt\": 3328,\n          \"tbtLighthouseWindow\": 3043,\n          \"cls\": 0,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 80.79999999701977,\n              \"dur\": 287\n            },\n            {\n              \"start\": 447.79999999701977,\n              \"dur\": 98\n            },\n            {\n              \"start\": 939.6000000089407,\n              \"dur\": 3035\n            },\n            {\n              \"start\": 3984.5,\n              \"dur\": 108\n            }\n          ],\n          \"windowEndMs\": 4291.100000008941,\n          \"transferBytes\": 1776266,\n          \"resources\": 43\n        }\n      ]\n    }\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T21:08:22.880Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/eager-payload-X-W2-G3-G4-—-2a4c3-≥20-cold-loads-both-configs-smoke-perf/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/eager-payload.spec.ts",
+                    "column": 14,
+                    "line": 533
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "788a1a78543e345a9dc6-e58474358c63168a557b",
+          "file": "smoke/perf/eager-payload.spec.ts",
+          "line": 377,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/perf/od19-route-load.spec.ts",
+      "file": "smoke/perf/od19-route-load.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "OD19-ALL route load (built bundle, CPU 4x)",
+          "file": "smoke/perf/od19-route-load.spec.ts",
+          "line": 109,
+          "column": 6,
+          "specs": [
+            {
+              "title": "#/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1499,
+                      "error": {
+                        "message": "Error: the entry chunk loaded\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeDefined\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mundefined\u001b[39m",
+                        "stack": "Error: the entry chunk loaded\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeDefined\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mundefined\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:157:53",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 53,
+                          "line": 157
+                        },
+                        "snippet": "  155 |             );\n  156 |\n> 157 |             expect(entry, \"the entry chunk loaded\").toBeDefined();\n      |                                                     ^\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n  160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual("
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 53,
+                            "line": 157
+                          },
+                          "message": "Error: the entry chunk loaded\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeDefined\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mundefined\u001b[39m\n\n  155 |             );\n  156 |\n> 157 |             expect(entry, \"the entry chunk loaded\").toBeDefined();\n      |                                                     ^\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n  160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:157:53"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/ content=408ms paneRequestGap=nullms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:12:39.675Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-0dcf4-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 53,
+                        "line": 157
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-d2cd62be065b50e61d58",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/palettes cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8990,
+                      "error": {
+                        "message": "Error: PalettesPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m262\u001b[39m",
+                        "stack": "Error: PalettesPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m262\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: PalettesPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m262\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/palettes content=5241ms paneRequestGap=262ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:12:59.227Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-efc72-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-39614d333d7b5fc9cb23",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/browse cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9473,
+                      "error": {
+                        "message": "Error: BrowsePane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m255\u001b[39m",
+                        "stack": "Error: BrowsePane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m255\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: BrowsePane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m255\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/browse content=1705ms paneRequestGap=255ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:13:27.924Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-e20a4-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-b9e55fa79a8368b43dfe",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/extract cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7542,
+                      "error": {
+                        "message": "Error: ExtractPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m250\u001b[39m",
+                        "stack": "Error: ExtractPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m250\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: ExtractPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m250\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/extract content=1584ms paneRequestGap=250ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:13:52.789Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-b9396-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-2b90c502850e4fc219ba",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/mix cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11170,
+                      "error": {
+                        "message": "Error: MixPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m294\u001b[39m",
+                        "stack": "Error: MixPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m294\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: MixPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m294\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/mix content=4940ms paneRequestGap=294ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:14:17.567Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-ffe7f-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-cae59ca2f6b7963cc14e",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/generate cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8894,
+                      "error": {
+                        "message": "Error: GeneratePane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m219\u001b[39m",
+                        "stack": "Error: GeneratePane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m219\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: GeneratePane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m219\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/generate content=1582ms paneRequestGap=219ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:14:45.567Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-19bf6-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-6818fd7c205d4267bd71",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/gradient cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6798,
+                      "error": {
+                        "message": "Error: GradientPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m201\u001b[39m",
+                        "stack": "Error: GradientPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m201\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: GradientPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m201\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/gradient content=2296ms paneRequestGap=201ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:15:11.518Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-4b820-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-3eca89bd0c578b54eb59",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/atmosphere cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8008,
+                      "error": {
+                        "message": "Error: AuroraPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m252\u001b[39m",
+                        "stack": "Error: AuroraPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m252\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: AuroraPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m252\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/atmosphere content=1364ms paneRequestGap=252ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:15:36.000Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-643b4-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-62364a9394e63341bd93",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/blob cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 13002,
+                      "error": {
+                        "message": "Error: BlobPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m208\u001b[39m",
+                        "stack": "Error: BlobPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m208\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: BlobPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m208\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/blob content=4124ms paneRequestGap=208ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:16:02.074Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-97baa-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-7b153e42f2343b99c790",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/admin/users cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5487,
+                      "error": {
+                        "message": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m250\u001b[39m",
+                        "stack": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m250\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m250\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/admin/users content=1543ms paneRequestGap=250ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:16:30.988Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-8915d-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-31cd10e4a797b7ddb674",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/admin/names cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7848,
+                      "error": {
+                        "message": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m232\u001b[39m",
+                        "stack": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m232\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m232\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/admin/names content=1188ms paneRequestGap=232ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:16:51.085Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-5d3ef-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-0f3301acc088a28f62d8",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/admin/audit cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5275,
+                      "error": {
+                        "message": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m271\u001b[39m",
+                        "stack": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m271\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m271\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/admin/audit content=1519ms paneRequestGap=271ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:17:21.436Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-9b96c-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-e3f82b0b83688db95a7f",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/admin/flagged cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 16480,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/admin/flagged content=948ms paneRequestGap=167ms\n"
+                        },
+                        {
+                          "text": "[od19-route-load] #/admin/flagged hop=3293ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:17:40.726Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-581c3f35c38c85f6bcff",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/admin/tags cold: pane chunk early, content ≤ 2500 ms, hop reaches content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 2812,
+                      "error": {
+                        "message": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m228\u001b[39m",
+                        "stack": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m228\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96",
+                        "location": {
+                          "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                          "column": 96,
+                          "line": 160
+                        },
+                        "snippet": "  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                            "column": 96,
+                            "line": 160
+                          },
+                          "message": "Error: AdminPane requested ≤ 180 ms after the entry\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m180\u001b[39m\nReceived:    \u001b[31m228\u001b[39m\n\n  158 |             if (chunk) {\n  159 |                 expect(pane, `${chunk} was requested`).toBeDefined();\n> 160 |                 expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(\n      |                                                                                                ^\n  161 |                     PANE_REQUEST_GAP_MS,\n  162 |                 );\n  163 |             }\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts:160:96"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/admin/tags content=1143ms paneRequestGap=228ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:18:19.441Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/od19-route-load-OD19-ALL-r-931c5-2500-ms-hop-reaches-content-smoke-perf/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf/od19-route-load.spec.ts",
+                        "column": 96,
+                        "line": 160
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-2e620113a2f1b9cb1b63",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            },
+            {
+              "title": "#/no-such-route cold: pane chunk early, content ≤ 1500 ms, hop reaches content",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-perf",
+                  "projectName": "smoke-perf",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12274,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[od19-route-load] #/no-such-route content=194ms paneRequestGap=nullms\n"
+                        },
+                        {
+                          "text": "[od19-route-load] #/no-such-route hop=3665ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T21:18:23.374Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d60b8d71e1a6c0b798bf-d455d79bbbd0dd752614",
+              "file": "smoke/perf/od19-route-load.spec.ts",
+              "line": 127,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-28T21:06:51.504Z",
+    "duration": 719763.177,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 16,
+    "flaky": 0
+  }
+}
