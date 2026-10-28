@@ -76,8 +76,7 @@
                                 (payload: number[] | undefined) => {
                                     const v = payload?.[0];
                                     if (v === undefined) return;
-                                    updateColorComponent(v, component, true);
-                                    activeComponent = component;
+                                    onSliderInput(component, v);
                                 }
                             "
                         />
@@ -125,18 +124,44 @@ const componentEntries = computed(() =>
     ],
 );
 
+// X.W11.v1 (BR-8): a hue channel's domain wraps 360° to 0° on write
+// (`clampPickerColor`, held by test/value-domain-clamp.test.ts). Without the
+// hold below, End drove the hue slider to 1, the model stored 0°, and the thumb
+// fell back to the start, so End read as Home. The slider keeps the position
+// it emitted while the model holds the same hue modulo 360. Any other write
+// (a pick, a parse, a space change) shows the model's own position again.
+const heldHuePosition = ref<{ component: string; position: number } | null>(null);
+
+function isHueChannel(component: string): boolean {
+    const meta = PICKER_CHANNELS[currentColorSpace.value].find((m) => m.key === component);
+    return !!meta && "hue" in meta && meta.hue === true;
+}
+
 function sliderValue(component: string): number {
     if (component === "alpha") {
         return typeof model.value.color.alpha === "number" ? model.value.color.alpha : 1;
     }
-    return normalizedChannel(model.value.color, component);
+    const position = normalizedChannel(model.value.color, component);
+    const held = heldHuePosition.value;
+    if (held && held.component === component && held.position === 1 && position === 0)
+        return held.position;
+    return position;
+}
+
+function onSliderInput(component: string, position: number): void {
+    heldHuePosition.value = isHueChannel(component) ? { component, position } : null;
+    updateColorComponent(position, component, true);
+    activeComponent.value = component;
 }
 
 // Active component — tracks which slider was last interacted with
 const activeComponent = ref<string | null>(null);
 
 // Reset active component when color space changes
-watch(currentColorSpace, () => { activeComponent.value = null; });
+watch(currentColorSpace, () => {
+    activeComponent.value = null;
+    heldHuePosition.value = null;
+});
 
 // Animation key — re-keys the ROWS + rail letters on a space change (the
 // chassis-persistence law: console card + ring never re-mount).
