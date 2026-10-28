@@ -220,6 +220,7 @@ import {
     computed,
     defineAsyncComponent,
     hydrateOnIdle,
+    hydrateOnInteraction,
     onMounted,
     provide,
     ref,
@@ -227,6 +228,7 @@ import {
     useTemplateRef,
     watch,
     type Component,
+    type HydrationStrategy,
 } from "vue";
 import { useRoute } from "vue-router";
 import { useMounted } from "@vueuse/core";
@@ -287,9 +289,31 @@ const HYDRATES_SHELL =
 // So the region's idle hydration also waits for its pane's chunk (the same
 // one load `preloadPane` shares with the slot); a failed chunk hydrates the
 // slot, whose plate phase shows the error plate as on any client view.
+// X.W11.p4d T1 (COHESION §0gs.4) — the stage's hydration walk left the App
+// mount task too. Its markup is painted from the shell, so only its
+// interactivity waits, and never on idle alone: the first pointer, key or
+// focus input on the region hydrates it at once (Vue replays that event on the
+// hydrated tree), and an idle main thread hydrates it otherwise.
+const STAGE_INPUTS: (keyof HTMLElementEventMap)[] = ["pointerdown", "keydown", "focusin"];
+const hydrateOnIdleOrInput: HydrationStrategy = (hydrate, forEach) => {
+    let hydrated = false;
+    const once = () => {
+        if (hydrated) return;
+        hydrated = true;
+        stopIdle?.();
+        stopInput?.();
+        hydrate();
+    };
+    const stopInput = hydrateOnInteraction(STAGE_INPUTS)(once, forEach);
+    const stopIdle = hydrateOnIdle()(once, forEach);
+    return () => {
+        stopIdle?.();
+        stopInput?.();
+    };
+};
 const idleHydratedSlots = new Map<RegionRole, Component>();
 function slotFor(region: { role: RegionRole; component: Component | null }): Component {
-    if (region.role === "stage" || !HYDRATES_SHELL) return PaneSlot;
+    if (!HYDRATES_SHELL) return PaneSlot;
     let slot = idleHydratedSlots.get(region.role);
     if (slot === undefined) {
         const firstPane = region.component;
@@ -299,7 +323,7 @@ function slotFor(region: { role: RegionRole; component: Component | null }): Com
                 if (loading !== null) await loading.then(noop, noop);
                 return PaneSlot;
             },
-            hydrate: hydrateOnIdle(),
+            hydrate: region.role === "stage" ? hydrateOnIdleOrInput : hydrateOnIdle(),
         });
         idleHydratedSlots.set(region.role, slot);
     }
