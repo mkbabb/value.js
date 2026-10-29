@@ -4814,3 +4814,13 @@ Ruled:
    - R11 rides §0gu.6 to glass W-G.5 and, in WebGPU form, O-112;
    - w7 ×3 is glass O-106.
    - G6 / `.dep` re-sits when e2e-smoke, visual and lhci (under 1) read GREEN at the tranche-u code tree.
+
+### §0gv.8 — 2026-10-29: the §0gu.10 host act, done over the owner's VPN
+- **Redeploy:** the host deploy hook ran at `/srv/constellation/palette-api`, from `6e14e90c9` to `bfe74d47f` (master, the 4.1.0 tree). The health gate passed on the second attempt, and the green marker is recorded. Public `https://api.color.babb.dev/health` reports `commit bfe74d47f…`, mongo ok, primary. G10 reads GREEN at master.
+- **Why push-to-deploy had stopped:** the cause was not the 404. GitHub posts to `/hooks/value.js`, and its last response was 200. But that hook still ran the pre-T.W1 path `scripts/deploy-hook.sh`, which no longer exists, so every master push since the T.W1 move redeployed nothing. `/hooks/value-js` was never a hook id, which is the only reason it answered 404.
+  - **Cure:** `hooks.json`'s `value.js` entry now runs `scripts/deploy/deploy-hook.sh`. The receiver hot-reloads. The previous file is backed up as `hooks.json.bak-x-w11-20261029`, with mode 0600 kept.
+  - **Checked:** an unsigned POST is refused with "Hook rules were not satisfied", so the HMAC rule still holds.
+  - **Effect:** `.dep`'s master merge now redeploys the API on the push.
+- **Still owed:** the ordinal migration. `967fde792`/`79509ce7a` and `migrate-ordinal-positions` are on tranche-u only. After `.dep`'s master push redeploys, the orchestrator runs the migration on the host: a dry run with its count report first, then the live run.
+- **Recorded, not touched:** `palette-api-backup-1` (mongo:8, healthy) belongs to the legacy compose project at `/home/mbabb/Programming/palette-api/compose.yaml`. The checkout's `api/compose.yaml` has no backup service, so compose names the container an orphan. It is left running, because it is the live backup. Moving backups into the tracked compose file, or into a host timer, is a follow-up row.
+- **Recorded, not touched:** the `words`, `speedtest` and `csp-solver` hooks still route to the legacy `dispatch.sh`. Those sites are retired, and speedtest and csp-solver now run on Cloudflare. The hooks are dead and are a candidate for removal.
