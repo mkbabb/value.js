@@ -17,7 +17,7 @@
  * therefore:
  *
  *   1. `$set`s `payloadHash` on every version row, recomputed from the row's
- *      own stored `name` + `colors` under the NEW framing;
+ *      own stored `colors` under the current framing (since §0gt.5: the ordered `css` only);
  *   2. `$set`s `revisionNo` per palette, 1-based, ordered by `createdAt`
  *      ascending with `_id` as a deterministic tiebreak;
  *   3. re-stamps every palette's `currentHash` under the new framing, so the
@@ -114,7 +114,7 @@ export async function migrateXW3PayloadHash(db: Db): Promise<MigrationReport> {
         for (const row of rows) {
             report.versionsScanned++;
             revisionNo++;
-            const payloadHash = computeContentHash(row.name, row.colors ?? []);
+            const payloadHash = computeContentHash(row.colors ?? []);
             const set: Record<string, unknown> = {};
             if (row.payloadHash !== payloadHash) set.payloadHash = payloadHash;
             if (row.revisionNo !== revisionNo) set.revisionNo = revisionNo;
@@ -132,7 +132,7 @@ export async function migrateXW3PayloadHash(db: Db): Promise<MigrationReport> {
     );
     for await (const doc of paletteCursor) {
         if (doc.currentHash === null || doc.currentHash === undefined) continue;
-        const restamped = computeContentHash(doc.name, doc.colors ?? []);
+        const restamped = computeContentHash(doc.colors ?? []);
         if (restamped === doc.currentHash) continue;
         await palettes.updateOne(
             { slug: doc.slug },

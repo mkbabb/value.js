@@ -68,7 +68,7 @@ export async function forkPalette(
     }
 
     const colors = source.colors;
-    const contentHash = computeContentHash(forkName, colors);
+    const contentHash = computeContentHash(colors);
     const now = new Date();
 
     const newDoc: Palette = {

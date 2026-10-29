@@ -53,7 +53,7 @@ export async function createVersionRecord(
     session?: ClientSession,
 ): Promise<string> {
     const { paletteSlug, name, colors, authorSlug, parentHash, forkedFromHash } = input;
-    const payloadHash = computeContentHash(name, colors);
+    const payloadHash = computeContentHash(colors);
 
     const head = await services.repositories.paletteVersions.findHeadByPaletteSlug(
         paletteSlug,
@@ -188,7 +188,7 @@ export async function revertToVersion(
     );
     if (!version) throw new NotFoundError("Version not found");
 
-    const newHash = computeContentHash(version.name, version.colors);
+    const newHash = computeContentHash(version.colors);
     const newOklab: OklabTriple[] = computeOklabColors(version.colors);
 
     // Revert is a cross-collection write: insert the attribution version

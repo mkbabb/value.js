@@ -61,7 +61,13 @@ export interface PaletteColor {
      * through without a normalization step.
      */
     name?: string | undefined;
+    /** The 0-based integer order of the colour in the palette (PCS-11, §0gt.5). */
     position: number;
+    /**
+     * PCS-3 (§0gt.5): the colour's population share where the producer knows
+     * it (Extract) — finite, ≥ 0, persisted, and outside the content hash.
+     */
+    weight?: number | undefined;
 }
 
 export interface OklabTriple {
@@ -135,9 +141,9 @@ export interface PaletteVersion {
     _id: string;
     /**
      * X-W3 · G-7: the **payload hash** — the identity of WHAT this revision
-     * is (`computeContentHash`: name + every stop's `css`, `name`, position,
-     * domain-framed). Two releases of the same content share this value and
-     * differ in `_id`. Mirrors `Palette.currentHash`.
+     * is (`computeContentHash`: the ordered colours' `css` only, domain-framed —
+     * §0gt.5). Two releases of the same content share this value and differ
+     * in `_id`. Mirrors `Palette.currentHash`.
      */
     payloadHash: string;
     /**

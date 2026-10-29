@@ -24,13 +24,44 @@ export const slugSchema = z
 
 export const paletteNameSchema = z.string().trim().min(1).max(100);
 
+/**
+ * One colour of a palette — the PCS-3/PCS-11 contract (COHESION §0gt.5).
+ *
+ * - `position` is REQUIRED: the 0-based integer ORDER of the colour in the
+ *   palette (`0, 1, 2, …`). It is the array index, stated on the wire; gradient
+ *   stop offsets are not palette semantics (gradients carry their own stops),
+ *   so a fractional encoding such as `i / (n - 1)` is refused.
+ * - `weight` is OPTIONAL: a finite number ≥ 0, the colour's population share
+ *   where the producer knows it (Extract). It is persisted as sent, never
+ *   stripped; it is descriptive metadata and takes no part in the palette's
+ *   content hash (`hash.ts: computeContentHash`).
+ */
 export const colorEntrySchema = z.object({
     css: z.string().min(1).max(200),
     name: z.string().max(64).optional(),
-    position: z.number().finite(),
+    position: z.number().int().nonnegative(),
+    weight: z.number().finite().nonnegative().optional(),
 });
 
-export const colorsArraySchema = z.array(colorEntrySchema).min(1).max(50);
+/**
+ * The colours of a palette, in order. Each entry's `position` must equal its
+ * index, so the array order and the declared order are one order.
+ */
+export const colorsArraySchema = z
+    .array(colorEntrySchema)
+    .min(1)
+    .max(50)
+    .superRefine((colors, ctx) => {
+        colors.forEach((c, i) => {
+            if (c.position !== i) {
+                ctx.addIssue({
+                    code: "custom",
+                    path: [i, "position"],
+                    message: `position must be the colour's 0-based order (${i}), got ${c.position}`,
+                });
+            }
+        });
+    });
 
 export const tagsArraySchema = z.array(z.string().min(1).max(30)).max(10);
 
