@@ -1,0 +1,397 @@
+{
+ "name": "vrbatt__palettes__both__1024__light__real__angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
+ "dpr": 1,
+ "scrollY": 0,
+ "runs": [
+  {
+   "text": "Palettes",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     339.8125,
+     31.140625,
+     397.046875,
+     50.140625
+    ]
+   ]
+  },
+  {
+   "text": "Tools",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     475.78125,
+     31.140625,
+     515.078125,
+     50.140625
+    ]
+   ]
+  },
+  {
+   "text": "Login",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     589.8125,
+     31.140625,
+     630.890625,
+     50.140625
+    ]
+   ]
+  },
+  {
+   "text": "@mbabb",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     656.890625,
+     30.140625,
+     712.1875,
+     50.140625
+    ]
+   ]
+  },
+  {
+   "text": "Palettes view",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     24.59375,
+     89,
+     133.453125,
+     111
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     42.59375,
+     107,
+     184.109375,
+     164
+    ]
+   ]
+  },
+  {
+   "text": "73",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     42.59375,
+     177.796875,
+     88.5,
+     221.796875
+    ]
+   ]
+  },
+  {
+   "text": ".0",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     88.5,
+     177.796875,
+     117.90625,
+     221.796875
+    ]
+   ]
+  },
+  {
+   "text": "%",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     119.46875,
+     193.796875,
+     132.765625,
+     217.796875
+    ]
+   ]
+  },
+  {
+   "text": ",",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     132.765625,
+     177.796875,
+     139.53125,
+     221.796875
+    ]
+   ]
+  },
+  {
+   "text": "0",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     156.640625,
+     177.796875,
+     179.59375,
+     221.796875
+    ]
+   ]
+  },
+  {
+   "text": ".2",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     179.59375,
+     177.796875,
+     209,
+     221.796875
+    ]
+   ]
+  },
+  {
+   "text": ",",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     209,
+     177.796875,
+     215.765625,
+     221.796875
+    ]
+   ]
+  },
+  {
+   "text": "2",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     232.875,
+     177.796875,
+     255.828125,
+     221.796875
+    ]
+   ]
+  },
+  {
+   "text": ".0",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     255.828125,
+     177.796875,
+     285.234375,
+     221.796875
+    ]
+   ]
+  },
+  {
+   "text": "deg",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     286.796875,
+     193.796875,
+     314.53125,
+     217.796875
+    ]
+   ]
+  },
+  {
+   "text": "L",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     66.328125,
+     499.828125,
+     78.171875,
+     524.828125
+    ]
+   ]
+  },
+  {
+   "text": "C",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     65.59375,
+     534.578125,
+     78.90625,
+     559.578125
+    ]
+   ]
+  },
+  {
+   "text": "h",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     66.1875,
+     569.328125,
+     78.296875,
+     594.328125
+    ]
+   ]
+  },
+  {
+   "text": "α",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     66.125,
+     604.078125,
+     78.375,
+     631.078125
+    ]
+   ]
+  },
+  {
+   "text": "73.0%",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     354.0625,
+     499.5,
+     394.59375,
+     516.5
+    ]
+   ]
+  },
+  {
+   "text": "0.2",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     370.265625,
+     537.5,
+     394.59375,
+     554.5
+    ]
+   ]
+  },
+  {
+   "text": "2.0deg",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     345.953125,
+     575.5,
+     394.59375,
+     592.5
+    ]
+   ]
+  },
+  {
+   "text": "100.0%",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     345.953125,
+     613.5,
+     394.59375,
+     630.5
+    ]
+   ]
+  },
+  {
+   "text": "My",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     463.390625,
+     101,
+     520.234375,
+     145
+    ]
+   ]
+  },
+  {
+   "text": "Palettes",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     520.234375,
+     101,
+     645.703125,
+     145
+    ]
+   ]
+  },
+  {
+   "text": "Save, organize, and share your colors.",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     463.390625,
+     150.34375,
+     700.84375,
+     167.34375
+    ]
+   ]
+  },
+  {
+   "text": "Start a new palette",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     476.390625,
+     280.28125,
+     633.09375,
+     301.28125
+    ]
+   ]
+  },
+  {
+   "text": "No saved palettes yet.",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     641.40625,
+     409.625,
+     795.390625,
+     428.625
+    ]
+   ]
+  },
+  {
+   "text": "Add colors, then save.",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     638.828125,
+     436.734375,
+     797.96875,
+     455.734375
+    ]
+   ]
+  }
+ ]
+}
