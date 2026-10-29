@@ -1,0 +1,12 @@
+  ✓  1 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:214:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional (4.0s)
+ "before": "|",
+ "during": "|oklch(73% 0.185 2deg)",
+ "after": "|",
+  ✓  2 [smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM (8.0s)
+  ✓  3 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:214:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional (3.7s)
+ "before": "|",
+ "during": "|oklch(73% 0.185 2deg)",
+ "after": "|",
+  ✓  4 [smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM (7.1s)
+  4 passed (24.1s)
+exit=0

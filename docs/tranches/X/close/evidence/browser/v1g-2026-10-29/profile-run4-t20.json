@@ -1,0 +1,1382 @@
+{
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "dragMs": 2541.4,
+ "observerLongTasksMs": [],
+ "traceLongTasks": [
+  {
+   "offsetMs": 4.6,
+   "durMs": 33.6,
+   "samples": 223,
+   "selfTop": [
+    {
+     "fn": "(program)",
+     "samples": 55,
+     "pct": 24.7
+    },
+    {
+     "fn": "getBoundingClientRect",
+     "samples": 37,
+     "pct": 16.6
+    },
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 11,
+     "pct": 4.9
+    },
+    {
+     "fn": "Z → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:442",
+     "samples": 11,
+     "pct": 4.9
+    },
+    {
+     "fn": "Re → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:459",
+     "samples": 9,
+     "pct": 4
+    },
+    {
+     "fn": "getImageData",
+     "samples": 6,
+     "pct": 2.7
+    },
+    {
+     "fn": "(garbage collector)",
+     "samples": 6,
+     "pct": 2.7
+    },
+    {
+     "fn": "s → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6069",
+     "samples": 5,
+     "pct": 2.2
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 93,
+     "pct": 41.7
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 89,
+     "pct": 39.9
+    },
+    {
+     "fn": "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248",
+     "samples": 61,
+     "pct": 27.4
+    },
+    {
+     "fn": "s → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6069",
+     "samples": 60,
+     "pct": 26.9
+    },
+    {
+     "fn": "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296",
+     "samples": 60,
+     "pct": 26.9
+    },
+    {
+     "fn": "v → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5428",
+     "samples": 56,
+     "pct": 25.1
+    },
+    {
+     "fn": "k → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5898",
+     "samples": 50,
+     "pct": 22.4
+    },
+    {
+     "fn": "C → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202",
+     "samples": 47,
+     "pct": 21.1
+    },
+    {
+     "fn": "(anonymous) → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:220",
+     "samples": 47,
+     "pct": 21.1
+    },
+    {
+     "fn": "h → ? @ node_modules/@mkbabb/glass-ui/dist/useResizeObserver-CdUlm2QZ.js:5",
+     "samples": 47,
+     "pct": 21.1
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "",
+     "samples": 102,
+     "pct": 45.7
+    },
+    {
+     "fn": "? @ node_modules/@mkbabb/glass-ui/dist/dock.js:113 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:127 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:220 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/useResizeObserver-CdUlm2QZ.js:5",
+     "samples": 39,
+     "pct": 17.5
+    },
+    {
+     "fn": "? @ node_modules/@mkbabb/glass-ui/dist/dock.js:459 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:509 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:534",
+     "samples": 9,
+     "pct": 4
+    },
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155 ⟵ ? @ demo/color-session/ink.ts:120",
+     "samples": 7,
+     "pct": 3.1
+    }
+   ]
+  },
+  {
+   "offsetMs": 148.8,
+   "durMs": 49,
+   "samples": 288,
+   "selfTop": [
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 106,
+     "pct": 36.8
+    },
+    {
+     "fn": "gt → s @ ../../../../dist/color-BU4JS6bH.js:143",
+     "samples": 31,
+     "pct": 10.8
+    },
+    {
+     "fn": "k → O @ ../../../../dist/color-BU4JS6bH.js:162",
+     "samples": 25,
+     "pct": 8.7
+    },
+    {
+     "fn": "o → ? @ ../../../../dist/anchors-K_Niq8pl.js:1",
+     "samples": 20,
+     "pct": 6.9
+    },
+    {
+     "fn": "Lt → L @ ../../../../dist/color-BU4JS6bH.js:255",
+     "samples": 19,
+     "pct": 6.6
+    },
+    {
+     "fn": "(garbage collector)",
+     "samples": 15,
+     "pct": 5.2
+    },
+    {
+     "fn": "(program)",
+     "samples": 8,
+     "pct": 2.8
+    },
+    {
+     "fn": "zt → z @ ../../../../dist/color-BU4JS6bH.js:292",
+     "samples": 8,
+     "pct": 2.8
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 262,
+     "pct": 91
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 262,
+     "pct": 91
+    },
+    {
+     "fn": "We → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:394",
+     "samples": 246,
+     "pct": 85.4
+    },
+    {
+     "fn": "Ue → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:383",
+     "samples": 245,
+     "pct": 85.1
+    },
+    {
+     "fn": "Bt → V @ ../../../../dist/color-BU4JS6bH.js:304",
+     "samples": 244,
+     "pct": 84.7
+    },
+    {
+     "fn": "Hf → ? @ demo/color-session/ink.ts:155",
+     "samples": 243,
+     "pct": 84.4
+    },
+    {
+     "fn": "zf → ? @ demo/color-session/ink.ts:120",
+     "samples": 243,
+     "pct": 84.4
+    },
+    {
+     "fn": "p → ? @ ../../../../dist/color-BU4JS6bH.js:329",
+     "samples": 242,
+     "pct": 84
+    },
+    {
+     "fn": "a → ? @ demo/color-session/ink.ts:162",
+     "samples": 242,
+     "pct": 84
+    },
+    {
+     "fn": "w → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:1909",
+     "samples": 218,
+     "pct": 75.7
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155 ⟵ ? @ demo/color-session/ink.ts:120",
+     "samples": 98,
+     "pct": 34
+    },
+    {
+     "fn": "",
+     "samples": 30,
+     "pct": 10.4
+    },
+    {
+     "fn": "s @ ../../../../dist/color-BU4JS6bH.js:143 ⟵ D @ ../../../../dist/color-BU4JS6bH.js:159 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155",
+     "samples": 26,
+     "pct": 9
+    },
+    {
+     "fn": "O @ ../../../../dist/color-BU4JS6bH.js:162 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155 ⟵ ? @ demo/color-session/ink.ts:120",
+     "samples": 18,
+     "pct": 6.3
+    }
+   ]
+  },
+  {
+   "offsetMs": 239.3,
+   "durMs": 27.2,
+   "samples": 157,
+   "selfTop": [
+    {
+     "fn": "(program)",
+     "samples": 61,
+     "pct": 38.9
+    },
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 24,
+     "pct": 15.3
+    },
+    {
+     "fn": "Lt → L @ ../../../../dist/color-BU4JS6bH.js:255",
+     "samples": 8,
+     "pct": 5.1
+    },
+    {
+     "fn": "o → ? @ ../../../../dist/anchors-K_Niq8pl.js:1",
+     "samples": 4,
+     "pct": 2.5
+    },
+    {
+     "fn": "dt → ? @ ../../../../dist/anchors-K_Niq8pl.js:394",
+     "samples": 4,
+     "pct": 2.5
+    },
+    {
+     "fn": "(garbage collector)",
+     "samples": 4,
+     "pct": 2.5
+    },
+    {
+     "fn": "k → O @ ../../../../dist/color-BU4JS6bH.js:162",
+     "samples": 4,
+     "pct": 2.5
+    },
+    {
+     "fn": "gt → s @ ../../../../dist/color-BU4JS6bH.js:143",
+     "samples": 3,
+     "pct": 1.9
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 88,
+     "pct": 56.1
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 88,
+     "pct": 56.1
+    },
+    {
+     "fn": "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248",
+     "samples": 63,
+     "pct": 40.1
+    },
+    {
+     "fn": "s → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6069",
+     "samples": 61,
+     "pct": 38.9
+    },
+    {
+     "fn": "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296",
+     "samples": 61,
+     "pct": 38.9
+    },
+    {
+     "fn": "v → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5428",
+     "samples": 56,
+     "pct": 35.7
+    },
+    {
+     "fn": "A → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6047",
+     "samples": 55,
+     "pct": 35
+    },
+    {
+     "fn": "re → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5972",
+     "samples": 55,
+     "pct": 35
+    },
+    {
+     "fn": "k → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5898",
+     "samples": 53,
+     "pct": 33.8
+    },
+    {
+     "fn": "Bt → V @ ../../../../dist/color-BU4JS6bH.js:304",
+     "samples": 52,
+     "pct": 33.1
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "",
+     "samples": 84,
+     "pct": 53.5
+    },
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155 ⟵ ? @ demo/color-session/ink.ts:120",
+     "samples": 20,
+     "pct": 12.7
+    },
+    {
+     "fn": "L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155 ⟵ ? @ demo/color-session/ink.ts:120 ⟵ ? @ demo/color-session/ink.ts:354",
+     "samples": 5,
+     "pct": 3.2
+    },
+    {
+     "fn": "? @ ../../../../dist/anchors-K_Niq8pl.js:1 ⟵ I @ ../../../../dist/anchors-K_Niq8pl.js:291 ⟵ ? @ ../../../../dist/anchors-K_Niq8pl.js:432 ⟵ M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304",
+     "samples": 4,
+     "pct": 2.5
+    }
+   ]
+  },
+  {
+   "offsetMs": 356.2,
+   "durMs": 26.5,
+   "samples": 191,
+   "selfTop": [
+    {
+     "fn": "(program)",
+     "samples": 89,
+     "pct": 46.6
+    },
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 23,
+     "pct": 12
+    },
+    {
+     "fn": "gt → s @ ../../../../dist/color-BU4JS6bH.js:143",
+     "samples": 10,
+     "pct": 5.2
+    },
+    {
+     "fn": "k → O @ ../../../../dist/color-BU4JS6bH.js:162",
+     "samples": 5,
+     "pct": 2.6
+    },
+    {
+     "fn": "(garbage collector)",
+     "samples": 5,
+     "pct": 2.6
+    },
+    {
+     "fn": "Lt → L @ ../../../../dist/color-BU4JS6bH.js:255",
+     "samples": 4,
+     "pct": 2.1
+    },
+    {
+     "fn": "o → ? @ ../../../../dist/anchors-K_Niq8pl.js:1",
+     "samples": 3,
+     "pct": 1.6
+    },
+    {
+     "fn": "(anonymous) → ? @ ../../../../dist/anchors-K_Niq8pl.js:292",
+     "samples": 3,
+     "pct": 1.6
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 95,
+     "pct": 49.7
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 94,
+     "pct": 49.2
+    },
+    {
+     "fn": "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248",
+     "samples": 74,
+     "pct": 38.7
+    },
+    {
+     "fn": "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296",
+     "samples": 74,
+     "pct": 38.7
+    },
+    {
+     "fn": "s → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6069",
+     "samples": 73,
+     "pct": 38.2
+    },
+    {
+     "fn": "v → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5428",
+     "samples": 67,
+     "pct": 35.1
+    },
+    {
+     "fn": "A → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6047",
+     "samples": 65,
+     "pct": 34
+    },
+    {
+     "fn": "re → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5972",
+     "samples": 65,
+     "pct": 34
+    },
+    {
+     "fn": "k → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5898",
+     "samples": 63,
+     "pct": 33
+    },
+    {
+     "fn": "te → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5747",
+     "samples": 59,
+     "pct": 30.9
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "",
+     "samples": 111,
+     "pct": 58.1
+    },
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155 ⟵ ? @ demo/color-session/ink.ts:120",
+     "samples": 18,
+     "pct": 9.4
+    },
+    {
+     "fn": "s @ ../../../../dist/color-BU4JS6bH.js:143 ⟵ D @ ../../../../dist/color-BU4JS6bH.js:159 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155",
+     "samples": 7,
+     "pct": 3.7
+    },
+    {
+     "fn": "L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155 ⟵ ? @ demo/color-session/ink.ts:120 ⟵ ? @ demo/color-session/ink.ts:354",
+     "samples": 4,
+     "pct": 2.1
+    }
+   ]
+  },
+  {
+   "offsetMs": 472,
+   "durMs": 37.5,
+   "samples": 222,
+   "selfTop": [
+    {
+     "fn": "getAnimations",
+     "samples": 61,
+     "pct": 27.5
+    },
+    {
+     "fn": "(program)",
+     "samples": 34,
+     "pct": 15.3
+    },
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 18,
+     "pct": 8.1
+    },
+    {
+     "fn": "(garbage collector)",
+     "samples": 15,
+     "pct": 6.8
+    },
+    {
+     "fn": "Z → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:442",
+     "samples": 11,
+     "pct": 5
+    },
+    {
+     "fn": "Re → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:459",
+     "samples": 10,
+     "pct": 4.5
+    },
+    {
+     "fn": "gt → s @ ../../../../dist/color-BU4JS6bH.js:143",
+     "samples": 8,
+     "pct": 3.6
+    },
+    {
+     "fn": "k → O @ ../../../../dist/color-BU4JS6bH.js:162",
+     "samples": 5,
+     "pct": 2.3
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 84,
+     "pct": 37.8
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 83,
+     "pct": 37.4
+    },
+    {
+     "fn": "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296",
+     "samples": 64,
+     "pct": 28.8
+    },
+    {
+     "fn": "s → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6069",
+     "samples": 63,
+     "pct": 28.4
+    },
+    {
+     "fn": "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248",
+     "samples": 63,
+     "pct": 28.4
+    },
+    {
+     "fn": "re → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5972",
+     "samples": 57,
+     "pct": 25.7
+    },
+    {
+     "fn": "v → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5428",
+     "samples": 57,
+     "pct": 25.7
+    },
+    {
+     "fn": "A → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6047",
+     "samples": 56,
+     "pct": 25.2
+    },
+    {
+     "fn": "k → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5898",
+     "samples": 56,
+     "pct": 25.2
+    },
+    {
+     "fn": "te → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5747",
+     "samples": 54,
+     "pct": 24.3
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "",
+     "samples": 63,
+     "pct": 28.4
+    },
+    {
+     "fn": "? @ demo/app/composables/boot/useOverture.ts:188",
+     "samples": 36,
+     "pct": 16.2
+    },
+    {
+     "fn": "? @ demo/app/composables/boot/useOverture.ts:231 ⟵ ? @ demo/app/App.vue:370 ⟵ ? @ demo/shell/PaneSlot.vue:284",
+     "samples": 27,
+     "pct": 12.2
+    },
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155 ⟵ ? @ demo/color-session/ink.ts:120",
+     "samples": 16,
+     "pct": 7.2
+    }
+   ]
+  },
+  {
+   "offsetMs": 611.2,
+   "durMs": 24.6,
+   "samples": 144,
+   "selfTop": [
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 52,
+     "pct": 36.1
+    },
+    {
+     "fn": "k → O @ ../../../../dist/color-BU4JS6bH.js:162",
+     "samples": 17,
+     "pct": 11.8
+    },
+    {
+     "fn": "gt → s @ ../../../../dist/color-BU4JS6bH.js:143",
+     "samples": 17,
+     "pct": 11.8
+    },
+    {
+     "fn": "o → ? @ ../../../../dist/anchors-K_Niq8pl.js:1",
+     "samples": 9,
+     "pct": 6.3
+    },
+    {
+     "fn": "(garbage collector)",
+     "samples": 9,
+     "pct": 6.3
+    },
+    {
+     "fn": "fromEncoded → ? @ ../../../../dist/anchors-K_Niq8pl.js:397",
+     "samples": 6,
+     "pct": 4.2
+    },
+    {
+     "fn": "(program)",
+     "samples": 4,
+     "pct": 2.8
+    },
+    {
+     "fn": "Lt → L @ ../../../../dist/color-BU4JS6bH.js:255",
+     "samples": 4,
+     "pct": 2.8
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "i → ? @ demo/app/composables/boot/useViewAccents.ts:190",
+     "samples": 130,
+     "pct": 90.3
+    },
+    {
+     "fn": "hg → ? @ demo/color-session/palettes-ramp.ts:131",
+     "samples": 129,
+     "pct": 89.6
+    },
+    {
+     "fn": "Bt → V @ ../../../../dist/color-BU4JS6bH.js:304",
+     "samples": 128,
+     "pct": 88.9
+    },
+    {
+     "fn": "a → ? @ demo/color-session/ink.ts:162",
+     "samples": 128,
+     "pct": 88.9
+    },
+    {
+     "fn": "Hf → ? @ demo/color-session/ink.ts:155",
+     "samples": 128,
+     "pct": 88.9
+    },
+    {
+     "fn": "zf → ? @ demo/color-session/ink.ts:120",
+     "samples": 128,
+     "pct": 88.9
+    },
+    {
+     "fn": "tp → ? @ demo/color-session/ink.ts:354",
+     "samples": 128,
+     "pct": 88.9
+    },
+    {
+     "fn": "p → ? @ ../../../../dist/color-BU4JS6bH.js:329",
+     "samples": 127,
+     "pct": 88.2
+    },
+    {
+     "fn": "Lt → L @ ../../../../dist/color-BU4JS6bH.js:255",
+     "samples": 123,
+     "pct": 85.4
+    },
+    {
+     "fn": "u → ? @ ../../../../dist/color-BU4JS6bH.js:315",
+     "samples": 123,
+     "pct": 85.4
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:315 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155",
+     "samples": 51,
+     "pct": 35.4
+    },
+    {
+     "fn": "O @ ../../../../dist/color-BU4JS6bH.js:162 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:315 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155",
+     "samples": 17,
+     "pct": 11.8
+    },
+    {
+     "fn": "s @ ../../../../dist/color-BU4JS6bH.js:143 ⟵ D @ ../../../../dist/color-BU4JS6bH.js:159 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:315 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162",
+     "samples": 15,
+     "pct": 10.4
+    },
+    {
+     "fn": "",
+     "samples": 13,
+     "pct": 9
+    }
+   ]
+  },
+  {
+   "offsetMs": 1305.4,
+   "durMs": 24.5,
+   "samples": 155,
+   "selfTop": [
+    {
+     "fn": "(program)",
+     "samples": 55,
+     "pct": 35.5
+    },
+    {
+     "fn": "getBoundingClientRect",
+     "samples": 25,
+     "pct": 16.1
+    },
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 9,
+     "pct": 5.8
+    },
+    {
+     "fn": "getImageData",
+     "samples": 8,
+     "pct": 5.2
+    },
+    {
+     "fn": "o → ? @ ../../../../dist/anchors-K_Niq8pl.js:1",
+     "samples": 4,
+     "pct": 2.6
+    },
+    {
+     "fn": "(garbage collector)",
+     "samples": 3,
+     "pct": 1.9
+    },
+    {
+     "fn": "ls → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:7782",
+     "samples": 3,
+     "pct": 1.9
+    },
+    {
+     "fn": "k → O @ ../../../../dist/color-BU4JS6bH.js:162",
+     "samples": 3,
+     "pct": 1.9
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 59,
+     "pct": 38.1
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 58,
+     "pct": 37.4
+    },
+    {
+     "fn": "C → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202",
+     "samples": 37,
+     "pct": 23.9
+    },
+    {
+     "fn": "Ne.ue.immediate → O @ node_modules/@mkbabb/glass-ui/dist/dock.js:208",
+     "samples": 37,
+     "pct": 23.9
+    },
+    {
+     "fn": "(anonymous) → ? @ node_modules/@mkbabb/glass-ui/dist/useScrollChrome-BJbWV32F.js:45",
+     "samples": 37,
+     "pct": 23.9
+    },
+    {
+     "fn": "w → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:1909",
+     "samples": 32,
+     "pct": 20.6
+    },
+    {
+     "fn": "R → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:204",
+     "samples": 31,
+     "pct": 20
+    },
+    {
+     "fn": "u.call → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:887",
+     "samples": 30,
+     "pct": 19.4
+    },
+    {
+     "fn": "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248",
+     "samples": 28,
+     "pct": 18.1
+    },
+    {
+     "fn": "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296",
+     "samples": 28,
+     "pct": 18.1
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "",
+     "samples": 70,
+     "pct": 45.2
+    },
+    {
+     "fn": "? @ node_modules/@mkbabb/glass-ui/dist/dock.js:113 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:127 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202 ⟵ O @ node_modules/@mkbabb/glass-ui/dist/dock.js:208 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/useScrollChrome-BJbWV32F.js:45",
+     "samples": 28,
+     "pct": 18.1
+    },
+    {
+     "fn": "? @ node_modules/@mkbabb/glass-ui/dist/dock.js:95 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202 ⟵ O @ node_modules/@mkbabb/glass-ui/dist/dock.js:208 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/useScrollChrome-BJbWV32F.js:45",
+     "samples": 8,
+     "pct": 5.2
+    },
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:315 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/view-accent.ts:19 ⟵ ? @ demo/app/composables/boot/useViewAccents.ts:170",
+     "samples": 5,
+     "pct": 3.2
+    }
+   ]
+  },
+  {
+   "offsetMs": 1466.3,
+   "durMs": 22.9,
+   "samples": 145,
+   "selfTop": [
+    {
+     "fn": "(program)",
+     "samples": 55,
+     "pct": 37.9
+    },
+    {
+     "fn": "b → ? @ node_modules/reka-ui/dist/Slider/SliderHorizontal.js:45",
+     "samples": 37,
+     "pct": 25.5
+    },
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 11,
+     "pct": 7.6
+    },
+    {
+     "fn": "gt → s @ ../../../../dist/color-BU4JS6bH.js:143",
+     "samples": 6,
+     "pct": 4.1
+    },
+    {
+     "fn": "te → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5747",
+     "samples": 2,
+     "pct": 1.4
+    },
+    {
+     "fn": "Lc → ? @ node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js:572",
+     "samples": 2,
+     "pct": 1.4
+    },
+    {
+     "fn": "track → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:564",
+     "samples": 2,
+     "pct": 1.4
+    },
+    {
+     "fn": "Lt → L @ ../../../../dist/color-BU4JS6bH.js:255",
+     "samples": 2,
+     "pct": 1.4
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 86,
+     "pct": 59.3
+    },
+    {
+     "fn": "R → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:204",
+     "samples": 59,
+     "pct": 40.7
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 47,
+     "pct": 32.4
+    },
+    {
+     "fn": "Ga → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:4381",
+     "samples": 39,
+     "pct": 26.9
+    },
+    {
+     "fn": "s.onPointermove.t.<computed> → ? @ node_modules/reka-ui/dist/Slider/SliderImpl.js:53",
+     "samples": 39,
+     "pct": 26.9
+    },
+    {
+     "fn": "n → ? @ node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js:739",
+     "samples": 39,
+     "pct": 26.9
+    },
+    {
+     "fn": "b → ? @ node_modules/reka-ui/dist/Slider/SliderHorizontal.js:45",
+     "samples": 38,
+     "pct": 26.2
+    },
+    {
+     "fn": "w.onSlideMove.n.<computed> → ? @ node_modules/reka-ui/dist/Slider/SliderHorizontal.js:76",
+     "samples": 38,
+     "pct": 26.2
+    },
+    {
+     "fn": "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296",
+     "samples": 26,
+     "pct": 17.9
+    },
+    {
+     "fn": "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248",
+     "samples": 25,
+     "pct": 17.2
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "",
+     "samples": 69,
+     "pct": 47.6
+    },
+    {
+     "fn": "? @ node_modules/reka-ui/dist/Slider/SliderHorizontal.js:45 ⟵ ? @ node_modules/reka-ui/dist/Slider/SliderHorizontal.js:76 ⟵ ? @ node_modules/reka-ui/dist/Slider/SliderImpl.js:53",
+     "samples": 38,
+     "pct": 26.2
+    },
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:315 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155",
+     "samples": 4,
+     "pct": 2.8
+    },
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:315 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:505 ⟵ ? @ demo/app/composables/boot/useViewAccents.ts:247",
+     "samples": 3,
+     "pct": 2.1
+    }
+   ]
+  },
+  {
+   "offsetMs": 2104.2,
+   "durMs": 24.9,
+   "samples": 154,
+   "selfTop": [
+    {
+     "fn": "(program)",
+     "samples": 61,
+     "pct": 39.6
+    },
+    {
+     "fn": "getBoundingClientRect",
+     "samples": 25,
+     "pct": 16.2
+    },
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 10,
+     "pct": 6.5
+    },
+    {
+     "fn": "gt → s @ ../../../../dist/color-BU4JS6bH.js:143",
+     "samples": 9,
+     "pct": 5.8
+    },
+    {
+     "fn": "getImageData",
+     "samples": 7,
+     "pct": 4.5
+    },
+    {
+     "fn": "o → ? @ ../../../../dist/anchors-K_Niq8pl.js:1",
+     "samples": 3,
+     "pct": 1.9
+    },
+    {
+     "fn": "ls → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:7782",
+     "samples": 2,
+     "pct": 1.3
+    },
+    {
+     "fn": "te → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:5747",
+     "samples": 2,
+     "pct": 1.3
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 56,
+     "pct": 36.4
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 55,
+     "pct": 35.7
+    },
+    {
+     "fn": "C → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202",
+     "samples": 36,
+     "pct": 23.4
+    },
+    {
+     "fn": "Ne.ue.immediate → O @ node_modules/@mkbabb/glass-ui/dist/dock.js:208",
+     "samples": 36,
+     "pct": 23.4
+    },
+    {
+     "fn": "(anonymous) → ? @ node_modules/@mkbabb/glass-ui/dist/useScrollChrome-BJbWV32F.js:45",
+     "samples": 36,
+     "pct": 23.4
+    },
+    {
+     "fn": "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248",
+     "samples": 29,
+     "pct": 18.8
+    },
+    {
+     "fn": "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296",
+     "samples": 29,
+     "pct": 18.8
+    },
+    {
+     "fn": "s → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6069",
+     "samples": 27,
+     "pct": 17.5
+    },
+    {
+     "fn": "Lt → L @ ../../../../dist/color-BU4JS6bH.js:255",
+     "samples": 27,
+     "pct": 17.5
+    },
+    {
+     "fn": "De → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:113",
+     "samples": 27,
+     "pct": 17.5
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "",
+     "samples": 72,
+     "pct": 46.8
+    },
+    {
+     "fn": "? @ node_modules/@mkbabb/glass-ui/dist/dock.js:113 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:127 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202 ⟵ O @ node_modules/@mkbabb/glass-ui/dist/dock.js:208 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/useScrollChrome-BJbWV32F.js:45",
+     "samples": 27,
+     "pct": 17.5
+    },
+    {
+     "fn": "? @ node_modules/@mkbabb/glass-ui/dist/dock.js:95 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202 ⟵ O @ node_modules/@mkbabb/glass-ui/dist/dock.js:208 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/useScrollChrome-BJbWV32F.js:45",
+     "samples": 8,
+     "pct": 5.2
+    },
+    {
+     "fn": "s @ ../../../../dist/color-BU4JS6bH.js:143 ⟵ D @ ../../../../dist/color-BU4JS6bH.js:159 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:315 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162",
+     "samples": 4,
+     "pct": 2.6
+    }
+   ]
+  },
+  {
+   "offsetMs": 2247.1,
+   "durMs": 22.8,
+   "samples": 141,
+   "selfTop": [
+    {
+     "fn": "(program)",
+     "samples": 89,
+     "pct": 63.1
+    },
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 10,
+     "pct": 7.1
+    },
+    {
+     "fn": "gt → s @ ../../../../dist/color-BU4JS6bH.js:143",
+     "samples": 4,
+     "pct": 2.8
+    },
+    {
+     "fn": "cs → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:7718",
+     "samples": 2,
+     "pct": 1.4
+    },
+    {
+     "fn": "us → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:7786",
+     "samples": 2,
+     "pct": 1.4
+    },
+    {
+     "fn": "setAttribute",
+     "samples": 2,
+     "pct": 1.4
+    },
+    {
+     "fn": "k → O @ ../../../../dist/color-BU4JS6bH.js:162",
+     "samples": 2,
+     "pct": 1.4
+    },
+    {
+     "fn": "o → ? @ ../../../../dist/anchors-K_Niq8pl.js:1",
+     "samples": 2,
+     "pct": 1.4
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 49,
+     "pct": 34.8
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 48,
+     "pct": 34
+    },
+    {
+     "fn": "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248",
+     "samples": 28,
+     "pct": 19.9
+    },
+    {
+     "fn": "s → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6069",
+     "samples": 27,
+     "pct": 19.1
+    },
+    {
+     "fn": "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296",
+     "samples": 27,
+     "pct": 19.1
+    },
+    {
+     "fn": "w → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:1909",
+     "samples": 23,
+     "pct": 16.3
+    },
+    {
+     "fn": "p → ? @ ../../../../dist/color-BU4JS6bH.js:329",
+     "samples": 23,
+     "pct": 16.3
+    },
+    {
+     "fn": "Bt → V @ ../../../../dist/color-BU4JS6bH.js:304",
+     "samples": 23,
+     "pct": 16.3
+    },
+    {
+     "fn": "R → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:204",
+     "samples": 22,
+     "pct": 15.6
+    },
+    {
+     "fn": "Lt → L @ ../../../../dist/color-BU4JS6bH.js:255",
+     "samples": 22,
+     "pct": 15.6
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "",
+     "samples": 99,
+     "pct": 70.2
+    },
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:315 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155",
+     "samples": 6,
+     "pct": 4.3
+    },
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:315 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/view-accent.ts:19 ⟵ ? @ demo/app/composables/boot/useViewAccents.ts:170",
+     "samples": 3,
+     "pct": 2.1
+    },
+    {
+     "fn": "? @ node_modules/reka-ui/dist/Primitive/Primitive.js:27",
+     "samples": 2,
+     "pct": 1.4
+    }
+   ]
+  },
+  {
+   "offsetMs": 2372.4,
+   "durMs": 25.4,
+   "samples": 156,
+   "selfTop": [
+    {
+     "fn": "(program)",
+     "samples": 56,
+     "pct": 35.9
+    },
+    {
+     "fn": "getBoundingClientRect",
+     "samples": 31,
+     "pct": 19.9
+    },
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 14,
+     "pct": 9
+    },
+    {
+     "fn": "getImageData",
+     "samples": 9,
+     "pct": 5.8
+    },
+    {
+     "fn": "ls → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:7782",
+     "samples": 3,
+     "pct": 1.9
+    },
+    {
+     "fn": "Fe → I @ ../../../../dist/anchors-K_Niq8pl.js:291",
+     "samples": 3,
+     "pct": 1.9
+    },
+    {
+     "fn": "gs → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:7923",
+     "samples": 2,
+     "pct": 1.3
+    },
+    {
+     "fn": "o → ? @ ../../../../dist/anchors-K_Niq8pl.js:1",
+     "samples": 2,
+     "pct": 1.3
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 54,
+     "pct": 34.6
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 54,
+     "pct": 34.6
+    },
+    {
+     "fn": "C → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202",
+     "samples": 43,
+     "pct": 27.6
+    },
+    {
+     "fn": "Ne.ue.immediate → O @ node_modules/@mkbabb/glass-ui/dist/dock.js:208",
+     "samples": 43,
+     "pct": 27.6
+    },
+    {
+     "fn": "(anonymous) → ? @ node_modules/@mkbabb/glass-ui/dist/useScrollChrome-BJbWV32F.js:45",
+     "samples": 43,
+     "pct": 27.6
+    },
+    {
+     "fn": "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248",
+     "samples": 33,
+     "pct": 21.2
+    },
+    {
+     "fn": "De → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:113",
+     "samples": 33,
+     "pct": 21.2
+    },
+    {
+     "fn": "ke → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:127",
+     "samples": 33,
+     "pct": 21.2
+    },
+    {
+     "fn": "s → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:6069",
+     "samples": 31,
+     "pct": 19.9
+    },
+    {
+     "fn": "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296",
+     "samples": 31,
+     "pct": 19.9
+    }
+   ],
+   "appStacks": [
+    {
+     "fn": "",
+     "samples": 72,
+     "pct": 46.2
+    },
+    {
+     "fn": "? @ node_modules/@mkbabb/glass-ui/dist/dock.js:113 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:127 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202 ⟵ O @ node_modules/@mkbabb/glass-ui/dist/dock.js:208 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/useScrollChrome-BJbWV32F.js:45",
+     "samples": 33,
+     "pct": 21.2
+    },
+    {
+     "fn": "? @ node_modules/@mkbabb/glass-ui/dist/dock.js:95 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202 ⟵ O @ node_modules/@mkbabb/glass-ui/dist/dock.js:208 ⟵ ? @ node_modules/@mkbabb/glass-ui/dist/useScrollChrome-BJbWV32F.js:45",
+     "samples": 9,
+     "pct": 5.8
+    },
+    {
+     "fn": "M @ ../../../../dist/color-BU4JS6bH.js:185 ⟵ L @ ../../../../dist/color-BU4JS6bH.js:255 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:315 ⟵ ? @ ../../../../dist/color-BU4JS6bH.js:329 ⟵ V @ ../../../../dist/color-BU4JS6bH.js:304 ⟵ ? @ demo/color-session/ink.ts:162 ⟵ ? @ demo/color-session/ink.ts:155",
+     "samples": 6,
+     "pct": 3.8
+    }
+   ]
+  }
+ ],
+ "loaf": [
+  {
+   "start": 352.39999997615814,
+   "dur": 58.80000001192093,
+   "blocking": 6.7,
+   "scripts": [
+    {
+     "invoker": "IdleRequestCallback",
+     "fn": "mh",
+     "url": "http://127.0.0.1:8477/assets/index-Czm5etVI.js",
+     "char": 224815,
+     "dur": 52.70000001788139
+    }
+   ]
+  },
+  {
+   "start": 639.0999999940395,
+   "dur": 61.79999998211861,
+   "blocking": 11.5,
+   "scripts": [
+    {
+     "invoker": "TimerHandler:setTimeout",
+     "fn": "p",
+     "url": "http://127.0.0.1:8477/assets/index-Czm5etVI.js",
+     "char": 458950,
+     "dur": 48.900000005960464
+    }
+   ]
+  },
+  {
+   "start": 949,
+   "dur": 50.099999994039536,
+   "blocking": 0,
+   "scripts": [
+    {
+     "invoker": "SPAN.onpointermove",
+     "fn": "n",
+     "url": "http://127.0.0.1:8477/assets/vue.runtime.esm-bundler-2l_pzWEZ.js",
+     "char": 91049,
+     "dur": 11.5
+    }
+   ]
+  }
+ ]
+}

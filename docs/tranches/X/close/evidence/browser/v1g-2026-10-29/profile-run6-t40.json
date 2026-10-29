@@ -1,0 +1,43 @@
+{
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "dragMs": 2488.7,
+ "observerLongTasksMs": [],
+ "traceLongTasks": [],
+ "loaf": [
+  {
+   "start": 321.59999999403954,
+   "dur": 51,
+   "blocking": 0,
+   "scripts": [
+    {
+     "invoker": "IdleRequestCallback",
+     "fn": "mh",
+     "url": "http://127.0.0.1:8477/assets/index-Czm5etVI.js",
+     "char": 224815,
+     "dur": 45.79999998211861
+    }
+   ]
+  },
+  {
+   "start": 685.6999999880791,
+   "dur": 51.69999998807907,
+   "blocking": 0,
+   "scripts": [
+    {
+     "invoker": "TimerHandler:setTimeout",
+     "fn": "p",
+     "url": "http://127.0.0.1:8477/assets/index-Czm5etVI.js",
+     "char": 458950,
+     "dur": 15.400000005960464
+    },
+    {
+     "invoker": "SPAN.onpointermove",
+     "fn": "n",
+     "url": "http://127.0.0.1:8477/assets/vue.runtime.esm-bundler-2l_pzWEZ.js",
+     "char": 91049,
+     "dur": 11.5
+    }
+   ]
+  }
+ ]
+}

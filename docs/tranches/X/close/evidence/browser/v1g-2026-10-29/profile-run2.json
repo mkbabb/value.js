@@ -1,0 +1,22 @@
+{
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "dragMs": 2455.2,
+ "observerLongTasksMs": [],
+ "traceLongTasks": [],
+ "loaf": [
+  {
+   "start": 387.09999999403954,
+   "dur": 62.80000001192093,
+   "blocking": 10.7,
+   "scripts": [
+    {
+     "invoker": "IdleRequestCallback",
+     "fn": "mh",
+     "url": "http://127.0.0.1:8477/assets/index-Czm5etVI.js",
+     "char": 224815,
+     "dur": 54.19999998807907
+    }
+   ]
+  }
+ ]
+}
