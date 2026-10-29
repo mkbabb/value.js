@@ -40,6 +40,14 @@ function createStore() {
                         storeRecovery.value = UNREADABLE;
                         return emptyStore();
                     }
+                    // §0gt.5 (PCS-11): `position` is the colour's 0-based order.
+                    // Extract once stored `i / (n - 1)`; the at-rest library is
+                    // normalized to the ordinal it already encodes (array order).
+                    for (const p of parsed.palettes ?? []) {
+                        p.colors?.forEach((c: PaletteColor, i: number) => {
+                            c.position = i;
+                        });
+                    }
                     return parsed;
                 } catch {
                     storeRecovery.value = UNREADABLE;
