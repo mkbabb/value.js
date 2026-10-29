@@ -1,0 +1,1643 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/oracles/o21-gradient-rail.spec.ts",
+      "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11383,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:10:20.080Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-0747d4ffb367916387eb",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2683,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:10:31.558Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-326eff642c13414b5507",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "pill silhouette (T-46): the rail rounds on the glass-ui slider-track register",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2959,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:10:34.246Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-7f058ab1eb6d1dabe475",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 112,
+          "column": 1
+        },
+        {
+          "title": "one axis: every handle centre sits where the ramp paints its own ordinal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3009,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:10:37.210Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-156b54a3c79f574929ce",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 229,
+          "column": 1
+        },
+        {
+          "title": "the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8754,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:10:40.224Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-13f5a42d63f6dd6a9c8a",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 287,
+          "column": 1
+        },
+        {
+          "title": "type-scale containment: at rootFS 20px the terminal handles stay inside the rail",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3209,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:10:48.985Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-f366af9621544324d560",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 365,
+          "column": 1
+        },
+        {
+          "title": "the seat rail frees the meniscus: every rail ordinal mints, at any rail width",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6054,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:10:52.200Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-b24a3a0f19afc9dd260c",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 433,
+          "column": 1
+        },
+        {
+          "title": "stop inspector numeric entry round-trips to the ordinal the rail paints",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3048,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:10:58.259Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-275351015389da4fd8eb",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 486,
+          "column": 1
+        },
+        {
+          "title": "keyboard grammar is total: an interior stop answers every key, a terminal holds its bound",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2787,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:11:01.311Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-f9f4dadd0eb08db702e2",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 545,
+          "column": 1
+        },
+        {
+          "title": "one removal owner: the floor is a disabled control carrying its reason",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3428,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:11:04.102Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-c851dbee10803e1852db",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 627,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o28-atmosphere-coldload.spec.ts",
+      "file": "smoke/oracles/o28-atmosphere-coldload.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "the first painted atmosphere is the seeded pick's, on a cold load",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13533,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "oklch(0.62 0.2 30): first-paint 76ms, ground at paint [#a73581 #e54562 #ff7929 #ffb431] → settled [rgb(167, 53, 129) rgb(229, 69, 98) rgb(255, 121, 41) rgb(255, 180, 49)]; first-paint vs settled ΔE_OK max 0.0000; settled vs unseeded max 0.1602\n"
+                    },
+                    {
+                      "text": "oklch(0.62 0.2 150): first-paint 44ms, ground at paint [#5f721d #3ba124 #31c585 #38e9cb] → settled [rgb(95, 114, 29) rgb(59, 161, 36) rgb(49, 197, 133) rgb(56, 233, 203)]; first-paint vs settled ΔE_OK max 0.0000; settled vs unseeded max 0.3740\n"
+                    },
+                    {
+                      "text": "oklch(0.62 0.2 260): first-paint 44ms, ground at paint [#207295 #268ce4 #8c9cff #e2b1ff] → settled [rgb(32, 114, 149) rgb(38, 140, 228) rgb(140, 156, 255) rgb(226, 177, 255)]; first-paint vs settled ΔE_OK max 0.0000; settled vs unseeded max 0.2780\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T06:11:07.544Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7e354ab72c8dd5c5d284-605fdd89126d9fd52f64",
+          "file": "smoke/oracles/o28-atmosphere-coldload.spec.ts",
+          "line": 141,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+      "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "B05 · bar-less routes (0122 · 0136 guard)",
+          "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+          "line": 170,
+          "column": 6,
+          "specs": [
+            {
+              "title": "/atmosphere: the Tools slot is inert, 0 px and unexposed; the dock keeps its face",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3912,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:11:21.094Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-72e2f875daef6ce0f33a",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 174,
+              "column": 9
+            },
+            {
+              "title": "/atmosphere: the inert Tools seat is absent from the engine AX tree (CDP)",
+              "ok": true,
+              "tags": [
+                "chromium-instrument"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3422,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:11:25.011Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-a4b63c7b570f76a7e8b0",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 183,
+              "column": 9
+            },
+            {
+              "title": "/browse: the Tools slot is inert, 0 px and unexposed; the dock keeps its face",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3608,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:11:28.438Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-dd6b7ca18ab3854ee21e",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 174,
+              "column": 9
+            },
+            {
+              "title": "/browse: the inert Tools seat is absent from the engine AX tree (CDP)",
+              "ok": true,
+              "tags": [
+                "chromium-instrument"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3527,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:11:32.050Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-3e75a09134fa468192d5",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 183,
+              "column": 9
+            },
+            {
+              "title": "/extract: the Tools slot is inert, 0 px and unexposed; the dock keeps its face",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3711,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:11:35.581Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-9c5d448b3b5a8f81148d",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 174,
+              "column": 9
+            },
+            {
+              "title": "/extract: the inert Tools seat is absent from the engine AX tree (CDP)",
+              "ok": true,
+              "tags": [
+                "chromium-instrument"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3840,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:11:39.295Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-63e1fa1701699269ca87",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 183,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "B05 · the action-bar proportion (0125 · 0146)",
+          "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+          "line": 200,
+          "column": 6,
+          "specs": [
+            {
+              "title": "0125: the layer root breathes on the face's own gap — both separators get equal air",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5883,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:11:43.140Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-59368d26ac1a1c3e27c7",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 203,
+              "column": 5
+            },
+            {
+              "title": "0146: the seat row is spaced by --dock-layer-gap, not by justify-around slack",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5137,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:11:49.027Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-9c11b06250a2ad2f5c58",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 241,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "B05 · the Tools ink on the dock band (0132 · 0133)",
+          "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+          "line": 263,
+          "column": 6,
+          "specs": [
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4560,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.27821433714764\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.27821433714764\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 276
+                        },
+                        "snippet": "  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 276
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.27821433714764\u001b[39m\n\n  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:11:54.169Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o33-dock-actionbar-e66f8--the-light-band-seed-hue-0--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 276
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-5e5ed065bbfd1371e17f",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8199,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.432973700535918\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.432973700535918\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 276
+                        },
+                        "snippet": "  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 276
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.432973700535918\u001b[39m\n\n  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:11:59.075Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o33-dock-actionbar-3345d-the-light-band-seed-hue-60--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 276
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-d5e678d617f67a341624",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7571,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:12:07.692Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-6470e0f12948bd9ae623",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4725,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:12:15.343Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-ce1ca917ce02ab63a15b",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4261,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:12:20.073Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-9a132ec5be964c0f9d8a",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5002,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.314620947553472\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.314620947553472\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 276
+                        },
+                        "snippet": "  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 276
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.314620947553472\u001b[39m\n\n  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:12:24.339Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o33-dock-actionbar-89a7f-he-light-band-seed-hue-300--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 276
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-fe1d7a2d9c28447080b9",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8579,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:12:29.775Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-c87d7885469ca82d1189",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 281,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5321,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:12:38.441Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-58a3d3590b7eb2d4e974",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 281,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "B05 · the Tools target and wordmark (0140)",
+          "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+          "line": 323,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "coarse 390",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 324,
+              "column": 10,
+              "specs": [
+                {
+                  "title": "the Tools target holds the 44 px coarse floor",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "smoke",
+                      "projectName": "smoke",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 3717,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-29T06:12:43.768Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "f989f793c4e57bf4ffeb-6ac7d910bdec225e1eda",
+                  "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                  "line": 326,
+                  "column": 9
+                },
+                {
+                  "title": "the icon-only Tools seat carries its accessible name",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "smoke",
+                      "projectName": "smoke",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 3537,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-29T06:12:47.491Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "f989f793c4e57bf4ffeb-53ab68805ad799eaa95e",
+                  "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                  "line": 335,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "zoom 200 % of 1440×900",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 345,
+              "column": 10,
+              "specs": [
+                {
+                  "title": "the Tools wordmark survives the zoom",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "smoke",
+                      "projectName": "smoke",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 3518,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-29T06:12:51.035Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "f989f793c4e57bf4ffeb-7b7f444b2cb4801aca60",
+                  "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                  "line": 347,
+                  "column": 9
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/w7-destructive-seats.spec.ts",
+      "file": "smoke/oracles/w7-destructive-seats.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once",
+          "file": "smoke/oracles/w7-destructive-seats.spec.ts",
+          "line": 52,
+          "column": 6,
+          "specs": [
+            {
+              "title": "color-name delete (Names → Approved)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4372,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:12:54.573Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1738b8cf89ad3fedbf60-fe0d6c828ebaee8f1f28",
+              "file": "smoke/oracles/w7-destructive-seats.spec.ts",
+              "line": 53,
+              "column": 5
+            },
+            {
+              "title": "color-name reject (Names → Pending, W7.93)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3576,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:12:58.951Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1738b8cf89ad3fedbf60-785983febe6b913e0b24",
+              "file": "smoke/oracles/w7-destructive-seats.spec.ts",
+              "line": 85,
+              "column": 5
+            },
+            {
+              "title": "tag delete — the seat is visible at rest (S-14(b)), then deliberate",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3190,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:13:02.534Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1738b8cf89ad3fedbf60-5954f66f1dde6b0d725d",
+              "file": "smoke/oracles/w7-destructive-seats.spec.ts",
+              "line": 91,
+              "column": 5
+            },
+            {
+              "title": "flagged-palette delete",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2913,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:13:05.731Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1738b8cf89ad3fedbf60-07973d8e4ded51908e74",
+              "file": "smoke/oracles/w7-destructive-seats.spec.ts",
+              "line": 101,
+              "column": 5
+            },
+            {
+              "title": "delete-all-palettes — named for its destruction (G15), then deliberate",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2950,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:13:08.650Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1738b8cf89ad3fedbf60-7ee509961992d17c0458",
+              "file": "smoke/oracles/w7-destructive-seats.spec.ts",
+              "line": 107,
+              "column": 5
+            },
+            {
+              "title": "user-disclosure palette delete",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3285,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:13:11.609Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1738b8cf89ad3fedbf60-99457ef230646010a2ff",
+              "file": "smoke/oracles/w7-destructive-seats.spec.ts",
+              "line": 121,
+              "column": 5
+            },
+            {
+              "title": "browse-wall admin delete (card menu)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3257,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T06:13:14.900Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1738b8cf89ad3fedbf60-d4ca5093f2915bf4a992",
+              "file": "smoke/oracles/w7-destructive-seats.spec.ts",
+              "line": 133,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-29T06:10:12.782Z",
+    "duration": 185473.33500000002,
+    "expected": 34,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

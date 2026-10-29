@@ -1,0 +1,72 @@
+(node:27747) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:27795) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 6 tests using 1 worker
+
+[1A[2K(node:27834) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/6] [webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/o18.diag.ts:4:1 › o18 stacks
+[1A[2K[webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/o18.diag.ts:4:1 › o18 stacks
+[data-o18="graph-node"] {
+ "color": "oklch(0.986174 0.006249 56.035564)",
+ "chain": [
+  "DIV.flex flex-wrap items-center p-3 bg-well rounded-pa bg=oklab(0.986538 0.000276 0.002899 / 0.14) img=none op=1 bf=none",
+  "DIV.glass-resting card pane-shell__card paper-grain-ov bg=color(srgb 0.203993 0.148252 0.08296 / 0.14) img=none op=1 bf=none",
+  "BODY.relative bg=rgb(97, 42, 75) img=linear-gradient(135deg, rgb(97, 42, 75) 0%, rgb(143, 66, 73) op=1 bf=none"
+ ],
+ "scheme": "",
+ "fg": "light-dark(hsl(24 10% 10%),hsl(30 14% 90%))",
+ "bg": "light-dark(hsl(40 30% 98%),hsl(24 9% 4%))",
+ "well": "color-mix(in oklab, light-dark(hsl(40 30% 98%),hsl(24 9% 4%)) 14%, transparent)"
+}
+
+[1A[2K.markdown-wrapper .markdown-body p > code {
+ "color": "oklch(0.985754 0.006956 31.584818)",
+ "chain": [
+  "CODE. bg=oklab(0.986538 0.000276 0.002899 / 0.14) img=none op=1 bf=none",
+  "DIV.glass-resting card pane-shell__card paper-grain-ov bg=color(srgb 0.203993 0.148252 0.08296 / 0.14) img=none op=1 bf=none",
+  "BODY.relative bg=rgb(97, 42, 75) img=linear-gradient(135deg, rgb(97, 42, 75) 0%, rgb(143, 66, 73) op=1 bf=none"
+ ],
+ "scheme": "",
+ "fg": "light-dark(hsl(24 10% 10%),hsl(30 14% 90%))",
+ "bg": "light-dark(hsl(40 30% 98%),hsl(24 9% 4%))",
+ "well": "color-mix(in oklab, light-dark(hsl(40 30% 98%),hsl(24 9% 4%)) 14%, transparent)"
+}
+
+[1A[2K.markdown-wrapper .markdown-body p {
+ "color": "oklch(0.986174 0.006249 56.035564)",
+ "chain": [
+  "DIV.glass-resting card pane-shell__card paper-grain-ov bg=color(srgb 0.203993 0.148252 0.08296 / 0.14) img=none op=1 bf=none",
+  "BODY.relative bg=rgb(97, 42, 75) img=linear-gradient(135deg, rgb(97, 42, 75) 0%, rgb(143, 66, 73) op=1 bf=none"
+ ],
+ "scheme": "",
+ "fg": "light-dark(hsl(24 10% 10%),hsl(30 14% 90%))",
+ "bg": "light-dark(hsl(40 30% 98%),hsl(24 9% 4%))",
+ "well": "color-mix(in oklab, light-dark(hsl(40 30% 98%),hsl(24 9% 4%)) 14%, transparent)"
+}
+
+[1A[2K[2/6] [webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Reject color name Wax Seal
+[1A[2K[webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Reject color name Wax Seal
+{"name":"Reject color name Wax Seal","seat":[1196,321],"dialogs":0,"content":null,"seatInsideContent":null,"log":[["pointerdown",446,"BUTTON.button tap-squish focus-ring cursor-poin"],["click",458,"BUTTON.button tap-squish focus-ring cursor-poin"],["pointerdown",642,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",646,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["pointerdown",647,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",660,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["dblclick",660,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"]]}
+
+[1A[2K[3/6] [webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete tag moody
+[1A[2K[webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete tag moody
+{"name":"Delete tag moody","seat":[113,313],"dialogs":0,"content":null,"seatInsideContent":null,"log":[["pointerdown",458,"svg.[object SVGAnimatedString]"],["click",468,"svg.[object SVGAnimatedString]"],["pointerdown",642,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",654,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["pointerdown",656,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",670,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["dblclick",670,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"]]}
+
+[1A[2K[4/6] [webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Sunset Riot
+[1A[2K[webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Sunset Riot
+{"name":"Delete palette Sunset Riot","seat":[1196,263],"dialogs":0,"content":null,"seatInsideContent":null,"log":[["pointerdown",423,"BUTTON.button tap-squish focus-ring cursor-poin"],["click",433,"BUTTON.button tap-squish focus-ring cursor-poin"],["pointerdown",618,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",623,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["pointerdown",638,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",638,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["dblclick",638,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"]]}
+
+[1A[2K[5/6] [webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete all palettes of azure-fox-01
+[1A[2K[webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete all palettes of azure-fox-01
+{"name":"Delete all palettes of azure-fox-01","seat":[1097,296],"dialogs":0,"content":null,"seatInsideContent":null,"log":[["pointerdown",411,"BUTTON.button tap-squish focus-ring glass-capsu"],["click",423,"BUTTON.button tap-squish focus-ring glass-capsu"],["pointerdown",612,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",616,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["pointerdown",631,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",633,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["dblclick",633,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"]]}
+
+[1A[2K[6/6] [webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Azure One
+[1A[2K[webkit] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Azure One
+{"name":"Delete palette Azure One","seat":[1188,409],"dialogs":0,"content":null,"seatInsideContent":null,"log":[["pointerdown",640,"BUTTON.button tap-squish focus-ring cursor-poin"],["click",652,"BUTTON.button tap-squish focus-ring cursor-poin"],["pointerdown",822,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",829,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["pointerdown",829,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",831,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["dblclick",831,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"]]}
+
+[1A[2K  6 passed (15.2s)

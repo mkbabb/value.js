@@ -1,0 +1,7 @@
+[guarded] waiting for the 'webkit' lock
+admitted 2026-10-29 03:50:27 HEAD 2527a8d20 { 8.00 8.75 9.02 }
+probe exit 0
+diag exit 0
+run 1 exit 1 03:55:44
+run 2 exit 1 04:01:12
+batch exit 0

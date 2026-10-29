@@ -1,0 +1,125 @@
+(node:29698) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:29742) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 5 tests using 1 worker
+
+[1A[2K(node:29859) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/5] [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Reject color name Wax Seal
+[1A[2K  1) [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Reject color name Wax Seal 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.evaluate: Target page, context or browser has been closed
+
+      24 |         const content = await page.getByRole("dialog").boundingBox().catch(() => null);
+      25 |         const inside = content ? cx >= content.x && cx <= content.x + content.width && cy >= content.y && cy <= content.y + content.height : null;
+    > 26 |         console.log(JSON.stringify({ name, seat: [Math.round(cx), Math.round(cy)], dialogs, content, seatInsideContent: inside, log: await page.evaluate(() => (window as any).__log) }));
+         |                                                                                                                                                 ^
+      27 |     });
+      28 | }
+      29 |
+        at /Users/mkbabb/Programming/value.js/docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:26:145
+
+    Error Context: test-results/w7.diag.ts-human-double-click-Reject-color-name-Wax-Seal-chromium/error-context.md
+
+
+[1A[2K(node:31438) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/5] [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete tag moody
+[1A[2K  2) [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete tag moody 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.evaluate: Target page, context or browser has been closed
+
+      24 |         const content = await page.getByRole("dialog").boundingBox().catch(() => null);
+      25 |         const inside = content ? cx >= content.x && cx <= content.x + content.width && cy >= content.y && cy <= content.y + content.height : null;
+    > 26 |         console.log(JSON.stringify({ name, seat: [Math.round(cx), Math.round(cy)], dialogs, content, seatInsideContent: inside, log: await page.evaluate(() => (window as any).__log) }));
+         |                                                                                                                                                 ^
+      27 |     });
+      28 | }
+      29 |
+        at /Users/mkbabb/Programming/value.js/docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:26:145
+
+    Error Context: test-results/w7.diag.ts-human-double-click-Delete-tag-moody-chromium/error-context.md
+
+
+[1A[2K(node:32763) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/5] [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Sunset Riot
+[1A[2K  3) [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Sunset Riot 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.evaluate: Target page, context or browser has been closed
+
+      24 |         const content = await page.getByRole("dialog").boundingBox().catch(() => null);
+      25 |         const inside = content ? cx >= content.x && cx <= content.x + content.width && cy >= content.y && cy <= content.y + content.height : null;
+    > 26 |         console.log(JSON.stringify({ name, seat: [Math.round(cx), Math.round(cy)], dialogs, content, seatInsideContent: inside, log: await page.evaluate(() => (window as any).__log) }));
+         |                                                                                                                                                 ^
+      27 |     });
+      28 | }
+      29 |
+        at /Users/mkbabb/Programming/value.js/docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:26:145
+
+    Error Context: test-results/w7.diag.ts-human-double-click-Delete-palette-Sunset-Riot-chromium/error-context.md
+
+
+[1A[2K(node:34651) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/5] [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete all palettes of azure-fox-01
+[1A[2K  4) [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete all palettes of azure-fox-01 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.evaluate: Target page, context or browser has been closed
+
+      24 |         const content = await page.getByRole("dialog").boundingBox().catch(() => null);
+      25 |         const inside = content ? cx >= content.x && cx <= content.x + content.width && cy >= content.y && cy <= content.y + content.height : null;
+    > 26 |         console.log(JSON.stringify({ name, seat: [Math.round(cx), Math.round(cy)], dialogs, content, seatInsideContent: inside, log: await page.evaluate(() => (window as any).__log) }));
+         |                                                                                                                                                 ^
+      27 |     });
+      28 | }
+      29 |
+        at /Users/mkbabb/Programming/value.js/docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:26:145
+
+    Error Context: test-results/w7.diag.ts-human-double-cl-ad277-ll-palettes-of-azure-fox-01-chromium/error-context.md
+
+
+[1A[2K(node:36165) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/5] [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Azure One
+[1A[2K  5) [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Azure One 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.evaluate: Target page, context or browser has been closed
+
+      24 |         const content = await page.getByRole("dialog").boundingBox().catch(() => null);
+      25 |         const inside = content ? cx >= content.x && cx <= content.x + content.width && cy >= content.y && cy <= content.y + content.height : null;
+    > 26 |         console.log(JSON.stringify({ name, seat: [Math.round(cx), Math.round(cy)], dialogs, content, seatInsideContent: inside, log: await page.evaluate(() => (window as any).__log) }));
+         |                                                                                                                                                 ^
+      27 |     });
+      28 | }
+      29 |
+        at /Users/mkbabb/Programming/value.js/docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:26:145
+
+    Error Context: test-results/w7.diag.ts-human-double-click-Delete-palette-Azure-One-chromium/error-context.md
+
+
+[1A[2K  5 failed
+    [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Reject color name Wax Seal 
+    [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete tag moody 
+    [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Sunset Riot 
+    [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete all palettes of azure-fox-01 
+    [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Azure One 
+exit 1
