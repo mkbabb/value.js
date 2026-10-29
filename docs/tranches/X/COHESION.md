@@ -4721,3 +4721,33 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
    - **X.W11.f1:** floating pairs certified against their real referent (§0gr.2).
    - **X.W11.o2:** the `blob-presence-mobile` idle leg (§0gr.4).
    - The Vite `server.port: 0` harness fix goes in v1d.
+
+## §0gt — 2026-10-28: X-W11 halted NOT-CONFORMANT after 2 repairs; its five escalations are ruled (delegate, §0ge)
+Landed since §0gs:
+- @mkbabb/value.js **4.1.0 is published** (G4 ×2, SLSA provenance, registry tarball byte-identical to the candidate), and master `bfe74d47f` equals the tag tree.
+- LCP is GREEN: 2111 asserted, down from 4673.
+- o1, o2 and the inherited hunks are cured.
+- 205 goldens were re-minted on the 17bda9aba lineage.
+
+Ruled:
+1. **ESC-W11v1d-VISUAL-GL-TEXTURE-LIMIT: arm (a).** Every full-page capture stays within the renderer's `MAX_TEXTURE_SIZE`. A page taller than 8192 px is captured as viewport-bounded tiles (each ≤ 8192 px) and each tile is compared, so the oracle photographs the product as shipped, with live WebGL. The re-mint covers only the tiled cells (the 390 picker family), each attributed to this ruling.
+   - (b), removing live WebGL from the oracle, is refused: it would photograph a product no one ships. (c), a timeout raise, stays refused.
+2. **ESC-W11p4d-1 (TBT 1743 against 300; LCP GREEN): N-D1 → N-I1 → N-S1 granted, in that order, with lhci ×3 on CI after each.**
+   - N-D1: the dock's closed surfaces mount on first open (demo/shell/dock/**).
+   - N-I1: one live referent read per ink region (`useContrastSafeColor.ts`).
+   - N-S1: nested lazy hydration inside the stage (demo/picker/**).
+   - First-paint content and the §0dm identity arrival are untouched, and the budgets are unchanged.
+3. **ESC-W11f1-1: arm (a).** The floating material's dead band over saturated content is relayed to glass on the O-87 floating-rung line, as a denser floating rung or a scrim under floater text, with the numbers (rail 2/56 at 4.02–4.21, the space select at min 1.80, the dock view select at 3.03–3.61). These cells are held honest-RED. (b), moving floaters off content, is refused because placement is product design. (c) stays refused.
+4. **G8, the darwin real-GPU WebKit witness at 16/196: unit X.W11.wk.** Each failing row is cured at its root, starting with the w7 CDP-in-WebKit harness row. A row whose root is a WebKit engine fact takes the O-103b engine-fact form with Chromium as the gate, stated per row and never as a blanket ruling.
+5. **G10 (API journeys): the PCS-3/PCS-11 palette contract is RULED.**
+   - **`position`:** a required, documented field, the 0-based integer ORDER of the colour in the palette. Gradient stop offsets are not palette semantics; gradients carry their own stops.
+   - **`weight`:** an OPTIONAL finite number ≥ 0, the colour's population share where a producer knows it (Extract). It is PERSISTED by the wire schema, never stripped.
+   - **Identity:** a palette's content hash is the ordered colours ONLY. `weight` is descriptive metadata, so Generate and Extract producing the same five colours in the same order hash identically.
+   - **Unit X.W11.api2** gets `api/src/modules/palette/**` plus the client halves. It adds a one-shot data migration that normalizes existing `position` values to the ordinal, with a dry run and a count report. Falsifiers ×2 cover both producers hashing equal and a weight round-trip.
+   - **Then the production API redeploys at the release tree** through its standing deploy path. If that path needs host shell access, it is an orchestrator act over the owner's VPN.
+6. **The semver erratum for 4.1.0:** 4.1.0 removed `decomposeMatrix2D`/`decomposeMatrix3D`/`Mat4`, which is a breaking removal inside a minor version.
+   - Recorded, not repaired: there is no compat re-export (the owner's no-shim law), and the only consumer, keyframes, pins exactly 4.0.0 and migrates at its O-117 repin.
+   - Rule from now on: any export removal ships in a MAJOR version.
+7. **G6 and G7 (the demo deploy and the CI browser cell):** these follow from 1, 2 and **unit X.W11.v1e**, which cures every CI e2e-smoke red at root. A slow-runner starvation read is cured at its cause (a settle wait or harness pacing), never by a retry or a raised timeout. After that the demo deploys, with the post-deploy smoke run.
+
+The halt is lifted: each RED gate now has a ruling and an owner.
