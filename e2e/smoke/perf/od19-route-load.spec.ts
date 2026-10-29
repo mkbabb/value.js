@@ -135,6 +135,17 @@ test.describe("OD19-ALL route load (built bundle, CPU 4x)", () => {
 
             await page.goto(`/#/${route}`, { waitUntil: "commit" });
             const content = await waitContent(page, route, regions, 0, 30_000);
+            // X.W11.v1e (COHESION §0gt.7): a resource-timing entry is queued at
+            // its responseEnd, and the prerendered `#/` shell reaches content
+            // (CI 135-239 ms) before the entry chunk has finished arriving, so a
+            // read at the content frame found no `index-*.js` (CI 40807181060 and
+            // 40822407656: "the entry chunk loaded", every attempt). The read
+            // waits for the entry's own timing entry — the state it measures.
+            await page.waitForFunction(() =>
+                performance
+                    .getEntriesByType("resource")
+                    .some((e) => /^index-[^/]*\.js$/.test(e.name.split("/").pop() ?? "")),
+            );
 
             const scripts = await page.evaluate(() =>
                 performance
