@@ -1,0 +1,16 @@
+SERVED MODEL: claude-opus-5-5 — X.W11.p4f arrival identification at HEAD 14225ceef (dist/gh-pages built in a clean worktree; headless-shell Chromium, 4x CPU, one browser per run, context per cell). Columns: viewport, long tasks [start,dur] ms, sum>50, overture marks, blob canvas present.
+## base-r1
+1350 r1 lt=[[30,86],[182,147],[440,136],[831,54],[1427,86],[2229,383]] sum>50=592 marks=overture:b0@16,overture:b1@289,overture:b2@1173,overture:b3@1784,overture:b4@2174 blobCanvas=true
+412 r1 lt=[[28,80],[143,131],[381,125],[550,75],[666,52],[2234,396]] sum>50=559 marks=overture:b0@13,overture:b1@234,overture:b3@1025,overture:b2@1272,overture:b4@2191 blobCanvas=true
+## base-r2
+1350 r1 lt=[[33,84],[181,135],[424,133],[798,76],[890,53],[2240,344]] sum>50=525 marks=overture:b0@18,overture:b1@283,overture:b3@1135,overture:b2@1185,overture:b4@2194 blobCanvas=true
+412 r1 lt=[[25,74],[134,132],[364,115],[577,80],[710,53],[2151,433]] sum>50=587 marks=overture:b0@12,overture:b1@230,overture:b3@1022,overture:b2@1179,overture:b4@2094 blobCanvas=true
+## block-r1
+1350 r1 lt=[[29,82],[176,144],[434,148],[822,57],[1257,96]] sum>50=277 marks=overture:b0@15,overture:b1@284,overture:b2@1227,overture:b3@1621,overture:b4@2208 blobCanvas=false
+412 r1 lt=[[29,95],[183,129],[423,136],[601,80],[738,56]] sum>50=246 marks=overture:b0@14,overture:b1@292,overture:b3@1046,overture:b2@1343,overture:b4@2258 blobCanvas=false
+## block-r2
+1350 r1 lt=[[29,79],[165,139],[403,123],[588,74],[806,56]] sum>50=221 marks=overture:b0@16,overture:b1@269,overture:b3@1094,overture:b2@1140,overture:b4@2115 blobCanvas=false
+412 r1 lt=[[26,76],[138,143],[391,123],[585,66],[718,52]] sum>50=210 marks=overture:b0@13,overture:b1@242,overture:b3@1021,overture:b2@1259,overture:b4@2172 blobCanvas=false
+## prm-r1
+1350 r1 lt=[[60,67],[144,427],[597,82],[947,332]] sum>50=708 marks=overture:b0@18,overture:b2@378,overture:b1@455,overture:b3@455,overture:b4@510 blobCanvas=true
+412 r1 lt=[[51,64],[129,427],[580,78],[886,361]] sum>50=730 marks=overture:b0@13,overture:b2@359,overture:b1@426,overture:b3@426,overture:b4@481 blobCanvas=true
