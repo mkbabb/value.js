@@ -242,10 +242,16 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             height: 900,
             hash: "#/",
             face: ".glass-dock .dock-layer-grid > .dock-face.is-active",
-            enter: async (p) => {
+            // X.W11.v1g (COHESION §0gv.5; the `.v1c` 0acfd7c80 precedent): the
+            // sub-layer grid exists only once the action bar is open, so the
+            // stage opens it and `before` names the actions face the switch
+            // leaves and returns to. The switch itself is the input tap.
+            stage: async (p) => {
                 await dockButton(p, "Toggle action bar").click();
                 await dockButton(p, "Back").waitFor({ timeout: 10_000 });
                 await dockAtRest(p);
+            },
+            enter: async (p) => {
                 await dockButton(p, "Open color input").click();
             },
             entered: (p) => dockButton(p, /^(Close input|Propose color name)$/),
