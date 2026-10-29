@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, onMounted, ref, watch, useTemplateRef } from "vue";
+import { computed, inject, nextTick, onMounted, reactive, ref, watch, useTemplateRef } from "vue";
 import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import {
     GlassDock,
@@ -23,6 +23,7 @@ import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { usePopupMutex } from "../../shared/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
 import { injectDockCommands } from "../useSceneActions";
+import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { goldIdentityCss, useChromeAccentFn } from "../../color-session/useContrastSafeColor";
 import { GRAPHICS_CONTRAST_FLOOR, TEXT_CONTRAST_FLOOR } from "../../color-session/ink";
@@ -80,11 +81,15 @@ watch(hasAnyActionBar, (has) => {
 // ── Slug edit ──
 const slugEditMode = ref(false);
 const slugEditRef = ref<InstanceType<typeof SlugEditLayer> | null>(null);
+// X.W11.p4e N-D1 (COHESION §0gt.2): the slug layer mounts on its first open
+// (below), so the entry opens the layer first and starts the edit on the
+// mounted layer one tick later. Copying the slug needs no layer at all.
 function onStartSlugEdit() {
-    slugEditRef.value?.onStartSlugEdit();
+    slugEditMode.value = true;
+    void nextTick(() => slugEditRef.value?.onStartSlugEdit());
 }
 function onCopySlug() {
-    slugEditRef.value?.onCopySlug();
+    if (pm.userSlug.value) void writeClipboard(pm.userSlug.value);
 }
 
 // ── Dock popup mutex — called EXACTLY ONCE (gate (a)) ──
@@ -203,6 +208,15 @@ watch(anyEditActive, (active) => {
 // ── Layer dispatch (inlined from the retired useDockLayers — gate (c): the
 //    immediate watch reads live reactive deps, so call order does not matter) ──
 const activeLayer = ref("main");
+// X.W11.p4e N-D1 (COHESION §0gt.2): a CLOSED layer's content mounts on that
+// layer's first open, and stays mounted after. The mobile-edit, slug-edit and
+// action-bar faces are not first-paint or first-interaction state: their
+// subtrees (the action row and its fit pass, the slug form, the edit pair's
+// watercolor dots) left the dock's mount task. The faces themselves (glass's
+// DockLayer hosts) still mount, so the crossfade registers every layer as
+// before; the layer is opened in the same flush that activates it, so its
+// content renders in the frame the crossfade starts.
+const openedLayers = reactive(new Set<string>(["main"]));
 
 // ── The view-select moment (R.W4 Lane B / B3) — within the CURRENT dock
 //    surface only (the dock-morph gate rides the U6 BOOK, not this wave):
@@ -242,6 +256,7 @@ watch(
         else if (slugEditMode.value) activeLayer.value = "slug-edit";
         else if (actionBarLayerActive.value) activeLayer.value = "action-bar";
         else activeLayer.value = "main";
+        openedLayers.add(activeLayer.value);
     },
     { immediate: true },
 );
@@ -271,33 +286,39 @@ watch(
             <DockLayerGroup v-model:active="activeLayer" :show-switcher="false">
                 <!-- Mobile edit layer -->
                 <DockLayer id="mobile-edit" class="justify-center">
-                    <WatercolorDot
-                        v-if="editTarget"
-                        :color="editTarget.originalCss"
-                        class="w-7 h-7 shrink-0 opacity-50"
-                        seed="edit-original"
-                    />
-                    <span class="text-muted-foreground text-caption">&rarr;</span>
-                    <WatercolorDot
-                        :color="cssColorOpaque"
-                        class="w-7 h-7 shrink-0"
-                        seed="edit-new"
-                    />
-                    <DockSeparator />
-                    <!-- W6-8 register pass: native `title` retired dock-wide —
-                             icon-only controls carry aria-label (the UA tooltip slab
-                             is a foreign register on the liquid-glass dock). -->
-                    <DockControl aria-label="Save edit" @click="emit('commitEdit')"
-                        ><Check class="w-5 h-5" :style="{ color: safeAccent }"
-                    /></DockControl>
-                    <DockControl aria-label="Cancel edit" @click="emit('cancelEdit')"
-                        ><Undo2 class="w-5 h-5"
-                    /></DockControl>
+                    <template v-if="openedLayers.has('mobile-edit')">
+                        <WatercolorDot
+                            v-if="editTarget"
+                            :color="editTarget.originalCss"
+                            class="w-7 h-7 shrink-0 opacity-50"
+                            seed="edit-original"
+                        />
+                        <span class="text-muted-foreground text-caption">&rarr;</span>
+                        <WatercolorDot
+                            :color="cssColorOpaque"
+                            class="w-7 h-7 shrink-0"
+                            seed="edit-new"
+                        />
+                        <DockSeparator />
+                        <!-- W6-8 register pass: native `title` retired dock-wide —
+                                 icon-only controls carry aria-label (the UA tooltip slab
+                                 is a foreign register on the liquid-glass dock). -->
+                        <DockControl aria-label="Save edit" @click="emit('commitEdit')"
+                            ><Check class="w-5 h-5" :style="{ color: safeAccent }"
+                        /></DockControl>
+                        <DockControl aria-label="Cancel edit" @click="emit('cancelEdit')"
+                            ><Undo2 class="w-5 h-5"
+                        /></DockControl>
+                    </template>
                 </DockLayer>
 
                 <!-- Slug edit layer -->
                 <DockLayer id="slug-edit" class="justify-center">
-                    <SlugEditLayer ref="slugEditRef" v-model:active="slugEditMode" />
+                    <SlugEditLayer
+                        v-if="openedLayers.has('slug-edit')"
+                        ref="slugEditRef"
+                        v-model:active="slugEditMode"
+                    />
                 </DockLayer>
 
                 <!-- Action bar layer — ONE path, selected by the contract
@@ -305,14 +326,16 @@ watch(
                          layer and the same row; the scene the view owns is the
                          contract's answer, not a template priority. -->
                 <DockLayer v-if="actionSet" id="action-bar">
-                    <DockControl
-                        class="shrink-0"
-                        aria-label="Back"
-                        @click="actionBarLayerActive = false"
-                        ><ArrowLeft class="w-6 h-6"
-                    /></DockControl>
-                    <DockSeparator />
-                    <ActionBarLayer :action-set="actionSet" />
+                    <template v-if="openedLayers.has('action-bar')">
+                        <DockControl
+                            class="shrink-0"
+                            aria-label="Back"
+                            @click="actionBarLayerActive = false"
+                            ><ArrowLeft class="w-6 h-6"
+                        /></DockControl>
+                        <DockSeparator />
+                        <ActionBarLayer :action-set="actionSet" />
+                    </template>
                 </DockLayer>
 
                 <!-- Main navigation layer (inlined — was the passthrough DockMainLayer.vue) -->
