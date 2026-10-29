@@ -171,6 +171,30 @@ function probeEl(): HTMLElement | null {
     return tierProbe;
 }
 
+/**
+ * X.W11.p4e N-I1 (COHESION §0gt.2): one probe per distinct tier token, each
+ * painting `var(<token>)` from the moment it is created. A tier's live tint
+ * is read off its own probe, so reading every tier writes no style: the
+ * first `getComputedStyle` of a batch pays the one style recalc, and the
+ * rest read the same resolved cascade.
+ */
+const TOKEN_TIERS = Object.keys(TIER_BG_TOKEN) as LiveLayer[];
+const tokenProbes = new Map<string, HTMLElement>();
+function tokenProbeEl(token: string): HTMLElement | null {
+    if (typeof document === "undefined") return null;
+    let probe = tokenProbes.get(token);
+    if (!probe || !probe.isConnected) {
+        probe = document.createElement("div");
+        probe.setAttribute("data-ink-probe", "");
+        probe.style.cssText =
+            "position:absolute;width:0;height:0;visibility:hidden;pointer-events:none";
+        probe.style.backgroundColor = `var(${token})`;
+        document.body.appendChild(probe);
+        tokenProbes.set(token, probe);
+    }
+    return probe;
+}
+
 type PaintedColor = NonNullable<ReturnType<typeof resolveCssColorAlpha>>;
 
 /** An element's own painted background — null when it paints nothing (α 0)
@@ -201,63 +225,8 @@ function resolveDockPlateTint(from: Element): SurfaceTint {
     );
 }
 
-/** Read a tier's LIVE painted tint (recipe truth) — null when unmeasurable. */
-function resolveLiveTint(surface: LiveLayer): SurfaceTint | undefined {
-    if (surface === "page") return undefined;
-    let bg: string | undefined;
-    if (surface === "veil") {
-        // T.W6.5-P (T-34): the veil is an IN-PLATE fixture — TWO alpha
-        // layers (the veil recipe over its host plate) sit between its ink
-        // and the ambient, and BOTH recipes are SUBTREE-LOCAL (the W55
-        // adaptive `--glass-tint-*` axis retunes per-card, so a body-level
-        // probe reads the wrong cascade — probed live: root-context veil
-        // L 0.34/α 0.60 vs the card-context 0.41/0.63). So the veil is
-        // probed off the MOUNTED element itself (the dock band's
-        // `.dock-plate` precedent): the Card stamps `data-surface="veil"`, its painted
-        // recipe + its nearest painted ancestor (the resting plate) are
-        // composited A-over-B in sRGB — the SAME alpha-composite model the
-        // O-18 census measures with — into ONE effective tint. A per-layer
-        // OKLab-L linear mix diverges past the certification headroom at
-        // two stacked layers (probed live: 4.30:1 measured vs the 5.75
-        // walked target). Pre-mount the resolver yields undefined (the
-        // static model serves); the consumer's mount-epoch bump re-drives.
-        const host = document.querySelector<HTMLElement>(
-            '[data-surface="veil"]',
-        );
-        if (!host) return undefined;
-        const veil = paintedColor(host);
-        if (!veil) return undefined;
-        let plate: PaintedColor | null = null;
-        for (
-            let n = host.parentElement;
-            n && n !== document.body;
-            n = n.parentElement
-        ) {
-            plate = paintedColor(n);
-            if (plate) break;
-        }
-        if (plate) {
-            const aOut = veil.alpha + plate.alpha * (1 - veil.alpha);
-            const mix = (a: number, b: number) =>
-                (veil.alpha * a + plate.alpha * b * (1 - veil.alpha)) / aOut;
-            return {
-                color: srgbColor(
-                    mix(veil.r, plate.r),
-                    mix(veil.g, plate.g),
-                    mix(veil.b, plate.b),
-                ),
-                alpha: aOut,
-            };
-        }
-        return { color: srgbColor(veil.r, veil.g, veil.b), alpha: veil.alpha };
-    } else {
-        const probe = probeEl();
-        const token = TIER_BG_TOKEN[surface];
-        if (probe && token) {
-            probe.style.backgroundColor = `var(${token})`;
-            bg = getComputedStyle(probe).backgroundColor;
-        }
-    }
+/** A painted computed background as a tint — undefined when unmeasurable. */
+function tintOfBackground(bg: string | undefined): SurfaceTint | undefined {
     if (!bg) return undefined;
     const resolved = resolveCssColorAlpha(bg);
     if (!resolved || resolved.alpha === 0) return undefined;
@@ -265,6 +234,61 @@ function resolveLiveTint(surface: LiveLayer): SurfaceTint | undefined {
         color: srgbColor(resolved.r, resolved.g, resolved.b),
         alpha: resolved.alpha,
     };
+}
+
+/** A token tier's LIVE painted tint, read off its own probe. */
+function resolveTokenTint(surface: LiveLayer): SurfaceTint | undefined {
+    const token = TIER_BG_TOKEN[surface];
+    const probe = token ? tokenProbeEl(token) : null;
+    return probe ? tintOfBackground(getComputedStyle(probe).backgroundColor) : undefined;
+}
+
+/** Read the veil's LIVE painted tint (recipe truth) — null when unmeasurable. */
+function resolveVeilTint(): SurfaceTint | undefined {
+    // T.W6.5-P (T-34): the veil is an IN-PLATE fixture — TWO alpha
+    // layers (the veil recipe over its host plate) sit between its ink
+    // and the ambient, and BOTH recipes are SUBTREE-LOCAL (the W55
+    // adaptive `--glass-tint-*` axis retunes per-card, so a body-level
+    // probe reads the wrong cascade — probed live: root-context veil
+    // L 0.34/α 0.60 vs the card-context 0.41/0.63). So the veil is
+    // probed off the MOUNTED element itself (the dock band's
+    // `.dock-plate` precedent): the Card stamps `data-surface="veil"`, its painted
+    // recipe + its nearest painted ancestor (the resting plate) are
+    // composited A-over-B in sRGB — the SAME alpha-composite model the
+    // O-18 census measures with — into ONE effective tint. A per-layer
+    // OKLab-L linear mix diverges past the certification headroom at
+    // two stacked layers (probed live: 4.30:1 measured vs the 5.75
+    // walked target). Pre-mount the resolver yields undefined (the
+    // static model serves); the consumer's mount-epoch bump re-drives.
+    const host = document.querySelector<HTMLElement>(
+        '[data-surface="veil"]',
+    );
+    if (!host) return undefined;
+    const veil = paintedColor(host);
+    if (!veil) return undefined;
+    let plate: PaintedColor | null = null;
+    for (
+        let n = host.parentElement;
+        n && n !== document.body;
+        n = n.parentElement
+    ) {
+        plate = paintedColor(n);
+        if (plate) break;
+    }
+    if (plate) {
+        const aOut = veil.alpha + plate.alpha * (1 - veil.alpha);
+        const mix = (a: number, b: number) =>
+            (veil.alpha * a + plate.alpha * b * (1 - veil.alpha)) / aOut;
+        return {
+            color: srgbColor(
+                mix(veil.r, plate.r),
+                mix(veil.g, plate.g),
+                mix(veil.b, plate.b),
+            ),
+            alpha: aOut,
+        };
+    }
+    return { color: srgbColor(veil.r, veil.g, veil.b), alpha: veil.alpha };
 }
 
 /**
@@ -282,19 +306,48 @@ interface TintCacheEntry {
     darkClass: boolean;
     epoch: number;
     tint: SurfaceTint | undefined;
+    /** The entry was filled for a sibling tier and no caller has read it yet. */
+    unread?: boolean;
 }
 const liveTintCache = new Map<LiveLayer, TintCacheEntry>();
 function resolveLiveTintCached(surface: LiveLayer): SurfaceTint | undefined {
-    if (typeof document === "undefined") return undefined;
+    if (typeof document === "undefined" || surface === "page") return undefined;
     const darkClass = document.documentElement.classList.contains("dark");
     const epoch = probeEpoch.value;
     const hit = liveTintCache.get(surface);
     if (hit && hit.darkClass === darkClass && hit.epoch === epoch) {
+        if (hit.unread) {
+            hit.unread = false;
+            if (hit.tint === undefined) probeMissed = true;
+        }
         return hit.tint;
     }
-    const tint = resolveLiveTint(surface);
-    if (tint === undefined && surface !== "page") probeMissed = true;
-    liveTintCache.set(surface, { darkClass, epoch, tint });
+    if (surface === "veil") {
+        const tint = resolveVeilTint();
+        if (tint === undefined) probeMissed = true;
+        liveTintCache.set(surface, { darkClass, epoch, tint });
+        return tint;
+    }
+    // X.W11.p4e N-I1 (COHESION §0gt.2): ONE live referent read per ink region.
+    // A region certifies a run of inks across the token tiers (the root inks:
+    // resting, floating, modal over its scrim), and stamps a root token
+    // between each, so a tier read on first use landed after the previous
+    // ink's write and forced a whole-document style recalc of its own (the
+    // `.p4d` profile: 102 of the region's 189 ms). The first miss now reads
+    // every token tier in one pass, with no write between the reads, and
+    // caches them together under the same scheme/epoch stamp: one recalc per
+    // region. A sibling tier's entry counts as a miss on its first read when
+    // it measured nothing, exactly as its own read would have.
+    // Every probe exists before the first read: a probe inserted between two
+    // reads would dirty the style the first one resolved.
+    for (const tier of TOKEN_TIERS) tokenProbeEl(TIER_BG_TOKEN[tier]!);
+    let tint: SurfaceTint | undefined;
+    for (const tier of TOKEN_TIERS) {
+        const read = resolveTokenTint(tier);
+        if (tier === surface) tint = read;
+        liveTintCache.set(tier, { darkClass, epoch, tint: read, unread: tier !== surface });
+    }
+    if (tint === undefined) probeMissed = true;
     return tint;
 }
 
