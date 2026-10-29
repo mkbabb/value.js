@@ -25,6 +25,7 @@ import {
     certifyAccentInk,
     certifyIdentityInk,
     contrastInkFor,
+    plateInkDeparts,
     resolveMutedInk,
     resolvePlateInk,
     resolveSurfaceLightness,
@@ -173,14 +174,29 @@ describe("D6 — resolveSurfaceLightness (the ladder referent)", () => {
         }
     });
 
-    it("the well is opaque — closed-form, ambient-free (the C5/Q4 dividend)", () => {
-        const light = resolveSurfaceLightness("well", 0.376, false);
-        expect(resolveSurfaceLightness("well", 0.936, false)).toBe(light);
-        const dark = resolveSurfaceLightness("well", 0.376, true);
-        expect(resolveSurfaceLightness("well", 0.936, true)).toBe(dark);
-        // Scheme honesty: bright cream light well, deep stone dark well.
-        expect(light).toBeGreaterThan(0.8);
-        expect(dark).toBeLessThan(0.5);
+    it("the well is an IN-PLATE wash: it lifts toward the scheme's default elevation and flips away only from a departed ink (COHESION §0gv.6)", () => {
+        let departed = 0;
+        for (const a of AMBIENTS) {
+            // Dark: always a lift above the resting plate (SS8-0440).
+            const restingDark = resolveSurfaceLightness("resting", a, true);
+            expect(resolveSurfaceLightness("well", a, true)).toBeGreaterThan(restingDark);
+            // Light: a lift while the plate ink keeps the dark default pole; a
+            // sink where it departed to cream, so the well never closes on it.
+            const restingLight = resolveSurfaceLightness("resting", a, false);
+            const wellLight = resolveSurfaceLightness("well", a, false);
+            const ink = resolvePlateInk(restingLight, false);
+            if (plateInkDeparts(ink, false)) {
+                departed++;
+                expect(wellLight).toBeLessThan(restingLight);
+            } else {
+                expect(wellLight).toBeGreaterThan(restingLight);
+            }
+            // §0gk.2: the plate ink the light well carries holds the floor on it.
+            expect(ratioOn(ink, wellLight)).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+        }
+        // Both light arms are exercised by the ambient band.
+        expect(departed).toBeGreaterThan(0);
+        expect(departed).toBeLessThan(AMBIENTS.length);
     });
 
     it("the veil is an IN-PLATE composite — quiet-α over the RESTING rung, never the bare ambient (T.W6.5-P · T-34)", () => {

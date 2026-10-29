@@ -414,6 +414,17 @@
     --on-stage-chrome: rgb(233 230 226);
 }
 
+/* COHESION §0gv.6 (ESC-W11wk2-1 arm (i), narrowing §0gu.8): the lift above
+ * holds while the plate's certified ink keeps the scheme's default polarity.
+ * Where the boot writer certified the CREAM pole on a dark light-scheme plate
+ * (`data-plate-ink="departed"`, `plateInkDeparts`), a lift toward the paper
+ * would close on that ink (4.19-4.24:1 measured), so the wash flips AWAY from
+ * it: the scheme ink at 8%. Dark never flips: its lift already runs away from
+ * a departed (dark) ink. `ink.ts` `producerWellTint` is this recipe's model. */
+:root[data-plate-ink="departed"]:not(.dark) {
+    --well-bg: color-mix(in oklab, var(--foreground) 8%, transparent);
+}
+
 /* ── THE CONSOLE WELL (T.W4-4 · D5 · Q4 "The well.") ──
  * The rung-2 WELL as a seated sub-card CLASS — ONE home for the console
  * species (the picker's sliders console + ConfigSliderPane, the app's

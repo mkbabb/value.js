@@ -34,7 +34,8 @@ export interface SurfaceTint {
 }
 
 const PRODUCER_TINTS = {
-    card: { light: "hsl(30 85% 96%)", dark: "hsl(26 22% 17%)" },
+    // glass `--background` in light (`--neutral-0`, `tokens/color-radius.css`).
+    paper: "hsl(40 30% 98%)",
     foreground: { light: "hsl(24 10% 10%)", dark: "hsl(30 14% 90%)" },
 } as const;
 
@@ -59,7 +60,20 @@ const RUNG_STEP = {
     floating: 1,
 } as const;
 
-const WELL_FOREGROUND_FRACTION = 0.08;
+/**
+ * The static model of `--well-bg` (`demo/styles/foundation.css`, COHESION
+ * §0gk.2 · §0gv.6): a translucent wash laid IN the resting plate, never an
+ * opaque card. It lifts toward the scheme's default elevation (the paper at
+ * 14% in light, the cream ink at 8% in dark: SS8-0440). Where the certified
+ * plate ink has left the scheme's default polarity (cream ink on a dark plate
+ * in light), the lift would close on that ink, so the wash flips away from it:
+ * the scheme ink at 8%. In dark the lift already runs away from a departed
+ * (dark) ink, so dark never flips.
+ */
+const PRODUCER_WELL = {
+    lift: { light: 0.14, dark: 0.08 },
+    sink: 0.08,
+} as const;
 
 /**
  * X-DS pass 16 (V16-01) — glass 10.1.0's modal scrim (`--overlay-scrim`,
@@ -190,10 +204,7 @@ function walkToFloor(
     return best;
 }
 
-const CARD_L = {
-    light: lightness(requiredOklch(PRODUCER_TINTS.card.light)),
-    dark: lightness(requiredOklch(PRODUCER_TINTS.card.dark)),
-} as const;
+const PAPER = requiredOklch(PRODUCER_TINTS.paper);
 
 const FOREGROUND = {
     light: requiredOklch(PRODUCER_TINTS.foreground.light),
@@ -225,6 +236,32 @@ export function producerScrimTint(): SurfaceTint {
 }
 
 /**
+ * Whether a certified ink has left the scheme's default polarity (§0gv.6):
+ * it sits nearer the OTHER scheme's foreground pole than its own.
+ */
+function departsDefault(ink: Color<"oklch">, dark: boolean): boolean {
+    const L = lightness(ink);
+    const own = lightness(FOREGROUND[dark ? "dark" : "light"]);
+    const other = lightness(FOREGROUND[dark ? "light" : "dark"]);
+    return Math.abs(L - other) < Math.abs(L - own);
+}
+
+/** {@link departsDefault} for a serialized ink (the stamped `--ink-primary`). */
+export function plateInkDeparts(inkCss: string, dark: boolean): boolean {
+    const ink = parseOklch(inkCss);
+    if (!ink) throw new Error(`[ink] plate ink failed to parse: ${inkCss}`);
+    return departsDefault(ink, dark);
+}
+
+/** The static model's `--well-bg` recipe (see {@link PRODUCER_WELL}). */
+export function producerWellTint(dark: boolean, departed: boolean): SurfaceTint {
+    if (dark) return { color: FOREGROUND.dark, alpha: PRODUCER_WELL.lift.dark };
+    return departed
+        ? { color: FOREGROUND.light, alpha: PRODUCER_WELL.sink }
+        : { color: PAPER, alpha: PRODUCER_WELL.lift.light };
+}
+
+/**
  * Lay `tint` over `ground` the way the browser paints it: source-over in
  * gamma-encoded sRGB (the library's rgb mix, never local math).
  */
@@ -251,13 +288,17 @@ export function resolveSurfaceLightness(
 ): number {
     if (surface === "page") return ambientL;
 
-    const scheme = dark ? "dark" : "light";
-    if (surface === "well") {
-        return (1 - WELL_FOREGROUND_FRACTION) * CARD_L[scheme]
-            + WELL_FOREGROUND_FRACTION * lightness(FOREGROUND[scheme]);
-    }
-
     const ground = surfaceColor(ambientL);
+
+    if (surface === "well") {
+        // The well is an IN-PLATE wash (§0gv.6): `--well-bg` (live `tint`,
+        // else its static recipe) over the resting plate over the ground. The
+        // recipe's direction follows the ink the plate certified.
+        const plate = composite(ground, underTint ?? producerRungTint("resting", dark));
+        const recipe = tint
+            ?? producerWellTint(dark, departsDefault(plateInk(lightness(plate), dark), dark));
+        return lightness(composite(plate, recipe));
+    }
 
     if (surface === "modal") {
         // V16-01: a modal's plate is the FLOATING rung laid over the scrim,

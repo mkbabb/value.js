@@ -389,8 +389,9 @@ function surfaceLightnessNow(
         // The veil is an IN-PLATE fixture (T-34): its underlay referent is
         // the RESTING plate's live tint — `resolveSurfaceLightness` composes
         // plate-over-ambient first, then the veil tint over the plate. A
-        // modal's underlay is the scrim (V16-01), composed the same way.
-        surface === "veil"
+        // modal's underlay is the scrim (V16-01), composed the same way. The
+        // well is an in-plate wash over the resting plate too (§0gv.6).
+        surface === "veil" || surface === "well"
             ? resolveLiveTintCached("resting")
             : surface === "modal"
               ? resolveLiveTintCached("scrim")

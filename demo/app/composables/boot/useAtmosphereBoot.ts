@@ -51,6 +51,8 @@
 import { computed, getCurrentScope, onScopeDispose, provide, ref, watch } from "vue";
 import type { ComputedRef, Ref, ShallowRef } from "vue";
 
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+import { plateInkDeparts } from "../../../color-session/ink";
 import { INK_AMBIENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import type { PaneConfig } from "../../../shell/useViewManager";
 import { useContrastSafeColor } from "../../../color-session/useContrastSafeColor";
@@ -206,6 +208,7 @@ export function useAtmosphereBoot(
         atmosphereColor,
         derivedLightness,
     );
+    const { isDark } = useGlobalDark();
     provide(SAFE_ACCENT_KEY, safeAccentCss);
     provide(INK_AMBIENT_KEY, derivedLightness);
     certifyInks(() => {
@@ -214,6 +217,16 @@ export function useAtmosphereBoot(
         // and the same referent, so the page makes ONE polarity decision per
         // plate. `--ink-muted` is a step of this pole, never an independent flip.
         stampRootToken("--ink-primary", plateInkCss);
+        // COHESION §0gv.6: the polarity that ink certified, which steers the
+        // `--well-bg` lift (`foundation.css`) away from a departed ink.
+        watch(
+            [plateInkCss, isDark],
+            ([css, dark]) => {
+                document.documentElement.dataset.plateInk =
+                    plateInkDeparts(css, dark) ? "departed" : "default";
+            },
+            { immediate: true },
+        );
         stampRootToken("--ink-muted", mutedInkCss);
         // X-DS pass 5 (V5C-02): the floating plate's pair, the same
         // certification against the floating rung (menus and popovers are
