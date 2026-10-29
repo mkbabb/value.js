@@ -145,6 +145,28 @@ async function inkRatio(page: Page, box: { x: number; y: number; width: number; 
     return Math.max(...ink.map((p) => contrast(p, plate!)));
 }
 
+// The bar-less guard is two legs, split by INSTRUMENT (X.W11.wk, COHESION
+// §0gt.4, on the X.W11.h15 / DISPOSITION §8 E15 precedent — o11 gate 4a/4b).
+// The DOM half (the slot is `inert` and 0 px; the dock keeps its face) is
+// engine-agnostic and runs in every project that collects this file (Chromium
+// `smoke`, WebKit `oracles-safari`). The AX-tree half reads the ENGINE's own
+// accessibility tree through a CDP session (`Accessibility.getFullAXTree`),
+// which exists only in Chromium; Playwright's own role engine does not model
+// `inert`, so it is no substitute instrument. That leg carries the
+// `@chromium-instrument` tag, the WebKit project does not enrol it
+// (`playwright.config.ts` · `oracles-safari` · `grepInvert`), and it is never
+// skipped: it runs in `smoke`. Measured at the 2026-10-28 darwin witness:
+// `browserContext.newCDPSession: CDP session is only available in Chromium`
+// ×3, before any DOM assertion was reached.
+async function barlessSlot(page: Page): Promise<void> {
+    await parkOnDock(page);
+    const slot = await page.locator(".action-bar-toggle-slot").evaluate((el) => ({
+        inert: el.hasAttribute("inert"),
+        width: el.getBoundingClientRect().width,
+    }));
+    expect(slot).toEqual({ inert: true, width: 0 });
+}
+
 test.describe("B05 · bar-less routes (0122 · 0136 guard)", () => {
     test.use({ viewport: { width: 1440, height: 900 } });
 
@@ -153,21 +175,25 @@ test.describe("B05 · bar-less routes (0122 · 0136 guard)", () => {
             page,
         }) => {
             await boot(page, hash);
-            await parkOnDock(page);
-            const slot = await page.locator(".action-bar-toggle-slot").evaluate((el) => ({
-                inert: el.hasAttribute("inert"),
-                width: el.getBoundingClientRect().width,
-            }));
-            expect(slot).toEqual({ inert: true, width: 0 });
-            const cdp = await page.context().newCDPSession(page);
-            const ax = await cdp.send("Accessibility.getFullAXTree");
-            const node = ax.nodes.find(
-                (n) => n.name?.value === "Toggle action bar" && n.ignored !== true,
-            );
-            expect(node).toBeUndefined();
+            await barlessSlot(page);
             // The retired collapse: 254.7 → 28.1 px. The dock holds its main face.
             expect((await dockRect(page)).width).toBeGreaterThan(200);
         });
+
+        test(
+            `${hash}: the inert Tools seat is absent from the engine AX tree (CDP)`,
+            { tag: "@chromium-instrument" },
+            async ({ page }) => {
+                await boot(page, hash);
+                await barlessSlot(page);
+                const cdp = await page.context().newCDPSession(page);
+                const ax = await cdp.send("Accessibility.getFullAXTree");
+                const node = ax.nodes.find(
+                    (n) => n.name?.value === "Toggle action bar" && n.ignored !== true,
+                );
+                expect(node).toBeUndefined();
+            },
+        );
     }
 });
 
