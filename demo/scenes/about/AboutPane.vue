@@ -17,9 +17,8 @@
              that never reached content in nested composited scrollers (the KaTeX
              rows printed crisp through the compact title). Seated, the title is
              occluded by construction, the port feathers both edges, and the
-             header keeps its rest form (no compact state, so no dead band). The
-             `--pane-scroll` timeline still drives the veil: the card scopes it
-             (PaneHeader.vue, the seated-header rule).
+             header keeps its rest form (no compact state, so no dead band). A
+             seated header paints no veil (the veil is deleted, SS8-0192).
              This comment sits INSIDE the root: a comment beside the root makes
              a dev-mode root fragment, which loses the pane swap's out-in
              continuation (§0ay ESC-W5t-2; measured again here — the next

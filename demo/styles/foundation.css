@@ -668,7 +668,6 @@
      * (the D1 bracket); `:root` above holds the light arm and the law. */
     --well-bg: color-mix(in oklab, var(--foreground) 8%, transparent);
 
-
     --shadow: hsl(0 0% 45%);
 
     /* The accent-aware focus register holds in dark (R.W3 Lane C / C5):
@@ -721,7 +720,7 @@
 
 /* D.W4 Lane A: .touch-gate-* cluster colocated into ComponentSliders.vue's
  * unscoped <style>; .pane-scroll-fade colocated into PaneHeader.vue's unscoped
- * <style> (alongside the --pane-scroll consumers). (The `.palette-tab-content`
+ * <style>. (The `.palette-tab-content`
  * data-state cascade died with PaletteDialog.vue at T.W0-3, CC-6.) */
 
 /* Slug pill — the user/palette slug chip recipe, shared across the dock menus,
