@@ -1,6 +1,8 @@
 // SERVED MODEL: claude-opus-5-5
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
+import { detectRenderer, isSoftwareGL } from "./frame-budget";
+import { useRealGpuCell } from "./real-gpu";
 
 /**
  * OD19-ALL (owner docket 2026-10-19, value): "All loading times for all apps
@@ -39,7 +41,16 @@ import type { Page } from "@playwright/test";
  * envelopes (the admin-auth fixture's strategy), so the pane renders instead of
  * bouncing on the served API's refusal. Interception costs nothing here: every
  * cell is a cold, empty-cache load.
+ *
+ * X.W11.v1f (COHESION §0gu.3, the §0fr.2/§0gp.2 law; ESC-W11v1e-2): the 180 ms
+ * request-gap bar (1) gates on the REAL-GPU cell (`W12_REAL_GPU=1`,
+ * `perf/real-gpu.ts`), read ×2; the bar is unchanged. On a software rasteriser
+ * (the hosted CI runner) the gap is logged and the leg asserts liveness only:
+ * the entry and the pane chunk were both requested (CI read 186-244 ms on a
+ * starved runner, 107-137 ms on a calm one, at the same tree). A gap RED on
+ * the GPU cell is a product cut.
  */
+useRealGpuCell();
 
 const CPU = 4;
 
@@ -168,9 +179,10 @@ test.describe("OD19-ALL route load (built bundle, CPU 4x)", () => {
             expect(entry, "the entry chunk loaded").toBeDefined();
             if (chunk) {
                 expect(pane, `${chunk} was requested`).toBeDefined();
-                expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
-                    PANE_REQUEST_GAP_MS,
-                );
+                if (!isSoftwareGL(await detectRenderer(page)))
+                    expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+                        PANE_REQUEST_GAP_MS,
+                    );
             }
             expect(content, `#/${route} reached its content`).not.toBeNull();
             expect(content!).toBeLessThanOrEqual(bar);
