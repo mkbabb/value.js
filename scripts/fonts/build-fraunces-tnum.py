@@ -25,6 +25,16 @@ italic/ext faces have no tabular consumers):
       x-offset centering the default outline in the cell. A constant tabular
       advance across weights is standard foundry practice (columns align
       across the readout's 600/300 int/frac mix by construction).
+  1b · X.W11.v1f (COHESION §0gu.4, ESC-W11v1e-3): each `.tf` composite
+      carries gvar TUPLES DERIVED from its base digit's own tuples — one per
+      base region, on the same axes. The component offset moves by −ΔA/2
+      (ΔA = the base's advance delta in that region, read off its phantom
+      points), so the varying outline stays centred in the cell; the
+      composite's own phantom points carry zero delta, so the advance stays
+      the constant tabular cell. The 2026-07-10 mint registered EMPTY
+      variations here, and Linux Chromium (FreeType) rendered the cells
+      frozen at the default master (wght 900): `o10-type-locks:214` RED at
+      wght 600 in docker and on CI (`.v1e` R9).
   2 · Explicit HVAR AdvWidthMap entries pointing the new glyphs at a fresh
       ALL-ZERO VarData row — never the spec's out-of-range clamp (which
       would apply the LAST entry's deltas and re-proportionalize the mint).
@@ -37,12 +47,16 @@ Verification: O-10c (e2e/smoke/oracles/o10-type-locks.spec.ts) asserts equal
 RENDERED digit advance on the shipped face — never the declaration.
 
 Run from the repo root:  python3 scripts/fonts/build-fraunces-tnum.py
-(idempotent — skips if the face already carries tnum).
+(idempotent — a face that already carries tnum keeps its mint, and only its
+`.tf` variation tuples are re-derived from the base digits; a second run
+writes identical tuples).
 """
 
 from pathlib import Path
 
+from fontTools.misc.roundTools import otRound
 from fontTools.ttLib import TTFont
+from fontTools.ttLib.tables.TupleVariation import TupleVariation
 from fontTools.ttLib.tables._g_l_y_f import Glyph, GlyphComponent
 from fontTools.ttLib.tables import otTables as ot
 
@@ -57,15 +71,56 @@ DIGITS = "0123456789"
 TABULAR_ADVANCE = 1340
 
 
+def derive_tf_variations(font: TTFont, subst: dict[str, str]) -> int:
+    """Give every `.tf` composite gvar tuples derived from its base digit.
+
+    A composite's gvar points are its component offsets, then the four
+    phantom points (origin, advance, top, bottom). For each tuple of the
+    base digit (same axis region), the composite's tuple moves the single
+    component by −ΔA/2 in x, where ΔA = Δpp2.x − Δpp1.x is the base's
+    advance delta in that region, and holds its own phantom points at zero
+    (the cell stays the constant TABULAR_ADVANCE). Returns the tuple count.
+    """
+    gvar = font["gvar"]
+    glyf = font["glyf"]
+    written = 0
+    for base, name in subst.items():
+        if len(glyf[name].components) != 1:
+            raise SystemExit(f"{name}: expected one component; refusing to derive")
+        base_vars = gvar.variations.get(base, [])
+        if not base_vars:
+            raise SystemExit(f"{base}: base digit carries no gvar tuples; nothing to derive from")
+        tuples = []
+        for v in base_vars:
+            pp1, pp2 = v.coordinates[-4], v.coordinates[-3]
+            if pp1 is None or pp2 is None:
+                raise SystemExit(f"{base}: phantom deltas are IUP-inferred; re-derive explicitly")
+            if pp1[0] != 0:
+                raise SystemExit(f"{base}: origin phantom moves ({pp1}); the centring rule needs re-deriving")
+            d_adv = pp2[0] - pp1[0]
+            coords = [(otRound(-d_adv / 2), 0), (0, 0), (0, 0), (0, 0), (0, 0)]
+            tuples.append(TupleVariation(dict(v.axes), coords))
+        gvar.variations[name] = tuples
+        written += len(tuples)
+    return written
+
+
 def main() -> None:
     font = TTFont(str(FONT))
     gsub = font["GSUB"].table
     existing = {fr.FeatureTag for fr in gsub.FeatureList.FeatureRecord}
+    cmap = font.getBestCmap()
     if "tnum" in existing:
-        print(f"{FONT.name}: tnum already present — nothing to do")
+        # Already minted (2026-07-10): keep the mint, re-derive the tuples.
+        font["gvar"]  # decompile before any table is touched
+        subst = {cmap[ord(d)]: f"{cmap[ord(d)]}.tf" for d in DIGITS}
+        n = derive_tf_variations(font, subst)
+        font.flavor = "woff2"
+        font.save(str(FONT))
+        print(f"{FONT.name}: tnum present — re-derived {n} gvar tuples on "
+              f"{len(subst)} .tf composites")
         return
 
-    cmap = font.getBestCmap()
     glyf = font["glyf"]
     hmtx = font["hmtx"]
     # Force-decompile gvar BEFORE the glyph count grows (its parser asserts
@@ -99,12 +154,9 @@ def main() -> None:
 
     # gvar's header carries its own glyphCount — a lazily-copied gvar would
     # ship 245 against maxp's 255 (spec-invalid; engines may reject the
-    # face). Register the composites with EMPTY variations (their outlines
-    # vary through the referenced base glyph; their offsets/advances are
-    # deliberately static — the constant tabular cell).
-    if gvar is not None:
-        for name in new_names:
-            gvar.variations[name] = []
+    # face). Register the composites WITH their derived tuples (1b): an
+    # empty registration froze the cells at the default master on FreeType.
+    n_tuples = derive_tf_variations(font, subst) if gvar is not None else 0
 
     # ── 2 · HVAR: explicit zero-delta rows (never the out-of-range clamp) ──
     if "HVAR" in font:
@@ -166,8 +218,8 @@ def main() -> None:
     font.flavor = "woff2"
     font.save(str(FONT))
     print(f"{FONT.name}: minted tnum — {len(new_names)} .tf composites @ "
-          f"{TABULAR_ADVANCE}/2000 upm, zero-delta HVAR rows, GSUB feature "
-          f"on every LangSys")
+          f"{TABULAR_ADVANCE}/2000 upm, {n_tuples} derived gvar tuples, "
+          f"zero-delta HVAR rows, GSUB feature on every LangSys")
 
 
 if __name__ == "__main__":
