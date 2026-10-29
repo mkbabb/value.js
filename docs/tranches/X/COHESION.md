@@ -4779,3 +4779,38 @@ Ruled:
 10. **ESC-W11api2-1 (the production API serves `6e14e90c9`):** an orchestrator act over the owner's VPN.
     - Run the host deploy hook for palette-api, then the ordinal migration (dry run, count report, then the live run), then restore the webhook's value-js hook.
     - It waits on the VPN. .e's G10 reads it afterwards.
+
+## §0gv — 2026-10-29: X-W11's fifth set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gu:
+- settle waits read the transition's own finished promise (R4 GREEN; 0 wall-clock quiet windows);
+- three of four perf specs GREEN ×2 on the real-GPU cell; the Fraunces `.tf` glyphs carry gvar tuples (10/10) and o10:214 at w600 is GREEN on both platforms;
+- the coarse-390 Tags row (R10) GREEN ×2 on both platforms;
+- o18's 8-bit quantized floor comparison (§0gu.9) GREEN in both schemes;
+- the orphaned SS8-0192 comment hunks in `foundation.css`, `PaneShell.vue`, `AboutPane.vue` and `PalettesPane.vue` are adopted by the orchestrator (`51a2a6334`). The `.wk2` LOCK on `foundation.css` is cleared.
+
+Ruled:
+1. **ESC-W11p4f-1 and D-2 (lhci TBT 1954–6221 on CI against ≤300).** §0gu.1's idle-gated arrival was already in the bytes. The long task is glass's synchronous shader compile/link chain. On the hosted runner that chain runs on SwiftShader, so its cost is CPU emulation of a GPU, and it varies 2× at identical bytes (2164 → 6221). TBT is a wall-clock main-thread budget, so the §0fr.2/§0gp.2/§0gu.3 law applies to it.
+   - **TBT ≤ 300 gates on the real-GPU cell:** lhci collect ×3 against the built `dist/gh-pages`, headless Chrome with ANGLE Metal (the named GPU witness), run ×2 under `guarded`. The bar is unchanged.
+   - On CI, `total-blocking-time` reads `warn` with the same bar, so the number stays visible on every run. LCP, CLS and accessibility stay `error` on CI. The config comment cites this section.
+   - If the GPU cell is RED, that is a product cut: the residual holds on glass O-120, which glass places as async pipeline creation in 11.0.0 (O-112). It is ADOPT-AT-LANDING. The look and motion of the §0dm arrival are not traded for TBT.
+2. **D-6 (G7 visual 68F/148P after `.v1f`).** §0gu.4 lawfully changed the font's outlines, so the goldens follow the font.
+   - Unit `.vrb`: attribute the diffs first. Diff one route before and after `c364c6bf6`, and show that the changed pixels lie inside Fraunces text runs.
+   - Then re-mint the goldens in the CI-equivalent Linux image. Only cells attributed to the woff2 or to `AdminTagsPanel.vue` are re-minted. `maxDiffPixelRatio` is never raised.
+   - Finish with CI visual GREEN ×2. A diff outside a Fraunces run or the Tags panel is a defect and is escalated, not re-minted.
+3. **ESC-W11v1f-1 (o10:214 at w300 under FreeType full hinting): arm (a).** The oracle certifies the font's tabular advance, which is a property of the font. Full hinting is the headless Linux rasterizer's host default, and it snaps each advance by about 1 px; the font itself ships unhinted. The e2e-smoke project's Linux Chromium therefore pins `--font-render-hinting=none` explicitly instead of inheriting the host default. The pin is scoped to the smoke project; the visual project is untouched.
+   - Falsifier: o10:214 at w300 and w600, ×2, in docker Linux Chromium, with the darwin cell unchanged.
+4. **ESC-W11v1f-2 (drag-frame-budget RED 1/2 on the GPU cell, 3 long tasks with a max of 116 ms):** the product grant is given.
+   - Profile the drag on the GPU cell ×2 (the same named witness as 1). Attribute each long task over 50 ms to its function.
+   - If the task is consumer-side, cure it at its root in `demo/app/**` or the picker. If it is producer-side, row it to glass with the trace receipt, and hold the row honest-RED, ADOPT-AT-LANDING.
+   - The bar is unchanged. It must be GREEN ×2 on the GPU cell.
+5. **ESC-W11v1f-3 (w12-dock:316 action-sub-layer read before the bar opens):** the staging grant is given. The stage opens the action bar before the 'before' face is read, following the `.v1c` `0acfd7c80` precedent. The assertions are untouched. The test must be GREEN ×2.
+6. **ESC-W11wk2-1: arm (i). This narrows §0gu.8.** A well lifts toward the scheme's default elevation (SS8-0440: in dark, ΔL > +0.015, kept). The direction flips, so the well moves away from the certified ink, only where the certified ink's polarity departs from the scheme's default ink. The case at hand is cream ink on a dark plate in the light scheme.
+   - On every well, the §0gk.2 referent law and the 4.5:1 floor hold.
+   - The `--well-bg` cure (`foundation.css`) and the `ink.ts:255` well model land in one commit family, so the model and the paint never diverge. The model is re-paired to the live `--well-bg` tint.
+   - Falsifiers: o18:808/:862 in both schemes ×2 in Chromium, plus darwin WebKit under `guarded --exclusive webkit`, with SS8-0440 kept GREEN ×2.
+7. **Unchanged, honest-RED and recorded only:**
+   - G9, the keyframes exact pin to 4.0.0, is O-117 for keyframes.js;
+   - G10, the production API, waits on the owner's VPN (§0gu.10);
+   - R11 rides §0gu.6 to glass W-G.5 and, in WebGPU form, O-112;
+   - w7 ×3 is glass O-106.
+   - G6 / `.dep` re-sits when e2e-smoke, visual and lhci (under 1) read GREEN at the tranche-u code tree.
