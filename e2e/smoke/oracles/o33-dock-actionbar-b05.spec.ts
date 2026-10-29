@@ -280,15 +280,24 @@ test.describe("B05 · the Tools ink on the dock band (0132 · 0133)", () => {
     for (const hue of [0, 180]) {
         test(`0133: the Tools focus ring clears 3:1 against the band (seed hue ${hue})`, async ({
             page,
+            browserName,
         }) => {
             await seed(page, "light", hue);
             await boot(page, "/");
             await parkOnDock(page);
             await page.waitForTimeout(300);
             const before = await page.screenshot();
+            // X.W11.wk (COHESION §0gt.4), the X.W11.h16 idiom (o15-dock-register):
+            // WebKit's default Tab order (Safari without Full Keyboard Access)
+            // holds form controls only, so `Tab` never lands on the dock
+            // `<button>` (measured at the 2026-10-28 darwin witness: 30 presses,
+            // `reached` false). The engine's full-keyboard traversal is
+            // `Alt+Tab` (Option-Tab): the same keyboard modality and an honest
+            // `:focus-visible`, never a programmatic `.focus()`.
+            const traverse = browserName === "webkit" ? "Alt+Tab" : "Tab";
             let reached = false;
             for (let i = 0; i < 30 && !reached; i++) {
-                await page.keyboard.press("Tab");
+                await page.keyboard.press(traverse);
                 reached = await page.evaluate(
                     () => document.activeElement?.getAttribute("aria-label") === "Toggle action bar",
                 );
