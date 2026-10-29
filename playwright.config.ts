@@ -80,6 +80,19 @@ const SWIFTSHADER_LAUNCH = {
     args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"],
 };
 
+/**
+ * X·W11.v1g (COHESION §0gv.3, arm (a)) — the `smoke` project's Chromium pins
+ * FreeType hinting OFF instead of inheriting the headless Linux host default
+ * (full hinting). o10:214 certifies the font's tabular advance, a property of
+ * the font, which ships unhinted; full hinting snaps each advance by ~1 px.
+ * The flag only reaches FreeType (Linux); darwin's CoreText ignores it. The
+ * pin is scoped to `smoke` — the visual project's launch args are its own
+ * (e2e/visual/visual.project.ts) and are untouched.
+ */
+const SMOKE_LAUNCH = {
+    args: [...SWIFTSHADER_LAUNCH.args, "--font-render-hinting=none"],
+};
+
 // T.W3 — the lane-local port seam. Tranche T's standing execution mode (E-6)
 // runs lanes in SIBLING WORKTREES, each closing with its own playwright run;
 // `reuseExistingServer` on a fixed :8090 silently attaches a lane's run to a
@@ -176,7 +189,7 @@ export default defineConfig({
                 channel: WEBGL_CHANNEL,
                 headless: true,
                 viewport: { width: 1280, height: 720 },
-                launchOptions: SWIFTSHADER_LAUNCH,
+                launchOptions: SMOKE_LAUNCH,
             },
         },
         {
