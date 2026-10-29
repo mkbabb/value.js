@@ -465,6 +465,45 @@ function identityChromaFloor(pickC: number, accent: { L: number; H: number }): n
     return Math.min(IDENTITY_C_FLOOR * pickC, gamutMaxChroma(accent.L, accent.H));
 }
 
+/** OKLCh → the nearest 8-bit sRGB triple (Ottosson's inverse, the exact
+ *  twin of `rgbToOklch` above; each channel rounded to its code value). */
+function oklchToRgb8(L: number, C: number, H: number): [number, number, number] {
+    const h = (H * Math.PI) / 180;
+    const a = C * Math.cos(h);
+    const b = C * Math.sin(h);
+    const l = (L + 0.3963377774 * a + 0.2158037573 * b) ** 3;
+    const m = (L - 0.1055613458 * a - 0.0638541728 * b) ** 3;
+    const s = (L - 0.0894841775 * a - 1.291485548 * b) ** 3;
+    const code = (v: number) => {
+        const e = v <= 0.0031308 ? 12.92 * v : 1.055 * v ** (1 / 2.4) - 0.055;
+        return Math.min(255, Math.max(0, Math.round(e * 255)));
+    };
+    return [
+        code(4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s),
+        code(-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s),
+        code(-0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s),
+    ];
+}
+
+/** COHESION §0gu.9 (ESC-W11wk-3, the §0gl.7 principle): the floor is
+ *  evaluated at the precision of the medium. The measured ink is read off an
+ *  8-bit sRGB canvas, so it can only take grid values; a real-valued floor
+ *  can fall BETWEEN two grid points, where the ink that sits on the floor's
+ *  own nearest code value reads as "short" by less than one code value (the
+ *  darwin-WebKit trigger: C 0.005614 at `rgb(233 228 227)` vs a floor of
+ *  0.005985 whose nearest code value IS `rgb(233 228 227)`). Both operands
+ *  go to the grid: the measured colour is re-quantized, and the floor is
+ *  realized at the measured colour's own L and H, rounded to its nearest
+ *  8-bit triple and read back through the same converter. An ink more than
+ *  half a code value under the floor lands on a different, lower-chroma
+ *  triple and still fails — nothing measurable is widened. */
+function onGrid(color: { L: number; C: number; H: number }): { L: number; C: number; H: number } {
+    return rgbToOklch(oklchToRgb8(color.L, color.C, color.H));
+}
+function quantizedFloor(floorC: number, at: { L: number; H: number }): number {
+    return rgbToOklch(oklchToRgb8(at.L, floorC, at.H)).C;
+}
+
 /** Boot to the owner color and wait for the ink writers (boot contract). */
 async function bootAtOwnerColor(page: Page) {
     await page.goto(OWNER_URL);
@@ -1069,10 +1108,12 @@ for (const scheme of ["light", "dark"] as const) {
                 hueDeltaDeg(accent.H, pick.H),
                 `accent hue ≈ pick hue (accent ${accentCss}; pick H ${pick.H.toFixed(1)})`,
             ).toBeLessThanOrEqual(12);
+            // §0gu.9: both operands on the 8-bit grid the accent is read from.
+            const accentFloor = quantizedFloor(chromaFloor, accent);
             expect(
-                accent.C,
-                `accent chroma ≥ min(${IDENTITY_C_FLOOR}× pick, Cmax(h, L)) = ${chromaFloor.toFixed(6)} (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
-            ).toBeGreaterThanOrEqual(chromaFloor - GAMUT_CONVERTER_EPS);
+                onGrid(accent).C,
+                `accent chroma ≥ min(${IDENTITY_C_FLOOR}× pick, Cmax(h, L)) = ${chromaFloor.toFixed(6)}, on the 8-bit grid ${accentFloor.toFixed(6)} (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
+            ).toBeGreaterThanOrEqual(accentFloor - GAMUT_CONVERTER_EPS);
 
             // 2 — the owner's NAMED instance (t33-audit-03's shot): the "Lab"
             //     space trigger wears `--space-title-ink` = the safe accent at
@@ -1095,10 +1136,12 @@ for (const scheme of ["light", "dark"] as const) {
                 hueDeltaDeg(triggerInk.H, pick.H),
                 `trigger ink hue ≈ pick hue (ink ${row!.ink} raw ${row!.rawColor})`,
             ).toBeLessThanOrEqual(15);
+            // §0gu.9: both operands on the 8-bit grid the census reads.
+            const triggerFloor = quantizedFloor(chromaFloor * row!.effectiveAlpha, triggerInk);
             expect(
-                triggerInk.C,
-                `trigger ink chroma ≥ α × min(${IDENTITY_C_FLOOR}× pick, Cmax(h, L)) (ink ${row!.ink} α ${row!.effectiveAlpha})`,
-            ).toBeGreaterThanOrEqual(chromaFloor * row!.effectiveAlpha - GAMUT_CONVERTER_EPS);
+                onGrid(triggerInk).C,
+                `trigger ink chroma ≥ α × min(${IDENTITY_C_FLOOR}× pick, Cmax(h, L)) = ${(chromaFloor * row!.effectiveAlpha).toFixed(6)}, on the 8-bit grid ${triggerFloor.toFixed(6)} (ink ${row!.ink} α ${row!.effectiveAlpha})`,
+            ).toBeGreaterThanOrEqual(triggerFloor - GAMUT_CONVERTER_EPS);
         });
 
         test("the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)", async ({
