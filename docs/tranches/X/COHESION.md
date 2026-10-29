@@ -4751,3 +4751,31 @@ Ruled:
 7. **G6 and G7 (the demo deploy and the CI browser cell):** these follow from 1, 2 and **unit X.W11.v1e**, which cures every CI e2e-smoke red at root. A slow-runner starvation read is cured at its cause (a settle wait or harness pacing), never by a retry or a raised timeout. After that the demo deploys, with the post-deploy smoke run.
 
 The halt is lifted: each RED gate now has a ruling and an owner.
+
+## §0gu — 2026-10-29: X-W11's fourth set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gt:
+- visual tiled within `MAX_TEXTURE_SIZE`, CI visual GREEN ×2 (v1t);
+- N-D1 (dock nodes at load 145 → 58) and N-I1 (root ink 189 → 52 ms);
+- the palette contract `967fde792`/`79509ce7a` (api2), with the migration written;
+- 9 WebKit rows cured at their harness roots (wk).
+
+Ruled:
+1. **ESC-W11p4e-1 (TBT 1954, of which the §0dm identity arrival is 782).** §0dm protects the arrival's LOOK and MOTION, not its main-thread cost.
+   - **Unit X.W11.p4f:** the aurora/blob arrival starts after the first idle (`requestIdleCallback` with a 500 ms timeout) rather than inside the boot task. Its visual and motion are unchanged (frame strip ×2, before and after), and the first-paint shell is unchanged.
+   - Its producer cost, the shader compile/link inside one task, goes to glass as a W-G row: `KHR_parallel_shader_compile` and yielding between programs.
+   - N-S1 is retired, since it had no object at these bytes.
+   - The glass dock setup (159 ms) rides O-108/W-0.8.
+   - lhci ×3 on CI after p4f; the budgets are unchanged.
+2. **ESC-W11v1e-1 (R4, the SwiftShader-starved runner):** arm *settle from the transition's own finished promise*. Every `paneSettled` and `[data-morphing]` wait reads the transition's own completion (`Animation.finished`, `ViewTransition.finished`, `transitionend`), never a quiet window measured in wall-clock time. No product change; no software-tier substrate.
+3. **ESC-W11v1e-2 (R5, wall-clock perf budgets on the hosted runner):** the §0fr.2/§0gp.2 law applies.
+   - drag-frame-budget, w12u-p-drag, reactivity-instant and the od19 180 ms gap gate on the real-GPU cell ×2. On CI software raster they assert liveness only. The bars are unchanged.
+   - A budget that is RED on the GPU cell is a product cut.
+4. **ESC-W11v1e-3 (R9, the Fraunces `.tf` glyphs frozen at wght 900 with 0 gvar tuples):** a root cure in the font build. Grant: `scripts/fonts/build-fraunces-tnum.py` plus the regenerated woff2, with the variation tuples kept. Falsifier: o10:214 at wght 600, ×2, in Linux Chromium (docker) and on darwin.
+5. **ESC-W11v1e-4 (R10, the coarse-390 Tags row):** the row sizes to its content (intrinsic block size, wrapping allowed). A fixed box that clips text on any platform is a defect.
+6. **ESC-W11v1e-5 (R11, no blob repaint after `webglcontextrestored`):** relayed to glass with W-G.5 (O-104a's "one redraw" law extends to context restore). Held honest-RED until then; the consumer does not un-park it by hand.
+7. **ESC-W11wk-1 (w7, the dismissal by a human-pace double activation):** this is glass **O-106**, already placed in W-E.4. Held, ADOPT-AT-LANDING.
+8. **ESC-W11wk-2 (o18:769/823 light) is a correction to §0gk.2's lift law.** A well's lift moves AWAY from the polarity of the ink actually certified on it, raising contrast against the ink it carries, rather than always toward the scheme's light pole. The cure goes in `foundation.css` (once the sibling hunks are clear) plus the well's ink pairing, measured in both schemes ×2 with 0440's elevation parity kept.
+9. **ESC-W11wk-3 (o18:1049 on WebKit, chroma short by less than one 8-bit code value):** the floor is evaluated at the precision of the medium. The oracle quantizes both the measured colour and the floor to the 8-bit sRGB grid it reads from before comparing. That corrects an ill-posed sub-quantum comparison, the same principle as §0gl.7, and widens nothing that can be measured.
+10. **ESC-W11api2-1 (the production API serves `6e14e90c9`):** an orchestrator act over the owner's VPN.
+    - Run the host deploy hook for palette-api, then the ordinal migration (dry run, count report, then the live run), then restore the webhook's value-js hook.
+    - It waits on the VPN. .e's G10 reads it afterwards.
