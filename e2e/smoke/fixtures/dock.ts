@@ -34,26 +34,108 @@ import { expect } from "@playwright/test";
 import type { Locator, Page } from "@playwright/test";
 
 /**
+ * X.W11.v1f (COHESION §0gu.2, ESC-W11v1e-1) — THE DOCK MORPH'S OWN COMPLETION.
+ *
+ * glass's `useDockMorph` sets `[data-morphing]` when the collapse↔expand
+ * spring starts and removes it in that spring's own `onSettle` (glass
+ * `dist/dock.js`, the morph's `c()`). The settle is read from that event — a
+ * MutationObserver resolving on the attribute's removal — never from a
+ * wall-clock window: on a starved software-raster runner the spring's frames
+ * arrive late and a 5 s window measured the runner, not the dock (CI
+ * `40842251692`: `o21`, `o14`, `w12-dock` rows). A morph that never settles
+ * still fails, at the test's own budget. The one-shot assertion after it
+ * restates the state the event delivered. The read rides `waitForFunction`
+ * (no timeout of its own), which re-arms in the new document if a dev-server
+ * reload replaces the page mid-wait — a plain `evaluate` dies with the
+ * context (measured: o14 ×3 "Execution context was destroyed" on a cold
+ * vite cache).
+ */
+export async function dockSettled(page: Page): Promise<void> {
+    await page.waitForFunction(
+        () =>
+            new Promise<boolean>((resolve) => {
+                const morphing = () => document.querySelector(".glass-dock[data-morphing]") !== null;
+                if (!morphing()) return resolve(true);
+                const mo = new MutationObserver(() => {
+                    if (morphing()) return;
+                    mo.disconnect();
+                    resolve(true);
+                });
+                mo.observe(document.documentElement, {
+                    subtree: true,
+                    childList: true,
+                    attributes: true,
+                    attributeFilter: ["data-morphing"],
+                });
+            }),
+    );
+    await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0);
+}
+
+/**
+ * X.W11.v1f (COHESION §0gu.2) — THE DOCK AT REST: its morph has settled
+ * (`dockSettled`) AND every finite transition inside the dock has finished —
+ * the DockCrossfade faces' enter/leave, the plate's boot arrival, the
+ * vj-settle beat. Read from the transitions' own completion: each finite
+ * running Animation's `finished` promise (`getAnimations({ subtree: true })`),
+ * and, while a node carries a Vue transition class with no Animation yet (the
+ * frame before the CSSTransition exists), the next animation frame. Infinite
+ * loops (the dock lamp) are not an arrival and are not awaited. Replaces the
+ * fixed 900-1200 ms quiet windows the dock specs slept through (CI
+ * `40842251692`: `w12-dock:315`, the crossfade face read mid-swap).
+ */
+export async function dockAtRest(page: Page): Promise<void> {
+    await dockSettled(page);
+    await page.waitForFunction(async () => {
+        const dock = document.querySelector(".glass-dock");
+        if (!dock) return true;
+        const root = dock.parentElement ?? dock;
+        // A RUNNING time-based transition with an end: scroll-driven
+        // animations (the dock plate's `gl-dock-cap-inline-*`, endTime "100%"),
+        // infinite loops and paused effects never "finish" and are not an arrival.
+        const finite = (a: Animation) => {
+            const end = a.effect?.getComputedTiming().endTime;
+            return (
+                a.playState === "running" &&
+                a.timeline === document.timeline &&
+                typeof end === "number" &&
+                Number.isFinite(end)
+            );
+        };
+        const inPhase = () =>
+            [root, ...root.querySelectorAll("*")].some((el) =>
+                [...el.classList].some((c) => /-(enter|leave)-(from|active|to)$/.test(c)),
+            );
+        for (;;) {
+            const running = root.getAnimations({ subtree: true }).filter(finite);
+            if (running.length) {
+                await Promise.allSettled(running.map((a) => a.finished));
+                continue;
+            }
+            if (!inPhase()) return true;
+            await new Promise((r) => requestAnimationFrame(r));
+        }
+    });
+    await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0);
+}
+
+/**
  * Ensure the dock is expanded. A real user clicks the collapsed pill before
  * reaching the controls inside it. No-op when the dock is already expanded
  * (mobile `:collapse="false"`, or desktop's expanded first-paint).
  */
 export async function expandDock(page: Page): Promise<void> {
     const dock = page.locator(".glass-dock").first();
-    const settled = () =>
-        expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-            timeout: 5000,
-        });
     // A morph already in flight (an idle collapse under way) is read at its
     // END, never mid-flight, so "already expanded" is not misread.
-    await settled();
+    await dockSettled(page);
     const collapsedPill = page.locator(".glass-dock.collapsed");
     if (await collapsedPill.count()) {
         // Real click on the pill body; the dock un-collapses on the click.
         await collapsedPill.click();
         // The collapse↔expand morph runs the dock's single settling spring;
         // wait for `[data-morphing]` to clear so the controls inside are at rest.
-        await settled();
+        await dockSettled(page);
     }
     // X-W12U .q2 (X-W7L C-DOCK-IDLE, glass 9.0.0+ at X.W7L.m `c8a4959dd`): an
     // UNHOVERED, unheld desktop dock idles shut `DOCK_COLLAPSE_DELAY_MS`
@@ -103,28 +185,57 @@ export async function openView(page: Page, name: string): Promise<void> {
  * mid-stall lands on a surface that then slides away (observed live: a
  * 50%-of-bar click minting a 0% gradient stop while the pane was still
  * 563px off-station), and pixel probes screenshot a mid-flight surface.
- * Poll the pane subtree to transform-rest before handing it to
- * interactions or probes. This is a WAIT, never a gate relaxation: a
- * PERMANENT resting transform (the W5-10 class) times this poll out and
- * fails the caller loudly.
+ *
+ * X.W11.v1f (COHESION §0gu.2, ESC-W11v1e-1): the settle is read from the
+ * transition's OWN completion, never a wall-clock window. PaneSlot's
+ * `<Transition mode="out-in">` runs CSS transitions on the pane nodes; the
+ * read awaits every finite running animation's `finished` promise
+ * (`Element.getAnimations()`: the CSSTransitions and CSSAnimations of those
+ * nodes) and, between Vue's class phases (`*-enter-from` / `*-leave-active`
+ * …, the frame before a transition is created), the next animation frame —
+ * until the nodes carry neither. The poll it replaces gave the transform 15 s
+ * and timed out on the starved SwiftShader runner while the transition was
+ * still running ("Expected false · Received true"). Then ONE assertion: no
+ * pane node rests on a transform. A PERMANENT resting transform (the W5-10
+ * class) carries no animation, so it fails that assertion loudly.
  */
 export async function paneSettled(page: Page): Promise<void> {
-    await expect
-        .poll(
-            () =>
-                page.evaluate(() =>
-                    [".pane-container", ".pane-wrapper", ".pane-wrapper > *"]
-                        .flatMap((sel) => [
-                            ...document.querySelectorAll(sel),
-                        ])
-                        .some(
-                            (el) =>
-                                getComputedStyle(el).transform !== "none",
-                        ),
-                ),
-            { timeout: 15_000 },
-        )
-        .toBe(false);
+    await page.waitForFunction(async () => {
+        const nodes = () =>
+            [".pane-container", ".pane-wrapper", ".pane-wrapper > *"].flatMap((sel) => [
+                ...document.querySelectorAll(sel),
+            ]);
+        const inPhase = (el: Element) =>
+            [...el.classList].some((c) => /-(enter|leave)-(from|active|to)$/.test(c));
+        // A RUNNING time-based transition with an end: scroll-driven
+        // animations (the dock plate's `gl-dock-cap-inline-*`, endTime "100%"),
+        // infinite loops and paused effects never "finish" and are not an arrival.
+        const finite = (a: Animation) => {
+            const end = a.effect?.getComputedTiming().endTime;
+            return (
+                a.playState === "running" &&
+                a.timeline === document.timeline &&
+                typeof end === "number" &&
+                Number.isFinite(end)
+            );
+        };
+        for (;;) {
+            const els = nodes();
+            const running = els.flatMap((el) => el.getAnimations()).filter(finite);
+            if (running.length) {
+                await Promise.allSettled(running.map((a) => a.finished));
+                continue;
+            }
+            if (!els.some(inPhase)) return true;
+            await new Promise((r) => requestAnimationFrame(r));
+        }
+    });
+    const resting = await page.evaluate(() =>
+        [".pane-container", ".pane-wrapper", ".pane-wrapper > *"]
+            .flatMap((sel) => [...document.querySelectorAll(sel)])
+            .some((el) => getComputedStyle(el).transform !== "none"),
+    );
+    expect(resting, "a pane node rests on a transform after its transition finished").toBe(false);
 }
 
 /**

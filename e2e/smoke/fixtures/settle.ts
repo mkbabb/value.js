@@ -30,57 +30,68 @@ import type { Locator } from "@playwright/test";
  *      between an out-in leave and the incoming mount, never a settled pane.
  *
  * This is a WAIT, never a relaxation: it asserts nothing about the caller's
- * geometry, and a pane that never leaves its transition classes times the poll
- * out and fails the caller loudly, naming the element and the reason.
+ * geometry, and a pane that never leaves its transition classes fails the
+ * caller loudly at the test's own budget, naming the element and the reason.
+ *
+ * X.W11.v1f (COHESION §0gu.2, ESC-W11v1e-1): the wait reads the transition's
+ * OWN completion, never a wall-clock window. While an element runs its own
+ * Animations the read awaits their `finished` promises; while it only carries
+ * a transition class (the pre-start pose, before Vue's next frame creates the
+ * CSSTransition) or the region is empty, it awaits the next animation frame.
+ * The 15 s poll it replaces timed out on the starved SwiftShader runner while
+ * the transition was still running (CI `40842251692`, the `o21` rows).
  */
-export async function regionSettled(
-    target: Locator,
-    { timeout = 15_000 }: { timeout?: number } = {},
-): Promise<void> {
+export async function regionSettled(target: Locator): Promise<void> {
+    // `expect.poll` with no window of its own (`timeout: 0`) only re-runs the
+    // read if a dev-server reload replaced the document mid-wait; each read
+    // itself waits on the transitions' completion, never on the clock.
     await expect
-        .poll(
-            () =>
-                target.evaluate((el) => {
-                    let paneRoot: Element | null = null;
-                    if (el.getAttribute("role") === "region") {
-                        paneRoot = el.firstElementChild;
-                    } else {
-                        let node: Element | null = el;
-                        while (
-                            node?.parentElement &&
-                            node.parentElement.getAttribute("role") !== "region"
-                        )
-                            node = node.parentElement;
-                        paneRoot = node?.parentElement ? node : null;
-                    }
-                    const TRANSITION_CLASS = /-(enter|leave)-/;
-                    const unsettled: string[] = [];
-                    // An EMPTY region has not arrived: between an out-in leave's
-                    // end and the incoming pane's mount the slot holds no pane
-                    // root at all — that is the swap still in flight, not rest.
-                    if (el.getAttribute("role") === "region" && !paneRoot)
-                        unsettled.push("the region renders no pane yet");
-                    for (const node of new Set([el, paneRoot])) {
-                        if (!node) continue;
-                        const name = `${node.tagName.toLowerCase()}.${[
-                            ...node.classList,
-                        ]
-                            .slice(0, 2)
-                            .join(".")}`;
-                        const classes = [...node.classList].filter((c) =>
-                            TRANSITION_CLASS.test(c),
-                        );
-                        if (classes.length)
-                            unsettled.push(`${name} carries ${classes.join(" ")}`);
-                        const running = node
-                            .getAnimations()
-                            .filter((a) => a.playState === "running").length;
-                        if (running)
-                            unsettled.push(`${name} runs ${running} animation(s)`);
-                    }
-                    return unsettled.join("; ");
-                }),
-            { timeout, message: "the region never settled" },
-        )
+        .poll(() => target.evaluate(settle), {
+            timeout: 0,
+            message: "the region never settled",
+        })
         .toBe("");
+}
+
+/** In-page: resolves "" once `el` and its pane root are at rest (see above). */
+async function settle(el: Element): Promise<string> {
+    let paneRoot: Element | null = null;
+    if (el.getAttribute("role") === "region") {
+        paneRoot = el.firstElementChild;
+    } else {
+        let node: Element | null = el;
+        while (
+            node?.parentElement &&
+            node.parentElement.getAttribute("role") !== "region"
+        )
+            node = node.parentElement;
+        paneRoot = node?.parentElement ? node : null;
+    }
+    const TRANSITION_CLASS = /-(enter|leave)-/;
+    const read = () => {
+        if (el.getAttribute("role") === "region") paneRoot = el.firstElementChild;
+        const reasons: string[] = [];
+        const running: Animation[] = [];
+        // An EMPTY region has not arrived: between an out-in leave's
+        // end and the incoming pane's mount the slot holds no pane
+        // root at all — that is the swap still in flight, not rest.
+        if (el.getAttribute("role") === "region" && !paneRoot)
+            reasons.push("the region renders no pane yet");
+        for (const node of new Set([el, paneRoot])) {
+            if (!node) continue;
+            const name = `${node.tagName.toLowerCase()}.${[...node.classList].slice(0, 2).join(".")}`;
+            const classes = [...node.classList].filter((c) => TRANSITION_CLASS.test(c));
+            if (classes.length) reasons.push(`${name} carries ${classes.join(" ")}`);
+            const own = node.getAnimations().filter((a) => a.playState === "running");
+            if (own.length) reasons.push(`${name} runs ${own.length} animation(s)`);
+            running.push(...own);
+        }
+        return { reasons, running };
+    };
+    for (;;) {
+        const { reasons, running } = read();
+        if (!reasons.length) return "";
+        if (running.length) await Promise.allSettled(running.map((a) => a.finished));
+        else await new Promise((r) => requestAnimationFrame(r));
+    }
 }

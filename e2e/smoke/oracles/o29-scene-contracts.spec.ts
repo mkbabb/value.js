@@ -2,7 +2,7 @@
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
 import { regionSettled } from "../fixtures/settle";
-import { expandDock } from "../fixtures/dock";
+import { expandDock, dockSettled } from "../fixtures/dock";
 import { detectRenderer, isSoftwareGL } from "../perf/frame-budget";
 
 /**
@@ -96,9 +96,7 @@ async function sceneSeats(page: Page): Promise<string[]> {
     const toggle = page.getByRole("button", { name: "Toggle action bar" });
     await expect(toggle).toBeVisible();
     await toggle.click();
-    await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-        timeout: 8000,
-    });
+    await dockSettled(page);
     return page
         .locator('[data-testid="scene-action-row"] [data-scene-action]')
         .evaluateAll((els) =>

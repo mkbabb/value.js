@@ -23,7 +23,7 @@
  */
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
-import { expandDock, mainPane } from "./fixtures/dock";
+import { expandDock, mainPane, dockSettled } from "./fixtures/dock";
 
 const DESK = { width: 1440, height: 900 };
 const ULTRA = { width: 3440, height: 1440 };
@@ -179,9 +179,7 @@ test.describe("Z1-app-chassis — the dock", () => {
         page,
     }) => {
         await page.getByRole("button", { name: "Toggle action bar" }).click();
-        await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-            timeout: 5000,
-        });
+        await dockSettled(page);
         await page.getByRole("button", { name: "Open color input" }).click();
         const field = page.getByRole("textbox", { name: "Enter a CSS color" });
         await expect(field).toBeFocused({ timeout: 5000 });

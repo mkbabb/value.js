@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { expandDock, mainPane } from "../fixtures/dock";
+import { expandDock, mainPane, dockSettled } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #8 — color-propose (propose-mode cycle smoke).
@@ -52,9 +52,7 @@ test("propose cycle reaches 'Propose color name' state for an unnamed color", as
     // next click — the same idiom `expandDock` uses. This is transition
     // synchronisation, NOT a product accommodation: canProposeName is correct
     // and the control works; the click was racing the reveal animation.
-    await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-        timeout: 5000,
-    });
+    await dockSettled(page);
     await page.getByRole("button", { name: "Open color input" }).click();
     // The toggle label flips to "Propose color name" iff
     // canProposeName=true AND the input sub-layer is active — the
@@ -93,9 +91,7 @@ test("the sub-layer cycle keeps exactly one active layer, the other inert", asyn
     await expect(mainPane(page)).toBeVisible();
     await expandDock(page);
     await page.getByRole("button", { name: "Toggle action bar" }).click();
-    await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-        timeout: 5000,
-    });
+    await dockSettled(page);
 
     const grid = page.locator(".dock-layer-grid").first();
     const layers = grid.locator("> .dock-face");
@@ -157,9 +153,7 @@ test("a successful propose returns the toolbar to its actions state", async ({
     await expect(mainPane(page)).toBeVisible();
     await expandDock(page);
     await page.getByRole("button", { name: "Toggle action bar" }).click();
-    await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-        timeout: 5000,
-    });
+    await dockSettled(page);
     await page.getByRole("button", { name: "Open color input" }).click();
     await page.getByRole("button", { name: "Propose color name" }).click();
 

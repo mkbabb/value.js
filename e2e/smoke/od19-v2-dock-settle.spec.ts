@@ -16,6 +16,7 @@
  *   - the plate's centre x drifts ≤ 1 px.
  */
 import { test, expect, type Page } from "@playwright/test";
+import { dockAtRest } from "./fixtures/dock";
 
 interface Frame {
     t: number;
@@ -35,8 +36,9 @@ async function openHome(page: Page) {
     await page.goto("/#/", { waitUntil: "load", timeout: 60_000 });
     await page.locator(".glass-dock").first().waitFor({ timeout: 30_000 });
     await page.locator(".dock-crossfade .dock-face.is-active").first().waitFor({ timeout: 30_000 });
-    await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, { timeout: 15_000 });
-    await page.waitForTimeout(1_200);
+    // X.W11.v1f (COHESION §0gu.2): the boot morph and arrival are read at
+    // their own completion, never after a quiet window.
+    await dockAtRest(page);
 }
 
 /** Switch view by hash and trace the dock per animation frame for `ms`. */

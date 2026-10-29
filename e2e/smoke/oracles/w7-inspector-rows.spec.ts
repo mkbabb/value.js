@@ -13,7 +13,7 @@
  */
 import type { Page } from "@playwright/test";
 import { userTest, expect } from "../fixtures/user-auth";
-import { expandDock } from "../fixtures/dock";
+import { expandDock, dockSettled } from "../fixtures/dock";
 
 /** An owned, public, versioned remote palette (the user-auth fixture's slug). */
 const OWNED = {
@@ -140,7 +140,7 @@ userTest.describe("the selected entity on X-W4's typed SceneActionSet", () => {
         await card(page).getByText("Owned One", { exact: true }).click();
         await expandDock(page);
         await page.getByRole("button", { name: "Toggle action bar" }).click();
-        await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, { timeout: 8000 });
+        await dockSettled(page);
         await expect
             .poll(() => seats.evaluateAll((els) => els.map((el) => el.getAttribute("data-scene-action"))))
             // Re-baselined X-W12U .q2 to X.W12U.s1 UIA-V-110 (`d5d93a5bb`):

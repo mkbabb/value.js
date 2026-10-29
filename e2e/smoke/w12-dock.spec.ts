@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5
 import { test, expect, type Page, type Locator, type BrowserContext } from "@playwright/test";
 import { mkdirSync, writeFileSync, renameSync } from "node:fs";
-import { expandDock } from "./fixtures/dock";
+import { dockAtRest, expandDock } from "./fixtures/dock";
 
 /**
  * X.W12.e · OA-6 / OA-22 / OA-55 — THE DOCK SITS ON GLASS'S PRIMITIVES.
@@ -56,8 +56,9 @@ async function openHome(page: Page, width: number, height: number) {
     await page.goto("/#/", { waitUntil: "load", timeout: 60_000 });
     await page.locator(".glass-dock").first().waitFor({ timeout: 30_000 });
     await page.locator(".dock-crossfade .dock-face.is-active").first().waitFor({ timeout: 30_000 });
-    // the dock's own boot morph settles before any reading
-    await page.waitForTimeout(1_200);
+    // the dock's own boot morph settles before any reading — read from its own
+    // completion (X.W11.v1f, COHESION §0gu.2), never a quiet window
+    await dockAtRest(page);
 }
 
 function dockButton(page: Page, name: string | RegExp): Locator {
@@ -244,13 +245,13 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             enter: async (p) => {
                 await dockButton(p, "Toggle action bar").click();
                 await dockButton(p, "Back").waitFor({ timeout: 10_000 });
-                await p.waitForTimeout(900);
+                await dockAtRest(p);
                 await dockButton(p, "Open color input").click();
             },
             entered: (p) => dockButton(p, /^(Close input|Propose color name)$/),
             leave: async (p) => {
                 await dockButton(p, /^(Close input|Propose color name)$/).click();
-                await p.waitForTimeout(300);
+                await dockAtRest(p);
                 if (await dockButton(p, "Close propose").isVisible()) await dockButton(p, "Close propose").click();
             },
         },
@@ -350,10 +351,12 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             await armSwitchCensus(page);
             await sw.enter(page);
             await expect(sw.entered(page)).toBeVisible({ timeout: 10_000 });
-            await page.waitForTimeout(900);
+            // X.W11.v1f (COHESION §0gu.2): each face is read once the switch's
+            // own crossfade + morph have completed, not after a 900 ms window.
+            await dockAtRest(page);
             const during = await activeFace(page, sw.face);
             await sw.leave(page);
-            await page.waitForTimeout(900);
+            await dockAtRest(page);
             const after = await activeFace(page, sw.face);
             const names = await readSwitchCensus(page);
             const faces = await page.locator(".glass-dock .dock-crossfade > .dock-face").count();

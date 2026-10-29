@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { openView, expandDock, mainPane } from "../fixtures/dock";
+import { openView, expandDock, mainPane, dockSettled } from "../fixtures/dock";
 
 /**
  * T.W4 W4-6 · O-10d — THE DISPLAY-VOICE FAMILY CENSUS (SYNTHESIS §6.1 O-10d;
@@ -357,9 +357,7 @@ test("O-10d census — gated title surfaces: report dialog · versions drawer ·
     ).toBeVisible();
     await expandDock(page);
     await page.getByRole("button", { name: "Toggle action bar" }).click();
-    await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-        timeout: 5000,
-    });
+    await dockSettled(page);
 
     // ActionButton's hover-card title ("Copy color").
     await page.getByRole("button", { name: "Copy color" }).hover();
