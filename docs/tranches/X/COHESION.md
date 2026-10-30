@@ -4824,3 +4824,39 @@ Ruled:
 - **Still owed:** the ordinal migration. `967fde792`/`79509ce7a` and `migrate-ordinal-positions` are on tranche-u only. After `.dep`'s master push redeploys, the orchestrator runs the migration on the host: a dry run with its count report first, then the live run.
 - **Recorded, not touched:** `palette-api-backup-1` (mongo:8, healthy) belongs to the legacy compose project at `/home/mbabb/Programming/palette-api/compose.yaml`. The checkout's `api/compose.yaml` has no backup service, so compose names the container an orphan. It is left running, because it is the live backup. Moving backups into the tracked compose file, or into a host timer, is a follow-up row.
 - **Removed under the §0gi host delegation:** the `words`, `speedtest` and `csp-solver` hooks. They routed to the legacy `dispatch.sh` for sites that are retired; speedtest and csp-solver now run on Cloudflare. The receiver log showed csp-solver pushes still firing and failing on the deleted `/var/www/csp-solver`. Hot reload kept the removed ids, so `webhook.service` was restarted. Read afterwards: `value.js` and `fourier-analysis` refuse unsigned calls; the three removed ids answer 404 "Hook not found". The backup `hooks.json.bak-x-w11-20261029` holds the prior five.
+
+## §0gw — 2026-10-29: X-W11's sixth set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gv:
+- TBT is a warn on CI, and the real-GPU lhci cell read GREEN ×2 at `b3d5d73f0` (.tbt);
+- o10 hinting, drag-frame-budget on the GPU cell, and w12-dock staging, each GREEN ×2 (.v1g);
+- the §0gv.6 well with o18 both schemes ×2 in Chromium and SS8-0440 kept (.wk3);
+- visual goldens re-minted, all 68 attributed to the woff2; CI visual 216/216 ×2 (.vrb);
+- production API at master `bfe74d47f`, with the webhook cured (§0gv.8).
+
+Ruled:
+1. **ESC-W11dep-E2E-RED, family A (wall-clock bars on CI software raster):**
+   - **The bars:** eager-payload:377 (G3/G4 p75 TBT/LCP over N≥20 cold loads), od19-route-load:138 ×2 (content ≤ 2500 ms) and w12-drag:75.
+   - **The law:** §0fr.2/§0gp.2/§0gu.3/§0gv.1 applies to these bars completely. Each gates on the real-GPU cell ×2. On CI it asserts liveness only: content is reached, the hop completes, and frames advance. The number is logged.
+   - **What does not change:** the bars, and every deterministic leg stays hard on CI. That includes eager-payload's G2 gzip byte budget.
+   - **A RED on the GPU cell is a product cut.** Consumer-side causes are cured at their root. Producer-side causes are held on O-112/O-120/O-121, ADOPT-AT-LANDING.
+2. **ESC-W11dep-E2E-RED, family B (deterministic legs):** o11:272 (caption, light 390), o33:267 ×3 (the 0132 Tools wordmark), o21:287 (the rail's inverse map) and webgl-blob-idle:276 ×2 (hero blob chroma).
+   - Reproduce each ×2 in docker Linux Chromium, the CI engine, then cure at the root: product (`demo/**` granted) or harness.
+   - Contrast legs follow the §0gk.2 referent law and the 4.5:1 floor. A caption-only polarity flip is refused.
+   - A root that is a fact of the SwiftShader rasterizer must be shown with evidence (the same leg GREEN on the GPU cell, plus the readback that diverges). Only then may that leg move to the GPU cell. Without the evidence it is a defect.
+3. **ESC-W11wk3-1: arm (a).** Comparing a walked float target (5.75) against a paint realized on the 8-bit grid (5.73, less than one code value short) is the same sub-quantum, ill-posed comparison as §0gu.9.
+   - The walked-target legs compare against the contrast achieved by the nearest 8-bit realization of the walked colour.
+   - Nothing measurable is widened. The 4.5:1 floor and the walk's headroom stay as they are.
+4. **ESC-W11v1g-1: arm (a).** `demo/color-session/{ink,useContrastSafeColor}.ts` are granted to cut the cost of the ink certify walk (62 ms traced). Same result, less main-thread work, with o18 and SS8-0440 kept GREEN ×2. It lands in the same unit as 3, because they touch the same files.
+5. **R14-2, the GPU lhci cell NO_FCP ×3:** the discriminator showed this is the cell, not the bytes. Cure the cell's paint state at the harness, then re-read ×2 at the HEAD product tree.
+   - Aggregation stays LHCI's optimistic default, the same as CI.
+   - The cold first collect is recorded as the residual on O-112.
+6. **Hygiene:**
+   - The cold-run navigation race in `plate-mass.test.ts` is cured at its root by awaiting the navigation; no retries.
+   - The orphaned 69-line hunk in `demo/test/palettes/palette-card-layout.test.ts` (uncommitted since 2026-10-19, RED at :157) is ruled on by a seat. If it asserts the current contract and the product is wrong, cure the product and commit both. If it is stale, delete it and record why.
+   - The value.js INBOX gets SENT rows for O-103f (the D5 ruling) and O-121 (live-delivered 2026-10-29).
+7. **Unchanged, recorded only:**
+   - G9 (O-117);
+   - R11 o29:395 (W-G.5/O-112);
+   - w7 (O-106);
+   - R-vrb-1, the guard's browser-pool contention while WebKit runs queue, which is the owner's machine guard;
+   - the ordinal migration, the orchestrator's host act after `.dep`'s master push.
