@@ -53,7 +53,7 @@ import type { ComputedRef, Ref, ShallowRef } from "vue";
 
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { plateInkDeparts } from "../../../color-session/ink";
-import { INK_AMBIENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
+import { INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import type { PaneConfig } from "../../../shell/useViewManager";
 import { useContrastSafeColor } from "../../../color-session/useContrastSafeColor";
 import { useViewAccents } from "./useViewAccents";
@@ -140,7 +140,12 @@ export function useAtmosphereBoot(
     //     AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on the caller's scope). Ordered
     //     FIRST since M-15: the atmosphere exposes the live `derivedLightness`
     //     (the D6 page-ambient referent) BOTH accent resolvers consume.
-    const { auroraCssGradient, auroraArrived, derivedLightness: liveLightness } = useAtmosphere(
+    const {
+        auroraCssGradient,
+        auroraArrived,
+        derivedLightness: liveLightness,
+        plateReferent: livePlateReferent,
+    } = useAtmosphere(
         atmosphereCanvas,
         atmosphereColor,
     );
@@ -162,24 +167,28 @@ export function useAtmosphereBoot(
     // accent, the label and menu inks) still certify every frame, against the
     // held ground.
     const heldLightness = ref(liveLightness.value);
+    const heldPlateReferent = ref(livePlateReferent.value);
     let inkSettle: ReturnType<typeof setTimeout> | undefined;
     const publishInkAmbient = () => {
         inkSettle = undefined;
         heldLightness.value = liveLightness.value;
+        heldPlateReferent.value = livePlateReferent.value;
     };
-    watch([liveLightness, atmosphereColor], ([l, colour], old) => {
-        if (!old || colour === old[1]) {
+    watch([liveLightness, livePlateReferent, atmosphereColor], ([l, p, colour], old) => {
+        if (!old || colour === old[2]) {
             clearTimeout(inkSettle);
             inkSettle = undefined;
             heldLightness.value = l;
+            heldPlateReferent.value = p;
             return;
         }
-        if (inkSettle === undefined && l === heldLightness.value) return;
+        if (inkSettle === undefined && l === heldLightness.value && p === heldPlateReferent.value) return;
         clearTimeout(inkSettle);
         inkSettle = setTimeout(publishInkAmbient, INK_SETTLE_MS);
     });
     onScopeDispose(() => clearTimeout(inkSettle));
     const derivedLightness = computed(() => heldLightness.value);
+    const plateReferent = computed(() => heldPlateReferent.value);
 
     // 2 — the accent axis (W3-5 threads the M-15 exposed value): the live
     //     colour certified against the LIVE ambient — never the retired
@@ -207,10 +216,12 @@ export function useAtmosphereBoot(
     } = useContrastSafeColor(
         atmosphereColor,
         derivedLightness,
+        plateReferent,
     );
     const { isDark } = useGlobalDark();
     provide(SAFE_ACCENT_KEY, safeAccentCss);
     provide(INK_AMBIENT_KEY, derivedLightness);
+    provide(INK_PLATE_REFERENT_KEY, plateReferent);
     certifyInks(() => {
         stampRootToken("--accent-live", safeAccentCss);
         // X-DS pass 4 (V4C-01): the PRIMARY plate ink rides the same instance

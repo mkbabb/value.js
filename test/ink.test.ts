@@ -34,6 +34,7 @@ import {
     certifyIdentityInk,
     contrastInkFor,
     plateInkDeparts,
+    resolveFieldPlateReferent,
     resolveMutedInk,
     resolvePlateInk,
     resolveSurfaceLightness,
@@ -524,4 +525,81 @@ describe("§0gw.4 — the certify walk's cut keeps every certified ink", () => {
             }
         }, 30_000);
     }
+});
+
+/**
+ * COHESION §0gx.2 (ESC-W11e2b-1): the light referent is MAXIMIN over the stops
+ * the ink sits over. A dark ink's worst stop is the darkest, a light ink's the
+ * lightest; the better of those two worst cases names the polarity. The floor
+ * and the headroom do not move.
+ */
+describe("the light plate referent is maximin (§0gx.2)", () => {
+    /** A neutral stop: its L is its luminance lightness. */
+    const neutral = (...Ls: number[]) => Ls.map((L) => ({ L, C: 0, h: 0 }));
+    const inkOver = (Ls: number[]) =>
+        resolvePlateInk(
+            resolveSurfaceLightness("resting", resolveFieldPlateReferent(neutral(...Ls), false), false),
+            false,
+        );
+    const LOf = (css: string) => {
+        const parsed = parseCssColor(css);
+        if (!parsed.ok) throw new Error(css);
+        const converted = convertColor(parsed.value, "oklch");
+        if (!converted.ok) throw new Error(css);
+        return converted.value.channels[0] as number;
+    };
+    const worst = (css: string, Ls: number[]) =>
+        Math.min(
+            ...Ls.map((L) => ratioOn(css, resolveSurfaceLightness("resting", L, false))),
+        );
+
+    it("the floor and the headroom constants are byte-equal", () => {
+        expect(TEXT_CONTRAST_FLOOR).toBe(4.5);
+        expect(GRAPHICS_CONTRAST_FLOOR).toBe(3);
+        expect(CERTIFY_HEADROOM).toBe(1.25);
+    });
+
+    it("a pale field keeps the pick: the darkest stop clears floor + headroom", () => {
+        const Ls = [0.8, 0.86, 0.92, 0.97];
+        expect(resolveFieldPlateReferent(neutral(...Ls), false)).toBeCloseTo(0.8, 9);
+        expect(worst(inkOver(Ls), Ls)).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+    });
+
+    it("the dead band keeps the region's polarity: the guard does not flip it light", () => {
+        // Darkest stop on the far side of the crossover; pale stops above it.
+        const Ls = [0.56, 0.67, 0.78, 0.88];
+        const ink = inkOver(Ls);
+        expect(LOf(ink)).toBeLessThan(0.1);
+        // The flip (a referent of the bare darkest stop) fails over the pale
+        // stops; the maximin ink beats it by the whole field.
+        const flipped = resolvePlateInk(resolveSurfaceLightness("resting", 0.56, false), false);
+        expect(worst(ink, Ls)).toBeGreaterThan(worst(flipped, Ls));
+    });
+
+    it("beats the retired mean over the worst stop on a field that spans mid-luminance", () => {
+        const Ls = [0.6, 0.7, 0.8, 0.9];
+        const mean = Ls.reduce((a, b) => a + b, 0) / Ls.length;
+        const meanInk = resolvePlateInk(resolveSurfaceLightness("resting", mean, false), false);
+        expect(worst(inkOver(Ls), Ls)).toBeGreaterThan(worst(meanInk, Ls));
+    });
+
+    it("a dark field takes the light pole, pair-wide", () => {
+        const Ls = [0.2, 0.25, 0.3, 0.35];
+        const ambient = resolveFieldPlateReferent(neutral(...Ls), false);
+        const resting = resolveSurfaceLightness("resting", ambient, false);
+        const floating = resolveSurfaceLightness("floating", ambient, false);
+        expect(plateInkDeparts(resolvePlateInk(resting, false), false)).toBe(true);
+        expect(plateInkDeparts(resolvePlateInk(floating, false), false)).toBe(true);
+        expect(worst(inkOver(Ls), Ls)).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+    });
+
+    it("the certified pair keeps one pole across the resting and floating rungs", () => {
+        for (let L = 0.4; L <= 0.7; L += 0.01) {
+            const ambient = resolveFieldPlateReferent(neutral(L, 0.9), false);
+            for (const rung of ["resting", "floating"] as const) {
+                const ink = resolvePlateInk(resolveSurfaceLightness(rung, ambient, false), false);
+                expect(LOf(ink), `L ${L} ${rung}`).toBeLessThan(0.3);
+            }
+        }
+    });
 });

@@ -10,7 +10,7 @@ import {
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { convertColor, mixColors, parseCssColor, xyz, type Color } from "@mkbabb/value.js/color";
 import { parseColorIn } from "./color-utils";
-import { INK_AMBIENT_KEY } from "./keys";
+import { INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY } from "./keys";
 import {
     certifyAccentInk,
     certifyIdentityInk,
@@ -419,10 +419,13 @@ function surfaceLightnessNow(
  *
  * @param cssColorOpaque   the rAF-coalesced live OPAQUE colour
  * @param ambientLightness the atmosphere's live derived lightness (M-15)
+ * @param plateReferent    the field referent of the primary plate pair
+ *                         (§0gx.2, `resolveFieldPlateReferent`)
  */
 export function useContrastSafeColor(
     cssColorOpaque: ComputedRef<string>,
     ambientLightness: ComputedRef<number>,
+    plateReferent: ComputedRef<number> = ambientLightness,
 ) {
     const { isDark } = useGlobalDark();
     bumpProbeEpochOnMount();
@@ -442,23 +445,28 @@ export function useContrastSafeColor(
         return safeAccentCss.value !== cssColorOpaque.value;
     });
 
-    // The resting plate's composited lightness — the ONE referent both plate
-    // inks certify against.
+    // The resting plate over the ambient: the identity inks' ground (the
+    // destructive red and the gold keep their hue on it).
     const restingL = computed(() =>
         surfaceLightnessNow("resting", ambientLightness.value, isDark.value),
+    );
+    // §0gx.2: the resting plate over the field's maximin referent — the ONE
+    // referent both plate inks certify against, so the pair takes one polarity.
+    const plateL = computed(() =>
+        surfaceLightnessNow("resting", plateReferent.value, isDark.value),
     );
 
     // The primary plate ink (X-DS pass 4 · V4C-01): the scheme foreground,
     // certified against the plate — the ONE polarity decision. The boot
     // writer stamps it as `--ink-primary`; `shell.css` seats it as the
     // in-plate `--foreground`.
-    const plateInkCss = computed(() => resolvePlateInk(restingL.value, isDark.value));
+    const plateInkCss = computed(() => resolvePlateInk(plateL.value, isDark.value));
 
     // The de-emphasis rung (F-4): a floor-clamped step of the primary plate ink
     // (same pole, never flipped on its own) — the boot writer stamps it as
     // `--ink-muted` (the plate-caption / parse-echo voice; post-hoc opacity
     // de-emphasis is retired).
-    const mutedInkCss = computed(() => resolveMutedInk(restingL.value, isDark.value));
+    const mutedInkCss = computed(() => resolveMutedInk(plateL.value, isDark.value));
 
     // X-DS pass 5 (V5C-02): the SAME certified pair, against the FLOATING
     // plate. Reka portals menus and popovers to <body>, outside the
@@ -469,9 +477,12 @@ export function useContrastSafeColor(
     const floatingL = computed(() =>
         surfaceLightnessNow("floating", ambientLightness.value, isDark.value),
     );
-    const floatingInkCss = computed(() => resolvePlateInk(floatingL.value, isDark.value));
+    const floatingPlateL = computed(() =>
+        surfaceLightnessNow("floating", plateReferent.value, isDark.value),
+    );
+    const floatingInkCss = computed(() => resolvePlateInk(floatingPlateL.value, isDark.value));
     const floatingMutedInkCss = computed(() =>
-        resolveMutedInk(floatingL.value, isDark.value),
+        resolveMutedInk(floatingPlateL.value, isDark.value),
     );
 
     // X-DS pass 16 (V16-01): the SAME certified pair, against the MODAL plate.
@@ -543,15 +554,15 @@ export function useContrastSafeColor(
     // the graphics floor, so the mark (the badge, the menu's shield) keeps
     // the gold. The boot writer stamps `--ink-gold-glyph` /
     // `--ink-gold-floating-glyph`.
-    const glyphRung = (word: string, plate: string, surfaceL: number) =>
-        word !== plate
+    const glyphRung = (word: string, surfaceL: number) =>
+        word !== resolvePlateInk(surfaceL, isDark.value)
             ? word
             : certifyIdentityInk(goldIdentityCss(isDark.value), surfaceL, isDark.value, GRAPHICS_CONTRAST_FLOOR);
     const goldGlyphInkCss = computed(() =>
-        glyphRung(goldInkCss.value, plateInkCss.value, restingL.value),
+        glyphRung(goldInkCss.value, restingL.value),
     );
     const floatingGoldGlyphInkCss = computed(() =>
-        glyphRung(floatingGoldInkCss.value, floatingInkCss.value, floatingL.value),
+        glyphRung(floatingGoldInkCss.value, floatingL.value),
     );
 
     return {
@@ -669,6 +680,9 @@ export function useSafeAccentFn(surface: InkSurface = "page") {
 export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
     const { isDark } = useGlobalDark();
     const ambient = inject(INK_AMBIENT_KEY)!;
+    // §0gx.2: the band's voice certifies on the field's maximin referent; the
+    // identity hue keeps the ambient. A host with no atmosphere has only the ambient.
+    const referent = inject(INK_PLATE_REFERENT_KEY, ambient);
     bumpProbeEpochOnMount();
 
     let cached: { el: Element; dark: boolean; epoch: number; tint: SurfaceTint } | undefined;
@@ -685,7 +699,7 @@ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
         if (!el) return undefined;
         return certifyAccentInkOnce(
             css,
-            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+            resolvePaintedLightness(referent.value, bandTint(el, isDark.value)),
             floor,
         );
     }
@@ -710,7 +724,7 @@ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
         const el = host.value;
         if (!el) return undefined;
         return resolvePlateInk(
-            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+            resolvePaintedLightness(referent.value, bandTint(el, isDark.value)),
             isDark.value,
         );
     }

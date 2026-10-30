@@ -443,7 +443,10 @@ function luminanceLightness(stop: FieldStop): number {
  * Light keeps the mean. Its field can span the 4.58:1 dead band (seed
  * oklch(0.66 0.16 28): stops L 0.56-0.88), where no ink of either polarity
  * clears every stop, and a darkest-stop referent there flips the ink light
- * and fails it over the pale stops. The light arm read 5.64:1 live.
+ * and fails it over the pale stops. The light arm read 5.64:1 live. The mean
+ * is the ground identity inks hold their hue on (o18's T-35 and V15-01 legs).
+ * The primary plate pair and the band's voice certify on
+ * {@link resolveFieldPlateReferent} instead.
  */
 export function resolveFieldAmbientLightness(
     stops: readonly FieldStop[],
@@ -454,6 +457,82 @@ export function resolveFieldAmbientLightness(
     let sum = 0;
     for (const stop of stops) sum += stop.L;
     return sum / stops.length;
+}
+
+/**
+ * THE PLATE INK'S FIELD REFERENT (COHESION §0gx.2, ESC-W11e2b-1). In dark it
+ * is the ambient itself. In light it is maximin: the mean left the plate pair
+ * under the floor over the field's dark regions (X.W11.e2b: 4.37:1 on /browse
+ * at 390), and {@link maximinFieldReferent} answers with the best ink over
+ * every stop.
+ */
+export function resolveFieldPlateReferent(
+    stops: readonly FieldStop[],
+    dark: boolean,
+): number {
+    if (!stops.length || dark) return resolveFieldAmbientLightness(stops, dark);
+    return maximinFieldReferent(stops.map(luminanceLightness));
+}
+
+/** The pole that reads the higher ratio on a neutral ground: the choice the
+ *  guard makes where the headroom target is out of reach (`guardCeiling`). */
+function darkPoleWins(surfaceL: number): boolean {
+    const ground = guardLuminances(surfaceColor(surfaceL));
+    return guardContrast(surfaceColor(0), ground) > guardContrast(surfaceColor(1), ground);
+}
+
+/** The lowest ground in [0, 1] where {@link darkPoleWins}, to 2^-24. */
+function darkPoleFloor(groundOf: (L: number) => number): number {
+    let light = 0;
+    let dark = 1;
+    for (let i = 0; i < 24; i++) {
+        const middle = (light + dark) / 2;
+        if (darkPoleWins(groundOf(middle))) dark = middle;
+        else light = middle;
+    }
+    return dark;
+}
+
+/**
+ * Where a certified light plate's pole changes, once per page: the bare
+ * ground, and the ambient under the heaviest translucent rung in the light
+ * ladder (`floating`). At or above `plated`, the quiet, resting and floating
+ * rungs and the band over that ambient all keep the dark pole.
+ */
+let poleCrossover: { bare: number; plated: number } | undefined;
+function lightPoleCrossover(): { bare: number; plated: number } {
+    return poleCrossover ??= {
+        bare: darkPoleFloor((L) => L),
+        plated: darkPoleFloor((L) => resolveSurfaceLightness("floating", L, false)),
+    };
+}
+
+/**
+ * THE LIGHT REFERENT (COHESION §0gx.2, ESC-W11e2b-1): the ground, in neutral
+ * L at WCAG luminance, on which `certify` returns the ink with the best
+ * minimum contrast over the given region. A dark ink's worst region is the
+ * darkest stop and a light ink's is the lightest, so the two worst cases, each
+ * at its pole, name the polarity, and the referent is that polarity's worst
+ * stop. The ink's depth is the guard's walk on that referent: the pick where
+ * it already clears `floor + headroom`, a pole where nothing does.
+ *
+ * The polarity is the region's, and the guard sees one ground. A darkest stop
+ * inside the 4.58:1 dead band reads a HIGHER ratio on the other pole, and the
+ * guard would flip there and fail over the pale stops, so the referent stops
+ * at the crossover and the guard's best ink stays the region's. Where no ink
+ * of either polarity clears the floor over every stop (seed
+ * oklch(0.66 0.16 28)), this still takes the best ink, and the shortfall is a
+ * measured row for the owner's design call (`ref-2026-10-30/README.md`).
+ */
+function maximinFieldReferent(groundLs: readonly number[]): number {
+    const darkest = Math.min(...groundLs);
+    const lightest = Math.max(...groundLs);
+    const worstDarkInk = guardContrast(surfaceColor(0), guardLuminances(surfaceColor(darkest)));
+    const worstLightInk = guardContrast(surfaceColor(1), guardLuminances(surfaceColor(lightest)));
+    const { bare, plated } = lightPoleCrossover();
+    return worstDarkInk >= worstLightInk
+        ? Math.max(darkest, plated)
+        : Math.min(lightest, bare);
 }
 
 /** Certify a concrete CSS color against the surface it actually paints. */

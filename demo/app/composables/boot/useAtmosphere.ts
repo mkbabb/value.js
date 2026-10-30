@@ -30,7 +30,7 @@ import {
     type AuroraConfig,
 } from "@mkbabb/glass-ui/aurora";
 import { resolveAtmosphereField } from "./atmosphere-calibration";
-import { resolveFieldAmbientLightness } from "../../../color-session/ink";
+import { resolveFieldAmbientLightness, resolveFieldPlateReferent } from "../../../color-session/ink";
 import { debounce } from "../../../shared/debounce";
 import { safeSetItem } from "../../../platform/storage/useSafeStorage";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
@@ -166,6 +166,9 @@ export function useAtmosphere(
     // (`resolveFieldAmbientLightness`, ink.ts, says why).
     const derivedLightness = computed(() =>
         resolveFieldAmbientLightness(resolvedPalette.value, isDark.value),
+    );
+    const plateReferent = computed(() =>
+        resolveFieldPlateReferent(resolvedPalette.value, isDark.value),
     );
 
     // The CSS-gradient fallback for the `"css"` substrate — the same derived
@@ -373,5 +376,5 @@ export function useAtmosphere(
         { immediate: true },
     );
 
-    return { auroraCssGradient, auroraArrived, derivedLightness };
+    return { auroraCssGradient, auroraArrived, derivedLightness, plateReferent };
 }
