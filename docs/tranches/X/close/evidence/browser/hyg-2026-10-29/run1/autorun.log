@@ -1,0 +1,27 @@
+SERVED MODEL: claude-opus-5-5 · X.W11.hyg GPU lhci cell AFTER run 1 (lighthouserc.gpu.json paint-state cure; dist/gh-pages built at 3fc1a4e98 product tree; display off)
+ 1:38  up 2 days, 5 hrs, 4 users, load averages: 8.78 9.45 8.79
+✅  .lighthouseci/ directory writable
+✅  Configuration file found
+✅  Chrome installation found
+Healthcheck passed!
+
+Started a web server on port 56989...
+Running Lighthouse 3 time(s) on http://localhost:56989/index.html
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Done running Lighthouse!
+
+Checking assertions against 1 URL(s), 3 total run(s)
+
+1 result(s) for [1mhttp://localhost:56989/index.html[0m :
+
+  ⚠️  [1minteraction-to-next-paint[0m warning for [1mauditRan[0m assertion
+        expected: >=[32m1[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+All results processed!
+
+Done running autorun.
+exit 0

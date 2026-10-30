@@ -1,0 +1,13 @@
+{
+  "SERVED MODEL": "claude-opus-5-5",
+  "unit": "X.W11.hyg (COHESION §0gw.5)",
+  "date": "2026-10-30",
+  "cell": "real-GPU lhci: Chrome for Testing 148 (Playwright chromium-1223), new headless via LHCI, --use-angle=metal --disable-field-trial-config, ANGLE Metal Apple M5 Max; dist/gh-pages built at the 2bf403e71 product tree; host display asleep since 2026-10-29 19:37:11",
+  "before": { "flags": "--headless=new --use-angle=metal (live process: --headless=new,new)", "collects": 2, "result": "NO_FCP x2 (lhci-before/)" },
+  "after": {
+    "run1": { "exit": 0, "tbt": [111, 97, 101], "lcp": [2104, 2103, 2103], "cls": [0.0037, 0.0037, 0.0037], "a11y": [0.99, 0.99, 0.99], "tbtAssertion": "passed (optimistic)" },
+    "run2": { "exit": 1, "tbt": [769, 771, 855], "lcp": [2103, 2103, 2103], "cls": [0.0037, 0.0037, 0.0037], "a11y": [0.99, 0.99, 0.99], "tbtAssertion": "failed: actual 769 > 300 (optimistic)", "longestTask": "index-CqsdXMZP.js 736 ms at 4770 ms" }
+  },
+  "paintState": "CURED: 6/6 collects painted (0 NO_FCP), was 0/2",
+  "tbtGate": "RED: GREEN x1, RED x1 (not x2)"
+}
