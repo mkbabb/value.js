@@ -1,0 +1,465 @@
+{
+ "origin": "http://localhost:8595",
+ "loads": 8,
+ "tbtSorted": [
+  287,
+  326,
+  332,
+  333,
+  341,
+  345,
+  352,
+  370
+ ],
+ "gateSorted": [
+  284,
+  322,
+  328,
+  329,
+  337,
+  343,
+  349,
+  366
+ ],
+ "top": [
+  {
+   "site": "(native) :: (program)",
+   "meanSelfMsInLongTasks": 110
+  },
+  {
+   "site": "index-CqsdXMZP.js :: $p",
+   "meanSelfMsInLongTasks": 34
+  },
+  {
+   "site": "dock-BMRx2yZ_.js :: Ee",
+   "meanSelfMsInLongTasks": 25
+  },
+  {
+   "site": "(native) :: getAnimations",
+   "meanSelfMsInLongTasks": 20
+  },
+  {
+   "site": "index-CqsdXMZP.js :: b_",
+   "meanSelfMsInLongTasks": 18
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: In",
+   "meanSelfMsInLongTasks": 18
+  },
+  {
+   "site": "index-CqsdXMZP.js :: (anon)",
+   "meanSelfMsInLongTasks": 16
+  },
+  {
+   "site": "dock-BMRx2yZ_.js :: Z",
+   "meanSelfMsInLongTasks": 14
+  },
+  {
+   "site": "dock-BMRx2yZ_.js :: v",
+   "meanSelfMsInLongTasks": 13
+  },
+  {
+   "site": "(native) :: (garbage collector)",
+   "meanSelfMsInLongTasks": 11
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya",
+   "meanSelfMsInLongTasks": 10
+  },
+  {
+   "site": "serialize-BtpoAFZw-C086w664.js :: gt",
+   "meanSelfMsInLongTasks": 10
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: r",
+   "meanSelfMsInLongTasks": 9
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: We",
+   "meanSelfMsInLongTasks": 8
+  },
+  {
+   "site": "button-BOFTUPyU-BZ9MeoVG.js :: fe",
+   "meanSelfMsInLongTasks": 7
+  },
+  {
+   "site": "dock-BMRx2yZ_.js :: Re",
+   "meanSelfMsInLongTasks": 7
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: (anon)",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "site": "index-CqsdXMZP.js :: setup",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "site": "index-CqsdXMZP.js :: zp",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "site": "serialize-BtpoAFZw-C086w664.js :: (anon)",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "serialize-BtpoAFZw-C086w664.js :: o",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: gs",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "(native) :: appendChild",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: co",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: P",
+   "meanSelfMsInLongTasks": 3
+  }
+ ],
+ "perLoad": [
+  {
+   "i": 0,
+   "load1": 9.6,
+   "tbt": 341,
+   "gateTbt": 337,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 111,
+     "kids": [
+      "Layout 93",
+      "UpdateLayoutTree 10"
+     ]
+    },
+    {
+     "dur": 167,
+     "kids": [
+      "UpdateLayoutTree 20"
+     ]
+    },
+    {
+     "dur": 171,
+     "kids": [
+      "UpdateLayoutTree 10"
+     ]
+    },
+    {
+     "dur": 88,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:i 41"
+     ]
+    },
+    {
+     "dur": 54,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:e 54",
+      "UpdateLayoutTree 26"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "load1": 9.4,
+   "tbt": 370,
+   "gateTbt": 366,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 108,
+     "kids": [
+      "Layout 91",
+      "UpdateLayoutTree 10"
+     ]
+    },
+    {
+     "dur": 150,
+     "kids": [
+      "UpdateLayoutTree 19"
+     ]
+    },
+    {
+     "dur": 184,
+     "kids": [
+      "UpdateLayoutTree 12",
+      "UpdateLayoutTree 6",
+      "UpdateLayoutTree 6",
+      "FunctionCall@dock-BMRx2yZ_.js 5"
+     ]
+    },
+    {
+     "dur": 111,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:i 53"
+     ]
+    },
+    {
+     "dur": 67,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:e 67",
+      "UpdateLayoutTree 34"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "load1": 9.4,
+   "tbt": 287,
+   "gateTbt": 284,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 91,
+     "kids": [
+      "Layout 75",
+      "UpdateLayoutTree 9"
+     ]
+    },
+    {
+     "dur": 137,
+     "kids": [
+      "UpdateLayoutTree 18"
+     ]
+    },
+    {
+     "dur": 160,
+     "kids": [
+      "UpdateLayoutTree 10",
+      "FunctionCall@dock-BMRx2yZ_.js 5"
+     ]
+    },
+    {
+     "dur": 91,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:i 43"
+     ]
+    },
+    {
+     "dur": 58,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:e 58",
+      "UpdateLayoutTree 28"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "load1": 9.7,
+   "tbt": 352,
+   "gateTbt": 349,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 118,
+     "kids": [
+      "Layout 99",
+      "UpdateLayoutTree 12"
+     ]
+    },
+    {
+     "dur": 161,
+     "kids": [
+      "UpdateLayoutTree 22"
+     ]
+    },
+    {
+     "dur": 171,
+     "kids": [
+      "UpdateLayoutTree 10"
+     ]
+    },
+    {
+     "dur": 96,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:i 49"
+     ]
+    },
+    {
+     "dur": 56,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:e 56",
+      "UpdateLayoutTree 28"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "load1": 9.6,
+   "tbt": 333,
+   "gateTbt": 329,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 102,
+     "kids": [
+      "Layout 85",
+      "UpdateLayoutTree 10"
+     ]
+    },
+    {
+     "dur": 144,
+     "kids": [
+      "UpdateLayoutTree 19"
+     ]
+    },
+    {
+     "dur": 181,
+     "kids": [
+      "UpdateLayoutTree 11",
+      "FunctionCall@dock-BMRx2yZ_.js 5"
+     ]
+    },
+    {
+     "dur": 97,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:i 47"
+     ]
+    },
+    {
+     "dur": 59,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:e 59",
+      "UpdateLayoutTree 28"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "load1": 9.7,
+   "tbt": 345,
+   "gateTbt": 343,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 92,
+     "kids": [
+      "Layout 77",
+      "UpdateLayoutTree 10"
+     ]
+    },
+    {
+     "dur": 142,
+     "kids": [
+      "UpdateLayoutTree 18"
+     ]
+    },
+    {
+     "dur": 194,
+     "kids": [
+      "UpdateLayoutTree 12",
+      "FunctionCall@dock-BMRx2yZ_.js 5",
+      "UpdateLayoutTree 5"
+     ]
+    },
+    {
+     "dur": 104,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:i 50"
+     ]
+    },
+    {
+     "dur": 63,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:e 63",
+      "UpdateLayoutTree 31"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "load1": 9.4,
+   "tbt": 326,
+   "gateTbt": 322,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 101,
+     "kids": [
+      "Layout 83",
+      "UpdateLayoutTree 10"
+     ]
+    },
+    {
+     "dur": 152,
+     "kids": [
+      "UpdateLayoutTree 19"
+     ]
+    },
+    {
+     "dur": 178,
+     "kids": [
+      "UpdateLayoutTree 12",
+      "FunctionCall@dock-BMRx2yZ_.js 6"
+     ]
+    },
+    {
+     "dur": 89,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:i 45"
+     ]
+    },
+    {
+     "dur": 56,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:e 56",
+      "UpdateLayoutTree 27"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "load1": 9.4,
+   "tbt": 332,
+   "gateTbt": 328,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 90,
+     "kids": [
+      "Layout 76",
+      "UpdateLayoutTree 8"
+     ]
+    },
+    {
+     "dur": 148,
+     "kids": [
+      "UpdateLayoutTree 20"
+     ]
+    },
+    {
+     "dur": 180,
+     "kids": [
+      "UpdateLayoutTree 12",
+      "FunctionCall@dock-BMRx2yZ_.js 5"
+     ]
+    },
+    {
+     "dur": 101,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:i 47"
+     ]
+    },
+    {
+     "dur": 63,
+     "kids": [
+      "FunctionCall@index-CqsdXMZP.js:e 63",
+      "UpdateLayoutTree 31"
+     ]
+    }
+   ]
+  }
+ ]
+}
