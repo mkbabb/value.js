@@ -1,0 +1,13 @@
+SERVED MODEL: claude-opus-5-5 · X.W11.hyg lint + typecheck at 902deb526
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+
+ESLint found too many warnings (maximum: 0).
+lint exit 1
+> @mkbabb/value.js@4.1.0 typecheck
+> vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit && vue-tsc -p tsconfig.test.json --noEmit && tsc -p tsconfig.e2e.json --noEmit
+
+typecheck exit 0
+
+--- second read, 2026-10-30, HEAD 902deb526 (X.W11.hyg successor seat) ---
+guarded --light -- npm run lint -> 1 warning, exit 1: .worktrees/ss8r-pre/e2e/smoke/admin/ss8-b17-admin-names.spec.ts:71:13 (unused eslint-disable). That path is a local git worktree at 71335eab6, untracked in this tree (git ls-files .worktrees -> 0).
+guarded --light -- npx eslint . --ignore-pattern '.worktrees/**' --max-warnings=0 -> no output, exit 0.
