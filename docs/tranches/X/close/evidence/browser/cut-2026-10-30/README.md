@@ -78,3 +78,5 @@ The re-run's three simulate rows on that binary read 67 · 70 · 67, so the task
 `strip.mjs` on both trees, `runs/strip/`, real-GPU cell at 1×, 3 loads each. `data-shell-settled` appears at 619 · 607 · 615 ms before
 and 618 · 606 · 619 ms after. Pane 0's transform last changes at 536 · 525 · 531 ms before and 533 · 523 · 536 ms after. The two
 screencast montages read frame for frame the same.
+
+o18 ×2 on the GPU cell: 32 expected, 0 unexpected (`runs/o18-gpu-r{1,2}.json`). Visual at `b14ed7945`: 117 expected, 99 unexpected (`runs/visual-failed.tsv`), 98 of 99 differing-pixel counts equal to `ref-2026-10-30/runs/visual-diff-pixels.txt`. The other is `keyboard-focus-desktop` · gradient, 575 → 4301, which `runs/keep.txt` reads as intermittent on both trees: 2 of 6 at `b14ed7945`, 6 of 8 at `6be2c4de3`.
