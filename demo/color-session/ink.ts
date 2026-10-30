@@ -6,6 +6,7 @@ import {
     parseCssColor,
     safeAccentColor,
     serializeCssColor,
+    toRgba8,
     xyz,
     type Color,
 } from "@mkbabb/value.js/color";
@@ -183,25 +184,89 @@ function walkToFloor(
     if (preferred.ok) return preferred.value;
     if (preferred.error.code !== "contrast_unreachable") failed(preferred.error.code);
 
-    const atFloor = attempt(floor);
-    if (!atFloor.ok) return failed(atFloor.error.code);
-
-    let best = atFloor.value;
+    // X.W11.ink (COHESION §0gw.4): the guard admits a target iff one of the
+    // three inks it tries (the pick, either pole) clears it, so its verdict
+    // on every target is one number, the best of those three ratios. The
+    // headroom bisection runs on that number, and the guard walks ONCE, at
+    // the target the bisection lands on: the same target, so the same ink,
+    // as one walk per step (it was ten). Below the floor that walk fails
+    // loud, as `attempt(floor)` did.
+    const ceiling = guardCeiling(accent, surface);
     let pass = floor;
     let fail = floor + headroom;
     for (let i = 0; i < HEADROOM_SEARCH_STEPS; i++) {
         const middle = (pass + fail) / 2;
-        const probe = attempt(middle);
-        if (probe.ok) {
-            pass = middle;
-            best = probe.value;
-        } else if (probe.error.code === "contrast_unreachable") {
-            fail = middle;
-        } else {
-            failed(probe.error.code);
-        }
+        if (ceiling >= middle) pass = middle;
+        else fail = middle;
     }
-    return best;
+    const best = attempt(pass);
+    return best.ok ? best.value : failed(best.error.code);
+}
+
+/**
+ * X.W11.ink (COHESION §0gw.4) — THE GUARD'S VERDICT WITHOUT ITS WALK. The
+ * certify walk's cost (62 ms traced in one drag settle, `.v1g`) was the
+ * guard asked yes-or-no questions it answers only by walking: each headroom
+ * step, and each far-side probe, ran a full 32-step lightness bisection
+ * (each candidate gamut-mapped by its own 32-step chroma bisection) to learn
+ * one bit. `safeAccentColor` (`src/color/operations.ts`) admits a candidate
+ * iff BOTH its float and its byte-quantized WCAG ratio clear the target;
+ * these two functions are that predicate, term for term: the candidate is
+ * the library's own (`oklch` → `mapColorToGamut`, sRGB), the byte arm is the
+ * library's own quantizer (`toRgba8`, round-half-even), and the luminance
+ * sum and ratio are the guard's expression in the guard's order, so a
+ * verdict here is the guard's verdict. The ink returned is still the
+ * guard's: these only steer which question it is asked.
+ */
+const srgbLinear = (encoded: number) => {
+    const value = encoded / 255;
+    return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+};
+
+function guardLuminance(channels: readonly number[]): number {
+    return 0.2126 * srgbLinear(channels[0]!)
+        + 0.7152 * srgbLinear(channels[1]!)
+        + 0.0722 * srgbLinear(channels[2]!);
+}
+
+function guardRatio(a: number, b: number): number {
+    return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+}
+
+/** The guard's two luminances (float, byte) of an opaque colour. */
+function guardLuminances(color: Color<"oklch">): readonly [number, number] {
+    const rgb = convertColor(color, "rgb");
+    if (!rgb.ok) throw new Error(`Ink guard probe failed: ${rgb.error.code}`);
+    const bytes = toRgba8(color, { gamut: "clip" });
+    if (!bytes.ok) throw new Error(`Ink guard probe failed: ${bytes.error.code}`);
+    return [guardLuminance(rgb.value.channels as readonly number[]), guardLuminance(bytes.value)];
+}
+
+/** The guard's candidate at lightness `L` for `accent`'s chroma and hue. */
+function guardCandidate(accent: Color<"oklch">, L: number): Color<"oklch"> {
+    const raw = oklch(L, chroma(accent), accent.channels[2], 1);
+    if (!raw.ok) throw new Error(`Ink guard probe failed: ${raw.error.code}`);
+    const mapped = mapColorToGamut(raw.value, "srgb");
+    if (!mapped.ok) throw new Error(`Ink guard probe failed: ${mapped.error.code}`);
+    return mapped.value;
+}
+
+/** The ratio the guard reads for `candidate` on `surface`: the lesser arm. */
+function guardContrast(candidate: Color<"oklch">, surface: readonly [number, number]): number {
+    const [float, byte] = guardLuminances(candidate);
+    return Math.min(guardRatio(float, surface[0]), guardRatio(byte, surface[1]));
+}
+
+/** The highest target the guard admits for `accent` on `surface`: the best
+ *  of the pick and the two poles, the three inks it tries first. */
+function guardCeiling(accent: Color<"oklch">, surface: Color<"oklch">): number {
+    const ground = guardLuminances(surface);
+    const L = Math.min(1, Math.max(0, lightness(accent)));
+    return Math.max(
+        guardContrast(guardCandidate(accent, L), ground),
+        guardContrast(guardCandidate(accent, 0), ground),
+        guardContrast(guardCandidate(accent, 1), ground),
+    );
 }
 
 const PAPER = requiredOklch(PRODUCER_TINTS.paper);
@@ -425,10 +490,11 @@ function chroma(color: Color<"oklch">): number {
 }
 
 /** True where `color` already clears `floor` on the surface (the guard
- *  returns it unwalked). */
-function clearsAt(color: Color<"oklch">, surface: Color<"oklch">, floor: number): boolean {
-    const result = safeAccentColor(color, surface, { minimumRatio: floor, gamut: "srgb" });
-    return result.ok && Math.abs(lightness(result.value) - lightness(color)) < 1e-6;
+ *  would return it unwalked). §0gw.4: read off the guard's predicate
+ *  ({@link guardContrast}), never by running its walk to see whether it
+ *  moved. */
+function clearsAt(color: Color<"oklch">, ground: readonly [number, number], floor: number): boolean {
+    return guardContrast(guardCandidate(color, lightness(color)), ground) >= floor;
 }
 
 /**
@@ -443,7 +509,7 @@ function farSideInk(
     walked: Color<"oklch">,
     floor: number,
 ): Color<"oklch"> | null {
-    const surface = surfaceColor(surfaceL);
+    const ground = guardLuminances(surfaceColor(surfaceL));
     const pole = lightness(walked) >= surfaceL ? 0 : 1;
     const hue = accent.channels[2];
     const at = (L: number): Color<"oklch"> => {
@@ -453,12 +519,12 @@ function farSideInk(
         if (!mapped.ok) throw new Error(`Ink far-side probe failed: ${mapped.error.code}`);
         return mapped.value;
     };
-    if (!clearsAt(at(pole), surface, floor)) return null;
+    if (!clearsAt(at(pole), ground, floor)) return null;
     let pass = pole;
     let fail = surfaceL;
     for (let i = 0; i < 16; i++) {
         const middle = (pass + fail) / 2;
-        if (clearsAt(at(middle), surface, floor)) pass = middle;
+        if (clearsAt(at(middle), ground, floor)) pass = middle;
         else fail = middle;
     }
     return at(pass);

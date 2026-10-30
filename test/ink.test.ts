@@ -15,7 +15,15 @@
 import { afterAll, chai, describe, expect, it } from "vitest";
 import { getCurrentSuite } from "vitest/suite";
 
-import { convertColor, oklch, type AnyColor, type Color } from "@mkbabb/value.js/color";
+import {
+    convertColor,
+    mapColorToGamut,
+    oklch,
+    safeAccentColor,
+    serializeCssColor,
+    type AnyColor,
+    type Color,
+} from "@mkbabb/value.js/color";
 import { parseCssColor } from "@mkbabb/value.js/css";
 import {
     CERTIFY_HEADROOM,
@@ -416,4 +424,104 @@ describe("X-DS pass 18 (V18C-01) — certifyIdentityInk holds the identity hue",
         expect(glyph.C).toBeGreaterThanOrEqual(0.06);
         expect(Math.abs(glyph.H - 84.2)).toBeLessThan(10);
     });
+});
+
+/**
+ * X.W11.ink (COHESION §0gw.4) — the certify walk asks the guard fewer
+ * questions and lands on the SAME ink. The reference below is the walk as it
+ * stood before the cut (`d65ead3a6`): every headroom step and every far-side
+ * probe answered by running `safeAccentColor` itself. The module now reads
+ * the guard's verdict off its predicate and walks once, so this pins the two
+ * to one answer, string for string, across both schemes, both floors and a
+ * dense ground sweep; a drift between the module's predicate and the
+ * library's guard reds here.
+ */
+describe("§0gw.4 — the certify walk's cut keeps every certified ink", () => {
+    const surfaceOf = (L: number): Color<"oklch"> => {
+        const surface = oklch(L, 0, 0, 1);
+        if (!surface.ok) throw new Error(surface.error.code);
+        return surface.value;
+    };
+    const guard = (accent: Color<"oklch">, L: number, minimumRatio: number) =>
+        safeAccentColor(accent, surfaceOf(L), { minimumRatio, gamut: "srgb" });
+    const refWalk = (accent: Color<"oklch">, L: number, floor: number, headroom: number) => {
+        const preferred = guard(accent, L, floor + headroom);
+        if (preferred.ok) return preferred.value;
+        const atFloor = guard(accent, L, floor);
+        if (!atFloor.ok) throw new Error(atFloor.error.code);
+        let best = atFloor.value;
+        let pass = floor;
+        let fail = floor + headroom;
+        for (let i = 0; i < 10; i++) {
+            const middle = (pass + fail) / 2;
+            const probe = guard(accent, L, middle);
+            if (probe.ok) [pass, best] = [middle, probe.value];
+            else fail = middle;
+        }
+        return best;
+    };
+    const serialize = (color: Color<"oklch">) => {
+        const out = serializeCssColor(color);
+        if (!out.ok) throw new Error(out.error.code);
+        return out.value;
+    };
+    const refAccent = (css: string, L: number, floor: number, headroom: number) => {
+        const accent = requiredOklch(css);
+        const safe = refWalk(accent, L, floor, headroom);
+        const same = safe.channels.every((c, i) => {
+            const source = accent.channels[i];
+            return c === source || (typeof c === "number" && typeof source === "number" && Math.abs(c - source) < 1e-9);
+        });
+        return same ? css : serialize(safe);
+    };
+    const chromaOf = (c: Color<"oklch">) => (typeof c.channels[1] === "number" ? c.channels[1] : 0);
+    const refFar = (accent: Color<"oklch">, L: number, walked: Color<"oklch">, floor: number) => {
+        const pole = (walked.channels[0] as number) >= L ? 0 : 1;
+        const hue = accent.channels[2];
+        const at = (l: number) => {
+            const raw = oklch(l, chromaOf(accent), typeof hue === "number" ? hue : 0, 1);
+            if (!raw.ok) throw new Error(raw.error.code);
+            const mapped = mapColorToGamut(raw.value, "srgb");
+            if (!mapped.ok) throw new Error(mapped.error.code);
+            return mapped.value;
+        };
+        const clears = (c: Color<"oklch">) => {
+            const r = guard(c, L, floor);
+            return r.ok && Math.abs((r.value.channels[0] as number) - (c.channels[0] as number)) < 1e-6;
+        };
+        if (!clears(at(pole))) return null;
+        let pass = pole;
+        let fail = L;
+        for (let i = 0; i < 16; i++) {
+            const middle = (pass + fail) / 2;
+            if (clears(at(middle))) pass = middle;
+            else fail = middle;
+        }
+        return at(pass);
+    };
+    const refIdentity = (css: string, L: number, dark: boolean, floor: number) => {
+        const accent = requiredOklch(css);
+        const held = (c: Color<"oklch">) => chromaOf(c) >= IDENTITY_CHROMA_HOLD * chromaOf(accent);
+        const preferred = refWalk(accent, L, floor, CERTIFY_HEADROOM);
+        if (held(preferred)) return refAccent(css, L, floor, CERTIFY_HEADROOM);
+        const far = refFar(accent, L, preferred, floor + CERTIFY_HEADROOM);
+        if (far && held(far)) return serialize(far);
+        return resolvePlateInk(L, dark);
+    };
+    const GROUNDS = Array.from({ length: 91 }, (_, i) => 0.05 + i * 0.01);
+    const GOLD = "oklch(0.751 0.147 84.2)";
+    for (const dark of [false, true]) {
+        it(`plate, accent and identity inks are the reference walk's, string for string (${dark ? "dark" : "light"})`, () => {
+            const foreground = dark ? "hsl(30 14% 90%)" : "hsl(24 10% 10%)";
+            for (const L of GROUNDS) {
+                expect(resolvePlateInk(L, dark), `plate @ ${L}`).toBe(serialize(refWalk(requiredOklch(foreground), L, TEXT_CONTRAST_FLOOR, CERTIFY_HEADROOM)));
+                for (const css of [...PICKS, GOLD, "hsl(0 72% 50%)"]) {
+                    expect(certifyAccentInk(css, L), `${css} @ ${L}`).toBe(refAccent(css, L, TEXT_CONTRAST_FLOOR, CERTIFY_HEADROOM));
+                }
+                for (const floor of [TEXT_CONTRAST_FLOOR, GRAPHICS_CONTRAST_FLOOR]) {
+                    expect(certifyIdentityInk(GOLD, L, dark, floor), `gold ${floor} @ ${L}`).toBe(refIdentity(GOLD, L, dark, floor));
+                }
+            }
+        });
+    }
 });
