@@ -465,24 +465,31 @@ function identityChromaFloor(pickC: number, accent: { L: number; H: number }): n
     return Math.min(IDENTITY_C_FLOOR * pickC, gamutMaxChroma(accent.L, accent.H));
 }
 
-/** OKLCh → the nearest 8-bit sRGB triple (Ottosson's inverse, the exact
- *  twin of `rgbToOklch` above; each channel rounded to its code value). */
-function oklchToRgb8(L: number, C: number, H: number): [number, number, number] {
+/** OKLCh → encoded sRGB on the 0–255 scale, clipped, NOT rounded
+ *  (Ottosson's inverse, the exact twin of `rgbToOklch` above). */
+function oklchToRgb(L: number, C: number, H: number): [number, number, number] {
     const h = (H * Math.PI) / 180;
     const a = C * Math.cos(h);
     const b = C * Math.sin(h);
     const l = (L + 0.3963377774 * a + 0.2158037573 * b) ** 3;
     const m = (L - 0.1055613458 * a - 0.0638541728 * b) ** 3;
     const s = (L - 0.0894841775 * a - 1.291485548 * b) ** 3;
-    const code = (v: number) => {
+    const encode = (v: number) => {
         const e = v <= 0.0031308 ? 12.92 * v : 1.055 * v ** (1 / 2.4) - 0.055;
-        return Math.min(255, Math.max(0, Math.round(e * 255)));
+        return Math.min(255, Math.max(0, e * 255));
     };
     return [
-        code(4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s),
-        code(-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s),
-        code(-0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s),
+        encode(4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s),
+        encode(-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s),
+        encode(-0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s),
     ];
+}
+
+/** OKLCh → the nearest 8-bit sRGB triple: {@link oklchToRgb}, each channel
+ *  rounded to its code value. */
+function oklchToRgb8(L: number, C: number, H: number): [number, number, number] {
+    const [r, g, b] = oklchToRgb(L, C, H);
+    return [Math.round(r), Math.round(g), Math.round(b)];
 }
 
 /** COHESION §0gu.9 (ESC-W11wk-3, the §0gl.7 principle): the floor is
@@ -502,6 +509,57 @@ function onGrid(color: { L: number; C: number; H: number }): { L: number; C: num
 }
 function quantizedFloor(floorC: number, at: { L: number; H: number }): number {
     return rgbToOklch(oklchToRgb8(at.L, floorC, at.H)).C;
+}
+
+/** WCAG 2.x relative luminance of an encoded (0–255) sRGB triple, and the
+ *  contrast ratio of two: the census's own formula (`censusElement`). */
+function wcagLuminance([r, g, b]: [number, number, number]): number {
+    const lin = (v: number) => {
+        const s = v / 255;
+        return s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+    };
+    return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+}
+function wcagRatio(a: [number, number, number], b: [number, number, number]): number {
+    const la = wcagLuminance(a);
+    const lb = wcagLuminance(b);
+    return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+}
+
+/** COHESION §0gw.3 (ESC-W11wk3-1, the §0gu.9 principle on the WALKED-TARGET
+ *  legs): the guard walks a real-valued target (`CERTIFIED_INK_FLOOR`), but
+ *  the ink it lands on paints on the 8-bit grid, so its measured ratio can
+ *  read short of the target by less than one code value (darwin WebKit:
+ *  5.73 vs 5.75, where one code value on one channel clears it). The floor is
+ *  therefore the contrast the NEAREST 8-bit realization of the walked colour
+ *  achieves on the measured ground. The walked colour is the guard's own walk
+ *  from the measured ink: its hue held, its chroma held up to the sRGB ceiling
+ *  (`mapColorToGamut`), its lightness bisected toward the pole the ink sits on
+ *  until the float ratio reaches `target`. Its nearest triple's ratio is the
+ *  floor, never above `target`. An ink more than half a code value short of
+ *  the walked colour rounds to a different triple and still fails, and a
+ *  target no ink on that walk reaches stays the target: nothing measurable is
+ *  widened. Both operands are read on the grid (the measured triples). */
+function walkedTargetOnGrid(
+    target: number,
+    ink: [number, number, number],
+    ground: [number, number, number],
+): number {
+    if (wcagRatio(ink, ground) >= target) return target;
+    const from = rgbToOklch(ink);
+    const walk = (L: number) =>
+        oklchToRgb(L, Math.min(from.C, gamutMaxChroma(L, from.H)), from.H);
+    const pole = wcagLuminance(ink) >= wcagLuminance(ground) ? 1 : 0;
+    if (wcagRatio(walk(pole), ground) < target) return target;
+    let reach = pole;
+    let short = from.L;
+    for (let i = 0; i < 40; i++) {
+        const middle = (reach + short) / 2;
+        if (wcagRatio(walk(middle), ground) >= target) reach = middle;
+        else short = middle;
+    }
+    const [r, g, b] = walk(reach);
+    return Math.min(target, wcagRatio([Math.round(r), Math.round(g), Math.round(b)], ground));
 }
 
 /** Boot to the owner color and wait for the ink writers (boot contract). */
@@ -853,10 +911,14 @@ for (const scheme of ["light", "dark"] as const) {
                 "component-name",
             );
             expect(nameRow).not.toBeNull();
+            // §0gw.3: both operands on the 8-bit grid the census reads.
+            const nameInk = parseRgbTriple(nameRow!.ink);
+            const nameGround = parseRgbTriple(nameRow!.ground);
+            const walkedFloor = walkedTargetOnGrid(CERTIFIED_INK_FLOOR, nameInk, nameGround);
             expect(
-                nameRow!.ratio,
-                `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,
-            ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);
+                wcagRatio(nameInk, nameGround),
+                `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5, on the 8-bit grid ${walkedFloor.toFixed(4)}`,
+            ).toBeGreaterThanOrEqual(walkedFloor);
         });
 
         test("markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)", async ({
