@@ -34,7 +34,11 @@ import { resolveFieldAmbientLightness } from "../../../color-session/ink";
 import { debounce } from "../../../shared/debounce";
 import { safeSetItem } from "../../../platform/storage/useSafeStorage";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "../../../scenes/atmosphere/aurora-atoms";
+import {
+    AURORA_ATOMS_KEY,
+    DEFAULT_AURORA_ATOMS,
+    SOFTWARE_RASTER_KEY,
+} from "../../../scenes/atmosphere/aurora-atoms";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
 import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
 import { GROUND_STORE_KEY, buildGroundRecord, type GroundRecord } from "./ground";
@@ -94,6 +98,8 @@ export function useAtmosphere(
     // complete render of the same derived palette). Resolved ONCE at setup
     // (a mount-time device tier).
     const auroraRenderMode = resolveRenderMode("auto");
+    // The same answer, for the hero bead: one probe per page (SOFTWARE_RASTER_KEY).
+    provide(SOFTWARE_RASTER_KEY, auroraRenderMode === "css");
 
     // W2-5 (T.W2): the config source resolves over the CALIBRATED base —
     // the Q2-NOW knobs (breath 26 · softmaxBeta 4 · vividness = f(seedC))
