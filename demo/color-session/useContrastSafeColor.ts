@@ -603,6 +603,13 @@ export function goldIdentityCss(dark: boolean): string {
  *  self-corrects, and by the probe epoch, so a pre-mount read re-drives. An
  *  empty read (no cascade mounted yet) is not memoised. */
 const schemeTokenMemo = new Map<string, string>();
+/** X.W11.cut (COHESION §0gx.3): the scheme tokens are read together. `--color-gold`
+ *  is first asked for in the dock's setup, on a clean style (2 ms at 4×), and
+ *  `--destructive` was first asked for in the certify task, after that task's
+ *  root writes, where the read forced a recalculation of the whole document
+ *  (26 ms at 4×, `close/evidence/browser/cut-2026-10-30/`). One read serves both,
+ *  with the same values and the same invalidation. */
+const SCHEME_TOKENS = ["--color-gold", "--destructive"];
 let schemeTokenStamp = "";
 function schemeTokenCss(token: string, dark: boolean, fallback: string): string {
     if (typeof document === "undefined") return fallback;
@@ -613,9 +620,13 @@ function schemeTokenCss(token: string, dark: boolean, fallback: string): string 
     }
     let live = schemeTokenMemo.get(token);
     if (live === undefined) {
-        live = getComputedStyle(document.documentElement).getPropertyValue(token).trim();
-        if (live) schemeTokenMemo.set(token, live);
-        else probeMissed = true;
+        const root = getComputedStyle(document.documentElement);
+        for (const name of [token, ...SCHEME_TOKENS]) {
+            const read = root.getPropertyValue(name).trim();
+            if (read) schemeTokenMemo.set(name, read);
+        }
+        live = schemeTokenMemo.get(token) ?? "";
+        if (!live) probeMissed = true;
     }
     return lightDarkArm(live, dark) || fallback;
 }

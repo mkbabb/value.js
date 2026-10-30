@@ -294,15 +294,24 @@ export function useOverture(fieldArmed: ComputedRef<boolean>): OvertureBeats {
         watch(() => route.name, retireShellSettle, { flush: "sync" });
         onMounted(() => {
             if (root.dataset.firstView !== "shell") return;
-            const settling = document
-                .getAnimations()
-                .filter(
-                    (a) =>
-                        a instanceof CSSAnimation &&
-                        a.animationName === "overture-shell-settle",
-                );
-            void Promise.allSettled(settling.map((a) => a.finished)).then(
-                retireShellSettle,
+            // X.W11.cut (COHESION §0gx.3): two frames past the mount, on the
+            // style that frame already resolved. `document.getAnimations()`
+            // flushes style, and inside the mount task that flush cost 25 ms
+            // at 4× of a long task (`close/evidence/browser/cut-2026-10-30/`).
+            // The settle runs for many frames more, so the read still finds it.
+            requestAnimationFrame(() =>
+                requestAnimationFrame(() => {
+                    const settling = document
+                        .getAnimations()
+                        .filter(
+                            (a) =>
+                                a instanceof CSSAnimation &&
+                                a.animationName === "overture-shell-settle",
+                        );
+                    void Promise.allSettled(settling.map((a) => a.finished)).then(
+                        retireShellSettle,
+                    );
+                }),
             );
         });
     }
