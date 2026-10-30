@@ -157,6 +157,28 @@ test.describe("OD19-ALL route load (built bundle, CPU 4x)", () => {
                     .getEntriesByType("resource")
                     .some((e) => /^index-[^/]*\.js$/.test(e.name.split("/").pop() ?? "")),
             );
+            // X.W11.e2a (the same read race, one chunk later): the router starts
+            // the linked view's pane chunk at the entry's module evaluation, and
+            // its timing entry is queued at ITS responseEnd, after the entry's.
+            // On `#/` the prerendered shell is content before either lands, so a
+            // read at the entry's arrival found no `AboutPane-*.js` (CI job
+            // 123792077478 ×3, and the GPU cell 1/1 at 68fcae1f3: "AboutPane was
+            // requested", `paneRequestGap=nullms`). The read waits for the pane
+            // chunk's own timing entry; the gap it then computes is unchanged.
+            if (chunk)
+                await expect
+                    .poll(
+                        () =>
+                            page.evaluate(
+                                (c) =>
+                                    performance
+                                        .getEntriesByType("resource")
+                                        .some((e) => (e.name.split("/").pop() ?? "").startsWith(`${c}-`)),
+                                chunk,
+                            ),
+                        { message: `${chunk} was requested`, timeout: 30_000 },
+                    )
+                    .toBe(true);
 
             const scripts = await page.evaluate(() =>
                 performance
@@ -176,16 +198,23 @@ test.describe("OD19-ALL route load (built bundle, CPU 4x)", () => {
                     ` paneRequestGap=${gap}ms`,
             );
 
+            // X.W11.e2a (COHESION §0gw.1, the §0fr.2/§0gp.2/§0gu.3/§0gv.1 law;
+            // ESC-W11dep-E2E-RED family A): the cold content bar is a wall-clock
+            // budget, so it gates on the REAL-GPU cell with the gap bar (read ×2);
+            // on a software rasteriser both numbers are logged above and the leg
+            // asserts liveness: the chunks were requested, content was reached,
+            // and the hop below completes. The bars are unchanged.
+            const soft = isSoftwareGL(await detectRenderer(page));
             expect(entry, "the entry chunk loaded").toBeDefined();
             if (chunk) {
                 expect(pane, `${chunk} was requested`).toBeDefined();
-                if (!isSoftwareGL(await detectRenderer(page)))
+                if (!soft)
                     expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
                         PANE_REQUEST_GAP_MS,
                     );
             }
             expect(content, `#/${route} reached its content`).not.toBeNull();
-            expect(content!).toBeLessThanOrEqual(bar);
+            if (!soft) expect(content!, `#/${route} cold content ≤ ${bar} ms`).toBeLessThanOrEqual(bar);
 
             if (route === "") return;
             // The hop: a settled home, then the in-app hash change.

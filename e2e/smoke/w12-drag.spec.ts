@@ -133,7 +133,16 @@ test("w12-drag — 2 s drag on the surface and each slider holds frame budget", 
         // freeze ceiling (W12U.md addendum (e), §0en/§0ei: the real-GPU cell
         // is the gate of record). Re-baselined X-W12U .q2: on software GL the
         // collector is live when it reads at least two frame intervals.
-        expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(soft ? 1 : 10);
+        // X.W11.e2a (COHESION §0gw.1, the §0fr.2/§0gp.2/§0gu.3/§0gv.1 law;
+        // ESC-W11dep-E2E-RED family A): a frame COUNT inside a 2 s wall-clock
+        // drag is itself a rate budget on the rasteriser (CI job 123792077478
+        // read 1 interval on "slider a" ×3 on SwiftShader, "collector dead"),
+        // so the software leg asserts liveness only — frames advance during the
+        // drag — and logs the reading above; the `w12u-p-drag` twin's form
+        // (`.v1f`, 1c3860236). The real-GPU floor (> 10), the p50/p95 bars and
+        // the software freeze ceiling are unchanged; the bars are read ×2 on
+        // the GPU cell.
+        expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(soft ? 0 : 10);
         if (soft) {
             expect(r.maxTask, `${r.name}: in-drag freeze`).toBeLessThanOrEqual(SOFT_MAX_TASK_MS);
         } else {

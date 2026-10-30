@@ -8,6 +8,7 @@ import os from "node:os";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { detectRenderer, isSoftwareGL, percentile } from "./frame-budget";
+import { useRealGpuCell } from "./real-gpu";
 
 /**
  * X-W2 (Track A · X·V) — THE EAGER-PAYLOAD GATE (W2.md §5 X.W2.c; §6 G2/G3/G4).
@@ -74,6 +75,9 @@ import { detectRenderer, isSoftwareGL, percentile } from "./frame-budget";
  *    headless-stability pin, `playwright.config.ts`). That is part of the
  *    recorded runner class, not a caveat hidden in prose.
  */
+
+/** X.W11.e2a (COHESION §0gw.1): G3/G4 gate on the background real-GPU cell under `W12_REAL_GPU=1`. */
+useRealGpuCell();
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(HERE, "../../..");
@@ -516,6 +520,32 @@ test("X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs", 
         mkdirSync(dirname(abs), { recursive: true });
         writeFileSync(abs, `${JSON.stringify(record, null, 2)}\n`);
         console.log(`[X-W2 CWV] wrote ${abs}`);
+    }
+
+    // X.W11.e2a (COHESION §0gw.1, the §0fr.2/§0gp.2/§0gu.3/§0gv.1 law;
+    // ESC-W11dep-E2E-RED family A): p75 TBT and p75 LCP are wall-clock
+    // main-thread / paint budgets, so they GATE ON THE REAL-GPU CELL
+    // (`W12_REAL_GPU=1`, `useRealGpuCell()`, read ×2). On a software rasteriser
+    // (the hosted CI runner's SwiftShader, CI job 123792077478: desktop p75 TBT
+    // 2215 ms, p75 LCP 2836 ms) the readings are logged above and banked in the
+    // record, and the leg asserts liveness only: every measured cold load
+    // reached a mounted main (asserted inside `coldLoad`) and painted its
+    // largest contentful element. The bars are unchanged, and G2's gzip byte
+    // budget above stays hard everywhere. A bar RED on the GPU cell is a
+    // product cut, never a test change.
+    if (isSoftwareGL(renderer)) {
+        for (const cfg of CONFIGS) {
+            const s = configs[cfg.name] as { samples: LoadSample[] };
+            expect(s.samples.length, `${cfg.name}: N cold loads measured`).toBe(
+                N_LOADS,
+            );
+            for (const [i, sample] of s.samples.entries())
+                expect(
+                    sample.lcp,
+                    `${cfg.name} load ${i}: no largest-contentful-paint entry`,
+                ).toBeGreaterThan(0);
+        }
+        return;
     }
 
     // `expect.soft` so ONE run records all four verdicts instead of aborting at
