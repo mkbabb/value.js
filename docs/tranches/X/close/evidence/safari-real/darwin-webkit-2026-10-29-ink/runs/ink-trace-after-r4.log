@@ -1,0 +1,61 @@
+{
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "dragMs": 2507.2,
+ "inkTrace": {
+  "windowMs": 3114.9,
+  "samples": 19335,
+  "inkInclusiveMs": 179.7,
+  "worstInkTask": {
+   "durMs": 18.1,
+   "inkMs": 14.8
+  }
+ },
+ "observer": [],
+ "trace": [
+  [
+   33,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248"
+   ]
+  ],
+  [
+   23.6,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248"
+   ]
+  ],
+  [
+   20.4,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248"
+   ]
+  ],
+  [
+   25.8,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "o → ? @ demo/app/composables/useDevicePixelSnap.ts:37"
+   ]
+  ],
+  [
+   24.4,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "R → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:204"
+   ]
+  ]
+ ]
+}

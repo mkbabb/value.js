@@ -1,0 +1,48 @@
+(node:67700) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:67743) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 36 tests using 1 worker
+
+[1A[2K(node:67756) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:622:9 › O-18 U-F26 accent-view leg (light) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[1A[2K[2/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:622:9 › O-18 U-F26 accent-view leg (dark) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[1A[2K[3/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:791:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[1A[2K[4/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:866:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[1A[2K[5/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:924:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[1A[2K[6/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:958:9 › O-18 census (light) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)
+[1A[2K[7/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:791:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[1A[2K[8/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:866:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[1A[2K[9/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:924:9 › O-18 census (dark) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[1A[2K[10/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:958:9 › O-18 census (dark) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)
+[1A[2K[11/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1052:9 › O-18 W4 rows (light) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1
+[1A[2K[12/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1070:9 › O-18 W4 rows (light) › the channel letters ≥4.5:1 on the console well (rest rung)
+[1A[2K[13/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1096:9 › O-18 W4 rows (light) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1
+[1A[2K[14/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1052:9 › O-18 W4 rows (dark) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1
+[1A[2K[15/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1070:9 › O-18 W4 rows (dark) › the channel letters ≥4.5:1 on the console well (rest rung)
+[1A[2K[16/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1096:9 › O-18 W4 rows (dark) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1
+[1A[2K[17/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1150:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)
+[1A[2K[18/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1209:9 › O-18 W6.5 legs (light) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)
+[1A[2K[19/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1253:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)
+[1A[2K[20/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 · WCAG 1.4.11)
+[1A[2K[21/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1150:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)
+[1A[2K[22/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1209:9 › O-18 W6.5 legs (dark) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)
+[1A[2K[23/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1253:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)
+[1A[2K[24/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 · WCAG 1.4.11)
+[1A[2K[25/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1370:9 › O-18 config-track graphics leg (light) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)
+[1A[2K[26/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1370:9 › O-18 config-track graphics leg (dark) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)
+[1A[2K[27/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1485:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1)
+[1A[2K[28/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1537:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3)
+[1A[2K[29/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1485:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1)
+[1A[2K[30/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1537:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3)
+[1A[2K[31/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1634:9 › O-18 census · V15-01 the featured badge (light) › the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold
+[1A[2K[32/36] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1634:9 › O-18 census · V15-01 the featured badge (dark) › the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold
+[1A[2K[33/36] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › light · seed default
+[1A[2K[34/36] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › light · seed oklch(0.62 0.16 240)
+[1A[2K[35/36] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › dark · seed default
+[1A[2K[36/36] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › dark · seed oklch(0.62 0.16 240)
+[1A[2K  36 passed (59.8s)
