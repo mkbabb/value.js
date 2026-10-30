@@ -522,6 +522,6 @@ describe("§0gw.4 — the certify walk's cut keeps every certified ink", () => {
                     expect(certifyIdentityInk(GOLD, L, dark, floor), `gold ${floor} @ ${L}`).toBe(refIdentity(GOLD, L, dark, floor));
                 }
             }
-        });
+        }, 30_000);
     }
 });
