@@ -1,0 +1,63 @@
+SERVED MODEL: claude-opus-5-5 · X.W11.hyg falsifier arm A (cold cache, mounts withheld from the pre-scan so the optimizer must discover at runtime; arm A = no settle, arm B = settleHarness)
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:76859) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+G20 1440 {"PaletteCardSkeleton.vue:instrument@16":42,"PaletteCardSkeleton.vue:instrument@1":42,"PaletteCardSkeleton.vue@16":92.515625,"PaletteCardSkeleton.vue@1":92.515625,"PaletteCardSkeleton.vue:developing@16":92.515625,"PaletteCardSkeleton.vue:developing@1":92.515625}
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 1440 shadow loading 92.515625 settled 92.53125
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 1440 developing loading 92.515625 settled 92.53125
+
+ ❯ demo/test/palettes/plate-mass.test.ts (4 tests | 2 failed) 3552ms
+   × plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them 342ms
+     → page.evaluate: Execution context was destroyed, most likely because of a navigation.
+   × plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card 3ms
+     → page.evaluate: TypeError: Cannot read properties of null (reading 'getBoundingClientRect')
+    at eval (eval at evaluate (:302:30), <anonymous>:1:69)
+    at UtilityScript.evaluate (<anonymous>:304:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+   ✓ plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them 123ms
+   ✓ plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card 31ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+Error: page.evaluate: Execution context was destroyed, most likely because of a navigation.
+ ❯ plateHeight demo/test/palettes/plate-mass.test.ts:27:17
+     25|     // Shipped to the page as source text: the test runner rewrites a …
+     26|     // dynamic `import()` in this module for its own loader, never the…
+     27|     return page.evaluate(`(async () => {
+       |                 ^
+     28|         // The harness page already loaded Vue through Vite's dep cach…
+     29|         // the SAME module instance the SFC's own \`import "vue"\` res…
+ ❯ demo/test/palettes/plate-mass.test.ts:131:33
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+Error: page.evaluate: TypeError: Cannot read properties of null (reading 'getBoundingClientRect')
+    at eval (eval at evaluate (:302:30), <anonymous>:1:69)
+    at UtilityScript.evaluate (<anonymous>:304:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+ ❯ settledCardHeight demo/test/palettes/plate-mass.test.ts:85:17
+     83| /** Settled collapsed card height for the harness's `colors-5` case. */
+     84| function settledCardHeight(page: Page): Promise<number> {
+     85|     return page.evaluate(
+       |                 ^
+     86|         () =>
+     87|             document
+ ❯ demo/test/palettes/plate-mass.test.ts:143:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 2 passed (4)
+   Start at  00:41:40
+   Duration  4.18s (transform 35ms, setup 49ms, collect 255ms, tests 3.55s, environment 0ms, prepare 46ms)
+
