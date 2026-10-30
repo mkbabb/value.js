@@ -1,0 +1,278 @@
+{
+ "origin": "http://localhost:8604",
+ "loads": 1,
+ "p75Gate": 399,
+ "tbtSorted": [
+  403
+ ],
+ "gateSorted": [
+  399
+ ],
+ "chunks": [
+  {
+   "chunk": "dock-CQv02k8K.js",
+   "meanSelfMsInLongTasks": 269
+  },
+  {
+   "chunk": "vue.runtime.esm-bundler-2l_pzWEZ.js",
+   "meanSelfMsInLongTasks": 117
+  },
+  {
+   "chunk": "(native)",
+   "meanSelfMsInLongTasks": 113
+  },
+  {
+   "chunk": "index-RKfi2a9-.js",
+   "meanSelfMsInLongTasks": 76
+  },
+  {
+   "chunk": "serialize-BtpoAFZw-C086w664.js",
+   "meanSelfMsInLongTasks": 35
+  },
+  {
+   "chunk": "button-BOFTUPyU-BZ9MeoVG.js",
+   "meanSelfMsInLongTasks": 9
+  },
+  {
+   "chunk": "dist-CVCggHGb.js",
+   "meanSelfMsInLongTasks": 8
+  },
+  {
+   "chunk": "slider-5uoY-cLG-Du6hH6jo.js",
+   "meanSelfMsInLongTasks": 7
+  },
+  {
+   "chunk": "createLucideIcon-C9maEmXC.js",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "chunk": "dom-BLrshDUK.js",
+   "meanSelfMsInLongTasks": 3
+  },
+  {
+   "chunk": "preload-helper-kNaey6uv.js",
+   "meanSelfMsInLongTasks": 2
+  },
+  {
+   "chunk": "useDragMorph-B363RUbF-DCnPo5HY.js",
+   "meanSelfMsInLongTasks": 2
+  }
+ ],
+ "top": [
+  {
+   "site": "dock-CQv02k8K.js :: De",
+   "meanSelfMsInLongTasks": 214
+  },
+  {
+   "site": "(native) :: (program)",
+   "meanSelfMsInLongTasks": 94
+  },
+  {
+   "site": "index-RKfi2a9-.js :: O_",
+   "meanSelfMsInLongTasks": 17
+  },
+  {
+   "site": "dock-CQv02k8K.js :: v",
+   "meanSelfMsInLongTasks": 15
+  },
+  {
+   "site": "dock-CQv02k8K.js :: X",
+   "meanSelfMsInLongTasks": 14
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: r",
+   "meanSelfMsInLongTasks": 11
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: In",
+   "meanSelfMsInLongTasks": 10
+  },
+  {
+   "site": "index-RKfi2a9-.js :: setup",
+   "meanSelfMsInLongTasks": 10
+  },
+  {
+   "site": "dock-CQv02k8K.js :: Oe",
+   "meanSelfMsInLongTasks": 10
+  },
+  {
+   "site": "index-RKfi2a9-.js :: (anon)",
+   "meanSelfMsInLongTasks": 10
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya",
+   "meanSelfMsInLongTasks": 9
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: We",
+   "meanSelfMsInLongTasks": 8
+  },
+  {
+   "site": "(native) :: (garbage collector)",
+   "meanSelfMsInLongTasks": 7
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: (anon)",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "site": "button-BOFTUPyU-BZ9MeoVG.js :: fe",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "site": "dock-CQv02k8K.js :: Re",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: v",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "index-RKfi2a9-.js :: Kp",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: ie",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "dist-CVCggHGb.js :: (anon)",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: gs",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "serialize-BtpoAFZw-C086w664.js :: c",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ea",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "slider-5uoY-cLG-Du6hH6jo.js :: (anon)",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: On",
+   "meanSelfMsInLongTasks": 4
+  }
+ ],
+ "perLoad": [
+  {
+   "i": 0,
+   "load1": 8.8,
+   "tbt": 403,
+   "gateTbt": 399,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 85,
+     "kids": [
+      "Layout 70",
+      "UpdateLayoutTree 8"
+     ],
+     "selfByChunk": {
+      "(native)": 85
+     },
+     "topSelf": [
+      "(native) :: (program) 85"
+     ]
+    },
+    {
+     "dur": 113,
+     "kids": [],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 25,
+      "rolldown-runtime-QTnfLwEv.js": 1,
+      "dist-CVCggHGb.js": 8,
+      "slider-5uoY-cLG-Du6hH6jo.js": 2,
+      "serialize-BtpoAFZw-C086w664.js": 19,
+      "(native)": 7,
+      "index-RKfi2a9-.js": 47,
+      "picker-color-vxPFipSO.js": 2,
+      "preload-helper-kNaey6uv.js": 2
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: O_ 17",
+      "index-RKfi2a9-.js :: (anon) 4",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: We 4",
+      "dist-CVCggHGb.js :: (anon) 3",
+      "(native) :: appendChild 3"
+     ]
+    },
+    {
+     "dur": 165,
+     "kids": [
+      "UpdateLayoutTree 11"
+     ],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 50,
+      "index-RKfi2a9-.js": 13,
+      "serialize-BtpoAFZw-C086w664.js": 14,
+      "(native)": 8,
+      "dock-CQv02k8K.js": 64,
+      "dist-CVCggHGb.js": 1,
+      "keyframes-iZdbN1lK.js": 2,
+      "useDragMorph-B363RUbF-DCnPo5HY.js": 2,
+      "createLucideIcon-C9maEmXC.js": 2,
+      "button-BOFTUPyU-BZ9MeoVG.js": 1,
+      "dom-BLrshDUK.js": 1,
+      "useSelectionGroup-zsEwitF6-DXVLqdIK.js": 1
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 22",
+      "dock-CQv02k8K.js :: v 15",
+      "dock-CQv02k8K.js :: X 14",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 6",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: r 6"
+     ]
+    },
+    {
+     "dur": 81,
+     "kids": [
+      "FunctionCall@index-RKfi2a9-.js:i 37"
+     ],
+     "selfByChunk": {
+      "(native)": 7,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 41,
+      "index-RKfi2a9-.js": 14,
+      "button-BOFTUPyU-BZ9MeoVG.js": 7,
+      "createLucideIcon-C9maEmXC.js": 2,
+      "serialize-BtpoAFZw-C086w664.js": 2,
+      "dom-BLrshDUK.js": 2,
+      "slider-5uoY-cLG-Du6hH6jo.js": 6
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: setup 6",
+      "button-BOFTUPyU-BZ9MeoVG.js :: fe 6",
+      "index-RKfi2a9-.js :: (anon) 6",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: r 5"
+     ]
+    },
+    {
+     "dur": 209,
+     "kids": [
+      "FireAnimationFrame 205",
+      "FunctionCall@index-RKfi2a9-.js 205",
+      "UpdateLayoutTree 9"
+     ],
+     "selfByChunk": {
+      "(native)": 6,
+      "dock-CQv02k8K.js": 204
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 192",
+      "dock-CQv02k8K.js :: Oe 9",
+      "(native) :: (program) 5",
+      "dock-CQv02k8K.js :: y 2",
+      "dock-CQv02k8K.js :: C 1"
+     ]
+    }
+   ]
+  }
+ ]
+}

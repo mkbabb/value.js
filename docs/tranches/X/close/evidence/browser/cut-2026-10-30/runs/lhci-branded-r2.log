@@ -1,0 +1,24 @@
+✅  .lighthouseci/ directory writable
+✅  Configuration file found
+✅  Chrome installation found
+Healthcheck passed!
+
+Started a web server on port 58472...
+Running Lighthouse 3 time(s) on http://localhost:58472/index.html
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Done running Lighthouse!
+
+Checking assertions against 1 URL(s), 3 total run(s)
+
+1 result(s) for http://localhost:58472/index.html :
+
+  ⚠️  interaction-to-next-paint warning for auditRan assertion
+        expected: >=1
+           found: 0
+      all values: 0, 0, 0
+
+All results processed!
+
+Done running autorun.

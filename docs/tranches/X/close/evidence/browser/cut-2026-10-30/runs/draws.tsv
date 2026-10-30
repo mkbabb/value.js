@@ -1,0 +1,4 @@
+before-r1	6be2c4de3	18:56:54 18:59:21	load_start=4.68	load_end=8.02	p75=273	294	rc=0	VALID
+before-r2	6be2c4de3	18:59:21 19:01:47	load_start=8.02	load_end=5.78	p75=290	294	rc=0	VALID
+after-r1	b14ed7945	19:04:53 19:07:18	load_start=6.29	load_end=8.38	p75=263	292	rc=0	VALID
+after-r2	b14ed7945	19:07:18 19:09:45	load_start=8.38	load_end=11.11	p75=235	284	rc=0	VALID

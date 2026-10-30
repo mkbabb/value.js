@@ -1,0 +1,33 @@
+✅  .lighthouseci/ directory writable
+✅  Configuration file found
+✅  Chrome installation found
+Healthcheck passed!
+
+Started a web server on port 54869...
+Running Lighthouse 3 time(s) on http://localhost:54869/index.html
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Done running Lighthouse!
+
+Checking assertions against 1 URL(s), 3 total run(s)
+
+2 result(s) for http://localhost:54869/index.html :
+
+  ✘  total-blocking-time failure for maxNumericValue assertion
+       Total Blocking Time
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/
+
+        expected: <=300
+           found: 947
+      all values: 1187.999999999996, 947, 1331.000000000001
+
+
+  ⚠️  interaction-to-next-paint warning for auditRan assertion
+        expected: >=1
+           found: 0
+      all values: 0, 0, 0
+
+Assertion failed. Exiting with status code 1.
+
+assert command failed. Exiting with status code 1.
