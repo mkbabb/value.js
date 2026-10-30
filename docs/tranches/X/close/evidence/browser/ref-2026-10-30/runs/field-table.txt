@@ -1,0 +1,14 @@
+[ref-field] oklch(73% 0.185 2) stopsL 0.63,0.74,0.84,0.95 plateY 0.182,0.282,0.443,0.644 mean 0.790 {"L":0.216,"worst":3.87} maximin 0.622 {"L":0.044,"worst":4.64} black 4.65 white 1.51
+[ref-field] oklch(0.66 0.16 28) stopsL 0.56,0.67,0.77,0.88 plateY 0.130,0.214,0.340,0.513 mean 0.720 {"L":0.21,"worst":3.04} maximin 0.622 {"L":0.044,"worst":3.59} black 3.60 white 1.86
+[ref-field] oklch(0.62 0.16 0) stopsL 0.52,0.63,0.73,0.84 plateY 0.106,0.178,0.284,0.442 mean 0.680 {"L":0.114,"worst":3.03} maximin 0.622 {"L":0.044,"worst":3.11} black 3.12 white 2.14
+[ref-field] oklch(0.62 0.16 60) stopsL 0.52,0.63,0.73,0.84 plateY 0.105,0.183,0.299,0.452 mean 0.680 {"L":0.114,"worst":3.01} maximin 0.622 {"L":0.044,"worst":3.1} black 3.10 white 2.09
+[ref-field] oklch(0.62 0.16 120) stopsL 0.52,0.63,0.73,0.84 plateY 0.116,0.201,0.321,0.476 mean 0.680 {"L":0.114,"worst":3.23} maximin 0.622 {"L":0.044,"worst":3.32} black 3.32 white 2.00
+[ref-field] oklch(0.62 0.16 180) stopsL 0.52,0.63,0.73,0.84 plateY 0.123,0.207,0.321,0.471 mean 0.680 {"L":0.114,"worst":3.36} maximin 0.622 {"L":0.044,"worst":3.46} black 3.46 white 2.02
+[ref-field] oklch(0.62 0.16 240) stopsL 0.52,0.63,0.73,0.84 plateY 0.119,0.199,0.304,0.446 mean 0.680 {"L":0.114,"worst":3.29} maximin 0.622 {"L":0.044,"worst":3.38} black 3.38 white 2.12
+[ref-field] oklch(0.62 0.16 300) stopsL 0.52,0.63,0.73,0.84 plateY 0.113,0.185,0.286,0.432 mean 0.680 {"L":0.114,"worst":3.17} maximin 0.622 {"L":0.044,"worst":3.26} black 3.26 white 2.18
+[ref-field] oklch(0.7 0.15 145) stopsL 0.60,0.71,0.81,0.92 plateY 0.179,0.290,0.437,0.616 mean 0.760 {"L":0.216,"worst":3.81} maximin 0.622 {"L":0.044,"worst":4.57} black 4.58 white 1.58
+[ref-field] oklch(0.6 0.2 265) stopsL 0.50,0.61,0.71,0.82 plateY 0.105,0.176,0.272,0.404 mean 0.660 {"L":0.044,"worst":3.09} maximin 0.622 {"L":0.044,"worst":3.09} black 3.09 white 2.31
+[ref-field] oklch(0.85 0.17 95) stopsL 0.63,0.74,0.84,0.95 plateY 0.188,0.308,0.466,0.667 mean 0.790 {"L":0.216,"worst":3.96} maximin 0.622 {"L":0.044,"worst":4.74} black 4.75 white 1.46
+[ref-field] oklch(0.5 0.12 320) stopsL 0.40,0.51,0.61,0.72 plateY 0.053,0.100,0.172,0.277 mean 0.560 {"L":0.999,"worst":3.21} maximin 0.564 {"L":0.999,"worst":3.21} black 2.07 white 3.21
+[ref-field] oklch(0.25 0.1 200) stopsL 0.35,0.46,0.56,0.67 plateY 0.041,0.084,0.149,0.241 mean 0.510 {"L":0.955,"worst":3.16} maximin 0.564 {"L":0.999,"worst":3.6} black 1.82 white 3.60
+[ref-field] oklch(0.95 0.03 90) stopsL 0.63,0.74,0.84,0.95 plateY 0.198,0.311,0.461,0.651 mean 0.790 {"L":0.216,"worst":4.12} maximin 0.628 {"L":0.022,"worst":4.95} black 4.95 white 1.50

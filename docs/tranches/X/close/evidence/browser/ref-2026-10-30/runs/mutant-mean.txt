@@ -1,0 +1,5 @@
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/ink.test.ts > the light plate referent is maximin (§0gx.2) > a pale field keeps the pick: the darkest stop clears floor + headro
+ FAIL  test/ink.test.ts > the light plate referent is maximin (§0gx.2) > the dead band keeps the region's polarity: the guard does not flip 
+ FAIL  test/ink.test.ts > the light plate referent is maximin (§0gx.2) > beats the retired mean over the worst stop on a field that spans mi
+      Tests  3 failed | 32 passed (35)
