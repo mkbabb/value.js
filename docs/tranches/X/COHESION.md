@@ -4860,3 +4860,33 @@ Ruled:
    - w7 (O-106);
    - R-vrb-1, the guard's browser-pool contention while WebKit runs queue, which is the owner's machine guard;
    - the ordinal migration, the orchestrator's host act after `.dep`'s master push.
+
+## §0gx — 2026-10-30: X-W11's seventh set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gw:
+- family A: the three wall-clock bars gate on the GPU cell, CI liveness holds, and 0 family-A failures on CI;
+- the certify walk cut (12 guard calls → 2, same inks; `4883db23d` and its reference-walk lock are RATIFIED with the 30 s timeout of `a8b7e4224`, the D59 precedent);
+- o18 GREEN in both engines (ESC-W11wk3-1 cured);
+- the HeroBlob re-probe cut (open→h1 22985 → 5315 ms);
+- plate-mass, the stale orphan hunk, and the GPU lhci paint state.
+
+Ruled:
+1. **The lock contradiction: `value.js` adopts the producer-held manifest (`e2e/producer-held.json` plus an honest-red reporter), the form §0ew ruled for fourier.** §0gw.7 records o29:395 as honest-RED while §0go.1 needs e2e-smoke GREEN, and ADDENDUM sixth says any red is cured at its root. Together those can never be satisfied while the cure is the producer's and its vehicle is 11.0.0.
+   - **The test stays real and red.** There is no `test.fail()` and no skip; the G-6 ruling on that class stands. The report prints each held row red, with its O-id.
+   - **What fails the job:** any red not on the manifest. A held row reading GREEN does not fail the job, and it is printed as an adoption notice.
+   - **Admission is narrow.** A row must name one exact leg, an O-id that glass has acknowledged with a placed vehicle, a measured producer cause, and an expiry at that repin. A row with a consumer arm cannot be admitted. ADDENDUM sixth's ban on owner-held banking stands: this is the producer's cure, cited and expiring, and it is not a waiver.
+   - **Admitted at this ruling:** o29:395 (R11, glass W-G.5/O-112); webgl-blob-idle:276 ×2 (ESC-W11e2b-3 arm (a): O-105 plus the M-9 floor; `webgl-blob-idle` has no consumer arm that keeps M-9). o21:287 (ESC-W11e2b-2, O-122) is admitted once glass acknowledges its placement; O-122 was delivered live on 2026-10-30.
+   - **Consequence, stated plainly:** the deploy can ship with these known reds. Each is already in what production serves today, and none is new.
+2. **ESC-W11e2b-1 (o11:272, o33:267 ×3): arm (a). Arm (b) stays refused.** The software-tier CSS substrate ships to real users, so it is not a SwiftShader fact. §0gk.2 applies to the light arm.
+   - **The light referent becomes maximin.** The ink's polarity and depth are chosen to maximize the minimum contrast across the stops or band the ink actually sits over, where that region is known, instead of against the mean. A darkest-stop-only referent is refused, because `ink.ts:443-447` measured it failing over the pale stops.
+   - **A pair-wide polarity chosen by the real referent is allowed.** A caption-only flip stays refused. The 4.5:1 floor and the headroom constants do not move.
+   - **The dead band stays honest.** Where no ink of either polarity clears every stop (seed `oklch(0.66 0.16 28)`), maximin takes the best ink and the shortfall is reported as a row for the owner's design call. It is never hidden, and no surface is altered to hide it.
+   - Falsifiers: o11:272 and o33:267 ×3 ×2 in docker Linux Chromium and on the GPU cell; o18, SS8-0440 and the 5.64:1 live arm kept GREEN ×2.
+3. **ESC-W11close15-1 (GPU eager-payload G3 mobile-4x, p75 TBT 449 · 559 · 465 · 342) and D-5 (GPU lhci optimistic 101–1765): the load condition is ruled, and a cut is ordered as well.**
+   - **Load condition:** a real-GPU cell's wall-clock reading is valid only at a 1-minute load ≤ 12 at the start and end of each draw (18 cores; `guarded --cpu-cores 0`). The load is recorded per draw, and every draw is reported. A reading above that is invalid, not RED; wait at most 60 min, then record UNMEASURED-LOADED. This is the condition .e2a's GREEN and Repair 2's control stood on. The bars do not move.
+   - **The margin is not banked.** The control reads 297 at the gate's rank against 300 (D-7). Cut the consumer candidates: `$p` at `useContrastSafeColor.ts:605` and the `getAnimations` calls. Identity look and motion are unchanged. Probes import `percentile` from `frame-budget.ts`.
+   - **The dock mount:** if it is attributed to glass, a row is owed with the trace; O-122's probe already has its row.
+   - **GPU lhci:** discriminate harness from product first. The task over 1 s appears only under Lighthouse, so read its throttling mode and the same load-controlled page without Lighthouse. If it is an instrument cost, the seat states so with the discriminating read. Then cut, hold or re-rule, with the cold collect staying on O-112.
+   - **Neither of these two gates is a deploy precondition** (§0go.1 reads `ci.yml`). They hold the wave's close and not `.dep`.
+4. **Glass 10.1.3 repin: value.js adopts it first in this pass, exact, with lock integrity equal to the registry's.** It carries the dock-anchor cure (value O-114, glass O-110), and fourier's cells read GREEN on it (`3bb9da5`). It moves product bytes, so every later reading stands on it. A visual diff it causes is attributed and re-minted under §0gv.2's rules. A dock cell that goes red is relayed to glass with an A/B against 10.1.2.
+5. **Hygiene:** a seat deletes the uncited `close/evidence/browser/repair1-15-2026-10-30/boot-profile.mjs` and prunes `.worktrees/repair1-15-wt`, checking first that nothing is live. The next close rewrites the LEDGER G3 cell (D-11). Local `npm run lint` walking untracked `.worktrees/` stays a recorded local-only row.
+6. **The order:** repin → cures → push → read `ci.yml` → `.dep` when e2e-smoke (under 1), visual and lhci are GREEN → the host's ordinal migration (orchestrator) → close and fresh check. Honest-RED, recorded only: G9 (O-117), w7 (O-106), R-vrb-1.
