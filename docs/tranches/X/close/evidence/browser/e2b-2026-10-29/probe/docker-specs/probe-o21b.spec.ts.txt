@@ -1,0 +1,27 @@
+// SERVED MODEL: claude-opus-5-5 — X.W11.e2b transient attribution probe, run from e2e/smoke/zz-e2b/ in the docker tree copy (never in the repo's e2e/)
+import { test, expect } from "@playwright/test";
+import { openView } from "../fixtures/dock";
+test("probe o21 region timeline", async ({ page }) => {
+    test.setTimeout(120_000);
+    await page.goto("/");
+    await openView(page, "Gradient");
+    const t0 = Date.now();
+    for (let i = 0; i < 40; i++) {
+        const s = await page.evaluate(() => {
+            const reg = [...document.querySelectorAll("main [role=region], main section")].map((r) => ({
+                label: r.getAttribute("aria-label") ?? r.getAttribute("aria-labelledby"),
+                kids: r.children.length,
+                cls: [...r.querySelectorAll("*")].flatMap((e) => [...e.classList].filter((c) => /enter|leave/.test(c))).slice(0, 6),
+                anims: r.getAnimations({ subtree: true }).map((a) => `${a.constructor.name}:${a.playState}:${Math.round(Number(a.currentTime))}`).slice(0, 6),
+                plate: !!r.querySelector('[aria-label="Loading the scene"]'),
+                h1: !!r.querySelector("h1"),
+            }));
+            const res = performance.getEntriesByType("resource").filter((e) => /GradientPane|gradient\//.test(e.name)).map((e) => `${e.name.split("/").pop()?.slice(0, 40)}@${Math.round(e.startTime)}+${Math.round(e.duration)}`);
+            return { now: Math.round(performance.now()), reg, gradRes: res.length, lastRes: res.slice(-2) };
+        });
+        console.log(`[e2b-o21b] +${Date.now() - t0} ${JSON.stringify(s)}`);
+        if (s.reg.some((r) => r.h1)) break;
+        await page.waitForTimeout(500);
+    }
+    expect(true).toBe(true);
+});

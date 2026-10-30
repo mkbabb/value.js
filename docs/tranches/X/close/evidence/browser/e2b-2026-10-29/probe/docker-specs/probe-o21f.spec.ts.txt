@@ -1,0 +1,40 @@
+// SERVED MODEL: claude-opus-5-5 — X.W11.e2b transient attribution probe, run from e2e/smoke/zz-e2b/ in the docker tree copy (never in the repo's e2e/)
+import { test, expect } from "@playwright/test";
+import { writeFileSync } from "node:fs";
+import { openView, expandDock } from "../fixtures/dock";
+test("probe o21 cpu profile reload", async ({ page }) => {
+    test.setTimeout(150_000);
+    await page.goto("/");
+    await openView(page, "Gradient");
+    await page.locator("main h1").filter({ hasText: "Gradient" }).waitFor({ timeout: 100_000 });
+    const cdp = await page.context().newCDPSession(page);
+    await cdp.send("Profiler.enable");
+    await cdp.send("Profiler.setSamplingInterval", { interval: 1000 });
+    await cdp.send("Profiler.start");
+    const t0 = Date.now();
+    await page.reload({ waitUntil: "networkidle" });
+    console.log(`[e2b-o21c] reload at ${Date.now() - t0} ms`);
+    await expandDock(page);
+    const dt = Date.now() - t0;
+    const { profile } = await cdp.send("Profiler.stop");
+    const byId = new Map(profile.nodes.map((n: any) => [n.id, n]));
+    const self = new Map<number, number>();
+    const deltas = profile.timeDeltas!;
+    profile.samples!.forEach((id: number, i: number) => self.set(id, (self.get(id) ?? 0) + (deltas[i] ?? 0)));
+    const agg = new Map<string, number>();
+    for (const [id, us] of self) {
+        const n: any = byId.get(id); const cf = n.callFrame;
+        const key = `${cf.functionName || "(anon)"} ${cf.url.replace(/^.*\/w\/tree\//, "").replace(/^http:\/\/localhost:8090\//, "").slice(-70)}:${cf.lineNumber}`;
+        agg.set(key, (agg.get(key) ?? 0) + us);
+    }
+    // inclusive by url-file
+    const file = new Map<string, number>();
+    for (const [id, us] of self) { const u = (byId.get(id) as any).callFrame.url.replace(/\?.*$/, "").replace(/^http:\/\/localhost:8090\//, ""); file.set(u, (file.get(u) ?? 0) + us); }
+    const top = [...agg].sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, v]) => `${(v / 1000).toFixed(0)}ms ${k}`);
+    const topf = [...file].sort((a, b) => b[1] - a[1]).slice(0, 15).map(([k, v]) => `${(v / 1000).toFixed(0)}ms ${k}`);
+    console.log(`[e2b-o21c] reload->expandDock ${dt} ms`);
+    for (const l of top) console.log(`[e2b-o21c] self ${l}`);
+    for (const l of topf) console.log(`[e2b-o21c] file ${l}`);
+    writeFileSync("/w/out/o21f.cpuprofile", JSON.stringify(profile));
+    expect(true).toBe(true);
+});

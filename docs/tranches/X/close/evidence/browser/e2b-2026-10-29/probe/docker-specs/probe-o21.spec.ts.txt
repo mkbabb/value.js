@@ -1,0 +1,20 @@
+// SERVED MODEL: claude-opus-5-5 — X.W11.e2b transient attribution probe, run from e2e/smoke/zz-e2b/ in the docker tree copy (never in the repo's e2e/)
+import { test, expect } from "@playwright/test";
+import { openView } from "../fixtures/dock";
+test("probe o21 main name", async ({ page }) => {
+    test.setTimeout(90_000);
+    await page.goto("/");
+    await openView(page, "Gradient");
+    for (const t of [300, 1500, 6000]) {
+        await page.waitForTimeout(t);
+        const s = await page.evaluate(() => {
+            const ids = [...document.querySelectorAll("[id=route-title]")].map((e) => ({ tag: e.tagName, text: e.textContent?.trim().slice(0, 60), cls: (e as HTMLElement).className.slice(0, 80), conn: e.isConnected, inMain: !!e.closest("main") }));
+            return { hash: location.hash, ids };
+        });
+        console.log(`[e2b-o21] +${t} ${JSON.stringify(s)}`);
+        const snap = await page.locator("main").first().ariaSnapshot().catch((e) => String(e));
+        console.log(`[e2b-o21] aria ${snap.slice(0, 500).replace(/\n/g, " | ")}`);
+        console.log(`[e2b-o21] named main count ${await page.getByRole("main", { name: "Gradient" }).count()}`);
+    }
+    expect(true).toBe(true);
+});

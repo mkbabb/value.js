@@ -1,0 +1,38 @@
+// SERVED MODEL: claude-opus-5-5 — X.W11.e2b transient attribution probe, run from e2e/smoke/zz-e2b/ in the docker tree copy (never in the repo's e2e/)
+import { test, expect } from "@playwright/test";
+import { openView, expandDock } from "../fixtures/dock";
+test("probe o21 reload path", async ({ page }) => {
+    test.setTimeout(120_000);
+    await page.goto("/");
+    await openView(page, "Gradient");
+    await page.getByRole("main", { name: "Gradient" }).getByRole("heading", { name: "Gradient" }).last().waitFor({ timeout: 60_000 });
+    for (let k = 0; k < 2; k++) {
+        const t0 = Date.now();
+        await page.reload({ waitUntil: "networkidle" });
+        console.log(`[e2b-o21e] reload ${Date.now() - t0}`);
+        await expandDock(page);
+        console.log(`[e2b-o21e] expandDock ${Date.now() - t0}`);
+        await page.getByRole("combobox", { name: "Select view" }).click();
+        const opt = page.getByRole("option", { name: "Gradient", exact: true });
+        await opt.waitFor();
+        console.log(`[e2b-o21e] listbox open ${Date.now() - t0}`);
+        for (let i = 0; i < 12; i++) {
+            const s = await page.evaluate(() => {
+                const o = [...document.querySelectorAll('[role=option]')].find((e) => e.textContent?.trim() === "Gradient");
+                const b = o?.getBoundingClientRect();
+                const lb = document.querySelector('[role=listbox]');
+                const anims = document.getAnimations().filter((a) => a.playState === "running").map((a) => {
+                    const t = (a.effect as KeyframeEffect | null)?.target as Element | null;
+                    return `${(a as CSSAnimation).animationName ?? (a as CSSTransition).transitionProperty ?? a.constructor.name}@${t?.className?.toString().slice(0, 30)}:${Math.round(Number(a.currentTime))}`;
+                });
+                return { b: b && [b.x, b.y, b.width, b.height].map((v) => v.toFixed(1)).join(","), lbState: lb?.getAttribute("data-state"), anims: anims.slice(0, 8) };
+            });
+            console.log(`[e2b-o21e] +${Date.now() - t0} ${JSON.stringify(s)}`);
+            await page.waitForTimeout(250);
+        }
+        await opt.click({ timeout: 20_000 }).catch((e) => console.log(`[e2b-o21e] click failed ${String(e).slice(0, 200)}`));
+        console.log(`[e2b-o21e] clicked ${Date.now() - t0}`);
+        await page.waitForTimeout(1500);
+    }
+    expect(true).toBe(true);
+});

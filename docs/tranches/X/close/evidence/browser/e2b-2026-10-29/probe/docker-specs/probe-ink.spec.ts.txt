@@ -1,0 +1,76 @@
+// SERVED MODEL: claude-opus-5-5 — X.W11.e2b transient attribution probe, run from e2e/smoke/zz-e2b/ in the docker tree copy (never in the repo's e2e/)
+import { test, expect, type Page } from "@playwright/test";
+// X.W11.e2b attribution probe (transient; copy kept in the evidence cell).
+const TOOLS = '[aria-label="Toggle action bar"]';
+async function read(page: Page) {
+    return page.evaluate(() => {
+        const cs = getComputedStyle(document.documentElement);
+        const g = (n: string) => cs.getPropertyValue(n).trim();
+        const span = document.querySelector('[aria-label="Toggle action bar"] span');
+        const plate = document.querySelector(".dock-plate");
+        return {
+            dark: document.documentElement.classList.contains("dark"),
+            ambientL: g("--ink-ambient-l"),
+            inkPrimary: g("--ink-primary"),
+            stops: [0, 1, 2, 3].map((i) => g(`--saved-bg-${i}`)),
+            toolsColor: span ? getComputedStyle(span).color : null,
+            plateBg: plate ? getComputedStyle(plate).backgroundColor : null,
+        };
+    });
+}
+async function px(page: Page, pts: Array<[number, number]>) {
+    const png = await page.screenshot();
+    return page.evaluate(async ({ b64, pts }) => {
+        const img = new Image(); img.src = `data:image/png;base64,${b64}`; await img.decode();
+        const c = document.createElement("canvas"); c.width = img.width; c.height = img.height;
+        const g = c.getContext("2d")!; g.drawImage(img, 0, 0);
+        return pts.map(([x, y]) => Array.from(g.getImageData(Math.round(x), Math.round(y), 1, 1).data.slice(0, 3)));
+    }, { b64: png.toString("base64"), pts });
+}
+for (const hue of [0, 60, 120, 300]) {
+    test(`probe o33 hue ${hue}`, async ({ page }) => {
+        await page.setViewportSize({ width: 1440, height: 900 });
+        await page.emulateMedia({ colorScheme: "light" });
+        await page.addInitScript(([css]) => {
+            localStorage.setItem("vueuse-color-scheme", "light");
+            localStorage.setItem("color-picker", JSON.stringify({ inputColor: css, savedColors: [] }));
+        }, [`oklch(0.62 0.16 ${hue})`] as const);
+        await page.goto("/#/", { waitUntil: "load", timeout: 240_000 });
+        await page.waitForSelector(".glass-dock", { timeout: 60_000 });
+        await page.waitForTimeout(2000);
+        const d = (await page.locator(".glass-dock").first().boundingBox())!;
+        await page.mouse.move(d.x + 3, d.y + d.height / 2);
+        await page.waitForTimeout(300);
+        const st = await read(page);
+        const above = await px(page, [[d.x + 6, d.y + d.height / 2], [d.x + d.width / 2, d.y - 4], [d.x + 6, d.y - 4], [d.x + d.width - 6, d.y + d.height / 2]]);
+        console.log(`[e2b-o33] hue ${hue} ${JSON.stringify({ ...st, dock: d, plateSample: above[0], fieldAboveMid: above[1], fieldAboveLeft: above[2], plateRight: above[3] })}`);
+        expect(true).toBe(true);
+    });
+}
+test("probe o11 browse light 390", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.emulateMedia({ colorScheme: "light", reducedMotion: "reduce" });
+    await page.goto("/#/", { timeout: 60_000 });
+    await page.goto("/#/browse", { timeout: 60_000 });
+    await page.waitForTimeout(2500);
+    const st = await read(page);
+    const box = await page.locator("main .pane-header .pane-header-desc").first().boundingBox();
+    console.log(`[e2b-o11] ${JSON.stringify({ ...st, captionBox: box })}`);
+});
+import { openView } from "../fixtures/dock";
+test("probe o21 open gradient", async ({ page }) => {
+    const errs: string[] = [];
+    page.on("console", (m) => { if (m.type() === "error" || m.type() === "warning") errs.push(m.text().slice(0, 300)); });
+    page.on("pageerror", (e) => errs.push("PAGEERROR " + e.message.slice(0, 300)));
+    await page.goto("/");
+    await openView(page, "Gradient");
+    for (const t of [500, 2000, 8000, 20000]) {
+        await page.waitForTimeout(t);
+        const s = await page.evaluate(() => ({
+            hash: location.hash,
+            mains: [...document.querySelectorAll("main")].map((m) => ({ label: m.getAttribute("aria-label"), lb: m.getAttribute("aria-labelledby"), h: [...m.querySelectorAll("h1,h2,h3,[role=heading]")].map((h) => h.textContent?.trim().slice(0, 40)) })),
+        }));
+        console.log(`[e2b-o21] +${t} ${JSON.stringify(s)}`);
+    }
+    console.log(`[e2b-o21] errs ${JSON.stringify(errs.slice(0, 10))}`);
+});

@@ -1,0 +1,237 @@
+{
+  "config": {
+    "configFile": "/w/tree/playwright.config.ts",
+    "rootDir": "/w/tree/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/w/tree/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/w/tree/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/w/tree/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/w/tree/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/w/tree/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/w/tree/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/zz-e2b/probe-o21b.spec.ts",
+      "file": "smoke/zz-e2b/probe-o21b.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "probe o21 region timeline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 27203,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[e2b-o21b] +5 {\"now\":5666,\"reg\":[{\"label\":\"Gradient\",\"kids\":1,\"cls\":[\"items-center\",\"items-center\",\"items-center\",\"items-center\",\"items-center\",\"items-center\"],\"anims\":[\"CSSAnimation:running:0\",\"CSSAnimation:finished:600\",\"CSSAnimation:finished:790\",\"CSSAnimation:finished:830\",\"CSSAnimation:finished:870\",\"CSSAnimation:finished:910\"],\"plate\":false,\"h1\":false},{\"label\":\"Palettes\",\"kids\":1,\"cls\":[\"vj-enter-leave-from\",\"vj-enter-leave-active\",\"items-center\",\"items-center\",\"items-center\",\"items-center\"],\"anims\":[\"CSSTransition:running:0\",\"CSSAnimation:running:NaN\",\"CSSAnimation:running:NaN\",\"CSSAnimation:running:0\",\"CSSAnimation:running:0\",\"CSSAnimation:running:0\"],\"plate\":false,\"h1\":false},{\"label\":null,\"kids\":2,\"cls\":[],\"anims\":[],\"plate\":false,\"h1\":false},{\"label\":null,\"kids\":2,\"cls\":[],\"anims\":[],\"plate\":false,\"h1\":false},{\"label\":null,\"kids\":2,\"cls\":[],\"anims\":[],\"plate\":false,\"h1\":false},{\"label\":null,\"kids\":2,\"cls\":[],\"anims\":[],\"plate\":false,\"h1\":false},{\"label\":null,\"kids\":2,\"cls\":[\"items-center\",\"items-center\",\"items-center\"],\"anims\":[],\"plate\":false,\"h1\":false},{\"label\":null,\"kids\":2,\"cls\":[],\"anims\":[],\"plate\":false,\"h1\":false},{\"label\":\"Formula\",\"kids\":1,\"cls\":[],\"anims\":[\"CSSAnimation:running:0\",\"CSSAnimation:running:0\"],\"plate\":false,\"h1\":false},{\"label\":\"Formula\",\"kids\":1,\"cls\":[],\"anims\":[\"CSSAnimation:running:0\",\"CSSAnimation:running:0\"],\"plate\":false,\"h1\":false},{\"label\":\"Formula\",\"kids\":1,\"cls\":[],\"anims\":[\"CSSAnimation:running:0\",\"CSSAnimation:running:0\"],\"plate\":false,\"h1\":false},{\"label\":\"Formula\",\"kids\":1,\"cls\":[],\"anims\":[\"CSSAnimation:running:0\",\"CSSAnimation:running:0\"],\"plate\":false,\"h1\":false}],\"gradRes\":1,\"lastRes\":[\"sceneActions.ts@1163+201\"]}\n"
+                    },
+                    {
+                      "text": "[e2b-o21b] +511 {\"now\":6173,\"reg\":[{\"label\":\"Gradient\",\"kids\":0,\"cls\":[],\"anims\":[],\"plate\":false,\"h1\":false},{\"label\":\"Palettes\",\"kids\":1,\"cls\":[\"vj-enter-enter-active\",\"vj-enter-enter-to\",\"items-center\",\"items-center\",\"items-center\",\"justify-center\"],\"anims\":[\"CSSTransition:running:0\",\"CSSTransition:running:0\",\"CSSAnimation:running:0\",\"CSSAnimation:running:0\"],\"plate\":false,\"h1\":false}],\"gradRes\":1,\"lastRes\":[\"sceneActions.ts@1163+201\"]}\n"
+                    },
+                    {
+                      "text": "[e2b-o21b] +21500 {\"now\":27161,\"reg\":[{\"label\":\"Gradient\",\"kids\":1,\"cls\":[\"vj-enter-enter-active\",\"vj-enter-enter-to\",\"items-center\",\"items-center\",\"items-center\",\"items-center\"],\"anims\":[\"CSSTransition:running:0\",\"CSSTransition:running:0\",\"CSSTransition:running:17\",\"CSSAnimation:running:0\",\"CSSAnimation:running:0\"],\"plate\":false,\"h1\":true},{\"label\":null,\"kids\":2,\"cls\":[\"items-center\"],\"anims\":[],\"plate\":false,\"h1\":false},{\"label\":\"glass-disclosure-trigger-v-130\",\"kids\":0,\"cls\":[],\"anims\":[],\"plate\":false,\"h1\":false},{\"label\":\"Palettes\",\"kids\":1,\"cls\":[\"vj-enter-enter-active\",\"vj-enter-enter-to\",\"items-center\",\"items-center\",\"items-center\",\"justify-center\"],\"anims\":[\"CSSTransition:running:200\",\"CSSAnimation:running:0\",\"CSSAnimation:running:0\"],\"plate\":false,\"h1\":false}],\"gradRes\":1,\"lastRes\":[\"sceneActions.ts@1163+201\"]}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:42:44.288Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fdbc98c27a427892ac48-c8ed0ca1540450706107",
+          "file": "smoke/zz-e2b/probe-o21b.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T03:42:41.992Z",
+    "duration": 30611.359,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
