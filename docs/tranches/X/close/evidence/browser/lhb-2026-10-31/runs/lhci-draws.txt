@@ -1,0 +1,2 @@
+d1 a0c4002fd 01:32:10 01:32:58 waited=60s load_start=11.25 load_end=9.14 rc=0 browser=HeadlessChrome/156.0.0.0 mode=simulate tbt=56/52/77 optimistic=52 lcp=2103/2103/2103 longest=92/94/106 VALID
+d2 a0c4002fd 01:33:21 01:34:08 waited=0s load_start=8.75 load_end=8.84 rc=0 binary=GoogleChrome/156.0.8078.74 browser=HeadlessChrome/156.0.0.0 mode=simulate tbt=84/61/83 optimistic=61 lcp=2104/2102/2103 longest=107/92/108 VALID
