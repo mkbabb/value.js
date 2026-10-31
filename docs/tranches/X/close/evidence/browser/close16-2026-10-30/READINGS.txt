@@ -1,0 +1,13 @@
+SERVED MODEL: claude-opus-5-5
+X-W11 close (RESUME sixteenth), 2026-10-30, VERIFY-ONLY. Every reading at c2ccf6a4e, in a clean detached
+worktree (.worktrees/close16-wt; .hld's uncommitted bytes absent) or a git-archive docker tree.
+runs/battery.txt        typecheck x2, e2e tsc x2, lint x2, vitest x2 (131 files, 1498 tests), build, gh-pages, api tsc + test (279)
+runs/verify-packed-*.txt G3 on the registry tarball of 4.1.0, x2
+runs/g3-draws.tsv       G3 mobile-4x on the GPU cell under the §0gx.3 load condition (draw.sh = .cut's, ports 8621/8622)
+runs/lhci-draws.txt     GPU lhci, .cut's lhci-draw.sh, the file's binary, x2
+runs/gpu-ink-r*.json    o11/o33/o18/ss8r on the GPU cell, .ref's gpu.config.ts, x2: 48 expected, 0 unexpected each
+runs/docker-ink-r*.json same specs in mcr.microsoft.com/playwright:v1.60.0-noble (go.sh), x2: 46 expected, 2 unexpected
+                        (o33:267 hue 0 4.406051, hue 300 4.446414, both rounds)
+runs/boot-*.json        scripts/ci/boot-smoke.mjs dev and prod-preview: 8/8 each
+runs/visual-summary.txt the visual project, darwin SwiftShader, read once
+queue.sh                the serial order this seat ran the heavy arms in; rd.js reads a Playwright JSON's failures
