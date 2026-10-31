@@ -109,7 +109,9 @@ function readOptionalFaces(): OptionalFace[] {
         }))
         .map((face) => {
             if (!face.family || !face.data)
-                throw new Error(`visual: an optional face of the corpus has no family or woff2 bytes`);
+                throw new Error(
+                    `visual: an optional face of the corpus has no family or woff2 bytes`,
+                );
             return face;
         });
 }
@@ -194,7 +196,9 @@ function readMonoFallbackOverrides(): Record<string, string> {
             return out;
         }
     }
-    throw new Error(`visual: no @font-face for "${MONO_FALLBACK_FAMILY}" in ${stylesDir}`);
+    throw new Error(
+        `visual: no @font-face for "${MONO_FALLBACK_FAMILY}" in ${stylesDir}`,
+    );
 }
 
 /**
@@ -799,6 +803,7 @@ export async function tabTo(page: Page, steps = 12): Promise<void> {
     // depends on the host's speed against its 10 s life, so the walk starts
     // from the frame without it.
     await settleTimedToasts(page);
+    await settleArrivals(page);
     for (let i = 0; i < steps; i++) await page.keyboard.press("Tab");
     // ─── The walk's TERMINAL dock posture, waited on as state (X.W11.v1) ─────
     //
@@ -843,6 +848,64 @@ export async function tabTo(page: Page, steps = 12): Promise<void> {
  * it — the same law as `tabTo`'s collapsed seal. The toast's own pixels are
  * the e2e suite's subject, not this matrix's; no cell names it.
  */
+/**
+ * The walk starts from a plate at rest: every running finite animation on the
+ * document timeline has finished (X.W11.vrm, COHESION §0gy.3).
+ *
+ * Measured at `ce711ca3c`+, `keyboard-focus-desktop › gradient` ×4: the cell
+ * photographed two settled frames 575 / 4301 px from the golden, 9 px apart in
+ * `scrollY` (169 or 178). The fifth Tab focuses the pane's scroller, and the
+ * browser scrolls it into view against its geometry AT THAT MOMENT. In every
+ * 169 draw the pane's arrival keyframe (`overture-plate-settle`,
+ * `translateY(-12px) rotate(-0.6deg)` → none, `overture.css:87`) was still
+ * running when the walk began, so the scroll offset was computed from a plate
+ * still landing and then kept. The walk therefore waits on each running
+ * animation's own `finished` promise, re-reading until none remains — never a
+ * wall-clock sleep. Infinite animations and scroll-driven ones (another
+ * timeline; their `finished` never resolves at rest) are not arrivals and are
+ * not waited on. A page still landing after the bound is refused, not
+ * photographed.
+ */
+export async function settleArrivals(page: Page, boundMs = 10_000): Promise<void> {
+    const left = await page.evaluate(async (boundMs) => {
+        const deadline = performance.now() + boundMs;
+        const running = () =>
+            document
+                .getAnimations()
+                .filter(
+                    (a) =>
+                        a.playState === "running" &&
+                        a.timeline === document.timeline &&
+                        Number.isFinite(
+                            a.effect?.getComputedTiming().endTime ?? Infinity,
+                        ),
+                );
+        for (;;) {
+            const now = running();
+            if (!now.length) return [];
+            if (performance.now() > deadline)
+                return now.map(
+                    (a) =>
+                        (a as CSSAnimation).animationName ??
+                        (a as CSSTransition).transitionProperty ??
+                        a.id,
+                );
+            await Promise.race([
+                Promise.allSettled(now.map((a) => a.finished)),
+                new Promise((r) =>
+                    setTimeout(r, Math.max(0, deadline - performance.now())),
+                ),
+            ]);
+            await new Promise((r) => requestAnimationFrame(() => r(null)));
+        }
+    }, boundMs);
+    if (left.length)
+        throw new Error(
+            `ARRIVAL NOT SETTLED after ${boundMs} ms: ${left.join(", ")} still running. ` +
+                "The walk is refused rather than started from a plate still landing.",
+        );
+}
+
 export async function settleTimedToasts(page: Page): Promise<void> {
     await page
         .locator('[data-slot="toast"]')
