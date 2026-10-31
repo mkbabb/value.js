@@ -732,6 +732,7 @@ test("gradient selector aurora", async ({ page }) => {
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-16.md",
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-27.md",
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-29.md",
+            "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-31.md",
         ].map((f) => join(process.cwd(), f));
         const ask = [askPath, ...censusAddenda]
             .map((f) => readFileSync(f, "utf8"))
