@@ -179,3 +179,13 @@ X-W11 closes VERIFIED only on a green G7 and G9, with the deploy of record serve
 2. keyframes acts on O-117 (pin, matrix re-home, four tests). Then the keyframes tuple is re-read.
 3. The delegate rules ESC-W11e-G10-1, and the host redeploys the API (ESC-W11e-G10-2). Then G10 is re-read.
 4. Then `.d` re-sits at the production origin and `.e` re-reads G9/G10, then close and check.
+
+## Addendum 2026-10-31 — what changed at the seventeenth sitting (supersedes §0 items 3, 4 and 6 and §2's G5/G6/G7 rows; E-3, the bytes above are unchanged)
+
+SERVED MODEL `claude-opus-5-5`, the X-W11 close seat (VERIFY-ONLY), HEAD `e588c0c7e`.
+
+1. **color.babb.dev now serves the release tree.** Master is `d99ab0deb`. `ci.yml` on master is 8/8 GREEN (`41187025722`), and `deploy-pages` `41196718854` succeeded: O-25 PASS, and G-21 confirmed production serves `d99ab0deb`'s build. The deploy is no longer HELD.
+2. **The production palette API runs `d99ab0deb`** (⟨`curl -sS https://api.color.babb.dev/health`⟩ ×2). Its TLS certificate has 65 days left. The ordinal migration is still owed as an orchestrator host act.
+3. **Reboot the Mac.** The kernel zone reads 18.39M, against a refusal line at 13M and panics near 20.8M. Every heavy run is refused until the reboot, including the G5 production boot-smoke and the darwin WebKit witness (G8). **This is the one act blocking the next re-read.**
+4. **One ruling is owed to the delegate: ESC-W11cnm-1.** The default seed's component-name ink reads 4.08:1 on the real GPU in light mode, against a 4.5 floor. Docker reads 5.02. No cure fits inside the §0gy.2 locks. Arm (a), a hue-bounded maximin for the accent, is the recommendation; it moves the light goldens again.
+5. **The X close is still not VERIFIED.** G9 is RED: keyframes pins `4.0.0` exactly (O-117). The G8 witness is unmeasured until the reboot, ESC-W11cnm-1 is open, and four producer-held reds ship known. The npm token rotation (§3 item 1) still stands.
