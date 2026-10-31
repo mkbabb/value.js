@@ -1,0 +1,389 @@
+{
+  "config": {
+    "configFile": "/w/tree/playwright.config.ts",
+    "rootDir": "/w/tree/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/w/tree/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/w/tree/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/w/tree/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/w/tree/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/w/tree/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/w/tree/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/ss8-b12-card-shell.spec.ts",
+      "file": "smoke/ss8-b12-card-shell.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (light)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12727,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m12.100721665537625\u001b[39m\nReceived:    \u001b[31m10.20562496628259\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m12.100721665537625\u001b[39m\nReceived:    \u001b[31m10.20562496628259\u001b[39m\n    at /w/tree/e2e/smoke/ss8-b12-card-shell.spec.ts:129:28",
+                    "location": {
+                      "file": "/w/tree/e2e/smoke/ss8-b12-card-shell.spec.ts",
+                      "column": 28,
+                      "line": 129
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 127 |\u001b[39m         console\u001b[33m.\u001b[39mlog(\u001b[32m`SS8-0363 ${scheme}`\u001b[39m\u001b[33m,\u001b[39m \u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mstringify({ normal\u001b[33m,\u001b[39m more }))\u001b[33m;\u001b[39m\n \u001b[90m 128 |\u001b[39m         expect(normal\u001b[33m.\u001b[39mratio)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 129 |\u001b[39m         expect(more\u001b[33m.\u001b[39mratio)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(normal\u001b[33m.\u001b[39mratio)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 130 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 131 |\u001b[39m }\n \u001b[90m 132 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/w/tree/e2e/smoke/ss8-b12-card-shell.spec.ts",
+                        "column": 28,
+                        "line": 129
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m12.100721665537625\u001b[39m\nReceived:    \u001b[31m10.20562496628259\u001b[39m\n\n  127 |         console.log(`SS8-0363 ${scheme}`, JSON.stringify({ normal, more }));\n  128 |         expect(normal.ratio).toBeGreaterThanOrEqual(4.5);\n> 129 |         expect(more.ratio).toBeGreaterThanOrEqual(normal.ratio);\n      |                            ^\n  130 |     });\n  131 | }\n  132 |\n    at /w/tree/e2e/smoke/ss8-b12-card-shell.spec.ts:129:28"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "SS8-0363 light {\"normal\":{\"ratio\":12.100721665537625,\"ink\":[0,0,0],\"ground\":[226,186,201]},\"more\":{\"ratio\":10.20562496628259,\"ink\":[51,48,46],\"ground\":[236,225,219]}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:00:04.315Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/w/tree/test-results/ss8-b12-card-shell-SS8-036-de34a-the-tag-chip-s-ratio-light--smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/w/tree/e2e/smoke/ss8-b12-card-shell.spec.ts",
+                    "column": 28,
+                    "line": 129
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4aef673bdeaf7459096d-13fb0c6576ac467acb48",
+          "file": "smoke/ss8-b12-card-shell.spec.ts",
+          "line": 122,
+          "column": 5
+        },
+        {
+          "title": "SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (dark)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11098,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "SS8-0363 dark {\"normal\":{\"ratio\":6.498690841637178,\"ink\":[194,191,190],\"ground\":[78,46,54]},\"more\":{\"ratio\":7.214982054771417,\"ink\":[209,206,203],\"ground\":[68,56,50]}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:00:17.440Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4aef673bdeaf7459096d-d3cf8ac2e10366a55bde",
+          "file": "smoke/ss8-b12-card-shell.spec.ts",
+          "line": 122,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "smoke/zz-n2-tokens.spec.ts",
+      "file": "smoke/zz-n2-tokens.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "N2-TOKENS light",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4183,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "N2-TOKENS light no-preference {\"color\":\"oklch(0.046262 0.00386159 34.63)\",\"inPane\":true,\"root--ink-primary\":\"oklch(4.384740512144% 0.00624852743 56.035563601331deg)\",\"pane--ink-primary\":\"oklch(4.384740512144% 0.00624852743 56.035563601331deg)\",\"root--ink-muted\":\"oklch(4.626196762143% 0.003861589952 34.629978305623deg)\",\"pane--ink-muted\":\"oklch(4.626196762143% 0.003861589952 34.629978305623deg)\",\"root--muted-foreground\":\"light-dark(hsl(30 22% 40%),hsl(34 14% 62%))\",\"pane--muted-foreground\":\"oklch(4.626196762143% 0.003861589952 34.629978305623deg)\",\"root--foreground\":\"light-dark(hsl(24 10% 10%),hsl(30 14% 90%))\",\"pane--foreground\":\"oklch(4.384740512144% 0.00624852743 56.035563601331deg)\",\"root--on-glass-muted\":\"hsl(30 26% 35%)\",\"pane--on-glass-muted\":\"oklch(4.626196762143% 0.003861589952 34.629978305623deg)\",\"root--glass-tint-strength\":\"4%\",\"pane--glass-tint-strength\":\"4%\"}\n"
+                    },
+                    {
+                      "text": "N2-TOKENS light more {\"color\":\"oklab(0.311878 0.00337118 0.00404102)\",\"inPane\":true,\"root--ink-primary\":\"oklch(21.612909107484% 0.00624852743 56.035563601331deg)\",\"pane--ink-primary\":\"oklch(21.612909107484% 0.00624852743 56.035563601331deg)\",\"root--ink-muted\":\"oklch(46.678112507835% 0.003861589952 34.629978305623deg)\",\"pane--ink-muted\":\"oklch(46.678112507835% 0.003861589952 34.629978305623deg)\",\"root--muted-foreground\":\"color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 88%, light-dark(hsl(40 30% 98%),hsl(24 9% 4%)))\",\"pane--muted-foreground\":\"color-mix(in oklab, oklch(46.678112507835% 0.003861589952 34.629978305623deg), oklch(21.612909107484% 0.00624852743 56.035563601331deg) 61.8%)\",\"root--foreground\":\"light-dark(hsl(24 10% 10%),hsl(30 14% 90%))\",\"pane--foreground\":\"oklch(21.612909107484% 0.00624852743 56.035563601331deg)\",\"root--on-glass-muted\":\"hsl(30 26% 35%)\",\"pane--on-glass-muted\":\"color-mix(in oklab, oklch(46.678112507835% 0.003861589952 34.629978305623deg), oklch(21.612909107484% 0.00624852743 56.035563601331deg) 61.8%)\",\"root--glass-tint-strength\":\"0%\",\"pane--glass-tint-strength\":\"0%\"}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:00:28.595Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b1240880a9783ae7661-8f33302849f768b3b563",
+          "file": "smoke/zz-n2-tokens.spec.ts",
+          "line": 110,
+          "column": 5
+        },
+        {
+          "title": "N2-TOKENS dark",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5704,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "N2-TOKENS dark no-preference {\"color\":\"oklch(0.807897 0.00382185 41.8684)\",\"inPane\":true,\"root--ink-primary\":\"oklch(92.520158240924% 0.006184225801 67.748284889725deg)\",\"pane--ink-primary\":\"oklch(92.520158240924% 0.006184225801 67.748284889725deg)\",\"root--ink-muted\":\"oklch(80.789670348742% 0.003821851545 41.86844006185deg)\",\"pane--ink-muted\":\"oklch(80.789670348742% 0.003821851545 41.86844006185deg)\",\"root--muted-foreground\":\"hsl(34 14% 62%)\",\"pane--muted-foreground\":\"oklch(80.789670348742% 0.003821851545 41.86844006185deg)\",\"root--foreground\":\"hsl(30 14% 90%)\",\"pane--foreground\":\"oklch(92.520158240924% 0.006184225801 67.748284889725deg)\",\"root--on-glass-muted\":\"hsl(34 16% 72%)\",\"pane--on-glass-muted\":\"oklch(80.789670348742% 0.003821851545 41.86844006185deg)\",\"root--glass-tint-strength\":\"4%\",\"pane--glass-tint-strength\":\"4%\"}\n"
+                    },
+                    {
+                      "text": "N2-TOKENS dark more {\"color\":\"oklab(0.852671 0.00253444 0.00451164)\",\"inPane\":true,\"root--ink-primary\":\"oklch(92.520158240924% 0.006184225801 67.748284889725deg)\",\"pane--ink-primary\":\"oklch(92.520158240924% 0.006184225801 67.748284889725deg)\",\"root--ink-muted\":\"oklch(73.532988373548% 0.003821851545 41.86844006185deg)\",\"pane--ink-muted\":\"oklch(73.532988373548% 0.003821851545 41.86844006185deg)\",\"root--muted-foreground\":\"color-mix(in oklab, hsl(30 14% 90%) 88%, hsl(24 9% 4%))\",\"pane--muted-foreground\":\"color-mix(in oklab, oklch(73.532988373548% 0.003821851545 41.86844006185deg), oklch(92.520158240924% 0.006184225801 67.748284889725deg) 61.8%)\",\"root--foreground\":\"hsl(30 14% 90%)\",\"pane--foreground\":\"oklch(92.520158240924% 0.006184225801 67.748284889725deg)\",\"root--on-glass-muted\":\"hsl(34 16% 72%)\",\"pane--on-glass-muted\":\"color-mix(in oklab, oklch(73.532988373548% 0.003821851545 41.86844006185deg), oklch(92.520158240924% 0.006184225801 67.748284889725deg) 61.8%)\",\"root--glass-tint-strength\":\"0%\",\"pane--glass-tint-strength\":\"0%\"}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:00:32.782Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b1240880a9783ae7661-95f264bb7c579dc5e6d6",
+          "file": "smoke/zz-n2-tokens.spec.ts",
+          "line": 110,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T04:00:03.064Z",
+    "duration": 36915.365999999995,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

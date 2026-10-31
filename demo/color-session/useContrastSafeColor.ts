@@ -8,6 +8,7 @@ import {
     type Ref,
 } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+import { usePreferredContrast } from "@vueuse/core";
 import { convertColor, mixColors, parseCssColor, xyz, type Color } from "@mkbabb/value.js/color";
 import { parseColorIn } from "./color-utils";
 import { INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY } from "./keys";
@@ -19,6 +20,7 @@ import {
     resolvePaintedLightness,
     resolvePlateInk,
     resolveSurfaceLightness,
+    type InkContrast,
     type InkSurface,
     type SurfaceTint,
 } from "./ink";
@@ -429,6 +431,14 @@ export function useContrastSafeColor(
 ) {
     const { isDark } = useGlobalDark();
     bumpProbeEpochOnMount();
+    // X.W11.n2 (COHESION §0gy.5, SS8-0363): `prefers-contrast: more` certifies
+    // the neutral plate pairs (resting, floating, modal) at the guard's
+    // ceiling, so the elevated-contrast layer never lowers a plate ink's ratio
+    // (`ink.ts` `certifyFor`). Identity inks keep their hue law.
+    const preferredContrast = usePreferredContrast();
+    const plateContrast = computed<InkContrast>(() =>
+        preferredContrast.value === "more" ? "more" : "no-preference",
+    );
 
     const safeAccentCss = computed(() =>
         certifyAccentInkOnce(
@@ -460,13 +470,13 @@ export function useContrastSafeColor(
     // certified against the plate — the ONE polarity decision. The boot
     // writer stamps it as `--ink-primary`; `shell.css` seats it as the
     // in-plate `--foreground`.
-    const plateInkCss = computed(() => resolvePlateInk(plateL.value, isDark.value));
+    const plateInkCss = computed(() => resolvePlateInk(plateL.value, isDark.value, plateContrast.value));
 
     // The de-emphasis rung (F-4): a floor-clamped step of the primary plate ink
     // (same pole, never flipped on its own) — the boot writer stamps it as
     // `--ink-muted` (the plate-caption / parse-echo voice; post-hoc opacity
     // de-emphasis is retired).
-    const mutedInkCss = computed(() => resolveMutedInk(plateL.value, isDark.value));
+    const mutedInkCss = computed(() => resolveMutedInk(plateL.value, isDark.value, plateContrast.value));
 
     // X-DS pass 5 (V5C-02): the SAME certified pair, against the FLOATING
     // plate. Reka portals menus and popovers to <body>, outside the
@@ -480,9 +490,9 @@ export function useContrastSafeColor(
     const floatingPlateL = computed(() =>
         surfaceLightnessNow("floating", plateReferent.value, isDark.value),
     );
-    const floatingInkCss = computed(() => resolvePlateInk(floatingPlateL.value, isDark.value));
+    const floatingInkCss = computed(() => resolvePlateInk(floatingPlateL.value, isDark.value, plateContrast.value));
     const floatingMutedInkCss = computed(() =>
-        resolveMutedInk(floatingPlateL.value, isDark.value),
+        resolveMutedInk(floatingPlateL.value, isDark.value, plateContrast.value),
     );
 
     // X-DS pass 16 (V16-01): the SAME certified pair, against the MODAL plate.
@@ -495,8 +505,8 @@ export function useContrastSafeColor(
     const modalL = computed(() =>
         surfaceLightnessNow("modal", ambientLightness.value, isDark.value),
     );
-    const modalInkCss = computed(() => resolvePlateInk(modalL.value, isDark.value));
-    const modalMutedInkCss = computed(() => resolveMutedInk(modalL.value, isDark.value));
+    const modalInkCss = computed(() => resolvePlateInk(modalL.value, isDark.value, plateContrast.value));
+    const modalMutedInkCss = computed(() => resolveMutedInk(modalL.value, isDark.value, plateContrast.value));
     // The destructive verb's red (glass `--destructive`, the scheme's arm of
     // its `light-dark()` pair) certified on the same modal ground: the hue is
     // kept and only the lightness walks (1.65:1 read off the light frame).

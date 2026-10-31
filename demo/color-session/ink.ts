@@ -655,12 +655,49 @@ export function certifyIdentityInk(
  * labels, numerals and section heads read it (the in-plate `--foreground`,
  * `shell.css`), so the page never carries two inks of opposite polarity.
  */
-function plateInk(surfaceL: number, dark: boolean): Color<"oklch"> {
-    return certify(FOREGROUND[dark ? "dark" : "light"], surfaceL, TEXT_CONTRAST_FLOOR);
+function plateInk(
+    surfaceL: number,
+    dark: boolean,
+    contrast: InkContrast = "no-preference",
+): Color<"oklch"> {
+    return certifyFor(FOREGROUND[dark ? "dark" : "light"], surfaceL, contrast);
 }
 
-export function resolvePlateInk(surfaceL: number, dark: boolean): string {
-    return serialize(plateInk(surfaceL, dark));
+/**
+ * The user's contrast preference (`prefers-contrast`), as the plate pair reads
+ * it. `"no-preference"` is the nearest ink that clears `floor + headroom`.
+ */
+export type InkContrast = "no-preference" | "more";
+
+/**
+ * X.W11.n2 (COHESION §0gy.5, SS8-0363): under `prefers-contrast: more` the
+ * plate pair certifies to the guard's ceiling, the highest ratio any ink of
+ * that seed reaches on the plate (the pole, or the pick where it reads
+ * higher). The elevated-contrast layer drops the glass tint, so the live plate
+ * it certifies on is cleaner than the no-preference plate. The nearest ink
+ * that clears `floor + headroom` there is lighter than the one the
+ * no-preference plate's dead band walked to the pole (light 10.21 < 12.10 at
+ * the maximin referent, `close/evidence/browser/n2-2026-10-30/`). The ceiling
+ * ink is never lower than either. The floor and the headroom constants are
+ * unchanged. Only the target moves, and only under the preference.
+ */
+function certifyFor(accent: Color<"oklch">, surfaceL: number, contrast: InkContrast): Color<"oklch"> {
+    if (contrast === "no-preference") return certify(accent, surfaceL, TEXT_CONTRAST_FLOOR);
+    const ceiling = guardCeiling(accent, surfaceColor(surfaceL));
+    return certify(
+        accent,
+        surfaceL,
+        TEXT_CONTRAST_FLOOR,
+        Math.max(CERTIFY_HEADROOM, ceiling - TEXT_CONTRAST_FLOOR),
+    );
+}
+
+export function resolvePlateInk(
+    surfaceL: number,
+    dark: boolean,
+    contrast: InkContrast = "no-preference",
+): string {
+    return serialize(plateInk(surfaceL, dark, contrast));
 }
 
 /**
@@ -669,11 +706,15 @@ export function resolvePlateInk(surfaceL: number, dark: boolean): string {
  * it never flips on its own: a certified step that lands across the surface
  * from its primary, or further from it, keeps the primary instead.
  */
-export function resolveMutedInk(surfaceL: number, dark: boolean): string {
-    const primary = plateInk(surfaceL, dark);
+export function resolveMutedInk(
+    surfaceL: number,
+    dark: boolean,
+    contrast: InkContrast = "no-preference",
+): string {
+    const primary = plateInk(surfaceL, dark, contrast);
     const mixed = mixColors(primary, surfaceColor(surfaceL), 0.382, { space: "oklch" });
     if (!mixed.ok) throw new Error(`Muted ink mix failed: ${mixed.error.code}`);
-    const muted = certify(mixed.value, surfaceL, TEXT_CONTRAST_FLOOR);
+    const muted = certifyFor(mixed.value, surfaceL, contrast);
     // Same pole as the primary, and no further from the plate than it: a rung
     // that would flip, or outrank its primary, is the primary itself.
     const offset = (c: Color<"oklch">) => lightness(c) - surfaceL;

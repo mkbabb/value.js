@@ -603,3 +603,38 @@ describe("the light plate referent is maximin (§0gx.2)", () => {
         }
     });
 });
+
+describe("prefers-contrast: more never lowers a plate ink's ratio (X.W11.n2, §0gy.5, SS8-0363)", () => {
+    const GRID = Array.from({ length: 41 }, (_, i) => i / 40);
+    const darkPoleReads = (L: number) => ratioOn("oklch(0 0 0)", L) >= ratioOn("oklch(1 0 0)", L);
+    for (const dark of [false, true]) {
+        it(`on one plate, "more" reads the guard's ceiling, never under no-preference (${dark ? "dark" : "light"})`, () => {
+            for (const L of GRID) {
+                const ceiling = Math.max(ratioOn("oklch(0 0 0)", L), ratioOn("oklch(1 0 0)", L));
+                for (const resolve of [resolvePlateInk, resolveMutedInk]) {
+                    const normal = ratioOn(resolve(L, dark), L);
+                    const more = ratioOn(resolve(L, dark, "more"), L);
+                    expect(more, `${resolve.name} @${L}`).toBeGreaterThanOrEqual(normal - 1e-6);
+                    expect(more, `${resolve.name} @${L} vs ceiling`).toBeGreaterThanOrEqual(ceiling * 0.99);
+                }
+            }
+        });
+    }
+    it("a cleaner plate under \"more\" never reads under the dead band's pole walk (light, the dark pole)", () => {
+        // The measured mechanism: the no-preference plate sat where floor +
+        // headroom is out of reach, so its ink walked to the pole; the
+        // tint-dropped plate is lighter and cleared the target with a lighter
+        // ink (docker 10.21 < 12.10).
+        const dark = GRID.filter(darkPoleReads);
+        for (const normalL of dark) {
+            for (const moreL of dark.filter((L) => L >= normalL)) {
+                for (const resolve of [resolvePlateInk, resolveMutedInk]) {
+                    expect(
+                        ratioOn(resolve(moreL, false, "more"), moreL),
+                        `${resolve.name} more@${moreL} vs normal@${normalL}`,
+                    ).toBeGreaterThanOrEqual(ratioOn(resolve(normalL, false), normalL) - 1e-6);
+                }
+            }
+        }
+    });
+});
