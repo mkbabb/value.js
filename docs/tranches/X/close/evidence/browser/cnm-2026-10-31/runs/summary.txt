@@ -1,0 +1,18 @@
+runs/read-r1.json: expected 3 unexpected 0 skipped 0
+  [smoke] cnm default-seed component-name, light no-preference: passed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 5.0219 frames worst/painted 5.0219/5.2508(n1602) 5.0219/5.2508(n1602) 5.0219/5.2508(n1602)
+  [smoke] cnm default-seed component-name, dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 5.0165 frames worst/painted 5.0165/5.3369(n1602) 5.0165/5.3369(n1602) 5.0165/5.3369(n1602)
+  [smoke] cnm default-seed component-name, light reduce: passed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 5.0219 frames worst/painted 5.0219/5.2508(n1602) 5.0219/5.2508(n1602) 5.0219/5.2508(n1602)
+runs/read-r2.json: expected 3 unexpected 0 skipped 0
+  [smoke] cnm default-seed component-name, light no-preference: passed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 5.0219 frames worst/painted 5.0219/5.2508(n1602) 5.0219/5.2508(n1602) 5.0219/5.2508(n1602)
+  [smoke] cnm default-seed component-name, dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 5.0165 frames worst/painted 5.0165/5.3369(n1602) 5.0165/5.3369(n1602) 5.0165/5.3369(n1602)
+  [smoke] cnm default-seed component-name, light reduce: passed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 5.0219 frames worst/painted 5.0219/5.2508(n1602) 5.0219/5.2508(n1602) 5.0219/5.2508(n1602)
+runs/gpu-r1.json: expected 2 unexpected 2 skipped 0
+  [gpu] cnm default-seed component-name, light no-preference: failed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 4.0822 frames worst/painted 4.1000/4.2869(n1728) 4.1225/4.3104(n1728) 4.0822/4.2683(n1728)
+  [gpu] cnm default-seed component-name, dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 4.8820 frames worst/painted 5.0750/5.3952(n1728) 4.9173/5.2275(n1728) 4.8820/5.1899(n1728)
+  [gpu] cnm default-seed component-name, light reduce: failed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 4.1000 frames worst/painted 4.1000/4.2869(n1728) 4.1000/4.2869(n1728) 4.1000/4.2869(n1728)
+  [gpu-renderer] renderer of the cell: passed
+runs/gpu-r2.json: expected 2 unexpected 2 skipped 0
+  [gpu] cnm default-seed component-name, light no-preference: failed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 4.0780 frames worst/painted 4.1000/4.2869(n1728) 4.1225/4.3104(n1728) 4.0780/4.2639(n1728)
+  [gpu] cnm default-seed component-name, dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 4.8853 frames worst/painted 5.0494/5.3680(n1728) 4.9173/5.2275(n1728) 4.8853/5.1935(n1728)
+  [gpu] cnm default-seed component-name, light reduce: failed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 4.1000 frames worst/painted 4.1000/4.2869(n1728) 4.1000/4.2869(n1728) 4.1000/4.2869(n1728)
+  [gpu-renderer] renderer of the cell: passed
