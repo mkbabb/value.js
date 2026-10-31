@@ -1,0 +1,19 @@
+{
+ "hld": {
+  "contexts": [
+   {
+    "t": "webgl2",
+    "connected": false,
+    "testid": null,
+    "stack": "at HTMLCanvasElement.getContext (<anonymous>:19:18) | at o (/@fs/w/tree/node_modules/.vite-e2e-8090/deps/color.wgsl-BTszLY39-B44pKhUw.js?v=0c188585:69:44) | at F (/@fs/w/tree/node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_aurora.js?v=8d0b225a:104:7) | at xe (/@fs/w/tree/node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_aurora.js?v=8d0b225a:111:60) | at useAtmosphere (/composables/boot/useAtmosphere.ts:72:27) | at useAtmosphereBoot (/composables/boot/useAtmosphereBoot.ts:117:114)"
+   }
+  ],
+  "loses": [
+   {
+    "ms": 197.39999999999782,
+    "stack": "at e.loseContext (<anonymous>:34:22) | at o (/@fs/w/tree/node_modules/.vite-e2e-8090/deps/color.wgsl-BTszLY39-B44pKhUw.js?v=0c188585:75:42) | at F (/@fs/w/tree/node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_aurora.js?v=8d0b225a:104:7) | at xe (/@fs/w/tree/node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_aurora.js?v=8d0b225a:111:60) | at useAtmosphere (/composables/boot/useAtmosphere.ts:72:27) | at useAtmosphereBoot (/composables/boot/useAtmosphereBoot.ts:117:114)"
+   }
+  ]
+ },
+ "atmosphereCssSubstrate": true
+}

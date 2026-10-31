@@ -1,0 +1,9 @@
+
+Running 1 test using 1 worker
+·
+  1 passed (2.4s)
+
+ADOPTION NOTICE O-INJECTED (expected): [smoke] e2e/smoke/hld-injected.spec.ts:3 › hld injected green read GREEN. If the repin landed, adopt the cure and delete the row: injected row
+
+honest-red verdict: passed · 0 held red · 1 held green · 0 failing
+green-r2 exit 0
