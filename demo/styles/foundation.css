@@ -393,8 +393,16 @@
      * this token swaps onto it at the adopt event (BOOKED, T.W3 §BOOKS).
      * Consumers: `.dashed-well`, PaletteCard (+skeleton), the gradient
      * perceived-space plate + stop chip, VersionHistoryDrawer rows, the mix
-     * result plate — the six parallel hand-mints D1 retires. */
-    --well-bg: color-mix(in oklab, var(--foreground) 8%, transparent);
+     * result plate — the six parallel hand-mints D1 retires.
+     * SS-8.r B15 SS8-0440 (COHESION §0gk.2: elevation reads the same in both
+     * schemes): the wash is a LIFT in both schemes, toward the scheme's light
+     * pole: the paper (`--background`) here, the cream ink (`--foreground`)
+     * in `.dark` below. An 8% `--foreground` wash sank the well in light
+     * (-0.03 L against its host) and lifted it in dark (+0.03..0.04 L), so the
+     * same fixture read recessed in one scheme and raised in the other. The
+     * paper sits nearer the light host than the cream ink sits to the dark
+     * one, so the light arm takes the larger share for the same step. */
+    --well-bg: color-mix(in oklab, var(--background) 14%, transparent);
 
     /* Rung-4 STAGE: the named near-black pair for photographic/media grounds
      * (extract image stage, caption veils, on-stage chrome). Scheme-INVARIANT
@@ -404,6 +412,17 @@
      * literals (t-card-color-census §1.E; CC-7). */
     --stage: rgb(28 25 23);
     --on-stage-chrome: rgb(233 230 226);
+}
+
+/* COHESION §0gv.6 (ESC-W11wk2-1 arm (i), narrowing §0gu.8): the lift above
+ * holds while the plate's certified ink keeps the scheme's default polarity.
+ * Where the boot writer certified the CREAM pole on a dark light-scheme plate
+ * (`data-plate-ink="departed"`, `plateInkDeparts`), a lift toward the paper
+ * would close on that ink (4.19-4.24:1 measured), so the wash flips AWAY from
+ * it: the scheme ink at 8%. Dark never flips: its lift already runs away from
+ * a departed (dark) ink. `ink.ts` `producerWellTint` is this recipe's model. */
+:root[data-plate-ink="departed"]:not(.dark) {
+    --well-bg: color-mix(in oklab, var(--foreground) 8%, transparent);
 }
 
 /* ── THE CONSOLE WELL (T.W4-4 · D5 · Q4 "The well.") ──
@@ -656,6 +675,10 @@
      * lifts its stamp on hover any more.) */
     --shadow-cartoon: 8px 8px 0px 0px var(--shadow-color);
 
+    /* SS-8.r B15 SS8-0440: the well's lift in dark is the cream ink's 8% wash
+     * (the D1 bracket); `:root` above holds the light arm and the law. */
+    --well-bg: color-mix(in oklab, var(--foreground) 8%, transparent);
+
     --shadow: hsl(0 0% 45%);
 
     /* The accent-aware focus register holds in dark (R.W3 Lane C / C5):
@@ -708,7 +731,7 @@
 
 /* D.W4 Lane A: .touch-gate-* cluster colocated into ComponentSliders.vue's
  * unscoped <style>; .pane-scroll-fade colocated into PaneHeader.vue's unscoped
- * <style> (alongside the --pane-scroll consumers). (The `.palette-tab-content`
+ * <style>. (The `.palette-tab-content`
  * data-state cascade died with PaletteDialog.vue at T.W0-3, CC-6.) */
 
 /* Slug pill — the user/palette slug chip recipe, shared across the dock menus,

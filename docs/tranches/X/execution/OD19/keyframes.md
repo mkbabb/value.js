@@ -332,3 +332,174 @@ Critic 3's four consumer findings on keyframes (C3-KF-01 to -04). Commit: keyfra
   - `scene-swap-w13x` awaits home's loader (the idle warm's state) before the switch, with all assertions unchanged.
 - No test was deleted, skipped or weakened. No golden was re-baselined.
 - Another seat's one-line `KeyframeTimeline.vue` hunk stayed in the tree, unstaged and uncommitted here.
+
+### glass-10.1.1
+
+Adopting `@mkbabb/glass-ui` **10.1.1** (tag `v10.1.1` at `d7baa1dc3`). Read before the work: MIGRATION §10.1.1 and the CHANGELOG 10.1.1 section, both whole. Code: keyframes `f8d6077b`. Evidence: `keyframes/after/glass-10.1.1/`. Every run went through `guarded`. Browser runs were headless Chromium, with one browser per run and one context per cell. Another seat's staged `KeyframeTimeline.vue` hunk stayed in the tree. It was not staged or committed here.
+
+| item | verdict | detail |
+|---|---|---|
+| pin | **ALREADY ADOPTED** | `10.1.1` exact with registry-equal lock integrity: `8876e82e`, repair 3 (C3-KF-01). The demo never calls `provideDockContext`, so `DockContext.expanded` needs nothing. |
+| G-2 menus on the popover rung | **RETIRED** (`f8d6077b`) | The consumer `z-popover` class is gone from the surface menu (`ChromeDock`), the @mbabb menu (`MbabbMenu`, whose MM-15 note is rewritten to name glass's role rung) and the Share popover (`SharePopover`). Live (`probe-skeleton-menu-3.json`): the @mbabb menu's content carries `z-popover` from glass, at z-index 130, and all 5 of 5 hit points land on the menu at both 1440 and 390. Run 2 missed three corners because it read during the reveal transition. Run 3 reads 700 ms after open, with a 12 px inset. |
+| G-1 Sheet fixed | **NOTE ONLY** | No consumer override existed; the ControlsPaneWrapper note on the held SHEET-POSITION row (O-87/O-88) now records glass's cure. |
+| O-102(3) collapse closes face overlays | **NOTHING TO RETIRE** | No code closes menus by hand on collapse. The `keepOpen()`/`release()` holds (ChromeDock Selects, MbabbMenu, TransportDock) are the documented way to keep the dock open while an overlay is up, and MIGRATION §10.1.1 names them as such, so they stay. The ChromeDock watchdog answers glass's touch gate, which collapses past the hold counter. 10.1.1 does not change that gate, so the watchdog is not redundant. |
+| Skeleton shimmer | **ALREADY ADOPTED, RE-READ LIVE** | `SceneSkeleton` passes `<Skeleton shimmer>` (`8876e82e`). The live run deep-linked into `#/amiga` with its scene chunk held (`probe-skeleton-menu-3.json`). At 1440 and at 390 the fallback's Skeleton read `data-shimmer`, `::after` animation `skeleton-shimmer`, and an `::after` transform moving between reads 400 ms apart (-441.6 → -382.0 px). The host had no text. There is no local shimmer CSS. Runs 1–2 switched the hash from `#/cube`. An idle warm had sometimes already resolved the scene, so no fallback was mounted. The deep link removes that race. |
+
+**Gates ×2 (guarded):** `npm run check` (vue-tsc app and test, then proof:structure) rc 0 ×2 (`check-{1,2}.txt`). `vitest run --project demo --maxWorkers=2`: **160 files / 969 tests ×2** (`vitest-demo-{1,2}.txt`). These include the dock and menu suites (`chrome-dock-*`, `dock-*`, `mbabb-menu-*`, `r4dock-*`) and `scene-skeleton-shimmer`. keyframes has no Playwright suite; its dock, menu and skeleton specs are these vitest files, and the live probe above is the browser read.
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched.
+
+### residue (§0gp)
+
+Residue seat, 2026-10-27, `claude-opus-5-5` (the re-deploy of the 2026-10-21 seat, whose HEAD readings, profiles and in-flight Easing cure this seat inherited and finished). Scope: the warm-swap frame budget (CLOSE §5.4) and the keyframes critic residue of the three OD19 passes. Code: keyframes.js `fc1a3383` (master, pushed). Evidence: `keyframes/residue/`. Every run went through `guarded`: browser runs never light, one browser per run, a context per rep, closed in `finally`.
+
+**Cell of record (§0gp.2, §0fr.2).** `residue/warm-swap-probe.mjs`: headless real Chrome, `channel:'chrome'` (demo-driver `gpu: true`), `--use-angle=metal`; renderer read back as `ANGLE Metal Renderer: Apple M5 Max`. The need is cited in the probe header: a frame budget over a WebGL/blur page is a GPU-compositor fact. Production build, 1440×900, light. Boot `#/cube`, 3 s idle, then hash-swap amiga → square → easing → spring → sequence → cube → home, 2 reps per run. The budget is that no rAF frame inside a swap exceeds 50 ms. Software (`head-sw1-1.json`, the headless shell's SwiftShader) is INFORMATIONAL only.
+
+**What the GPU cell reads (HEAD `f8d6077b`, runs `head-gpu1-1`, `head-gpu1-2`).** The CLOSE's "3–7 frames over 50 ms" was the software/4× reading. On the GPU cell each swap has **exactly one** frame over 50 ms, and it is the commit frame: the destination scene's mount, inside the View Transition update callback (LoAF invoker `import.then` / `ViewTransitionCallback`). The dissolve frames themselves are clean on the GPU, so the no-script 60–90 ms frames that C1-KF-03(b) measured are software raster (frames are vsync-quantised at 16.7 ms).
+
+| swap | HEAD worst frame ms (r1 rep0/1 · r2 rep0/1) | HEAD commit ms | CURE worst frame ms (r1 · r2) | CURE commit ms |
+|---|---|---|---|---|
+| cube→amiga | 83/99 · 84/84 | 60–71 | 86/82 · 66/82 | 52–59 |
+| amiga→square | 82/82 · 83/101 | 62–81 | 143*/67 · 66/67 | 50–60 |
+| **square→easing** | **102/118 · 117/117** | **82–104** | **228*/69 · 67/67** | **49–59** |
+| easing→spring | 83/84 · 83/83 | 58–67 | 230*/68 · 66/67 | 47–63 |
+| spring→sequence | 50/51 · 50/50 | 28–37 | 50/51 · 50/33 | 25–33 |
+| sequence→cube | 68/83 · 67/49 | 41–61 | 68/135* · 67/50 | 38–54 |
+| cube→home | 38/45 · 46/38 | 6–7 | 177*/91* · 245*/33 | 5–7 |
+
+`*` = cure run 1 rep 0 and the home row, read at load 45–58 (guard admission waited on load 45 > 36). The same reps' commit spans are in family, so these frames are machine noise rather than script. HEAD r2 and cure r2 ran back to back at load ≈ 30.
+
+**Profile (`profile-swap.mjs` over the unminified build `dist/residue-head-nomin`, `prof-head-gpu1-{1,2}.json`, attributed by `attribute.py` to source `//#region`s).** Commit-frame busy time is 37–158 ms per swap. Named costs:
+- **Easing tile plots (consumer, CURED):** the catalogue's 28 tiles re-plotted on every mount, about 24,000 curve calls through value.js `easing` (`h$2`) plus `curvePlot`. That is 10–15 ms of samples and the largest consumer script in any commit frame.
+- **glass forced style (O-102, already filed at repair 1):** `getPropertyValue` under glass `maxStretch` (useLiquidFlex), and `writeVelocityWeight`/`motionTempo`. These are 5–25 ms per swap and the single largest forced-layout source in every swap.
+- **glass dock measurement (O-102 / O-80 class):** `dock.js` `Ie`/`Ee`/`Oe`/`C`, `getBoundingClientRect` on the dock on every swap, 4–10 ms.
+- **consumer, small:** `useFoldLanding.land` 2–4 ms, `AnimationVisualizer.getMaxX` ≈ 4 ms (amiga), keyframes `src/animation/resolve/browser.ts probeBrowserScalar` 5–6 ms (cube), SquareScene setup `getPropertyValue` 4 ms. Amiga's `attachRenderer` (18 ms) is already a later frame (KFA-76 builds the room past first paint), not the commit.
+- The remainder is Vue's own patch and mount of the destination tree.
+
+**Cure (keyframes `fc1a3383`): the swap into Easing builds no tile plot.**
+- `curvePlot.ts` `unitEasingPlot(fn)`: one unit-frame plot per function object, held in a WeakMap. A plot is a pure function of its curve.
+- `scenes/easing/specimens.ts`: the specimen groups plus ONE stable function per tile. Their plots are built when the scene chunk evaluates (the idle warm, `warmScenesAtIdle`, or a deep link's boot), not in the swap.
+- `EasingTarget.vue` takes its specimens from that module. `EasingCatalogue.vue` draws through `unitEasingPlot`, so live dropdown kinds that hand fresh functions still plot as before.
+- **Result on the GPU cell:** square→easing commit 82–104 → **49–59 ms**, worst frame 102–118 → **66–69 ms** (×2). That swap moves from the worst to in family with the others.
+
+**Falsifier:** `test/demo/scenes/easing-swap-plots.test.ts`.
+- (1)(2) a mount and a revisit call the tile curves 0 times. It was born RED at `f8d6077b`: 24,426 calls (`vitest-RED-head-{1,2}.txt`).
+- (3) each tile's stroke equals its own function's plot.
+- GREEN ×2 (`vitest-GREEN-{1,2}.txt`).
+
+**Gates ×2.**
+- `npm run check` (vue-tsc app and test, then proof:structure): rc 0 ×2 (`check-{1,2}.txt`).
+- `vitest run --project demo --maxWorkers=2`: **161 files / 971 tests ×2** (`vitest-demo-{1,2}.txt`; 969 plus the 2 new).
+- `scripts/observe/demo/route-load.mjs` over `dist/residue-cure`: PASS in 3 of 4 runs (`route-load-1.txt`, `route-load-disc-cure.txt`, `route-load-disc-cure2.txt`). Run 2 (`route-load-2.txt`) failed 2 checks: **cold amiga 1707 KB before content, Aurora fetched**. The interleaved HEAD runs passed ×2 (`route-load-disc-head{,2}.txt`), and the cure's passing runs read 1427 KB against HEAD's 1426.
+  - Mechanism, named and not cured here: `warmScenesAtIdle` is a `requestIdleCallback` with no deadline. During cold amiga's three.js chunk wait the main thread is idle, so the warm (every scene, plus Home's Aurora since `8876e82e`) can be requested before amiga's content. The cure does not change what is fetched, or when.
+  - **Row KF-RES-1 (consumer, open):** start the idle warm after the deep link's content, not at the first idle.
+- keyframes has no Playwright e2e suite. The touched browser reading is the GPU probe above ×2 plus route-load.
+- No test was deleted, skipped or weakened. No golden was re-baselined. glass-ui was untouched. Another seat's staged and unstaged `KeyframeTimeline.vue` hunks stayed in the tree and were not committed.
+
+**Budget verdict: RED on the real-GPU cell, ESCALATED with its decomposition.**
+- 5 of 7 swaps still have one 66–84 ms commit frame (cure r2 ×2). spring→sequence sits at the 50 ms edge, and home is within budget.
+- At 16.7 ms quantisation, reaching the bar needs commit ≤ ~33 ms, a further ~20–25 ms per swap.
+- The remaining consumer items above total under that on any one swap. glass's mount-time computed-style reads plus the dock measurement (9–35 ms per swap, O-102 sub-rows filed at repair 1) are the dominant named cost.
+- Ask: glass reads root tokens once (or after the first frame) and skips the dock re-measure when the dock's box is unchanged. Then re-read on this cell. The small consumer reads (`land`, `getMaxX`, `probeBrowserScalar`, SquareScene setup) go after first paint in the scene/pane packets.
+
+**Software split (§0gp.2):** no committed keyframes spec binds a warm-swap frame bar on software. `route-load.mjs` binds only prepare/commit latency; `home-swap.mjs` and `swap-3d.mjs` already bind their frame bars on a GPU renderer only and report under SwiftShader. So no software leg needed moving. The SwiftShader reading (`head-sw1-1.json`: 2–6 frames over 50 ms per swap, most with no script) is banked as INFORMATIONAL.
+
+**Critic residue (three passes), re-read here:**
+- C1-KF-03 (a) commit-frame mount: cut at the Easing root (above); the rest is escalated with the budget. (b) no-script dissolve frames: **ENVIRONMENT-ROOTED, confirmed**, absent on the GPU cell.
+- C1-KF-09 option chevrons: GLASS-HELD (O-102 §6), unchanged.
+- C2-KF-01 Cube/Amiga swap frames: ENVIRONMENT-ROOTED. The GPU cell's cube/amiga commit frames are the shared commit cost above, not raster.
+- C3-KF-03 blank frame into Home: MEASURED (VT render-suppressed window). On the GPU cell cube→home is within budget (33–46 ms outside load noise).
+- Not taken (outside this residue, recorded in CLOSE): the K6 observer scripts (`demo-driver.mjs:941`, `live-session{,-mobile}.mjs`) still select `[data-dock-surface-item][aria-checked]`, which exists only while the portalled menu is open.
+
+### residue-2 (§0gq.3)
+
+Residue-2 seat, 2026-10-27, `claude-opus-5-5`. Scope: §0gq.3, the one consumer unit that cures the remaining consumer reads in each warm swap's commit frame, cures KF-RES-1, and re-reads the warm-swap 50 ms bar on the GPU cell. Code: keyframes.js **`cc1a8669`** (master, pushed). Evidence: `keyframes/residue-2/`. Every run went through `guarded`: browser runs never light, one browser per run, a context per rep, closed in `finally`. glass-ui was not touched. Another seat's staged and unstaged `KeyframeTimeline.vue` hunks stayed in the tree and out of the commit. Both builds that were measured carry that one-line hunk, so the comparison is like for like.
+
+**Where each read sat (HEAD `fc1a3383`, `prof-head.json`, caller chains by `stacks.py` over `raw-cpuprofiles.tgz`).**
+- `getMaxX` read the stage's and the ball's `clientWidth` on every paint. In a swap that meant a paused seat inside the commit's pre-flush and every frame of a play: 24.6 ms across sequence→cube, 4.8 ms of cube→amiga.
+- SquareScene's setup read was `useSquareTumble`'s `onMounted` `getComputedStyle(:root)`. Behind it, `paintRest` read `--square-travel` and the tour's root tokens. Whichever read came first paid the forced recalc, so the cure had to remove all three.
+- `probeBrowserScalar` on the cube came from SCENE_READY's `restoreGroupPlaybackState`, which sampled the saved clocks (the `var(--rotationX)` endpoint) inside the View Transition callback. The resumed loop then sampled the same clocks again in the same rendering step.
+- `useFoldLanding.land` ran from the frame callback that the new rail's mutation scheduled, which was the commit frame (4–10 ms).
+
+**Cures (keyframes `cc1a8669`):**
+- `AnimationVisualizer.vue`: the ball's run is kept as a size. The observer that bumps the layout epoch (now watching the stage and the ball) re-reads it after layout, when the read is free. Only the first paint before the first report reads it.
+- `useSquareTumble.ts`: the egg's palette is read at the first sweep and kept, not at mount. `useSquareDemo.ts`: `paintRest` reads no style. The envelope was already resolved by the plate's first observer report, and the tour's stops are now seated once on that same report. The rest pose needs neither, and each stop's fallback is its token's declared value.
+- `scenePlaybackAdapters.ts`: a playing restore re-seats the clocks and resumes. The loop's first frame is the one sample and paint, taken after the commit's DOM work. A paused restore still paints at once.
+- `useFoldLanding.ts`: while `:active-view-transition` matches, a landing takes the frame after (the new state is at the dissolve's first step). Outside a transition it lands in the next frame, as before.
+- **KF-RES-1** (`useSceneTransition.ts`, `App.vue`, `scenes.ts`): the idle warm of every scene chunk is no longer armed at the shell's mount. The scene host's first `<Suspense>` resolve (`onSceneContent`) arms it in the next frame, so its idle period follows that frame's paint. Later resolves arm nothing.
+
+**Where the reads sit after (`prof-cure.json`):**
+- the square's mount reads are gone (resolveEnvelope/resolveTourPalette 0.3 ms, in the observer);
+- `getMaxX` is one read per visualizer mount (2.9 ms), not 24.6;
+- the cube probe is 2.6 ms in the loop's frame, not 7.9 in the mount;
+- `land` no longer runs in the commit frame.
+
+**Falsifiers (each RED ×2 at `fc1a3383`, by assertion: `vitest-RED-head-{1,2}.txt`; GREEN ×2: `vitest-GREEN-{1,2}.txt`):**
+- `test/demo/instrument/visualizer-run-read-once.test.ts`: 6 width reads → 2 over three seats; a resize re-reads in the observer and not in the paint.
+- `test/demo/scenes/square-mount-reads-no-style.test.ts`: mount plus rest paint make 3 `getComputedStyle` calls → 0. The first tumble reads once, and its sweep colours.
+- `test/demo/state/restore-playing-paints-once.test.ts`: a playing restore makes 1 style read → 0, and the loop's first frame paints. A paused restore still paints at once.
+- `test/demo/instrument/fold-landing-swap-frame.test.ts`: under a transition the landing moves from frame 1 → 2; outside one it stays at frame 1.
+- `test/demo/app/scene-warm-after-content.test.ts`: the idle warm armed at mount → none until the first content, then one.
+
+**KF-RES-1 gate (`route-load.mjs`, 4× CPU, `dist/residue2-{head,cure}`):**
+- HEAD ×2: cold amiga **1427 KB**, PASS (`route-load-head-{1,2}.txt`).
+- Cure: **4 of 4** in the first set (`route-load-cure-{1..4}.txt`) and **4 of 4** in the second (`route-load-cure-{5..8}.txt`). Every run reads cold amiga at **1427 KB**, Aurora not fetched, PASS (all 35 checks, warm-swap prepare/commit and the deep-link→home backdrop leg included).
+- The 1707 KB failure was intermittent, 1 in 4 at the residue seat, and HEAD passed both of its runs here. The deterministic witness is the vitest falsifier above.
+
+**The 50 ms bar re-read on the real-GPU cell (`warm-swap-probe.mjs`, the residue seat's cell):**
+- Setup: headless real Chrome, `channel:'chrome'` (demo-driver `gpu: true`), `--use-angle=metal`; renderer read back as `ANGLE Metal Renderer: Apple M5 Max`. Production build, 1440×900, light, 2 reps per run, ×2 runs each side, load 20–27.
+- Each cell is the worst frame per rep (r1 rep0/rep1 · r2 rep0/rep1) and the commit range, in ms (`head-gpu-{1,2}`, `cure-gpu-{1,2}`, `summary.txt`).
+
+| swap | HEAD worst frame | HEAD commit (med) | CURE worst frame | CURE commit (med) |
+|---|---|---|---|---|
+| cube→amiga | 66/82 · 85/82 | 52–69 (62.5) | 66/85 · 84/83 | 49–62 (58) |
+| amiga→square | 65/82 · 66/83 | 48–74 (65) | 68/83 · 68/66 | 50–67 (51) |
+| square→easing | 68/66 · 67/88 | 54–65 (58) | 67/67 · 65/83 | 50–60 (52.5) |
+| easing→spring | 89/85 · 68/85 | 57–74 (62) | 85/68 · 67/68 | 46–61 (49) |
+| spring→sequence | 32/49 · 51/49 | 25–34 (30) | 51/33 · 50/50 | 25–34 (30) |
+| **sequence→cube** | 52/51 · 85/84 | 37–59 (50.5) | 139*/50 · 51/50 | 38–49 (39.5) |
+| cube→home | 2523*/41 · 35/36 | 5–6 | 52/34 · 38/38 | 5–6 |
+
+`*`: one frame each, outside the commit span, while the reads in family ran beside it, so these are machine noise. The 2523 ms HEAD frame is a stalled rep.
+
+**Budget verdict: RED, still ESCALATED. What remains is glass-rooted under O-102, with the relay in §0gq.4.**
+- Every consumer read §0gq.3 named is out of the commit frame or read once. Commit medians fell 4–14 ms on five swaps.
+- sequence→cube reaches the bar's edge (50–51 ms, three vsync frames).
+- 5 of 7 swaps still have one 65–85 ms commit frame.
+- LoAF reads the remainder as one script, the mount inside the transition callback (`import.then`, 40–62 ms). Inside it:
+  - **glass forced computed style at mount**: `maxStretch` (useLiquidFlex) plus `writeVelocityWeight`/`motionTempo` (`l$4`/`e$10`), 10–26 ms per swap.
+  - **the glass dock re-measure on every swap**: `dock.js` `Ie`/`Ee`, 4–10 ms.
+  - glass tabs `m` getPropertyValue, 3 ms.
+  - Vue's own patch and mount of the destination tree.
+- These are held under O-102 and were not patched locally.
+- The consumer remainder is small: Amiga's `disposeGraph` teardown inside the commit (3 ms), the Easing catalogue's first `tick` (3 ms), the one `getMaxX` read per visualizer mount (2.9 ms) and the cube probe in the loop's frame (2.6 ms). Together they are under any swap's ~20–30 ms gap to the bar, so the bar is not reachable without the glass half.
+
+**Gates ×2:**
+- `npm run check` (vue-tsc app and test, then proof:structure): rc 0 ×2 (`check-{1,2}.txt`).
+- `vitest run --project demo --maxWorkers=2`: **166 files / 979 tests ×2** (`vitest-demo-{1,2}.txt`; 971 plus the 8 new).
+- Touched browser observations ×2 over the cure build: `home-swap.mjs`, `swap-3d.mjs`, `smoke.mjs` and `subject-animates.mjs` all PASS ×2 (`e2e-*-{1,2}.txt`; home-swap and swap-3d frame bars are informational on SwiftShader per §0gp.2). keyframes has no Playwright e2e suite, so the touched browser readings are these, the GPU probe ×2 and route-load.
+- No test was deleted, skipped or weakened, and no golden was re-baselined.
+
+### glass-10.1.2
+
+Adopting `@mkbabb/glass-ui` **10.1.2** (tag `v10.1.2`, published with provenance by glass `release.yml` run 40601817178). Read before the work: MIGRATION §10.1.2 and the CHANGELOG 10.1.2 section, both whole. Code: keyframes `5c48e3da` on `master`, pushed. Evidence: `keyframes/after/glass-10.1.2/`. Every run went through `guarded`. Browser runs were headless Chromium (the default headless shell), one browser per run and one context per cell. Another seat's staged `KeyframeTimeline.vue` hunk stayed in the tree. It was not staged or committed here.
+
+| item | verdict | detail |
+|---|---|---|
+| pin | **ADOPTED** (`5c48e3da`) | `10.1.1` → `10.1.2` exact in `package.json` (devDependencies) and the lockfile. The integrity `sha512-6ePtoIFA…QQ0yQ==` equals the registry's (`pin.txt`). The pin witness `test/demo/app/scene-skeleton-shimmer.test.ts` advances with the pin to 10.1.2 and its integrity: it went RED on the bump (`vitest-demo-pre-pin-witness-{1,2}.txt`, 1 / 979) and is GREEN at the new pin. The assertion is the same, exact version plus exact integrity, and it is not weakened. |
+| G-4 (b-ii) seat audit | **NO CUSTOM SEAT; NOTHING MARKED** | ChromeDock's run is direct glass seats only: the Scene `DockTrigger for=select`, the Editor-surfaces `DockTrigger for=dropdown` (when a scene has ≥2 surfaces), and MbabbMenu's `@mbabb` `DockTrigger`, with `DockSeparator`s between them. MbabbMenu's SharePopover, shortcuts modal and confirm Dialog render nothing inline. So the run is all-declared and keeps `role=toolbar`. TransportDock's run has one direct child, the `div.transport-row` wrapper. It is undeclared and is not itself a control. The Channel `DockTrigger` and Reset `DockControl` inside it keep their own Tab stops and no arrow roving, exactly as on 10.1.1, where the focusability inference also never reached into the non-focusable wrapper. Play sits in `#persistent`. No `RouterLink`, bespoke button or `[role=button]` sits in either run, so no `data-glass-dock-seat` is added. Observation for the orchestrator, not acted on: unwrapping `transport-row` would make those two seats rove and the transport a toolbar (its gap is already the layer's `--dock-layer-gap`), but that is a keyboard-model change beyond this adoption. |
+| O-101 / disabled `DockTrigger` workarounds | **NOTHING TO RETIRE** | There was no consumer clip of the page or dock band, no `--dock-expanded-px` override, and no `:disabled` rule on a dock trigger. No dock trigger is ever disabled here. |
+
+**Gates ×2 (guarded):**
+- `npm run check`: rc 0 ×2 (`check-{1,2}.txt`).
+- `vitest run --project demo --maxWorkers=2`: **166 files / 979 tests ×2** (`vitest-demo-{1,2}.txt`). These include the dock and menu suites (`chrome-dock-*`, `dock-*`, `mbabb-menu-*`, `r4dock-*`, `transport-*`). keyframes has no Playwright suite.
+- **Keyboard probe** (`probe-dock-10.1.2.mjs`, against `vite` dev on :5391, `probe-{1,2}.json` and `probe-run-{1,2}.txt`): routes `#/`, `#/cube` and `#/easing` at 1440 and 390, each dock expanded. Both runs are **all ok** and identical.
+  - ChromeDock: declared 2/3 children on home and 3/5 on scenes (the rest are glass separators). `role=toolbar` with `aria-orientation=horizontal`. The Tab walk has exactly one run stop. ArrowRight walks the declared seats in order with no wrap (`Scene → Editor surfaces → @mbabb → @mbabb`), and Home and End land on the first and last seat.
+  - TransportDock: declared 0/1. No role. The Tab walk is Play (persistent), then Channel, then Reset (each its own stop). ArrowRight inside Channel or Reset never moves focus onto a seat.
+- **Resize probe** (same file): the docks are collapsed at 1440, rAF-sampled through 1440→390, then an expand of each dock at 390, then 390→1440, then an expand at 1440. Across the 3 routes × 6 phases × 2 runs, there are **0 frames** with `documentElement` or `body` `scrollWidth > clientWidth`, and 0 frames with a dock's box past the viewport. The dock-box check is added because `html` and `body` here compute `overflow-x: hidden`. Each phase has 145 to 333 frames. The live endpoint follows the pane: home ChromeDock `--dock-expanded-px` reads 184px collapsed at 390 and 192px expanded, and 274px at 1440.
+
+**Cross-check against fourier's 10.1.2 RED** (fourier `### glass-10.1.2`: on an end-anchored dock, the first morph frame moves a hovered control out from under the pointer, and the click is swallowed). keyframes' docks sit in centred, full-width bands, not end-anchored hosts. `kfplay.mjs` hovers and clicks the collapsed TransportDock's Play and ChromeDock's collapsed Scene button at 390 and 1440 on `#/cube` and `#/`. Play toggles every time (Pause ↔ Play). The Scene button pins the dock as designed. So keyframes keeps 10.1.2.
+
+**CI:** keyframes `ci` run **40605561480** on `5c48e3da` is RED. These are the two standing failures, already RED on every master run since at least 2026-10-19 (prior run 40567329956 on `cc1a8669`): `library gates › publish boundary` (proof:published-surface, 5 exports NEITHER README-taught nor manifested) and `demo correctness › browser oracles` (`test/compile/entry-roundtrip.test.ts` S1/S4, `allow-discrete`). Neither touches glass or the dock. This adoption did not cause them and did not try to cure them.
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched.

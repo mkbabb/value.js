@@ -1,0 +1,5 @@
+after-r1 b14ed7945 19:20:36 19:21:25 load_start=10.40 load_end=9.13 rc=1 mode=simulate tbt=786/1020/996 optimistic=786 longest=766/971/969 VALID
+after-r2 b14ed7945 19:21:25 19:22:14 load_start=9.13 load_end=10.57 rc=1 mode=simulate tbt=1188/947/1331 optimistic=947 longest=1170/937/1307 VALID
+branded-r1 b14ed7945 19:24:13 19:24:59 load_start=9.42 load_end=9.00 rc=0 mode=simulate tbt=65/70/71 optimistic=65 longest=98/103/101 VALID
+branded-r2 b14ed7945 19:24:59 19:25:45 load_start=9.00 load_end=9.56 rc=0 mode=simulate tbt=73/59/62 optimistic=59 longest=102/93/96 VALID
+cft-r3 b14ed7945 19:26:01 19:26:50 load_start=9.06 load_end=8.19 rc=0 mode=simulate tbt=1157/932/77 optimistic=77 longest=1062/913/109 VALID

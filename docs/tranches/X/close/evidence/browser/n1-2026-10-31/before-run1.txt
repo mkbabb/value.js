@@ -1,0 +1,181 @@
+(node:95966) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:96000) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+[WebServer] (node:96059) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+[WebServer] 
+[WebServer] ./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+[WebServer] 
+[WebServer] ./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[WebServer] 
+[WebServer] ./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[WebServer] 
+[WebServer] ./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+[WebServer] [INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[WebServer]       ╭─[ node_modules/@vueuse/core/dist/index.js:3362:1 ]
+[WebServer]       │
+[WebServer]  3362 │ /* #__PURE__ */
+[WebServer]       │ ───────┬───────  
+[WebServer]       │        ╰───────── comment ignored due to position
+[WebServer]       │ 
+[WebServer]       │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[WebServer] ──────╯
+[WebServer] 
+
+[WebServer] [INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[WebServer]       ╭─[ node_modules/@vueuse/core/dist/index.js:5780:23 ]
+[WebServer]       │
+[WebServer]  5780 │ const defaultState = (/* #__PURE__ */ {
+[WebServer]       │                       ───────┬───────  
+[WebServer]       │                              ╰───────── comment ignored due to position
+[WebServer]       │ 
+[WebServer]       │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[WebServer] ──────╯
+[WebServer] 
+
+[WebServer] Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+[WebServer]     at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+[WebServer]     at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+[WebServer]     at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+[WebServer]     at o (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js:8:44)
+[WebServer]     at F (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:110:7)
+[WebServer]     at xe (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:117:60)
+[WebServer]     at useAtmosphere (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10139:27)
+[WebServer]     at useAtmosphereBoot (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10295:114)
+[WebServer]     at setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10744:48)
+[WebServer]     at App_vue_vue_type_script_setup_true_lang_default.setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10881:22) undefined
+
+
+Running 1 test using 1 worker
+
+(node:96220) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/1] [smoke] › e2e/smoke/views/gradient.spec.ts:614:1 › gradient selector aurora
+  1) [smoke] › e2e/smoke/views/gradient.spec.ts:614:1 › gradient selector aurora ───────────────────
+
+    Error: expect(received).toContain(expected) // indexOf
+
+    Expected substring: "`@mkbabb/glass-ui` **10.1.3**"
+    Received string:    "SERVED MODEL: claude-opus-5-5[1m]·
+    # Glass-forward ask — a strip-scale aurora motion primitive for the gradient selector·
+    **Row**: CC-064 · MT-F041 · gate **e1** (`W6.md` §5 X.W6.e).
+    **Dated**: 2026-09-22, branch `tranche-u`, against installed `@mkbabb/glass-ui` **7.0.0**.
+    **Direction**: consumer (value.js) → producer (glass-ui). **glass-ui is READ-ONLY, ALWAYS** — this is a
+    letter; no byte of the producer tree was written to author it.
+    **Follows**: the early notice **B-1** in `valuejs-outbound-2026-07-28-o18-watercolor-toggle-loupe.md`
+    §B — *\"If the wave mechanism lands as a variant of your aurora/gradient primitives rather than
+    demo-side, a follow-up ask will carry the exact shape.\"* This is that follow-up.
+    **Authority for the branch**: `W6.md` X.W6.e — *\"If the wave mechanism proves to belong inside the
+    glass gradient/aurora primitive, it leaves as a marked BJ ask (same two-way falsifier as d2).\"*
+    **Machine oracle**: `npx playwright test e2e/smoke/views/gradient.spec.ts -g \"gradient selector aurora\"`.
+    It re-runs the census in §2 on every run and **reds the day a fitting primitive ships** — so this letter
+    cannot outlive the fact that justifies it — and it reds equally if the wave animates the ramp locally.·
+    ---·
+    ## 1. The mandate, verbatim·
+    Owner, 2026-07-28 (MT-F041): *\"let's plan to add a bit of dyannism to the gradient selector--it should
+    become a SUBTLE aurora insofar as the gradient waves a bit.\"* Standing constraints (`W6.md` X.W6.e):
+    consume the shared field/motion law from `@mkbabb/glass-ui/aurora`; **no new animation species**; **no
+    private rAF loop**; PRM honoured **structurally** (declared inside
+    `@media (prefers-reduced-motion: no-preference)`), never by leaning on the global reduce guard.·
+    ## 2. The census — why no published primitive fits (re-run by the gate)·
+    `@mkbabb/glass-ui` **7.0.0**, 74 published subpaths. `./aurora` (`dist/components/aurora/index.d.ts`,
+    sha256 `6c9b1bce53361513260ccea723826dd724604d6cc220a58383856f0c1694466d`) publishes:·
+    | export | what it is | fits a strip wave? |
+    |---|---|---|
+    | `Aurora` (component) | the full-field painterly background: one WebGL2 canvas sized to its container | **no** — see (a), (b) |
+    | `useAurora`, `createAurora`, `useCursorInteraction` | the WebGL runtime and its pointer bridge | **no** — the same substrate |
+    | `resolveRenderMode`, `isSoftwareWebGLRenderer` | the substrate selector (`\"webgl\" \\| \"css\" \\| \"auto\"`) | — (a guard, not a surface) |
+    | `deriveAurora`, `paletteToCssGradient`, `cssToOklch`, `flattenPalette`, … | colour helpers: palette derivation and a **static** CSS gradient string | **no** — no motion |
+    | `auroraFallbackGround`, `sampleAuroraField`, `nucleiFieldStatic` | the **static** first-frame ground | **no** — no motion |
+    | `DEFAULT_AURORA_CONFIG`, atoms, presets | configuration | — |·
+    And the stylesheet: `grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' dist` → **0**. The aurora motion
+    vocabulary exists **only** inside the WebGL runtime.·
+    Three measured facts close the local routes:·
+    - **(a) The CSS substrate is still.** `renderMode.d.ts`: a software rasteriser takes the `\"css\"`
+      substrate — *\"the static gradient placeholder\"* — by the producer's own safe default, and the named
+      escape `forceWebGLUnderSoftwareRaster` exists *\"for a deterministic test that ACCEPTS the
+      per-composite raster cost\"*, not for a product surface. A strip that waves only on a GPU is a strip
+      that never waves on the smoke cell and on every GPU-blocklisted device (value.js's own
+      `o26-aurora-perceptibility` records the same: the atmosphere is a still under headless GL).
+    - **(b) A second full-field WebGL canvas per gradient pane** is a second GPU context on the route that
+      already hosts the atmosphere's — for a ~40 px strip.
+    - **(c) The rail's one-axis law forbids moving the ramp.** The gradient rail paints each colour at the
+      ordinal its handle sits on (X.W6.a a3/a4; X.W6.c c2: the ghost, the caret and the rail agree to the
+      sample). A wave that displaces colour along the axis would put a colour under a handle that does not
+      own it. The motion therefore has to live on an axis the ordinal does not — a veil, a luminance drift,
+      a silhouette — which is a new primitive, not a configuration of `Aurora`.·
+    A consumer-side cure would therefore mint either a new `@keyframes` species (banned) or a private rAF
+    loop (banned). **The mechanism belongs to the producer.**·
+    ## 3. The ask·
+    A **strip-scale aurora motion primitive** in `./aurora` (or a sibling subpath), one of:·
+    1. **`<AuroraStrip>`** — wraps a caller-supplied background (a CSS gradient string, or `OklchStop[]`)
+       and overlays the aurora field's drift as a **veil** that never displaces the caller's colours along
+       the strip's long axis (luminance / chroma breathing, or a gently waving silhouette); or
+    2. **a utility + keyframes pair** (e.g. `glass-aurora-drift`) applicable to any element as an extra
+       background layer, with the drift's tempo and amplitude from the motion tokens (`--motion-tempo`,
+       the aurora breath).·
+    Either way, the contract we need:·
+    - a **CSS substrate that moves** (no WebGL context per strip), so the wave exists on every renderer;
+    - motion declared **inside `prefers-reduced-motion: no-preference`** in the producer's own stylesheet
+      (still, not merely slowed, under reduce);
+    - subtle by default (the owner's word), with one documented amplitude knob;
+    - no colour displacement along the long axis (the one-axis law above).·
+    **Consumer commitment**: value.js composes it on the gradient rail (`GradientStopEditor.vue`'s
+    `.gradient-rail`) and nowhere else in this wave; the e1 oracle then flips to the composing branch and
+    measures the motion as a settled-frame delta at a fixed colour.·
+    *Sent by the value.js X-W6 wave (Repair 1), 2026-09-22. Reply folds per E13.*·
+    SERVED MODEL: claude-opus-5-5·
+    # Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.0** (dated addendum, 2026-10-16)·
+    **Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1), dated 2026-09-22 against glass **7.0.0**. That letter is immutable (E-3); this is its dated census addendum, written by X-W12U `.q2` because value.js moved to glass 10.1.0 at X.W7L.m (`c8a4959dd`) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \"gradient selector aurora\") binds the census to the installed version.·
+    ## The census at 10.1.0 (same procedure as the letter's §2)·
+    - ⟨`node -e 'console.log(require(\"./node_modules/@mkbabb/glass-ui/package.json\").version)'`⟩ → `10.1.0` (`@mkbabb/glass-ui` **10.1.0**, 68 published export keys).
+    - ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec`.
+    - ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts`⟩ → **0** matches: no strip-scale aurora motion primitive is published.
+    - ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist`⟩ → **0**: the aurora motion vocabulary still exists only inside the WebGL runtime.
+    - The letter's census rows are all still published: `Aurora`, `useAurora`, `createAurora`, `paletteToCssGradient`, `auroraFallbackGround`.·
+    ## Reading·
+    Unchanged from the letter: no published primitive fits a strip wave, so the oracle's L3 branch stands (the ramp carries no local animation species and does not move). The ask CC-064 stays open with the producer; nothing new is asked here.·
+    SERVED MODEL: claude-opus-5-5·
+    # Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.1** (dated addendum, 2026-10-27)·
+    **Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1; glass **7.0.0**) and its 10.1.0 addendum `gradient-aurora-census-2026-10-16.md` (X-W12U `.q2`). Both are immutable (E-3). Written by X.W11.v1c because value.js moved to glass 10.1.1 (`f77db7842`, COHESION §0gp.1) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \"gradient selector aurora\") binds the census to the installed version; the oracle read RED on that binding alone.·
+    ## The census at 10.1.1 (same procedure as the letter's §2)·
+    - ⟨`node -e 'const p=require(\"./node_modules/@mkbabb/glass-ui/package.json\");console.log(p.version, Object.keys(p.exports).length)'`⟩ → `10.1.1 68` (`@mkbabb/glass-ui` **10.1.1**, 68 published export keys).
+    - ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec` (byte-identical to the 10.1.0 reading).
+    - ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts | wc -l`⟩ → **0**: no strip-scale aurora motion primitive is published.
+    - ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist | wc -l`⟩ → **0**.
+    - ⟨`grep -cE '\\b<name>\\b' …/aurora/index.d.ts`⟩ → `Aurora` 1 · `useAurora` 2 · `createAurora` 1 · `paletteToCssGradient` 1 · `auroraFallbackGround` 1: every census row is still published.·
+    ## Reading·
+    Unchanged: no published primitive fits a strip wave, so the oracle's L3 branch stands. CC-064 stays open with the producer; nothing new is asked.·
+    SERVED MODEL: claude-opus-5-5·
+    # Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.2** (dated addendum, 2026-10-29)·
+    **Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1; glass **7.0.0**), its 10.1.0 addendum `gradient-aurora-census-2026-10-16.md` (X-W12U `.q2`) and its 10.1.1 addendum `gradient-aurora-census-2026-10-27.md` (X.W11.v1c). All three are immutable (E-3). Written by X.W11.v1e because value.js moved to glass 10.1.2 (`6e91083c2`, X.W11.g12) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \"gradient selector aurora\") binds the census to the installed version; the oracle read RED on that binding alone (CI run `40822407656`, job `123277740915`: `Expected substring: \"`@mkbabb/glass-ui` **10.1.2**\"`).·
+    ## The census at 10.1.2 (same procedure as the letter's §2)·
+    - ⟨`node -e 'const p=require(\"./node_modules/@mkbabb/glass-ui/package.json\");console.log(p.version, Object.keys(p.exports).length)'`⟩ → `10.1.2 68` (`@mkbabb/glass-ui` **10.1.2**, 68 published export keys).
+    - ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec` (byte-identical to the 10.1.0 and 10.1.1 readings).
+    - ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts | wc -l`⟩ → **0**: no strip-scale aurora motion primitive is published.
+    - ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist | wc -l`⟩ → **0**.
+    - ⟨`grep -cE '\\b<name>\\b' …/aurora/index.d.ts`⟩ → `Aurora` 1 · `useAurora` 2 · `createAurora` 1 · `paletteToCssGradient` 1 · `auroraFallbackGround` 1: every census row is still published.·
+    ## Reading·
+    Unchanged: no published primitive fits a strip wave, so the oracle's L3 branch stands. CC-064 stays open with the producer; nothing new is asked.
+    "
+
+      737 |             .map((f) => readFileSync(f, "utf8"))
+      738 |             .join("\n");
+    > 739 |         expect(ask).toContain(`\`@mkbabb/glass-ui\` **${manifest.version}**`);
+          |                     ^
+      740 |         expect(ask, "the ask's census hash is stale — re-run the census").toContain(indexHash);
+      741 |         for (const name of ["Aurora", "useAurora", "createAurora", "paletteToCssGradient", "auroraFallbackGround"]) {
+      742 |             expect(exported, `the census row ${name} is no longer published`).toContain(name);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:739:21
+
+    Error Context: test-results/views-gradient-gradient-selector-aurora-smoke/error-context.md
+
+
+  1 failed
+    [smoke] › e2e/smoke/views/gradient.spec.ts:614:1 › gradient selector aurora ────────────────────

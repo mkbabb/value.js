@@ -1,0 +1,42 @@
+SERVED MODEL: claude-opus-5-5
+# ci.yml run 41154553074 @ 1ea5872d7, job e2e-smoke 124398470827 (completed 2026-10-31T03:33:05Z, failure): summary + honest-red verdict, from gh api .../jobs/124398470827/logs, timestamps stripped
+  8 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:287:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:395:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) 
+    [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (light) 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:614:1 › gradient selector aurora ────────────────────
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+  4 flaky
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:194:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+  2 skipped
+  458 passed (2.2h)
+
+producer-held, red by a named producer cure (4):
+  RED O-122 (glass O-115) [smoke] e2e/smoke/oracles/o21-gradient-rail.spec.ts:287 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+      TIER-PROBE-SYNC-LOSECONTEXT: the render-tier probe blocks the main thread on a synchronous loseContext after a reload
+      glass W-G.1 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:95; expires at the glass 11.0.0 repin
+  RED glass O-112(2) [smoke] e2e/smoke/oracles/o29-scene-contracts.spec.ts:395 › preview survives — blob: the preview repaints after a forced WebGL context loss
+      R11 NO-REPAINT-AFTER-RESTORE: a parked <Blob> stays blank after webglcontextlost then webglcontextrestored
+
+FAILS THE JOB (4):
+  RED, not on the manifest: [smoke] e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)
+  RED, not on the manifest: [smoke] e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)
+  RED, not on the manifest: [smoke] e2e/smoke/ss8-b12-card-shell.spec.ts:122 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (light)
+  RED, not on the manifest: [smoke] e2e/smoke/views/gradient.spec.ts:614 › gradient selector aurora
+      glass W-G.2 with O-104a's one-redraw law, W-G.5 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:91 (glass's own numbering; value.js O-112 is a different row); expires at the glass 11.0.0 repin
+  RED O-105 [smoke] e2e/smoke/webgl-blob-idle.spec.ts:276 › hero blob carries current chroma — oklch(0.65 0.3 150)
+      BLOB-LIT-LIGHTNESS: the lit meatball's core paints above the body stop's L, so its cusp chroma differs
+      glass W-G.5 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:78; expires at the glass 11.0.0 repin
+  RED O-105 [smoke] e2e/smoke/webgl-blob-idle.spec.ts:276 › hero blob carries current chroma — oklch(0.55 0.37 328)
+      BLOB-LIT-LIGHTNESS: the lit meatball's core paints above the body stop's L, so its cusp chroma differs
+      glass W-G.5 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:78; expires at the glass 11.0.0 repin
+
+honest-red verdict: failed · 4 held red · 0 held green · 4 failing
+# SS8-0363 measurement line
+×SS8-0363 light {"normal":{"ratio":12.100721665537625,"ink":[0,0,0],"ground":[226,186,201]},"more":{"ratio":9.943001087688733,"ink":[51,48,46],"ground":[234,222,216]}}

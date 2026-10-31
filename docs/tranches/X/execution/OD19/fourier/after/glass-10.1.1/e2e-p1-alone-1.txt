@@ -1,0 +1,73 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 16 tests using 1 worker
+
+[1/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (light 1440) › F1 — every collapsed-summary kid lies inside the plate
+[2/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (light 1440) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[3/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (light 1440) › F3 — Speed and Easing are dock seats, each with its own menu
+[4/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (light 1440) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+[5/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (dark 1440) › F1 — every collapsed-summary kid lies inside the plate
+[6/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (dark 1440) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[7/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (dark 1440) › F3 — Speed and Easing are dock seats, each with its own menu
+[8/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (dark 1440) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+  1) [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (dark 1440) › F4 — an open menu holds the dock open; closing it lets the dock collapse 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: locator('.animation-dock')
+    Expected pattern: /\bexpanded\b/
+    Received string:  "animation-dock glass-dock horizontal shape-pill collapsed"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveClass" with timeout 5000ms
+      - waiting for locator('.animation-dock')
+        14 × locator resolved to <div data-v-750a1fd6="" data-v-34d01e99="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="animation-dock glass-dock horizontal shape-pill collapsed">…</div>
+           - unexpected value "animation-dock glass-dock horizontal shape-pill collapsed"
+
+
+      37 |     const b = (await dock.boundingBox())!;
+      38 |     await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2);
+    > 39 |     await expect(dock).toHaveClass(/\bexpanded\b/, { timeout: 5_000 });
+         |                        ^
+      40 |     await expect.poll(() => dock.evaluate((d) => d.hasAttribute("data-morphing")), { timeout: 10_000 }).toBe(false);
+      41 | }
+      42 |
+        at expandTransport (/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:39:24)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:202:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/od19-p1-transport-docks-X--d4f3b-g-it-lets-the-dock-collapse-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/od19-p1-transport-docks-X--d4f3b-g-it-lets-the-dock-collapse-chromium/error-context.md
+
+
+[9/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (light 390) › F1 — every collapsed-summary kid lies inside the plate
+[10/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (light 390) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[11/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (light 390) › F3 — Speed and Easing are dock seats, each with its own menu
+[12/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (light 390) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+[13/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (dark 390) › F1 — every collapsed-summary kid lies inside the plate
+[14/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (dark 390) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[15/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (dark 390) › F3 — Speed and Easing are dock seats, each with its own menu
+[16/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (dark 390) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+  1 failed
+    [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (dark 1440) › F4 — an open menu holds the dock open; closing it lets the dock collapse 
+  15 passed (1.8m)

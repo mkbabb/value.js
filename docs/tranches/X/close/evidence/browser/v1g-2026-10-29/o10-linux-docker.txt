@@ -1,0 +1,7 @@
+
+Running 2 tests using 1 worker
+
+  ✓  1 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:214:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional (727ms)
+  ✓  2 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:214:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional (671ms)
+
+  2 passed (5.4s)

@@ -1,0 +1,126 @@
+(node:55697) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:55738) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 37 tests using 1 worker
+
+[1A[2K(node:55810) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K[2/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K[3/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[4/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:229:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K[5/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:287:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K[6/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:365:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K[7/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:433:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K[8/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:486:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[1A[2K[9/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:545:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+[1A[2K[10/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:627:1 › one removal owner: the floor is a disabled control carrying its reason
+[1A[2K[11/37] [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:141:1 › the first painted atmosphere is the seeded pick's, on a cold load
+[1A[2K[smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:141:1 › the first painted atmosphere is the seeded pick's, on a cold load
+oklch(0.62 0.2 30): first-paint 96ms, ground at paint [#a73581 #e54562 #ff7929 #ffb431] → settled [rgb(167, 53, 129) rgb(229, 69, 98) rgb(255, 121, 41) rgb(255, 180, 49)]; first-paint vs settled ΔE_OK max 0.0000; settled vs unseeded max 0.1602
+
+[1A[2Koklch(0.62 0.2 150): first-paint 44ms, ground at paint [#5f721d #3ba124 #31c585 #38e9cb] → settled [rgb(95, 114, 29) rgb(59, 161, 36) rgb(49, 197, 133) rgb(56, 233, 203)]; first-paint vs settled ΔE_OK max 0.0000; settled vs unseeded max 0.3740
+
+[1A[2Koklch(0.62 0.2 260): first-paint 44ms, ground at paint [#207295 #268ce4 #8c9cff #e2b1ff] → settled [rgb(32, 114, 149) rgb(38, 140, 228) rgb(140, 156, 255) rgb(226, 177, 255)]; first-paint vs settled ΔE_OK max 0.0000; settled vs unseeded max 0.2780
+
+[1A[2K[12/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:174:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K[13/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:183:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the inert Tools seat is absent from the engine AX tree (CDP) @chromium-instrument
+[1A[2K[14/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:174:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K[15/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:183:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the inert Tools seat is absent from the engine AX tree (CDP) @chromium-instrument
+[1A[2K[16/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:174:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K[17/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:183:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the inert Tools seat is absent from the engine AX tree (CDP) @chromium-instrument
+[1A[2K[18/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:5 › B05 · the action-bar proportion (0125 · 0146) › 0125: the layer root breathes on the face's own gap — both separators get equal air
+[1A[2K[19/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:5 › B05 · the action-bar proportion (0125 · 0146) › 0146: the seat row is spaced by --dock-layer-gap, not by justify-around slack
+[1A[2K[20/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.27821433714764[39m
+
+      274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      275 |             expect(label).not.toBeNull();
+    > 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      277 |         });
+      278 |     }
+      279 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-e66f8--the-light-band-seed-hue-0--smoke/error-context.md
+
+
+[1A[2K(node:59017) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[21/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.432973700535918[39m
+
+      274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      275 |             expect(label).not.toBeNull();
+    > 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      277 |         });
+      278 |     }
+      279 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-3345d-the-light-band-seed-hue-60--smoke/error-context.md
+
+
+[1A[2K(node:59354) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[22/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)
+[1A[2K[23/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)
+[1A[2K[24/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)
+[1A[2K[25/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)
+[1A[2K  3) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.314620947553472[39m
+
+      274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      275 |             expect(label).not.toBeNull();
+    > 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      277 |         });
+      278 |     }
+      279 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-89a7f-he-light-band-seed-hue-300--smoke/error-context.md
+
+
+[1A[2K(node:60080) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[26/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:281:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 0)
+[1A[2K[27/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:281:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 180)
+[1A[2K[28/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:326:9 › B05 · the Tools target and wordmark (0140) › coarse 390 › the Tools target holds the 44 px coarse floor
+[1A[2K[29/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:335:9 › B05 · the Tools target and wordmark (0140) › coarse 390 › the icon-only Tools seat carries its accessible name
+[1A[2K[30/37] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:347:9 › B05 · the Tools target and wordmark (0140) › zoom 200 % of 1440×900 › the Tools wordmark survives the zoom
+[1A[2K[31/37] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved)
+[1A[2K[32/37] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93)
+[1A[2K[33/37] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate
+[1A[2K[34/37] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete
+[1A[2K[35/37] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate
+[1A[2K[36/37] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete
+[1A[2K[37/37] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:133:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › browse-wall admin delete (card menu)
+[1A[2K  3 failed
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) 
+  34 passed (3.2m)

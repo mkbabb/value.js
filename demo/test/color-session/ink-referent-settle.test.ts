@@ -30,6 +30,7 @@ vi.mock("../../app/composables/boot/useAtmosphere", async () => {
             auroraCssGradient: c(() => ""),
             auroraArrived: r(true),
             derivedLightness: c(() => ambient.value),
+            plateReferent: c(() => ambient.value),
         }),
     };
 });

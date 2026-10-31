@@ -153,8 +153,19 @@
              W2-2: the body ground is the FIXED gradient template over the
              registered per-stop properties (the same template as style.css's
              base rule — the producer paletteToCssGradient geometry). The
-             ground is a complete material from the first paint (B0). -->
+             ground is a complete material from the first paint (B0).
+
+             X.W11.v1c: THE DOCUMENT'S CASCADE-LAYER ORDER IS STATED HERE,
+             ONCE, in the earliest stylesheet of both modes. A layer's rank is
+             fixed by its FIRST declaration, and `main.ts` imports App.vue
+             (and so every SFC sheet) before foundation.css's Tailwind
+             statement: since d386d18bc the WatercolorDot sheet's
+             `@layer components` came first, ranking every glass control
+             BELOW Tailwind's `base` reset (button radius 0, transparent
+             background), so dock pills lost their stadium and hover plate.
+             This is the order foundation.css declares, fouc-guard lowest. -->
         <style>
+            @layer fouc-guard, properties, theme, base, components, utilities;
             @layer fouc-guard {
                 .hidden { display: none; }
                 body {
@@ -189,9 +200,17 @@
              paints its SEEDED ground from the first frame. The derive is not
              mirrored: vite's `seededGroundInline` bundles the one source
              module (`boot/seeded-ground.ts`, which useAtmosphere's sink also
-             runs) into the script below in place of its token, exposing
-             `__vjsSeededGround`. -->
-        <script>__GROUND_SEEDED_RESOLVER__</script>
+             runs). X.W11.p4b (§0gn.2(b)): only its `parseUrlSeed` is inline
+             (`__vjsUrlSeed`); the derive is the same module built as a hashed
+             classic script (`__vjsSeededGround`), written in below —
+             parser-blocking, so it runs before the boot script — ONLY when the
+             URL carries a seed. An unseeded document never fetches it. -->
+        <script>
+            __GROUND_URL_SEED__
+            if (__vjsUrlSeed.parseUrlSeed(location.hash)) {
+                document.write('<script src="__GROUND_SEEDED_DERIVE_SRC__"><\/script>');
+            }
+        </script>
         <script>
             (function() {
                 // B0 — the ground beat (the overture's origin mark; O-4 reads it).
@@ -222,9 +241,13 @@
                 // A share-link seed wins, in hydrate's order (URL, then the
                 // record, then the constants): the same pure derive the app's
                 // sink runs, over the same `parseUrlSeed` hydrate reads with.
-                var url = __vjsSeededGround.parseUrlSeed(location.hash);
-                var seeded = url && __vjsSeededGround.seededGroundStops(
-                    url.color.trim().toLowerCase(), dark);
+                // The derive script is written in above exactly when the URL
+                // carries a seed; a seed whose derive script did not load
+                // (offline, a failed fetch) paints like a refused seed.
+                var url = __vjsUrlSeed.parseUrlSeed(location.hash);
+                var seeded = url && window.__vjsSeededGround &&
+                    window.__vjsSeededGround.seededGroundStops(
+                        url.color.trim().toLowerCase(), dark);
                 if (seeded) stops = seeded;
                 else try {
                     var rec = JSON.parse(localStorage.getItem('color-picker-ground'));
@@ -294,10 +317,94 @@
          resolve against (its load-bearing status is unproven either way, and
          no gate asks for its deletion — so it is not deleted). -->
     <body class="relative" data-paper-field>
+        <!-- X.W11.p4d L1 (COHESION §0gs.4): on the shell path the module graph
+             starts after first paint. The gh-pages build moves the entry
+             `<script type="module">` and its modulepreloads, unchanged, into
+             the inert `<template id="vjs-after-paint">` that ends the head
+             (scripts/build/prerender-shell.ts), so the first paint's fetch set
+             is the document, its render-blocking sheet and the Fraunces
+             preloads. L2: the glass font corpus link (`data-after-paint`,
+             plugins/vite-defer-glass-fonts.ts) rides the same template; its
+             metric-compatible fallback faces are in the critical sheet. This is
+             the decision, read from the head's first-view stamp:
+             - `client`: the tags are written here, parser-inserted, so the
+               entry keeps a static module script's deferred timing.
+             - `shell`: the painted shell needs no script to be contentful, so
+               the tags go in after the document is parsed and its first
+               contentful paint has landed (the paint-timing entry, then a
+               task). A hidden document paints nothing, so it starts at once.
+             The dev server serves the static entry and no template. -->
+        <script>
+            (function () {
+                var graph = document.getElementById("vjs-after-paint");
+                if (!graph) return;
+                if (document.documentElement.getAttribute("data-first-view") !== "shell") {
+                    document.write(graph.innerHTML);
+                    return;
+                }
+                function start() {
+                    var tags = graph.content.children;
+                    for (var i = 0; i < tags.length; i++) {
+                        var el = document.createElement(tags[i].localName);
+                        for (var a = 0; a < tags[i].attributes.length; a++) {
+                            el.setAttribute(tags[i].attributes[a].name, tags[i].attributes[a].value);
+                        }
+                        document.head.appendChild(el);
+                    }
+                }
+                // The first rendered frame is not always the contentful one
+                // (CI lhr at ccaf95ef4: the rAF task ran at 140 ms, the first
+                // contentful paint landed at 241 ms), so the browser's own
+                // `first-contentful-paint` entry is the signal; an engine
+                // without paint timing falls to the frame clock.
+                var started = false;
+                function once() {
+                    if (started) return;
+                    started = true;
+                    setTimeout(start, 0);
+                }
+                function afterPaint() {
+                    if (document.visibilityState === "hidden") return once();
+                    var types = window.PerformanceObserver && PerformanceObserver.supportedEntryTypes;
+                    if (!types || types.indexOf("paint") < 0) {
+                        return requestAnimationFrame(once);
+                    }
+                    new PerformanceObserver(function (list, observer) {
+                        var entries = list.getEntries();
+                        for (var i = 0; i < entries.length; i++) {
+                            if (entries[i].name === "first-contentful-paint") {
+                                observer.disconnect();
+                                once();
+                            }
+                        }
+                    }).observe({ type: "paint", buffered: true });
+                    document.addEventListener("visibilitychange", function () {
+                        if (document.visibilityState === "hidden") once();
+                    });
+                }
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", afterPaint, { once: true });
+                } else afterPaint();
+            })();
+        </script>
         <!-- X-W12 Repair 1 (H-1): the ground's 200ms material clock runs on
              this descendant-less fixed plate, never on :root (foundation.css
              `.ground-breath`). -->
         <div class="ground-breath" aria-hidden="true"></div>
         <div id="app"></div>
+        <!-- X.W11.v1c: a document that serves NO shell is a client first view.
+             The head's fouc-guard stamp reads only the visit (route, seed,
+             motion), because the root is not parsed yet; on the dev server,
+             which serves no shell (main.ts), it stamped `shell` on every cold
+             `/`, so App.vue's HYDRATES_SHELL routed the inspector through the
+             idle-hydration wrapper that waits for the pane chunk, and the
+             region painted nothing — no loading plate — while About's chunk
+             was in flight (cold-nav-scene-enter `/#/` RED from b5df0da12,
+             bisected). This classic script runs before any module script,
+             with the root parsed: no `data-prerendered` root, no shell. -->
+        <script>
+            if (!document.getElementById("app").hasAttribute("data-prerendered"))
+                document.documentElement.setAttribute("data-first-view", "client");
+        </script>
     </body>
 </html>

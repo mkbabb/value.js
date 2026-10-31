@@ -34,12 +34,12 @@ import {
 import { Blob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/blob";
 import type { BlobConfig } from "@mkbabb/glass-ui/blob";
 import { BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
-import { isSoftwareWebGLRenderer } from "@mkbabb/glass-ui/aurora";
 import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
 import type { OklchStop } from "@mkbabb/glass-ui/color";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { clamp } from "@mkbabb/value.js/math";
 import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "../../color-session/keys";
+import { SOFTWARE_RASTER_KEY } from "../../scenes/atmosphere/aurora-atoms";
 import { resolveSurfaceLightnessLive } from "../../color-session/useContrastSafeColor";
 
 // Thin consumer of glass-ui's Blob (the demo half of W6-4 — consume/config/
@@ -339,7 +339,9 @@ function onEmergeEnd(e: AnimationEvent) {
 // stripped — and repaints exactly ONE frame per register change (colour,
 // ramp, scheme, BlobPane tuning), so it still answers the picker. A GPU
 // device never takes this branch (an unprovable probe returns false).
-const softwareRaster = isSoftwareWebGLRenderer(); // mount-time device tier
+// The tier is the atmosphere's own answer, asked once at boot, never a second
+// GPU-process round trip here (SOFTWARE_RASTER_KEY says why).
+const softwareRaster = inject(SOFTWARE_RASTER_KEY)!;
 let softwareParked = false;
 
 /** One synchronous frame on a parked engine: resume() paints immediately, pause() cancels the loop it would schedule.

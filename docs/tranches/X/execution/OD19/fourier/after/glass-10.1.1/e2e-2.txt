@@ -1,0 +1,115 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 32 tests using 1 worker
+
+[1/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (light 1440) › F1 — every collapsed-summary kid lies inside the plate
+[2/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (light 1440) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[3/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (light 1440) › F3 — Speed and Easing are dock seats, each with its own menu
+  1) [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (light 1440) › F3 — Speed and Easing are dock seats, each with its own menu 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: locator('.animation-dock')
+    Expected pattern: /\bexpanded\b/
+    Received string:  "animation-dock glass-dock horizontal shape-pill collapsed"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveClass" with timeout 5000ms
+      - waiting for locator('.animation-dock')
+        14 × locator resolved to <div data-v-750a1fd6="" data-v-34d01e99="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="animation-dock glass-dock horizontal shape-pill collapsed">…</div>
+           - unexpected value "animation-dock glass-dock horizontal shape-pill collapsed"
+
+
+      37 |     const b = (await dock.boundingBox())!;
+      38 |     await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2);
+    > 39 |     await expect(dock).toHaveClass(/\bexpanded\b/, { timeout: 5_000 });
+         |                        ^
+      40 |     await expect.poll(() => dock.evaluate((d) => d.hasAttribute("data-morphing")), { timeout: 10_000 }).toBe(false);
+      41 | }
+      42 |
+        at expandTransport (/Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:39:24)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:177:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/od19-p1-transport-docks-X--aba67-eats-each-with-its-own-menu-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/od19-p1-transport-docks-X--aba67-eats-each-with-its-own-menu-chromium/error-context.md
+
+
+[4/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (light 1440) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+[5/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (dark 1440) › F1 — every collapsed-summary kid lies inside the plate
+[6/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (dark 1440) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+  2) [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (dark 1440) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots 
+
+    Error: the dock expanded
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 202
+    Received:   102
+
+      132 |             const exp = read(await expP);
+      133 |             test.info().annotations.push({ type: "expand-trace", description: JSON.stringify(exp) });
+    > 134 |             expect(exp.wEnd, "the dock expanded").toBeGreaterThan(exp.w0 + 100);
+          |                                                   ^
+      135 |             // ">=5 frames" is five frames of the 60 Hz clock. glass's morph is a
+      136 |             // spring stepped on rAF, so a host whose main thread paints slower
+      137 |             // (CI 39577437998: 4 and 3 sampled growth frames at 1440) shows the
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/od19-p1-transport-docks.spec.ts:134:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/od19-p1-transport-docks-X--a8749--collapse-never-undershoots-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/od19-p1-transport-docks-X--a8749--collapse-never-undershoots-chromium/error-context.md
+
+
+[7/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (dark 1440) › F3 — Speed and Easing are dock seats, each with its own menu
+[8/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (dark 1440) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+[9/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (light 390) › F1 — every collapsed-summary kid lies inside the plate
+[10/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (light 390) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[11/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (light 390) › F3 — Speed and Easing are dock seats, each with its own menu
+[12/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (light 390) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+[13/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (dark 390) › F1 — every collapsed-summary kid lies inside the plate
+[14/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (dark 390) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[15/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (dark 390) › F3 — Speed and Easing are dock seats, each with its own menu
+[16/32] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (dark 390) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+[17/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:161:9 › OD19 P3 light 1440 › F5 · the flush layer stack's first layer is concentric with the aside (r ≥ 14px)
+[18/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:179:9 › OD19 P3 light 1440 › F5 · ALL — every route push crossfades (≥ 6 frames), the dock holds still, no text loader
+[19/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:204:9 › OD19 P3 light 1440 › F6 · the toggle's ink fills its 24px glyph box (≥ 22px)
+[20/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:161:9 › OD19 P3 dark 1440 › F5 · the flush layer stack's first layer is concentric with the aside (r ≥ 14px)
+[21/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:179:9 › OD19 P3 dark 1440 › F5 · ALL — every route push crossfades (≥ 6 frames), the dock holds still, no text loader
+[22/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:204:9 › OD19 P3 dark 1440 › F6 · the toggle's ink fills its 24px glyph box (≥ 22px)
+[23/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:161:9 › OD19 P3 light 390 › F5 · the flush layer stack's first layer is concentric with the aside (r ≥ 14px)
+[24/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:179:9 › OD19 P3 light 390 › F5 · ALL — every route push crossfades (≥ 6 frames), the dock holds still, no text loader
+[25/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:204:9 › OD19 P3 light 390 › F6 · the toggle's ink fills its 24px glyph box (≥ 22px)
+[26/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:161:9 › OD19 P3 dark 390 › F5 · the flush layer stack's first layer is concentric with the aside (r ≥ 14px)
+[27/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:179:9 › OD19 P3 dark 390 › F5 · ALL — every route push crossfades (≥ 6 frames), the dock holds still, no text loader
+[28/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:204:9 › OD19 P3 dark 390 › F6 · the toggle's ink fills its 24px glyph box (≥ 22px)
+[29/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:227:5 › OD19 P3 · loading states are glass Skeletons in the stage's shape › /v cold load: the stage is a busy Skeleton, no text
+[30/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:242:5 › OD19 P3 · loading states are glass Skeletons in the stage's shape › /equation cold compute: the stage is a busy Skeleton, no text
+[31/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:258:5 › OD19 P3 · loading states are glass Skeletons in the stage's shape › reduced motion: a route push swaps with no transition
+[32/32] [chromium] › e2e/od19-p3-shell-motion-loading.spec.ts:274:5 › OD19 P3 · ALL — /equation is ready < 1 s after nav intent › hover the Equation section, then open it: the series paints within 1000 ms
+  2 failed
+    [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (light 1440) › F3 — Speed and Easing are dock seats, each with its own menu 
+    [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (dark 1440) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots 
+  30 passed (2.5m)

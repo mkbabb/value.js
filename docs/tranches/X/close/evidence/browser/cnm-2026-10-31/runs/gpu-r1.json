@@ -1,0 +1,345 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/.dev-logs/cnm/gpu/docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/gpu.config.ts",
+    "rootDir": "/Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/cnm/gpu/test-results/ref-gpu",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "gpu",
+        "name": "gpu",
+        "testDir": "/Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/cnm/gpu/test-results/ref-gpu",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "gpu-renderer",
+        "name": "gpu-renderer",
+        "testDir": "/Users/mkbabb/.dev-logs/cnm/gpu/docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe",
+        "testIgnore": [],
+        "testMatch": [
+          "renderer.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "zz-cnm-read.spec.ts",
+      "file": "zz-cnm-read.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "cnm default-seed component-name, light no-preference",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "cnm-reading",
+                  "description": "{\"scheme\":\"light\",\"motion\":\"no-preference\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":570.859375,\"w\":98.8828125,\"h\":20.5}],\"frames\":[{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728},{\"worst\":4.1224532863506305,\"best\":4.844079142837305,\"painted\":4.310388603921184,\"n\":1728},{\"worst\":4.0821608940285765,\"best\":4.877896204631142,\"painted\":4.268259353053809,\"n\":1728}],\"worst\":4.0821608940285765}"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7832,
+                  "error": {
+                    "message": "Error: component-name oklch(0.307762 0.124262 2) → 92,0,43 worst plate sample\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.0821608940285765\u001b[39m",
+                    "stack": "Error: component-name oklch(0.307762 0.124262 2) → 92,0,43 worst plate sample\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.0821608940285765\u001b[39m\n    at /Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke/zz-cnm-read.spec.ts:74:78",
+                    "location": {
+                      "file": "/Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke/zz-cnm-read.spec.ts",
+                      "column": 78,
+                      "line": 74
+                    },
+                    "snippet": "  72 |         test.info().annotations.push({ type: \"cnm-reading\", description: JSON.stringify(reading) });\n  73 |         console.log(`[cnm] ${JSON.stringify(reading)}`);\n> 74 |         expect(worst, `component-name ${color} → ${ink} worst plate sample`).toBeGreaterThanOrEqual(4.5);\n     |                                                                              ^\n  75 |     });\n  76 | }\n  77 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke/zz-cnm-read.spec.ts",
+                        "column": 78,
+                        "line": 74
+                      },
+                      "message": "Error: component-name oklch(0.307762 0.124262 2) → 92,0,43 worst plate sample\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.0821608940285765\u001b[39m\n\n  72 |         test.info().annotations.push({ type: \"cnm-reading\", description: JSON.stringify(reading) });\n  73 |         console.log(`[cnm] ${JSON.stringify(reading)}`);\n> 74 |         expect(worst, `component-name ${color} → ${ink} worst plate sample`).toBeGreaterThanOrEqual(4.5);\n     |                                                                              ^\n  75 |     });\n  76 | }\n  77 |\n    at /Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke/zz-cnm-read.spec.ts:74:78"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[cnm] {\"scheme\":\"light\",\"motion\":\"no-preference\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":570.859375,\"w\":98.8828125,\"h\":20.5}],\"frames\":[{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728},{\"worst\":4.1224532863506305,\"best\":4.844079142837305,\"painted\":4.310388603921184,\"n\":1728},{\"worst\":4.0821608940285765,\"best\":4.877896204631142,\"painted\":4.268259353053809,\"n\":1728}],\"worst\":4.0821608940285765}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T05:08:15.420Z",
+                  "annotations": [
+                    {
+                      "type": "cnm-reading",
+                      "description": "{\"scheme\":\"light\",\"motion\":\"no-preference\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":570.859375,\"w\":98.8828125,\"h\":20.5}],\"frames\":[{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728},{\"worst\":4.1224532863506305,\"best\":4.844079142837305,\"painted\":4.310388603921184,\"n\":1728},{\"worst\":4.0821608940285765,\"best\":4.877896204631142,\"painted\":4.268259353053809,\"n\":1728}],\"worst\":4.0821608940285765}"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/cnm/gpu/test-results/ref-gpu/zz-cnm-read-cnm-default-se-fb7fd-nt-name-light-no-preference-gpu/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke/zz-cnm-read.spec.ts",
+                    "column": 78,
+                    "line": 74
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1326cdd36bb6ffebf80-5693758a9fee903c54ef",
+          "file": "zz-cnm-read.spec.ts",
+          "line": 45,
+          "column": 5
+        },
+        {
+          "title": "cnm default-seed component-name, dark no-preference",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "cnm-reading",
+                  "description": "{\"scheme\":\"dark\",\"motion\":\"no-preference\",\"color\":\"oklch(0.821313 0.107264 2)\",\"ink\":[255,167,191],\"ambient\":\"0.4094\",\"boxes\":[{\"x\":913.34375,\"y\":570.859375,\"w\":98.8828125,\"h\":20.5}],\"frames\":[{\"worst\":5.075045607513857,\"best\":5.911388886715315,\"painted\":5.3951828450998915,\"n\":1728},{\"worst\":4.917334995679726,\"best\":5.870802984132945,\"painted\":5.227523743436264,\"n\":1728},{\"worst\":4.881983365712474,\"best\":5.946498203319503,\"painted\":5.189942109241045,\"n\":1728}],\"worst\":4.881983365712474}"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6938,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[cnm] {\"scheme\":\"dark\",\"motion\":\"no-preference\",\"color\":\"oklch(0.821313 0.107264 2)\",\"ink\":[255,167,191],\"ambient\":\"0.4094\",\"boxes\":[{\"x\":913.34375,\"y\":570.859375,\"w\":98.8828125,\"h\":20.5}],\"frames\":[{\"worst\":5.075045607513857,\"best\":5.911388886715315,\"painted\":5.3951828450998915,\"n\":1728},{\"worst\":4.917334995679726,\"best\":5.870802984132945,\"painted\":5.227523743436264,\"n\":1728},{\"worst\":4.881983365712474,\"best\":5.946498203319503,\"painted\":5.189942109241045,\"n\":1728}],\"worst\":4.881983365712474}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T05:08:26.506Z",
+                  "annotations": [
+                    {
+                      "type": "cnm-reading",
+                      "description": "{\"scheme\":\"dark\",\"motion\":\"no-preference\",\"color\":\"oklch(0.821313 0.107264 2)\",\"ink\":[255,167,191],\"ambient\":\"0.4094\",\"boxes\":[{\"x\":913.34375,\"y\":570.859375,\"w\":98.8828125,\"h\":20.5}],\"frames\":[{\"worst\":5.075045607513857,\"best\":5.911388886715315,\"painted\":5.3951828450998915,\"n\":1728},{\"worst\":4.917334995679726,\"best\":5.870802984132945,\"painted\":5.227523743436264,\"n\":1728},{\"worst\":4.881983365712474,\"best\":5.946498203319503,\"painted\":5.189942109241045,\"n\":1728}],\"worst\":4.881983365712474}"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1326cdd36bb6ffebf80-9c79fe0b36fc127e2d39",
+          "file": "zz-cnm-read.spec.ts",
+          "line": 45,
+          "column": 5
+        },
+        {
+          "title": "cnm default-seed component-name, light reduce",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "cnm-reading",
+                  "description": "{\"scheme\":\"light\",\"motion\":\"reduce\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":570.859375,\"w\":98.8828125,\"h\":20.5}],\"frames\":[{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728},{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728},{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728}],\"worst\":4.1000315244811825}"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6908,
+                  "error": {
+                    "message": "Error: component-name oklch(0.307762 0.124262 2) → 92,0,43 worst plate sample\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.1000315244811825\u001b[39m",
+                    "stack": "Error: component-name oklch(0.307762 0.124262 2) → 92,0,43 worst plate sample\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.1000315244811825\u001b[39m\n    at /Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke/zz-cnm-read.spec.ts:74:78",
+                    "location": {
+                      "file": "/Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke/zz-cnm-read.spec.ts",
+                      "column": 78,
+                      "line": 74
+                    },
+                    "snippet": "  72 |         test.info().annotations.push({ type: \"cnm-reading\", description: JSON.stringify(reading) });\n  73 |         console.log(`[cnm] ${JSON.stringify(reading)}`);\n> 74 |         expect(worst, `component-name ${color} → ${ink} worst plate sample`).toBeGreaterThanOrEqual(4.5);\n     |                                                                              ^\n  75 |     });\n  76 | }\n  77 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke/zz-cnm-read.spec.ts",
+                        "column": 78,
+                        "line": 74
+                      },
+                      "message": "Error: component-name oklch(0.307762 0.124262 2) → 92,0,43 worst plate sample\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.1000315244811825\u001b[39m\n\n  72 |         test.info().annotations.push({ type: \"cnm-reading\", description: JSON.stringify(reading) });\n  73 |         console.log(`[cnm] ${JSON.stringify(reading)}`);\n> 74 |         expect(worst, `component-name ${color} → ${ink} worst plate sample`).toBeGreaterThanOrEqual(4.5);\n     |                                                                              ^\n  75 |     });\n  76 | }\n  77 |\n    at /Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke/zz-cnm-read.spec.ts:74:78"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[cnm] {\"scheme\":\"light\",\"motion\":\"reduce\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":570.859375,\"w\":98.8828125,\"h\":20.5}],\"frames\":[{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728},{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728},{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728}],\"worst\":4.1000315244811825}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T05:08:33.682Z",
+                  "annotations": [
+                    {
+                      "type": "cnm-reading",
+                      "description": "{\"scheme\":\"light\",\"motion\":\"reduce\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":570.859375,\"w\":98.8828125,\"h\":20.5}],\"frames\":[{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728},{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728},{\"worst\":4.1000315244811825,\"best\":4.763137266015657,\"painted\":4.286944673783298,\"n\":1728}],\"worst\":4.1000315244811825}"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/cnm/gpu/test-results/ref-gpu/zz-cnm-read-cnm-default-seed-component-name-light-reduce-gpu/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/.dev-logs/cnm/gpu/e2e/smoke/zz-cnm-read.spec.ts",
+                    "column": 78,
+                    "line": 74
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1326cdd36bb6ffebf80-9ac2cb912ebf905c6478",
+          "file": "zz-cnm-read.spec.ts",
+          "line": 45,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+      "file": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "renderer of the cell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu-renderer",
+              "projectName": "gpu-renderer",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 355,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T05:08:43.619Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2554cc55ec191e6d66a6-9f74c57bc907ae48cde9",
+          "file": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T05:08:13.169Z",
+    "duration": 33682.281,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

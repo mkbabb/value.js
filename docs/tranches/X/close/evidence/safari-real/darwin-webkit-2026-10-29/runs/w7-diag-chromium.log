@@ -1,0 +1,33 @@
+(node:40837) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:40879) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 5 tests using 1 worker
+
+[1A[2K(node:41001) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/5] [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Reject color name Wax Seal
+[1A[2K[chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Reject color name Wax Seal
+{"name":"Reject color name Wax Seal","seat":[1196,336],"dialogs":0,"content":null,"seatInsideContent":null,"log":[["pointerdown",1876,"BUTTON.button tap-squish focus-ring cursor-poin"],["click",1877,"BUTTON.button tap-squish focus-ring cursor-poin"],["pointerdown",2043,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",2046,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["pointerdown",2046,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",2046,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["dblclick",2046,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"]]}
+
+[1A[2K[2/5] [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete tag moody
+[1A[2K[chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete tag moody
+{"name":"Delete tag moody","seat":[110,311],"dialogs":0,"content":null,"seatInsideContent":null,"log":[["pointerdown",561,"path.[object SVGAnimatedString]"],["click",563,"svg.[object SVGAnimatedString]"],["pointerdown",732,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",735,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["pointerdown",735,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",735,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["dblclick",735,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"]]}
+
+[1A[2K[3/5] [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Sunset Riot
+[1A[2K[chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Sunset Riot
+{"name":"Delete palette Sunset Riot","seat":[1196,260],"dialogs":0,"content":null,"seatInsideContent":null,"log":[["pointerdown",435,"BUTTON.button tap-squish focus-ring cursor-poin"],["click",437,"BUTTON.button tap-squish focus-ring cursor-poin"],["pointerdown",603,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",607,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["pointerdown",607,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",607,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["dblclick",607,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"]]}
+
+[1A[2K[4/5] [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete all palettes of azure-fox-01
+[1A[2K[chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete all palettes of azure-fox-01
+{"name":"Delete all palettes of azure-fox-01","seat":[1099,297],"dialogs":0,"content":null,"seatInsideContent":null,"log":[["pointerdown",479,"BUTTON.button tap-squish focus-ring glass-capsu"],["click",480,"BUTTON.button tap-squish focus-ring glass-capsu"],["pointerdown",649,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",652,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["pointerdown",652,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",652,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["dblclick",652,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"]]}
+
+[1A[2K[5/5] [chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Azure One
+[1A[2K[chromium] › docs/tranches/X/close/evidence/safari-real/darwin-webkit-2026-10-29/probe/w7.diag.ts:11:5 › human double-click Delete palette Azure One
+{"name":"Delete palette Azure One","seat":[1188,411],"dialogs":0,"content":null,"seatInsideContent":null,"log":[["pointerdown",1513,"BUTTON.button tap-squish focus-ring cursor-poin"],["click",1513,"BUTTON.button tap-squish focus-ring cursor-poin"],["pointerdown",1680,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",1684,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["pointerdown",1684,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["click",1684,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"],["dblclick",1684,"DIV.fixed inset-0 z-overlay bg-overlay-scrim"]]}
+
+[1A[2K  5 passed (11.5s)
+exit 0

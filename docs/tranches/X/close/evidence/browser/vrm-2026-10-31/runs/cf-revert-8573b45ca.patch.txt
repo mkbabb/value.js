@@ -1,0 +1,363 @@
+diff --git a/demo/app/composables/boot/useAtmosphere.ts b/demo/app/composables/boot/useAtmosphere.ts
+index 6ff36720e..c5efa8299 100644
+--- a/demo/app/composables/boot/useAtmosphere.ts
++++ b/demo/app/composables/boot/useAtmosphere.ts
+@@ -30,7 +30,7 @@ import {
+     type AuroraConfig,
+ } from "@mkbabb/glass-ui/aurora";
+ import { resolveAtmosphereField } from "./atmosphere-calibration";
+-import { resolveFieldAmbientLightness, resolveFieldPlateReferent } from "../../../color-session/ink";
++import { resolveFieldAmbientLightness } from "../../../color-session/ink";
+ import { debounce } from "../../../shared/debounce";
+ import { safeSetItem } from "../../../platform/storage/useSafeStorage";
+ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+@@ -167,9 +167,6 @@ export function useAtmosphere(
+     const derivedLightness = computed(() =>
+         resolveFieldAmbientLightness(resolvedPalette.value, isDark.value),
+     );
+-    const plateReferent = computed(() =>
+-        resolveFieldPlateReferent(resolvedPalette.value, isDark.value),
+-    );
+ 
+     // The CSS-gradient fallback for the `"css"` substrate — the same derived
+     // palette `resolveAtoms` feeds the WebGL field, rendered as a static
+@@ -376,5 +373,5 @@ export function useAtmosphere(
+         { immediate: true },
+     );
+ 
+-    return { auroraCssGradient, auroraArrived, derivedLightness, plateReferent };
++    return { auroraCssGradient, auroraArrived, derivedLightness };
+ }
+diff --git a/demo/app/composables/boot/useAtmosphereBoot.ts b/demo/app/composables/boot/useAtmosphereBoot.ts
+index 1a3837793..1eb1ea410 100644
+--- a/demo/app/composables/boot/useAtmosphereBoot.ts
++++ b/demo/app/composables/boot/useAtmosphereBoot.ts
+@@ -53,7 +53,7 @@ import type { ComputedRef, Ref, ShallowRef } from "vue";
+ 
+ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+ import { plateInkDeparts } from "../../../color-session/ink";
+-import { INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
++import { INK_AMBIENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
+ import type { PaneConfig } from "../../../shell/useViewManager";
+ import { useContrastSafeColor } from "../../../color-session/useContrastSafeColor";
+ import { useViewAccents } from "./useViewAccents";
+@@ -140,12 +140,7 @@ export function useAtmosphereBoot(
+     //     AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on the caller's scope). Ordered
+     //     FIRST since M-15: the atmosphere exposes the live `derivedLightness`
+     //     (the D6 page-ambient referent) BOTH accent resolvers consume.
+-    const {
+-        auroraCssGradient,
+-        auroraArrived,
+-        derivedLightness: liveLightness,
+-        plateReferent: livePlateReferent,
+-    } = useAtmosphere(
++    const { auroraCssGradient, auroraArrived, derivedLightness: liveLightness } = useAtmosphere(
+         atmosphereCanvas,
+         atmosphereColor,
+     );
+@@ -167,28 +162,24 @@ export function useAtmosphereBoot(
+     // accent, the label and menu inks) still certify every frame, against the
+     // held ground.
+     const heldLightness = ref(liveLightness.value);
+-    const heldPlateReferent = ref(livePlateReferent.value);
+     let inkSettle: ReturnType<typeof setTimeout> | undefined;
+     const publishInkAmbient = () => {
+         inkSettle = undefined;
+         heldLightness.value = liveLightness.value;
+-        heldPlateReferent.value = livePlateReferent.value;
+     };
+-    watch([liveLightness, livePlateReferent, atmosphereColor], ([l, p, colour], old) => {
+-        if (!old || colour === old[2]) {
++    watch([liveLightness, atmosphereColor], ([l, colour], old) => {
++        if (!old || colour === old[1]) {
+             clearTimeout(inkSettle);
+             inkSettle = undefined;
+             heldLightness.value = l;
+-            heldPlateReferent.value = p;
+             return;
+         }
+-        if (inkSettle === undefined && l === heldLightness.value && p === heldPlateReferent.value) return;
++        if (inkSettle === undefined && l === heldLightness.value) return;
+         clearTimeout(inkSettle);
+         inkSettle = setTimeout(publishInkAmbient, INK_SETTLE_MS);
+     });
+     onScopeDispose(() => clearTimeout(inkSettle));
+     const derivedLightness = computed(() => heldLightness.value);
+-    const plateReferent = computed(() => heldPlateReferent.value);
+ 
+     // 2 — the accent axis (W3-5 threads the M-15 exposed value): the live
+     //     colour certified against the LIVE ambient — never the retired
+@@ -216,12 +207,10 @@ export function useAtmosphereBoot(
+     } = useContrastSafeColor(
+         atmosphereColor,
+         derivedLightness,
+-        plateReferent,
+     );
+     const { isDark } = useGlobalDark();
+     provide(SAFE_ACCENT_KEY, safeAccentCss);
+     provide(INK_AMBIENT_KEY, derivedLightness);
+-    provide(INK_PLATE_REFERENT_KEY, plateReferent);
+     certifyInks(() => {
+         stampRootToken("--accent-live", safeAccentCss);
+         // X-DS pass 4 (V4C-01): the PRIMARY plate ink rides the same instance
+diff --git a/demo/color-session/ink.ts b/demo/color-session/ink.ts
+index 68ad93d83..c6bb0c075 100644
+--- a/demo/color-session/ink.ts
++++ b/demo/color-session/ink.ts
+@@ -443,10 +443,7 @@ function luminanceLightness(stop: FieldStop): number {
+  * Light keeps the mean. Its field can span the 4.58:1 dead band (seed
+  * oklch(0.66 0.16 28): stops L 0.56-0.88), where no ink of either polarity
+  * clears every stop, and a darkest-stop referent there flips the ink light
+- * and fails it over the pale stops. The light arm read 5.64:1 live. The mean
+- * is the ground identity inks hold their hue on (o18's T-35 and V15-01 legs).
+- * The primary plate pair and the band's voice certify on
+- * {@link resolveFieldPlateReferent} instead.
++ * and fails it over the pale stops. The light arm read 5.64:1 live.
+  */
+ export function resolveFieldAmbientLightness(
+     stops: readonly FieldStop[],
+@@ -459,82 +456,6 @@ export function resolveFieldAmbientLightness(
+     return sum / stops.length;
+ }
+ 
+-/**
+- * THE PLATE INK'S FIELD REFERENT (COHESION §0gx.2, ESC-W11e2b-1). In dark it
+- * is the ambient itself. In light it is maximin: the mean left the plate pair
+- * under the floor over the field's dark regions (X.W11.e2b: 4.37:1 on /browse
+- * at 390), and {@link maximinFieldReferent} answers with the best ink over
+- * every stop.
+- */
+-export function resolveFieldPlateReferent(
+-    stops: readonly FieldStop[],
+-    dark: boolean,
+-): number {
+-    if (!stops.length || dark) return resolveFieldAmbientLightness(stops, dark);
+-    return maximinFieldReferent(stops.map(luminanceLightness));
+-}
+-
+-/** The pole that reads the higher ratio on a neutral ground: the choice the
+- *  guard makes where the headroom target is out of reach (`guardCeiling`). */
+-function darkPoleWins(surfaceL: number): boolean {
+-    const ground = guardLuminances(surfaceColor(surfaceL));
+-    return guardContrast(surfaceColor(0), ground) > guardContrast(surfaceColor(1), ground);
+-}
+-
+-/** The lowest ground in [0, 1] where {@link darkPoleWins}, to 2^-24. */
+-function darkPoleFloor(groundOf: (L: number) => number): number {
+-    let light = 0;
+-    let dark = 1;
+-    for (let i = 0; i < 24; i++) {
+-        const middle = (light + dark) / 2;
+-        if (darkPoleWins(groundOf(middle))) dark = middle;
+-        else light = middle;
+-    }
+-    return dark;
+-}
+-
+-/**
+- * Where a certified light plate's pole changes, once per page: the bare
+- * ground, and the ambient under the heaviest translucent rung in the light
+- * ladder (`floating`). At or above `plated`, the quiet, resting and floating
+- * rungs and the band over that ambient all keep the dark pole.
+- */
+-let poleCrossover: { bare: number; plated: number } | undefined;
+-function lightPoleCrossover(): { bare: number; plated: number } {
+-    return poleCrossover ??= {
+-        bare: darkPoleFloor((L) => L),
+-        plated: darkPoleFloor((L) => resolveSurfaceLightness("floating", L, false)),
+-    };
+-}
+-
+-/**
+- * THE LIGHT REFERENT (COHESION §0gx.2, ESC-W11e2b-1): the ground, in neutral
+- * L at WCAG luminance, on which `certify` returns the ink with the best
+- * minimum contrast over the given region. A dark ink's worst region is the
+- * darkest stop and a light ink's is the lightest, so the two worst cases, each
+- * at its pole, name the polarity, and the referent is that polarity's worst
+- * stop. The ink's depth is the guard's walk on that referent: the pick where
+- * it already clears `floor + headroom`, a pole where nothing does.
+- *
+- * The polarity is the region's, and the guard sees one ground. A darkest stop
+- * inside the 4.58:1 dead band reads a HIGHER ratio on the other pole, and the
+- * guard would flip there and fail over the pale stops, so the referent stops
+- * at the crossover and the guard's best ink stays the region's. Where no ink
+- * of either polarity clears the floor over every stop (seed
+- * oklch(0.66 0.16 28)), this still takes the best ink, and the shortfall is a
+- * measured row for the owner's design call (`ref-2026-10-30/README.md`).
+- */
+-function maximinFieldReferent(groundLs: readonly number[]): number {
+-    const darkest = Math.min(...groundLs);
+-    const lightest = Math.max(...groundLs);
+-    const worstDarkInk = guardContrast(surfaceColor(0), guardLuminances(surfaceColor(darkest)));
+-    const worstLightInk = guardContrast(surfaceColor(1), guardLuminances(surfaceColor(lightest)));
+-    const { bare, plated } = lightPoleCrossover();
+-    return worstDarkInk >= worstLightInk
+-        ? Math.max(darkest, plated)
+-        : Math.min(lightest, bare);
+-}
+-
+ /** Certify a concrete CSS color against the surface it actually paints. */
+ export function certifyAccentInk(
+     css: string,
+diff --git a/demo/color-session/keys.ts b/demo/color-session/keys.ts
+index b353aa761..fd8aea403 100644
+--- a/demo/color-session/keys.ts
++++ b/demo/color-session/keys.ts
+@@ -15,10 +15,6 @@ export const SAFE_ACCENT_KEY: InjectionKey<ComputedRef<string>> =
+  *  the referent is a property of the surface, never a global constant). */
+ export const INK_AMBIENT_KEY: InjectionKey<ComputedRef<number>> =
+     Symbol("INK_AMBIENT_KEY");
+-/** §0gx.2: the field referent of the primary plate pair and the band's voice
+- *  (`resolveFieldPlateReferent`), held and published with INK_AMBIENT_KEY. */
+-export const INK_PLATE_REFERENT_KEY: InjectionKey<ComputedRef<number>> =
+-    Symbol("INK_PLATE_REFERENT_KEY");
+ export const EDIT_TARGET_KEY: InjectionKey<ShallowRef<EditTarget | null>> =
+     Symbol("EDIT_TARGET_KEY");
+ 
+diff --git a/demo/color-session/useContrastSafeColor.ts b/demo/color-session/useContrastSafeColor.ts
+index cf2a60615..c6a1cdfa9 100644
+--- a/demo/color-session/useContrastSafeColor.ts
++++ b/demo/color-session/useContrastSafeColor.ts
+@@ -11,7 +11,7 @@ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+ import { usePreferredContrast } from "@vueuse/core";
+ import { convertColor, mixColors, parseCssColor, xyz, type Color } from "@mkbabb/value.js/color";
+ import { parseColorIn } from "./color-utils";
+-import { INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY } from "./keys";
++import { INK_AMBIENT_KEY } from "./keys";
+ import {
+     certifyAccentInk,
+     certifyIdentityInk,
+@@ -421,13 +421,10 @@ function surfaceLightnessNow(
+  *
+  * @param cssColorOpaque   the rAF-coalesced live OPAQUE colour
+  * @param ambientLightness the atmosphere's live derived lightness (M-15)
+- * @param plateReferent    the field referent of the primary plate pair
+- *                         (§0gx.2, `resolveFieldPlateReferent`)
+  */
+ export function useContrastSafeColor(
+     cssColorOpaque: ComputedRef<string>,
+     ambientLightness: ComputedRef<number>,
+-    plateReferent: ComputedRef<number> = ambientLightness,
+ ) {
+     const { isDark } = useGlobalDark();
+     bumpProbeEpochOnMount();
+@@ -455,28 +452,23 @@ export function useContrastSafeColor(
+         return safeAccentCss.value !== cssColorOpaque.value;
+     });
+ 
+-    // The resting plate over the ambient: the identity inks' ground (the
+-    // destructive red and the gold keep their hue on it).
++    // The resting plate's composited lightness — the ONE referent both plate
++    // inks certify against.
+     const restingL = computed(() =>
+         surfaceLightnessNow("resting", ambientLightness.value, isDark.value),
+     );
+-    // §0gx.2: the resting plate over the field's maximin referent — the ONE
+-    // referent both plate inks certify against, so the pair takes one polarity.
+-    const plateL = computed(() =>
+-        surfaceLightnessNow("resting", plateReferent.value, isDark.value),
+-    );
+ 
+     // The primary plate ink (X-DS pass 4 · V4C-01): the scheme foreground,
+     // certified against the plate — the ONE polarity decision. The boot
+     // writer stamps it as `--ink-primary`; `shell.css` seats it as the
+     // in-plate `--foreground`.
+-    const plateInkCss = computed(() => resolvePlateInk(plateL.value, isDark.value, plateContrast.value));
++    const plateInkCss = computed(() => resolvePlateInk(restingL.value, isDark.value, plateContrast.value));
+ 
+     // The de-emphasis rung (F-4): a floor-clamped step of the primary plate ink
+     // (same pole, never flipped on its own) — the boot writer stamps it as
+     // `--ink-muted` (the plate-caption / parse-echo voice; post-hoc opacity
+     // de-emphasis is retired).
+-    const mutedInkCss = computed(() => resolveMutedInk(plateL.value, isDark.value, plateContrast.value));
++    const mutedInkCss = computed(() => resolveMutedInk(restingL.value, isDark.value, plateContrast.value));
+ 
+     // X-DS pass 5 (V5C-02): the SAME certified pair, against the FLOATING
+     // plate. Reka portals menus and popovers to <body>, outside the
+@@ -487,12 +479,9 @@ export function useContrastSafeColor(
+     const floatingL = computed(() =>
+         surfaceLightnessNow("floating", ambientLightness.value, isDark.value),
+     );
+-    const floatingPlateL = computed(() =>
+-        surfaceLightnessNow("floating", plateReferent.value, isDark.value),
+-    );
+-    const floatingInkCss = computed(() => resolvePlateInk(floatingPlateL.value, isDark.value, plateContrast.value));
++    const floatingInkCss = computed(() => resolvePlateInk(floatingL.value, isDark.value, plateContrast.value));
+     const floatingMutedInkCss = computed(() =>
+-        resolveMutedInk(floatingPlateL.value, isDark.value, plateContrast.value),
++        resolveMutedInk(floatingL.value, isDark.value, plateContrast.value),
+     );
+ 
+     // X-DS pass 16 (V16-01): the SAME certified pair, against the MODAL plate.
+@@ -564,15 +553,15 @@ export function useContrastSafeColor(
+     // the graphics floor, so the mark (the badge, the menu's shield) keeps
+     // the gold. The boot writer stamps `--ink-gold-glyph` /
+     // `--ink-gold-floating-glyph`.
+-    const glyphRung = (word: string, surfaceL: number) =>
+-        word !== resolvePlateInk(surfaceL, isDark.value)
++    const glyphRung = (word: string, plate: string, surfaceL: number) =>
++        word !== plate
+             ? word
+             : certifyIdentityInk(goldIdentityCss(isDark.value), surfaceL, isDark.value, GRAPHICS_CONTRAST_FLOOR);
+     const goldGlyphInkCss = computed(() =>
+-        glyphRung(goldInkCss.value, restingL.value),
++        glyphRung(goldInkCss.value, plateInkCss.value, restingL.value),
+     );
+     const floatingGoldGlyphInkCss = computed(() =>
+-        glyphRung(floatingGoldInkCss.value, floatingL.value),
++        glyphRung(floatingGoldInkCss.value, floatingInkCss.value, floatingL.value),
+     );
+ 
+     return {
+@@ -701,9 +690,6 @@ export function useSafeAccentFn(surface: InkSurface = "page") {
+ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
+     const { isDark } = useGlobalDark();
+     const ambient = inject(INK_AMBIENT_KEY)!;
+-    // §0gx.2: the band's voice certifies on the field's maximin referent; the
+-    // identity hue keeps the ambient. A host with no atmosphere has only the ambient.
+-    const referent = inject(INK_PLATE_REFERENT_KEY, ambient);
+     bumpProbeEpochOnMount();
+ 
+     let cached: { el: Element; dark: boolean; epoch: number; tint: SurfaceTint } | undefined;
+@@ -720,7 +706,7 @@ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
+         if (!el) return undefined;
+         return certifyAccentInkOnce(
+             css,
+-            resolvePaintedLightness(referent.value, bandTint(el, isDark.value)),
++            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+             floor,
+         );
+     }
+@@ -745,7 +731,7 @@ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
+         const el = host.value;
+         if (!el) return undefined;
+         return resolvePlateInk(
+-            resolvePaintedLightness(referent.value, bandTint(el, isDark.value)),
++            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+             isDark.value,
+         );
+     }
+diff --git a/demo/test/boot/certify-after-paint.test.ts b/demo/test/boot/certify-after-paint.test.ts
+index 50c91be4d..9f31fa5b8 100644
+--- a/demo/test/boot/certify-after-paint.test.ts
++++ b/demo/test/boot/certify-after-paint.test.ts
+@@ -26,7 +26,6 @@ vi.mock("../../app/composables/boot/useAtmosphere", async () => {
+             auroraCssGradient: c(() => ""),
+             auroraArrived: r(true),
+             derivedLightness: c(() => 0.82),
+-            plateReferent: c(() => 0.82),
+         }),
+     };
+ });
+diff --git a/demo/test/color-session/ink-referent-settle.test.ts b/demo/test/color-session/ink-referent-settle.test.ts
+index 85391950d..3fcf910c6 100644
+--- a/demo/test/color-session/ink-referent-settle.test.ts
++++ b/demo/test/color-session/ink-referent-settle.test.ts
+@@ -30,7 +30,6 @@ vi.mock("../../app/composables/boot/useAtmosphere", async () => {
+             auroraCssGradient: c(() => ""),
+             auroraArrived: r(true),
+             derivedLightness: c(() => ambient.value),
+-            plateReferent: c(() => ambient.value),
+         }),
+     };
+ });

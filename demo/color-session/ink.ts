@@ -6,6 +6,7 @@ import {
     parseCssColor,
     safeAccentColor,
     serializeCssColor,
+    toRgba8,
     xyz,
     type Color,
 } from "@mkbabb/value.js/color";
@@ -34,7 +35,8 @@ export interface SurfaceTint {
 }
 
 const PRODUCER_TINTS = {
-    card: { light: "hsl(30 85% 96%)", dark: "hsl(26 22% 17%)" },
+    // glass `--background` in light (`--neutral-0`, `tokens/color-radius.css`).
+    paper: "hsl(40 30% 98%)",
     foreground: { light: "hsl(24 10% 10%)", dark: "hsl(30 14% 90%)" },
 } as const;
 
@@ -59,7 +61,20 @@ const RUNG_STEP = {
     floating: 1,
 } as const;
 
-const WELL_FOREGROUND_FRACTION = 0.08;
+/**
+ * The static model of `--well-bg` (`demo/styles/foundation.css`, COHESION
+ * §0gk.2 · §0gv.6): a translucent wash laid IN the resting plate, never an
+ * opaque card. It lifts toward the scheme's default elevation (the paper at
+ * 14% in light, the cream ink at 8% in dark: SS8-0440). Where the certified
+ * plate ink has left the scheme's default polarity (cream ink on a dark plate
+ * in light), the lift would close on that ink, so the wash flips away from it:
+ * the scheme ink at 8%. In dark the lift already runs away from a departed
+ * (dark) ink, so dark never flips.
+ */
+const PRODUCER_WELL = {
+    lift: { light: 0.14, dark: 0.08 },
+    sink: 0.08,
+} as const;
 
 /**
  * X-DS pass 16 (V16-01) — glass 10.1.0's modal scrim (`--overlay-scrim`,
@@ -123,6 +138,41 @@ function certify(
     floor: number,
     headroom: number = CERTIFY_HEADROOM,
 ): Color<"oklch"> {
+    const key = `${accent.channels.join(",")},${accent.alpha}|${surfaceL}|${floor}|${headroom}`;
+    const known = CERTIFIED.get(key);
+    if (known) return known;
+    const certified = walkToFloor(accent, surfaceL, floor, headroom);
+    if (CERTIFIED.size >= CERTIFIED_CAPACITY) {
+        CERTIFIED.delete(CERTIFIED.keys().next().value!);
+    }
+    CERTIFIED.set(key, certified);
+    return certified;
+}
+
+/**
+ * X.W11.p4c (COHESION §0go.2(b)) — THE CERTIFY MEMO. `certify` is a pure
+ * function of its inputs, and the boot asks it the same question many times
+ * over: the plate ink is walked by `resolvePlateInk`, again inside
+ * `resolveMutedInk` and again behind each identity ink's fallback, and an
+ * identity ink that holds its chroma is walked once to decide and once more to
+ * serialize. Each walk is a WCAG bisection through the colour parser (the
+ * boot's measured ~100 ms at 4× CPU, `.p4b` act 8). The memo is keyed by the
+ * walk's full input — the seed (the accent's channels and alpha), the ground
+ * (the surface lightness), the floor and the headroom; the scheme enters
+ * through the seed and the ground it selects — so one (seed, scheme, ground)
+ * certifies once and every later ask returns the same certified colour. A
+ * failed walk throws and is never stored. Bounded: a drag mints a new seed per
+ * frame, and the oldest entry leaves first.
+ */
+const CERTIFIED = new Map<string, Color<"oklch">>();
+const CERTIFIED_CAPACITY = 512;
+
+function walkToFloor(
+    accent: Color<"oklch">,
+    surfaceL: number,
+    floor: number,
+    headroom: number,
+): Color<"oklch"> {
     const surface = surfaceColor(surfaceL);
     const attempt = (minimumRatio: number) =>
         safeAccentColor(accent, surface, { minimumRatio, gamut: "srgb" });
@@ -134,31 +184,92 @@ function certify(
     if (preferred.ok) return preferred.value;
     if (preferred.error.code !== "contrast_unreachable") failed(preferred.error.code);
 
-    const atFloor = attempt(floor);
-    if (!atFloor.ok) return failed(atFloor.error.code);
-
-    let best = atFloor.value;
+    // X.W11.ink (COHESION §0gw.4): the guard admits a target iff one of the
+    // three inks it tries (the pick, either pole) clears it, so its verdict
+    // on every target is one number, the best of those three ratios. The
+    // headroom bisection runs on that number, and the guard walks ONCE, at
+    // the target the bisection lands on: the same target, so the same ink,
+    // as one walk per step (it was ten). Below the floor that walk fails
+    // loud, as `attempt(floor)` did.
+    const ceiling = guardCeiling(accent, surface);
     let pass = floor;
     let fail = floor + headroom;
     for (let i = 0; i < HEADROOM_SEARCH_STEPS; i++) {
         const middle = (pass + fail) / 2;
-        const probe = attempt(middle);
-        if (probe.ok) {
-            pass = middle;
-            best = probe.value;
-        } else if (probe.error.code === "contrast_unreachable") {
-            fail = middle;
-        } else {
-            failed(probe.error.code);
-        }
+        if (ceiling >= middle) pass = middle;
+        else fail = middle;
     }
-    return best;
+    const best = attempt(pass);
+    return best.ok ? best.value : failed(best.error.code);
 }
 
-const CARD_L = {
-    light: lightness(requiredOklch(PRODUCER_TINTS.card.light)),
-    dark: lightness(requiredOklch(PRODUCER_TINTS.card.dark)),
-} as const;
+/**
+ * X.W11.ink (COHESION §0gw.4) — THE GUARD'S VERDICT WITHOUT ITS WALK. The
+ * certify walk's cost (62 ms traced in one drag settle, `.v1g`) was the
+ * guard asked yes-or-no questions it answers only by walking: each headroom
+ * step, and each far-side probe, ran a full 32-step lightness bisection
+ * (each candidate gamut-mapped by its own 32-step chroma bisection) to learn
+ * one bit. `safeAccentColor` (`src/color/operations.ts`) admits a candidate
+ * iff BOTH its float and its byte-quantized WCAG ratio clear the target;
+ * these two functions are that predicate, term for term: the candidate is
+ * the library's own (`oklch` → `mapColorToGamut`, sRGB), the byte arm is the
+ * library's own quantizer (`toRgba8`, round-half-even), and the luminance
+ * sum and ratio are the guard's expression in the guard's order, so a
+ * verdict here is the guard's verdict. The ink returned is still the
+ * guard's: these only steer which question it is asked.
+ */
+const srgbLinear = (encoded: number) => {
+    const value = encoded / 255;
+    return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+};
+
+function guardLuminance(channels: readonly number[]): number {
+    return 0.2126 * srgbLinear(channels[0]!)
+        + 0.7152 * srgbLinear(channels[1]!)
+        + 0.0722 * srgbLinear(channels[2]!);
+}
+
+function guardRatio(a: number, b: number): number {
+    return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+}
+
+/** The guard's two luminances (float, byte) of an opaque colour. */
+function guardLuminances(color: Color<"oklch">): readonly [number, number] {
+    const rgb = convertColor(color, "rgb");
+    if (!rgb.ok) throw new Error(`Ink guard probe failed: ${rgb.error.code}`);
+    const bytes = toRgba8(color, { gamut: "clip" });
+    if (!bytes.ok) throw new Error(`Ink guard probe failed: ${bytes.error.code}`);
+    return [guardLuminance(rgb.value.channels as readonly number[]), guardLuminance(bytes.value)];
+}
+
+/** The guard's candidate at lightness `L` for `accent`'s chroma and hue. */
+function guardCandidate(accent: Color<"oklch">, L: number): Color<"oklch"> {
+    const raw = oklch(L, chroma(accent), accent.channels[2], 1);
+    if (!raw.ok) throw new Error(`Ink guard probe failed: ${raw.error.code}`);
+    const mapped = mapColorToGamut(raw.value, "srgb");
+    if (!mapped.ok) throw new Error(`Ink guard probe failed: ${mapped.error.code}`);
+    return mapped.value;
+}
+
+/** The ratio the guard reads for `candidate` on `surface`: the lesser arm. */
+function guardContrast(candidate: Color<"oklch">, surface: readonly [number, number]): number {
+    const [float, byte] = guardLuminances(candidate);
+    return Math.min(guardRatio(float, surface[0]), guardRatio(byte, surface[1]));
+}
+
+/** The highest target the guard admits for `accent` on `surface`: the best
+ *  of the pick and the two poles, the three inks it tries first. */
+function guardCeiling(accent: Color<"oklch">, surface: Color<"oklch">): number {
+    const ground = guardLuminances(surface);
+    const L = Math.min(1, Math.max(0, lightness(accent)));
+    return Math.max(
+        guardContrast(guardCandidate(accent, L), ground),
+        guardContrast(guardCandidate(accent, 0), ground),
+        guardContrast(guardCandidate(accent, 1), ground),
+    );
+}
+
+const PAPER = requiredOklch(PRODUCER_TINTS.paper);
 
 const FOREGROUND = {
     light: requiredOklch(PRODUCER_TINTS.foreground.light),
@@ -190,6 +301,32 @@ export function producerScrimTint(): SurfaceTint {
 }
 
 /**
+ * Whether a certified ink has left the scheme's default polarity (§0gv.6):
+ * it sits nearer the OTHER scheme's foreground pole than its own.
+ */
+function departsDefault(ink: Color<"oklch">, dark: boolean): boolean {
+    const L = lightness(ink);
+    const own = lightness(FOREGROUND[dark ? "dark" : "light"]);
+    const other = lightness(FOREGROUND[dark ? "light" : "dark"]);
+    return Math.abs(L - other) < Math.abs(L - own);
+}
+
+/** {@link departsDefault} for a serialized ink (the stamped `--ink-primary`). */
+export function plateInkDeparts(inkCss: string, dark: boolean): boolean {
+    const ink = parseOklch(inkCss);
+    if (!ink) throw new Error(`[ink] plate ink failed to parse: ${inkCss}`);
+    return departsDefault(ink, dark);
+}
+
+/** The static model's `--well-bg` recipe (see {@link PRODUCER_WELL}). */
+export function producerWellTint(dark: boolean, departed: boolean): SurfaceTint {
+    if (dark) return { color: FOREGROUND.dark, alpha: PRODUCER_WELL.lift.dark };
+    return departed
+        ? { color: FOREGROUND.light, alpha: PRODUCER_WELL.sink }
+        : { color: PAPER, alpha: PRODUCER_WELL.lift.light };
+}
+
+/**
  * Lay `tint` over `ground` the way the browser paints it: source-over in
  * gamma-encoded sRGB (the library's rgb mix, never local math).
  */
@@ -216,13 +353,17 @@ export function resolveSurfaceLightness(
 ): number {
     if (surface === "page") return ambientL;
 
-    const scheme = dark ? "dark" : "light";
-    if (surface === "well") {
-        return (1 - WELL_FOREGROUND_FRACTION) * CARD_L[scheme]
-            + WELL_FOREGROUND_FRACTION * lightness(FOREGROUND[scheme]);
-    }
-
     const ground = surfaceColor(ambientL);
+
+    if (surface === "well") {
+        // The well is an IN-PLATE wash (§0gv.6): `--well-bg` (live `tint`,
+        // else its static recipe) over the resting plate over the ground. The
+        // recipe's direction follows the ink the plate certified.
+        const plate = composite(ground, underTint ?? producerRungTint("resting", dark));
+        const recipe = tint
+            ?? producerWellTint(dark, departsDefault(plateInk(lightness(plate), dark), dark));
+        return lightness(composite(plate, recipe));
+    }
 
     if (surface === "modal") {
         // V16-01: a modal's plate is the FLOATING rung laid over the scrim,
@@ -302,7 +443,10 @@ function luminanceLightness(stop: FieldStop): number {
  * Light keeps the mean. Its field can span the 4.58:1 dead band (seed
  * oklch(0.66 0.16 28): stops L 0.56-0.88), where no ink of either polarity
  * clears every stop, and a darkest-stop referent there flips the ink light
- * and fails it over the pale stops. The light arm read 5.64:1 live.
+ * and fails it over the pale stops. The light arm read 5.64:1 live. The mean
+ * is the ground identity inks hold their hue on (o18's T-35 and V15-01 legs).
+ * The primary plate pair and the band's voice certify on
+ * {@link resolveFieldPlateReferent} instead.
  */
 export function resolveFieldAmbientLightness(
     stops: readonly FieldStop[],
@@ -313,6 +457,82 @@ export function resolveFieldAmbientLightness(
     let sum = 0;
     for (const stop of stops) sum += stop.L;
     return sum / stops.length;
+}
+
+/**
+ * THE PLATE INK'S FIELD REFERENT (COHESION §0gx.2, ESC-W11e2b-1). In dark it
+ * is the ambient itself. In light it is maximin: the mean left the plate pair
+ * under the floor over the field's dark regions (X.W11.e2b: 4.37:1 on /browse
+ * at 390), and {@link maximinFieldReferent} answers with the best ink over
+ * every stop.
+ */
+export function resolveFieldPlateReferent(
+    stops: readonly FieldStop[],
+    dark: boolean,
+): number {
+    if (!stops.length || dark) return resolveFieldAmbientLightness(stops, dark);
+    return maximinFieldReferent(stops.map(luminanceLightness));
+}
+
+/** The pole that reads the higher ratio on a neutral ground: the choice the
+ *  guard makes where the headroom target is out of reach (`guardCeiling`). */
+function darkPoleWins(surfaceL: number): boolean {
+    const ground = guardLuminances(surfaceColor(surfaceL));
+    return guardContrast(surfaceColor(0), ground) > guardContrast(surfaceColor(1), ground);
+}
+
+/** The lowest ground in [0, 1] where {@link darkPoleWins}, to 2^-24. */
+function darkPoleFloor(groundOf: (L: number) => number): number {
+    let light = 0;
+    let dark = 1;
+    for (let i = 0; i < 24; i++) {
+        const middle = (light + dark) / 2;
+        if (darkPoleWins(groundOf(middle))) dark = middle;
+        else light = middle;
+    }
+    return dark;
+}
+
+/**
+ * Where a certified light plate's pole changes, once per page: the bare
+ * ground, and the ambient under the heaviest translucent rung in the light
+ * ladder (`floating`). At or above `plated`, the quiet, resting and floating
+ * rungs and the band over that ambient all keep the dark pole.
+ */
+let poleCrossover: { bare: number; plated: number } | undefined;
+function lightPoleCrossover(): { bare: number; plated: number } {
+    return poleCrossover ??= {
+        bare: darkPoleFloor((L) => L),
+        plated: darkPoleFloor((L) => resolveSurfaceLightness("floating", L, false)),
+    };
+}
+
+/**
+ * THE LIGHT REFERENT (COHESION §0gx.2, ESC-W11e2b-1): the ground, in neutral
+ * L at WCAG luminance, on which `certify` returns the ink with the best
+ * minimum contrast over the given region. A dark ink's worst region is the
+ * darkest stop and a light ink's is the lightest, so the two worst cases, each
+ * at its pole, name the polarity, and the referent is that polarity's worst
+ * stop. The ink's depth is the guard's walk on that referent: the pick where
+ * it already clears `floor + headroom`, a pole where nothing does.
+ *
+ * The polarity is the region's, and the guard sees one ground. A darkest stop
+ * inside the 4.58:1 dead band reads a HIGHER ratio on the other pole, and the
+ * guard would flip there and fail over the pale stops, so the referent stops
+ * at the crossover and the guard's best ink stays the region's. Where no ink
+ * of either polarity clears the floor over every stop (seed
+ * oklch(0.66 0.16 28)), this still takes the best ink, and the shortfall is a
+ * measured row for the owner's design call (`ref-2026-10-30/README.md`).
+ */
+function maximinFieldReferent(groundLs: readonly number[]): number {
+    const darkest = Math.min(...groundLs);
+    const lightest = Math.max(...groundLs);
+    const worstDarkInk = guardContrast(surfaceColor(0), guardLuminances(surfaceColor(darkest)));
+    const worstLightInk = guardContrast(surfaceColor(1), guardLuminances(surfaceColor(lightest)));
+    const { bare, plated } = lightPoleCrossover();
+    return worstDarkInk >= worstLightInk
+        ? Math.max(darkest, plated)
+        : Math.min(lightest, bare);
 }
 
 /** Certify a concrete CSS color against the surface it actually paints. */
@@ -349,10 +569,11 @@ function chroma(color: Color<"oklch">): number {
 }
 
 /** True where `color` already clears `floor` on the surface (the guard
- *  returns it unwalked). */
-function clearsAt(color: Color<"oklch">, surface: Color<"oklch">, floor: number): boolean {
-    const result = safeAccentColor(color, surface, { minimumRatio: floor, gamut: "srgb" });
-    return result.ok && Math.abs(lightness(result.value) - lightness(color)) < 1e-6;
+ *  would return it unwalked). §0gw.4: read off the guard's predicate
+ *  ({@link guardContrast}), never by running its walk to see whether it
+ *  moved. */
+function clearsAt(color: Color<"oklch">, ground: readonly [number, number], floor: number): boolean {
+    return guardContrast(guardCandidate(color, lightness(color)), ground) >= floor;
 }
 
 /**
@@ -367,7 +588,7 @@ function farSideInk(
     walked: Color<"oklch">,
     floor: number,
 ): Color<"oklch"> | null {
-    const surface = surfaceColor(surfaceL);
+    const ground = guardLuminances(surfaceColor(surfaceL));
     const pole = lightness(walked) >= surfaceL ? 0 : 1;
     const hue = accent.channels[2];
     const at = (L: number): Color<"oklch"> => {
@@ -377,12 +598,12 @@ function farSideInk(
         if (!mapped.ok) throw new Error(`Ink far-side probe failed: ${mapped.error.code}`);
         return mapped.value;
     };
-    if (!clearsAt(at(pole), surface, floor)) return null;
+    if (!clearsAt(at(pole), ground, floor)) return null;
     let pass = pole;
     let fail = surfaceL;
     for (let i = 0; i < 16; i++) {
         const middle = (pass + fail) / 2;
-        if (clearsAt(at(middle), surface, floor)) pass = middle;
+        if (clearsAt(at(middle), ground, floor)) pass = middle;
         else fail = middle;
     }
     return at(pass);
@@ -434,12 +655,49 @@ export function certifyIdentityInk(
  * labels, numerals and section heads read it (the in-plate `--foreground`,
  * `shell.css`), so the page never carries two inks of opposite polarity.
  */
-function plateInk(surfaceL: number, dark: boolean): Color<"oklch"> {
-    return certify(FOREGROUND[dark ? "dark" : "light"], surfaceL, TEXT_CONTRAST_FLOOR);
+function plateInk(
+    surfaceL: number,
+    dark: boolean,
+    contrast: InkContrast = "no-preference",
+): Color<"oklch"> {
+    return certifyFor(FOREGROUND[dark ? "dark" : "light"], surfaceL, contrast);
 }
 
-export function resolvePlateInk(surfaceL: number, dark: boolean): string {
-    return serialize(plateInk(surfaceL, dark));
+/**
+ * The user's contrast preference (`prefers-contrast`), as the plate pair reads
+ * it. `"no-preference"` is the nearest ink that clears `floor + headroom`.
+ */
+export type InkContrast = "no-preference" | "more";
+
+/**
+ * X.W11.n2 (COHESION §0gy.5, SS8-0363): under `prefers-contrast: more` the
+ * plate pair certifies to the guard's ceiling, the highest ratio any ink of
+ * that seed reaches on the plate (the pole, or the pick where it reads
+ * higher). The elevated-contrast layer drops the glass tint, so the live plate
+ * it certifies on is cleaner than the no-preference plate. The nearest ink
+ * that clears `floor + headroom` there is lighter than the one the
+ * no-preference plate's dead band walked to the pole (light 10.21 < 12.10 at
+ * the maximin referent, `close/evidence/browser/n2-2026-10-30/`). The ceiling
+ * ink is never lower than either. The floor and the headroom constants are
+ * unchanged. Only the target moves, and only under the preference.
+ */
+function certifyFor(accent: Color<"oklch">, surfaceL: number, contrast: InkContrast): Color<"oklch"> {
+    if (contrast === "no-preference") return certify(accent, surfaceL, TEXT_CONTRAST_FLOOR);
+    const ceiling = guardCeiling(accent, surfaceColor(surfaceL));
+    return certify(
+        accent,
+        surfaceL,
+        TEXT_CONTRAST_FLOOR,
+        Math.max(CERTIFY_HEADROOM, ceiling - TEXT_CONTRAST_FLOOR),
+    );
+}
+
+export function resolvePlateInk(
+    surfaceL: number,
+    dark: boolean,
+    contrast: InkContrast = "no-preference",
+): string {
+    return serialize(plateInk(surfaceL, dark, contrast));
 }
 
 /**
@@ -448,11 +706,15 @@ export function resolvePlateInk(surfaceL: number, dark: boolean): string {
  * it never flips on its own: a certified step that lands across the surface
  * from its primary, or further from it, keeps the primary instead.
  */
-export function resolveMutedInk(surfaceL: number, dark: boolean): string {
-    const primary = plateInk(surfaceL, dark);
+export function resolveMutedInk(
+    surfaceL: number,
+    dark: boolean,
+    contrast: InkContrast = "no-preference",
+): string {
+    const primary = plateInk(surfaceL, dark, contrast);
     const mixed = mixColors(primary, surfaceColor(surfaceL), 0.382, { space: "oklch" });
     if (!mixed.ok) throw new Error(`Muted ink mix failed: ${mixed.error.code}`);
-    const muted = certify(mixed.value, surfaceL, TEXT_CONTRAST_FLOOR);
+    const muted = certifyFor(mixed.value, surfaceL, contrast);
     // Same pole as the primary, and no further from the plate than it: a rung
     // that would flip, or outrank its primary, is the primary itself.
     const offset = (c: Color<"oklch">) => lightness(c) - surfaceL;

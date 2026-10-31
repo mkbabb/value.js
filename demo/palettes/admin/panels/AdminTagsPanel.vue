@@ -73,14 +73,21 @@
                     class="input-bar-field"
                 />
             </div>
-            <div class="input-bar search-seated flex-1 min-w-0 sm:flex-none sm:w-36">
+            <!-- X.W11.v1f (COHESION §0gu.5, ESC-W11v1e-4): the category well
+                 sizes to its own content. The field is `field-sizing: content`
+                 with its automatic minimum restored, so the well's minimum is
+                 the placeholder (or the typed text) in the platform's face,
+                 capped at the row. At coarse 390 the buttons wrap instead of
+                 the well clipping; at `sm` the 9 rem is a preferred width,
+                 never a clipping box. -->
+            <div class="input-bar search-seated flex-1 max-w-full sm:flex-none sm:w-36">
                 <input
                     v-model="tagsApi.newCategory.value"
                     type="text"
                     placeholder="Category..."
                     aria-label="New tag category"
                     :disabled="tagsApi.loading.value"
-                    class="input-bar-field"
+                    class="input-bar-field field-sizing-content min-w-auto max-w-full"
                 />
             </div>
             <Button

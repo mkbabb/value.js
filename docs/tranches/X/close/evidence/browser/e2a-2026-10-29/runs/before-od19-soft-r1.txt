@@ -1,0 +1,23 @@
+(node:1219) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:1267) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 2 tests using 1 worker
+
+(node:1429) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/2] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:138:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:138:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/ content=109ms paneRequestGap=54ms
+
+[2/2] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:138:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:138:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/mix content=946ms paneRequestGap=66ms
+
+[od19-route-load] #/mix hop=344ms
+
+  2 passed (10.9s)
+exit=0

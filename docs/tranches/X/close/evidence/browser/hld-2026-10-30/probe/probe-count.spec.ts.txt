@@ -1,0 +1,39 @@
+// SERVED MODEL: claude-opus-5-5
+// X.W11.hld: how many WebGL contexts and loseContext calls does one page make on the software tier?
+// Runs from the docker tree copy only, never from e2e/.
+import { test } from "@playwright/test";
+import { writeFileSync } from "node:fs";
+for (const [name, hash] of [["gradient", "/#/gradient"], ["home", "/#/"]] as const) {
+    test(`hld probe count ${name}`, async ({ page }) => {
+        test.setTimeout(120_000);
+        await page.addInitScript(() => {
+            const w = window as any;
+            w.__hld = { contexts: [], loses: [] };
+            const stack = () => (new Error().stack ?? "").split("\n").slice(2, 8).map((l) => l.trim().replace(/https?:\/\/[^/]+/, "")).join(" | ");
+            const g = HTMLCanvasElement.prototype.getContext;
+            HTMLCanvasElement.prototype.getContext = function (this: HTMLCanvasElement, t: string, ...a: unknown[]) {
+                if (t === "webgl2" || t === "webgl") w.__hld.contexts.push({ t, connected: this.isConnected, testid: this.dataset.testid ?? null, stack: stack() });
+                return (g as any).call(this, t, ...a);
+            } as any;
+            const gx = WebGL2RenderingContext.prototype.getExtension;
+            WebGL2RenderingContext.prototype.getExtension = function (this: WebGL2RenderingContext, n: string) {
+                const e = gx.call(this, n);
+                if (n === "WEBGL_lose_context" && e && !(e as any).__hld) {
+                    (e as any).__hld = true;
+                    const l = (e as any).loseContext;
+                    (e as any).loseContext = function () { const t0 = performance.now(); l.call(this); w.__hld.loses.push({ ms: performance.now() - t0, stack: stack() }); };
+                }
+                return e;
+            } as any;
+        });
+        await page.setViewportSize({ width: 1440, height: 900 });
+        await page.goto(hash, { waitUntil: "networkidle" });
+        await page.waitForTimeout(4000);
+        const out = await page.evaluate(() => {
+            const c = document.querySelector('[data-testid="atmosphere-canvas"]') as HTMLCanvasElement | null;
+            return { hld: (window as any).__hld, atmosphereCssSubstrate: c ? c.style.backgroundImage !== "" : null };
+        });
+        writeFileSync(`/w/out/probe-count-${name}.json`, JSON.stringify(out, null, 1));
+        console.log(`[hld] ${name}: contexts ${out.hld.contexts.length} loses ${out.hld.loses.length} css ${out.atmosphereCssSubstrate}`);
+    });
+}

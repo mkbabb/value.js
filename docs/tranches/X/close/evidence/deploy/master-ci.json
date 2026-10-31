@@ -1,0 +1,14 @@
+{
+  "masterRef": "bfe74d47f169df8beb84bda4475f82be6081277d",
+  "tagCommit": "d25c4514b3e846aaeb7c2eb1c016c34a55af1786",
+  "readAt": "2026-10-28T01:46:22Z",
+  "ciRuns": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-28T01:45:16Z",
+      "databaseId": 40616916386,
+      "headSha": "bfe74d47f169df8beb84bda4475f82be6081277d",
+      "status": "in_progress"
+    }
+  ]
+}

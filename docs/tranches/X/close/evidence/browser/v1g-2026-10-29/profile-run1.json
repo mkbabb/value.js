@@ -1,0 +1,279 @@
+{
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "dragMs": 2840,
+ "observerLongTasksMs": [
+  246,
+  62
+ ],
+ "traceLongTasks": [
+  {
+   "offsetMs": 120.2,
+   "durMs": 246.3,
+   "samples": 1460,
+   "selfTop": [
+    {
+     "fn": "getImageData",
+     "samples": 1401,
+     "pct": 96
+    },
+    {
+     "fn": "(program)",
+     "samples": 18,
+     "pct": 1.2
+    },
+    {
+     "fn": "Z → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:442",
+     "samples": 14,
+     "pct": 1
+    },
+    {
+     "fn": "getBoundingClientRect",
+     "samples": 13,
+     "pct": 0.9
+    },
+    {
+     "fn": "Re → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:459",
+     "samples": 9,
+     "pct": 0.6
+    },
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 1,
+     "pct": 0.1
+    },
+    {
+     "fn": "r → ? @ node_modules/@mkbabb/keyframes.js/dist/sequence-BvpIpCGp.js:102",
+     "samples": 1,
+     "pct": 0.1
+    },
+    {
+     "fn": "elementsFromPoint",
+     "samples": 1,
+     "pct": 0.1
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "C → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202",
+     "samples": 1417,
+     "pct": 97.1
+    },
+    {
+     "fn": "(anonymous) → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:220",
+     "samples": 1417,
+     "pct": 97.1
+    },
+    {
+     "fn": "h → ? @ node_modules/@mkbabb/glass-ui/dist/useResizeObserver-CdUlm2QZ.js:5",
+     "samples": 1417,
+     "pct": 97.1
+    },
+    {
+     "fn": "Ee → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:95",
+     "samples": 1402,
+     "pct": 96
+    },
+    {
+     "fn": "Re → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:459",
+     "samples": 23,
+     "pct": 1.6
+    },
+    {
+     "fn": "f → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:509",
+     "samples": 23,
+     "pct": 1.6
+    },
+    {
+     "fn": "(anonymous) → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:534",
+     "samples": 23,
+     "pct": 1.6
+    },
+    {
+     "fn": "De → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:113",
+     "samples": 14,
+     "pct": 1
+    },
+    {
+     "fn": "ke → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:127",
+     "samples": 14,
+     "pct": 1
+    },
+    {
+     "fn": "Z → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:442",
+     "samples": 14,
+     "pct": 1
+    }
+   ]
+  },
+  {
+   "offsetMs": 378.6,
+   "durMs": 62.1,
+   "samples": 391,
+   "selfTop": [
+    {
+     "fn": "M → M @ ../../../../dist/color-BU4JS6bH.js:185",
+     "samples": 103,
+     "pct": 26.3
+    },
+    {
+     "fn": "(garbage collector)",
+     "samples": 43,
+     "pct": 11
+    },
+    {
+     "fn": "gt → s @ ../../../../dist/color-BU4JS6bH.js:143",
+     "samples": 40,
+     "pct": 10.2
+    },
+    {
+     "fn": "k → O @ ../../../../dist/color-BU4JS6bH.js:162",
+     "samples": 34,
+     "pct": 8.7
+    },
+    {
+     "fn": "o → ? @ ../../../../dist/anchors-K_Niq8pl.js:1",
+     "samples": 31,
+     "pct": 7.9
+    },
+    {
+     "fn": "Lt → L @ ../../../../dist/color-BU4JS6bH.js:255",
+     "samples": 25,
+     "pct": 6.4
+    },
+    {
+     "fn": "dt → ? @ ../../../../dist/anchors-K_Niq8pl.js:394",
+     "samples": 15,
+     "pct": 3.8
+    },
+    {
+     "fn": "fromEncoded → ? @ ../../../../dist/anchors-K_Niq8pl.js:397",
+     "samples": 13,
+     "pct": 3.3
+    }
+   ],
+   "inclusiveTop": [
+    {
+     "fn": "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+     "samples": 337,
+     "pct": 86.2
+    },
+    {
+     "fn": "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+     "samples": 337,
+     "pct": 86.2
+    },
+    {
+     "fn": "We → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:394",
+     "samples": 322,
+     "pct": 82.4
+    },
+    {
+     "fn": "Ue → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:383",
+     "samples": 322,
+     "pct": 82.4
+    },
+    {
+     "fn": "Bt → V @ ../../../../dist/color-BU4JS6bH.js:304",
+     "samples": 318,
+     "pct": 81.3
+    },
+    {
+     "fn": "p → ? @ ../../../../dist/color-BU4JS6bH.js:329",
+     "samples": 316,
+     "pct": 80.8
+    },
+    {
+     "fn": "zf → ? @ demo/color-session/ink.ts:120",
+     "samples": 316,
+     "pct": 80.8
+    },
+    {
+     "fn": "Hf → ? @ demo/color-session/ink.ts:155",
+     "samples": 314,
+     "pct": 80.3
+    },
+    {
+     "fn": "a → ? @ demo/color-session/ink.ts:162",
+     "samples": 313,
+     "pct": 80.1
+    },
+    {
+     "fn": "w → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:1909",
+     "samples": 298,
+     "pct": 76.2
+    }
+   ]
+  }
+ ],
+ "loaf": [
+  {
+   "start": 365.59999999403954,
+   "dur": 70.90000000596046,
+   "blocking": 9.9,
+   "scripts": [
+    {
+     "invoker": "DOMWindow.onpointermove",
+     "fn": "",
+     "url": "http://127.0.0.1:8477/assets/DropdownMenuTrigger-CKRnhDSQ-Brau0evr.js",
+     "char": 4607,
+     "dur": 53.80000001192093
+    }
+   ]
+  },
+  {
+   "start": 582.5999999940395,
+   "dur": 255.90000000596046,
+   "blocking": 195.7,
+   "scripts": [
+    {
+     "invoker": "FrameRequestCallback",
+     "fn": "h",
+     "url": "http://127.0.0.1:8477/assets/useResizeObserver-CdUlm2QZ-7ORH9RJ4.js",
+     "char": 189,
+     "dur": 241.2000000178814
+    }
+   ]
+  },
+  {
+   "start": 851,
+   "dur": 78.5,
+   "blocking": 24.6,
+   "scripts": [
+    {
+     "invoker": "TimerHandler:setTimeout",
+     "fn": "p",
+     "url": "http://127.0.0.1:8477/assets/index-Czm5etVI.js",
+     "char": 458950,
+     "dur": 62
+    }
+   ]
+  },
+  {
+   "start": 1091.5,
+   "dur": 90.69999998807907,
+   "blocking": 0,
+   "scripts": []
+  },
+  {
+   "start": 1194.8999999761581,
+   "dur": 57.20000001788139,
+   "blocking": 0,
+   "scripts": [
+    {
+     "invoker": "TimerHandler:setTimeout",
+     "fn": "i",
+     "url": "http://127.0.0.1:8477/assets/index-Czm5etVI.js",
+     "char": 246357,
+     "dur": 25.600000023841858
+    },
+    {
+     "invoker": "SPAN.onpointermove",
+     "fn": "n",
+     "url": "http://127.0.0.1:8477/assets/vue.runtime.esm-bundler-2l_pzWEZ.js",
+     "char": 91049,
+     "dur": 16
+    }
+   ]
+  }
+ ]
+}

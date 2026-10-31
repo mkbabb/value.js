@@ -1,0 +1,11 @@
+[cnm-walk] stopsL 0.630,0.737,0.843,0.950 mean 0.790 plateRef 0.622 inkY 0.0245 groundY gpu 0.2538 docker 0.3241 restingTint {"color":{"space":"oklch","channels":[0.28,0.035,70],"alpha":1},"alpha":0.14}
+[cnm-walk] ambient 0.790 surfaceL 0.725 -> oklch(30.776197486324% 0.124262102015 2deg) rgb(92,0,43) L 0.308 C 0.124 (0.67 of pick) H 2.0 | vs GPU 4.078 docker 5.022
+[cnm-walk] ambient 0.760 surfaceL 0.698 -> oklch(27.63415923086% 0.111575795386 2deg) rgb(79,0,36) L 0.276 C 0.112 (0.60 of pick) H 2.0 | vs GPU 4.474 docker 5.510
+[cnm-walk] ambient 0.740 surfaceL 0.681 -> oklch(25.091241585324% 0.101308500586 2deg) rgb(68,0,30) L 0.251 C 0.101 (0.55 of pick) H 2.0 | vs GPU 4.805 docker 5.917
+[cnm-walk] ambient 0.720 surfaceL 0.663 -> oklch(22.303936503129% 0.090054466077 2deg) rgb(57,0,24) L 0.223 C 0.090 (0.49 of pick) H 2.0 | vs GPU 5.118 docker 6.303
+[cnm-walk] ambient 0.700 surfaceL 0.646 -> oklch(18.638110489119% 0.075253311861 2deg) rgb(43,0,16) L 0.186 C 0.075 (0.41 of pick) H 2.0 | vs GPU 5.473 docker 6.740
+[cnm-walk] ambient 0.680 surfaceL 0.628 -> oklch(12.205308322562% 0.049280203243 2deg) rgb(19,0,5) L 0.122 C 0.049 (0.27 of pick) H 2.0 | vs GPU 5.900 docker 7.265
+[cnm-walk] ambient 0.660 surfaceL 0.611 -> oklch(3.444638154004% 0.013908085221 2deg) rgb(0,0,0) L 0.034 C 0.014 (0.08 of pick) H 2.0 | vs GPU 6.076 docker 7.482
+[cnm-walk] ambient 0.622 surfaceL 0.577 -> oklch(3.444638154004% 0.013908085221 2deg) rgb(0,0,0) L 0.034 C 0.014 (0.08 of pick) H 2.0 | vs GPU 6.076 docker 7.482
+ Test Files  1 passed (1)
+      Tests  1 passed (1)

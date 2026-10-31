@@ -262,6 +262,11 @@ jobs:
     # this job reproduces that layout by checking the repo out at `value.js/`
     # and running LHCI from the parent. Adjusting the config to suit the runner
     # would be editing the gate.
+    # COHESION §0gv.1 (2026-10-29): `total-blocking-time` reads `warn` here, bar
+    # unchanged at 300. This runner compiles the arrival shaders on SwiftShader
+    # (CPU emulation of a GPU; TBT 1954–6221 at identical bytes), so TBT ≤ 300
+    # gates as `error` on the real-GPU cell, `lighthouserc.gpu.json` (ANGLE
+    # Metal, run ×2 under `guarded`). LCP, CLS and accessibility stay `error`.
     lhci:
         name: lhci
         runs-on: ubuntu-latest

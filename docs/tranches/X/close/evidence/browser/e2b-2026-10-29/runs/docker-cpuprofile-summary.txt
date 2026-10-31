@@ -1,0 +1,23 @@
+SERVED MODEL: claude-opus-5-5
+X.W11.e2b — CDP Profiler.start/stop (1 ms sampling) summaries; docker mcr.microsoft.com/playwright:v1.60.0-noble; top self-time nodes with their caller chains
+== o21c.cpuprofile
+total ms 5326
+3407 ms (idle)@:-1 <- (root)@:-1
+634 ms (program)@:-1 <- (root)@:-1
+275 ms o@color.wgsl-BTszLY39-B44pKhUw.js:64 <- F@@mkbabb_glass-ui_aurora.js:100 <- xe@@mkbabb_glass-ui_aurora.js:109 <- useAtmosphere@useAtmosphere.ts:38 <- useAtmosphereBoot@useAtmosphereBoot.ts:69 <- setup@App.vue:41 <- callWithErrorHandling@vue.runtime.esm-bundler-DQai_KuN.js:1886 <- setupStatefulComponent@vue.runtime.esm-bundler-DQai_KuN.js:6714 <- setupComponent@vue.runtime.esm-bundler-DQai_KuN.js:6704 <- mountComponent@vue.runtime.esm-bundler-DQai_KuN.js:5495
+== o21f.cpuprofile
+total ms 13476
+12792 ms loseContext@:-1 <- o@color.wgsl-BTszLY39-B44pKhUw.js:64 <- F@@mkbabb_glass-ui_aurora.js:100 <- xe@@mkbabb_glass-ui_aurora.js:109 <- useAtmosphere@useAtmosphere.ts:38 <- useAtmosphereBoot@useAtmosphereBoot.ts:69 <- setup@App.vue:41 <- callWithErrorHandling@vue.runtime.esm-bundler-DQai_KuN.js:1886 <- setupStatefulComponent@vue.runtime.esm-bundler-DQai_KuN.js:6714 <- setupComponent@vue.runtime.esm-bundler-DQai_KuN.js:6704
+314 ms (program)@:-1 <- (root)@:-1
+169 ms (idle)@:-1 <- (root)@:-1
+== note: o21c.cpuprofile above is the AFTER profile (probe-o21d re-run on the cured bytes wrote the same path). The BEFORE profile's caller chain was read live at the seat: 16194 ms o@color.wgsl…:64 <- F@aurora.js:100 <- setup@HeroBlob.vue:29 <- … mountComponent; its top lines are in docker-o21d.json stdout:
+   [o21d] [e2b-o21c] openView returned at 5498 ms
+   [o21d] [e2b-o21c] open->h1 22985 ms
+   [o21d] [e2b-o21c] self 16478ms o modules/.vite-e2e-8090/deps/color.wgsl-BTszLY39-B44pKhUw.js?v=cc118eb5:64
+   [o21d] [e2b-o21c] self 3946ms (idle) :-1
+   [o21d] [e2b-o21c] self 518ms (program) :-1
+   [o21d-after] [e2b-o21c] openView returned at 4822 ms
+   [o21d-after] [e2b-o21c] open->h1 5315 ms
+   [o21d-after] [e2b-o21c] self 3407ms (idle) :-1
+   [o21d-after] [e2b-o21c] self 634ms (program) :-1
+   [o21d-after] [e2b-o21c] self 275ms o modules/.vite-e2e-8090/deps/color.wgsl-BTszLY39-B44pKhUw.js?v=cc118eb5:64

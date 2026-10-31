@@ -1,0 +1,609 @@
+(node:93276) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:93334) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:93377) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+[1A[2K[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+[1A[2K[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m3362 │[0m /* #__PURE__ */
+[2m[WebServer] [22m [38;5;240m     │[0m ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m        ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+
+[1A[2K[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+[2m[WebServer] [22m [38;5;240m     │[0m                       ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+
+[1A[2K[2m[WebServer] [22mError: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+[2m[WebServer] [22m    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+[2m[WebServer] [22m    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+[2m[WebServer] [22m    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+[2m[WebServer] [22m    at o (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js:8:44)
+[2m[WebServer] [22m    at F (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:110:7)
+[2m[WebServer] [22m    at xe (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:117:60)
+[2m[WebServer] [22m    at useAtmosphere (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10033:27)
+[2m[WebServer] [22m    at useAtmosphereBoot (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10187:80)
+[2m[WebServer] [22m    at setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10627:48)
+[2m[WebServer] [22m    at App_vue_vue_type_script_setup_true_lang_default.setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10764:22) [90mundefined[39m
+
+
+Running 54 tests using 1 worker
+
+[1A[2K(node:93649) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/54] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:89:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:89:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+{"width":1440,"frames":19,"morphingFrames":0,"hostTransformFrames":0,"compounded":0,"settles":[{"t":882,"morphing":false,"onHost":false,"seat":"trigger"},{"t":882,"morphing":false,"onHost":false,"seat":"seal"}],"drift":0.02276611328125}
+
+[1A[2K[2/54] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:89:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:89:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+{"width":390,"frames":188,"morphingFrames":0,"hostTransformFrames":0,"compounded":0,"settles":[{"t":108,"morphing":false,"onHost":false,"seat":"trigger"},{"t":108,"morphing":false,"onHost":false,"seat":"seal"}],"drift":0.03141021728515625}
+
+[1A[2K[3/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:174:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K[4/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:183:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the inert Tools seat is absent from the engine AX tree (CDP) @chromium-instrument
+[1A[2K[5/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:174:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K[6/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:183:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the inert Tools seat is absent from the engine AX tree (CDP) @chromium-instrument
+[1A[2K[7/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:174:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K[8/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:183:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the inert Tools seat is absent from the engine AX tree (CDP) @chromium-instrument
+[1A[2K[9/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:5 › B05 · the action-bar proportion (0125 · 0146) › 0125: the layer root breathes on the face's own gap — both separators get equal air
+[1A[2K[10/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:5 › B05 · the action-bar proportion (0125 · 0146) › 0146: the seat row is spaced by --dock-layer-gap, not by justify-around slack
+[1A[2K[11/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.27821433714764[39m
+
+      274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      275 |             expect(label).not.toBeNull();
+    > 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      277 |         });
+      278 |     }
+      279 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-e66f8--the-light-band-seed-hue-0--smoke/error-context.md
+
+
+[1A[2K(node:96855) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[12/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.432973700535918[39m
+
+      274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      275 |             expect(label).not.toBeNull();
+    > 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      277 |         });
+      278 |     }
+      279 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-3345d-the-light-band-seed-hue-60--smoke/error-context.md
+
+
+[1A[2K(node:97574) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[13/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)
+[1A[2K[14/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)
+[1A[2K[15/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)
+[1A[2K[16/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)
+[1A[2K  3) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.314620947553472[39m
+
+      274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      275 |             expect(label).not.toBeNull();
+    > 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      277 |         });
+      278 |     }
+      279 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-89a7f-he-light-band-seed-hue-300--smoke/error-context.md
+
+
+[1A[2K(node:661) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[17/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:281:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 0)
+[1A[2K[18/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:281:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 180)
+[1A[2K[19/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:326:9 › B05 · the Tools target and wordmark (0140) › coarse 390 › the Tools target holds the 44 px coarse floor
+[1A[2K[20/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:335:9 › B05 · the Tools target and wordmark (0140) › coarse 390 › the icon-only Tools seat carries its accessible name
+[1A[2K[21/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:347:9 › B05 · the Tools target and wordmark (0140) › zoom 200 % of 1440×900 › the Tools wordmark survives the zoom
+[1A[2K[22/54] [smoke] › e2e/smoke/w12-dock.spec.ts:110:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:110:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius
+[
+ {
+  "name": "Login",
+  "classes": "dock-tab-button glass-specular-track gap-1.5 text-small font-display",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 38.17609786987305,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)"
+ },
+ {
+  "name": "@mbabb",
+  "classes": "menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 30.96875,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)"
+ }
+]
+
+[1A[2K[23/54] [smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "action-sub-layer",
+ "before": "|",
+ "during": "|oklch(73% 0.185 2deg)",
+ "after": "|",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSAnimation:input-mode-flash",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(border-bottom-color)",
+  "element:CSSTransition:transition(border-left-color)",
+  "element:CSSTransition:transition(border-right-color)",
+  "element:CSSTransition:transition(border-top-color)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)",
+  "element:CSSTransition:transition(transform)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[24/54] [smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "tools-action-bar",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|oklch(73% 0.185 2deg)",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 6,
+ "names": [
+  "CSSAnimation:overture-plate-land",
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[25/54] [smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "login-slug-edit",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 4,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(backdrop-filter)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(box-shadow)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(outline-color)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[26/54] [smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "mobile-edit",
+ "before": "|W12e seed Login  @mbabb",
+ "during": "|→",
+ "after": "|W12e seed Login  @mbabb",
+ "faces": 4,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--accent-view)",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(border-bottom-left-radius)",
+  "element:CSSTransition:transition(border-bottom-right-radius)",
+  "element:CSSTransition:transition(border-top-left-radius)",
+  "element:CSSTransition:transition(border-top-right-radius)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[27/54] [smoke] › e2e/smoke/w12-dock.spec.ts:381:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:381:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census
+{
+ "focusVisible": true,
+ "frames": {
+  "rest": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "hover": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "selected": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "focus-visible": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ]
+ }
+}
+
+[1A[2K(node:6041) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[28/54] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:89:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:89:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+{"width":1440,"frames":30,"morphingFrames":0,"hostTransformFrames":0,"compounded":0,"settles":[{"t":881,"morphing":false,"onHost":false,"seat":"trigger"},{"t":881,"morphing":false,"onHost":false,"seat":"seal"}],"drift":0}
+
+[1A[2K[29/54] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:89:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:89:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+{"width":390,"frames":199,"morphingFrames":0,"hostTransformFrames":0,"compounded":0,"settles":[{"t":136,"morphing":false,"onHost":false,"seat":"trigger"},{"t":136,"morphing":false,"onHost":false,"seat":"seal"}],"drift":0.00012969970703125}
+
+[1A[2K[30/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:174:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K[31/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:183:9 › B05 · bar-less routes (0122 · 0136 guard) › /atmosphere: the inert Tools seat is absent from the engine AX tree (CDP) @chromium-instrument
+[1A[2K[32/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:174:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K[33/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:183:9 › B05 · bar-less routes (0122 · 0136 guard) › /browse: the inert Tools seat is absent from the engine AX tree (CDP) @chromium-instrument
+[1A[2K[34/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:174:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the Tools slot is inert, 0 px and unexposed; the dock keeps its face
+[1A[2K[35/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:183:9 › B05 · bar-less routes (0122 · 0136 guard) › /extract: the inert Tools seat is absent from the engine AX tree (CDP) @chromium-instrument
+[1A[2K[36/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:203:5 › B05 · the action-bar proportion (0125 · 0146) › 0125: the layer root breathes on the face's own gap — both separators get equal air
+[1A[2K[37/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:241:5 › B05 · the action-bar proportion (0125 · 0146) › 0146: the seat row is spaced by --dock-layer-gap, not by justify-around slack
+[1A[2K[38/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)
+[1A[2K  4) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.27821433714764[39m
+
+      274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      275 |             expect(label).not.toBeNull();
+    > 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      277 |         });
+      278 |     }
+      279 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-e66f8--the-light-band-seed-hue-0--smoke-repeat1/error-context.md
+
+
+[1A[2K(node:8334) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[39/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)
+[1A[2K  5) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.432973700535918[39m
+
+      274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      275 |             expect(label).not.toBeNull();
+    > 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      277 |         });
+      278 |     }
+      279 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-3345d-the-light-band-seed-hue-60--smoke-repeat1/error-context.md
+
+
+[1A[2K(node:8612) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[40/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)
+[1A[2K[41/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)
+[1A[2K[42/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)
+[1A[2K[43/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)
+[1A[2K  6) [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.314620947553472[39m
+
+      274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();
+      275 |             expect(label).not.toBeNull();
+    > 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+          |                                                  ^
+      277 |         });
+      278 |     }
+      279 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50
+
+    Error Context: test-results/oracles-o33-dock-actionbar-89a7f-he-light-band-seed-hue-300--smoke-repeat1/error-context.md
+
+
+[1A[2K(node:9412) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[44/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:281:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 0)
+[1A[2K[45/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:281:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0133: the Tools focus ring clears 3:1 against the band (seed hue 180)
+[1A[2K[46/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:326:9 › B05 · the Tools target and wordmark (0140) › coarse 390 › the Tools target holds the 44 px coarse floor
+[1A[2K[47/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:335:9 › B05 · the Tools target and wordmark (0140) › coarse 390 › the icon-only Tools seat carries its accessible name
+[1A[2K[48/54] [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:347:9 › B05 · the Tools target and wordmark (0140) › zoom 200 % of 1440×900 › the Tools wordmark survives the zoom
+[1A[2K[49/54] [smoke] › e2e/smoke/w12-dock.spec.ts:110:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:110:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius
+[
+ {
+  "name": "Login",
+  "classes": "dock-tab-button glass-specular-track gap-1.5 text-small font-display",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 38,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)"
+ },
+ {
+  "name": "@mbabb",
+  "classes": "menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 30.96875,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)"
+ }
+]
+
+[1A[2K[50/54] [smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "action-sub-layer",
+ "before": "|",
+ "during": "|oklch(73% 0.185 2deg)",
+ "after": "|",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSAnimation:input-mode-flash",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(border-bottom-color)",
+  "element:CSSTransition:transition(border-left-color)",
+  "element:CSSTransition:transition(border-right-color)",
+  "element:CSSTransition:transition(border-top-color)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)",
+  "element:CSSTransition:transition(transform)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[51/54] [smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "tools-action-bar",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|oklch(73% 0.185 2deg)",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[52/54] [smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "login-slug-edit",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 4,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(backdrop-filter)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(box-shadow)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(outline-color)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[53/54] [smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:322:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "mobile-edit",
+ "before": "|W12e seed Login  @mbabb",
+ "during": "|→",
+ "after": "|W12e seed Login  @mbabb",
+ "faces": 4,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--accent-view)",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(border-bottom-left-radius)",
+  "element:CSSTransition:transition(border-bottom-right-radius)",
+  "element:CSSTransition:transition(border-top-left-radius)",
+  "element:CSSTransition:transition(border-top-right-radius)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[54/54] [smoke] › e2e/smoke/w12-dock.spec.ts:381:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:381:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census
+{
+ "focusVisible": true,
+ "frames": {
+  "rest": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "hover": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "selected": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "focus-visible": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ]
+ }
+}
+
+[1A[2K  6 failed
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) 
+    [smoke] › e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:267:9 › B05 · the Tools ink on the dock band (0132 · 0133) › 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) 
+  48 passed (4.9m)
+exit 1

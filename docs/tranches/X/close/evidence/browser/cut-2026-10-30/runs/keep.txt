@@ -1,0 +1,28 @@
+o18 r1 rc=0
+o18 r2 rc=0
+visual rc=1
+r1 rc=1       4301 pixels (ratio 0.01 of all image pixels) are different.     [2m  - 4301 pixels (ratio 0.01 of all image pixels) are different.[22m 
+r2 rc=1       575 pixels (ratio 0.01 of all image pixels) are different.     [2m  - 575 pixels (ratio 0.01 of all image pixels) are different.[22m 
+r3 575 pixels
+ pixels
+r4 575 pixels
+ pixels
+r5 575 pixels
+ pixels
+before-tree r1 4301 pixels
+ pixels
+before-tree r2 4301 pixels
+ pixels
+before-tree r3 575 pixels
+ pixels
+before-tree r4 4301 pixels
+ pixels
+before-tree r5 4301 pixels
+ pixels
+before-tree r6 4301 pixels
+ pixels
+before-tree r7 575 pixels
+ pixels
+before-tree r8 4301 pixels
+ pixels
+kfab-done

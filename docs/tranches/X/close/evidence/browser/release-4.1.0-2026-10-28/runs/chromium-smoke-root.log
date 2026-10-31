@@ -1,0 +1,1099 @@
+[guarded] waiting for headroom (load 40 > 36)
+(node:64479) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:64756) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 168 tests using 1 worker
+
+[1A[2K(node:65095) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/168] [smoke] › e2e/smoke/a11y-control-targets.spec.ts:352:1 › A1 · fine-pointer target size — every attributed target box is ≥24×24
+[1A[2K[smoke] › e2e/smoke/a11y-control-targets.spec.ts:352:1 › A1 · fine-pointer target size — every attributed target box is ≥24×24
+[W4-CENSUS] {"route":"/","rows":[{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Save edit","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Cancel edit","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"input","id":"","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","name":"Slug or admin token","w":224,"h":36,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Switch to slug","w":24,"h":24,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Cancel","w":24,"h":24,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Back","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Reset color","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Copy color","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Random color","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Palettes","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Extract palette","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"send-btn","name":"Apply color","w":24,"h":24,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Open color input","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal","name":"Select view","w":105.8,"h":32,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn","name":"Toggle action bar","w":119.1,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-tab-button glass-specular-track gap-1.5 text-small font-display","name":"Login","w":86.8,"h":38,"attributedTo":"self"},{"route":"/","tag":"button","id":"reka-dropdown-menu-trigger-v-92","cls":"menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground hover:underline underline-offset-4 whitespace-nowrap","name":"@mbabb","w":73.6,"h":30.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]","name":"Select color space","w":187.4,"h":83.2,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"l channel","w":24,"h":24.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"c channel","w":25.3,"h":24.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"h channel","w":24.1,"h":24.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"alpha channel","w":24.6,"h":25.4,"attributedTo":"self"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"L channel","w":563.8,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"C channel","w":563.8,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"H channel","w":563.8,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"ALPHA channel","w":563.8,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em] space-trigger--inline","name":"Select color space","w":144.4,"h":46.9,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"DefinitionA cylindrical representation of the OKLab color space. Basic information Device dependency:Device-independentWhite point:D65Gamut:UnlimitedCreated:2019 Components L (Lightness)0% to 100%C (Chroma)0 to 0.5h (hue)0deg to 360deg Key properties Perceptual uniformity:Yes (inherited from OKLab)Hue linearity:YesLightness separation:Yes Conversion graph OKLChOKLabOKLChOKLabXYZOKLChOKLabXYZLabUsageCommon applications: Color selection, Color harmony, Gradient creationIndustries: Web design, User interface design, Digital artDetailed GuideHistorical ContextOKLCh is the polar form of OKLab, published by Björn Ottosson in 2020 to address the perceptual non-uniformities in older Lab/LCh models. The relationship is the same—Cartesian a/b re-expressed as chroma and hue—but the underlying OKLab space produces better uniformity, especially in blues and purples where CIE L*a*b* shows significant error. OKLCh is a first-class color function in CSS Color Level 4.Key CharacteristicsBetter uniformity than CIE LCh. Equal chroma steps look more consistent across the hue circle.Polar coordinates. Lightness, chroma, and hue—same intuitive axes as LCh.Stable lightness. Changing chroma or hue doesn’t shift perceived brightness the way it does in HSL.CSS-native. oklch() is supported in all modern browsers as of 2024.AdvantagesMarkedly better perceptual uniformity than HSL, HSV, or CIE LChPerceived brightness stays stable when you adjust chroma or hueDirect CSS support—no conversion step for web useClean gradients and palette generation with minimal hue shiftDisadvantagesNewer; less support in legacy tools and older design softwareConversion chain is longer than RGB or HSL (OKLCh → OKLab → XYZ → linear RGB → sRGB)Not directly displayable—still needs gamut mapping to a device spaceThe 0–1 lightness scale differs from Lab/LCh’s 0–100, which can cause confusionColor ModelComponentsL (Lightness): 0 (black) to 1 (white). Note the 0–1 range, not 0–100 as in CIE L*.C (Chroma): 0 (achromatic) to roughly 0.4 for the most saturated colors. The scale is much smaller than CIE LCh’s.H (Hue): 0 to 360 degrees (or 0–1 normalized). Same angular concept as LCh, but hue spacing is more perceptually even—the “blue problem” in CIE LCh (where blues compress into a narrow hue range) is largely resolved.Relationship to OKLabOKLCh relates to OKLab exactly as CIE LCh relates to CIE Lab: same data, polar vs. Cartesian. C = sqrt(a^2 + b^2), H = atan2(b, a). The lightness channel is shared directly.Color ConversionsOKLCh to OKLabPolar to Cartesian—recover the a/b axes from chroma and hue:OKLab to OKLChCartesian to polar—extract chroma (magnitude) and hue (angle) from the a/b plane:OKLab to XYZInvert the two linear transforms around a cube operation. The cube reverses the perceptual cube-root compression applied in the forward path:XYZ to OKLabTwo matrix multiplications sandwiching a cube root. The first maps XYZ to LMS cone responses; the cube root models the perceptual non-linearity; the second projects into OKLab:ApplicationsCSS oklch(). Supported in Chrome, Safari, and Firefox; increasingly adopted for design systems.Design system palettes. Step through L or C to build scales that look evenly spaced to the human eye.Accessible color. Adjust L to meet WCAG contrast targets without disturbing hue or saturation.Perceptual gradients. Interpolating in OKLCh avoids the hue shifts and muddy midpoints of RGB or HSL blends.Data visualization. Build color ramps where perceptual distance tracks data distance.","w":461.5,"h":495.1,"attributedTo":"self"},{"route":"/","tag":"a","id":"","cls":"","name":"OKLab","w":52.6,"h":29.5,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--x katex-row","name":"Formula","w":410.6,"h":224,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--x katex-row","name":"Formula","w":410.6,"h":224,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--x katex-row","name":"Formula","w":410.6,"h":224,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--x katex-row","name":"Formula","w":410.6,"h":224,"attributedTo":"self"}]}
+
+[1A[2K[W4-CENSUS] {"route":"/#/gradient","rows":[{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Save edit","w":40.4,"h":40.4,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Cancel edit","w":40.4,"h":40.4,"attributedTo":"self"},{"route":"/#/gradient","tag":"input","id":"","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","name":"Slug or admin token","w":224.4,"h":38.3,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Switch to slug","w":24.2,"h":24.2,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Cancel","w":24.2,"h":24.2,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Back","w":40.4,"h":40.4,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Reset","w":40.4,"h":40.4,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Copy CSS","w":40.4,"h":40.4,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Seed from palette","w":40.4,"h":40.4,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal","name":"Select view","w":126.8,"h":33.3,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn","name":"Toggle action bar","w":119.5,"h":41.2,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-tab-button glass-specular-track gap-1.5 text-small font-display","name":"Login","w":87.2,"h":38.9,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"reka-dropdown-menu-trigger-v-5","cls":"menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground hover:underline underline-offset-4 whitespace-nowrap","name":"@mbabb","w":73.9,"h":31.2,"attributedTo":"self"},{"route":"/#/gradient","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"Stops Select a stop on the rail to set its position or remove it.  Interpolation TypeLinear Color spaceOKLCh Hue methodShorter Direction90degEasing1 → 2linearCSSlinear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)","w":739.6,"h":759.6,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-caret rail-swatch absolute rounded-full border-2 border-dashed border-white/70 z-0","name":"Add gradient stop at 50%","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0","name":"Gradient stop 1 of 2","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0","name":"Gradient stop 2 of 2","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Type","w":186.5,"h":36,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Color space","w":186.5,"h":36,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Hue method","w":186.5,"h":36,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"glass-disclosure-trigger-v-25","cls":"disclosure-trigger disclosure-group-trigger interval-head w-full flex items-center gap-2.5 py-2 px-(--easing-inset) text-left","name":"1 → 2linear","w":689.6,"h":44,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact","name":"Copy rendered CSS (easing baked in)","w":28,"h":28,"attributedTo":"self"},{"route":"/#/gradient","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"Start a new paletteNo saved palettes yet.Add colors, then save.","w":456.3,"h":283.3,"attributedTo":"self"},{"route":"/#/gradient","tag":"input","id":"","cls":"input-bar-field","name":"Search your palettes","w":360.3,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"button tap-squish focus-ring add-slot-ghost shrink-0 cursor-pointer","name":"Add current color oklch(73% 0.185 2deg) to palette","w":44,"h":44,"attributedTo":"self"}]}
+
+[1A[2K[W4-A1] undersized=0
+
+
+[1A[2K[2/168] [smoke] › e2e/smoke/a11y-control-targets.spec.ts:377:1 › A3 · the size axis owns control height — computed blockSize == the producer size token
+[1A[2K[smoke] › e2e/smoke/a11y-control-targets.spec.ts:377:1 › A3 · the size axis owns control height — computed blockSize == the producer size token
+[W4-SIZED] {"route":"/","rows":[{"route":"/","tag":"input","slot":"input","size":"sm","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","blockSize":36,"token":0,"controlFloor":0}]}
+
+[1A[2K[W4-SIZED] {"route":"/#/gradient","rows":[{"route":"/#/gradient","tag":"input","slot":"input","size":"sm","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","blockSize":36,"token":0,"controlFloor":0},{"route":"/#/gradient","tag":"button","slot":"button","size":"lg","cls":"button tap-squish focus-ring add-slot-ghost shrink-0 cursor-pointer","blockSize":44,"token":44,"controlFloor":0}]}
+
+[1A[2K[W4-A3] measured=1 mismatches=0
+
+
+[1A[2K[3/168] [smoke] › e2e/smoke/a11y-control-targets.spec.ts:411:1 › A4 · zero nameless interactive elements
+[1A[2K[smoke] › e2e/smoke/a11y-control-targets.spec.ts:411:1 › A4 · zero nameless interactive elements
+[W4-A4] nameless=0
+
+
+[1A[2K[4/168] [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:259:1 › C1 · a keyboard-only journey mints a stop — and the pointer-add gesture still mints
+[1A[2K[smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:259:1 › C1 · a keyboard-only journey mints a stop — and the pointer-add gesture still mints
+[W4-C1] caretLeft=379.188 mintedLeft=379.188 inline="calc(var(--rail-inset) + var(--rail-track) * 0.55)"
+
+[1A[2K[W4-C1] pointerEventsDuringKeyboardJourney=0
+
+[1A[2K[5/168] [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:319:1 › C2 · every stop handle is a slider in the a11y tree — role, value triple, valuetext, ordinal
+[1A[2K[smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:319:1 › C2 · every stop handle is a slider in the a11y tree — role, value triple, valuetext, ordinal
+[W4-C2] [{"role":"slider","min":"0","max":"100","now":"0","text":"Stop 1 of 3, position 0%","name":"Gradient stop 1 of 3"},{"role":"slider","min":"0","max":"100","now":"50","text":"Stop 2 of 3, position 50%","name":"Gradient stop 2 of 3"},{"role":"slider","min":"0","max":"100","now":"100","text":"Stop 3 of 3, position 100%","name":"Gradient stop 3 of 3"}]
+
+[1A[2K[6/168] [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:374:1 › C3 · the full keyboard grammar moves the stop — every key measured at style.left
+[1A[2K[smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:374:1 › C3 · the full keyboard grammar moves the stop — every key measured at style.left
+[W4-C3] home=12 end=679.641 unit=6.6764px/% inline="calc(var(--rail-inset) + var(--rail-track) * 1)"
+
+[1A[2K[W4-C3-LEDGER] {"unitPxPerPercent":6.67641,"presses":[{"key":"Home","before":345.812,"after":12,"delta":-333.812,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowLeft","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"End","before":12,"after":679.641,"delta":667.641,"inline":"calc(var(--rail-inset) + var(--rail-track) * 1)"},{"key":"ArrowRight","before":679.641,"after":679.641,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 1)"},{"key":"Home","before":679.641,"after":12,"delta":-667.641,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"PageUp","before":12,"after":78.75,"delta":66.75,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.1)"},{"key":"PageDown","before":78.75,"after":12,"delta":-66.75,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowUp","before":12,"after":18.672,"delta":6.672,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowDown","before":18.672,"after":12,"delta":-6.672,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":18.672,"delta":6.672,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowLeft","before":18.672,"after":12,"delta":-6.672,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":" ","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":18.672,"delta":6.672,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowRight","before":18.672,"after":25.344,"delta":6.672,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":"ArrowRight","before":25.344,"after":32.016,"delta":6.672,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.03)"},{"key":"Escape","before":32.016,"after":12,"delta":-20.016,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":" ","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":18.672,"delta":6.672,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowRight","before":18.672,"after":25.344,"delta":6.672,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":" ","before":25.344,"after":25.344,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":"Escape","before":25.344,"after":25.344,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"}]}
+
+[1A[2K[W4-C3] defects=0
+
+
+[1A[2K[7/168] [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:552:1 › C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fine pointer)
+[1A[2K[smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:552:1 › C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fine pointer)
+[W4-C4-SETTLE] geometry inFlightAtEntry=[]
+
+[1A[2K[W4-C4-FINE] [{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16},{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16}]
+
+[1A[2K[W4-C4-SETTLE] clip inFlightAtEntry=[]
+
+[1A[2K[W4-C4-RING] {"shadow":"rgba(0, 0, 0, 0.85) 0px 0px 0px 1px, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px","spread":3,"clippers":[],"focusVisible":true}
+
+[1A[2K[8/168] [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:640:5 › C4 coarse pointer › C4 · handle target ≥24×24 with the producer's coarse hit rung (coarse pointer)
+[1A[2K[smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:640:5 › C4 coarse pointer › C4 · handle target ≥24×24 with the producer's coarse hit rung (coarse pointer)
+[W4-C4-COARSE] [{"w":24,"h":24,"hitW":44,"hitH":44},{"w":24,"h":24,"hitW":44,"hitH":44}]
+
+[1A[2K[9/168] [smoke] › e2e/smoke/a11y-modality-support.spec.ts:87:1 › BR-5 · forced-colors:active — color surfaces preserved + chrome operable + focus outline
+[1A[2K[smoke] › e2e/smoke/a11y-modality-support.spec.ts:87:1 › BR-5 · forced-colors:active — color surfaces preserved + chrome operable + focus outline
+[BR-5] forced-color-adjust spectrum: auto → none; atmosphere-canvas: none
+
+[1A[2K[BR-5] max focus outline width under forced-colors: 2px
+
+[1A[2K[10/168] [smoke] › e2e/smoke/a11y-modality-support.spec.ts:158:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised)
+[1A[2K[smoke] › e2e/smoke/a11y-modality-support.spec.ts:158:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised)
+[BR-6] --glass-tint-strength: '4%' → '0%'; --muted-foreground: 'light-dark(hsl(30 22% 40%),hsl(34 14% 62%))' → 'color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 88%, light-dark(hsl(40 30% 98%),hsl(24 9% 4%)))'
+
+[1A[2K[11/168] [smoke] › e2e/smoke/a11y-modality-support.spec.ts:194:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg)
+[1A[2K[smoke] › e2e/smoke/a11y-modality-support.spec.ts:194:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg)
+[BR-7] --glass-level: '1' → '0'; --glass-tint-strength: '4%' → '0%'; glass-resting bg: 'color(srgb 0.20397 0.148263 0.0829736 / 0.14)' → 'rgb(253, 245, 236)'; carrier ::before backdrop-filter: 'none'
+
+[1A[2K[12/168] [smoke] › e2e/smoke/a11y-modality-support.spec.ts:278:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery)
+[1A[2K[smoke] › e2e/smoke/a11y-modality-support.spec.ts:278:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery)
+[U-F57 SR] aria-live / status / alert regions: 9
+
+[1A[2K[13/168] [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition
+[1A[2K[smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition
+[W4-B1-CENSUS] {"route":"/#/mix","rows":[{"route":"/#/mix","inScope":false,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]","ariaLabel":"Select color space","labelledBy":null,"titleText":"","sharesFieldRoot":false,"titleBoxInsideField":false,"blockSize":83.19,"tokenSm":36},{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-47-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-49-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+
+[1A[2K[W4-B1-CENSUS] {"route":"/#/generate","rows":[{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-5-label","titleText":"Preset","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-7-label","titleText":"Harmony","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+
+[1A[2K[W4-B1-CENSUS] {"route":"/#/gradient","rows":[{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-18-label","titleText":"Type","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-20-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-22-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+
+[1A[2K[W4-B1] asserted=7 excluded=1 defects=0
+
+
+[1A[2K[14/168] [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung
+[1A[2K[smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung
+[W4-B2-FINE] {"route":"/#/mix","rows":[{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-47-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-49-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+
+[1A[2K[W4-B2-COARSE] {"route":"/#/mix","rows":[{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-47-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54},{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-49-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54}]}
+
+[1A[2K[W4-B2-FINE] {"route":"/#/generate","rows":[{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-5-label","titleText":"Preset","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-7-label","titleText":"Harmony","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+
+[1A[2K[W4-B2-COARSE] {"route":"/#/generate","rows":[{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-5-label","titleText":"Preset","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54},{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-7-label","titleText":"Harmony","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54}]}
+
+[1A[2K[W4-B2-FINE] {"route":"/#/gradient","rows":[{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-18-label","titleText":"Type","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-20-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-22-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+
+[1A[2K[W4-B2-COARSE] {"route":"/#/gradient","rows":[{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-18-label","titleText":"Type","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-20-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-22-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54}]}
+
+[1A[2K[W4-B2] asserted=7 defects=0
+
+
+[1A[2K[15/168] [smoke] › e2e/smoke/a11y-select-title.spec.ts:497:1 › B3 · slider seam consumed as published — the A-16 receipt exists and the fence holds
+[1A[2K[smoke] › e2e/smoke/a11y-select-title.spec.ts:497:1 › B3 · slider seam consumed as published — the A-16 receipt exists and the fence holds
+[W4-B3] producerSliderVars=12 declaredInternal=4 consumerReads=0
+
+
+[1A[2K[16/168] [smoke] › e2e/smoke/a11y-slider-operation.spec.ts:34:1 › BR-8 · slider keyboard OPERATION — Home/End/Arrow drive the value across the range
+[1A[2K[smoke] › e2e/smoke/a11y-slider-operation.spec.ts:34:1 › BR-8 · slider keyboard OPERATION — Home/End/Arrow drive the value across the range
+[BR-8] channel sliders found: 4
+
+[1A[2K[BR-8] L channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+
+[1A[2K[BR-8] C channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+
+[1A[2K[BR-8] H channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+
+[1A[2K[BR-8] ALPHA channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+
+[1A[2K[17/168] [smoke] › e2e/smoke/a11y-web-modality.spec.ts:34:1 › BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow)
+[1A[2K[smoke] › e2e/smoke/a11y-web-modality.spec.ts:34:1 › BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow)
+[BR-10] <html dir> = ltr
+
+[1A[2K[BR-10] RTL overflow: scrollWidth=1280 clientWidth=1280
+
+[1A[2K[18/168] [smoke] › e2e/smoke/a11y-web-modality.spec.ts:102:1 › BR-11 · @media print — legible palette artifact (chrome hidden, ink-economical)
+[1A[2K[smoke] › e2e/smoke/a11y-web-modality.spec.ts:102:1 › BR-11 · @media print — legible palette artifact (chrome hidden, ink-economical)
+[BR-11] print dock nav display: none
+
+[1A[2K[BR-11] print body bg color=rgb(255, 255, 255) image=none
+
+[1A[2K[BR-11] spectrum print-color-adjust: exact
+
+[1A[2K[19/168] [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:74:5 › cold load at a URL color paints the DERIVED field first frame (light)
+[1A[2K[20/168] [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:74:5 › cold load at a URL color paints the DERIVED field first frame (dark)
+[1A[2K[21/168] [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:186:1 › the body carries the paper-field contract — no orphan amber field-floor on glass cards
+[1A[2K[22/168] [smoke] › e2e/smoke/color-space-switching.spec.ts:9:1 › color-space select switches the active space
+[1A[2K[23/168] [smoke] › e2e/smoke/crash-battery.spec.ts:66:1 › R14 · pressing Retry on a dead Browse wall leaves a plate behind
+[1A[2K[24/168] [smoke] › e2e/smoke/crash-battery.spec.ts:147:1 › R15 · an achromatic colour then LCh does not kill the pane grid
+[1A[2K[25/168] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=black
+[1A[2K[26/168] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=white
+[1A[2K[27/168] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#000000
+[1A[2K[28/168] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#808080
+[1A[2K[29/168] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#fefefe
+[1A[2K[30/168] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=rgb(17,17,17)
+[1A[2K[31/168] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=hsl(0 0% 50%)
+[1A[2K[32/168] [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: oklch(0.5 0 none)
+[1A[2K[33/168] [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: lch(50 0 none)
+[1A[2K[34/168] [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: hsl(none 0% 50%)
+[1A[2K[35/168] [smoke] › e2e/smoke/crash-battery.spec.ts:331:1 › R18 · a real image file develops a palette
+[1A[2K[36/168] [smoke] › e2e/smoke/crash-battery.spec.ts:374:1 › R18 · a corrupt file surfaces a visible error, never a silent half-state
+[1A[2K[37/168] [smoke] › e2e/smoke/crash-battery.spec.ts:400:5 › R19 · the mobile menu dropdown › opens, publishes its rows, and its external link is operable
+[1A[2K[38/168] [smoke] › e2e/smoke/dual-pane-1440.spec.ts:248:1 › D8-1 · regions at 1440 — both render, and the pane axis is cascade-immune
+[1A[2K[smoke] › e2e/smoke/dual-pane-1440.spec.ts:248:1 › D8-1 · regions at 1440 — both render, and the pane axis is cascade-immune
+[dual-pane-1440] {
+  "probe": "R.W2.4 regions-1440 (re-pointed X.W5.c)",
+  "viewport": "1440×900",
+  "cascadeRoot": {
+    "importSite": 1,
+    "indexUnlayered": false,
+    "indexLayered": true,
+    "deferredUnlayered": false,
+    "deferredLayered": false,
+    "componentsHasBareHidden": true,
+    "componentsLayerCount": 0
+  },
+  "importSiteCite": "dist/styles/index.css:1",
+  "cssom": {
+    "hiddenRuleSites": [
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "fouc-guard"
+      },
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "utilities"
+      },
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "components"
+      }
+    ],
+    "winningHref": null,
+    "winningLayered": true,
+    "anyUnlayeredHidden": false
+  },
+  "baseline": {
+    "count": 2,
+    "displays": [
+      "block",
+      "block"
+    ],
+    "visible": 2,
+    "displayUtilities": [],
+    "roles": [
+      "Picker",
+      "About"
+    ]
+  },
+  "d8_1": "PRODUCER-CURE-OBSERVED (layer(components) present in dist) — D8-1 verified at consume",
+  "anyUnlayeredHidden": false,
+  "verdict": "REGIONS_RENDER_CASCADE_IMMUNE",
+  "note": "Both regions render at 1440 with zero display utilities on the wrappers. Producer state: PRODUCER-CURE-OBSERVED (layer(components) present in dist) — D8-1 verified at consume (import at dist/styles/index.css:1)."
+}
+
+[1A[2K[39/168] [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[1A[2K[smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[od19-p3] {"width":1440,"renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)","realGpu":false,"warmed":true,"coldDuringGradient":[],"gradient":{"title":672,"firstMove":672,"lastMove":1552,"window":879,"maxFrame":548,"frames":10,"loaf":[[-2,110,["render@76","style+layout@101","FrameRequestCallback|shell/PaneSlot.vue|11","FrameRequestCallback|shell/PaneSlot.vue|7","ResizeObserverCallback|deps/@mkbabb_glass-ui_dock.js|6"]],[1007,56,["render@54","style+layout@56"]],[127,843,["render@547","style+layout@551","ResizeObserverCallback|deps/createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js|279","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|85","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|29"]]],"movedBy":[[672,[[-24,0,-1],[24,0,-1]]],[985,[[0,0,0.15],[0,0,0.15]]],[1060,[[10,0,0.62],[-10,0,0.62]]],[1552,[[13,0,0.23],[-13,0,0.23]]]]},"home":{"title":1,"firstMove":717,"lastMove":1974,"window":1257,"maxFrame":620,"frames":10,"loaf":[[0,85,["render@62","style+layout@76","ResizeObserverCallback|deps/@mkbabb_glass-ui_dock.js|6","FrameRequestCallback||5"]],[1279,155,["render@153","style+layout@155"]],[101,1163,["render@621","style+layout@636","ResizeObserverCallback|deps/createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js|510","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|32","FrameRequestCallback|deps/useScrollChrome-BJbWV32F-BKd159EY.js|13"]],[1434,545,["render@540","style+layout@545"]]],"movedBy":[[717,[[24,0,-1],[-24,0,-1]]],[1276,[[0,0,0.15],[0,0,0.15]]],[1430,[[-21,0,0.83],[21,0,0.83]]],[1974,[[-3,0,0.02],[3,0,0.02]]]]},"mix":{"title":780,"firstMove":780,"lastMove":1490,"window":710,"maxFrame":682,"frames":9,"loaf":[[0,80,["render@59","style+layout@70","ResizeObserverCallback|deps/@mkbabb_glass-ui_dock.js|6","FrameRequestCallback||5","FrameRequestCallback|shell/PaneSlot.vue|5"]],[101,703,["render@689","style+layout@693","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|62","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|12","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|9"]],[806,176,["render@173","style+layout@176"]]],"movedBy":[[780,[[0,0,0],[24,0,-1]]],[1239,[[0,0,0],[-12,0,0.81]]],[1490,[[0,0,0],[-13,0,0.19]]]]},"at":"2026-10-28T17:31:39.626Z"}
+
+[1A[2K[40/168] [smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[1A[2K[smoke] › e2e/smoke/od19-pane-swap.spec.ts:148:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[od19-p3] {"width":390,"renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)","realGpu":false,"warmed":true,"coldDuringGradient":[],"gradient":{"title":649,"firstMove":649,"lastMove":1479,"window":830,"maxFrame":533,"frames":13,"loaf":[[-3,99,["render@66","style+layout@89","FrameRequestCallback|shell/PaneSlot.vue|14","FrameRequestCallback|shell/PaneSlot.vue|7","ResizeObserverCallback|deps/@mkbabb_glass-ui_dock.js|7"]],[118,870,["render@537","style+layout@543","ResizeObserverCallback|deps/createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js|315","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|103","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|29"]],[1290,97,["render@96","style+layout@97"]],[1064,125,["render@123","style+layout@125"]],[1190,100,["render@97","style+layout@100"]],[1388,96,["render@94","style+layout@96"]]],"movedBy":[[649,[[-24,0,-1],[24,433,-1]]],[1000,[[0,0,0.1],[0,1,0.1]]],[1062,[[8,0,0.58],[-8,0,0.58]]],[1186,[[15,0,0.32],[-15,0,0.32]]],[1286,[[2,0,0],[-2,0,0]]],[1479,[[-1,0,0],[1,0,0]]]]},"home":{"title":1,"firstMove":820,"lastMove":1202,"window":382,"maxFrame":721,"frames":10,"loaf":[[-4,86,["render@67","style+layout@77","ResizeObserverCallback|deps/@mkbabb_glass-ui_dock.js|6","FrameRequestCallback|shell/PaneSlot.vue|5"]],[102,892,["render@719","style+layout@731","ResizeObserverCallback|deps/createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js|148","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|34","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|10"]],[1040,166,["render@164","style+layout@166"]]],"movedBy":[[820,[[24,0,-1],[-24,-433,-1]]],[1007,[[0,0,0.12],[0,-1,0.12]]],[1024,[[-1,0,0.22],[1,0,0.22]]],[1202,[[-22,0,0.66],[22,0,0.66]]]]},"mix":{"title":455,"firstMove":455,"lastMove":1137,"window":682,"maxFrame":367,"frames":8,"loaf":[[0,70,["render@55","style+layout@60","ResizeObserverCallback|deps/@mkbabb_glass-ui_dock.js|6"]],[95,377,["render@363","style+layout@368","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|70","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|11","TimerHandler:setTimeout|deps/vue.runtime.esm-bundler-Bk1yvsSk.js|10"]],[474,169,["render@166","style+layout@169"]]],"movedBy":[[455,[[0,568,0],[24,-555,-1]]],[1137,[[0,0,0],[-23,0,1]]]]},"at":"2026-10-28T17:31:56.171Z"}
+
+[1A[2K[41/168] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+{"width":1440,"frames":5,"morphingFrames":0,"hostTransformFrames":0,"compounded":0,"settles":[{"t":480,"morphing":false,"onHost":false,"seat":"trigger"},{"t":480,"morphing":false,"onHost":false,"seat":"seal"}],"drift":0}
+
+[1A[2K[42/168] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+{"width":390,"frames":8,"morphingFrames":0,"hostTransformFrames":0,"compounded":0,"settles":[{"t":198,"morphing":false,"onHost":false,"seat":"trigger"},{"t":198,"morphing":false,"onHost":false,"seat":"seal"}],"drift":0}
+
+[1A[2K[43/168] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"light-1440","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)","realGpu":false,"n":41,"p50":2508.2,"p95":3238.3,"max":3420.8,"rafP50":1295.8,"floorP50":13.8,"floorP95":876.5,"loafN":38,"loafMax":2003,"at":"2026-10-28T17:33:10.584Z"}
+
+[1A[2K[44/168] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"dark-1440","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)","realGpu":false,"n":41,"p50":1785.3,"p95":3533.5,"max":3623.2,"rafP50":974.1,"floorP50":13.9,"floorP95":1001.7,"loafN":38,"loafMax":2003,"at":"2026-10-28T17:34:09.896Z"}
+
+[1A[2K[45/168] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"light-390","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)","realGpu":false,"n":41,"p50":1003.6,"p95":1949.3,"max":2127.1,"rafP50":525.1,"floorP50":13.7,"floorP95":862.1,"loafN":38,"loafMax":1408,"at":"2026-10-28T17:34:47.407Z"}
+
+[1A[2K[46/168] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:120:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"dark-390","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)","realGpu":false,"n":41,"p50":1028,"p95":1833.5,"max":2373.4,"rafP50":499.5,"floorP50":13.7,"floorP95":797.1,"loafN":38,"loafMax":1124,"at":"2026-10-28T17:35:23.392Z"}
+
+[1A[2K[47/168] [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors
+[1A[2K[48/168] [smoke] › e2e/smoke/page-load.spec.ts:73:1 › an unknown address announces its destination and is distinct from home
+[1A[2K[49/168] [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 1440
+[1A[2K[50/168] [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 390
+[1A[2K[51/168] [smoke] › e2e/smoke/page-load.spec.ts:135:1 › OD19-V6: the pane-loading plate is wordless and named on its status
+[1A[2K[52/168] [smoke] › e2e/smoke/page-load.spec.ts:164:1 › OD19-V8: the channel rail carries one hairline
+[1A[2K[53/168] [smoke] › e2e/smoke/scene-action-contract.spec.ts:106:5 › D1 · one contract, ONE render path › the color scene renders through the one action row
+[1A[2K[54/168] [smoke] › e2e/smoke/scene-action-contract.spec.ts:125:5 › D1 · one contract, ONE render path › a workbench scene renders through the SAME row and shape
+[1A[2K[2m[WebServer] [22m[2m1:36:01 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[2m[WebServer] [22m[39m > ../../../../../../../../../../@vite/client:531:50
+[2m[WebServer] [22m
+
+[1A[2K[2m[WebServer] [22m[2m1:36:01 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) ResizeObserver loop completed with undelivered notifications.
+
+[1A[2K[55/168] [smoke] › e2e/smoke/scene-action-contract.spec.ts:139:5 › D1 · one contract, ONE render path › the Picker priority is GONE: /mix renders the mix set, not the picker's
+[1A[2K[2m[WebServer] [22m[2m1:36:13 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[2m[WebServer] [22m[39m > ../../../../../../../../../../@vite/client:531:50
+[2m[WebServer] [22m
+[2m[WebServer] [22m[2m1:36:13 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) ResizeObserver loop completed with undelivered notifications.
+
+[1A[2K[56/168] [smoke] › e2e/smoke/scene-action-contract.spec.ts:180:9 › D4 · the mobile branch registers its scene panes — every seat READY › Generate: every action is named, modelled 'ready', and operable
+[1A[2K[57/168] [smoke] › e2e/smoke/scene-action-contract.spec.ts:180:9 › D4 · the mobile branch registers its scene panes — every seat READY › Gradient: every action is named, modelled 'ready', and operable
+[1A[2K[58/168] [smoke] › e2e/smoke/scene-action-contract.spec.ts:180:9 › D4 · the mobile branch registers its scene panes — every seat READY › Mix: every action is named, modelled 'ready', and operable
+[1A[2K[59/168] [smoke] › e2e/smoke/scene-action-contract.spec.ts:214:5 › D4 · a registered target is READY, and dispatches for real › Generate on the desktop branch: three ready seats, and one real dispatch
+[1A[2K[60/168] [smoke] › e2e/smoke/scene-action-contract.spec.ts:260:5 › §8 artefact 8 — the dock action bar's frames (desktop matrix) › the Mix view's bar, framed
+[1A[2K[2m[WebServer] [22m[2m1:37:13 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[2m[WebServer] [22m[39m > ../../../../../../../../../../@vite/client:531:50
+[2m[WebServer] [22m
+[2m[WebServer] [22m[2m1:37:13 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) ResizeObserver loop completed with undelivered notifications.
+
+[1A[2K[61/168] [smoke] › e2e/smoke/scene-action-contract.spec.ts:272:5 › §8 artefact 8 — the dock action bar's frames (390 viewport) › the Mix view's bar with no pane registered, framed
+[1A[2K[2m[WebServer] [22m[2m1:37:21 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[2m[WebServer] [22m[39m > ../../../../../../../../../../@vite/client:531:50
+[2m[WebServer] [22m
+
+[1A[2K[2m[WebServer] [22m[2m1:37:21 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) ResizeObserver loop completed with undelivered notifications.
+
+[1A[2K[62/168] [smoke] › e2e/smoke/scene-action-contract.spec.ts:282:5 › AB-32 · the collapse CARRIES the active/selected member › the palette-open indicator survives the contract collapse
+[1A[2K[63/168] [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:32:1 › SS8-0192/0197 — no stylesheet carries the dead pane-header veil
+[1A[2K[64/168] [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:67:1 › SS8-0194 — no shipped rule computes a ratio through tan(atan2()) (the WebKit pole)
+[1A[2K[65/168] [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/)
+[1A[2K[66/168] [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/gradient)
+[1A[2K[67/168] [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/mix)
+[1A[2K[68/168] [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/extract)
+[1A[2K[69/168] [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/generate)
+[1A[2K[70/168] [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:87:5 › SS8-0189/0195/0196/0199 — seated, uncondensed, unscaled header at every depth (/browse)
+[1A[2K[71/168] [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:167:5 › SS8-0214 — deep-link cold boot /gradient then home mounts the hero blob
+[1A[2K[72/168] [smoke] › e2e/smoke/ss8-b07-pane-shell.spec.ts:167:5 › SS8-0214 — deep-link cold boot /browse then home mounts the hero blob
+[1A[2K[73/168] [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (light)
+[1A[2K[smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (light)
+SS8-0363 light {"normal":{"ratio":8.233197033639613,"ink":[46,43,43],"ground":[227,188,203]},"more":{"ratio":9.89277031941581,"ink":[52,49,47],"ground":[235,223,217]}}
+
+[1A[2K[74/168] [smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (dark)
+[1A[2K[smoke] › e2e/smoke/ss8-b12-card-shell.spec.ts:122:5 › SS8-0363 · prefers-contrast: more never lowers the tag chip's ratio (dark)
+SS8-0363 dark {"normal":{"ratio":6.529655434624107,"ink":[194,191,190],"ground":[77,46,54]},"more":{"ratio":7.133083672083702,"ink":[209,206,203],"ground":[68,57,51]}}
+
+[1A[2K[75/168] [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light)
+[1A[2K[smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light)
+SS8-0408 light {"peak":1.3476569234429707,"trough":1.1841132591661425}
+
+[1A[2K[76/168] [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark)
+[1A[2K[smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark)
+SS8-0408 dark {"peak":1.4068503824511411,"trough":1.190934124460691}
+
+[1A[2K[77/168] [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:52:1 › SS8-0442 · a focused saved card's ring paints on all four edges
+[1A[2K  1) [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:52:1 › SS8-0442 · a focused saved card's ring paints on all four edges 
+
+    Error: outer-vs-gap step per edge: [{"edge":"top","unfocused":2.99,"focused":2.99},{"edge":"bottom","unfocused":2.99,"focused":3.54},{"edge":"left","unfocused":2.84,"focused":49.76},{"edge":"right","unfocused":2.91,"focused":52.47}]
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  -  1[39m
+    [31m+ Received  + 12[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   Object {[39m
+    [31m+     "edge": "top",[39m
+    [31m+     "focused": 2.99,[39m
+    [31m+     "unfocused": 2.99,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "edge": "bottom",[39m
+    [31m+     "focused": 3.54,[39m
+    [31m+     "unfocused": 2.99,[39m
+    [31m+   },[39m
+    [31m+ ][39m
+
+      116 |     test.info().annotations.push({ type: "edge-steps", description: JSON.stringify(steps) });
+      117 |     const unpainted = steps.filter((s) => !(s.focused > Math.max(s.unfocused * 2, s.unfocused + 8)));
+    > 118 |     expect(unpainted, `outer-vs-gap step per edge: ${JSON.stringify(steps)}`).toEqual([]);
+          |                                                                               ^
+      119 | });
+      120 |
+      121 | test("SS8-0446 · the saved-card scroller keeps its bottom fade (regression arm)", async ({ page }) => {
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/ss8-b15-palette-cards.spec.ts:118:79
+
+    Error Context: test-results/ss8-b15-palette-cards-SS8--813b5-ng-paints-on-all-four-edges-smoke/error-context.md
+
+
+[1A[2K(node:91430) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[78/168] [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:121:1 › SS8-0446 · the saved-card scroller keeps its bottom fade (regression arm)
+[1A[2K[79/168] [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:131:1 › SS8-0450 · a zero-match query offers Clear search (regression arm)
+[1A[2K[80/168] [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light)
+[1A[2K[81/168] [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:174:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (light)
+[1A[2K[82/168] [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark)
+[1A[2K[83/168] [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:174:5 › D-11 · the strip chip sits on its own opaque stage — the selected row's highlight never reaches it (dark)
+[1A[2K[84/168] [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:45:5 › R-1 · section headings clear 4.5:1 over the live ground (1440, light)
+[1A[2K[85/168] [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:45:5 › R-1 · section headings clear 4.5:1 over the live ground (1440, dark)
+[1A[2K[86/168] [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:79:5 › R-6 + R-15 · the interpolation band stacks unclipped and the tile is near-square (390)
+[1A[2K[87/168] [smoke] › e2e/smoke/ss8-b20-gradient.spec.ts:79:5 › R-6 + R-15 · the interpolation band stacks unclipped and the tile is near-square (320)
+[1A[2K[88/168] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, light)
+[1A[2K[smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, light)
+U-1 light worst {"text":"CSS","ratio":4.615} of 34
+
+[1A[2K[89/168] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, light)
+[1A[2K[90/168] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, dark)
+[1A[2K[smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:51:5 › U-1 · resting specimen labels and eyebrows clear 4.5:1 on their own plate (1440, dark)
+U-1 dark worst {"text":"end","ratio":6.113} of 34
+
+[1A[2K[91/168] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:111:5 › U-12 → C-04 · the in-plate specimen tiles are flat (no floating shadow, dark)
+[1A[2K[92/168] [smoke] › e2e/smoke/ss8-b22-gradient-specimen.spec.ts:132:1 › U-7 (c) · an overshooting authored curve (Shift+ArrowUp ×4 on control point 2) keeps the pane
+[1A[2K[93/168] [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, light)
+[1A[2K[94/168] [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:40:5 › R-2 · the seed line clears 4.5:1 over its painted ground (1440, dark)
+[1A[2K[95/168] [smoke] › e2e/smoke/ss8-b26-cures.spec.ts:84:5 › X-5 · phone › X-5 · Add to palette in the eyedropper is announced politely (390, touch)
+[1A[2K[96/168] [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:69:5 › Z1-app-chassis — the row composition › Z-chassis-2/3 · Z-LG-3/4 — per-route tracks at 1440, surplus to the stage at 3440
+[1A[2K[97/168] [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:110:5 › Z1-app-chassis — the row composition › Z-LG-5 — no page cap token
+[1A[2K[98/168] [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:121:5 › Z1-app-chassis — the row composition › Z-LG-6 — the fluid gutter
+[1A[2K[99/168] [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:149:5 › Z1-app-chassis — the dock › Z-Dock-10 — the main layer shows no visible separator
+[1A[2K[100/168] [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:164:5 › Z1-app-chassis — the dock › Z-Dock-13 — the dock's sampler is bound to the atmosphere field
+[1A[2K[101/168] [smoke] › e2e/smoke/ss8-z1-app-chassis.spec.ts:178:5 › Z1-app-chassis — the dock › Z-Dock-5 — Open color input focuses the field and typing lands in it
+[1A[2K[102/168] [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes
+[1A[2K[smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:67:5 › Z2 picker cohort — desktop 1440 › P11/P14/P16/P21 · CI10 — header region, seam, ratio, clock, crown keyframes
+Z2 header census 1440 {"live":"polite","seam":7.03125,"ratio":0.7861861861861862,"cellTops":[196,196,196]}
+
+[1A[2KZ2 seam diag [{"cols":"834.344px 515.656px","regions":["color-picker:834","about:516"],"fp":"106.207px"},{"s":".pane-shell .picker-header","top":89,"bottom":243,"h":154,"minH":"auto","pad":"12px 24px 0px","mt":"0px"},{"s":".pane-shell .title-row","top":101,"bottom":187,"h":86,"minH":"86.207px","pad":"0px 106.207px 0px 0px","mt":"0px"},{"s":".pane-shell .title-row [role=\"combobox\"]","top":101,"bottom":186,"h":85,"minH":"0px","pad":"0px 0px 5.0616px","mt":"0px"},{"s":".pane-shell .readout","top":196,"bottom":243,"h":47,"minH":"46.9146px","pad":"0px","mt":"0px"},{"s":".pane-shell .readout .readout-fig","top":196,"bottom":243,"h":47,"minH":"auto","pad":"0px","mt":"0px"},null]
+
+[1A[2K[103/168] [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:121:5 › Z2 picker cohort — desktop 1440 › P6 — a model write after a readout keystroke repaints the readout
+[1A[2K[104/168] [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:139:5 › Z2 picker cohort — desktop 1440 › P10 — an unknown pane is Not found, never the picker
+[1A[2K[105/168] [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:146:5 › Z2 picker cohort — desktop 1440 › CSS1..7 — the colour-space catalog and the About card
+[1A[2K[106/168] [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:191:5 › Z2 picker cohort — desktop 1440 › CSP3/4/10/12/14 · CSP5 — the Blob configurator census and Copy
+[1A[2K[107/168] [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:235:5 › Z2 picker cohort — desktop 1440 › CSP15 — forced colors: a focused config slider draws the same outline as a button
+[1A[2K[108/168] [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:257:5 › Z2 picker cohort — desktop 1440 › P22 — the dark scheme darkens the ambient ground
+[1A[2K[109/168] [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:294:5 › Z2 picker cohort — mobile 390 › P1 · CI5 · CI13 · P16 · P20 — every action reachable; free-text entry; the readout band
+[1A[2K[2m[WebServer] [22m[2m1:46:52 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[2m[WebServer] [22m[39m > ../../../../../../../../../../@vite/client:531:50
+[2m[WebServer] [22m
+[2m[WebServer] [22m[2m1:46:52 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) ResizeObserver loop completed with undelivered notifications.
+
+[1A[2K  2) [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:294:5 › Z2 picker cohort — mobile 390 › P1 · CI5 · CI13 · P16 · P20 — every action reachable; free-text entry; the readout band 
+
+    Error: Z-ColorPicker-1: all five scene actions reachable at 390
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 0[39m
+    [31m+ Received  + 1[39m
+
+    [33m@@ -2,6 +2,7 @@[39m
+    [2m    "Copy color",[22m
+    [2m    "Extract palette",[22m
+    [2m    "Palettes",[22m
+    [2m    "Random color",[22m
+    [2m    "Reset color",[22m
+    [31m+   "Reset color",[39m
+    [2m  ][22m
+
+      315 |             await page.keyboard.press("Escape");
+      316 |         }
+    > 317 |         expect([...onRun, ...inMenu].sort(), "Z-ColorPicker-1: all five scene actions reachable at 390").toEqual([...SEATS].sort());
+          |                                                                                                          ^
+      318 |
+      319 |         await seat("Open color input").first().tap();
+      320 |         const field = page.locator('[aria-label="Enter a CSS color"]').first();
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/ss8-z2-picker-cohort.spec.ts:317:106
+
+    Error Context: test-results/ss8-z2-picker-cohort-Z2-pi-8f5b2-text-entry-the-readout-band-smoke/error-context.md
+
+
+[1A[2K(node:5119) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[110/168] [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:330:5 › Z2 picker cohort — mobile 390 › CSP16 — below 1024 the configurator stays in the DOM
+[1A[2K[111/168] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › light · seed default
+[1A[2K[112/168] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › light · seed oklch(0.62 0.16 240)
+[1A[2K[113/168] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › dark · seed default
+[1A[2K  3) [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › dark · seed default 
+
+    Error: median ΔL -0.0183 over 11 rows · {"inX":537,"outX":521,"rows":[343,387,391,395,399,403,407,411,415,419,423],"wellBg":"oklab(0.925196 0.00238398 0.00574207 / 0.08)"}
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0.015[39m
+    Received:   [31m-0.01825502028198306[39m
+
+      104 |                 const dL = dLs[dLs.length >> 1]!;
+      105 |                 // RED before: light ΔL < 0 (the 8% ink wash sank the well), dark > 0.
+    > 106 |                 expect(dL, `median ΔL ${dL.toFixed(4)} over ${dLs.length} rows · ${JSON.stringify(g)}`).toBeGreaterThan(0.015);
+          |                                                                                                         ^
+      107 |             });
+      108 |         }
+      109 |     }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/ss8r-ruled-rows.spec.ts:106:105
+
+    Error Context: test-results/ss8r-ruled-rows-SS8-0440-·-65333-schemes-dark-·-seed-default-smoke/error-context.md
+
+
+[1A[2K(node:6388) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[114/168] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › dark · seed oklch(0.62 0.16 240)
+[1A[2K[115/168] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › light · five-seed sweep
+[1A[2K  4) [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › light · five-seed sweep 
+
+    Error: default:2.53 ink 39,36,35 ground lum 0.123/0.278/0.337
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.534780757194427[39m
+
+      168 |                 if (min < 4.5) await page.screenshot({ path: test.info().outputPath(`l3-${scheme}-${color ?? "default"}.png`) });
+      169 |                 // RED before (bare muted ink on the sinking well): light 3.41..3.82.
+    > 170 |                 expect(min, worst.join(" ")).toBeGreaterThanOrEqual(4.5);
+          |                                              ^
+      171 |             }
+      172 |         });
+      173 |     }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/ss8r-ruled-rows.spec.ts:170:46
+
+    Error Context: test-results/ss8r-ruled-rows-B13-L-3-·--961e4-und-light-·-five-seed-sweep-smoke/error-context.md
+
+
+[1A[2K(node:8032) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[116/168] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › dark · five-seed sweep
+[1A[2K  5) [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › dark · five-seed sweep 
+
+    Error: default:2.72 ink 209,206,204 ground lum 0.039/0.056/0.197
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.718046501718394[39m
+
+      168 |                 if (min < 4.5) await page.screenshot({ path: test.info().outputPath(`l3-${scheme}-${color ?? "default"}.png`) });
+      169 |                 // RED before (bare muted ink on the sinking well): light 3.41..3.82.
+    > 170 |                 expect(min, worst.join(" ")).toBeGreaterThanOrEqual(4.5);
+          |                                              ^
+      171 |             }
+      172 |         });
+      173 |     }
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/ss8r-ruled-rows.spec.ts:170:46
+
+    Error Context: test-results/ss8r-ruled-rows-B13-L-3-·--b5310-ound-dark-·-five-seed-sweep-smoke/error-context.md
+
+
+[1A[2K(node:9239) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[117/168] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:179:9 › SS8-0085 · at 390 the hero clips at the viewport › #/
+[1A[2K[118/168] [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:179:9 › SS8-0085 · at 390 the hero clips at the viewport › #/blob
+[1A[2K[119/168] [smoke] › e2e/smoke/url-color-precedence.spec.ts:61:1 › URL hash color WINS over populated localStorage (readout + trigger + accent agree)
+[1A[2K[120/168] [smoke] › e2e/smoke/url-color-precedence.spec.ts:96:1 › localStorage RESTORES the last session when the hash carries no color
+[1A[2K[121/168] [smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 1440x900 {"picker":651.90625,"about":651.90625,"docScroll":900,"innerHeight":900,"scroller":{"glass":true,"clientHeight":489,"scrollHeight":7146,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+
+[1A[2K[122/168] [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis
+[w12-about-clip] 1440x900 overflow docScroll=900 inner=900 picker=651.90625 about=651.90625
+
+[1A[2K[123/168] [smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 1280x800 {"picker":647.625,"about":647.625,"docScroll":800,"innerHeight":800,"scroller":{"glass":true,"clientHeight":490,"scrollHeight":7381,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+
+[1A[2K[124/168] [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis
+[w12-about-clip] 1280x800 overflow docScroll=800 inner=800 picker=647.625 about=647.625
+
+[1A[2K[125/168] [smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 2846x1650-eq {"picker":651.90625,"about":651.90625,"docScroll":825,"innerHeight":825,"scroller":{"glass":true,"clientHeight":489,"scrollHeight":7316,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+
+[1A[2K[126/168] [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › no page overflow on the block axis
+[w12-about-clip] 2846x1650-eq overflow docScroll=825 inner=825 picker=651.90625 about=651.90625
+
+[1A[2K[127/168] [smoke] › e2e/smoke/w12-dock.spec.ts:109:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:109:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius
+[
+ {
+  "name": "Login",
+  "classes": "dock-tab-button glass-specular-track gap-1.5 text-small font-display",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 38,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)"
+ },
+ {
+  "name": "@mbabb",
+  "classes": "menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 30.96875,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)"
+ }
+]
+
+[1A[2K[128/168] [smoke] › e2e/smoke/w12-dock.spec.ts:315:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:315:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "action-sub-layer",
+ "before": "|",
+ "during": "|oklch(73% 0.185 2deg)",
+ "after": "|",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSAnimation:input-mode-flash",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(border-bottom-color)",
+  "element:CSSTransition:transition(border-left-color)",
+  "element:CSSTransition:transition(border-right-color)",
+  "element:CSSTransition:transition(border-top-color)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)",
+  "element:CSSTransition:transition(transform)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[129/168] [smoke] › e2e/smoke/w12-dock.spec.ts:315:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:315:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "tools-action-bar",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|oklch(73% 0.185 2deg)",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[130/168] [smoke] › e2e/smoke/w12-dock.spec.ts:315:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:315:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "login-slug-edit",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(backdrop-filter)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(box-shadow)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[131/168] [smoke] › e2e/smoke/w12-dock.spec.ts:315:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:315:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "mobile-edit",
+ "before": "|W12e seed Login  @mbabb",
+ "during": "|→",
+ "after": "|W12e seed Login  @mbabb",
+ "faces": 5,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--accent-view)",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(border-bottom-left-radius)",
+  "element:CSSTransition:transition(border-bottom-right-radius)",
+  "element:CSSTransition:transition(border-top-left-radius)",
+  "element:CSSTransition:transition(border-top-right-radius)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[132/168] [smoke] › e2e/smoke/w12-dock.spec.ts:372:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census
+[1A[2K  6) [smoke] › e2e/smoke/w12-dock.spec.ts:372:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    Error: locator.click: Test ended.
+    Call log:
+    [2m  - waiting for locator('.glass-dock .view-select-trigger')[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" data-glass-dock-seat="" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-46" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <div class="dock-layers">…</div> intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  2 × retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m  325 × retrying click action[22m
+    [2m        - waiting 500ms[22m
+    [2m        - waiting for element to be visible, enabled and stable[22m
+    [2m        - element is not visible[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+
+
+      432 |         // the main face once pressed (the layer swaps), so "selected" is the
+      433 |         // view-select trigger open (aria-expanded=true → --dock-control-active-bg)
+    > 434 |         await trigger.click();
+          |                       ^
+      435 |         await page.waitForTimeout(600);
+      436 |         await snap("selected");
+      437 |         await page.keyboard.press("Escape");
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/w12-dock.spec.ts:434:23
+
+    Error Context: test-results/w12-dock-X-W12-e-—-the-doc-452f9--ancestor-chain-clip-census-smoke/error-context.md
+
+
+[1A[2K(node:18709) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[133/168] [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget
+[1A[2K[smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget
+[w12-drag SOFTWARE-GL] surface: moves=3 frames=3 p50=241.6 p95=4510.2 longTasks=4 maxTask=141
+    hot: Re@@mkbabb_glass-ui_dock.js:430=90ms · Be@@mkbabb_glass-ui_dock.js:447=75ms · (garbage collector)@:0=20ms · getAnimations@:0=14ms · getBoundingClientRect@:0=10ms · Me@anchors-K_Niq8pl.js:394=9ms
+
+[1A[2K[w12-drag SOFTWARE-GL] slider L: moves=1 frames=2 p50=6312.7 p95=6312.7 longTasks=5 maxTask=8265
+    hot: getContext@:0=11458ms · n@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:4=3119ms · getBoundingClientRect@:0=39ms · Re@@mkbabb_glass-ui_dock.js:430=38ms · (garbage collector)@:0=21ms · k@color-BU4JS6bH.js:173=16ms
+
+[1A[2K[w12-drag SOFTWARE-GL] slider a: moves=3 frames=2 p50=1031.2 p95=1031.2 longTasks=3 maxTask=190
+    hot: Re@@mkbabb_glass-ui_dock.js:430=136ms · Be@@mkbabb_glass-ui_dock.js:447=57ms · getBoundingClientRect@:0=51ms · (garbage collector)@:0=32ms · s@color-BU4JS6bH.js:143=17ms · O@color-BU4JS6bH.js:162=13ms
+
+[1A[2K[w12-drag SOFTWARE-GL] slider b: moves=2 frames=1 p50=3093.1 p95=3093.1 longTasks=2 maxTask=157
+    hot: Re@@mkbabb_glass-ui_dock.js:430=83ms · Be@@mkbabb_glass-ui_dock.js:447=36ms · getBoundingClientRect@:0=31ms · s@color-BU4JS6bH.js:143=16ms · get@vue.runtime.esm-bundler-Bk1yvsSk.js:996=8ms · componentUpdateFn@vue.runtime.esm-bundler-Bk1yvsSk.js:5534=8ms
+
+[1A[2K[w12-drag SOFTWARE-GL] slider alpha: moves=1 frames=0 p50=NaN p95=NaN longTasks=1 maxTask=89
+    hot: Re@@mkbabb_glass-ui_dock.js:430=30ms · Be@@mkbabb_glass-ui_dock.js:447=20ms · getBoundingClientRect@:0=10ms · get@vue.runtime.esm-bundler-Bk1yvsSk.js:996=2ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=2ms · s@color-BU4JS6bH.js:143=2ms
+
+[1A[2K[w12-drag] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev T=7.90 budget p50<=8.90 p95<=16.80
+
+[1A[2K  7) [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget 
+
+    Error: slider L: in-drag freeze
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m3000[39m
+    Received:    [31m8265[39m
+
+      136 |         expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(soft ? 1 : 10);
+      137 |         if (soft) {
+    > 138 |             expect(r.maxTask, `${r.name}: in-drag freeze`).toBeLessThanOrEqual(SOFT_MAX_TASK_MS);
+          |                                                            ^
+      139 |         } else {
+      140 |             expect(r.p50, `${r.name}: drag frame p50 over 1·T (T=${budget.T.toFixed(2)} ms)`).toBeLessThanOrEqual(
+      141 |                 budget.p50Ms,
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/w12-drag.spec.ts:138:60
+
+    Error Context: test-results/w12-drag-w12-drag-—-2-s-dr-5224f-h-slider-holds-frame-budget-smoke/error-context.md
+
+
+[1A[2K(node:20410) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[134/168] [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/)
+[1A[2K  8) [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/) ─
+
+    [31mTest timeout of 150000ms exceeded.[39m
+
+    Error: mouse.move: Test timeout of 150000ms exceeded.
+
+      139 |         await page.mouse.down();
+      140 |         for (let i = 1; i <= 40; i++) {
+    > 141 |             await page.mouse.move(
+          |                              ^
+      142 |                 b.x + 20 + (i * (b.width - 40)) / 40,
+      143 |                 b.y + 20 + (i * (b.height - 40)) / 40,
+      144 |             );
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/w12-ground.spec.ts:141:30
+
+    Error Context: test-results/w12-ground-w12-ground-—-the-ground-never-paints-black--smoke/error-context.md
+
+
+[1A[2K(node:24563) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[135/168] [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/mix→#/)
+[1A[2K  9) [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/mix→#/) 
+
+    [31mTest timeout of 150000ms exceeded.[39m
+
+    Error: mouse.move: Test timeout of 150000ms exceeded.
+
+      139 |         await page.mouse.down();
+      140 |         for (let i = 1; i <= 40; i++) {
+    > 141 |             await page.mouse.move(
+          |                              ^
+      142 |                 b.x + 20 + (i * (b.width - 40)) / 40,
+      143 |                 b.y + 20 + (i * (b.height - 40)) / 40,
+      144 |             );
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/w12-ground.spec.ts:141:30
+
+    Error Context: test-results/w12-ground-w12-ground-—-the-ground-never-paints-black-mix→--smoke/error-context.md
+
+
+[1A[2K(node:28604) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[136/168] [smoke] › e2e/smoke/w12-motion.spec.ts:341:5 › X.W12.b — one owner per element per property (boot + 3 pane switches) › continuous census: 0 multi-owner · boot CLS ≤ 0.02
+[1A[2K[smoke] › e2e/smoke/w12-motion.spec.ts:341:5 › X.W12.b — one owner per element per property (boot + 3 pane switches) › continuous census: 0 multi-owner · boot CLS ≤ 0.02
+rows 142 · elements 71 · boot CLS 0.0000 · switch CLS {"picker→palettes":0.4058057613168724,"palettes→gradient":0.18932921810699588,"gradient→picker":0.0005842829951533565}
+multi-owner 0
+re-mount mid-enter 8
+  REMOUNT picker→palettes: svg.lucide.lucide-house-icon.lucide-house — transition(opacity) cut ≈29 ms into 200 ms, then re-run on a new element
+  REMOUNT picker→palettes: svg.lucide.lucide-house-icon.lucide-house — transition(transform) cut ≈29 ms into 200 ms, then re-run on a new element
+  REMOUNT picker→palettes: svg.lucide.lucide-house-icon.lucide-house — transition(opacity) cut ≈43 ms into 200 ms, then re-run on a new element
+  REMOUNT picker→palettes: svg.lucide.lucide-house-icon.lucide-house — transition(transform) cut ≈43 ms into 200 ms, then re-run on a new element
+  REMOUNT gradient→picker: div.pane-shell.relative.w-full — transition(opacity) cut ≈32 ms into 200 ms, then re-run on a new element
+  REMOUNT gradient→picker: div.pane-shell.relative.w-full — transition(transform) cut ≈32 ms into 200 ms, then re-run on a new element
+  REMOUNT gradient→picker: div.pane-shell.relative.w-full — transition(opacity) cut ≈90 ms into 200 ms, then re-run on a new element
+  REMOUNT gradient→picker: div.pane-shell.relative.w-full — transition(transform) cut ≈90 ms into 200 ms, then re-run on a new element
+transform beside layout 0
+re-runs 0
+ancestor-stacked transform 4
+  STACK palettes→gradient: svg.lucide.lucide-palette-icon.lucide-palette (transition(transform)) inside button.dock-trigger.dock-select-trigger.view-select-trigger (@keyframes vj-settle) — together 198 ms
+  STACK palettes→gradient: svg.lucide.lucide-palette-icon.lucide-palette (transition(transform)) inside div.dock-seal (@keyframes vj-settle) — together 198 ms
+  STACK gradient→picker: svg.lucide.lucide-rainbow-icon.lucide-rainbow (transition(transform)) inside button.dock-trigger.dock-select-trigger.view-select-trigger (@keyframes vj-settle) — together 200 ms
+  STACK gradient→picker: svg.lucide.lucide-rainbow-icon.lucide-rainbow (transition(transform)) inside div.dock-seal (@keyframes vj-settle) — together 200 ms
+boot shifts: []
+
+[1A[2K[137/168] [smoke] › e2e/smoke/w12-picker-blob.spec.ts:151:1 › w12-picker-blob · idle: the bead still moves after 5 s without input
+[1A[2K[smoke] › e2e/smoke/w12-picker-blob.spec.ts:151:1 › w12-picker-blob · idle: the bead still moves after 5 s without input
+[w12-blob] idle 5000ms → max frame diff 0.000/255 · 0 draws
+
+[1A[2K[w12-blob] idle software tier → painted 79.353/255 · parked diff 0.000/255 · 0 draws
+
+[1A[2K[w12-blob] idle register change → frame diff 28.795/255 · then parked diff 0.000/255 · 0 draws
+
+[1A[2K[138/168] [smoke] › e2e/smoke/w12-picker-blob.spec.ts:167:1 › w12-picker-blob · hover: the bead moves while the pointer rests on it
+[1A[2K[smoke] › e2e/smoke/w12-picker-blob.spec.ts:167:1 › w12-picker-blob · hover: the bead moves while the pointer rests on it
+[w12-blob] hover after 5000ms idle → max frame diff 0.000/255 · 0 draws
+
+[1A[2K[w12-blob] hover software tier → painted 79.494/255 · parked diff 0.000/255 · 0 draws
+
+[1A[2K[w12-blob] hover register change → frame diff 28.831/255 · then parked diff 0.000/255 · 0 draws
+
+[1A[2K[139/168] [smoke] › e2e/smoke/w12-picker-blob.spec.ts:184:1 › w12-picker-blob · PRM: the producer holds one static frame
+[1A[2K[smoke] › e2e/smoke/w12-picker-blob.spec.ts:184:1 › w12-picker-blob · PRM: the producer holds one static frame
+[w12-blob] PRM → max frame diff 0.000/255 · 0 draws
+
+[1A[2K[140/168] [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 1440 light › picker: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer
+[1A[2K[141/168] [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 1440 light › about: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer
+[1A[2K[142/168] [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 1440 dark › picker: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer
+[1A[2K[143/168] [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 1440 dark › about: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer
+[1A[2K[144/168] [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 390 light › picker: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer
+[1A[2K[145/168] [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 390 light › about: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer
+[1A[2K[146/168] [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 390 dark › picker: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer
+[1A[2K[147/168] [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 390 dark › about: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer
+[1A[2K[148/168] [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame
+[1A[2K[smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame
+[w12u-p SOFTWARE-GL] surface: moves=3 frames=4 p50=3133.0 p95=3777.8 longTasks=7 maxTask=4573 dockRoving=0/0f dockText=3
+    dock: 
+    main: UpdateLayoutTree=293ms · Layout=47ms · PrePaint=9ms · Paint=22ms · Layerize=3ms · Commit=3ms · FunctionCall=4839ms · RunTask=11927ms
+    self: getContext@:0=6661ms · n@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:4=4561ms · Re@@mkbabb_glass-ui_dock.js:430=129ms · Be@@mkbabb_glass-ui_dock.js:447=79ms · getBoundingClientRect@:0=25ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=21ms
+    layout: getBoundingClientRect<-n@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:4<-d@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:115=22ms · getBoundingClientRect<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=2ms · getBoundingClientRect<-_@@mkbabb_glass-ui_dock.js:165<-y@@mkbabb_glass-ui_dock.js:187=0ms
+    demo: onEmergeEnd@HeroBlob.vue:257=4569ms · setup@HeroBlob.vue:30=3638ms · certify@ink.ts:93=43ms · walkToFloor@ink.ts:121=43ms · attempt@ink.ts:123=43ms · certifyAccentInk@ink.ts:278=35ms
+
+[1A[2K[w12u-p SOFTWARE-GL] slider L: moves=2 frames=1 p50=2108.5 p95=2108.5 longTasks=2 maxTask=181 dockRoving=0/0f dockText=2
+    dock: 
+    main: UpdateLayoutTree=152ms · Layout=35ms · PrePaint=4ms · Paint=5ms · Layerize=1ms · Commit=1ms · FunctionCall=201ms · RunTask=466ms
+    self: Re@@mkbabb_glass-ui_dock.js:430=94ms · Be@@mkbabb_glass-ui_dock.js:447=33ms · getBoundingClientRect@:0=31ms · O@color-BU4JS6bH.js:162=19ms · s@color-BU4JS6bH.js:143=8ms · validateProps@vue.runtime.esm-bundler-Bk1yvsSk.js:5053=8ms
+    layout: getBoundingClientRect<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=31ms
+    demo: certify@ink.ts:93=56ms · walkToFloor@ink.ts:121=55ms · attempt@ink.ts:123=55ms · certifyAccentInk@ink.ts:278=50ms · resolvePalettesRamp@palettes-ramp.ts:130=29ms · (anon)@useContrastSafeColor.ts:324=9ms
+
+[1A[2K[w12u-p SOFTWARE-GL] slider a: moves=2 frames=1 p50=2531.2 p95=2531.2 longTasks=2 maxTask=180 dockRoving=0/0f dockText=2
+    dock: 
+    main: UpdateLayoutTree=167ms · Layout=39ms · PrePaint=4ms · Paint=6ms · Layerize=1ms · Commit=1ms · FunctionCall=227ms · RunTask=523ms
+    self: Re@@mkbabb_glass-ui_dock.js:430=101ms · Be@@mkbabb_glass-ui_dock.js:447=41ms · getBoundingClientRect@:0=38ms · s@color-BU4JS6bH.js:143=19ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=14ms · on@@mkbabb_glass-ui_easing.js:1091=12ms
+    layout: getBoundingClientRect<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=37ms · getBoundingClientRect<-n@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:4<-d@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:115=1ms · getComputedStyle<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=0ms
+    demo: certify@ink.ts:93=61ms · walkToFloor@ink.ts:121=60ms · attempt@ink.ts:123=60ms · certifyAccentInk@ink.ts:278=53ms · resolvePalettesRamp@palettes-ramp.ts:130=27ms · certifyAccentInkOnce@useContrastSafeColor.ts:235=10ms
+
+[1A[2K[w12u-p SOFTWARE-GL] slider b: moves=2 frames=1 p50=1621.5 p95=1621.5 longTasks=2 maxTask=141 dockRoving=0/0f dockText=2
+    dock: 
+    main: UpdateLayoutTree=140ms · Layout=34ms · PrePaint=4ms · Paint=6ms · Layerize=1ms · Commit=2ms · FunctionCall=183ms · RunTask=403ms
+    self: Re@@mkbabb_glass-ui_dock.js:430=84ms · Be@@mkbabb_glass-ui_dock.js:447=32ms · getBoundingClientRect@:0=29ms · s@color-BU4JS6bH.js:143=10ms · O@color-BU4JS6bH.js:162=10ms · get@vue.runtime.esm-bundler-Bk1yvsSk.js:996=7ms
+    layout: getBoundingClientRect<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=28ms · getBoundingClientRect<-n@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:4<-d@createCanvasLifecycle-hJHobVTn-Dvi9zlc4.js:115=1ms
+    demo: certify@ink.ts:93=40ms · walkToFloor@ink.ts:121=40ms · attempt@ink.ts:123=40ms · certifyAccentInk@ink.ts:278=39ms · resolvePalettesRamp@palettes-ramp.ts:130=21ms · certifyAccentInkOnce@useContrastSafeColor.ts:235=9ms
+
+[1A[2K[w12u-p SOFTWARE-GL] slider alpha: moves=3 frames=2 p50=1116.2 p95=1116.2 longTasks=2 maxTask=77 dockRoving=0/0f dockText=2
+    dock: 
+    main: UpdateLayoutTree=78ms · Layout=20ms · PrePaint=3ms · Paint=4ms · Layerize=1ms · Commit=3ms · FunctionCall=105ms · RunTask=194ms
+    self: Re@@mkbabb_glass-ui_dock.js:430=36ms · Be@@mkbabb_glass-ui_dock.js:447=21ms · getBoundingClientRect@:0=20ms · s@class-names-FlXcvRRT-DcN4Mwc8.js:145=4ms · mergeProps@vue.runtime.esm-bundler-Bk1yvsSk.js:6572=3ms · updateProps@vue.runtime.esm-bundler-Bk1yvsSk.js:4890=3ms
+    layout: getBoundingClientRect<-Oe@@mkbabb_glass-ui_dock.js:111<-Ae@@mkbabb_glass-ui_dock.js:125=20ms
+    demo: (anon)@debounce.ts:19=2ms · (anon)@useColorUrl.ts:82=1ms · _sfc_render@ColorComponentDisplay.vue:93=1ms · (anon)@ColorComponentDisplay.vue:26=1ms · readoutLineCount@readoutReservation.ts:175=1ms · _sfc_render@Markdown.vue:84=1ms
+
+[1A[2K[w12u-p] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev bisect=none T=8.20 budget p50<=9.20 p95<=17.40
+
+[1A[2K  10) [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame 
+
+    Error: slider L: collector dead
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m1[39m
+    Received:   [31m1[39m
+
+      276 |         // is the gate of record). Re-baselined X-W12U .q2: on software GL the
+      277 |         // collector is live when it reads at least two frame intervals.
+    > 278 |         expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(soft ? 1 : 10);
+          |                                                       ^
+      279 |         expect(
+      280 |             r.rovingFrames,
+      281 |             `${r.name}: the dock run's roving observer fired on ${r.rovingFrames} of ${r.frames} frames`,
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/w12u-p-drag.spec.ts:278:55
+
+    Error Context: test-results/w12u-p-drag-w12u-p-—-colou-0b5e5-s-not-re-rendered-per-frame-smoke/error-context.md
+
+
+[1A[2K(node:37073) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[149/168] [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 light › token-less deep link fail-closes to Not Found at the typed address
+[1A[2K[150/168] [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 light › token-less in-app hash navigation fail-closes the same way
+[1A[2K[151/168] [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 light › admin token mounts the Tags pane with its rows, never the catch-all
+[1A[2K[152/168] [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 dark › token-less deep link fail-closes to Not Found at the typed address
+[1A[2K[153/168] [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 dark › token-less in-app hash navigation fail-closes the same way
+[1A[2K[154/168] [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 dark › admin token mounts the Tags pane with its rows, never the catch-all
+[1A[2K[155/168] [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors
+[1A[2K  11) [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByRole('heading', { level: 1 })
+    Expected: [32m1[39m
+    Received: [31m0[39m
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('heading', { level: 1 })[22m
+    [2m    6 × locator resolved to 0 elements[22m
+    [2m      - unexpected value "0"[22m
+
+
+      125 |     async function assertRouteVoice(label: string) {
+      126 |         const h1 = page.getByRole("heading", { level: 1 });
+    > 127 |         await expect(h1).toHaveCount(1);
+          |                          ^
+      128 |         await expect(h1).toBeVisible();
+      129 |         const says = new RegExp(`(^|\\s)${label}$`);
+      130 |         await expect(h1).toHaveText(says);
+        at assertRouteVoice (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/walk.spec.ts:127:26)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/walk.spec.ts:139:15
+
+    Error Context: test-results/walk-walk-all-user-views-s-862ed-ly-with-zero-console-errors-smoke/error-context.md
+
+
+[1A[2K(node:38281) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[156/168] [smoke] › e2e/smoke/webgl-atmosphere.spec.ts:21:1 › atmosphere canvas warms up without webglcontextlost
+[1A[2K[157/168] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:122:1 › hero blob idle frame cost: live, one draw per frame, cadence in budget (the settled seam, no wall-clock park)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:122:1 › hero blob idle frame cost: live, one draw per frame, cadence in budget (the settled seam, no wall-clock park)
+[blob-idle-cost] renderer=SOFTWARE-GL window=3000ms draws=0 frames=376 p50=8.3ms
+
+[1A[2K[blob-idle-cost] software tier: register change → 1 draws · then window draws=0 frames=5
+
+[1A[2K[158/168] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:188:1 › hero blob under prefers-reduced-motion: one static frame, then parked (0 idle draws)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:188:1 › hero blob under prefers-reduced-motion: one static frame, then parked (0 idle draws)
+[blob-idle-cost] PRM window=3000ms draws=0 frames=372
+
+[1A[2K[159/168] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 1.0000 C 0.00000 h 4.41 · ΔC -0.02105 (stated ±0.04) · px 3066
+
+[1A[2K[160/168] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.8832 C 0.22332 h 142.69 · ΔC 0.04431 (stated ±0.04) · px 3066
+
+[1A[2K  12) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+
+    Error: painted dominant chroma 0.22332 vs the gamut-mapped current chroma 0.17901
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.04431195296306287[39m
+
+      354 |             Math.abs(paintedC - targetC),
+      355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      357 |     });
+      358 | }
+      359 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/webgl-blob-idle.spec.ts:356:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md
+
+
+[1A[2K(node:40694) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[161/168] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.7893 C 0.18958 h 323.52 · ΔC -0.06367 (stated ±0.04) · px 3066
+
+[1A[2K  13) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+
+    Error: painted dominant chroma 0.18958 vs the gamut-mapped current chroma 0.25325
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.06367283864962117[39m
+
+      354 |             Math.abs(paintedC - targetC),
+      355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      357 |     });
+      358 | }
+      359 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/webgl-blob-idle.spec.ts:356:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md
+
+
+[1A[2K(node:41619) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[162/168] [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost
+[1A[2K  14) [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+
+
+       at smoke/fixtures/dock.ts:80
+
+      78 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      79 |     await expect(viewSelect).toBeVisible();
+    > 80 |     await viewSelect.click();
+         |                      ^
+      81 |
+      82 |     // Assert the listbox actually opened, so a closed-listbox regression
+      83 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:80:22)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/webgl-blob.spec.ts:63:5
+
+    Error Context: test-results/webgl-blob-goo-blob-canvas-bf729-ch-without-webglcontextlost-smoke/error-context.md
+
+
+[1A[2K(node:42805) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[163/168] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:118:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the inspector are each their own surface over the page ground
+[1A[2K[smoke] › e2e/smoke/x-w7l-detached.spec.ts:118:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the inspector are each their own surface over the page ground
+[x-w7l gutter] 1440x900 light beside gap=18.0 gutter=251,140,184 casts=232,118,168 ground=251,140,184/251,140,184 delta=0,0,0 spread=0 drift=0 chroma=111/111 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+
+[1A[2K[164/168] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:118:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the inspector are each their own surface over the page ground
+[1A[2K[smoke] › e2e/smoke/x-w7l-detached.spec.ts:118:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the inspector are each their own surface over the page ground
+[x-w7l gutter] 1024x768 light beside gap=12.8 gutter=252,143,183 casts=69,49,53 ground=252,143,183/252,143,183 delta=0,0,0 spread=0 drift=0 chroma=109/109 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+
+[1A[2K[165/168] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:118:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the inspector are each their own surface over the page ground
+[1A[2K[smoke] › e2e/smoke/x-w7l-detached.spec.ts:118:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the inspector are each their own surface over the page ground
+[x-w7l gutter] 1440x900 dark beside gap=18.0 gutter=87,0,38 casts=75,4,44 ground=87,0,38/87,0,38 delta=0,0,0 spread=0 drift=0 chroma=87/87 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+
+[1A[2K[166/168] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:118:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the inspector are each their own surface over the page ground
+[1A[2K[smoke] › e2e/smoke/x-w7l-detached.spec.ts:118:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the inspector are each their own surface over the page ground
+[x-w7l gutter] 1024x768 dark beside gap=12.8 gutter=89,0,37 casts=75,73,71 ground=89,0,37/89,0,37 delta=0,0,0 spread=0 drift=0 chroma=89/89 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+
+[1A[2K[167/168] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:196:9 › db · O-68 — a section's action sits on its header row (#/blob) › no section action sits on a row of its own, and a layer's header action never toggles it
+[1A[2K[smoke] › e2e/smoke/x-w7l-detached.spec.ts:196:9 › db · O-68 — a section's action sits on its header row (#/blob) › no section action sits on a row of its own, and a layer's header action never toggles it
+[x-w7l sections #/blob] Geometry:0 · Membrane:0 · Color:0 · Lit glass:0 · Pointer:0 · Satellites:0 · Tempo:0
+
+[1A[2K[168/168] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:196:9 › db · O-68 — a section's action sits on its header row (#/atmosphere) › no section action sits on a row of its own, and a layer's header action never toggles it
+[1A[2K[smoke] › e2e/smoke/x-w7l-detached.spec.ts:196:9 › db · O-68 — a section's action sits on its header row (#/atmosphere) › no section action sits on a row of its own, and a layer's header action never toggles it
+[x-w7l sections #/atmosphere] Character:0 · Field:0
+
+[1A[2K  14 failed
+    [smoke] › e2e/smoke/ss8-b15-palette-cards.spec.ts:52:1 › SS8-0442 · a focused saved card's ring paints on all four edges 
+    [smoke] › e2e/smoke/ss8-z2-picker-cohort.spec.ts:294:5 › Z2 picker cohort — mobile 390 › P1 · CI5 · CI13 · P16 · P20 — every action reachable; free-text entry; the readout band 
+    [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:78:13 › SS8-0440 · the well lifts above its host in both schemes › dark · seed default 
+    [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › light · five-seed sweep 
+    [smoke] › e2e/smoke/ss8r-ruled-rows.spec.ts:123:9 › B13 L-3 · the attribution ink clears 4.5:1 over its darkest ground › dark · five-seed sweep 
+    [smoke] › e2e/smoke/w12-dock.spec.ts:372:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census 
+    [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget 
+    [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/) ──
+    [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/mix→#/) 
+    [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame 
+    [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+    [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost 
+  154 passed (43.7m)

@@ -1,0 +1,1198 @@
+{
+  "config": {
+    "configFile": "/w/tree/playwright.config.ts",
+    "rootDir": "/w/tree/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 3,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/w/tree/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/w/tree/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/w/tree/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/w/tree/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/w/tree/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/w/tree/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+      "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "B05 · the Tools ink on the dock band (0132 · 0133)",
+          "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+          "line": 294,
+          "column": 6,
+          "specs": [
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.891336237186021"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12984,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:16:39.714Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.891336237186021"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-5e5ed065bbfd1371e17f",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.095610446448404"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8640,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:16:52.901Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.095610446448404"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-d5e678d617f67a341624",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.166205781129915"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8192,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:17:01.552Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.166205781129915"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-6470e0f12948bd9ae623",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.572440288673151"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10198,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:17:09.751Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.572440288673151"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-ce1ca917ce02ab63a15b",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.404209123213444"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8163,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:17:19.953Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.404209123213444"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-9a132ec5be964c0f9d8a",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.86792797205503"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7203,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:17:28.122Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.86792797205503"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-fe1d7a2d9c28447080b9",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7658,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:17:35.331Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-c87d7885469ca82d1189",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7381,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:17:42.994Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-58a3d3590b7eb2d4e974",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.891336237186021"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11360,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:17:50.665Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.891336237186021"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-0811eb0ced100d34057f",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.095610446448404"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7373,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:18:02.065Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.095610446448404"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-d2cc1ed8f97e0f4b424d",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.166205781129915"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7182,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:18:09.462Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.166205781129915"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-2b217e29947c24f830d9",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.572440288673151"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7865,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:18:16.648Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.572440288673151"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-b4a7855dcbd0ee681da4",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.404209123213444"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6994,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:18:24.517Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.404209123213444"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-f615ca90d09a1600b85c",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.86792797205503"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6708,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:18:31.515Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.86792797205503"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-b9e9862017af9bf8fbe4",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6851,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:18:38.227Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-6724eb66a328639791ae",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7314,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:18:45.083Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-af4cbb358643f26417da",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.891336237186021"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11411,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:18:52.659Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.891336237186021"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-4eab4d3a2640b57c826d",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.095610446448404"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7485,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:19:04.107Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.095610446448404"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-6690d9bc87cf56637727",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.166205781129915"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6979,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:19:11.598Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.166205781129915"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-72808e0af167fe0ece94",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.572440288673151"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8563,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:19:18.582Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.572440288673151"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-0536aa373cedc1f34d28",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.404209123213444"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7178,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:19:27.148Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.404209123213444"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-6d0e98bdab4437b7e5ed",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.86792797205503"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6948,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:19:34.331Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.86792797205503"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-3465e799d70d3746ccd6",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6892,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:19:41.282Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-05104b04147e572ba0b8",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8027,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:19:48.179Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-29423500071e43442358",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T04:16:33.670Z",
+    "duration": 202609.78100000002,
+    "expected": 24,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

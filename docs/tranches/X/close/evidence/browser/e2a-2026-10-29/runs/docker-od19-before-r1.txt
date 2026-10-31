@@ -1,0 +1,36 @@
+
+Running 2 tests using 1 worker
+
+[1/2] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:138:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:138:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/ content=121ms paneRequestGap=nullms
+
+  1) [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:138:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+
+    Error: AboutPane was requested
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      179 |             expect(entry, "the entry chunk loaded").toBeDefined();
+      180 |             if (chunk) {
+    > 181 |                 expect(pane, `${chunk} was requested`).toBeDefined();
+          |                                                        ^
+      182 |                 if (!isSoftwareGL(await detectRenderer(page)))
+      183 |                     expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+      184 |                         PANE_REQUEST_GAP_MS,
+        at /w/tree/e2e/smoke/perf/od19-route-load.spec.ts:181:56
+
+    Error Context: test-results/od19-route-load-OD19-ALL-r-0dcf4-2500-ms-hop-reaches-content-smoke-perf/error-context.md
+
+
+[2/2] [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:138:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:138:9 › OD19-ALL route load (built bundle, CPU 4x) › #/mix cold: pane chunk early, content ≤ 2500 ms, hop reaches content
+[od19-route-load] #/mix content=713ms paneRequestGap=90ms
+
+[od19-route-load] #/mix hop=428ms
+
+  1 failed
+    [smoke-perf] › e2e/smoke/perf/od19-route-load.spec.ts:138:9 › OD19-ALL route load (built bundle, CPU 4x) › #/ cold: pane chunk early, content ≤ 2500 ms, hop reaches content 
+  1 passed (21.1s)

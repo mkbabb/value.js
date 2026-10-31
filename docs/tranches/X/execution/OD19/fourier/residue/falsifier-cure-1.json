@@ -1,0 +1,23 @@
+{
+  "cpuThrottle": 4,
+  "host": {
+    "index": 6318,
+    "rate": 3.888
+  },
+  "readings": {
+    "equation": {
+      "nav": {
+        "ms": 5015,
+        "apiMs": 4784,
+        "jsKB": 173,
+        "cssKB": 13,
+        "longTasks": 2,
+        "tbt": 230,
+        "maxGapMs": 217,
+        "over50": 3,
+        "frames": 331,
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"
+      }
+    }
+  }
+}

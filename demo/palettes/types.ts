@@ -1,12 +1,19 @@
 export interface PaletteColor {
     css: string;
     name?: string;
+    /**
+     * §0gt.5 (PCS-11): the colour's 0-based integer ORDER in the palette — its
+     * array index, written identically by every producer (Generate, Extract,
+     * Mix, the editor). Never a gradient offset; gradients carry their own stops.
+     */
     position: number;
     /**
      * S.W5-6 · F7 (T19 carried onto the card): the quantizer's population
      * share for this swatch, normalized to [0,1]. Present only on extracted
      * palettes; `PaletteColorStrip` sizes its segments from it, so the ONE
      * card strip tells the population story — no standalone twin strip.
+     * §0gt.5 (PCS-3): the wire persists it (finite, ≥ 0) and it takes no part
+     * in the palette's content hash.
      */
     weight?: number;
 }
@@ -50,8 +57,8 @@ export interface Palette {
     /** I.W2 soft-delete timestamp (ISO); `null`/absent means live (F-7). */
     deletedAt?: string | null;
     /**
-     * J.W2 atom-set-hash — the colors-only, order-independent fingerprint
-     * (dedup hint + the `/diff` envelope's hash basis), emitted by the API (F-7).
+     * J.W2 atom-set-hash — the atom fingerprint keyed by ordinal `position`
+     * (dedup hint), emitted by the API (F-7; §0gt.5).
      */
     atomSetHash?: string;
     // Versioning

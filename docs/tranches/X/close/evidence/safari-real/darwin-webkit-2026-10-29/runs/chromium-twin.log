@@ -1,0 +1,4 @@
+admitted 2026-10-29 02:10:12 HEAD 16c9b3700 { 10.10 9.15 9.15 }
+run 1 exit 1 02:13:18
+run 2 exit 1 02:16:28
+twin exit 0

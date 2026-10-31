@@ -15,7 +15,15 @@
 import { afterAll, chai, describe, expect, it } from "vitest";
 import { getCurrentSuite } from "vitest/suite";
 
-import { convertColor, oklch, type AnyColor, type Color } from "@mkbabb/value.js/color";
+import {
+    convertColor,
+    mapColorToGamut,
+    oklch,
+    safeAccentColor,
+    serializeCssColor,
+    type AnyColor,
+    type Color,
+} from "@mkbabb/value.js/color";
 import { parseCssColor } from "@mkbabb/value.js/css";
 import {
     CERTIFY_HEADROOM,
@@ -25,6 +33,8 @@ import {
     certifyAccentInk,
     certifyIdentityInk,
     contrastInkFor,
+    plateInkDeparts,
+    resolveFieldPlateReferent,
     resolveMutedInk,
     resolvePlateInk,
     resolveSurfaceLightness,
@@ -173,14 +183,29 @@ describe("D6 — resolveSurfaceLightness (the ladder referent)", () => {
         }
     });
 
-    it("the well is opaque — closed-form, ambient-free (the C5/Q4 dividend)", () => {
-        const light = resolveSurfaceLightness("well", 0.376, false);
-        expect(resolveSurfaceLightness("well", 0.936, false)).toBe(light);
-        const dark = resolveSurfaceLightness("well", 0.376, true);
-        expect(resolveSurfaceLightness("well", 0.936, true)).toBe(dark);
-        // Scheme honesty: bright cream light well, deep stone dark well.
-        expect(light).toBeGreaterThan(0.8);
-        expect(dark).toBeLessThan(0.5);
+    it("the well is an IN-PLATE wash: it lifts toward the scheme's default elevation and flips away only from a departed ink (COHESION §0gv.6)", () => {
+        let departed = 0;
+        for (const a of AMBIENTS) {
+            // Dark: always a lift above the resting plate (SS8-0440).
+            const restingDark = resolveSurfaceLightness("resting", a, true);
+            expect(resolveSurfaceLightness("well", a, true)).toBeGreaterThan(restingDark);
+            // Light: a lift while the plate ink keeps the dark default pole; a
+            // sink where it departed to cream, so the well never closes on it.
+            const restingLight = resolveSurfaceLightness("resting", a, false);
+            const wellLight = resolveSurfaceLightness("well", a, false);
+            const ink = resolvePlateInk(restingLight, false);
+            if (plateInkDeparts(ink, false)) {
+                departed++;
+                expect(wellLight).toBeLessThan(restingLight);
+            } else {
+                expect(wellLight).toBeGreaterThan(restingLight);
+            }
+            // §0gk.2: the plate ink the light well carries holds the floor on it.
+            expect(ratioOn(ink, wellLight)).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+        }
+        // Both light arms are exercised by the ambient band.
+        expect(departed).toBeGreaterThan(0);
+        expect(departed).toBeLessThan(AMBIENTS.length);
     });
 
     it("the veil is an IN-PLATE composite — quiet-α over the RESTING rung, never the bare ambient (T.W6.5-P · T-34)", () => {
@@ -399,5 +424,217 @@ describe("X-DS pass 18 (V18C-01) — certifyIdentityInk holds the identity hue",
         const glyph = parseOklch(certifyIdentityInk(GOLD, 0.5, true, GRAPHICS_CONTRAST_FLOOR));
         expect(glyph.C).toBeGreaterThanOrEqual(0.06);
         expect(Math.abs(glyph.H - 84.2)).toBeLessThan(10);
+    });
+});
+
+/**
+ * X.W11.ink (COHESION §0gw.4) — the certify walk asks the guard fewer
+ * questions and lands on the SAME ink. The reference below is the walk as it
+ * stood before the cut (`d65ead3a6`): every headroom step and every far-side
+ * probe answered by running `safeAccentColor` itself. The module now reads
+ * the guard's verdict off its predicate and walks once, so this pins the two
+ * to one answer, string for string, across both schemes, both floors and a
+ * dense ground sweep; a drift between the module's predicate and the
+ * library's guard reds here.
+ */
+describe("§0gw.4 — the certify walk's cut keeps every certified ink", () => {
+    const surfaceOf = (L: number): Color<"oklch"> => {
+        const surface = oklch(L, 0, 0, 1);
+        if (!surface.ok) throw new Error(surface.error.code);
+        return surface.value;
+    };
+    const guard = (accent: Color<"oklch">, L: number, minimumRatio: number) =>
+        safeAccentColor(accent, surfaceOf(L), { minimumRatio, gamut: "srgb" });
+    const refWalk = (accent: Color<"oklch">, L: number, floor: number, headroom: number) => {
+        const preferred = guard(accent, L, floor + headroom);
+        if (preferred.ok) return preferred.value;
+        const atFloor = guard(accent, L, floor);
+        if (!atFloor.ok) throw new Error(atFloor.error.code);
+        let best = atFloor.value;
+        let pass = floor;
+        let fail = floor + headroom;
+        for (let i = 0; i < 10; i++) {
+            const middle = (pass + fail) / 2;
+            const probe = guard(accent, L, middle);
+            if (probe.ok) [pass, best] = [middle, probe.value];
+            else fail = middle;
+        }
+        return best;
+    };
+    const serialize = (color: Color<"oklch">) => {
+        const out = serializeCssColor(color);
+        if (!out.ok) throw new Error(out.error.code);
+        return out.value;
+    };
+    const refAccent = (css: string, L: number, floor: number, headroom: number) => {
+        const accent = requiredOklch(css);
+        const safe = refWalk(accent, L, floor, headroom);
+        const same = safe.channels.every((c, i) => {
+            const source = accent.channels[i];
+            return c === source || (typeof c === "number" && typeof source === "number" && Math.abs(c - source) < 1e-9);
+        });
+        return same ? css : serialize(safe);
+    };
+    const chromaOf = (c: Color<"oklch">) => (typeof c.channels[1] === "number" ? c.channels[1] : 0);
+    const refFar = (accent: Color<"oklch">, L: number, walked: Color<"oklch">, floor: number) => {
+        const pole = (walked.channels[0] as number) >= L ? 0 : 1;
+        const hue = accent.channels[2];
+        const at = (l: number) => {
+            const raw = oklch(l, chromaOf(accent), typeof hue === "number" ? hue : 0, 1);
+            if (!raw.ok) throw new Error(raw.error.code);
+            const mapped = mapColorToGamut(raw.value, "srgb");
+            if (!mapped.ok) throw new Error(mapped.error.code);
+            return mapped.value;
+        };
+        const clears = (c: Color<"oklch">) => {
+            const r = guard(c, L, floor);
+            return r.ok && Math.abs((r.value.channels[0] as number) - (c.channels[0] as number)) < 1e-6;
+        };
+        if (!clears(at(pole))) return null;
+        let pass = pole;
+        let fail = L;
+        for (let i = 0; i < 16; i++) {
+            const middle = (pass + fail) / 2;
+            if (clears(at(middle))) pass = middle;
+            else fail = middle;
+        }
+        return at(pass);
+    };
+    const refIdentity = (css: string, L: number, dark: boolean, floor: number) => {
+        const accent = requiredOklch(css);
+        const held = (c: Color<"oklch">) => chromaOf(c) >= IDENTITY_CHROMA_HOLD * chromaOf(accent);
+        const preferred = refWalk(accent, L, floor, CERTIFY_HEADROOM);
+        if (held(preferred)) return refAccent(css, L, floor, CERTIFY_HEADROOM);
+        const far = refFar(accent, L, preferred, floor + CERTIFY_HEADROOM);
+        if (far && held(far)) return serialize(far);
+        return resolvePlateInk(L, dark);
+    };
+    const GROUNDS = Array.from({ length: 91 }, (_, i) => 0.05 + i * 0.01);
+    const GOLD = "oklch(0.751 0.147 84.2)";
+    for (const dark of [false, true]) {
+        it(`plate, accent and identity inks are the reference walk's, string for string (${dark ? "dark" : "light"})`, () => {
+            const foreground = dark ? "hsl(30 14% 90%)" : "hsl(24 10% 10%)";
+            for (const L of GROUNDS) {
+                expect(resolvePlateInk(L, dark), `plate @ ${L}`).toBe(serialize(refWalk(requiredOklch(foreground), L, TEXT_CONTRAST_FLOOR, CERTIFY_HEADROOM)));
+                for (const css of [...PICKS, GOLD, "hsl(0 72% 50%)"]) {
+                    expect(certifyAccentInk(css, L), `${css} @ ${L}`).toBe(refAccent(css, L, TEXT_CONTRAST_FLOOR, CERTIFY_HEADROOM));
+                }
+                for (const floor of [TEXT_CONTRAST_FLOOR, GRAPHICS_CONTRAST_FLOOR]) {
+                    expect(certifyIdentityInk(GOLD, L, dark, floor), `gold ${floor} @ ${L}`).toBe(refIdentity(GOLD, L, dark, floor));
+                }
+            }
+        }, 30_000);
+    }
+});
+
+/**
+ * COHESION §0gx.2 (ESC-W11e2b-1): the light referent is MAXIMIN over the stops
+ * the ink sits over. A dark ink's worst stop is the darkest, a light ink's the
+ * lightest; the better of those two worst cases names the polarity. The floor
+ * and the headroom do not move.
+ */
+describe("the light plate referent is maximin (§0gx.2)", () => {
+    /** A neutral stop: its L is its luminance lightness. */
+    const neutral = (...Ls: number[]) => Ls.map((L) => ({ L, C: 0, h: 0 }));
+    const inkOver = (Ls: number[]) =>
+        resolvePlateInk(
+            resolveSurfaceLightness("resting", resolveFieldPlateReferent(neutral(...Ls), false), false),
+            false,
+        );
+    const LOf = (css: string) => {
+        const parsed = parseCssColor(css);
+        if (!parsed.ok) throw new Error(css);
+        const converted = convertColor(parsed.value, "oklch");
+        if (!converted.ok) throw new Error(css);
+        return converted.value.channels[0] as number;
+    };
+    const worst = (css: string, Ls: number[]) =>
+        Math.min(
+            ...Ls.map((L) => ratioOn(css, resolveSurfaceLightness("resting", L, false))),
+        );
+
+    it("the floor and the headroom constants are byte-equal", () => {
+        expect(TEXT_CONTRAST_FLOOR).toBe(4.5);
+        expect(GRAPHICS_CONTRAST_FLOOR).toBe(3);
+        expect(CERTIFY_HEADROOM).toBe(1.25);
+    });
+
+    it("a pale field keeps the pick: the darkest stop clears floor + headroom", () => {
+        const Ls = [0.8, 0.86, 0.92, 0.97];
+        expect(resolveFieldPlateReferent(neutral(...Ls), false)).toBeCloseTo(0.8, 9);
+        expect(worst(inkOver(Ls), Ls)).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+    });
+
+    it("the dead band keeps the region's polarity: the guard does not flip it light", () => {
+        // Darkest stop on the far side of the crossover; pale stops above it.
+        const Ls = [0.56, 0.67, 0.78, 0.88];
+        const ink = inkOver(Ls);
+        expect(LOf(ink)).toBeLessThan(0.1);
+        // The flip (a referent of the bare darkest stop) fails over the pale
+        // stops; the maximin ink beats it by the whole field.
+        const flipped = resolvePlateInk(resolveSurfaceLightness("resting", 0.56, false), false);
+        expect(worst(ink, Ls)).toBeGreaterThan(worst(flipped, Ls));
+    });
+
+    it("beats the retired mean over the worst stop on a field that spans mid-luminance", () => {
+        const Ls = [0.6, 0.7, 0.8, 0.9];
+        const mean = Ls.reduce((a, b) => a + b, 0) / Ls.length;
+        const meanInk = resolvePlateInk(resolveSurfaceLightness("resting", mean, false), false);
+        expect(worst(inkOver(Ls), Ls)).toBeGreaterThan(worst(meanInk, Ls));
+    });
+
+    it("a dark field takes the light pole, pair-wide", () => {
+        const Ls = [0.2, 0.25, 0.3, 0.35];
+        const ambient = resolveFieldPlateReferent(neutral(...Ls), false);
+        const resting = resolveSurfaceLightness("resting", ambient, false);
+        const floating = resolveSurfaceLightness("floating", ambient, false);
+        expect(plateInkDeparts(resolvePlateInk(resting, false), false)).toBe(true);
+        expect(plateInkDeparts(resolvePlateInk(floating, false), false)).toBe(true);
+        expect(worst(inkOver(Ls), Ls)).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+    });
+
+    it("the certified pair keeps one pole across the resting and floating rungs", () => {
+        for (let L = 0.4; L <= 0.7; L += 0.01) {
+            const ambient = resolveFieldPlateReferent(neutral(L, 0.9), false);
+            for (const rung of ["resting", "floating"] as const) {
+                const ink = resolvePlateInk(resolveSurfaceLightness(rung, ambient, false), false);
+                expect(LOf(ink), `L ${L} ${rung}`).toBeLessThan(0.3);
+            }
+        }
+    });
+});
+
+describe("prefers-contrast: more never lowers a plate ink's ratio (X.W11.n2, §0gy.5, SS8-0363)", () => {
+    const GRID = Array.from({ length: 41 }, (_, i) => i / 40);
+    const darkPoleReads = (L: number) => ratioOn("oklch(0 0 0)", L) >= ratioOn("oklch(1 0 0)", L);
+    for (const dark of [false, true]) {
+        it(`on one plate, "more" reads the guard's ceiling, never under no-preference (${dark ? "dark" : "light"})`, () => {
+            for (const L of GRID) {
+                const ceiling = Math.max(ratioOn("oklch(0 0 0)", L), ratioOn("oklch(1 0 0)", L));
+                for (const resolve of [resolvePlateInk, resolveMutedInk]) {
+                    const normal = ratioOn(resolve(L, dark), L);
+                    const more = ratioOn(resolve(L, dark, "more"), L);
+                    expect(more, `${resolve.name} @${L}`).toBeGreaterThanOrEqual(normal - 1e-6);
+                    expect(more, `${resolve.name} @${L} vs ceiling`).toBeGreaterThanOrEqual(ceiling * 0.99);
+                }
+            }
+        });
+    }
+    it("a cleaner plate under \"more\" never reads under the dead band's pole walk (light, the dark pole)", () => {
+        // The measured mechanism: the no-preference plate sat where floor +
+        // headroom is out of reach, so its ink walked to the pole; the
+        // tint-dropped plate is lighter and cleared the target with a lighter
+        // ink (docker 10.21 < 12.10).
+        const dark = GRID.filter(darkPoleReads);
+        for (const normalL of dark) {
+            for (const moreL of dark.filter((L) => L >= normalL)) {
+                for (const resolve of [resolvePlateInk, resolveMutedInk]) {
+                    expect(
+                        ratioOn(resolve(moreL, false, "more"), moreL),
+                        `${resolve.name} more@${moreL} vs normal@${normalL}`,
+                    ).toBeGreaterThanOrEqual(ratioOn(resolve(normalL, false), normalL) - 1e-6);
+                }
+            }
+        }
     });
 });

@@ -1,0 +1,229 @@
+
+> @mkbabb/value.js@4.1.0 gh-pages
+> vite build --mode gh-pages
+
+vite v8.0.16 building client environment for gh-pages...
+(node:18390) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2Ktransforming...
+./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+✓ 2898 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/gh-pages/assets/favicon-BCX-nAdh.svg                                                     1.41 kB │ gzip:   0.77 kB
+dist/gh-pages/assets/KaTeX_Size3-Regular-CTq5MqoE.woff                                        4.42 kB
+dist/gh-pages/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2                                       4.92 kB
+dist/gh-pages/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2                                       5.20 kB
+dist/gh-pages/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2                                       5.46 kB
+dist/gh-pages/assets/KaTeX_Size4-Regular-BF-4gkZK.woff                                        5.98 kB
+dist/gh-pages/assets/KaTeX_Size2-Regular-oD1tc_U0.woff                                        6.18 kB
+dist/gh-pages/assets/KaTeX_Size1-Regular-C195tn64.woff                                        6.49 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2                                 6.90 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2                                    6.91 kB
+dist/gh-pages/assets/KaTeX_Size3-Regular-DgpXs0kz.ttf                                         7.58 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Regular-CTRA-rTL.woff                                  7.65 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Bold-BEiXGLvX.woff                                     7.71 kB
+dist/gh-pages/assets/KaTeX_Script-Regular-D3wIWfF6.woff2                                      9.64 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2                                  10.34 kB
+dist/gh-pages/assets/KaTeX_Size4-Regular-DWFBv043.ttf                                        10.36 kB
+dist/gh-pages/assets/KaTeX_Script-Regular-D5yQViql.woff                                      10.58 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2                                    11.31 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2                                       11.34 kB
+dist/gh-pages/assets/KaTeX_Size2-Regular-B7gKUWhC.ttf                                        11.50 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2                                   12.02 kB
+dist/gh-pages/assets/quantize-worker-C0vkpSff.js                                             12.05 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2                                     12.21 kB
+dist/gh-pages/assets/KaTeX_Size1-Regular-Dbsnue_I.ttf                                        12.22 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Regular-CS6fqUqJ.woff                                   12.31 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Regular-wX97UBjC.ttf                                  12.34 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Bold-ATXxdsX0.ttf                                     12.36 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Regular-Dxdc4cR9.woff                                     13.20 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Bold-BsDP51OF.woff                                        13.29 kB
+dist/gh-pages/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2                                 13.56 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Italic-DN2j7dab.woff                                    14.11 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Bold-DbIhKOiC.woff                                      14.40 kB
+dist/gh-pages/assets/KaTeX_Typewriter-Regular-C0xS9mPB.woff                                  16.02 kB
+dist/gh-pages/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2                                    16.40 kB
+dist/gh-pages/assets/KaTeX_Math-Italic-t53AETM-.woff2                                        16.44 kB
+dist/gh-pages/assets/KaTeX_Script-Regular-C5JkGWo-.ttf                                       16.64 kB
+dist/gh-pages/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2                                    16.78 kB
+dist/gh-pages/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2                                        16.98 kB
+dist/gh-pages/assets/KaTeX_Math-BoldItalic-iY-2wyZ7.woff                                     18.66 kB
+dist/gh-pages/assets/KaTeX_Math-Italic-DA0__PXp.woff                                         18.74 kB
+dist/gh-pages/assets/KaTeX_Main-BoldItalic-SpSLRI95.woff                                     19.41 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Regular-BNo7hRIc.ttf                                    19.43 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Regular-CB_wures.ttf                                      19.57 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Bold-BdnERNNW.ttf                                         19.58 kB
+dist/gh-pages/assets/KaTeX_Main-Italic-BMLOBm91.woff                                         19.67 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Italic-YYjJ1zSn.ttf                                     22.36 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Bold-CFMepnvq.ttf                                       24.50 kB
+dist/gh-pages/assets/KaTeX_Main-Bold-Cx986IdX.woff2                                          25.32 kB
+dist/gh-pages/assets/KaTeX_Main-Regular-B22Nviop.woff2                                       26.27 kB
+dist/gh-pages/index.html                                                                     27.31 kB │ gzip:   9.34 kB
+dist/gh-pages/assets/KaTeX_Typewriter-Regular-D3Ib7_Hf.ttf                                   27.55 kB
+dist/gh-pages/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2                                        28.07 kB
+dist/gh-pages/assets/KaTeX_Main-Bold-Jm3AIy58.woff                                           29.91 kB
+dist/gh-pages/assets/KaTeX_Main-Regular-Dr94JaBh.woff                                        30.77 kB
+dist/gh-pages/assets/KaTeX_Math-BoldItalic-B3XSjfu4.ttf                                      31.19 kB
+dist/gh-pages/assets/KaTeX_Math-Italic-flOr_0UB.ttf                                          31.30 kB
+dist/gh-pages/assets/KaTeX_Main-BoldItalic-DzxPMmG6.ttf                                      32.96 kB
+dist/gh-pages/assets/KaTeX_AMS-Regular-DMm9YOAa.woff                                         33.51 kB
+dist/gh-pages/assets/KaTeX_Main-Italic-3WenGoN9.ttf                                          33.58 kB
+dist/gh-pages/assets/KaTeX_Main-Bold-waoOVXN0.ttf                                            51.33 kB
+dist/gh-pages/assets/KaTeX_Main-Regular-ypZvNtVU.ttf                                         53.58 kB
+dist/gh-pages/assets/KaTeX_AMS-Regular-DRggAlZN.ttf                                          63.63 kB
+dist/gh-pages/assets/seeded-ground-9mEBtB_H.js                                              187.86 kB
+dist/gh-pages/assets/PaletteCardGrid-B1Ql87zp.css                                             0.05 kB │ gzip:   0.07 kB
+dist/gh-pages/assets/GeneratePane-C8eYBAn5.css                                                0.06 kB │ gzip:   0.08 kB
+dist/gh-pages/assets/ActionFeedback-wWnDS7s-.css                                              0.11 kB │ gzip:   0.10 kB
+dist/gh-pages/assets/Katex-DS91kTju.css                                                       0.12 kB │ gzip:   0.10 kB
+dist/gh-pages/assets/AuroraPane-BlqkyoeU.css                                                  0.23 kB │ gzip:   0.19 kB
+dist/gh-pages/assets/InterpolationFields-D66HOAnG.css                                         0.29 kB │ gzip:   0.20 kB
+dist/gh-pages/assets/BrowsePane-Q7S-vp1Y.css                                                  0.46 kB │ gzip:   0.29 kB
+dist/gh-pages/assets/PaletteCardSkeleton-YOfOy44a.css                                         0.50 kB │ gzip:   0.27 kB
+dist/gh-pages/assets/PreviewStrip-DQAzBxEU.css                                                0.55 kB │ gzip:   0.29 kB
+dist/gh-pages/assets/PalettesPane-BmqrwymM.css                                                0.65 kB │ gzip:   0.36 kB
+dist/gh-pages/assets/AdminPane-DK5g05mR.css                                                   0.92 kB │ gzip:   0.40 kB
+dist/gh-pages/assets/ConfigSliderPane-BDpvVIQX.css                                            1.08 kB │ gzip:   0.51 kB
+dist/gh-pages/assets/PaletteSpecimen-BK_T7UeJ.css                                             1.21 kB │ gzip:   0.44 kB
+dist/gh-pages/assets/hljs-5k_0hpis.css                                                        1.23 kB │ gzip:   0.49 kB
+dist/gh-pages/assets/ApiStatusChip-D1k2WfUD.css                                               1.32 kB │ gzip:   0.49 kB
+dist/gh-pages/assets/ExtractPane-C8NiMmkx.css                                                 1.33 kB │ gzip:   0.53 kB
+dist/gh-pages/assets/MixPane-CR4K9LOQ.css                                                     1.98 kB │ gzip:   0.64 kB
+dist/gh-pages/assets/ColorInput-LO-JnyXu.css                                                  2.58 kB │ gzip:   0.83 kB
+dist/gh-pages/assets/dock-QRUMi47Y.css                                                        2.75 kB │ gzip:   0.96 kB
+dist/gh-pages/assets/PaletteInspector-BBJ5z4mR.css                                            3.36 kB │ gzip:   0.90 kB
+dist/gh-pages/assets/PointerDebugOverlay-DDIMw9sR.css                                         4.11 kB │ gzip:   1.26 kB
+dist/gh-pages/assets/GradientPane-CpAzg3U4.css                                                8.72 kB │ gzip:   2.25 kB
+dist/gh-pages/assets/AboutPane-DhWcdEWP.css                                                  12.66 kB │ gzip:   2.00 kB
+dist/gh-pages/assets/vendor-katex-BorAY7qD.css                                               28.48 kB │ gzip:   7.92 kB
+dist/gh-pages/assets/glass-fonts-PBJY3762.css                                               132.84 kB │ gzip:  99.89 kB
+dist/gh-pages/assets/index-CpTpi_Rq.css                                                     436.18 kB │ gzip:  74.48 kB
+dist/gh-pages/assets/check-DSSDSwM6.js                                                        0.12 kB │ gzip:   0.14 kB
+dist/gh-pages/assets/loader-circle-YjWttYNj.js                                                0.14 kB │ gzip:   0.15 kB
+dist/gh-pages/assets/arrow-right-C0uA3Pwk.js                                                  0.16 kB │ gzip:   0.16 kB
+dist/gh-pages/assets/focus-Duf7EpUu-B8J-EQM7.js                                               0.21 kB │ gzip:   0.15 kB
+dist/gh-pages/assets/dateFormat-C3Z6m8-_.js                                                   0.22 kB │ gzip:   0.14 kB
+dist/gh-pages/assets/usePanePopups-B-YWnLpS.js                                                0.22 kB │ gzip:   0.18 kB
+dist/gh-pages/assets/ellipsis-vertical-B1KXSOS_.js                                            0.23 kB │ gzip:   0.17 kB
+dist/gh-pages/assets/color-model-EyquewSU.js                                                  0.29 kB │ gzip:   0.22 kB
+dist/gh-pages/assets/control.css_vue_type_style_index_0_src_true_lang-BIdufaDG-CdvOnmWR.js    0.42 kB │ gzip:   0.28 kB
+dist/gh-pages/assets/_plugin-vue_export-helper-B3ysoDQm-CkmoDiir.js                           0.43 kB │ gzip:   0.28 kB
+dist/gh-pages/assets/accent-tone-solve-5H6FY2QO-BI4HeUwX.js                                   0.46 kB │ gzip:   0.31 kB
+dist/gh-pages/assets/sample-C1x4d5zq.js                                                       0.67 kB │ gzip:   0.43 kB
+dist/gh-pages/assets/rolldown-runtime-QTnfLwEv.js                                             0.69 kB │ gzip:   0.42 kB
+dist/gh-pages/assets/PreviewStrip-DWjwXckK.js                                                 0.73 kB │ gzip:   0.47 kB
+dist/gh-pages/assets/PaletteCardGrid-BUZkywrq.js                                              0.78 kB │ gzip:   0.49 kB
+dist/gh-pages/assets/useResizeObserver-CdUlm2QZ-7ORH9RJ4.js                                   0.86 kB │ gzip:   0.52 kB
+dist/gh-pages/assets/usePopupMutex-B-EXt6E7.js                                                0.90 kB │ gzip:   0.48 kB
+dist/gh-pages/assets/input-eLZ_AU7l-FZgw7oSa.js                                               1.06 kB │ gzip:   0.61 kB
+dist/gh-pages/assets/SwatchButton-DBxq5EAX.js                                                 1.15 kB │ gzip:   0.71 kB
+dist/gh-pages/assets/preload-helper-kNaey6uv.js                                               1.20 kB │ gzip:   0.68 kB
+dist/gh-pages/assets/ApiStatusChip-8pRv5OYN.js                                                1.43 kB │ gzip:   0.83 kB
+dist/gh-pages/assets/label-CE03H1KL-CnIkB5-u.js                                               1.45 kB │ gzip:   0.74 kB
+dist/gh-pages/assets/PaletteColorStrip-D0CeCPFp.js                                            1.47 kB │ gzip:   0.79 kB
+dist/gh-pages/assets/ActionFeedback-B9HGz1sq.js                                               1.68 kB │ gzip:   0.96 kB
+dist/gh-pages/assets/Katex-C8tJVR-5.js                                                        1.68 kB │ gzip:   0.93 kB
+dist/gh-pages/assets/badge-BO6BC4G5-C6yNlZWd.js                                               1.81 kB │ gzip:   0.86 kB
+dist/gh-pages/assets/PaletteCardSkeleton-nWq_Q0qr.js                                          1.85 kB │ gzip:   0.87 kB
+dist/gh-pages/assets/labeled-field-CTNDTP9u.js                                                1.86 kB │ gzip:   0.89 kB
+dist/gh-pages/assets/PaletteNameInput-BM0SeRlD.js                                             2.00 kB │ gzip:   1.01 kB
+dist/gh-pages/assets/BlobPane-CIdkWpBN.js                                                     2.20 kB │ gzip:   0.95 kB
+dist/gh-pages/assets/configurator-CPxIo3q2-C4xNIMOR.js                                        2.45 kB │ gzip:   1.26 kB
+dist/gh-pages/assets/keyboard-0RZsopcM.js                                                     2.46 kB │ gzip:   1.21 kB
+dist/gh-pages/assets/separator-D4EZM10u-JZ-Sx_RZ.js                                           2.51 kB │ gzip:   0.99 kB
+dist/gh-pages/assets/fading-scroll-CTeW3KNS-CWoCn7t5.js                                       2.64 kB │ gzip:   1.27 kB
+dist/gh-pages/assets/PaletteSpecimen-CnqNXtEN.js                                              2.80 kB │ gzip:   1.16 kB
+dist/gh-pages/assets/ConfigSliderPane-BXp87Qxd.js                                             3.20 kB │ gzip:   1.62 kB
+dist/gh-pages/assets/switch-BYUZ6g9G-BcDXtkY7.js                                              3.24 kB │ gzip:   1.31 kB
+dist/gh-pages/assets/Presence-Bvvl9Vx-.js                                                     3.36 kB │ gzip:   1.58 kB
+dist/gh-pages/assets/hwb-CIOaG6uJ.js                                                          3.83 kB │ gzip:   1.85 kB
+dist/gh-pages/assets/hsv-BgsqJ7hc.js                                                          3.84 kB │ gzip:   1.84 kB
+dist/gh-pages/assets/hsl-Cvioot4R.js                                                          3.89 kB │ gzip:   1.90 kB
+dist/gh-pages/assets/kelvin-V_TSHVWo.js                                                       3.90 kB │ gzip:   1.88 kB
+dist/gh-pages/assets/lch-DB_HQgBM.js                                                          4.01 kB │ gzip:   1.93 kB
+dist/gh-pages/assets/PointerDebugOverlay-bLY8Gg7H.js                                          4.10 kB │ gzip:   1.84 kB
+dist/gh-pages/assets/rgb-s5WRfEpZ.js                                                          4.29 kB │ gzip:   2.00 kB
+dist/gh-pages/assets/AuroraPane-Dpr6M7Ax.js                                                   4.38 kB │ gzip:   1.53 kB
+dist/gh-pages/assets/picker-color-vxPFipSO.js                                                 4.39 kB │ gzip:   1.66 kB
+dist/gh-pages/assets/oklab-DWPbLx16.js                                                        4.82 kB │ gzip:   2.05 kB
+dist/gh-pages/assets/chip-BBIr7uSG.js                                                         4.91 kB │ gzip:   1.95 kB
+dist/gh-pages/assets/oklch-D83awqwx.js                                                        5.07 kB │ gzip:   2.34 kB
+dist/gh-pages/assets/lab-C1_fwcD-.js                                                          5.14 kB │ gzip:   2.29 kB
+dist/gh-pages/assets/xyz-00qIgGEF.js                                                          5.37 kB │ gzip:   2.40 kB
+dist/gh-pages/assets/useIntersectionPause-CzKR3EyP-DVCl7fIh.js                                5.40 kB │ gzip:   2.40 kB
+dist/gh-pages/assets/hex-3djUSiYN.js                                                          5.62 kB │ gzip:   2.53 kB
+dist/gh-pages/assets/collapsible-DFzK29Oh-CUXHJ_BC.js                                         5.72 kB │ gzip:   1.94 kB
+dist/gh-pages/assets/GeneratePane-BlsNC63c.js                                                 6.04 kB │ gzip:   2.42 kB
+dist/gh-pages/assets/tabs-C5sC0fBE-abvuD6US.js                                                6.25 kB │ gzip:   2.82 kB
+dist/gh-pages/assets/useDragMorph-B363RUbF-DdoNEv-8.js                                        6.27 kB │ gzip:   2.67 kB
+dist/gh-pages/assets/ColorInput-DVWSVszZ.js                                                   6.44 kB │ gzip:   2.99 kB
+dist/gh-pages/assets/useSelectionGroup-zsEwitF6-CCC0v-j4.js                                   6.97 kB │ gzip:   2.88 kB
+dist/gh-pages/assets/InterpolationFields-DwRsGh99.js                                          7.51 kB │ gzip:   3.10 kB
+dist/gh-pages/assets/createLucideIcon-C9ReE7V-.js                                             8.11 kB │ gzip:   3.46 kB
+dist/gh-pages/assets/AboutPane-T-ilJniB.js                                                    8.69 kB │ gzip:   3.48 kB
+dist/gh-pages/assets/dialog-fNBvqXpb.js                                                      11.71 kB │ gzip:   4.41 kB
+dist/gh-pages/assets/dom-DgIApRUZ.js                                                         13.51 kB │ gzip:   5.63 kB
+dist/gh-pages/assets/dialog-BZoFG0j8-CnI6tTCI.js                                             13.61 kB │ gzip:   4.12 kB
+dist/gh-pages/assets/keyframes-iZdbN1lK.js                                                   16.65 kB │ gzip:   5.57 kB
+dist/gh-pages/assets/dist-JZMFlpPu.js                                                        17.34 kB │ gzip:   7.21 kB
+dist/gh-pages/assets/button-BOFTUPyU-Bf7MWLbN.js                                             17.73 kB │ gzip:   6.42 kB
+dist/gh-pages/assets/slider-5uoY-cLG-CkZeIK1m.js                                             17.93 kB │ gzip:   5.74 kB
+dist/gh-pages/assets/MixPane-C6MkZrad.js                                                     18.89 kB │ gzip:   7.32 kB
+dist/gh-pages/assets/BrowsePane-umeAQVYv.js                                                  22.05 kB │ gzip:   8.16 kB
+dist/gh-pages/assets/PaletteInspector-C4z7Zaej.js                                            26.21 kB │ gzip:   9.47 kB
+dist/gh-pages/assets/ExtractPane-Sys1nvKG.js                                                 27.01 kB │ gzip:  10.49 kB
+dist/gh-pages/assets/menu-DaYAZiVW-CgoXHpOu.js                                               28.51 kB │ gzip:   6.16 kB
+dist/gh-pages/assets/vendor-highlight-D9VP3A7h.js                                            32.06 kB │ gzip:  12.07 kB
+dist/gh-pages/assets/PopperContent-Baxq4tX3.js                                               34.87 kB │ gzip:  12.76 kB
+dist/gh-pages/assets/dock-DxDR3HDL.js                                                        35.24 kB │ gzip:  12.78 kB
+dist/gh-pages/assets/dock-Xy8tzupG.js                                                        35.50 kB │ gzip:  11.01 kB
+dist/gh-pages/assets/AdminPane-BoQSgeKS.js                                                   40.10 kB │ gzip:  10.38 kB
+dist/gh-pages/assets/DropdownMenuTrigger-CKRnhDSQ-Deq-MyN8.js                                45.12 kB │ gzip:   8.93 kB
+dist/gh-pages/assets/glass-ui-DEWli-zE.js                                                    49.47 kB │ gzip:  15.51 kB
+dist/gh-pages/assets/PalettesPane-BRe6vmtW.js                                                52.65 kB │ gzip:  18.45 kB
+dist/gh-pages/assets/serialize-BtpoAFZw-C086w664.js                                          73.12 kB │ gzip:  20.23 kB
+dist/gh-pages/assets/HeroBlob-9iod2pfd.js                                                    95.28 kB │ gzip:  35.05 kB
+dist/gh-pages/assets/vue.runtime.esm-bundler-2l_pzWEZ.js                                    109.88 kB │ gzip:  42.20 kB
+dist/gh-pages/assets/GradientPane-jb2vbGxE.js                                               182.45 kB │ gzip:  42.03 kB
+dist/gh-pages/assets/vendor-katex-BS6IC5z_.js                                               259.26 kB │ gzip:  77.47 kB
+dist/gh-pages/assets/index-DxQdiFwv.js                                                      479.59 kB │ gzip: 158.35 kB
+
+[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+      [38;5;246m│[0m
+ [38;5;246m3362 │[0m /* #__PURE__ */
+ [38;5;240m     │[0m ───────┬───────  
+ [38;5;240m     │[0m        ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+      [38;5;246m│[0m
+ [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+ [38;5;240m     │[0m                       ───────┬───────  
+ [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+✓ built in 1.33s
+Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+    at o (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js:8:44)
+    at F (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:110:7)
+    at xe (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:117:60)
+    at useAtmosphere (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10139:27)
+    at useAtmosphereBoot (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10295:114)
+    at setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10744:48)
+    at App_vue_vue_type_script_setup_true_lang_default.setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10881:22) undefined

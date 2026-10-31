@@ -9,7 +9,9 @@
  * mock, an emulated media preference, a keypress. No `demo/`, `src/` or `api/`
  * byte is written by this unit.
  */
-import { resolve } from "node:path";
+import { readdirSync, readFileSync } from "node:fs";
+import { createRequire } from "node:module";
+import { dirname, join, resolve } from "node:path";
 import type { BrowserContext, Page } from "@playwright/test";
 import { MAIN_PANE, mainPane } from "../smoke/fixtures/dock";
 import type { CensusRoute } from "./census";
@@ -74,6 +76,174 @@ export async function pinEntropy(context: BrowserContext): Promise<void> {
             return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
         };
     });
+}
+
+/**
+ * The faces of the producer's font corpus that declare `font-display: optional`,
+ * read from the corpus the dev server imports (`deferGlassFonts`, dev branch).
+ */
+interface OptionalFace {
+    family: string;
+    data: string;
+    weight: string;
+    style: string;
+    unicodeRange: string;
+}
+
+function readOptionalFaces(): OptionalFace[] {
+    const corpus = readFileSync(
+        createRequire(import.meta.url).resolve("@mkbabb/glass-ui/styles/fonts"),
+        "utf8",
+    );
+    const descriptor = (block: string, name: string) =>
+        block.match(new RegExp(`${name}:\\s*([^;]+);`))?.[1]?.trim() ?? "";
+    return [...corpus.matchAll(/@font-face\s*\{([^}]*)\}/g)]
+        .map((m) => m[1] ?? "")
+        .filter((block) => descriptor(block, "font-display") === "optional")
+        .map((block) => ({
+            family: descriptor(block, "font-family").replace(/^"|"$/g, ""),
+            data: block.match(/url\("data:font\/woff2;base64,([^"]+)"\)/)?.[1] ?? "",
+            weight: descriptor(block, "font-weight"),
+            style: descriptor(block, "font-style"),
+            unicodeRange: descriptor(block, "unicode-range"),
+        }))
+        .map((face) => {
+            if (!face.family || !face.data)
+                throw new Error(
+                    `visual: an optional face of the corpus has no family or woff2 bytes`,
+                );
+            return face;
+        });
+}
+
+/**
+ * The body voice is decoded BEFORE the first layout, so `font-display:
+ * optional` has no window for the shutter to race (X.W11.v1b).
+ *
+ * ─── The race, measured ──────────────────────────────────────────────────────
+ *
+ * Since `fbc2affa9` (X-DS VR3-01, 2026-10-13) the dev server imports glass's
+ * real font corpus. Its Plus Jakarta Sans faces declare `font-display:
+ * optional`: the face paints only if it is ready inside the ~100 ms block
+ * window from its first use, and otherwise the Arial-metric "Plus Jakarta Sans
+ * Fallback" paints for the life of the document. Which side wins is a property
+ * of the host's load at that instant, not of the product:
+ *   - this mint host, 4 cold loads of `/#/browse` (CDP
+ *     `CSS.getPlatformFontsForNode` on the pane subtitle): Arial ×4, with the
+ *     Jakarta face reporting `loaded` — decoded, too late, never used;
+ *   - CI run 39613889291, cell `at-rest · 3440 › browse · both · dark`:
+ *     attempts 1 and 2 painted Arial, attempt 3 painted Jakarta (2,133 px).
+ * A golden of a coin flip is not a golden.
+ *
+ * ─── The pin ─────────────────────────────────────────────────────────────────
+ *
+ * Every `optional` face of the corpus is registered once more from the SAME
+ * bytes and the SAME descriptors, as a binary `FontFace` — which is parsed at
+ * construction, so it is `loaded` before the document's first layout (probe,
+ * 3/3 cold loads: the subtitle paints "Plus Jakarta Sans"). The faces are read
+ * from the corpus file at run time; no family, weight or range is written here.
+ * It settles the race on the side the product declares as its body voice; the
+ * fallback face stays the product's own first-paint answer for a real user
+ * whose decode misses the window, and it is not this matrix's subject. Swap
+ * faces (Fira Code) need no pin: they swap in and `document.fonts.ready` is
+ * awaited before every shutter.
+ */
+export async function pinOptionalFaces(context: BrowserContext): Promise<void> {
+    await context.addInitScript((faces: OptionalFace[]) => {
+        for (const face of faces) {
+            const binary = atob(face.data);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+            document.fonts.add(
+                new FontFace(face.family, bytes, {
+                    weight: face.weight,
+                    style: face.style,
+                    unicodeRange: face.unicodeRange,
+                }),
+            );
+        }
+    }, readOptionalFaces());
+}
+
+/** The producer's mono metric-fallback face, the one family this host leaks into. */
+const MONO_FALLBACK_FAMILY = "Fira Code Fallback";
+
+/** The stock-macOS mono every darwin host carries, by the name Chrome matches. */
+const STOCK_MONO_LOCAL = 'local("Menlo-Regular")';
+
+function readMonoFallbackOverrides(): Record<string, string> {
+    const stylesDir = dirname(
+        createRequire(import.meta.url).resolve("@mkbabb/glass-ui/styles"),
+    );
+    for (const file of readdirSync(stylesDir, { recursive: true })) {
+        if (!String(file).endsWith(".css")) continue;
+        const css = readFileSync(join(stylesDir, String(file)), "utf8");
+        for (const m of css.matchAll(/@font-face\s*\{([^}]*)\}/g)) {
+            const block = m[1] ?? "";
+            if (!block.includes(`"${MONO_FALLBACK_FAMILY}"`)) continue;
+            const read = (name: string) =>
+                block.match(new RegExp(`${name}:\\s*([^;]+);`))?.[1]?.trim();
+            const out: Record<string, string> = {};
+            for (const [descriptor, key] of [
+                ["ascent-override", "ascentOverride"],
+                ["descent-override", "descentOverride"],
+                ["line-gap-override", "lineGapOverride"],
+                ["size-adjust", "sizeAdjust"],
+            ] as const) {
+                const value = read(descriptor);
+                if (value) out[key] = value;
+            }
+            return out;
+        }
+    }
+    throw new Error(
+        `visual: no @font-face for "${MONO_FALLBACK_FAMILY}" in ${stylesDir}`,
+    );
+}
+
+/**
+ * The mono fallback resolves to the stock-macOS face on every darwin host
+ * (X.W11.v1b).
+ *
+ * ─── The leak, measured ──────────────────────────────────────────────────────
+ *
+ * Glass's `"Fira Code Fallback"` face lists `local("SF Mono"),
+ * local("SFMono-Regular"), local("Menlo"), …`, and the gradient easing rows'
+ * `1 → 2` index paints its arrow from it (U+2192 is outside both Fira Code
+ * subsets' `unicode-range`). Whether `local("SF Mono")` matches is a property
+ * of the HOST, not of darwin: this mint host carries a user-installed SF Mono
+ * (`/Library/Fonts/SF-Mono-*.otf`), the stock `macos-15` runner does not, and
+ * Chrome matches `local()` by full / PostScript name, so `local("Menlo")`
+ * matches on neither (probe: `local("SF Mono")` → loaded here;
+ * `local("Menlo")` → not matched; `local("Menlo-Regular")` → loaded). The
+ * goldens minted here therefore carried SF Mono's arrow and CI painted
+ * another: run 39613889291, `at-rest › gradient · both · dark` at 1024 / 3440
+ * (127 / 198 px) and `forced-colors-desktop › gradient` (195 px), every
+ * differing pixel inside the arrow's box, every attempt.
+ *
+ * ─── The pin ─────────────────────────────────────────────────────────────────
+ *
+ * One more face of the same family, with the producer's own metric overrides
+ * read from its stylesheet at run time and the source set to the stock mono by
+ * the name Chrome matches. Script-added faces follow the CSS-connected ones, so
+ * it takes precedence on every host and the darwin goldens stop depending on
+ * which fonts the mint host happens to have installed — the same species as
+ * `visual.project.ts`'s `prefersReducedTransparency` pin of a host setting.
+ * The producer's `local("Menlo")` name is relayed as a glass row (receipt).
+ */
+export async function pinStockMonoFallback(context: BrowserContext): Promise<void> {
+    await context.addInitScript(
+        ({ family, source, descriptors }) => {
+            const face = new FontFace(family, source, descriptors);
+            document.fonts.add(face);
+            void face.load();
+        },
+        {
+            family: MONO_FALLBACK_FAMILY,
+            source: STOCK_MONO_LOCAL,
+            descriptors: readMonoFallbackOverrides(),
+        },
+    );
 }
 
 /** The storage key `useGlobalDark` reads. Seeded before the first script runs. */
@@ -624,8 +794,123 @@ export async function applyRtl(page: Page): Promise<void> {
  * gap."* This suite IS chromium, which is the condition that record names.
  */
 export async function tabTo(page: Page, steps = 12): Promise<void> {
+    // ─── The timed toast leaves BEFORE the walk (X.W11.v1b) ─────────────────
+    //
+    // The service-failure toast is focusable (`tabindex=0`), and a toast that
+    // holds focus pauses its own timer. Measured, census at 9407af39b:
+    // `keyboard-focus-desktop › browse` walked INTO the toast and held it open
+    // past `settleTimedToasts`' 15 s. Whether the walk meets the toast at all
+    // depends on the host's speed against its 10 s life, so the walk starts
+    // from the frame without it.
+    await settleTimedToasts(page);
+    await settleArrivals(page);
     for (let i = 0; i < steps; i++) await page.keyboard.press("Tab");
-    await page.waitForTimeout(250);
+    // ─── The walk's TERMINAL dock posture, waited on as state (X.W11.v1) ─────
+    //
+    // The dock is first in tab order, so the walk passes through it. When the
+    // last press leaves focus OUTSIDE the dock, glass's dock state machine
+    // (`useDockState` `onFocusOut`) schedules `hover → collapsed` after its
+    // idle window (`DOCK_COLLAPSE_DELAY_MS`, 3600 ms in glass 10.1.1). The old
+    // fixed 250 ms sleep photographed whichever side of that timer the
+    // quiescence wait happened to land on: measured on CI run 39613889291, 10
+    // of the 14 cells photographed the collapsed seal against goldens minted
+    // with the dock still open (and admin-flagged flipped between attempts).
+    // The walk's settled frame is the collapsed seal, so the shutter waits for
+    // it; the morph to it is then covered by `requireQuiescence`. A walk that
+    // ends INSIDE the dock leaves it open (no timer is armed), and is
+    // photographed as it stands.
+    const focusInDock = await page.evaluate(
+        () => document.activeElement?.closest(".glass-dock") != null,
+    );
+    if (!focusInDock)
+        await page
+            .locator(".glass-dock.collapsed")
+            .waitFor({ state: "attached", timeout: 10_000 });
+}
+
+/**
+ * The shutter waits for every timed toast to finish its life (X.W11.v1b).
+ *
+ * In this matrix the palette service is absent (the dev server answers
+ * `/palettes` with its SPA HTML), so every cell that mounts a palette surface
+ * raises glass's service-failure toast through `reportServiceProblem`
+ * (`demo/platform/transport/useApiClient.ts`, `SERVICE_TOAST_MS` = 10 s), and
+ * the forced-state arm raises it on purpose. A toast with a timer is not a
+ * settled frame: the shutter photographed whichever side of that timer the
+ * host's speed landed it on. Measured — probe, `/#/browse` cold, no
+ * interaction: the toast opens at 0.66 s, closes at 10.62 s, leaves the DOM at
+ * 10.82 s, and no second toast follows in 26 s. On CI run 39613889291:
+ * `at-rest · 3440 › browse · both · dark` photographed the toast gone against a
+ * golden with it present (attempts 1–2), and `forced-state › api-unavailable
+ * latch` and `forced-colors-desktop › browse` red on the toast's own text and
+ * Retry rows (1,103 and 222 px), bimodal at the parent too (`b34f5aeee`).
+ * The terminal frame is the one without the toast, so the shutter waits for
+ * it — the same law as `tabTo`'s collapsed seal. The toast's own pixels are
+ * the e2e suite's subject, not this matrix's; no cell names it.
+ */
+/**
+ * The walk starts from a plate at rest: every running finite animation on the
+ * document timeline has finished (X.W11.vrm, COHESION §0gy.3).
+ *
+ * Measured at `ce711ca3c`+, `keyboard-focus-desktop › gradient` ×4: the cell
+ * photographed two settled frames 575 / 4301 px from the golden, 9 px apart in
+ * `scrollY` (169 or 178). The fifth Tab focuses the pane's scroller, and the
+ * browser scrolls it into view against its geometry AT THAT MOMENT. In every
+ * 169 draw the pane's arrival keyframe (`overture-plate-settle`,
+ * `translateY(-12px) rotate(-0.6deg)` → none, `overture.css:87`) was still
+ * running when the walk began, so the scroll offset was computed from a plate
+ * still landing and then kept. The walk therefore waits on each running
+ * animation's own `finished` promise, re-reading until none remains — never a
+ * wall-clock sleep. Infinite animations and scroll-driven ones (another
+ * timeline; their `finished` never resolves at rest) are not arrivals and are
+ * not waited on. A page still landing after the bound is refused, not
+ * photographed.
+ */
+export async function settleArrivals(page: Page, boundMs = 10_000): Promise<void> {
+    const left = await page.evaluate(async (boundMs) => {
+        const deadline = performance.now() + boundMs;
+        const running = () =>
+            document
+                .getAnimations()
+                .filter(
+                    (a) =>
+                        a.playState === "running" &&
+                        a.timeline === document.timeline &&
+                        Number.isFinite(
+                            a.effect?.getComputedTiming().endTime ?? Infinity,
+                        ),
+                );
+        for (;;) {
+            const now = running();
+            if (!now.length) return [];
+            if (performance.now() > deadline)
+                return now.map(
+                    (a) =>
+                        (a as CSSAnimation).animationName ??
+                        (a as CSSTransition).transitionProperty ??
+                        a.id,
+                );
+            await Promise.race([
+                Promise.allSettled(now.map((a) => a.finished)),
+                new Promise((r) =>
+                    setTimeout(r, Math.max(0, deadline - performance.now())),
+                ),
+            ]);
+            await new Promise((r) => requestAnimationFrame(() => r(null)));
+        }
+    }, boundMs);
+    if (left.length)
+        throw new Error(
+            `ARRIVAL NOT SETTLED after ${boundMs} ms: ${left.join(", ")} still running. ` +
+                "The walk is refused rather than started from a plate still landing.",
+        );
+}
+
+export async function settleTimedToasts(page: Page): Promise<void> {
+    await page
+        .locator('[data-slot="toast"]')
+        .first()
+        .waitFor({ state: "detached", timeout: 15_000 });
 }
 
 /**

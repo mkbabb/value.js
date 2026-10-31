@@ -68,8 +68,33 @@ import type { PlaywrightTestConfig, Project } from "@playwright/test";
  */
 export const VISUAL_SNAPSHOT_PATH_TEMPLATE = "{testDir}/goldens/{platform}/{arg}{ext}";
 
+/**
+ * HOST TRANSPARENCY IS NOT A CELL AXIS (X.W11.v1, 2026-10-21).
+ *
+ * `prefers-reduced-transparency` comes from the HOST OS, and Playwright has no
+ * emulation option for it. The `macos-15` CI runner reports `reduce`, and this
+ * Mac reports `no-preference`. On CI every glass surface therefore took
+ * `foundation.css:947`'s BR-7 opaque fallback, and the darwin goldens failed on
+ * the plate and dock fill, not on any product change. Run `39556576127`
+ * (job `119078113496`) read `192 failed`. The CI actual of
+ * `at-rest · 1024 · atmosphere · both · light` is the opaque cream plate
+ * (327,437 px, ratio 0.42), and the same cell passes locally at the same bytes.
+ * A local probe with `reduce` emulated paints the CI actual.
+ *
+ * The oracle owns its media environment, as it owns the colour scheme, so it
+ * pins `no-preference` at launch through Blink's own setting. Measured: the
+ * setting overrides the OS value, and it survives every `emulateMedia` call,
+ * which a CDP `Emulation.setEmulatedMedia` pin does not, because Playwright
+ * re-sends the whole feature list on each call. BR-7's `reduce` branch is
+ * witnessed in its own spec (`e2e/smoke/a11y-modality-support.spec.ts`).
+ */
 const SWIFTSHADER_LAUNCH = {
-    args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"],
+    args: [
+        "--use-gl=angle",
+        "--use-angle=swiftshader",
+        "--enable-unsafe-swiftshader",
+        "--blink-settings=prefersReducedTransparency=false",
+    ],
 };
 
 // Default `chrome-headless-shell`, no `channel` — mirrors playwright.config.ts

@@ -451,9 +451,11 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
 
     it("G-11: revert → 201 and the body carries the APPENDED revision, not a bare palette", async () => {
         const hash = await firstReleaseHash();
+        // §0gt.5: a revision is a CONTENT change (the ordered colours); a
+        // rename alone is metadata and appends none, so the edit recolours.
         await patchPalette(services, {
             slug: "source",
-            body: { name: "Edited" },
+            body: { name: "Edited", colors: [{ css: "#00ff00", position: 0 }] },
             userSlug: "alice",
         });
 

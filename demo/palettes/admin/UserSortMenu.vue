@@ -13,7 +13,7 @@
                 <EllipsisVertical class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
             </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" class="z-popover w-48 font-display">
+        <DropdownMenuContent align="end" class="w-48 font-display">
             <DropdownMenuLabel class="text-micro">Sort</DropdownMenuLabel>
             <DropdownMenuRadioGroup
                 :model-value="sort"

@@ -1,0 +1,20 @@
+SERVED MODEL: claude-opus-5-5
+# PD-1 on prod (pd1-prod.sh). An earlier draft of the script (remix of the newest public row) found 0 public rows at 20:24:54Z/20:25:59Z and never reached the gated calls; it was rewritten to create its own draft.
+== PD-1 run 1 20:26:29Z
+draft: image=yes contour=yes viz=golden-tapping-sienna-walrus
+HTTP/1.1 200 OK
+etag: "9e880ad3c8828a762b95b11487c7f6e1e977692b108f3cb2cf439c7b22d2605f"
+access-control-expose-headers: ETag, RateLimit-Reset
+vary: Origin
+gzip-etag-present=yes weak=no PATCH(If-Match)=200 PATCH(stale)=412 DELETE=204
+PD-1 PASS
+rc=0
+== PD-1 run 2 20:27:43Z
+draft: image=yes contour=yes viz=supple-winding-heather-llama
+HTTP/1.1 200 OK
+etag: "2258be49bc89508e0cc633458f790d239aafa07aba6a66b845e926ea08e137c6"
+access-control-expose-headers: ETag, RateLimit-Reset
+vary: Origin
+gzip-etag-present=yes weak=no PATCH(If-Match)=200 PATCH(stale)=412 DELETE=204
+PD-1 PASS
+rc=0

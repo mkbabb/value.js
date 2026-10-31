@@ -1,0 +1,23 @@
+SERVED MODEL: claude-opus-5-5
+# prod-verify run 2 (guarded, headless shell, COMPUTE_CONCURRENCY=1)
+GREEN session — {"status":200,"user":"zen-wishing-lava-fish"}
+GREEN upload daraksha.jpg — {"status":200,"slug":"faded-darting-onyx-yak"}
+GREEN upright daraksha.jpg — {"status":200,"w":768,"h":1024}
+GREEN extract daraksha.jpg — {"status":200,"ms":57,"source":"extract","points":1024}
+GREEN epicycles daraksha.jpg — {"status":200}
+GREEN create daraksha.jpg — {"status":201,"slug":"swift-soaking-granite-kite","etag":"\"059c0aef56797cfe7546c28f3aaf7d43e6468ee750d4227d8ab76c31933b6df2\""}
+GREEN upload daraksha.jpeg — {"status":200,"slug":"twilit-cresting-prism-kestrel"}
+GREEN upright daraksha.jpeg — {"status":200,"w":768,"h":1024}
+RED   extract daraksha.jpeg — {"status":429,"ms":30,"text":"{\"type\":\"urn:contract:rate-limited\",\"title\":\"Rate limit exceeded\",\"status\":429}"}
+      (drawn contour for the downstream rows: 429)
+GREEN preview /v/<slug> — {"slug":"swift-soaking-granite-kite","canvas":true,"failed":0}
+RED   publish — {"status":429}
+RED   remix — {"status":429,"child":null,"text":"{\"type\":\"urn:contract:rate-limited\",\"title\":\"Rate limit exceeded\",\"status\":429}"}
+RED   diff — {"reason":"no remix child"}
+RED   gallery — {"status":200,"listed":false,"items":0}
+RED   edit (PATCH, If-Match) — {"etagExposed":true,"status":429}
+RED   delete swift-soaking-granite-kite — {"status":429,"text":"{\"type\":\"urn:contract:rate-limited\",\"title\":\"Rate limit exceeded\",\"status\":429}"}
+GREEN no CORS console errors — {"cors":[]}
+      (cleanup swift-soaking-granite-kite: 204)
+10/17 GREEN
+rc=1

@@ -1,0 +1,69 @@
+
+Running 1 test using 1 worker
+××F
+
+  1) [smoke] › e2e/smoke/hld-injected.spec.ts:2:1 › hld injected red ───────────────────────────────
+
+    Error: HLD-INJECTED-RED
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m2[39m
+    Received: [31m1[39m
+
+      1 | import { test, expect } from "@playwright/test";
+    > 2 | test("hld injected red", () => { expect(1, "HLD-INJECTED-RED").toBe(2); });
+        |                                                                ^
+      3 | test("hld injected green", () => { expect(1).toBe(1); });
+      4 | test("hld injected skipped", () => { test.skip(true, "injected"); });
+      5 |
+        at /w/tree/e2e/smoke/hld-injected.spec.ts:2:64
+
+    Error Context: test-results/hld-injected-hld-injected-red-smoke/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: HLD-INJECTED-RED
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m2[39m
+    Received: [31m1[39m
+
+      1 | import { test, expect } from "@playwright/test";
+    > 2 | test("hld injected red", () => { expect(1, "HLD-INJECTED-RED").toBe(2); });
+        |                                                                ^
+      3 | test("hld injected green", () => { expect(1).toBe(1); });
+      4 | test("hld injected skipped", () => { test.skip(true, "injected"); });
+      5 |
+        at /w/tree/e2e/smoke/hld-injected.spec.ts:2:64
+
+    Error Context: test-results/hld-injected-hld-injected-red-smoke-retry1/error-context.md
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: HLD-INJECTED-RED
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m2[39m
+    Received: [31m1[39m
+
+      1 | import { test, expect } from "@playwright/test";
+    > 2 | test("hld injected red", () => { expect(1, "HLD-INJECTED-RED").toBe(2); });
+        |                                                                ^
+      3 | test("hld injected green", () => { expect(1).toBe(1); });
+      4 | test("hld injected skipped", () => { test.skip(true, "injected"); });
+      5 |
+        at /w/tree/e2e/smoke/hld-injected.spec.ts:2:64
+
+    Error Context: test-results/hld-injected-hld-injected-red-smoke-retry2/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/hld-injected.spec.ts:2:1 › hld injected red ────────────────────────────────
+
+FAILS THE JOB (1):
+  RED without its token "A-TOKEN-NOT-IN-THE-FAILURE", a different failure than O-INJECTED holds: [smoke] e2e/smoke/hld-injected.spec.ts:2 › hld injected red
+
+honest-red verdict: failed · 0 held red · 0 held green · 1 failing
+token-r1 exit 1

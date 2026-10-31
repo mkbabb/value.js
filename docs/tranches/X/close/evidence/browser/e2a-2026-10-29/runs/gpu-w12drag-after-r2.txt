@@ -1,0 +1,32 @@
+(node:26282) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:26321) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+(node:26372) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/1] [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget
+[smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget
+[w12-drag REAL-GPU] surface: moves=71 frames=120 p50=16.7 p95=16.8 longTasks=0 maxTask=0
+    hot: get@vue.runtime.esm-bundler-DQai_KuN.js:996=26ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=24ms · getImageData@:0=23ms · s@color-BU4JS6bH.js:143=23ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=22ms · guardReactiveProps@vue.runtime.esm-bundler-DQai_KuN.js:6467=22ms
+
+[w12-drag REAL-GPU] slider L: moves=89 frames=121 p50=16.7 p95=16.7 longTasks=0 maxTask=0
+    hot: s@class-names-FlXcvRRT-DiIf_etZ.js:145=14ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=13ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=13ms · getBoundingClientRect@:0=12ms · getImageData@:0=11ms · set@vue.runtime.esm-bundler-DQai_KuN.js:1028=11ms
+
+[w12-drag REAL-GPU] slider a: moves=90 frames=122 p50=16.7 p95=16.7 longTasks=0 maxTask=0
+    hot: getBoundingClientRect@:0=19ms · mergeProps@vue.runtime.esm-bundler-DQai_KuN.js:6572=14ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=12ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=12ms · hasOwn@vue.runtime.esm-bundler-DQai_KuN.js:26=10ms · guardReactiveProps@vue.runtime.esm-bundler-DQai_KuN.js:6467=10ms
+
+[w12-drag REAL-GPU] slider b: moves=89 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0
+    hot: getBoundingClientRect@:0=14ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=12ms · getImageData@:0=12ms · guardReactiveProps@vue.runtime.esm-bundler-DQai_KuN.js:6467=12ms · s@color-BU4JS6bH.js:143=10ms · hasOwn@vue.runtime.esm-bundler-DQai_KuN.js:26=10ms
+
+[w12-drag REAL-GPU] slider alpha: moves=120 frames=121 p50=16.7 p95=16.8 longTasks=0 maxTask=0
+    hot: getImageData@:0=17ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=5ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=4ms · getBoundingClientRect@:0=4ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=4ms · mergeProps@vue.runtime.esm-bundler-DQai_KuN.js:6572=3ms
+
+[w12-drag] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) origin=dev T=16.70 budget p50<=17.70 p95<=34.40
+
+  1 passed (25.1s)
+exit=0

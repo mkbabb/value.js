@@ -1,0 +1,257 @@
+SERVED MODEL: claude-opus-5-5 · X.W11.hyg paint-state discriminator, 2026-10-30 ~01:00-01:30 EDT, display off since 2026-10-29 19:37:11 (pmset log). Probe 1 = paint-state-probe.mjs (Playwright launch path). Probes 2-5 = launcher-path-probe.mjs (chrome-launcher's live flag set from lhci-before/browser-flags.txt, Lighthouse's startup tab over CDP, dist/gh-pages at HEAD).
+## lp1: base, + --disable-gpu-vsync
+{
+ "base": [
+  "--disable-features=Translate,OptimizationHints,MediaRouter,DialMediaRouteProvider,CalculateNativeWinOcclusion,InterestFeedContentSuggestions,CertificateTransparencyComponentUpdater,AutofillServerCommunication,PrivacySandboxSettings4,RenderDocument",
+  "--disable-extensions",
+  "--disable-component-extensions-with-background-pages",
+  "--disable-background-networking",
+  "--disable-component-update",
+  "--disable-client-side-phishing-detection",
+  "--disable-sync",
+  "--metrics-recording-only",
+  "--disable-default-apps",
+  "--mute-audio",
+  "--no-default-browser-check",
+  "--no-first-run",
+  "--disable-backgrounding-occluded-windows",
+  "--disable-renderer-backgrounding",
+  "--disable-background-timer-throttling",
+  "--disable-ipc-flooding-protection",
+  "--password-store=basic",
+  "--use-mock-keychain",
+  "--force-fieldtrials=*BackgroundTracing/default/",
+  "--disable-hang-monitor",
+  "--disable-prompt-on-repost",
+  "--disable-domain-reliability",
+  "--propagate-iph-for-testing",
+  "--headless=new,new",
+  "--use-angle=metal"
+ ],
+ "url": "http://127.0.0.1:50439/",
+ "out": [
+  {
+   "extra": [],
+   "visibility": "visible",
+   "rafTicks1s": 0,
+   "fcpEntry": 0,
+   "cdpFirstContentfulPaint": false
+  },
+  {
+   "extra": [
+    "--disable-gpu-vsync"
+   ],
+   "visibility": "visible",
+   "rafTicks1s": 0,
+   "fcpEntry": 0,
+   "cdpFirstContentfulPaint": false
+  }
+ ]
+}
+## lp-headless: + --headless=new
+26:--headless=new,new
+ ],
+ "url": "http://127.0.0.1:55035/",
+ "out": [
+  {
+   "extra": [
+    "--headless=new"
+   ],
+   "visibility": "visible",
+   "rafTicks1s": 0,
+   "fcpEntry": 0,
+   "cdpFirstContentfulPaint": false
+  }
+ ]
+}
+
+[exited with code 0]
+## lp2: headless replaced x2, Playwright's five extra switches
+{
+ "base": [
+  "--disable-features=Translate,OptimizationHints,MediaRouter,DialMediaRouteProvider,CalculateNativeWinOcclusion,InterestFeedContentSuggestions,CertificateTransparencyComponentUpdater,AutofillServerCommunication,PrivacySandboxSettings4,RenderDocument",
+  "--disable-extensions",
+  "--disable-component-extensions-with-background-pages",
+  "--disable-background-networking",
+  "--disable-component-update",
+  "--disable-client-side-phishing-detection",
+  "--disable-sync",
+  "--metrics-recording-only",
+  "--disable-default-apps",
+  "--mute-audio",
+  "--no-default-browser-check",
+  "--no-first-run",
+  "--disable-backgrounding-occluded-windows",
+  "--disable-renderer-backgrounding",
+  "--disable-background-timer-throttling",
+  "--disable-ipc-flooding-protection",
+  "--password-store=basic",
+  "--use-mock-keychain",
+  "--force-fieldtrials=*BackgroundTracing/default/",
+  "--disable-hang-monitor",
+  "--disable-prompt-on-repost",
+  "--disable-domain-reliability",
+  "--propagate-iph-for-testing",
+  "--headless=new,new",
+  "--use-angle=metal"
+ ],
+ "url": "http://127.0.0.1:55569/",
+ "out": [
+  {
+   "extra": [
+    "!--headless",
+    "--headless=new"
+   ],
+   "visibility": "visible",
+   "rafTicks1s": 0,
+   "fcpEntry": 0,
+   "cdpFirstContentfulPaint": false
+  },
+  {
+   "extra": [
+    "!--headless",
+    "--headless"
+   ],
+   "visibility": "visible",
+   "rafTicks1s": 0,
+   "fcpEntry": 0,
+   "cdpFirstContentfulPaint": false
+  },
+  {
+   "extra": [
+    "--allow-pre-commit-input",
+    "--disable-field-trial-config",
+    "--hide-scrollbars",
+    "--force-color-profile=srgb",
+    "--disable-dev-shm-usage"
+   ],
+   "visibility": "visible",
+   "rafTicks1s": 69,
+   "fcpEntry": 1,
+   "cdpFirstContentfulPaint": true
+  }
+ ]
+}
+## lp3: single-switch bisect
+{
+ "base": [
+  "--disable-features=Translate,OptimizationHints,MediaRouter,DialMediaRouteProvider,CalculateNativeWinOcclusion,InterestFeedContentSuggestions,CertificateTransparencyComponentUpdater,AutofillServerCommunication,PrivacySandboxSettings4,RenderDocument",
+  "--disable-extensions",
+  "--disable-component-extensions-with-background-pages",
+  "--disable-background-networking",
+  "--disable-component-update",
+  "--disable-client-side-phishing-detection",
+  "--disable-sync",
+  "--metrics-recording-only",
+  "--disable-default-apps",
+  "--mute-audio",
+  "--no-default-browser-check",
+  "--no-first-run",
+  "--disable-backgrounding-occluded-windows",
+  "--disable-renderer-backgrounding",
+  "--disable-background-timer-throttling",
+  "--disable-ipc-flooding-protection",
+  "--password-store=basic",
+  "--use-mock-keychain",
+  "--force-fieldtrials=*BackgroundTracing/default/",
+  "--disable-hang-monitor",
+  "--disable-prompt-on-repost",
+  "--disable-domain-reliability",
+  "--propagate-iph-for-testing",
+  "--headless=new,new",
+  "--use-angle=metal"
+ ],
+ "url": "http://127.0.0.1:56761/",
+ "out": [
+  {
+   "extra": [
+    "--disable-field-trial-config"
+   ],
+   "visibility": "visible",
+   "rafTicks1s": 83,
+   "fcpEntry": 1,
+   "cdpFirstContentfulPaint": true
+  },
+  {
+   "extra": [
+    "--allow-pre-commit-input"
+   ],
+   "visibility": "visible",
+   "rafTicks1s": 0,
+   "fcpEntry": 0,
+   "cdpFirstContentfulPaint": false
+  },
+  {
+   "extra": [
+    "--force-color-profile=srgb",
+    "--hide-scrollbars",
+    "--disable-dev-shm-usage"
+   ],
+   "visibility": "visible",
+   "rafTicks1s": 0,
+   "fcpEntry": 0,
+   "cdpFirstContentfulPaint": false
+  }
+ ]
+}
+## lp4: the cured set x2 and the bare base, with the WebGL renderer read
+{
+ "base": [
+  "--disable-features=Translate,OptimizationHints,MediaRouter,DialMediaRouteProvider,CalculateNativeWinOcclusion,InterestFeedContentSuggestions,CertificateTransparencyComponentUpdater,AutofillServerCommunication,PrivacySandboxSettings4,RenderDocument",
+  "--disable-extensions",
+  "--disable-component-extensions-with-background-pages",
+  "--disable-background-networking",
+  "--disable-component-update",
+  "--disable-client-side-phishing-detection",
+  "--disable-sync",
+  "--metrics-recording-only",
+  "--disable-default-apps",
+  "--mute-audio",
+  "--no-default-browser-check",
+  "--no-first-run",
+  "--disable-backgrounding-occluded-windows",
+  "--disable-renderer-backgrounding",
+  "--disable-background-timer-throttling",
+  "--disable-ipc-flooding-protection",
+  "--password-store=basic",
+  "--use-mock-keychain",
+  "--force-fieldtrials=*BackgroundTracing/default/",
+  "--disable-hang-monitor",
+  "--disable-prompt-on-repost",
+  "--disable-domain-reliability",
+  "--propagate-iph-for-testing",
+  "--headless=new,new",
+  "--use-angle=metal"
+ ],
+ "url": "http://127.0.0.1:57641/",
+ "out": [
+  {
+   "extra": [
+    "--disable-field-trial-config"
+   ],
+   "visibility": "visible",
+   "rafTicks1s": 91,
+   "fcpEntry": 1,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+   "cdpFirstContentfulPaint": true
+  },
+  {
+   "extra": [
+    "--disable-field-trial-config"
+   ],
+   "visibility": "visible",
+   "rafTicks1s": 113,
+   "fcpEntry": 1,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+   "cdpFirstContentfulPaint": true
+  },
+  {
+   "extra": [],
+   "visibility": "visible",
+   "rafTicks1s": 0,
+   "fcpEntry": 0,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+   "cdpFirstContentfulPaint": false
+  }
+ ]
+}

@@ -1,0 +1,2551 @@
+{
+ "name": "vrbatt__picker__both__1024__light__real__angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
+ "dpr": 1,
+ "scrollY": 0,
+ "runs": [
+  {
+   "text": "Home",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     346.421875,
+     31.140625,
+     390.421875,
+     50.140625
+    ]
+   ]
+  },
+  {
+   "text": "Tools",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     469.15625,
+     31.140625,
+     508.453125,
+     50.140625
+    ]
+   ]
+  },
+  {
+   "text": "Login",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     583.1875,
+     31.140625,
+     624.265625,
+     50.140625
+    ]
+   ]
+  },
+  {
+   "text": "@mbabb",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     650.265625,
+     30.140625,
+     705.5625,
+     50.140625
+    ]
+   ]
+  },
+  {
+   "text": "Home",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     24.59375,
+     89,
+     74.578125,
+     110
+    ]
+   ]
+  },
+  {
+   "text": "Home view",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     24.59375,
+     89,
+     116.234375,
+     111
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     48.984375,
+     107,
+     190.5,
+     164
+    ]
+   ]
+  },
+  {
+   "text": "73",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     48.984375,
+     181.109375,
+     94.890625,
+     225.109375
+    ]
+   ]
+  },
+  {
+   "text": ".0",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     94.890625,
+     181.109375,
+     124.296875,
+     225.109375
+    ]
+   ]
+  },
+  {
+   "text": "%",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     125.859375,
+     197.109375,
+     139.15625,
+     221.109375
+    ]
+   ]
+  },
+  {
+   "text": ",",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     139.15625,
+     181.109375,
+     145.921875,
+     225.109375
+    ]
+   ]
+  },
+  {
+   "text": "0",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     163.03125,
+     181.109375,
+     185.984375,
+     225.109375
+    ]
+   ]
+  },
+  {
+   "text": ".2",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     185.984375,
+     181.109375,
+     215.390625,
+     225.109375
+    ]
+   ]
+  },
+  {
+   "text": ",",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     215.390625,
+     181.109375,
+     222.15625,
+     225.109375
+    ]
+   ]
+  },
+  {
+   "text": "2",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     239.265625,
+     181.109375,
+     262.21875,
+     225.109375
+    ]
+   ]
+  },
+  {
+   "text": ".0",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     262.21875,
+     181.109375,
+     291.625,
+     225.109375
+    ]
+   ]
+  },
+  {
+   "text": "deg",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     293.1875,
+     197.109375,
+     320.921875,
+     221.109375
+    ]
+   ]
+  },
+  {
+   "text": "L",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     72.71875,
+     507.484375,
+     84.5625,
+     532.484375
+    ]
+   ]
+  },
+  {
+   "text": "C",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     71.984375,
+     550.921875,
+     85.296875,
+     575.921875
+    ]
+   ]
+  },
+  {
+   "text": "h",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     72.578125,
+     594.359375,
+     84.6875,
+     619.359375
+    ]
+   ]
+  },
+  {
+   "text": "α",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     72.515625,
+     637.796875,
+     84.765625,
+     664.796875
+    ]
+   ]
+  },
+  {
+   "text": "73.0%",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     507.6875,
+     506.40625,
+     548.21875,
+     523.40625
+    ]
+   ]
+  },
+  {
+   "text": "0.2",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     523.890625,
+     553.59375,
+     548.21875,
+     570.59375
+    ]
+   ]
+  },
+  {
+   "text": "2.0deg",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     499.578125,
+     600.78125,
+     548.21875,
+     617.78125
+    ]
+   ]
+  },
+  {
+   "text": "100.0%",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "lining-nums tabular-nums",
+   "rects": [
+    [
+     499.578125,
+     647.96875,
+     548.21875,
+     664.96875
+    ]
+   ]
+  },
+  {
+   "text": "About the color spaces,",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     101,
+     866.96875,
+     145
+    ],
+    [
+     623.40625,
+     138.34375,
+     743.59375,
+     182.34375
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     743.59375,
+     138.34375,
+     852.578125,
+     182.34375
+    ]
+   ]
+  },
+  {
+   "text": "The math, the science, the art, the beau",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     191.0625,
+     935.28125,
+     208.0625
+    ],
+    [
+     623.40625,
+     208.625,
+     674.1875,
+     225.625
+    ]
+   ]
+  },
+  {
+   "text": "Definition",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     254.0625,
+     723.390625,
+     279.0625
+    ]
+   ]
+  },
+  {
+   "text": "A cylindrical representation of the OKLa",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     291.59375,
+     959.828125,
+     310.59375
+    ],
+    [
+     623.40625,
+     313.09375,
+     673.3125,
+     332.09375
+    ]
+   ]
+  },
+  {
+   "text": "Basic information",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     368.59375,
+     799.4375,
+     393.59375
+    ]
+   ]
+  },
+  {
+   "text": "Device dependency:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     406.125,
+     775.359375,
+     425.125
+    ]
+   ]
+  },
+  {
+   "text": "Device-independent",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     802.40625,
+     406.125,
+     957.28125,
+     425.125
+    ]
+   ]
+  },
+  {
+   "text": "White point:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     435.625,
+     711.53125,
+     454.625
+    ]
+   ]
+  },
+  {
+   "text": "D65",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     802.40625,
+     435.625,
+     832.453125,
+     454.625
+    ]
+   ]
+  },
+  {
+   "text": "Gamut:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     465.125,
+     677.90625,
+     484.125
+    ]
+   ]
+  },
+  {
+   "text": "Unlimited",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     802.40625,
+     465.125,
+     872.65625,
+     484.125
+    ]
+   ]
+  },
+  {
+   "text": "Created:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     494.625,
+     688.265625,
+     513.625
+    ]
+   ]
+  },
+  {
+   "text": "2019",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     802.40625,
+     494.625,
+     837.796875,
+     513.625
+    ]
+   ]
+  },
+  {
+   "text": "Components",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     550.125,
+     748.296875,
+     575.125
+    ]
+   ]
+  },
+  {
+   "text": "L (Lightness)",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     587.65625,
+     716.625,
+     606.65625
+    ]
+   ]
+  },
+  {
+   "text": "0%",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     613.15625,
+     652.515625,
+     632.15625
+    ]
+   ]
+  },
+  {
+   "text": "to",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     652.515625,
+     613.15625,
+     668.234375,
+     632.15625
+    ]
+   ]
+  },
+  {
+   "text": "100%",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     668.234375,
+     613.15625,
+     714.328125,
+     632.15625
+    ]
+   ]
+  },
+  {
+   "text": "C (Chroma)",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     745.40625,
+     587.65625,
+     830.3125,
+     606.65625
+    ]
+   ]
+  },
+  {
+   "text": "0",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     745.40625,
+     613.15625,
+     759.1875,
+     632.15625
+    ]
+   ]
+  },
+  {
+   "text": "to",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     759.1875,
+     613.15625,
+     774.90625,
+     632.15625
+    ]
+   ]
+  },
+  {
+   "text": "0.5",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     774.90625,
+     613.15625,
+     803,
+     632.15625
+    ]
+   ]
+  },
+  {
+   "text": "h (hue)",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     867.40625,
+     587.65625,
+     917.296875,
+     606.65625
+    ]
+   ]
+  },
+  {
+   "text": "0deg",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     867.40625,
+     613.15625,
+     911,
+     632.15625
+    ]
+   ]
+  },
+  {
+   "text": "to",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     911,
+     613.15625,
+     926.71875,
+     632.15625
+    ]
+   ]
+  },
+  {
+   "text": "360deg",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     867.40625,
+     634.65625,
+     926.90625,
+     653.65625
+    ]
+   ]
+  },
+  {
+   "text": "Key properties",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     690.15625,
+     768.453125,
+     715.15625
+    ]
+   ]
+  },
+  {
+   "text": "Perceptual uniformity:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     727.6875,
+     784.046875,
+     746.6875
+    ]
+   ]
+  },
+  {
+   "text": "Yes (inherited from OKLab)",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     802.40625,
+     727.6875,
+     939.078125,
+     746.6875
+    ],
+    [
+     802.40625,
+     749.1875,
+     858.34375,
+     768.1875
+    ]
+   ]
+  },
+  {
+   "text": "Hue linearity:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     778.6875,
+     716.78125,
+     797.6875
+    ]
+   ]
+  },
+  {
+   "text": "Yes",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     802.40625,
+     778.6875,
+     827.953125,
+     797.6875
+    ]
+   ]
+  },
+  {
+   "text": "Lightness separation:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     808.1875,
+     779.359375,
+     827.1875
+    ]
+   ]
+  },
+  {
+   "text": "Yes",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     802.40625,
+     808.1875,
+     827.953125,
+     827.1875
+    ]
+   ]
+  },
+  {
+   "text": "Conversion graph",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     863.6875,
+     798.265625,
+     888.6875
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     643.40625,
+     926.21875,
+     702.796875,
+     948.21875
+    ]
+   ]
+  },
+  {
+   "text": "OKLab",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     750.796875,
+     926.21875,
+     808.53125,
+     948.21875
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     643.40625,
+     1000.4375,
+     702.796875,
+     1022.4375
+    ]
+   ]
+  },
+  {
+   "text": "OKLab",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     750.796875,
+     1000.4375,
+     808.53125,
+     1022.4375
+    ]
+   ]
+  },
+  {
+   "text": "XYZ",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     856.53125,
+     1000.4375,
+     888.078125,
+     1022.4375
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     643.40625,
+     1074.65625,
+     702.796875,
+     1096.65625
+    ]
+   ]
+  },
+  {
+   "text": "OKLab",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     750.796875,
+     1074.65625,
+     808.53125,
+     1096.65625
+    ]
+   ]
+  },
+  {
+   "text": "XYZ",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     856.53125,
+     1074.65625,
+     888.078125,
+     1096.65625
+    ]
+   ]
+  },
+  {
+   "text": "Lab",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     643.40625,
+     1108.875,
+     674.359375,
+     1130.875
+    ]
+   ]
+  },
+  {
+   "text": "Usage",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     1184.09375,
+     682.21875,
+     1209.09375
+    ]
+   ]
+  },
+  {
+   "text": "Common applications:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     1221.625,
+     791.859375,
+     1240.625
+    ]
+   ]
+  },
+  {
+   "text": "Color selection, Color harmony, Gradient",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     791.859375,
+     1221.625,
+     951.84375,
+     1240.625
+    ],
+    [
+     623.40625,
+     1243.125,
+     823.46875,
+     1262.125
+    ]
+   ]
+  },
+  {
+   "text": "Industries:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     1272.625,
+     701.953125,
+     1291.625
+    ]
+   ]
+  },
+  {
+   "text": "Web design, User interface design, Digit",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     701.953125,
+     1272.625,
+     956.515625,
+     1291.625
+    ],
+    [
+     623.40625,
+     1294.125,
+     693.640625,
+     1313.125
+    ]
+   ]
+  },
+  {
+   "text": "Detailed Guide",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     1366.375,
+     850.171875,
+     1406.375
+    ]
+   ]
+  },
+  {
+   "text": "Historical Context",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     1433.75,
+     833.90625,
+     1462.75
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     1477.625,
+     678.296875,
+     1498.625
+    ]
+   ]
+  },
+  {
+   "text": "is the polar form of",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     678.296875,
+     1477.625,
+     823.703125,
+     1498.625
+    ]
+   ]
+  },
+  {
+   "text": "OKLab",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     823.703125,
+     1477.625,
+     876.546875,
+     1498.625
+    ]
+   ]
+  },
+  {
+   "text": ", published by Björn Ottosson in 2020 to",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     876.546875,
+     1477.625,
+     959.265625,
+     1498.625
+    ],
+    [
+     623.40625,
+     1505.625,
+     932.984375,
+     1526.625
+    ],
+    [
+     623.40625,
+     1533.625,
+     962.8125,
+     1554.625
+    ],
+    [
+     623.40625,
+     1561.625,
+     908.25,
+     1582.625
+    ],
+    [
+     623.40625,
+     1589.625,
+     698.890625,
+     1610.625
+    ]
+   ]
+  },
+  {
+   "text": "a",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     702.890625,
+     1593.625,
+     711,
+     1610.625
+    ]
+   ]
+  },
+  {
+   "text": "/",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     715,
+     1589.625,
+     721.875,
+     1610.625
+    ]
+   ]
+  },
+  {
+   "text": "b",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     725.875,
+     1593.625,
+     733.984375,
+     1610.625
+    ]
+   ]
+  },
+  {
+   "text": "re-expressed as chroma and hue—but the u",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     737.984375,
+     1589.625,
+     956.90625,
+     1610.625
+    ],
+    [
+     623.40625,
+     1617.625,
+     908.265625,
+     1638.625
+    ],
+    [
+     623.40625,
+     1645.625,
+     970.34375,
+     1666.625
+    ],
+    [
+     623.40625,
+     1673.625,
+     896.8125,
+     1694.625
+    ],
+    [
+     623.40625,
+     1701.625,
+     747.84375,
+     1722.625
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     747.84375,
+     1701.625,
+     802.734375,
+     1722.625
+    ]
+   ]
+  },
+  {
+   "text": "is a first-class color function in",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     802.734375,
+     1701.625,
+     949.953125,
+     1722.625
+    ],
+    [
+     623.40625,
+     1729.625,
+     705.4375,
+     1750.625
+    ]
+   ]
+  },
+  {
+   "text": "CSS Color Level 4",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     705.4375,
+     1729.625,
+     841.671875,
+     1750.625
+    ]
+   ]
+  },
+  {
+   "text": ".",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     841.671875,
+     1729.625,
+     846.25,
+     1750.625
+    ]
+   ]
+  },
+  {
+   "text": "Key Characteristics",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     1838.375,
+     903.75,
+     1875.375
+    ]
+   ]
+  },
+  {
+   "text": "Better uniformity than CIE LCh.",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     1894.375,
+     904.34375,
+     1915.375
+    ]
+   ]
+  },
+  {
+   "text": "Equal chroma steps look more consistent ",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     904.34375,
+     1894.375,
+     949.515625,
+     1915.375
+    ],
+    [
+     665.28125,
+     1922.375,
+     931.140625,
+     1943.375
+    ],
+    [
+     665.28125,
+     1950.375,
+     824.125,
+     1971.375
+    ]
+   ]
+  },
+  {
+   "text": "Polar coordinates.",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     1984.484375,
+     808.4375,
+     2005.484375
+    ]
+   ]
+  },
+  {
+   "text": "Lightness, chroma, and hue—same intuitiv",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     808.4375,
+     1984.484375,
+     954.28125,
+     2005.484375
+    ],
+    [
+     665.28125,
+     2012.484375,
+     938.109375,
+     2033.484375
+    ]
+   ]
+  },
+  {
+   "text": "Stable lightness.",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     2046.59375,
+     795.21875,
+     2067.59375
+    ]
+   ]
+  },
+  {
+   "text": "Changing chroma or hue doesn’t shift per",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     795.21875,
+     2046.59375,
+     951.609375,
+     2067.59375
+    ],
+    [
+     665.28125,
+     2074.59375,
+     955.46875,
+     2095.59375
+    ],
+    [
+     665.28125,
+     2102.59375,
+     831.28125,
+     2123.59375
+    ]
+   ]
+  },
+  {
+   "text": "CSS-native.",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     2136.703125,
+     761.9375,
+     2157.703125
+    ]
+   ]
+  },
+  {
+   "text": "oklch()",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     768.671875,
+     2140.703125,
+     825.421875,
+     2157.703125
+    ]
+   ]
+  },
+  {
+   "text": "is supported in all modern browsers as o",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     829.421875,
+     2136.703125,
+     962.375,
+     2157.703125
+    ],
+    [
+     665.28125,
+     2164.703125,
+     886.109375,
+     2185.703125
+    ]
+   ]
+  },
+  {
+   "text": "Advantages",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     2132.25,
+     790.203125,
+     2169.25
+    ]
+   ]
+  },
+  {
+   "text": "Markedly better perceptual uniformity th",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     2352.25,
+     951.34375,
+     2373.25
+    ],
+    [
+     665.28125,
+     2380.25,
+     855.6875,
+     2401.25
+    ]
+   ]
+  },
+  {
+   "text": "Perceived brightness stays stable when y",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     2414.359375,
+     962.625,
+     2435.359375
+    ],
+    [
+     665.28125,
+     2442.359375,
+     853.640625,
+     2463.359375
+    ]
+   ]
+  },
+  {
+   "text": "Direct CSS support—no conversion step fo",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     2476.46875,
+     969.140625,
+     2497.46875
+    ],
+    [
+     665.28125,
+     2504.46875,
+     752.6875,
+     2525.46875
+    ]
+   ]
+  },
+  {
+   "text": "Clean gradients and palette generation w",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     2538.578125,
+     960.796875,
+     2559.578125
+    ],
+    [
+     665.28125,
+     2566.578125,
+     825.421875,
+     2587.578125
+    ]
+   ]
+  },
+  {
+   "text": "Disadvantages",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     2590.125,
+     832.453125,
+     2627.125
+    ]
+   ]
+  },
+  {
+   "text": "Newer; less support in legacy tools and ",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     2810.125,
+     958.40625,
+     2831.125
+    ],
+    [
+     665.28125,
+     2838.125,
+     830.671875,
+     2859.125
+    ]
+   ]
+  },
+  {
+   "text": "Conversion chain is longer than RGB or H",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     2872.234375,
+     954.03125,
+     2893.234375
+    ],
+    [
+     665.28125,
+     2900.234375,
+     703.34375,
+     2921.234375
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     703.34375,
+     2900.234375,
+     758.234375,
+     2921.234375
+    ]
+   ]
+  },
+  {
+   "text": "→ OKLab → XYZ → linear RGB → sRGB)",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     758.234375,
+     2900.234375,
+     947.359375,
+     2921.234375
+    ],
+    [
+     665.28125,
+     2928.234375,
+     769.34375,
+     2949.234375
+    ]
+   ]
+  },
+  {
+   "text": "Not directly displayable—still needs gam",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     2962.34375,
+     934.3125,
+     2983.34375
+    ],
+    [
+     665.28125,
+     2990.34375,
+     921.640625,
+     3011.34375
+    ]
+   ]
+  },
+  {
+   "text": "The 0–1 lightness scale differs from Lab",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     3024.453125,
+     927.859375,
+     3045.453125
+    ],
+    [
+     665.28125,
+     3052.453125,
+     926,
+     3073.453125
+    ],
+    [
+     665.28125,
+     3080.453125,
+     741.453125,
+     3101.453125
+    ]
+   ]
+  },
+  {
+   "text": "Color Model",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     3090.875,
+     798.09375,
+     3127.875
+    ]
+   ]
+  },
+  {
+   "text": "Components",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     3308.875,
+     769.984375,
+     3337.875
+    ]
+   ]
+  },
+  {
+   "text": "L",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     669.28125,
+     3524.75,
+     677.390625,
+     3541.75
+    ]
+   ]
+  },
+  {
+   "text": "(Lightness)",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     681.390625,
+     3520.75,
+     771.296875,
+     3541.75
+    ]
+   ]
+  },
+  {
+   "text": ": 0 (black) to 1 (white). Note the 0–1 r",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     771.296875,
+     3520.75,
+     970.671875,
+     3541.75
+    ],
+    [
+     665.28125,
+     3548.75,
+     940.578125,
+     3569.75
+    ]
+   ]
+  },
+  {
+   "text": "C",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     669.28125,
+     3586.859375,
+     677.390625,
+     3603.859375
+    ]
+   ]
+  },
+  {
+   "text": "(Chroma)",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     681.390625,
+     3582.859375,
+     758.71875,
+     3603.859375
+    ]
+   ]
+  },
+  {
+   "text": ": 0 (achromatic) to roughly 0.4 for the ",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     758.71875,
+     3582.859375,
+     955.5625,
+     3603.859375
+    ],
+    [
+     665.28125,
+     3610.859375,
+     947.109375,
+     3631.859375
+    ],
+    [
+     665.28125,
+     3638.859375,
+     937.484375,
+     3659.859375
+    ]
+   ]
+  },
+  {
+   "text": "H",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     669.28125,
+     3676.96875,
+     677.390625,
+     3693.96875
+    ]
+   ]
+  },
+  {
+   "text": "(Hue)",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     681.390625,
+     3672.96875,
+     727.359375,
+     3693.96875
+    ]
+   ]
+  },
+  {
+   "text": ": 0 to 360 degrees (or 0–1 normalized). ",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     727.359375,
+     3672.96875,
+     919.03125,
+     3693.96875
+    ],
+    [
+     665.28125,
+     3700.96875,
+     951.765625,
+     3721.96875
+    ],
+    [
+     665.28125,
+     3728.96875,
+     880.328125,
+     3749.96875
+    ],
+    [
+     665.28125,
+     3756.96875,
+     958.1875,
+     3777.96875
+    ],
+    [
+     665.28125,
+     3784.96875,
+     961.765625,
+     3805.96875
+    ],
+    [
+     665.28125,
+     3812.96875,
+     941.59375,
+     3833.96875
+    ]
+   ]
+  },
+  {
+   "text": "Relationship to OKLab",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     3744.625,
+     884.546875,
+     3773.625
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     3956.5,
+     678.296875,
+     3977.5
+    ]
+   ]
+  },
+  {
+   "text": "relates to OKLab exactly as CIE LCh rela",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     678.296875,
+     3956.5,
+     946.359375,
+     3977.5
+    ],
+    [
+     623.40625,
+     3984.5,
+     911.09375,
+     4005.5
+    ],
+    [
+     623.40625,
+     4012.5,
+     703.46875,
+     4033.5
+    ]
+   ]
+  },
+  {
+   "text": "C = sqrt(a^2 + b^2)",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     707.46875,
+     4016.5,
+     861.484375,
+     4033.5
+    ]
+   ]
+  },
+  {
+   "text": ",",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     865.484375,
+     4012.5,
+     872.53125,
+     4033.5
+    ]
+   ]
+  },
+  {
+   "text": "H = atan2(b, a)",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     876.53125,
+     4016.5,
+     900.859375,
+     4033.5
+    ],
+    [
+     623.40625,
+     4044.5,
+     712.578125,
+     4061.5
+    ]
+   ]
+  },
+  {
+   "text": ". The lightness channel is shared direct",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     716.578125,
+     4040.5,
+     954.5,
+     4061.5
+    ],
+    [
+     623.40625,
+     4068.5,
+     684.984375,
+     4089.5
+    ]
+   ]
+  },
+  {
+   "text": "Color Conversions",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     4237.25,
+     887.46875,
+     4274.25
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     4455.25,
+     708.421875,
+     4484.25
+    ]
+   ]
+  },
+  {
+   "text": "to OKLab",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     708.421875,
+     4455.25,
+     822.921875,
+     4484.25
+    ]
+   ]
+  },
+  {
+   "text": "Polar to Cartesian—recover the",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     4667.125,
+     860.203125,
+     4688.125
+    ]
+   ]
+  },
+  {
+   "text": "a",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     864.203125,
+     4671.125,
+     872.3125,
+     4688.125
+    ]
+   ]
+  },
+  {
+   "text": "/",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     876.3125,
+     4667.125,
+     883.1875,
+     4688.125
+    ]
+   ]
+  },
+  {
+   "text": "b",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     887.1875,
+     4671.125,
+     895.296875,
+     4688.125
+    ]
+   ]
+  },
+  {
+   "text": "axes from chroma and hue:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     899.296875,
+     4667.125,
+     936.625,
+     4688.125
+    ],
+    [
+     623.40625,
+     4695.125,
+     788.203125,
+     4716.125
+    ]
+   ]
+  },
+  {
+   "text": "OKLab to",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     5126.75,
+     737.90625,
+     5155.75
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     737.90625,
+     5126.75,
+     822.921875,
+     5155.75
+    ]
+   ]
+  },
+  {
+   "text": "Cartesian to polar—extract chroma (magni",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     5338.625,
+     886.828125,
+     5359.625
+    ],
+    [
+     623.40625,
+     5366.625,
+     902.953125,
+     5387.625
+    ]
+   ]
+  },
+  {
+   "text": "a",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     906.953125,
+     5370.625,
+     915.0625,
+     5387.625
+    ]
+   ]
+  },
+  {
+   "text": "/",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     919.0625,
+     5366.625,
+     925.9375,
+     5387.625
+    ]
+   ]
+  },
+  {
+   "text": "b",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     929.9375,
+     5370.625,
+     938.046875,
+     5387.625
+    ]
+   ]
+  },
+  {
+   "text": "plane:",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     5394.625,
+     670.484375,
+     5415.625
+    ]
+   ]
+  },
+  {
+   "text": "OKLab to XYZ",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     5798.25,
+     786.984375,
+     5827.25
+    ]
+   ]
+  },
+  {
+   "text": "Invert the two linear transforms around ",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     6010.125,
+     965.28125,
+     6031.125
+    ],
+    [
+     623.40625,
+     6038.125,
+     956.84375,
+     6059.125
+    ],
+    [
+     623.40625,
+     6066.125,
+     972.546875,
+     6087.125
+    ],
+    [
+     623.40625,
+     6094.125,
+     663.03125,
+     6115.125
+    ]
+   ]
+  },
+  {
+   "text": "XYZ to OKLab",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     6469.75,
+     786.984375,
+     6498.75
+    ]
+   ]
+  },
+  {
+   "text": "Two matrix multiplications sandwiching a",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     6681.625,
+     969.734375,
+     6702.625
+    ],
+    [
+     623.40625,
+     6709.625,
+     894.734375,
+     6730.625
+    ],
+    [
+     623.40625,
+     6737.625,
+     901.203125,
+     6758.625
+    ],
+    [
+     623.40625,
+     6765.625,
+     966.359375,
+     6786.625
+    ],
+    [
+     623.40625,
+     6793.625,
+     712.734375,
+     6814.625
+    ]
+   ]
+  },
+  {
+   "text": "Applications",
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     623.40625,
+     7198.125,
+     804.4375,
+     7235.125
+    ]
+   ]
+  },
+  {
+   "text": "CSS",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     7418.125,
+     701.21875,
+     7439.125
+    ]
+   ]
+  },
+  {
+   "text": "oklch()",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     705.21875,
+     7422.125,
+     761.96875,
+     7439.125
+    ]
+   ]
+  },
+  {
+   "text": ".",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     765.96875,
+     7418.125,
+     772.015625,
+     7439.125
+    ]
+   ]
+  },
+  {
+   "text": "Supported in Chrome, Safari, and Firefox",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     772.015625,
+     7418.125,
+     942.390625,
+     7439.125
+    ],
+    [
+     665.28125,
+     7446.125,
+     967.234375,
+     7467.125
+    ],
+    [
+     665.28125,
+     7474.125,
+     812.1875,
+     7495.125
+    ]
+   ]
+  },
+  {
+   "text": "Design system palettes.",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     7508.234375,
+     852.515625,
+     7529.234375
+    ]
+   ]
+  },
+  {
+   "text": "Step through",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     852.515625,
+     7508.234375,
+     954.890625,
+     7529.234375
+    ]
+   ]
+  },
+  {
+   "text": "L",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     669.28125,
+     7540.234375,
+     677.390625,
+     7557.234375
+    ]
+   ]
+  },
+  {
+   "text": "or",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     681.390625,
+     7536.234375,
+     702.71875,
+     7557.234375
+    ]
+   ]
+  },
+  {
+   "text": "C",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     706.71875,
+     7540.234375,
+     714.828125,
+     7557.234375
+    ]
+   ]
+  },
+  {
+   "text": "to build scales that look evenly spaced ",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     718.828125,
+     7536.234375,
+     950.75,
+     7557.234375
+    ],
+    [
+     665.28125,
+     7564.234375,
+     859.6875,
+     7585.234375
+    ]
+   ]
+  },
+  {
+   "text": "Accessible color.",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     7598.34375,
+     799.515625,
+     7619.34375
+    ]
+   ]
+  },
+  {
+   "text": "Adjust",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     799.515625,
+     7598.34375,
+     852.9375,
+     7619.34375
+    ]
+   ]
+  },
+  {
+   "text": "L",
+   "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "fvn": "normal",
+   "rects": [
+    [
+     856.9375,
+     7602.34375,
+     865.046875,
+     7619.34375
+    ]
+   ]
+  },
+  {
+   "text": "to meet WCAG contrast targets without di",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     869.046875,
+     7598.34375,
+     931.28125,
+     7619.34375
+    ],
+    [
+     665.28125,
+     7626.34375,
+     901.859375,
+     7647.34375
+    ],
+    [
+     665.28125,
+     7654.34375,
+     875.875,
+     7675.34375
+    ]
+   ]
+  },
+  {
+   "text": "Perceptual gradients.",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     7688.453125,
+     834.0625,
+     7709.453125
+    ]
+   ]
+  },
+  {
+   "text": "Interpolating in",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     834.0625,
+     7688.453125,
+     950.1875,
+     7709.453125
+    ]
+   ]
+  },
+  {
+   "text": "OKLCh",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     7716.453125,
+     720.171875,
+     7737.453125
+    ]
+   ]
+  },
+  {
+   "text": "avoids the hue shifts and muddy midpoint",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     720.171875,
+     7716.453125,
+     964.34375,
+     7737.453125
+    ],
+    [
+     665.28125,
+     7744.453125,
+     910.25,
+     7765.453125
+    ]
+   ]
+  },
+  {
+   "text": "Data visualization.",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     665.28125,
+     7778.5625,
+     806.453125,
+     7799.5625
+    ]
+   ]
+  },
+  {
+   "text": "Build color ramps where perceptual dista",
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fvn": "normal",
+   "rects": [
+    [
+     806.453125,
+     7778.5625,
+     940.40625,
+     7799.5625
+    ],
+    [
+     665.28125,
+     7806.5625,
+     955.671875,
+     7827.5625
+    ],
+    [
+     665.28125,
+     7834.5625,
+     736.15625,
+     7855.5625
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+  "390": {
+    "skeleton": {
+      "error": "TimeoutError: locator.waitFor: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.scene-skeleton .skeleton').first()\u001b[22m\n",
+      "host": {
+        "hash": "#/amiga",
+        "sceneHostHtml": "<!-- KF-SKEL-9 (W6-N, re-homed from KF.W5) — THE STAGE-CLASS EMISSIONS ARE\n         DELETED AT THE EMITTER, which is where the row rules the decision is\n         taken. Three template literals emitted NINE class names onto the live\n         DOM — `controls-layout--stage-{subject|editor|storyboard}` here and the\n         `controls-drawer--stage-*` / `controls-pane--stage-*` families in\n         `Co",
+        "skeletons": 0
+      }
+    },
+    "menu": {
+      "hasZPopoverClass": true,
+      "zIndex": "130",
+      "wrapperZ": "130",
+      "hitsOnMenu": [
+        true,
+        false,
+        false,
+        false,
+        true
+      ]
+    }
+  },
+  "1440": {
+    "skeleton": {
+      "error": "TimeoutError: locator.waitFor: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.scene-skeleton .skeleton').first()\u001b[22m\n",
+      "host": {
+        "hash": "#/amiga",
+        "sceneHostHtml": "<!-- KF-SKEL-9 (W6-N, re-homed from KF.W5) — THE STAGE-CLASS EMISSIONS ARE\n         DELETED AT THE EMITTER, which is where the row rules the decision is\n         taken. Three template literals emitted NINE class names onto the live\n         DOM — `controls-layout--stage-{subject|editor|storyboard}` here and the\n         `controls-drawer--stage-*` / `controls-pane--stage-*` families in\n         `Co",
+        "skeletons": 0
+      }
+    },
+    "menu": {
+      "hasZPopoverClass": true,
+      "zIndex": "130",
+      "wrapperZ": "130",
+      "hitsOnMenu": [
+        true,
+        false,
+        false,
+        false,
+        true
+      ]
+    }
+  }
+}

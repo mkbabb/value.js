@@ -145,6 +145,87 @@ test("pill silhouette (T-46): the rail rounds on the glass-ui slider-track regis
 const AXIS_TOL_PX = 1; // a3's stated tolerance
 const INVERSE_TOL_PCT = 0.05; // a4's stated tolerance
 
+/**
+ * X.W11.wk (COHESION §0gt.4) — the O-103b ENGINE-FACT form for the three
+ * press-minted legs below (a3 · a4 · the keyboard grammar's interior stop).
+ *
+ * Each leg presses at a sub-pixel position (half the rail, a handle's centre)
+ * and gates the ordinal the rail mints there. Chromium delivers the press's
+ * `PointerEvent.clientX` at the requested sub-pixel position; WebKit delivers
+ * it QUANTIZED to a whole CSS pixel (measured at the 2026-10-28 darwin witness
+ * as minted 49.9 for 50 and 0.1 for 0, and by `close/evidence/safari-real/
+ * darwin-webkit-2026-10-29/probe/engine-facts.mjs`). The rail mints exactly
+ * the ordinal painted at the pixel it was GIVEN, so the literal ordinal is an
+ * engine fact on such an engine, not a product defect.
+ *
+ * The form, per press and never by engine name: the delivered press is read
+ * off the page. If it sits where it was asked (Chromium), every leg gates as
+ * written, so Chromium is the gate. If the engine moved it, the literal is
+ * REPORTED (an `engine-fact` annotation naming both positions) and the same
+ * law is gated at the pixel actually delivered: the minted ordinal may differ
+ * from the requested one by no more than the delivered offset's share of the
+ * track plus a4's own tolerance. An engine that delivers sub-pixel presses is
+ * gated on the literal again with no new ruling.
+ */
+type Press = { x: number; y: number };
+
+async function armPressProbe(page: Page): Promise<void> {
+    await page.evaluate(() => {
+        const w = window as unknown as { __press?: Press | null };
+        w.__press = null;
+        document.addEventListener(
+            "pointerdown",
+            (e) => {
+                w.__press = { x: e.clientX, y: e.clientY };
+            },
+            { capture: true, once: true },
+        );
+    });
+}
+
+async function deliveredPress(page: Page): Promise<Press> {
+    const press = await page.evaluate(
+        () => (window as unknown as { __press?: Press | null }).__press ?? null,
+    );
+    expect(press, "the press reached the page").not.toBeNull();
+    return press!;
+}
+
+/** The rail's track width in CSS px, the denominator of the one axis. */
+const railTrack = (rail: Locator) =>
+    rail.evaluate((el) => {
+        const cs = getComputedStyle(el);
+        const inset = parseFloat(cs.getPropertyValue("--rail-inset"));
+        return (
+            el.getBoundingClientRect().width -
+            parseFloat(cs.borderLeftWidth) -
+            parseFloat(cs.borderRightWidth) -
+            inset * 2
+        );
+    });
+
+/**
+ * The engine QUANTIZED the press to a whole CSS pixel: it was asked for a
+ * sub-pixel position and delivered an integer one. Only that fact opens the
+ * report path; any other displacement fails the strict gate as written.
+ */
+const SUBPIXEL_EPS = 0.01;
+const engineMovedPress = (requestedX: number, press: Press) =>
+    Number.isInteger(press.x) && Math.abs(press.x - requestedX) > SUBPIXEL_EPS;
+
+/** The O-103b report, in one wording. */
+function reportPress(requestedX: number, press: Press, leg: string): void {
+    test.info().annotations.push({
+        type: "engine-fact",
+        description:
+            `${leg}: this engine delivered the press at clientX ${press.x} for a requested ${requestedX.toFixed(3)} ` +
+            `(whole-pixel pointer coordinates); the literal ordinal is reported, Chromium is its gate (O-103b form, COHESION §0gt.4)`,
+    });
+}
+
+/** Two aria-valuenow readings differ by a step, in the rail's own 0.1 grain. */
+const stepped = (from: number, by: number) => String(+(from + by).toFixed(1));
+
 test("one axis: every handle centre sits where the ramp paints its own ordinal", async ({
     page,
 }) => {
@@ -155,8 +236,11 @@ test("one axis: every handle centre sits where the ramp paints its own ordinal",
 
     // Three stops, so an interior ordinal is measured beside the terminals.
     const box = (await rail.boundingBox())!;
+    const requestedX = box.x + box.width * 0.5;
+    await armPressProbe(page);
     await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
     await expect(rail.locator("[data-stop-id]")).toHaveCount(3);
+    const press = await deliveredPress(page);
 
     const skews = await rail.evaluate((el) => {
         const r = el.getBoundingClientRect();
@@ -182,7 +266,17 @@ test("one axis: every handle centre sits where the ramp paints its own ordinal",
         });
     });
 
-    expect(skews.map((s) => s.ordinal)).toEqual([0, 50, 100]);
+    if (engineMovedPress(requestedX, press)) {
+        reportPress(requestedX, press, "a3 interior ordinal");
+        const track = await railTrack(rail);
+        const ordinals = skews.map((s) => s.ordinal);
+        expect([ordinals[0], ordinals[2]]).toEqual([0, 100]);
+        expect(Math.abs(ordinals[1]! - 50)).toBeLessThanOrEqual(
+            (100 * Math.abs(press.x - requestedX)) / track + INVERSE_TOL_PCT,
+        );
+    } else {
+        expect(skews.map((s) => s.ordinal)).toEqual([0, 50, 100]);
+    }
     for (const s of skews) {
         expect(Math.abs(s.skewPx)).toBeLessThanOrEqual(AXIS_TOL_PX);
     }
@@ -233,8 +327,11 @@ test("the forward and inverse maps are inverse: a press at a handle's own pixel 
             .first();
         const hb = (await handle.boundingBox())!;
         const rb = (await live.boundingBox())!;
-        await page.mouse.click(hb.x + hb.width / 2, rb.y + 4);
+        const requestedX = hb.x + hb.width / 2;
+        await armPressProbe(page);
+        await page.mouse.click(requestedX, rb.y + 4);
         await expect(live.locator("[data-stop-id]")).toHaveCount(before.length + 1);
+        const press = await deliveredPress(page);
 
         const after = await ids();
         const mintedId = after.find((id) => !before.includes(id))!;
@@ -246,9 +343,17 @@ test("the forward and inverse maps are inverse: a press at a handle's own pixel 
             }));
 
         // The pressed pixel mapped back to exactly the ordinal painted there.
-        expect(Math.abs(minted.ordinal - terminal)).toBeLessThanOrEqual(
-            INVERSE_TOL_PCT,
-        );
+        if (engineMovedPress(requestedX, press)) {
+            reportPress(requestedX, press, `a4 terminal ${terminal}`);
+            const track = await railTrack(live);
+            expect(Math.abs(minted.ordinal - terminal)).toBeLessThanOrEqual(
+                (100 * Math.abs(press.x - requestedX)) / track + INVERSE_TOL_PCT,
+            );
+        } else {
+            expect(Math.abs(minted.ordinal - terminal)).toBeLessThanOrEqual(
+                INVERSE_TOL_PCT,
+            );
+        }
         // …and it is expressed in the one axis, not in a private px literal.
         expect(minted.left).toContain("var(--rail-inset)");
         expect(minted.left).toContain("var(--rail-track)");
@@ -446,13 +551,26 @@ test("keyboard grammar is total: an interior stop answers every key, a terminal 
     await rail.scrollIntoViewIfNeeded();
 
     const box = (await rail.boundingBox())!;
+    const requestedX = box.x + box.width * 0.5;
+    await armPressProbe(page);
     await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
     await expect(rail.locator("[data-stop-id]")).toHaveCount(3);
+    const delivered = await deliveredPress(page);
     const id = (await rail
         .locator("[data-stop-id]")
         .nth(1)
         .getAttribute("data-stop-id"))!;
     const seat = rail.locator(`[data-stop-id="${id}"]`);
+
+    // The interior stop is minted at 50 where the press lands where it was
+    // asked; on an engine that moved it (the O-103b form above) the grammar is
+    // gated from the ordinal actually minted, and the literal is reported.
+    const start = Number(await seat.getAttribute("aria-valuenow"));
+    if (engineMovedPress(requestedX, delivered)) {
+        reportPress(requestedX, delivered, "keyboard grammar interior seed");
+    } else {
+        expect(start).toBe(50);
+    }
 
     const press = async (key: string) => {
         await seat.focus();
@@ -460,12 +578,12 @@ test("keyboard grammar is total: an interior stop answers every key, a terminal 
     };
 
     for (const [key, want] of [
-        ["ArrowUp", "51"],
-        ["ArrowDown", "50"],
-        ["ArrowRight", "51"],
-        ["ArrowLeft", "50"],
-        ["PageUp", "60"],
-        ["PageDown", "50"],
+        ["ArrowUp", stepped(start, 1)],
+        ["ArrowDown", stepped(start, 0)],
+        ["ArrowRight", stepped(start, 1)],
+        ["ArrowLeft", stepped(start, 0)],
+        ["PageUp", stepped(start, 10)],
+        ["PageDown", stepped(start, 0)],
         ["Home", "0"],
         ["End", "100"],
     ] as const) {

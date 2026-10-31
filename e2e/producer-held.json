@@ -1,0 +1,54 @@
+{
+    "servedModel": "SERVED MODEL: claude-opus-5-5",
+    "about": "X.W11.hld (COHESION §0gx.1): THE ONE committed manifest of producer-held e2e failures, the form §0ew ruled for fourier. Each row is one exact leg whose cure is glass-ui's to ship: an O-id glass has acknowledged with a placed vehicle, a measured producer cause, and an expiry at that repin. A row with a consumer arm cannot be admitted. e2e/honest-red-reporter.ts reads this file: only reds not named here, or red without their token, fail the job; a held row reading GREEN prints an adoption notice. Each test stays real and red, with no test.fail() and no skip. A row leaves by adoption.",
+    "rows": [
+        {
+            "project": "smoke",
+            "spec": "e2e/smoke/oracles/o29-scene-contracts.spec.ts",
+            "title": "preview survives — blob: the preview repaints after a forced WebGL context loss",
+            "leg": "o29-scene-contracts.spec.ts:395",
+            "token": "no repaint after restore",
+            "o": "glass O-112(2)",
+            "vehicle": "glass W-G.2 with O-104a's one-redraw law, W-G.5 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:91 (glass's own numbering; value.js O-112 is a different row)",
+            "row": "R11 NO-REPAINT-AFTER-RESTORE: a parked <Blob> stays blank after webglcontextlost then webglcontextrestored",
+            "cause": "On SwiftShader the parked renderer schedules no redraw on restore: the draw count stays at 2 against > 2 ('no repaint after restore', CI job 124177322852, three attempts). The cure is the producer's one-redraw law; §0gu.6 refuses a consumer un-park.",
+            "expiry": "expires at the glass 11.0.0 repin"
+        },
+        {
+            "project": "smoke",
+            "spec": "e2e/smoke/webgl-blob-idle.spec.ts",
+            "title": "hero blob carries current chroma — oklch(0.65 0.3 150)",
+            "leg": "webgl-blob-idle.spec.ts:276 (oklch(0.65 0.3 150))",
+            "token": "painted dominant chroma",
+            "o": "O-105",
+            "vehicle": "glass W-G.5 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:78",
+            "row": "BLOB-LIT-LIGHTNESS: the lit meatball's core paints above the body stop's L, so its cusp chroma differs",
+            "cause": "Glass's core shading lifts the body about +0.17 L (metaball.frag.ts:330, :404), read over the M-9 ink floor, which stands (§0gl.11). painted C 0.22342 at L 0.8833 vs target 0.17901 (+0.04441), bar 0.04, docker Linux Chromium x2 and CI. No consumer arm keeps M-9 (ESC-W11e2b-3, §0gx.1).",
+            "expiry": "expires at the glass 11.0.0 repin"
+        },
+        {
+            "project": "smoke",
+            "spec": "e2e/smoke/webgl-blob-idle.spec.ts",
+            "title": "hero blob carries current chroma — oklch(0.55 0.37 328)",
+            "leg": "webgl-blob-idle.spec.ts:276 (oklch(0.55 0.37 328))",
+            "token": "painted dominant chroma",
+            "o": "O-105",
+            "vehicle": "glass W-G.5 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:78",
+            "row": "BLOB-LIT-LIGHTNESS: the lit meatball's core paints above the body stop's L, so its cusp chroma differs",
+            "cause": "Glass's core shading lifts the body about +0.17 L (metaball.frag.ts:330, :404), read over the M-9 ink floor, which stands (§0gl.11). painted C 0.18919 at L 0.7897 vs target 0.25325 (-0.06406), bar 0.04, docker Linux Chromium x2 and CI. No consumer arm keeps M-9 (ESC-W11e2b-3, §0gx.1).",
+            "expiry": "expires at the glass 11.0.0 repin"
+        },
+        {
+            "project": "smoke",
+            "spec": "e2e/smoke/oracles/o21-gradient-rail.spec.ts",
+            "title": "the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal",
+            "leg": "o21-gradient-rail.spec.ts:287",
+            "token": "Test timeout of 30000ms exceeded",
+            "o": "O-122 (glass O-115)",
+            "vehicle": "glass W-G.1 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:95",
+            "row": "TIER-PROBE-SYNC-LOSECONTEXT: the render-tier probe blocks the main thread on a synchronous loseContext after a reload",
+            "cause": "After page.reload on a software GPU process, the reload-to-expandDock span took 13273 ms, 12792 ms of it self time in loseContext behind the previous document's context teardown (docker-o21f.json). value.js asks once per page and the css answer constructs no Aurora runtime, so runtime.ts:252 is not reached there. Load-dependent: it can read GREEN.",
+            "expiry": "expires at the glass 11.0.0 repin"
+        }
+    ]
+}

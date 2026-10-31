@@ -8,7 +8,7 @@
              under the glass overlay minimum (no fixed w-48 / text-small), in
              the glass item register; the palette's name — printed beside the
              trigger — is not repeated as a truncated display-serif header. -->
-        <DropdownMenuContent align="end" class="z-popover">
+        <DropdownMenuContent align="end">
 
             <!-- Save (temporary + another user's remote). UIA-V-110: an owned
                  remote palette is already the user's — Save made silent duplicate

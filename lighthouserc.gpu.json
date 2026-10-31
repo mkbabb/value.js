@@ -1,0 +1,23 @@
+{
+    "//": "The real-GPU Lighthouse cell (COHESION §0gv.1, 2026-10-29). Same budgets as lighthouserc.json, but total-blocking-time is error at <= 300: TBT gates here, not on the hosted runner, whose SwiftShader shader compile is CPU emulation of a GPU (TBT 1954-6221 at identical bytes). Collect x3 against the built dist/gh-pages (npm run gh-pages first; staticDistDir is CWD-relative, so run from the repo root). ONE GPU WITNESS BINARY (COHESION §0gy.6, X.W11.lhb 2026-10-31): collect.chromePath is the installed Google Chrome, the binary e2e/smoke/perf/real-gpu.ts launches (Playwright channel \"chrome\" resolves to this path on darwin; Chrome 156 when this was written), with the same --use-angle=metal, so every value.js GPU cell reads with one instrument. NAMED-WITNESS NEED (machine law: branded Chrome only where a named witness needs it): this is a GPU measurement on ANGLE Metal, which the default chrome-headless-shell has no path to, and Chrome for Testing 148 (the binary this cell ran before) stalls one 192-391 ms readback task inside glass's dock sampler on a new browser that Chrome 156 does not (value.js INBOX O-123, glass INBOUND O-117 placed at W-G.3 / W-G.6 for 11.0.0); the stall is recorded on O-123 as its evidence, not hidden by this choice. chrome-launcher starts the binary on its own fresh temporary --user-data-dir, never the owner's Chrome profile. The browser version is recorded in every reading: each LHR carries environment.hostUserAgent (Chrome/<version>), and the reading of record prints it per collect, so a host auto-update shows in the record. Run it as a browser run, never --light, at the COHESION §0gx.3 load condition (1-minute load <= 12 at the start and end of each draw, else wait <= 60 min and record UNMEASURED-LOADED): ~/.claude/guard/guarded --timeout 30 --cpu-cores 0 -- npx --yes @lhci/cli@0.15.x autorun --config=lighthouserc.gpu.json. The gate is TBT <= 300 GREEN on two such runs. PAINT STATE (COHESION §0gw.5): the flags carry --disable-field-trial-config, as Playwright's launch (and so real-gpu.ts) always does; without it the cell produced no frames while the host display slept (evidence/browser/hyg-2026-10-29/paint-state-discriminator.txt). --headless=new is not listed because LHCI appends it itself; listing it too made chrome-launcher pass --headless=new,new.",
+    "ci": {
+        "collect": {
+            "staticDistDir": "./dist/gh-pages",
+            "numberOfRuns": 3,
+            "chromePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+            "settings": {
+                "chromeFlags": "--use-angle=metal --disable-field-trial-config"
+            }
+        },
+        "assert": {
+            "assertions": {
+                "categories:performance": ["warn", { "minScore": 0.5 }],
+                "categories:accessibility": ["error", { "minScore": 0.9 }],
+                "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+                "largest-contentful-paint": ["error", { "maxNumericValue": 2500 }],
+                "interaction-to-next-paint": ["warn", { "maxNumericValue": 200 }],
+                "total-blocking-time": ["error", { "maxNumericValue": 300 }]
+            }
+        }
+    }
+}

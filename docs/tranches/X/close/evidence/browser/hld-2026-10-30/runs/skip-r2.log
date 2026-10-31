@@ -1,0 +1,10 @@
+
+Running 1 test using 1 worker
+°
+  1 skipped
+
+FAILS THE JOB (1):
+  SKIPPED, a held row may never be skipped: [smoke] e2e/smoke/hld-injected.spec.ts:4 › hld injected skipped
+
+honest-red verdict: failed · 0 held red · 0 held green · 1 failing
+skip-r2 exit 1

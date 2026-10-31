@@ -1,0 +1,9 @@
+SERVED MODEL: claude-opus-5-5
+[pages-smoke] CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[pages-smoke] cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[pages-smoke] PASS
+rc=0
+[pages-smoke] CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[pages-smoke] cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[pages-smoke] PASS
+rc=0

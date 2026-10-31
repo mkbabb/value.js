@@ -123,6 +123,28 @@ export async function readRenderer(page: Page): Promise<RendererIdentity> {
     });
 }
 
+/**
+ * The renderer's `MAX_TEXTURE_SIZE`, read from the LIVE page (X.W11.v1t, COHESION
+ * §0gt.1). It bounds every capture `fixtures.ts` takes: a full-page capture
+ * taller than it, taken while a WebGL canvas is live, fails once inside
+ * `Page.captureScreenshot` and the browser then loses WebGL2 for every later
+ * cell (measured, X.W11.v1d Act 6). The throwaway context is released at once
+ * (`WEBGL_lose_context`) so measuring never spends one of the page's context
+ * slots. `null` when the page has no WebGL at all.
+ */
+export async function readMaxTextureSize(page: Page): Promise<number | null> {
+    return page.evaluate(() => {
+        const canvas = document.createElement("canvas");
+        const gl =
+            (canvas.getContext("webgl2") as WebGL2RenderingContext | null) ??
+            (canvas.getContext("webgl") as WebGLRenderingContext | null);
+        if (!gl) return null;
+        const max = Number(gl.getParameter(gl.MAX_TEXTURE_SIZE));
+        gl.getExtension("WEBGL_lose_context")?.loseContext();
+        return max;
+    });
+}
+
 /** Lowercase, `[a-z0-9]` runs joined by `-`. No other transformation. */
 export function sanitiseRenderer(raw: string): string {
     return raw

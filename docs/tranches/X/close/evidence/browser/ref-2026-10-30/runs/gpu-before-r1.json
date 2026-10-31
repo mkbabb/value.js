@@ -1,0 +1,897 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/.dev-logs/ref/gpu-head/docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/gpu.config.ts",
+    "rootDir": "/Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/ref/gpu-head/test-results/ref-gpu",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "gpu",
+        "name": "gpu",
+        "testDir": "/Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/ref/gpu-head/test-results/ref-gpu",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "gpu-renderer",
+        "name": "gpu-renderer",
+        "testDir": "/Users/mkbabb/.dev-logs/ref/gpu-head/docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe",
+        "testIgnore": [],
+        "testMatch": [
+          "renderer.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "oracles/o11-header-gates.spec.ts",
+      "file": "oracles/o11-header-gates.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 1440)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 26960,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:19:16.934Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-0245805b12b5a90cafdd",
+          "file": "oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        },
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 390)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 25678,
+                  "error": {
+                    "message": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m",
+                    "stack": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n    at /Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26",
+                    "location": {
+                      "file": "/Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                      "column": 26,
+                      "line": 323
+                    },
+                    "snippet": "  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /extract (light 390) \"Pull palettes from any image.\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /mix (light 390) \"Mix colors and palettes together\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:19:44.260Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/ref/gpu-head/test-results/ref-gpu/oracles-o11-header-gates-O-93b40-egion-it-sits-on-light-390--gpu/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/.dev-logs/ref/gpu-head/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                    "column": 26,
+                    "line": 323
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-39ed5529a7c4df3a9864",
+          "file": "oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        },
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (dark 1440)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 25471,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:20:12.865Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-c35cd0ba3a31393ed815",
+          "file": "oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        },
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (dark 390)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 25384,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:20:38.634Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-a19c222a10d6d2eb51fb",
+          "file": "oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        }
+      ]
+    },
+    {
+      "title": "oracles/o33-dock-actionbar-b05.spec.ts",
+      "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "B05 · the Tools ink on the dock band (0132 · 0133)",
+          "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+          "line": 263,
+          "column": 6,
+          "specs": [
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3634,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T22:21:04.037Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-9d47029b325ca97daff6",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3620,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T22:21:07.675Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-f64b0ddb90e644230f66",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3637,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T22:21:11.300Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-347c0c6e7db2a9e885b0",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3642,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T22:21:14.943Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-0b6dc5e05fbb94e20525",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3697,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T22:21:18.591Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-c064440bf3a28b8f0cb4",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3675,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T22:21:22.292Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-0798e3daca874963c611",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4344,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T22:21:25.973Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-870c782c87955d0396e9",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 281,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4314,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T22:21:30.323Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-a54fe0348e9e15923a9c",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 281,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "zz-ref-arm.spec.ts",
+      "file": "zz-ref-arm.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "arm default",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 200000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5696,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-arm] default component-name {\"ambient\":\"0.7900\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"worst\":4.14,\"best\":4.86,\"n\":68}\n"
+                    },
+                    {
+                      "text": "[ref-arm] default browse caption {\"ambient\":\"0.7900\",\"color\":\"oklch(0.216129 0.00624853 56.0356)\",\"ink\":[28,25,23],\"worst\":4.54,\"best\":6.07,\"n\":68}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:21:34.655Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bc09e5f3b0f679f4603b-21bea169318e30546cc1",
+          "file": "zz-ref-arm.spec.ts",
+          "line": 30,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "zz-ref-band.spec.ts",
+      "file": "zz-ref-band.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "band hue 0",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3663,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 0 {\"ambient\":\"0.6800\",\"color\":\"oklch(0.122416 0.0496263 0)\",\"dock\":[499.8515625,440.296875],\"tools\":[674.0859375,41.9140625],\"oraclePlate\":{\"rgb\":\"234,94,112\",\"Y\":0.2667,\"black\":6.33,\"white\":3.32},\"under\":[{\"rgb\":\"234,94,109\",\"Y\":0.266,\"black\":6.32,\"white\":3.32},{\"rgb\":\"234,94,110\",\"Y\":0.2662,\"black\":6.32,\"white\":3.32},{\"rgb\":\"234,93,109\",\"Y\":0.2643,\"black\":6.29,\"white\":3.34}],\"bandMaxY\":{\"rgb\":\"234,95,111\",\"Y\":0.2682,\"black\":6.36,\"white\":3.3},\"bandMinY\":{\"rgb\":\"234,92,108\",\"Y\":0.2623,\"black\":6.25,\"white\":3.36}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:21:40.361Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-97e8c117acfa40fc9be6",
+          "file": "zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "band hue 60",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3574,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 60 {\"ambient\":\"0.6800\",\"color\":\"oklch(0.118341 0.0277524 60)\",\"dock\":[499.8515625,440.296875],\"tools\":[674.0859375,41.9140625],\"oraclePlate\":{\"rgb\":\"228,135,6\",\"Y\":0.3384,\"black\":7.77,\"white\":2.7},\"under\":[{\"rgb\":\"229,136,3\",\"Y\":0.3427,\"black\":7.85,\"white\":2.67},{\"rgb\":\"229,136,4\",\"Y\":0.3428,\"black\":7.86,\"white\":2.67},{\"rgb\":\"228,136,3\",\"Y\":0.3411,\"black\":7.82,\"white\":2.68}],\"bandMaxY\":{\"rgb\":\"230,136,6\",\"Y\":0.3444,\"black\":7.89,\"white\":2.66},\"bandMinY\":{\"rgb\":\"226,134,2\",\"Y\":0.3322,\"black\":7.64,\"white\":2.75}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:21:44.030Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-7699778e9259807fa345",
+          "file": "zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "band hue 120",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3628,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 120 {\"ambient\":\"0.6800\",\"color\":\"oklch(0.111459 0.0264623 120)\",\"dock\":[499.8515625,440.296875],\"tools\":[674.0859375,41.9140625],\"oraclePlate\":{\"rgb\":\"117,177,6\",\"Y\":0.3524,\"black\":8.05,\"white\":2.61},\"under\":[{\"rgb\":\"115,177,7\",\"Y\":0.351,\"black\":8.02,\"white\":2.62},{\"rgb\":\"116,178,8\",\"Y\":0.3557,\"black\":8.11,\"white\":2.59},{\"rgb\":\"115,177,7\",\"Y\":0.351,\"black\":8.02,\"white\":2.62}],\"bandMaxY\":{\"rgb\":\"118,179,6\",\"Y\":0.361,\"black\":8.22,\"white\":2.55},\"bandMinY\":{\"rgb\":\"114,175,7\",\"Y\":0.3425,\"black\":7.85,\"white\":2.67}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:21:47.608Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-98e1d390ec2c3cb07182",
+          "file": "zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "band hue 180",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3661,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 180 {\"ambient\":\"0.6800\",\"color\":\"oklch(0.112373 0.0203878 180)\",\"dock\":[499.8515625,440.296875],\"tools\":[674.0859375,41.9140625],\"oraclePlate\":{\"rgb\":\"5,189,176\",\"Y\":0.3956,\"black\":8.91,\"white\":2.36},\"under\":[{\"rgb\":\"5,189,177\",\"Y\":0.396,\"black\":8.92,\"white\":2.35},{\"rgb\":\"5,189,178\",\"Y\":0.3964,\"black\":8.93,\"white\":2.35},{\"rgb\":\"5,189,177\",\"Y\":0.396,\"black\":8.92,\"white\":2.35}],\"bandMaxY\":{\"rgb\":\"5,191,178\",\"Y\":0.4051,\"black\":9.1,\"white\":2.31},\"bandMinY\":{\"rgb\":\"5,185,174\",\"Y\":0.3779,\"black\":8.56,\"white\":2.45}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:21:51.241Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-51748e66db9ebecd0cca",
+          "file": "zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "band hue 240",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3605,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 240 {\"ambient\":\"0.6800\",\"color\":\"oklch(0.11311 0.0259091 240)\",\"dock\":[499.8515625,440.296875],\"tools\":[674.0859375,41.9140625],\"oraclePlate\":{\"rgb\":\"69,142,231\",\"Y\":0.2638,\"black\":6.28,\"white\":3.35},\"under\":[{\"rgb\":\"68,143,231\",\"Y\":0.2664,\"black\":6.33,\"white\":3.32},{\"rgb\":\"69,143,231\",\"Y\":0.2668,\"black\":6.34,\"white\":3.31},{\"rgb\":\"68,142,231\",\"Y\":0.2634,\"black\":6.27,\"white\":3.35}],\"bandMaxY\":{\"rgb\":\"69,144,231\",\"Y\":0.2698,\"black\":6.4,\"white\":3.28},\"bandMinY\":{\"rgb\":\"65,141,231\",\"Y\":0.2594,\"black\":6.19,\"white\":3.39}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:21:54.907Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-e4fa00ab86895623f317",
+          "file": "zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "band hue 300",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3676,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 300 {\"ambient\":\"0.6800\",\"color\":\"oklch(0.123864 0.0661177 300)\",\"dock\":[499.8515625,440.296875],\"tools\":[674.0859375,41.9140625],\"oraclePlate\":{\"rgb\":\"194,110,229\",\"Y\":0.2828,\"black\":6.66,\"white\":3.16},\"under\":[{\"rgb\":\"196,109,230\",\"Y\":0.2839,\"black\":6.68,\"white\":3.15},{\"rgb\":\"197,110,231\",\"Y\":0.2879,\"black\":6.76,\"white\":3.11},{\"rgb\":\"196,109,230\",\"Y\":0.2839,\"black\":6.68,\"white\":3.15}],\"bandMaxY\":{\"rgb\":\"197,111,231\",\"Y\":0.2901,\"black\":6.8,\"white\":3.09},\"bandMinY\":{\"rgb\":\"194,107,228\",\"Y\":0.2759,\"black\":6.52,\"white\":3.22}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:21:58.517Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-e0668f66ea9816c6f93f",
+          "file": "zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+      "file": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "renderer of the cell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu-renderer",
+              "projectName": "gpu-renderer",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 404,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T22:22:05.087Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2554cc55ec191e6d66a6-9f74c57bc907ae48cde9",
+          "file": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T22:19:14.504Z",
+    "duration": 174057.48200000002,
+    "expected": 19,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

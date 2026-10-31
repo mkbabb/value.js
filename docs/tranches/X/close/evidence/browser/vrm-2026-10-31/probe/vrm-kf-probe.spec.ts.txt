@@ -1,0 +1,47 @@
+// SCRATCH (X.W11.vrm) — the keyboard-focus gradient probe, run as e2e/visual/vrm-kf-probe.visual.spec.ts
+// and deleted before any commit (kept here as .txt so no runner collects it). VRM_SETTLE=1 adds the cure's wait.
+import { gotoRoute, seedScheme, settleTimedToasts, requireQuiescence, settleArrivals } from "./capture";
+import { visualTest as test } from "./fixtures";
+
+test.use({ viewport: { width: 1024, height: 768 } });
+
+test("kf-probe gradient", async ({ page }) => {
+    await seedScheme(page.context(), "light");
+    await page.emulateMedia({ colorScheme: "light" });
+    await gotoRoute(page, "/#/gradient");
+    await settleTimedToasts(page);
+    if (process.env.VRM_SETTLE) await settleArrivals(page);
+    const snap = (tag: string) =>
+        page.evaluate((tag) => {
+            const a = document.activeElement as HTMLElement | null;
+            const scrollers = [...document.querySelectorAll("*")]
+                .filter((e) => (e as HTMLElement).scrollTop > 0)
+                .map((e) => `${e.tagName}.${(e as HTMLElement).className.toString().slice(0, 40)}=${(e as HTMLElement).scrollTop}`);
+            return `${tag} t=${Math.round(performance.now())} sy=${scrollY} dh=${document.documentElement.scrollHeight} act=${a?.tagName}.${a?.className?.toString().slice(0, 50)} lbl=${a?.getAttribute("aria-label")} anims=${document.getAnimations().length} scrollers=${scrollers.join("|")}`;
+        }, tag);
+    console.log(await snap("pre"));
+    console.log(
+        await page.evaluate(() =>
+            document
+                .getAnimations()
+                .map((a) => {
+                    const t = (a.effect as KeyframeEffect)?.target as HTMLElement | null;
+                    const timing = a.effect?.getComputedTiming();
+                    return `ANIM ${(a as CSSTransition).transitionProperty ?? (a as CSSAnimation).animationName ?? a.id} ${a.constructor.name} ${a.playState} ct=${Math.round(Number(a.currentTime))} dur=${timing?.duration} it=${timing?.iterations} tgt=${t?.tagName}.${t?.className?.toString().slice(0, 60)}`;
+                })
+                .join("\n"),
+        ),
+    );
+    for (let i = 0; i < 12; i++) {
+        await page.keyboard.press("Tab");
+        console.log(await snap(`tab${i + 1}`));
+    }
+    for (let i = 0; i < 12; i++) {
+        await page.waitForTimeout(250);
+        console.log(await snap(`w${i}`));
+    }
+    await requireQuiescence(page, "probe");
+    console.log(await snap("quiet"));
+});
+// Note: probe1 ran without the ANIM dump and without the settle branch; probe2 added the dump;
+// probe3 ran with VRM_SETTLE=1 ×10.

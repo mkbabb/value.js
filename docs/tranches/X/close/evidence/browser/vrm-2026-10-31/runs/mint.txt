@@ -1,0 +1,384 @@
+
+  1 dirty path(s) outside the pixel-relevant scope — reported, not blocking:
+    dist
+
+  npx playwright test -c e2e/visual/visual.config.ts --project=visual --update-snapshots
+
+
+Running 216 tests using 1 worker
+
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/seeded-admin-admin-names-populated-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓    1 [visual] › e2e/visual/admin-populated.visual.spec.ts:34:9 › seeded-admin › admin-names populated · 1024 · light (5.3s)
+  ✓    2 [visual] › e2e/visual/admin-populated.visual.spec.ts:34:9 › seeded-admin › admin-names populated · 1024 · dark (3.2s)
+  ✓    3 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-users · admin-users · light (2.9s)
+  ✓    4 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-names · admin-names · light (2.7s)
+  ✓    5 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-audit · admin-audit · light (2.8s)
+  ✓    6 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-flagged · admin-flagged · light (2.7s)
+  ✓    7 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-tags · admin-tags · light (2.7s)
+  ✓    8 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-users · admin-users · dark (2.6s)
+  ✓    9 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-names · admin-names · dark (2.7s)
+  ✓   10 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-audit · admin-audit · dark (2.7s)
+  ✓   11 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-flagged · admin-flagged · dark (2.7s)
+  ✓   12 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-tags · admin-tags · dark (2.6s)
+  ✓   13 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-users · both · light (3.0s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-admin-admin-names-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   14 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-names · both · light (3.3s)
+  ✓   15 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-audit · both · light (2.8s)
+  ✓   16 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-flagged · both · light (3.0s)
+  ✓   17 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-tags · both · light (2.9s)
+  ✓   18 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-users · both · dark (3.0s)
+  ✓   19 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-names · both · dark (2.9s)
+  ✓   20 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-audit · both · dark (3.0s)
+  ✓   21 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-flagged · both · dark (2.9s)
+  ✓   22 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-tags · both · dark (2.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-admin-admin-users-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   23 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-users · both · light (4.6s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-admin-admin-names-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   24 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-names · both · light (4.6s)
+  ✓   25 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-audit · both · light (3.9s)
+  ✓   26 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-flagged · both · light (3.6s)
+  ✓   27 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-tags · both · light (3.8s)
+  ✓   28 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-users · both · dark (3.6s)
+  ✓   29 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-names · both · dark (3.6s)
+  ✓   30 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-audit · both · dark (3.7s)
+  ✓   31 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-flagged · both · dark (3.7s)
+  ✓   32 [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-tags · both · dark (3.6s)
+  ✓   33 [visual] › e2e/visual/census-parity.spec.ts:127:1 › the visual census is exactly the router's route table (0ms)
+  ✓   34 [visual] › e2e/visual/census-parity.spec.ts:137:1 › the visual census is exactly viewSchema's ViewId union (0ms)
+  ✓   35 [visual] › e2e/visual/census-parity.spec.ts:144:1 › every pane-hosted surface is reachable by some cell (6ms)
+  ✓   36 [visual] › e2e/visual/census-parity.spec.ts:180:1 › every census route names exactly viewSchema's regions, in order (3ms)
+  ✓   37 [visual] › e2e/visual/census-parity.spec.ts:196:1 › the census strictly supersedes the shipped five-route sample (0ms)
+  ✓   38 [visual] › e2e/visual/census-parity.spec.ts:212:1 › the route-arm cell count is derived, never asserted (0ms)
+  ✘   39 [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest (103ms)
+  ✓   40 [visual] › e2e/visual/golden-integrity.spec.ts:140:1 › no committed golden is a single flat colour (4.1s)
+  ✓   41 [visual] › e2e/visual/golden-integrity.spec.ts:187:1 › no golden exists that the manifest does not record (1ms)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/zoom-200-desktop-picker-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   42 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › picker (11.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/zoom-200-desktop-palettes-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   43 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › palettes (5.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/zoom-200-desktop-browse-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   44 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › browse (11.4s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/zoom-200-desktop-extract-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   45 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › extract (4.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/zoom-200-desktop-mix-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   46 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › mix (4.7s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/zoom-200-desktop-generate-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   47 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › generate (4.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/zoom-200-desktop-gradient-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   48 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › gradient (4.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/zoom-200-desktop-atmosphere-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   49 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › atmosphere (3.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/zoom-200-desktop-blob-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   50 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › blob (5.6s)
+  ✓   51 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-users (3.4s)
+  ✓   52 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-names (3.4s)
+  ✓   53 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-audit (3.5s)
+  ✓   54 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-flagged (3.2s)
+  ✓   55 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-tags (3.4s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/zoom-200-desktop-not-found-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   56 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › not-found (3.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-picker-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   57 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › picker (3.0s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-palettes-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   58 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › palettes (2.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-browse-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   59 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › browse (11.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-extract-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   60 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › extract (2.7s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   61 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › mix (2.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-generate-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   62 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › generate (2.7s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-gradient-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   63 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › gradient (3.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-atmosphere-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   64 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › atmosphere (2.7s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-blob-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   65 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › blob (2.9s)
+  ✓   66 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › admin-users (2.4s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-admin-names-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   67 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › admin-names (2.8s)
+  ✓   68 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › admin-audit (2.4s)
+  ✓   69 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › admin-flagged (2.4s)
+  ✓   70 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › admin-tags (2.4s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/reduced-motion-desktop-not-found-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   71 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › not-found (2.4s)
+  ✓   72 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › picker (4.9s)
+  ✓   73 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › palettes (5.1s)
+  ✓   74 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › browse (10.7s)
+  ✓   75 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › extract (3.4s)
+  ✓   76 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › mix (5.1s)
+  ✓   77 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › generate (3.3s)
+  ✓   78 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › gradient (3.5s)
+  ✓   79 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › atmosphere (3.2s)
+  ✓   80 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › blob (5.1s)
+  ✓   81 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › admin-users (3.3s)
+  ✓   82 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › admin-names (3.3s)
+  ✓   83 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › admin-audit (3.3s)
+  ✓   84 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › admin-flagged (3.4s)
+  ✓   85 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › admin-tags (3.3s)
+  ✓   86 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › not-found (3.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-picker-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   87 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › picker (6.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-palettes-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   88 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › palettes (6.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-browse-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   89 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › browse (11.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-extract-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   90 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › extract (4.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   91 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › mix (6.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-generate-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   92 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › generate (4.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-gradient-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   93 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › gradient (4.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-atmosphere-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   94 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › atmosphere (4.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-blob-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   95 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › blob (6.0s)
+  ✓   96 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-users (4.0s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-admin-names-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   97 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-names (4.3s)
+  ✓   98 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-audit (4.0s)
+  ✓   99 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-flagged (3.8s)
+  ✓  100 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-tags (3.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-desktop-not-found-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  101 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › not-found (3.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-mobile-picker-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf-tile-1-of-2.png is re-generated, writing actual.
+  ✓  102 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › picker (6.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-mobile-palettes-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  103 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › palettes (5.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-mobile-browse-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  104 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › browse (11.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-mobile-extract-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  105 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › extract (4.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-mobile-mix-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  106 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › mix (5.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-mobile-generate-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  107 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › generate (4.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-mobile-gradient-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  108 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › gradient (4.4s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-mobile-atmosphere-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  109 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › atmosphere (3.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-mobile-blob-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  110 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › blob (5.5s)
+  ✓  111 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-users (3.6s)
+  ✓  112 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-names (3.7s)
+  ✓  113 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-audit (3.6s)
+  ✓  114 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-flagged (3.6s)
+  ✓  115 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-tags (3.7s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/rtl-mobile-not-found-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  116 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › not-found (3.7s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-picker-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  117 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › picker (10.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-palettes-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  118 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › palettes (10.0s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-browse-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  119 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › browse (11.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-extract-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  120 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › extract (8.5s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  121 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › mix (10.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-generate-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  122 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › generate (8.5s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-gradient-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  123 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › gradient (9.0s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-atmosphere-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  124 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › atmosphere (8.4s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-blob-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  125 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › blob (10.2s)
+  ✓  126 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › admin-users (8.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-admin-names-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  127 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › admin-names (8.6s)
+  ✓  128 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › admin-audit (8.3s)
+  ✓  129 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › admin-flagged (8.2s)
+  ✓  130 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › admin-tags (8.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/keyboard-focus-desktop-not-found-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  131 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › not-found (8.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/palette-card-rest-palettes-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  132 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 390 · light (4.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/palette-card-hover-palettes-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  133 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 390 · light (5.8s)
+  ✓  134 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 390 · dark (4.4s)
+  ✓  135 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 390 · dark (4.5s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/palette-card-rest-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  136 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 1024 · light (4.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/palette-card-hover-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  137 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 1024 · light (5.1s)
+  ✓  138 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 1024 · dark (4.7s)
+  ✓  139 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 1024 · dark (4.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/palette-card-rest-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  140 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 3440 · light (6.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/palette-card-hover-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  141 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 3440 · light (7.5s)
+  ✓  142 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 3440 · dark (6.1s)
+  ✓  143 [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 3440 · dark (6.5s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-picker-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf-tile-1-of-2.png is re-generated, writing actual.
+  ✓  144 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · both · light (5.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-palettes-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  145 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · both · light (4.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-browse-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  146 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · both · light (11.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-extract-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  147 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · both · light (3.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-mix-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  148 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · both · light (4.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-generate-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  149 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · both · light (3.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-gradient-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  150 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · both · light (3.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-atmosphere-atmosphere-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  151 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › atmosphere · atmosphere · light (3.0s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-blob-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  152 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · both · light (4.5s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-not-found-not-found-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  153 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › not-found · not-found · light (2.7s)
+  ✓  154 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · both · dark (5.1s)
+  ✓  155 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · both · dark (4.5s)
+  ✓  156 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · both · dark (10.8s)
+  ✓  157 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · both · dark (2.9s)
+  ✓  158 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · both · dark (4.5s)
+  ✓  159 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · both · dark (2.9s)
+  ✓  160 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · both · dark (2.9s)
+  ✓  161 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › atmosphere · atmosphere · dark (2.7s)
+  ✓  162 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · both · dark (3.8s)
+  ✓  163 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › not-found · not-found · dark (2.5s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-picker-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  164 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › picker · both · light (5.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-palettes-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  165 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › palettes · both · light (4.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-browse-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  166 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › browse · both · light (10.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-extract-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  167 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › extract · both · light (3.0s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  168 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › mix · both · light (5.0s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-generate-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  169 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › generate · both · light (3.3s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-gradient-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  170 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › gradient · both · light (3.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-atmosphere-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  171 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › atmosphere · both · light (3.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-blob-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  172 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › blob · both · light (5.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-not-found-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  173 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › not-found · both · light (2.9s)
+  ✓  174 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › picker · both · dark (4.7s)
+  ✓  175 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › palettes · both · dark (4.6s)
+  ✓  176 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › browse · both · dark (10.6s)
+  ✓  177 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › extract · both · dark (2.8s)
+  ✓  178 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › mix · both · dark (4.8s)
+  ✓  179 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › generate · both · dark (2.9s)
+  ✓  180 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › gradient · both · dark (3.0s)
+  ✓  181 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › atmosphere · both · dark (2.7s)
+  ✓  182 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › blob · both · dark (4.7s)
+  ✓  183 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › not-found · both · dark (2.6s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-picker-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  184 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › picker · both · light (7.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-palettes-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  185 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › palettes · both · light (7.0s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-browse-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  186 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › browse · both · light (12.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-extract-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  187 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › extract · both · light (5.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-mix-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  188 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › mix · both · light (7.5s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-generate-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  189 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › generate · both · light (4.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-gradient-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  190 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › gradient · both · light (5.4s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-atmosphere-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  191 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › atmosphere · both · light (4.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-blob-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  192 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › blob · both · light (7.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/at-rest-not-found-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  193 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › not-found · both · light (4.0s)
+  ✓  194 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › picker · both · dark (6.4s)
+  ✓  195 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › palettes · both · dark (6.0s)
+  ✓  196 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › browse · both · dark (11.4s)
+  ✓  197 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › extract · both · dark (3.3s)
+  ✓  198 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › mix · both · dark (5.9s)
+  ✓  199 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › generate · both · dark (3.5s)
+  ✓  200 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › gradient · both · dark (4.2s)
+  ✓  201 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › atmosphere · both · dark (3.2s)
+  ✓  202 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › blob · both · dark (6.3s)
+  ✓  203 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › not-found · both · dark (3.1s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/seeded-storage-palettes-populated-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  204 [visual] › e2e/visual/states.visual.spec.ts:92:9 › seeded-storage › palettes populated · 1024 · light (5.1s)
+  ✓  205 [visual] › e2e/visual/states.visual.spec.ts:92:9 › seeded-storage › palettes populated · 1024 · dark (4.8s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/seeded-storage-palettes-populated-palettes-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  206 [visual] › e2e/visual/states.visual.spec.ts:119:5 › seeded-storage › palettes populated · 390 · light (4.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/seeded-fixture-browse-mid-fetch-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  207 [visual] › e2e/visual/states.visual.spec.ts:144:9 › seeded-fixture › browse mid-fetch · 1024 · light (3.9s)
+  ✓  208 [visual] › e2e/visual/states.visual.spec.ts:144:9 › seeded-fixture › browse mid-fetch · 1024 · dark (3.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/overlay-dock-view-select-open-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  209 [visual] › e2e/visual/states.visual.spec.ts:183:9 › overlay › dock view-select open · 1024 · light (6.5s)
+  ✓  210 [visual] › e2e/visual/states.visual.spec.ts:183:9 › overlay › dock view-select open · 1024 · dark (5.9s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/forced-state-api-unavailable-latch-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  211 [visual] › e2e/visual/states.visual.spec.ts:217:5 › forced-state › api-unavailable latch · 1024 · light (11.2s)
+/Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/goldens/darwin/param-sweep-space-oklch-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓  212 [visual] › e2e/visual/states.visual.spec.ts:260:9 › param-sweep › oklch · 1024 · light (5.1s)
+  ✓  213 [visual] › e2e/visual/states.visual.spec.ts:260:9 › param-sweep › hsl · 1024 · light (5.1s)
+  ✓  214 [visual] › e2e/visual/states.visual.spec.ts:260:9 › param-sweep › rgb · 1024 · light (4.6s)
+  ✓  215 [visual] › e2e/visual/substrate-integrity.spec.ts:38:1 › the dev-misconfig lamp is dark — VITE_API_URL reached the app (4.6s)
+  ✓  216 [visual] › e2e/visual/substrate-integrity.spec.ts:57:1 › no request leaves the page origin — inv-K-5 held at capture time (3.1s)
+
+
+  1) [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest 
+
+    Error: a golden differs from its recorded digest. Either it was hand-edited — in which case this gate has done its job — or it was regenerated without the manifest, in which case run scripts/visual/regenerate-goldens.mjs --accept so the two are updated together.
+
+    ALTERED  at-rest-admin-admin-names-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+               manifest e779971896db989e48a181544d57559db1e1d7f7cffb2e0e84fe1d97a9c91ab3 (410723 bytes)
+               on disk  d7c290f9b3c0cf959a9c4652bbe4401bb3c4c8a98e91ca908a701e6877e76d45 (411582 bytes)
+    ALTERED  at-rest-admin-admin-names-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+               manifest 84b1fc08d6552bf68a16511f8b74d7f1dbf3d55ece1a90a58218679fdfa54502 (1176911 bytes)
+               on disk  728d4ef519a27e2c08f1ff5b707105c2a7755097287895a36af0bca8281f710f (1177905 bytes)
+    ALTERED  at-rest-admin-admin-users-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+               manifest cd4f5a9c50b230a24715053a06cb9dba6ea3b2132fbcba2357fc71eebf73c69b (1139455 bytes)
+               on disk  0254fb285d55dfbcfe3f23acc30cbab255014e7426c5181991d44bc9049c35d9 (1140347 bytes)
+    ALTERED  seeded-admin-admin-names-populated-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+               manifest 6460e4a60b390b7c4b6bcb8e6411dfb6d4970a279be3149b8a489cd0be641c49 (504909 bytes)
+               on disk  51bad21cba5d3e15f7f479183ee0feb65eb70fecb2ab7e8b84a3ee1a74580441 (506270 bytes)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 14
+
+    - Array []
+    + Array [
+    +   "ALTERED  at-rest-admin-admin-names-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+    +            manifest e779971896db989e48a181544d57559db1e1d7f7cffb2e0e84fe1d97a9c91ab3 (410723 bytes)
+    +            on disk  d7c290f9b3c0cf959a9c4652bbe4401bb3c4c8a98e91ca908a701e6877e76d45 (411582 bytes)",
+    +   "ALTERED  at-rest-admin-admin-names-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+    +            manifest 84b1fc08d6552bf68a16511f8b74d7f1dbf3d55ece1a90a58218679fdfa54502 (1176911 bytes)
+    +            on disk  728d4ef519a27e2c08f1ff5b707105c2a7755097287895a36af0bca8281f710f (1177905 bytes)",
+    +   "ALTERED  at-rest-admin-admin-users-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+    +            manifest cd4f5a9c50b230a24715053a06cb9dba6ea3b2132fbcba2357fc71eebf73c69b (1139455 bytes)
+    +            on disk  0254fb285d55dfbcfe3f23acc30cbab255014e7426c5181991d44bc9049c35d9 (1140347 bytes)",
+    +   "ALTERED  seeded-admin-admin-names-populated-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+    +            manifest 6460e4a60b390b7c4b6bcb8e6411dfb6d4970a279be3149b8a489cd0be641c49 (504909 bytes)
+    +            on disk  51bad21cba5d3e15f7f479183ee0feb65eb70fecb2ab7e8b84a3ee1a74580441 (506270 bytes)",
+    + ]
+
+      105 |             "--accept so the two are updated together.\n\n" +
+      106 |             mismatches.join("\n"),
+    > 107 |     ).toEqual([]);
+          |       ^
+      108 | });
+      109 |
+      110 | /**
+        at /Users/mkbabb/Programming/value.js/.worktrees/vrm-mint/e2e/visual/golden-integrity.spec.ts:107:7
+
+    Error Context: test-results/golden-integrity-every-com-05614-matches-its-manifest-digest-visual/error-context.md
+
+  Slow test file: [visual] › e2e/visual/modality.visual.spec.ts (7.9m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  1 failed
+    [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest 
+  215 passed (17.0m)
+
+The playwright run exited 1; goldens may be partial.
+
+rc=3

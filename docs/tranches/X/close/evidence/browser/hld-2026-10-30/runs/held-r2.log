@@ -1,0 +1,227 @@
+
+Running 5 tests using 1 worker
+·××F[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 1.0000 C 0.00000 h 4.40 · ΔC -0.02105 (stated ±0.04) · px 3066
+·[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.8833 C 0.22342 h 142.67 · ΔC 0.04441 (stated ±0.04) · px 3066
+×[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.8833 C 0.22342 h 142.67 · ΔC 0.04441 (stated ±0.04) · px 3066
+×[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.8832 C 0.22332 h 142.67 · ΔC 0.04431 (stated ±0.04) · px 3066
+F[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.7897 C 0.18919 h 323.53 · ΔC -0.06406 (stated ±0.04) · px 3066
+×[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.7897 C 0.18919 h 323.53 · ΔC -0.06406 (stated ±0.04) · px 3066
+×[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.7897 C 0.18933 h 323.52 · ΔC -0.06392 (stated ±0.04) · px 3066
+F
+
+  1) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:395:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+
+    Error: no repaint after restore
+
+    no repaint after restore
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m2[39m
+    Received:   [31m2[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      478 |                 message: "no repaint after restore",
+      479 |             })
+    > 480 |             .toBeGreaterThan(atLoss);
+          |              ^
+      481 |         await expect
+      482 |             .poll(() => canvas.evaluate((c) => Number(getComputedStyle(c).opacity)), {
+      483 |                 timeout: 10_000,
+        at /w/tree/e2e/smoke/oracles/o29-scene-contracts.spec.ts:480:14
+
+    Error Context: test-results/oracles-o29-scene-contract-3ec41-a-forced-WebGL-context-loss-smoke/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: no repaint after restore
+
+    no repaint after restore
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m2[39m
+    Received:   [31m2[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      478 |                 message: "no repaint after restore",
+      479 |             })
+    > 480 |             .toBeGreaterThan(atLoss);
+          |              ^
+      481 |         await expect
+      482 |             .poll(() => canvas.evaluate((c) => Number(getComputedStyle(c).opacity)), {
+      483 |                 timeout: 10_000,
+        at /w/tree/e2e/smoke/oracles/o29-scene-contracts.spec.ts:480:14
+
+    Error Context: test-results/oracles-o29-scene-contract-3ec41-a-forced-WebGL-context-loss-smoke-retry1/error-context.md
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: no repaint after restore
+
+    no repaint after restore
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m2[39m
+    Received:   [31m2[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      478 |                 message: "no repaint after restore",
+      479 |             })
+    > 480 |             .toBeGreaterThan(atLoss);
+          |              ^
+      481 |         await expect
+      482 |             .poll(() => canvas.evaluate((c) => Number(getComputedStyle(c).opacity)), {
+      483 |                 timeout: 10_000,
+        at /w/tree/e2e/smoke/oracles/o29-scene-contracts.spec.ts:480:14
+
+    Error Context: test-results/oracles-o29-scene-contract-3ec41-a-forced-WebGL-context-loss-smoke-retry2/error-context.md
+
+  2) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+
+    Error: painted dominant chroma 0.22342 vs the gamut-mapped current chroma 0.17901
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.04441396909588244[39m
+
+      354 |             Math.abs(paintedC - targetC),
+      355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      357 |     });
+      358 | }
+      359 |
+        at /w/tree/e2e/smoke/webgl-blob-idle.spec.ts:356:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: painted dominant chroma 0.22342 vs the gamut-mapped current chroma 0.17901
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.04441396909588244[39m
+
+      354 |             Math.abs(paintedC - targetC),
+      355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      357 |     });
+      358 | }
+      359 |
+        at /w/tree/e2e/smoke/webgl-blob-idle.spec.ts:356:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke-retry1/error-context.md
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: painted dominant chroma 0.22332 vs the gamut-mapped current chroma 0.17901
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.04431195296306287[39m
+
+      354 |             Math.abs(paintedC - targetC),
+      355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      357 |     });
+      358 | }
+      359 |
+        at /w/tree/e2e/smoke/webgl-blob-idle.spec.ts:356:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke-retry2/error-context.md
+
+  3) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+
+    Error: painted dominant chroma 0.18919 vs the gamut-mapped current chroma 0.25325
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.06406225795721354[39m
+
+      354 |             Math.abs(paintedC - targetC),
+      355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      357 |     });
+      358 | }
+      359 |
+        at /w/tree/e2e/smoke/webgl-blob-idle.spec.ts:356:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: painted dominant chroma 0.18919 vs the gamut-mapped current chroma 0.25325
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.06406225795721354[39m
+
+      354 |             Math.abs(paintedC - targetC),
+      355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      357 |     });
+      358 | }
+      359 |
+        at /w/tree/e2e/smoke/webgl-blob-idle.spec.ts:356:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke-retry1/error-context.md
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: painted dominant chroma 0.18933 vs the gamut-mapped current chroma 0.25325
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.06391628999849447[39m
+
+      354 |             Math.abs(paintedC - targetC),
+      355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      357 |     });
+      358 | }
+      359 |
+        at /w/tree/e2e/smoke/webgl-blob-idle.spec.ts:356:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke-retry2/error-context.md
+
+  3 failed
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:395:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:276:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+  2 passed (3.2m)
+
+producer-held, red by a named producer cure (3):
+  RED glass O-112(2) [smoke] e2e/smoke/oracles/o29-scene-contracts.spec.ts:395 › preview survives — blob: the preview repaints after a forced WebGL context loss
+      R11 NO-REPAINT-AFTER-RESTORE: a parked <Blob> stays blank after webglcontextlost then webglcontextrestored
+      glass W-G.2 with O-104a's one-redraw law, W-G.5 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:91 (glass's own numbering; value.js O-112 is a different row); expires at the glass 11.0.0 repin
+  RED O-105 [smoke] e2e/smoke/webgl-blob-idle.spec.ts:276 › hero blob carries current chroma — oklch(0.65 0.3 150)
+      BLOB-LIT-LIGHTNESS: the lit meatball's core paints above the body stop's L, so its cusp chroma differs
+      glass W-G.5 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:78; expires at the glass 11.0.0 repin
+  RED O-105 [smoke] e2e/smoke/webgl-blob-idle.spec.ts:276 › hero blob carries current chroma — oklch(0.55 0.37 328)
+      BLOB-LIT-LIGHTNESS: the lit meatball's core paints above the body stop's L, so its cusp chroma differs
+      glass W-G.5 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:78; expires at the glass 11.0.0 repin
+
+ADOPTION NOTICE O-122 (glass O-115) (expected): [smoke] e2e/smoke/oracles/o21-gradient-rail.spec.ts:287 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal read GREEN. If the repin landed, adopt the cure and delete the row: TIER-PROBE-SYNC-LOSECONTEXT: the render-tier probe blocks the main thread on a synchronous loseContext after a reload
+
+honest-red verdict: passed · 3 held red · 1 held green · 0 failing
+held-r2 exit 0

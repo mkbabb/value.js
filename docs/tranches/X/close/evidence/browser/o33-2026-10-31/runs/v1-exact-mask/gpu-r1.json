@@ -1,0 +1,2255 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/.dev-logs/o33/gpu/docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/gpu.config.ts",
+    "rootDir": "/Users/mkbabb/.dev-logs/o33/gpu/e2e/smoke",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/o33/gpu/test-results/ref-gpu",
+        "repeatEach": 3,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "gpu",
+        "name": "gpu",
+        "testDir": "/Users/mkbabb/.dev-logs/o33/gpu/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/o33/gpu/test-results/ref-gpu",
+        "repeatEach": 3,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "gpu-renderer",
+        "name": "gpu-renderer",
+        "testDir": "/Users/mkbabb/.dev-logs/o33/gpu/docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe",
+        "testIgnore": [],
+        "testMatch": [
+          "renderer.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "oracles/o33-dock-actionbar-b05.spec.ts",
+      "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "B05 · the Tools ink on the dock band (0132 · 0133)",
+          "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+          "line": 294,
+          "column": 6,
+          "specs": [
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.360526428508131"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 15087,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:31:28.350Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.360526428508131"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-9d47029b325ca97daff6",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "7.855019638655231"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3943,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:31:43.971Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "7.855019638655231"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-f64b0ddb90e644230f66",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "8.034086732749516"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4005,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:31:47.920Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "8.034086732749516"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-347c0c6e7db2a9e885b0",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "8.920356356205508"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3975,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:31:51.931Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "8.920356356205508"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-0b6dc5e05fbb94e20525",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.335930410073543"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3898,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:31:55.910Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.335930410073543"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-c064440bf3a28b8f0cb4",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.7553789922113845"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3990,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:31:59.814Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.7553789922113845"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-0798e3daca874963c611",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4329,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:03.810Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-870c782c87955d0396e9",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4300,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:08.143Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-a54fe0348e9e15923a9c",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.324724289066197"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3973,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:46.078Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.324724289066197"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-60dc180633b42c4cb090",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 3909,
+                      "error": {
+                        "message": "Error: the wordmark's box shows plate between its glyphs\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
+                        "stack": "Error: the wordmark's box shows plate between its glyphs\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at inkRatio (/Users/mkbabb/.dev-logs/o33/gpu/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:175:79)\n    at /Users/mkbabb/.dev-logs/o33/gpu/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:305:27",
+                        "location": {
+                          "file": "/Users/mkbabb/.dev-logs/o33/gpu/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 79,
+                          "line": 175
+                        },
+                        "snippet": "  173 |     const plate = painted.filter((p, i) => same(p, bare[i]!));\n  174 |     expect(ink.length, \"the wordmark paints glyph pixels\").toBeGreaterThan(0);\n> 175 |     expect(plate.length, \"the wordmark's box shows plate between its glyphs\").toBeGreaterThan(0);\n      |                                                                               ^\n  176 |     return Math.min(...plate.map((g) => Math.max(...ink.map((p) => contrast(p, g)))));\n  177 | }\n  178 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/.dev-logs/o33/gpu/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 79,
+                            "line": 175
+                          },
+                          "message": "Error: the wordmark's box shows plate between its glyphs\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  173 |     const plate = painted.filter((p, i) => same(p, bare[i]!));\n  174 |     expect(ink.length, \"the wordmark paints glyph pixels\").toBeGreaterThan(0);\n> 175 |     expect(plate.length, \"the wordmark's box shows plate between its glyphs\").toBeGreaterThan(0);\n      |                                                                               ^\n  176 |     return Math.min(...plate.map((g) => Math.max(...ink.map((p) => contrast(p, g)))));\n  177 | }\n  178 |\n    at inkRatio (/Users/mkbabb/.dev-logs/o33/gpu/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:175:79)\n    at /Users/mkbabb/.dev-logs/o33/gpu/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:305:27"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:50.427Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/.dev-logs/o33/gpu/test-results/ref-gpu/oracles-o33-dock-actionbar-3345d-the-light-band-seed-hue-60--gpu-repeat1/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/.dev-logs/o33/gpu/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 79,
+                        "line": 175
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-343130218fc6664ea625",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "8.113826697453382"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3983,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:57.701Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "8.113826697453382"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-5054a65fd36ade1b7ec1",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "8.920356356205508"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3935,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:01.927Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "8.920356356205508"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-299135fb148d371e9679",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.335930410073543"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3885,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:05.867Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.335930410073543"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-66f8b6e83946160a950a",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.7553789922113845"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3926,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:09.757Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.7553789922113845"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-69e2bad018e7d91c0131",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4344,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:13.687Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-01cb212863ce0585764f",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4257,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:18.037Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-0ee9da50226c345ab581",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.324724289066197"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3918,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:55.663Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.324724289066197"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-a1eaee9a9e3cf4899ada",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "7.855019638655231"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3869,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:59.904Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "7.855019638655231"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-7dbc0fe4b7b6848ecb18",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "8.034086732749516"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3969,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:03.779Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "8.034086732749516"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-fb5376def6d4eab9b209",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "8.920356356205508"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4030,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:07.753Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "8.920356356205508"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-5d610499efe027fc39da",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.335930410073543"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3917,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:11.788Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.335930410073543"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-007d20285c04fd2f47db",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.7553789922113845"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3962,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:15.711Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.7553789922113845"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-d5c23eb5e74961e33847",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 298,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4345,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:19.679Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-036a8c75d9654bb87859",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4317,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:24.029Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-fd14f1cc2aefe0995716",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 312,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "oracles/zz-o33-mutant.spec.ts",
+      "file": "oracles/zz-o33-mutant.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "B05 · the Tools ink on the dock band (0132 · 0133)",
+          "file": "oracles/zz-o33-mutant.spec.ts",
+          "line": 265,
+          "column": 6,
+          "specs": [
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.333536893894972"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3636,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:12.458Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.333536893894972"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-7a5dc912e14bab6c42ec",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "7.800259916066383"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3677,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:16.100Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "7.800259916066383"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-e5ac13a2e3bcee552ed7",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "8.141098010695995"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3637,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:19.783Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "8.141098010695995"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-d088e2e4b9e6a85c721d",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "9.006700228242297"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3665,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:23.426Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "9.006700228242297"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-cb236811cfc2a8396a4a",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.335930410073543"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3687,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:27.097Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.335930410073543"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-80d93a34c8dc5cc30879",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.6639523865514745"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3733,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:30.793Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.6639523865514745"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-7923306e46365e6eb7e6",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4292,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:34.532Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-1d149c2b42b09d182c4d",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4336,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:32:38.831Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-d5c5ca9551c4b43d1de7",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.333536893894972"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3704,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:22.309Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.333536893894972"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-897402795d635e6a79af",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "7.7447096361298104"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3599,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:26.018Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "7.7447096361298104"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-0a8c3b6259d3c80146b5",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "8.141098010695995"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3632,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:29.622Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "8.141098010695995"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-9f07aa29d5471bf3c86e",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "9.006700228242297"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3634,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:33.259Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "9.006700228242297"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-46242641ff34f95159d1",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.335930410073543"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3639,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:36.898Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.335930410073543"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-7c2f1110fe5ca5ecb7b2",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.637588424263843"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3630,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:40.542Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.637588424263843"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-b6d23a532f654009405c",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4299,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:44.176Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-d0fa300b6a2036fc618b",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4295,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:33:48.480Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-6c753a3cd6045cb729a8",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.333536893894972"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3595,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:28.361Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.333536893894972"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-29fbf804de97b69ea9e4",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "7.800259916066383"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3633,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:31.960Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "7.800259916066383"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-93c8afb7435c4916452e",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "8.141098010695995"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3663,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:35.597Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "8.141098010695995"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-06713f82bcf27c5a2347",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "9.006700228242297"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3603,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:39.266Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "9.006700228242297"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-ec3ddfd3effc5a656828",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.335930410073543"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3657,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:42.876Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.335930410073543"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-744893b671f6681438f3",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "6.6639523865514745"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3698,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:46.538Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "6.6639523865514745"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-82c8cb7802d9555f36c6",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4286,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:50.240Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-f5df2fd95ce597479170",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4265,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:34:54.531Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-9a383754fa2de0607874",
+              "file": "oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+      "file": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "renderer of the cell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu-renderer",
+              "projectName": "gpu-renderer",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 328,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:35:01.566Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2554cc55ec191e6d66a6-9f74c57bc907ae48cde9",
+          "file": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "renderer of the cell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu-renderer",
+              "projectName": "gpu-renderer",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 363,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:35:05.041Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2554cc55ec191e6d66a6-4a0519cf80e008a4bab9",
+          "file": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "renderer of the cell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu-renderer",
+              "projectName": "gpu-renderer",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 327,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:35:08.450Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2554cc55ec191e6d66a6-7abdd80a4e4152b0cce1",
+          "file": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T04:31:26.492Z",
+    "duration": 225112.46800000002,
+    "expected": 50,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

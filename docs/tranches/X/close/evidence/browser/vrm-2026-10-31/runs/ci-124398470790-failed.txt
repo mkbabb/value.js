@@ -1,0 +1,99 @@
+admin-populated.visual.spec.ts:34:9 › seeded-admin › admin-names populated · 1024 · light 
+admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-names · both · light 
+admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-users · both · light 
+admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-names · both · light 
+modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR › picker 
+modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR › palettes 
+modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR › browse 
+modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR › extract 
+modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR › mix 
+modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR › generate 
+modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR › gradient 
+modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR › atmosphere 
+modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR › blob 
+modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR › not-found 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › picker 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › palettes 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › browse 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › extract 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › mix 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › generate 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › gradient 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › atmosphere 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › blob 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › admin-names 
+modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce › not-found 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › picker 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › palettes 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › browse 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › extract 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › mix 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › generate 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › gradient 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › atmosphere 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › blob 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › admin-names 
+modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) › not-found 
+modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width › picker 
+modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width › palettes 
+modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width › browse 
+modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width › extract 
+modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width › mix 
+modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width › generate 
+modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width › gradient 
+modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width › atmosphere 
+modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width › blob 
+modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width › not-found 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › picker 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › palettes 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › browse 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › extract 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › mix 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › generate 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › gradient 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › atmosphere 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › blob 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › admin-names 
+modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium › not-found 
+palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 390 · light 
+palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 390 · light 
+palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 1024 · light 
+palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 1024 · light 
+palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 3440 · light 
+palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 3440 · light 
+routes.visual.spec.ts:63:21 › at-rest · 390 › picker · both · light ────
+routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · both · light ──
+routes.visual.spec.ts:63:21 › at-rest · 390 › browse · both · light ────
+routes.visual.spec.ts:63:21 › at-rest · 390 › extract · both · light ───
+routes.visual.spec.ts:63:21 › at-rest · 390 › mix · both · light ───────
+routes.visual.spec.ts:63:21 › at-rest · 390 › generate · both · light ──
+routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · both · light ──
+routes.visual.spec.ts:63:21 › at-rest · 390 › atmosphere · atmosphere · light 
+routes.visual.spec.ts:63:21 › at-rest · 390 › blob · both · light ──────
+routes.visual.spec.ts:63:21 › at-rest · 390 › not-found · not-found · light 
+routes.visual.spec.ts:63:21 › at-rest · 1024 › picker · both · light ───
+routes.visual.spec.ts:63:21 › at-rest · 1024 › palettes · both · light ─
+routes.visual.spec.ts:63:21 › at-rest · 1024 › browse · both · light ───
+routes.visual.spec.ts:63:21 › at-rest · 1024 › extract · both · light ──
+routes.visual.spec.ts:63:21 › at-rest · 1024 › mix · both · light ──────
+routes.visual.spec.ts:63:21 › at-rest · 1024 › generate · both · light ─
+routes.visual.spec.ts:63:21 › at-rest · 1024 › gradient · both · light ─
+routes.visual.spec.ts:63:21 › at-rest · 1024 › atmosphere · both · light 
+routes.visual.spec.ts:63:21 › at-rest · 1024 › blob · both · light ─────
+routes.visual.spec.ts:63:21 › at-rest · 1024 › not-found · both · light 
+routes.visual.spec.ts:63:21 › at-rest · 3440 › picker · both · light ───
+routes.visual.spec.ts:63:21 › at-rest · 3440 › palettes · both · light ─
+routes.visual.spec.ts:63:21 › at-rest · 3440 › browse · both · light ───
+routes.visual.spec.ts:63:21 › at-rest · 3440 › extract · both · light ──
+routes.visual.spec.ts:63:21 › at-rest · 3440 › mix · both · light ──────
+routes.visual.spec.ts:63:21 › at-rest · 3440 › generate · both · light ─
+routes.visual.spec.ts:63:21 › at-rest · 3440 › gradient · both · light ─
+routes.visual.spec.ts:63:21 › at-rest · 3440 › atmosphere · both · light 
+routes.visual.spec.ts:63:21 › at-rest · 3440 › blob · both · light ─────
+routes.visual.spec.ts:63:21 › at-rest · 3440 › not-found · both · light 
+states.visual.spec.ts:92:9 › seeded-storage › palettes populated · 1024 · light 
+states.visual.spec.ts:119:5 › seeded-storage › palettes populated · 390 · light 
+states.visual.spec.ts:144:9 › seeded-fixture › browse mid-fetch · 1024 · light 
+states.visual.spec.ts:183:9 › overlay › dock view-select open · 1024 · light 
+states.visual.spec.ts:217:5 › forced-state › api-unavailable latch · 1024 · light 
+states.visual.spec.ts:260:9 › param-sweep › oklch · 1024 · light ───────

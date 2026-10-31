@@ -1,0 +1,23 @@
+
+Running 1 test using 1 worker
+
+[1/1] [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget
+[smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget
+[w12-drag SOFTWARE-GL] surface: moves=8 frames=22 p50=33.3 p95=1299.9 longTasks=3 maxTask=1555
+    hot: n@createCanvasLifecycle-hJHobVTn-Bn6S7la1.js:4=2176ms · getBoundingClientRect@:0=44ms · validateProps@vue.runtime.esm-bundler-DQai_KuN.js:5053=44ms · getContext@:0=28ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=16ms · Re@@mkbabb_glass-ui_dock.js:430=16ms
+
+[w12-drag SOFTWARE-GL] slider L: moves=4 frames=3 p50=649.9 p95=1033.3 longTasks=4 maxTask=140
+    hot: getBoundingClientRect@:0=96ms · (anon)@dist-vzlhttbQ.js:6141=64ms · L@color-BU4JS6bH.js:255=38ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=8ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=8ms · (garbage collector)@:0=8ms
+
+[w12-drag SOFTWARE-GL] slider a: moves=2 frames=1 p50=1449.9 p95=1449.9 longTasks=3 maxTask=129
+    hot: s@color-BU4JS6bH.js:143=67ms · effect.onStop@vue.runtime.esm-bundler-DQai_KuN.js:1681=47ms · hasOwn@vue.runtime.esm-bundler-DQai_KuN.js:26=30ms · getBoundingClientRect@:0=21ms · patchElement@vue.runtime.esm-bundler-DQai_KuN.js:5402=8ms · (garbage collector)@:0=4ms
+
+[w12-drag SOFTWARE-GL] slider b: moves=4 frames=5 p50=683.4 p95=816.7 longTasks=6 maxTask=133
+    hot: getBoundingClientRect@:0=102ms · s@color-BU4JS6bH.js:143=79ms · Icon@lucide-vue-DFLAGU6Z.js:94=61ms · (garbage collector)@:0=31ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=12ms · O@color-BU4JS6bH.js:162=8ms
+
+[w12-drag SOFTWARE-GL] slider alpha: moves=26 frames=32 p50=16.7 p95=300.0 longTasks=0 maxTask=0
+    hot: getBoundingClientRect@:0=25ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=10ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=5ms · renderFnWithContext@vue.runtime.esm-bundler-DQai_KuN.js:2255=4ms · createReactiveObject@vue.runtime.esm-bundler-DQai_KuN.js:1278=4ms · setStyle@vue.runtime.esm-bundler-DQai_KuN.js:7535=4ms
+
+[w12-drag] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev T=16.70 budget p50<=17.70 p95<=34.40
+
+  1 passed (31.1s)

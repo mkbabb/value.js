@@ -1,0 +1,1 @@
+{"binary":"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome","version":"156.0.8078.74","flags":"--use-angle=metal --disable-field-trial-config","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"}

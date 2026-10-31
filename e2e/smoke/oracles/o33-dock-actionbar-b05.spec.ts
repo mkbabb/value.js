@@ -59,6 +59,43 @@ async function openBar(page: Page): Promise<void> {
     await page.waitForTimeout(900);
     await parkOnDock(page);
     await page.waitForTimeout(300);
+    await settleBar(page);
+}
+
+/**
+ * SS-8.r B05 0125 / 0146: the bar's posture lands over a few hundred ms (the
+ * scene-action seats tween their gaps 6 → 4 px under the open bar while the
+ * face's `--dock-layer-gap` re-resolves), and at host load the tween ran past
+ * the fixed 1.2 s wait: the face gap was read on one posture and the seats
+ * mid-flight (5.398 < 5.5; an air delta of 2 px). Every proportion below is
+ * read once the layer root's own geometry and both gaps hold for consecutive
+ * frames (the §0gl.8 instrument law: sample the settled posture).
+ */
+async function settleBar(page: Page): Promise<void> {
+    const settled = await page.evaluate(async () => {
+        const key = () => {
+            const row = document.querySelector('[data-testid="scene-action-row"]');
+            const root = row?.closest(".dock-crossfade")?.parentElement;
+            const face = row?.closest(".dock-face-content");
+            if (!row || !root || !face) return "absent";
+            const boxes = [root, ...root.querySelectorAll("button, .dock-separator")].map((e) => {
+                const b = e.getBoundingClientRect();
+                return `${b.left.toFixed(2)}/${b.width.toFixed(2)}`;
+            });
+            return `${getComputedStyle(face).columnGap}|${getComputedStyle(root).columnGap}|${boxes.join(",")}`;
+        };
+        const frame = () => new Promise((r) => requestAnimationFrame(() => r(null)));
+        let last = key();
+        for (let held = 0, n = 0; n < 600; n++) {
+            await frame();
+            const k = key();
+            held = k === last && k !== "absent" ? held + 1 : 0;
+            last = k;
+            if (held >= 10) return true;
+        }
+        return false;
+    });
+    expect(settled, "the open bar's posture settles").toBe(true);
 }
 
 type RGB = [number, number, number];
@@ -96,16 +133,67 @@ function contrast(a: RGB, b: RGB): number {
     return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
 }
 
-/** The max-contrast pixel inside `box` against the plate sample (the SS-8 ink instrument). */
-async function inkRatio(page: Page, box: { x: number; y: number; width: number; height: number }) {
-    const d = await dockRect(page);
-    const shot = await page.screenshot();
-    const pts: Array<[number, number]> = [[d.x + 6, d.y + d.height / 2]];
-    for (let x = box.x + 1; x < box.x + box.width - 1; x++) {
-        for (let y = box.y + 1; y < box.y + box.height - 1; y++) pts.push([x, y]);
+/**
+ * The SS-8 ink instrument on the wordmark's REAL ground (COHESION §0gy.1).
+ *
+ * The plate is read under the wordmark's own box, never at a remote pixel of
+ * the dock. The box is shot twice: once as painted, and once with the
+ * wordmark's glyphs made transparent (nothing else changes), so the second
+ * shot is the plate under the box with every glyph pixel masked out. Each of
+ * its pixels is a plate sample. The ink is the max-contrast painted pixel
+ * against a plate sample, and the reading is the WORST plate sample: min over
+ * plate of max over ink. The mask is asserted to have taken (the glyphs'
+ * computed color is transparent when the plate is shot). The floor the caller
+ * asserts is unchanged.
+ */
+async function inkRatio(page: Page, selector: string) {
+    const glyphs = page.locator(selector).first();
+    const box = await glyphs.boundingBox();
+    expect(box, "the wordmark has a box").not.toBeNull();
+    const pts: Array<[number, number]> = [];
+    for (let x = box!.x + 1; x < box!.x + box!.width - 1; x++) {
+        for (let y = box!.y + 1; y < box!.y + box!.height - 1; y++) pts.push([x, y]);
     }
-    const [plate, ...ink] = await pixels(page, shot, pts);
-    return Math.max(...ink.map((p) => contrast(p, plate!)));
+    const ink = await pixels(page, await page.screenshot(), pts);
+    const restore = await glyphs.evaluate((el) => {
+        const st = (el as HTMLElement).style;
+        const was = { color: st.getPropertyValue("color"), transition: st.getPropertyValue("transition") };
+        st.setProperty("transition", "none", "important");
+        st.setProperty("color", "transparent", "important");
+        return was;
+    });
+    const masked = await glyphs.evaluate((el) => getComputedStyle(el).color);
+    expect(masked, "the glyphs are masked").toBe("rgba(0, 0, 0, 0)");
+    await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => r(null)))));
+    const plate = await pixels(page, await page.screenshot(), pts);
+    await glyphs.evaluate((el, was) => {
+        const st = (el as HTMLElement).style;
+        st.setProperty("color", was.color);
+        st.setProperty("transition", was.transition);
+    }, restore);
+    return Math.min(...plate.map((g) => Math.max(...ink.map((p) => contrast(p, g)))));
+}
+
+// The bar-less guard is two legs, split by INSTRUMENT (X.W11.wk, COHESION
+// §0gt.4, on the X.W11.h15 / DISPOSITION §8 E15 precedent — o11 gate 4a/4b).
+// The DOM half (the slot is `inert` and 0 px; the dock keeps its face) is
+// engine-agnostic and runs in every project that collects this file (Chromium
+// `smoke`, WebKit `oracles-safari`). The AX-tree half reads the ENGINE's own
+// accessibility tree through a CDP session (`Accessibility.getFullAXTree`),
+// which exists only in Chromium; Playwright's own role engine does not model
+// `inert`, so it is no substitute instrument. That leg carries the
+// `@chromium-instrument` tag, the WebKit project does not enrol it
+// (`playwright.config.ts` · `oracles-safari` · `grepInvert`), and it is never
+// skipped: it runs in `smoke`. Measured at the 2026-10-28 darwin witness:
+// `browserContext.newCDPSession: CDP session is only available in Chromium`
+// ×3, before any DOM assertion was reached.
+async function barlessSlot(page: Page): Promise<void> {
+    await parkOnDock(page);
+    const slot = await page.locator(".action-bar-toggle-slot").evaluate((el) => ({
+        inert: el.hasAttribute("inert"),
+        width: el.getBoundingClientRect().width,
+    }));
+    expect(slot).toEqual({ inert: true, width: 0 });
 }
 
 test.describe("B05 · bar-less routes (0122 · 0136 guard)", () => {
@@ -116,21 +204,25 @@ test.describe("B05 · bar-less routes (0122 · 0136 guard)", () => {
             page,
         }) => {
             await boot(page, hash);
-            await parkOnDock(page);
-            const slot = await page.locator(".action-bar-toggle-slot").evaluate((el) => ({
-                inert: el.hasAttribute("inert"),
-                width: el.getBoundingClientRect().width,
-            }));
-            expect(slot).toEqual({ inert: true, width: 0 });
-            const cdp = await page.context().newCDPSession(page);
-            const ax = await cdp.send("Accessibility.getFullAXTree");
-            const node = ax.nodes.find(
-                (n) => n.name?.value === "Toggle action bar" && n.ignored !== true,
-            );
-            expect(node).toBeUndefined();
+            await barlessSlot(page);
             // The retired collapse: 254.7 → 28.1 px. The dock holds its main face.
             expect((await dockRect(page)).width).toBeGreaterThan(200);
         });
+
+        test(
+            `${hash}: the inert Tools seat is absent from the engine AX tree (CDP)`,
+            { tag: "@chromium-instrument" },
+            async ({ page }) => {
+                await boot(page, hash);
+                await barlessSlot(page);
+                const cdp = await page.context().newCDPSession(page);
+                const ax = await cdp.send("Accessibility.getFullAXTree");
+                const node = ax.nodes.find(
+                    (n) => n.name?.value === "Toggle action bar" && n.ignored !== true,
+                );
+                expect(node).toBeUndefined();
+            },
+        );
     }
 });
 
@@ -146,6 +238,7 @@ test.describe("B05 · the action-bar proportion (0125 · 0146)", () => {
         // (an open bar does not idle-collapse; SS8-0129 S1).
         await page.mouse.move(1430, 890);
         await page.waitForTimeout(400);
+        await settleBar(page);
         const air = await page.evaluate(() => {
             const row = document.querySelector('[data-testid="scene-action-row"]')!;
             const crossfade = row.closest(".dock-crossfade")!;
@@ -207,24 +300,33 @@ test.describe("B05 · the Tools ink on the dock band (0132 · 0133)", () => {
             await boot(page, "/");
             await parkOnDock(page);
             await page.waitForTimeout(300);
-            const label = await page.locator(`${TOOLS} span`).boundingBox();
-            expect(label).not.toBeNull();
-            expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+            const ratio = await inkRatio(page, `${TOOLS} span`);
+            test.info().annotations.push({ type: "ink-ratio", description: String(ratio) });
+            expect(ratio).toBeGreaterThanOrEqual(4.5);
         });
     }
 
     for (const hue of [0, 180]) {
         test(`0133: the Tools focus ring clears 3:1 against the band (seed hue ${hue})`, async ({
             page,
+            browserName,
         }) => {
             await seed(page, "light", hue);
             await boot(page, "/");
             await parkOnDock(page);
             await page.waitForTimeout(300);
             const before = await page.screenshot();
+            // X.W11.wk (COHESION §0gt.4), the X.W11.h16 idiom (o15-dock-register):
+            // WebKit's default Tab order (Safari without Full Keyboard Access)
+            // holds form controls only, so `Tab` never lands on the dock
+            // `<button>` (measured at the 2026-10-28 darwin witness: 30 presses,
+            // `reached` false). The engine's full-keyboard traversal is
+            // `Alt+Tab` (Option-Tab): the same keyboard modality and an honest
+            // `:focus-visible`, never a programmatic `.focus()`.
+            const traverse = browserName === "webkit" ? "Alt+Tab" : "Tab";
             let reached = false;
             for (let i = 0; i < 30 && !reached; i++) {
-                await page.keyboard.press("Tab");
+                await page.keyboard.press(traverse);
                 reached = await page.evaluate(
                     () => document.activeElement?.getAttribute("aria-label") === "Toggle action bar",
                 );
@@ -255,6 +357,17 @@ test.describe("B05 · the Tools target and wordmark (0140)", () => {
             const b = (await page.locator(TOOLS).boundingBox())!;
             expect(b.height).toBeGreaterThanOrEqual(44 - 0.5);
             expect(b.width).toBeGreaterThanOrEqual(44 - 0.5);
+        });
+        // SS-8.r B05 0140 (COHESION §0gk.2, record-only): the phone Tools seat
+        // is icon-only BY DESIGN (S.W7-2), so its name is the accessible name,
+        // never the hidden wordmark.
+        test("the icon-only Tools seat carries its accessible name", async ({ page }) => {
+            await boot(page, "/");
+            const tools = page.getByRole("button", { name: "Toggle action bar" });
+            await expect(tools).toHaveCount(1);
+            await expect(tools).toBeVisible();
+            await expect(tools).toHaveAccessibleName("Toggle action bar");
+            await expect(page.locator(`${TOOLS} span`)).toBeHidden();
         });
     });
 

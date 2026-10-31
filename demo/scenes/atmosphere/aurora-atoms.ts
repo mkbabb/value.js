@@ -13,6 +13,24 @@ import type { AuroraAtoms } from "@mkbabb/glass-ui/aurora";
 export const AURORA_ATOMS_KEY: InjectionKey<AuroraAtoms> = Symbol("aurora-atoms");
 
 /**
+ * The page's ONE device-tier answer: is this device's WebGL2 a CPU rasteriser
+ * (SwiftShader / llvmpipe / MS Basic Render)? `useAtmosphere` resolves it once
+ * at setup, through glass-ui's `resolveRenderMode("auto")` (`"css"` exactly on
+ * that tier), and provides it here; the hero bead reads it to park its loop.
+ *
+ * X.W11.e2b (COHESION §0gw.2, o21:287): the bead used to ask the producer
+ * probe (`isSoftwareWebGLRenderer`) a second time in its own setup. The probe
+ * creates a throwaway WebGL2 context and reads its renderer string, a
+ * synchronous round trip to the GPU process. At the hero's mount on a software
+ * rasteriser that process is busy rastering the page, and the round trip held
+ * the main thread for 16.2 s of one 23 s profile (docker Linux Chromium, a
+ * starved runner): the Gradient pane chunk that landed meanwhile could not
+ * mount, so its route title was absent for the oracle's 8 s. One answer per
+ * page, asked while the GPU process is still idle at boot.
+ */
+export const SOFTWARE_RASTER_KEY: InjectionKey<boolean> = Symbol("software-raster");
+
+/**
  * The demo's initial atmosphere SHAPE — the one source App.vue seeds the
  * reactive atoms with AND AuroraPane's "Reset" restores to. Carries NO `seed`:
  * the seed is the live picker colour (App.vue's watch), so Reset restores the

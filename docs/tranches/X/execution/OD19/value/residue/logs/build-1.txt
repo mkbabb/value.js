@@ -1,0 +1,227 @@
+vite v8.0.16 building client environment for gh-pages...
+(node:28727) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2Ktransforming...
+./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+✓ 2898 modules transformed.
+rendering chunks...
+computing gzip size...
+node_modules/.od19-residue-dist/assets/favicon-BCX-nAdh.svg                                                     1.41 kB │ gzip:   0.77 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size3-Regular-CTq5MqoE.woff                                        4.42 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2                                       4.92 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2                                       5.20 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2                                       5.46 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size4-Regular-BF-4gkZK.woff                                        5.98 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size2-Regular-oD1tc_U0.woff                                        6.18 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size1-Regular-C195tn64.woff                                        6.49 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2                                 6.90 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2                                    6.91 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size3-Regular-DgpXs0kz.ttf                                         7.58 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Caligraphic-Regular-CTRA-rTL.woff                                  7.65 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Caligraphic-Bold-BEiXGLvX.woff                                     7.71 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Script-Regular-D3wIWfF6.woff2                                      9.64 kB
+node_modules/.od19-residue-dist/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2                                  10.34 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size4-Regular-DWFBv043.ttf                                        10.36 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Script-Regular-D5yQViql.woff                                      10.58 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2                                    11.31 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2                                       11.34 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size2-Regular-B7gKUWhC.ttf                                        11.50 kB
+node_modules/.od19-residue-dist/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2                                   12.02 kB
+node_modules/.od19-residue-dist/assets/quantize-worker-C0vkpSff.js                                             12.05 kB
+node_modules/.od19-residue-dist/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2                                     12.21 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Size1-Regular-Dbsnue_I.ttf                                        12.22 kB
+node_modules/.od19-residue-dist/assets/KaTeX_SansSerif-Regular-CS6fqUqJ.woff                                   12.31 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Caligraphic-Regular-wX97UBjC.ttf                                  12.34 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Caligraphic-Bold-ATXxdsX0.ttf                                     12.36 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Fraktur-Regular-Dxdc4cR9.woff                                     13.20 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Fraktur-Bold-BsDP51OF.woff                                        13.29 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2                                 13.56 kB
+node_modules/.od19-residue-dist/assets/KaTeX_SansSerif-Italic-DN2j7dab.woff                                    14.11 kB
+node_modules/.od19-residue-dist/assets/KaTeX_SansSerif-Bold-DbIhKOiC.woff                                      14.40 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Typewriter-Regular-C0xS9mPB.woff                                  16.02 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2                                    16.40 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Math-Italic-t53AETM-.woff2                                        16.44 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Script-Regular-C5JkGWo-.ttf                                       16.64 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2                                    16.78 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2                                        16.98 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Math-BoldItalic-iY-2wyZ7.woff                                     18.66 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Math-Italic-DA0__PXp.woff                                         18.74 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-BoldItalic-SpSLRI95.woff                                     19.41 kB
+node_modules/.od19-residue-dist/assets/KaTeX_SansSerif-Regular-BNo7hRIc.ttf                                    19.43 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Fraktur-Regular-CB_wures.ttf                                      19.57 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Fraktur-Bold-BdnERNNW.ttf                                         19.58 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-Italic-BMLOBm91.woff                                         19.67 kB
+node_modules/.od19-residue-dist/index.html                                                                     21.75 kB │ gzip:   7.63 kB
+node_modules/.od19-residue-dist/assets/KaTeX_SansSerif-Italic-YYjJ1zSn.ttf                                     22.36 kB
+node_modules/.od19-residue-dist/assets/KaTeX_SansSerif-Bold-CFMepnvq.ttf                                       24.50 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-Bold-Cx986IdX.woff2                                          25.32 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-Regular-B22Nviop.woff2                                       26.27 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Typewriter-Regular-D3Ib7_Hf.ttf                                   27.55 kB
+node_modules/.od19-residue-dist/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2                                        28.07 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-Bold-Jm3AIy58.woff                                           29.91 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-Regular-Dr94JaBh.woff                                        30.77 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Math-BoldItalic-B3XSjfu4.ttf                                      31.19 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Math-Italic-flOr_0UB.ttf                                          31.30 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-BoldItalic-DzxPMmG6.ttf                                      32.96 kB
+node_modules/.od19-residue-dist/assets/KaTeX_AMS-Regular-DMm9YOAa.woff                                         33.51 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-Italic-3WenGoN9.ttf                                          33.58 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-Bold-waoOVXN0.ttf                                            51.33 kB
+node_modules/.od19-residue-dist/assets/KaTeX_Main-Regular-ypZvNtVU.ttf                                         53.58 kB
+node_modules/.od19-residue-dist/assets/KaTeX_AMS-Regular-DRggAlZN.ttf                                          63.63 kB
+node_modules/.od19-residue-dist/assets/seeded-ground-9mEBtB_H.js                                              187.86 kB
+node_modules/.od19-residue-dist/assets/PaletteCardGrid-B1Ql87zp.css                                             0.05 kB │ gzip:   0.07 kB
+node_modules/.od19-residue-dist/assets/GeneratePane-C8eYBAn5.css                                                0.06 kB │ gzip:   0.08 kB
+node_modules/.od19-residue-dist/assets/ActionFeedback-wWnDS7s-.css                                              0.11 kB │ gzip:   0.10 kB
+node_modules/.od19-residue-dist/assets/Katex-DS91kTju.css                                                       0.12 kB │ gzip:   0.10 kB
+node_modules/.od19-residue-dist/assets/AuroraPane-BlqkyoeU.css                                                  0.23 kB │ gzip:   0.19 kB
+node_modules/.od19-residue-dist/assets/InterpolationFields-D66HOAnG.css                                         0.29 kB │ gzip:   0.20 kB
+node_modules/.od19-residue-dist/assets/BrowsePane-Q7S-vp1Y.css                                                  0.46 kB │ gzip:   0.29 kB
+node_modules/.od19-residue-dist/assets/PaletteCardSkeleton-YOfOy44a.css                                         0.50 kB │ gzip:   0.27 kB
+node_modules/.od19-residue-dist/assets/PreviewStrip-DQAzBxEU.css                                                0.55 kB │ gzip:   0.29 kB
+node_modules/.od19-residue-dist/assets/PalettesPane-BmqrwymM.css                                                0.65 kB │ gzip:   0.36 kB
+node_modules/.od19-residue-dist/assets/AdminPane-DK5g05mR.css                                                   0.92 kB │ gzip:   0.40 kB
+node_modules/.od19-residue-dist/assets/ConfigSliderPane-BDpvVIQX.css                                            1.08 kB │ gzip:   0.51 kB
+node_modules/.od19-residue-dist/assets/PaletteSpecimen-BK_T7UeJ.css                                             1.21 kB │ gzip:   0.44 kB
+node_modules/.od19-residue-dist/assets/hljs-5k_0hpis.css                                                        1.23 kB │ gzip:   0.49 kB
+node_modules/.od19-residue-dist/assets/ApiStatusChip-D1k2WfUD.css                                               1.32 kB │ gzip:   0.49 kB
+node_modules/.od19-residue-dist/assets/ExtractPane-C8NiMmkx.css                                                 1.33 kB │ gzip:   0.53 kB
+node_modules/.od19-residue-dist/assets/MixPane-CR4K9LOQ.css                                                     1.98 kB │ gzip:   0.64 kB
+node_modules/.od19-residue-dist/assets/ColorInput-LO-JnyXu.css                                                  2.58 kB │ gzip:   0.83 kB
+node_modules/.od19-residue-dist/assets/dock-heLKHIa1.css                                                        2.75 kB │ gzip:   0.96 kB
+node_modules/.od19-residue-dist/assets/PaletteInspector-BBJ5z4mR.css                                            3.36 kB │ gzip:   0.90 kB
+node_modules/.od19-residue-dist/assets/PointerDebugOverlay-DDIMw9sR.css                                         4.11 kB │ gzip:   1.26 kB
+node_modules/.od19-residue-dist/assets/GradientPane-CpAzg3U4.css                                                8.72 kB │ gzip:   2.25 kB
+node_modules/.od19-residue-dist/assets/AboutPane-DgTZhXBn.css                                                  12.58 kB │ gzip:   1.98 kB
+node_modules/.od19-residue-dist/assets/vendor-katex-BorAY7qD.css                                               28.48 kB │ gzip:   7.92 kB
+node_modules/.od19-residue-dist/assets/glass-fonts-PBJY3762.css                                               132.84 kB │ gzip:  99.89 kB
+node_modules/.od19-residue-dist/assets/index-B0UTHsq7.css                                                     434.89 kB │ gzip:  74.27 kB
+node_modules/.od19-residue-dist/assets/check-DOitbw6O.js                                                        0.12 kB │ gzip:   0.14 kB
+node_modules/.od19-residue-dist/assets/loader-circle-Ccuvj5_1.js                                                0.14 kB │ gzip:   0.15 kB
+node_modules/.od19-residue-dist/assets/arrow-right-DcsgjVG6.js                                                  0.16 kB │ gzip:   0.16 kB
+node_modules/.od19-residue-dist/assets/focus-Duf7EpUu-B8J-EQM7.js                                               0.21 kB │ gzip:   0.15 kB
+node_modules/.od19-residue-dist/assets/dateFormat-C3Z6m8-_.js                                                   0.22 kB │ gzip:   0.14 kB
+node_modules/.od19-residue-dist/assets/usePanePopups-BGCSkqCp.js                                                0.22 kB │ gzip:   0.18 kB
+node_modules/.od19-residue-dist/assets/ellipsis-vertical-d11aBluH.js                                            0.23 kB │ gzip:   0.17 kB
+node_modules/.od19-residue-dist/assets/color-model-EyquewSU.js                                                  0.29 kB │ gzip:   0.22 kB
+node_modules/.od19-residue-dist/assets/control.css_vue_type_style_index_0_src_true_lang-BIdufaDG-B7oA-LlY.js    0.42 kB │ gzip:   0.28 kB
+node_modules/.od19-residue-dist/assets/_plugin-vue_export-helper-B3ysoDQm-CkmoDiir.js                           0.43 kB │ gzip:   0.28 kB
+node_modules/.od19-residue-dist/assets/accent-tone-solve-5H6FY2QO-DWaWAF-Z.js                                   0.46 kB │ gzip:   0.31 kB
+node_modules/.od19-residue-dist/assets/sample-BGnILgts.js                                                       0.67 kB │ gzip:   0.44 kB
+node_modules/.od19-residue-dist/assets/rolldown-runtime-QTnfLwEv.js                                             0.69 kB │ gzip:   0.42 kB
+node_modules/.od19-residue-dist/assets/PreviewStrip-BdjzUhtc.js                                                 0.73 kB │ gzip:   0.47 kB
+node_modules/.od19-residue-dist/assets/PaletteCardGrid-TbjxFJjO.js                                              0.78 kB │ gzip:   0.49 kB
+node_modules/.od19-residue-dist/assets/useResizeObserver-CdUlm2QZ-P1BHwy7P.js                                   0.86 kB │ gzip:   0.51 kB
+node_modules/.od19-residue-dist/assets/usePopupMutex-BVgBg5mE.js                                                0.90 kB │ gzip:   0.47 kB
+node_modules/.od19-residue-dist/assets/input-eLZ_AU7l-CaMKWc7i.js                                               1.06 kB │ gzip:   0.61 kB
+node_modules/.od19-residue-dist/assets/SwatchButton-Cu8j8n6f.js                                                 1.15 kB │ gzip:   0.71 kB
+node_modules/.od19-residue-dist/assets/preload-helper-kNaey6uv.js                                               1.20 kB │ gzip:   0.68 kB
+node_modules/.od19-residue-dist/assets/useIntersectionPause-CzKR3EyP-CyoOoHES.js                                1.24 kB │ gzip:   0.68 kB
+node_modules/.od19-residue-dist/assets/ApiStatusChip-D0dhaS34.js                                                1.43 kB │ gzip:   0.83 kB
+node_modules/.od19-residue-dist/assets/label-CE03H1KL-DY73iV_x.js                                               1.45 kB │ gzip:   0.75 kB
+node_modules/.od19-residue-dist/assets/PaletteColorStrip-wzOTbCzG.js                                            1.47 kB │ gzip:   0.79 kB
+node_modules/.od19-residue-dist/assets/ActionFeedback-JakEKGf3.js                                               1.68 kB │ gzip:   0.96 kB
+node_modules/.od19-residue-dist/assets/Katex-BDey9wkV.js                                                        1.68 kB │ gzip:   0.94 kB
+node_modules/.od19-residue-dist/assets/badge-BO6BC4G5-Cu2dKyCQ.js                                               1.81 kB │ gzip:   0.87 kB
+node_modules/.od19-residue-dist/assets/PaletteCardSkeleton-CJ5plXjb.js                                          1.85 kB │ gzip:   0.87 kB
+node_modules/.od19-residue-dist/assets/labeled-field-ZBiAa-7H.js                                                1.86 kB │ gzip:   0.89 kB
+node_modules/.od19-residue-dist/assets/PaletteNameInput-BxKuCkhH.js                                             2.00 kB │ gzip:   1.01 kB
+node_modules/.od19-residue-dist/assets/BlobPane-DFDFgKFw.js                                                     2.20 kB │ gzip:   0.95 kB
+node_modules/.od19-residue-dist/assets/configurator-CPxIo3q2-BMrm1Nn9.js                                        2.45 kB │ gzip:   1.26 kB
+node_modules/.od19-residue-dist/assets/keyboard-jz_pKv_n.js                                                     2.46 kB │ gzip:   1.21 kB
+node_modules/.od19-residue-dist/assets/separator-D4EZM10u-D5ws5Vce.js                                           2.51 kB │ gzip:   0.99 kB
+node_modules/.od19-residue-dist/assets/fading-scroll-CTeW3KNS-p2M2ZbL3.js                                       2.64 kB │ gzip:   1.27 kB
+node_modules/.od19-residue-dist/assets/pointerFieldMappings-DXwlU5uj-CrvAJ5vp.js                                2.68 kB │ gzip:   1.36 kB
+node_modules/.od19-residue-dist/assets/PaletteSpecimen-BRLieZ__.js                                              2.80 kB │ gzip:   1.16 kB
+node_modules/.od19-residue-dist/assets/ConfigSliderPane-BnbnOEqr.js                                             3.20 kB │ gzip:   1.62 kB
+node_modules/.od19-residue-dist/assets/switch-BYUZ6g9G-BM-6BqtI.js                                              3.24 kB │ gzip:   1.30 kB
+node_modules/.od19-residue-dist/assets/Presence-DojvQ0Bb.js                                                     3.35 kB │ gzip:   1.58 kB
+node_modules/.od19-residue-dist/assets/hwb-CnN5mdxJ.js                                                          3.83 kB │ gzip:   1.85 kB
+node_modules/.od19-residue-dist/assets/hsv-DBO9IqeJ.js                                                          3.84 kB │ gzip:   1.84 kB
+node_modules/.od19-residue-dist/assets/hsl-CATNjMKw.js                                                          3.89 kB │ gzip:   1.89 kB
+node_modules/.od19-residue-dist/assets/kelvin-BGoYaiKY.js                                                       3.90 kB │ gzip:   1.88 kB
+node_modules/.od19-residue-dist/assets/lch-D2qgZQVi.js                                                          4.01 kB │ gzip:   1.93 kB
+node_modules/.od19-residue-dist/assets/PointerDebugOverlay-BjM2UCV2.js                                          4.10 kB │ gzip:   1.85 kB
+node_modules/.od19-residue-dist/assets/selection-DqIULxRG-CbldR_d5.js                                           4.16 kB │ gzip:   1.81 kB
+node_modules/.od19-residue-dist/assets/rgb-D3FDCJV5.js                                                          4.29 kB │ gzip:   2.00 kB
+node_modules/.od19-residue-dist/assets/AuroraPane-B8Xv7umA.js                                                   4.38 kB │ gzip:   1.53 kB
+node_modules/.od19-residue-dist/assets/picker-color-vxPFipSO.js                                                 4.39 kB │ gzip:   1.66 kB
+node_modules/.od19-residue-dist/assets/oklab-1fRCiE22.js                                                        4.82 kB │ gzip:   2.05 kB
+node_modules/.od19-residue-dist/assets/chip-BQn2mgKM.js                                                         4.91 kB │ gzip:   1.94 kB
+node_modules/.od19-residue-dist/assets/oklch-C6f-C5KY.js                                                        5.07 kB │ gzip:   2.34 kB
+node_modules/.od19-residue-dist/assets/lab-DCjbjUxR.js                                                          5.14 kB │ gzip:   2.29 kB
+node_modules/.od19-residue-dist/assets/xyz-BSPfvSzT.js                                                          5.37 kB │ gzip:   2.40 kB
+node_modules/.od19-residue-dist/assets/hex-CB3UJGBX.js                                                          5.62 kB │ gzip:   2.53 kB
+node_modules/.od19-residue-dist/assets/collapsible-DFzK29Oh-CG-N-MFC.js                                         5.72 kB │ gzip:   1.95 kB
+node_modules/.od19-residue-dist/assets/GeneratePane-D1_Zpreo.js                                                 6.04 kB │ gzip:   2.42 kB
+node_modules/.od19-residue-dist/assets/tabs-C0PYq3Tb-Dxg8HB7-.js                                                6.25 kB │ gzip:   2.84 kB
+node_modules/.od19-residue-dist/assets/useDragMorph-B363RUbF-DxupU2cJ.js                                        6.27 kB │ gzip:   2.67 kB
+node_modules/.od19-residue-dist/assets/ColorInput-BfHjiJtd.js                                                   6.44 kB │ gzip:   2.99 kB
+node_modules/.od19-residue-dist/assets/useSelectionGroup-zsEwitF6-DKs_u7HA.js                                   6.97 kB │ gzip:   2.87 kB
+node_modules/.od19-residue-dist/assets/InterpolationFields-C6A_d_6i.js                                          7.51 kB │ gzip:   3.09 kB
+node_modules/.od19-residue-dist/assets/createLucideIcon-BUL5NOnu.js                                             8.11 kB │ gzip:   3.46 kB
+node_modules/.od19-residue-dist/assets/AboutPane-UK6nZhTA.js                                                    8.68 kB │ gzip:   3.48 kB
+node_modules/.od19-residue-dist/assets/dialog-CKlFT2xu.js                                                      11.71 kB │ gzip:   4.41 kB
+node_modules/.od19-residue-dist/assets/dom-BGUvN8Cf.js                                                         13.47 kB │ gzip:   5.62 kB
+node_modules/.od19-residue-dist/assets/dialog-BZoFG0j8-CPVppy_8.js                                             13.60 kB │ gzip:   4.12 kB
+node_modules/.od19-residue-dist/assets/keyframes-DEDv5OhW.js                                                   16.65 kB │ gzip:   5.57 kB
+node_modules/.od19-residue-dist/assets/dist-CopHm3Rn.js                                                        17.13 kB │ gzip:   7.16 kB
+node_modules/.od19-residue-dist/assets/button-BOFTUPyU-CLxOOnS5.js                                             17.73 kB │ gzip:   6.43 kB
+node_modules/.od19-residue-dist/assets/slider-D1zkobtO-C5-NSRiV.js                                             17.93 kB │ gzip:   5.72 kB
+node_modules/.od19-residue-dist/assets/MixPane-BrrAOZVI.js                                                     18.88 kB │ gzip:   7.36 kB
+node_modules/.od19-residue-dist/assets/BrowsePane-DzDsAaya.js                                                  22.05 kB │ gzip:   8.12 kB
+node_modules/.od19-residue-dist/assets/PaletteInspector-CVTAI4hS.js                                            26.19 kB │ gzip:   9.48 kB
+node_modules/.od19-residue-dist/assets/ExtractPane-BKDWsB_o.js                                                 27.05 kB │ gzip:  10.53 kB
+node_modules/.od19-residue-dist/assets/menu-DN29N6KR-B-L5Ibmp.js                                               28.49 kB │ gzip:   6.15 kB
+node_modules/.od19-residue-dist/assets/dock-Dg81xjET.js                                                        30.07 kB │ gzip:  11.00 kB
+node_modules/.od19-residue-dist/assets/vendor-highlight-D9VP3A7h.js                                            32.06 kB │ gzip:  12.07 kB
+node_modules/.od19-residue-dist/assets/PopperContent-CHyeVfJC.js                                               34.87 kB │ gzip:  12.77 kB
+node_modules/.od19-residue-dist/assets/dock-CN0h6m2w.js                                                        35.11 kB │ gzip:  10.91 kB
+node_modules/.od19-residue-dist/assets/AdminPane-BsuC5T7I.js                                                   39.79 kB │ gzip:  10.24 kB
+node_modules/.od19-residue-dist/assets/DropdownMenuTrigger-CKRnhDSQ-DDcFyjUe.js                                45.11 kB │ gzip:   8.93 kB
+node_modules/.od19-residue-dist/assets/glass-ui--r9nXMkh.js                                                    49.52 kB │ gzip:  15.54 kB
+node_modules/.od19-residue-dist/assets/PalettesPane-CKazd9Tv.js                                                52.65 kB │ gzip:  18.46 kB
+node_modules/.od19-residue-dist/assets/serialize-BtpoAFZw-C086w664.js                                          73.12 kB │ gzip:  20.23 kB
+node_modules/.od19-residue-dist/assets/HeroBlob-BzSCQYqi.js                                                    95.33 kB │ gzip:  35.07 kB
+node_modules/.od19-residue-dist/assets/vue.runtime.esm-bundler-CgkFrCBN.js                                    109.87 kB │ gzip:  42.19 kB
+node_modules/.od19-residue-dist/assets/GradientPane-t0xwq_Kz.js                                               182.46 kB │ gzip:  42.07 kB
+node_modules/.od19-residue-dist/assets/vendor-katex-BS6IC5z_.js                                               259.26 kB │ gzip:  77.47 kB
+node_modules/.od19-residue-dist/assets/index-CRxbG3pG.js                                                      471.13 kB │ gzip: 155.46 kB
+
+[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+      [38;5;246m│[0m
+ [38;5;246m3362 │[0m /* #__PURE__ */
+ [38;5;240m     │[0m ───────┬───────  
+ [38;5;240m     │[0m        ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+      [38;5;246m│[0m
+ [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+ [38;5;240m     │[0m                       ───────┬───────  
+ [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+✓ built in 2.29s
+Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+    at o (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js:8:44)
+    at F (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:110:7)
+    at xe (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:117:60)
+    at useAtmosphere (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:9734:27)
+    at useAtmosphereBoot (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:9885:80)
+    at setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10296:48)
+    at App_vue_vue_type_script_setup_true_lang_default.setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10430:22) undefined

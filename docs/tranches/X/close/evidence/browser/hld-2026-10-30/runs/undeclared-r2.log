@@ -1,0 +1,150 @@
+
+Running 2 tests using 1 worker
+××F××F
+
+  1) [smoke] › e2e/smoke/hld-injected.spec.ts:2:1 › hld injected red ───────────────────────────────
+
+    Error: HLD-INJECTED-RED
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m2[39m
+    Received: [31m1[39m
+
+      1 | import { test, expect } from "@playwright/test";
+    > 2 | test("hld injected red", () => { expect(1, "HLD-INJECTED-RED").toBe(2); });
+        |                                                                ^
+      3 | test("hld injected green", () => { expect(1).toBe(1); });
+      4 | test("hld injected skipped", () => { test.skip(true, "injected"); });
+      5 |
+        at /w/tree/e2e/smoke/hld-injected.spec.ts:2:64
+
+    Error Context: test-results/hld-injected-hld-injected-red-smoke/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: HLD-INJECTED-RED
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m2[39m
+    Received: [31m1[39m
+
+      1 | import { test, expect } from "@playwright/test";
+    > 2 | test("hld injected red", () => { expect(1, "HLD-INJECTED-RED").toBe(2); });
+        |                                                                ^
+      3 | test("hld injected green", () => { expect(1).toBe(1); });
+      4 | test("hld injected skipped", () => { test.skip(true, "injected"); });
+      5 |
+        at /w/tree/e2e/smoke/hld-injected.spec.ts:2:64
+
+    Error Context: test-results/hld-injected-hld-injected-red-smoke-retry1/error-context.md
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: HLD-INJECTED-RED
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m2[39m
+    Received: [31m1[39m
+
+      1 | import { test, expect } from "@playwright/test";
+    > 2 | test("hld injected red", () => { expect(1, "HLD-INJECTED-RED").toBe(2); });
+        |                                                                ^
+      3 | test("hld injected green", () => { expect(1).toBe(1); });
+      4 | test("hld injected skipped", () => { test.skip(true, "injected"); });
+      5 |
+        at /w/tree/e2e/smoke/hld-injected.spec.ts:2:64
+
+    Error Context: test-results/hld-injected-hld-injected-red-smoke-retry2/error-context.md
+
+  2) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:395:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+
+    Error: no repaint after restore
+
+    no repaint after restore
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m2[39m
+    Received:   [31m2[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      478 |                 message: "no repaint after restore",
+      479 |             })
+    > 480 |             .toBeGreaterThan(atLoss);
+          |              ^
+      481 |         await expect
+      482 |             .poll(() => canvas.evaluate((c) => Number(getComputedStyle(c).opacity)), {
+      483 |                 timeout: 10_000,
+        at /w/tree/e2e/smoke/oracles/o29-scene-contracts.spec.ts:480:14
+
+    Error Context: test-results/oracles-o29-scene-contract-3ec41-a-forced-WebGL-context-loss-smoke/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: no repaint after restore
+
+    no repaint after restore
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m2[39m
+    Received:   [31m2[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      478 |                 message: "no repaint after restore",
+      479 |             })
+    > 480 |             .toBeGreaterThan(atLoss);
+          |              ^
+      481 |         await expect
+      482 |             .poll(() => canvas.evaluate((c) => Number(getComputedStyle(c).opacity)), {
+      483 |                 timeout: 10_000,
+        at /w/tree/e2e/smoke/oracles/o29-scene-contracts.spec.ts:480:14
+
+    Error Context: test-results/oracles-o29-scene-contract-3ec41-a-forced-WebGL-context-loss-smoke-retry1/error-context.md
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: no repaint after restore
+
+    no repaint after restore
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m2[39m
+    Received:   [31m2[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      478 |                 message: "no repaint after restore",
+      479 |             })
+    > 480 |             .toBeGreaterThan(atLoss);
+          |              ^
+      481 |         await expect
+      482 |             .poll(() => canvas.evaluate((c) => Number(getComputedStyle(c).opacity)), {
+      483 |                 timeout: 10_000,
+        at /w/tree/e2e/smoke/oracles/o29-scene-contracts.spec.ts:480:14
+
+    Error Context: test-results/oracles-o29-scene-contract-3ec41-a-forced-WebGL-context-loss-smoke-retry2/error-context.md
+
+  2 failed
+    [smoke] › e2e/smoke/hld-injected.spec.ts:2:1 › hld injected red ────────────────────────────────
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:395:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+
+producer-held, red by a named producer cure (1):
+  RED glass O-112(2) [smoke] e2e/smoke/oracles/o29-scene-contracts.spec.ts:395 › preview survives — blob: the preview repaints after a forced WebGL context loss
+      R11 NO-REPAINT-AFTER-RESTORE: a parked <Blob> stays blank after webglcontextlost then webglcontextrestored
+      glass W-G.2 with O-104a's one-redraw law, W-G.5 (glass 11.0.0), acknowledged and placed at glass docs/tranches/BL/audit/INBOUND.md:91 (glass's own numbering; value.js O-112 is a different row); expires at the glass 11.0.0 repin
+
+FAILS THE JOB (1):
+  RED, not on the manifest: [smoke] e2e/smoke/hld-injected.spec.ts:2 › hld injected red
+
+honest-red verdict: failed · 1 held red · 0 held green · 1 failing
+undeclared-r2 exit 1

@@ -1,0 +1,14 @@
+(node:16712) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:16745) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[frame-budget:drag] renderer=REAL-GPU (ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version))
+  frames=159 p50=16.7ms p95=16.8ms longTasks>50ms=0 maxTask=0ms
+  §6.2 GATE: p50 ≤ 20ms · 0 long tasks > 50ms
+  ✓  1 [smoke-perf] › e2e/smoke/perf/drag-frame-budget.spec.ts:46:1 › slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate) (3.5s)
+
+  1 passed (10.3s)
+exit=0

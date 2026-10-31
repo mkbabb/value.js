@@ -1,0 +1,101 @@
+SERVED MODEL: claude-opus-5-5
+# ci.yml run 41154553074 @ 1ea5872d7, job visual 124398470790 (completed 2026-10-31T02:43:22Z, failure): 117 passed · 99 failed (1.3h); the 99 failed titles
+e2e/visual/admin-populated.visual.spec.ts:34:9  admin-names populated · 1024 · light 
+e2e/visual/admin-routes.visual.spec.ts:39:21  admin-names · both · light 
+e2e/visual/admin-routes.visual.spec.ts:39:21  admin-users · both · light 
+e2e/visual/admin-routes.visual.spec.ts:39:21  admin-names · both · light 
+e2e/visual/modality.visual.spec.ts:172:13  picker 
+e2e/visual/modality.visual.spec.ts:172:13  palettes 
+e2e/visual/modality.visual.spec.ts:172:13  browse 
+e2e/visual/modality.visual.spec.ts:172:13  extract 
+e2e/visual/modality.visual.spec.ts:172:13  mix 
+e2e/visual/modality.visual.spec.ts:172:13  generate 
+e2e/visual/modality.visual.spec.ts:172:13  gradient 
+e2e/visual/modality.visual.spec.ts:172:13  atmosphere 
+e2e/visual/modality.visual.spec.ts:172:13  blob 
+e2e/visual/modality.visual.spec.ts:172:13  not-found 
+e2e/visual/modality.visual.spec.ts:172:13  picker 
+e2e/visual/modality.visual.spec.ts:172:13  palettes 
+e2e/visual/modality.visual.spec.ts:172:13  browse 
+e2e/visual/modality.visual.spec.ts:172:13  extract 
+e2e/visual/modality.visual.spec.ts:172:13  mix 
+e2e/visual/modality.visual.spec.ts:172:13  generate 
+e2e/visual/modality.visual.spec.ts:172:13  gradient 
+e2e/visual/modality.visual.spec.ts:172:13  atmosphere 
+e2e/visual/modality.visual.spec.ts:172:13  blob 
+e2e/visual/modality.visual.spec.ts:172:13  admin-names 
+e2e/visual/modality.visual.spec.ts:172:13  not-found 
+e2e/visual/modality.visual.spec.ts:172:13  picker 
+e2e/visual/modality.visual.spec.ts:172:13  palettes 
+e2e/visual/modality.visual.spec.ts:172:13  browse 
+e2e/visual/modality.visual.spec.ts:172:13  extract 
+e2e/visual/modality.visual.spec.ts:172:13  mix 
+e2e/visual/modality.visual.spec.ts:172:13  generate 
+e2e/visual/modality.visual.spec.ts:172:13  gradient 
+e2e/visual/modality.visual.spec.ts:172:13  atmosphere 
+e2e/visual/modality.visual.spec.ts:172:13  blob 
+e2e/visual/modality.visual.spec.ts:172:13  admin-names 
+e2e/visual/modality.visual.spec.ts:172:13  not-found 
+e2e/visual/modality.visual.spec.ts:172:13  picker 
+e2e/visual/modality.visual.spec.ts:172:13  palettes 
+e2e/visual/modality.visual.spec.ts:172:13  browse 
+e2e/visual/modality.visual.spec.ts:172:13  extract 
+e2e/visual/modality.visual.spec.ts:172:13  mix 
+e2e/visual/modality.visual.spec.ts:172:13  generate 
+e2e/visual/modality.visual.spec.ts:172:13  gradient 
+e2e/visual/modality.visual.spec.ts:172:13  atmosphere 
+e2e/visual/modality.visual.spec.ts:172:13  blob 
+e2e/visual/modality.visual.spec.ts:172:13  not-found 
+e2e/visual/modality.visual.spec.ts:172:13  picker 
+e2e/visual/modality.visual.spec.ts:172:13  palettes 
+e2e/visual/modality.visual.spec.ts:172:13  browse 
+e2e/visual/modality.visual.spec.ts:172:13  extract 
+e2e/visual/modality.visual.spec.ts:172:13  mix 
+e2e/visual/modality.visual.spec.ts:172:13  generate 
+e2e/visual/modality.visual.spec.ts:172:13  gradient 
+e2e/visual/modality.visual.spec.ts:172:13  atmosphere 
+e2e/visual/modality.visual.spec.ts:172:13  blob 
+e2e/visual/modality.visual.spec.ts:172:13  admin-names 
+e2e/visual/modality.visual.spec.ts:172:13  not-found 
+e2e/visual/palette-card.visual.spec.ts:44:17  palette-card rest · 390 · light 
+e2e/visual/palette-card.visual.spec.ts:44:17  palette-card hover · 390 · light 
+e2e/visual/palette-card.visual.spec.ts:44:17  palette-card rest · 1024 · light 
+e2e/visual/palette-card.visual.spec.ts:44:17  palette-card hover · 1024 · light 
+e2e/visual/palette-card.visual.spec.ts:44:17  palette-card rest · 3440 · light 
+e2e/visual/palette-card.visual.spec.ts:44:17  palette-card hover · 3440 · light 
+e2e/visual/routes.visual.spec.ts:63:21  picker · both · light ──────
+e2e/visual/routes.visual.spec.ts:63:21  palettes · both · light ────
+e2e/visual/routes.visual.spec.ts:63:21  browse · both · light ──────
+e2e/visual/routes.visual.spec.ts:63:21  extract · both · light ─────
+e2e/visual/routes.visual.spec.ts:63:21  mix · both · light ─────────
+e2e/visual/routes.visual.spec.ts:63:21  generate · both · light ────
+e2e/visual/routes.visual.spec.ts:63:21  gradient · both · light ────
+e2e/visual/routes.visual.spec.ts:63:21  atmosphere · atmosphere · light 
+e2e/visual/routes.visual.spec.ts:63:21  blob · both · light ────────
+e2e/visual/routes.visual.spec.ts:63:21  not-found · not-found · light 
+e2e/visual/routes.visual.spec.ts:63:21  picker · both · light ─────
+e2e/visual/routes.visual.spec.ts:63:21  palettes · both · light ───
+e2e/visual/routes.visual.spec.ts:63:21  browse · both · light ─────
+e2e/visual/routes.visual.spec.ts:63:21  extract · both · light ────
+e2e/visual/routes.visual.spec.ts:63:21  mix · both · light ────────
+e2e/visual/routes.visual.spec.ts:63:21  generate · both · light ───
+e2e/visual/routes.visual.spec.ts:63:21  gradient · both · light ───
+e2e/visual/routes.visual.spec.ts:63:21  atmosphere · both · light ─
+e2e/visual/routes.visual.spec.ts:63:21  blob · both · light ───────
+e2e/visual/routes.visual.spec.ts:63:21  not-found · both · light ──
+e2e/visual/routes.visual.spec.ts:63:21  picker · both · light ─────
+e2e/visual/routes.visual.spec.ts:63:21  palettes · both · light ───
+e2e/visual/routes.visual.spec.ts:63:21  browse · both · light ─────
+e2e/visual/routes.visual.spec.ts:63:21  extract · both · light ────
+e2e/visual/routes.visual.spec.ts:63:21  mix · both · light ────────
+e2e/visual/routes.visual.spec.ts:63:21  generate · both · light ───
+e2e/visual/routes.visual.spec.ts:63:21  gradient · both · light ───
+e2e/visual/routes.visual.spec.ts:63:21  atmosphere · both · light ─
+e2e/visual/routes.visual.spec.ts:63:21  blob · both · light ───────
+e2e/visual/routes.visual.spec.ts:63:21  not-found · both · light ──
+e2e/visual/states.visual.spec.ts:92:9  palettes populated · 1024 · light 
+e2e/visual/states.visual.spec.ts:119:5  palettes populated · 390 · light 
+e2e/visual/states.visual.spec.ts:144:9  browse mid-fetch · 1024 · light 
+e2e/visual/states.visual.spec.ts:183:9  dock view-select open · 1024 · light 
+e2e/visual/states.visual.spec.ts:217:5  api-unavailable latch · 1024 · light 
+e2e/visual/states.visual.spec.ts:260:9  oklch · 1024 · light ─────────

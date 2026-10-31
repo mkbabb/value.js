@@ -54,14 +54,40 @@ async function coldNavigate(browser: Browser, hash: string) {
         await new Promise((resolve) => setTimeout(resolve, CHUNK_HOLD_MS));
         await route.continue();
     });
+    // X.W11.v1c: the plate is a TRANSIENT state (it shows from the slot's
+    // delay until the held chunk lands — measured 1355→1868 ms, ~0.5 s, on a
+    // cold `/`), and `toBeVisible`'s back-off polling (100/250/500/1000 ms)
+    // can step over it, so a shown plate read as "not found". A
+    // MutationObserver armed before the document records every plate the
+    // page attaches and whether it laid out with a box one frame later —
+    // the same "visible" claim, read without a sampling gap.
+    await ctx.addInitScript(() => {
+        const w = window as unknown as { __platesShown: number };
+        w.__platesShown = 0;
+        new MutationObserver((records) => {
+            for (const r of records)
+                for (const n of r.addedNodes) {
+                    if (!(n instanceof Element)) continue;
+                    const plate = n.matches(".pane-plate") ? n : n.querySelector(".pane-plate");
+                    if (!plate) continue;
+                    requestAnimationFrame(() => {
+                        const b = plate.getBoundingClientRect();
+                        if (plate.isConnected && b.width > 0 && b.height > 0) w.__platesShown++;
+                    });
+                }
+        }).observe(document, { childList: true, subtree: true });
+    });
     const page = await ctx.newPage();
     await page.goto(hash, { waitUntil: "commit", timeout: 60_000 });
     // X.W5.d4 — the plate arm: the held chunk outlasts `PANE_LOAD_DELAY_MS`, so
     // the region's loading plate must SHOW before the pane arrives. The cure
     // keys the plate and the pane apart; it must not have keyed the plate away.
-    await expect(page.locator(".pane-plate").first(), "the loading plate shows on a slow chunk").toBeVisible({
-        timeout: 30_000,
-    });
+    await expect
+        .poll(() => page.evaluate(() => (window as unknown as { __platesShown: number }).__platesShown), {
+            message: "the loading plate shows on a slow chunk",
+            timeout: 30_000,
+        })
+        .toBeGreaterThan(0);
     // `networkidle` outlasts the held chunks, so every pane has RESOLVED before
     // the stuck-state poll starts. Without it the poll can read 0 while a lazy
     // pane is still in flight, before the dropped enter has happened at all.

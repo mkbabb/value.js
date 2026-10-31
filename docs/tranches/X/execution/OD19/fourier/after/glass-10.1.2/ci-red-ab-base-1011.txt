@@ -1,0 +1,44 @@
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 4 tests using 1 worker
+
+[G-h after 1440] 15 rows
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+  image           Sample Points                      idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=86.7
+  edit            Magnet radius                      idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+  ✓  1 [chromium] › e2e/f-w14-control-row.spec.ts:226:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales (13.7s)
+[au2] L2-15@360 {"n":4,"out":[],"scrollers":[],"plate":[33.09375,326.90625],"fit":[151,151]}
+  ✓  2 [chromium] › e2e/f-w14v-au2.spec.ts:104:5 › L2-15 · 360: every expanded editor tool is inside the plate, no sideways scroll (6.3s)
+[au2] L2-15@390 {"n":4,"out":[],"scrollers":[],"plate":[48.046875,341.953125],"fit":[151,151]}
+  ✓  3 [chromium] › e2e/f-w14v-au2.spec.ts:104:5 › L2-15 · 390: every expanded editor tool is inside the plate, no sideways scroll (5.3s)
+[au2] L2-15@430 {"n":4,"out":[],"scrollers":[],"plate":[67.96875,362.046875],"fit":[151,151]}
+  ✓  4 [chromium] › e2e/f-w14v-au2.spec.ts:104:5 › L2-15 · 430: every expanded editor tool is inside the plate, no sideways scroll (5.1s)
+
+  4 passed (40.1s)

@@ -1,0 +1,1697 @@
+{
+  "config": {
+    "configFile": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/playwright.config.ts",
+    "rootDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/flows/color-propose.spec.ts",
+      "file": "smoke/flows/color-propose.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "propose cycle reaches 'Propose color name' state for an unnamed color",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 36021,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/color-propose.spec.ts",
+                        "column": 7,
+                        "line": 64
+                      },
+                      "message": "Error: expect.toBeVisible: Target page, context or browser has been closed\n\n  62 |     await expect(\n  63 |         page.getByRole(\"button\", { name: \"Propose color name\" }),\n> 64 |     ).toBeVisible();\n     |       ^\n  65 | });\n  66 |\n  67 | /**\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/color-propose.spec.ts:64:7"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:10:29.100Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/flows-color-propose-propos-a3bdb--state-for-an-unnamed-color-smoke/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0d62ffd9c5671be51a08-cb737884867b94a7289e",
+          "file": "smoke/flows/color-propose.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "the sub-layer cycle keeps exactly one active layer, the other inert",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 34636,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/color-propose.spec.ts",
+                        "column": 68,
+                        "line": 124
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Propose color name' })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-v-e6c0148b=\"\" data-press-armed=\"\" data-glass-dock-seat=\"\" aria-label=\"Propose color name\" class=\"dock-icon-button glass-specular-track glass-capsule-hover shrink-0\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  122 |     // `showInput`, not on `toolbarMode`), so the invariant must survive a state\n  123 |     // change that does not swap the layer.\n> 124 |     await page.getByRole(\"button\", { name: \"Propose color name\" }).click();\n      |                                                                    ^\n  125 |     await expectOneActiveOneInert(\"propose\");\n  126 | });\n  127 |\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/color-propose.spec.ts:124:68"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:11:06.523Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/flows-color-propose-the-su-30103-ctive-layer-the-other-inert-smoke/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0d62ffd9c5671be51a08-7c6870ac27a5863d7eb4",
+          "file": "smoke/flows/color-propose.spec.ts",
+          "line": 89,
+          "column": 1
+        },
+        {
+          "title": "a successful propose returns the toolbar to its actions state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19374,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:11:42.600Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d62ffd9c5671be51a08-e9e7643832c5d7dbbb90",
+          "file": "smoke/flows/color-propose.spec.ts",
+          "line": 128,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/login-register.spec.ts",
+      "file": "smoke/flows/login-register.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "cold-boot vote auto-registers via POST /sessions and persists token",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2491,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:12:02.285Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "68371f868da879a8d31d-0394c9343c90d8f955fe",
+          "file": "smoke/flows/login-register.spec.ts",
+          "line": 27,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-api-failure.spec.ts",
+      "file": "smoke/flows/palette-api-failure.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "palette API aborted (network / TLS): one toast with Retry, and the wall says the service couldn't be reached",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13714,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:12:04.818Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f554e4e75283451326c-51777143718bf023b99a",
+          "file": "smoke/flows/palette-api-failure.spec.ts",
+          "line": 68,
+          "column": 5
+        },
+        {
+          "title": "palette API 503: one toast with Retry, and the wall says the service couldn't be reached",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5155,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:12:18.549Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f554e4e75283451326c-5dff439b6abfef740530",
+          "file": "smoke/flows/palette-api-failure.spec.ts",
+          "line": 68,
+          "column": 5
+        },
+        {
+          "title": "palette API malformed body: one toast with Retry, and the wall says the service couldn't be reached",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5876,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:12:23.721Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f554e4e75283451326c-244e33066c69a7ac3e3c",
+          "file": "smoke/flows/palette-api-failure.spec.ts",
+          "line": 68,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-delete.spec.ts",
+      "file": "smoke/flows/palette-delete.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "delete an owned remote palette DELETEs /palettes/<slug>",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8778,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:12:29.632Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f551dfc27f9615d97d5a-a418fba45c76fb457109",
+          "file": "smoke/flows/palette-delete.spec.ts",
+          "line": 22,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-edit.spec.ts",
+      "file": "smoke/flows/palette-edit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "rename a remote palette PATCHes /palettes/<slug> with new name",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3980,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:12:38.437Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "969ad6f024b83587ef73-66c62821ac301d02d880",
+          "file": "smoke/flows/palette-edit.spec.ts",
+          "line": 22,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-flag.spec.ts",
+      "file": "smoke/flows/palette-flag.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "flag a remote palette POSTs /palettes/<slug>/flag with reason",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8350,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:12:42.442Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9d42ba24c5315135d096-6cdda4da41885b89cf9a",
+          "file": "smoke/flows/palette-flag.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "SS8-0309: closing the report by submit returns focus to the Palette menu trigger",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8812,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:12:50.804Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9d42ba24c5315135d096-c36320c74d7c9bb9b5e0",
+          "file": "smoke/flows/palette-flag.spec.ts",
+          "line": 58,
+          "column": 5
+        },
+        {
+          "title": "SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13368,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:12:59.634Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9d42ba24c5315135d096-4d789e9f412ff7b75c3e",
+          "file": "smoke/flows/palette-flag.spec.ts",
+          "line": 58,
+          "column": 5
+        },
+        {
+          "title": "SS8-0309: closing the report by Escape returns focus to the Palette menu trigger",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4883,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:13:13.019Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9d42ba24c5315135d096-4dce9142eb04ce6c50ba",
+          "file": "smoke/flows/palette-flag.spec.ts",
+          "line": 58,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-fork.spec.ts",
+      "file": "smoke/flows/palette-fork.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "remix a remote palette POSTs /palettes/<slug>/fork with parent slug",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4059,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:13:17.940Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "15a500c9b5bd7176eb75-5a23cf0c07f7892ca1ce",
+          "file": "smoke/flows/palette-fork.spec.ts",
+          "line": 21,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-save.spec.ts",
+      "file": "smoke/flows/palette-save.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "save current palette persists to localStorage 'color-palettes'",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15041,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('.add-slot-ghost').filter({ visible: true }).first()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('.add-slot-ghost').filter({ visible: true }).first()\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('.add-slot-ghost').filter({ visible: true }).first()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('.add-slot-ghost').filter({ visible: true }).first()\u001b[22m\n\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/palette-save.spec.ts:45:27",
+                    "location": {
+                      "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/palette-save.spec.ts",
+                      "column": 27,
+                      "line": 45
+                    },
+                    "snippet": "  43 |     // this wave's Triumvirate trigger); the oracle is made honest.\n  44 |     const addSlot = main.locator(\".add-slot-ghost\").filter({ visible: true }).first();\n> 45 |     await expect(addSlot).toBeVisible();\n     |                           ^\n  46 |     await expect(\n  47 |         addSlot,\n  48 |         \"the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)\","
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/palette-save.spec.ts",
+                        "column": 27,
+                        "line": 45
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('.add-slot-ghost').filter({ visible: true }).first()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('.add-slot-ghost').filter({ visible: true }).first()\u001b[22m\n\n\n  43 |     // this wave's Triumvirate trigger); the oracle is made honest.\n  44 |     const addSlot = main.locator(\".add-slot-ghost\").filter({ visible: true }).first();\n> 45 |     await expect(addSlot).toBeVisible();\n     |                           ^\n  46 |     await expect(\n  47 |         addSlot,\n  48 |         \"the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)\",\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/palette-save.spec.ts:45:27"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:13:22.044Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/flows-palette-save-save-cu-cc5fe-ocalStorage-color-palettes--smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/palette-save.spec.ts",
+                    "column": 27,
+                    "line": 45
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "98460e44b8798a0a810f-bafc76ebcf082a6601d5",
+          "file": "smoke/flows/palette-save.spec.ts",
+          "line": 20,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/vote-toggle.spec.ts",
+      "file": "smoke/flows/vote-toggle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "vote heart on a remote palette POSTs /vote and toggles voted flag",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11658,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:13:39.707Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "38164454d4df9f5c803a-0ba18333769b153e7795",
+          "file": "smoke/flows/vote-toggle.spec.ts",
+          "line": 20,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/views/browse-loading.spec.ts",
+      "file": "smoke/views/browse-loading.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "browse mid-fetch renders developing-plate skeletons, never a spinner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9507,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:13:51.820Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "39eb43afdd56e452877b-f4ceb1d36d61e3f3fcf1",
+          "file": "smoke/views/browse-loading.spec.ts",
+          "line": 17,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/views/browse-pagination.spec.ts",
+      "file": "smoke/views/browse-pagination.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "browse wall renders a full keyset page of palettes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 24441,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:14:01.353Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "17aa344d24415cf0ae86-27083be9de97b0ea9a81",
+          "file": "smoke/views/browse-pagination.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "browse wall pages past the 50-cap through the load-more affordance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16010,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:14:25.806Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "17aa344d24415cf0ae86-385d72edddca844e62fd",
+          "file": "smoke/views/browse-pagination.spec.ts",
+          "line": 50,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/views/companion-pane-track-start.spec.ts",
+      "file": "smoke/views/companion-pane-track-start.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "X.W6.g · g2 — the shared row contract",
+          "file": "smoke/views/companion-pane-track-start.spec.ts",
+          "line": 118,
+          "column": 6,
+          "specs": [
+            {
+              "title": "companion panes share one track start",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11020,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-28T18:14:41.851Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "392080f0766d4710bcf2-5d4a4932629020f3351a",
+              "file": "smoke/views/companion-pane-track-start.spec.ts",
+              "line": 119,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/views/gradient.spec.ts",
+      "file": "smoke/views/gradient.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "gradient view renders direction slider with zero console errors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15787,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:14:52.917Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-c6be073cdc235c3f4c8e",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 50,
+          "column": 1
+        },
+        {
+          "title": "the rail is a normalized 90° projection; the render tile carries type + direction (T-21b)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21138,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:15:08.715Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-b67fcb91f8b1d73f25de",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17206,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:15:29.870Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-c71980bc59d5ad31723c",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 130,
+          "column": 1
+        },
+        {
+          "title": "neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30597,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts",
+                        "column": 22,
+                        "line": 192
+                      },
+                      "message": "Error: mouse.move: Test timeout of 30000ms exceeded.\n\n  190 |     await page.mouse.move(lb.x + lb.width / 2, railY);\n  191 |     await page.mouse.down();\n> 192 |     await page.mouse.move(rightwardRelease, railY, { steps: 10 });\n      |                      ^\n  193 |     await page.mouse.up();\n  194 |\n  195 |     // The model re-sorted on the write: the ordinals the DOM carries ascend.\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:192:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:15:47.095Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/views-gradient-neighbour-c-a8543--re-applies-with-no-verdict-smoke/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-85a525692561dffb9005",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 172,
+          "column": 1
+        },
+        {
+          "title": "a grab is not a teleport, and no secondary button mints",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 36315,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts",
+                        "column": 18,
+                        "line": 94
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <div role=\"option\" tabindex=\"-1\" data-v-f4747a24=\"\" aria-selected=\"false\" data-state=\"unchecked\" data-reka-collection-item=\"\" aria-labelledby=\"reka-select-item-text-v-111\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n   at smoke/fixtures/dock.ts:94\n\n  92 |     const option = page.getByRole(\"option\", { name, exact: true });\n  93 |     await expect(option).toBeVisible();\n> 94 |     await option.click();\n     |                  ^\n  95 | }\n  96 |\n  97 | /**\n    at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)\n    at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:268:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:16:19.049Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/views-gradient-a-grab-is-n-2555f-d-no-secondary-button-mints-smoke/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-0f88013bc4b169206e0e",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 266,
+          "column": 1
+        },
+        {
+          "title": "stop add (bar click mints the ramp color), drag, and touch-true remove",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 36500,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts",
+                        "column": 18,
+                        "line": 94
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <div role=\"option\" tabindex=\"-1\" data-v-f4747a24=\"\" aria-selected=\"false\" data-state=\"unchecked\" data-reka-collection-item=\"\" aria-labelledby=\"reka-select-item-text-v-111\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n   at smoke/fixtures/dock.ts:94\n\n  92 |     const option = page.getByRole(\"option\", { name, exact: true });\n  93 |     await expect(option).toBeVisible();\n> 94 |     await option.click();\n     |                  ^\n  95 | }\n  96 |\n  97 | /**\n    at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)\n    at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:304:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:16:57.867Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/views-gradient-stop-add-ba-2271f--drag-and-touch-true-remove-smoke/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-c8a0c050f39c0a61db73",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 300,
+          "column": 1
+        },
+        {
+          "title": "round-trip: authored CSS applies atomically with literals preserved",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 35176,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts",
+                        "column": 18,
+                        "line": 94
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <div role=\"option\" tabindex=\"-1\" data-v-f4747a24=\"\" aria-selected=\"false\" data-state=\"unchecked\" data-reka-collection-item=\"\" aria-labelledby=\"reka-select-item-text-v-111\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n   at smoke/fixtures/dock.ts:94\n\n  92 |     const option = page.getByRole(\"option\", { name, exact: true });\n  93 |     await expect(option).toBeVisible();\n> 94 |     await option.click();\n     |                  ^\n  95 | }\n  96 |\n  97 | /**\n    at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)\n    at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:366:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:17:36.226Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/views-gradient-round-trip--0e4a5-lly-with-literals-preserved-smoke/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-adf46e207687aa6e58d5",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 362,
+          "column": 1
+        },
+        {
+          "title": "garbage input fails LOUD and leaves the model untouched",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 33318,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts",
+                        "column": 18,
+                        "line": 94
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <div role=\"option\" tabindex=\"-1\" data-v-f4747a24=\"\" aria-selected=\"false\" data-state=\"unchecked\" data-reka-collection-item=\"\" aria-labelledby=\"reka-select-item-text-v-111\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n   at smoke/fixtures/dock.ts:94\n\n  92 |     const option = page.getByRole(\"option\", { name, exact: true });\n  93 |     await expect(option).toBeVisible();\n> 94 |     await option.click();\n     |                  ^\n  95 | }\n  96 |\n  97 | /**\n    at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)\n    at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:395:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:18:12.729Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/views-gradient-garbage-inp-9b0f0--leaves-the-model-untouched-smoke/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-aebcba3c76addc3fae4b",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 393,
+          "column": 1
+        },
+        {
+          "title": "radial geometry is model-or-reject, never a silent drop",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 28862,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()\u001b[22m\n\n    at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:24:74)\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:419:18",
+                    "location": {
+                      "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts",
+                      "column": 74,
+                      "line": 24
+                    },
+                    "snippet": "  22 |     await openView(page, \"Gradient\");\n  23 |     const main = page.getByRole(\"main\", { name: \"Gradient\" });\n> 24 |     await expect(main.getByRole(\"heading\", { name: \"Gradient\" }).last()).toBeVisible();\n     |                                                                          ^\n  25 |     // The swap spring must be at rest before interactions — the cold-load\n  26 |     // stall-then-resume enter transition defeats Playwright's bounding-box\n  27 |     // stability check (see paneSettled)."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts",
+                        "column": 74,
+                        "line": 24
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()\u001b[22m\n\n\n  22 |     await openView(page, \"Gradient\");\n  23 |     const main = page.getByRole(\"main\", { name: \"Gradient\" });\n> 24 |     await expect(main.getByRole(\"heading\", { name: \"Gradient\" }).last()).toBeVisible();\n     |                                                                          ^\n  25 |     // The swap spring must be at rest before interactions — the cold-load\n  26 |     // stall-then-resume enter transition defeats Playwright's bounding-box\n  27 |     // stability check (see paneSettled).\n    at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:24:74)\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:419:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:18:48.467Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/views-gradient-radial-geom-dc505--reject-never-a-silent-drop-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts",
+                    "column": 74,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-20416ee778c3fd1cc924",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 417,
+          "column": 1
+        },
+        {
+          "title": "easing row carries its live ramp; steps mode lands in the literal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 27162,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:19:19.949Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-70cecb481c35a7e16b94",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 431,
+          "column": 1
+        },
+        {
+          "title": "no pane subtree rests on a permanent compositing transform (W5-10)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19863,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:19:47.368Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-6b30ea0c039362d83bb2",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 466,
+          "column": 1
+        },
+        {
+          "title": "gradient selector aurora",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17217,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"`@mkbabb/glass-ui` **10.1.2**\"\u001b[39m\nReceived string:    \u001b[31m\"SERVED MODEL: claude-opus-5-5[1m]·\u001b[39m\n\u001b[31m# Glass-forward ask — a strip-scale aurora motion primitive for the gradient selector·\u001b[39m\n\u001b[31m**Row**: CC-064 · MT-F041 · gate **e1** (`W6.md` §5 X.W6.e).\u001b[39m\n\u001b[31m**Dated**: 2026-09-22, branch `tranche-u`, against installed `@mkbabb/glass-ui` **7.0.0**.\u001b[39m\n\u001b[31m**Direction**: consumer (value.js) → producer (glass-ui). **glass-ui is READ-ONLY, ALWAYS** — this is a\u001b[39m\n\u001b[31mletter; no byte of the producer tree was written to author it.\u001b[39m\n\u001b[31m**Follows**: the early notice **B-1** in `valuejs-outbound-2026-07-28-o18-watercolor-toggle-loupe.md`\u001b[39m\n\u001b[31m§B — *\\\"If the wave mechanism lands as a variant of your aurora/gradient primitives rather than\u001b[39m\n\u001b[31mdemo-side, a follow-up ask will carry the exact shape.\\\"* This is that follow-up.\u001b[39m\n\u001b[31m**Authority for the branch**: `W6.md` X.W6.e — *\\\"If the wave mechanism proves to belong inside the\u001b[39m\n\u001b[31mglass gradient/aurora primitive, it leaves as a marked BJ ask (same two-way falsifier as d2).\\\"*\u001b[39m\n\u001b[31m**Machine oracle**: `npx playwright test e2e/smoke/views/gradient.spec.ts -g \\\"gradient selector aurora\\\"`.\u001b[39m\n\u001b[31mIt re-runs the census in §2 on every run and **reds the day a fitting primitive ships** — so this letter\u001b[39m\n\u001b[31mcannot outlive the fact that justifies it — and it reds equally if the wave animates the ramp locally.·\u001b[39m\n\u001b[31m---·\u001b[39m\n\u001b[31m## 1. The mandate, verbatim·\u001b[39m\n\u001b[31mOwner, 2026-07-28 (MT-F041): *\\\"let's plan to add a bit of dyannism to the gradient selector--it should\u001b[39m\n\u001b[31mbecome a SUBTLE aurora insofar as the gradient waves a bit.\\\"* Standing constraints (`W6.md` X.W6.e):\u001b[39m\n\u001b[31mconsume the shared field/motion law from `@mkbabb/glass-ui/aurora`; **no new animation species**; **no\u001b[39m\n\u001b[31mprivate rAF loop**; PRM honoured **structurally** (declared inside\u001b[39m\n\u001b[31m`@media (prefers-reduced-motion: no-preference)`), never by leaning on the global reduce guard.·\u001b[39m\n\u001b[31m## 2. The census — why no published primitive fits (re-run by the gate)·\u001b[39m\n\u001b[31m`@mkbabb/glass-ui` **7.0.0**, 74 published subpaths. `./aurora` (`dist/components/aurora/index.d.ts`,\u001b[39m\n\u001b[31msha256 `6c9b1bce53361513260ccea723826dd724604d6cc220a58383856f0c1694466d`) publishes:·\u001b[39m\n\u001b[31m| export | what it is | fits a strip wave? |\u001b[39m\n\u001b[31m|---|---|---|\u001b[39m\n\u001b[31m| `Aurora` (component) | the full-field painterly background: one WebGL2 canvas sized to its container | **no** — see (a), (b) |\u001b[39m\n\u001b[31m| `useAurora`, `createAurora`, `useCursorInteraction` | the WebGL runtime and its pointer bridge | **no** — the same substrate |\u001b[39m\n\u001b[31m| `resolveRenderMode`, `isSoftwareWebGLRenderer` | the substrate selector (`\\\"webgl\\\" \\\\| \\\"css\\\" \\\\| \\\"auto\\\"`) | — (a guard, not a surface) |\u001b[39m\n\u001b[31m| `deriveAurora`, `paletteToCssGradient`, `cssToOklch`, `flattenPalette`, … | colour helpers: palette derivation and a **static** CSS gradient string | **no** — no motion |\u001b[39m\n\u001b[31m| `auroraFallbackGround`, `sampleAuroraField`, `nucleiFieldStatic` | the **static** first-frame ground | **no** — no motion |\u001b[39m\n\u001b[31m| `DEFAULT_AURORA_CONFIG`, atoms, presets | configuration | — |·\u001b[39m\n\u001b[31mAnd the stylesheet: `grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' dist` → **0**. The aurora motion\u001b[39m\n\u001b[31mvocabulary exists **only** inside the WebGL runtime.·\u001b[39m\n\u001b[31mThree measured facts close the local routes:·\u001b[39m\n\u001b[31m- **(a) The CSS substrate is still.** `renderMode.d.ts`: a software rasteriser takes the `\\\"css\\\"`\u001b[39m\n\u001b[31m  substrate — *\\\"the static gradient placeholder\\\"* — by the producer's own safe default, and the named\u001b[39m\n\u001b[31m  escape `forceWebGLUnderSoftwareRaster` exists *\\\"for a deterministic test that ACCEPTS the\u001b[39m\n\u001b[31m  per-composite raster cost\\\"*, not for a product surface. A strip that waves only on a GPU is a strip\u001b[39m\n\u001b[31m  that never waves on the smoke cell and on every GPU-blocklisted device (value.js's own\u001b[39m\n\u001b[31m  `o26-aurora-perceptibility` records the same: the atmosphere is a still under headless GL).\u001b[39m\n\u001b[31m- **(b) A second full-field WebGL canvas per gradient pane** is a second GPU context on the route that\u001b[39m\n\u001b[31m  already hosts the atmosphere's — for a ~40 px strip.\u001b[39m\n\u001b[31m- **(c) The rail's one-axis law forbids moving the ramp.** The gradient rail paints each colour at the\u001b[39m\n\u001b[31m  ordinal its handle sits on (X.W6.a a3/a4; X.W6.c c2: the ghost, the caret and the rail agree to the\u001b[39m\n\u001b[31m  sample). A wave that displaces colour along the axis would put a colour under a handle that does not\u001b[39m\n\u001b[31m  own it. The motion therefore has to live on an axis the ordinal does not — a veil, a luminance drift,\u001b[39m\n\u001b[31m  a silhouette — which is a new primitive, not a configuration of `Aurora`.·\u001b[39m\n\u001b[31mA consumer-side cure would therefore mint either a new `@keyframes` species (banned) or a private rAF\u001b[39m\n\u001b[31mloop (banned). **The mechanism belongs to the producer.**·\u001b[39m\n\u001b[31m## 3. The ask·\u001b[39m\n\u001b[31mA **strip-scale aurora motion primitive** in `./aurora` (or a sibling subpath), one of:·\u001b[39m\n\u001b[31m1. **`<AuroraStrip>`** — wraps a caller-supplied background (a CSS gradient string, or `OklchStop[]`)\u001b[39m\n\u001b[31m   and overlays the aurora field's drift as a **veil** that never displaces the caller's colours along\u001b[39m\n\u001b[31m   the strip's long axis (luminance / chroma breathing, or a gently waving silhouette); or\u001b[39m\n\u001b[31m2. **a utility + keyframes pair** (e.g. `glass-aurora-drift`) applicable to any element as an extra\u001b[39m\n\u001b[31m   background layer, with the drift's tempo and amplitude from the motion tokens (`--motion-tempo`,\u001b[39m\n\u001b[31m   the aurora breath).·\u001b[39m\n\u001b[31mEither way, the contract we need:·\u001b[39m\n\u001b[31m- a **CSS substrate that moves** (no WebGL context per strip), so the wave exists on every renderer;\u001b[39m\n\u001b[31m- motion declared **inside `prefers-reduced-motion: no-preference`** in the producer's own stylesheet\u001b[39m\n\u001b[31m  (still, not merely slowed, under reduce);\u001b[39m\n\u001b[31m- subtle by default (the owner's word), with one documented amplitude knob;\u001b[39m\n\u001b[31m- no colour displacement along the long axis (the one-axis law above).·\u001b[39m\n\u001b[31m**Consumer commitment**: value.js composes it on the gradient rail (`GradientStopEditor.vue`'s\u001b[39m\n\u001b[31m`.gradient-rail`) and nowhere else in this wave; the e1 oracle then flips to the composing branch and\u001b[39m\n\u001b[31mmeasures the motion as a settled-frame delta at a fixed colour.·\u001b[39m\n\u001b[31m*Sent by the value.js X-W6 wave (Repair 1), 2026-09-22. Reply folds per E13.*·\u001b[39m\n\u001b[31mSERVED MODEL: claude-opus-5-5·\u001b[39m\n\u001b[31m# Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.0** (dated addendum, 2026-10-16)·\u001b[39m\n\u001b[31m**Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1), dated 2026-09-22 against glass **7.0.0**. That letter is immutable (E-3); this is its dated census addendum, written by X-W12U `.q2` because value.js moved to glass 10.1.0 at X.W7L.m (`c8a4959dd`) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \\\"gradient selector aurora\\\") binds the census to the installed version.·\u001b[39m\n\u001b[31m## The census at 10.1.0 (same procedure as the letter's §2)·\u001b[39m\n\u001b[31m- ⟨`node -e 'console.log(require(\\\"./node_modules/@mkbabb/glass-ui/package.json\\\").version)'`⟩ → `10.1.0` (`@mkbabb/glass-ui` **10.1.0**, 68 published export keys).\u001b[39m\n\u001b[31m- ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec`.\u001b[39m\n\u001b[31m- ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts`⟩ → **0** matches: no strip-scale aurora motion primitive is published.\u001b[39m\n\u001b[31m- ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist`⟩ → **0**: the aurora motion vocabulary still exists only inside the WebGL runtime.\u001b[39m\n\u001b[31m- The letter's census rows are all still published: `Aurora`, `useAurora`, `createAurora`, `paletteToCssGradient`, `auroraFallbackGround`.·\u001b[39m\n\u001b[31m## Reading·\u001b[39m\n\u001b[31mUnchanged from the letter: no published primitive fits a strip wave, so the oracle's L3 branch stands (the ramp carries no local animation species and does not move). The ask CC-064 stays open with the producer; nothing new is asked here.·\u001b[39m\n\u001b[31mSERVED MODEL: claude-opus-5-5·\u001b[39m\n\u001b[31m# Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.1** (dated addendum, 2026-10-27)·\u001b[39m\n\u001b[31m**Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1; glass **7.0.0**) and its 10.1.0 addendum `gradient-aurora-census-2026-10-16.md` (X-W12U `.q2`). Both are immutable (E-3). Written by X.W11.v1c because value.js moved to glass 10.1.1 (`f77db7842`, COHESION §0gp.1) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \\\"gradient selector aurora\\\") binds the census to the installed version; the oracle read RED on that binding alone.·\u001b[39m\n\u001b[31m## The census at 10.1.1 (same procedure as the letter's §2)·\u001b[39m\n\u001b[31m- ⟨`node -e 'const p=require(\\\"./node_modules/@mkbabb/glass-ui/package.json\\\");console.log(p.version, Object.keys(p.exports).length)'`⟩ → `10.1.1 68` (`@mkbabb/glass-ui` **10.1.1**, 68 published export keys).\u001b[39m\n\u001b[31m- ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec` (byte-identical to the 10.1.0 reading).\u001b[39m\n\u001b[31m- ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts | wc -l`⟩ → **0**: no strip-scale aurora motion primitive is published.\u001b[39m\n\u001b[31m- ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist | wc -l`⟩ → **0**.\u001b[39m\n\u001b[31m- ⟨`grep -cE '\\\\b<name>\\\\b' …/aurora/index.d.ts`⟩ → `Aurora` 1 · `useAurora` 2 · `createAurora` 1 · `paletteToCssGradient` 1 · `auroraFallbackGround` 1: every census row is still published.·\u001b[39m\n\u001b[31m## Reading·\u001b[39m\n\u001b[31mUnchanged: no published primitive fits a strip wave, so the oracle's L3 branch stands. CC-064 stays open with the producer; nothing new is asked.\u001b[39m\n\u001b[31m\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"`@mkbabb/glass-ui` **10.1.2**\"\u001b[39m\nReceived string:    \u001b[31m\"SERVED MODEL: claude-opus-5-5[1m]·\u001b[39m\n\u001b[31m# Glass-forward ask — a strip-scale aurora motion primitive for the gradient selector·\u001b[39m\n\u001b[31m**Row**: CC-064 · MT-F041 · gate **e1** (`W6.md` §5 X.W6.e).\u001b[39m\n\u001b[31m**Dated**: 2026-09-22, branch `tranche-u`, against installed `@mkbabb/glass-ui` **7.0.0**.\u001b[39m\n\u001b[31m**Direction**: consumer (value.js) → producer (glass-ui). **glass-ui is READ-ONLY, ALWAYS** — this is a\u001b[39m\n\u001b[31mletter; no byte of the producer tree was written to author it.\u001b[39m\n\u001b[31m**Follows**: the early notice **B-1** in `valuejs-outbound-2026-07-28-o18-watercolor-toggle-loupe.md`\u001b[39m\n\u001b[31m§B — *\\\"If the wave mechanism lands as a variant of your aurora/gradient primitives rather than\u001b[39m\n\u001b[31mdemo-side, a follow-up ask will carry the exact shape.\\\"* This is that follow-up.\u001b[39m\n\u001b[31m**Authority for the branch**: `W6.md` X.W6.e — *\\\"If the wave mechanism proves to belong inside the\u001b[39m\n\u001b[31mglass gradient/aurora primitive, it leaves as a marked BJ ask (same two-way falsifier as d2).\\\"*\u001b[39m\n\u001b[31m**Machine oracle**: `npx playwright test e2e/smoke/views/gradient.spec.ts -g \\\"gradient selector aurora\\\"`.\u001b[39m\n\u001b[31mIt re-runs the census in §2 on every run and **reds the day a fitting primitive ships** — so this letter\u001b[39m\n\u001b[31mcannot outlive the fact that justifies it — and it reds equally if the wave animates the ramp locally.·\u001b[39m\n\u001b[31m---·\u001b[39m\n\u001b[31m## 1. The mandate, verbatim·\u001b[39m\n\u001b[31mOwner, 2026-07-28 (MT-F041): *\\\"let's plan to add a bit of dyannism to the gradient selector--it should\u001b[39m\n\u001b[31mbecome a SUBTLE aurora insofar as the gradient waves a bit.\\\"* Standing constraints (`W6.md` X.W6.e):\u001b[39m\n\u001b[31mconsume the shared field/motion law from `@mkbabb/glass-ui/aurora`; **no new animation species**; **no\u001b[39m\n\u001b[31mprivate rAF loop**; PRM honoured **structurally** (declared inside\u001b[39m\n\u001b[31m`@media (prefers-reduced-motion: no-preference)`), never by leaning on the global reduce guard.·\u001b[39m\n\u001b[31m## 2. The census — why no published primitive fits (re-run by the gate)·\u001b[39m\n\u001b[31m`@mkbabb/glass-ui` **7.0.0**, 74 published subpaths. `./aurora` (`dist/components/aurora/index.d.ts`,\u001b[39m\n\u001b[31msha256 `6c9b1bce53361513260ccea723826dd724604d6cc220a58383856f0c1694466d`) publishes:·\u001b[39m\n\u001b[31m| export | what it is | fits a strip wave? |\u001b[39m\n\u001b[31m|---|---|---|\u001b[39m\n\u001b[31m| `Aurora` (component) | the full-field painterly background: one WebGL2 canvas sized to its container | **no** — see (a), (b) |\u001b[39m\n\u001b[31m| `useAurora`, `createAurora`, `useCursorInteraction` | the WebGL runtime and its pointer bridge | **no** — the same substrate |\u001b[39m\n\u001b[31m| `resolveRenderMode`, `isSoftwareWebGLRenderer` | the substrate selector (`\\\"webgl\\\" \\\\| \\\"css\\\" \\\\| \\\"auto\\\"`) | — (a guard, not a surface) |\u001b[39m\n\u001b[31m| `deriveAurora`, `paletteToCssGradient`, `cssToOklch`, `flattenPalette`, … | colour helpers: palette derivation and a **static** CSS gradient string | **no** — no motion |\u001b[39m\n\u001b[31m| `auroraFallbackGround`, `sampleAuroraField`, `nucleiFieldStatic` | the **static** first-frame ground | **no** — no motion |\u001b[39m\n\u001b[31m| `DEFAULT_AURORA_CONFIG`, atoms, presets | configuration | — |·\u001b[39m\n\u001b[31mAnd the stylesheet: `grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' dist` → **0**. The aurora motion\u001b[39m\n\u001b[31mvocabulary exists **only** inside the WebGL runtime.·\u001b[39m\n\u001b[31mThree measured facts close the local routes:·\u001b[39m\n\u001b[31m- **(a) The CSS substrate is still.** `renderMode.d.ts`: a software rasteriser takes the `\\\"css\\\"`\u001b[39m\n\u001b[31m  substrate — *\\\"the static gradient placeholder\\\"* — by the producer's own safe default, and the named\u001b[39m\n\u001b[31m  escape `forceWebGLUnderSoftwareRaster` exists *\\\"for a deterministic test that ACCEPTS the\u001b[39m\n\u001b[31m  per-composite raster cost\\\"*, not for a product surface. A strip that waves only on a GPU is a strip\u001b[39m\n\u001b[31m  that never waves on the smoke cell and on every GPU-blocklisted device (value.js's own\u001b[39m\n\u001b[31m  `o26-aurora-perceptibility` records the same: the atmosphere is a still under headless GL).\u001b[39m\n\u001b[31m- **(b) A second full-field WebGL canvas per gradient pane** is a second GPU context on the route that\u001b[39m\n\u001b[31m  already hosts the atmosphere's — for a ~40 px strip.\u001b[39m\n\u001b[31m- **(c) The rail's one-axis law forbids moving the ramp.** The gradient rail paints each colour at the\u001b[39m\n\u001b[31m  ordinal its handle sits on (X.W6.a a3/a4; X.W6.c c2: the ghost, the caret and the rail agree to the\u001b[39m\n\u001b[31m  sample). A wave that displaces colour along the axis would put a colour under a handle that does not\u001b[39m\n\u001b[31m  own it. The motion therefore has to live on an axis the ordinal does not — a veil, a luminance drift,\u001b[39m\n\u001b[31m  a silhouette — which is a new primitive, not a configuration of `Aurora`.·\u001b[39m\n\u001b[31mA consumer-side cure would therefore mint either a new `@keyframes` species (banned) or a private rAF\u001b[39m\n\u001b[31mloop (banned). **The mechanism belongs to the producer.**·\u001b[39m\n\u001b[31m## 3. The ask·\u001b[39m\n\u001b[31mA **strip-scale aurora motion primitive** in `./aurora` (or a sibling subpath), one of:·\u001b[39m\n\u001b[31m1. **`<AuroraStrip>`** — wraps a caller-supplied background (a CSS gradient string, or `OklchStop[]`)\u001b[39m\n\u001b[31m   and overlays the aurora field's drift as a **veil** that never displaces the caller's colours along\u001b[39m\n\u001b[31m   the strip's long axis (luminance / chroma breathing, or a gently waving silhouette); or\u001b[39m\n\u001b[31m2. **a utility + keyframes pair** (e.g. `glass-aurora-drift`) applicable to any element as an extra\u001b[39m\n\u001b[31m   background layer, with the drift's tempo and amplitude from the motion tokens (`--motion-tempo`,\u001b[39m\n\u001b[31m   the aurora breath).·\u001b[39m\n\u001b[31mEither way, the contract we need:·\u001b[39m\n\u001b[31m- a **CSS substrate that moves** (no WebGL context per strip), so the wave exists on every renderer;\u001b[39m\n\u001b[31m- motion declared **inside `prefers-reduced-motion: no-preference`** in the producer's own stylesheet\u001b[39m\n\u001b[31m  (still, not merely slowed, under reduce);\u001b[39m\n\u001b[31m- subtle by default (the owner's word), with one documented amplitude knob;\u001b[39m\n\u001b[31m- no colour displacement along the long axis (the one-axis law above).·\u001b[39m\n\u001b[31m**Consumer commitment**: value.js composes it on the gradient rail (`GradientStopEditor.vue`'s\u001b[39m\n\u001b[31m`.gradient-rail`) and nowhere else in this wave; the e1 oracle then flips to the composing branch and\u001b[39m\n\u001b[31mmeasures the motion as a settled-frame delta at a fixed colour.·\u001b[39m\n\u001b[31m*Sent by the value.js X-W6 wave (Repair 1), 2026-09-22. Reply folds per E13.*·\u001b[39m\n\u001b[31mSERVED MODEL: claude-opus-5-5·\u001b[39m\n\u001b[31m# Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.0** (dated addendum, 2026-10-16)·\u001b[39m\n\u001b[31m**Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1), dated 2026-09-22 against glass **7.0.0**. That letter is immutable (E-3); this is its dated census addendum, written by X-W12U `.q2` because value.js moved to glass 10.1.0 at X.W7L.m (`c8a4959dd`) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \\\"gradient selector aurora\\\") binds the census to the installed version.·\u001b[39m\n\u001b[31m## The census at 10.1.0 (same procedure as the letter's §2)·\u001b[39m\n\u001b[31m- ⟨`node -e 'console.log(require(\\\"./node_modules/@mkbabb/glass-ui/package.json\\\").version)'`⟩ → `10.1.0` (`@mkbabb/glass-ui` **10.1.0**, 68 published export keys).\u001b[39m\n\u001b[31m- ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec`.\u001b[39m\n\u001b[31m- ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts`⟩ → **0** matches: no strip-scale aurora motion primitive is published.\u001b[39m\n\u001b[31m- ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist`⟩ → **0**: the aurora motion vocabulary still exists only inside the WebGL runtime.\u001b[39m\n\u001b[31m- The letter's census rows are all still published: `Aurora`, `useAurora`, `createAurora`, `paletteToCssGradient`, `auroraFallbackGround`.·\u001b[39m\n\u001b[31m## Reading·\u001b[39m\n\u001b[31mUnchanged from the letter: no published primitive fits a strip wave, so the oracle's L3 branch stands (the ramp carries no local animation species and does not move). The ask CC-064 stays open with the producer; nothing new is asked here.·\u001b[39m\n\u001b[31mSERVED MODEL: claude-opus-5-5·\u001b[39m\n\u001b[31m# Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.1** (dated addendum, 2026-10-27)·\u001b[39m\n\u001b[31m**Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1; glass **7.0.0**) and its 10.1.0 addendum `gradient-aurora-census-2026-10-16.md` (X-W12U `.q2`). Both are immutable (E-3). Written by X.W11.v1c because value.js moved to glass 10.1.1 (`f77db7842`, COHESION §0gp.1) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \\\"gradient selector aurora\\\") binds the census to the installed version; the oracle read RED on that binding alone.·\u001b[39m\n\u001b[31m## The census at 10.1.1 (same procedure as the letter's §2)·\u001b[39m\n\u001b[31m- ⟨`node -e 'const p=require(\\\"./node_modules/@mkbabb/glass-ui/package.json\\\");console.log(p.version, Object.keys(p.exports).length)'`⟩ → `10.1.1 68` (`@mkbabb/glass-ui` **10.1.1**, 68 published export keys).\u001b[39m\n\u001b[31m- ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec` (byte-identical to the 10.1.0 reading).\u001b[39m\n\u001b[31m- ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts | wc -l`⟩ → **0**: no strip-scale aurora motion primitive is published.\u001b[39m\n\u001b[31m- ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist | wc -l`⟩ → **0**.\u001b[39m\n\u001b[31m- ⟨`grep -cE '\\\\b<name>\\\\b' …/aurora/index.d.ts`⟩ → `Aurora` 1 · `useAurora` 2 · `createAurora` 1 · `paletteToCssGradient` 1 · `auroraFallbackGround` 1: every census row is still published.·\u001b[39m\n\u001b[31m## Reading·\u001b[39m\n\u001b[31mUnchanged: no published primitive fits a strip wave, so the oracle's L3 branch stands. CC-064 stays open with the producer; nothing new is asked.\u001b[39m\n\u001b[31m\"\u001b[39m\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:737:21",
+                    "location": {
+                      "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts",
+                      "column": 21,
+                      "line": 737
+                    },
+                    "snippet": "  735 |             .map((f) => readFileSync(f, \"utf8\"))\n  736 |             .join(\"\\n\");\n> 737 |         expect(ask).toContain(`\\`@mkbabb/glass-ui\\` **${manifest.version}**`);\n      |                     ^\n  738 |         expect(ask, \"the ask's census hash is stale — re-run the census\").toContain(indexHash);\n  739 |         for (const name of [\"Aurora\", \"useAurora\", \"createAurora\", \"paletteToCssGradient\", \"auroraFallbackGround\"]) {\n  740 |             expect(exported, `the census row ${name} is no longer published`).toContain(name);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts",
+                        "column": 21,
+                        "line": 737
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"`@mkbabb/glass-ui` **10.1.2**\"\u001b[39m\nReceived string:    \u001b[31m\"SERVED MODEL: claude-opus-5-5[1m]·\u001b[39m\n\u001b[31m# Glass-forward ask — a strip-scale aurora motion primitive for the gradient selector·\u001b[39m\n\u001b[31m**Row**: CC-064 · MT-F041 · gate **e1** (`W6.md` §5 X.W6.e).\u001b[39m\n\u001b[31m**Dated**: 2026-09-22, branch `tranche-u`, against installed `@mkbabb/glass-ui` **7.0.0**.\u001b[39m\n\u001b[31m**Direction**: consumer (value.js) → producer (glass-ui). **glass-ui is READ-ONLY, ALWAYS** — this is a\u001b[39m\n\u001b[31mletter; no byte of the producer tree was written to author it.\u001b[39m\n\u001b[31m**Follows**: the early notice **B-1** in `valuejs-outbound-2026-07-28-o18-watercolor-toggle-loupe.md`\u001b[39m\n\u001b[31m§B — *\\\"If the wave mechanism lands as a variant of your aurora/gradient primitives rather than\u001b[39m\n\u001b[31mdemo-side, a follow-up ask will carry the exact shape.\\\"* This is that follow-up.\u001b[39m\n\u001b[31m**Authority for the branch**: `W6.md` X.W6.e — *\\\"If the wave mechanism proves to belong inside the\u001b[39m\n\u001b[31mglass gradient/aurora primitive, it leaves as a marked BJ ask (same two-way falsifier as d2).\\\"*\u001b[39m\n\u001b[31m**Machine oracle**: `npx playwright test e2e/smoke/views/gradient.spec.ts -g \\\"gradient selector aurora\\\"`.\u001b[39m\n\u001b[31mIt re-runs the census in §2 on every run and **reds the day a fitting primitive ships** — so this letter\u001b[39m\n\u001b[31mcannot outlive the fact that justifies it — and it reds equally if the wave animates the ramp locally.·\u001b[39m\n\u001b[31m---·\u001b[39m\n\u001b[31m## 1. The mandate, verbatim·\u001b[39m\n\u001b[31mOwner, 2026-07-28 (MT-F041): *\\\"let's plan to add a bit of dyannism to the gradient selector--it should\u001b[39m\n\u001b[31mbecome a SUBTLE aurora insofar as the gradient waves a bit.\\\"* Standing constraints (`W6.md` X.W6.e):\u001b[39m\n\u001b[31mconsume the shared field/motion law from `@mkbabb/glass-ui/aurora`; **no new animation species**; **no\u001b[39m\n\u001b[31mprivate rAF loop**; PRM honoured **structurally** (declared inside\u001b[39m\n\u001b[31m`@media (prefers-reduced-motion: no-preference)`), never by leaning on the global reduce guard.·\u001b[39m\n\u001b[31m## 2. The census — why no published primitive fits (re-run by the gate)·\u001b[39m\n\u001b[31m`@mkbabb/glass-ui` **7.0.0**, 74 published subpaths. `./aurora` (`dist/components/aurora/index.d.ts`,\u001b[39m\n\u001b[31msha256 `6c9b1bce53361513260ccea723826dd724604d6cc220a58383856f0c1694466d`) publishes:·\u001b[39m\n\u001b[31m| export | what it is | fits a strip wave? |\u001b[39m\n\u001b[31m|---|---|---|\u001b[39m\n\u001b[31m| `Aurora` (component) | the full-field painterly background: one WebGL2 canvas sized to its container | **no** — see (a), (b) |\u001b[39m\n\u001b[31m| `useAurora`, `createAurora`, `useCursorInteraction` | the WebGL runtime and its pointer bridge | **no** — the same substrate |\u001b[39m\n\u001b[31m| `resolveRenderMode`, `isSoftwareWebGLRenderer` | the substrate selector (`\\\"webgl\\\" \\\\| \\\"css\\\" \\\\| \\\"auto\\\"`) | — (a guard, not a surface) |\u001b[39m\n\u001b[31m| `deriveAurora`, `paletteToCssGradient`, `cssToOklch`, `flattenPalette`, … | colour helpers: palette derivation and a **static** CSS gradient string | **no** — no motion |\u001b[39m\n\u001b[31m| `auroraFallbackGround`, `sampleAuroraField`, `nucleiFieldStatic` | the **static** first-frame ground | **no** — no motion |\u001b[39m\n\u001b[31m| `DEFAULT_AURORA_CONFIG`, atoms, presets | configuration | — |·\u001b[39m\n\u001b[31mAnd the stylesheet: `grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' dist` → **0**. The aurora motion\u001b[39m\n\u001b[31mvocabulary exists **only** inside the WebGL runtime.·\u001b[39m\n\u001b[31mThree measured facts close the local routes:·\u001b[39m\n\u001b[31m- **(a) The CSS substrate is still.** `renderMode.d.ts`: a software rasteriser takes the `\\\"css\\\"`\u001b[39m\n\u001b[31m  substrate — *\\\"the static gradient placeholder\\\"* — by the producer's own safe default, and the named\u001b[39m\n\u001b[31m  escape `forceWebGLUnderSoftwareRaster` exists *\\\"for a deterministic test that ACCEPTS the\u001b[39m\n\u001b[31m  per-composite raster cost\\\"*, not for a product surface. A strip that waves only on a GPU is a strip\u001b[39m\n\u001b[31m  that never waves on the smoke cell and on every GPU-blocklisted device (value.js's own\u001b[39m\n\u001b[31m  `o26-aurora-perceptibility` records the same: the atmosphere is a still under headless GL).\u001b[39m\n\u001b[31m- **(b) A second full-field WebGL canvas per gradient pane** is a second GPU context on the route that\u001b[39m\n\u001b[31m  already hosts the atmosphere's — for a ~40 px strip.\u001b[39m\n\u001b[31m- **(c) The rail's one-axis law forbids moving the ramp.** The gradient rail paints each colour at the\u001b[39m\n\u001b[31m  ordinal its handle sits on (X.W6.a a3/a4; X.W6.c c2: the ghost, the caret and the rail agree to the\u001b[39m\n\u001b[31m  sample). A wave that displaces colour along the axis would put a colour under a handle that does not\u001b[39m\n\u001b[31m  own it. The motion therefore has to live on an axis the ordinal does not — a veil, a luminance drift,\u001b[39m\n\u001b[31m  a silhouette — which is a new primitive, not a configuration of `Aurora`.·\u001b[39m\n\u001b[31mA consumer-side cure would therefore mint either a new `@keyframes` species (banned) or a private rAF\u001b[39m\n\u001b[31mloop (banned). **The mechanism belongs to the producer.**·\u001b[39m\n\u001b[31m## 3. The ask·\u001b[39m\n\u001b[31mA **strip-scale aurora motion primitive** in `./aurora` (or a sibling subpath), one of:·\u001b[39m\n\u001b[31m1. **`<AuroraStrip>`** — wraps a caller-supplied background (a CSS gradient string, or `OklchStop[]`)\u001b[39m\n\u001b[31m   and overlays the aurora field's drift as a **veil** that never displaces the caller's colours along\u001b[39m\n\u001b[31m   the strip's long axis (luminance / chroma breathing, or a gently waving silhouette); or\u001b[39m\n\u001b[31m2. **a utility + keyframes pair** (e.g. `glass-aurora-drift`) applicable to any element as an extra\u001b[39m\n\u001b[31m   background layer, with the drift's tempo and amplitude from the motion tokens (`--motion-tempo`,\u001b[39m\n\u001b[31m   the aurora breath).·\u001b[39m\n\u001b[31mEither way, the contract we need:·\u001b[39m\n\u001b[31m- a **CSS substrate that moves** (no WebGL context per strip), so the wave exists on every renderer;\u001b[39m\n\u001b[31m- motion declared **inside `prefers-reduced-motion: no-preference`** in the producer's own stylesheet\u001b[39m\n\u001b[31m  (still, not merely slowed, under reduce);\u001b[39m\n\u001b[31m- subtle by default (the owner's word), with one documented amplitude knob;\u001b[39m\n\u001b[31m- no colour displacement along the long axis (the one-axis law above).·\u001b[39m\n\u001b[31m**Consumer commitment**: value.js composes it on the gradient rail (`GradientStopEditor.vue`'s\u001b[39m\n\u001b[31m`.gradient-rail`) and nowhere else in this wave; the e1 oracle then flips to the composing branch and\u001b[39m\n\u001b[31mmeasures the motion as a settled-frame delta at a fixed colour.·\u001b[39m\n\u001b[31m*Sent by the value.js X-W6 wave (Repair 1), 2026-09-22. Reply folds per E13.*·\u001b[39m\n\u001b[31mSERVED MODEL: claude-opus-5-5·\u001b[39m\n\u001b[31m# Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.0** (dated addendum, 2026-10-16)·\u001b[39m\n\u001b[31m**Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1), dated 2026-09-22 against glass **7.0.0**. That letter is immutable (E-3); this is its dated census addendum, written by X-W12U `.q2` because value.js moved to glass 10.1.0 at X.W7L.m (`c8a4959dd`) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \\\"gradient selector aurora\\\") binds the census to the installed version.·\u001b[39m\n\u001b[31m## The census at 10.1.0 (same procedure as the letter's §2)·\u001b[39m\n\u001b[31m- ⟨`node -e 'console.log(require(\\\"./node_modules/@mkbabb/glass-ui/package.json\\\").version)'`⟩ → `10.1.0` (`@mkbabb/glass-ui` **10.1.0**, 68 published export keys).\u001b[39m\n\u001b[31m- ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec`.\u001b[39m\n\u001b[31m- ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts`⟩ → **0** matches: no strip-scale aurora motion primitive is published.\u001b[39m\n\u001b[31m- ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist`⟩ → **0**: the aurora motion vocabulary still exists only inside the WebGL runtime.\u001b[39m\n\u001b[31m- The letter's census rows are all still published: `Aurora`, `useAurora`, `createAurora`, `paletteToCssGradient`, `auroraFallbackGround`.·\u001b[39m\n\u001b[31m## Reading·\u001b[39m\n\u001b[31mUnchanged from the letter: no published primitive fits a strip wave, so the oracle's L3 branch stands (the ramp carries no local animation species and does not move). The ask CC-064 stays open with the producer; nothing new is asked here.·\u001b[39m\n\u001b[31mSERVED MODEL: claude-opus-5-5·\u001b[39m\n\u001b[31m# Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.1** (dated addendum, 2026-10-27)·\u001b[39m\n\u001b[31m**Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1; glass **7.0.0**) and its 10.1.0 addendum `gradient-aurora-census-2026-10-16.md` (X-W12U `.q2`). Both are immutable (E-3). Written by X.W11.v1c because value.js moved to glass 10.1.1 (`f77db7842`, COHESION §0gp.1) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \\\"gradient selector aurora\\\") binds the census to the installed version; the oracle read RED on that binding alone.·\u001b[39m\n\u001b[31m## The census at 10.1.1 (same procedure as the letter's §2)·\u001b[39m\n\u001b[31m- ⟨`node -e 'const p=require(\\\"./node_modules/@mkbabb/glass-ui/package.json\\\");console.log(p.version, Object.keys(p.exports).length)'`⟩ → `10.1.1 68` (`@mkbabb/glass-ui` **10.1.1**, 68 published export keys).\u001b[39m\n\u001b[31m- ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec` (byte-identical to the 10.1.0 reading).\u001b[39m\n\u001b[31m- ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts | wc -l`⟩ → **0**: no strip-scale aurora motion primitive is published.\u001b[39m\n\u001b[31m- ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist | wc -l`⟩ → **0**.\u001b[39m\n\u001b[31m- ⟨`grep -cE '\\\\b<name>\\\\b' …/aurora/index.d.ts`⟩ → `Aurora` 1 · `useAurora` 2 · `createAurora` 1 · `paletteToCssGradient` 1 · `auroraFallbackGround` 1: every census row is still published.·\u001b[39m\n\u001b[31m## Reading·\u001b[39m\n\u001b[31mUnchanged: no published primitive fits a strip wave, so the oracle's L3 branch stands. CC-064 stays open with the producer; nothing new is asked.\u001b[39m\n\u001b[31m\"\u001b[39m\n\n  735 |             .map((f) => readFileSync(f, \"utf8\"))\n  736 |             .join(\"\\n\");\n> 737 |         expect(ask).toContain(`\\`@mkbabb/glass-ui\\` **${manifest.version}**`);\n      |                     ^\n  738 |         expect(ask, \"the ask's census hash is stale — re-run the census\").toContain(indexHash);\n  739 |         for (const name of [\"Aurora\", \"useAurora\", \"createAurora\", \"paletteToCssGradient\", \"auroraFallbackGround\"]) {\n  740 |             expect(exported, `the census row ${name} is no longer published`).toContain(name);\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:737:21"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:20:07.249Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/views-gradient-gradient-selector-aurora-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts",
+                    "column": 21,
+                    "line": 737
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2f27d57f1586cef4c515-5caae602068f19330761",
+          "file": "smoke/views/gradient.spec.ts",
+          "line": 614,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/views/mix.spec.ts",
+      "file": "smoke/views/mix.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mix flow: convergence lands at the result plate within budget",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30811,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/mix.spec.ts",
+                        "column": 27,
+                        "line": 53
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('.add-slot-ghost').first()\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('main[aria-labelledby=\"route-title\"]:has(h1#route-title)').locator('.add-slot-ghost').first()\u001b[22m\n\n\n  51 |     // contract that is broken.\n  52 |     const addSlot = main.locator(\".add-slot-ghost\").first();\n> 53 |     await expect(addSlot).toBeVisible();\n     |                           ^\n  54 |     await expect(\n  55 |         addSlot,\n  56 |         \"the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)\",\n    at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/mix.spec.ts:53:27"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T18:20:25.448Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/test-results/views-mix-mix-flow-converg-60bbb--result-plate-within-budget-smoke/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4a4d3b04971623f82b3c-d25d18d79fd4032fb04a",
+          "file": "smoke/views/mix.spec.ts",
+          "line": 28,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-28T18:10:20.371Z",
+    "duration": 636491.3180000001,
+    "expected": 22,
+    "skipped": 0,
+    "unexpected": 11,
+    "flaky": 0
+  }
+}

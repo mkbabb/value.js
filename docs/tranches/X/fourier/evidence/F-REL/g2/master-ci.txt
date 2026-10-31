@@ -1,0 +1,34 @@
+SERVED MODEL: claude-opus-5-5
+# master CI ×2 for the .g2 merge 50ef781 (quote-by-command)
+
+⟨gh run view 40561927861 --json headSha,event,conclusion,jobs⟩ (push run)
+50ef7812725b114c62a0c242b8f6b19cb7179d8a
+push
+success
+production compose boot + health	success	2026-10-27T18:39:01Z	2026-10-27T18:42:45Z
+api/tests (with live Mongo)	success	2026-10-27T18:39:02Z	2026-10-27T18:40:44Z
+e2e (Playwright, COMPUTE_RATE_LIMIT=1000)	success	2026-10-27T18:39:01Z	2026-10-27T19:23:31Z
+web (vue-tsc + vite build)	success	2026-10-27T18:39:02Z	2026-10-27T18:40:04Z
+inv-27 evidence (covering run id + SHA)	success	2026-10-27T19:23:34Z	2026-10-27T19:23:40Z
+
+⟨gh workflow run ci.yml --ref master⟩ 19:24:02Z → run 40568756355 (one dispatch, after the push run read GREEN; no re-run)
+⟨gh run view 40568756355 --json headSha,event,conclusion,jobs⟩
+50ef7812725b114c62a0c242b8f6b19cb7179d8a
+workflow_dispatch
+success
+web (vue-tsc + vite build)	success	2026-10-27T19:24:08Z	2026-10-27T19:25:09Z
+api/tests (with live Mongo)	success	2026-10-27T19:24:07Z	2026-10-27T19:26:08Z
+production compose boot + health	success	2026-10-27T19:24:09Z	2026-10-27T19:27:37Z
+e2e (Playwright, COMPUTE_RATE_LIMIT=1000)	success	2026-10-27T19:24:08Z	2026-10-27T20:06:53Z
+inv-27 evidence (covering run id + SHA)	success	2026-10-27T20:06:56Z	2026-10-27T20:07:03Z
+
+⟨gh run list --branch master -L 4⟩ (20:08Z)
+40575160812	deploy-pages	50ef781	in_progress		workflow_run
+40575160677	deploy-alert	50ef781	completed	skipped	workflow_run
+40568806141	deploy-alert	50ef781	completed	failure	workflow_run
+40568806110	deploy-pages	50ef781	completed	success	workflow_run
+
+⟨gh run view 40568806141 --log-failed | tail⟩ → '[deploy-alert] waiting - no deploy-of-record served' … 19:54:37Z 'updating the open deploy-alert issue #1' → exit 1
+(the host did not deploy 50ef781 on the push webhook: the expected fail-closed REFUSE; .d's read and act)
+
+⟨awk '{print $2}' health-poll.txt | sort | uniq -c⟩ → 1249 health=200 (0 non-200)

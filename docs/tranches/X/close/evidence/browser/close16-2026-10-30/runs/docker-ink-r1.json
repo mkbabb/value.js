@@ -1,0 +1,2040 @@
+{
+  "config": {
+    "configFile": "/w/tree/playwright.config.ts",
+    "rootDir": "/w/tree/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/w/tree/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/w/tree/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/w/tree/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/w/tree/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/w/tree/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/w/tree/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/oracles/o11-header-gates.spec.ts",
+      "file": "smoke/oracles/o11-header-gates.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 1440)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 33097,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T00:34:51.677Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-84f5d3c13c7bfd35c471",
+          "file": "smoke/oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        },
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 390)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 27272,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T00:35:24.956Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-a2b8e123d01ec32113d0",
+          "file": "smoke/oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        },
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (dark 1440)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 28005,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T00:35:52.233Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-08e236e1956768a11c14",
+          "file": "smoke/oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        },
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (dark 390)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 27254,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T00:36:20.244Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-2dfe8c3e1ff545369759",
+          "file": "smoke/oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o18-contrast-census.spec.ts",
+      "file": "smoke/oracles/o18-contrast-census.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "O-18 U-F26 accent-view leg (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 619,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1867,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:36:47.542Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-9c11f8ac324e9f3a58e0",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 622,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 U-F26 accent-view leg (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 619,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2124,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:36:49.414Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-cdf03ce93d7864fde561",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 622,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 788,
+          "column": 10,
+          "specs": [
+            {
+              "title": "menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4903,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:36:51.543Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-5f075e0d169a7a93a837",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 791,
+              "column": 9
+            },
+            {
+              "title": "graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2672,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:36:56.452Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-aa38e0db9166434c0201",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 866,
+              "column": 9
+            },
+            {
+              "title": "markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3084,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:36:59.129Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-8001d7872be7051c4657",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 924,
+              "column": 9
+            },
+            {
+              "title": "the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 710,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:02.220Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-202fe4bdd9e122df97d2",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 958,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 788,
+          "column": 10,
+          "specs": [
+            {
+              "title": "menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4597,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:02.935Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-853d674c0a05bb46de3e",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 791,
+              "column": 9
+            },
+            {
+              "title": "graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2484,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:07.537Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-e6afc65a3ce06e341dbc",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 866,
+              "column": 9
+            },
+            {
+              "title": "markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2903,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:10.026Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-01ecc7aaa00e7cad4838",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 924,
+              "column": 9
+            },
+            {
+              "title": "the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 912,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:12.934Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-649c788b511db2d5cc0d",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 958,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 W4 rows (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1049,
+          "column": 10,
+          "specs": [
+            {
+              "title": "readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1520,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:13.851Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-7128356fd19448fa6cec",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1052,
+              "column": 9
+            },
+            {
+              "title": "the channel letters ≥4.5:1 on the console well (rest rung)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1603,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:15.436Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-c5fe852cca9a02db2d6f",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1070,
+              "column": 9
+            },
+            {
+              "title": "ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1223,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:17.044Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-91f9ad6a8b615b3a4eb0",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1096,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 W4 rows (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1049,
+          "column": 10,
+          "specs": [
+            {
+              "title": "readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1273,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:18.271Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-9404cc7b223281ac179f",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1052,
+              "column": 9
+            },
+            {
+              "title": "the channel letters ≥4.5:1 on the console well (rest rung)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1915,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:19.613Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-cff9f28da4165a9fdc0a",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1070,
+              "column": 9
+            },
+            {
+              "title": "ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1197,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:21.534Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-53fc0a370b3959af86f5",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1096,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 W6.5 legs (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1147,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1097,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:22.736Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-1ce9d633c89846868cc1",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1150,
+              "column": 9
+            },
+            {
+              "title": "the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3443,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:23.837Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-1d32f0d3645ede1c7af2",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1209,
+              "column": 9
+            },
+            {
+              "title": "the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1328,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:27.285Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-d11b741e42802c96ec34",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1253,
+              "column": 9
+            },
+            {
+              "title": "the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 · WCAG 1.4.11)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 904,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:28.637Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-a2fe25b0a1666586967d",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1322,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 W6.5 legs (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1147,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1290,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:29.550Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-9787595736f554e0f77f",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1150,
+              "column": 9
+            },
+            {
+              "title": "the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5149,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:30.845Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-35b39777c5445436ed0f",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1209,
+              "column": 9
+            },
+            {
+              "title": "the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1168,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:36.056Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-5562cb854004c247ba46",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1253,
+              "column": 9
+            },
+            {
+              "title": "the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 · WCAG 1.4.11)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 880,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:37.237Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-49f044b848b0bcb4b539",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1322,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 config-track graphics leg (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1367,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 712,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:38.125Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-f1b4d0716cb8c5c04cd3",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1370,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 config-track graphics leg (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1367,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 638,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:38.843Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-4fde53cd362bd0fe8c7f",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1370,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · R27 blind rows (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1482,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the admin pill — the ONE ink that bypasses certification (A-1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2827,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:39.548Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-a2f1fdc3b129791e16f8",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1485,
+              "column": 9
+            },
+            {
+              "title": "the profile menu ROW LABELS — the unguarded population, over live content (N-3)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5303,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:42.435Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-6d1a76bbe5efd65d5171",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1537,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · R27 blind rows (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1482,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the admin pill — the ONE ink that bypasses certification (A-1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3175,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:47.749Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-dcce0e0d175a11f0a4df",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1485,
+              "column": 9
+            },
+            {
+              "title": "the profile menu ROW LABELS — the unguarded population, over live content (N-3)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4579,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:50.928Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-bf0fda661221171c3f63",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1537,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · V15-01 the featured badge (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1631,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2693,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:55.512Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-69d2babb6b50dfcbde92",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1634,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · V15-01 the featured badge (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1631,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2024,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:37:58.214Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-55ccc722bfc10f12f03b",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1634,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+      "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "B05 · the Tools ink on the dock band (0132 · 0133)",
+          "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+          "line": 263,
+          "column": 6,
+          "specs": [
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6720,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m\n    at /w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 276
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 274 |\u001b[39m             \u001b[36mconst\u001b[39m label \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39m\n \u001b[90m 275 |\u001b[39m             expect(label)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoBeNull()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 276 |\u001b[39m             expect(\u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m label\u001b[33m!\u001b[39m))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 277 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 278 |\u001b[39m     }\n \u001b[90m 279 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 276
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m\n\n  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |\n    at /w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:38:00.318Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-o33-dock-actionbar-e66f8--the-light-band-seed-hue-0--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 276
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-5e5ed065bbfd1371e17f",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11685,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:38:07.349Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-d5e678d617f67a341624",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6777,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:38:19.078Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-6470e0f12948bd9ae623",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7684,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:38:25.859Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-ce1ca917ce02ab63a15b",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7695,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:38:33.548Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-9a132ec5be964c0f9d8a",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7044,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m\n    at /w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 276
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 274 |\u001b[39m             \u001b[36mconst\u001b[39m label \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39m\n \u001b[90m 275 |\u001b[39m             expect(label)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoBeNull()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 276 |\u001b[39m             expect(\u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m label\u001b[33m!\u001b[39m))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 277 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 278 |\u001b[39m     }\n \u001b[90m 279 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 276
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m\n\n  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |\n    at /w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:38:41.247Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-o33-dock-actionbar-89a7f-he-light-band-seed-hue-300--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 276
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-fe1d7a2d9c28447080b9",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12635,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:38:48.628Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-c87d7885469ca82d1189",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 281,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8091,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:39:01.297Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-58a3d3590b7eb2d4e974",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 281,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/ss8r-ruled-rows.spec.ts",
+      "file": "smoke/ss8r-ruled-rows.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SS8-0440 · the well lifts above its host in both schemes",
+          "file": "smoke/ss8r-ruled-rows.spec.ts",
+          "line": 68,
+          "column": 6,
+          "specs": [
+            {
+              "title": "light · seed default",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5236,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:39:09.403Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa62f9355c86eec1dc7e-a47300908b970c6af434",
+              "file": "smoke/ss8r-ruled-rows.spec.ts",
+              "line": 78,
+              "column": 13
+            },
+            {
+              "title": "light · seed oklch(0.62 0.16 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4925,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:39:14.644Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa62f9355c86eec1dc7e-b5368ed973548d93b4a9",
+              "file": "smoke/ss8r-ruled-rows.spec.ts",
+              "line": 78,
+              "column": 13
+            },
+            {
+              "title": "dark · seed default",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4999,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:39:19.641Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa62f9355c86eec1dc7e-c5fa0e8c9055783b4b5b",
+              "file": "smoke/ss8r-ruled-rows.spec.ts",
+              "line": 78,
+              "column": 13
+            },
+            {
+              "title": "dark · seed oklch(0.62 0.16 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4985,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T00:39:24.645Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa62f9355c86eec1dc7e-690281e2bce72d3d066c",
+              "file": "smoke/ss8r-ruled-rows.spec.ts",
+              "line": 78,
+              "column": 13
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T00:34:44.379Z",
+    "duration": 285325.67,
+    "expected": 46,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

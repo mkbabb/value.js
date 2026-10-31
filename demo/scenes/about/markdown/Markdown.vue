@@ -198,9 +198,15 @@ onUpdated(() => {
 }
 
 .markdown-wrapper :deep(.markdown-body) {
-    /* Links */
+    /* Links. X.W11.v1c (A1/A2, the 24×24 target floor at both pointer
+       classes): a prose link's box was its glyph run (52×19 fine, 52.5×21.5
+       coarse on `/`). Block padding on an INLINE box widens its hit area and
+       its border box without moving the line (inline padding does not enter
+       the line-height calculation), so the link reaches the floor in place:
+       content ≥ 1em, plus (24px − 1em) above and below split evenly. */
     a {
         @apply text-primary hover:underline transition-colors duration-fast;
+        padding-block: max(0px, calc((24px - 1em) / 2));
     }
 
     /* Lists — the φ indent + the list↔content rhythm (U5). */

@@ -1,0 +1,100 @@
+head-r1.json  (light) failed SS8-0363 light {"normal":{"ratio":12.100721665537625,"ink":[0,0,0],"ground":[226,186,201]},"more":{"ratio":10.20562496628259,"ink":[51,48,46],"ground":[236,225,219]}}
+head-r1.json o (dark) passed SS8-0363 dark {"normal":{"ratio":6.498690841637178,"ink":[194,191,190],"ground":[78,46,54]},"more":{"ratio":7.214982054771417,"ink":[209,206,203],"ground":[68,56,50]}}
+head-r2.json  (light) failed SS8-0363 light {"normal":{"ratio":12.100721665537625,"ink":[0,0,0],"ground":[226,186,201]},"more":{"ratio":10.20562496628259,"ink":[51,48,46],"ground":[236,225,219]}}
+head-r2.json o (dark) passed SS8-0363 dark {"normal":{"ratio":6.498690841637178,"ink":[194,191,190],"ground":[78,46,54]},"more":{"ratio":7.214982054771417,"ink":[209,206,203],"ground":[68,56,50]}}
+noref-r1.json  (light) passed SS8-0363 light {"normal":{"ratio":8.085459580082896,"ink":[46,43,43],"ground":[226,186,201]},"more":{"ratio":10.058843321840987,"ink":[52,49,47],"ground":[236,225,219]}}
+noref-r1.json o (dark) passed SS8-0363 dark {"normal":{"ratio":6.498690841637178,"ink":[194,191,190],"ground":[78,46,54]},"more":{"ratio":7.214982054771417,"ink":[209,206,203],"ground":[68,56,50]}}
+noref-r2.json  (light) passed SS8-0363 light {"normal":{"ratio":8.085459580082896,"ink":[46,43,43],"ground":[226,186,201]},"more":{"ratio":10.058843321840987,"ink":[52,49,47],"ground":[236,225,219]}}
+noref-r2.json o (dark) passed SS8-0363 dark {"normal":{"ratio":6.498690841637178,"ink":[194,191,190],"ground":[78,46,54]},"more":{"ratio":7.214982054771417,"ink":[209,206,203],"ground":[68,56,50]}}
+nocut-r1.json  (light) failed SS8-0363 light {"normal":{"ratio":12.100721665537625,"ink":[0,0,0],"ground":[226,186,201]},"more":{"ratio":10.20562496628259,"ink":[51,48,46],"ground":[236,225,219]}}
+nocut-r1.json o (dark) passed SS8-0363 dark {"normal":{"ratio":6.498690841637178,"ink":[194,191,190],"ground":[78,46,54]},"more":{"ratio":7.214982054771417,"ink":[209,206,203],"ground":[68,56,50]}}
+nocut-r2.json  (light) failed SS8-0363 light {"normal":{"ratio":12.100721665537625,"ink":[0,0,0],"ground":[226,186,201]},"more":{"ratio":10.20562496628259,"ink":[51,48,46],"ground":[236,225,219]}}
+nocut-r2.json o (dark) passed SS8-0363 dark {"normal":{"ratio":6.498690841637178,"ink":[194,191,190],"ground":[78,46,54]},"more":{"ratio":7.214982054771417,"ink":[209,206,203],"ground":[68,56,50]}}
+nog13-r1.json  (light) failed SS8-0363 light {"normal":{"ratio":12.100721665537625,"ink":[0,0,0],"ground":[226,186,201]},"more":{"ratio":10.20562496628259,"ink":[51,48,46],"ground":[236,225,219]}}
+nog13-r1.json o (dark) passed SS8-0363 dark {"normal":{"ratio":6.498690841637178,"ink":[194,191,190],"ground":[78,46,54]},"more":{"ratio":7.214982054771417,"ink":[209,206,203],"ground":[68,56,50]}}
+nog13-r2.json  (light) failed SS8-0363 light {"normal":{"ratio":12.100721665537625,"ink":[0,0,0],"ground":[226,186,201]},"more":{"ratio":10.20562496628259,"ink":[51,48,46],"ground":[236,225,219]}}
+nog13-r2.json o (dark) passed SS8-0363 dark {"normal":{"ratio":6.498690841637178,"ink":[194,191,190],"ground":[78,46,54]},"more":{"ratio":7.214982054771417,"ink":[209,206,203],"ground":[68,56,50]}}
+cured-r1.json O-11 caption leg — the pane caption clears 4.5:1 over the darkest regi passed
+cured-r1.json O-11 caption leg — the pane caption clears 4.5:1 over the darkest regi passed
+cured-r1.json O-11 caption leg — the pane caption clears 4.5:1 over the darkest regi passed
+cured-r1.json O-11 caption leg — the pane caption clears 4.5:1 over the darkest regi passed
+cured-r1.json the default-seed `--accent-view` clears ≥3:1 against its rendered tier passed
+cured-r1.json the default-seed `--accent-view` clears ≥3:1 against its rendered tier passed
+cured-r1.json menus — the slug pill + Profile trigger wear certified floating-rung i passed
+cured-r1.json graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink passed
+cured-r1.json markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2 passed
+cured-r1.json the root accent leg — `--accent-live` vs the LIVE resting-rung ground  passed
+cured-r1.json menus — the slug pill + Profile trigger wear certified floating-rung i passed
+cured-r1.json graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink passed
+cured-r1.json markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2 passed
+cured-r1.json the root accent leg — `--accent-live` vs the LIVE resting-rung ground  passed
+cured-r1.json readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 passed
+cured-r1.json the channel letters ≥4.5:1 on the console well (rest rung) passed
+cured-r1.json ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34 passed
+cured-r1.json readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 passed
+cured-r1.json the channel letters ≥4.5:1 on the console well (rest rung) passed
+cured-r1.json ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34 passed
+cured-r1.json the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ passed
+cured-r1.json the letterform gate — dropdown options compute weight 400; the specime passed
+cured-r1.json the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground  passed
+cured-r1.json the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 ·  passed
+cured-r1.json the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ passed
+cured-r1.json the letterform gate — dropdown options compute weight 400; the specime passed
+cured-r1.json the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground  passed
+cured-r1.json the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 ·  passed
+cured-r1.json the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C passed
+cured-r1.json the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C passed
+cured-r1.json the admin pill — the ONE ink that bypasses certification (A-1) passed
+cured-r1.json the profile menu ROW LABELS — the unguarded population, over live cont passed
+cured-r1.json the admin pill — the ONE ink that bypasses certification (A-1) passed
+cured-r1.json the profile menu ROW LABELS — the unguarded population, over live cont passed
+cured-r1.json the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold passed
+cured-r1.json the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold passed
+cured-r1.json  (light) passed SS8-0363 light {"normal":{"ratio":12.100721665537625,"ink":[0,0,0],"ground":[226,186,201]},"more":{"ratio":16.35955349285024,"ink":[0,0,0],"ground":[236,225,219]}}
+cured-r1.json o (dark) passed SS8-0363 dark {"normal":{"ratio":6.498690841637178,"ink":[194,191,190],"ground":[78,46,54]},"more":{"ratio":11.305421333532044,"ink":[255,255,255],"ground":[68,56,50]}}
+cured-r1.json light · seed default passed
+cured-r1.json light · seed oklch(0.62 0.16 240) passed
+cured-r1.json dark · seed default passed
+cured-r1.json dark · seed oklch(0.62 0.16 240) passed
+cured-r2.json O-11 caption leg — the pane caption clears 4.5:1 over the darkest regi passed
+cured-r2.json O-11 caption leg — the pane caption clears 4.5:1 over the darkest regi passed
+cured-r2.json O-11 caption leg — the pane caption clears 4.5:1 over the darkest regi passed
+cured-r2.json O-11 caption leg — the pane caption clears 4.5:1 over the darkest regi passed
+cured-r2.json the default-seed `--accent-view` clears ≥3:1 against its rendered tier passed
+cured-r2.json the default-seed `--accent-view` clears ≥3:1 against its rendered tier passed
+cured-r2.json menus — the slug pill + Profile trigger wear certified floating-rung i passed
+cured-r2.json graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink passed
+cured-r2.json markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2 passed
+cured-r2.json the root accent leg — `--accent-live` vs the LIVE resting-rung ground  passed
+cured-r2.json menus — the slug pill + Profile trigger wear certified floating-rung i passed
+cured-r2.json graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink passed
+cured-r2.json markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2 passed
+cured-r2.json the root accent leg — `--accent-live` vs the LIVE resting-rung ground  passed
+cured-r2.json readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 passed
+cured-r2.json the channel letters ≥4.5:1 on the console well (rest rung) passed
+cured-r2.json ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34 passed
+cured-r2.json readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 passed
+cured-r2.json the channel letters ≥4.5:1 on the console well (rest rung) passed
+cured-r2.json ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34 passed
+cured-r2.json the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ passed
+cured-r2.json the letterform gate — dropdown options compute weight 400; the specime passed
+cured-r2.json the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground  passed
+cured-r2.json the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 ·  passed
+cured-r2.json the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ passed
+cured-r2.json the letterform gate — dropdown options compute weight 400; the specime passed
+cured-r2.json the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground  passed
+cured-r2.json the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 ·  passed
+cured-r2.json the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C passed
+cured-r2.json the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C passed
+cured-r2.json the admin pill — the ONE ink that bypasses certification (A-1) passed
+cured-r2.json the profile menu ROW LABELS — the unguarded population, over live cont passed
+cured-r2.json the admin pill — the ONE ink that bypasses certification (A-1) passed
+cured-r2.json the profile menu ROW LABELS — the unguarded population, over live cont passed
+cured-r2.json the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold passed
+cured-r2.json the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold passed
+cured-r2.json  (light) passed SS8-0363 light {"normal":{"ratio":12.100721665537625,"ink":[0,0,0],"ground":[226,186,201]},"more":{"ratio":16.35955349285024,"ink":[0,0,0],"ground":[236,225,219]}}
+cured-r2.json o (dark) passed SS8-0363 dark {"normal":{"ratio":6.498690841637178,"ink":[194,191,190],"ground":[78,46,54]},"more":{"ratio":11.305421333532044,"ink":[255,255,255],"ground":[68,56,50]}}
+cured-r2.json light · seed default passed
+cured-r2.json light · seed oklch(0.62 0.16 240) passed
+cured-r2.json dark · seed default passed
+cured-r2.json dark · seed oklch(0.62 0.16 240) passed

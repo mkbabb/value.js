@@ -1,0 +1,3 @@
+#!/bin/bash
+# host: run under `guarded`. args: tag project grep specs...
+exec docker run --rm --cpus 4 --memory 12g --shm-size=2g -v $HOME/.dev-logs/e2a:/w -w /w/tree mcr.microsoft.com/playwright:v1.60.0-noble bash /w/run.sh "$@"

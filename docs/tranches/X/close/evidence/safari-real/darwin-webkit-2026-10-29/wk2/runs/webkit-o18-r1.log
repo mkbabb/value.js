@@ -1,0 +1,142 @@
+(node:46258) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:46295) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:46363) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+[1A[2K[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+[1A[2K[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m3362 │[0m /* #__PURE__ */
+[2m[WebServer] [22m [38;5;240m     │[0m ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m        ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+
+[1A[2K[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+[2m[WebServer] [22m [38;5;240m     │[0m                       ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+
+[1A[2K[2m[WebServer] [22mError: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+[2m[WebServer] [22m    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+[2m[WebServer] [22m    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+[2m[WebServer] [22m    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+[2m[WebServer] [22m    at o (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js:8:44)
+[2m[WebServer] [22m    at F (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:110:7)
+[2m[WebServer] [22m    at xe (file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/aurora.js:117:60)
+[2m[WebServer] [22m    at useAtmosphere (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:9928:27)
+[2m[WebServer] [22m    at useAtmosphereBoot (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10081:80)
+[2m[WebServer] [22m    at setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10517:48)
+[2m[WebServer] [22m    at App_vue_vue_type_script_setup_true_lang_default.setup (file:///Users/mkbabb/Programming/value.js/node_modules/.vjs-prerender/entry-server.js:10654:22) [90mundefined[39m
+
+
+Running 32 tests using 1 worker
+
+[1A[2K(node:46470) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:564:9 › O-18 U-F26 accent-view leg (light) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[1A[2K[2/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:564:9 › O-18 U-F26 accent-view leg (dark) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[1A[2K[3/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:733:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[1A[2K[4/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:808:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[1A[2K  1) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:808:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: resting node ink rgb(254 250 247) vs rgb(122 120 119)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.21[39m
+
+      824 |                 resting!.ratio,
+      825 |                 `resting node ink ${resting!.ink} vs ${resting!.ground}`,
+    > 826 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+          |               ^
+      827 |
+      828 |             // Hovered: the fill goes live-colored and the ink derives from
+      829 |             // the FILL (contrastInkFor — WCAG-maximal, a pass by construction).
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:826:15
+
+    Error Context: test-results/o18-contrast-census-O-18-c-27e88--fill-derived-ink-together--oracles-safari/error-context.md
+
+
+[1A[2K(node:46688) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:862:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[1A[2K  2) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:862:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) 
+
+    Error: code ink rgb(255 249 247) vs rgb(122 120 119)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.19[39m
+
+      890 |                     code.ratio,
+      891 |                     `code ink ${code.ink} vs ${code.ground}`,
+    > 892 |                 ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+          |                   ^
+      893 |             }
+      894 |         });
+      895 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:892:19
+
+    Error Context: test-results/o18-contrast-census-O-18-c-7bb5c-he-rung-1-plate-h-gaps-G-2--oracles-safari/error-context.md
+
+
+[1A[2K(node:46737) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[6/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:896:9 › O-18 census (light) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)
+[1A[2K[7/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:733:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[1A[2K[8/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:808:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[1A[2K[9/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:862:9 › O-18 census (dark) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[1A[2K[10/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:896:9 › O-18 census (dark) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)
+[1A[2K[11/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:990:9 › O-18 W4 rows (light) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1
+[1A[2K[12/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1008:9 › O-18 W4 rows (light) › the channel letters ≥4.5:1 on the console well (rest rung)
+[1A[2K[13/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1034:9 › O-18 W4 rows (light) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1
+[1A[2K[14/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:990:9 › O-18 W4 rows (dark) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1
+[1A[2K[15/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1008:9 › O-18 W4 rows (dark) › the channel letters ≥4.5:1 on the console well (rest rung)
+[1A[2K[16/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1034:9 › O-18 W4 rows (dark) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1
+[1A[2K[17/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1088:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)
+[1A[2K[18/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1147:9 › O-18 W6.5 legs (light) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)
+[1A[2K[19/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1191:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)
+[1A[2K[20/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1260:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 · WCAG 1.4.11)
+[1A[2K[21/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1088:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)
+[1A[2K[22/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1147:9 › O-18 W6.5 legs (dark) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)
+[1A[2K[23/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1191:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)
+[1A[2K[24/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1260:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 · WCAG 1.4.11)
+[1A[2K[25/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1308:9 › O-18 config-track graphics leg (light) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)
+[1A[2K[26/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1308:9 › O-18 config-track graphics leg (dark) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)
+[1A[2K[27/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1423:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1)
+[1A[2K[28/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1475:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3)
+[1A[2K[29/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1423:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1)
+[1A[2K[30/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1475:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3)
+[1A[2K[31/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1572:9 › O-18 census · V15-01 the featured badge (light) › the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold
+[1A[2K[32/32] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1572:9 › O-18 census · V15-01 the featured badge (dark) › the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold
+[1A[2K  2 failed
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:808:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:862:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) 
+  30 passed (39.4s)

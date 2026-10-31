@@ -1,0 +1,304 @@
+(node:3068) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:3159) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 216 tests using 1 worker
+
+[1A[2K(node:3386) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/216] [visual] › e2e/visual/admin-populated.visual.spec.ts:34:9 › seeded-admin › admin-names populated · 1024 · light
+[1A[2K[2/216] [visual] › e2e/visual/admin-populated.visual.spec.ts:34:9 › seeded-admin › admin-names populated · 1024 · dark
+[1A[2K[3/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-users · admin-users · light
+[1A[2K[4/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-names · admin-names · light
+[1A[2K[5/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-audit · admin-audit · light
+[1A[2K[6/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-flagged · admin-flagged · light
+[1A[2K[7/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-tags · admin-tags · light
+[1A[2K[8/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-users · admin-users · dark
+[1A[2K[9/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-names · admin-names · dark
+[1A[2K[10/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-audit · admin-audit · dark
+[1A[2K[11/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-flagged · admin-flagged · dark
+[1A[2K[12/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-tags · admin-tags · dark
+[1A[2K[13/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-users · both · light
+[1A[2K[14/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-names · both · light
+[1A[2K[15/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-audit · both · light
+[1A[2K[16/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-flagged · both · light
+[1A[2K[17/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-tags · both · light
+[1A[2K[18/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-users · both · dark
+[1A[2K[19/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-names · both · dark
+[1A[2K[20/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-audit · both · dark
+[1A[2K[21/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-flagged · both · dark
+[1A[2K[22/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-tags · both · dark
+[1A[2K[23/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-users · both · light
+[1A[2K[24/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-names · both · light
+[1A[2K[25/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-audit · both · light
+[1A[2K[26/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-flagged · both · light
+[1A[2K[27/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-tags · both · light
+[1A[2K[28/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-users · both · dark
+[1A[2K[29/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-names · both · dark
+[1A[2K[30/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-audit · both · dark
+[1A[2K[31/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-flagged · both · dark
+[1A[2K[32/216] [visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-tags · both · dark
+[1A[2K[33/216] [visual] › e2e/visual/census-parity.spec.ts:127:1 › the visual census is exactly the router's route table
+[1A[2K[34/216] [visual] › e2e/visual/census-parity.spec.ts:137:1 › the visual census is exactly viewSchema's ViewId union
+[1A[2K[35/216] [visual] › e2e/visual/census-parity.spec.ts:144:1 › every pane-hosted surface is reachable by some cell
+[1A[2K[36/216] [visual] › e2e/visual/census-parity.spec.ts:180:1 › every census route names exactly viewSchema's regions, in order
+[1A[2K[37/216] [visual] › e2e/visual/census-parity.spec.ts:196:1 › the census strictly supersedes the shipped five-route sample
+[1A[2K[38/216] [visual] › e2e/visual/census-parity.spec.ts:212:1 › the route-arm cell count is derived, never asserted
+[1A[2K[39/216] [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest
+[1A[2K[40/216] [visual] › e2e/visual/golden-integrity.spec.ts:140:1 › no committed golden is a single flat colour
+[1A[2K[41/216] [visual] › e2e/visual/golden-integrity.spec.ts:187:1 › no golden exists that the manifest does not record
+[1A[2K[42/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › picker
+[1A[2K[43/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › palettes
+[1A[2K[44/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › browse
+[1A[2K[45/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › extract
+[1A[2K[46/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › mix
+[1A[2K[47/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › generate
+[1A[2K[48/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › gradient
+[1A[2K[49/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › atmosphere
+[1A[2K[50/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › blob
+[1A[2K[51/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-users
+[1A[2K[52/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-names
+[1A[2K[53/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-audit
+[1A[2K[54/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-flagged
+[1A[2K[55/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-tags
+[1A[2K[56/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › not-found
+[1A[2K[57/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › picker
+[1A[2K[58/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › palettes
+[1A[2K[59/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › browse
+[1A[2K[60/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › extract
+[1A[2K[61/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › mix
+[1A[2K[62/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › generate
+[1A[2K[63/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › gradient
+[1A[2K[64/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › atmosphere
+[1A[2K[65/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › blob
+[1A[2K[66/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › admin-users
+[1A[2K[67/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › admin-names
+[1A[2K[68/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › admin-audit
+[1A[2K[69/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › admin-flagged
+[1A[2K[70/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › admin-tags
+[1A[2K[71/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › not-found
+[1A[2K[72/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › picker
+[1A[2K[73/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › palettes
+[1A[2K[74/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › browse
+[1A[2K[75/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › extract
+[1A[2K[76/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › mix
+[1A[2K[77/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › generate
+[1A[2K[78/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › gradient
+[1A[2K[79/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › atmosphere
+[1A[2K[80/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › blob
+[1A[2K[81/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › admin-users
+[1A[2K[82/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › admin-names
+[1A[2K[83/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › admin-audit
+[1A[2K[84/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › admin-flagged
+[1A[2K[85/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › admin-tags
+[1A[2K[86/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › not-found
+[1A[2K[87/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › picker
+[1A[2K[88/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › palettes
+[1A[2K[89/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › browse
+[1A[2K[90/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › extract
+[1A[2K[91/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › mix
+[1A[2K[92/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › generate
+[1A[2K[93/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › gradient
+[1A[2K[94/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › atmosphere
+[1A[2K[95/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › blob
+[1A[2K[96/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-users
+[1A[2K[97/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-names
+[1A[2K[98/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-audit
+[1A[2K[99/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-flagged
+[1A[2K[100/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-tags
+[1A[2K[101/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › not-found
+[1A[2K[102/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › picker
+[1A[2K  1) [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › picker 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: screencast.showOverlays: Target page, context or browser has been closed
+
+       at visual/fixtures.ts:169
+
+      167 |             // measured floors and for what it deliberately does NOT cover.
+      168 |             await assertRendered(page, name);
+    > 169 |             await expect(page).toHaveScreenshot(name, {
+          |             ^
+      170 |                 fullPage: true,
+      171 |                 animations: "disabled",
+      172 |                 caret: "hide",
+        at Object.shot (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/fixtures.ts:169:13)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/modality.visual.spec.ts:183:17
+
+    Error Context: test-results/modality.visual-rtl-mobile-9b6f6-O-WAVE-OWNER-witness-picker-visual/error-context.md
+
+
+[1A[2K(node:22679) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[103/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › palettes
+[1A[2K[104/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › browse
+[1A[2K[105/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › extract
+[1A[2K[106/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › mix
+[1A[2K[107/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › generate
+[1A[2K[108/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › gradient
+[1A[2K[109/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › atmosphere
+[1A[2K[110/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › blob
+[1A[2K[111/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-users
+[1A[2K[112/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-names
+[1A[2K[113/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-audit
+[1A[2K[114/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-flagged
+[1A[2K[115/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-tags
+[1A[2K[116/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › not-found
+[1A[2K[117/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › picker
+[1A[2K[118/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › palettes
+[1A[2K[119/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › browse
+[1A[2K[120/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › extract
+[1A[2K[121/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › mix
+[1A[2K[122/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › generate
+[1A[2K[123/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › gradient
+[1A[2K[124/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › atmosphere
+[1A[2K[125/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › blob
+[1A[2K[126/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › admin-users
+[1A[2K[127/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › admin-names
+[1A[2K[128/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › admin-audit
+[1A[2K[129/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › admin-flagged
+[1A[2K[130/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › admin-tags
+[1A[2K[131/216] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › not-found
+[1A[2K[132/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 390 · light
+[1A[2K[133/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 390 · light
+[1A[2K[134/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 390 · dark
+[1A[2K[135/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 390 · dark
+[1A[2K[136/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 1024 · light
+[1A[2K[137/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 1024 · light
+[1A[2K[138/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 1024 · dark
+[1A[2K[139/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 1024 · dark
+[1A[2K[140/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 3440 · light
+[1A[2K[141/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 3440 · light
+[1A[2K[142/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card rest · 3440 · dark
+[1A[2K[143/216] [visual] › e2e/visual/palette-card.visual.spec.ts:44:17 › palette-card › palette-card hover · 3440 · dark
+[1A[2K[144/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · both · light
+[1A[2K  2) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · both · light ─────
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: screencast.showOverlays: Target page, context or browser has been closed
+
+       at visual/fixtures.ts:169
+
+      167 |             // measured floors and for what it deliberately does NOT cover.
+      168 |             await assertRendered(page, name);
+    > 169 |             await expect(page).toHaveScreenshot(name, {
+          |             ^
+      170 |                 fullPage: true,
+      171 |                 animations: "disabled",
+      172 |                 caret: "hide",
+        at Object.shot (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/fixtures.ts:169:13)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/routes.visual.spec.ts:89:25
+
+    Error Context: test-results/routes.visual-at-rest-·-390-picker-·-both-·-light-visual/error-context.md
+
+
+[1A[2K(node:37559) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[145/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · both · light
+[1A[2K[146/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · both · light
+[1A[2K[147/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · both · light
+[1A[2K[148/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · both · light
+[1A[2K[149/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · both · light
+[1A[2K[150/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · both · light
+[1A[2K[151/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › atmosphere · atmosphere · light
+[1A[2K[152/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · both · light
+[1A[2K[153/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › not-found · not-found · light
+[1A[2K[154/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · both · dark
+[1A[2K  3) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · both · dark ──────
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: screencast.showOverlays: Target page, context or browser has been closed
+
+       at visual/fixtures.ts:169
+
+      167 |             // measured floors and for what it deliberately does NOT cover.
+      168 |             await assertRendered(page, name);
+    > 169 |             await expect(page).toHaveScreenshot(name, {
+          |             ^
+      170 |                 fullPage: true,
+      171 |                 animations: "disabled",
+      172 |                 caret: "hide",
+        at Object.shot (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/fixtures.ts:169:13)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/visual/routes.visual.spec.ts:89:25
+
+    Error Context: test-results/routes.visual-at-rest-·-390-picker-·-both-·-dark-visual/error-context.md
+
+
+[1A[2K(node:41137) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[155/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · both · dark
+[1A[2K[156/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · both · dark
+[1A[2K[157/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · both · dark
+[1A[2K[158/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · both · dark
+[1A[2K[159/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · both · dark
+[1A[2K[160/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · both · dark
+[1A[2K[161/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › atmosphere · atmosphere · dark
+[1A[2K[162/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · both · dark
+[1A[2K[163/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › not-found · not-found · dark
+[1A[2K[164/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › picker · both · light
+[1A[2K[165/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › palettes · both · light
+[1A[2K[166/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › browse · both · light
+[1A[2K[167/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › extract · both · light
+[1A[2K[168/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › mix · both · light
+[1A[2K[169/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › generate · both · light
+[1A[2K[170/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › gradient · both · light
+[1A[2K[171/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › atmosphere · both · light
+[1A[2K[172/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › blob · both · light
+[1A[2K[173/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › not-found · both · light
+[1A[2K[174/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › picker · both · dark
+[1A[2K[175/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › palettes · both · dark
+[1A[2K[176/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › browse · both · dark
+[1A[2K[177/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › extract · both · dark
+[1A[2K[178/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › mix · both · dark
+[1A[2K[179/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › generate · both · dark
+[1A[2K[180/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › gradient · both · dark
+[1A[2K[181/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › atmosphere · both · dark
+[1A[2K[182/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › blob · both · dark
+[1A[2K[183/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › not-found · both · dark
+[1A[2K[184/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › picker · both · light
+[1A[2K[185/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › palettes · both · light
+[1A[2K[186/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › browse · both · light
+[1A[2K[187/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › extract · both · light
+[1A[2K[188/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › mix · both · light
+[1A[2K[189/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › generate · both · light
+[1A[2K[190/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › gradient · both · light
+[1A[2K[191/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › atmosphere · both · light
+[1A[2K[192/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › blob · both · light
+[1A[2K[193/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › not-found · both · light
+[1A[2K[194/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › picker · both · dark
+[1A[2K[195/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › palettes · both · dark
+[1A[2K[196/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › browse · both · dark
+[1A[2K[197/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › extract · both · dark
+[1A[2K[198/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › mix · both · dark
+[1A[2K[199/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › generate · both · dark
+[1A[2K[200/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › gradient · both · dark
+[1A[2K[201/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › atmosphere · both · dark
+[1A[2K[202/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › blob · both · dark
+[1A[2K[203/216] [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › not-found · both · dark
+[1A[2K[204/216] [visual] › e2e/visual/states.visual.spec.ts:92:9 › seeded-storage › palettes populated · 1024 · light
+[1A[2K[205/216] [visual] › e2e/visual/states.visual.spec.ts:92:9 › seeded-storage › palettes populated · 1024 · dark
+[1A[2K[206/216] [visual] › e2e/visual/states.visual.spec.ts:119:5 › seeded-storage › palettes populated · 390 · light
+[1A[2K[207/216] [visual] › e2e/visual/states.visual.spec.ts:144:9 › seeded-fixture › browse mid-fetch · 1024 · light
+[1A[2K[208/216] [visual] › e2e/visual/states.visual.spec.ts:144:9 › seeded-fixture › browse mid-fetch · 1024 · dark
+[1A[2K[209/216] [visual] › e2e/visual/states.visual.spec.ts:183:9 › overlay › dock view-select open · 1024 · light
+[1A[2K[210/216] [visual] › e2e/visual/states.visual.spec.ts:183:9 › overlay › dock view-select open · 1024 · dark
+[1A[2K[211/216] [visual] › e2e/visual/states.visual.spec.ts:217:5 › forced-state › api-unavailable latch · 1024 · light
+[1A[2K[212/216] [visual] › e2e/visual/states.visual.spec.ts:260:9 › param-sweep › oklch · 1024 · light
+[1A[2K[213/216] [visual] › e2e/visual/states.visual.spec.ts:260:9 › param-sweep › hsl · 1024 · light
+[1A[2K[214/216] [visual] › e2e/visual/states.visual.spec.ts:260:9 › param-sweep › rgb · 1024 · light
+[1A[2K[215/216] [visual] › e2e/visual/substrate-integrity.spec.ts:38:1 › the dev-misconfig lamp is dark — VITE_API_URL reached the app
+[1A[2K[216/216] [visual] › e2e/visual/substrate-integrity.spec.ts:57:1 › no request leaves the page origin — inv-K-5 held at capture time
+[1A[2K  3 failed
+    [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › picker 
+    [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · both · light ──────
+    [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · both · dark ───────
+  213 passed (30.5m)

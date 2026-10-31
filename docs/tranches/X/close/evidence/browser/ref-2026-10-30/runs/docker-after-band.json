@@ -1,0 +1,421 @@
+{
+  "config": {
+    "configFile": "/w/tree/playwright.config.ts",
+    "rootDir": "/w/tree/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/w/tree/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/w/tree/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/w/tree/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/w/tree/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/w/tree/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/w/tree/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/zz-ref-band.spec.ts",
+      "file": "smoke/zz-ref-band.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "band hue 0",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16301,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 0 {\"ambient\":\"0.6218\",\"color\":\"oklch(0.0345487 0.0140058 0)\",\"dock\":[499.90625,440.1875],\"tools\":[674.109375,41.890625],\"oraclePlate\":{\"rgb\":\"177,78,151\",\"Y\":0.1703,\"black\":4.41,\"white\":4.77},\"under\":[{\"rgb\":\"194,82,151\",\"Y\":0.1974,\"black\":4.95,\"white\":4.24},{\"rgb\":\"193,81,151\",\"Y\":0.1946,\"black\":4.89,\"white\":4.29},{\"rgb\":\"197,82,151\",\"Y\":0.2014,\"black\":5.03,\"white\":4.18}],\"bandMaxY\":{\"rgb\":\"209,88,145\",\"Y\":0.2258,\"black\":5.52,\"white\":3.81},\"bandMinY\":{\"rgb\":\"177,78,151\",\"Y\":0.1703,\"black\":4.41,\"white\":4.77}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T21:48:01.689Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-81ff5c12d8da89a44383",
+          "file": "smoke/zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "band hue 60",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9373,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 60 {\"ambient\":\"0.6218\",\"color\":\"oklch(0.0385271 0.0090351 60)\",\"dock\":[499.90625,440.1875],\"tools\":[674.109375,41.890625],\"oraclePlate\":{\"rgb\":\"198,80,40\",\"Y\":0.179,\"black\":4.58,\"white\":4.59},\"under\":[{\"rgb\":\"209,88,28\",\"Y\":0.2062,\"black\":5.12,\"white\":4.1},{\"rgb\":\"208,88,31\",\"Y\":0.2049,\"black\":5.1,\"white\":4.12},{\"rgb\":\"210,89,27\",\"Y\":0.2093,\"black\":5.19,\"white\":4.05}],\"bandMaxY\":{\"rgb\":\"212,101,24\",\"Y\":0.2337,\"black\":5.67,\"white\":3.7},\"bandMinY\":{\"rgb\":\"198,80,40\",\"Y\":0.179,\"black\":4.58,\"white\":4.59}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T21:48:18.112Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-4207069e1a7607a444ed",
+          "file": "smoke/zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "band hue 120",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8975,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 120 {\"ambient\":\"0.6218\",\"color\":\"oklch(0.0373721 0.00887276 120)\",\"dock\":[499.90625,440.1875],\"tools\":[674.109375,41.890625],\"oraclePlate\":{\"rgb\":\"127,122,16\",\"Y\":0.1847,\"black\":4.69,\"white\":4.47},\"under\":[{\"rgb\":\"132,132,17\",\"Y\":0.2145,\"black\":5.29,\"white\":3.97},{\"rgb\":\"131,130,17\",\"Y\":0.2083,\"black\":5.17,\"white\":4.06},{\"rgb\":\"132,133,16\",\"Y\":0.2172,\"black\":5.34,\"white\":3.93}],\"bandMaxY\":{\"rgb\":\"129,142,24\",\"Y\":0.2408,\"black\":5.82,\"white\":3.61},\"bandMinY\":{\"rgb\":\"127,122,16\",\"Y\":0.1847,\"black\":4.69,\"white\":4.47}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T21:48:27.491Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-3f246c6c25c21986e0bf",
+          "file": "smoke/zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "band hue 180",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11128,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 180 {\"ambient\":\"0.6218\",\"color\":\"oklch(0.0370266 0.00671774 180)\",\"dock\":[499.90625,440.1875],\"tools\":[674.109375,41.890625],\"oraclePlate\":{\"rgb\":\"26,141,99\",\"Y\":0.2017,\"black\":5.03,\"white\":4.17},\"under\":[{\"rgb\":\"26,149,112\",\"Y\":0.2288,\"black\":5.58,\"white\":3.77},{\"rgb\":\"26,149,111\",\"Y\":0.2286,\"black\":5.57,\"white\":3.77},{\"rgb\":\"26,150,115\",\"Y\":0.2327,\"black\":5.65,\"white\":3.71}],\"bandMaxY\":{\"rgb\":\"27,158,129\",\"Y\":0.2627,\"black\":6.25,\"white\":3.36},\"bandMinY\":{\"rgb\":\"26,141,99\",\"Y\":0.2017,\"black\":5.03,\"white\":4.17}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T21:48:36.473Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-4acbba1e0e6f52a262b2",
+          "file": "smoke/zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "band hue 240",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8854,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 240 {\"ambient\":\"0.6218\",\"color\":\"oklch(0.0376121 0.00861545 240)\",\"dock\":[499.90625,440.1875],\"tools\":[674.109375,41.890625],\"oraclePlate\":{\"rgb\":\"25,132,168\",\"Y\":0.1954,\"black\":4.91,\"white\":4.28},\"under\":[{\"rgb\":\"26,140,183\",\"Y\":0.2239,\"black\":5.48,\"white\":3.83},{\"rgb\":\"26,139,181\",\"Y\":0.2202,\"black\":5.4,\"white\":3.89},{\"rgb\":\"25,140,185\",\"Y\":0.2247,\"black\":5.49,\"white\":3.82}],\"bandMaxY\":{\"rgb\":\"36,145,199\",\"Y\":0.2475,\"black\":5.95,\"white\":3.53},\"bandMinY\":{\"rgb\":\"25,132,168\",\"Y\":0.1954,\"black\":4.91,\"white\":4.28}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T21:48:47.610Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-284e77f50c3cf343f0e2",
+          "file": "smoke/zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "band hue 300",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8733,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-band] 300 {\"ambient\":\"0.6218\",\"color\":\"oklch(0.029457 0.0157239 300)\",\"dock\":[499.90625,440.1875],\"tools\":[674.109375,41.890625],\"oraclePlate\":{\"rgb\":\"94,106,208\",\"Y\":0.1724,\"black\":4.45,\"white\":4.72},\"under\":[{\"rgb\":\"115,109,220\",\"Y\":0.1975,\"black\":4.95,\"white\":4.24},{\"rgb\":\"113,108,219\",\"Y\":0.1935,\"black\":4.87,\"white\":4.31},{\"rgb\":\"119,109,221\",\"Y\":0.2008,\"black\":5.02,\"white\":4.19}],\"bandMaxY\":{\"rgb\":\"138,113,222\",\"Y\":0.2249,\"black\":5.5,\"white\":3.82},\"bandMinY\":{\"rgb\":\"94,106,208\",\"Y\":0.1724,\"black\":4.45,\"white\":4.72}}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T21:48:56.474Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0140341ca2e8cdc29183-f44ba42cc73743acbf37",
+          "file": "smoke/zz-ref-band.spec.ts",
+          "line": 16,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T21:47:59.256Z",
+    "duration": 66101.037,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

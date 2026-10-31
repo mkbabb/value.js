@@ -1,0 +1,42 @@
+// SERVED MODEL: claude-opus-5-5 — X.W11.ref transient measure (copy kept in the evidence cell).
+import { test, type Page } from "@playwright/test";
+const TOOLS = '[aria-label="Toggle action bar"]';
+async function px(page: Page, pts: number[][]) {
+    const png = await page.screenshot();
+    return page.evaluate(async ({ b64, pts }) => {
+        const img = new Image(); img.src = `data:image/png;base64,${b64}`; await img.decode();
+        const c = document.createElement("canvas"); c.width = img.width; c.height = img.height;
+        const g = c.getContext("2d")!; g.drawImage(img, 0, 0);
+        return pts.map(([x, y]) => Array.from(g.getImageData(Math.round(x!), Math.round(y!), 1, 1).data.slice(0, 3)));
+    }, { b64: png.toString("base64"), pts });
+}
+const lin = (c: number) => { const v = c / 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+const Y = ([r, g, b]: number[]) => 0.2126 * lin(r!) + 0.7152 * lin(g!) + 0.0722 * lin(b!);
+for (const hue of [0, 60, 120, 180, 240, 300]) {
+    test(`band hue ${hue}`, async ({ page }) => {
+        await page.setViewportSize({ width: 1440, height: 900 });
+        await page.emulateMedia({ colorScheme: "light" });
+        await page.addInitScript(([css]) => {
+            localStorage.setItem("vueuse-color-scheme", "light");
+            localStorage.setItem("color-picker", JSON.stringify({ inputColor: css, savedColors: [] }));
+        }, [`oklch(0.62 0.16 ${hue})`] as const);
+        await page.goto("/#/", { waitUntil: "load", timeout: 240_000 });
+        await page.waitForSelector(".glass-dock", { timeout: 60_000 });
+        await page.waitForTimeout(2000);
+        const d = (await page.locator(".glass-dock").first().boundingBox())!;
+        await page.mouse.move(d.x + 3, d.y + d.height / 2);
+        await page.waitForTimeout(300);
+        const tools = (await page.locator(`${TOOLS} span`).boundingBox())!;
+        const color = await page.locator(`${TOOLS} span`).evaluate((e) => getComputedStyle(e).color);
+        const ambient = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--ink-ambient-l"));
+        // Veil every dock glyph so the band's own ground reads.
+        await page.addStyleTag({ content: ".glass-dock *{color:transparent!important;fill:transparent!important;stroke:transparent!important;text-shadow:none!important}" });
+        await page.waitForTimeout(200);
+        const y = d.y + d.height / 2;
+        const xs: number[] = []; for (let x = d.x + 6; x < d.x + d.width - 4; x += 30) xs.push(x);
+        const band = await px(page, xs.map((x) => [x, y]));
+        const under = await px(page, [[tools.x + tools.width / 2, tools.y + tools.height / 2], [tools.x + 1, tools.y + 1], [tools.x + tools.width - 1, tools.y + tools.height - 1]]);
+        const R = (c: number[]) => ({ rgb: c.join(","), Y: +Y(c).toFixed(4), black: +((Y(c) + .05) / .05).toFixed(2), white: +(1.05 / (Y(c) + .05)).toFixed(2) });
+        console.log(`[ref-band] ${hue} ${JSON.stringify({ ambient, color, dock: [d.x, d.width], tools: [tools.x, tools.width], oraclePlate: R(band[0]!), under: under.map(R), bandMaxY: R(band.reduce((a, b) => (Y(a) > Y(b) ? a : b))), bandMinY: R(band.reduce((a, b) => (Y(a) < Y(b) ? a : b))) })}`);
+    });
+}

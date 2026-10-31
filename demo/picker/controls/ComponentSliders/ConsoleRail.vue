@@ -10,6 +10,7 @@
          INK). The chassis persists across space changes; only the letters
          re-key (N-2). -->
     <div
+        ref="railEl"
         role="tablist"
         aria-orientation="vertical"
         aria-label="Color channels"
@@ -22,7 +23,11 @@
             :class="cascade && 'stagger-children'"
         >
             <TooltipProvider :delay-duration="300">
-                <Tooltip v-for="component in components" :key="component">
+                <Tooltip
+                    v-for="component in components"
+                    :key="component"
+                    @update:open="(open: boolean) => open && measureTipGround(component)"
+                >
                     <TooltipTrigger as-child>
                         <button
                             :ref="(el: any) => { if (el) railItemEls[component] = el as HTMLButtonElement }"
@@ -72,7 +77,15 @@
                          (glass Tooltip `avoidCollisions`), so no viewport rung
                          re-seats it. It is also the static range's retirement
                          home #1 (W4-3 — the About card is #2). -->
-                    <TooltipContent side="left" class="max-w-56">
+                    <!-- X.W11.f1 (COHESION §0gr.2): the pair is certified
+                         against the ground it ACTUALLY sits on (the channel
+                         ramps under it), stamped on this plate only. -->
+                    <TooltipContent
+                        side="left"
+                        class="max-w-56"
+                        :data-rail-tip="component"
+                        :style="tipInkStyle(component)"
+                    >
                         <p class="font-display text-small font-semibold">{{ componentDescription(component) }}</p>
                         <!-- X-DS pass 16 (V16-08): the range is a readout, in the readout rung
                              with no case transform, in the floater's certified
@@ -86,7 +99,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref } from "vue";
+import { computed, inject, nextTick, ref, shallowRef } from "vue";
 import { useMounted } from "@vueuse/core";
 import {
     Tooltip,
@@ -99,6 +112,9 @@ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { contrastInkFor, resolveMutedInk } from "../../../color-session/ink";
 import {
     bumpProbeEpochOnMount,
+    groundLightness,
+    resolveFloatingPairOver,
+    resolvePaintCss,
     resolveSurfaceLightnessLive,
 } from "../../../color-session/useContrastSafeColor";
 import { colorSpaceInfo } from "../../../color-session/colorSpaceInfo";
@@ -118,7 +134,7 @@ const { components, active, animationKey, cascade } = defineProps<{
 
 const emit = defineEmits<{ select: [component: string] }>();
 
-const { currentColorSpace, currentColorRanges, cssColorOpaque } =
+const { currentColorSpace, currentColorRanges, cssColorOpaque, componentsSlidersStyle } =
     inject(COLOR_MODEL_KEY)!;
 
 // --- THE INK SYSTEM (D5/D6 — the channel-color conceit is DEAD) -----------
@@ -157,6 +173,99 @@ const restInk = computed(() =>
 const activeInk = computed(
     () => contrastInkFor(cssColorOpaque.value) ?? "var(--foreground)",
 );
+
+// --- THE TOOLTIP PAIR ON ITS REAL GROUND (X.W11.f1 · COHESION §0gr.2) -----
+// The anatomy tooltip floats over the console: its collision flip seats it
+// over the channel ramps (light: WCAG luminance 0.09–0.16 under the text,
+// ESC-SS8r-0039), never over the bare ambient the root floating pair is
+// certified on. On open, the instrument reads what actually lies under each
+// line of text: the ramp stops of every track the line overlaps (the alpha
+// ramp over both checker tones it shows through) and, where a line leaves
+// the tracks, the console's own veil ground. The pair is certified on that
+// composite as ONE plate-wide polarity (`resolveFloatingPairOver`) and
+// stamped on this tooltip's plate as its `--ink-floating-*`, so title and
+// caption flip together or not at all (§0gm.4).
+const railEl = ref<HTMLElement | null>(null);
+const tipGrounds = shallowRef<Record<string, readonly number[]>>({});
+
+/** One ramp's stops ("<color> <t>%") bracketing the span [t0, t1]. */
+function stopsOver(stops: readonly string[], t0: number, t1: number): string[] {
+    const parsed = stops.map((stop) => {
+        const at = stop.lastIndexOf(" ");
+        return { css: stop.slice(0, at), t: Number.parseFloat(stop.slice(at + 1)) / 100 };
+    });
+    const lo = parsed.findLastIndex((s) => s.t <= t0);
+    const hi = parsed.findIndex((s) => s.t >= t1);
+    return parsed
+        .slice(Math.max(lo, 0), hi === -1 ? parsed.length : hi + 1)
+        .map((s) => s.css);
+}
+
+function measureTipGround(component: string): void {
+    const read = () => {
+        const tip = document.querySelector<HTMLElement>(`[data-rail-tip="${component}"]`);
+        const tracks = railEl.value
+            ?.closest(".sliders-console")
+            ?.querySelectorAll<HTMLElement>(".channel-strip .slider-track");
+        if (!tip || !tracks) return;
+        const checker = [
+            resolvePaintCss("var(--background)"),
+            resolvePaintCss("color-mix(in oklab, var(--foreground) 14%, var(--background))"),
+        ].filter((c): c is string => !!c);
+        const grounds: number[] = [];
+        let offTrack = false;
+        for (const line of tip.querySelectorAll<HTMLElement>("p")) {
+            const r = line.getBoundingClientRect();
+            if (!r.width || !r.height) continue;
+            let inside = false;
+            tracks.forEach((track, i) => {
+                const t = track.getBoundingClientRect();
+                const x0 = Math.max(r.left, t.left);
+                const x1 = Math.min(r.right, t.right);
+                if (x1 <= x0 || Math.min(r.bottom, t.bottom) <= Math.max(r.top, t.top)) return;
+                if (r.top >= t.top && r.bottom <= t.bottom && r.left >= t.left && r.right <= t.right)
+                    inside = true;
+                const name = components[i];
+                const stops = name ? componentsSlidersStyle.value[name] : undefined;
+                if (!stops) return;
+                for (const css of stopsOver(stops, (x0 - t.left) / t.width, (x1 - t.left) / t.width)) {
+                    if (name === "alpha")
+                        for (const under of checker) grounds.push(groundLightness(css, under));
+                    else grounds.push(groundLightness(css));
+                }
+            });
+            if (!inside) offTrack = true;
+        }
+        if (offTrack)
+            grounds.push(resolveSurfaceLightnessLive("veil", inkAmbient?.value ?? 0.5, isDark.value));
+        if (grounds.length) tipGrounds.value = { ...tipGrounds.value, [component]: grounds };
+    };
+    // The floater is placed after it mounts (collision flip included); read
+    // the settled placement, and again when its reveal lands.
+    void nextTick(() =>
+        requestAnimationFrame(() =>
+            requestAnimationFrame(() => {
+                read();
+                document
+                    .querySelector(`[data-rail-tip="${component}"]`)
+                    ?.addEventListener("animationend", read, { once: true });
+            }),
+        ),
+    );
+}
+
+const tipInks = computed(() => {
+    const out: Record<string, { primary: string; muted: string }> = {};
+    for (const [component, grounds] of Object.entries(tipGrounds.value))
+        out[component] = resolveFloatingPairOver(grounds, isDark.value);
+    return out;
+});
+function tipInkStyle(component: string): Record<string, string> | undefined {
+    const ink = tipInks.value[component];
+    return ink
+        ? { "--ink-floating-primary": ink.primary, "--ink-floating-muted": ink.muted }
+        : undefined;
+}
 
 // --- TRUE GLYPHS (N-1 — the A-collision dies) ------------------------------
 // The column speaks each space's OWN notation: `L a b α` for lab (CIELAB's

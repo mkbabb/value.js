@@ -1,0 +1,84 @@
+{
+ "webkit": {
+  "fractionalPointer": [
+   [
+    "pointerdown",
+    225,
+    225
+   ],
+   [
+    "mousedown",
+    225,
+    225
+   ],
+   [
+    "click",
+    225,
+    225
+   ]
+  ],
+  "paintEntries": {
+   "supported": [
+    "event",
+    "first-input",
+    "largest-contentful-paint",
+    "mark",
+    "measure",
+    "navigation",
+    "paint",
+    "resource"
+   ],
+   "paint": [
+    "first-contentful-paint"
+   ]
+  },
+  "tabFromInput": {
+   "tab": "c",
+   "altTab": "b"
+  }
+ },
+ "chromium": {
+  "fractionalPointer": [
+   [
+    "pointerdown",
+    225.5,
+    225.5
+   ],
+   [
+    "mousedown",
+    225,
+    226
+   ],
+   [
+    "click",
+    225,
+    226
+   ]
+  ],
+  "paintEntries": {
+   "supported": [
+    "element",
+    "event",
+    "first-input",
+    "largest-contentful-paint",
+    "layout-shift",
+    "long-animation-frame",
+    "longtask",
+    "mark",
+    "measure",
+    "navigation",
+    "paint",
+    "resource",
+    "visibility-state"
+   ],
+   "paint": [
+    "first-paint",
+    "first-contentful-paint"
+   ]
+  },
+  "tabFromInput": {
+   "tab": "b",
+   "altTab": "b"
+  }
+ }
+}

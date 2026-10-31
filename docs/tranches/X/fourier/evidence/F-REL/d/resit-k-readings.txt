@@ -1,0 +1,39 @@
+SERVED MODEL: claude-opus-5-5
+# F-REL.d RESUME (k) readings — 2026-10-27. No secret value, host address or infra detail (§0gh.4).
+
+## BEFORE (20:08–20:11Z, read-only)
+- host tree HEAD (git rev-parse --short HEAD) -> 79f1a43; last-green marker -> 79f1a43
+- webhook journal 18:38:58Z [e891df]: push of 50ef781 -> host hook (79f1a43's copy) "REFUSE — inv-31: FOURIER_DEPLOY_ALERT_WEBHOOK is unset." exit 1
+- gh redelivery (POST …/deliveries/<id>/attempts) -> HTTP 404 "needs the admin:repo_hook scope" (token scopes: repo, gist, read:org, admin:public_key)
+- deploy-path config: secret store key NAMES -> WEBHOOK_SECRET ADMIN_TOKEN (mode 600); repo .env key NAMES -> MONGO_USER MONGO_PASSWORD
+- 79f1a43's hook runs compose with the repo .env only, so 50ef781's docker-compose.prod.yml:15 `${ADMIN_TOKEN:?…}` cannot render under it
+- compose v5.6.0 COMPOSE_ENV_FILES probe (throwaway dir, busybox file requiring ADMIN_TOKEN + MONGO_USER): no env -> rc 1 "required variable … missing"; COMPOSE_ENV_FILES=<repo .env>,<secret store> -> rc 0
+- prod mongo container: HostConfig.Memory 536870912 (512 MiB), image mongo:8.0, healthcheck = mongosh probe every 5 s
+- mongo log, last 10 min: "Checking authorization failed" count -> 208 (R-j4 BEFORE > 0)
+
+## Deploy acts (20:11–20:17Z)
+- off-host poller started 20:11:11Z (before any host act)
+- hooks.json backed up (cp -p, mode 600), then the fourier arm got, for ONE bootstrap deploy, pass-environment-to-command:
+  FOURIER_DEPLOY_ALERT_WEBHOOK=<loopback discard URL> (.h1 design (b); the watched channel is the deploy-alert issue, §0ge.4)
+  COMPOSE_ENV_FILES=<repo .env>,<secret store> (compose reads the store itself; no secret value copied anywhere)
+- webhook reload: kill -USR1 -> "found 5 hook(s) … loaded: fourier-analysis" (the -hotreload watcher did not fire on the atomic replace)
+- dispatch #1 20:12:13Z: HMAC-signed push payload POSTed to the receiver on loopback (the hook's own trigger rule) -> [5c76f1] triggered
+  -> 79f1a43's hook: inv-28 GREEN, 79f1a43 -> 50ef781, build, mongo --no-recreate, backend/frontend switched, edge reloaded, health gate GREEN attempt 1/30, migrations OK, DEPLOY OK (resit-k-hook-1.txt)
+- hooks.json restored byte-identical to the backup (cmp rc 0; 0 pass-environment entries), USR1 reload -> 5 loaded
+- dispatch #2 20:15:00Z [e9a638] -> 50ef781's hook: "compose env: <store> supplies keys: WEBHOOK_SECRET ADMIN_TOKEN"; mongo definition changed -> cold backup (318329410 bytes) -> recreated healthy 20:15:54Z; switch; health gate GREEN 1/30; migrations OK; DEPLOY OK 50ef781 (resit-k-hook-2.txt)
+
+## AFTER (20:17–20:28Z)
+- /deploy-record.json -> outcome OK, deployed_sha 50ef781, recorded_at 2026-10-27T20:16:44Z
+- backend container: printenv ENV -> production; ADMIN_TOKEN present -> yes (value never read out)
+- /api/admin/verify, no token -> 403, 403 (20:17Z) and 403, 403 (20:23Z)
+- mongo container: HostConfig.Memory 1073741824 (1 GiB), image mongo:8.0.20, RestartCount 0, OOMKilled false, usage ~103 MiB / 1 GiB
+- healthcheck: mongosh --nodb --norc probe (no shell startup probes), interval 5 s; "Checking authorization failed": 0 over 20:15:48–20:17:12Z (16 intervals), 0 over 20:20:23–20:21:23Z (12 intervals)
+  (2 lines exist since start, at 20:17:26Z and 20:17:42Z: this seat's own two getParameter attempts as the app user, which lacks that privilege — not the healthcheck)
+- backend client (motor, inside the backend container; never mongosh in the mongo container): buildInfo.version 8.0.20; FCV (admin.system.version, store user) 8.0
+- data after the recreate: visualizations 14 = the §0gh.3 count (before the probes ran)
+- poller: 915 lines, 915 x 200, 0 non-200 (read x2); max gap 2 s; max latency 0.589 s; 245 lines inside deploy #1..#2 (20:12:13–20:16:45Z)
+- deploy-alert watcher: run 40577707656 (workflow_dispatch, sha 50ef781) success, "[deploy-alert] OK - 50ef781… deployed"; issue #1 closed 2026-10-27T20:24:29Z with that citation
+- prod-verify (guarded, headless shell): run 1 21/21 rc 0; run 2 10/17 rc 1 = 7 x 429 (it started the instant run 1 ended, inside run 1's 60 s write/compute window; the probe's budget tracker starts empty per process); run 3 (after a 75 s quiet gap) 21/21 rc 0
+- PD-1 x2: GET with Accept-Encoding: gzip -> 200, strong ETag, no Content-Encoding (application/json left gzip_types, §0fq arm (a)), ETag exposed; PATCH If-Match -> 200; stale replay -> 412; DELETE -> 204; PASS x2
+- pages-smoke x2 PASS; cert SPA Dec 22 20:13:07 2026 GMT, API Jan  4 15:19:06 2027 GMT; openapi 200 (42 paths, 0.2.0, diff/publish/remix/unpublish); health 200
+- probe residue: DELETE is a soft delete (deleted_at). visualizations 23 rows, all tombstoned (deleted_at set): 9 new today (7 draft + 2 public, all probe-titled), 14 from 10-16. 0 live probe rows; gallery lists 0 public rows.

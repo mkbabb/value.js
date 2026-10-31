@@ -1,0 +1,7 @@
+delay-proxy :8091 -> localhost:8000, compute held 3052 ms
+
+Running 2 tests using 1 worker
+
+[1/2] [chromium] › e2e/od19-load.spec.ts:363:9 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › equation: an in-app navigation reaches content within the bar, with a smooth transition
+[2/2] [chrome-gpu] › e2e/od19-load.spec.ts:375:13 › OD19-ALL · fourier load — every route, production bundle, CPU ×4 › on the real GPU › equation: an in-app navigation keeps the frame budget on ANGLE Metal @gpu
+  2 passed (22.3s)

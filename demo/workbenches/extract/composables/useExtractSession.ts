@@ -97,9 +97,12 @@ function createExtractSession() {
             (sum, entry) => sum + entry.source.population,
             0,
         );
+        // §0gt.5 (PCS-11): `position` is the colour's 0-based ORDER — the one
+        // encoding every producer writes, so the same colours in the same order
+        // hash identically whether Extract or Generate saved them.
         const colors: PaletteColor[] = presented.value.map((entry, i) => ({
             css: entry.serialized,
-            position: i / Math.max(1, presented.value.length - 1),
+            position: i,
             ...(total > 0 ? { weight: entry.source.population / total } : {}),
         }));
         return {

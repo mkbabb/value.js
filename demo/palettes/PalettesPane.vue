@@ -16,7 +16,7 @@
              About does: the end edge feathers instead of guillotining a line.
              X-DS pass 3 (V3C-01): the PaneHeader sits ABOVE the port, as its
              sibling (About's seat), so the list never runs under the title and
-             both port edges feather (PaneHeader.vue, the seated-header rule). -->
+             both port edges feather (glass FadingScroll; PaneShell's seated layout). -->
         <!-- T.W6 · W6-4 (Q5 RULED, T-43 owner-CONFIRMS: "'Palettes' should be
              rainbow"): the "Palettes" letterforms wear the guarded ramp — the
              SECOND of the exactly-two sanctioned sites (with the dock

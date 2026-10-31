@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { openView } from "../fixtures/dock";
+import { openView, dockSettled } from "../fixtures/dock";
 import {
     GATE,
     SOFT_CEIL,
@@ -62,9 +62,7 @@ test("view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (bui
     const pill = page.locator(".glass-dock.collapsed");
     if (await pill.count()) {
         await pill.click();
-        await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-            timeout: 5000,
-        });
+        await dockSettled(page);
     }
     const viewSelect = page.getByRole("combobox", { name: "Select view" });
     await expect(viewSelect).toBeVisible();

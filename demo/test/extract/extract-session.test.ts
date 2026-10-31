@@ -167,4 +167,19 @@ describe("extract session", () => {
             `linear-gradient(to right, ${colors[0]} 0% 33.3333%, ${colors[1]} 33.3333% 66.6667%, ${colors[2]} 66.6667% 100%)`,
         );
     });
+    it("§0gt.5 (PCS-3/PCS-11): the extracted palette carries 0-based ordinal positions and its population weights", async () => {
+        worker.palette = [
+            { color: { space: "oklch", channels: [0.6, 0.1, 30], alpha: 1 }, population: 5 },
+            { color: { space: "oklch", channels: [0.4, 0.12, 200], alpha: 1 }, population: 3 },
+            { color: { space: "oklch", channels: [0.8, 0.05, 90], alpha: 1 }, population: 2 },
+        ];
+        const { Host, get } = await holder();
+        mount(Host);
+        await get().onFile(png());
+        await flushPromises();
+        const colors = get().extractedPalette.value!.colors;
+        // position is the ORDER (Generate's encoding), never a gradient offset i/(n-1)
+        expect(colors.map((c) => c.position)).toEqual([0, 1, 2]);
+        expect(colors.map((c) => c.weight)).toEqual([0.5, 0.3, 0.2]);
+    });
 });

@@ -275,7 +275,13 @@ test("w12u-p — colour drags hold frame budget; the dock run is not re-rendered
         // freeze ceiling (W12U.md addendum (e), §0en/§0ei: the real-GPU cell
         // is the gate of record). Re-baselined X-W12U .q2: on software GL the
         // collector is live when it reads at least two frame intervals.
-        expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(soft ? 1 : 10);
+        // X.W11.v1f (COHESION §0gu.3, the §0fr.2/§0gp.2 law; ESC-W11v1e-2): a
+        // frame COUNT inside a 2 s wall-clock drag is itself a rate budget on
+        // the rasteriser (CI read 1 interval on a starved SwiftShader runner,
+        // "slider L/a: collector dead"), so the software leg asserts liveness
+        // only — the collector ticked. The real-GPU floor (> 10) and the
+        // p50/p95 bars are unchanged, read ×2 on the GPU cell.
+        expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(soft ? 0 : 10);
         expect(
             r.rovingFrames,
             `${r.name}: the dock run's roving observer fired on ${r.rovingFrames} of ${r.frames} frames`,

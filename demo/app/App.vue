@@ -92,11 +92,14 @@
                  visually-hidden text. The visible caption mounted in flow on
                  every titled→Home swap and pushed the pane row down 23–25 px;
                  hidden, it names <main> and takes focus but occupies no
-                 layout. -->
+                 layout. X.W11.v1 (O-10d): hidden is not voiceless; the
+                 route H1 keeps the display face it spoke while visible
+                 (`font-display`, dropped at bdd97b752), so the heading
+                 census still reads one title voice across the walk. -->
             <h1
                 v-if="!routeTitledByPane"
                 :id="ROUTE_TITLE_ID"
-                class="sr-only"
+                class="sr-only font-display"
                 tabindex="-1"
             >
                 {{ currentConfig.label }}
@@ -146,6 +149,7 @@
                     class="pane-wrapper w-full min-w-0 min-h-0"
                     :class="`pane-wrapper--${region.role}`"
                     :data-pane="region.key"
+                    :data-shown="shownPane[region.role] ?? region.key"
                     role="region"
                     :aria-label="region.label"
                 >
@@ -162,20 +166,16 @@
                          clears when the user moves to another pane, and the
                          slot's cache beneath it is never remounted. -->
                     <ErrorBoundary :reset-key="region.key">
-                        <PaneSlot
+                        <component
+                            :is="slotFor(region)"
                             :component="region.component"
                             :component-key="region.key"
                             :component-props="region.props"
-                            :on-mount="bindPane(region.role)"
+                            :on-mount="slotReports(region.role).onMount"
                             transition-name="vj-enter"
                             :max="PANE_CACHE_MAX[region.role]"
                             appear
-                            :on-appeared="
-                                (el: Element | null) =>
-                                    region.role === 'stage'
-                                        ? overture.noteLeftPlateSettled(el)
-                                        : overture.noteRightPlateSettled()
-                            "
+                            :on-appeared="slotReports(region.role).onAppeared"
                         />
                     </ErrorBoundary>
                 </div>
@@ -220,12 +220,16 @@
 import {
     computed,
     defineAsyncComponent,
+    hydrateOnIdle,
+    hydrateOnInteraction,
     onMounted,
     provide,
     ref,
     shallowRef,
     useTemplateRef,
     watch,
+    type Component,
+    type HydrationStrategy,
 } from "vue";
 import { useRoute } from "vue-router";
 import { useMounted } from "@vueuse/core";
@@ -242,9 +246,14 @@ import ErrorBoundary from "./ErrorBoundary.vue";
 import { useCustomColorNames } from "../color-session/useCustomColorNames";
 import { useColorUrl } from "../color-session/useColorUrl";
 
-import { ROUTE_TITLE_ID, useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
+import {
+    ROUTE_TITLE_ID,
+    useViewManager,
+    VIEW_MANAGER_KEY,
+    type RegionRole,
+} from "../shell/useViewManager";
 import { useColorPipeline } from "../color-session/useColorPipeline";
-import { usePaneRouter, PANE_CACHE_MAX } from "../shell/usePaneRouter";
+import { usePaneRouter, PANE_CACHE_MAX, preloadPane } from "../shell/usePaneRouter";
 import { useSceneTargets } from "../shell/useSceneTargets";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
 import { useClipboard } from "@mkbabb/glass-ui/dom";
@@ -263,6 +272,111 @@ import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 // still reached through the `dialog/` sub-barrel (U-F47 · G-DEMO-3b: never the
 // raw `.vue` file), and the barrel's siblings now ride the same lazy chunk
 // instead of the eager index.
+// X.W11.p4b · N2 (COHESION §0gm.3 / §0gn.2(c)) — the shell's hydration was ONE
+// task (1,020 ms on CI's lhci): App's setup and the hydration walk of every
+// region's markup. Only the first-paint pane hydrates in it now. Every other
+// region (the inspector, the action pane) hydrates its prerendered markup when
+// the main thread is next idle (`hydrateOnIdle`, Vue 3.5 lazy hydration),
+// through an async wrapper over the SAME PaneSlot, so the vnode tree the
+// prerender rendered is the tree hydrated. A client first view (no shell) has
+// nothing to hydrate and renders PaneSlot directly.
+const HYDRATES_SHELL =
+    import.meta.env.SSR || document.documentElement.dataset.firstView === "shell";
+// X.W11.p4c (COHESION §0go.2(a)) — the shell's panes now paint from the first
+// frame, so a region must hydrate the markup it painted, never re-mount it. A
+// lazy region's PaneSlot renders its plate phase until the pane's chunk has
+// resolved, and the plate phase is not the tree the prerender rendered: the
+// resolved pane would then MOUNT over the painted one, with a second entrance.
+// So the region's idle hydration also waits for its pane's chunk (the same
+// one load `preloadPane` shares with the slot); a failed chunk hydrates the
+// slot, whose plate phase shows the error plate as on any client view.
+// X.W11.p4d T1 (COHESION §0gs.4) — the stage's hydration walk left the App
+// mount task too. Its markup is painted from the shell, so only its
+// interactivity waits, and never on idle alone: the first pointer, key or
+// focus input on the region hydrates it at once (Vue replays that event on the
+// hydrated tree), and an idle main thread hydrates it otherwise.
+const STAGE_INPUTS: (keyof HTMLElementEventMap)[] = ["pointerdown", "keydown", "focusin"];
+const hydrateOnIdleOrInput: HydrationStrategy = (hydrate, forEach) => {
+    let hydrated = false;
+    const once = () => {
+        if (hydrated) return;
+        hydrated = true;
+        stopIdle?.();
+        stopInput?.();
+        hydrate();
+    };
+    const stopInput = hydrateOnInteraction(STAGE_INPUTS)(once, forEach);
+    const stopIdle = hydrateOnIdle()(once, forEach);
+    return () => {
+        stopIdle?.();
+        stopInput?.();
+    };
+};
+const idleHydratedSlots = new Map<RegionRole, Component>();
+function slotFor(region: { role: RegionRole; component: Component | null }): Component {
+    if (!HYDRATES_SHELL) return PaneSlot;
+    let slot = idleHydratedSlots.get(region.role);
+    if (slot === undefined) {
+        const firstPane = region.component;
+        slot = defineAsyncComponent({
+            loader: async () => {
+                const loading = firstPane === null ? null : preloadPane(firstPane);
+                if (loading !== null) await loading.then(noop, noop);
+                return PaneSlot;
+            },
+            hydrate: region.role === "stage" ? hydrateOnIdleOrInput : hydrateOnIdle(),
+        });
+        idleHydratedSlots.set(region.role, slot);
+    }
+    return slot;
+}
+const noop = () => {};
+
+// X.W11.p4c — a lazily hydrated region hydrates only if it is not updated
+// first (Vue skips the hydration of an async wrapper patched before its
+// strategy fires, and re-renders it over the painted markup). Every App render
+// used to hand each slot a NEW mount and settlement callback (a fresh
+// `bindPane` closure, an inline arrow), so the boot's own early re-renders
+// patched the inspector's wrapper and re-mounted its pane. The callbacks are
+// one pair per region role, made once.
+const slotReportsByRole = new Map<
+    RegionRole,
+    {
+        onMount: (instance: unknown, key: string) => void;
+        onAppeared: (el: Element | null) => void;
+    }
+>();
+// X.W11.o1 (COHESION §0gq.2(a), OD19-V7-390-ORDER) — the pane each region
+// DISPLAYS, as its slot reports it, stamped as the wrapper's `data-shown`.
+// The route-time `data-pane` moves at the input, but the slot commits its pane
+// after its hold and swaps it after the leave. shell.css's one-track order
+// rule reads this stamp, so the regions reorder when the panes do. A null
+// report is an unmount, and it carries the slot's NEXT key, so it never
+// stamps. Until a region's first report (and again after the region leaves
+// the scene), the stamp is the route key, which is what a freshly mounted
+// slot commits at once.
+const shownPane = ref<Partial<Record<RegionRole, string>>>({});
+
+function slotReports(role: RegionRole) {
+    let reports = slotReportsByRole.get(role);
+    if (reports === undefined) {
+        const bind = bindPane(role);
+        reports = {
+            onMount: (instance: unknown, key: string) => {
+                if (instance !== null && shownPane.value[role] !== key)
+                    shownPane.value[role] = key;
+                bind(instance, key);
+            },
+            onAppeared: (el: Element | null) =>
+                role === "stage"
+                    ? overture.noteLeftPlateSettled(el)
+                    : overture.noteRightPlateSettled(),
+        };
+        slotReportsByRole.set(role, reports);
+    }
+    return reports;
+}
+
 const MigratePalettesDialog = defineAsyncComponent(() =>
     import("../palettes/browser/dialog").then((m) => m.MigratePalettesDialog),
 );
@@ -343,6 +457,9 @@ const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
     atmosphereCanvas,
     cssColorOpaqueFrame,
     currentConfig,
+    // X.W11.p4c (COHESION §0go.2(b)): a hydrated shell paints its first frame
+    // with the stylesheet's pre-certified inks; certification follows it.
+    { certifyAfterPaint: HYDRATES_SHELL && !import.meta.env.SSR },
 );
 // X.W11.p3b (COHESION §0gl.12): the CSS-substrate gradient exists only on a
 // device the WebGL field cannot serve — a property of the visitor, not of the
@@ -395,6 +512,15 @@ const { regions, bindPane, commitEdit, cancelEdit } = usePaneRouter(
         updateModel: (v: ColorModel) => {
             model.value = v;
         },
+    },
+);
+// X.W11.o1 — a region that leaves the scene drops its `data-shown` stamp
+// (`shownPane`, above), so a later return reads its route key again.
+watch(
+    () => regions.value.map((region) => region.role),
+    (roles) => {
+        for (const role of Object.keys(shownPane.value) as RegionRole[])
+            if (!roles.includes(role)) delete shownPane.value[role];
     },
 );
 

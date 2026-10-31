@@ -1,0 +1,1232 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/docs/tranches/X/close/evidence/browser/e2b-2026-10-29/probe/gpu.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results/e2b-gpu",
+        "repeatEach": 2,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "gpu",
+        "name": "gpu",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results/e2b-gpu",
+        "repeatEach": 2,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "gpu-renderer",
+        "name": "gpu-renderer",
+        "testDir": "/Users/mkbabb/Programming/value.js/docs/tranches/X/close/evidence/browser/e2b-2026-10-29/probe",
+        "testIgnore": [],
+        "testMatch": [
+          "renderer.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "oracles/o11-header-gates.spec.ts",
+      "file": "oracles/o11-header-gates.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 390)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 27206,
+                  "error": {
+                    "message": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m",
+                    "stack": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                      "column": 26,
+                      "line": 323
+                    },
+                    "snippet": "  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /extract (light 390) \"Pull palettes from any image.\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /mix (light 390) \"Mix colors and palettes together\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:52:31.592Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/e2b-gpu/oracles-o11-header-gates-O-93b40-egion-it-sits-on-light-390--gpu/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                    "column": 26,
+                    "line": 323
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-39ed5529a7c4df3a9864",
+          "file": "oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        },
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 390)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 25552,
+                  "error": {
+                    "message": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m",
+                    "stack": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                      "column": 26,
+                      "line": 323
+                    },
+                    "snippet": "  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /extract (light 390) \"Pull palettes from any image.\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /mix (light 390) \"Mix colors and palettes together\": ink rgb(28,25,23) vs the darkest region rgb(206,60,131) = 3.82:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m3.820721040321809\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:53:45.578Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/e2b-gpu/oracles-o11-header-gates-O-93b40-egion-it-sits-on-light-390--gpu-repeat1/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                    "column": 26,
+                    "line": 323
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-85c91f55c090af7cd7f5",
+          "file": "oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        }
+      ]
+    },
+    {
+      "title": "oracles/o21-gradient-rail.spec.ts",
+      "file": "oracles/o21-gradient-rail.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:53:09.431Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-fe8d9a225a637e7ec82c",
+          "file": "oracles/o21-gradient-rail.spec.ts",
+          "line": 287,
+          "column": 1
+        },
+        {
+          "title": "the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4523,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:54:14.421Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-252685dcd4b70fe66b32",
+          "file": "oracles/o21-gradient-rail.spec.ts",
+          "line": 287,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "oracles/o33-dock-actionbar-b05.spec.ts",
+      "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "B05 · the Tools ink on the dock band (0132 · 0133)",
+          "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+          "line": 263,
+          "column": 6,
+          "specs": [
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3695,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:53:15.136Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-9d47029b325ca97daff6",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3720,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:53:18.837Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-f64b0ddb90e644230f66",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3733,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:53:22.563Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-347c0c6e7db2a9e885b0",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3689,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:53:26.302Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-0b6dc5e05fbb94e20525",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3728,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:53:29.997Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-c064440bf3a28b8f0cb4",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3750,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:53:33.730Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-0798e3daca874963c611",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3848,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:54:19.176Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-60dc180633b42c4cb090",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3843,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:54:23.031Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-343130218fc6664ea625",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3870,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:54:26.881Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-5054a65fd36ade1b7ec1",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3771,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:54:30.759Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-299135fb148d371e9679",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3789,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:54:34.537Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-66f8b6e83946160a950a",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3845,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:54:38.331Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-69e2bad018e7d91c0131",
+              "file": "oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "webgl-blob-idle.spec.ts",
+      "file": "webgl-blob-idle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "hero blob carries current chroma — lab(92% 88.8 20)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1820,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                      "column": 40,
+                      "line": 307
+                    },
+                    "snippet": "  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                        "column": 40,
+                        "line": 307
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n\n  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:54:45.468Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/e2b-gpu/webgl-blob-idle-hero-blob--afbb0-nt-chroma-—-lab-92-88-8-20--gpu/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                    "column": 40,
+                    "line": 307
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-02cd102ffdaad416bd9f",
+          "file": "webgl-blob-idle.spec.ts",
+          "line": 276,
+          "column": 5
+        },
+        {
+          "title": "hero blob carries current chroma — oklch(0.65 0.3 150)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1761,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                      "column": 40,
+                      "line": 307
+                    },
+                    "snippet": "  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                        "column": 40,
+                        "line": 307
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n\n  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:54:50.573Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/e2b-gpu/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--gpu/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                    "column": 40,
+                    "line": 307
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-6ec8a2791dbd7d900609",
+          "file": "webgl-blob-idle.spec.ts",
+          "line": 276,
+          "column": 5
+        },
+        {
+          "title": "hero blob carries current chroma — oklch(0.55 0.37 328)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1779,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                      "column": 40,
+                      "line": 307
+                    },
+                    "snippet": "  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                        "column": 40,
+                        "line": 307
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n\n  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:54:55.574Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/e2b-gpu/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--gpu/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                    "column": 40,
+                    "line": 307
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-f1b096f36bb4a0d7ac58",
+          "file": "webgl-blob-idle.spec.ts",
+          "line": 276,
+          "column": 5
+        },
+        {
+          "title": "hero blob carries current chroma — lab(92% 88.8 20)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1713,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                      "column": 40,
+                      "line": 307
+                    },
+                    "snippet": "  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                        "column": 40,
+                        "line": 307
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n\n  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:55:00.626Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/e2b-gpu/webgl-blob-idle-hero-blob--afbb0-nt-chroma-—-lab-92-88-8-20--gpu-repeat1/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                    "column": 40,
+                    "line": 307
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-31f85739d13f7a63329b",
+          "file": "webgl-blob-idle.spec.ts",
+          "line": 276,
+          "column": 5
+        },
+        {
+          "title": "hero blob carries current chroma — oklch(0.65 0.3 150)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1817,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                      "column": 40,
+                      "line": 307
+                    },
+                    "snippet": "  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                        "column": 40,
+                        "line": 307
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n\n  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:55:06.134Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/e2b-gpu/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--gpu-repeat1/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                    "column": 40,
+                    "line": 307
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-eabf12656af796b3ac28",
+          "file": "webgl-blob-idle.spec.ts",
+          "line": 276,
+          "column": 5
+        },
+        {
+          "title": "hero blob carries current chroma — oklch(0.55 0.37 328)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu",
+              "projectName": "gpu",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1769,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                      "column": 40,
+                      "line": 307
+                    },
+                    "snippet": "  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                        "column": 40,
+                        "line": 307
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m\"no-webgl2\"\u001b[39m\nReceived array: \u001b[31m[\"srgb\", \"display-p3\"]\u001b[39m\n\n  305 |             };\n  306 |         }, GOO_BLOB_TESTID);\n> 307 |         expect([\"srgb\", \"display-p3\"]).toContain(space.buffer);\n      |                                        ^\n  308 |         const bufferGamut = space.buffer as \"srgb\" | \"display-p3\";\n  309 |         // The rest pose h1 has always read: past the producer's autonomic\n  310 |         // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:307:40"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:55:11.311Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/e2b-gpu/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--gpu-repeat1/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                    "column": 40,
+                    "line": 307
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-98d5bfd2c16330dce648",
+          "file": "webgl-blob-idle.spec.ts",
+          "line": 276,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "../../docs/tranches/X/close/evidence/browser/e2b-2026-10-29/probe/renderer.spec.ts",
+      "file": "../../docs/tranches/X/close/evidence/browser/e2b-2026-10-29/probe/renderer.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "renderer of the cell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu-renderer",
+              "projectName": "gpu-renderer",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 431,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[e2b-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:55:16.231Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2554cc55ec191e6d66a6-11d5046dba8c2b04b8cf",
+          "file": "../../docs/tranches/X/close/evidence/browser/e2b-2026-10-29/probe/renderer.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "renderer of the cell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu-renderer",
+              "projectName": "gpu-renderer",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 434,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[e2b-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:55:20.194Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2554cc55ec191e6d66a6-d9afa660342e081dfcfa",
+          "file": "../../docs/tranches/X/close/evidence/browser/e2b-2026-10-29/probe/renderer.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T03:52:28.653Z",
+    "duration": 174935.326,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}

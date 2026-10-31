@@ -16,6 +16,7 @@ import { test as base, expect, type BrowserContext, type Page } from "@playwrigh
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import {
+    readMaxTextureSize,
     readRenderer,
     rendererDigest,
     rendererHeaderLine,
@@ -27,6 +28,9 @@ import {
     CAPTURE_STYLE_PATH,
     ensureOffLayoutTie,
     pinEntropy,
+    pinOptionalFaces,
+    pinStockMonoFallback,
+    settleTimedToasts,
 } from "./capture";
 import { TOLERANCE } from "./tolerance";
 
@@ -65,7 +69,7 @@ export interface CellAxes {
     readonly capture?: { width: number; height: number };
 }
 
-/** `<arm>__<subject>__<pane>__<viewport>__<scheme>__<fidelity>__<renderer>.png` */
+/** `<arm>__<subject>__<pane>__<viewport>__<scheme>__<fidelity>__<renderer>.png` (a cell taller than the texture limit adds `__tile-<i>-of-<n>`; see `captureTiles`) */
 export function goldenName(axes: CellAxes, renderer: RendererIdentity): string {
     return (
         [
@@ -82,6 +86,115 @@ export function goldenName(axes: CellAxes, renderer: RendererIdentity): string {
 
 /** Per-worker cache: the renderer is a property of the browser, not the page. */
 let cachedRenderer: RendererIdentity | null = null;
+
+/** Per-worker cache of the live `MAX_TEXTURE_SIZE`, for the same reason. */
+let cachedTextureLimit: number | null = null;
+
+/**
+ * THE CAPTURE STAYS INSIDE THE RENDERER'S TEXTURE LIMIT (X.W11.v1t, COHESION
+ * §0gt.1, ruling ESC-W11v1d-VISUAL-GL-TEXTURE-LIMIT arm (a)).
+ *
+ * Measured at X.W11.v1d Act 6: the `390 · picker` page is 8331–8351 px tall,
+ * above SwiftShader's `MAX_TEXTURE_SIZE` of 8192. One full-page capture of it,
+ * taken while a WebGL canvas is live, fails once inside `Page.captureScreenshot`
+ * (`Unable to capture screenshot`, ~7 s), and the browser then has no WebGL2 for
+ * the rest of its life. Whether a later golden shows a live or a lost WebGL
+ * therefore depended on suite order, and the failing cell ran past its budget on
+ * the slower CI runner. Raising that budget (arm (c)) and dropping live WebGL
+ * from the oracle (arm (b)) are both refused.
+ *
+ * So a page that fits is photographed exactly as before, in one frame. A page
+ * that does not is cut into horizontal bands of equal height, each no taller
+ * than the limit, and each band is its own golden, compared on its own. The
+ * bands are clips of the same full-page capture, so together they cover every
+ * pixel of the page, with live WebGL.
+ *
+ * The limit bounds the IMAGE the capture writes, and every capture here is
+ * written at `scale: "css"`, so it is compared in CSS pixels, not device pixels.
+ * Measured: `zoom-200-desktop · picker` (720 × 7982 CSS px at DPR 2, i.e. 15,964
+ * device px) is captured whole with WebGL2 alive after it, and it precedes the
+ * first 390 picker cell in suite order (X.W11.v1t receipt).
+ */
+async function textureLimit(page: Page): Promise<number> {
+    if (cachedTextureLimit !== null) return cachedTextureLimit;
+    const max = await readMaxTextureSize(page);
+    if (max === null || !Number.isFinite(max) || max <= 0)
+        throw new Error(
+            "the renderer reports no MAX_TEXTURE_SIZE (no WebGL context in this browser): " +
+                "the capture cannot be bounded by a limit nobody read (COHESION §0gt.1)",
+        );
+    cachedTextureLimit = max;
+    return max;
+}
+
+interface PageSize {
+    width: number;
+    height: number;
+}
+
+/** The full-page size as Playwright's own `fullPage` capture measures it. */
+async function fullPageSize(page: Page): Promise<PageSize> {
+    return page.evaluate(() => {
+        const b = document.body;
+        const d = document.documentElement;
+        return {
+            width: Math.max(
+                b.scrollWidth,
+                d.scrollWidth,
+                b.offsetWidth,
+                d.offsetWidth,
+                b.clientWidth,
+                d.clientWidth,
+            ),
+            height: Math.max(
+                b.scrollHeight,
+                d.scrollHeight,
+                b.offsetHeight,
+                d.offsetHeight,
+                b.clientHeight,
+                d.clientHeight,
+            ),
+        };
+    });
+}
+
+export interface Clip {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+}
+
+/**
+ * The bands one cell is photographed in: `[the whole page]` when it fits the
+ * limit, else the fewest equal-height bands that each fit. Height is cut; a page
+ * WIDER than the limit has no capture that fits and fails by name.
+ */
+export function captureTiles(size: PageSize, maxTexture: number): Clip[] {
+    if (size.width > maxTexture)
+        throw new Error(
+            `page is ${size.width} px wide, beyond the renderer's MAX_TEXTURE_SIZE ` +
+                `${maxTexture}: no capture of it fits (COHESION §0gt.1)`,
+        );
+    if (size.height <= maxTexture)
+        return [{ x: 0, y: 0, width: size.width, height: size.height }];
+    const count = Math.ceil(size.height / maxTexture);
+    const band = Math.ceil(size.height / count);
+    const tiles: Clip[] = [];
+    for (let y = 0; y < size.height; y += band)
+        tiles.push({
+            x: 0,
+            y,
+            width: size.width,
+            height: Math.min(band, size.height - y),
+        });
+    return tiles;
+}
+
+/** `<cell>__tile-<i>-of-<n>.png` — the band index is one more coordinate. */
+export function tileName(cell: string, index: number, count: number): string {
+    return cell.replace(/\.png$/, `__tile-${index + 1}-of-${count}.png`);
+}
 
 export interface VisualApi {
     /** The live-read identity. Available only after the first `shot()`. */
@@ -150,6 +263,9 @@ function makeVisualApi(): VisualApi {
             // A cell sitting on a half-pixel layout tie rasterises two ways for
             // identical inputs (see `ensureOffLayoutTie`, and IC-11). Move it off
             // the tie BEFORE the shutter opens, or the golden is a coin flip.
+            // A timed toast is not a settled frame: wait out its life first
+            // (see `settleTimedToasts`).
+            await settleTimedToasts(page);
             if (axes.capture) await ensureOffLayoutTie(page, axes.capture);
             const name = goldenName(axes, renderer);
             // THE LAST THING BEFORE THE SHUTTER. Every arm reaches the camera
@@ -160,7 +276,7 @@ function makeVisualApi(): VisualApi {
             // never reaches `networkidle`). See `assertRendered` for the
             // measured floors and for what it deliberately does NOT cover.
             await assertRendered(page, name);
-            await expect(page).toHaveScreenshot(name, {
+            const options = {
                 fullPage: true,
                 animations: "disabled",
                 caret: "hide",
@@ -169,7 +285,23 @@ function makeVisualApi(): VisualApi {
                 maxDiffPixels: TOLERANCE.maxDiffPixels,
                 threshold: TOLERANCE.threshold,
                 timeout: TOLERANCE.stabilisationTimeoutMs,
-            });
+            } as const;
+            const tiles = captureTiles(
+                await fullPageSize(page),
+                await textureLimit(page),
+            );
+            if (tiles.length === 1) {
+                await expect(page).toHaveScreenshot(name, options);
+                return name;
+            }
+            // Each tile is compared on its own, under the same bar as a whole
+            // cell: a tile is a cell's photograph cut at a texture boundary, not
+            // a looser one (COHESION §0gt.1).
+            for (const [i, clip] of tiles.entries())
+                await expect(page).toHaveScreenshot(tileName(name, i, tiles.length), {
+                    ...options,
+                    clip,
+                });
             return name;
         },
     };
@@ -196,7 +328,8 @@ export interface VisualFixtures {
  */
 export const VISUAL_FIXTURE = {
     /**
-     * The context override exists for ONE reason: the entropy pin has to be
+     * The context override exists for ONE reason: the entropy pin (and, since
+     * X.W11.v1b, the font pins — `pinOptionalFaces`, `pinStockMonoFallback`) has to be
      * installed before the first page script of every cell, in every arm, and
      * an arm that had to remember to call it is an arm that will one day not.
      * Putting it on the shared fixture object means
@@ -209,6 +342,8 @@ export const VISUAL_FIXTURE = {
         use: (context: BrowserContext) => Promise<void>,
     ) => {
         await pinEntropy(context);
+        await pinOptionalFaces(context);
+        await pinStockMonoFallback(context);
         await use(context);
     },
     visual: async ({}, use: (api: VisualApi) => Promise<void>) => {

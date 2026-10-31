@@ -97,6 +97,39 @@
         var(--spring-panel) var(--overture-appear-delay, 0ms) backwards;
 }
 
+/* ── B1 · THE FIRST DOCUMENT LOAD (X.W11.p4c · COHESION §0go.2(a)): the
+ * prerendered panes paint from the shell, contentful from the first frame
+ * (OD19-ALL: faster loading outranks a first-load entrance), so their
+ * plate-land is a SETTLE over a plate already painted — transform only,
+ * opacity never touched, a small lift and scale easing to rest on the same
+ * clock and stagger as the appear grammar above. It runs from the first
+ * frame, before any script, because the shell's markup is the hydrated tree
+ * (PaneSlot binds the appear grammar on the client only). `data-first-view`
+ * is stamped "shell" by the pre-paint decision in index.html only when this
+ * visit hydrates the shell; `data-shell-settled` retires the rule once the
+ * settle has finished or the first route change begins (useOverture), so a
+ * KeepAlive return or a later region mount never replays it — client route
+ * changes keep the vj-enter family and a client-rendered first view keeps
+ * the full appear grammar, both unchanged. Under reduced motion the shell is
+ * not served (index.html) and this rule does not exist. */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes overture-shell-settle {
+        from {
+            transform: translateY(-8px) scale(0.985);
+        }
+        to {
+            transform: none;
+        }
+    }
+    html[data-first-view="shell"]:not([data-shell-settled])
+        #app[data-prerendered]
+        .pane-wrapper
+        > * {
+        animation: overture-shell-settle var(--overture-plate-land)
+            var(--spring-panel) var(--overture-appear-delay, 0ms) backwards;
+    }
+}
+
 /* ── B1 · the dock voice (the M-14 booked-interim): veiled while the
  * producer nub→pill mount-morph runs (the morph is no longer a visible
  * actor), then lands AS the pill through the same family at +0ms. The dock

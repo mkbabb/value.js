@@ -1,0 +1,971 @@
+{
+ "origin": "http://localhost:8604",
+ "loads": 8,
+ "p75Gate": 289,
+ "tbtSorted": [
+  236,
+  243,
+  256,
+  270,
+  273,
+  291,
+  294,
+  295
+ ],
+ "gateSorted": [
+  234,
+  239,
+  251,
+  266,
+  270,
+  286,
+  289,
+  290
+ ],
+ "chunks": [
+  {
+   "chunk": "vue.runtime.esm-bundler-2l_pzWEZ.js",
+   "meanSelfMsInLongTasks": 133
+  },
+  {
+   "chunk": "(native)",
+   "meanSelfMsInLongTasks": 124
+  },
+  {
+   "chunk": "index-RKfi2a9-.js",
+   "meanSelfMsInLongTasks": 93
+  },
+  {
+   "chunk": "dock-CQv02k8K.js",
+   "meanSelfMsInLongTasks": 65
+  },
+  {
+   "chunk": "serialize-BtpoAFZw-C086w664.js",
+   "meanSelfMsInLongTasks": 31
+  },
+  {
+   "chunk": "createLucideIcon-C9maEmXC.js",
+   "meanSelfMsInLongTasks": 11
+  },
+  {
+   "chunk": "button-BOFTUPyU-BZ9MeoVG.js",
+   "meanSelfMsInLongTasks": 10
+  },
+  {
+   "chunk": "dist-CVCggHGb.js",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "chunk": "dom-BLrshDUK.js",
+   "meanSelfMsInLongTasks": 3
+  },
+  {
+   "chunk": "keyframes-iZdbN1lK.js",
+   "meanSelfMsInLongTasks": 2
+  },
+  {
+   "chunk": "picker-color-vxPFipSO.js",
+   "meanSelfMsInLongTasks": 2
+  },
+  {
+   "chunk": "slider-5uoY-cLG-Du6hH6jo.js",
+   "meanSelfMsInLongTasks": 1
+  }
+ ],
+ "top": [
+  {
+   "site": "(native) :: (program)",
+   "meanSelfMsInLongTasks": 101
+  },
+  {
+   "site": "dock-CQv02k8K.js :: De",
+   "meanSelfMsInLongTasks": 24
+  },
+  {
+   "site": "index-RKfi2a9-.js :: O_",
+   "meanSelfMsInLongTasks": 17
+  },
+  {
+   "site": "index-RKfi2a9-.js :: o",
+   "meanSelfMsInLongTasks": 17
+  },
+  {
+   "site": "index-RKfi2a9-.js :: (anon)",
+   "meanSelfMsInLongTasks": 16
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: In",
+   "meanSelfMsInLongTasks": 15
+  },
+  {
+   "site": "dock-CQv02k8K.js :: X",
+   "meanSelfMsInLongTasks": 13
+  },
+  {
+   "site": "dock-CQv02k8K.js :: v",
+   "meanSelfMsInLongTasks": 12
+  },
+  {
+   "site": "(native) :: (garbage collector)",
+   "meanSelfMsInLongTasks": 11
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya",
+   "meanSelfMsInLongTasks": 8
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: r",
+   "meanSelfMsInLongTasks": 7
+  },
+  {
+   "site": "button-BOFTUPyU-BZ9MeoVG.js :: fe",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: We",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: (anon)",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "site": "dock-CQv02k8K.js :: Re",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "index-RKfi2a9-.js :: Kp",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "(native) :: appendChild",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "index-RKfi2a9-.js :: setup",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "serialize-BtpoAFZw-C086w664.js :: (anon)",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: d",
+   "meanSelfMsInLongTasks": 3
+  },
+  {
+   "site": "createLucideIcon-C9maEmXC.js :: S",
+   "meanSelfMsInLongTasks": 3
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: gs",
+   "meanSelfMsInLongTasks": 3
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: Uc",
+   "meanSelfMsInLongTasks": 3
+  },
+  {
+   "site": "serialize-BtpoAFZw-C086w664.js :: gt",
+   "meanSelfMsInLongTasks": 3
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: get",
+   "meanSelfMsInLongTasks": 2
+  }
+ ],
+ "perLoad": [
+  {
+   "i": 0,
+   "load1": 10,
+   "tbt": 236,
+   "gateTbt": 234,
+   "longTasks": 4,
+   "shape": [
+    {
+     "dur": 89,
+     "kids": [
+      "Layout 75",
+      "UpdateLayoutTree 8"
+     ],
+     "selfByChunk": {
+      "(native)": 88
+     },
+     "topSelf": [
+      "(native) :: (program) 88"
+     ]
+    },
+    {
+     "dur": 110,
+     "kids": [],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 21,
+      "createLucideIcon-C9maEmXC.js": 2,
+      "serialize-BtpoAFZw-C086w664.js": 19,
+      "picker-color-vxPFipSO.js": 2,
+      "index-RKfi2a9-.js": 54,
+      "(native)": 8,
+      "preload-helper-kNaey6uv.js": 1,
+      "dist-CVCggHGb.js": 2
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: O_ 16",
+      "index-RKfi2a9-.js :: (anon) 7",
+      "(native) :: appendChild 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 3",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: (anon) 3"
+     ]
+    },
+    {
+     "dur": 160,
+     "kids": [
+      "UpdateLayoutTree 10"
+     ],
+     "selfByChunk": {
+      "dock-CQv02k8K.js": 68,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 48,
+      "index-RKfi2a9-.js": 12,
+      "serialize-BtpoAFZw-C086w664.js": 11,
+      "(native)": 14,
+      "keyframes-iZdbN1lK.js": 2,
+      "createLucideIcon-C9maEmXC.js": 4,
+      "dist-CVCggHGb.js": 2,
+      "useSelectionGroup-zsEwitF6-DXVLqdIK.js": 1
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 24",
+      "dock-CQv02k8K.js :: X 11",
+      "dock-CQv02k8K.js :: v 11",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 8",
+      "(native) :: (garbage collector) 5"
+     ]
+    },
+    {
+     "dur": 77,
+     "kids": [
+      "FunctionCall@index-RKfi2a9-.js:i 37"
+     ],
+     "selfByChunk": {
+      "(native)": 3,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 43,
+      "index-RKfi2a9-.js": 11,
+      "button-BOFTUPyU-BZ9MeoVG.js": 9,
+      "serialize-BtpoAFZw-C086w664.js": 3,
+      "dom-BLrshDUK.js": 2,
+      "slider-5uoY-cLG-Du6hH6jo.js": 2,
+      "createLucideIcon-C9maEmXC.js": 4,
+      "Presence-CDtI5ZR_.js": 1
+     },
+     "topSelf": [
+      "button-BOFTUPyU-BZ9MeoVG.js :: fe 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya 4",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: d 4",
+      "index-RKfi2a9-.js :: (anon) 4",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: r 4"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "load1": 10.2,
+   "tbt": 270,
+   "gateTbt": 266,
+   "longTasks": 4,
+   "shape": [
+    {
+     "dur": 88,
+     "kids": [
+      "Layout 74",
+      "UpdateLayoutTree 9"
+     ],
+     "selfByChunk": {
+      "(native)": 87
+     },
+     "topSelf": [
+      "(native) :: (program) 87"
+     ]
+    },
+    {
+     "dur": 118,
+     "kids": [],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 27,
+      "dist-CVCggHGb.js": 4,
+      "useIntersectionPause-CzKR3EyP-N9s-ifLv.js": 1,
+      "serialize-BtpoAFZw-C086w664.js": 18,
+      "index-RKfi2a9-.js": 52,
+      "(native)": 17
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: O_ 16",
+      "index-RKfi2a9-.js :: (anon) 9",
+      "(native) :: (garbage collector) 6",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: (anon) 4",
+      "(native) :: appendChild 4"
+     ]
+    },
+    {
+     "dur": 176,
+     "kids": [
+      "UpdateLayoutTree 11"
+     ],
+     "selfByChunk": {
+      "index-RKfi2a9-.js": 17,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 57,
+      "serialize-BtpoAFZw-C086w664.js": 12,
+      "(native)": 13,
+      "useDragMorph-B363RUbF-DCnPo5HY.js": 1,
+      "keyframes-iZdbN1lK.js": 2,
+      "createLucideIcon-C9maEmXC.js": 3,
+      "button-BOFTUPyU-BZ9MeoVG.js": 2,
+      "dist-CVCggHGb.js": 4,
+      "dock-CQv02k8K.js": 60,
+      "dock-DvkWmwpZ.js": 1
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 24",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 15",
+      "dock-CQv02k8K.js :: X 15",
+      "dock-CQv02k8K.js :: v 12",
+      "index-RKfi2a9-.js :: (anon) 6"
+     ]
+    },
+    {
+     "dur": 88,
+     "kids": [
+      "FunctionCall@index-RKfi2a9-.js:i 41"
+     ],
+     "selfByChunk": {
+      "(native)": 3,
+      "index-RKfi2a9-.js": 10,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 64,
+      "dist-CVCggHGb.js": 2,
+      "serialize-BtpoAFZw-C086w664.js": 0,
+      "button-BOFTUPyU-BZ9MeoVG.js": 7,
+      "dom-BLrshDUK.js": 2,
+      "createLucideIcon-C9maEmXC.js": 1
+     },
+     "topSelf": [
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: r 7",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya 7",
+      "button-BOFTUPyU-BZ9MeoVG.js :: fe 6",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 5",
+      "index-RKfi2a9-.js :: (anon) 5"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "load1": 10.2,
+   "tbt": 295,
+   "gateTbt": 290,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 89,
+     "kids": [
+      "Layout 75",
+      "UpdateLayoutTree 9"
+     ],
+     "selfByChunk": {
+      "(native)": 87
+     },
+     "topSelf": [
+      "(native) :: (program) 87"
+     ]
+    },
+    {
+     "dur": 123,
+     "kids": [],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 35,
+      "dist-CVCggHGb.js": 2,
+      "serialize-BtpoAFZw-C086w664.js": 17,
+      "index-RKfi2a9-.js": 52,
+      "(native)": 13,
+      "preload-helper-kNaey6uv.js": 2,
+      "picker-color-vxPFipSO.js": 2
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: O_ 18",
+      "index-RKfi2a9-.js :: (anon) 10",
+      "(native) :: (garbage collector) 5",
+      "(native) :: appendChild 3",
+      "serialize-BtpoAFZw-C086w664.js :: (anon) 3"
+     ]
+    },
+    {
+     "dur": 59,
+     "kids": [
+      "FireAnimationFrame 50",
+      "FunctionCall@index-RKfi2a9-.js:o 50",
+      "Layout 42",
+      "UpdateLayoutTree 5"
+     ],
+     "selfByChunk": {
+      "(native)": 15,
+      "index-RKfi2a9-.js": 47
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: o 47",
+      "(native) :: (program) 13",
+      "(native) :: (idle) 2"
+     ]
+    },
+    {
+     "dur": 184,
+     "kids": [
+      "UpdateLayoutTree 11"
+     ],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 49,
+      "index-RKfi2a9-.js": 16,
+      "dock-DvkWmwpZ.js": 2,
+      "serialize-BtpoAFZw-C086w664.js": 14,
+      "(native)": 12,
+      "dock-CQv02k8K.js": 70,
+      "dist-CVCggHGb.js": 3,
+      "keyframes-iZdbN1lK.js": 2,
+      "createLucideIcon-C9maEmXC.js": 12,
+      "button-BOFTUPyU-BZ9MeoVG.js": 3
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 27",
+      "dock-CQv02k8K.js :: v 13",
+      "dock-CQv02k8K.js :: X 13",
+      "dock-CQv02k8K.js :: Re 7",
+      "index-RKfi2a9-.js :: Kp 7"
+     ]
+    },
+    {
+     "dur": 90,
+     "kids": [
+      "FunctionCall@index-RKfi2a9-.js:i 43"
+     ],
+     "selfByChunk": {
+      "(native)": 8,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 60,
+      "index-RKfi2a9-.js": 6,
+      "serialize-BtpoAFZw-C086w664.js": 3,
+      "dist-CVCggHGb.js": 2,
+      "slider-5uoY-cLG-Du6hH6jo.js": 1,
+      "createLucideIcon-C9maEmXC.js": 2,
+      "button-BOFTUPyU-BZ9MeoVG.js": 5,
+      "dom-BLrshDUK.js": 2,
+      "Presence-CDtI5ZR_.js": 0
+     },
+     "topSelf": [
+      "button-BOFTUPyU-BZ9MeoVG.js :: fe 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya 5",
+      "index-RKfi2a9-.js :: setup 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: Uc 4",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 4"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "load1": 10.2,
+   "tbt": 291,
+   "gateTbt": 286,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 89,
+     "kids": [
+      "Layout 73",
+      "UpdateLayoutTree 9"
+     ],
+     "selfByChunk": {
+      "(native)": 88
+     },
+     "topSelf": [
+      "(native) :: (program) 88"
+     ]
+    },
+    {
+     "dur": 122,
+     "kids": [],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 30,
+      "createLucideIcon-C9maEmXC.js": 2,
+      "PopperContent-CJa0pX0k.js": 2,
+      "serialize-BtpoAFZw-C086w664.js": 15,
+      "picker-color-vxPFipSO.js": 4,
+      "index-RKfi2a9-.js": 50,
+      "(native)": 15,
+      "dist-CVCggHGb.js": 6
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: O_ 17",
+      "index-RKfi2a9-.js :: (anon) 13",
+      "(native) :: appendChild 6",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: (anon) 4",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: track 3"
+     ]
+    },
+    {
+     "dur": 54,
+     "kids": [
+      "FireAnimationFrame 45",
+      "FunctionCall@index-RKfi2a9-.js:o 45",
+      "Layout 37",
+      "UpdateLayoutTree 5"
+     ],
+     "selfByChunk": {
+      "(native)": 11,
+      "index-RKfi2a9-.js": 44
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: o 44",
+      "(native) :: (program) 11"
+     ]
+    },
+    {
+     "dur": 178,
+     "kids": [
+      "UpdateLayoutTree 10"
+     ],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 57,
+      "index-RKfi2a9-.js": 15,
+      "dist-CVCggHGb.js": 1,
+      "serialize-BtpoAFZw-C086w664.js": 11,
+      "(native)": 14,
+      "useIntersectionPause-CzKR3EyP-N9s-ifLv.js": 2,
+      "dock-CQv02k8K.js": 66,
+      "useSelectionGroup-zsEwitF6-DXVLqdIK.js": 2,
+      "keyframes-iZdbN1lK.js": 5,
+      "DropdownMenuTrigger-CKRnhDSQ-BJ08Yfs8.js": 1,
+      "button-BOFTUPyU-BZ9MeoVG.js": 1,
+      "dom-BLrshDUK.js": 1,
+      "createLucideIcon-C9maEmXC.js": 4
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 23",
+      "dock-CQv02k8K.js :: X 15",
+      "dock-CQv02k8K.js :: v 13",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 11",
+      "(native) :: (garbage collector) 8"
+     ]
+    },
+    {
+     "dur": 98,
+     "kids": [
+      "FunctionCall@index-RKfi2a9-.js:i 47"
+     ],
+     "selfByChunk": {
+      "(native)": 4,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 67,
+      "index-RKfi2a9-.js": 9,
+      "createLucideIcon-C9maEmXC.js": 8,
+      "dom-BLrshDUK.js": 3,
+      "serialize-BtpoAFZw-C086w664.js": 0,
+      "button-BOFTUPyU-BZ9MeoVG.js": 8
+     },
+     "topSelf": [
+      "button-BOFTUPyU-BZ9MeoVG.js :: fe 8",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 7",
+      "createLucideIcon-C9maEmXC.js :: S 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: We 4",
+      "index-RKfi2a9-.js :: (anon) 3"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "load1": 10.4,
+   "tbt": 256,
+   "gateTbt": 251,
+   "longTasks": 4,
+   "shape": [
+    {
+     "dur": 92,
+     "kids": [
+      "Layout 77",
+      "UpdateLayoutTree 8"
+     ],
+     "selfByChunk": {
+      "(native)": 92
+     },
+     "topSelf": [
+      "(native) :: (program) 92"
+     ]
+    },
+    {
+     "dur": 119,
+     "kids": [],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 28,
+      "createLucideIcon-C9maEmXC.js": 2,
+      "serialize-BtpoAFZw-C086w664.js": 16,
+      "index-RKfi2a9-.js": 52,
+      "(native)": 15,
+      "preload-helper-kNaey6uv.js": 1,
+      "dist-CVCggHGb.js": 2
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: O_ 17",
+      "index-RKfi2a9-.js :: (anon) 10",
+      "(native) :: (garbage collector) 6",
+      "(native) :: appendChild 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: (anon) 5"
+     ]
+    },
+    {
+     "dur": 161,
+     "kids": [
+      "UpdateLayoutTree 9"
+     ],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 43,
+      "index-RKfi2a9-.js": 20,
+      "serialize-BtpoAFZw-C086w664.js": 10,
+      "(native)": 11,
+      "useIntersectionPause-CzKR3EyP-N9s-ifLv.js": 2,
+      "dock-CQv02k8K.js": 58,
+      "useSelectionGroup-zsEwitF6-DXVLqdIK.js": 2,
+      "keyframes-iZdbN1lK.js": 1,
+      "createLucideIcon-C9maEmXC.js": 5,
+      "button-BOFTUPyU-BZ9MeoVG.js": 2,
+      "dock-DvkWmwpZ.js": 1,
+      "dom-BLrshDUK.js": 2,
+      "useResizeObserver-CdUlm2QZ-7ORH9RJ4.js": 2,
+      "dist-CVCggHGb.js": 1
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 24",
+      "dock-CQv02k8K.js :: X 12",
+      "dock-CQv02k8K.js :: v 10",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya 7",
+      "(native) :: (garbage collector) 6"
+     ]
+    },
+    {
+     "dur": 84,
+     "kids": [
+      "FunctionCall@index-RKfi2a9-.js:i 39"
+     ],
+     "selfByChunk": {
+      "(native)": 4,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 53,
+      "button-BOFTUPyU-BZ9MeoVG.js": 8,
+      "dist-CVCggHGb.js": 1,
+      "index-RKfi2a9-.js": 9,
+      "serialize-BtpoAFZw-C086w664.js": 2,
+      "createLucideIcon-C9maEmXC.js": 6
+     },
+     "topSelf": [
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 8",
+      "index-RKfi2a9-.js :: (anon) 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: We 5",
+      "button-BOFTUPyU-BZ9MeoVG.js :: fe 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: P 3"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "load1": 10.7,
+   "tbt": 294,
+   "gateTbt": 289,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 104,
+     "kids": [
+      "Layout 88",
+      "UpdateLayoutTree 11"
+     ],
+     "selfByChunk": {
+      "(native)": 103
+     },
+     "topSelf": [
+      "(native) :: (program) 103"
+     ]
+    },
+    {
+     "dur": 122,
+     "kids": [],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 35,
+      "rolldown-runtime-QTnfLwEv.js": 2,
+      "createLucideIcon-C9maEmXC.js": 1,
+      "serialize-BtpoAFZw-C086w664.js": 16,
+      "picker-color-vxPFipSO.js": 1,
+      "index-RKfi2a9-.js": 49,
+      "(native)": 10,
+      "preload-helper-kNaey6uv.js": 1,
+      "dist-CVCggHGb.js": 3,
+      "useIntersectionPause-CzKR3EyP-N9s-ifLv.js": 1
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: O_ 16",
+      "index-RKfi2a9-.js :: (anon) 13",
+      "(native) :: appendChild 4",
+      "(native) :: (garbage collector) 3",
+      "index-RKfi2a9-.js :: fb 3"
+     ]
+    },
+    {
+     "dur": 52,
+     "kids": [
+      "FireAnimationFrame 43",
+      "FunctionCall@index-RKfi2a9-.js:o 43",
+      "Layout 35",
+      "UpdateLayoutTree 6"
+     ],
+     "selfByChunk": {
+      "(native)": 12,
+      "index-RKfi2a9-.js": 42
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: o 42",
+      "(native) :: (program) 11",
+      "(native) :: (idle) 1"
+     ]
+    },
+    {
+     "dur": 176,
+     "kids": [
+      "UpdateLayoutTree 11"
+     ],
+     "selfByChunk": {
+      "dock-DvkWmwpZ.js": 1,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 51,
+      "index-RKfi2a9-.js": 15,
+      "serialize-BtpoAFZw-C086w664.js": 12,
+      "dock-CQv02k8K.js": 70,
+      "keyframes-iZdbN1lK.js": 1,
+      "(native)": 15,
+      "dom-BLrshDUK.js": 2,
+      "button-BOFTUPyU-BZ9MeoVG.js": 2,
+      "createLucideIcon-C9maEmXC.js": 4
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 23",
+      "dock-CQv02k8K.js :: v 13",
+      "dock-CQv02k8K.js :: X 12",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 11",
+      "index-RKfi2a9-.js :: Kp 5"
+     ]
+    },
+    {
+     "dur": 90,
+     "kids": [
+      "FunctionCall@index-RKfi2a9-.js:i 40"
+     ],
+     "selfByChunk": {
+      "(native)": 7,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 48,
+      "index-RKfi2a9-.js": 8,
+      "createLucideIcon-C9maEmXC.js": 9,
+      "dom-BLrshDUK.js": 4,
+      "serialize-BtpoAFZw-C086w664.js": 2,
+      "slider-5uoY-cLG-Du6hH6jo.js": 3,
+      "button-BOFTUPyU-BZ9MeoVG.js": 7
+     },
+     "topSelf": [
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 8",
+      "button-BOFTUPyU-BZ9MeoVG.js :: fe 7",
+      "createLucideIcon-C9maEmXC.js :: S 4",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: r 4",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: Uc 3"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "load1": 10.7,
+   "tbt": 243,
+   "gateTbt": 239,
+   "longTasks": 4,
+   "shape": [
+    {
+     "dur": 89,
+     "kids": [
+      "Layout 76",
+      "UpdateLayoutTree 9"
+     ],
+     "selfByChunk": {
+      "(native)": 89
+     },
+     "topSelf": [
+      "(native) :: (program) 89"
+     ]
+    },
+    {
+     "dur": 117,
+     "kids": [],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 29,
+      "rolldown-runtime-QTnfLwEv.js": 1,
+      "dom-BLrshDUK.js": 2,
+      "serialize-BtpoAFZw-C086w664.js": 12,
+      "picker-color-vxPFipSO.js": 2,
+      "index-RKfi2a9-.js": 61,
+      "(native)": 8,
+      "dist-CVCggHGb.js": 3
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: O_ 16",
+      "index-RKfi2a9-.js :: (anon) 14",
+      "(native) :: appendChild 6",
+      "index-RKfi2a9-.js :: kg 3",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 3"
+     ]
+    },
+    {
+     "dur": 156,
+     "kids": [
+      "UpdateLayoutTree 10"
+     ],
+     "selfByChunk": {
+      "(native)": 14,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 46,
+      "dist-CVCggHGb.js": 1,
+      "index-RKfi2a9-.js": 14,
+      "serialize-BtpoAFZw-C086w664.js": 13,
+      "dock-CQv02k8K.js": 58,
+      "useDragMorph-B363RUbF-DCnPo5HY.js": 1,
+      "keyframes-iZdbN1lK.js": 1,
+      "dock-DvkWmwpZ.js": 2,
+      "createLucideIcon-C9maEmXC.js": 2,
+      "button-BOFTUPyU-BZ9MeoVG.js": 2,
+      "useSelectionGroup-zsEwitF6-DXVLqdIK.js": 2
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 23",
+      "dock-CQv02k8K.js :: v 12",
+      "dock-CQv02k8K.js :: X 11",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 7",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya 7"
+     ]
+    },
+    {
+     "dur": 81,
+     "kids": [
+      "FunctionCall@index-RKfi2a9-.js:i 37"
+     ],
+     "selfByChunk": {
+      "(native)": 5,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 48,
+      "serialize-BtpoAFZw-C086w664.js": 2,
+      "button-BOFTUPyU-BZ9MeoVG.js": 8,
+      "createLucideIcon-C9maEmXC.js": 7,
+      "index-RKfi2a9-.js": 7,
+      "dom-BLrshDUK.js": 1,
+      "slider-5uoY-cLG-Du6hH6jo.js": 2,
+      "Presence-CDtI5ZR_.js": 0
+     },
+     "topSelf": [
+      "button-BOFTUPyU-BZ9MeoVG.js :: fe 7",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: r 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: P 3",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: ea 3",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 3"
+     ]
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "load1": 11.1,
+   "tbt": 273,
+   "gateTbt": 270,
+   "longTasks": 4,
+   "shape": [
+    {
+     "dur": 88,
+     "kids": [
+      "Layout 74",
+      "UpdateLayoutTree 8"
+     ],
+     "selfByChunk": {
+      "(native)": 88
+     },
+     "topSelf": [
+      "(native) :: (program) 88"
+     ]
+    },
+    {
+     "dur": 118,
+     "kids": [],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 24,
+      "rolldown-runtime-QTnfLwEv.js": 1,
+      "useIntersectionPause-CzKR3EyP-N9s-ifLv.js": 1,
+      "serialize-BtpoAFZw-C086w664.js": 18,
+      "picker-color-vxPFipSO.js": 3,
+      "index-RKfi2a9-.js": 55,
+      "(native)": 9,
+      "preload-helper-kNaey6uv.js": 1,
+      "dist-CVCggHGb.js": 4
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: O_ 19",
+      "index-RKfi2a9-.js :: (anon) 4",
+      "dist-CVCggHGb.js :: (anon) 4",
+      "serialize-BtpoAFZw-C086w664.js :: M 4",
+      "(native) :: appendChild 3"
+     ]
+    },
+    {
+     "dur": 169,
+     "kids": [
+      "UpdateLayoutTree 11"
+     ],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 48,
+      "index-RKfi2a9-.js": 10,
+      "serialize-BtpoAFZw-C086w664.js": 15,
+      "dock-CQv02k8K.js": 69,
+      "(native)": 4,
+      "keyframes-iZdbN1lK.js": 3,
+      "dom-BLrshDUK.js": 1,
+      "button-BOFTUPyU-BZ9MeoVG.js": 2,
+      "dist-CVCggHGb.js": 1,
+      "createLucideIcon-C9maEmXC.js": 8,
+      "DropdownMenuTrigger-CKRnhDSQ-BJ08Yfs8.js": 2,
+      "ApiStatusChip-C_OMEiUz.js": 2
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 26",
+      "dock-CQv02k8K.js :: v 13",
+      "dock-CQv02k8K.js :: X 11",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 8",
+      "dock-CQv02k8K.js :: Re 6"
+     ]
+    },
+    {
+     "dur": 98,
+     "kids": [
+      "FunctionCall@index-RKfi2a9-.js:i 45"
+     ],
+     "selfByChunk": {
+      "(native)": 10,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 54,
+      "index-RKfi2a9-.js": 8,
+      "createLucideIcon-C9maEmXC.js": 6,
+      "serialize-BtpoAFZw-C086w664.js": 2,
+      "button-BOFTUPyU-BZ9MeoVG.js": 11,
+      "slider-5uoY-cLG-Du6hH6jo.js": 4
+     },
+     "topSelf": [
+      "button-BOFTUPyU-BZ9MeoVG.js :: fe 8",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: r 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: ls 5",
+      "index-RKfi2a9-.js :: (anon) 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 4"
+     ]
+    }
+   ]
+  }
+ ]
+}

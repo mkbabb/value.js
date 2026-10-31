@@ -1,0 +1,337 @@
+{
+  "config": {
+    "configFile": "/w/tree/playwright.config.ts",
+    "rootDir": "/w/tree/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/w/tree/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/w/tree/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/w/tree/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/w/tree/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/w/tree/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/w/tree/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/zz-cnm-read.spec.ts",
+      "file": "smoke/zz-cnm-read.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "cnm default-seed component-name, light no-preference",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "cnm-reading",
+                  "description": "{\"scheme\":\"light\",\"motion\":\"no-preference\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":569.953125,\"w\":92.03125,\"h\":21}],\"frames\":[{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602}],\"worst\":5.021880051194625}"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16341,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[cnm] {\"scheme\":\"light\",\"motion\":\"no-preference\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":569.953125,\"w\":92.03125,\"h\":21}],\"frames\":[{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602}],\"worst\":5.021880051194625}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T05:07:20.124Z",
+                  "annotations": [
+                    {
+                      "type": "cnm-reading",
+                      "description": "{\"scheme\":\"light\",\"motion\":\"no-preference\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":569.953125,\"w\":92.03125,\"h\":21}],\"frames\":[{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602}],\"worst\":5.021880051194625}"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1326cdd36bb6ffebf80-44cb16d1e4d0c36d74dc",
+          "file": "smoke/zz-cnm-read.spec.ts",
+          "line": 45,
+          "column": 5
+        },
+        {
+          "title": "cnm default-seed component-name, dark no-preference",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "cnm-reading",
+                  "description": "{\"scheme\":\"dark\",\"motion\":\"no-preference\",\"color\":\"oklch(0.821313 0.107264 2)\",\"ink\":[255,167,191],\"ambient\":\"0.4094\",\"boxes\":[{\"x\":913.34375,\"y\":569.953125,\"w\":92.03125,\"h\":21}],\"frames\":[{\"worst\":5.016491754728638,\"best\":5.6794169271669785,\"painted\":5.336910991462881,\"n\":1602},{\"worst\":5.016491754728638,\"best\":5.6794169271669785,\"painted\":5.336910991462881,\"n\":1602},{\"worst\":5.016491754728638,\"best\":5.6794169271669785,\"painted\":5.336910991462881,\"n\":1602}],\"worst\":5.016491754728638}"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11615,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[cnm] {\"scheme\":\"dark\",\"motion\":\"no-preference\",\"color\":\"oklch(0.821313 0.107264 2)\",\"ink\":[255,167,191],\"ambient\":\"0.4094\",\"boxes\":[{\"x\":913.34375,\"y\":569.953125,\"w\":92.03125,\"h\":21}],\"frames\":[{\"worst\":5.016491754728638,\"best\":5.6794169271669785,\"painted\":5.336910991462881,\"n\":1602},{\"worst\":5.016491754728638,\"best\":5.6794169271669785,\"painted\":5.336910991462881,\"n\":1602},{\"worst\":5.016491754728638,\"best\":5.6794169271669785,\"painted\":5.336910991462881,\"n\":1602}],\"worst\":5.016491754728638}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T05:07:36.507Z",
+                  "annotations": [
+                    {
+                      "type": "cnm-reading",
+                      "description": "{\"scheme\":\"dark\",\"motion\":\"no-preference\",\"color\":\"oklch(0.821313 0.107264 2)\",\"ink\":[255,167,191],\"ambient\":\"0.4094\",\"boxes\":[{\"x\":913.34375,\"y\":569.953125,\"w\":92.03125,\"h\":21}],\"frames\":[{\"worst\":5.016491754728638,\"best\":5.6794169271669785,\"painted\":5.336910991462881,\"n\":1602},{\"worst\":5.016491754728638,\"best\":5.6794169271669785,\"painted\":5.336910991462881,\"n\":1602},{\"worst\":5.016491754728638,\"best\":5.6794169271669785,\"painted\":5.336910991462881,\"n\":1602}],\"worst\":5.016491754728638}"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1326cdd36bb6ffebf80-43b6742c36f4d2362504",
+          "file": "smoke/zz-cnm-read.spec.ts",
+          "line": 45,
+          "column": 5
+        },
+        {
+          "title": "cnm default-seed component-name, light reduce",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "cnm-reading",
+                  "description": "{\"scheme\":\"light\",\"motion\":\"reduce\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":569.953125,\"w\":92.03125,\"h\":21}],\"frames\":[{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602}],\"worst\":5.021880051194625}"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7578,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[cnm] {\"scheme\":\"light\",\"motion\":\"reduce\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":569.953125,\"w\":92.03125,\"h\":21}],\"frames\":[{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602}],\"worst\":5.021880051194625}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T05:07:48.131Z",
+                  "annotations": [
+                    {
+                      "type": "cnm-reading",
+                      "description": "{\"scheme\":\"light\",\"motion\":\"reduce\",\"color\":\"oklch(0.307762 0.124262 2)\",\"ink\":[92,0,43],\"ambient\":\"0.7900\",\"boxes\":[{\"x\":913.34375,\"y\":569.953125,\"w\":92.03125,\"h\":21}],\"frames\":[{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602},{\"worst\":5.021880051194625,\"best\":5.814332233289803,\"painted\":5.250818636222952,\"n\":1602}],\"worst\":5.021880051194625}"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1326cdd36bb6ffebf80-183658087b8f9dff6f07",
+          "file": "smoke/zz-cnm-read.spec.ts",
+          "line": 45,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T05:07:18.895Z",
+    "duration": 36964.914,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

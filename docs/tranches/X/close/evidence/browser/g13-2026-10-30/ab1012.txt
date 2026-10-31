@@ -1,0 +1,6 @@
+npm ci exit 0
+    "version": "10.1.2",
+probe r1 exit 0
+probe r2 exit 0
+o33 exit 1
+guard exit 0

@@ -1,0 +1,115 @@
+{
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "dragMs": 2611.7,
+ "inkTrace": {
+  "windowMs": 3219.1,
+  "samples": 17957,
+  "inkInclusiveMs": 203.4,
+  "worstInkTask": {
+   "durMs": 18.2,
+   "inkMs": 15.4
+  }
+ },
+ "observer": [],
+ "trace": [
+  [
+   36.7,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "C → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202"
+   ]
+  ],
+  [
+   24.4,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248"
+   ]
+  ],
+  [
+   22.6,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296"
+   ]
+  ],
+  [
+   28,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "R → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:204",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393"
+   ]
+  ],
+  [
+   21.5,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248"
+   ]
+  ],
+  [
+   21.8,
+   "(program)",
+   [
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248"
+   ]
+  ],
+  [
+   24.8,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "R → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:204",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393"
+   ]
+  ],
+  [
+   26.4,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "R → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:204",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393"
+   ]
+  ],
+  [
+   22.7,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "R → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:204",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393"
+   ]
+  ],
+  [
+   20.6,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "Lt → L @ ../../../../../../../../../Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js:255"
+   ]
+  ],
+  [
+   23.6,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "R → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:204"
+   ]
+  ]
+ ]
+}

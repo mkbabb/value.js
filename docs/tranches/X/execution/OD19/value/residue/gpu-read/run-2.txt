@@ -1,0 +1,109 @@
+(node:7989) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+[1A[2K(node:8002) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/6] [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[1A[2K[smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[od19-p3] {"width":1440,"warmed":true,"coldDuringGradient":["/favicon.svg"],"gradient":{"title":260,"firstMove":77,"lastMove":543,"window":467,"maxFrame":50,"frames":31,"loaf":[],"movedBy":[[77,[[-6,0,-0.26],[6,0,-0.26]]],[93,[[-4,0,-0.18],[4,0,-0.18]]],[110,[[-3,0,-0.14],[3,0,-0.14]]],[127,[[-3,0,-0.11],[3,0,-0.11]]],[143,[[-2,0,-0.09],[2,0,-0.09]]],[160,[[-2,0,-0.07],[2,0,-0.07]]],[177,[[-1,0,-0.05],[1,0,-0.05]]],[193,[[-1,0,-0.04],[1,0,-0.04]]],[210,[[-1,0,-0.03],[1,0,-0.03]]],[227,[[0,0,-0.02],[0,0,-0.02]]],[343,[[0,0,0.25],[0,0,0.25]]],[360,[[2,0,0.18],[-2,0,0.18]]]]},"home":{"title":6,"firstMove":73,"lastMove":506,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[73,[[6,0,-0.26],[-6,0,-0.26]]],[90,[[4,0,-0.18],[-4,0,-0.18]]],[106,[[3,0,-0.14],[-3,0,-0.14]]],[123,[[3,0,-0.11],[-3,0,-0.11]]],[140,[[2,0,-0.09],[-2,0,-0.09]]],[156,[[2,0,-0.07],[-2,0,-0.07]]],[173,[[1,0,-0.05],[-1,0,-0.05]]],[190,[[1,0,-0.04],[-1,0,-0.04]]],[206,[[1,0,-0.03],[-1,0,-0.03]]],[223,[[0,0,-0.02],[0,0,-0.02]]],[306,[[0,0,0.25],[0,0,0.25]]],[323,[[-2,0,0.18],[2,0,0.18]]]]},"mix":{"title":258,"firstMove":75,"lastMove":508,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[75,[[0,0,0],[6,0,-0.26]]],[91,[[0,0,0],[4,0,-0.18]]],[108,[[0,0,0],[3,0,-0.14]]],[125,[[0,0,0],[3,0,-0.11]]],[141,[[0,0,0],[2,0,-0.09]]],[158,[[0,0,0],[2,0,-0.07]]],[175,[[0,0,0],[1,0,-0.05]]],[191,[[0,0,0],[1,0,-0.04]]],[208,[[0,0,0],[1,0,-0.03]]],[225,[[0,0,0],[0,0,-0.02]]],[308,[[0,0,0],[0,0,0.25]]],[325,[[0,0,0],[-2,0,0.18]]]]},"at":"2026-10-21T18:03:05.875Z"}
+
+[1A[2K  1) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 1440 gradient: moving window (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m450[39m
+    Received:    [31m467[39m
+
+      184 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+      185 |             expect(h.window, `${width} ${name}: the swap moves`).not.toBeNull();
+    > 186 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+          |                                                                       ^
+      187 |         }
+      188 |     });
+      189 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:186:71
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-1-570e2-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+
+[1A[2K(node:8811) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/6] [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[1A[2K[smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms
+[od19-p3] {"width":390,"warmed":true,"coldDuringGradient":["/favicon.svg"],"gradient":{"title":256,"firstMove":72,"lastMove":522,"window":450,"maxFrame":33,"frames":31,"loaf":[],"movedBy":[[72,[[-6,0,-0.26],[6,0,-0.26]]],[89,[[-4,0,-0.18],[4,0,-0.18]]],[106,[[-3,0,-0.14],[3,0,-0.14]]],[122,[[-3,0,-0.11],[3,0,-0.11]]],[139,[[-2,0,-0.09],[2,0,-0.09]]],[156,[[-2,0,-0.07],[2,0,-0.07]]],[172,[[-1,0,-0.05],[1,0,-0.05]]],[189,[[-1,0,-0.04],[1,0,-0.04]]],[206,[[-1,0,-0.03],[1,0,-0.03]]],[222,[[0,0,-0.02],[0,0,-0.02]]],[256,[[0,0,-0.02],[0,429,-0.02]]],[322,[[1,0,0.26],[-1,1,0.26]]]]},"home":{"title":9,"firstMove":76,"lastMove":509,"window":433,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[76,[[6,0,-0.26],[-6,0,-0.26]]],[92,[[4,0,-0.18],[-4,0,-0.18]]],[109,[[3,0,-0.14],[-3,0,-0.14]]],[126,[[3,0,-0.11],[-3,0,-0.11]]],[142,[[2,0,-0.09],[-2,0,-0.09]]],[159,[[2,0,-0.07],[-2,0,-0.07]]],[176,[[1,0,-0.05],[-1,0,-0.05]]],[192,[[1,0,-0.04],[-1,0,-0.04]]],[209,[[1,0,-0.03],[-1,0,-0.03]]],[226,[[0,0,-0.02],[0,0,-0.02]]],[259,[[0,0,-0.02],[0,-429,-0.02]]],[309,[[-1,0,0.26],[1,-1,0.26]]]]},"mix":{"title":261,"firstMove":11,"lastMove":511,"window":500,"maxFrame":17,"frames":31,"loaf":[],"movedBy":[[11,[[0,7662,0],[0,-541,0]]],[45,[[0,-60,0],[0,0,0]]],[78,[[0,1,0],[6,0,-0.26]]],[95,[[0,0,0],[4,0,-0.18]]],[111,[[0,0,0],[3,0,-0.14]]],[128,[[0,0,0],[3,0,-0.11]]],[145,[[0,0,0],[2,0,-0.09]]],[161,[[0,0,0],[2,0,-0.07]]],[178,[[0,0,0],[1,0,-0.05]]],[195,[[0,0,0],[1,0,-0.04]]],[211,[[0,0,0],[1,0,-0.03]]],[228,[[0,0,0],[0,0,-0.02]]]]},"at":"2026-10-21T18:03:19.617Z"}
+
+[1A[2K  2) [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+
+    Error: 390 mix: moving window (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m450[39m
+    Received:    [31m500[39m
+
+      184 |             expect(h.title!, `${width} ${name}: input → title (ms)`).toBeLessThanOrEqual(TITLE_BUDGET_MS);
+      185 |             expect(h.window, `${width} ${name}: the swap moves`).not.toBeNull();
+    > 186 |             expect(h.window!, `${width} ${name}: moving window (ms)`).toBeLessThanOrEqual(WINDOW_BUDGET_MS);
+          |                                                                       ^
+      187 |         }
+      188 |     });
+      189 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-pane-swap.spec.ts:186:71
+
+    Error Context: test-results/od19-pane-swap-OD19-P3-·-3-e0f6e-0-ms-moving-window-≤-450-ms-smoke/error-context.md
+
+
+[1A[2K(node:10039) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/6] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"light-1440","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":29,"p95":46.5,"max":47,"rafP50":16.7,"loafN":1,"loafMax":75,"at":"2026-10-21T18:03:32.096Z"}
+
+[1A[2K  3) [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+
+    Error: light-1440: input → paint p50 (ms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m25[39m
+    Received:    [31m29[39m
+
+      137 |             expect(r.inputs.length, `${scheme}-${width}: inputs painted`).toBeGreaterThan(10);
+      138 |             if (soft) return; // INFORMATIONAL on a software rasteriser (§0gp.2): banked above.
+    > 139 |             expect(record.p50!, `${scheme}-${width}: input → paint p50 (ms)`).toBeLessThanOrEqual(P50_BUDGET_MS);
+          |                                                                               ^
+      140 |             expect(record.p95!, `${scheme}-${width}: input → paint p95 (ms)`).toBeLessThanOrEqual(P95_BUDGET_MS);
+      141 |         });
+      142 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v3-colour-latency.spec.ts:139:79
+
+    Error Context: test-results/od19-v3-colour-latency-OD1-6ac8a-int-p50-≤-25-ms-p95-≤-50-ms-smoke/error-context.md
+
+
+[1A[2K(node:10862) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/6] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"dark-1440","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":19.7,"p95":29.1,"max":32.2,"rafP50":16.7,"loafN":1,"loafMax":59,"at":"2026-10-21T18:03:43.167Z"}
+
+[1A[2K[5/6] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"light-390","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":20.6,"p95":29.4,"max":46.5,"rafP50":16.7,"loafN":1,"loafMax":54,"at":"2026-10-21T18:03:48.526Z"}
+
+[1A[2K[6/6] [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[1A[2K[smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · dark-390: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms
+[od19-v3] {"cell":"dark-390","renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)","realGpu":true,"n":42,"p50":22.9,"p95":46.7,"max":49.1,"rafP50":16.7,"loafN":1,"loafMax":60,"at":"2026-10-21T18:03:54.077Z"}
+
+[1A[2K  3 failed
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 1440: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+    [smoke] › e2e/smoke/od19-pane-swap.spec.ts:137:5 › OD19 P3 · 390: first in-app visit to Gradient and Mix — title ≤ 400 ms, moving window ≤ 450 ms 
+    [smoke] › e2e/smoke/od19-v3-colour-latency.spec.ts:94:9 › OD19-V3 · light-1440: picker channel slider input → paint p50 ≤ 25 ms, p95 ≤ 50 ms 
+  3 passed (59.6s)

@@ -1,0 +1,8 @@
+swap-3d — /Users/mkbabb/Programming/keyframes.js/dist/gh-pages · ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) · 1440x900 dark
+ok   Cube    #/cube     worst frame 67 ms (<= 120)
+ok   Spring  #/spring   worst frame 66 ms
+ok   Amiga   #/amiga    worst frame 75 ms (<= 120)
+ok   Spring  #/spring   worst frame 65 ms
+ok   Cube    #/cube     worst frame 57 ms (<= 120)
+ok   Spring  #/spring   worst frame 75 ms
+ok   Amiga   #/amiga    worst frame 58 ms (<= 120)

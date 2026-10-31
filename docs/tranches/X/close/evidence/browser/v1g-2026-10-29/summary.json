@@ -1,0 +1,100 @@
+{
+ "SERVED MODEL": "claude-opus-5-5",
+ "unit": "X.W11.v1g",
+ "ruling": "COHESION §0gv.4",
+ "cell": "installed Chrome (channel chrome), new headless, --use-angle=metal --force-device-scale-factor=2 (perf/real-gpu.ts)",
+ "build": "vite build --mode gh-pages --sourcemap (.worktrees/v1g-build/dist, untracked)",
+ "runs": [
+  {
+   "file": "profile-run1.json",
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+   "observerLongTasksMs": [
+    246,
+    62
+   ],
+   "over50": [
+    {
+     "durMs": 246.3,
+     "offsetMs": 120.2,
+     "class": "PRODUCER glass dock backdrop sampler (dock.js:202 C → :95 Ee getImageData)",
+     "topSelf": "getImageData"
+    },
+    {
+     "durMs": 62.1,
+     "offsetMs": 378.6,
+     "class": "CONSUMER ink certify walk (demo/color-session/ink.ts:120 certify → value safeAccentColor)",
+     "topSelf": "M → M @ ../../../../dist/color-BU4JS6bH.js:185"
+    }
+   ]
+  },
+  {
+   "file": "profile-run2.json",
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+   "observerLongTasksMs": [],
+   "over50": []
+  },
+  {
+   "file": "profile-run3-t20.json",
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+   "observerLongTasksMs": [
+    72
+   ],
+   "over50": [
+    {
+     "durMs": 72.5,
+     "offsetMs": 103.2,
+     "class": "PRODUCER glass dock backdrop sampler (dock.js:202 C → :95 Ee getImageData)",
+     "topSelf": "getImageData"
+    }
+   ]
+  },
+  {
+   "file": "profile-run4-t20.json",
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+   "observerLongTasksMs": [],
+   "over50": []
+  },
+  {
+   "file": "profile-run5-t40.json",
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+   "observerLongTasksMs": [],
+   "over50": []
+  },
+  {
+   "file": "profile-run6-t40.json",
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+   "observerLongTasksMs": [],
+   "over50": []
+  },
+  {
+   "file": "profile-run7-t20.json",
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+   "observerLongTasksMs": [
+    65
+   ],
+   "over50": [
+    {
+     "durMs": 65.2,
+     "offsetMs": 244.8,
+     "class": "PRODUCER glass dock backdrop sampler (dock.js:202 C → :95 Ee getImageData)",
+     "topSelf": "getImageData"
+    }
+   ]
+  }
+ ],
+ "over50Total": 4,
+ "over50Producer": 3,
+ "over50Consumer": 1,
+ "gate": [
+  {
+   "file": "gate-gpu-run1.txt",
+   "line": "frames=159 p50=16.7ms p95=16.8ms longTasks>50ms=0 maxTask=0ms",
+   "passed": true
+  },
+  {
+   "file": "gate-gpu-run2.txt",
+   "line": "frames=160 p50=16.7ms p95=16.8ms longTasks>50ms=0 maxTask=0ms",
+   "passed": true
+  }
+ ]
+}

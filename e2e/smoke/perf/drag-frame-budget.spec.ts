@@ -1,7 +1,6 @@
 import { test, expect } from "@playwright/test";
 import {
     GATE,
-    SOFT_CEIL,
     detectRenderer,
     isSoftwareGL,
     installFrameCollector,
@@ -10,6 +9,7 @@ import {
     readLongTasks,
     percentile,
 } from "./frame-budget";
+import { useRealGpuCell } from "./real-gpu";
 
 /**
  * S.W3 ORACLE — TRANSITION FAMILY (a): SLIDER-DRAG (the colour fan-out).
@@ -29,7 +29,20 @@ import {
  * 0 long tasks); on the standing SwiftShader harness we assert a freeze/thrash
  * ceiling and LOG p50 against the ≤20 ms gate — a recorded caveat, never a
  * silent re-baseline.
+ *
+ * X.W11.v1f (COHESION §0gu.3, the §0fr.2/§0gp.2 law; ESC-W11v1e-2): the §6.2
+ * budget's cell of record is the REAL-GPU cell (`W12_REAL_GPU=1`, headless
+ * Chrome on ANGLE-Metal, `perf/real-gpu.ts`), read ×2; the bars are unchanged.
+ * On a software rasteriser (the hosted CI runner's SwiftShader) the reading is
+ * INFORMATIONAL: it is logged, and the leg asserts LIVENESS only — the drag
+ * commits a new L value and the frame collector ticks. The former freeze
+ * ceiling was itself a wall-clock budget on that rasteriser (CI read an
+ * 8,888 ms in-drag task on a calm runner and a 30 s `mouse.move` on a starved
+ * one), so it leaves the software leg, and the liveness drive is the scrub's
+ * first three steps. A budget RED on the GPU cell is a product cut.
  */
+useRealGpuCell();
+
 test("slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate)", async ({
     page,
 }) => {
@@ -49,6 +62,7 @@ test("slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundl
     const y = box.y + box.height / 2;
     const x0 = box.x + box.width * 0.08;
     const x1 = box.x + box.width * 0.92;
+    const before = await slider.getAttribute("aria-valuenow");
 
     // Grab, then reset the frame window so warm-up frames are excluded.
     await page.mouse.move(x0, y);
@@ -58,7 +72,7 @@ test("slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundl
     // Scrub across the track — 24 steps, a real sustained drag. Each move drives
     // the full fan-out; the 30 ms dwell lets a frame (or two) land per step.
     const STEPS = 24;
-    for (let i = 1; i <= STEPS; i++) {
+    for (let i = 1; i <= (soft ? 3 : STEPS); i++) {
         await page.mouse.move(x0 + ((x1 - x0) * i) / STEPS, y, { steps: 3 });
         await page.waitForTimeout(30);
     }
@@ -83,19 +97,10 @@ test("slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundl
 
     // Sanity: the scrub produced frames (the collector is live).
     expect(frames.length, "no frames sampled — collector dead").toBeGreaterThan(0);
+    // Liveness on every cell: the drag committed a new L value.
+    await expect(slider, "the drag committed no new L value").not.toHaveAttribute("aria-valuenow", before ?? "");
 
-    if (soft) {
-        // Software-GL: a FREEZE guard only (NOT the §6.2 gate — recorded caveat).
-        // The per-frame p50 under software raster is inherently noisy (58-100 ms
-        // run-to-run — it measures SwiftShader's frame cost, not a product
-        // signal), so it is LOGGED, not gated; a fan-out that regressed to an
-        // uncoalesced blocking re-render surfaces as a task running into the
-        // freeze ceiling.
-        expect(
-            maxTask,
-            `software-GL longest in-drag task ${maxTask.toFixed(0)}ms over the ${SOFT_CEIL.dragMaxTaskMs}ms freeze ceiling — the fan-out may have regressed to a blocking re-render`,
-        ).toBeLessThanOrEqual(SOFT_CEIL.dragMaxTaskMs);
-    } else {
+    if (!soft) {
         // Real GPU: the EXACT §6.2 gate.
         expect(p50, `drag frame p50 ${p50.toFixed(1)}ms over the §6.2 ≤${GATE.dragP50Ms}ms gate`).toBeLessThanOrEqual(
             GATE.dragP50Ms,

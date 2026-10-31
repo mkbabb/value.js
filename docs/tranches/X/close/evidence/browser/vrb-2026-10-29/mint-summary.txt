@@ -1,0 +1,3 @@
+  npx playwright test -c e2e/visual/visual.config.ts --project=visual --update-snapshots
+Running 216 tests using 1 worker
+  216 passed (17.7m)

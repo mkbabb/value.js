@@ -104,21 +104,15 @@ describe("service.palette.versions", () => {
     // G-7 — payload identity ≠ release identity
     // -----------------------------------------------------------------
 
-    it("G-7: two palettes differing only in per-color `name` hash differently", () => {
-        const a = computeContentHash("p", [{ css: "#fff", name: "snow", position: 0 }]);
-        const b = computeContentHash("p", [
-            { css: "#fff", name: "paper", position: 0 },
-        ]);
-        expect(a).not.toBe(b);
-    });
+    // The X-W3 row "per-colour `name` hashes differently" is superseded by
+    // §0gt.5 (identity = the ordered colours' css): `palette-colour-contract.test.ts`.
 
     it("G-7: payloadHash is framed `domain ‖ 0x00 ‖ uint64be(len) ‖ bytes`", () => {
-        const D = "value.js/palette/payload/v1";
-        const colors = [{ css: "#FF0000", name: "Red", position: 0.5 }];
+        const D = "value.js/palette/payload/v2";
+        const colors = [{ css: "#FF0000", name: "Red", position: 0 }];
         const expected = createHash("sha256")
             .update(
                 Buffer.concat([
-                    frame(D, Buffer.from("sample", "utf8")),
                     frame(
                         `${D}#colors`,
                         (() => {
@@ -128,12 +122,10 @@ describe("service.palette.versions", () => {
                         })(),
                     ),
                     frame(`${D}#color/css`, Buffer.from("#ff0000", "utf8")),
-                    frame(`${D}#color/name`, Buffer.from("red", "utf8")),
-                    frame(`${D}#color/position`, Buffer.from("0.5", "utf8")),
                 ]),
             )
             .digest("hex");
-        expect(computeContentHash("Sample", colors)).toBe(expected);
+        expect(computeContentHash(colors)).toBe(expected);
     });
 
     it("G-7: field boundaries are separated — ('ab','c') ≠ ('a','bc')", () => {
@@ -142,8 +134,14 @@ describe("service.palette.versions", () => {
         // separate them, so this stays green if the `uint64be(len)` prefix is
         // removed. The length prefix is measured by the exact-digest
         // reconstruction above, which reds the moment it is dropped.
-        const x = computeContentHash("ab", [{ css: "#000", name: "c", position: 0 }]);
-        const y = computeContentHash("a", [{ css: "#000", name: "bc", position: 0 }]);
+        const x = computeContentHash([
+            { css: "ab", position: 0 },
+            { css: "c", position: 1 },
+        ]);
+        const y = computeContentHash([
+            { css: "a", position: 0 },
+            { css: "bc", position: 1 },
+        ]);
         expect(x).not.toBe(y);
     });
 
@@ -170,7 +168,7 @@ describe("service.palette.versions", () => {
         );
         expect(rows).toHaveLength(2);
         expect(rows[0]?.payloadHash).toBe(rows[1]?.payloadHash);
-        expect(rows[0]?.payloadHash).toBe(computeContentHash(input.name, input.colors));
+        expect(rows[0]?.payloadHash).toBe(computeContentHash(input.colors));
         expect(rows[0]?._id).not.toBe(rows[0]?.payloadHash);
     });
 
@@ -437,10 +435,10 @@ describe("service.palette.versions", () => {
         );
         expect(rows.map((v) => v.revisionNo)).toEqual([2, 1]);
         expect(rows.map((v) => v._id)).toEqual(["legacy-b", "legacy-a"]);
-        expect(rows[1]?.payloadHash).toBe(computeContentHash("Legacy", legacyColors));
+        expect(rows[1]?.payloadHash).toBe(computeContentHash(legacyColors));
 
         const palette = await services.repositories.palettes.findBySlug("legacy");
-        expect(palette?.currentHash).toBe(computeContentHash("Legacy", legacyColors));
+        expect(palette?.currentHash).toBe(computeContentHash(legacyColors));
 
         // At-rest `_id` values are NOT rewritten (W3 §3a) and re-running is a
         // no-op: same totals scanned, nothing further written.

@@ -285,3 +285,158 @@ The admin panels loaded only when their tab opened: the Users tab fetched 18 kB 
 **Residuals.**
 - The glass `Skeleton` shimmer is O-102a (glass 10.1.1). Adopt it when it lands; it is never a local animation.
 - The /equation cold compute is the backend's (the `/api/equations/compute` default series). A server-side cache of the default series is the next root, and it is not a bundle cure.
+
+### ci-green
+
+ESC-FREL-v3-1 (COHESION §0gj.2): the fourier CI-green unit. fourier `m/w1-bump-migration` `ac9d514` → **`73fca89`** (three test-only commits, each pushed fast-forward). **Verdict: 8 of 8 assigned reds CURED; CI is NOT GREEN. One red is left, `od19-load` equation nav frame bars. It is ESCALATED (ESC-FREL-ci-1, below) because the cure would change what the instrument measures.**
+
+**The CI ladder (one fresh dispatch per landing, never a re-run):**
+| run | head | hard reds | what CI read |
+|---|---|---|---|
+| 39348303989 | `924df31` | 8 | the assigned set: vedit:345, vedit:573, vstage e171 ×2, od19-p3:98 ×4 |
+| 39577437998 | `a354b68` | 6 | the assigned 8 are GREEN. P1 (`e928541`) and load (`ac9d514`) are read for the first time: load ×4, p1 F1 morph ×2 |
+| 39586131046 | `13129d4` | 5 | load nav ×2 (equation, morph), p1 F1 morph ×3 (the Play-shift bound, which the growth assert had been masking) |
+| 39595581721 | `73fca89` | **1** | load `equation` nav: over50 33/39/39 (bar 20), max gap 500/650 (bar 450) |
+
+**Cures (each at the root; no assertion weakened, deleted or skipped; no golden re-baselined):**
+- **`a354b68`, the assigned 8:**
+  - **vedit v178, the v242 Magnet, vstage e171 ×2:** these probes read SliderControl's pre-glass DOM (`[style*=--row-fill]`, `--track-color`), which 976a704 retired. They now read glass's integrated-thumb scrubber DOM: `[data-control-row] .slider-range` and its fill tint `--liquid-fill-tint`, which the row's `--slider-range-bg` feeds. The owner-hue, not-destructive and not-one-accent assertions are unchanged.
+  - **v242 hover ink:** CI read the colour mid-transition at a fixed 400 ms (α 0.98419 and 0.996681). The read now waits for the button's finite animations to finish. The exact-equality assertion is unchanged.
+  - **od19-p3 F5·ALL ×4:** the rAF sampler counts main-thread frames, but the crossfade runs on the compositor while the incoming route's mount holds the main thread. CI sampled 0–4 frames of fades that ran in full.
+    - The falsifier now records every View Transition the page opens, through an init script that wraps `Document.prototype.startViewTransition`.
+    - It asserts, per push: exactly one `route`-typed transition; `ready` resolved (not skipped); `finished` resolved; `::view-transition-new(root)` fades in from opacity 0 over ≥ 6 × 16.7 ms of its timeline.
+    - `vtFrames` stays in the record and is never inflated.
+    - Reduced motion now also asserts that glass opens no transition (a stronger check).
+- **`13129d4`:**
+  - **od19-load:** the throttle is calibrated to the host using Lighthouse's benchmarkIndex method. A fixed JS workload scores the host unthrottled, and the rate is 4 × host / 6,500 (the reference Mac's median), never below 1. The bars are unchanged, and the index and rate ride every message. This cleared load ×4 → ×2 → ×1 (CI index ≈ 2,950 → rate ≈ 1.82).
+  - **od19-p1 growth:** "≥ 5 frames" is read as five frames of the 60 Hz clock: five sampled growth frames, or growth spanning ≥ 83 ms on the page clock.
+- **`73fca89`, od19-p1 no-snap:** glass's spring covers most of its distance in about the first 80 ms. At ~12 fps one frame carried 372 of 424 px (88%) with no snap. Locally at CPU ×6 the largest frame carried 52%, and Play's share of its travel stayed within 0.06 of the width's share in every frame.
+  - Arms: the half-travel bound, OR Play riding the width (share drift ≤ 0.25 in every sampled frame). A one-frame snap against a growing width drifts by nearly 1.
+  - p1 is GREEN on CI 39595581721.
+
+**Local gates (guarded, chromium, `--workers=1`, headless, `BASE_URL` = the suite's :4190 preview, because :3000 belongs to another app):**
+- The three P2/P3 files whole: 47/47 ×2.
+- od19-load + od19-p1: 34/35 ×2. One intermittent P1 dock-hover read per run, a different test each time. That tree carried another seat's uncommitted glass 10.1.1 bump.
+- od19-p1 alone: 16/16 ×2.
+- `vue-tsc -b` clean; oxlint 0/0; vitest 116/116.
+
+**ESC-FREL-ci-1, the one red left (`od19-load` `equation` nav):**
+- **over50 accrues during the server wait at the host's raster cadence.** It is not page jank. On CI 39595581721 one cell ran at calibration index 844, so rate 1 (no throttle): TBT 42 ms, max gap 167 ms, and **over50 39** inside a 3,052 ms `/api/equations/compute` wait. Locally the same count runs about 8/s of wait (8 frames in a 1 s wait).
+- **max gap 500–650 ms at rate ≈ 1.82**, against 167–195 locally at rate ≈ 4. The JS-only BENCH underestimates how much slower CI's DOM, layout and raster are than the reference M5 Max.
+- **Proposed arms (orchestrator ruling):**
+  - (i) The frame bars read "own" frames, excluding the `/api` wait span as own-time already does, and BENCH gains a DOM/layout leg.
+  - (ii) The frame arm moves to the suite's `@gpu` reference instrument (the `chrome-gpu` project on the Mac). Bytes and own-time stay on CI.
+  - (iii) The named product root: a server-side cache of /equation's default series removes the wait the frames accrue in.
+- No bar was moved, and the test was not excluded.
+
+**Pre-existing CI flakes (they pass on retry; the same set was in the 2026-10-16 green 38938542799):** equation-interaction:77, f-w13-image-controls:200, f-w14u-paper:466 (gap 3.97 against ≥ 4), f-w14v-eq2:39, f-w14-uia:493, f-w14u-vedit v87:152. They are not this lane's commits. They are named for a cure seat, not re-run.
+
+### glass-10.1.1
+
+Adopting `@mkbabb/glass-ui` **10.1.1** (tag `v10.1.1` at `d7baa1dc3`). Read before the work: MIGRATION §10.1.1 and the CHANGELOG 10.1.1 section, both whole. Code: fourier `e4c2e1d` on `m/w1-bump-migration`, pushed fast-forward from `73fca89`. Evidence: `fourier/after/glass-10.1.1/`. Every run went through `guarded` and was headless Chromium with `--workers=1`. `BASE_URL` was the suite's own :4190 preview, and the dev backend was on :8000.
+
+| item | verdict | detail |
+|---|---|---|
+| pin | **ADOPTED** (`e4c2e1d`) | `10.1.0` → `10.1.1` exact in `web/package.json` and the lockfile. The integrity `sha512-7e/gASh…Q8pQ==` equals the registry's, and `npm ls` reads 10.1.1 (`pin.txt`). This is the bump the `### ci-green` gates saw uncommitted in the tree. It is now owned and committed. `DockContext.expanded`: fourier never calls `provideDockContext`. |
+| Skeleton shimmer (OD19-V6 / ALL "loading → skeleton shimmer") | **ADOPTED, RE-READ LIVE** | The `/v` stage Skeleton (`VisualizationView`) and the `/equation` compute Skeletons (`EquationView`, 3 bars) pass glass's `shimmer`. No local shimmer CSS existed. The `od19-p3` skeleton tests now also assert that no bar lacks `data-shimmer`, a strengthened check that nothing weakens. They pass in every run below with the compute and the visualization held 2 s. This is the live headless read. The gallery and admin list Skeletons are not on a docket row and keep the breathe. |
+| O-102(3) / G-3, OD19-F4 "dropdowns do not collapse with the dock" | **NOTHING TO RETIRE; RE-READ LIVE** | No code closed menus by hand on collapse. The F4 cure (`e928541`) holds the dock open through `keepOpen()`/`release()` while a menu is up (`AnimationControls`, `EditorControlsDock`, `CanvasControlsDock`). MIGRATION §10.1.1 names that as the way to keep the dock open, and without it a pointer that leaves into the portalled menu would now collapse the dock and close the menu under the user. So it stays. 10.1.1 adds the producer half: a collapse closes any face overlay. The `od19-p1` "F4 — an open menu holds the dock open; closing it lets the dock collapse" test passes in every cure run except one hover-expand miss, covered below. |
+| G-2 menu z rung, G-1 sheet, O-102(6) floats | nothing to retire | fourier had no `z-*` class on a glass `DropdownMenuContent`. `PaperSearchDropdown`'s `--z-popover` is its own surface, not a glass menu. There was no sheet override. The time caret is already glass's portalled Tooltip (`976a704`). |
+
+**Gates (guarded):**
+- `vue-tsc -b --force`: rc 0 ×2 (`vue-tsc-{1,2}.txt`).
+- `vitest run --maxWorkers=2`: **116 / 116 ×2** (`vitest-{1,2}.txt`).
+- e2e `od19-p1-transport-docks` + `od19-p3-shell-motion-loading` (the dock, menu and skeleton specs): **32 / 32**, then **30 / 32** (`e2e-{1,2}.txt`). `od19-p1` alone: **15 / 16**, then **16 / 16** (`e2e-p1-alone-{1,2}.txt`).
+- Every failure is one class. `expandTransport`'s hover leaves the dock `collapsed` ("Expected /expanded/") or narrow (`wEnd` 102 against > 202), and it hits a different test each run.
+- **A/B against glass 10.1.0** (`ab/`, `ab.sh`). `base` was a detached worktree at `73fca89` with the 10.1.0 tarball and otherwise the same `node_modules`. `cure` was this tree. They alternated over three passes.
+  - base: 14, 16 and 16 of 16.
+  - cure: 16, 16 and 15 of 16.
+  - The base misses are the same hover-expand class (F1 light 1440 and F4 dark 1440). The flake predates 10.1.1, so the release neither causes nor cures it. It is the intermittent P1 dock-hover read already recorded under `### ci-green`. The worktree was removed afterwards.
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched.
+
+### residue (§0gp)
+
+ESC-FREL-ci-1, ruled at COHESION §0gp.2–.3. fourier `m/w1-bump-migration` `e4c2e1d` → `d89f4c9` → **`34b10ae`**, each pushed fast-forward. **Verdict: CURED. m/w1 CI is GREEN at HEAD: run 40552991504 on `34b10ae`, all 5 jobs successful (e2e 594 passed, 1 flaky, 3 skipped; honest-red "as declared").** Evidence: `fourier/residue/`.
+
+**1. The split (`d89f4c9`, `web/e2e/od19-load.spec.ts`).** This follows the §0fr.2/.3 law.
+- The nav cell reads the page's WebGL renderer.
+  - On a software rasteriser (SwiftShader, llvmpipe, or none), the frame reading is recorded as a `frames-informational` annotation. The leg asserts liveness: more than 1 sampler frame across the transition. This is the form ruled LAWFUL at §0fr.3.
+  - On hardware, the leg asserts FRAME_BAR: max gap ≤ 450 ms and ≤ 20 frames over 50 ms.
+- The budget's cell of record is a new `@gpu` describe, run by the `chrome-gpu` project. That project is headless real Chrome with `channel:"chrome"` and `--use-angle=metal`, and the spec header cites the machine-law need for it.
+  - `expectHardwareGpu` runs in `beforeAll`, and every cell asserts that its renderer is not software.
+- The bytes and own-time legs stay gating in every cell, CI included. No bar was moved.
+- **Falsifier.** The `equation` nav cell runs under CI 39595581721's condition: software raster, and the compute held 3,052 ms through `tools/delay-proxy.mjs` (`tools/falsifier.sh`).
+  - HEAD spec (`e4c2e1d`): **RED ×2** (`falsifier-head-{1,2}`; over50 36, max gap 182).
+  - Cure: **GREEN ×2** (`falsifier-cure-{1,2}`), with the chromium cell live and the chrome-gpu cell on "ANGLE Metal Renderer: Apple M5 Max".
+- **The real-GPU cell ×2** (`gpu-nav-{1,2}`): all 5 navs GREEN in both runs.
+  - Across the cells, max gap was 117–267 ms (bar 450) and over50 was 1–3 (bar 20).
+  - On hardware, the /equation nav that read 33/39 over50 and 500/650 ms on the CI software raster sits well under the budget. **No GPU red, so there is no product cure to make.** The CI count was the emulator's raster cadence during the server wait, as diagnosed under `### ci-green`.
+- **Gates for the split:**
+  - od19-load chromium: 19/19 ×2 (`chromium-load-{1,2}`).
+  - chromium + chrome-gpu: 24/24 ×2 (`e2e-load-{1,2}`).
+  - `vue-tsc -b`: clean ×2.
+  - vitest: 116/116 ×2.
+  - oxlint: clean.
+
+**2. The red the split uncovered: the honest-red reporter (`34b10ae`).**
+- CI 39650062340 on `d89f4c9` had od19-load GREEN, and the gating chromium cells passed: 586 passed, plus 3 pre-existing flakes that passed on retry.
+- The job still failed in the producer-held step. `honest-red-reporter.ts` read **NOW PASSES ×6** on the `DOCK-SUMMARY-SQUARE` row (O-84, the `f-w14v-pd` collapsed cells at 1440/1024/390 × light/dark).
+- The same 6 read the same way on every CI since run 39577437998 (head `a354b68`, still on glass 10.1.0), which was the first run to read `e928541` (OD19-F1: the transport summary is one readout). So fourier's own F1 cure discharged the hold. glass did not land it.
+  - The ladder in `### ci-green` counted only the gating cells and did not record this step.
+- **Cure, by the manifest's own contract** ("a row leaves only by adoption"):
+  - The row is deleted from `web/e2e/producer-held.json`, so the 6 collapsed cells gate in `chromium` and `mobile-chromium` again.
+  - The `f-w14v-pd.spec.ts` header records the adoption.
+  - No assertion changed. The producer rule stays asked under O-84 / O-102.
+- **Falsifier:** the honest-red project under its reporter, against the suite's :3100 dev server and the :8000 API.
+  - HEAD `d89f4c9`: **RED ×2** ("NOT as declared (6)", rc 1; `honest-red-head-{1,2}`).
+  - Cure: **GREEN ×2** ("as declared — 7 rows, 7 tests, every one RED on its own token", rc 0; `honest-red-cure-{1,2}`).
+- **Gates:**
+  - Touched spec `f-w14v-pd` in chromium + mobile-chromium: **12/12 ×2**, including all 6 collapsed cells (`pd-gating-{1,2}`).
+  - `vue-tsc -b --force`: rc 0 ×2.
+  - vitest `--maxWorkers=2`: 116/116 ×2 (`adopt-*`).
+
+**3. CI.** Run 40552991504 was a fresh `workflow_dispatch` on `34b10ae`. It was not a re-run. Its log is in `ci-40552991504-e2e.log`.
+- web, api/tests, compose boot, e2e and inv-27 were all successful.
+- od19-load equation nav ✓.
+- The 6 `f-w14v-pd` collapsed cells ✓ in the gating cell.
+- The honest-red set was "as declared".
+- 1 flaky: `equation-interaction.spec.ts:77`. It passed on CI's own retry and was never re-dispatched. It is one of the pre-existing flake set named under `### ci-green`. That set is not this lane's commits, and it stays named for a cure seat.
+- The other two pre-existing flakes read clean this run.
+
+**Track C may resume (§0gp.3): merge, master CI ×2, then the .d deploy.**
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched. fourier `.worktrees/` is untouched.
+
+### glass-10.1.2
+
+**VERDICT: REVERTED — glass-caused RED, relayed to the producer.** Adopting `@mkbabb/glass-ui` **10.1.2** (tag `v10.1.2`, published with provenance by glass `release.yml` run 40601817178). Read before the work: MIGRATION §10.1.2 and the CHANGELOG 10.1.2 section, both whole. Code: fourier `a132a81` on `m/w1-bump-migration`, pushed fast-forward from `d0c300d`. Evidence: `fourier/after/glass-10.1.2/`. Every run went through `guarded` and was headless Chromium with `--workers=1` and `COMPUTE_CONCURRENCY=1`. The dirty `web/e2e/screenshots/f-w14/*` belong to another seat and were not touched.
+
+| item | verdict | detail |
+|---|---|---|
+| pin | **ADOPTED (`a132a81`), then REVERTED (`3a0e709`)**: see *CI* below | `10.1.1` → `10.1.2` exact in `web/package.json` (dependencies) and the lockfile. The integrity `sha512-6ePtoIFA…QQ0yQ==` equals the registry's (`pin.txt`). No pin-witness test exists here, only comments naming 10.1.1. |
+| G-4 (b-ii) seat audit | **NO CUSTOM SEAT; NOTHING MARKED** | Each run's direct children: **AppDock**: the logo `DockTrigger`, the nav `DockTrigger` and DarkModeToggle (a `DockControl`) are declared. The `div.contents[role=group][aria-label=Account]` around UserSlugBar is undeclared. It is a named group container, not a seat, so its Log in / account `DockTrigger` keeps its own Tab stop (as on 10.1.1) and the run claims no toolbar role. **CanvasControlsDock**: all glass seats (ViewLayersMenu's `DockTrigger`, `DockControl`s under as-child Tooltips), so the run is all-declared and claims `role=toolbar`. Edit contour sits in `#persistent-end`. **EquationResult's stage dock**: Info (`DockControl` under an as-child PopoverTrigger) and Copy LaTeX are all-declared, so it claims `role=toolbar`. **AnimationControls**: one undeclared child, `div.transport-face`. Its definite inline size is the X-OD19 F1 endpoint, so it stays. Inside it the scrubber thumb (a slider, a composite), Speed and Easing keep their own Tab stops and keys. **EditorControlsDock**: one undeclared child, `div.dock-row`. Undo, Redo, Delete, View and More inside it keep their own Tab stops, as on 10.1.1. This was not probed live, since it needs an owned contour in edit mode. It is read from the template. No `RouterLink`, bespoke button or `[role=button]` sits in any run. |
+| O-101 / disabled `DockTrigger` workarounds | **NOTHING TO RETIRE** | There is no page or dock-band clip and no `--dock-expanded-px` override. F1 already deleted the posture-keyed width override. `.transport-face`'s inline size is the face's own size, not an overflow clamp. No dock trigger is ever disabled, and no `:disabled` rule keys on one. `EditorControlsDock`'s `.is-save:hover:not(:disabled)` sits on a never-disabled `DockControl`, not a trigger, and is noted only. |
+
+**Gates ×2 (guarded):**
+- `vue-tsc -b --force`: rc 0 ×2 (`vue-tsc-{1,2}.txt`).
+- `vitest run --maxWorkers=2`: **116 / 116 ×2** (`vitest-{1,2}.txt`).
+- e2e, the dock and smoke specs (`od19-p1-transport-docks`, `f-w14u-vdock`, `f-w14u-d`, `od19-p2-sliders-caret`, `shell-header`, `od19-p3-shell-motion-loading`) with `BASE_URL=http://localhost:4190` (the suite's own preview), dev API :8000: **66 / 66 ×2** (`e2e-{1,2}.txt`). A first pair without `BASE_URL` hit the :3000 default, where `POST /api/sessions` returned 404, so the seed aborted before any test ran (`e2e-wrong-base-url-{1,2}.txt`). That was an operator error, not a red.
+- **Keyboard probe** (`../../keyframes/after/glass-10.1.2/probe-dock-10.1.2.mjs`, against `vite preview` of `dist/e2e-preview` on :4191; `probe-{1,2}.json`, `probe-run-{1,2}.txt`): routes `/`, `/v/hazy-etching-cream-elk` (a public dev record, read-only) and `/equation` at 1440 and 390. Both runs are **all ok** and identical.
+  - AppDock: declared 3/7 (the rest are separators plus the Account group). No role. Tab stops: one run stop, then Log in. Arrows: logo → nav → dark mode, with no wrap, and Home and End correct. ArrowRight on Log in stays on it.
+  - CanvasControlsDock: declared 5/7. `role=toolbar`. Tab: one run stop plus Edit contour (persistent-end). The arrows walk the 5 seats.
+  - Equation stage dock (1440): 2/2, `role=toolbar`.
+  - AnimationControls: 0/1, no role. Tab: Play, then the scrubber thumb, Speed and Easing. Arrows pressed in Speed or Easing never land on a seat.
+  - Probe rounds 1 and 2 (`probe-round1/`, `probe-round2/`) were probe defects, now fixed. The tabbable filter missed the 0×0-at-read slider thumb. A re-expand after Escape did not re-enter the dock. They are kept for the record.
+- **Resize probe** (same file): collapsing docks sampled through 1440→390, then an expand of each at 390, then 390→1440, then an expand at 1440. AppDock and the equation dock never collapse (`:collapse=false`), so they are read through the resizes only. Across 3 routes × 2 runs: **0 frames** with `documentElement` or `body` `scrollWidth > clientWidth`, and 0 frames with a dock box past the viewport. `html` and `body` overflow-x compute `visible` here, so the document read is direct.
+
+**CI: RED, glass-caused; the bump is reverted.** m/w1 CI (dispatch) run **40608758433** on `a132a81` is RED. The e2e job has 4 failed, 3 flaky and 588 passed. The api, web, compose and inv-27 jobs passed or were skipped.
+- RED: `f-w14v-au2` L2-15 @360/390/430 ("every expanded editor tool is inside the plate") and `f-w14-control-row` G-h @1440. All four are one class: a click on Edit contour never opens the editor (`svg.editor-svg` never visible, and "More editor tools" is never found).
+- Flaky: `equation-interaction` S2 and two `od19-load` cells, the known load-budget class.
+- **Reproduced locally ×2** (`ci-red-repro-{1,2}.txt`). **A/B** (`ci-red-ab-base-1011.txt`): the same tree with the 10.1.1 package swapped into `node_modules` is **4 / 4 GREEN**. So the cause is the release.
+- **Mechanism, measured** (a rAF frame trace of the /v CanvasControlsDock at 390 while a pointer moves onto Edit contour). The dock is fit-content and collapsed inside fourier's `.controls-dock-anchor` (`position:absolute; right:0.5rem`). On **10.1.2** the first `[data-morphing]` frame lays the root at the correct expanded endpoint at once (`--dock-expanded-px` 338px, inline-size 338, host 96→338). The controls centre in that box, so the `#persistent-end` Edit contour jumps **x 317 → 215** between Playwright's pointerdown and pointerup. It then glides back to 311 at settle. The pointerup and click land on the anchor, and glass's click-integrity guard (a press during a morph whose target no longer matches) swallows the click. On **10.1.1** the latched endpoint read 152px and the first morph frame reserved 96px, so the box grew from its right edge and the control stayed under the pointer (317 → 316 → 315). The O-101 cure is correct about the endpoint. Its first frame now moves an end-anchored dock's controls under a stationary pointer. A real mouse user who hovers a collapsed /v dock and clicks Edit contour loses the click.
+- **Not a consumer cure.** fourier's anchor is the dock README's fit-content recipe. The jump is glass's reserved-box layout on the first morph frame, and glass is read-only here. No shim was added and no test weakened. The bump is **reverted on m/w1** (`3a0e709`, a `git revert` of `a132a81`, pushed; no reset, no force), so m/w1 stays merge-ready at 10.1.1 for Track C. Re-verify CI on `3a0e709`: dispatch run **40617564036**, **GREEN, 5/5 jobs** (e2e included).
+- **Relay to glass (producer half):** under a dock anchored at its inline end (or start), the first morphing frame should keep the collapsed visual and its controls where they are, growing toward the open side, as 10.1.1 did by accident. The witness is fourier `f-w14v-au2` L2-15 plus this trace. Re-adopt once that cure ships. The seat audit above stands and needs no consumer change.
+
+**Master: NOT MERGED.** There is nothing to merge: m/w1 is back at 10.1.1, and its tree equals `d0c300d`. Recorded for the orchestrator: here a master push IS a deploy. `deploy-pages.yml` ships Cloudflare Pages on `workflow_run` of a green master **push** CI whenever `HEAD^..HEAD` touches `web/**`. That is how `50ef781` shipped: CI 40561927861, then deploy-pages 40568806110. So "merge, then master CI ×2" deploys unless the deploy is ruled first.
+
+No golden was re-baselined. No test was deleted, skipped or weakened. glass-ui is untouched.

@@ -1,0 +1,38 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 16 tests using 1 worker
+
+[1/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (light 1440) › F1 — every collapsed-summary kid lies inside the plate
+[2/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (light 1440) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[3/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (light 1440) › F3 — Speed and Easing are dock seats, each with its own menu
+[4/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (light 1440) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+[5/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (dark 1440) › F1 — every collapsed-summary kid lies inside the plate
+[6/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (dark 1440) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[7/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (dark 1440) › F3 — Speed and Easing are dock seats, each with its own menu
+[8/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (dark 1440) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+[9/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (light 390) › F1 — every collapsed-summary kid lies inside the plate
+[10/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (light 390) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[11/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (light 390) › F3 — Speed and Easing are dock seats, each with its own menu
+[12/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (light 390) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+[13/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:48:9 › X-OD19 P1 — transport dock (dark 390) › F1 — every collapsed-summary kid lies inside the plate
+[14/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:63:9 › X-OD19 P1 — transport dock (dark 390) › F1 — the expand is a measured morph: >=5 monotone frames, no Play snap; the collapse never undershoots
+[15/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:175:9 › X-OD19 P1 — transport dock (dark 390) › F3 — Speed and Easing are dock seats, each with its own menu
+[16/16] [chromium] › e2e/od19-p1-transport-docks.spec.ts:200:9 › X-OD19 P1 — transport dock (dark 390) › F4 — an open menu holds the dock open; closing it lets the dock collapse
+  16 passed (1.9m)

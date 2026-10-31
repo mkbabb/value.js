@@ -1,0 +1,33 @@
+SERVED MODEL: claude-opus-5-5
+# host hook deploy #2 output (webhook journal, deploy-hook lines; addresses redacted)
+[webhook] 2026/10/27 20:15:00 [e9a638] incoming HTTP POST request from <ip>:58456
+[webhook] 2026/10/27 20:15:00 [e9a638] fourier-analysis got matched
+[webhook] 2026/10/27 20:15:00 [e9a638] fourier-analysis hook triggered successfully
+[webhook] 2026/10/27 20:15:00 [e9a638] 200 | 0 B | 101.467µs | <ip>:9000 | POST /hooks/fourier-analysis
+[webhook] 2026/10/27 20:15:00 [e9a638] executing /var/www/fourier-analysis/scripts/deploy-hook.sh (/var/www/fourier-analysis/scripts/deploy-hook.sh) with arguments ["/var/www/fourier-analysis/scripts/deploy-hook.sh"
+[webhook] 2026/10/27 20:16:45 [e9a638] command output: [deploy-hook 2026-10-27T20:15:00Z] inv-31: FOURIER_DEPLOY_ALERT_WEBHOOK unset — the second sink is off; the watched channel is the deploy-alert issue (.github
+[deploy-hook 2026-10-27T20:15:00Z] fourier deploy-hook invoked (repo arg: mkbabb/fourier-analysis)
+[deploy-hook 2026-10-27T20:15:00Z] rollback target = last-known-green 50ef7812725b114c62a0c242b8f6b19cb7179d8a (from /opt/deploy/fourier-last-green)
+[deploy-hook 2026-10-27T20:15:01Z] inv-28 — asking GitHub for a covering green ci.yml run for 50ef7812725b114c62a0c242b8f6b19cb7179d8a on master…
+[deploy-hook 2026-10-27T20:15:01Z] inv-28 GREEN — 50ef7812725b114c62a0c242b8f6b19cb7179d8a is covered by ci.yml run unknown
+[deploy-hook 2026-10-27T20:15:01Z] compose env: /opt/deploy/.env supplies keys: WEBHOOK_SECRET ADMIN_TOKEN
+[deploy-hook 2026-10-27T20:15:01Z] advancing 50ef7812725b114c62a0c242b8f6b19cb7179d8a -> 50ef7812725b114c62a0c242b8f6b19cb7179d8a (covered by CI run unknown)
+[deploy-hook 2026-10-27T20:15:01Z] building (build --parallel) — the serving stack is untouched…
+[deploy-hook 2026-10-27T20:15:31Z] mongo: its definition changed (config hash 3df677dbf1d6 -> e167ac5b1369) — cold backup, then recreate
+[deploy-hook 2026-10-27T20:15:47Z] mongo: backup /opt/deploy/fourier-mongo-backups/mongo-data-20261027T201531Z.tar.gz (318329410 bytes)
+[deploy-hook 2026-10-27T20:15:54Z] mongo: recreated at config hash e167ac5b1369 (healthy)
+[deploy-hook 2026-10-27T20:15:55Z] edge: backend pinned to fourier-analysis-backend-2
+[deploy-hook 2026-10-27T20:15:55Z] switch backend: starting 1 new beside 1 serving (the edge stays on the serving one)
+[deploy-hook 2026-10-27T20:16:02Z] edge: backend pinned to fourier-analysis-backend-3
+[deploy-hook 2026-10-27T20:16:02Z] switch backend: retiring abbf561ae423 (graceful stop, ≤ 30s)
+[deploy-hook 2026-10-27T20:16:32Z] switch backend: serving 15023f1622bd (healthy)
+[deploy-hook 2026-10-27T20:16:33Z] edge: frontend pinned to fourier-analysis-frontend-2
+[deploy-hook 2026-10-27T20:16:33Z] switch frontend: starting 1 new beside 1 serving (the edge stays on the serving one)
+[deploy-hook 2026-10-27T20:16:41Z] edge: frontend pinned to fourier-analysis-frontend-3
+[deploy-hook 2026-10-27T20:16:41Z] switch frontend: retiring 76c25b142567 (graceful stop, ≤ 30s)
+[deploy-hook 2026-10-27T20:16:41Z] switch frontend: serving d0acda30c28c (healthy)
+[deploy-hook 2026-10-27T20:16:42Z] health gate GREEN on :8100 (attempt 1/30) — LIVENESS ok (/api/health) · READINESS ok (/ → 404, inv-22)
+[deploy-hook 2026-10-27T20:16:42Z] running pending migrations (post-up post-gate)…
+[deploy-hook 2026-10-27T20:16:44Z] migrations OK
+[deploy-hook 2026-10-27T20:16:45Z] DEPLOY OK 50ef7812725b114c62a0c242b8f6b19cb7179d8a -> 50ef7812725b114c62a0c242b8f6b19cb7179d8a (CI run unknown; liveness ok, readiness ok)
+[webhook] 2026/10/27 20:16:45 [e9a638] finished handling fourier-analysis

@@ -414,12 +414,13 @@
  * both glass Cards are z-auto stacking contexts, so DOM order alone painted
  * the LATER right pane over the left pane's overflowing ornament). Grid items
  * take z-index directly (no positioning needed). A portaled overlay clears
- * this layer ONLY when it carries its own: glass's Select and Popover take
- * z-popover, but glass 10.1.0's DropdownMenuContent ships z-index auto, so a
- * menu opened over the stage painted UNDER it while reka still routed clicks
- * to it (X-DS V7R-01). Until glass gives the menu chunk z-popover (relayed
- * under O-87/O-80), every DropdownMenuContent call site carries glass's own
- * `z-popover` utility; ZERO per-instance z-index on the ornament itself (the
+ * this layer ONLY when it carries its own. Since glass 10.1.1 (G-2) every
+ * overlay takes its rung from its role (menu, submenu, panel -> z-popover), so
+ * the menus clear it with no consumer class. On 10.1.0 the DropdownMenuContent
+ * shipped z-index auto and painted UNDER the stage (X-DS V7R-01); the per-site
+ * `z-popover` lift that answered it is retired at the 10.1.1 adoption, and
+ * the oracle v7r-overlay-layer.spec.ts holds the paint order. ZERO per-instance
+ * z-index on the ornament itself (the
  * no-z-hacks law — the slot assigns the layer). X.W5.c: keyed on the region's
  * ROLE. The ornament overflows because of what the region IS — the protagonist
  * carrying the hero blob — not because of which side of a grid it landed on,
@@ -516,9 +517,23 @@
  * the subject. Home (`[data-view="picker"]`) is the one view whose stage IS
  * its subject, so it keeps the picker first. `order` changes the visual
  * sequence only; the DOM keeps the schema order, so the regions' tab order
- * still runs picker → subject (the register's specified cure, A2-VA-L2-5). */
+ * still runs picker → subject (the register's specified cure, A2-VA-L2-5).
+ *
+ * X.W11.o1 (COHESION §0gq.2(a), OD19-V7-390-ORDER) — THE ORDER READS THE
+ * DISPLAYED PANES, never the route. The rule keyed on `[data-view]` and the
+ * wrapper's `[data-pane]`, which App.vue binds from the route, and the route
+ * moves at the input. Each slot commits its displayed pane only after its
+ * rAF/preload hold, and its out-in leave comes after that. So on Home → Mix
+ * at 390 the order flipped about 9 ms after the tap: the picker dropped below
+ * 7.6k px of the outgoing About, and About was the text that faded out (the
+ * mix window read 500 ms ×3 on the GPU cell against 450). App.vue now stamps
+ * `data-shown` on each region wrapper from that slot's own mount report. The
+ * rule is keyed on the stage showing the picker while the inspector shows
+ * something other than About (Home is the one picker view whose inspector is
+ * About). The settled order is unchanged, and the flip moves to the commit. */
 @container pane-row not (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
-    .app-layout:not([data-view="picker"]) .pane-wrapper--stage[data-pane="color-picker"] {
+    .pane-container:has(> .pane-wrapper--inspector:not([data-shown="about"]))
+        > .pane-wrapper--stage[data-shown="color-picker"] {
         order: 1;
     }
 }

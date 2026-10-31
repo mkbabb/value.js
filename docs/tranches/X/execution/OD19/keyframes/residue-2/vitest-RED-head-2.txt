@@ -1,0 +1,166 @@
+
+ RUN  v4.1.8 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/kf-head
+
+ ❯ |demo| test/demo/state/restore-playing-paints-once.test.ts (2 tests | 1 failed) 222ms
+     × a playing restore reads no style; the loop's first frame resolves the endpoint and paints 64ms
+ ❯ |demo| test/demo/scenes/square-mount-reads-no-style.test.ts (2 tests | 1 failed) 271ms
+     × binding the box and painting the rest pose call no getComputedStyle; the first tumble reads the palette once 70ms
+ ❯ |demo| test/demo/instrument/fold-landing-swap-frame.test.ts (2 tests | 1 failed) 21ms
+     × lands in the second frame while a view transition runs 18ms
+ ❯ |demo| test/demo/instrument/visualizer-run-read-once.test.ts (1 test | 1 failed) 69ms
+     × three paused seats read the widths once; a resize re-reads them in the observer, not in the paint 31ms
+ ❯ |demo| test/demo/app/scene-warm-after-content.test.ts (1 test | 1 failed) 12ms
+     × arms no warm at mount, one in the frame after the first content, none after a later one 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/app/scene-warm-after-content.test.ts > KF-RES-1 — the idle scene warm waits for the first scene's content > arms no warm at mount, one in the frame after the first content, none after a later one
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      [Function warmAll],
+    ]
+
+
+Number of calls: 1
+
+ ❯ test/demo/app/scene-warm-after-content.test.ts:61:26
+     59|         runFrames();
+     60|         // The deep link's chunk is in flight: no warm may be armed ye…
+     61|         expect(idle).not.toHaveBeenCalled();
+       |                          ^
+     62|
+     63|         onSceneContent();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |demo| test/demo/instrument/fold-landing-swap-frame.test.ts > a swap's fold landing waits out the commit frame > lands in the second frame while a view transition runs
+AssertionError: expected 1 to be 2 // Object.is equality
+
+- Expected
++ Received
+
+- 2
++ 1
+
+ ❯ test/demo/instrument/fold-landing-swap-frame.test.ts:80:38
+     78|     it("lands in the second frame while a view transition runs", async…
+     79|         swapping = true;
+     80|         expect(await landingFrame()).toBe(2);
+       |                                      ^
+     81|     });
+     82|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |demo| test/demo/instrument/visualizer-run-read-once.test.ts > the visualizer ball's run is read once, not per paint > three paused seats read the widths once; a resize re-reads them in the observer, not in the paint
+AssertionError: expected 6 to be 2 // Object.is equality
+
+- Expected
++ Received
+
+- 2
++ 6
+
+ ❯ test/demo/instrument/visualizer-run-read-once.test.ts:125:23
+    123|         }
+    124|         // One measure (the stage and the ball) for three paints.
+    125|         expect(reads).toBe(2);
+       |                       ^
+    126|
+    127|         // The stage grows: the observer's report re-reads after layou…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |demo| test/demo/state/restore-playing-paints-once.test.ts > a resumed restore paints once, in the loop > a playing restore reads no style; the loop's first frame resolves the endpoint and paints
+AssertionError: expected "bound " to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st bound  call:
+
+    Array [
+      <div
+        style="--turn: 360deg; transform: rotateX(22.5deg);"
+      />,
+    ]
+
+
+Number of calls: 1
+
+ ❯ test/demo/state/restore-playing-paints-once.test.ts:65:32
+     63|         const styleReads = vi.spyOn(window, "getComputedStyle");
+     64|         restoreGroupPlaybackState(group, snap(true));
+     65|         expect(styleReads).not.toHaveBeenCalled();
+       |                                ^
+     66|         expect(target.style.transform).toBe("");
+     67|         expect(group.animations["spin"]!.animation.t).toBe(250);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |demo| test/demo/scenes/square-mount-reads-no-style.test.ts > the square scene's mount reads no style > binding the box and painting the rest pose call no getComputedStyle; the first tumble reads the palette once
+AssertionError: expected "bound " to not be called at all, but actually been called 3 times
+
+Received:
+
+  1st bound  call:
+
+    Array [
+      <html>
+        <head />
+        <body>
+          <div>
+            <div
+              style="transform: translate(0px, 0px) rotate(0deg) scale(1.0000); --spring-tilt: 0.000; --spring-squash: 0.0000;"
+            />
+          </div>
+        </body>
+      </html>,
+    ]
+
+  2nd bound  call:
+
+    Array [
+      <div
+        style="transform: translate(0px, 0px) rotate(0deg) scale(1.0000); --spring-tilt: 0.000; --spring-squash: 0.0000;"
+      />,
+    ]
+
+  3rd bound  call:
+
+    Array [
+      <html>
+        <head />
+        <body>
+          <div>
+            <div
+              style="transform: translate(0px, 0px) rotate(0deg) scale(1.0000); --spring-tilt: 0.000; --spring-squash: 0.0000;"
+            />
+          </div>
+        </body>
+      </html>,
+    ]
+
+
+Number of calls: 3
+
+ ❯ test/demo/scenes/square-mount-reads-no-style.test.ts:42:36
+     40|             demo.anim.setTargets(el);
+     41|             demo.paintRest();
+     42|             expect(styleReads).not.toHaveBeenCalled();
+       |                                    ^
+     43|
+     44|             // The egg reads its palette at the first sweep, once.
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  5 failed (5)
+      Tests  5 failed | 3 passed (8)
+   Start at  15:07:19
+   Duration  3.61s (transform 1.59s, setup 54ms, import 2.15s, tests 595ms, environment 2.49s)
+

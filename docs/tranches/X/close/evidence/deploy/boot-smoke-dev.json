@@ -1,0 +1,301 @@
+{
+  "tool": "scripts/ci/boot-smoke.mjs",
+  "mode": "dev",
+  "origin": "http://127.0.0.1:9245",
+  "ranAt": "2026-10-28T01:45:05.618Z",
+  "node": "v26.0.0",
+  "seedCount": 8,
+  "passCount": 8,
+  "failCount": 0,
+  "census": null,
+  "cases": [
+    {
+      "seed": "default",
+      "class": "the W1.md literal — a cold boot with no seed at all",
+      "url": "http://127.0.0.1:9245/",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 42 sheet(s) — e.g. .lg\\:block @ (no media), .lg\\:contents @ (no media), .lg\\:flex @ (no media)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "seed": "deep-link-black",
+      "class": "R16 — `?color=black` at minimum; grey 0 is hsv-powerless",
+      "url": "http://127.0.0.1:9245/#/?space=rgb&color=black",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 42 sheet(s) — e.g. .lg\\:block @ (no media), .lg\\:contents @ (no media), .lg\\:flex @ (no media)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "seed": "deep-link-grey-333333",
+      "class": "R16 — grey 51, a member of the 28/256 hsv-powerless set",
+      "url": "http://127.0.0.1:9245/#/?space=hex&color=%23333333",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 35 sheet(s) — e.g. .lg\\:block @ (no media), .lg\\:contents @ (no media), .lg\\:flex @ (no media)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "seed": "deep-link-grey-808080",
+      "class": "CONTROL — grey 128 is NOT hsv-powerless; a matrix that reds this row is reporting something other than the seed class",
+      "url": "http://127.0.0.1:9245/#/?space=hex&color=%23808080",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 42 sheet(s) — e.g. .lg\\:block @ (no media), .lg\\:contents @ (no media), .lg\\:flex @ (no media)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "seed": "deep-link-lch-none",
+      "class": "R17 — the legal `none` hue reaching the picker through the URL",
+      "url": "http://127.0.0.1:9245/#/?space=lch&color=lch(50%25%200%20none)",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 35 sheet(s) — e.g. .lg\\:block @ (no media), .lg\\:contents @ (no media), .lg\\:flex @ (no media)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "seed": "deep-link-oklch-none",
+      "class": "R17 — the same in oklch; 256/256 greys emit `none` in both",
+      "url": "http://127.0.0.1:9245/#/?space=oklch&color=oklch(0.5%200%20none)",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 42 sheet(s) — e.g. .lg\\:block @ (no media), .lg\\:contents @ (no media), .lg\\:flex @ (no media)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "seed": "persisted-black",
+      "class": "R16 — the self-perpetuating arm: the seed that crashed the last session is still in localStorage on the next one",
+      "url": "http://127.0.0.1:9245/",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 46 sheet(s) — e.g. .lg\\:block @ (no media), .lg\\:contents @ (no media), .lg\\:flex @ (no media)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "seed": "persisted-oklch-none",
+      "class": "R17 — a persisted none-hue string, the returning-user path",
+      "url": "http://127.0.0.1:9245/",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 48 sheet(s) — e.g. .lg\\:block @ (no media), .lg\\:contents @ (no media), .lg\\:flex @ (no media)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    }
+  ]
+}

@@ -5,16 +5,14 @@
  *
  * The bounds are the published contract at `api/src/modules/palette/schema.ts`
  * (`colorsArraySchema` 1..50 · `tagsArraySchema` ≤ 10 of 1..30 chars ·
- * `colorEntrySchema` = `{ css, name?, position }`) and the tag vocabulary at the
+ * `colorEntrySchema` = `{ css, name?, position, weight? }`) and the tag vocabulary at the
  * admin tag schema (`/^[a-z0-9-]+$/`, ≤ 30). A write that would violate them is
  * refused HERE, in words, before a request exists — the user never reads a zod
  * issue path, and no request is spent on a known 400.
  *
- * N-14 (the rejection arm): the wire carries no `weight`. zod strips unknown
- * keys without a 400 or a log, so an extracted palette's population shares would
- * vanish on publish with nothing said. Until the wire carries the field (an
- * `api/**` cure, not this wave's), a weighted palette's publish is refused
- * explicitly and the refusal is rendered.
+ * N-14 is discharged by COHESION §0gt.5 (X.W11.api2): the wire persists the
+ * optional `weight` (finite, ≥ 0), so a weighted palette publishes with its
+ * population shares and needs no refusal here.
  */
 import type { PaletteColor } from "../types";
 
@@ -41,12 +39,6 @@ export function preflightColors(colors: readonly PaletteColor[]): Preflight {
         return {
             ok: false,
             message: `A published palette holds at most ${PALETTE_WIRE_LIMITS.maxColors} colors — this one has ${n}. Remove ${n - PALETTE_WIRE_LIMITS.maxColors} to publish it.`,
-        };
-    }
-    if (colors.some((c) => c.weight != null)) {
-        return {
-            ok: false,
-            message: "This palette carries color weights, which publishing would discard. It stays saved locally with its weights.",
         };
     }
     return OK;

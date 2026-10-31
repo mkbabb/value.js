@@ -1,0 +1,49 @@
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 1 test using 1 worker
+
+  ✘  1 [chromium] › e2e/f-w14-control-row.spec.ts:226:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales (5.0m)
+
+
+  1) [chromium] › e2e/f-w14-control-row.spec.ts:226:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales 
+
+    Test timeout of 300000ms exceeded.
+
+    Error: locator.click: Test timeout of 300000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'More editor tools' })
+
+
+      272 |                 // X.F.W14U.vedit — UIA-F-88: the Magnet row is a section of the
+      273 |                 // editor dock's one menu (the 390 row kept Undo/Redo/Delete).
+    > 274 |                 await page.getByRole("button", { name: "More editor tools" }).click();
+          |                                                                               ^
+      275 |                 await expect(sliderRoot(page, /Magnet/)).toBeVisible({ timeout: 10_000 });
+      276 |                 await settle(page);
+      277 |                 await frame("image-edit-magnet");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-control-row.spec.ts:274:79
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-control-row-G-h-cont-389f7-eight-·-type-spacing-scales-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-control-row-G-h-cont-389f7-eight-·-type-spacing-scales-chromium/error-context.md
+
+  Slow test file: [chromium] › e2e/f-w14-control-row.spec.ts (5.0m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  1 failed
+    [chromium] › e2e/f-w14-control-row.spec.ts:226:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales 

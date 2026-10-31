@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5
 import { test, expect, type Page, type Locator, type BrowserContext } from "@playwright/test";
 import { mkdirSync, writeFileSync, renameSync } from "node:fs";
-import { expandDock } from "./fixtures/dock";
+import { dockAtRest, expandDock } from "./fixtures/dock";
 
 /**
  * X.W12.e · OA-6 / OA-22 / OA-55 — THE DOCK SITS ON GLASS'S PRIMITIVES.
@@ -56,8 +56,9 @@ async function openHome(page: Page, width: number, height: number) {
     await page.goto("/#/", { waitUntil: "load", timeout: 60_000 });
     await page.locator(".glass-dock").first().waitFor({ timeout: 30_000 });
     await page.locator(".dock-crossfade .dock-face.is-active").first().waitFor({ timeout: 30_000 });
-    // the dock's own boot morph settles before any reading
-    await page.waitForTimeout(1_200);
+    // the dock's own boot morph settles before any reading — read from its own
+    // completion (X.W11.v1f, COHESION §0gu.2), never a quiet window
+    await dockAtRest(page);
 }
 
 function dockButton(page: Page, name: string | RegExp): Locator {
@@ -221,6 +222,9 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
         width: number;
         height: number;
         hash: string;
+        /** pre-switch staging that is NOT the layer switch (the face read as
+         *  `before` is the one the switch leaves, so it is read after this) */
+        stage?: (p: Page) => Promise<void>;
         enter: (p: Page) => Promise<void>;
         entered: (p: Page) => Locator;
         leave: (p: Page) => Promise<void>;
@@ -238,16 +242,22 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             height: 900,
             hash: "#/",
             face: ".glass-dock .dock-layer-grid > .dock-face.is-active",
-            enter: async (p) => {
+            // X.W11.v1g (COHESION §0gv.5; the `.v1c` 0acfd7c80 precedent): the
+            // sub-layer grid exists only once the action bar is open, so the
+            // stage opens it and `before` names the actions face the switch
+            // leaves and returns to. The switch itself is the input tap.
+            stage: async (p) => {
                 await dockButton(p, "Toggle action bar").click();
                 await dockButton(p, "Back").waitFor({ timeout: 10_000 });
-                await p.waitForTimeout(900);
+                await dockAtRest(p);
+            },
+            enter: async (p) => {
                 await dockButton(p, "Open color input").click();
             },
             entered: (p) => dockButton(p, /^(Close input|Propose color name)$/),
             leave: async (p) => {
                 await dockButton(p, /^(Close input|Propose color name)$/).click();
-                await p.waitForTimeout(300);
+                await dockAtRest(p);
                 if (await dockButton(p, "Close propose").isVisible()) await dockButton(p, "Close propose").click();
             },
         },
@@ -279,13 +289,22 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             // the leg runs in a coarse context and TAPS (it drove a fine mouse at
             // 390 before, a pointer class this layer never serves).
             coarse: true,
-            enter: async (p) => {
+            // X.W11.v1c: opening the card SELECTS the palette, and a selected
+            // entity's verbs are the dock's set with its name as the Tools
+            // label (X.W7.d2 · COHESION §0bk.1, shell/useSceneActions.ts) —
+            // so the main face the mobile-edit switch leaves and returns to
+            // reads "W12e seed", not "Tools". The card + swatch popover are
+            // staging; the layer switch is the Edit tap.
+            stage: async (p) => {
                 // a LOCAL palette's swatch in edit: open the seeded card, open
-                // its first swatch's popover, take its Edit (pm.onEditColor →
-                // emitStartEdit → the dock's mobile-edit layer at < lg)
+                // its first swatch's popover (then `enter` takes its Edit:
+                // pm.onEditColor → emitStartEdit → the dock's mobile-edit
+                // layer at < lg)
                 const card = p.locator('[aria-label="Palette: W12e seed"]');
                 await card.tap({ timeout: 10_000 });
                 await card.locator(".watercolor-swatch").first().locator("xpath=..").tap({ timeout: 10_000 });
+            },
+            enter: async (p) => {
                 const edit = p.locator('[aria-label^="Edit color "]').first();
                 // The 2026-09-24 reading (Edit painted at x=-189, y=879) no
                 // longer reproduces: X.W12U.m2 reads Edit at 38,552 (coarse) and
@@ -333,14 +352,17 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
                 }, sw.hash);
                 await page.waitForFunction(() => (window as unknown as { __w12eSettled?: boolean }).__w12eSettled === true, null, { timeout: 15_000 });
             }
+            if (sw.stage) await sw.stage(page);
             const before = await activeFace(page, sw.face);
             await armSwitchCensus(page);
             await sw.enter(page);
             await expect(sw.entered(page)).toBeVisible({ timeout: 10_000 });
-            await page.waitForTimeout(900);
+            // X.W11.v1f (COHESION §0gu.2): each face is read once the switch's
+            // own crossfade + morph have completed, not after a 900 ms window.
+            await dockAtRest(page);
             const during = await activeFace(page, sw.face);
             await sw.leave(page);
-            await page.waitForTimeout(900);
+            await dockAtRest(page);
             const after = await activeFace(page, sw.face);
             const names = await readSwitchCensus(page);
             const faces = await page.locator(".glass-dock .dock-crossfade > .dock-face").count();

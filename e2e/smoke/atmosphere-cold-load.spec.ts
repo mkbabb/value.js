@@ -176,6 +176,17 @@ for (const scheme of ["light", "dark"] as const) {
 
         // The entrance settles fully arrived — no half-present limbo, and the
         // derive-in class is the one opacity authority (no snap re-hide).
+        // X.W11.v1e (COHESION §0gt.7): the derive-in STARTS at B2 (isArmed ∧
+        // dock-plate-landed) and B4 opens only once that transition has
+        // settled (useOverture.ts, the B2/B4 de-coincidence). On a starved
+        // SwiftShader timeline B2 itself lands late (CI 40822407656: opacity
+        // read 0 → 0.136 → 0.898 inside the 8 s window), so the read waits
+        // for the beat that certifies the arrival — the `overture:b4` mark,
+        // the webgl-blob / o11-header-gates precedent — then asserts the
+        // settled opacity exactly as before.
+        await page.waitForFunction(() =>
+            performance.getEntriesByName("overture:b4", "mark").length > 0,
+        );
         await expect(page.getByTestId(ATMOSPHERE_TESTID)).toHaveCSS(
             "opacity",
             "1",

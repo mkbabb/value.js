@@ -1,0 +1,92 @@
+{
+  "SERVED MODEL": "claude-opus-5-5",
+  "unit": "X.W11.tbt",
+  "ruling": "COHESION §0gv.1",
+  "date": "2026-10-29",
+  "config": "lighthouserc.gpu.json",
+  "dist": "dist/gh-pages built at HEAD b3d5d73f0 (npm run gh-pages under guarded, exit 0)",
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) — renderer-witness.mjs, Chrome for Testing 148.0.7778.96, --use-angle=metal",
+  "assertAggregation": "LHCI default optimistic (best of 3 for a maxNumericValue bar), identical to ci.yml lhci",
+  "runs": {
+    "run1": {
+      "exit": 0,
+      "collects": [
+        {
+          "lhr": "lhr-1793289919358.json",
+          "tbt": 2335,
+          "lcp": 2105,
+          "cls": 0.0038,
+          "a11y": 0.99,
+          "perf": 0.66,
+          "chromeFlags": null
+        },
+        {
+          "lhr": "lhr-1793289932358.json",
+          "tbt": 117,
+          "lcp": 2103,
+          "cls": 0.0037,
+          "a11y": 0.99,
+          "perf": 0.98,
+          "chromeFlags": null
+        },
+        {
+          "lhr": "lhr-1793289944839.json",
+          "tbt": 1034,
+          "lcp": 2103,
+          "cls": 0.0037,
+          "a11y": 0.99,
+          "perf": 0.77,
+          "chromeFlags": null
+        }
+      ],
+      "failedAssertions": [
+        {
+          "audit": "interaction-to-next-paint",
+          "level": "warn",
+          "name": "auditRan",
+          "actual": 0
+        }
+      ]
+    },
+    "run2": {
+      "exit": 0,
+      "collects": [
+        {
+          "lhr": "lhr-1793290000314.json",
+          "tbt": 1166,
+          "lcp": 2105,
+          "cls": 0.0037,
+          "a11y": 0.99,
+          "perf": 0.75,
+          "chromeFlags": null
+        },
+        {
+          "lhr": "lhr-1793290012966.json",
+          "tbt": 113,
+          "lcp": 2103,
+          "cls": 0.0037,
+          "a11y": 0.99,
+          "perf": 0.98,
+          "chromeFlags": null
+        },
+        {
+          "lhr": "lhr-1793290025728.json",
+          "tbt": 106,
+          "lcp": 2104,
+          "cls": 0.0037,
+          "a11y": 0.99,
+          "perf": 0.98,
+          "chromeFlags": null
+        }
+      ],
+      "failedAssertions": [
+        {
+          "audit": "interaction-to-next-paint",
+          "level": "warn",
+          "name": "auditRan",
+          "actual": 0
+        }
+      ]
+    }
+  }
+}

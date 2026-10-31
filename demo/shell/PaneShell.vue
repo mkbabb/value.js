@@ -19,8 +19,9 @@
              X-DS tail (CLOSE.md §4, V19C note (a)): every pane had opted into
              that contract, so the `seated` prop and the overlying
              `.card-scroll-host` branch are retired; seated is the shell.
-             The port carries `.pane-scroll-fade` (PaneHeader.vue): the named
-             `--pane-scroll` timeline the header veil reads.
+             The port carries `.pane-scroll-fade` (PaneHeader.vue): the port's
+             containment and anchoring rule (the header veil it once fed is
+             deleted, SS8-0192).
              The `follow` row contract (`pane-row-follow`, shell.css) seats on
              this wrapper, which the card fills; `bounded` (X-DS pass 19 ·
              V19C-01) takes the band as the pane's desktop ceiling.

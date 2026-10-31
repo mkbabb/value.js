@@ -1,0 +1,70 @@
+{
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "dragMs": 2376.7,
+ "inkTrace": {
+  "windowMs": 2982.5,
+  "samples": 19217,
+  "inkInclusiveMs": 142.3,
+  "worstInkTask": {
+   "durMs": 13.8,
+   "inkMs": 11.1
+  }
+ },
+ "observer": [],
+ "trace": [
+  [
+   33.3,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "runIfDirty → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:296"
+   ]
+  ],
+  [
+   28.4,
+   "getBoundingClientRect",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "C → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202"
+   ]
+  ],
+  [
+   21.5,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "w → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:1909"
+   ]
+  ],
+  [
+   21.8,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "C → ? @ node_modules/@mkbabb/glass-ui/dist/dock.js:202"
+   ]
+  ],
+  [
+   20.9,
+   "(program)",
+   [
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "R → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:204",
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393"
+   ]
+  ],
+  [
+   20.4,
+   "(program)",
+   [
+    "$n → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:393",
+    "In → ? @ node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:197",
+    "run → ? @ node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js:248"
+   ]
+  ]
+ ]
+}

@@ -54,6 +54,7 @@
 
 import { onMounted, ref, watch } from "vue";
 import type { ComputedRef, InjectionKey, Ref } from "vue";
+import { useRoute } from "vue-router";
 
 /**
  * B4's TERMINAL reading (X.W5.a · gate A2).
@@ -276,6 +277,44 @@ export function useOverture(fieldArmed: ComputedRef<boolean>): OvertureBeats {
         },
         { flush: "post" },
     );
+
+    // X.W11.p4c (COHESION §0go.2(a)) — THE SHELL SETTLE RETIRES. The first
+    // document load's panes settle from the first frame (overture.css,
+    // `overture-shell-settle`), keyed on `data-first-view="shell"`, which
+    // stays stamped for the session. `data-shell-settled` retires the rule
+    // once every settle has finished (the inspector's included: it is in the
+    // DOM from the first frame, hydrated or not), or at once when the first
+    // route change begins, whichever is first: a KeepAlive return re-inserts
+    // a pane, the browser restarts every CSS animation on a re-inserted
+    // element, and the swap's vj-enter family alone moves a returning pane.
+    if (typeof document !== "undefined") {
+        const root = document.documentElement;
+        const retireShellSettle = () => root.toggleAttribute("data-shell-settled", true);
+        const route = useRoute();
+        watch(() => route.name, retireShellSettle, { flush: "sync" });
+        onMounted(() => {
+            if (root.dataset.firstView !== "shell") return;
+            // X.W11.cut (COHESION §0gx.3): two frames past the mount, on the
+            // style that frame already resolved. `document.getAnimations()`
+            // flushes style, and inside the mount task that flush cost 25 ms
+            // at 4× of a long task (`close/evidence/browser/cut-2026-10-30/`).
+            // The settle runs for many frames more, so the read still finds it.
+            requestAnimationFrame(() =>
+                requestAnimationFrame(() => {
+                    const settling = document
+                        .getAnimations()
+                        .filter(
+                            (a) =>
+                                a instanceof CSSAnimation &&
+                                a.animationName === "overture-shell-settle",
+                        );
+                    void Promise.allSettled(settling.map((a) => a.finished)).then(
+                        retireShellSettle,
+                    );
+                }),
+            );
+        });
+    }
 
     return {
         b1,

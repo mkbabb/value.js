@@ -1,6 +1,6 @@
 // SERVED MODEL: claude-opus-5[1m]
 import { test, expect, type Locator, type Page } from "@playwright/test";
-import { expandDock, openView } from "./fixtures/dock";
+import { expandDock, openView, dockSettled } from "./fixtures/dock";
 
 /**
  * X-W4 · X.W4.d — THE TYPED `SceneActionSet` (gates D1 · D2 · D3 · D4).
@@ -97,9 +97,7 @@ async function landAndOpenBar(page: Page, view?: string): Promise<void> {
     const toggle = page.getByRole("button", { name: "Toggle action bar" });
     await expect(toggle).toBeVisible();
     await toggle.click();
-    await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-        timeout: 8000,
-    });
+    await dockSettled(page);
 }
 
 test.describe("D1 · one contract, ONE render path", () => {

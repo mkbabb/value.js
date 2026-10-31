@@ -1,0 +1,142 @@
+{
+ "origin": "http://localhost:8479",
+ "arms": {
+  "1280": {
+   "rest": {
+    "x": 612,
+    "w": 56,
+    "right": 668,
+    "cx": 640,
+    "collapsed": true
+   },
+   "expanded": {
+    "x": 422.375,
+    "w": 435.25,
+    "right": 857.625,
+    "cx": 640,
+    "collapsed": false
+   },
+   "firstMorphFrame": {
+    "t": 125,
+    "x": 612,
+    "w": 56,
+    "m": true
+   },
+   "firstFrameWidthDeltaFromRest": 0,
+   "finalWidthDeltaFromRest": 379.25,
+   "centreDriftAcrossMorphPx": 0.01,
+   "morphFrames": 10,
+   "framesHead": [
+    {
+     "t": 125,
+     "x": 612,
+     "w": 56,
+     "m": true
+    },
+    {
+     "t": 128,
+     "x": 602.59,
+     "w": 74.82,
+     "m": true
+    },
+    {
+     "t": 136,
+     "x": 591.87,
+     "w": 96.26,
+     "m": true
+    },
+    {
+     "t": 157,
+     "x": 580.03,
+     "w": 119.93,
+     "m": true
+    },
+    {
+     "t": 196,
+     "x": 555.79,
+     "w": 168.41,
+     "m": true
+    },
+    {
+     "t": 235,
+     "x": 494.2,
+     "w": 291.61,
+     "m": true
+    }
+   ],
+   "press": [
+    {
+     "k": "pointerdown",
+     "tag": "Expand dock",
+     "x": 620
+    },
+    {
+     "k": "pointerup",
+     "tag": "dock-face is-active",
+     "x": 432.5
+    },
+    {
+     "k": "click",
+     "tag": "dock-layers",
+     "x": 432.5
+    }
+   ],
+   "afterPress": {
+    "x": 422.375,
+    "w": 435.25,
+    "right": 857.625,
+    "cx": 640,
+    "collapsed": false
+   },
+   "dockControls": [
+    "Select view",
+    "Toggle action bar",
+    "Login",
+    "@mbabb"
+   ],
+   "controlMovedDuringPressPx": 2.12,
+   "listboxOpened": true,
+   "pageerrors": []
+  },
+  "390-fine": {
+   "pillEver": false,
+   "before": {
+    "x": 101,
+    "w": 188,
+    "right": 289,
+    "cx": 195,
+    "collapsed": false
+   },
+   "after": {
+    "x": 101,
+    "w": 188,
+    "right": 289,
+    "cx": 195,
+    "collapsed": false
+   },
+   "overflowRight": false,
+   "inViewport": true,
+   "pageerrors": []
+  },
+  "390-coarse": {
+   "pillEver": false,
+   "before": {
+    "x": 101,
+    "w": 188,
+    "right": 289,
+    "cx": 195,
+    "collapsed": false
+   },
+   "after": {
+    "x": 101,
+    "w": 188,
+    "right": 289,
+    "cx": 195,
+    "collapsed": false
+   },
+   "overflowRight": false,
+   "inViewport": true,
+   "pageerrors": []
+  }
+ }
+}

@@ -1,0 +1,13 @@
+{
+  "cell": "light-390",
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "realGpu": true,
+  "n": 42,
+  "p50": 27.3,
+  "p95": 44.6,
+  "max": 48.4,
+  "rafP50": 16.7,
+  "loafN": 1,
+  "loafMax": 63,
+  "at": "2026-10-21T14:15:27.194Z"
+}

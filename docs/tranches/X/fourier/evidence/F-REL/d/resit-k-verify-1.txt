@@ -1,0 +1,25 @@
+SERVED MODEL: claude-opus-5-5
+# prod-verify run 1 (guarded, headless shell, COMPUTE_CONCURRENCY=1)
+GREEN session — {"status":200,"user":"stormy-rising-sapphire-ape"}
+GREEN upload daraksha.jpg — {"status":200,"slug":"faded-darting-onyx-yak"}
+GREEN upright daraksha.jpg — {"status":200,"w":768,"h":1024}
+GREEN extract daraksha.jpg — {"status":200,"ms":61,"source":"extract","points":1024}
+GREEN epicycles daraksha.jpg — {"status":200}
+GREEN create daraksha.jpg — {"status":201,"slug":"smoky-curving-marble-wren","etag":"\"7bd44d16ab7b8d1f58ec277159ce547f1763fa5762c74109eb8ef5d79069d111\""}
+GREEN upload daraksha.jpeg — {"status":200,"slug":"twilit-cresting-prism-kestrel"}
+GREEN upright daraksha.jpeg — {"status":200,"w":768,"h":1024}
+GREEN extract daraksha.jpeg — {"status":200,"ms":56,"source":"extract","points":1024}
+GREEN epicycles daraksha.jpeg — {"status":200}
+GREEN create daraksha.jpeg — {"status":201,"slug":"solar-chasing-teal-toad","etag":"\"fe93b7af89d71b89f0557f65e4f3ace3f993ce8bf0e9924cf7efbf0ddfa0f9cc\""}
+GREEN preview /v/<slug> — {"slug":"smoky-curving-marble-wren","canvas":true,"failed":0}
+GREEN publish — {"status":200,"visibility":"public"}
+GREEN remix — {"status":201,"child":"rosy-shaping-obsidian-macaw"}
+GREEN diff — {"status":200,"keys":["from_hash","to_hash","ops","identical"]}
+GREEN gallery — {"status":200,"listed":true,"items":1}
+GREEN edit (PATCH, If-Match) — {"etagExposed":true,"status":200}
+GREEN delete rosy-shaping-obsidian-macaw — {"status":204}
+GREEN delete solar-chasing-teal-toad — {"status":204}
+GREEN delete smoky-curving-marble-wren — {"status":204}
+GREEN no CORS console errors — {"cors":[]}
+21/21 GREEN
+rc=0

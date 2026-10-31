@@ -1,0 +1,674 @@
+{
+ "origin": "http://localhost:8603",
+ "n": 6,
+ "p75Tbt": 274,
+ "tbts": [
+  223,
+  268,
+  303,
+  252,
+  274,
+  271
+ ],
+ "bySite": [
+  {
+   "site": "getPropertyValue --destructive task=4 <- om (index-Dh587YGN.js:12:20507)",
+   "meanMsPerLoad": 26.5
+  },
+  {
+   "site": "doc.getAnimations  task=1 <- index-Dh587YGN.js:9:66314",
+   "meanMsPerLoad": 24.7
+  },
+  {
+   "site": "el.getAnimations glass-dock horizontal shape-pill expande task=-1 <- index-Dh587YGN.js:3414:23448",
+   "meanMsPerLoad": 7.4
+  },
+  {
+   "site": "el.getAnimations pane-shell flex flex-col relative min-w- task=-1 <- Object.f [as noteLeftPlateSettled] (index-Dh587YGN.js:9:65772)",
+   "meanMsPerLoad": 6.1
+  },
+  {
+   "site": "getPropertyValue --color-gold task=2 <- om (index-Dh587YGN.js:12:20507)",
+   "meanMsPerLoad": 1.8
+  },
+  {
+   "site": "el.getAnimations atmosphere-canvas fixed inset-x-0 top-0  task=-1 <- index-Dh587YGN.js:9:65348",
+   "meanMsPerLoad": 1.3
+  },
+  {
+   "site": "el.getAnimations pane-shell relative w-full mx-auto h-ful task=-1 <- g (index-Dh587YGN.js:12:53247)",
+   "meanMsPerLoad": 0.2
+  },
+  {
+   "site": "el.getAnimations channel-rail-item font-display text-subh task=-1 <- index-Dh587YGN.js:12:33365",
+   "meanMsPerLoad": 0.2
+  },
+  {
+   "site": "el.getAnimations pane-shell flex flex-col relative min-w- task=-1 <- g (index-Dh587YGN.js:12:53247)",
+   "meanMsPerLoad": 0.1
+  },
+  {
+   "site": "getPropertyValue --motion-tempo task=2 <- $ (button-BOFTUPyU-BZ9MeoVG.js:1:12838)",
+   "meanMsPerLoad": 0.1
+  }
+ ],
+ "perLoad": [
+  {
+   "i": 0,
+   "load1": 5.7,
+   "tbt": 223,
+   "tasks": [
+    86,
+    125,
+    143,
+    64,
+    55
+   ],
+   "calls": [
+    {
+     "what": "doc.getAnimations",
+     "arg": "",
+     "cls": "",
+     "t": 336,
+     "d": 15.1,
+     "frames": [
+      "index-Dh587YGN.js:9:66314",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js:3:7227",
+      "In (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22624)",
+      "R (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22691)",
+      "Pi.t.__weh (vue.runtime.esm-bundler-2l_pzWEZ.js:3:7112)"
+     ],
+     "task": 1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--color-gold",
+     "cls": "",
+     "t": 437,
+     "d": 1.8,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "rm (index-Dh587YGN.js:12:20217)",
+      "yn.fn (dock-CX3pnMMn.js:2:29899)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)"
+     ],
+     "task": 2
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "glass-dock horizontal shape-pill expande",
+     "t": 602,
+     "d": 6.8,
+     "frames": [
+      "index-Dh587YGN.js:3414:23448"
+     ],
+     "task": -1
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "channel-rail-item font-display text-subh",
+     "t": 692,
+     "d": 1,
+     "frames": [
+      "index-Dh587YGN.js:12:33365",
+      "Array.flatMap (<anonymous>)",
+      "index-Dh587YGN.js:12:33352"
+     ],
+     "task": -1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--destructive",
+     "cls": "",
+     "t": 740,
+     "d": 24.4,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "yn.fn (index-Dh587YGN.js:12:19622)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)",
+      "Pe.h [as fn] (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19897)"
+     ],
+     "task": 4
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "pane-shell flex flex-col relative min-w-",
+     "t": 1039,
+     "d": 2,
+     "frames": [
+      "Object.f [as noteLeftPlateSettled] (index-Dh587YGN.js:9:65772)",
+      "Proxy.onAppeared (index-Dh587YGN.js:3414:25931)",
+      "index-Dh587YGN.js:12:53496"
+     ],
+     "task": -1
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "atmosphere-canvas fixed inset-x-0 top-0 ",
+     "t": 1337,
+     "d": 1.2,
+     "frames": [
+      "index-Dh587YGN.js:9:65348"
+     ],
+     "task": -1
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "load1": 5.7,
+   "tbt": 268,
+   "tasks": [
+    88,
+    136,
+    152,
+    78,
+    64
+   ],
+   "calls": [
+    {
+     "what": "doc.getAnimations",
+     "arg": "",
+     "cls": "",
+     "t": 345,
+     "d": 16.8,
+     "frames": [
+      "index-Dh587YGN.js:9:66314",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js:3:7227",
+      "In (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22624)",
+      "R (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22691)",
+      "Pi.t.__weh (vue.runtime.esm-bundler-2l_pzWEZ.js:3:7112)"
+     ],
+     "task": 1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--color-gold",
+     "cls": "",
+     "t": 453,
+     "d": 2.2,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "rm (index-Dh587YGN.js:12:20217)",
+      "yn.fn (dock-CX3pnMMn.js:2:29899)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)"
+     ],
+     "task": 2
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--motion-tempo",
+     "cls": "",
+     "t": 491,
+     "d": 0.7,
+     "frames": [
+      "$ (button-BOFTUPyU-BZ9MeoVG.js:1:12838)",
+      "je (button-BOFTUPyU-BZ9MeoVG.js:1:13063)",
+      "Ne (button-BOFTUPyU-BZ9MeoVG.js:1:13776)",
+      "Pe (button-BOFTUPyU-BZ9MeoVG.js:1:14338)",
+      "setup (dock-DSKzm6VE.js:1:32415)"
+     ],
+     "task": 2
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "glass-dock horizontal shape-pill expande",
+     "t": 631,
+     "d": 8,
+     "frames": [
+      "index-Dh587YGN.js:3414:23448"
+     ],
+     "task": -1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--destructive",
+     "cls": "",
+     "t": 805,
+     "d": 29.4,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "yn.fn (index-Dh587YGN.js:12:19622)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)",
+      "Pe.h [as fn] (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19897)"
+     ],
+     "task": 4
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "pane-shell flex flex-col relative min-w-",
+     "t": 1069,
+     "d": 13.7,
+     "frames": [
+      "Object.f [as noteLeftPlateSettled] (index-Dh587YGN.js:9:65772)",
+      "Proxy.onAppeared (index-Dh587YGN.js:3414:25931)",
+      "index-Dh587YGN.js:12:53496"
+     ],
+     "task": -1
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "atmosphere-canvas fixed inset-x-0 top-0 ",
+     "t": 1352,
+     "d": 2.2,
+     "frames": [
+      "index-Dh587YGN.js:9:65348"
+     ],
+     "task": -1
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "load1": 5.9,
+   "tbt": 303,
+   "tasks": [
+    87,
+    157,
+    157,
+    86,
+    66
+   ],
+   "calls": [
+    {
+     "what": "doc.getAnimations",
+     "arg": "",
+     "cls": "",
+     "t": 299,
+     "d": 40.7,
+     "frames": [
+      "index-Dh587YGN.js:9:66314",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js:3:7227",
+      "In (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22624)",
+      "R (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22691)",
+      "Pi.t.__weh (vue.runtime.esm-bundler-2l_pzWEZ.js:3:7112)"
+     ],
+     "task": 1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--color-gold",
+     "cls": "",
+     "t": 462,
+     "d": 1.8,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "rm (index-Dh587YGN.js:12:20217)",
+      "yn.fn (dock-CX3pnMMn.js:2:29899)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)"
+     ],
+     "task": 2
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "glass-dock horizontal shape-pill expande",
+     "t": 642,
+     "d": 7.5,
+     "frames": [
+      "index-Dh587YGN.js:3414:23448"
+     ],
+     "task": -1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--destructive",
+     "cls": "",
+     "t": 845,
+     "d": 29.5,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "yn.fn (index-Dh587YGN.js:12:19622)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)",
+      "Pe.h [as fn] (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19897)"
+     ],
+     "task": 4
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "pane-shell flex flex-col relative min-w-",
+     "t": 1041,
+     "d": 8.4,
+     "frames": [
+      "Object.f [as noteLeftPlateSettled] (index-Dh587YGN.js:9:65772)",
+      "Proxy.onAppeared (index-Dh587YGN.js:3414:25931)",
+      "index-Dh587YGN.js:12:53496"
+     ],
+     "task": -1
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "load1": 6,
+   "tbt": 252,
+   "tasks": [
+    97,
+    136,
+    149,
+    69,
+    51
+   ],
+   "calls": [
+    {
+     "what": "doc.getAnimations",
+     "arg": "",
+     "cls": "",
+     "t": 297,
+     "d": 26.1,
+     "frames": [
+      "index-Dh587YGN.js:9:66314",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js:3:7227",
+      "In (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22624)",
+      "R (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22691)",
+      "Pi.t.__weh (vue.runtime.esm-bundler-2l_pzWEZ.js:3:7112)"
+     ],
+     "task": 1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--color-gold",
+     "cls": "",
+     "t": 428,
+     "d": 1.5,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "rm (index-Dh587YGN.js:12:20217)",
+      "yn.fn (dock-CX3pnMMn.js:2:29899)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)"
+     ],
+     "task": 2
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "glass-dock horizontal shape-pill expande",
+     "t": 601,
+     "d": 5.7,
+     "frames": [
+      "index-Dh587YGN.js:3414:23448"
+     ],
+     "task": -1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--destructive",
+     "cls": "",
+     "t": 760,
+     "d": 22,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "yn.fn (index-Dh587YGN.js:12:19622)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)",
+      "Pe.h [as fn] (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19897)"
+     ],
+     "task": 4
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "pane-shell flex flex-col relative min-w-",
+     "t": 1042,
+     "d": 1.3,
+     "frames": [
+      "Object.f [as noteLeftPlateSettled] (index-Dh587YGN.js:9:65772)",
+      "Proxy.onAppeared (index-Dh587YGN.js:3414:25931)",
+      "index-Dh587YGN.js:12:53496"
+     ],
+     "task": -1
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "atmosphere-canvas fixed inset-x-0 top-0 ",
+     "t": 1345,
+     "d": 0.7,
+     "frames": [
+      "index-Dh587YGN.js:9:65348"
+     ],
+     "task": -1
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "load1": 6,
+   "tbt": 274,
+   "tasks": [
+    86,
+    139,
+    163,
+    75,
+    61
+   ],
+   "calls": [
+    {
+     "what": "doc.getAnimations",
+     "arg": "",
+     "cls": "",
+     "t": 339,
+     "d": 18,
+     "frames": [
+      "index-Dh587YGN.js:9:66314",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js:3:7227",
+      "In (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22624)",
+      "R (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22691)",
+      "Pi.t.__weh (vue.runtime.esm-bundler-2l_pzWEZ.js:3:7112)"
+     ],
+     "task": 1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--color-gold",
+     "cls": "",
+     "t": 463,
+     "d": 1.9,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "rm (index-Dh587YGN.js:12:20217)",
+      "yn.fn (dock-CX3pnMMn.js:2:29899)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)"
+     ],
+     "task": 2
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "glass-dock horizontal shape-pill expande",
+     "t": 653,
+     "d": 9.3,
+     "frames": [
+      "index-Dh587YGN.js:3414:23448"
+     ],
+     "task": -1
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "pane-shell flex flex-col relative min-w-",
+     "t": 765,
+     "d": 0.9,
+     "frames": [
+      "g (index-Dh587YGN.js:12:53247)",
+      "index-Dh587YGN.js:12:53643"
+     ],
+     "task": -1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--destructive",
+     "cls": "",
+     "t": 816,
+     "d": 27.7,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "yn.fn (index-Dh587YGN.js:12:19622)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)",
+      "Pe.h [as fn] (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19897)"
+     ],
+     "task": 4
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "pane-shell relative w-full mx-auto h-ful",
+     "t": 1055,
+     "d": 0.7,
+     "frames": [
+      "g (index-Dh587YGN.js:12:53247)",
+      "index-Dh587YGN.js:12:53643"
+     ],
+     "task": -1
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "pane-shell flex flex-col relative min-w-",
+     "t": 1061,
+     "d": 2.1,
+     "frames": [
+      "Object.f [as noteLeftPlateSettled] (index-Dh587YGN.js:9:65772)",
+      "Proxy.onAppeared (index-Dh587YGN.js:3414:25931)",
+      "index-Dh587YGN.js:12:53496"
+     ],
+     "task": -1
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "atmosphere-canvas fixed inset-x-0 top-0 ",
+     "t": 1425,
+     "d": 1.4,
+     "frames": [
+      "index-Dh587YGN.js:9:65348"
+     ],
+     "task": -1
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "load1": 6,
+   "tbt": 271,
+   "tasks": [
+    87,
+    145,
+    161,
+    71,
+    57
+   ],
+   "calls": [
+    {
+     "what": "doc.getAnimations",
+     "arg": "",
+     "cls": "",
+     "t": 291,
+     "d": 31.5,
+     "frames": [
+      "index-Dh587YGN.js:9:66314",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js:3:7227",
+      "In (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22624)",
+      "R (vue.runtime.esm-bundler-2l_pzWEZ.js:1:22691)",
+      "Pi.t.__weh (vue.runtime.esm-bundler-2l_pzWEZ.js:3:7112)"
+     ],
+     "task": 1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--color-gold",
+     "cls": "",
+     "t": 449,
+     "d": 1.8,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "rm (index-Dh587YGN.js:12:20217)",
+      "yn.fn (dock-CX3pnMMn.js:2:29899)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)"
+     ],
+     "task": 2
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "glass-dock horizontal shape-pill expande",
+     "t": 633,
+     "d": 7.1,
+     "frames": [
+      "index-Dh587YGN.js:3414:23448"
+     ],
+     "task": -1
+    },
+    {
+     "what": "getPropertyValue",
+     "arg": "--destructive",
+     "cls": "",
+     "t": 817,
+     "d": 26.2,
+     "frames": [
+      "om (index-Dh587YGN.js:12:20507)",
+      "yn.fn (index-Dh587YGN.js:12:19622)",
+      "We (vue.runtime.esm-bundler-2l_pzWEZ.js:1:7156)",
+      "get value (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19326)",
+      "Pe.h [as fn] (vue.runtime.esm-bundler-2l_pzWEZ.js:1:19897)"
+     ],
+     "task": 4
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "pane-shell relative w-full mx-auto h-ful",
+     "t": 1073,
+     "d": 0.7,
+     "frames": [
+      "g (index-Dh587YGN.js:12:53247)",
+      "index-Dh587YGN.js:12:53643"
+     ],
+     "task": -1
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "pane-shell flex flex-col relative min-w-",
+     "t": 1080,
+     "d": 9.1,
+     "frames": [
+      "Object.f [as noteLeftPlateSettled] (index-Dh587YGN.js:9:65772)",
+      "Proxy.onAppeared (index-Dh587YGN.js:3414:25931)",
+      "index-Dh587YGN.js:12:53496"
+     ],
+     "task": -1
+    },
+    {
+     "what": "el.getAnimations",
+     "arg": "",
+     "cls": "atmosphere-canvas fixed inset-x-0 top-0 ",
+     "t": 1349,
+     "d": 2.4,
+     "frames": [
+      "index-Dh587YGN.js:9:65348"
+     ],
+     "task": -1
+    }
+   ]
+  }
+ ]
+}

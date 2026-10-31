@@ -1,6 +1,8 @@
 // SERVED MODEL: claude-opus-5-5
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
+import { detectRenderer, isSoftwareGL } from "./frame-budget";
+import { useRealGpuCell } from "./real-gpu";
 
 /**
  * OD19-ALL (owner docket 2026-10-19, value): "All loading times for all apps
@@ -39,7 +41,16 @@ import type { Page } from "@playwright/test";
  * envelopes (the admin-auth fixture's strategy), so the pane renders instead of
  * bouncing on the served API's refusal. Interception costs nothing here: every
  * cell is a cold, empty-cache load.
+ *
+ * X.W11.v1f (COHESION §0gu.3, the §0fr.2/§0gp.2 law; ESC-W11v1e-2): the 180 ms
+ * request-gap bar (1) gates on the REAL-GPU cell (`W12_REAL_GPU=1`,
+ * `perf/real-gpu.ts`), read ×2; the bar is unchanged. On a software rasteriser
+ * (the hosted CI runner) the gap is logged and the leg asserts liveness only:
+ * the entry and the pane chunk were both requested (CI read 186-244 ms on a
+ * starved runner, 107-137 ms on a calm one, at the same tree). A gap RED on
+ * the GPU cell is a product cut.
  */
+useRealGpuCell();
 
 const CPU = 4;
 
@@ -135,6 +146,39 @@ test.describe("OD19-ALL route load (built bundle, CPU 4x)", () => {
 
             await page.goto(`/#/${route}`, { waitUntil: "commit" });
             const content = await waitContent(page, route, regions, 0, 30_000);
+            // X.W11.v1e (COHESION §0gt.7): a resource-timing entry is queued at
+            // its responseEnd, and the prerendered `#/` shell reaches content
+            // (CI 135-239 ms) before the entry chunk has finished arriving, so a
+            // read at the content frame found no `index-*.js` (CI 40807181060 and
+            // 40822407656: "the entry chunk loaded", every attempt). The read
+            // waits for the entry's own timing entry — the state it measures.
+            await page.waitForFunction(() =>
+                performance
+                    .getEntriesByType("resource")
+                    .some((e) => /^index-[^/]*\.js$/.test(e.name.split("/").pop() ?? "")),
+            );
+            // X.W11.e2a (the same read race, one chunk later): the router starts
+            // the linked view's pane chunk at the entry's module evaluation, and
+            // its timing entry is queued at ITS responseEnd, after the entry's.
+            // On `#/` the prerendered shell is content before either lands, so a
+            // read at the entry's arrival found no `AboutPane-*.js` (CI job
+            // 123792077478 ×3, and the GPU cell 1/1 at 68fcae1f3: "AboutPane was
+            // requested", `paneRequestGap=nullms`). The read waits for the pane
+            // chunk's own timing entry; the gap it then computes is unchanged.
+            if (chunk)
+                await expect
+                    .poll(
+                        () =>
+                            page.evaluate(
+                                (c) =>
+                                    performance
+                                        .getEntriesByType("resource")
+                                        .some((e) => (e.name.split("/").pop() ?? "").startsWith(`${c}-`)),
+                                chunk,
+                            ),
+                        { message: `${chunk} was requested`, timeout: 30_000 },
+                    )
+                    .toBe(true);
 
             const scripts = await page.evaluate(() =>
                 performance
@@ -154,15 +198,23 @@ test.describe("OD19-ALL route load (built bundle, CPU 4x)", () => {
                     ` paneRequestGap=${gap}ms`,
             );
 
+            // X.W11.e2a (COHESION §0gw.1, the §0fr.2/§0gp.2/§0gu.3/§0gv.1 law;
+            // ESC-W11dep-E2E-RED family A): the cold content bar is a wall-clock
+            // budget, so it gates on the REAL-GPU cell with the gap bar (read ×2);
+            // on a software rasteriser both numbers are logged above and the leg
+            // asserts liveness: the chunks were requested, content was reached,
+            // and the hop below completes. The bars are unchanged.
+            const soft = isSoftwareGL(await detectRenderer(page));
             expect(entry, "the entry chunk loaded").toBeDefined();
             if (chunk) {
                 expect(pane, `${chunk} was requested`).toBeDefined();
-                expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
-                    PANE_REQUEST_GAP_MS,
-                );
+                if (!soft)
+                    expect(gap!, `${chunk} requested ≤ ${PANE_REQUEST_GAP_MS} ms after the entry`).toBeLessThanOrEqual(
+                        PANE_REQUEST_GAP_MS,
+                    );
             }
             expect(content, `#/${route} reached its content`).not.toBeNull();
-            expect(content!).toBeLessThanOrEqual(bar);
+            if (!soft) expect(content!, `#/${route} cold content ≤ ${bar} ms`).toBeLessThanOrEqual(bar);
 
             if (route === "") return;
             // The hop: a settled home, then the in-app hash change.

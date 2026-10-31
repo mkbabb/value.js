@@ -1,0 +1,156 @@
+== after-r1.json expected 24 unexpected 0 skipped 0
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 4.891336237186021
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 5.095610446448404
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 5.166205781129915
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.572440288673151
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 5.404209123213444
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 4.86792797205503
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 4.891336237186021
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 5.095610446448404
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 5.166205781129915
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.572440288673151
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 5.404209123213444
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 4.86792797205503
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 4.891336237186021
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 5.095610446448404
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 5.166205781129915
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.572440288673151
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 5.404209123213444
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 4.86792797205503
+== after-r2.json expected 24 unexpected 0 skipped 0
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 4.891336237186021
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 5.095610446448404
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 5.166205781129915
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.572440288673151
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 5.404209123213444
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 4.86792797205503
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 4.891336237186021
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 5.095610446448404
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 5.166205781129915
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.572440288673151
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 5.404209123213444
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 4.86792797205503
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 4.891336237186021
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 5.095610446448404
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 5.166205781129915
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.572440288673151
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 5.404209123213444
+  smoke | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 4.86792797205503
+== mutant-r1.json expected 18 unexpected 6 skipped 0
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | failed | 4.406051124428696
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 4.579257883018462
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 4.693700737279039
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.03404348318013
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 4.907270928008541
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | failed | 4.446414802875803
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | failed | 4.406051124428696
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 4.579257883018462
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 4.693700737279039
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.03404348318013
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 4.907270928008541
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | failed | 4.446414802875803
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | failed | 4.406051124428696
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 4.579257883018462
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 4.693700737279039
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.03404348318013
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 4.907270928008541
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | failed | 4.446414802875803
+== mutant-r2.json expected 18 unexpected 6 skipped 0
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | failed | 4.406051124428696
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 4.579257883018462
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 4.693700737279039
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.03404348318013
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 4.907270928008541
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | failed | 4.446414802875803
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | failed | 4.406051124428696
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 4.579257883018462
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 4.693700737279039
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.03404348318013
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 4.907270928008541
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | failed | 4.446414802875803
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | failed | 4.406051124428696
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 4.579257883018462
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 4.693700737279039
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 5.03404348318013
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 4.907270928008541
+  smoke | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | failed | 4.446414802875803
+== gpu-r1.json expected 51 unexpected 0 skipped 0
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.320391838954536
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.821774728407297
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.020891825686174
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 8.920356356205508
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.268893445516117
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.701216144829996
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.320391838954536
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.821774728407297
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.02045353272193
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 8.920356356205508
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.268893445516117
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.701216144829996
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.320391838954536
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.821774728407297
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.02045353272193
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 8.920356356205508
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.268893445516117
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.674317077006284
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.333536893894972
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.800259916066383
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.141098010695995
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 9.006700228242297
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.335930410073543
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.6639523865514745
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.333536893894972
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.800259916066383
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.141098010695995
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 9.006700228242297
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.335930410073543
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.6639523865514745
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.333536893894972
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.800259916066383
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.141098010695995
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 9.006700228242297
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.335930410073543
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.637588424263843
+  gpu-renderer | renderer of the cell | passed | 
+  gpu-renderer | renderer of the cell | passed | 
+  gpu-renderer | renderer of the cell | passed | 
+== gpu-r2.json expected 51 unexpected 0 skipped 0
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.320391838954536
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.821774728407297
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.02045353272193
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 8.920356356205508
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.268893445516117
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.701216144829996
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.320391838954536
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.821774728407297
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.02045353272193
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 8.920356356205508
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.268893445516117
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.674317077006284
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.320391838954536
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.821774728407297
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.02045353272193
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 8.920356356205508
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.268893445516117
+  gpu | 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.701216144829996
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.333536893894972
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.7447096361298104
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.141098010695995
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 9.006700228242297
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.335930410073543
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.6639523865514745
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.333536893894972
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.7447096361298104
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.141098010695995
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 9.006700228242297
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.335930410073543
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.6639523865514745
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0) | passed | 6.333536893894972
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60) | passed | 7.800259916066383
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120) | passed | 8.141098010695995
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180) | passed | 9.006700228242297
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240) | passed | 6.335930410073543
+  gpu | MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300) | passed | 6.6639523865514745
+  gpu-renderer | renderer of the cell | passed | 
+  gpu-renderer | renderer of the cell | passed | 
+  gpu-renderer | renderer of the cell | passed | 

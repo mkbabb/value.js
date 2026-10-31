@@ -1,0 +1,272 @@
+{
+ "origin": "http://localhost:8604",
+ "loads": 1,
+ "p75Gate": 393,
+ "tbtSorted": [
+  396
+ ],
+ "gateSorted": [
+  393
+ ],
+ "chunks": [
+  {
+   "chunk": "dock-CQv02k8K.js",
+   "meanSelfMsInLongTasks": 274
+  },
+  {
+   "chunk": "vue.runtime.esm-bundler-2l_pzWEZ.js",
+   "meanSelfMsInLongTasks": 124
+  },
+  {
+   "chunk": "(native)",
+   "meanSelfMsInLongTasks": 113
+  },
+  {
+   "chunk": "index-RKfi2a9-.js",
+   "meanSelfMsInLongTasks": 67
+  },
+  {
+   "chunk": "serialize-BtpoAFZw-C086w664.js",
+   "meanSelfMsInLongTasks": 37
+  },
+  {
+   "chunk": "button-BOFTUPyU-BZ9MeoVG.js",
+   "meanSelfMsInLongTasks": 13
+  },
+  {
+   "chunk": "createLucideIcon-C9maEmXC.js",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "chunk": "dist-CVCggHGb.js",
+   "meanSelfMsInLongTasks": 3
+  },
+  {
+   "chunk": "preload-helper-kNaey6uv.js",
+   "meanSelfMsInLongTasks": 2
+  },
+  {
+   "chunk": "keyframes-iZdbN1lK.js",
+   "meanSelfMsInLongTasks": 1
+  },
+  {
+   "chunk": "useIntersectionPause-CzKR3EyP-N9s-ifLv.js",
+   "meanSelfMsInLongTasks": 1
+  },
+  {
+   "chunk": "Presence-CDtI5ZR_.js",
+   "meanSelfMsInLongTasks": 1
+  }
+ ],
+ "top": [
+  {
+   "site": "dock-CQv02k8K.js :: De",
+   "meanSelfMsInLongTasks": 240
+  },
+  {
+   "site": "(native) :: (program)",
+   "meanSelfMsInLongTasks": 91
+  },
+  {
+   "site": "index-RKfi2a9-.js :: O_",
+   "meanSelfMsInLongTasks": 16
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: In",
+   "meanSelfMsInLongTasks": 14
+  },
+  {
+   "site": "index-RKfi2a9-.js :: (anon)",
+   "meanSelfMsInLongTasks": 13
+  },
+  {
+   "site": "dock-CQv02k8K.js :: v",
+   "meanSelfMsInLongTasks": 13
+  },
+  {
+   "site": "dock-CQv02k8K.js :: X",
+   "meanSelfMsInLongTasks": 11
+  },
+  {
+   "site": "serialize-BtpoAFZw-C086w664.js :: (anon)",
+   "meanSelfMsInLongTasks": 7
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: We",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: track",
+   "meanSelfMsInLongTasks": 6
+  },
+  {
+   "site": "button-BOFTUPyU-BZ9MeoVG.js :: fe",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "(native) :: (garbage collector)",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: (anon)",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "serialize-BtpoAFZw-C086w664.js :: fromEncoded",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: r",
+   "meanSelfMsInLongTasks": 5
+  },
+  {
+   "site": "button-BOFTUPyU-BZ9MeoVG.js :: (anon)",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: co",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "index-RKfi2a9-.js :: Kp",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: cs",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "dock-CQv02k8K.js :: Re",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "(native) :: appendChild",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya",
+   "meanSelfMsInLongTasks": 4
+  },
+  {
+   "site": "serialize-BtpoAFZw-C086w664.js :: o",
+   "meanSelfMsInLongTasks": 3
+  },
+  {
+   "site": "(native) :: insertBefore",
+   "meanSelfMsInLongTasks": 3
+  },
+  {
+   "site": "vue.runtime.esm-bundler-2l_pzWEZ.js :: Yo",
+   "meanSelfMsInLongTasks": 3
+  }
+ ],
+ "perLoad": [
+  {
+   "i": 0,
+   "load1": 8.9,
+   "tbt": 396,
+   "gateTbt": 393,
+   "longTasks": 5,
+   "shape": [
+    {
+     "dur": 83,
+     "kids": [
+      "Layout 70",
+      "UpdateLayoutTree 8"
+     ],
+     "selfByChunk": {
+      "(native)": 83
+     },
+     "topSelf": [
+      "(native) :: (program) 82",
+      "(native) :: (anon) 1"
+     ]
+    },
+    {
+     "dur": 108,
+     "kids": [],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 24,
+      "createLucideIcon-C9maEmXC.js": 1,
+      "serialize-BtpoAFZw-C086w664.js": 25,
+      "picker-color-vxPFipSO.js": 1,
+      "index-RKfi2a9-.js": 45,
+      "(native)": 8,
+      "preload-helper-kNaey6uv.js": 2,
+      "dist-CVCggHGb.js": 2
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: O_ 16",
+      "serialize-BtpoAFZw-C086w664.js :: fromEncoded 5",
+      "index-RKfi2a9-.js :: (anon) 5",
+      "(native) :: appendChild 4",
+      "serialize-BtpoAFZw-C086w664.js :: ae 3"
+     ]
+    },
+    {
+     "dur": 155,
+     "kids": [
+      "UpdateLayoutTree 10"
+     ],
+     "selfByChunk": {
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 53,
+      "(native)": 12,
+      "index-RKfi2a9-.js": 11,
+      "serialize-BtpoAFZw-C086w664.js": 13,
+      "dock-CQv02k8K.js": 54,
+      "useSelectionGroup-zsEwitF6-DXVLqdIK.js": 1,
+      "keyframes-iZdbN1lK.js": 1,
+      "useIntersectionPause-CzKR3EyP-N9s-ifLv.js": 1,
+      "button-BOFTUPyU-BZ9MeoVG.js": 3,
+      "createLucideIcon-C9maEmXC.js": 5
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 20",
+      "dock-CQv02k8K.js :: v 13",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: In 13",
+      "dock-CQv02k8K.js :: X 11",
+      "serialize-BtpoAFZw-C086w664.js :: (anon) 5"
+     ]
+    },
+    {
+     "dur": 76,
+     "kids": [
+      "FunctionCall@index-RKfi2a9-.js:i 36"
+     ],
+     "selfByChunk": {
+      "(native)": 6,
+      "vue.runtime.esm-bundler-2l_pzWEZ.js": 48,
+      "dom-BLrshDUK.js": 1,
+      "button-BOFTUPyU-BZ9MeoVG.js": 10,
+      "index-RKfi2a9-.js": 10,
+      "serialize-BtpoAFZw-C086w664.js": 0,
+      "Presence-CDtI5ZR_.js": 1
+     },
+     "topSelf": [
+      "index-RKfi2a9-.js :: (anon) 9",
+      "button-BOFTUPyU-BZ9MeoVG.js :: fe 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: We 5",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: Ya 4",
+      "vue.runtime.esm-bundler-2l_pzWEZ.js :: P 3"
+     ]
+    },
+    {
+     "dur": 224,
+     "kids": [
+      "FireAnimationFrame 223",
+      "FunctionCall@index-RKfi2a9-.js 223"
+     ],
+     "selfByChunk": {
+      "(native)": 3,
+      "dock-CQv02k8K.js": 220
+     },
+     "topSelf": [
+      "dock-CQv02k8K.js :: De 220",
+      "(native) :: (program) 2",
+      "(native) :: elementsFromPoint 1"
+     ]
+    }
+   ]
+  }
+ ]
+}

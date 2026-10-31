@@ -46,6 +46,42 @@ function plateHeight(page: Page, file: string, props: Record<string, unknown>): 
     })()`) as Promise<number>;
 }
 
+const HARNESS_READY = "[role=article][data-case]";
+
+/**
+ * Await the navigation a cold dev server can still owe before any measurement.
+ * Vite's dep optimizer answers a dependency it meets at runtime (a late mount's,
+ * or a lazy chunk's the harness requests after first paint) by re-bundling and
+ * sending `full-reload`: the page navigates, and an `evaluate` in flight dies
+ * with "Execution context was destroyed" (Check 1 D-7: the 390 describe of a
+ * cold `npm test`, G20 then N-17 on the half-loaded reload). So the suite first
+ * lets the harness's own requests go idle, then imports every late mount once.
+ * Vite writes the reload to its socket in the same tick it releases the held
+ * module request, so the import either settles on a page no reload follows, or
+ * the page navigates and the suite awaits that navigation and the re-rendered
+ * harness. After it, every module the suite mounts is in the optimized set, so
+ * no measurement runs across a navigation. Nothing is retried.
+ */
+async function settleHarness(page: Page, mounts: readonly string[]): Promise<void> {
+    await page.waitForLoadState("networkidle");
+    const urls = mounts.map((m) => `/@fs${m}`);
+    const navigated = await page
+        .evaluate(
+            `(async () => { for (const u of ${JSON.stringify(urls)}) await import(u); })()`,
+        )
+        .then(
+            () => false,
+            (error: Error) => {
+                if (!/Execution context was destroyed/.test(error.message)) throw error;
+                return true;
+            },
+        );
+    if (navigated) {
+        await page.waitForSelector(HARNESS_READY);
+        await page.waitForLoadState("networkidle");
+    }
+}
+
 /** Settled collapsed card height for the harness's `colors-5` case. */
 function settledCardHeight(page: Page): Promise<number> {
     return page.evaluate(
@@ -82,9 +118,11 @@ describe.each([
     beforeAll(async () => {
         // Every plate file is mounted after load: declare them so the dep
         // scan sees their imports before the first navigation (no cold reload).
-        seat = await openHarness(viewport, {
-            mounts: [...new Set(PLATES.map(({ file }) => path.join(PLATE_DIR, file)))],
-        });
+        const mounts = [
+            ...new Set(PLATES.map(({ file }) => path.join(PLATE_DIR, file))),
+        ];
+        seat = await openHarness(viewport, { mounts });
+        await settleHarness(seat.page, mounts);
     }, 60_000);
     afterAll(async () => {
         await seat?.close();

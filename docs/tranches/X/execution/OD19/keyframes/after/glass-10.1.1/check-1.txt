@@ -1,0 +1,2 @@
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)

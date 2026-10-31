@@ -1,0 +1,32 @@
+SERVED MODEL: claude-opus-5-5 · X.W11.hyg plate-mass cold run 2 at the committed bytes (cache node_modules/.vite-harness-e960dedb20bc removed first; no retry configured)
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:79928) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+G20 390 {"PaletteCardSkeleton.vue:instrument@16":42,"PaletteCardSkeleton.vue:instrument@1":42,"PaletteCardSkeleton.vue@16":124.109375,"PaletteCardSkeleton.vue@1":124.109375,"PaletteCardSkeleton.vue:developing@16":124.109375,"PaletteCardSkeleton.vue:developing@1":124.109375}
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 390 shadow loading 124.109375 settled 124.125
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 390 developing loading 124.109375 settled 124.125
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+G20 1440 {"PaletteCardSkeleton.vue:instrument@16":42,"PaletteCardSkeleton.vue:instrument@1":42,"PaletteCardSkeleton.vue@16":92.515625,"PaletteCardSkeleton.vue@1":92.515625,"PaletteCardSkeleton.vue:developing@16":92.515625,"PaletteCardSkeleton.vue:developing@1":92.515625}
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 1440 shadow loading 92.515625 settled 92.53125
+
+stdout | demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+N-17 1440 developing loading 92.515625 settled 92.53125
+
+ ✓ demo/test/palettes/plate-mass.test.ts (4 tests) 3691ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  00:43:12
+   Duration  4.34s (transform 39ms, setup 52ms, collect 281ms, tests 3.69s, environment 0ms, prepare 66ms)
+
+exit 0

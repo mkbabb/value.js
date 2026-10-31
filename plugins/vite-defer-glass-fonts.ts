@@ -114,6 +114,10 @@ export function deferGlassFonts(): Plugin {
                                 href,
                                 media: "print",
                                 onload: "this.media='all'",
+                                // X.W11.p4d L2 (COHESION §0gs.4): on the shell
+                                // path the corpus is requested after first
+                                // paint (prerender-shell.ts → index.html).
+                                "data-after-paint": true,
                             },
                             injectTo: "head",
                         },

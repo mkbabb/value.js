@@ -80,6 +80,19 @@ const SWIFTSHADER_LAUNCH = {
     args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"],
 };
 
+/**
+ * X·W11.v1g (COHESION §0gv.3, arm (a)) — the `smoke` project's Chromium pins
+ * FreeType hinting OFF instead of inheriting the headless Linux host default
+ * (full hinting). o10:214 certifies the font's tabular advance, a property of
+ * the font, which ships unhinted; full hinting snaps each advance by ~1 px.
+ * The flag only reaches FreeType (Linux); darwin's CoreText ignores it. The
+ * pin is scoped to `smoke` — the visual project's launch args are its own
+ * (e2e/visual/visual.project.ts) and are untouched.
+ */
+const SMOKE_LAUNCH = {
+    args: [...SWIFTSHADER_LAUNCH.args, "--font-render-hinting=none"],
+};
+
 // T.W3 — the lane-local port seam. Tranche T's standing execution mode (E-6)
 // runs lanes in SIBLING WORKTREES, each closing with its own playwright run;
 // `reuseExistingServer` on a fixed :8090 silently attaches a lane's run to a
@@ -116,7 +129,11 @@ export default defineConfig({
     // alone, so a red run shipped an empty artifact and its cells were readable
     // only as `××T` glyphs in the log. CI keeps the `dot` log line AND writes
     // the HTML report the upload step names. Locally the default is unchanged.
-    reporter: process.env.CI ? [["dot"], ["html", { open: "never" }]] : "list",
+    // X.W11.hld (§0gx.1): on CI the job's verdict is the honest-red reporter's,
+    // over `e2e/producer-held.json`; only a red that is not on it fails.
+    reporter: process.env.CI
+        ? [["dot"], ["html", { open: "never" }], ["./e2e/honest-red-reporter.ts"]]
+        : "list",
     retries: process.env.CI ? 2 : 0,
     timeout: 30000,
     expect: { timeout: 8000 },
@@ -176,7 +193,7 @@ export default defineConfig({
                 channel: WEBGL_CHANNEL,
                 headless: true,
                 viewport: { width: 1280, height: 720 },
-                launchOptions: SWIFTSHADER_LAUNCH,
+                launchOptions: SMOKE_LAUNCH,
             },
         },
         {

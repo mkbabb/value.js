@@ -84,11 +84,22 @@ export interface UseViewAccentsOptions {
      * to the remaining non-boot consumers.
      */
     derivedLightness: ComputedRef<number>;
+    /**
+     * X.W11.p4c (COHESION §0go.2(b)): starts the certifying watchers —
+     * `useAtmosphereBoot`'s `certifyInks`, which runs them after first paint
+     * when the shell is hydrated and at once otherwise. Absent: at once.
+     */
+    certifyInks?: (start: () => void) => void;
 }
 
 export function useViewAccents(options: UseViewAccentsOptions): void {
-    const { cssColorOpaque, safeAccentCss, currentConfig, derivedLightness } =
-        options;
+    const {
+        cssColorOpaque,
+        safeAccentCss,
+        currentConfig,
+        derivedLightness,
+        certifyInks = (start) => start(),
+    } = options;
     const { isDark } = useGlobalDark();
 
     // T.W8 · WR-8 — the ramp writer folds the ink.ts LIVE surface probe into
@@ -152,91 +163,95 @@ export function useViewAccents(options: UseViewAccentsOptions): void {
     const modalL = computed(() =>
         resolveSurfaceLightnessLive("modal", derivedLightness.value, isDark.value),
     );
-    watch(
-        [safeAccentCss, modalL, () => currentConfig.value.accentHueShift],
-        ([css, mL, shift]) => {
+    // X.W11.p4c: every watcher below certifies (a WCAG walk), so it starts
+    // through `certifyInks` — after first paint on a hydrated shell.
+    certifyInks(() => {
+        watch(
+            [safeAccentCss, modalL, () => currentConfig.value.accentHueShift],
+            ([css, mL, shift]) => {
+                const root = document.documentElement.style;
+                const accent = certifyAccentInk(resolveViewAccent(css, shift ?? 0, mL) ?? css, mL);
+                root.setProperty("--ink-modal-accent", accent);
+                const onAccent = contrastInkFor(accent);
+                if (onAccent) root.setProperty("--ink-modal-accent-fg", onAccent);
+            },
+            { immediate: true },
+        );
+
+        // OD19-V3: `--accent-view` is the trigger/seal's live voice, so it tracks
+        // every colour frame. The two ramps are NOT on screen during a picker
+        // drag (the view menu is closed; the Palettes title is another view), yet
+        // each mint is a WCAG bisection per stop: on the drag clock they cost a
+        // long frame per step. They mint once the input settles (a trailing
+        // timer reading the latest accent + surface, so the settled tokens are
+        // byte-equal to a per-frame mint), and at once on the first run, a view
+        // change or a scheme flip, so the menu and title never open stale.
+        let rampTimer: ReturnType<typeof setTimeout> | undefined;
+        const mintRamps = () => {
+            rampTimer = undefined;
             const root = document.documentElement.style;
-            const accent = certifyAccentInk(resolveViewAccent(css, shift ?? 0, mL) ?? css, mL);
-            root.setProperty("--ink-modal-accent", accent);
-            const onAccent = contrastInkFor(accent);
-            if (onAccent) root.setProperty("--ink-modal-accent-fg", onAccent);
-        },
-        { immediate: true },
-    );
-
-    // OD19-V3: `--accent-view` is the trigger/seal's live voice, so it tracks
-    // every colour frame. The two ramps are NOT on screen during a picker
-    // drag (the view menu is closed; the Palettes title is another view), yet
-    // each mint is a WCAG bisection per stop: on the drag clock they cost a
-    // long frame per step. They mint once the input settles (a trailing
-    // timer reading the latest accent + surface, so the settled tokens are
-    // byte-equal to a per-frame mint), and at once on the first run, a view
-    // change or a scheme flip, so the menu and title never open stale.
-    let rampTimer: ReturnType<typeof setTimeout> | undefined;
-    const mintRamps = () => {
-        rampTimer = undefined;
-        const root = document.documentElement.style;
-        const css = safeAccentCss.value;
-        const surfL = surfaceL.value;
-        const menuRamp = resolvePalettesRamp(css, surfL, RAMP_TEXT_CONTRAST_FLOOR);
-        if (menuRamp) {
-            menuRamp.forEach((stop, i) => {
-                root.setProperty(`--palettes-ramp-${i}`, stop);
-            });
-        }
-        const titleRamp = resolvePalettesRamp(css, surfL, RAMP_LARGE_TEXT_CONTRAST_FLOOR);
-        if (titleRamp) {
-            titleRamp.forEach((stop, i) => {
-                root.setProperty(`--palettes-ramp-title-${i}`, stop);
-            });
-        }
-    };
-    onScopeDispose(() => clearTimeout(rampTimer));
-
-    watch(
-        [
-            safeAccentCss,
-            surfaceL,
-            () => currentConfig.value.accentHueShift,
-            isDark,
-        ],
-        ([css, surfL, shift, dark], old) => {
-            const resolved = resolveViewAccent(css, shift ?? 0, surfL);
-            if (resolved) {
-                document.documentElement.style.setProperty("--accent-view", resolved);
+            const css = safeAccentCss.value;
+            const surfL = surfaceL.value;
+            const menuRamp = resolvePalettesRamp(css, surfL, RAMP_TEXT_CONTRAST_FLOOR);
+            if (menuRamp) {
+                menuRamp.forEach((stop, i) => {
+                    root.setProperty(`--palettes-ramp-${i}`, stop);
+                });
             }
-            clearTimeout(rampTimer);
-            if (!old || old[2] !== shift || old[3] !== dark) mintRamps();
-            else rampTimer = setTimeout(mintRamps, RAMP_SETTLE_MS);
-        },
-        { immediate: true },
-    );
-
-    // The seal ink — keyed by the WAX (the live opaque colour), not the
-    // guarded accent: the seal's WatercolorDot paints the raw pick.
-    watch(
-        cssColorOpaque,
-        (css) => {
-            const ink = contrastInkFor(css);
-            if (ink) {
-                document.documentElement.style.setProperty("--seal-ink", ink);
+            const titleRamp = resolvePalettesRamp(css, surfL, RAMP_LARGE_TEXT_CONTRAST_FLOOR);
+            if (titleRamp) {
+                titleRamp.forEach((stop, i) => {
+                    root.setProperty(`--palettes-ramp-title-${i}`, stop);
+                });
             }
-        },
-        { immediate: true },
-    );
+        };
+        onScopeDispose(() => clearTimeout(rampTimer));
 
-    // X-DS pass 17 (V17C-01): the admin seal's gold glyph sits on the same
-    // wax, so its gold is certified on the wax (hue kept, lightness walked; a
-    // glyph, so the 3:1 floor). Where no gold clears the wax, the token is
-    // removed and the seal falls back to `--seal-ink` (Dock.vue).
-    watch(
-        [cssColorOpaque, isDark],
-        ([css, dark]) => {
-            const root = document.documentElement.style;
-            const gold = certifyInkOnFill(goldIdentityCss(dark), css, GRAPHICS_CONTRAST_FLOOR);
-            if (gold) root.setProperty("--seal-ink-gold", gold);
-            else root.removeProperty("--seal-ink-gold");
-        },
-        { immediate: true },
-    );
+        watch(
+            [
+                safeAccentCss,
+                surfaceL,
+                () => currentConfig.value.accentHueShift,
+                isDark,
+            ],
+            ([css, surfL, shift, dark], old) => {
+                const resolved = resolveViewAccent(css, shift ?? 0, surfL);
+                if (resolved) {
+                    document.documentElement.style.setProperty("--accent-view", resolved);
+                }
+                clearTimeout(rampTimer);
+                if (!old || old[2] !== shift || old[3] !== dark) mintRamps();
+                else rampTimer = setTimeout(mintRamps, RAMP_SETTLE_MS);
+            },
+            { immediate: true },
+        );
+
+        // The seal ink — keyed by the WAX (the live opaque colour), not the
+        // guarded accent: the seal's WatercolorDot paints the raw pick.
+        watch(
+            cssColorOpaque,
+            (css) => {
+                const ink = contrastInkFor(css);
+                if (ink) {
+                    document.documentElement.style.setProperty("--seal-ink", ink);
+                }
+            },
+            { immediate: true },
+        );
+
+        // X-DS pass 17 (V17C-01): the admin seal's gold glyph sits on the same
+        // wax, so its gold is certified on the wax (hue kept, lightness walked; a
+        // glyph, so the 3:1 floor). Where no gold clears the wax, the token is
+        // removed and the seal falls back to `--seal-ink` (Dock.vue).
+        watch(
+            [cssColorOpaque, isDark],
+            ([css, dark]) => {
+                const root = document.documentElement.style;
+                const gold = certifyInkOnFill(goldIdentityCss(dark), css, GRAPHICS_CONTRAST_FLOOR);
+                if (gold) root.setProperty("--seal-ink-gold", gold);
+                else root.removeProperty("--seal-ink-gold");
+            },
+            { immediate: true },
+        );
+    });
 }

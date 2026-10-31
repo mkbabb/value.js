@@ -1,0 +1,16 @@
+== head
+  cube->amiga       commit 52-69 (med 62.5)  worst 66/82/85/82 (med 82.0)  over50 4
+  amiga->square     commit 48-74 (med 65.0)  worst 65/82/66/83 (med 74.0)  over50 4
+  square->easing    commit 54-65 (med 58.0)  worst 68/66/67/88 (med 67.5)  over50 4
+  easing->spring    commit 57-74 (med 62.0)  worst 89/85/68/85 (med 85.0)  over50 4
+  spring->sequence  commit 25-34 (med 30.0)  worst 32/49/51/49 (med 49.0)  over50 1
+  sequence->cube    commit 37-59 (med 50.5)  worst 52/51/85/84 (med 68.0)  over50 4
+  cube->home        commit 5-6 (med 5.5)  worst 2523/41/35/36 (med 38.5)  over50 2
+== cure
+  cube->amiga       commit 49-62 (med 58.0)  worst 66/85/84/83 (med 83.5)  over50 4
+  amiga->square     commit 50-67 (med 51.0)  worst 68/83/68/66 (med 68.0)  over50 4
+  square->easing    commit 50-60 (med 52.5)  worst 67/67/65/83 (med 67.0)  over50 4
+  easing->spring    commit 46-61 (med 49.0)  worst 85/68/67/68 (med 68.0)  over50 4
+  spring->sequence  commit 25-34 (med 30.0)  worst 51/33/50/50 (med 50.0)  over50 2
+  sequence->cube    commit 38-49 (med 39.5)  worst 139/50/51/50 (med 50.5)  over50 5
+  cube->home        commit 5-6 (med 5.0)  worst 52/34/38/38 (med 38.0)  over50 1

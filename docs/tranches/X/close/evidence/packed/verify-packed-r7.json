@@ -1,0 +1,1470 @@
+{
+    "SERVED MODEL": "claude-opus-5-5",
+    "unit": "X.W11.b (r7, RESUME ninth: re-read at the local v4.1.0 re-minted at group 1 tip d25c4514b, the last .c2 commit, per COHESION §0gn.1) · G3 (W11.md:212-228)",
+    "date": "2026-10-21",
+    "tree": "d25c4514b3e846aaeb7c2eb1c016c34a55af1786",
+    "tag": "v4.1.0 (annotated 2780775c2, local, unpushed; re-minted from 1a4bf1e58 at c2259fdad)",
+    "treeNote": "clean detached worktree at v4.1.0^{commit}; npm ci --ignore-scripts from the committed lockfile; npm run build (re-run after battery command 7 run 2, whose gh-pages build overwrites dist/) then pack; git status --porcelain = 0 after",
+    "tarball": {
+        "file": "mkbabb-value.js-4.1.0.tgz",
+        "cmd": "npm pack --ignore-scripts --json",
+        "version": "4.1.0",
+        "sha1": "b61cf17c698fa8d01675f375900928785735bc8f",
+        "integrity": "sha512-wRyTE403tNDBZXXB+XjnwJt28X7J7B7TcuCEYurwPyobEr61H7l0z567scf8JYdY8qMj04pnHcwXlC+dywaajw==",
+        "sha256": "0767b0d0cc8ed19966d1212886ddfc3f3dd7a157a1ee75d13c2a83f7d33c7090",
+        "size": 74539,
+        "entryCount": 29,
+        "packedDependencies": "absent"
+    },
+    "priorShasum": "b61cf17c698fa8d01675f375900928785735bc8f",
+    "shasumEqualsPrior": true,
+    "shasumNote": "git diff --stat c2259fdad d25c4514b over the packed sources (src, package.json, api/src, README.md, LICENSE) = empty; the range carries demo/test + docs bytes only (.c2 fd9762d5a demo/test/about/ss8-b09-ink.test.ts, receipts), none packed, so the tarball is byte-identical to r6",
+    "command": "node scripts/ci/verify-packed-surface.mjs <tarball> (execute-only; X-W9 bytes), via ~/.claude/guard/guarded",
+    "runs": [
+        {
+            "exit": 0
+        },
+        {
+            "exit": 0
+        }
+    ],
+    "runsIdentical": true,
+    "forbiddenSpecifiers": "the script throws unless @mkbabb/value.js · /parsing · /units each reject with ERR_PACKAGE_PATH_NOT_EXPORTED; exit 0 = all three rejected",
+    "achromaticTally": {
+        "PASS": 132
+    },
+    "achromaticRowsWithoutInput": 0,
+    "output": {
+        "runtime": {
+            "color": 31,
+            "value": 1,
+            "css": 20,
+            "easing": 17,
+            "math": 9,
+            "transform": 3,
+            "quantize": 2
+        },
+        "smoke": {
+            "color": 31,
+            "value": 1,
+            "css": 20,
+            "easing": 17,
+            "math": 9,
+            "transform": 3,
+            "quantize": 2
+        },
+        "runtimeExports": 83,
+        "smokeInvocations": 83,
+        "achromaticRows": 132,
+        "achromatic": [
+            {
+                "export": "rgb",
+                "input": "rgb(255,255,255)",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rgb",
+                    "channels": [255, 255, 255]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rgb",
+                    "channels": [255, 255, 255]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> hsl",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsl",
+                    "channels": ["none", 0, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> hsv",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsv",
+                    "channels": ["none", 0, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> hwb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hwb",
+                    "channels": ["none", 1, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> lab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lab",
+                    "channels": [100, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> lch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lch",
+                    "channels": [100, 0, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> oklab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklab",
+                    "channels": [1.0000000000000002, -4.996003610813204e-16, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> oklch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklch",
+                    "channels": [1.0000000000000002, 4.996003610813204e-16, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> xyz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "xyz",
+                    "channels": [0.9504559270516717, 1, 1.0890577507598784]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> srgb-linear",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "srgb-linear",
+                    "channels": [1.0000000000000004, 0.9999999999999998, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> display-p3",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "display-p3",
+                    "channels": [
+                        0.9999999999999999, 0.9999999999999997, 0.9999999999999997
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> a98-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "a98-rgb",
+                    "channels": [1, 0.9999999999999999, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> prophoto-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "prophoto-rgb",
+                    "channels": [1.0000000000000002, 1, 1.0000000000000002]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> rec2020",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rec2020",
+                    "channels": [0.9999999999999998, 1, 0.9999999999999999]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> ictcp",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "ictcp",
+                    "channels": [
+                        0.5806888810416109, 1.1102230246251565e-16,
+                        2.914335439641036e-16
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> jzazbz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "jzazbz",
+                    "channels": [
+                        0.2220652495357387, -0.00016062492618276747,
+                        -0.00011703399770002232
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,255) -> kelvin",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "kelvin",
+                    "channels": [6600]
+                }
+            },
+            {
+                "export": "rgb",
+                "input": "rgb(0,0,0)",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rgb",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rgb",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> hsl",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsl",
+                    "channels": ["none", 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> hsv",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsv",
+                    "channels": ["none", 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> hwb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hwb",
+                    "channels": ["none", 0, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> lab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lab",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> lch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lch",
+                    "channels": [0, 0, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> oklab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklab",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> oklch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklch",
+                    "channels": [0, 0, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> xyz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "xyz",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> srgb-linear",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "srgb-linear",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> display-p3",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "display-p3",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> a98-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "a98-rgb",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> prophoto-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "prophoto-rgb",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> rec2020",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rec2020",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> ictcp",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "ictcp",
+                    "channels": [
+                        7.309559025783966e-7, -2.117582368135751e-22,
+                        1.3234889800848443e-23
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> jzazbz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "jzazbz",
+                    "channels": [0, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(0,0,0) -> kelvin",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "kelvin",
+                    "channels": [1000]
+                }
+            },
+            {
+                "export": "rgb",
+                "input": "rgb(128,128,128)",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rgb",
+                    "channels": [128, 128, 128]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rgb",
+                    "channels": [128, 128, 128]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> hsl",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsl",
+                    "channels": ["none", 0, 0.5019607843137255]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> hsv",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsv",
+                    "channels": ["none", 0, 0.5019607843137255]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> hwb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hwb",
+                    "channels": ["none", 0.5019607843137255, 0.4980392156862745]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> lab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lab",
+                    "channels": [53.585013452169036, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> lch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lch",
+                    "channels": [53.585013452169036, 0, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> oklab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklab",
+                    "channels": [0.5998708056221469, -5.551115123125783e-16, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> oklch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklch",
+                    "channels": [0.5998708056221469, 5.551115123125783e-16, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> xyz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "xyz",
+                    "channels": [
+                        0.2051658917495936, 0.21586050011389926, 0.23508455073194565
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> srgb-linear",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "srgb-linear",
+                    "channels": [
+                        0.21586050011389935, 0.2158605001138992, 0.21586050011389932
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> display-p3",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "display-p3",
+                    "channels": [
+                        0.5019607843137255, 0.5019607843137254, 0.5019607843137255
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> a98-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "a98-rgb",
+                    "channels": [
+                        0.4980167297547883, 0.4980167297547882, 0.4980167297547883
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> prophoto-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "prophoto-rgb",
+                    "channels": [
+                        0.42667403066076653, 0.4266740306607665, 0.42667403066076653
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> rec2020",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rec2020",
+                    "channels": [
+                        0.5279249140414459, 0.5279249140414461, 0.527924914041446
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> ictcp",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "ictcp",
+                    "channels": [
+                        0.42781364404615246, 1.1102230246251565e-16,
+                        -6.245004513516506e-17
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> jzazbz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "jzazbz",
+                    "channels": [
+                        0.11827024942185417, -0.00011630238498622214,
+                        -0.00008474411299219664
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(128,128,128) -> kelvin",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "kelvin",
+                    "channels": [1000]
+                }
+            },
+            {
+                "export": "hsl",
+                "input": "hsl(none,0,1)",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsl",
+                    "channels": ["none", 0, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rgb",
+                    "channels": [255, 255, 255]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> hsl",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsl",
+                    "channels": ["none", 0, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> hsv",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsv",
+                    "channels": ["none", 0, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> hwb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hwb",
+                    "channels": ["none", 1, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> lab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lab",
+                    "channels": [100, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> lch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lch",
+                    "channels": [100, 0, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> oklab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklab",
+                    "channels": [1.0000000000000002, -4.996003610813204e-16, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> oklch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklch",
+                    "channels": [1.0000000000000002, 4.996003610813204e-16, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> xyz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "xyz",
+                    "channels": [0.9504559270516717, 1, 1.0890577507598784]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> srgb-linear",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "srgb-linear",
+                    "channels": [1.0000000000000004, 0.9999999999999998, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> display-p3",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "display-p3",
+                    "channels": [
+                        0.9999999999999999, 0.9999999999999997, 0.9999999999999997
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> a98-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "a98-rgb",
+                    "channels": [1, 0.9999999999999999, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> prophoto-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "prophoto-rgb",
+                    "channels": [1.0000000000000002, 1, 1.0000000000000002]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> rec2020",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rec2020",
+                    "channels": [0.9999999999999998, 1, 0.9999999999999999]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> ictcp",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "ictcp",
+                    "channels": [
+                        0.5806888810416109, 1.1102230246251565e-16,
+                        2.914335439641036e-16
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> jzazbz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "jzazbz",
+                    "channels": [
+                        0.2220652495357387, -0.00016062492618276747,
+                        -0.00011703399770002232
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hsl(none,0,1) -> kelvin",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "kelvin",
+                    "channels": [6600]
+                }
+            },
+            {
+                "export": "hwb",
+                "input": "hwb(none,1,0)",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hwb",
+                    "channels": ["none", 1, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rgb",
+                    "channels": [255, 255, 255]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> hsl",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsl",
+                    "channels": ["none", 0, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> hsv",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsv",
+                    "channels": ["none", 0, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> hwb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hwb",
+                    "channels": ["none", 1, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> lab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lab",
+                    "channels": [100, 0, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> lch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lch",
+                    "channels": [100, 0, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> oklab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklab",
+                    "channels": [1.0000000000000002, -4.996003610813204e-16, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> oklch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklch",
+                    "channels": [1.0000000000000002, 4.996003610813204e-16, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> xyz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "xyz",
+                    "channels": [0.9504559270516717, 1, 1.0890577507598784]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> srgb-linear",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "srgb-linear",
+                    "channels": [1.0000000000000004, 0.9999999999999998, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> display-p3",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "display-p3",
+                    "channels": [
+                        0.9999999999999999, 0.9999999999999997, 0.9999999999999997
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> a98-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "a98-rgb",
+                    "channels": [1, 0.9999999999999999, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> prophoto-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "prophoto-rgb",
+                    "channels": [1.0000000000000002, 1, 1.0000000000000002]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> rec2020",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rec2020",
+                    "channels": [0.9999999999999998, 1, 0.9999999999999999]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> ictcp",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "ictcp",
+                    "channels": [
+                        0.5806888810416109, 1.1102230246251565e-16,
+                        2.914335439641036e-16
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> jzazbz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "jzazbz",
+                    "channels": [
+                        0.2220652495357387, -0.00016062492618276747,
+                        -0.00011703399770002232
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "hwb(none,1,0) -> kelvin",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "kelvin",
+                    "channels": [6600]
+                }
+            },
+            {
+                "export": "lch",
+                "input": "lch(100,0,none)",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lch",
+                    "channels": [100, 0, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rgb",
+                    "channels": [
+                        255.00000000000006, 254.99999999999986, 254.99999999999997
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> hsl",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsl",
+                    "channels": [325.7142857142857, 2, 0.9999999999999998]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> hsv",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsv",
+                    "channels": [
+                        325.7142857142857, 7.771561172376094e-16, 1.0000000000000002
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> hwb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hwb",
+                    "channels": [
+                        325.7142857142857, 0.9999999999999994, -2.220446049250313e-16
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> lab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lab",
+                    "channels": [
+                        99.99999999999999, 5.551115123125783e-14, -2.220446049250313e-14
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> lch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lch",
+                    "channels": [100, 0, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> oklab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklab",
+                    "channels": [1.0000000000000002, -4.996003610813204e-16, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> oklch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklch",
+                    "channels": [1.0000000000000002, 4.996003610813204e-16, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> xyz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "xyz",
+                    "channels": [
+                        0.9504559270516716, 0.9999999999999998, 1.0890577507598782
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> srgb-linear",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "srgb-linear",
+                    "channels": [
+                        1.0000000000000007, 0.9999999999999993, 0.9999999999999999
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> display-p3",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "display-p3",
+                    "channels": [
+                        0.9999999999999999, 0.9999999999999994, 0.9999999999999997
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> a98-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "a98-rgb",
+                    "channels": [1, 0.9999999999999997, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> prophoto-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "prophoto-rgb",
+                    "channels": [
+                        1.0000000000000002, 0.9999999999999998, 1.0000000000000002
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> rec2020",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rec2020",
+                    "channels": [
+                        0.9999999999999998, 0.9999999999999999, 0.9999999999999998
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> ictcp",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "ictcp",
+                    "channels": [
+                        0.5806888810416109, 1.1102230246251565e-16,
+                        2.914335439641036e-16
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> jzazbz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "jzazbz",
+                    "channels": [
+                        0.22206524953574297, -0.0001606249262307291,
+                        -0.00011703399768703271
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "lch(100,0,none) -> kelvin",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "kelvin",
+                    "channels": [6600]
+                }
+            },
+            {
+                "export": "oklch",
+                "input": "oklch(1,0,none)",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklch",
+                    "channels": [1, 0, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rgb",
+                    "channels": [
+                        255.0000000000004, 254.9999999999998, 254.99999999999997
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> hsl",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsl",
+                    "channels": [342.85714285714283, -2.5, 1.0000000000000004]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> hsv",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsv",
+                    "channels": [
+                        342.85714285714283, 2.331468351712825e-15, 1.0000000000000016
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> hwb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hwb",
+                    "channels": [
+                        342.85714285714283, 0.9999999999999992, -1.5543122344752192e-15
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> lab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lab",
+                    "channels": [
+                        99.99999999999999, 2.7755575615628914e-13,
+                        -2.220446049250313e-14
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> lch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "lch",
+                    "channels": [99.99999999999999, 2.7844251801988246e-13, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> oklab",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklab",
+                    "channels": [1.0000000000000002, -5.551115123125783e-17, 0]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> oklch",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklch",
+                    "channels": [1, 0, "none"]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> xyz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "xyz",
+                    "channels": [
+                        0.9504559270516726, 0.9999999999999998, 1.0890577507598784
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> srgb-linear",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "srgb-linear",
+                    "channels": [
+                        1.0000000000000036, 0.9999999999999984, 1.0000000000000002
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> display-p3",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "display-p3",
+                    "channels": [
+                        1.000000000000001, 0.999999999999999, 0.9999999999999997
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> a98-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "a98-rgb",
+                    "channels": [1.000000000000001, 0.9999999999999993, 1]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> prophoto-rgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "prophoto-rgb",
+                    "channels": [
+                        1.0000000000000009, 0.9999999999999994, 1.0000000000000002
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> rec2020",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "rec2020",
+                    "channels": [
+                        1.0000000000000004, 0.9999999999999997, 0.9999999999999999
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> ictcp",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "ictcp",
+                    "channels": [
+                        0.5806888810416058, 3.3861802251067274e-14,
+                        4.336808689942018e-14
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> jzazbz",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "jzazbz",
+                    "channels": [
+                        0.22206524953574297, -0.0001606249262307291,
+                        -0.00011703399768703271
+                    ]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "oklch(1,0,none) -> kelvin",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "kelvin",
+                    "channels": [6600]
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(v,v,v) -> hsl, v = 0..255",
+                "verdict": "PASS",
+                "result": {
+                    "greys": 256,
+                    "failed": []
+                }
+            },
+            {
+                "export": "convertColor",
+                "input": "rgb(255,255,254) -> hsl",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "hsl",
+                    "channels": [60, 1, 0.9980392156862745]
+                }
+            },
+            {
+                "export": "toRgba8",
+                "input": "rgb(255,255,255)",
+                "verdict": "PASS",
+                "result": [255, 255, 255, 255]
+            },
+            {
+                "export": "toHex",
+                "input": "hsl(none,0,1)",
+                "verdict": "PASS",
+                "result": "#ffffff"
+            },
+            {
+                "export": "mapColorToGamut",
+                "input": "oklch(1,0,none) -> srgb",
+                "verdict": "PASS",
+                "result": {
+                    "ok": true,
+                    "space": "oklch",
+                    "channels": [1, 0, "none"]
+                }
+            },
+            {
+                "export": "parseCssColor",
+                "input": "hsl(none 0% 100%)",
+                "verdict": "PASS",
+                "result": {
+                    "parsed": {
+                        "ok": true,
+                        "space": "hsl",
+                        "channels": ["none", 0, 1]
+                    },
+                    "serialized": "hsl(none 0% 100%)"
+                }
+            }
+        ]
+    }
+}

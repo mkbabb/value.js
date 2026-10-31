@@ -1,0 +1,10 @@
+SERVED MODEL: claude-opus-5-5
+# F.REL RESUME (k) close — PD-1 on prod (evidence/F-REL/d/pd1-prod.sh, 80 s after prod-verify)
+draft: image=yes contour=yes viz=lucid-passing-copper-lion
+HTTP/1.1 200 OK
+etag: "6c1c1fccfeca55f400f1f6676421a94bd216763fee1c339ece78322da522fa65"
+access-control-expose-headers: ETag, RateLimit-Reset
+vary: Origin
+gzip-etag-present=yes weak=no PATCH(If-Match)=200 PATCH(stale)=412 DELETE=204
+PD-1 PASS
+rc=0

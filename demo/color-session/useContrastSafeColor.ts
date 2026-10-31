@@ -8,9 +8,10 @@ import {
     type Ref,
 } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import { convertColor, parseCssColor, type Color } from "@mkbabb/value.js/color";
+import { usePreferredContrast } from "@vueuse/core";
+import { convertColor, mixColors, parseCssColor, xyz, type Color } from "@mkbabb/value.js/color";
 import { parseColorIn } from "./color-utils";
-import { INK_AMBIENT_KEY } from "./keys";
+import { INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY } from "./keys";
 import {
     certifyAccentInk,
     certifyIdentityInk,
@@ -19,6 +20,7 @@ import {
     resolvePaintedLightness,
     resolvePlateInk,
     resolveSurfaceLightness,
+    type InkContrast,
     type InkSurface,
     type SurfaceTint,
 } from "./ink";
@@ -171,6 +173,30 @@ function probeEl(): HTMLElement | null {
     return tierProbe;
 }
 
+/**
+ * X.W11.p4e N-I1 (COHESION §0gt.2): one probe per distinct tier token, each
+ * painting `var(<token>)` from the moment it is created. A tier's live tint
+ * is read off its own probe, so reading every tier writes no style: the
+ * first `getComputedStyle` of a batch pays the one style recalc, and the
+ * rest read the same resolved cascade.
+ */
+const TOKEN_TIERS = Object.keys(TIER_BG_TOKEN) as LiveLayer[];
+const tokenProbes = new Map<string, HTMLElement>();
+function tokenProbeEl(token: string): HTMLElement | null {
+    if (typeof document === "undefined") return null;
+    let probe = tokenProbes.get(token);
+    if (!probe || !probe.isConnected) {
+        probe = document.createElement("div");
+        probe.setAttribute("data-ink-probe", "");
+        probe.style.cssText =
+            "position:absolute;width:0;height:0;visibility:hidden;pointer-events:none";
+        probe.style.backgroundColor = `var(${token})`;
+        document.body.appendChild(probe);
+        tokenProbes.set(token, probe);
+    }
+    return probe;
+}
+
 type PaintedColor = NonNullable<ReturnType<typeof resolveCssColorAlpha>>;
 
 /** An element's own painted background — null when it paints nothing (α 0)
@@ -201,63 +227,8 @@ function resolveDockPlateTint(from: Element): SurfaceTint {
     );
 }
 
-/** Read a tier's LIVE painted tint (recipe truth) — null when unmeasurable. */
-function resolveLiveTint(surface: LiveLayer): SurfaceTint | undefined {
-    if (surface === "page") return undefined;
-    let bg: string | undefined;
-    if (surface === "veil") {
-        // T.W6.5-P (T-34): the veil is an IN-PLATE fixture — TWO alpha
-        // layers (the veil recipe over its host plate) sit between its ink
-        // and the ambient, and BOTH recipes are SUBTREE-LOCAL (the W55
-        // adaptive `--glass-tint-*` axis retunes per-card, so a body-level
-        // probe reads the wrong cascade — probed live: root-context veil
-        // L 0.34/α 0.60 vs the card-context 0.41/0.63). So the veil is
-        // probed off the MOUNTED element itself (the dock band's
-        // `.dock-plate` precedent): the Card stamps `data-surface="veil"`, its painted
-        // recipe + its nearest painted ancestor (the resting plate) are
-        // composited A-over-B in sRGB — the SAME alpha-composite model the
-        // O-18 census measures with — into ONE effective tint. A per-layer
-        // OKLab-L linear mix diverges past the certification headroom at
-        // two stacked layers (probed live: 4.30:1 measured vs the 5.75
-        // walked target). Pre-mount the resolver yields undefined (the
-        // static model serves); the consumer's mount-epoch bump re-drives.
-        const host = document.querySelector<HTMLElement>(
-            '[data-surface="veil"]',
-        );
-        if (!host) return undefined;
-        const veil = paintedColor(host);
-        if (!veil) return undefined;
-        let plate: PaintedColor | null = null;
-        for (
-            let n = host.parentElement;
-            n && n !== document.body;
-            n = n.parentElement
-        ) {
-            plate = paintedColor(n);
-            if (plate) break;
-        }
-        if (plate) {
-            const aOut = veil.alpha + plate.alpha * (1 - veil.alpha);
-            const mix = (a: number, b: number) =>
-                (veil.alpha * a + plate.alpha * b * (1 - veil.alpha)) / aOut;
-            return {
-                color: srgbColor(
-                    mix(veil.r, plate.r),
-                    mix(veil.g, plate.g),
-                    mix(veil.b, plate.b),
-                ),
-                alpha: aOut,
-            };
-        }
-        return { color: srgbColor(veil.r, veil.g, veil.b), alpha: veil.alpha };
-    } else {
-        const probe = probeEl();
-        const token = TIER_BG_TOKEN[surface];
-        if (probe && token) {
-            probe.style.backgroundColor = `var(${token})`;
-            bg = getComputedStyle(probe).backgroundColor;
-        }
-    }
+/** A painted computed background as a tint — undefined when unmeasurable. */
+function tintOfBackground(bg: string | undefined): SurfaceTint | undefined {
     if (!bg) return undefined;
     const resolved = resolveCssColorAlpha(bg);
     if (!resolved || resolved.alpha === 0) return undefined;
@@ -265,6 +236,61 @@ function resolveLiveTint(surface: LiveLayer): SurfaceTint | undefined {
         color: srgbColor(resolved.r, resolved.g, resolved.b),
         alpha: resolved.alpha,
     };
+}
+
+/** A token tier's LIVE painted tint, read off its own probe. */
+function resolveTokenTint(surface: LiveLayer): SurfaceTint | undefined {
+    const token = TIER_BG_TOKEN[surface];
+    const probe = token ? tokenProbeEl(token) : null;
+    return probe ? tintOfBackground(getComputedStyle(probe).backgroundColor) : undefined;
+}
+
+/** Read the veil's LIVE painted tint (recipe truth) — null when unmeasurable. */
+function resolveVeilTint(): SurfaceTint | undefined {
+    // T.W6.5-P (T-34): the veil is an IN-PLATE fixture — TWO alpha
+    // layers (the veil recipe over its host plate) sit between its ink
+    // and the ambient, and BOTH recipes are SUBTREE-LOCAL (the W55
+    // adaptive `--glass-tint-*` axis retunes per-card, so a body-level
+    // probe reads the wrong cascade — probed live: root-context veil
+    // L 0.34/α 0.60 vs the card-context 0.41/0.63). So the veil is
+    // probed off the MOUNTED element itself (the dock band's
+    // `.dock-plate` precedent): the Card stamps `data-surface="veil"`, its painted
+    // recipe + its nearest painted ancestor (the resting plate) are
+    // composited A-over-B in sRGB — the SAME alpha-composite model the
+    // O-18 census measures with — into ONE effective tint. A per-layer
+    // OKLab-L linear mix diverges past the certification headroom at
+    // two stacked layers (probed live: 4.30:1 measured vs the 5.75
+    // walked target). Pre-mount the resolver yields undefined (the
+    // static model serves); the consumer's mount-epoch bump re-drives.
+    const host = document.querySelector<HTMLElement>(
+        '[data-surface="veil"]',
+    );
+    if (!host) return undefined;
+    const veil = paintedColor(host);
+    if (!veil) return undefined;
+    let plate: PaintedColor | null = null;
+    for (
+        let n = host.parentElement;
+        n && n !== document.body;
+        n = n.parentElement
+    ) {
+        plate = paintedColor(n);
+        if (plate) break;
+    }
+    if (plate) {
+        const aOut = veil.alpha + plate.alpha * (1 - veil.alpha);
+        const mix = (a: number, b: number) =>
+            (veil.alpha * a + plate.alpha * b * (1 - veil.alpha)) / aOut;
+        return {
+            color: srgbColor(
+                mix(veil.r, plate.r),
+                mix(veil.g, plate.g),
+                mix(veil.b, plate.b),
+            ),
+            alpha: aOut,
+        };
+    }
+    return { color: srgbColor(veil.r, veil.g, veil.b), alpha: veil.alpha };
 }
 
 /**
@@ -282,19 +308,48 @@ interface TintCacheEntry {
     darkClass: boolean;
     epoch: number;
     tint: SurfaceTint | undefined;
+    /** The entry was filled for a sibling tier and no caller has read it yet. */
+    unread?: boolean;
 }
 const liveTintCache = new Map<LiveLayer, TintCacheEntry>();
 function resolveLiveTintCached(surface: LiveLayer): SurfaceTint | undefined {
-    if (typeof document === "undefined") return undefined;
+    if (typeof document === "undefined" || surface === "page") return undefined;
     const darkClass = document.documentElement.classList.contains("dark");
     const epoch = probeEpoch.value;
     const hit = liveTintCache.get(surface);
     if (hit && hit.darkClass === darkClass && hit.epoch === epoch) {
+        if (hit.unread) {
+            hit.unread = false;
+            if (hit.tint === undefined) probeMissed = true;
+        }
         return hit.tint;
     }
-    const tint = resolveLiveTint(surface);
-    if (tint === undefined && surface !== "page") probeMissed = true;
-    liveTintCache.set(surface, { darkClass, epoch, tint });
+    if (surface === "veil") {
+        const tint = resolveVeilTint();
+        if (tint === undefined) probeMissed = true;
+        liveTintCache.set(surface, { darkClass, epoch, tint });
+        return tint;
+    }
+    // X.W11.p4e N-I1 (COHESION §0gt.2): ONE live referent read per ink region.
+    // A region certifies a run of inks across the token tiers (the root inks:
+    // resting, floating, modal over its scrim), and stamps a root token
+    // between each, so a tier read on first use landed after the previous
+    // ink's write and forced a whole-document style recalc of its own (the
+    // `.p4d` profile: 102 of the region's 189 ms). The first miss now reads
+    // every token tier in one pass, with no write between the reads, and
+    // caches them together under the same scheme/epoch stamp: one recalc per
+    // region. A sibling tier's entry counts as a miss on its first read when
+    // it measured nothing, exactly as its own read would have.
+    // Every probe exists before the first read: a probe inserted between two
+    // reads would dirty the style the first one resolved.
+    for (const tier of TOKEN_TIERS) tokenProbeEl(TIER_BG_TOKEN[tier]!);
+    let tint: SurfaceTint | undefined;
+    for (const tier of TOKEN_TIERS) {
+        const read = resolveTokenTint(tier);
+        if (tier === surface) tint = read;
+        liveTintCache.set(tier, { darkClass, epoch, tint: read, unread: tier !== surface });
+    }
+    if (tint === undefined) probeMissed = true;
     return tint;
 }
 
@@ -336,8 +391,9 @@ function surfaceLightnessNow(
         // The veil is an IN-PLATE fixture (T-34): its underlay referent is
         // the RESTING plate's live tint — `resolveSurfaceLightness` composes
         // plate-over-ambient first, then the veil tint over the plate. A
-        // modal's underlay is the scrim (V16-01), composed the same way.
-        surface === "veil"
+        // modal's underlay is the scrim (V16-01), composed the same way. The
+        // well is an in-plate wash over the resting plate too (§0gv.6).
+        surface === "veil" || surface === "well"
             ? resolveLiveTintCached("resting")
             : surface === "modal"
               ? resolveLiveTintCached("scrim")
@@ -365,13 +421,24 @@ function surfaceLightnessNow(
  *
  * @param cssColorOpaque   the rAF-coalesced live OPAQUE colour
  * @param ambientLightness the atmosphere's live derived lightness (M-15)
+ * @param plateReferent    the field referent of the primary plate pair
+ *                         (§0gx.2, `resolveFieldPlateReferent`)
  */
 export function useContrastSafeColor(
     cssColorOpaque: ComputedRef<string>,
     ambientLightness: ComputedRef<number>,
+    plateReferent: ComputedRef<number> = ambientLightness,
 ) {
     const { isDark } = useGlobalDark();
     bumpProbeEpochOnMount();
+    // X.W11.n2 (COHESION §0gy.5, SS8-0363): `prefers-contrast: more` certifies
+    // the neutral plate pairs (resting, floating, modal) at the guard's
+    // ceiling, so the elevated-contrast layer never lowers a plate ink's ratio
+    // (`ink.ts` `certifyFor`). Identity inks keep their hue law.
+    const preferredContrast = usePreferredContrast();
+    const plateContrast = computed<InkContrast>(() =>
+        preferredContrast.value === "more" ? "more" : "no-preference",
+    );
 
     const safeAccentCss = computed(() =>
         certifyAccentInkOnce(
@@ -388,23 +455,28 @@ export function useContrastSafeColor(
         return safeAccentCss.value !== cssColorOpaque.value;
     });
 
-    // The resting plate's composited lightness — the ONE referent both plate
-    // inks certify against.
+    // The resting plate over the ambient: the identity inks' ground (the
+    // destructive red and the gold keep their hue on it).
     const restingL = computed(() =>
         surfaceLightnessNow("resting", ambientLightness.value, isDark.value),
+    );
+    // §0gx.2: the resting plate over the field's maximin referent — the ONE
+    // referent both plate inks certify against, so the pair takes one polarity.
+    const plateL = computed(() =>
+        surfaceLightnessNow("resting", plateReferent.value, isDark.value),
     );
 
     // The primary plate ink (X-DS pass 4 · V4C-01): the scheme foreground,
     // certified against the plate — the ONE polarity decision. The boot
     // writer stamps it as `--ink-primary`; `shell.css` seats it as the
     // in-plate `--foreground`.
-    const plateInkCss = computed(() => resolvePlateInk(restingL.value, isDark.value));
+    const plateInkCss = computed(() => resolvePlateInk(plateL.value, isDark.value, plateContrast.value));
 
     // The de-emphasis rung (F-4): a floor-clamped step of the primary plate ink
     // (same pole, never flipped on its own) — the boot writer stamps it as
     // `--ink-muted` (the plate-caption / parse-echo voice; post-hoc opacity
     // de-emphasis is retired).
-    const mutedInkCss = computed(() => resolveMutedInk(restingL.value, isDark.value));
+    const mutedInkCss = computed(() => resolveMutedInk(plateL.value, isDark.value, plateContrast.value));
 
     // X-DS pass 5 (V5C-02): the SAME certified pair, against the FLOATING
     // plate. Reka portals menus and popovers to <body>, outside the
@@ -415,9 +487,12 @@ export function useContrastSafeColor(
     const floatingL = computed(() =>
         surfaceLightnessNow("floating", ambientLightness.value, isDark.value),
     );
-    const floatingInkCss = computed(() => resolvePlateInk(floatingL.value, isDark.value));
+    const floatingPlateL = computed(() =>
+        surfaceLightnessNow("floating", plateReferent.value, isDark.value),
+    );
+    const floatingInkCss = computed(() => resolvePlateInk(floatingPlateL.value, isDark.value, plateContrast.value));
     const floatingMutedInkCss = computed(() =>
-        resolveMutedInk(floatingL.value, isDark.value),
+        resolveMutedInk(floatingPlateL.value, isDark.value, plateContrast.value),
     );
 
     // X-DS pass 16 (V16-01): the SAME certified pair, against the MODAL plate.
@@ -430,8 +505,8 @@ export function useContrastSafeColor(
     const modalL = computed(() =>
         surfaceLightnessNow("modal", ambientLightness.value, isDark.value),
     );
-    const modalInkCss = computed(() => resolvePlateInk(modalL.value, isDark.value));
-    const modalMutedInkCss = computed(() => resolveMutedInk(modalL.value, isDark.value));
+    const modalInkCss = computed(() => resolvePlateInk(modalL.value, isDark.value, plateContrast.value));
+    const modalMutedInkCss = computed(() => resolveMutedInk(modalL.value, isDark.value, plateContrast.value));
     // The destructive verb's red (glass `--destructive`, the scheme's arm of
     // its `light-dark()` pair) certified on the same modal ground: the hue is
     // kept and only the lightness walks (1.65:1 read off the light frame).
@@ -489,15 +564,15 @@ export function useContrastSafeColor(
     // the graphics floor, so the mark (the badge, the menu's shield) keeps
     // the gold. The boot writer stamps `--ink-gold-glyph` /
     // `--ink-gold-floating-glyph`.
-    const glyphRung = (word: string, plate: string, surfaceL: number) =>
-        word !== plate
+    const glyphRung = (word: string, surfaceL: number) =>
+        word !== resolvePlateInk(surfaceL, isDark.value)
             ? word
             : certifyIdentityInk(goldIdentityCss(isDark.value), surfaceL, isDark.value, GRAPHICS_CONTRAST_FLOOR);
     const goldGlyphInkCss = computed(() =>
-        glyphRung(goldInkCss.value, plateInkCss.value, restingL.value),
+        glyphRung(goldInkCss.value, restingL.value),
     );
     const floatingGoldGlyphInkCss = computed(() =>
-        glyphRung(floatingGoldInkCss.value, floatingInkCss.value, floatingL.value),
+        glyphRung(floatingGoldInkCss.value, floatingL.value),
     );
 
     return {
@@ -538,6 +613,13 @@ export function goldIdentityCss(dark: boolean): string {
  *  self-corrects, and by the probe epoch, so a pre-mount read re-drives. An
  *  empty read (no cascade mounted yet) is not memoised. */
 const schemeTokenMemo = new Map<string, string>();
+/** X.W11.cut (COHESION §0gx.3): the scheme tokens are read together. `--color-gold`
+ *  is first asked for in the dock's setup, on a clean style (2 ms at 4×), and
+ *  `--destructive` was first asked for in the certify task, after that task's
+ *  root writes, where the read forced a recalculation of the whole document
+ *  (26 ms at 4×, `close/evidence/browser/cut-2026-10-30/`). One read serves both,
+ *  with the same values and the same invalidation. */
+const SCHEME_TOKENS = ["--color-gold", "--destructive"];
 let schemeTokenStamp = "";
 function schemeTokenCss(token: string, dark: boolean, fallback: string): string {
     if (typeof document === "undefined") return fallback;
@@ -548,9 +630,13 @@ function schemeTokenCss(token: string, dark: boolean, fallback: string): string 
     }
     let live = schemeTokenMemo.get(token);
     if (live === undefined) {
-        live = getComputedStyle(document.documentElement).getPropertyValue(token).trim();
-        if (live) schemeTokenMemo.set(token, live);
-        else probeMissed = true;
+        const root = getComputedStyle(document.documentElement);
+        for (const name of [token, ...SCHEME_TOKENS]) {
+            const read = root.getPropertyValue(name).trim();
+            if (read) schemeTokenMemo.set(name, read);
+        }
+        live = schemeTokenMemo.get(token) ?? "";
+        if (!live) probeMissed = true;
     }
     return lightDarkArm(live, dark) || fallback;
 }
@@ -615,6 +701,9 @@ export function useSafeAccentFn(surface: InkSurface = "page") {
 export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
     const { isDark } = useGlobalDark();
     const ambient = inject(INK_AMBIENT_KEY)!;
+    // §0gx.2: the band's voice certifies on the field's maximin referent; the
+    // identity hue keeps the ambient. A host with no atmosphere has only the ambient.
+    const referent = inject(INK_PLATE_REFERENT_KEY, ambient);
     bumpProbeEpochOnMount();
 
     let cached: { el: Element; dark: boolean; epoch: number; tint: SurfaceTint } | undefined;
@@ -631,7 +720,7 @@ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
         if (!el) return undefined;
         return certifyAccentInkOnce(
             css,
-            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+            resolvePaintedLightness(referent.value, bandTint(el, isDark.value)),
             floor,
         );
     }
@@ -656,7 +745,7 @@ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
         const el = host.value;
         if (!el) return undefined;
         return resolvePlateInk(
-            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+            resolvePaintedLightness(referent.value, bandTint(el, isDark.value)),
             isDark.value,
         );
     }
@@ -676,4 +765,97 @@ export function resolveSurfaceLightnessLive(
     dark: boolean,
 ): number {
     return surfaceLightnessNow(surface, ambientL, dark);
+}
+
+// --- THE FLOATING PAIR OVER ITS REAL GROUND (X.W11.f1 · COHESION §0gr.2) ----
+//
+// `floatingL` above composites the floating rung over the BARE ambient: the
+// right referent for a floater over the page field. A floater that sits over
+// painted content is certified against the composite it ACTUALLY sits on
+// (the §0gk.2 referent law): the live floating rung laid over every ground
+// region under its text. ESC-SS8r-0039 measured the light rail tooltip over
+// the channel ramps at WCAG luminance 0.09–0.16, where the bare-ambient pair
+// (the dark pole, L 0.018) read 2.80–3.39:1 and only the light pole clears.
+
+/** A CSS colour in `space`, library-parsed; a malformed ground is loud. */
+function parseStrict<S extends "rgb" | "xyz" | "oklch">(css: string, space: S): Color<S> {
+    const parsed = parseCssColor(css);
+    if (!parsed.ok) throw new Error(`Ground colour unparseable: ${css}`);
+    const out = convertColor(parsed.value, space);
+    if (!out.ok) throw new Error(`Ground colour failed: ${out.error.code}`);
+    return out.value;
+}
+
+/** sRGB white in XYZ — the neutral axis a luminance-equivalent grey sits on. */
+let whiteXyz: readonly number[] | undefined;
+function neutralLightnessOfY(Y: number): number {
+    if (!whiteXyz) whiteXyz = parseStrict("white", "xyz").channels as readonly number[];
+    const grey = xyz(whiteXyz[0]! * Y, Y, whiteXyz[2]! * Y, 1);
+    if (!grey.ok) throw new Error(`Ground lightness failed: ${grey.error.code}`);
+    const L = convertColor(grey.value, "oklch");
+    if (!L.ok) throw new Error(`Ground lightness failed: ${L.error.code}`);
+    return L.value.channels[0] as number;
+}
+
+/**
+ * The ground a painted colour presents to ink: the OKLab L of the NEUTRAL
+ * with its WCAG luminance (the achromatic stand-in the ink walk certifies
+ * against; `ink.ts` `luminanceLightness` is the field-stop twin). A
+ * translucent colour is first laid over `under` (source-over, sRGB — the
+ * browser's paint), so an alpha ramp stop reads over the checker it shows.
+ */
+export function groundLightness(css: string, under?: string): number {
+    let color: Color<"rgb"> = parseStrict(css, "rgb");
+    if (under !== undefined && typeof color.alpha === "number" && color.alpha < 1) {
+        const ground = parseStrict(under, "rgb");
+        const mixed = mixColors(ground, { ...color, alpha: 1 }, color.alpha, { space: "rgb" });
+        if (!mixed.ok) throw new Error(`Ground composite failed: ${mixed.error.code}`);
+        color = mixed.value;
+    }
+    const Y = convertColor(color, "xyz");
+    if (!Y.ok) throw new Error(`Ground lightness failed: ${Y.error.code}`);
+    return neutralLightnessOfY(Math.max(0, Y.value.channels[1] as number));
+}
+
+/** A colour expression as the live cascade paints it (`var()`, `color-mix()`),
+ *  read off the hidden tier probe; `undefined` where no cascade is mounted. */
+export function resolvePaintCss(expr: string): string | undefined {
+    const probe = probeEl();
+    if (!probe) return undefined;
+    probe.style.backgroundColor = expr;
+    const css = getComputedStyle(probe).backgroundColor;
+    probe.style.backgroundColor = "";
+    return css || undefined;
+}
+
+/**
+ * The floating pair (title + caption) certified against the real composite:
+ * the live floating rung laid over each ground lightness under the floater's
+ * text. ONE pair-wide polarity, chosen by the real referent and never per
+ * line (§0gm.4): a light ink is worst over the LIGHTEST composited region, a
+ * dark ink over the DARKEST, so each pole is certified against its own worst
+ * region, and the pole that clears it wins. The scheme's own pole is kept
+ * wherever it clears. Where neither pole clears every region (a ground that
+ * spans the mid-luminance dead band), the scheme's pole is walked against its
+ * worst region — the best the ground admits, the floor's failure left visible
+ * to the census rather than hidden.
+ */
+export function resolveFloatingPairOver(
+    grounds: readonly number[],
+    dark: boolean,
+): { primary: string; muted: string } {
+    const composited = grounds.map((L) => surfaceLightnessNow("floating", L, dark));
+    const lightest = Math.max(...composited);
+    const darkest = Math.min(...composited);
+    // A pole "holds" when the walk certified from its seed stays on its side
+    // of its own worst region (it never had to cross to the other pole).
+    const inkL = (css: string) => parseStrict(css, "oklch").channels[0] as number;
+    const lightHolds = inkL(resolvePlateInk(lightest, true)) > lightest;
+    const darkHolds = inkL(resolvePlateInk(darkest, false)) < darkest;
+    const lightPole = dark ? lightHolds || !darkHolds : lightHolds && !darkHolds;
+    const referent = lightPole ? lightest : darkest;
+    return {
+        primary: resolvePlateInk(referent, lightPole),
+        muted: resolveMutedInk(referent, lightPole),
+    };
 }

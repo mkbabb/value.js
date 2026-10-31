@@ -1,0 +1,50 @@
+(node:35352) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:35410) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 20 tests using 1 worker
+
+(node:35491) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (15.8s)
+  ✓   2 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (7.8s)
+(node:36426) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   3 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (17.3s)
+  ✓   4 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (13.1s)
+(node:37490) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   5 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (16.0s)
+  ✓   6 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (9.6s)
+(node:38628) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   7 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (18.2s)
+  ✓   8 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (12.3s)
+(node:40963) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   9 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (16.5s)
+  ✓  10 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (8.9s)
+(node:41909) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  11 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (17.1s)
+  ✓  12 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (7.5s)
+(node:42902) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  13 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (18.8s)
+  ✓  14 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (9.1s)
+(node:43980) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  15 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (15.9s)
+  ✓  16 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (10.4s)
+(node:46265) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  17 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (14.3s)
+  ✓  18 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (7.3s)
+(node:47018) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  19 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (light) (14.5s)
+  ✓  20 [smoke] › e2e/smoke/ss8-b19-color-chips.spec.ts:70:5 › R-13 · the ramp chip's ring is an outset --card-edge boundary that never veils the endpoint stops (dark) (7.7s)
+
+  20 passed (4.5m)
+exit 0

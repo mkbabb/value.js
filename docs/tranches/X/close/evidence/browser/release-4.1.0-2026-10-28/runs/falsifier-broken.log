@@ -1,0 +1,42 @@
+(node:67453) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:67535) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+[1A[2K(node:67582) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [smoke-falsifier] › docs/tranches/X/close/evidence/browser/falsifier/browse-loading.falsifier.spec.ts:19:1 › browse mid-fetch renders developing-plate skeletons, never a spinner
+[1A[2K  1) [smoke-falsifier] › docs/tranches/X/close/evidence/browser/falsifier/browse-loading.falsifier.spec.ts:19:1 › browse mid-fetch renders developing-plate skeletons, never a spinner 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('[data-slot="palette-card-skeleton"]').filter({ visible: true })
+    Expected: [32m1[39m
+    Received: [31m0[39m
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('[data-slot="palette-card-skeleton"]').filter({ visible: true })[22m
+    [2m    20 × locator resolved to 0 elements[22m
+    [2m       - unexpected value "0"[22m
+
+
+      45 |     const cards = main.getByRole("article").filter({ visible: true });
+      46 |     await expect(cards).toHaveCount(PAGE1_COUNT, { timeout: 15_000 });
+    > 47 |     await expect(skeletons).toHaveCount(1); // X.W11.d DELIBERATE BREAK (true value: 0)
+         |                             ^
+      48 |
+      49 |     expect(consoleErrors).toEqual([]);
+      50 | });
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/docs/tranches/X/close/evidence/browser/falsifier/browse-loading.falsifier.spec.ts:47:29
+
+    Error Context: test-results/browse-loading.falsifier-b-668ac-e-skeletons-never-a-spinner-smoke-falsifier/error-context.md
+
+
+[1A[2K  1 failed
+    [smoke-falsifier] › docs/tranches/X/close/evidence/browser/falsifier/browse-loading.falsifier.spec.ts:19:1 › browse mid-fetch renders developing-plate skeletons, never a spinner 

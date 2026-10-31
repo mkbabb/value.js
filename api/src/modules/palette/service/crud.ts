@@ -98,7 +98,7 @@ export async function createPalette(
 ): Promise<FormattedPalette> {
     const { body, userSlug } = input;
     const now = new Date();
-    const contentHash = computeContentHash(body.name, body.colors);
+    const contentHash = computeContentHash(body.colors);
     const oklabColors = computeOklabColors(body.colors);
 
     const doc: Palette = {
@@ -210,7 +210,7 @@ export async function patchPalette(
 
     const newName = body.name ?? palette.name;
     const newColors = body.colors ?? palette.colors;
-    const newHash = computeContentHash(newName, newColors);
+    const newHash = computeContentHash(newColors);
     const contentChanged = newHash !== palette.currentHash;
 
     if (contentChanged) {

@@ -1,0 +1,368 @@
+{
+  "tool": "scripts/ci/boot-smoke.mjs",
+  "mode": "prod-preview",
+  "origin": "http://127.0.0.1:55079",
+  "ranAt": "2026-10-31T00:34:19.498Z",
+  "node": "v26.0.0",
+  "seedCount": 8,
+  "passCount": 8,
+  "failCount": 0,
+  "census": {
+    "root": "/Users/mkbabb/Programming/value.js/.worktrees/close16-wt/dist/gh-pages",
+    "topLevel": [
+      "CNAME",
+      "_headers",
+      "assets",
+      "fonts",
+      "index.html",
+      "robots.txt"
+    ],
+    "assetCount": 177,
+    "byExtension": {
+      ".css": 26,
+      ".js": 91,
+      ".woff2": 19,
+      ".woff": 20,
+      ".ttf": 20,
+      ".svg": 1
+    },
+    "entry": "./assets/index-RKfi2a9-.js",
+    "entryBytes": 479312,
+    "modulepreload": [
+      "./assets/preload-helper-kNaey6uv.js",
+      "./assets/serialize-BtpoAFZw-C086w664.js",
+      "./assets/picker-color-vxPFipSO.js",
+      "./assets/color-model-EyquewSU.js",
+      "./assets/rolldown-runtime-QTnfLwEv.js",
+      "./assets/vue.runtime.esm-bundler-2l_pzWEZ.js",
+      "./assets/keyframes-iZdbN1lK.js",
+      "./assets/dist-CVCggHGb.js",
+      "./assets/createLucideIcon-C9maEmXC.js",
+      "./assets/dom-BLrshDUK.js",
+      "./assets/PopperContent-CJa0pX0k.js",
+      "./assets/useResizeObserver-CdUlm2QZ-7ORH9RJ4.js",
+      "./assets/fading-scroll-CTeW3KNS-CWoCn7t5.js",
+      "./assets/button-BOFTUPyU-BZ9MeoVG.js",
+      "./assets/useIntersectionPause-CzKR3EyP-N9s-ifLv.js",
+      "./assets/slider-5uoY-cLG-Du6hH6jo.js",
+      "./assets/Presence-CDtI5ZR_.js"
+    ],
+    "stylesheets": [
+      "./assets/index-CpTpi_Rq.css",
+      "./assets/glass-fonts-PBJY3762.css",
+      "./assets/glass-fonts-PBJY3762.css"
+    ],
+    "katexAssetCount": 63,
+    "vendorKatexChunks": [
+      "vendor-katex-BS6IC5z_.js",
+      "vendor-katex-BorAY7qD.css"
+    ],
+    "vendorKatexInModulepreload": false
+  },
+  "cases": [
+    {
+      "seed": "default",
+      "class": "the W1.md literal — a cold boot with no seed at all",
+      "url": "http://127.0.0.1:55079/",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 21 sheet(s) — e.g. .lg\\:block @ (width >= 64rem), .lg\\:contents @ (width >= 64rem), .lg\\:flex @ (width >= 64rem)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:55079 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "failedRequests": []
+    },
+    {
+      "seed": "deep-link-black",
+      "class": "R16 — `?color=black` at minimum; grey 0 is hsv-powerless",
+      "url": "http://127.0.0.1:55079/#/?space=rgb&color=black",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 16 sheet(s) — e.g. .lg\\:block @ (width >= 64rem), .lg\\:contents @ (width >= 64rem), .lg\\:flex @ (width >= 64rem)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:55079 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "failedRequests": []
+    },
+    {
+      "seed": "deep-link-grey-333333",
+      "class": "R16 — grey 51, a member of the 28/256 hsv-powerless set",
+      "url": "http://127.0.0.1:55079/#/?space=hex&color=%23333333",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 19 sheet(s) — e.g. .lg\\:block @ (width >= 64rem), .lg\\:contents @ (width >= 64rem), .lg\\:flex @ (width >= 64rem)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:55079 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "failedRequests": []
+    },
+    {
+      "seed": "deep-link-grey-808080",
+      "class": "CONTROL — grey 128 is NOT hsv-powerless; a matrix that reds this row is reporting something other than the seed class",
+      "url": "http://127.0.0.1:55079/#/?space=hex&color=%23808080",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 21 sheet(s) — e.g. .lg\\:block @ (width >= 64rem), .lg\\:contents @ (width >= 64rem), .lg\\:flex @ (width >= 64rem)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:55079 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "failedRequests": []
+    },
+    {
+      "seed": "deep-link-lch-none",
+      "class": "R17 — the legal `none` hue reaching the picker through the URL",
+      "url": "http://127.0.0.1:55079/#/?space=lch&color=lch(50%25%200%20none)",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 23 sheet(s) — e.g. .lg\\:block @ (width >= 64rem), .lg\\:contents @ (width >= 64rem), .lg\\:flex @ (width >= 64rem)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:55079 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "failedRequests": []
+    },
+    {
+      "seed": "deep-link-oklch-none",
+      "class": "R17 — the same in oklch; 256/256 greys emit `none` in both",
+      "url": "http://127.0.0.1:55079/#/?space=oklch&color=oklch(0.5%200%20none)",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 18 sheet(s) — e.g. .lg\\:block @ (width >= 64rem), .lg\\:contents @ (width >= 64rem), .lg\\:flex @ (width >= 64rem)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:55079 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "failedRequests": []
+    },
+    {
+      "seed": "persisted-black",
+      "class": "R16 — the self-perpetuating arm: the seed that crashed the last session is still in localStorage on the next one",
+      "url": "http://127.0.0.1:55079/",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 18 sheet(s) — e.g. .lg\\:block @ (width >= 64rem), .lg\\:contents @ (width >= 64rem), .lg\\:flex @ (width >= 64rem)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:55079 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "failedRequests": []
+    },
+    {
+      "seed": "persisted-oklch-none",
+      "class": "R17 — a persisted none-hue string, the returning-user path",
+      "url": "http://127.0.0.1:55079/",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 23 sheet(s) — e.g. .lg\\:block @ (width >= 64rem), .lg\\:contents @ (width >= 64rem), .lg\\:flex @ (width >= 64rem)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:55079 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "failedRequests": []
+    }
+  ]
+}

@@ -1,8 +1,7 @@
 // X.W7.d — the client pre-flight over the server's palette write contract:
-// G10's N_colors = 51 and N_tags = 11 cells, W7.80's tag vocabulary, and N-14's
-// rejection arm (the wire carries no `weight`, so a weighted palette's publish is
-// refused in words rather than silently stripped). Every refusal happens BEFORE
-// a request: `fetch` is stubbed and must stay uncalled.
+// G10's N_colors = 51 and N_tags = 11 cells and W7.80's tag vocabulary; N-14's
+// rejection arm is discharged (§0gt.5: the wire persists `weight`). Every refusal
+// happens BEFORE a request: `fetch` is stubbed and must stay uncalled.
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ref } from "vue";
 
@@ -54,17 +53,9 @@ describe("G10 · colours — the server cap is refused in words, before a reques
     });
 });
 
-describe("N-14 · the rejection arm — a weighted palette is refused explicitly", () => {
-    it("the pre-flight names the weights that publishing would discard", () => {
-        const r = preflightColors(colors(5, true));
-        expect(r.ok).toBe(false);
-        expect(!r.ok && r.message).toContain("color weights");
-    });
-
-    it("publish returns that refusal as the card's verdict and spends no request", async () => {
-        const result = await actions().onPublish(palette(colors(5, true)));
-        expect(result).toEqual({ success: false, message: expect.stringContaining("color weights") });
-        expect(fetchMock).not.toHaveBeenCalled();
+describe("N-14 · discharged (§0gt.5) — the wire persists `weight`, so a weighted palette is not refused", () => {
+    it("the pre-flight passes a weighted palette", () => {
+        expect(preflightColors(colors(5, true))).toEqual({ ok: true });
     });
 });
 

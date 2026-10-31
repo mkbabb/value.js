@@ -1,0 +1,78 @@
+SERVED MODEL: claude-opus-5-5 · X.W11.hyg · 2026-10-30 · the orphaned SS-8 B13 hunk (uncommitted since 2026-10-19), archived verbatim before deletion; RULED STALE (receipt in execution/A/X-W11.md ### X.W11.hyg)
+diff --git a/demo/test/palettes/palette-card-layout.test.ts b/demo/test/palettes/palette-card-layout.test.ts
+index 54f994998..b127aa6d3 100644
+--- a/demo/test/palettes/palette-card-layout.test.ts
++++ b/demo/test/palettes/palette-card-layout.test.ts
+@@ -122,3 +122,72 @@ describe("N-13 · the reduced-motion disclosure completes", () => {
+         await expect.poll(swatchCount, { timeout: 2_000 }).toBe(0);
+     });
+ });
++
++describe("SS-8 B13 · the expanded swatch band (SwatchHoverMenu L-1 · PaletteCardSwatches L-3)", () => {
++    const CARD = '[role=article][data-case="disclosure"]';
++    const lin = (v: number) => ((v /= 255) <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
++    const lum = ([r, g, b]: number[]) => 0.2126 * lin(r!) + 0.7152 * lin(g!) + 0.0722 * lin(b!);
++    const contrast = (a: number[], b: number[]) => {
++        const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p);
++        return (x! + 0.05) / (y! + 0.05);
++    };
++
++    beforeAll(async () => {
++        await seat.page.evaluate(() => window.setDisclosure(true));
++        await seat.page.waitForSelector(`${CARD} [aria-label^="Color swatch"]`);
++        await seat.page.waitForTimeout(600);
++    });
++    afterAll(async () => {
++        await seat.page.evaluate(() => window.setDisclosure(false));
++    });
++
++    it("L-1: each swatch's wrapper is the swatch's own box (no baseline reservation)", async () => {
++        const rows = await seat.page.$$eval(`${CARD} [aria-label^="Color swatch"]`, (bs) =>
++            bs.map((b) => {
++                const w = b.closest("[data-swatch-menu]") ?? b.parentElement!.closest("div.relative")!;
++                return { swatch: b.getBoundingClientRect().height, wrapper: w.getBoundingClientRect().height };
++            }),
++        );
++        expect(rows.length).toBeGreaterThan(0);
++        for (const r of rows) expect(r.wrapper - r.swatch).toBeLessThan(0.5);
++    });
++
++    it("L-3: the attribution ink speaks the strong muted rung and clears 4.5:1 on the painted fill", async () => {
++        await seat.page.$eval(CARD, (c) => c.scrollIntoView({ block: "center" }));
++        const g = await seat.page.$eval(CARD, (c) => {
++            const slug = c.querySelector("[data-palette-swatches] .font-mono")!;
++            const ink = slug.parentElement!;
++            const cv = document.createElement("canvas").getContext("2d")!;
++            const rgb = (css: string) => {
++                cv.fillStyle = "#000";
++                cv.fillStyle = css;
++                cv.fillRect(0, 0, 1, 1);
++                return [...cv.getImageData(0, 0, 1, 1).data.slice(0, 3)];
++            };
++            const probe = document.createElement("span");
++            probe.style.color = "var(--muted-foreground-strong)";
++            ink.append(probe);
++            const strong = getComputedStyle(probe).color;
++            probe.remove();
++            const b = slug.getBoundingClientRect();
++            return { ink: rgb(getComputedStyle(ink).color), inkCss: getComputedStyle(ink).color, strong, at: [b.right + 60, b.y + b.height / 2] };
++        });
++        const shot = await seat.page.screenshot();
++        const fill = await seat.page.evaluate(
++            async ({ b64, at }) => {
++                const img = new Image();
++                img.src = "data:image/png;base64," + b64;
++                await img.decode();
++                const c = document.createElement("canvas");
++                c.width = img.width;
++                c.height = img.height;
++                const x = c.getContext("2d")!;
++                x.drawImage(img, 0, 0);
++                return [...x.getImageData(Math.round(at[0]!), Math.round(at[1]!), 1, 1).data.slice(0, 3)];
++            },
++            { b64: shot.toString("base64"), at: g.at },
++        );
++        expect(g.inkCss).toBe(g.strong);
++        expect(contrast(g.ink, fill)).toBeGreaterThanOrEqual(4.5);
++    });
++});

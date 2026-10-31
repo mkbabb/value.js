@@ -1,0 +1,354 @@
+{
+  "config": {
+    "configFile": "/w/tree/playwright.config.ts",
+    "rootDir": "/w/tree/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/w/tree/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/w/tree/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/w/tree/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/w/tree/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/w/tree/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/w/tree/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/zz-e2b/probe-o21d.spec.ts",
+      "file": "smoke/zz-e2b/probe-o21d.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "probe o21 cpu profile cold",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 23174,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[e2b-o21c] openView returned at 5498 ms\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] open->h1 22985 ms\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 16478ms o modules/.vite-e2e-8090/deps/color.wgsl-BTszLY39-B44pKhUw.js?v=cc118eb5:64\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 3946ms (idle) :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 518ms (program) :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 237ms (garbage collector) :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 146ms insertBefore :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 94ms forceReflow les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:7395\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 92ms focusFirst$2 node_modules/.vite-e2e-8090/deps/dist-vzlhttbQ.js?v=cc118eb5:5167\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 88ms n vite-e2e-8090/deps/writeVelocityWeight-DoGOCW3e-TSx08EK6.js?v=cc118eb5:41\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 79ms get les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:995\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 77ms closeBlock les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:6344\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 77ms (anon) node_modules/.vite-e2e-8090/deps/keyboard-B0TW3bV9.js?v=cc118eb5:0\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 76ms useSingleOrMultipleValue node_modules/.vite-e2e-8090/deps/dist-vzlhttbQ.js?v=cc118eb5:4194\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 75ms De node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_dock.js?v=cc118eb5:92\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 75ms (anon) node_modules/.vite-e2e-8090/deps/dist-vzlhttbQ.js?v=cc118eb5:10220\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 70ms refreshComputed les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:535\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 69ms (anon) composables/boot/useDockArrival.ts:87\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 67ms guardReactiveProps les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:6466\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 66ms stepsTile demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts:85\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 62ms paintedColor demo/color-session/useContrastSafeColor.ts:145\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 54ms t s/.vite-e2e-8090/deps/useScrollTrigger-Abe5dEeO-By_OTeq5.js?v=cc118eb5:7\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 20ms Re node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_dock.js?v=cc118eb5:429\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 19ms callWithErrorHandling les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:1886\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 12ms (anon) les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:4053\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 10ms sync composables/useDevicePixelSnap.ts:31\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 10ms getStyleProperties les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:7352\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 16489ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/color.wgsl-BTszLY39-B44pKhUw.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 4889ms \n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 613ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 304ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/dist-vzlhttbQ.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 120ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_dock.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 88ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/writeVelocityWeight-DoGOCW3e-TSx08EK6.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 77ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/keyboard-B0TW3bV9.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 69ms composables/boot/useDockArrival.ts\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 68ms @fs/w/tree/demo/color-session/useContrastSafeColor.ts\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 68ms @fs/w/tree/demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 55ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/useScrollTrigger-Abe5dEeO-By_OTeq5.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 17ms @fs/w/tree/dist/color-BU4JS6bH.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 14ms @fs/w/tree/dist/anchors-K_Niq8pl.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 12ms @vite/client\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 12ms composables/useDevicePixelSnap.ts\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:44:25.152Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4f0004e47e791b59307c-8d068c15ca61e5470d6b",
+          "file": "smoke/zz-e2b/probe-o21d.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T03:44:22.883Z",
+    "duration": 27602.31,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

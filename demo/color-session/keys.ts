@@ -15,6 +15,10 @@ export const SAFE_ACCENT_KEY: InjectionKey<ComputedRef<string>> =
  *  the referent is a property of the surface, never a global constant). */
 export const INK_AMBIENT_KEY: InjectionKey<ComputedRef<number>> =
     Symbol("INK_AMBIENT_KEY");
+/** §0gx.2: the field referent of the primary plate pair and the band's voice
+ *  (`resolveFieldPlateReferent`), held and published with INK_AMBIENT_KEY. */
+export const INK_PLATE_REFERENT_KEY: InjectionKey<ComputedRef<number>> =
+    Symbol("INK_PLATE_REFERENT_KEY");
 export const EDIT_TARGET_KEY: InjectionKey<ShallowRef<EditTarget | null>> =
     Symbol("EDIT_TARGET_KEY");
 

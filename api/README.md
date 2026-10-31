@@ -28,7 +28,10 @@ Palettes are slug-addressed collections of 1–50 color stops.
 {
   slug:         string    — unique, lowercase alphanumeric + hyphens
   name:         string    — display name, 1–100 chars
-  colors:       [{ css: string, name?: string, position: number }]
+  colors:       [{ css: string, name?: string, position: integer, weight?: number }]
+                — position: required 0-based ORDER of the colour (= its index);
+                  weight: optional finite ≥ 0 population share (Extract), persisted;
+                  content hash = the ordered colours' css only (§0gt.5)
   voteCount:    number    — denormalized vote tally
   sessionToken: string    — creator's session token
   userSlug:     string    — creator's user slug

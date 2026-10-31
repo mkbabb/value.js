@@ -1,0 +1,21 @@
+{
+  "cpuThrottle": 4,
+  "host": {
+    "index": 5055,
+    "rate": 3.1107692307692307
+  },
+  "readings": {
+    "equation": {
+      "nav": {
+        "ms": 4744,
+        "apiMs": 4583,
+        "jsKB": 173,
+        "cssKB": 13,
+        "longTasks": 2,
+        "tbt": 148,
+        "maxGapMs": 182,
+        "over50": 36
+      }
+    }
+  }
+}

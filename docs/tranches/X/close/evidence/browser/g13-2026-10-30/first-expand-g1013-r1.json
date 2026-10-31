@@ -1,0 +1,142 @@
+{
+ "origin": "http://localhost:8476",
+ "arms": {
+  "1280": {
+   "rest": {
+    "x": 612,
+    "w": 56,
+    "right": 668,
+    "cx": 640,
+    "collapsed": true
+   },
+   "expanded": {
+    "x": 422.375,
+    "w": 435.25,
+    "right": 857.625,
+    "cx": 640,
+    "collapsed": false
+   },
+   "firstMorphFrame": {
+    "t": 347,
+    "x": 612,
+    "w": 56,
+    "m": true
+   },
+   "firstFrameWidthDeltaFromRest": 0,
+   "finalWidthDeltaFromRest": 379.25,
+   "centreDriftAcrossMorphPx": 0,
+   "morphFrames": 10,
+   "framesHead": [
+    {
+     "t": 347,
+     "x": 612,
+     "w": 56,
+     "m": true
+    },
+    {
+     "t": 352,
+     "x": 602.59,
+     "w": 74.82,
+     "m": true
+    },
+    {
+     "t": 358,
+     "x": 591.21,
+     "w": 97.59,
+     "m": true
+    },
+    {
+     "t": 377,
+     "x": 579.89,
+     "w": 120.23,
+     "m": true
+    },
+    {
+     "t": 410,
+     "x": 553.73,
+     "w": 172.54,
+     "m": true
+    },
+    {
+     "t": 448,
+     "x": 505.47,
+     "w": 269.06,
+     "m": true
+    }
+   ],
+   "press": [
+    {
+     "k": "pointerdown",
+     "tag": "Expand dock",
+     "x": 620
+    },
+    {
+     "k": "pointerup",
+     "tag": "Expand dock",
+     "x": 620
+    },
+    {
+     "k": "click",
+     "tag": "Expand dock",
+     "x": 620
+    }
+   ],
+   "afterPress": {
+    "x": 422.375,
+    "w": 435.25,
+    "right": 857.625,
+    "cx": 640,
+    "collapsed": false
+   },
+   "dockControls": [
+    "Select view",
+    "Toggle action bar",
+    "Login",
+    "@mbabb"
+   ],
+   "controlMovedDuringPressPx": 2.12,
+   "listboxOpened": true,
+   "pageerrors": []
+  },
+  "390-fine": {
+   "pillEver": false,
+   "before": {
+    "x": 101,
+    "w": 188,
+    "right": 289,
+    "cx": 195,
+    "collapsed": false
+   },
+   "after": {
+    "x": 101,
+    "w": 188,
+    "right": 289,
+    "cx": 195,
+    "collapsed": false
+   },
+   "overflowRight": false,
+   "inViewport": true,
+   "pageerrors": []
+  },
+  "390-coarse": {
+   "pillEver": false,
+   "before": {
+    "x": 101,
+    "w": 188,
+    "right": 289,
+    "cx": 195,
+    "collapsed": false
+   },
+   "after": {
+    "x": 101,
+    "w": 188,
+    "right": 289,
+    "cx": 195,
+    "collapsed": false
+   },
+   "overflowRight": false,
+   "inViewport": true,
+   "pageerrors": []
+  }
+ }
+}

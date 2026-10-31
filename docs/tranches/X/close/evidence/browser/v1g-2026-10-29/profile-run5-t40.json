@@ -1,0 +1,22 @@
+{
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "dragMs": 2386.7,
+ "observerLongTasksMs": [],
+ "traceLongTasks": [],
+ "loaf": [
+  {
+   "start": 361.30000001192093,
+   "dur": 58.599999994039536,
+   "blocking": 4.7,
+   "scripts": [
+    {
+     "invoker": "http://127.0.0.1:8477/assets/AdminPane-CC29Un57.js",
+     "fn": "",
+     "url": "http://127.0.0.1:8477/assets/AdminPane-CC29Un57.js",
+     "char": -1,
+     "dur": 51.30000001192093
+    }
+   ]
+  }
+ ]
+}

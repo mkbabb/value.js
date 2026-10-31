@@ -1,0 +1,2 @@
+close16-r1 c2ccf6a4e 20:45:27 20:46:16 load_start=10.28 load_end=8.86 rc=0 mode=simulate tbt=66/753/801 optimistic=66 longest=106/731/780 VALID
+close16-r2 c2ccf6a4e 20:46:16 20:47:02 load_start=8.86 load_end=7.94 rc=0 mode=simulate tbt=970/69/766 optimistic=69 longest=953/104/752 VALID

@@ -1,0 +1,354 @@
+{
+  "config": {
+    "configFile": "/w/tree/playwright.config.ts",
+    "rootDir": "/w/tree/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/w/tree/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/w/tree/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/w/tree/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/w/tree/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/w/tree/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/w/tree/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/zz-e2b/probe-o21f.spec.ts",
+      "file": "smoke/zz-e2b/probe-o21f.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "probe o21 cpu profile reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17046,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[e2b-o21c] reload at 681 ms\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] reload->expandDock 13273 ms\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 12792ms loseContext :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 314ms (program) :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 169ms (idle) :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 49ms doWatch les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:2363\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 10ms (garbage collector) :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 7ms insertAdjacentElement :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 7ms s dist/color-BU4JS6bH.js:142\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 6ms O dist/color-BU4JS6bH.js:161\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 6ms t s/.vite-e2e-8090/deps/useScrollTrigger-Abe5dEeO-By_OTeq5.js?v=cc118eb5:7\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 5ms getPropertyValue :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 4ms getContext :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 3ms Re node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_dock.js?v=cc118eb5:429\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 3ms resolveTokenTint demo/color-session/useContrastSafeColor.ts:181\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 3ms mountElement les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:5351\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 3ms e dist/anchors-K_Niq8pl.js:0\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 3ms __exportAll node_modules/.vite-e2e-8090/deps/chunk-B-1-B7_t.js?v=cc118eb5:8\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 3ms Be node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_dock.js?v=cc118eb5:446\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 3ms E dist/color-BU4JS6bH.js:153\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 2ms p node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_dock.js?v=cc118eb5:1038\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 2ms createBaseVNode les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:6396\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 2ms createComponentInstance les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:6592\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 2ms watch$1 les/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=cc118eb5:1583\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 2ms addEventListener :-1\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 1ms certify demo/color-session/ink.ts:106\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] self 1ms s odules/.vite-e2e-8090/deps/class-names-FlXcvRRT-DiIf_etZ.js?v=cc118eb5:144\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 13310ms \n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 85ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/vue.runtime.esm-bundler-DQai_KuN.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 22ms @fs/w/tree/dist/color-BU4JS6bH.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 8ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_dock.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 7ms @fs/w/tree/dist/anchors-K_Niq8pl.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 6ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/useScrollTrigger-Abe5dEeO-By_OTeq5.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 4ms @fs/w/tree/demo/color-session/useContrastSafeColor.ts\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 3ms @fs/w/tree/demo/color-session/ink.ts\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 3ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/chunk-B-1-B7_t.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 2ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/dist-vzlhttbQ.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 2ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/highlight__js_lib_core.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 2ms @fs/w/tree/demo/shell/usePaneRouter.ts\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 1ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/class-names-FlXcvRRT-DiIf_etZ.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 1ms @fs/w/tree/node_modules/.vite-e2e-8090/deps/@mkbabb_glass-ui_easing.js\n"
+                    },
+                    {
+                      "text": "[e2b-o21c] file 1ms @fs/w/tree/demo/color-session/space-catalog.ts\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:51:35.675Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "79910724297b9080348e-5ffedee3c7ba77740bbb",
+          "file": "smoke/zz-e2b/probe-o21f.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T03:51:33.397Z",
+    "duration": 20058.043999999998,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

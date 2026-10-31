@@ -1,0 +1,294 @@
+{
+ "light-1440": {
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "floor": {
+   "n": 42,
+   "p50": 29.5,
+   "p95": 31,
+   "max": 31.5
+  },
+  "drag1": {
+   "n": 42,
+   "p50": 20.5,
+   "p95": 47.2,
+   "max": 1033.3,
+   "loaf": [
+    [
+     56,
+     30,
+     46,
+     [
+      "SPAN.onpointerdown|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|20|fl6",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|11|fl0"
+     ]
+    ],
+    [
+     1038,
+     583,
+     1025,
+     [
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|433|fl7",
+      "TimerHandler:setTimeout|boot/useAtmosphereBoot.ts:publishInkAmbient|21|fl0",
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|21|fl12",
+      "TimerHandler:setTimeout|boot/useViewAccents.ts:mintRamps|9|fl0"
+     ]
+    ],
+    [
+     165,
+     0,
+     162,
+     [
+      "FrameRequestCallback|deps/useResizeObserver-CdUlm2QZ-Dwk41xCG.js:h|161|fl5"
+     ]
+    ],
+    [
+     120,
+     102,
+     110,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|11|fl0",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|7|fl0"
+     ]
+    ]
+   ]
+  },
+  "drag2": {
+   "n": 42,
+   "p50": 22.1,
+   "p95": 44.1,
+   "max": 47,
+   "loaf": [
+    [
+     50,
+     23,
+     41,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|10|fl0",
+      "FrameRequestCallback|deps/useScrollChrome-BJbWV32F-Bk5xiuDk.js:|9|fl7",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|9|fl0"
+     ]
+    ]
+   ]
+  },
+  "profiledSpanMs": 1946,
+  "callers": [
+   "19.4 getBoundingClientRect <- Ee @ deps/@mkbabb_glass-ui_dock.js:111 <- Oe @ deps/@mkbabb_glass-ui_dock.js:125 <- C @ deps/@mkbabb_glass-ui_dock.js:198",
+   "17.6 getImageData <- Te @ deps/@mkbabb_glass-ui_dock.js:93 <- C @ deps/@mkbabb_glass-ui_dock.js:198 <- Me._$1.immediate @ deps/@mkbabb_glass-ui_dock.js:204"
+  ],
+  "self": [
+   "55.8 M @ /@fs/Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js:185",
+   "33.7 L @ /@fs/Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js:255",
+   "28.7 updateProps @ deps/vue.runtime.esm-bundler-DQai_KuN.js:4890",
+   "26.3 c @ deps/class-names-FlXcvRRT-DiIf_etZ.js:149",
+   "25.5 _createVNode @ deps/vue.runtime.esm-bundler-DQai_KuN.js:6436",
+   "22.8 setFullProps @ deps/vue.runtime.esm-bundler-DQai_KuN.js:4933",
+   "21.3 get @ deps/vue.runtime.esm-bundler-DQai_KuN.js:996",
+   "19.4 getBoundingClientRect @ :0",
+   "17.6 getImageData @ :0",
+   "16.6 set @ deps/vue.runtime.esm-bundler-DQai_KuN.js:1028",
+   "15.8 (garbage collector) @ :0",
+   "14.2 setStyle @ deps/vue.runtime.esm-bundler-DQai_KuN.js:7535",
+   "13.9 mergeProps @ deps/vue.runtime.esm-bundler-DQai_KuN.js:6572",
+   "11.4 processElement @ deps/vue.runtime.esm-bundler-DQai_KuN.js:5338",
+   "10.3 validateProps @ deps/vue.runtime.esm-bundler-DQai_KuN.js:5053",
+   "9.9 createBaseVNode @ deps/vue.runtime.esm-bundler-DQai_KuN.js:6397",
+   "9.7 toXYZ @ /@fs/Users/mkbabb/Programming/value.js/dist/anchors-K_Niq8pl.js:432",
+   "9.3 renderComponentRoot @ deps/vue.runtime.esm-bundler-DQai_KuN.js:4695",
+   "8.3 cleanupEffect @ deps/vue.runtime.esm-bundler-DQai_KuN.js:624",
+   "8.1 (anon) @ deps/select-5QMeUAU6-DKferB6G.js:239",
+   "7.5 renderSlot @ deps/vue.runtime.esm-bundler-DQai_KuN.js:3888",
+   "7.4 (anon) @ deps/dist-vzlhttbQ.js:3895",
+   "7.3 setProperty @ :0",
+   "7.2 createBlock @ deps/vue.runtime.esm-bundler-DQai_KuN.js:6363",
+   "7.2 fromXYZ @ /@fs/Users/mkbabb/Programming/value.js/dist/anchors-K_Niq8pl.js:413"
+  ],
+  "inclApp": [
+   "89.8 certify @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:93",
+   "89.2 attempt @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:123",
+   "89.2 walkToFloor @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:121",
+   "84.8 certifyAccentInk @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:278",
+   "74.7 certifyAccentInkOnce @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:235",
+   "43.0 _sfc_render @ /@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/ColorNutritionLabel.vue:137",
+   "41.1 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/ColorNutritionLabel.vue:242",
+   "40.8 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/ColorNutritionLabel.vue:34",
+   "40.5 safeCss @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:451",
+   "34.3 safeCss @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:483",
+   "33.2 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shell/dock/Dock.vue:133",
+   "23.1 certifyInkOnFill @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:404",
+   "7.1 certifyIdentityInk @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:356",
+   "6.5 resolvePalettesRamp @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/palettes-ramp.ts:130",
+   "6.2 _sfc_render @ /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/watercolor-dot/WatercolorDot.vue:113",
+   "5.6 reseedHeroStops @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/visual/HeroBlob.vue:85",
+   "5.6 watch.immediate @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/visual/HeroBlob.vue:101",
+   "5.4 contrastInkFor @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:433",
+   "5.0 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/ColorSpaceSelector.vue:202",
+   "3.5 resolveViewAccent @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/view-accent.ts:11",
+   "3.4 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ConsoleRail.vue:231",
+   "3.1 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ConsoleRail.vue:60",
+   "3.0 surfaceLightnessNow @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:248",
+   "3.0 composite @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:184",
+   "2.9 onSliderInput @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ComponentSliders.vue:47",
+   "2.9 onUpdate:modelValue @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ComponentSliders.vue:252",
+   "2.6 updateColorComponent @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useColorPipeline.ts:143",
+   "2.5 glyphRung @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:362",
+   "2.5 resolveSurfaceLightness @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:197",
+   "2.3 _sfc_render @ /@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/markdown/Markdown.vue:84",
+   "2.2 resolveSurfaceLightnessLive @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:515",
+   "2.2 identityCss @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:490",
+   "2.2 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shell/dock/Dock.vue:119",
+   "2.1 computeSliderGradients @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useSliderGradients.ts:7",
+   "2.1 watch.immediate @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useSliderGradients.ts:31",
+   "2.0 updateModel @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useColorPipeline.ts:41",
+   "2.0 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/ColorSpaceSelector.vue:175",
+   "1.9 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/watercolor-dot/useWatercolorBlob.ts:54",
+   "1.9 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/ColorSpaceSelector.vue:193",
+   "1.8 publish @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useAtmosphereFrameCoalesce.ts:33"
+  ],
+  "inclGlass": [
+   "40.5 Me._$1.immediate @ deps/@mkbabb_glass-ui_dock.js:204",
+   "39.9 C @ deps/@mkbabb_glass-ui_dock.js:198",
+   "20.7 Ee @ deps/@mkbabb_glass-ui_dock.js:111",
+   "20.7 Oe @ deps/@mkbabb_glass-ui_dock.js:125",
+   "18.7 Te @ deps/@mkbabb_glass-ui_dock.js:93",
+   "11.9 _ @ deps/@mkbabb_glass-ui_color.js:60",
+   "10.7 b @ deps/@mkbabb_glass-ui_aurora.js:2145",
+   "8.7 v @ deps/@mkbabb_glass-ui_blob.js:1339",
+   "7.0 v @ deps/@mkbabb_glass-ui_color.js:68",
+   "5.6 Xe @ deps/@mkbabb_glass-ui_aurora.js:791",
+   "5.4 vn @ deps/@mkbabb_glass-ui_aurora.js:2980",
+   "3.7 ze @ deps/@mkbabb_glass-ui_blob.js:1255",
+   "3.4 (anon) @ deps/@mkbabb_glass-ui_dock.js:1255",
+   "3.1 resolveFrame @ deps/@mkbabb_glass-ui_blob.js:1401",
+   "2.9 f @ deps/@mkbabb_glass-ui_color.js:29"
+  ],
+  "idle": 622,
+  "program": 741
+ },
+ "dark-1440": {
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "floor": {
+   "n": 42,
+   "p50": 30,
+   "p95": 31.3,
+   "max": 31.4
+  },
+  "drag1": {
+   "n": 42,
+   "p50": 26.6,
+   "p95": 45.3,
+   "max": 46.9,
+   "loaf": [
+    [
+     56,
+     29,
+     43,
+     [
+      "SPAN.onpointermove|deps/vue.runtime.esm-bundler-DQai_KuN.js:invoker|15|fl0",
+      "FrameRequestCallback|color-session/useAtmosphereFrameCoalesce.ts:publish|14|fl0"
+     ]
+    ]
+   ]
+  },
+  "drag2": {
+   "n": 42,
+   "p50": 22.4,
+   "p95": 36,
+   "max": 46.6,
+   "loaf": []
+  },
+  "profiledSpanMs": 1981,
+  "callers": [
+   "18.0 getImageData <- Te @ deps/@mkbabb_glass-ui_dock.js:93 <- C @ deps/@mkbabb_glass-ui_dock.js:198 <- Me._$1.immediate @ deps/@mkbabb_glass-ui_dock.js:204",
+   "11.2 getBoundingClientRect <- Ee @ deps/@mkbabb_glass-ui_dock.js:111 <- Oe @ deps/@mkbabb_glass-ui_dock.js:125 <- C @ deps/@mkbabb_glass-ui_dock.js:198",
+   "0.3 getBoundingClientRect <- Te @ deps/@mkbabb_glass-ui_dock.js:93 <- C @ deps/@mkbabb_glass-ui_dock.js:198 <- Me._$1.immediate @ deps/@mkbabb_glass-ui_dock.js:204"
+  ],
+  "self": [
+   "43.9 M @ /@fs/Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js:185",
+   "33.4 setFullProps @ deps/vue.runtime.esm-bundler-DQai_KuN.js:4933",
+   "31.3 L @ /@fs/Users/mkbabb/Programming/value.js/dist/color-BU4JS6bH.js:255",
+   "29.8 updateProps @ deps/vue.runtime.esm-bundler-DQai_KuN.js:4890",
+   "23.9 c @ deps/class-names-FlXcvRRT-DiIf_etZ.js:149",
+   "23.9 _createVNode @ deps/vue.runtime.esm-bundler-DQai_KuN.js:6436",
+   "22.5 get @ deps/vue.runtime.esm-bundler-DQai_KuN.js:996",
+   "20.8 set @ deps/vue.runtime.esm-bundler-DQai_KuN.js:1028",
+   "18.0 getImageData @ :0",
+   "13.6 (garbage collector) @ :0",
+   "11.6 validateProps @ deps/vue.runtime.esm-bundler-DQai_KuN.js:5053",
+   "11.5 getBoundingClientRect @ :0",
+   "11.4 renderComponentRoot @ deps/vue.runtime.esm-bundler-DQai_KuN.js:4695",
+   "10.8 setStyle @ deps/vue.runtime.esm-bundler-DQai_KuN.js:7535",
+   "10.5 cleanupEffect @ deps/vue.runtime.esm-bundler-DQai_KuN.js:624",
+   "9.6 mergeProps @ deps/vue.runtime.esm-bundler-DQai_KuN.js:6572",
+   "9.4 componentUpdateFn @ deps/vue.runtime.esm-bundler-DQai_KuN.js:5534",
+   "8.9 (anon) @ deps/select-5QMeUAU6-DKferB6G.js:239",
+   "8.7 createBlock @ deps/vue.runtime.esm-bundler-DQai_KuN.js:6363",
+   "8.6 now @ :0",
+   "8.0 toXYZ @ /@fs/Users/mkbabb/Programming/value.js/dist/anchors-K_Niq8pl.js:432",
+   "8.0 cloneVNode @ deps/vue.runtime.esm-bundler-DQai_KuN.js:6471",
+   "7.2 (anon) @ deps/dist-vzlhttbQ.js:3895",
+   "7.0 get @ deps/vue.runtime.esm-bundler-DQai_KuN.js:3952",
+   "6.9 fromXYZ @ /@fs/Users/mkbabb/Programming/value.js/dist/anchors-K_Niq8pl.js:413"
+  ],
+  "inclApp": [
+   "70.0 certifyAccentInk @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:278",
+   "69.8 certifyAccentInkOnce @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:235",
+   "68.4 certify @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:93",
+   "68.1 attempt @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:123",
+   "68.1 walkToFloor @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:121",
+   "43.8 _sfc_render @ /@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/ColorNutritionLabel.vue:137",
+   "42.2 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/ColorNutritionLabel.vue:242",
+   "41.9 safeCss @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:451",
+   "41.9 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/scenes/about/ColorNutritionLabel.vue:34",
+   "29.5 safeCss @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:483",
+   "28.3 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shell/dock/Dock.vue:133",
+   "24.6 certifyInkOnFill @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:404",
+   "7.7 _sfc_render @ /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/watercolor-dot/WatercolorDot.vue:113",
+   "6.4 contrastInkFor @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:433",
+   "6.2 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/ColorSpaceSelector.vue:202",
+   "5.3 reseedHeroStops @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/visual/HeroBlob.vue:85",
+   "5.3 watch.immediate @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/visual/HeroBlob.vue:101",
+   "3.5 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ComponentSliders.vue:230",
+   "3.5 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ComponentSliders.vue:207",
+   "3.3 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ConsoleRail.vue:231",
+   "3.0 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ConsoleRail.vue:60",
+   "2.8 resolveFieldAmbientLightness @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:270",
+   "2.7 parseOklch @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:51",
+   "2.7 apply @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/composables/useSliderAnnouncements.ts:18",
+   "2.6 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shell/dock/Dock.vue:141",
+   "2.6 computeSliderGradients @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useSliderGradients.ts:7",
+   "2.6 watch.immediate @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useSliderGradients.ts:31",
+   "2.5 luminanceLightness @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:239",
+   "1.9 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/ColorSpaceSelector.vue:196",
+   "1.9 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/ColorSpaceSelector.vue:193",
+   "1.9 reportMount @ /@fs/Users/mkbabb/Programming/value.js/demo/shell/PaneSlot.vue:250",
+   "1.9 ref @ /@fs/Users/mkbabb/Programming/value.js/demo/shell/PaneSlot.vue:369",
+   "1.8 _sfc_render @ /ErrorBoundary.vue:87",
+   "1.7 (anon) @ /@fs/Users/mkbabb/Programming/value.js/demo/shared/ui/watercolor-dot/useWatercolorBlob.ts:54",
+   "1.6 composite @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/ink.ts:184",
+   "1.6 updateColorComponent @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useColorPipeline.ts:143",
+   "1.6 onSliderInput @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ComponentSliders.vue:47",
+   "1.6 onUpdate:modelValue @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ComponentSliders.vue:252",
+   "1.5 _sfc_render @ /@fs/Users/mkbabb/Programming/value.js/demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue:93",
+   "1.4 plateCss @ /@fs/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:498"
+  ],
+  "inclGlass": [
+   "31.9 C @ deps/@mkbabb_glass-ui_dock.js:198",
+   "31.9 Me._$1.immediate @ deps/@mkbabb_glass-ui_dock.js:204",
+   "23.2 _ @ deps/@mkbabb_glass-ui_color.js:60",
+   "18.9 Te @ deps/@mkbabb_glass-ui_dock.js:93",
+   "17.7 Xe @ deps/@mkbabb_glass-ui_aurora.js:791",
+   "12.8 Ee @ deps/@mkbabb_glass-ui_dock.js:111",
+   "12.8 Oe @ deps/@mkbabb_glass-ui_dock.js:125",
+   "12.2 vn @ deps/@mkbabb_glass-ui_aurora.js:2980",
+   "10.2 b @ deps/@mkbabb_glass-ui_aurora.js:2145",
+   "10.2 v @ deps/@mkbabb_glass-ui_blob.js:1339",
+   "6.3 v @ deps/@mkbabb_glass-ui_color.js:68",
+   "4.6 resolveFrame @ deps/@mkbabb_glass-ui_blob.js:1401",
+   "3.8 ze @ deps/@mkbabb_glass-ui_blob.js:1255",
+   "3.7 (anon) @ deps/@mkbabb_glass-ui_dock.js:807",
+   "3.3 f @ deps/@mkbabb_glass-ui_color.js:29"
+  ],
+  "idle": 720,
+  "program": 670
+ }
+}

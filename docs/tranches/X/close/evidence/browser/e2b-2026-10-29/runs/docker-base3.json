@@ -1,0 +1,808 @@
+{
+  "config": {
+    "configFile": "/w/tree/playwright.config.ts",
+    "rootDir": "/w/tree/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/w/tree/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/w/tree/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/w/tree/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/w/tree/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/w/tree/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/w/tree/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/oracles/o11-header-gates.spec.ts",
+      "file": "smoke/oracles/o11-header-gates.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-11 caption leg — the pane caption clears 4.5:1 over the darkest region it sits on (light 390)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 33300,
+                  "error": {
+                    "message": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(217,71,143) = 4.37:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.3706465318094\u001b[39m",
+                    "stack": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(217,71,143) = 4.37:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.3706465318094\u001b[39m\n    at /w/tree/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26",
+                    "location": {
+                      "file": "/w/tree/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                      "column": 26,
+                      "line": 323
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 321 |\u001b[39m                             \u001b[32m`${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 322 |\u001b[39m                         )\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 323 |\u001b[39m                         \u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[33mCAPTION_FLOOR\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 324 |\u001b[39m                 }\n \u001b[90m 325 |\u001b[39m                 \u001b[36mawait\u001b[39m veil\u001b[33m.\u001b[39mevaluate((n) \u001b[33m=>\u001b[39m n\u001b[33m.\u001b[39mparentNode\u001b[33m?\u001b[39m\u001b[33m.\u001b[39mremoveChild(n))\u001b[33m;\u001b[39m\n \u001b[90m 326 |\u001b[39m             }\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/w/tree/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /browse (light 390) \"Discover palettes from the commu\": ink rgb(28,25,23) vs the darkest region rgb(217,71,143) = 4.37:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.3706465318094\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /w/tree/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    },
+                    {
+                      "location": {
+                        "file": "/w/tree/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /extract (light 390) \"Pull palettes from any image.\": ink rgb(28,25,23) vs the darkest region rgb(217,71,143) = 4.37:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.3706465318094\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /w/tree/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    },
+                    {
+                      "location": {
+                        "file": "/w/tree/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                        "column": 26,
+                        "line": 323
+                      },
+                      "message": "Error: /mix (light 390) \"Mix colors and palettes together\": ink rgb(28,25,23) vs the darkest region rgb(217,71,143) = 4.37:1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.3706465318094\u001b[39m\n\n  321 |                             `${route} (${scheme} ${w}) \"${c.text}\": ink rgb(${c.ink.slice(0, 3).join(\",\")}) vs the darkest region rgb(${at.map(Math.round).join(\",\")}) = ${worst.toFixed(2)}:1`,\n  322 |                         )\n> 323 |                         .toBeGreaterThanOrEqual(CAPTION_FLOOR);\n      |                          ^\n  324 |                 }\n  325 |                 await veil.evaluate((n) => n.parentNode?.removeChild(n));\n  326 |             }\n    at /w/tree/e2e/smoke/oracles/o11-header-gates.spec.ts:323:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:38:03.571Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/w/tree/test-results/oracles-o11-header-gates-O-93b40-egion-it-sits-on-light-390--smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/w/tree/e2e/smoke/oracles/o11-header-gates.spec.ts",
+                    "column": 26,
+                    "line": 323
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2905e7a42e327352a832-a2b8e123d01ec32113d0",
+          "file": "smoke/oracles/o11-header-gates.spec.ts",
+          "line": 272,
+          "column": 9
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o21-gradient-rail.spec.ts",
+      "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20833,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:38:37.271Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d4bfe35b89a6567df0f6-13f5a42d63f6dd6a9c8a",
+          "file": "smoke/oracles/o21-gradient-rail.spec.ts",
+          "line": 287,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+      "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "B05 · the Tools ink on the dock band (0132 · 0133)",
+          "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+          "line": 263,
+          "column": 6,
+          "specs": [
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9946,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.27821433714764\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.27821433714764\u001b[39m\n    at /w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 276
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 274 |\u001b[39m             \u001b[36mconst\u001b[39m label \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39m\n \u001b[90m 275 |\u001b[39m             expect(label)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoBeNull()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 276 |\u001b[39m             expect(\u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m label\u001b[33m!\u001b[39m))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 277 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 278 |\u001b[39m     }\n \u001b[90m 279 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 276
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.27821433714764\u001b[39m\n\n  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |\n    at /w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:38:58.149Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-o33-dock-actionbar-e66f8--the-light-band-seed-hue-0--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 276
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-5e5ed065bbfd1371e17f",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 14072,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.432973700535918\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.432973700535918\u001b[39m\n    at /w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 276
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 274 |\u001b[39m             \u001b[36mconst\u001b[39m label \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39m\n \u001b[90m 275 |\u001b[39m             expect(label)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoBeNull()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 276 |\u001b[39m             expect(\u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m label\u001b[33m!\u001b[39m))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 277 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 278 |\u001b[39m     }\n \u001b[90m 279 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 276
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.432973700535918\u001b[39m\n\n  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |\n    at /w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:39:08.489Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-o33-dock-actionbar-3345d-the-light-band-seed-hue-60--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 276
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-d5e678d617f67a341624",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12734,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:39:22.989Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-6470e0f12948bd9ae623",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7878,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:39:35.760Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-ce1ca917ce02ab63a15b",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7412,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:39:43.643Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-9a132ec5be964c0f9d8a",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            },
+            {
+              "title": "0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8058,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.314620947553472\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.314620947553472\u001b[39m\n    at /w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                          "column": 50,
+                          "line": 276
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 274 |\u001b[39m             \u001b[36mconst\u001b[39m label \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39m\n \u001b[90m 275 |\u001b[39m             expect(label)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoBeNull()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 276 |\u001b[39m             expect(\u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m label\u001b[33m!\u001b[39m))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 277 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 278 |\u001b[39m     }\n \u001b[90m 279 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                            "column": 50,
+                            "line": 276
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.314620947553472\u001b[39m\n\n  274 |             const label = await page.locator(`${TOOLS} span`).boundingBox();\n  275 |             expect(label).not.toBeNull();\n> 276 |             expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);\n      |                                                  ^\n  277 |         });\n  278 |     }\n  279 |\n    at /w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts:276:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-30T03:39:51.060Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-o33-dock-actionbar-89a7f-he-light-band-seed-hue-300--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+                        "column": 50,
+                        "line": 276
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f989f793c4e57bf4ffeb-fe1d7a2d9c28447080b9",
+              "file": "smoke/oracles/o33-dock-actionbar-b05.spec.ts",
+              "line": 267,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/webgl-blob-idle.spec.ts",
+      "file": "smoke/webgl-blob-idle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "hero blob carries current chroma — lab(92% 88.8 20)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16917,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 1.0000 C 0.00000 h 4.39 · ΔC -0.02105 (stated ±0.04) · px 3066\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:39:59.619Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-603d0098c57a0f9bb880",
+          "file": "smoke/webgl-blob-idle.spec.ts",
+          "line": 276,
+          "column": 5
+        },
+        {
+          "title": "hero blob carries current chroma — oklch(0.65 0.3 150)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12637,
+                  "error": {
+                    "message": "Error: painted dominant chroma 0.22342 vs the gamut-mapped current chroma 0.17901\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.04441396909588244\u001b[39m",
+                    "stack": "Error: painted dominant chroma 0.22342 vs the gamut-mapped current chroma 0.17901\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.04441396909588244\u001b[39m\n    at /w/tree/e2e/smoke/webgl-blob-idle.spec.ts:356:11",
+                    "location": {
+                      "file": "/w/tree/e2e/smoke/webgl-blob-idle.spec.ts",
+                      "column": 11,
+                      "line": 356
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 354 |\u001b[39m             \u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs(paintedC \u001b[33m-\u001b[39m targetC)\u001b[33m,\u001b[39m\n \u001b[90m 355 |\u001b[39m             \u001b[32m`painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 356 |\u001b[39m         )\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[33mH1_DELTA_C\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 357 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 358 |\u001b[39m }\n \u001b[90m 359 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/w/tree/e2e/smoke/webgl-blob-idle.spec.ts",
+                        "column": 11,
+                        "line": 356
+                      },
+                      "message": "Error: painted dominant chroma 0.22342 vs the gamut-mapped current chroma 0.17901\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.04441396909588244\u001b[39m\n\n  354 |             Math.abs(paintedC - targetC),\n  355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,\n> 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);\n      |           ^\n  357 |     });\n  358 | }\n  359 |\n    at /w/tree/e2e/smoke/webgl-blob-idle.spec.ts:356:11"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.8833 C 0.22342 h 142.67 · ΔC 0.04441 (stated ±0.04) · px 3066\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:40:16.585Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/w/tree/test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/w/tree/e2e/smoke/webgl-blob-idle.spec.ts",
+                    "column": 11,
+                    "line": 356
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-9b6db4bae4582941082f",
+          "file": "smoke/webgl-blob-idle.spec.ts",
+          "line": 276,
+          "column": 5
+        },
+        {
+          "title": "hero blob carries current chroma — oklch(0.55 0.37 328)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17585,
+                  "error": {
+                    "message": "Error: painted dominant chroma 0.18919 vs the gamut-mapped current chroma 0.25325\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.06406225795721354\u001b[39m",
+                    "stack": "Error: painted dominant chroma 0.18919 vs the gamut-mapped current chroma 0.25325\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.06406225795721354\u001b[39m\n    at /w/tree/e2e/smoke/webgl-blob-idle.spec.ts:356:11",
+                    "location": {
+                      "file": "/w/tree/e2e/smoke/webgl-blob-idle.spec.ts",
+                      "column": 11,
+                      "line": 356
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 354 |\u001b[39m             \u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs(paintedC \u001b[33m-\u001b[39m targetC)\u001b[33m,\u001b[39m\n \u001b[90m 355 |\u001b[39m             \u001b[32m`painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 356 |\u001b[39m         )\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[33mH1_DELTA_C\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 357 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 358 |\u001b[39m }\n \u001b[90m 359 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/w/tree/e2e/smoke/webgl-blob-idle.spec.ts",
+                        "column": 11,
+                        "line": 356
+                      },
+                      "message": "Error: painted dominant chroma 0.18919 vs the gamut-mapped current chroma 0.25325\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.06406225795721354\u001b[39m\n\n  354 |             Math.abs(paintedC - targetC),\n  355 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,\n> 356 |         ).toBeLessThanOrEqual(H1_DELTA_C);\n      |           ^\n  357 |     });\n  358 | }\n  359 |\n    at /w/tree/e2e/smoke/webgl-blob-idle.spec.ts:356:11"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.7897 C 0.18919 h 323.53 · ΔC -0.06406 (stated ±0.04) · px 3066\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:40:29.784Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/w/tree/test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/w/tree/e2e/smoke/webgl-blob-idle.spec.ts",
+                    "column": 11,
+                    "line": 356
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-3ffc48d243804444f6fd",
+          "file": "smoke/webgl-blob-idle.spec.ts",
+          "line": 276,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T03:38:00.923Z",
+    "duration": 166897.179,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  }
+}

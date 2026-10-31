@@ -1,0 +1,24 @@
+{
+ "size": [
+  1024,
+  768
+ ],
+ "changedPixels": 1748,
+ "insideFrauncesRuns": 1748,
+ "outsideFrauncesRuns": 0,
+ "outsideSample": [],
+ "changedBBox": [
+  45,
+  187,
+  284,
+  213
+ ],
+ "frauncesRunsHit": {
+  "73": 342,
+  ".0": 664,
+  "0": 246,
+  ".2": 268,
+  "2": 228
+ },
+ "frauncesRunCount": 42
+}

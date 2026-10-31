@@ -1,0 +1,9 @@
+  216 passed (15.9m)
+ demo/app/composables/boot/useAtmosphere.ts         |  7 +-
+ demo/app/composables/boot/useAtmosphereBoot.ts     | 21 ++----
+ demo/color-session/ink.ts                          | 81 +---------------------
+ demo/color-session/keys.ts                         |  4 --
+ demo/color-session/useContrastSafeColor.ts         | 40 ++++-------
+ demo/test/boot/certify-after-paint.test.ts         |  1 -
+ .../test/color-session/ink-referent-settle.test.ts |  1 -
+ 7 files changed, 21 insertions(+), 134 deletions(-)

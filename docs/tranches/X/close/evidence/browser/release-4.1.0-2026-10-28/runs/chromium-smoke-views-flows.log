@@ -1,0 +1,464 @@
+(node:45310) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:45439) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 33 tests using 1 worker
+
+[1A[2K(node:45602) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/33] [smoke] › e2e/smoke/flows/color-propose.spec.ts:34:1 › propose cycle reaches 'Propose color name' state for an unnamed color
+[1A[2K  1) [smoke] › e2e/smoke/flows/color-propose.spec.ts:34:1 › propose cycle reaches 'Propose color name' state for an unnamed color 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: expect.toBeVisible: Target page, context or browser has been closed
+
+      62 |     await expect(
+      63 |         page.getByRole("button", { name: "Propose color name" }),
+    > 64 |     ).toBeVisible();
+         |       ^
+      65 | });
+      66 |
+      67 | /**
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/color-propose.spec.ts:64:7
+
+    Error Context: test-results/flows-color-propose-propos-a3bdb--state-for-an-unnamed-color-smoke/error-context.md
+
+
+[1A[2K(node:46592) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/33] [smoke] › e2e/smoke/flows/color-propose.spec.ts:89:1 › the sub-layer cycle keeps exactly one active layer, the other inert
+[1A[2K  2) [smoke] › e2e/smoke/flows/color-propose.spec.ts:89:1 › the sub-layer cycle keeps exactly one active layer, the other inert 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Propose color name' })[22m
+    [2m    - locator resolved to <button type="button" data-v-e6c0148b="" data-press-armed="" data-glass-dock-seat="" aria-label="Propose color name" class="dock-icon-button glass-specular-track glass-capsule-hover shrink-0">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      122 |     // `showInput`, not on `toolbarMode`), so the invariant must survive a state
+      123 |     // change that does not swap the layer.
+    > 124 |     await page.getByRole("button", { name: "Propose color name" }).click();
+          |                                                                    ^
+      125 |     await expectOneActiveOneInert("propose");
+      126 | });
+      127 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/color-propose.spec.ts:124:68
+
+    Error Context: test-results/flows-color-propose-the-su-30103-ctive-layer-the-other-inert-smoke/error-context.md
+
+
+[1A[2K(node:47559) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/33] [smoke] › e2e/smoke/flows/color-propose.spec.ts:128:1 › a successful propose returns the toolbar to its actions state
+[1A[2K[4/33] [smoke] › e2e/smoke/flows/login-register.spec.ts:27:1 › cold-boot vote auto-registers via POST /sessions and persists token
+[1A[2K[5/33] [smoke] › e2e/smoke/flows/palette-api-failure.spec.ts:68:5 › palette API aborted (network / TLS): one toast with Retry, and the wall says the service couldn't be reached
+[1A[2K[6/33] [smoke] › e2e/smoke/flows/palette-api-failure.spec.ts:68:5 › palette API 503: one toast with Retry, and the wall says the service couldn't be reached
+[1A[2K[7/33] [smoke] › e2e/smoke/flows/palette-api-failure.spec.ts:68:5 › palette API malformed body: one toast with Retry, and the wall says the service couldn't be reached
+[1A[2K[8/33] [smoke] › e2e/smoke/flows/palette-delete.spec.ts:22:1 › delete an owned remote palette DELETEs /palettes/<slug>
+[1A[2K[9/33] [smoke] › e2e/smoke/flows/palette-edit.spec.ts:22:1 › rename a remote palette PATCHes /palettes/<slug> with new name
+[1A[2K[10/33] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason
+[1A[2K[11/33] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by submit returns focus to the Palette menu trigger
+[1A[2K[12/33] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Cancel returns focus to the Palette menu trigger
+[1A[2K[13/33] [smoke] › e2e/smoke/flows/palette-flag.spec.ts:58:5 › SS8-0309: closing the report by Escape returns focus to the Palette menu trigger
+[1A[2K[14/33] [smoke] › e2e/smoke/flows/palette-fork.spec.ts:21:1 › remix a remote palette POSTs /palettes/<slug>/fork with parent slug
+[1A[2K[15/33] [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes'
+[1A[2K  3) [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes' 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('.add-slot-ghost').filter({ visible: true }).first()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('.add-slot-ghost').filter({ visible: true }).first()[22m
+
+
+      43 |     // this wave's Triumvirate trigger); the oracle is made honest.
+      44 |     const addSlot = main.locator(".add-slot-ghost").filter({ visible: true }).first();
+    > 45 |     await expect(addSlot).toBeVisible();
+         |                           ^
+      46 |     await expect(
+      47 |         addSlot,
+      48 |         "the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)",
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/flows/palette-save.spec.ts:45:27
+
+    Error Context: test-results/flows-palette-save-save-cu-cc5fe-ocalStorage-color-palettes--smoke/error-context.md
+
+
+[1A[2K(node:50923) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[16/33] [smoke] › e2e/smoke/flows/vote-toggle.spec.ts:20:1 › vote heart on a remote palette POSTs /vote and toggles voted flag
+[1A[2K[17/33] [smoke] › e2e/smoke/views/browse-loading.spec.ts:17:1 › browse mid-fetch renders developing-plate skeletons, never a spinner
+[1A[2K[18/33] [smoke] › e2e/smoke/views/browse-pagination.spec.ts:20:1 › browse wall renders a full keyset page of palettes
+[1A[2K[19/33] [smoke] › e2e/smoke/views/browse-pagination.spec.ts:50:1 › browse wall pages past the 50-cap through the load-more affordance
+[1A[2K[20/33] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+[1A[2K[21/33] [smoke] › e2e/smoke/views/gradient.spec.ts:50:1 › gradient view renders direction slider with zero console errors
+[1A[2K[22/33] [smoke] › e2e/smoke/views/gradient.spec.ts:85:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b)
+[1A[2K[23/33] [smoke] › e2e/smoke/views/gradient.spec.ts:130:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1)
+[1A[2K[24/33] [smoke] › e2e/smoke/views/gradient.spec.ts:172:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict
+[1A[2K  4) [smoke] › e2e/smoke/views/gradient.spec.ts:172:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: mouse.move: Test timeout of 30000ms exceeded.
+
+      190 |     await page.mouse.move(lb.x + lb.width / 2, railY);
+      191 |     await page.mouse.down();
+    > 192 |     await page.mouse.move(rightwardRelease, railY, { steps: 10 });
+          |                      ^
+      193 |     await page.mouse.up();
+      194 |
+      195 |     // The model re-sorted on the write: the ordinals the DOM carries ascend.
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:192:22
+
+    Error Context: test-results/views-gradient-neighbour-c-a8543--re-applies-with-no-verdict-smoke/error-context.md
+
+
+[1A[2K(node:56157) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[25/33] [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints
+[1A[2K  5) [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:268:18
+
+    Error Context: test-results/views-gradient-a-grab-is-n-2555f-d-no-secondary-button-mints-smoke/error-context.md
+
+
+[1A[2K(node:57655) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[26/33] [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove
+[1A[2K  6) [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:304:18
+
+    Error Context: test-results/views-gradient-stop-add-ba-2271f--drag-and-touch-true-remove-smoke/error-context.md
+
+
+[1A[2K(node:59200) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[27/33] [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved
+[1A[2K  7) [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:366:18
+
+    Error Context: test-results/views-gradient-round-trip--0e4a5-lly-with-literals-preserved-smoke/error-context.md
+
+
+[1A[2K(node:60398) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[28/33] [smoke] › e2e/smoke/views/gradient.spec.ts:393:1 › garbage input fails LOUD and leaves the model untouched
+[1A[2K  8) [smoke] › e2e/smoke/views/gradient.spec.ts:393:1 › garbage input fails LOUD and leaves the model untouched 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-111" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/fixtures/dock.ts:94:18)
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:22:5)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:395:18
+
+    Error Context: test-results/views-gradient-garbage-inp-9b0f0--leaves-the-model-untouched-smoke/error-context.md
+
+
+[1A[2K(node:61491) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[29/33] [smoke] › e2e/smoke/views/gradient.spec.ts:417:1 › radial geometry is model-or-reject, never a silent drop
+[1A[2K  9) [smoke] › e2e/smoke/views/gradient.spec.ts:417:1 › radial geometry is model-or-reject, never a silent drop 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      22 |     await openView(page, "Gradient");
+      23 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 24 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      25 |     // The swap spring must be at rest before interactions — the cold-load
+      26 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      27 |     // stability check (see paneSettled).
+        at openGradient (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:24:74)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:419:18
+
+    Error Context: test-results/views-gradient-radial-geom-dc505--reject-never-a-silent-drop-smoke/error-context.md
+
+
+[1A[2K(node:62486) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[30/33] [smoke] › e2e/smoke/views/gradient.spec.ts:431:1 › easing row carries its live ramp; steps mode lands in the literal
+[1A[2K[31/33] [smoke] › e2e/smoke/views/gradient.spec.ts:466:1 › no pane subtree rests on a permanent compositing transform (W5-10)
+[1A[2K[32/33] [smoke] › e2e/smoke/views/gradient.spec.ts:614:1 › gradient selector aurora
+[1A[2K  10) [smoke] › e2e/smoke/views/gradient.spec.ts:614:1 › gradient selector aurora ──────────────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected substring: [32m"`@mkbabb/glass-ui` **10.1.2**"[39m
+    Received string:    [31m"SERVED MODEL: claude-opus-5-5[1m]·[39m
+    [31m# Glass-forward ask — a strip-scale aurora motion primitive for the gradient selector·[39m
+    [31m**Row**: CC-064 · MT-F041 · gate **e1** (`W6.md` §5 X.W6.e).[39m
+    [31m**Dated**: 2026-09-22, branch `tranche-u`, against installed `@mkbabb/glass-ui` **7.0.0**.[39m
+    [31m**Direction**: consumer (value.js) → producer (glass-ui). **glass-ui is READ-ONLY, ALWAYS** — this is a[39m
+    [31mletter; no byte of the producer tree was written to author it.[39m
+    [31m**Follows**: the early notice **B-1** in `valuejs-outbound-2026-07-28-o18-watercolor-toggle-loupe.md`[39m
+    [31m§B — *\"If the wave mechanism lands as a variant of your aurora/gradient primitives rather than[39m
+    [31mdemo-side, a follow-up ask will carry the exact shape.\"* This is that follow-up.[39m
+    [31m**Authority for the branch**: `W6.md` X.W6.e — *\"If the wave mechanism proves to belong inside the[39m
+    [31mglass gradient/aurora primitive, it leaves as a marked BJ ask (same two-way falsifier as d2).\"*[39m
+    [31m**Machine oracle**: `npx playwright test e2e/smoke/views/gradient.spec.ts -g \"gradient selector aurora\"`.[39m
+    [31mIt re-runs the census in §2 on every run and **reds the day a fitting primitive ships** — so this letter[39m
+    [31mcannot outlive the fact that justifies it — and it reds equally if the wave animates the ramp locally.·[39m
+    [31m---·[39m
+    [31m## 1. The mandate, verbatim·[39m
+    [31mOwner, 2026-07-28 (MT-F041): *\"let's plan to add a bit of dyannism to the gradient selector--it should[39m
+    [31mbecome a SUBTLE aurora insofar as the gradient waves a bit.\"* Standing constraints (`W6.md` X.W6.e):[39m
+    [31mconsume the shared field/motion law from `@mkbabb/glass-ui/aurora`; **no new animation species**; **no[39m
+    [31mprivate rAF loop**; PRM honoured **structurally** (declared inside[39m
+    [31m`@media (prefers-reduced-motion: no-preference)`), never by leaning on the global reduce guard.·[39m
+    [31m## 2. The census — why no published primitive fits (re-run by the gate)·[39m
+    [31m`@mkbabb/glass-ui` **7.0.0**, 74 published subpaths. `./aurora` (`dist/components/aurora/index.d.ts`,[39m
+    [31msha256 `6c9b1bce53361513260ccea723826dd724604d6cc220a58383856f0c1694466d`) publishes:·[39m
+    [31m| export | what it is | fits a strip wave? |[39m
+    [31m|---|---|---|[39m
+    [31m| `Aurora` (component) | the full-field painterly background: one WebGL2 canvas sized to its container | **no** — see (a), (b) |[39m
+    [31m| `useAurora`, `createAurora`, `useCursorInteraction` | the WebGL runtime and its pointer bridge | **no** — the same substrate |[39m
+    [31m| `resolveRenderMode`, `isSoftwareWebGLRenderer` | the substrate selector (`\"webgl\" \\| \"css\" \\| \"auto\"`) | — (a guard, not a surface) |[39m
+    [31m| `deriveAurora`, `paletteToCssGradient`, `cssToOklch`, `flattenPalette`, … | colour helpers: palette derivation and a **static** CSS gradient string | **no** — no motion |[39m
+    [31m| `auroraFallbackGround`, `sampleAuroraField`, `nucleiFieldStatic` | the **static** first-frame ground | **no** — no motion |[39m
+    [31m| `DEFAULT_AURORA_CONFIG`, atoms, presets | configuration | — |·[39m
+    [31mAnd the stylesheet: `grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' dist` → **0**. The aurora motion[39m
+    [31mvocabulary exists **only** inside the WebGL runtime.·[39m
+    [31mThree measured facts close the local routes:·[39m
+    [31m- **(a) The CSS substrate is still.** `renderMode.d.ts`: a software rasteriser takes the `\"css\"`[39m
+    [31m  substrate — *\"the static gradient placeholder\"* — by the producer's own safe default, and the named[39m
+    [31m  escape `forceWebGLUnderSoftwareRaster` exists *\"for a deterministic test that ACCEPTS the[39m
+    [31m  per-composite raster cost\"*, not for a product surface. A strip that waves only on a GPU is a strip[39m
+    [31m  that never waves on the smoke cell and on every GPU-blocklisted device (value.js's own[39m
+    [31m  `o26-aurora-perceptibility` records the same: the atmosphere is a still under headless GL).[39m
+    [31m- **(b) A second full-field WebGL canvas per gradient pane** is a second GPU context on the route that[39m
+    [31m  already hosts the atmosphere's — for a ~40 px strip.[39m
+    [31m- **(c) The rail's one-axis law forbids moving the ramp.** The gradient rail paints each colour at the[39m
+    [31m  ordinal its handle sits on (X.W6.a a3/a4; X.W6.c c2: the ghost, the caret and the rail agree to the[39m
+    [31m  sample). A wave that displaces colour along the axis would put a colour under a handle that does not[39m
+    [31m  own it. The motion therefore has to live on an axis the ordinal does not — a veil, a luminance drift,[39m
+    [31m  a silhouette — which is a new primitive, not a configuration of `Aurora`.·[39m
+    [31mA consumer-side cure would therefore mint either a new `@keyframes` species (banned) or a private rAF[39m
+    [31mloop (banned). **The mechanism belongs to the producer.**·[39m
+    [31m## 3. The ask·[39m
+    [31mA **strip-scale aurora motion primitive** in `./aurora` (or a sibling subpath), one of:·[39m
+    [31m1. **`<AuroraStrip>`** — wraps a caller-supplied background (a CSS gradient string, or `OklchStop[]`)[39m
+    [31m   and overlays the aurora field's drift as a **veil** that never displaces the caller's colours along[39m
+    [31m   the strip's long axis (luminance / chroma breathing, or a gently waving silhouette); or[39m
+    [31m2. **a utility + keyframes pair** (e.g. `glass-aurora-drift`) applicable to any element as an extra[39m
+    [31m   background layer, with the drift's tempo and amplitude from the motion tokens (`--motion-tempo`,[39m
+    [31m   the aurora breath).·[39m
+    [31mEither way, the contract we need:·[39m
+    [31m- a **CSS substrate that moves** (no WebGL context per strip), so the wave exists on every renderer;[39m
+    [31m- motion declared **inside `prefers-reduced-motion: no-preference`** in the producer's own stylesheet[39m
+    [31m  (still, not merely slowed, under reduce);[39m
+    [31m- subtle by default (the owner's word), with one documented amplitude knob;[39m
+    [31m- no colour displacement along the long axis (the one-axis law above).·[39m
+    [31m**Consumer commitment**: value.js composes it on the gradient rail (`GradientStopEditor.vue`'s[39m
+    [31m`.gradient-rail`) and nowhere else in this wave; the e1 oracle then flips to the composing branch and[39m
+    [31mmeasures the motion as a settled-frame delta at a fixed colour.·[39m
+    [31m*Sent by the value.js X-W6 wave (Repair 1), 2026-09-22. Reply folds per E13.*·[39m
+    [31mSERVED MODEL: claude-opus-5-5·[39m
+    [31m# Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.0** (dated addendum, 2026-10-16)·[39m
+    [31m**Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1), dated 2026-09-22 against glass **7.0.0**. That letter is immutable (E-3); this is its dated census addendum, written by X-W12U `.q2` because value.js moved to glass 10.1.0 at X.W7L.m (`c8a4959dd`) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \"gradient selector aurora\") binds the census to the installed version.·[39m
+    [31m## The census at 10.1.0 (same procedure as the letter's §2)·[39m
+    [31m- ⟨`node -e 'console.log(require(\"./node_modules/@mkbabb/glass-ui/package.json\").version)'`⟩ → `10.1.0` (`@mkbabb/glass-ui` **10.1.0**, 68 published export keys).[39m
+    [31m- ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec`.[39m
+    [31m- ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts`⟩ → **0** matches: no strip-scale aurora motion primitive is published.[39m
+    [31m- ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist`⟩ → **0**: the aurora motion vocabulary still exists only inside the WebGL runtime.[39m
+    [31m- The letter's census rows are all still published: `Aurora`, `useAurora`, `createAurora`, `paletteToCssGradient`, `auroraFallbackGround`.·[39m
+    [31m## Reading·[39m
+    [31mUnchanged from the letter: no published primitive fits a strip wave, so the oracle's L3 branch stands (the ramp carries no local animation species and does not move). The ask CC-064 stays open with the producer; nothing new is asked here.·[39m
+    [31mSERVED MODEL: claude-opus-5-5·[39m
+    [31m# Gradient-aurora census, re-run at `@mkbabb/glass-ui` **10.1.1** (dated addendum, 2026-10-27)·[39m
+    [31m**Beside**: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (CC-064 · MT-F041 · gate e1; glass **7.0.0**) and its 10.1.0 addendum `gradient-aurora-census-2026-10-16.md` (X-W12U `.q2`). Both are immutable (E-3). Written by X.W11.v1c because value.js moved to glass 10.1.1 (`f77db7842`, COHESION §0gp.1) and the machine oracle (`e2e/smoke/views/gradient.spec.ts`, \"gradient selector aurora\") binds the census to the installed version; the oracle read RED on that binding alone.·[39m
+    [31m## The census at 10.1.1 (same procedure as the letter's §2)·[39m
+    [31m- ⟨`node -e 'const p=require(\"./node_modules/@mkbabb/glass-ui/package.json\");console.log(p.version, Object.keys(p.exports).length)'`⟩ → `10.1.1 68` (`@mkbabb/glass-ui` **10.1.1**, 68 published export keys).[39m
+    [31m- ⟨`shasum -a 256 node_modules/@mkbabb/glass-ui/dist/components/aurora/index.d.ts`⟩ → `cb2594f238d1a3273cba96285dc3712325926309f63947f289044d3fba74e4ec` (byte-identical to the 10.1.0 reading).[39m
+    [31m- ⟨`grep -oiE 'Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)' …/aurora/index.d.ts | wc -l`⟩ → **0**: no strip-scale aurora motion primitive is published.[39m
+    [31m- ⟨`grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' node_modules/@mkbabb/glass-ui/dist | wc -l`⟩ → **0**.[39m
+    [31m- ⟨`grep -cE '\\b<name>\\b' …/aurora/index.d.ts`⟩ → `Aurora` 1 · `useAurora` 2 · `createAurora` 1 · `paletteToCssGradient` 1 · `auroraFallbackGround` 1: every census row is still published.·[39m
+    [31m## Reading·[39m
+    [31mUnchanged: no published primitive fits a strip wave, so the oracle's L3 branch stands. CC-064 stays open with the producer; nothing new is asked.[39m
+    [31m"[39m
+
+      735 |             .map((f) => readFileSync(f, "utf8"))
+      736 |             .join("\n");
+    > 737 |         expect(ask).toContain(`\`@mkbabb/glass-ui\` **${manifest.version}**`);
+          |                     ^
+      738 |         expect(ask, "the ask's census hash is stale — re-run the census").toContain(indexHash);
+      739 |         for (const name of ["Aurora", "useAurora", "createAurora", "paletteToCssGradient", "auroraFallbackGround"]) {
+      740 |             expect(exported, `the census row ${name} is no longer published`).toContain(name);
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/gradient.spec.ts:737:21
+
+    Error Context: test-results/views-gradient-gradient-selector-aurora-smoke/error-context.md
+
+
+[1A[2K(node:64364) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[33/33] [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget
+[1A[2K  11) [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('.add-slot-ghost').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)').locator('.add-slot-ghost').first()[22m
+
+
+      51 |     // contract that is broken.
+      52 |     const addSlot = main.locator(".add-slot-ghost").first();
+    > 53 |     await expect(addSlot).toBeVisible();
+         |                           ^
+      54 |     await expect(
+      55 |         addSlot,
+      56 |         "the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)",
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/d/wt/e2e/smoke/views/mix.spec.ts:53:27
+
+    Error Context: test-results/views-mix-mix-flow-converg-60bbb--result-plate-within-budget-smoke/error-context.md
+
+
+[1A[2K  11 failed
+    [smoke] › e2e/smoke/flows/color-propose.spec.ts:34:1 › propose cycle reaches 'Propose color name' state for an unnamed color 
+    [smoke] › e2e/smoke/flows/color-propose.spec.ts:89:1 › the sub-layer cycle keeps exactly one active layer, the other inert 
+    [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes' 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:172:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:393:1 › garbage input fails LOUD and leaves the model untouched 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:417:1 › radial geometry is model-or-reject, never a silent drop 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:614:1 › gradient selector aurora ────────────────────
+    [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+  22 passed (10.6m)

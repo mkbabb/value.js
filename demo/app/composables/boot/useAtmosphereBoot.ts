@@ -48,10 +48,12 @@
  *      consistently for every present and future sampling surface.
  */
 
-import { computed, onScopeDispose, provide, ref, watch } from "vue";
-import type { ComputedRef, ShallowRef } from "vue";
+import { computed, getCurrentScope, onScopeDispose, provide, ref, watch } from "vue";
+import type { ComputedRef, Ref, ShallowRef } from "vue";
 
-import { INK_AMBIENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+import { plateInkDeparts } from "../../../color-session/ink";
+import { INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import type { PaneConfig } from "../../../shell/useViewManager";
 import { useContrastSafeColor } from "../../../color-session/useContrastSafeColor";
 import { useViewAccents } from "./useViewAccents";
@@ -62,6 +64,21 @@ import { useAtmosphere } from "./useAtmosphere";
  *  ramps' settle, `useViewAccents` RAMP_SETTLE_MS). */
 const INK_SETTLE_MS = 120;
 
+/** X.W11.p4c: the longest the first certification waits for an idle period
+ *  after first paint (useOverture's B4 open uses the same bound). */
+const CERTIFY_IDLE_TIMEOUT_MS = 500;
+
+/** Mirror a certified ink onto its root token, live. */
+function stampRootToken(token: string, ink: Readonly<Ref<string>>) {
+    watch(
+        ink,
+        (css) => {
+            document.documentElement.style.setProperty(token, css);
+        },
+        { immediate: true },
+    );
+}
+
 export function useAtmosphereBoot(
     atmosphereCanvas: Readonly<ShallowRef<HTMLCanvasElement | null>>,
     // W3-1 (S.W3): the rAF-COALESCED opaque colour (`pipeline.cssColorOpaqueFrame`),
@@ -70,12 +87,65 @@ export function useAtmosphereBoot(
     // The active view's config — its schema-declared accentHueShift drives the
     // per-view accent token.
     currentConfig: ComputedRef<PaneConfig>,
+    // X.W11.p4c (COHESION §0go.2(b)): true when this visit hydrates the
+    // prerendered shell (App's `HYDRATES_SHELL`, client side). Its first frame
+    // paints the stylesheet's pre-certified inks, so the certification leaves
+    // the boot task (see `certifyInks` below).
+    { certifyAfterPaint = false }: { certifyAfterPaint?: boolean } = {},
 ) {
+    // X.W11.p4c (COHESION §0go.2(b)) — INK CERTIFICATION LEAVES THE BOOT TASK.
+    // Every root ink token below (and the per-view accents) is a WCAG walk;
+    // stamped in setup, the walks ran inside the hydration task (the measured
+    // ~100 ms of a 239 ms mount at 4× CPU, `.p4b` act 8). When the shell is
+    // hydrated, the first frame paints the inks the stylesheet already carries
+    // for the shell's default seed, scheme and ground (foundation.css — the
+    // pre-certified values, which hold the floors as SS-8 measured them), and
+    // the first certification runs after that frame: the frame's rAF, then the
+    // next idle period (bounded by a timeout, so a busy boot still certifies
+    // promptly). The watchers start inside this component's own scope, so they
+    // stop with it. A client-rendered first view (a seeded or stored colour, a
+    // non-home route, reduced motion) has no pre-certified shell: it certifies
+    // in setup, as before, so its first frame is never painted with another
+    // seed's inks. Repeated asks are served by `ink.ts`'s certify memo.
+    const scope = getCurrentScope();
+    const pending: (() => void)[] = [];
+    const certifyInks = (start: () => void) => {
+        if (!certifyAfterPaint || !scope) {
+            start();
+            return;
+        }
+        // Every certifying region (this one and the per-view accents) waits
+        // for the same frame and idle period. X.W11.p4d T2 (COHESION §0gs.4):
+        // each region then certifies in its OWN task, so the deferred
+        // certification is a run of short tasks the main thread can interleave
+        // input with, not one long task (146 ms at 4×, `.p4c` act 8).
+        pending.push(start);
+        if (pending.length > 1) return;
+        requestAnimationFrame(() => {
+            const next = () => {
+                const region = pending.shift();
+                if (region === undefined || !scope.active) return;
+                scope.run(region);
+                if (pending.length > 0) setTimeout(next, 0);
+            };
+            if ("requestIdleCallback" in window) {
+                window.requestIdleCallback(next, { timeout: CERTIFY_IDLE_TIMEOUT_MS });
+            } else {
+                setTimeout(next, 0);
+            }
+        });
+    };
+
     // 1 — the atmosphere: aurora + hero-blob palette coupling (provides
     //     AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on the caller's scope). Ordered
     //     FIRST since M-15: the atmosphere exposes the live `derivedLightness`
     //     (the D6 page-ambient referent) BOTH accent resolvers consume.
-    const { auroraCssGradient, auroraArrived, derivedLightness: liveLightness } = useAtmosphere(
+    const {
+        auroraCssGradient,
+        auroraArrived,
+        derivedLightness: liveLightness,
+        plateReferent: livePlateReferent,
+    } = useAtmosphere(
         atmosphereCanvas,
         atmosphereColor,
     );
@@ -97,24 +167,28 @@ export function useAtmosphereBoot(
     // accent, the label and menu inks) still certify every frame, against the
     // held ground.
     const heldLightness = ref(liveLightness.value);
+    const heldPlateReferent = ref(livePlateReferent.value);
     let inkSettle: ReturnType<typeof setTimeout> | undefined;
     const publishInkAmbient = () => {
         inkSettle = undefined;
         heldLightness.value = liveLightness.value;
+        heldPlateReferent.value = livePlateReferent.value;
     };
-    watch([liveLightness, atmosphereColor], ([l, colour], old) => {
-        if (!old || colour === old[1]) {
+    watch([liveLightness, livePlateReferent, atmosphereColor], ([l, p, colour], old) => {
+        if (!old || colour === old[2]) {
             clearTimeout(inkSettle);
             inkSettle = undefined;
             heldLightness.value = l;
+            heldPlateReferent.value = p;
             return;
         }
-        if (inkSettle === undefined && l === heldLightness.value) return;
+        if (inkSettle === undefined && l === heldLightness.value && p === heldPlateReferent.value) return;
         clearTimeout(inkSettle);
         inkSettle = setTimeout(publishInkAmbient, INK_SETTLE_MS);
     });
     onScopeDispose(() => clearTimeout(inkSettle));
     const derivedLightness = computed(() => heldLightness.value);
+    const plateReferent = computed(() => heldPlateReferent.value);
 
     // 2 — the accent axis (W3-5 threads the M-15 exposed value): the live
     //     colour certified against the LIVE ambient — never the retired
@@ -142,119 +216,58 @@ export function useAtmosphereBoot(
     } = useContrastSafeColor(
         atmosphereColor,
         derivedLightness,
+        plateReferent,
     );
+    const { isDark } = useGlobalDark();
     provide(SAFE_ACCENT_KEY, safeAccentCss);
     provide(INK_AMBIENT_KEY, derivedLightness);
-    watch(
-        safeAccentCss,
-        (css) => {
-            document.documentElement.style.setProperty("--accent-live", css);
-        },
-        { immediate: true },
-    );
-    // X-DS pass 4 (V4C-01): the PRIMARY plate ink rides the same instance and
-    // the same referent, so the page makes ONE polarity decision per plate.
-    // `--ink-muted` above is a step of this pole, never an independent flip.
-    watch(
-        plateInkCss,
-        (css) => {
-            document.documentElement.style.setProperty("--ink-primary", css);
-        },
-        { immediate: true },
-    );
-    watch(
-        mutedInkCss,
-        (css) => {
-            document.documentElement.style.setProperty("--ink-muted", css);
-        },
-        { immediate: true },
-    );
-    // X-DS pass 5 (V5C-02): the floating plate's pair, the same certification
-    // against the floating rung (menus and popovers are portaled to <body>).
-    watch(
-        floatingInkCss,
-        (css) => {
-            document.documentElement.style.setProperty("--ink-floating-primary", css);
-        },
-        { immediate: true },
-    );
-    watch(
-        floatingMutedInkCss,
-        (css) => {
-            document.documentElement.style.setProperty("--ink-floating-muted", css);
-        },
-        { immediate: true },
-    );
-    // X-DS pass 16 (V16-01): the modal plate's pair — the floating rung over
-    // glass's scrim (a dialog's ground), seated on the modal root.
-    watch(
-        modalInkCss,
-        (css) => {
-            document.documentElement.style.setProperty("--ink-modal-primary", css);
-        },
-        { immediate: true },
-    );
-    watch(
-        modalMutedInkCss,
-        (css) => {
-            document.documentElement.style.setProperty("--ink-modal-muted", css);
-        },
-        { immediate: true },
-    );
-    watch(
-        modalDestructiveInkCss,
-        (css) => {
-            document.documentElement.style.setProperty("--ink-modal-destructive", css);
-        },
-        { immediate: true },
-    );
-    // X-DS pass 18 (V18C-02): the resting plate's destructive red.
-    watch(
-        destructiveInkCss,
-        (css) => {
-            document.documentElement.style.setProperty("--ink-destructive", css);
-        },
-        { immediate: true },
-    );
-    // X-DS pass 15 (V15-01): the certified gold identity ink, same referent.
-    watch(
-        goldInkCss,
-        (css) => {
-            document.documentElement.style.setProperty("--ink-gold", css);
-        },
-        { immediate: true },
-    );
-    // X-DS pass 17 (V17C-01): its floating twin (the menu rows' gold).
-    watch(
-        floatingGoldInkCss,
-        (css) => {
-            document.documentElement.style.setProperty("--ink-gold-floating", css);
-        },
-        { immediate: true },
-    );
-    // X-DS pass 18 (V18C-01): the glyph rung of both (the 3:1 graphics floor).
-    watch(
-        [goldGlyphInkCss, floatingGoldGlyphInkCss],
-        ([resting, floating]) => {
-            document.documentElement.style.setProperty("--ink-gold-glyph", resting);
-            document.documentElement.style.setProperty("--ink-gold-floating-glyph", floating);
-        },
-        { immediate: true },
-    );
-    // The PUBLISHED page-ambient referent (the D6 "tiers publish effective
-    // lightness" stake, executed demo-side for the page tier): the exact
-    // number every certified ink keyed on, stamped so consumers + the O-18
-    // census read the SAME referent the guard used — never a re-derivation.
-    watch(
-        derivedLightness,
-        (l) => {
-            document.documentElement.style.setProperty(
-                "--ink-ambient-l",
-                l.toFixed(4),
-            );
-        },
-        { immediate: true },
-    );
+    provide(INK_PLATE_REFERENT_KEY, plateReferent);
+    certifyInks(() => {
+        stampRootToken("--accent-live", safeAccentCss);
+        // X-DS pass 4 (V4C-01): the PRIMARY plate ink rides the same instance
+        // and the same referent, so the page makes ONE polarity decision per
+        // plate. `--ink-muted` is a step of this pole, never an independent flip.
+        stampRootToken("--ink-primary", plateInkCss);
+        // COHESION §0gv.6: the polarity that ink certified, which steers the
+        // `--well-bg` lift (`foundation.css`) away from a departed ink.
+        watch(
+            [plateInkCss, isDark],
+            ([css, dark]) => {
+                document.documentElement.dataset.plateInk =
+                    plateInkDeparts(css, dark) ? "departed" : "default";
+            },
+            { immediate: true },
+        );
+        stampRootToken("--ink-muted", mutedInkCss);
+        // X-DS pass 5 (V5C-02): the floating plate's pair, the same
+        // certification against the floating rung (menus and popovers are
+        // portaled to <body>).
+        stampRootToken("--ink-floating-primary", floatingInkCss);
+        stampRootToken("--ink-floating-muted", floatingMutedInkCss);
+        // X-DS pass 16 (V16-01): the modal plate's pair — the floating rung
+        // over glass's scrim (a dialog's ground), seated on the modal root.
+        stampRootToken("--ink-modal-primary", modalInkCss);
+        stampRootToken("--ink-modal-muted", modalMutedInkCss);
+        stampRootToken("--ink-modal-destructive", modalDestructiveInkCss);
+        // X-DS pass 18 (V18C-02): the resting plate's destructive red.
+        stampRootToken("--ink-destructive", destructiveInkCss);
+        // X-DS pass 15 (V15-01): the certified gold identity ink, same referent.
+        stampRootToken("--ink-gold", goldInkCss);
+        // X-DS pass 17 (V17C-01): its floating twin (the menu rows' gold).
+        stampRootToken("--ink-gold-floating", floatingGoldInkCss);
+        // X-DS pass 18 (V18C-01): the glyph rung of both (the 3:1 graphics floor).
+        stampRootToken("--ink-gold-glyph", goldGlyphInkCss);
+        stampRootToken("--ink-gold-floating-glyph", floatingGoldGlyphInkCss);
+        // The PUBLISHED page-ambient referent (the D6 "tiers publish effective
+        // lightness" stake, executed demo-side for the page tier): the exact
+        // number every certified ink keyed on, stamped so consumers + the O-18
+        // census read the SAME referent the guard used — never a
+        // re-derivation. It is stamped with the inks it keyed, never before.
+        stampRootToken(
+            "--ink-ambient-l",
+            computed(() => derivedLightness.value.toFixed(4)),
+        );
+    });
 
     // 3 — the per-view accent (W7-4): the library-resolved static tokens —
     //     `--accent-view-<id>` × 9 + `--accent-view` + `--seal-ink` — written
@@ -266,6 +279,7 @@ export function useAtmosphereBoot(
         safeAccentCss,
         currentConfig,
         derivedLightness,
+        certifyInks,
     });
 
     return { auroraCssGradient, auroraArrived };

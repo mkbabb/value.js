@@ -4619,3 +4619,304 @@ Owner verbatim, 2026-10-19: *"Ratify what you think is best for the server in to
 
 ### §0gn erratum — 2026-10-21
 §0gn.2(a)'s glass row is **O-107** (AURORA-DERIVE-SHADER-FREE, W-D.1; glass 16782fcef). O-105 stays BLOB-LIT-LIGHTNESS (§0gl.11, X.W11.h8, W-G.5), and O-106 stays DELIBERATE-TRAILING-ACTIVATION (X.W11.h17, W-E.4).
+
+## §0go — 2026-10-21: ESC-W11c-TAG-CI-E2E-VISUAL and ESC-W11p4b-1 ruled (delegate, §0ge)
+1. **The publish reads the library's own gates: arm (b), then (c).**
+   - §0gm.2 is re-scoped. The npm publish of 4.1.0 reads only the library-gating CI jobs: producer ×2 (Node 22 + 24), api, the oracle slate and boot-smoke, all GREEN at the tag tree.
+   - e2e-smoke, visual and lhci gate the **demo deploy** only. deploy-pages stays HELD on them; none of them is weakened.
+   - Then .c pushes the tag, release.yml publishes with provenance, and .d/.e read the published library.
+   - Then **(c), unit X.W11.v1:** cure the demo suites at their roots, then the deploy:
+     - visual: 192 darwin-golden mismatches (E14 lineage). Each re-baseline is attributed to its causing commit and read, never blind.
+     - e2e-smoke: 26 failed / 22 flaky (X-W10 E1–E9, perf bars, o10). A flake is cured, not re-run.
+2. **ESC-W11p4b-1: arm (a) and arm (b), both granted.**
+   - **(a):** the owner's docket asks for faster loading on every page of every app (OD19-ALL), and that outranks a first-load entrance.
+     - On the FIRST document load, the prerendered stage pane paints from the shell: no `appear` `<template>` wrapper in SSR (PaneSlot.vue).
+     - The plate-land overture on first load becomes a transform-only settle: opacity 1 from the first frame, a small translate/scale ease, and nothing under PRM. The identity motion is kept, and the content is contentful from first paint.
+     - Client-side route changes keep the full overture unchanged.
+   - **(b):** ink certification leaves the boot task. `demo/color-session/ink.ts` memoizes `certify` by (seed, scheme, ground) and runs the first certification after first paint. The first frame paints with the pre-certified inks the shell already carries, which hold the floors as SS-8 measured them. Writable set widened to `ink.ts` and its caller `useAtmosphereBoot`.
+   - Gate: lhci ×3 on CI after each arm. If it is still over budget, the seat profiles again and proposes the next cut; first-paint content is never deferred.
+
+## §0gp — 2026-10-21: X-OD19 is CLOSED honest-RED (`2d85bd584`). Its time-budget residue is read on the real-GPU cell (§0fr.2/.3), and ESC-FREL-ci-1 is ruled
+1. **Read:**
+   - 14 rows CURED in full;
+   - V3, V5, V7 and ALL: every consumer cause cured, and the time budget is still missed;
+   - V2, F2, F6 and K7: the consumer half cured, the glass half held under O-102;
+   - V1, K5 and K8: held under O-102 in full, with the glass cause measured.
+   - The O-102 letter is sent (glass `d2318a631`).
+   - All three apps run glass 10.1.1, with the redundant workarounds retired (value f77db7842, keyframes f8d6077b, fourier e4c2e1d).
+2. **The §0fr.2/.3 law applies to every OD19 frame and latency budget:**
+   - V3 colour-change latency (+8 ms);
+   - value frame and hop budgets (gradient title 487–544 against 400 ms; the 390 moving window 508–867 against 450);
+   - keyframes warm swaps (3–7 frames over 50 ms);
+   - fourier `od19-load` equation-nav frame bars (over50 33/39 against 20; max gap 500/650 against 450).
+
+   On SwiftShader or a CI software rasteriser the reading is INFORMATIONAL, and the spec's leg there asserts liveness only. This is the form ruled LAWFUL at §0fr.3 (`w12-drag.spec.ts:136`). The budget's gate is the **real-GPU cell of record**: headless real Chrome, `channel:'chrome'`, ANGLE-Metal, named in the spec file per the machine law, ×2.
+   - Any budget RED on the real-GPU cell is a product cure at its root (profile, name the cost), never a test change.
+3. **ESC-FREL-ci-1 RULED by 2.** fourier's `od19-load` frame bars take the liveness-on-software and budget-on-GPU split. The correctness legs stay gating on CI. Then m/w1 CI is read to GREEN at HEAD (e4c2e1d or later), and Track C resumes: merge, master CI ×2, then the .d deploy.
+4. **The critic residue for value and keyframes** (each three passes, not clean) beyond the time budgets is cured at root by the residue seats, one per app. Glass sub-rows are cited under O-102, not re-filed.
+   - The value `w12-dock.spec.ts` pair (a regression present before the repin) is owned by Track A (X.W11), which re-reads it on 10.1.1.
+
+## §0gq — 2026-10-27: X-OD19 residue ruled; Track C resumes on fourier m/w1 GREEN
+1. **fourier: DONE.** m/w1 CI GREEN at `34b10ae` (run 40552991504, all 5 jobs). ESC-FREL-ci-1 is cured by the §0gp.2 split, and the GPU cell is GREEN ×2. DOCK-SUMMARY-SQUARE is adopted. **Track C resumes:** `merge --no-ff` the verified SHA into master, master CI ×2, then the .d deploy.
+2. **value:**
+   - (a) **OD19-V7-390-ORDER → Track A, unit X.W11.o1.** Key shell.css's one-track `order` rule on the DISPLAYED pane key, stamped from App.vue's `slotReports().onMount` on each region wrapper, not on the route-time `data-view`/`data-pane`. Gate: the mix window @390 ≤ 450 on the GPU cell ×2.
+   - (b) **ESC-OD19-V3-instr: the V3 bar is restated from the instrument.**
+     - The p50 bar (25 ms) sits below the harness's own measured zero-work floor (29–31 ms), and the reading tracks the harness's input-ack phase.
+     - The V3 gate becomes: **p95 ≤ the stated bar** (already GREEN 11/12), AND **product-attributable latency, p50 minus the measured zero-work floor in the same run, ≤ one frame (16.7 ms)**, read on the GPU cell ×2.
+     - The same h2 principle as §0gl.7: an impossible constant is corrected, never a reachable one weakened. The cell RED in 1/12 on p95 is re-read under that gate.
+   - (c) **C2-V-03 @390 is ruled CURED.** The plate fills the whole visible band, and the 223 px below the fold has no visual effect at first paint.
+3. **keyframes (PARTIAL; the Easing re-plot is cured at `fc1a3383`). One consumer unit cures the remaining consumer reads at root:**
+   - `useFoldLanding.land` (2–4 ms), `AnimationVisualizer.getMaxX` (about 4 ms), `probeBrowserScalar` on cube (5–6 ms) and SquareScene's setup `getPropertyValue` (4 ms): each read once and cached, or moved out of the commit frame;
+   - **KF-RES-1:** the idle scene warm starts only after a deep link's content has painted.
+
+   The warm-swap 50 ms bar is then re-read on the GPU cell. What remains is glass-rooted: computed-style reads at mount and per tick, and the per-swap dock re-measure. It is held under O-102 with the relay below.
+4. **Glass relay (one letter, citing O-102):**
+   - V3-s: the synchronous `drawImage` + `getImageData` in `useGlassBackdropLuminance`'s live mode, 17–19 ms per drag and up to 433 ms under load. Ask: an async readback.
+   - V5-h: `motionTempo`'s `getPropertyValue` on every spring tick, 15–17 ms per hop. Ask: read the token once per press.
+   - keyframes: the forced computed-style reads at mount (`maxStretch`/`useLiquidFlex`/`writeVelocityWeight`, 5–25 ms per swap) and the dock re-measure on every swap (4–10 ms, O-80 class).
+
+## §0gr — 2026-10-27: SS-8.r ruled (`62d6205f6`; SS-8 SWEPT-WITH-RESIDUE)
+1. **Cured:**
+   - B19 R-13: an instrument race; the glass 10.1.1 bump is EXCLUDED as the cause.
+   - Z-ColorPicker-14: one seam owner, header.css Row A.
+   - B05 0125 and 0146.
+   - B26 X-5.
+   - B15 0440: a `--well-bg` lift in both schemes.
+   - B13 L-3: attribution ink at 4.77–6.84.
+   - B03 0085: the hero clips at the 390 edge.
+   - B05 0140 and B24 U-11: recorded.
+   - o14 dark, B11 0309 and plate-mass: GREEN on isolated bytes; their reds were apparatus.
+2. **ESC-SS8r-0039 (the light rail tooltip at 2.80–3.39:1): arm (b), the §0gk.2 referent law applied to floating pairs.**
+   - A floating pair (tooltip title plus caption) is certified against the composite it ACTUALLY sits on, not the bare ambient (`useContrastSafeColor` `floatingL`).
+   - In light, the rail tooltip's real ground is dark (L 0.09–0.16), so the whole pair takes the light pole (5.10–5.76:1). That is one pair-wide polarity chosen by the real referent, not a caption-only flip, so §0gm.4 is not breached.
+   - Owner: Track A, unit **X.W11.f1** (it shares `demo/color-session/` with p4c). Falsifier ×2, both schemes, every floating surface that uses the pair.
+3. **ESC-SS8r-0132 (B05 0132, Tools ink 4.42 over the light dock band): arm (a).** The ground is a mid-tone where black caps at about 4.8:1. Held honest-RED and relayed to glass on the O-83/O-87 dock-band rung line, together with §0gm.4's 390 plate rung. The polarity flip stays refused.
+4. **Routed to Track A:**
+   - the `blob-presence-mobile` idle leg, RED on HEAD bytes (the parked 390 hero draws 0), as unit **X.W11.o2**: cure at root, or prove the park lawful and re-aim the leg with the ruling cited;
+   - the darwin golden re-baselines attributed to `6bcd3e562` and `ea6e054b4`, into X.W11.v1 (E14 lineage).
+5. **Recorded:** Vite 8 ignores the harness's `server.port: 0` and binds the shared 5173. X.W11.v1 cures the harness at its root (an explicit free port).
+
+## §0gs — 2026-10-27: X-W11's third set ruled (delegate, §0ge)
+1. **ESC-W11c-NPM-TOKEN: discharged by the orchestrator.**
+   - Cause: release.yml's publish got E404 on the PUT because the repo secret `NPM_TOKEN` (set 2026-06-03) is rejected.
+   - The orchestrator set it to the owner-supplied automation token ("Use it", 2026-10-19). The token went through `gh secret set` from the session environment only and was never written to a file or record.
+   - Then it re-ran the failed publish job of run 39596724330 at the pushed tag v4.1.0. .c, .d and .e re-sit on the result.
+   - The owner should still rotate that token at leisure, since it passed through a chat.
+2. **ESC-W11v1c-VISUAL-LINEAGE: re-mint granted.**
+   - 17bda9aba is a real root cure: the cascade-layer order is stated once, so preflight no longer outranks glass components. Reverting it is refused.
+   - Unit **X.W11.v1d** gets `e2e/visual/**` + `MANIFEST.json`. It re-mints the darwin goldens, each attributed to 17bda9aba (and to 0894a192b where its cell moves), read per arm from the diff masks, never blind.
+   - Gate: CI visual GREEN ×2 at HEAD.
+3. **ESC-W11v1c-INHERITED-DIRTY: adopted.**
+   - The three uncommitted hunks in `App.vue` (O-10d), `ComponentSliders.vue` (BR-8) and `Katex.vue` (A4) belonged to Track A's own killed predecessor seat.
+   - **X.W11.v1d** reads each one and finishes it with a falsifier ×2 against its target row (o10d:171, a11y-slider-operation:34, A4/A4-coarse), then commits it. A hunk that is wrong is reverted by this owner, with the reason recorded.
+4. **ESC-W11p4c-1:** after p4c the shell paints contentful before any script runs (CI FCP = LCP ≈ 200 ms observed). The remaining simulated LCP is Lantern counting every request that finished before that paint. **The cuts are granted in order, with lhci ×3 on CI read after each:**
+   - (L1): on the shell path, the module graph starts after first paint;
+   - (L2): `glass-fonts.css` after first paint, measured both ways;
+   - (T1): the stage region hydrates outside the App mount task, with `hydrateOnIdle` plus `hydrateOnInteraction`, so a first input hydrates at once and interactivity never waits on idle. App.vue is granted.
+   - (T2): the deferred certification and the dock-band inks yield one task per region (useAtmosphereBoot.ts + demo/shell/dock/**), after rereading git status for sibling hunks.
+   - The budgets are unchanged.
+5. **Queued for Track A (from §0gq/§0gr and glass 10.1.2):**
+   - **X.W11.g12** (after the 4.1.0 publish): bump glass to 10.1.2 exact; mark custom dock seats with `data-glass-dock-seat` (MIGRATION 10.1.2); re-read ci4's `o21:328` (O-101 shipped).
+   - **X.W11.o1:** the displayed-pane `order` key (§0gq.2a).
+   - **X.W11.f1:** floating pairs certified against their real referent (§0gr.2).
+   - **X.W11.o2:** the `blob-presence-mobile` idle leg (§0gr.4).
+   - The Vite `server.port: 0` harness fix goes in v1d.
+
+## §0gt — 2026-10-28: X-W11 halted NOT-CONFORMANT after 2 repairs; its five escalations are ruled (delegate, §0ge)
+Landed since §0gs:
+- @mkbabb/value.js **4.1.0 is published** (G4 ×2, SLSA provenance, registry tarball byte-identical to the candidate), and master `bfe74d47f` equals the tag tree.
+- LCP is GREEN: 2111 asserted, down from 4673.
+- o1, o2 and the inherited hunks are cured.
+- 205 goldens were re-minted on the 17bda9aba lineage.
+
+Ruled:
+1. **ESC-W11v1d-VISUAL-GL-TEXTURE-LIMIT: arm (a).** Every full-page capture stays within the renderer's `MAX_TEXTURE_SIZE`. A page taller than 8192 px is captured as viewport-bounded tiles (each ≤ 8192 px) and each tile is compared, so the oracle photographs the product as shipped, with live WebGL. The re-mint covers only the tiled cells (the 390 picker family), each attributed to this ruling.
+   - (b), removing live WebGL from the oracle, is refused: it would photograph a product no one ships. (c), a timeout raise, stays refused.
+2. **ESC-W11p4d-1 (TBT 1743 against 300; LCP GREEN): N-D1 → N-I1 → N-S1 granted, in that order, with lhci ×3 on CI after each.**
+   - N-D1: the dock's closed surfaces mount on first open (demo/shell/dock/**).
+   - N-I1: one live referent read per ink region (`useContrastSafeColor.ts`).
+   - N-S1: nested lazy hydration inside the stage (demo/picker/**).
+   - First-paint content and the §0dm identity arrival are untouched, and the budgets are unchanged.
+3. **ESC-W11f1-1: arm (a).** The floating material's dead band over saturated content is relayed to glass on the O-87 floating-rung line, as a denser floating rung or a scrim under floater text, with the numbers (rail 2/56 at 4.02–4.21, the space select at min 1.80, the dock view select at 3.03–3.61). These cells are held honest-RED. (b), moving floaters off content, is refused because placement is product design. (c) stays refused.
+4. **G8, the darwin real-GPU WebKit witness at 16/196: unit X.W11.wk.** Each failing row is cured at its root, starting with the w7 CDP-in-WebKit harness row. A row whose root is a WebKit engine fact takes the O-103b engine-fact form with Chromium as the gate, stated per row and never as a blanket ruling.
+5. **G10 (API journeys): the PCS-3/PCS-11 palette contract is RULED.**
+   - **`position`:** a required, documented field, the 0-based integer ORDER of the colour in the palette. Gradient stop offsets are not palette semantics; gradients carry their own stops.
+   - **`weight`:** an OPTIONAL finite number ≥ 0, the colour's population share where a producer knows it (Extract). It is PERSISTED by the wire schema, never stripped.
+   - **Identity:** a palette's content hash is the ordered colours ONLY. `weight` is descriptive metadata, so Generate and Extract producing the same five colours in the same order hash identically.
+   - **Unit X.W11.api2** gets `api/src/modules/palette/**` plus the client halves. It adds a one-shot data migration that normalizes existing `position` values to the ordinal, with a dry run and a count report. Falsifiers ×2 cover both producers hashing equal and a weight round-trip.
+   - **Then the production API redeploys at the release tree** through its standing deploy path. If that path needs host shell access, it is an orchestrator act over the owner's VPN.
+6. **The semver erratum for 4.1.0:** 4.1.0 removed `decomposeMatrix2D`/`decomposeMatrix3D`/`Mat4`, which is a breaking removal inside a minor version.
+   - Recorded, not repaired: there is no compat re-export (the owner's no-shim law), and the only consumer, keyframes, pins exactly 4.0.0 and migrates at its O-117 repin.
+   - Rule from now on: any export removal ships in a MAJOR version.
+7. **G6 and G7 (the demo deploy and the CI browser cell):** these follow from 1, 2 and **unit X.W11.v1e**, which cures every CI e2e-smoke red at root. A slow-runner starvation read is cured at its cause (a settle wait or harness pacing), never by a retry or a raised timeout. After that the demo deploys, with the post-deploy smoke run.
+
+The halt is lifted: each RED gate now has a ruling and an owner.
+
+## §0gu — 2026-10-29: X-W11's fourth set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gt:
+- visual tiled within `MAX_TEXTURE_SIZE`, CI visual GREEN ×2 (v1t);
+- N-D1 (dock nodes at load 145 → 58) and N-I1 (root ink 189 → 52 ms);
+- the palette contract `967fde792`/`79509ce7a` (api2), with the migration written;
+- 9 WebKit rows cured at their harness roots (wk).
+
+Ruled:
+1. **ESC-W11p4e-1 (TBT 1954, of which the §0dm identity arrival is 782).** §0dm protects the arrival's LOOK and MOTION, not its main-thread cost.
+   - **Unit X.W11.p4f:** the aurora/blob arrival starts after the first idle (`requestIdleCallback` with a 500 ms timeout) rather than inside the boot task. Its visual and motion are unchanged (frame strip ×2, before and after), and the first-paint shell is unchanged.
+   - Its producer cost, the shader compile/link inside one task, goes to glass as a W-G row: `KHR_parallel_shader_compile` and yielding between programs.
+   - N-S1 is retired, since it had no object at these bytes.
+   - The glass dock setup (159 ms) rides O-108/W-0.8.
+   - lhci ×3 on CI after p4f; the budgets are unchanged.
+2. **ESC-W11v1e-1 (R4, the SwiftShader-starved runner):** arm *settle from the transition's own finished promise*. Every `paneSettled` and `[data-morphing]` wait reads the transition's own completion (`Animation.finished`, `ViewTransition.finished`, `transitionend`), never a quiet window measured in wall-clock time. No product change; no software-tier substrate.
+3. **ESC-W11v1e-2 (R5, wall-clock perf budgets on the hosted runner):** the §0fr.2/§0gp.2 law applies.
+   - drag-frame-budget, w12u-p-drag, reactivity-instant and the od19 180 ms gap gate on the real-GPU cell ×2. On CI software raster they assert liveness only. The bars are unchanged.
+   - A budget that is RED on the GPU cell is a product cut.
+4. **ESC-W11v1e-3 (R9, the Fraunces `.tf` glyphs frozen at wght 900 with 0 gvar tuples):** a root cure in the font build. Grant: `scripts/fonts/build-fraunces-tnum.py` plus the regenerated woff2, with the variation tuples kept. Falsifier: o10:214 at wght 600, ×2, in Linux Chromium (docker) and on darwin.
+5. **ESC-W11v1e-4 (R10, the coarse-390 Tags row):** the row sizes to its content (intrinsic block size, wrapping allowed). A fixed box that clips text on any platform is a defect.
+6. **ESC-W11v1e-5 (R11, no blob repaint after `webglcontextrestored`):** relayed to glass with W-G.5 (O-104a's "one redraw" law extends to context restore). Held honest-RED until then; the consumer does not un-park it by hand.
+7. **ESC-W11wk-1 (w7, the dismissal by a human-pace double activation):** this is glass **O-106**, already placed in W-E.4. Held, ADOPT-AT-LANDING.
+8. **ESC-W11wk-2 (o18:769/823 light) is a correction to §0gk.2's lift law.** A well's lift moves AWAY from the polarity of the ink actually certified on it, raising contrast against the ink it carries, rather than always toward the scheme's light pole. The cure goes in `foundation.css` (once the sibling hunks are clear) plus the well's ink pairing, measured in both schemes ×2 with 0440's elevation parity kept.
+9. **ESC-W11wk-3 (o18:1049 on WebKit, chroma short by less than one 8-bit code value):** the floor is evaluated at the precision of the medium. The oracle quantizes both the measured colour and the floor to the 8-bit sRGB grid it reads from before comparing. That corrects an ill-posed sub-quantum comparison, the same principle as §0gl.7, and widens nothing that can be measured.
+10. **ESC-W11api2-1 (the production API serves `6e14e90c9`):** an orchestrator act over the owner's VPN.
+    - Run the host deploy hook for palette-api, then the ordinal migration (dry run, count report, then the live run), then restore the webhook's value-js hook.
+    - It waits on the VPN. .e's G10 reads it afterwards.
+
+## §0gv — 2026-10-29: X-W11's fifth set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gu:
+- settle waits read the transition's own finished promise (R4 GREEN; 0 wall-clock quiet windows);
+- three of four perf specs GREEN ×2 on the real-GPU cell; the Fraunces `.tf` glyphs carry gvar tuples (10/10) and o10:214 at w600 is GREEN on both platforms;
+- the coarse-390 Tags row (R10) GREEN ×2 on both platforms;
+- o18's 8-bit quantized floor comparison (§0gu.9) GREEN in both schemes;
+- the orphaned SS8-0192 comment hunks in `foundation.css`, `PaneShell.vue`, `AboutPane.vue` and `PalettesPane.vue` are adopted by the orchestrator (`51a2a6334`). The `.wk2` LOCK on `foundation.css` is cleared.
+
+Ruled:
+1. **ESC-W11p4f-1 and D-2 (lhci TBT 1954–6221 on CI against ≤300).** §0gu.1's idle-gated arrival was already in the bytes. The long task is glass's synchronous shader compile/link chain. On the hosted runner that chain runs on SwiftShader, so its cost is CPU emulation of a GPU, and it varies 2× at identical bytes (2164 → 6221). TBT is a wall-clock main-thread budget, so the §0fr.2/§0gp.2/§0gu.3 law applies to it.
+   - **TBT ≤ 300 gates on the real-GPU cell:** lhci collect ×3 against the built `dist/gh-pages`, headless Chrome with ANGLE Metal (the named GPU witness), run ×2 under `guarded`. The bar is unchanged.
+   - On CI, `total-blocking-time` reads `warn` with the same bar, so the number stays visible on every run. LCP, CLS and accessibility stay `error` on CI. The config comment cites this section.
+   - If the GPU cell is RED, that is a product cut: the residual holds on glass O-120, which glass places as async pipeline creation in 11.0.0 (O-112). It is ADOPT-AT-LANDING. The look and motion of the §0dm arrival are not traded for TBT.
+2. **D-6 (G7 visual 68F/148P after `.v1f`).** §0gu.4 lawfully changed the font's outlines, so the goldens follow the font.
+   - Unit `.vrb`: attribute the diffs first. Diff one route before and after `c364c6bf6`, and show that the changed pixels lie inside Fraunces text runs.
+   - Then re-mint the goldens in the CI-equivalent Linux image. Only cells attributed to the woff2 or to `AdminTagsPanel.vue` are re-minted. `maxDiffPixelRatio` is never raised.
+   - Finish with CI visual GREEN ×2. A diff outside a Fraunces run or the Tags panel is a defect and is escalated, not re-minted.
+3. **ESC-W11v1f-1 (o10:214 at w300 under FreeType full hinting): arm (a).** The oracle certifies the font's tabular advance, which is a property of the font. Full hinting is the headless Linux rasterizer's host default, and it snaps each advance by about 1 px; the font itself ships unhinted. The e2e-smoke project's Linux Chromium therefore pins `--font-render-hinting=none` explicitly instead of inheriting the host default. The pin is scoped to the smoke project; the visual project is untouched.
+   - Falsifier: o10:214 at w300 and w600, ×2, in docker Linux Chromium, with the darwin cell unchanged.
+4. **ESC-W11v1f-2 (drag-frame-budget RED 1/2 on the GPU cell, 3 long tasks with a max of 116 ms):** the product grant is given.
+   - Profile the drag on the GPU cell ×2 (the same named witness as 1). Attribute each long task over 50 ms to its function.
+   - If the task is consumer-side, cure it at its root in `demo/app/**` or the picker. If it is producer-side, row it to glass with the trace receipt, and hold the row honest-RED, ADOPT-AT-LANDING.
+   - The bar is unchanged. It must be GREEN ×2 on the GPU cell.
+5. **ESC-W11v1f-3 (w12-dock:316 action-sub-layer read before the bar opens):** the staging grant is given. The stage opens the action bar before the 'before' face is read, following the `.v1c` `0acfd7c80` precedent. The assertions are untouched. The test must be GREEN ×2.
+6. **ESC-W11wk2-1: arm (i). This narrows §0gu.8.** A well lifts toward the scheme's default elevation (SS8-0440: in dark, ΔL > +0.015, kept). The direction flips, so the well moves away from the certified ink, only where the certified ink's polarity departs from the scheme's default ink. The case at hand is cream ink on a dark plate in the light scheme.
+   - On every well, the §0gk.2 referent law and the 4.5:1 floor hold.
+   - The `--well-bg` cure (`foundation.css`) and the `ink.ts:255` well model land in one commit family, so the model and the paint never diverge. The model is re-paired to the live `--well-bg` tint.
+   - Falsifiers: o18:808/:862 in both schemes ×2 in Chromium, plus darwin WebKit under `guarded --exclusive webkit`, with SS8-0440 kept GREEN ×2.
+7. **Unchanged, honest-RED and recorded only:**
+   - G9, the keyframes exact pin to 4.0.0, is O-117 for keyframes.js;
+   - G10, the production API, waits on the owner's VPN (§0gu.10);
+   - R11 rides §0gu.6 to glass W-G.5 and, in WebGPU form, O-112;
+   - w7 ×3 is glass O-106.
+   - G6 / `.dep` re-sits when e2e-smoke, visual and lhci (under 1) read GREEN at the tranche-u code tree.
+
+### §0gv.8 — 2026-10-29: the §0gu.10 host act, done over the owner's VPN
+- **Redeploy:** the host deploy hook ran at `/srv/constellation/palette-api`, from `6e14e90c9` to `bfe74d47f` (master, the 4.1.0 tree). The health gate passed on the second attempt, and the green marker is recorded. Public `https://api.color.babb.dev/health` reports `commit bfe74d47f…`, mongo ok, primary. G10 reads GREEN at master.
+- **Why push-to-deploy had stopped:** the cause was not the 404. GitHub posts to `/hooks/value.js`, and its last response was 200. But that hook still ran the pre-T.W1 path `scripts/deploy-hook.sh`, which no longer exists, so every master push since the T.W1 move redeployed nothing. `/hooks/value-js` was never a hook id, which is the only reason it answered 404.
+  - **Cure:** `hooks.json`'s `value.js` entry now runs `scripts/deploy/deploy-hook.sh`. The receiver hot-reloads. The previous file is backed up as `hooks.json.bak-x-w11-20261029`, with mode 0600 kept.
+  - **Checked:** an unsigned POST is refused with "Hook rules were not satisfied", so the HMAC rule still holds.
+  - **Effect:** `.dep`'s master merge now redeploys the API on the push.
+- **Still owed:** the ordinal migration. `967fde792`/`79509ce7a` and `migrate-ordinal-positions` are on tranche-u only. After `.dep`'s master push redeploys, the orchestrator runs the migration on the host: a dry run with its count report first, then the live run.
+- **Recorded, not touched:** `palette-api-backup-1` (mongo:8, healthy) belongs to the legacy compose project at `/home/mbabb/Programming/palette-api/compose.yaml`. The checkout's `api/compose.yaml` has no backup service, so compose names the container an orphan. It is left running, because it is the live backup. Moving backups into the tracked compose file, or into a host timer, is a follow-up row.
+- **Removed under the §0gi host delegation:** the `words`, `speedtest` and `csp-solver` hooks. They routed to the legacy `dispatch.sh` for sites that are retired; speedtest and csp-solver now run on Cloudflare. The receiver log showed csp-solver pushes still firing and failing on the deleted `/var/www/csp-solver`. Hot reload kept the removed ids, so `webhook.service` was restarted. Read afterwards: `value.js` and `fourier-analysis` refuse unsigned calls; the three removed ids answer 404 "Hook not found". The backup `hooks.json.bak-x-w11-20261029` holds the prior five.
+
+## §0gw — 2026-10-29: X-W11's sixth set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gv:
+- TBT is a warn on CI, and the real-GPU lhci cell read GREEN ×2 at `b3d5d73f0` (.tbt);
+- o10 hinting, drag-frame-budget on the GPU cell, and w12-dock staging, each GREEN ×2 (.v1g);
+- the §0gv.6 well with o18 both schemes ×2 in Chromium and SS8-0440 kept (.wk3);
+- visual goldens re-minted, all 68 attributed to the woff2; CI visual 216/216 ×2 (.vrb);
+- production API at master `bfe74d47f`, with the webhook cured (§0gv.8).
+
+Ruled:
+1. **ESC-W11dep-E2E-RED, family A (wall-clock bars on CI software raster):**
+   - **The bars:** eager-payload:377 (G3/G4 p75 TBT/LCP over N≥20 cold loads), od19-route-load:138 ×2 (content ≤ 2500 ms) and w12-drag:75.
+   - **The law:** §0fr.2/§0gp.2/§0gu.3/§0gv.1 applies to these bars completely. Each gates on the real-GPU cell ×2. On CI it asserts liveness only: content is reached, the hop completes, and frames advance. The number is logged.
+   - **What does not change:** the bars, and every deterministic leg stays hard on CI. That includes eager-payload's G2 gzip byte budget.
+   - **A RED on the GPU cell is a product cut.** Consumer-side causes are cured at their root. Producer-side causes are held on O-112/O-120/O-121, ADOPT-AT-LANDING.
+2. **ESC-W11dep-E2E-RED, family B (deterministic legs):** o11:272 (caption, light 390), o33:267 ×3 (the 0132 Tools wordmark), o21:287 (the rail's inverse map) and webgl-blob-idle:276 ×2 (hero blob chroma).
+   - Reproduce each ×2 in docker Linux Chromium, the CI engine, then cure at the root: product (`demo/**` granted) or harness.
+   - Contrast legs follow the §0gk.2 referent law and the 4.5:1 floor. A caption-only polarity flip is refused.
+   - A root that is a fact of the SwiftShader rasterizer must be shown with evidence (the same leg GREEN on the GPU cell, plus the readback that diverges). Only then may that leg move to the GPU cell. Without the evidence it is a defect.
+3. **ESC-W11wk3-1: arm (a).** Comparing a walked float target (5.75) against a paint realized on the 8-bit grid (5.73, less than one code value short) is the same sub-quantum, ill-posed comparison as §0gu.9.
+   - The walked-target legs compare against the contrast achieved by the nearest 8-bit realization of the walked colour.
+   - Nothing measurable is widened. The 4.5:1 floor and the walk's headroom stay as they are.
+4. **ESC-W11v1g-1: arm (a).** `demo/color-session/{ink,useContrastSafeColor}.ts` are granted to cut the cost of the ink certify walk (62 ms traced). Same result, less main-thread work, with o18 and SS8-0440 kept GREEN ×2. It lands in the same unit as 3, because they touch the same files.
+5. **R14-2, the GPU lhci cell NO_FCP ×3:** the discriminator showed this is the cell, not the bytes. Cure the cell's paint state at the harness, then re-read ×2 at the HEAD product tree.
+   - Aggregation stays LHCI's optimistic default, the same as CI.
+   - The cold first collect is recorded as the residual on O-112.
+6. **Hygiene:**
+   - The cold-run navigation race in `plate-mass.test.ts` is cured at its root by awaiting the navigation; no retries.
+   - The orphaned 69-line hunk in `demo/test/palettes/palette-card-layout.test.ts` (uncommitted since 2026-10-19, RED at :157) is ruled on by a seat. If it asserts the current contract and the product is wrong, cure the product and commit both. If it is stale, delete it and record why.
+   - The value.js INBOX gets SENT rows for O-103f (the D5 ruling) and O-121 (live-delivered 2026-10-29).
+7. **Unchanged, recorded only:**
+   - G9 (O-117);
+   - R11 o29:395 (W-G.5/O-112);
+   - w7 (O-106);
+   - R-vrb-1, the guard's browser-pool contention while WebKit runs queue, which is the owner's machine guard;
+   - the ordinal migration, the orchestrator's host act after `.dep`'s master push.
+
+## §0gx — 2026-10-30: X-W11's seventh set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gw:
+- family A: the three wall-clock bars gate on the GPU cell, CI liveness holds, and 0 family-A failures on CI;
+- the certify walk cut (12 guard calls → 2, same inks; `4883db23d` and its reference-walk lock are RATIFIED with the 30 s timeout of `a8b7e4224`, the D59 precedent);
+- o18 GREEN in both engines (ESC-W11wk3-1 cured);
+- the HeroBlob re-probe cut (open→h1 22985 → 5315 ms);
+- plate-mass, the stale orphan hunk, and the GPU lhci paint state.
+
+Ruled:
+1. **The lock contradiction: `value.js` adopts the producer-held manifest (`e2e/producer-held.json` plus an honest-red reporter), the form §0ew ruled for fourier.** §0gw.7 records o29:395 as honest-RED while §0go.1 needs e2e-smoke GREEN, and ADDENDUM sixth says any red is cured at its root. Together those can never be satisfied while the cure is the producer's and its vehicle is 11.0.0.
+   - **The test stays real and red.** There is no `test.fail()` and no skip; the G-6 ruling on that class stands. The report prints each held row red, with its O-id.
+   - **What fails the job:** any red not on the manifest. A held row reading GREEN does not fail the job, and it is printed as an adoption notice.
+   - **Admission is narrow.** A row must name one exact leg, an O-id that glass has acknowledged with a placed vehicle, a measured producer cause, and an expiry at that repin. A row with a consumer arm cannot be admitted. ADDENDUM sixth's ban on owner-held banking stands: this is the producer's cure, cited and expiring, and it is not a waiver.
+   - **Admitted at this ruling:** o29:395 (R11, glass W-G.5/O-112); webgl-blob-idle:276 ×2 (ESC-W11e2b-3 arm (a): O-105 plus the M-9 floor; `webgl-blob-idle` has no consumer arm that keeps M-9). o21:287 (ESC-W11e2b-2, O-122) is admitted once glass acknowledges its placement; O-122 was delivered live on 2026-10-30.
+   - **Consequence, stated plainly:** the deploy can ship with these known reds. Each is already in what production serves today, and none is new.
+2. **ESC-W11e2b-1 (o11:272, o33:267 ×3): arm (a). Arm (b) stays refused.** The software-tier CSS substrate ships to real users, so it is not a SwiftShader fact. §0gk.2 applies to the light arm.
+   - **The light referent becomes maximin.** The ink's polarity and depth are chosen to maximize the minimum contrast across the stops or band the ink actually sits over, where that region is known, instead of against the mean. A darkest-stop-only referent is refused, because `ink.ts:443-447` measured it failing over the pale stops.
+   - **A pair-wide polarity chosen by the real referent is allowed.** A caption-only flip stays refused. The 4.5:1 floor and the headroom constants do not move.
+   - **The dead band stays honest.** Where no ink of either polarity clears every stop (seed `oklch(0.66 0.16 28)`), maximin takes the best ink and the shortfall is reported as a row for the owner's design call. It is never hidden, and no surface is altered to hide it.
+   - Falsifiers: o11:272 and o33:267 ×3 ×2 in docker Linux Chromium and on the GPU cell; o18, SS8-0440 and the 5.64:1 live arm kept GREEN ×2.
+3. **ESC-W11close15-1 (GPU eager-payload G3 mobile-4x, p75 TBT 449 · 559 · 465 · 342) and D-5 (GPU lhci optimistic 101–1765): the load condition is ruled, and a cut is ordered as well.**
+   - **Load condition:** a real-GPU cell's wall-clock reading is valid only at a 1-minute load ≤ 12 at the start and end of each draw (18 cores; `guarded --cpu-cores 0`). The load is recorded per draw, and every draw is reported. A reading above that is invalid, not RED; wait at most 60 min, then record UNMEASURED-LOADED. This is the condition .e2a's GREEN and Repair 2's control stood on. The bars do not move.
+   - **The margin is not banked.** The control reads 297 at the gate's rank against 300 (D-7). Cut the consumer candidates: `$p` at `useContrastSafeColor.ts:605` and the `getAnimations` calls. Identity look and motion are unchanged. Probes import `percentile` from `frame-budget.ts`.
+   - **The dock mount:** if it is attributed to glass, a row is owed with the trace; O-122's probe already has its row.
+   - **GPU lhci:** discriminate harness from product first. The task over 1 s appears only under Lighthouse, so read its throttling mode and the same load-controlled page without Lighthouse. If it is an instrument cost, the seat states so with the discriminating read. Then cut, hold or re-rule, with the cold collect staying on O-112.
+   - **Neither of these two gates is a deploy precondition** (§0go.1 reads `ci.yml`). They hold the wave's close and not `.dep`.
+4. **Glass 10.1.3 repin: value.js adopts it first in this pass, exact, with lock integrity equal to the registry's.** It carries the dock-anchor cure (value O-114, glass O-110), and fourier's cells read GREEN on it (`3bb9da5`). It moves product bytes, so every later reading stands on it. A visual diff it causes is attributed and re-minted under §0gv.2's rules. A dock cell that goes red is relayed to glass with an A/B against 10.1.2.
+5. **Hygiene:** a seat deletes the uncited `close/evidence/browser/repair1-15-2026-10-30/boot-profile.mjs` and prunes `.worktrees/repair1-15-wt`, checking first that nothing is live. The next close rewrites the LEDGER G3 cell (D-11). Local `npm run lint` walking untracked `.worktrees/` stays a recorded local-only row.
+6. **The order:** repin → cures → push → read `ci.yml` → `.dep` when e2e-smoke (under 1), visual and lhci are GREEN → the host's ordinal migration (orchestrator) → close and fresh check. Honest-RED, recorded only: G9 (O-117), w7 (O-106), R-vrb-1.
+
+## §0gy — 2026-10-30: X-W11's eighth set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gx:
+- glass 10.1.3 repinned (O-114 press seat holds; 0 visual diffs from the repin);
+- the producer-held manifest (`.hld`, discharged at Check 2);
+- the maximin referent on the plate pair (o11:272 GREEN on both cells; o33 hue 60 GREEN);
+- G3 mobile-4x GREEN ×2 at valid load (263, 235) after the `.cut` cuts.
+
+Ruled:
+1. **ESC-W11ref-1 (o33:267, hues 0 and 300): arm (a). This is an instrument correction.** The oracle compares the wordmark's ink with one plate pixel at the dock's left edge (d.x+6), 168 px from the glyphs. §0gk.2 certifies ink against the real backdrop it sits on.
+   - The oracle samples the plate under the wordmark's own box, with glyph pixels masked out, and certifies against the worst sample in that region. Taking the worst sample makes the check stricter on the real ground, never looser.
+   - The 4.5:1 floor is unchanged.
+   - Falsifiers: o33:267 ×3 ×2 in docker Linux Chromium and on the GPU cell. If a hue then reads under 4.5 on its real ground, that is a product defect for `.ref`'s law, and a dead-band shortfall goes to the owner as a design row. It is not admitted to the manifest, because it has no glass O-id.
+   - Arm (c), white, is refused: it measured 3.16–4.31 on the real ground.
+2. **`.ref`'s scope call is RATIFIED, and `8573b45ca`'s edits are ratified within §0bt.** Maximin governs the neutral text inks: the plate pair (primary and muted, resting and floating) and the band's voice. Gold, destructive, accent and modal inks carry identity hues. Those are owner design rulings and are never neutralized (fourier UIA-F-172), so they keep their hue law and the mean ambient, under the 4.5:1 floor that o18 already certifies.
+   - **New, owed:** `.ref`'s grid reads the default seed's component-name ink at 4.14 on the GPU cell, and no oracle reads it. An oracle-grade read of that leg on both cells is owed. If it is under 4.5, it is a root cure inside `.ref`'s bounds, and the leg joins o18.
+3. **ESC-W11ref-2: the re-mint is granted** on `e2e/visual/**` and `docs/tranches/X/evidence/w1/visual/MANIFEST.json`, under §0gv.2's rules, after items 1, 2 and 5 have landed (they move light paint).
+   - Each re-minted cell is attributed by a counterfactual: revert the referent commit, and the cell must match the old golden.
+   - `keyboard-focus-desktop` (gradient) is intermittent on both trees, so it is not minted. Its intermittency is a defect cured at its root, at the gradient's settle. A flake is never baked into a golden.
+4. **N1 (gradient.spec.ts:614): granted under the `511968c02` idiom.** A dated census addendum of the gradient-aurora ask at glass 10.1.3 sits beside the immutable letter, plus one oracle list line. Re-run the census, then record it; never copy it forward.
+5. **N2 (SS8-0363 light regression, 'more' 9.943 against 'normal' 12.1007; GREEN at `9d2d8f0db`):** bisect over `.g13`, `.ref` and `.cut`, then cure at the root inside the owning unit's bounds, with the oracle unchanged.
+6. **ESC-W11cut-1 (GPU lhci): arm (b). The cell uses one GPU witness binary.** The lhci GPU cell runs the same binary as `e2e/smoke/perf/real-gpu.ts` (Chrome 156, ANGLE Metal; the named-witness need is cited in the file), so every value.js GPU cell reads with one instrument.
+   - The browser version is recorded in every reading, so a host auto-update shows in the record rather than silently.
+   - The Chrome for Testing 148 stall is real and in glass's path. It is recorded on O-123, which was delivered live on 2026-10-30, and the row expires at glass's sampler cure. No gate hides it: O-123 carries the 148 reading as its own evidence.
+   - The §0gx.3 load condition stands. This gate holds the close, not `.dep`.
+7. **`.hld`'s question: the o21:287 admission stands.** A consumer cache of glass's tier answer across documents (for example in sessionStorage) would move glass's tier ownership into the consumer to dodge a producer cost, and the first document would still probe. That is a workaround; it is refused. The existing conditional `test.skip` at `o3-headed-gpu-probe.spec.ts:47` is a capability guard: a headed-GPU probe has no subject on software GL. It is not a hidden red, so §0gx.1 leaves it as it is.
+8. **R16-9:** `.cut`'s two cuts each get a unit lock that asserts the same result before and after, and the mutant is run. `useDockArrival:121` and `useOverture:190/:240` are not cut, because G3 reads GREEN without them.
+9. **ESC-W11g13-1:** no glass relay row. The A/B shows o33 identical on 10.1.2, so 10.1.3 did not regress it.
+10. **Owner design rows, recorded and not acted on:** the light dead band. Seed `oklch(0.66 0.16 28)` reaches 3.59 at its worst over all four stops; its live caption reads 4.68 in docker and 4.77 on the GPU cell. 10 of the 14 field seeds fall short over all four stops in the model (3.09–3.60). These go to the owner, and no surface is altered to hide them.
+11. **The order:** items 1, 2, 4, 5 and 8 in parallel → 3 (re-mint) → push → read `ci.yml` at one HEAD → `.dep` → the host's ordinal migration (orchestrator) → close (rewrite `FINAL.md`, `OWNER-REPORT.md` and the LEDGER G3 cell) and a fresh check. Honest-RED: G9 (O-117), w7 (O-106), R-vrb-1, and the manifest's rows.

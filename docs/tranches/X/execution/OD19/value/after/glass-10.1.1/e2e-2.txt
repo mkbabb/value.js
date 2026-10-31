@@ -1,0 +1,254 @@
+(node:54739) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:54778) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 18 tests using 1 worker
+
+[1A[2K(node:54794) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/18] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+{"width":1440,"frames":168,"morphingFrames":0,"hostTransformFrames":0,"compounded":0,"settles":[{"t":60,"morphing":false,"onHost":false,"seat":"trigger"},{"t":60,"morphing":false,"onHost":false,"seat":"seal"}],"drift":0}
+
+[1A[2K[2/18] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+{"width":390,"frames":257,"morphingFrames":0,"hostTransformFrames":0,"compounded":0,"settles":[{"t":34,"morphing":false,"onHost":false,"seat":"trigger"},{"t":34,"morphing":false,"onHost":false,"seat":"seal"}],"drift":0}
+
+[1A[2K[3/18] [smoke] › e2e/smoke/oracles/v7r-overlay-layer.spec.ts:50:5 › V7R-01 · a menu over the stage paints on top › the Browse card's palette menu at 1440
+[1A[2K[4/18] [smoke] › e2e/smoke/oracles/v7r-overlay-layer.spec.ts:60:5 › V7R-01 · a menu over the stage paints on top › the dock's overflow menu at 390, over the picker
+[1A[2K[5/18] [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors
+[1A[2K[6/18] [smoke] › e2e/smoke/page-load.spec.ts:73:1 › an unknown address announces its destination and is distinct from home
+[1A[2K[7/18] [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 1440
+[1A[2K[8/18] [smoke] › e2e/smoke/page-load.spec.ts:109:5 › OD19-V4: titled route → Home holds the pane row at 390
+[1A[2K[9/18] [smoke] › e2e/smoke/page-load.spec.ts:135:1 › OD19-V6: the pane-loading plate is wordless and named on its status
+[1A[2K[10/18] [smoke] › e2e/smoke/page-load.spec.ts:164:1 › OD19-V8: the channel rail carries one hairline
+[1A[2K[11/18] [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light)
+[1A[2K[smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (light)
+SS8-0408 light {"peak":1.2920609404767849,"trough":1.164939365286351}
+
+[1A[2K[12/18] [smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark)
+[1A[2K[smoke] › e2e/smoke/ss8-b14-skeleton-ink.spec.ts:79:5 › SS8-0408 · the loading plate's ink holds 1.1:1 over its well (dark)
+SS8-0408 dark {"peak":1.44685267172869,"trough":1.190572857673939}
+
+[1A[2K[13/18] [smoke] › e2e/smoke/w12-dock.spec.ts:109:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:109:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius
+[
+ {
+  "name": "Login",
+  "classes": "dock-tab-button glass-specular-track gap-1.5 text-small font-display",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 38,
+  "radii": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "hover": "rgba(0, 0, 0, 0)"
+ },
+ {
+  "name": "@mbabb",
+  "classes": "menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 22.96875,
+  "radii": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "hover": "rgba(0, 0, 0, 0)"
+ }
+]
+
+[1A[2K  1) [smoke] › e2e/smoke/w12-dock.spec.ts:109:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius 
+
+    Error: Login hover plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mcolor(srgb 0.0927547 0.0503523 0.00879371 / 0.18[27m)"[39m
+    Received: [31m"[7mrgba(0, 0, 0, 0[27m)"[39m
+
+      141 |             // dock trigger's rest plate, hover = the resolved token
+      142 |             expect(r.rest, `${r.name} rest plate`).toBe(r.reference);
+    > 143 |             expect(r.hover, `${r.name} hover plate`).toBe(r.hoverToken);
+          |                                                      ^
+      144 |             // a stadium: every corner radius ≥ height / 2
+      145 |             for (const rad of r.radii) expect(rad, `${r.name} radius vs h/2=${r.height / 2}`).toBeGreaterThanOrEqual(r.height / 2);
+      146 |         }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-dock.spec.ts:143:54
+
+    Error Context: test-results/w12-dock-X-W12-e-—-the-doc-ec2a1--plate-and-a-stadium-radius-smoke/error-context.md
+
+
+[1A[2K(node:56217) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[14/18] [smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "action-sub-layer",
+ "before": "|",
+ "during": "|oklch(73% 0.185 2deg)",
+ "after": "|",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSAnimation:input-mode-flash",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(border-bottom-color)",
+  "element:CSSTransition:transition(border-left-color)",
+  "element:CSSTransition:transition(border-right-color)",
+  "element:CSSTransition:transition(border-top-color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)",
+  "element:CSSTransition:transition(transform)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[15/18] [smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "tools-action-bar",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|oklch(73% 0.185 2deg)",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[16/18] [smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "login-slug-edit",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(backdrop-filter)",
+  "element:CSSTransition:transition(box-shadow)",
+  "element:CSSTransition:transition(opacity)"
+ ],
+ "consumer": []
+}
+
+[1A[2K[17/18] [smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+{
+ "switch": "mobile-edit",
+ "before": "|Tools Login  @mbabb",
+ "during": "|→",
+ "after": "|W12e seed Login  @mbabb",
+ "faces": 5,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--accent-view)",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(border-bottom-left-radius)",
+  "element:CSSTransition:transition(border-bottom-right-radius)",
+  "element:CSSTransition:transition(border-top-left-radius)",
+  "element:CSSTransition:transition(border-top-right-radius)",
+  "element:CSSTransition:transition(opacity)"
+ ],
+ "consumer": []
+}
+
+[1A[2K  2) [smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"|[7mTools[27m Login  @mbabb"[39m
+    Received: [31m"|[7mW12e seed[27m Login  @mbabb"[39m
+
+      352 |             expect(faces, "faces ride glass's DockCrossfade").toBeGreaterThanOrEqual(2);
+      353 |             expect(during).not.toBe(before);
+    > 354 |             expect(after).toBe(before);
+          |                           ^
+      355 |             expect(consumer, "no consumer @keyframes on a dock layer switch").toEqual([]);
+      356 |         });
+      357 |     }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-dock.spec.ts:354:27
+
+    Error Context: test-results/w12-dock-X-W12-e-—-the-doc-95448--no-consumer-keyframes-WebM-smoke/error-context.md
+
+
+[1A[2K(node:57861) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[18/18] [smoke] › e2e/smoke/w12-dock.spec.ts:359:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census
+[1A[2K[smoke] › e2e/smoke/w12-dock.spec.ts:359:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census
+{
+ "focusVisible": true,
+ "frames": {
+  "rest": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "hover": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "selected": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "focus-visible": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ]
+ }
+}
+
+[1A[2K  2 failed
+    [smoke] › e2e/smoke/w12-dock.spec.ts:109:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius 
+    [smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM 
+  16 passed (1.3m)

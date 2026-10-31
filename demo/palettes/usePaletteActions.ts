@@ -38,7 +38,7 @@ export function usePaletteActions(deps: {
     }
 
     async function onPublish(palette: Palette): Promise<{ success: boolean; message: string }> {
-        // X.W7.d (G10 · N_colors = 51 · N-14): the server's bounds are refused
+        // X.W7.d (G10 · N_colors = 51): the server's bounds are refused
         // here, in words, before any request — never a relayed zod string.
         const preflight = preflightColors(palette.colors);
         if (!preflight.ok) return { success: false, message: preflight.message };

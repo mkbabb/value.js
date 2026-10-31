@@ -132,6 +132,28 @@ const {
     onAppeared?: (el: Element | null) => void;
 }>();
 
+// X.W11.p4c (COHESION §0go.2(a), ESC-W11p4b-1) — THE FIRST DOCUMENT LOAD PAINTS
+// FROM THE SHELL. Vue's SSR compiler wraps the children of any <Transition>
+// that carries an `appear` attribute — static or bound, even bound to false —
+// in `<template>` (compiler-ssr `ssrProcessTransition`), so that hydration can
+// run the appear hooks on them. A `<template>`'s content is inert: the
+// prerendered panes painted nothing until the app had loaded and hydrated, and
+// the LCP was the whole boot graph (measured, `.p4b` act 8). The appear
+// grammar is therefore bound only on the client. The SSR markup is the pane
+// itself, hydrated in place with no appear hooks; its first-load arrival is the
+// transform-only settle the overture sheet runs from the first frame
+// (`overture-shell-settle`, boot/overture.css). A client-rendered first view
+// still mounts through the full appear grammar below, and route changes keep
+// the vj-enter family, both unchanged.
+const appearGrammar = import.meta.env.SSR
+    ? {}
+    : {
+          appear,
+          appearFromClass: "overture-appear-from",
+          appearActiveClass: "overture-appear-active",
+          appearToClass: "overture-appear-to",
+      };
+
 // W3-4 (S.W3 · pane-swap payload): the rendered triplet TRAILS the incoming
 // props by one animation frame on a KEY change (a real pane swap), so the
 // click frame paints nothing but the input's own feedback. X.W5.d2 (P-2, kept
@@ -333,10 +355,7 @@ onBeforeUnmount(() => {
         v-if="arrived"
         :name="transitionName"
         mode="out-in"
-        :appear="appear"
-        appear-from-class="overture-appear-from"
-        appear-active-class="overture-appear-active"
-        appear-to-class="overture-appear-to"
+        v-bind="appearGrammar"
         @before-enter="showEntering"
         @before-leave="hideLeaving"
         @after-appear="settleAppear"

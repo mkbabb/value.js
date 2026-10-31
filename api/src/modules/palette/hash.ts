@@ -6,7 +6,7 @@ import type { PaletteColor } from "./model.js";
 // ---------------------------------------------------------------
 
 /** The domain under which palette CONTENT is hashed (`payloadHash`). */
-const PAYLOAD_DOMAIN = "value.js/palette/payload/v1";
+const PAYLOAD_DOMAIN = "value.js/palette/payload/v2";
 
 /** The domain under which a RELEASE EVENT is hashed (`palette_versions._id`). */
 const RELEASE_DOMAIN = "value.js/palette/release/v1";
@@ -53,8 +53,12 @@ const frameRef = (domain: string, value: string | null): Buffer =>
 
 /**
  * Compute a palette's **payload hash** — the deterministic identity of WHAT a
- * palette IS: its name and the full content of every color stop, including
- * each stop's human-readable `name`.
+ * palette IS. COHESION §0gt.5 (PCS-3/PCS-11) rules it: **the ordered colours
+ * ONLY** — each colour's `css`, in palette order. The palette's `name`, a
+ * colour's `name`, its `weight` (descriptive metadata) and its `position`
+ * (the ordinal, which the frame order already states) are not identity, so
+ * Generate and Extract producing the same colours in the same order hash
+ * identically.
  *
  * This is the value stored as `PaletteVersion.payloadHash` and as
  * `Palette.currentHash`. It is deliberately NOT the version row's `_id`:
@@ -62,29 +66,15 @@ const frameRef = (domain: string, value: string | null): Buffer =>
  * which made every version row a content-addressed door between palettes —
  * the defect G-6 closes. Release identity is `computeReleaseHash` below.
  *
- * Framing is `domain ‖ 0x00 ‖ uint64be(len) ‖ bytes` per field (see `frame`).
- * Normalization: `name` and `css` are trimmed + lower-cased (the palette
- * layer's long-standing case-insensitive identity, matching `computeAtomHash`);
- * `position` is quantized to 1e-6 and rendered canonically.
+ * Framing is `domain ‖ 0x00 ‖ uint64be(len) ‖ bytes` per field (see `frame`):
+ * the colour count, then each `css` trimmed + lower-cased (the palette layer's
+ * long-standing case-insensitive identity, matching `computeAtomHash`).
  */
-export function computeContentHash(name: string, colors: PaletteColor[]): string {
+export function computeContentHash(colors: readonly PaletteColor[]): string {
     const h = createHash("sha256");
-    h.update(frameText(PAYLOAD_DOMAIN, name.trim().toLowerCase()));
     h.update(frameUInt64(`${PAYLOAD_DOMAIN}#colors`, colors.length));
     for (const c of colors) {
         h.update(frameText(`${PAYLOAD_DOMAIN}#color/css`, c.css.trim().toLowerCase()));
-        h.update(
-            frameText(
-                `${PAYLOAD_DOMAIN}#color/name`,
-                (c.name ?? "").trim().toLowerCase(),
-            ),
-        );
-        h.update(
-            frameText(
-                `${PAYLOAD_DOMAIN}#color/position`,
-                String(Math.round(c.position * 1e6) / 1e6),
-            ),
-        );
     }
     return h.digest("hex");
 }
@@ -143,18 +133,21 @@ export function computeAtomHash(atom: PaletteColor): string {
 }
 
 /**
- * Order-independent set-hash over a palette's per-atom hashes, keyed by
- * position. Two palettes carrying the same atoms in ANY array order produce
- * the same set-hash — the atom-layer dedup fingerprint.
+ * Set-hash over a palette's per-atom hashes, keyed by `position`. Since
+ * §0gt.5 `position` is the colour's 0-based ordinal (the wire refuses any
+ * other encoding), so the key is the palette order: two palettes with the
+ * same atoms in the same order produce the same set-hash whichever producer
+ * (Generate, Extract, …) wrote them — the atom-layer dedup fingerprint.
+ * `weight` is not part of an atom (`computeAtomHash` reads `css` + `name`).
  *
- * Distinct from `computeContentHash`, which folds `name` into the palette
- * identity; the set-hash is the COLORS-ONLY identity. It is emitted on the
- * palette envelope as `atomSetHash` (the dedup hint). (The `/diff` read + the
- * atom-diff algebra that once also consumed it were excised at T.W1 — TA-4.)
+ * Distinct from `computeContentHash` (the ordered `css` only); the set-hash
+ * also folds each atom's `name`. It is emitted on the palette envelope as
+ * `atomSetHash` (the dedup hint). (The `/diff` read + the atom-diff algebra
+ * that once also consumed it were excised at T.W1 — TA-4.)
  */
 export function computeAtomSetHash(atoms: PaletteColor[]): string {
     const entries = atoms
-        .map((a) => `${Math.round(a.position * 1e6) / 1e6}:${computeAtomHash(a)}`)
+        .map((a) => `${a.position}:${computeAtomHash(a)}`)
         .sort();
     return createHash("sha256").update(entries.join("|")).digest("hex");
 }

@@ -1,0 +1,1457 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/oracles/o18-contrast-census.spec.ts",
+      "file": "smoke/oracles/o18-contrast-census.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "O-18 U-F26 accent-view leg (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 561,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1916,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:44:51.504Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-286258838a4c56171e84",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 564,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 U-F26 accent-view leg (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 561,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 825,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:44:53.591Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-07226b0658fcf3b59128",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 564,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 730,
+          "column": 10,
+          "specs": [
+            {
+              "title": "menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1811,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:44:54.422Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-a4026fb28e00d98b55b7",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 733,
+              "column": 9
+            },
+            {
+              "title": "graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 793,
+                      "error": {
+                        "message": "Error: resting node ink rgb(254 250 247) vs rgb(122 120 119)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.21\u001b[39m",
+                        "stack": "Error: resting node ink rgb(254 250 247) vs rgb(122 120 119)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.21\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:826:15",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                          "column": 15,
+                          "line": 826
+                        },
+                        "snippet": "  824 |                 resting!.ratio,\n  825 |                 `resting node ink ${resting!.ink} vs ${resting!.ground}`,\n> 826 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);\n      |               ^\n  827 |\n  828 |             // Hovered: the fill goes live-colored and the ink derives from\n  829 |             // the FILL (contrastInkFor — WCAG-maximal, a pass by construction)."
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                            "column": 15,
+                            "line": 826
+                          },
+                          "message": "Error: resting node ink rgb(254 250 247) vs rgb(122 120 119)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.21\u001b[39m\n\n  824 |                 resting!.ratio,\n  825 |                 `resting node ink ${resting!.ink} vs ${resting!.ground}`,\n> 826 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);\n      |               ^\n  827 |\n  828 |             // Hovered: the fill goes live-colored and the ink derives from\n  829 |             // the FILL (contrastInkFor — WCAG-maximal, a pass by construction).\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:826:15"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:44:56.238Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/test-results/o18-contrast-census-O-18-c-27e88--fill-derived-ink-together--oracles-safari/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                        "column": 15,
+                        "line": 826
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-84e0e5baf2e08338cf49",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 808,
+              "column": 9
+            },
+            {
+              "title": "markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1024,
+                      "error": {
+                        "message": "Error: code ink rgb(255 249 247) vs rgb(122 120 119)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.19\u001b[39m",
+                        "stack": "Error: code ink rgb(255 249 247) vs rgb(122 120 119)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.19\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:892:19",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                          "column": 19,
+                          "line": 892
+                        },
+                        "snippet": "  890 |                     code.ratio,\n  891 |                     `code ink ${code.ink} vs ${code.ground}`,\n> 892 |                 ).toBeGreaterThanOrEqual(TEXT_FLOOR);\n      |                   ^\n  893 |             }\n  894 |         });\n  895 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                            "column": 19,
+                            "line": 892
+                          },
+                          "message": "Error: code ink rgb(255 249 247) vs rgb(122 120 119)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.19\u001b[39m\n\n  890 |                     code.ratio,\n  891 |                     `code ink ${code.ink} vs ${code.ground}`,\n> 892 |                 ).toBeGreaterThanOrEqual(TEXT_FLOOR);\n      |                   ^\n  893 |             }\n  894 |         });\n  895 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:892:19"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:44:57.413Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/test-results/o18-contrast-census-O-18-c-7bb5c-he-rung-1-plate-h-gaps-G-2--oracles-safari/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                        "column": 19,
+                        "line": 892
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-7624c39e6c8cc94e4b2b",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 862,
+              "column": 9
+            },
+            {
+              "title": "the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 817,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:44:58.954Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-32fc51add2c768588756",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 896,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 730,
+          "column": 10,
+          "specs": [
+            {
+              "title": "menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1212,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:44:59.921Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-7fc8047f6dddbb4b566f",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 733,
+              "column": 9
+            },
+            {
+              "title": "graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1672,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:01.138Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-77313c0a771abec5a52c",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 808,
+              "column": 9
+            },
+            {
+              "title": "markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 808,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:02.815Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-f6569f18cf66c23ca854",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 862,
+              "column": 9
+            },
+            {
+              "title": "the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 578,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:03.627Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-baa61bdd79286fe861c3",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 896,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 W4 rows (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 987,
+          "column": 10,
+          "specs": [
+            {
+              "title": "readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 635,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:04.209Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-d73bdd821e31d694ed45",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 990,
+              "column": 9
+            },
+            {
+              "title": "the channel letters ≥4.5:1 on the console well (rest rung)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1158,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:04.847Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-ad1de64e72ffa71f2763",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1008,
+              "column": 9
+            },
+            {
+              "title": "ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 623,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:06.010Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-dafbe09e58c32514dcf6",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1034,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 W4 rows (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 987,
+          "column": 10,
+          "specs": [
+            {
+              "title": "readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 605,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:06.638Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-b77fe3edcf7fb3731c63",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 990,
+              "column": 9
+            },
+            {
+              "title": "the channel letters ≥4.5:1 on the console well (rest rung)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1137,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:07.248Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-983d44406a1c1182a28f",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1008,
+              "column": 9
+            },
+            {
+              "title": "ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 545,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:08.389Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-f3d22049e75b7172ea9d",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1034,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 W6.5 legs (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1085,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 558,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:08.938Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-b2865828036208ad9fae",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1088,
+              "column": 9
+            },
+            {
+              "title": "the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1503,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:09.499Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-e8a0b80f63d81059d8ba",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1147,
+              "column": 9
+            },
+            {
+              "title": "the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 745,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:11.006Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-632e1e89bdd9671dd99c",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1191,
+              "column": 9
+            },
+            {
+              "title": "the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 · WCAG 1.4.11)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 606,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:11.754Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-8bf6c59b8248861973b4",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1260,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 W6.5 legs (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1085,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 613,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:12.366Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-738b9175ff36711e93ff",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1088,
+              "column": 9
+            },
+            {
+              "title": "the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1798,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:12.984Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-4f900d777a2c6d19d9bb",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1147,
+              "column": 9
+            },
+            {
+              "title": "the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 728,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:14.786Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-100d763758d474f61d46",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1191,
+              "column": 9
+            },
+            {
+              "title": "the GRAPHICS leg — Generate's count range ≥3:1 on its ground (EC-16 · WCAG 1.4.11)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 616,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:15.518Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-66ef0b60687d9645aec1",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1260,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 config-track graphics leg (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1305,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 589,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:16.139Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-40bcb335c339e2c055a0",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1308,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 config-track graphics leg (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1305,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 568,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:16.731Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-a417edd3df499245cfc5",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1308,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · R27 blind rows (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1420,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the admin pill — the ONE ink that bypasses certification (A-1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1380,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:17.303Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-0cdfdb0ce35b95fd2f46",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1423,
+              "column": 9
+            },
+            {
+              "title": "the profile menu ROW LABELS — the unguarded population, over live content (N-3)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1367,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:18.686Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-a6e3ef14401ed88f5d2b",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1475,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · R27 blind rows (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1420,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the admin pill — the ONE ink that bypasses certification (A-1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1279,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:20.057Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-e862007e735a2eb224e6",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1423,
+              "column": 9
+            },
+            {
+              "title": "the profile menu ROW LABELS — the unguarded population, over live content (N-3)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1383,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:21.340Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-58be315d077bf2ba4638",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1475,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · V15-01 the featured badge (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1569,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 852,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:22.727Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-359a4e3f8df394104982",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1572,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · V15-01 the featured badge (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1569,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "oracles-safari",
+                  "projectName": "oracles-safari",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1003,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-29T13:45:23.583Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "59a80bb952c87053e0df-82002c7daee719b728bd",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1572,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-29T13:44:45.239Z",
+    "duration": 39420.657,
+    "expected": 30,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

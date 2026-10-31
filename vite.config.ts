@@ -141,38 +141,74 @@ const defaultOptions = {
 // HTML transform no longer rides inside a browser module and this config no
 // longer reaches across the demo's boundary to import one.
 
-// X.W11.h7b (COHESION §0gl.10 · DISPOSITION §8 E7 / O28-114): THE SEEDED
-// PRE-PAINT GROUND. The boot script in `index.html` paints the ground before
-// any module runs, and for a `#/?color=` share link it must paint the SAME
-// calibrated ground the app's sink lands on. It cannot import, so this plugin
-// bundles the one source module (`boot/seeded-ground.ts`, the pure derive
-// `useAtmosphere` itself calls) as an IIFE through Vite's own build and writes
-// it in place of the `__GROUND_SEEDED_RESOLVER__` token. Never a hand copy:
-// the bytes the boot runs are the module's bytes.
+// X.W11.h7b (COHESION §0gl.10 · DISPOSITION §8 E7 / O28-114) · X.W11.p4b
+// (§0gn.2(b)): THE SEEDED PRE-PAINT GROUND. The boot script in `index.html`
+// paints the ground before any module runs, and for a `#/?color=` share link
+// it must paint the SAME calibrated ground the app's sink lands on. It cannot
+// import, so this plugin bundles the one source module
+// (`boot/seeded-ground.ts`, the pure derive `useAtmosphere` itself calls)
+// through Vite's own build, TWICE, from the same bytes:
 //
-// `moduleSideEffects: false` keeps only what the derive reaches: the
+//   · `__GROUND_URL_SEED__` — inline, every document: the module's
+//     `parseUrlSeed` alone (`__vjsUrlSeed`), the share-link reader hydrate
+//     also reads with. A few hundred bytes.
+//   · `__GROUND_SEEDED_DERIVE_SRC__` — the URL of the whole module as a
+//     classic IIFE (`__vjsSeededGround`): a hashed asset in build, a served
+//     path in dev. The boot writes it in parser-blocking ONLY when the URL
+//     carries a seed, so the derive and the producer graph it reaches (~59 KB
+//     gz, most of it glass shader source in the `deriveAurora` chunk, glass
+//     O-107) never ride an unseeded document, while a share link still paints
+//     its seeded ground in the first frame.
+//
+// Never a hand copy: the bytes the boot runs are the module's bytes.
+// `moduleSideEffects: false` keeps only what each entry reaches: the
 // producer's aurora chunk imports Vue at its top level for its components,
-// which a pre-paint derive never runs. In serve the bundle is cached and
-// dropped when any module it was built from changes.
+// which a pre-paint derive never runs. In serve both bundles are cached and
+// dropped when any module they were built from changes.
 const SEEDED_GROUND_ENTRY = path.resolve(
     import.meta.dirname,
     "demo/app/composables/boot/seeded-ground.ts",
 );
+/**
+ * The URL-seed entry: `seeded-ground.ts`'s `parseUrlSeed`, re-exported (no
+ * second source). Lib mode resolves `lib.entry` against the root, so the
+ * entry plugin matches the id's tail and serves it as a `\0` virtual module.
+ */
+const URL_SEED_ENTRY = "virtual:vjs-seeded-ground-url-seed";
+const URL_SEED_ID = "\0vjs-seeded-ground-url-seed";
+/** The derive asset's name (build: `assets/seeded-ground-[hash].js`) and dev path. */
+const SEEDED_DERIVE_ASSET = "seeded-ground.js";
+const SEEDED_DERIVE_DEV_PATH = "/@vjs/seeded-ground.js";
 
-async function bundleSeededGround(): Promise<{ code: string; ids: Set<string> }> {
+type SeededBundle = { code: string; ids: Set<string> };
+
+async function bundleSeededGround(part: "url-seed" | "derive"): Promise<SeededBundle> {
+    const urlSeed = part === "url-seed";
     const result = await build({
         configFile: false,
         logLevel: "warn",
         publicDir: false,
         resolve: { alias: valueJsSelfAlias },
+        plugins: urlSeed
+            ? [
+                  {
+                      name: "value-js:seeded-ground-url-seed-entry",
+                      resolveId: (id) => (id.endsWith(URL_SEED_ENTRY) ? URL_SEED_ID : undefined),
+                      load: (id) =>
+                          id === URL_SEED_ID
+                              ? `export { parseUrlSeed } from ${JSON.stringify(SEEDED_GROUND_ENTRY)};`
+                              : undefined,
+                  },
+              ]
+            : [],
         build: {
             write: false,
             minify: true,
             emptyOutDir: false,
             lib: {
-                entry: SEEDED_GROUND_ENTRY,
+                entry: urlSeed ? URL_SEED_ENTRY : SEEDED_GROUND_ENTRY,
                 formats: ["iife"],
-                name: "__vjsSeededGround",
+                name: urlSeed ? "__vjsUrlSeed" : "__vjsSeededGround",
             },
             rolldownOptions: { treeshake: { moduleSideEffects: false } },
         },
@@ -181,26 +217,74 @@ async function bundleSeededGround(): Promise<{ code: string; ids: Set<string> }>
         .flat()
         .flatMap((output) => ("output" in output ? output.output : []))
         .find((file) => file.type === "chunk" && file.isEntry);
-    if (chunk?.type !== "chunk") throw new Error("[seeded-ground] the IIFE build emitted no entry chunk");
-    // A literal `</script` inside the bundle would close the inline element.
-    const code = chunk.code.replaceAll("</script", "<\\/script");
+    if (chunk?.type !== "chunk") throw new Error(`[seeded-ground] the ${part} IIFE build emitted no entry chunk`);
+    // A literal `</script` inside the inline bundle would close its element.
+    const code = urlSeed ? chunk.code.replaceAll("</script", "<\\/script") : chunk.code;
     return { code, ids: new Set(chunk.moduleIds) };
 }
 
 function seededGroundInline(): Plugin {
-    let cached: ReturnType<typeof bundleSeededGround> | undefined;
+    const cached: Partial<Record<"url-seed" | "derive", Promise<SeededBundle>>> = {};
+    const bundle = (part: "url-seed" | "derive") => (cached[part] ??= bundleSeededGround(part));
+    // Only the demo's client build carries the boot HTML: the library build
+    // (`lib`) and the shell prerender (`ssr`) emit no derive asset.
+    let isAppBuild = false;
+    let base = "/";
     return {
         name: "value-js:seeded-ground-inline",
+        configResolved(config) {
+            isAppBuild = config.command === "build" && !config.build.lib && !config.build.ssr;
+            base = config.base || "/";
+        },
         configureServer(server) {
             server.watcher.on("change", async (file) => {
-                if (cached && (await cached).ids.has(path.resolve(file))) cached = undefined;
+                for (const part of ["url-seed", "derive"] as const) {
+                    const entry = cached[part];
+                    if (entry && (await entry).ids.has(path.resolve(file))) delete cached[part];
+                }
+            });
+            server.middlewares.use(SEEDED_DERIVE_DEV_PATH, (_req, res, next) => {
+                bundle("derive").then(({ code }) => {
+                    res.setHeader("Content-Type", "text/javascript");
+                    res.setHeader("Cache-Control", "no-cache");
+                    res.end(code);
+                }, next);
             });
         },
-        async transformIndexHtml(html) {
-            if (!html.includes("__GROUND_SEEDED_RESOLVER__")) return html;
-            cached ??= bundleSeededGround();
-            const { code } = await cached;
-            return html.replace("__GROUND_SEEDED_RESOLVER__", () => code);
+        // Both IIFEs are built before the client build transforms anything:
+        // a nested build() started inside the outer build's render phase
+        // failed it intermittently on CI ("Build failed" at "rendering
+        // chunks", run 39589948974 lhci), so render only emits finished code.
+        async buildStart() {
+            if (isAppBuild) await Promise.all([bundle("url-seed"), bundle("derive")]);
+        },
+        async renderStart() {
+            if (!isAppBuild) return;
+            this.emitFile({
+                type: "asset",
+                name: SEEDED_DERIVE_ASSET,
+                source: (await bundle("derive")).code,
+            });
+        },
+        transformIndexHtml: {
+            order: "post",
+            async handler(html, ctx) {
+                if (!html.includes("__GROUND_URL_SEED__")) return html;
+                let src = SEEDED_DERIVE_DEV_PATH;
+                if (isAppBuild) {
+                    const asset = Object.values(ctx.bundle ?? {}).find(
+                        (out) =>
+                            out.type === "asset" &&
+                            (out.name === SEEDED_DERIVE_ASSET || out.names?.includes(SEEDED_DERIVE_ASSET)),
+                    );
+                    if (!asset) throw new Error("[seeded-ground] the derive asset was not emitted");
+                    src = base + asset.fileName;
+                }
+                const { code } = await bundle("url-seed");
+                return html
+                    .replace("__GROUND_URL_SEED__", () => code)
+                    .replace("__GROUND_SEEDED_DERIVE_SRC__", () => src);
+            },
         },
     };
 }

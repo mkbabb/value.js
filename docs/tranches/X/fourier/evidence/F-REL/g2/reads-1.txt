@@ -1,0 +1,44 @@
+SERVED MODEL: claude-opus-5-5
+# F-REL.g2 static reads (2026-10-27, seat claude-opus-5-5). Quote-by-command.
+
+⟨git fetch; git rev-parse --short origin/master; git rev-parse origin/m/w1-bump-migration⟩ (fourier, 18:3xZ)
+24a524a
+34b10ae7c7cc2a658492fd060eaf17f48509a1f9
+
+⟨gh run list --workflow ci.yml -L 6⟩
+40552991504	m/w1-bump-migration	34b10ae	completed	success	workflow_dispatch
+39650062340	m/w1-bump-migration	d89f4c9	completed	failure	workflow_dispatch
+39595581721	m/w1-bump-migration	73fca89	completed	failure	workflow_dispatch
+39586131046	m/w1-bump-migration	13129d4	completed	failure	workflow_dispatch
+39577437998	m/w1-bump-migration	a354b68	completed	failure	workflow_dispatch
+39348303989	m/w1-bump-migration	924df31	completed	failure	workflow_dispatch
+
+⟨gh run view 40552991504 --json headSha,jobs⟩
+34b10ae7c7cc2a658492fd060eaf17f48509a1f9
+api/tests (with live Mongo)	success
+e2e (Playwright, COMPUTE_RATE_LIMIT=1000)	success
+web (vue-tsc + vite build)	success
+production compose boot + health	success
+inv-27 evidence (covering run id + SHA)	success
+
+# clean worktree ~/.fourier-frel/g-wt: ⟨git status --porcelain | wc -l⟩ → 0; ⟨git checkout --detach origin/master⟩ → 24a524a
+⟨git merge-tree --write-tree origin/master 34b10ae; echo $?⟩
+42271488a98811be76374a348f7676c3867c0842
+0
+
+⟨git merge --no-ff -m "Merge m/w1-bump-migration 34b10ae into master (X F.REL .g2; COHESION §0gq.1 …)" 34b10ae⟩ → rc 0; ⟨git status --porcelain | wc -l⟩ → 0
+⟨git log --oneline -1; git rev-parse HEAD^{tree} HEAD^1 HEAD^2⟩
+50ef781 Merge m/w1-bump-migration 34b10ae into master (X F.REL .g2; …)
+42271488a98811be76374a348f7676c3867c0842   (= merge-tree tree: no hand-resolved hunk)
+24a524a1b30e97217874dcf6c27a86a4756778e3
+34b10ae7c7cc2a658492fd060eaf17f48509a1f9
+
+⟨git fetch; git rev-parse --short origin/master⟩ → 24a524a (unmoved) ; 18:38:55Z
+⟨git push origin HEAD:master⟩ (no force) → "24a524a..50ef781  HEAD -> master", rc 0 ; 18:38:56Z
+
+⟨gh api repos/…/hooks/603157401/deliveries⟩ (newest)
+3850709490670248000	2026-10-27T18:38:58.51Z	push	200	OK
+(response body not readable: token lacks admin:repo_hook; the host-side verdict is .d's read)
+
+⟨gh run list --branch master -L 5⟩ (18:39Z)
+40561927861	CI	50ef781	in_progress		push

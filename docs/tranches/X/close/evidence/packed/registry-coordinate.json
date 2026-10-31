@@ -1,0 +1,27 @@
+{
+  "version": "4.1.0",
+  "gitHead": "d25c4514b3e846aaeb7c2eb1c016c34a55af1786",
+  "dist": {
+    "shasum": "d488535c9bfc747e318895417c28a753a3b7b3d6",
+    "tarball": "https://registry.npmjs.org/@mkbabb/value.js/-/value.js-4.1.0.tgz",
+    "fileCount": 29,
+    "integrity": "sha512-K7wcvd+P6rjxxEhwnrSpBVyzYZPs5TMg1zmbe6gOG9s1qaUGZOnProxkZxXgTQfIUqXN81yPFPzB56w9mb95SQ==",
+    "signatures": [
+      {
+        "sig": "MEUCIBJVnGsp3ZSoScZI5v4yupmvD9mdoCaM/fqDi2L7ePvbAiEAjsuIJEfQ0kvy/ltJaNU5aou/wi7pz9t/B5BfAdvtDnQ=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+        "sig": "MEUCIBLf1ruFD0CWzUimFdDKxalERwxbXqmy80JLV+tv3W5kAiEArQ1MKwPutk/YcX0yJmSFuoGDWNxR65Qvd2ApSeO5orY="
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/@mkbabb%2fvalue.js@4.1.0",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 434633
+  }
+}

@@ -1,0 +1,4 @@
+{"label":"chrome-4-1","rate":4,"load1":11.3,"tbt":325,"max":169,"tasks":[{"t":241,"d":116},{"t":453,"d":169},{"t":674,"d":159},{"t":1075,"d":81}],"renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"}
+{"label":"chrome-4-2","rate":4,"load1":11.9,"tbt":237,"max":153,"tasks":[{"t":36,"d":89},{"t":239,"d":121},{"t":456,"d":153},{"t":665,"d":74}],"renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"}
+{"label":"chrome-4-3","rate":4,"load1":11.4,"tbt":224,"max":152,"tasks":[{"t":32,"d":84},{"t":203,"d":112},{"t":422,"d":152},{"t":628,"d":76}],"renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"}
+{"label":"chrome-4-4","rate":4,"load1":11,"tbt":213,"max":143,"tasks":[{"t":33,"d":90},{"t":182,"d":111},{"t":413,"d":143},{"t":609,"d":69}],"renderer":"ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"}

@@ -69,6 +69,9 @@ async function coldLoad(browser: Browser, hash: string) {
         const w = window as unknown as { __ground: { t: number; stops: string[] }[] };
         const fp =
             performance.getEntriesByName("first-paint")[0]?.startTime ?? Number.NaN;
+        const fcp =
+            performance.getEntriesByName("first-contentful-paint")[0]?.startTime ??
+            Number.NaN;
         const atPaint = [...w.__ground].reverse().find((g) => g.t <= fp) ?? null;
         const settled = Array.from({ length: n }, (_, i) =>
             getComputedStyle(document.documentElement)
@@ -98,6 +101,7 @@ async function coldLoad(browser: Browser, hash: string) {
         };
         return {
             firstPaint: fp,
+            firstContentfulPaint: fcp,
             writes: w.__ground.length,
             atPaint: atPaint
                 ? { t: atPaint.t, stops: atPaint.stops, lab: atPaint.stops.map(lab) }
@@ -111,9 +115,32 @@ async function coldLoad(browser: Browser, hash: string) {
 
 const dE = (a: Lab, b: Lab) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
 
+/**
+ * X.W11.wk (COHESION §0gt.4) — the O-103b ENGINE-FACT form, for this one leg.
+ *
+ * The instrument is the browser's own `first-paint` PerformancePaintTiming
+ * entry. WebKit emits `first-contentful-paint` only, never `first-paint`
+ * (measured at the 2026-10-28 darwin witness: `firstPaint` NaN on every seed;
+ * and by `close/evidence/safari-real/darwin-webkit-2026-10-29/probe/
+ * engine-facts.mjs`). FCP is NOT a substitute: it can land after a frame the
+ * pre-hydration ground already painted, so reading the ground at FCP would
+ * pass vacuously on exactly the defect this gate exists for.
+ *
+ * So the first-paint leg's GATE is Chromium (`smoke` collects this file). On
+ * an engine whose paint timeline is MEASURED to carry FCP and no first-paint
+ * entry, the first-paint leg is REPORTED as that engine fact (an annotation
+ * that names it, plus the FCP-instant reading for the record) instead of
+ * asserted. The engine fact is proven per load, not assumed by engine name: a
+ * load with neither entry fails as before, and an engine that starts emitting
+ * `first-paint` is gated again with no new ruling. The seed-moves leg needs no
+ * paint instrument and stays gated on every engine.
+ */
+const lacksFirstPaintEntry = (r: { firstPaint: number; firstContentfulPaint: number }) =>
+    Number.isNaN(r.firstPaint) && Number.isFinite(r.firstContentfulPaint);
+
 test("the first painted atmosphere is the seeded pick's, on a cold load", async ({
     browser,
-}) => {
+}, testInfo) => {
     test.setTimeout(120_000);
     const unseeded = await coldLoad(browser, "#/");
     for (const seed of SEEDS) {
@@ -121,6 +148,25 @@ test("the first painted atmosphere is the seeded pick's, on a cold load", async 
             browser,
             `#/?space=oklch&color=${encodeURIComponent(seed)}`,
         );
+        if (lacksFirstPaintEntry(r)) {
+            const moved = Math.max(
+                ...r.settled.lab.map((l, i) =>
+                    dE(l as Lab, unseeded.settled.lab[i] as Lab),
+                ),
+            );
+            testInfo.annotations.push({
+                type: "engine-fact",
+                description:
+                    `${seed}: this engine emits no \`first-paint\` entry (first-contentful-paint ` +
+                    `${r.firstContentfulPaint.toFixed(0)}ms only); the first-paint leg is reported, ` +
+                    `Chromium is its gate (O-103b form, COHESION §0gt.4). ${r.writes} ground writes; ` +
+                    `settled [${r.settled.stops.join(" ")}]`,
+            });
+            expect
+                .soft(moved, `${seed}: the seed does not move the ground`)
+                .toBeGreaterThanOrEqual(SEED_MOVES);
+            continue;
+        }
         expect(
             r.atPaint,
             `${seed}: no ground write precedes first paint (${r.firstPaint}ms)`,

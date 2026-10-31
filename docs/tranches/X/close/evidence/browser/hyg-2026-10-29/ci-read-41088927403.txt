@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5 · X.W11.hyg ci.yml read, run 41088927403, headSha cbe3a1e2ad0e2c172d8c16127ff4db07a98ca162, concluded 2026-10-30T18:45:06Z: failure
+visual=success · lhci=success · boot-smoke=success · oracle slate=success · api / Node 22=success
+producer / Node 24=failure · producer / Node 22=failure · e2e-smoke=failure
+
+producer (npm test), 5000 ms default test timeout, no assertion failure:
+  Node 24: 2 failed | 1490 passed (1492): test/ink.test.ts:514 "plate, accent and identity inks are the reference walk's, string for string" (light, dark)
+  Node 22: 1 failed | 1491 passed (1492): the same test (dark)
+  local, guarded --light, same file: 29 passed, the two tests 1078 ms and 1118 ms
+
+e2e-smoke: 8 failed · 8 flaky · 2 skipped · 454 passed (2.3h)
+  failed: o11:272 (light 390) · o21:287 · o29:395 (blob) · o33:267 x3 · webgl-blob-idle:276 x2
+  flaky: a11y-modality-support:194 · crash-battery:331 · o1:39 · o14:294 · o14:440 · o21:65 · o21:433 · webgl-blob-idle:122

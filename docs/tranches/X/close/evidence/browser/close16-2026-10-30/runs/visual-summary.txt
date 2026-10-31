@@ -1,0 +1,4 @@
+SERVED MODEL: claude-opus-5-5
+visual project, darwin SwiftShader, c2ccf6a4e, read once (19.6 m)
+stats {"expected":117,"skipped":0,"unexpected":99,"flaky":0}
+unexpected: 99 light, 0 dark; differing pixels min 126, median 666, max 3029 (.ref read 126-3029, median 666)
