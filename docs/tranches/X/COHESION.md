@@ -4890,3 +4890,33 @@ Ruled:
 4. **Glass 10.1.3 repin: value.js adopts it first in this pass, exact, with lock integrity equal to the registry's.** It carries the dock-anchor cure (value O-114, glass O-110), and fourier's cells read GREEN on it (`3bb9da5`). It moves product bytes, so every later reading stands on it. A visual diff it causes is attributed and re-minted under §0gv.2's rules. A dock cell that goes red is relayed to glass with an A/B against 10.1.2.
 5. **Hygiene:** a seat deletes the uncited `close/evidence/browser/repair1-15-2026-10-30/boot-profile.mjs` and prunes `.worktrees/repair1-15-wt`, checking first that nothing is live. The next close rewrites the LEDGER G3 cell (D-11). Local `npm run lint` walking untracked `.worktrees/` stays a recorded local-only row.
 6. **The order:** repin → cures → push → read `ci.yml` → `.dep` when e2e-smoke (under 1), visual and lhci are GREEN → the host's ordinal migration (orchestrator) → close and fresh check. Honest-RED, recorded only: G9 (O-117), w7 (O-106), R-vrb-1.
+
+## §0gy — 2026-10-30: X-W11's eighth set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gx:
+- glass 10.1.3 repinned (O-114 press seat holds; 0 visual diffs from the repin);
+- the producer-held manifest (`.hld`, discharged at Check 2);
+- the maximin referent on the plate pair (o11:272 GREEN on both cells; o33 hue 60 GREEN);
+- G3 mobile-4x GREEN ×2 at valid load (263, 235) after the `.cut` cuts.
+
+Ruled:
+1. **ESC-W11ref-1 (o33:267, hues 0 and 300): arm (a). This is an instrument correction.** The oracle compares the wordmark's ink with one plate pixel at the dock's left edge (d.x+6), 168 px from the glyphs. §0gk.2 certifies ink against the real backdrop it sits on.
+   - The oracle samples the plate under the wordmark's own box, with glyph pixels masked out, and certifies against the worst sample in that region. Taking the worst sample makes the check stricter on the real ground, never looser.
+   - The 4.5:1 floor is unchanged.
+   - Falsifiers: o33:267 ×3 ×2 in docker Linux Chromium and on the GPU cell. If a hue then reads under 4.5 on its real ground, that is a product defect for `.ref`'s law, and a dead-band shortfall goes to the owner as a design row. It is not admitted to the manifest, because it has no glass O-id.
+   - Arm (c), white, is refused: it measured 3.16–4.31 on the real ground.
+2. **`.ref`'s scope call is RATIFIED, and `8573b45ca`'s edits are ratified within §0bt.** Maximin governs the neutral text inks: the plate pair (primary and muted, resting and floating) and the band's voice. Gold, destructive, accent and modal inks carry identity hues. Those are owner design rulings and are never neutralized (fourier UIA-F-172), so they keep their hue law and the mean ambient, under the 4.5:1 floor that o18 already certifies.
+   - **New, owed:** `.ref`'s grid reads the default seed's component-name ink at 4.14 on the GPU cell, and no oracle reads it. An oracle-grade read of that leg on both cells is owed. If it is under 4.5, it is a root cure inside `.ref`'s bounds, and the leg joins o18.
+3. **ESC-W11ref-2: the re-mint is granted** on `e2e/visual/**` and `docs/tranches/X/evidence/w1/visual/MANIFEST.json`, under §0gv.2's rules, after items 1, 2 and 5 have landed (they move light paint).
+   - Each re-minted cell is attributed by a counterfactual: revert the referent commit, and the cell must match the old golden.
+   - `keyboard-focus-desktop` (gradient) is intermittent on both trees, so it is not minted. Its intermittency is a defect cured at its root, at the gradient's settle. A flake is never baked into a golden.
+4. **N1 (gradient.spec.ts:614): granted under the `511968c02` idiom.** A dated census addendum of the gradient-aurora ask at glass 10.1.3 sits beside the immutable letter, plus one oracle list line. Re-run the census, then record it; never copy it forward.
+5. **N2 (SS8-0363 light regression, 'more' 9.943 against 'normal' 12.1007; GREEN at `9d2d8f0db`):** bisect over `.g13`, `.ref` and `.cut`, then cure at the root inside the owning unit's bounds, with the oracle unchanged.
+6. **ESC-W11cut-1 (GPU lhci): arm (b). The cell uses one GPU witness binary.** The lhci GPU cell runs the same binary as `e2e/smoke/perf/real-gpu.ts` (Chrome 156, ANGLE Metal; the named-witness need is cited in the file), so every value.js GPU cell reads with one instrument.
+   - The browser version is recorded in every reading, so a host auto-update shows in the record rather than silently.
+   - The Chrome for Testing 148 stall is real and in glass's path. It is recorded on O-123, which was delivered live on 2026-10-30, and the row expires at glass's sampler cure. No gate hides it: O-123 carries the 148 reading as its own evidence.
+   - The §0gx.3 load condition stands. This gate holds the close, not `.dep`.
+7. **`.hld`'s question: the o21:287 admission stands.** A consumer cache of glass's tier answer across documents (for example in sessionStorage) would move glass's tier ownership into the consumer to dodge a producer cost, and the first document would still probe. That is a workaround; it is refused. The existing conditional `test.skip` at `o3-headed-gpu-probe.spec.ts:47` is a capability guard: a headed-GPU probe has no subject on software GL. It is not a hidden red, so §0gx.1 leaves it as it is.
+8. **R16-9:** `.cut`'s two cuts each get a unit lock that asserts the same result before and after, and the mutant is run. `useDockArrival:121` and `useOverture:190/:240` are not cut, because G3 reads GREEN without them.
+9. **ESC-W11g13-1:** no glass relay row. The A/B shows o33 identical on 10.1.2, so 10.1.3 did not regress it.
+10. **Owner design rows, recorded and not acted on:** the light dead band. Seed `oklch(0.66 0.16 28)` reaches 3.59 at its worst over all four stops; its live caption reads 4.68 in docker and 4.77 on the GPU cell. 10 of the 14 field seeds fall short over all four stops in the model (3.09–3.60). These go to the owner, and no surface is altered to hide them.
+11. **The order:** items 1, 2, 4, 5 and 8 in parallel → 3 (re-mint) → push → read `ci.yml` at one HEAD → `.dep` → the host's ordinal migration (orchestrator) → close (rewrite `FINAL.md`, `OWNER-REPORT.md` and the LEDGER G3 cell) and a fresh check. Honest-RED: G9 (O-117), w7 (O-106), R-vrb-1, and the manifest's rows.
