@@ -129,7 +129,11 @@ export default defineConfig({
     // alone, so a red run shipped an empty artifact and its cells were readable
     // only as `××T` glyphs in the log. CI keeps the `dot` log line AND writes
     // the HTML report the upload step names. Locally the default is unchanged.
-    reporter: process.env.CI ? [["dot"], ["html", { open: "never" }]] : "list",
+    // X.W11.hld (§0gx.1): on CI the job's verdict is the honest-red reporter's,
+    // over `e2e/producer-held.json`; only a red that is not on it fails.
+    reporter: process.env.CI
+        ? [["dot"], ["html", { open: "never" }], ["./e2e/honest-red-reporter.ts"]]
+        : "list",
     retries: process.env.CI ? 2 : 0,
     timeout: 30000,
     expect: { timeout: 8000 },
