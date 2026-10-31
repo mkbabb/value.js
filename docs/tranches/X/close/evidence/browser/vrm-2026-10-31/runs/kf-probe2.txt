@@ -1,0 +1,288 @@
+
+
+Running 4 tests using 1 worker
+
+
+[1/4] [visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+[visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+pre t=2372 sy=0 dh=955 act=BODY.relative lbl=null anims=10 scrollers=
+
+ANIM color CSSTransition running ct=0 dur=200 it=1 tgt=BUTTON.dock-icon-button glass-specular-track glass-capsule-hover do
+ANIM color CSSTransition running ct=0 dur=200 it=1 tgt=BUTTON.dock-tab-button glass-specular-track gap-1.5 text-small font
+ANIM color CSSTransition running ct=0 dur=200 it=1 tgt=BUTTON.menu__trigger dock-trigger dock-dropdown-trigger text-mono-s
+ANIM gl-dock-cap-inline-start CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.dock-plate
+ANIM gl-dock-cap-inline-end CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.dock-plate
+ANIM overture-plate-settle CSSAnimation running ct=0 dur=450 it=1 tgt=DIV.pane-shell relative w-full mx-auto h-full min-w-0 overture-a
+ANIM gl-fade-start-in CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-end-out CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-start-in CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-end-out CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+
+tab1 t=2381 sy=0 dh=955 act=BUTTON.dock-trigger dock-select-trigger view-select-trigg lbl=Select view anims=10 scrollers=
+
+tab2 t=2385 sy=0 dh=955 act=BUTTON.dock-icon-button glass-specular-track glass-capsul lbl=Toggle action bar anims=10 scrollers=
+
+tab3 t=2388 sy=0 dh=955 act=BUTTON.dock-tab-button glass-specular-track gap-1.5 text- lbl=null anims=10 scrollers=
+
+tab4 t=2391 sy=0 dh=955 act=BUTTON.menu__trigger dock-trigger dock-dropdown-trigger t lbl=null anims=10 scrollers=
+
+tab5 t=2396 sy=169 dh=955 act=DIV.fading-scroll fading-scroll--y pane-scroll-fade fl lbl=null anims=11 scrollers=HTML.=169
+
+tab6 t=2399 sy=169 dh=955 act=BUTTON.rail-caret rail-swatch absolute rounded-full borde lbl=Add gradient stop at 50% anims=12 scrollers=HTML.=169
+
+tab7 t=2403 sy=169 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 1 of 2 anims=12 scrollers=HTML.=169
+
+tab8 t=2406 sy=169 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 2 of 2 anims=12 scrollers=HTML.=169
+
+tab9 t=2409 sy=169 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=11 scrollers=HTML.=169
+
+tab10 t=2413 sy=169 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=11 scrollers=HTML.=169
+
+tab11 t=2416 sy=169 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=11 scrollers=HTML.=169
+
+tab12 t=2419 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=11 scrollers=HTML.=169
+
+w0 t=2672 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=11 scrollers=HTML.=169
+
+w1 t=2927 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=11 scrollers=HTML.=169
+
+w2 t=3180 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=11 scrollers=HTML.=169
+
+w3 t=3434 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=10 scrollers=HTML.=169
+
+w4 t=3686 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=10 scrollers=HTML.=169
+
+w5 t=3939 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=10 scrollers=HTML.=169
+
+w6 t=4193 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+w7 t=4446 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+w8 t=4699 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+w9 t=4954 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+w10 t=5208 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+w11 t=5462 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+quiet t=6378 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=6 scrollers=HTML.=169
+
+gl-dock-cap-inline-start running dock-plate
+gl-dock-cap-inline-end running dock-plate
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+
+
+[2/4] [visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+[visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+pre t=1845 sy=0 dh=955 act=BODY.relative lbl=null anims=7 scrollers=
+
+ANIM overture-plate-land CSSAnimation running ct=0 dur=450 it=1 tgt=NAV.dock-band overture-dock-land
+ANIM gl-dock-cap-inline-start CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.dock-plate
+ANIM gl-dock-cap-inline-end CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.dock-plate
+ANIM gl-fade-start-in CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-end-out CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-start-in CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-end-out CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+
+tab1 t=1854 sy=0 dh=955 act=BUTTON.dock-trigger dock-select-trigger view-select-trigg lbl=Select view anims=7 scrollers=
+
+tab2 t=1858 sy=0 dh=955 act=BUTTON.dock-icon-button glass-specular-track glass-capsul lbl=Toggle action bar anims=7 scrollers=
+
+tab3 t=1861 sy=0 dh=955 act=BUTTON.dock-tab-button glass-specular-track gap-1.5 text- lbl=null anims=7 scrollers=
+
+tab4 t=1864 sy=0 dh=955 act=BUTTON.menu__trigger dock-trigger dock-dropdown-trigger t lbl=null anims=7 scrollers=
+
+tab5 t=1868 sy=178 dh=955 act=DIV.fading-scroll fading-scroll--y pane-scroll-fade fl lbl=null anims=8 scrollers=HTML.=178
+
+tab6 t=1872 sy=178 dh=955 act=BUTTON.rail-caret rail-swatch absolute rounded-full borde lbl=Add gradient stop at 50% anims=9 scrollers=HTML.=178
+
+tab7 t=1875 sy=178 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 1 of 2 anims=9 scrollers=HTML.=178
+
+tab8 t=1878 sy=178 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 2 of 2 anims=9 scrollers=HTML.=178
+
+tab9 t=1881 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab10 t=1886 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab11 t=1889 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab12 t=1893 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w0 t=2146 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w1 t=2398 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w2 t=2652 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w3 t=2905 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w4 t=3158 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w5 t=3412 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w6 t=3666 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w7 t=3921 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w8 t=4175 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w9 t=4428 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w10 t=4682 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w11 t=4935 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+quiet t=7060 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=6 scrollers=HTML.=178
+
+gl-dock-cap-inline-start running dock-plate
+gl-dock-cap-inline-end running dock-plate
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+
+
+[3/4] [visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+[visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+pre t=1810 sy=0 dh=955 act=BODY.relative lbl=null anims=7 scrollers=
+
+ANIM overture-plate-land CSSAnimation running ct=0 dur=450 it=1 tgt=NAV.dock-band overture-dock-land
+ANIM gl-dock-cap-inline-start CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.dock-plate
+ANIM gl-dock-cap-inline-end CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.dock-plate
+ANIM gl-fade-start-in CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-end-out CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-start-in CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-end-out CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+
+tab1 t=1818 sy=0 dh=955 act=BUTTON.dock-trigger dock-select-trigger view-select-trigg lbl=Select view anims=7 scrollers=
+
+tab2 t=1820 sy=0 dh=955 act=BUTTON.dock-icon-button glass-specular-track glass-capsul lbl=Toggle action bar anims=7 scrollers=
+
+tab3 t=1823 sy=0 dh=955 act=BUTTON.dock-tab-button glass-specular-track gap-1.5 text- lbl=null anims=7 scrollers=
+
+tab4 t=1826 sy=0 dh=955 act=BUTTON.menu__trigger dock-trigger dock-dropdown-trigger t lbl=null anims=7 scrollers=
+
+tab5 t=1829 sy=178 dh=955 act=DIV.fading-scroll fading-scroll--y pane-scroll-fade fl lbl=null anims=8 scrollers=HTML.=178
+
+tab6 t=1833 sy=178 dh=955 act=BUTTON.rail-caret rail-swatch absolute rounded-full borde lbl=Add gradient stop at 50% anims=9 scrollers=HTML.=178
+
+tab7 t=1836 sy=178 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 1 of 2 anims=9 scrollers=HTML.=178
+
+tab8 t=1839 sy=178 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 2 of 2 anims=9 scrollers=HTML.=178
+
+tab9 t=1843 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab10 t=1848 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab11 t=1851 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab12 t=1855 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w0 t=2108 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w1 t=2360 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w2 t=2614 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w3 t=2867 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w4 t=3121 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w5 t=3374 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w6 t=3628 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w7 t=3881 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w8 t=4135 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w9 t=4387 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w10 t=4641 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w11 t=4894 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+quiet t=5807 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=6 scrollers=HTML.=178
+
+gl-dock-cap-inline-start running dock-plate
+gl-dock-cap-inline-end running dock-plate
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+
+
+[4/4] [visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+[visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+pre t=1829 sy=0 dh=955 act=BODY.relative lbl=null anims=7 scrollers=
+
+ANIM overture-plate-land CSSAnimation running ct=0 dur=450 it=1 tgt=NAV.dock-band overture-dock-land
+ANIM gl-dock-cap-inline-start CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.dock-plate
+ANIM gl-dock-cap-inline-end CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.dock-plate
+ANIM gl-fade-start-in CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-end-out CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-start-in CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+ANIM gl-fade-end-out CSSAnimation running ct=0 dur=0% it=1 tgt=DIV.fading-scroll fading-scroll--y pane-scroll-fade flex flex-co
+
+tab1 t=1838 sy=0 dh=955 act=BUTTON.dock-trigger dock-select-trigger view-select-trigg lbl=Select view anims=7 scrollers=
+
+tab2 t=1841 sy=0 dh=955 act=BUTTON.dock-icon-button glass-specular-track glass-capsul lbl=Toggle action bar anims=7 scrollers=
+
+tab3 t=1843 sy=0 dh=955 act=BUTTON.dock-tab-button glass-specular-track gap-1.5 text- lbl=null anims=7 scrollers=
+
+tab4 t=1846 sy=0 dh=955 act=BUTTON.menu__trigger dock-trigger dock-dropdown-trigger t lbl=null anims=7 scrollers=
+
+tab5 t=1849 sy=178 dh=955 act=DIV.fading-scroll fading-scroll--y pane-scroll-fade fl lbl=null anims=8 scrollers=HTML.=178
+
+tab6 t=1852 sy=178 dh=955 act=BUTTON.rail-caret rail-swatch absolute rounded-full borde lbl=Add gradient stop at 50% anims=9 scrollers=HTML.=178
+
+tab7 t=1855 sy=178 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 1 of 2 anims=9 scrollers=HTML.=178
+
+tab8 t=1859 sy=178 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 2 of 2 anims=9 scrollers=HTML.=178
+
+tab9 t=1862 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab10 t=1867 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab11 t=1870 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab12 t=1873 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w0 t=2127 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w1 t=2381 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w2 t=2634 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w3 t=2887 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w4 t=3141 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w5 t=3395 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w6 t=3647 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w7 t=3900 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w8 t=4153 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w9 t=4407 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w10 t=4660 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w11 t=4914 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+quiet t=7041 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=6 scrollers=HTML.=178
+
+gl-dock-cap-inline-start running dock-plate
+gl-dock-cap-inline-end running dock-plate
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+
+  4 passed (29.5s)

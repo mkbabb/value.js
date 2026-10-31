@@ -1,0 +1,17 @@
+
+Running 12 tests using 1 worker
+
+  ✓   1 [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest (65ms)
+  ✓   2 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › gradient (11.1s)
+  ✓   3 [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest (59ms)
+  ✓   4 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › gradient (10.8s)
+  ✓   5 [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest (61ms)
+  ✓   6 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › gradient (10.8s)
+  ✓   7 [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest (60ms)
+  ✓   8 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › gradient (10.9s)
+  ✓   9 [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest (62ms)
+  ✓  10 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › gradient (10.8s)
+  ✓  11 [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest (61ms)
+  ✓  12 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › gradient (10.2s)
+
+  12 passed (1.2m)

@@ -1,0 +1,191 @@
+
+
+Running 3 tests using 1 worker
+
+
+[1/3] [visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+[visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+pre t=2364 sy=0 dh=955 act=BODY.relative lbl=null anims=15 scrollers=
+
+tab1 t=2371 sy=0 dh=955 act=BUTTON.dock-trigger dock-select-trigger view-select-trigg lbl=Select view anims=15 scrollers=
+
+tab2 t=2374 sy=0 dh=955 act=BUTTON.dock-icon-button glass-specular-track glass-capsul lbl=Toggle action bar anims=15 scrollers=
+
+tab3 t=2377 sy=0 dh=955 act=BUTTON.dock-tab-button glass-specular-track gap-1.5 text- lbl=null anims=15 scrollers=
+
+tab4 t=2380 sy=0 dh=955 act=BUTTON.menu__trigger dock-trigger dock-dropdown-trigger t lbl=null anims=15 scrollers=
+
+tab5 t=2383 sy=169 dh=955 act=DIV.fading-scroll fading-scroll--y pane-scroll-fade fl lbl=null anims=16 scrollers=HTML.=169
+
+tab6 t=2387 sy=169 dh=955 act=BUTTON.rail-caret rail-swatch absolute rounded-full borde lbl=Add gradient stop at 50% anims=17 scrollers=HTML.=169
+
+tab7 t=2390 sy=169 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 1 of 2 anims=17 scrollers=HTML.=169
+
+tab8 t=2393 sy=169 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 2 of 2 anims=17 scrollers=HTML.=169
+
+tab9 t=2397 sy=169 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=16 scrollers=HTML.=169
+
+tab10 t=2400 sy=169 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=16 scrollers=HTML.=169
+
+tab11 t=2403 sy=169 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=16 scrollers=HTML.=169
+
+tab12 t=2406 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=16 scrollers=HTML.=169
+
+w0 t=2658 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=16 scrollers=HTML.=169
+
+w1 t=2913 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=11 scrollers=HTML.=169
+
+w2 t=3167 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=11 scrollers=HTML.=169
+
+w3 t=3420 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=10 scrollers=HTML.=169
+
+w4 t=3674 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=10 scrollers=HTML.=169
+
+w5 t=3928 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=10 scrollers=HTML.=169
+
+w6 t=4182 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+w7 t=4435 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+w8 t=4689 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+w9 t=4941 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+w10 t=5195 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+w11 t=5449 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=169
+
+quiet t=6364 sy=169 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=6 scrollers=HTML.=169
+
+gl-dock-cap-inline-start running dock-plate
+gl-dock-cap-inline-end running dock-plate
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+
+
+[2/3] [visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+[visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+pre t=2134 sy=0 dh=955 act=BODY.relative lbl=null anims=7 scrollers=
+
+tab1 t=2141 sy=0 dh=955 act=BUTTON.dock-trigger dock-select-trigger view-select-trigg lbl=Select view anims=7 scrollers=
+
+tab2 t=2144 sy=0 dh=955 act=BUTTON.dock-icon-button glass-specular-track glass-capsul lbl=Toggle action bar anims=7 scrollers=
+
+tab3 t=2147 sy=0 dh=955 act=BUTTON.dock-tab-button glass-specular-track gap-1.5 text- lbl=null anims=7 scrollers=
+
+tab4 t=2150 sy=0 dh=955 act=BUTTON.menu__trigger dock-trigger dock-dropdown-trigger t lbl=null anims=7 scrollers=
+
+tab5 t=2153 sy=178 dh=955 act=DIV.fading-scroll fading-scroll--y pane-scroll-fade fl lbl=null anims=8 scrollers=HTML.=178
+
+tab6 t=2156 sy=178 dh=955 act=BUTTON.rail-caret rail-swatch absolute rounded-full borde lbl=Add gradient stop at 50% anims=9 scrollers=HTML.=178
+
+tab7 t=2160 sy=178 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 1 of 2 anims=9 scrollers=HTML.=178
+
+tab8 t=2163 sy=178 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 2 of 2 anims=9 scrollers=HTML.=178
+
+tab9 t=2166 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab10 t=2169 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab11 t=2173 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab12 t=2176 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w0 t=2430 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w1 t=2683 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w2 t=2935 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w3 t=3189 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w4 t=3445 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w5 t=3699 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w6 t=3952 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w7 t=4208 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w8 t=4462 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w9 t=4716 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w10 t=4970 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=6 scrollers=HTML.=178
+
+w11 t=5224 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=6 scrollers=HTML.=178
+
+quiet t=5830 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=6 scrollers=HTML.=178
+
+gl-dock-cap-inline-start running dock-plate
+gl-dock-cap-inline-end running dock-plate
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+
+
+[3/3] [visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+[visual] › e2e/visual/vrm-kf-probe.visual.spec.ts:7:1 › kf-probe gradient
+pre t=1842 sy=0 dh=955 act=BODY.relative lbl=null anims=7 scrollers=
+
+tab1 t=1850 sy=0 dh=955 act=BUTTON.dock-trigger dock-select-trigger view-select-trigg lbl=Select view anims=7 scrollers=
+
+tab2 t=1853 sy=0 dh=955 act=BUTTON.dock-icon-button glass-specular-track glass-capsul lbl=Toggle action bar anims=7 scrollers=
+
+tab3 t=1857 sy=0 dh=955 act=BUTTON.dock-tab-button glass-specular-track gap-1.5 text- lbl=null anims=7 scrollers=
+
+tab4 t=1860 sy=0 dh=955 act=BUTTON.menu__trigger dock-trigger dock-dropdown-trigger t lbl=null anims=7 scrollers=
+
+tab5 t=1864 sy=178 dh=955 act=DIV.fading-scroll fading-scroll--y pane-scroll-fade fl lbl=null anims=8 scrollers=HTML.=178
+
+tab6 t=1867 sy=178 dh=955 act=BUTTON.rail-caret rail-swatch absolute rounded-full borde lbl=Add gradient stop at 50% anims=9 scrollers=HTML.=178
+
+tab7 t=1872 sy=178 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 1 of 2 anims=9 scrollers=HTML.=178
+
+tab8 t=1875 sy=178 dh=955 act=BUTTON.rail-handle absolute rounded-full cursor-grab acti lbl=Gradient stop 2 of 2 anims=9 scrollers=HTML.=178
+
+tab9 t=1878 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab10 t=1882 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab11 t=1887 sy=178 dh=955 act=BUTTON.control-surface glass-control-edge glass-capsule-h lbl=null anims=8 scrollers=HTML.=178
+
+tab12 t=1890 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w0 t=2144 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w1 t=2396 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w2 t=2650 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w3 t=2903 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w4 t=3157 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w5 t=3409 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w6 t=3663 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w7 t=3916 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=8 scrollers=HTML.=178
+
+w8 t=4169 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w9 t=4423 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w10 t=4675 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+w11 t=4928 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=7 scrollers=HTML.=178
+
+quiet t=7052 sy=178 dh=955 act=SPAN.slider-thumb glass-specular-track lbl=Gradient direction anims=6 scrollers=HTML.=178
+
+gl-dock-cap-inline-start running dock-plate
+gl-dock-cap-inline-end running dock-plate
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+gl-fade-start-in running fading-scroll fading-scroll--y pane-scro
+gl-fade-end-out running fading-scroll fading-scroll--y pane-scro
+
+  3 passed (22.0s)
