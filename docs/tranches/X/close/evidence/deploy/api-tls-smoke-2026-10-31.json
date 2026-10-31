@@ -1,0 +1,35 @@
+{
+  "servedModel": "claude-opus-5-5",
+  "unit": "X.W11.dep",
+  "gate": "W11.md ADDENDUM 2026-10-06 (b) post-deploy smoke",
+  "cmd": "~/.claude/guard/guarded --light --timeout 3 -- node scripts/ci/api-tls-smoke.mjs",
+  "afterDeploy": "deploy-pages 41196718854 @ d99ab0deb",
+  "ciStep": "deploy-pages 41196718854 step '\u00a70eh (b) \u2014 palette API smoke' success",
+  "reads": [
+    {
+      "url": "https://api.color.babb.dev/palettes?limit=1",
+      "ok": true,
+      "status": 200,
+      "contentType": "application/json",
+      "subject": "api.color.babb.dev",
+      "issuer": "Let's Encrypt",
+      "notAfter": "2027-01-04T15:19:06.000Z",
+      "daysLeft": 65.2,
+      "minDays": 14,
+      "failures": []
+    },
+    {
+      "url": "https://api.color.babb.dev/palettes?limit=1",
+      "ok": true,
+      "status": 200,
+      "contentType": "application/json",
+      "subject": "api.color.babb.dev",
+      "issuer": "Let's Encrypt",
+      "notAfter": "2027-01-04T15:19:06.000Z",
+      "daysLeft": 65.2,
+      "minDays": 14,
+      "failures": []
+    }
+  ],
+  "allOk": true
+}

@@ -1,0 +1,66 @@
+{
+  "servedModel": "claude-opus-5-5",
+  "unit": "X.W11.dep",
+  "readAt": "2026-10-31T11:27:29Z",
+  "cmd": "gh run view 41187025722 --json ...",
+  "masterRef": "d99ab0deb0df3adcf16d4c6c773fc66696799545",
+  "precondition": {
+    "run": 41176305697,
+    "headSha": "8b2692271022dcefac846da4d53c0d10bdade80e",
+    "branch": "tranche-u",
+    "conclusion": "success",
+    "note": "8b2692271..04a08cd62 touches docs/ only"
+  },
+  "masterCiRun": {
+    "conclusion": "success",
+    "createdAt": "2026-10-31T09:02:32Z",
+    "databaseId": 41187025722,
+    "event": "push",
+    "headBranch": "master",
+    "headSha": "d99ab0deb0df3adcf16d4c6c773fc66696799545",
+    "jobs": [
+      {
+        "name": "boot-smoke",
+        "conclusion": "success",
+        "databaseId": 124495916326
+      },
+      {
+        "name": "e2e-smoke",
+        "conclusion": "success",
+        "databaseId": 124495916465
+      },
+      {
+        "name": "producer / Node 22",
+        "conclusion": "success",
+        "databaseId": 124495916480
+      },
+      {
+        "name": "visual",
+        "conclusion": "success",
+        "databaseId": 124495916484
+      },
+      {
+        "name": "lhci",
+        "conclusion": "success",
+        "databaseId": 124495916509
+      },
+      {
+        "name": "producer / Node 24",
+        "conclusion": "success",
+        "databaseId": 124495916513
+      },
+      {
+        "name": "oracle slate",
+        "conclusion": "success",
+        "databaseId": 124495916527
+      },
+      {
+        "name": "api / Node 22",
+        "conclusion": "success",
+        "databaseId": 124495916575
+      }
+    ],
+    "status": "completed",
+    "updatedAt": "2026-10-31T11:24:18Z"
+  }
+}

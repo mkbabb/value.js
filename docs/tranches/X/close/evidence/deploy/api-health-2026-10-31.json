@@ -1,0 +1,38 @@
+{
+  "servedModel": "claude-opus-5-5",
+  "unit": "X.W11.dep",
+  "cmd": "curl -sS https://api.color.babb.dev/health",
+  "masterRef": "d99ab0deb0df3adcf16d4c6c773fc66696799545",
+  "priorMasterRef": "bfe74d47f169df8beb84bda4475f82be6081277d",
+  "reads": [
+    {
+      "readAt": "2026-10-31T09:03:24Z",
+      "body": {
+        "status": "ok",
+        "service": "palette-api",
+        "version": "2.0.0",
+        "commit": "d99ab0deb0df3adcf16d4c6c773fc66696799545",
+        "checks": {
+          "mongo": "ok",
+          "primary": true
+        },
+        "uptime": 38
+      }
+    },
+    {
+      "readAt": "2026-10-31T09:03:24Z",
+      "body": {
+        "status": "ok",
+        "service": "palette-api",
+        "version": "2.0.0",
+        "commit": "d99ab0deb0df3adcf16d4c6c773fc66696799545",
+        "checks": {
+          "mongo": "ok",
+          "primary": true
+        },
+        "uptime": 38
+      }
+    }
+  ],
+  "commitEqualsMaster": true
+}
