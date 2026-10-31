@@ -133,16 +133,45 @@ function contrast(a: RGB, b: RGB): number {
     return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
 }
 
-/** The max-contrast pixel inside `box` against the plate sample (the SS-8 ink instrument). */
-async function inkRatio(page: Page, box: { x: number; y: number; width: number; height: number }) {
-    const d = await dockRect(page);
-    const shot = await page.screenshot();
-    const pts: Array<[number, number]> = [[d.x + 6, d.y + d.height / 2]];
-    for (let x = box.x + 1; x < box.x + box.width - 1; x++) {
-        for (let y = box.y + 1; y < box.y + box.height - 1; y++) pts.push([x, y]);
+/**
+ * The SS-8 ink instrument on the wordmark's REAL ground (COHESION §0gy.1).
+ *
+ * The plate is read under the wordmark's own box, never at a remote pixel of
+ * the dock. The box is shot twice: once as painted, and once with the
+ * wordmark's glyphs made transparent (nothing else changes), so the second
+ * shot is the plate under the box with every glyph pixel masked out. Each of
+ * its pixels is a plate sample. The ink is the max-contrast painted pixel
+ * against a plate sample, and the reading is the WORST plate sample: min over
+ * plate of max over ink. The mask is asserted to have taken (the glyphs'
+ * computed color is transparent when the plate is shot). The floor the caller
+ * asserts is unchanged.
+ */
+async function inkRatio(page: Page, selector: string) {
+    const glyphs = page.locator(selector).first();
+    const box = await glyphs.boundingBox();
+    expect(box, "the wordmark has a box").not.toBeNull();
+    const pts: Array<[number, number]> = [];
+    for (let x = box!.x + 1; x < box!.x + box!.width - 1; x++) {
+        for (let y = box!.y + 1; y < box!.y + box!.height - 1; y++) pts.push([x, y]);
     }
-    const [plate, ...ink] = await pixels(page, shot, pts);
-    return Math.max(...ink.map((p) => contrast(p, plate!)));
+    const ink = await pixels(page, await page.screenshot(), pts);
+    const restore = await glyphs.evaluate((el) => {
+        const st = (el as HTMLElement).style;
+        const was = { color: st.getPropertyValue("color"), transition: st.getPropertyValue("transition") };
+        st.setProperty("transition", "none", "important");
+        st.setProperty("color", "transparent", "important");
+        return was;
+    });
+    const masked = await glyphs.evaluate((el) => getComputedStyle(el).color);
+    expect(masked, "the glyphs are masked").toBe("rgba(0, 0, 0, 0)");
+    await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => r(null)))));
+    const plate = await pixels(page, await page.screenshot(), pts);
+    await glyphs.evaluate((el, was) => {
+        const st = (el as HTMLElement).style;
+        st.setProperty("color", was.color);
+        st.setProperty("transition", was.transition);
+    }, restore);
+    return Math.min(...plate.map((g) => Math.max(...ink.map((p) => contrast(p, g)))));
 }
 
 // The bar-less guard is two legs, split by INSTRUMENT (X.W11.wk, COHESION
@@ -271,9 +300,9 @@ test.describe("B05 · the Tools ink on the dock band (0132 · 0133)", () => {
             await boot(page, "/");
             await parkOnDock(page);
             await page.waitForTimeout(300);
-            const label = await page.locator(`${TOOLS} span`).boundingBox();
-            expect(label).not.toBeNull();
-            expect(await inkRatio(page, label!)).toBeGreaterThanOrEqual(4.5);
+            const ratio = await inkRatio(page, `${TOOLS} span`);
+            test.info().annotations.push({ type: "ink-ratio", description: String(ratio) });
+            expect(ratio).toBeGreaterThanOrEqual(4.5);
         });
     }
 

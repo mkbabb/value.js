@@ -1,0 +1,1378 @@
+{
+  "config": {
+    "configFile": "/w/tree/playwright.config.ts",
+    "rootDir": "/w/tree/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 3,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/w/tree/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/w/tree/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/w/tree/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/w/tree/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/w/tree/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/w/tree/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/w/tree/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/w/tree/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/oracles/zz-o33-mutant.spec.ts",
+      "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "B05 · the Tools ink on the dock band (0132 · 0133)",
+          "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+          "line": 265,
+          "column": 6,
+          "specs": [
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.406051124428696"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 12346,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                          "column": 27,
+                          "line": 278
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 276 |\u001b[39m             \u001b[36mconst\u001b[39m ratio \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m \u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 277 |\u001b[39m             test\u001b[33m.\u001b[39minfo()\u001b[33m.\u001b[39mannotations\u001b[33m.\u001b[39mpush({ type\u001b[33m:\u001b[39m \u001b[32m\"ink-ratio\"\u001b[39m\u001b[33m,\u001b[39m description\u001b[33m:\u001b[39m \u001b[33mString\u001b[39m(ratio) })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 278 |\u001b[39m             expect(ratio)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 279 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 280 |\u001b[39m     }\n \u001b[90m 281 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                            "column": 27,
+                            "line": 278
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m\n\n  276 |             const ratio = await inkRatio(page, `${TOOLS} span`);\n  277 |             test.info().annotations.push({ type: \"ink-ratio\", description: String(ratio) });\n> 278 |             expect(ratio).toBeGreaterThanOrEqual(4.5);\n      |                           ^\n  279 |         });\n  280 |     }\n  281 |\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:27:03.936Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.406051124428696"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-zz-o33-mutant-B05--7d623--the-light-band-seed-hue-0--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                        "column": 27,
+                        "line": 278
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-0986d198fe61190e51b4",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.579257883018462"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10917,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:27:16.588Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.579257883018462"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-dcc70ec1904cee5bcf9c",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.693700737279039"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7432,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:27:27.542Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.693700737279039"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-70a9ae1aed9fdb13648f",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.03404348318013"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7463,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:27:34.979Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.03404348318013"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-273a5ea351b8b2824ccd",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.907270928008541"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8124,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:27:42.448Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.907270928008541"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-6bfbb5228b0e942d70db",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.446414802875803"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8224,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                          "column": 27,
+                          "line": 278
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 276 |\u001b[39m             \u001b[36mconst\u001b[39m ratio \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m \u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 277 |\u001b[39m             test\u001b[33m.\u001b[39minfo()\u001b[33m.\u001b[39mannotations\u001b[33m.\u001b[39mpush({ type\u001b[33m:\u001b[39m \u001b[32m\"ink-ratio\"\u001b[39m\u001b[33m,\u001b[39m description\u001b[33m:\u001b[39m \u001b[33mString\u001b[39m(ratio) })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 278 |\u001b[39m             expect(ratio)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 279 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 280 |\u001b[39m     }\n \u001b[90m 281 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                            "column": 27,
+                            "line": 278
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m\n\n  276 |             const ratio = await inkRatio(page, `${TOOLS} span`);\n  277 |             test.info().annotations.push({ type: \"ink-ratio\", description: String(ratio) });\n> 278 |             expect(ratio).toBeGreaterThanOrEqual(4.5);\n      |                           ^\n  279 |         });\n  280 |     }\n  281 |\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:27:50.579Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.446414802875803"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-zz-o33-mutant-B05--ed755-he-light-band-seed-hue-300--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                        "column": 27,
+                        "line": 278
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-67ef9cb4d02b34a2a1ce",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12422,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:27:59.161Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-1bfcf95b73c9ece1b460",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8801,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:28:11.622Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-769c1a48aa957e4ef666",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.406051124428696"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11092,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                          "column": 27,
+                          "line": 278
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 276 |\u001b[39m             \u001b[36mconst\u001b[39m ratio \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m \u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 277 |\u001b[39m             test\u001b[33m.\u001b[39minfo()\u001b[33m.\u001b[39mannotations\u001b[33m.\u001b[39mpush({ type\u001b[33m:\u001b[39m \u001b[32m\"ink-ratio\"\u001b[39m\u001b[33m,\u001b[39m description\u001b[33m:\u001b[39m \u001b[33mString\u001b[39m(ratio) })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 278 |\u001b[39m             expect(ratio)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 279 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 280 |\u001b[39m     }\n \u001b[90m 281 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                            "column": 27,
+                            "line": 278
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m\n\n  276 |             const ratio = await inkRatio(page, `${TOOLS} span`);\n  277 |             test.info().annotations.push({ type: \"ink-ratio\", description: String(ratio) });\n> 278 |             expect(ratio).toBeGreaterThanOrEqual(4.5);\n      |                           ^\n  279 |         });\n  280 |     }\n  281 |\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:28:20.690Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.406051124428696"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-zz-o33-mutant-B05--7d623--the-light-band-seed-hue-0--smoke-repeat1/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                        "column": 27,
+                        "line": 278
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-6468bc01ded0aefba750",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.579257883018462"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11425,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:28:32.168Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.579257883018462"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-fe99485f4ea76f90278e",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.693700737279039"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7835,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:28:43.632Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.693700737279039"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-8af8de0789cb55a5e34d",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.03404348318013"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7388,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:28:51.471Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.03404348318013"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-dcb0bec98e6961a41a7c",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.907270928008541"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6685,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:28:58.862Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.907270928008541"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-4dc5622fcc1e5b0b6dea",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.446414802875803"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7138,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                          "column": 27,
+                          "line": 278
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 276 |\u001b[39m             \u001b[36mconst\u001b[39m ratio \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m \u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 277 |\u001b[39m             test\u001b[33m.\u001b[39minfo()\u001b[33m.\u001b[39mannotations\u001b[33m.\u001b[39mpush({ type\u001b[33m:\u001b[39m \u001b[32m\"ink-ratio\"\u001b[39m\u001b[33m,\u001b[39m description\u001b[33m:\u001b[39m \u001b[33mString\u001b[39m(ratio) })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 278 |\u001b[39m             expect(ratio)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 279 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 280 |\u001b[39m     }\n \u001b[90m 281 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                            "column": 27,
+                            "line": 278
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m\n\n  276 |             const ratio = await inkRatio(page, `${TOOLS} span`);\n  277 |             test.info().annotations.push({ type: \"ink-ratio\", description: String(ratio) });\n> 278 |             expect(ratio).toBeGreaterThanOrEqual(4.5);\n      |                           ^\n  279 |         });\n  280 |     }\n  281 |\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:29:05.552Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.446414802875803"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-zz-o33-mutant-B05--ed755-he-light-band-seed-hue-300--smoke-repeat1/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                        "column": 27,
+                        "line": 278
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-ea5cc74657666a05caaf",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12974,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:29:13.066Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-62f6356533f43c94ec1f",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9144,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:29:26.086Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-53bb367f17a41e063731",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 0)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.406051124428696"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11884,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                          "column": 27,
+                          "line": 278
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 276 |\u001b[39m             \u001b[36mconst\u001b[39m ratio \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m \u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 277 |\u001b[39m             test\u001b[33m.\u001b[39minfo()\u001b[33m.\u001b[39mannotations\u001b[33m.\u001b[39mpush({ type\u001b[33m:\u001b[39m \u001b[32m\"ink-ratio\"\u001b[39m\u001b[33m,\u001b[39m description\u001b[33m:\u001b[39m \u001b[33mString\u001b[39m(ratio) })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 278 |\u001b[39m             expect(ratio)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 279 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 280 |\u001b[39m     }\n \u001b[90m 281 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                            "column": 27,
+                            "line": 278
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.406051124428696\u001b[39m\n\n  276 |             const ratio = await inkRatio(page, `${TOOLS} span`);\n  277 |             test.info().annotations.push({ type: \"ink-ratio\", description: String(ratio) });\n> 278 |             expect(ratio).toBeGreaterThanOrEqual(4.5);\n      |                           ^\n  279 |         });\n  280 |     }\n  281 |\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:29:35.502Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.406051124428696"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-zz-o33-mutant-B05--7d623--the-light-band-seed-hue-0--smoke-repeat2/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                        "column": 27,
+                        "line": 278
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-5ad5dac4fb8b005a8789",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 60)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.579257883018462"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11209,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:29:47.866Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.579257883018462"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-767790f0b81ad2da9577",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 120)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.693700737279039"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7105,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:29:59.112Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.693700737279039"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-c9d41bb3862324896801",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "5.03404348318013"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8451,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:30:06.224Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "5.03404348318013"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-2ef23fc0804c63dd827f",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 240)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.907270928008541"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7267,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:30:14.684Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.907270928008541"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-99f644f26087ff5ed1ac",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "MUTANT 0132: the Tools wordmark clears 4.5:1 on the light band (seed hue 300)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "ink-ratio",
+                      "description": "4.446414802875803"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7435,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27",
+                        "location": {
+                          "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                          "column": 27,
+                          "line": 278
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 276 |\u001b[39m             \u001b[36mconst\u001b[39m ratio \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m inkRatio(page\u001b[33m,\u001b[39m \u001b[32m`${TOOLS} span`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 277 |\u001b[39m             test\u001b[33m.\u001b[39minfo()\u001b[33m.\u001b[39mannotations\u001b[33m.\u001b[39mpush({ type\u001b[33m:\u001b[39m \u001b[32m\"ink-ratio\"\u001b[39m\u001b[33m,\u001b[39m description\u001b[33m:\u001b[39m \u001b[33mString\u001b[39m(ratio) })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 278 |\u001b[39m             expect(ratio)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m4.5\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 279 |\u001b[39m         })\u001b[33m;\u001b[39m\n \u001b[90m 280 |\u001b[39m     }\n \u001b[90m 281 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                            "column": 27,
+                            "line": 278
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4.5\u001b[39m\nReceived:    \u001b[31m4.446414802875803\u001b[39m\n\n  276 |             const ratio = await inkRatio(page, `${TOOLS} span`);\n  277 |             test.info().annotations.push({ type: \"ink-ratio\", description: String(ratio) });\n> 278 |             expect(ratio).toBeGreaterThanOrEqual(4.5);\n      |                           ^\n  279 |         });\n  280 |     }\n  281 |\n    at /w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts:278:27"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:30:21.958Z",
+                      "annotations": [
+                        {
+                          "type": "ink-ratio",
+                          "description": "4.446414802875803"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/w/tree/test-results/oracles-zz-o33-mutant-B05--ed755-he-light-band-seed-hue-300--smoke-repeat2/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/w/tree/e2e/smoke/oracles/zz-o33-mutant.spec.ts",
+                        "column": 27,
+                        "line": 278
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-f5466af4bd7f96fc0061",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 269,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12798,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:30:29.812Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-53865bcf2338741aabfc",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            },
+            {
+              "title": "0133: the Tools focus ring clears 3:1 against the band (seed hue 180)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8744,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-31T04:30:42.648Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3251c20687d8e48a1c1-9fee414e8a4ddbea925a",
+              "file": "smoke/oracles/zz-o33-mutant.spec.ts",
+              "line": 283,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T04:27:02.699Z",
+    "duration": 228784.141,
+    "expected": 18,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  }
+}
