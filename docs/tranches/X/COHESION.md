@@ -5075,3 +5075,29 @@ Ruled:
 3. **ESC-KFW3-d-2 (UIA-KF-321, the r4dock-share-fallback selection race):** the demo seat is granted `demo/app/dock/menu/SharePopover.vue` to cure the focus-then-select ordering at its root (select after the focus has landed). No retry and no skip. The test must be GREEN alone ×3 and in the whole suite ×2.
 4. **The `registry.ts:33-53` memo:** its premise read TRUE at 4.1.0 (0 of 40 unstable, and `easing(n).value === resolveTimingFunction(n)` for all 40). Delete the kf memo as its own comment schedules, keeping the G-KF3-6 boot fence GREEN. The `.c4` residual `useKeyframeOps.ts:45-46` unit pass-through is cured in the same pass if it is the same concern.
 5. **Then:** kf CI GREEN → deploy-pages → the §6 round-trip → the post-deploy probe ×2, which covers G-KF3-8's pageerror arm → close and a fresh check. The glass 10.1.3 repin (§0hb.2) rides `.d` if it has not landed; check `package.json`. Then X-W11 G9 is re-read and its VERIFIED stamp follows (§0hb.3).
+
+## §0he — 2026-11-02: KF.W3's second set ruled; the keyframes letters booked (delegate, §0ge)
+Landed:
+- `.c2b`: the fork and the demo twin are retired onto value 4.1.0 `./css`. A single invariant seam raises `SerializeInvariantError`. The property test (16 fixture sheets plus 800 generated values) and the bypass mutant read 20/20.
+- `.reg`: the memo is deleted and the boot fence is kept.
+- `.sp`: the SharePopover root cure. The cause was Vue's same-millisecond `_vts` drop of the event.
+- `.ps`: the published-surface rows.
+- Repair 1: the README `compileToEntry` #20 time spelling.
+- **G9 reads `npm ls @mkbabb/value.js` → 4.1.0.**
+
+Ruled:
+1. **ESC-KFW3-r1-1: the kf CI demo roster is RED at 4 of 6 (live-session S5, live-session-mobile M1/M2).** CI has not reached the roster since 2026-10-27. The two readings so far disagree: the check calls it a stale oracle from OD19-K6 `13762e6e`, while the repair found S5 and M2 GREEN at W13X close6 `389e31d2`. So **attribution comes first.**
+   - **The bisect.** Run it in a clean worktree with its own `dist/`, never the shared one, and never including the sibling's dirty `KeyframeTimeline.vue`. Candidates, in order: `389e31d2` → `cc1a8669` → `5c48e3da` (glass 10.1.2) → `13762e6e` (OD19-K6) → `17a5c34d` (glass 10.1.3) → `8ca052ad`/`2f498f0e`/`f59d5259` → `fb87dbcd`. Each step runs the roster ×2.
+   - **If the oracle is stale:** re-aim `scripts/observe/demo/live-session{,-mobile}.mjs` and `scripts/lib/demo-driver.mjs:941` at the at-rest surface fact, the trigger face's `data-surface`. The assertion is never loosened.
+   - **If it is a kf product regression:** cure it at the root in the kf demo dock or sheet files, which are granted.
+   - **If it is glass:** A/B against the prior glass pin, then relay it to glass with the numbers. Hold it with a cited O-id, an expiry at the repin, and a falsifier that turns RED.
+   - **M1 sheet scroll (SHEET-POSITION) is a banked honest-RED.** It keeps its existing relief only if that relief names a producer O-id. Otherwise it is cured. No CI step is skipped.
+2. **UIA-KF-177 residual:** `useKeyframeOps.ts:45-46` drops the authored `<time>` unit. A seat is granted on that concern: thread `durationUnit`/`delayUnit` through the two-argument `reverseCSSTime` and its oracles, with the round-trip falsifier ×2.
+3. **Then the close order of §0hd.5:** kf CI GREEN → deploy-pages → §6 round-trip → post-deploy probe ×2 (G-KF3-8 pageerror arm) → close → fresh check. **Then X-W11's VERIFIED stamp (§0hb.3).**
+4. **The keyframes letters, booked (atlas U/B7 via sci-report-a4, and the Gregg parity pass; owner: this session):**
+   - **K-1:** after `Draggable.handleUp` with snap calls `spring.reset(release, velocity)`, it sets a target equal to the release point. `SpringProgress`'s `set target` returns early on the equal value, so the spring never ticks and never commits. The cure: a velocity reset re-seats the spring, so an equal target with nonzero velocity still runs to rest. Falsifiers: glass `useDragMorph.grab.test.ts` and `SegmentedTabs.glide.spec.ts`, RED before and GREEN after, plus a kf unit test. Glass's 9d93e6097 compensation comes out once this lands.
+   - **KF-1:** `splitText(el, {by:"word"})` keeps trailing punctuation with its word.
+   - **KF-2:** `splitText` never overwrites an element's existing semantic role, so h1–h6 keep the heading outline. It adds a role only where none exists.
+   - **KF-3:** a sampled LUT form of `springTimingFunction`, built for per-frame and many-mark use and for ECharts/CSS (atlas A2(b)).
+   - Each gets a standalone repro first. KF-1 and KF-2 come from code comments and are confirmed before any cure.
+   - **Vehicle:** a keyframes minor release after KF.W3 ships, as its own pass. Reply to sci-report-a4 with the release that carries each row.
