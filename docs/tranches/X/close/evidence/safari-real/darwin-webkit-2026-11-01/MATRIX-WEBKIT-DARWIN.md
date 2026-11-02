@@ -59,3 +59,14 @@ New in the baseline: `o2-real-hydration-coldload:44` (cured below). `w7:85` and 
 ## Verdict
 
 **Darwin real-GPU WebKit witness (G8's cell of record): MEASURED at `20c57926b`. 196 listed, 196 executed, 192 passed and 4 red. Every red is `w7-destructive-seats`, honest-RED on O-106 and not counted green.** The renderer is recorded as `Apple GPU` (hardware). Against the 10-28 set, 16 reds are now 4. The one new non-producer red (`o2:44`) was cured at its root in the oracle and read GREEN ×2 plus once in the final run. Origin label: **local dev server** (`vite`, `VJS_E2E_PORT=9611`), not the deploy of record. This cell neither inverts nor confirms the Chromium cell.
+
+## ADDENDUM 2026-11-02 — re-read at HEAD `e18c26504` (X-W11 Repair 2, RESUME eighteenth; E-3: the bytes above are untouched)
+
+- Command: ⟨`sh run-projects.sh repair2-head-r1`⟩, which is the exact `.g8w` command (`guarded --exclusive webkit --timeout 90 -- npx playwright test --workers=1 --retries=0 --project=smoke-safari --project=oracles-safari`). The meta `runs/repair2-head-r1.meta` records `HEAD e18c26504…` · queued `2026-11-01 23:52:05` · `exit 1 end 2026-11-02 01:51:24`. Most of that time was the machine-wide `ex-webkit` lock wait; the suite itself ran `15.4m`.
+- The product bytes at HEAD are `.cnm2`'s `288786ed3`. ⟨`git diff --stat 20c57926b e18c26504 -- demo e2e src test`⟩ → 12 files (the `1ccd03f06` / `.cnm2` moves), all after `.g8w`'s reading.
+- Count, read from `runs/repair2-head-r1.json.gz` ×2 (⟨`gzip -dc … | python3 -I -c "…['stats']"`⟩) → `expected 195 · unexpected 4 · flaky 0 · skipped 0` ×2; per-test walk → `passed 195 · failed 1 · timedOut 3` = **199 executed**. The executed count is asserted apart from the exit code. The denominator rose from 196 to 199 with `.cnm2`'s o18 legs.
+- Reds (4): `w7-destructive-seats.spec.ts:53` failed, and `:85 :101 :121` timed out. That is the same 4 legs and the same shape as `.g8w`, so it is the fifth red run. They stay honest-RED on **O-106** and are not counted green. **Non-w7 reds: 0**, so no root cure is owed.
+- The renderer is recorded as `Apple GPU (real-GPU)` (log `[O-1]`, `[O-26]`, `[O-3 dark]`).
+- Console noise: `Importing a module script failed` appears 7× in the dev-server log, against 5× in `webkit-projects-final.log`. It is the same class as the banked run, and no test it touches failed.
+
+**Verdict at HEAD `e18c26504`: MEASURED. 199 executed, 195 passed and 4 red, all w7 / O-106 honest-RED.**
