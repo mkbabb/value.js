@@ -741,3 +741,27 @@ Owed, strictly ordered (§0hd order; concurrency cap 1 ⇒ singleton groups): `[
 **Adjacent edits (§0bt)**: none.
 
 **Residuals**: (i) `useKeyframeOps.ts:45-46` unit pass-through — not this concern (act 5); needs a demo seat granted on UIA-KF-177's concern. (ii) UIA-KF-321 intermittent in the full suite → `.sp`. **Escalations**: none.
+
+### KF.W3.sp
+
+**Seat**: `claude-opus-5-5`, 2026-11-02, on COHESION §0hd.3 (ESC-KFW3-d-2, UIA-KF-321) · writable set = kf `demo/app/dock/menu/SharePopover.vue` only.
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, never staged) ⇒ **0 inherited paths**. kf HEAD at open `2f498f0e`.
+
+**Acts, in order**
+1. **Baseline (BEFORE, read-only bytes)** — ⟨`guarded --timeout 10 -- npx vitest run test/demo/app/r4dock-share-fallback.test.ts --maxWorkers=2`⟩ ×7 → 5 passed, **2 failed**, each `AssertionError: expected [ 145, 145 ] to deeply equal [ +0, 145 ]` at test `:70` (the selection assertion; focus assertion `:66` passed). RED is intermittent, consistent with the RESUME 2 baseline's "RED alone" + prior "intermittent".
+2. **Measure the mechanism** (temporary stderr instrumentation inside the writable file, reverted by restoring the pre-edit bytes before the cure; ⟨`git diff --stat -- SharePopover.vue`⟩ → empty). In the failing instrumented run the field's value was set by vModelText `mounted` (145 chars) and **no `@focus` handler call occurred**, yet focus landed. In passing runs: `native-target-focus vts <t> attached <t-1..t-4>` — the event's `_vts` is already stamped by an ancestor's Vue capture invoker. `node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js:673-679` (`createInvoker`): `if (!e._vts) e._vts = Date.now(); else if (e._vts <= invoker.attached) return;`, `attached = getNow()` (ms, cached per tick). ⇒ when the watcher's post-`nextTick` `focus()` lands in the **same millisecond** the field's `@focus` invoker was attached, Vue drops the event and `selectAll` never runs: focus lands unselected. Root cause = the select was ordered through a listener that races the mount, not after focus.
+3. **Cure** (`SharePopover.vue:163-179`): the watcher `focus()`es the mounted field and, once `document.activeElement === field`, `select()`s it (focus is synchronous, so the select runs after focus has landed); `@focus="selectAll"` stays for a later user return to the field. No timer, no retry, no skip; the test is untouched (⟨`git diff 2f498f0e -- test/`⟩ → empty).
+4. **Gates (AFTER, settled bytes)**:
+   - r4dock-share-fallback alone ×3 → `Test Files 1 passed (1)` · `Tests 1 passed (1)` ×3; plus stress ×15 → ⟨`sort stress.txt | uniq -c`⟩ → `15  Tests 1 passed (1)`.
+   - whole demo suite ⟨`guarded --timeout 20 -- npx vitest run --project demo --maxWorkers=2`⟩ ×2 → `Test Files 166 passed (166)` · `Tests 981 passed (981)`, rc 0 ×2.
+   - kf check ⟨`guarded --light --timeout 10 -- npm run check`⟩ ×2 → rc 0 ×2 (`proof:structure — PASS: scope=src clean (0 violations across R1–R6)`).
+5. **Commit** — kf **`f59d5259`** (1 path: `demo/app/dock/menu/SharePopover.vue`; ⟨`git show --stat HEAD`⟩ → `1 file changed, 10 insertions(+), 1 deletion(-)`; `KeyframeTimeline.vue` not in it). Not pushed (`.d2` pushes).
+
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| r4dock-share-fallback alone | RED (2/7 runs, `[145,145]` ≠ `[0,145]`) | GREEN ×3 (+15/15 stress) |
+| demo suite | — (intermittent per `.reg` residual ii) | GREEN 166/981 ×2 |
+| kf check | GREEN (banked) | GREEN ×2 |
+
+**Adjacent edits (§0bt)**: none. **Residuals**: none in this concern. **Escalations**: none.
