@@ -1,0 +1,9 @@
+# measured against built dist/ at d3248a0a7+working tree, 2026-11-02T16:42:45Z, node v26.0.0
+cross-model Machado s=1 vs Vienot, protan, 33^3 cube: median 0.02356 p95 0.07876 max 0.10507 (bound 0.03 / 0.085 / 0.11)
+cross-model Machado s=1 vs Vienot, deutan, 33^3 cube: median 0.02165 p95 0.06182 max 0.08701 (bound 0.03 / 0.085 / 0.11)
+contrastRatio #767676/#fff = 4.542224959605253
+contrastRatio oklch(0.62 0.15 250)/#1a1a19 = 4.792246879038723
+deltaEOK red/blue = 0.5370898164568615
+gregg-light: verdict pass; worst L 0.4631@6 C 0.1004@6 contrast 3.0657@5; normal 0.1672 protan 0.1050@4,5 deutan 0.1398@3,4 tritan(info) 0.0816@1,2
+gregg-dark: verdict pass; worst L 0.6698@7 C 0.1051@4 contrast 3.2679@6; normal 0.1541 protan 0.1150@4,5 deutan 0.1235@0,1 tritan(info) 0.0387@1,2
+echarts-light: verdict fail; worst L 0.8566@2 C 0.0874@4 contrast 1.5593@2; normal 0.1385 protan 0.0398@5,6 deutan 0.0967@1,2 tritan(info) 0.1271@4,5
