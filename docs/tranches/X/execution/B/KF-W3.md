@@ -822,3 +822,53 @@ SERVED MODEL: claude-opus-5-5. Authority: COHESION §0hd.5 · §0hb.3 · G-KF3-8
 - Local check ×2 and vitest ×2 are GREEN at `6a4556d3`. G9 is GREEN (4.1.0).
 - **Blocking**: kf CI `41462383452` is RED on `proof:readme-runs`, README.md:834 (ESC-KFW3-d2-1). So deploy-pages `41463139545` was skipped, and §6, the post-deploy probe ×2 and the G-KF3-8 pageerror arm are owed. §0hb.3's X-W11 VERIFIED stamp waits on the deploy.
 - **Next**: an orchestrator grant for README.md:834. Then a `.d2` repair seat: CI GREEN → deploy → §6 → probe ×2 → Close 3 → a fresh check.
+
+## Close 3 — 2026-11-02 (CLOSE SEAT, units `.c2b` `.reg` `.sp`, `claude-opus-5-5`, VERIFY-ONLY): PARTIAL
+
+SERVED MODEL: claude-opus-5-5. Substrate kf `HEAD` = `origin/master` = `6a4556d3`; vjs `24dd471c5`. Crash-recovery: kf `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, never staged); vjs record/LEDGER clean ⇒ 0 inherited paths. Nothing cured here.
+
+**Commit roster + writable-set check** (⟨`git show --stat <c>`⟩):
+
+| unit | commit | files | in writable set |
+| --- | --- | --- | --- |
+| `.c2b` | kf `8ca052ad` | 19: `css-text.ts` · new `emit/serialize-value.ts` · 8 src census-1 consumers (`densify` `entry` `format/format` `frame/interp-slot` `engine/css/metadata` `resolve/{browser,conditional,function}`) · demo `timelineEngine.ts` + `demo/utils/helpers.ts` · 5 test consumers · new `test/compile/serialize-invariant.test.ts` · `manifest.json` | YES (all 19 inside the RESUME 2 `.c2b` row) |
+| `.c2b` | vjs `db04c4f7c` (INBOX +1) · `8176c4656` (record + `evidence/W3/C2B-RECEIPTS.md`) | 3 | YES |
+| `.reg` | kf `2f498f0e` | `easing/registry.ts` · `test/compile/easing-identity.test.ts` (memo-asserting test, re-aimed in prose) | YES |
+| `.reg` | vjs `bb1cdc433` | record | YES |
+| `.sp` | kf `f59d5259` | `demo/app/dock/menu/SharePopover.vue` | YES |
+| `.sp` | vjs `673b84429` | record | YES |
+
+**landedWrong: none.**
+
+**Gates re-run by this seat at kf `6a4556d3`** (every heavy run via `guarded`, vitest `--maxWorkers=2`, strictly sequential):
+
+| gate | BEFORE (RESUME 2 baseline) | AFTER (this seat) |
+| --- | --- | --- |
+| G-KF3-1 | GREEN (Check 3) | standing: ⟨`grep -rln RC-P docs/tranches/X/fourier/ \| wc -l`⟩ → `1`; `evidence/W3/rc-p-4.1.0.md` present |
+| G-KF3-2 | GREEN (Check 3) | **GREEN ×2**: ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ sha1 `d488535c9bfc…b3d6` = ⟨`npm view … dist.shasum`⟩; unmodified probe (sha256 `77678a574d7c6b11…`) symlinked into the untarred mirror; ⟨`npm_config_ignore_scripts=true guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 → rc 0 ×2, `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` |
+| G-KF3-3 | GREEN (cited) | **GREEN ×2**: roster re-derived at HEAD (⟨`git grep -l -E '@mkbabb/value\.js/css\|parseCss(Color\|Scalar\|Values)\|parseTimingFunction\|serializeCssValue\|reverseAnimationShorthand\|cssIdent' HEAD -- test/`⟩ ∪ ⟨`git grep -l serialize-value HEAD -- test/`⟩, `.test.ts`) → 19 files; ⟨`guarded -- npx vitest run <19> --maxWorkers=2`⟩ ×2 → `Test Files 19 passed (19)` · `Tests 235 passed (235)` both runs |
+| G-KF3-4 | **RED** | **GREEN**: ⟨`git grep -n unserializable HEAD -- src demo \| wc -l`⟩ → `0`; fork defs ⟨`git grep -nE 'function serializeCssValue\|const serializeCssValue' HEAD -- src demo \| wc -l`⟩ → `0`; ⟨`git grep -nE "serializeCssValue.*from ['\"]@mkbabb/value.js/css" HEAD -- src demo`⟩ → `serialize-value.ts:2` · `timelineEngine.ts:2`; seam importers ⟨`git grep -lE "from ['\"].*serialize-value['\"]" HEAD -- src test demo`⟩ → 15; census 1b: `import("@mkbabb/value.js/css")` → 20 keys, `serializeCssValue` = function; pin `package.json:71` `"4.1.0"`; ⟨`grep -c 'O-11 §B' INBOX.md`⟩ → `1` |
+| invariant property + bypass mutant | absent | **GREEN ×2** (inside the fence run): `serialize-invariant.test.ts` 20/20 |
+| G-KF3-5 | GREEN (Check 3, `.c3` discharge (b)) | standing: one def `css-text.ts:33`; ⟨`git grep -n "value.js's OWN" HEAD -- src`⟩ → only `internal/leaves.ts:8` (names the `/math` subpath, not `reverseAnimationShorthand` — outside the census-2 predicate) |
+| G-KF3-6 (+ `.reg` boot fence) | GREEN 110/110 | **GREEN ×2**: INBOX `O-11 §D2` row 1, carries `1.923e-1` / `6.930e-2` / `4.489e-2` + DECLINED; ⟨`guarded -- npx vitest run test/_root/public-surface.test.ts test/compile/easing-identity.test.ts test/compile/timing-function-names.test.ts test/orchestration/orchestration-api.test.ts test/compile/serialize-invariant.test.ts --maxWorkers=2`⟩ ×2 → `Test Files 5 passed (5)` · `Tests 130 passed (130)` (110 fence roster + 20 invariant) |
+| G-KF3-7 | GREEN (Check 3) | standing: `evidence/W3/CALL-MAP.md` present |
+| UIA-KF-321 (`.sp`) | **RED alone** | **GREEN alone ×3**: ⟨`guarded -- npx vitest run test/demo/app/r4dock-share-fallback.test.ts --maxWorkers=2`⟩ → `Tests 1 passed (1)` ×3 |
+| kf `npm run check` | GREEN | **GREEN ×2** rc 0 (ends `proof:structure — PASS: scope=src clean`) |
+| kf vitest whole (lib + demo) | GREEN | **GREEN ×2**: `Test Files 295 passed \| 5 skipped (300)` · `Tests 2316 passed \| 2 expected fail \| 14 skipped (2332)` both runs |
+| kf CI (both jobs) | RED | **RED, unchanged**: ⟨`gh run list -L 4`⟩ → `41462383452` ci `failure`; `41463139545` deploy-pages `skipped`. Cause stands: ⟨`git show HEAD:README.md \| sed -n 834p`⟩ → `dialog.css.includes("display 350ms allow-discrete"); // => true` (ESC-KFW3-d2-1) |
+| deploy · §6 round-trip · post-deploy probe ×2 (G-KF3-8 pageerror arm) | owed | **BLOCKED** on CI (not run: a probe of prod would read the pre-repin build) |
+| G-KF3-8 / G-KF3-9 | floors | not close gates (spec §Gates) |
+
+**Verification artefacts**: the spec names no separate §Verification Artefacts block; the evidence bank `docs/tranches/X/keyframes/evidence/W3/` holds all eight named artefacts (`C2B-RECEIPTS.md` `CALL-MAP.md` `CLOSE-RECEIPTS.md` `DUAL-1-DESIGN.md` `EIGHT-CURVE-DELTA.md` `REPIN-ATTRIBUTION.md` `attribution-harness.mjs` `rc-p-4.1.0.md`).
+
+**E13**: four paths swept again (value V/ + V/coordination · glass BK/coordination + BL + BL/audit, newest `BL` · keyframes.js V/coordination). ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 2026-11-02 08:54) → 0, except glass `BL/FORMATION-PROGRESS.md` + `BL/audit/INBOUND.md` = glass commits `2edc9cc3b` / `9051506d1` (glass's O-118 owner-delegated rulings + "atlas adopts O-118"); neither names value.js or keyframes.js ⇒ out of scope. INBOX status-column UNREAD rows → 0. **No UNREAD mail in scope.**
+
+**Residuals (named owners)**:
+1. ESC-KFW3-d2-1: kf `README.md:834` oracle reads `display 350ms`; needs an orchestrator grant, then the `.d2` repair seat (CI GREEN → deploy-pages → §6 → probe ×2, pageerror 0 = G-KF3-8 arm → close + fresh check). Owner: orchestrator → `.d2` repair.
+2. `useKeyframeOps.ts:45-46` drops the authored `<time>` unit (two-argument `reverseCSSTime`); a different concern from `.reg`. Owner: a seat granted on UIA-KF-177 (`.c4`'s concern).
+3. Throw sites 2 → 2 after `.c2b` (one seam invariant + one demo refusal in `timelineEngine.ts`, via `importCSSToTimeline`'s throw-to-submission channel). Owner: KF.W7 / KF.W2 posture (L-5).
+4. §0hb.3's X-W11 VERIFIED stamp waits on the deploy. Owner: Track A after `.d2`.
+
+**Escalations**: none new (ESC-KFW3-d2-1 stands). **Adjacent edits**: none.
+
+**Four-verb line**: IMPLEMENTED — **NOT advanced** (spec §State: *"gates green + bytes landed in the named execution site stamps this"*; kf CI is RED and the deploy/§6/probe acts are owed). VERIFIED — not this seat's to stamp. Row stays **PARTIAL**.
