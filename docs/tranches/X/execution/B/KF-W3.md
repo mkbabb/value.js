@@ -765,3 +765,28 @@ Owed, strictly ordered (§0hd order; concurrency cap 1 ⇒ singleton groups): `[
 | kf check | GREEN (banked) | GREEN ×2 |
 
 **Adjacent edits (§0bt)**: none. **Residuals**: none in this concern. **Escalations**: none.
+
+### KF.W3.ps
+
+SERVED MODEL: claude-opus-5-5. Authority: COHESION §0hd.2 (ESC-KFW3-d-1). Writable: kf `docs/published-surface.md` only.
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, never staged) ⇒ **0 inherited paths** in `.ps`'s set.
+
+**Acts, in order**
+1. **Re-measure after `.reg` (`2f498f0e`)**: ⟨`guarded --light -- node scripts/gates/surface/index.mjs`⟩ → `proof:published-surface — FAIL (1 finding(s))` · `(b) 5 public export(s) are NEITHER README-taught NOR manifested`: `cssIdent` `resolveTimingFunction` `reverseCSSTime` `serializeTimingFunction` `timingFunctionEntries` (all HEAVY). The set matches the baseline; `.reg` did not change it. Sources: ⟨`grep -n … src/animation/public.ts src/animation/load-engine.ts`⟩ → `public.ts:168-171` and the `load-engine.ts:116-124` roster. `:17` read `` `@mkbabb/value.js@4.0.0` pin ``, and ⟨`grep value.js package.json`⟩ → `"@mkbabb/value.js": "4.1.0"`.
+2. **Edit**: added a new `### KF.W5 PUBLICATION DOOR` table before `## EP-3`, with five rows. Each row is name · `HEAVY` · `manifest-only: <reason>` plus its unit witness: `cssIdent` → `test/demo/instrument/apply-css-identity.test.ts`; `reverseCSSTime` → `test/compile/uia-kf-177-css-time.test.ts`; `serializeTimingFunction` → `test/_root/public-surface.test.ts`; `resolveTimingFunction` → `test/compile/timing-function-names.test.ts`; `timingFunctionEntries` → `test/compile/easing-identity.test.ts`. No row has a README anchor, because none of the five has a README section (⟨`grep -n … README.md`⟩ → 0 headings). `:17` prose is now `` `@mkbabb/value.js@4.1.0` pin (the X·KF.W3 repin; …) ``. No allowlist.
+3. **Commit**: kf `6a4556d3` (pathspec `docs/published-surface.md`, one docs commit).
+4. **Gate on settled bytes (post-commit) ×2**: ⟨`guarded --light -- node scripts/gates/surface/index.mjs`⟩ → `clause (b)` `public value exports: 83 (LIGHT 34 + HEAVY 49) · manifest rows: 83`, ⟨`grep -c '✗ (b)'`⟩ → `0`, and `proof:published-surface — PASS`, both runs. ⟨`grep -c` over the five row names⟩ → `5`.
+
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| `proof:published-surface` (b) | **RED** (5 unmanifested HEAVY) | **GREEN ×2** (83/83 rows, PASS) |
+| `index.mjs` exit as a whole | 1 (stopped at published-surface) | **1, now at the next gate in the chain, `proof:readme-runs`** (see the residual) |
+
+**Residual: a RED that was hidden behind `.ps`'s gate, now exposed; outside `.ps`'s writable set and concern.** `scripts/gates/surface/index.mjs:23-25` runs its checks in order and exits at the first failure, so `readme-runs.mjs` never ran while (b) was RED.
+- **The failure**: on a fresh dist (⟨`guarded -- npm run build:lib`⟩ rc0; the 08:05 dist was older than `.c2b`/`.reg`), the gate reports ⟨`node scripts/gates/surface/index.mjs`⟩ → `proof:readme-runs — FAIL` · `snippet [beyond css › compileToEntry #20] … stated // => true but the dist computed false`, ×2.
+- **The measured cause**: `README.md:834` asserts `dialog.css.includes("display 350ms allow-discrete")`. The dist emits `0.35s`: ⟨scratch replay of the snippet against `dist/keyframes.js`⟩ → `eligible: true`, `transition: opacity 0.35s …`. This is `reverseCSSTime`'s seconds-on-a-tie rule (X.KF.W13X.r4lib), the same allow-discrete time-literal drift that `d4148cdc` cured in the entry-roundtrip oracle.
+- **Who owns it**: the README is not in `.ps`'s set. It is a different concern (the README runnable oracle, not the surface manifest), so the §0bt adjacent-line rule does not reach it.
+- **Routed to `.d2`/arbiter**: kf CI `proof:publish` stays RED until `README.md:834` reads `display 0.35s allow-discrete`. That is a one-line README oracle correction, which needs a grant.
+
+**Adjacent edits (§0bt)**: none. **Escalations**: the routed residual above (README.md:834), which needs a grant before `.d2` can turn kf CI GREEN.
