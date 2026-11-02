@@ -146,9 +146,26 @@ test("O-2 real-hydration — a returning-user bare reload restores the derived f
     }
 
     // The field PRESENTS on the natural cold load (honest to both render paths).
-    const present = await canvasPresents(page, ATMOSPHERE_TESTID);
-    expect(
-        present.cssPlaceholder || present.draws > 0,
-        `field absent on natural cold load (cssPlaceholder=${present.cssPlaceholder}, draws=${present.draws})`,
-    ).toBe(true);
+    // X.W11.g8w (COHESION §0gz.3(ii)): the field's first frame is an overture
+    // beat, scheduled after the boot material settles, so it is awaited with
+    // the same 8 s bound as every other leg here. A one-shot read raced that
+    // beat: draws=0 on the darwin real-GPU WebKit cell 3/8. A field that never
+    // presents still reds, naming both paths.
+    const settledAt = Date.now();
+    let present = await canvasPresents(page, ATMOSPHERE_TESTID);
+    await expect
+        .poll(
+            async () => {
+                present = await canvasPresents(page, ATMOSPHERE_TESTID);
+                return present.cssPlaceholder || present.draws > 0;
+            },
+            {
+                timeout: 8000,
+                message: `field absent on natural cold load within 8 s (first read: cssPlaceholder=${present.cssPlaceholder}, draws=${present.draws})`,
+            },
+        )
+        .toBe(true);
+    console.log(
+        `[O-2] field presents ${Date.now() - settledAt} ms after the material settled (cssPlaceholder=${present.cssPlaceholder}, draws=${present.draws})`,
+    );
 });
