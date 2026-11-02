@@ -363,6 +363,7 @@ export default defineConfig((mode) => {
                         "src/value.ts",
                         "src/easing.ts",
                         "src/quantize.ts",
+                        "src/palette.ts",
                         "src/transform/**/*.ts",
                     ],
                     compilerOptions: {

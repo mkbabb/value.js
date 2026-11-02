@@ -1,0 +1,5 @@
+7cb988080aeee2436402b6e6738011e8ec18354dcedd536753314da5984cce11  test/fixtures/cvd/reference.json
+99828eb437f71cc79ecf3639536062181134b71f7daace4a29d0db1160d862c5  test/fixtures/cvd/palette-parity.json
+8b018ef61984cbf3524c339693a903f5f37a3a706d73fd52c6a45e286f334ad3  test/support/cvd_reference.py
+1397f5c5939bca6cc0531f42d2ff91c639e9f7515ec560c5d8964c18e11a4620  test/support/palette_parity.mjs
+25df43beb77674dad34348b9fe338d5a47f568e08bcf51b38780e51386cf866e  <bundled-skills 2.1.316>/dataviz/scripts/validate_palette.js
