@@ -1143,3 +1143,82 @@ G-KF3-8's pageerror arm is a FLOOR and is outside the close set. **Honest-RED se
 | INFO | `KeyframeTimeline.vue` in kf is dirty (sibling's), and all local runs include it. | ⟨`git status --porcelain`⟩ | none |
 
 **LEDGER**: not promoted; the row stays PARTIAL; an event line is appended.
+
+## RESUME 3 — Open (2026-11-02, seat 0, `claude-opus-5-5`, on COHESION §0he)
+
+SERVED MODEL: claude-opus-5-5.
+
+**Mode**: RESUME (third). Ledger row 66 status before: `PARTIAL — RESUME 2 Close 2 …` (not CLOSED), and this record exists, so this is a resume. Authority: COHESION §0he (2026-11-02, `665e4d604`, read whole). §0he.1 rules ESC-KFW3-r1-1: attribution bisect first, then the oracle / kf / glass arm by attribution, with M1 SHEET-POSITION relief only under a producer O-id and no CI step skipped. §0he.2 grants UIA-KF-177. §0he.3 is §0hd.5's close order, then X-W11's VERIFIED stamp. §0he.4 books the keyframes letters for a post-W3 minor, outside this wave. §0hd and §0hb stand.
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only. That path is the sibling's (§0hb.1) and is never staged, so **0 inherited paths** sit in any owed unit's set. vjs record/LEDGER/INBOX: clean at open. kf `HEAD` = `origin/master` = `fb87dbcd` (⟨`git ls-remote origin master`⟩ → `fb87dbcd26b9`), and no kf commit has landed since Check 3.
+
+**Already done (commits exist, never re-dispatched)**:
+- `.a` · `.b` (vjs evidence/W3)
+- `.c1` `c18a9bd9` · `.c3` `bc37f98f` · `.c4` `4ed542d5` · `.c5` `17a5c34d` (glass 10.1.3)
+- `.d` oracle `d4148cdc`
+- `.c2b` `8ca052ad` · `.reg` `2f498f0e` · `.sp` `f59d5259` · `.ps` `6a4556d3`
+- Repair 1 README `fb87dbcd`
+
+G9 ⟨`npm ls @mkbabb/value.js`⟩ → `4.1.0` (Check 3). `.d2` is superseded by `.d3`. ⟨`git log --oneline`⟩ shows no `.bis` or `.u177` commit.
+
+**Preconditions**: RC-P(4.1.0) TRUE was banked at this record's Open and reproduced ×2 by Check 3 (G-KF3-2 `TOTAL 0 throws / 1548 calls`). The owed units' only new precondition is the §0he ruling, which exists (`665e4d604`). **MET.**
+
+**E13 Step-0 sweep**: 9 paths. Value: V/ + V/coordination. Glass: BK/coordination + BL + BL/audit (⟨`ls -dt`⟩ → `BL BK BJ`). kf: V/coordination. Atlas: P/coordination + U + U/coordination (newest `U`). ⟨`find -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 08:54) returned files on two repos:
+- **Glass.** `BL/FORMATION-PROGRESS.md` + `BL/audit/INBOUND.md`, from commits `2edc9cc3b` `9051506d1` `e410b7f21` (O-118 to atlas, BL cursor). They name value.js/keyframes in 0 lines: out of scope.
+- **Atlas.** `U/STATE.md` + `U/RULINGS-2026-09-23.md`. `STATE.md:329-331` record the atlas U/B7 keyframes letter (`U/build/KEYFRAMES-LETTER-2026-11-02.md`: K-1, KF-1..KF-3), delivered to this session and accepted at §0he.4 but **never rowed**. It is **rowed as I-79** (UNREAD; routed by §0he.4 to the post-KF.W3 keyframes minor, outside KF.W3's units), and a dated sweep line is appended.
+
+**UNREAD in KF.W3 scope: 0.**
+
+### RESUME 3 — Baseline (READ-ONLY, kf `fb87dbcd`, value.js `665e4d604`)
+
+Only the owed units' gates are read. Every other gate cites Check 3's ×2 readings: 13/13 claimed GREENs reproduced.
+
+| gate | BEFORE | reading |
+| --- | --- | --- |
+| kf CI demo roster (`.bis`) | **RED** | ⟨`gh run view 41466910668 --json jobs`⟩ → `demo correctness (browser roster) failure` · `library gates … cancelled`. Check 3's `--log-failed` → `passed: 4/6` · `✗ failed: live-session, live-session-mobile` (S5; M1/M2). Pre-wave reproduction at `5c48e3da` ×2 is Repair 2's banked log `evidence/W3/repair2-attribution-5c48e3da.log.txt`. The two attribution readings still disagree (§0he.1), so the bisect is owed. Not re-run here: it is a heavy browser run and it is the unit's own act |
+| deploy-pages · §6 · post-deploy probe ×2 (`.d3`) | **skipped / owed** | ⟨`gh run list -L 4`⟩ → `41468193578 deploy-pages skipped` (behind CI `41466910668`) |
+| UIA-KF-177 residual (`.u177`) | **RED at the bytes** | ⟨`sed -n 44-46p demo/components/instrument/keyframes/composables/useKeyframeOps.ts`⟩ → `stored.duration = reverseCSSTime(animation.options.duration);` · `stored.delay = reverseCSSTime(animation.options.delay);` (the one-argument call drops the authored unit). Signature ⟨`git grep -n "export const reverseCSSTime" HEAD -- src`⟩ → `css-text.ts:22 (milliseconds: number, unit?: CssTimeUnit)`. Sibling sites already thread the unit: `css-text.ts:36` · `emit/entry.ts:402,418` · `format/options.ts:46`. No round-trip falsifier exists yet for the demo-store path (its test importers are `test/demo/scenes/square-editor-seam.test.ts` and `test/engine/adopt-compiled-renderer.test.ts`) |
+| G9 (`npm ls` → 4.1.0) | GREEN | cited (Check 3) |
+
+**greenBeforeCure**: none.
+
+### RESUME 3 — Unit plan
+
+Owed: `[.bis] → [.u177] → [.d3]`. §0he orders `.bis ∥ .u177 → .d3`. The concurrency cap is 1, so each group is a singleton. `.bis` and `.u177` share no modify path: `.bis` writes scripts/dock/sheet, `.u177` writes `useKeyframeOps.ts` + tests. `.d3` needs both. All seats `opus` (owner: Opus only).
+
+Machine law:
+- Every run goes through `guarded`. vitest `--maxWorkers=2`, playwright `--workers=1`.
+- Browser runs never use `--light`. Roster/probe runs take one browser per run.
+- `KeyframeTimeline.vue` is never staged, restored or edited, and never enters the bisect worktree.
+
+| unit | sections | writable | gates | locks |
+| --- | --- | --- | --- | --- |
+| `.bis` attribution bisect + cure by attribution | §0he.1 · §0hd.5 · Check 3 Register HIGH | **bisect:** a clean detached kf worktree under a durable non-/tmp dir (removed after) with its own `npm ci` + `dist/`. **cure, by arm:** *(oracle)* kf `scripts/observe/demo/live-session.mjs` · `scripts/observe/demo/live-session-mobile.mjs` · `scripts/lib/demo-driver.mjs`; *(kf product)* kf `demo/app/dock/**` + the kf demo sheet files the attribution names (never `KeyframeTimeline.vue`); *(glass)* vjs `docs/tranches/V/coordination/INBOX.md` (an O-n relay row; the orchestrator delivers). Always: vjs `docs/tranches/X/keyframes/evidence/W3/` (the bisect log) | roster ×2 per bisect step · after the cure, the roster (`live-session`, `live-session-mobile` + the 4 GREEN) ×2 locally · kf check ×2 | One commit per meaning. The assertion is never loosened; no skip, no allowlist, no copied producer selector. Glass is read-only. M1 SHEET-POSITION relief only under a cited producer O-id |
+| `.u177` UIA-KF-177 unit threading | §0he.2 · Close 3 residual 2 | kf `demo/components/instrument/keyframes/composables/useKeyframeOps.ts` · its reverseCSSTime oracles (`test/compile/uia-kf-177-{css-time,authored-unit}.test.ts`, re-aim only) · one new round-trip falsifier test under `test/demo/` | the round-trip falsifier RED before → GREEN ×2 · uia-kf-177 oracles ×2 · kf check ×2 · vitest whole ×2 | one commit; no compat shim; never weaken an oracle |
+| `.d3` ship + close | §0he.3 · §0hd.5 · §0hb.3 · G-KF3-8 | kf push only (an unexpected RED outside the wave's concern = ESCALATE) · vjs `evidence/W3/CLOSE-RECEIPTS.md` (addendum) · this record · LEDGER | kf CI GREEN (both jobs) · deploy-pages success · §6 round-trip (`scripts/pages-deploy.sh:109-140`) · post-deploy probe ×2 of `https://keyframes.babb.dev` (pageerror 0) · G9 → 4.1.0 | ordinary push, never force; then close + fresh check; then X-W11 VERIFIED (§0hb.3, Track A's) |
+
+#### Briefs (the dispatched text)
+
+- **`.bis`** (§0he.1): bisect the kf CI roster RED (live-session S5, live-session-mobile M1/M2).
+  1. Work in a CLEAN detached kf worktree in a durable non-/tmp dir, with its own `npm ci` + `dist/`. Never use the shared `dist/` or the dirty `KeyframeTimeline.vue`.
+  2. Run the roster ×2 at each step, in order: `389e31d2` → `cc1a8669` → `5c48e3da` → `13762e6e` → `17a5c34d` → `8ca052ad`/`2f498f0e`/`f59d5259` → `fb87dbcd`.
+  3. Bank the log in evidence/W3.
+  4. Cure by attribution:
+     - **Stale oracle:** re-aim `live-session{,-mobile}.mjs` + `demo-driver.mjs:941` at the trigger face's at-rest `data-surface`. Never loosen.
+     - **kf product:** a root cure in the dock/sheet files.
+     - **Glass:** A/B against the prior pin, then an INBOX relay row with the numbers. Hold under the O-id.
+     - **M1 SHEET-POSITION:** keeps its relief only with a producer O-id; otherwise cure it.
+  5. Roster ×2 GREEN, check ×2. Remove the worktree.
+- **`.u177`** (§0he.2):
+  1. Write a round-trip falsifier first (authored `0.35s`/`350ms` duration and delay through the demo store path `useKeyframeOps` → stored options → re-emit; RED at baseline).
+  2. Thread `animation.options.durationUnit`/`delayUnit` into the two-argument `reverseCSSTime` at `useKeyframeOps.ts:45-46`. Re-aim (never weaken) the uia-kf-177 oracles if their asserted text moves.
+  3. Falsifier GREEN ×2, oracles ×2, check ×2, vitest whole ×2. One commit.
+- **`.d3`** (§0he.3 / §0hd.5):
+  1. Push kf `master` (ordinary push).
+  2. kf CI GREEN on both jobs. Any new RED outside the concern: ESCALATE with the log.
+  3. deploy-pages succeeds; run the §6 round-trip (`scripts/pages-deploy.sh:109-140`).
+  4. Post-deploy probe ×2 of `https://keyframes.babb.dev` (one browser, `--workers=1`, pageerror 0 on `/#/easing` + `/#/spring` = the G-KF3-8 arm).
+  5. G9 → 4.1.0.
+  6. Write the CLOSE-RECEIPTS addendum, a `## Close 4`, and the LEDGER cells + an event line, then hand to a fresh check.
+
+## RESUME 3 — Unit receipts
