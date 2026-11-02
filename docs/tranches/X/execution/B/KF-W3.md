@@ -1477,3 +1477,15 @@ G-KF3-8's pageerror arm is a FLOOR, outside the close set. **Honest-RED set: non
 | INFO | the sibling's dirty `KeyframeTimeline.vue` is in every local run's tree | ⟨`git status --porcelain`⟩ | none |
 
 **LEDGER**: not promoted; the row stays PARTIAL; an event line is appended.
+
+## Repair 1 (after Check 1) — 2026-11-02 (REPAIR SEAT round 1, `claude-opus-5-5`): 0 cured · 2 escalated · nothing in bounds to cure
+
+Crash-recovery: ⟨`git status --porcelain`, keyframes.js⟩ → only `MM demo/components/instrument/timeline/KeyframeTimeline.vue` (the sibling seat's, outside this unit's set, left alone). ⟨`git status --porcelain docs/tranches/X/execution/B/KF-W3.md`⟩ → clean. Nothing inherited.
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| HIGH: close order unfinished; library-gates job cancelled at the 4-min budget | **ESCALATED.** The cure needs an orchestrator ruling on ESC-KFW3-d3-1: ⟨`grep -c ESC-KFW3-d3-1 docs/tranches/X/COHESION.md`⟩ → **0**, so no ruling exists. The budget sits at ⟨`grep -n timeout-minutes keyframes.js/.github/workflows/ci.yml`⟩ → `:31 timeout-minutes: 4` (gates) and `:103 timeout-minutes: 50`. `.github/workflows/ci.yml` is not in KF-W3 §B.2's writable set (library `src/animation/compile/**` + `test/**` + the named rows). Re-budgeting a CI job is a different concern from the parser wave, so the adjacent-line rule does not reach it. | none | not re-run: no cure landed, so no gate could move. Check 1's readings stand. |
+| MINOR: `demo/state/animationOptionsStore.ts:95-96` seeds `${duration}ms` | **ESCALATED.** Re-read: `:95 duration: \`${duration}ms\`,` and `:96 delay: \`${delay}ms\`,`. `demo/state/**` is not in §B.2. Keeping the author's unit needs a change to the store's seeding data flow, which is more than a one-command cure. Routed to the post-W3 keyframes minor (§0he.4) or a seat granted on it. | none | — |
+| INFO ×3 (navToScene null waits; throw sites = 2; sibling-dirty tree) | no cure owed (INFO) | none | — |
+
+**Next act**: the orchestrator rules ESC-KFW3-d3-1, then the `.d3` seat runs CI GREEN → deploy-pages → §6 → probe ×2 → close → fresh check. **LEDGER**: untouched; the row stays PARTIAL.
