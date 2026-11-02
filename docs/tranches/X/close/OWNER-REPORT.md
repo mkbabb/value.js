@@ -189,3 +189,13 @@ SERVED MODEL `claude-opus-5-5`, the X-W11 close seat (VERIFY-ONLY), HEAD `e588c0
 3. **Reboot the Mac.** The kernel zone reads 18.39M, against a refusal line at 13M and panics near 20.8M. Every heavy run is refused until the reboot, including the G5 production boot-smoke and the darwin WebKit witness (G8). **This is the one act blocking the next re-read.**
 4. **One ruling is owed to the delegate: ESC-W11cnm-1.** The default seed's component-name ink reads 4.08:1 on the real GPU in light mode, against a 4.5 floor. Docker reads 5.02. No cure fits inside the §0gy.2 locks. Arm (a), a hue-bounded maximin for the accent, is the recommendation; it moves the light goldens again.
 5. **The X close is still not VERIFIED.** G9 is RED: keyframes pins `4.0.0` exactly (O-117). The G8 witness is unmeasured until the reboot, ESC-W11cnm-1 is open, and four producer-held reds ship known. The npm token rotation (§3 item 1) still stands.
+
+## Addendum 2026-11-01 — what changed at the eighteenth sitting (supersedes the 2026-10-31 addendum's items 3–5; E-3, the bytes above are unchanged)
+
+SERVED MODEL `claude-opus-5-5`, the X-W11 close seat (VERIFY-ONLY), HEAD `480f58f7e`.
+
+1. **The reboot worked.** The kernel zone reads 3,915 (it was 18.39M). Every heavy arm ran again.
+2. **The component-name contrast defect is cured.** At the default seed, the ink over its real ground now reads 5.38–5.40:1 on the real GPU in light mode (it was 4.08), and 5.0–6.8:1 in docker. Floor and headroom are unchanged. Eight light mix goldens moved, and each one is attributed to the cure. What remains over the very darkest stop (about 4.2:1, only black clears it) is a design row for you.
+3. **GitHub's runner image moved under us, so nothing new is deployed.** `ubuntu-latest` is now Ubuntu 26.04, and Playwright 1.60 refuses to install Chromium there. Four of eight CI jobs fail before any test runs. A fix means pinning the workflows to `ubuntu-24.04` (or bumping Playwright), which needs an orchestrator grant (ESC-W11dep2-RUNNER-IMAGE). Production still serves `d99ab0deb`, which was green; the cures above are not live yet.
+4. **The production boot check cannot run as ruled.** `boot-smoke.mjs` accepts only `http://127.0.0.1:PORT`, so it refuses `https://color.babb.dev/` before opening a browser. The script's owner needs to add a production-origin form, or a ruling needs to name another instrument (ESC-W11g5p-1).
+5. **The X close is still not VERIFIED.** G9 is RED: keyframes pins `4.0.0` exactly (O-117). The darwin WebKit witness reads 192/196 with the 4 w7 rows on O-106. Four producer-held reds ship known. The npm token rotation (§3 item 1) still stands.
