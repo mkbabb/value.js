@@ -545,3 +545,30 @@ RED, reproduced: **G-KF3-4**. ⟨`git grep -n unserializable HEAD -- src demo`�
 | INFO | `entry-roundtrip` strip regex widened to the ruled UIA-KF-177 spelling | `d4148cdc` | none |
 
 **LEDGER**: not promoted. The row stays **PARTIAL**, and one event line is appended.
+
+## Repair 2
+
+**Seat**: REPAIR 2 (`claude-opus-5-5`), 2026-11-02. Read: the spec's G-KF3-4/-5 cells and §Sequencing L-7; this record's §Repair 1 and §Check 2. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, §0hb.1; untouched) ⇒ **0 inherited paths**. kf `HEAD` = `origin/master` = `d4148cdc` (unmoved).
+
+**Ruling search**: ⟨`git log -1 --format=%h -- COHESION.md`⟩ → `4d05351c1` (§0hc, unchanged since Check 2). ⟨`awk 'NR>4988 && /serializeCssValue|\(A\) widen|boundary throw|ESC-KFW3/' COHESION.md | wc -l`⟩ → `0`. There is still no owner/arbiter ruling on `.c2` (A)/(B)/(C), and no ESC-KFW3-d-1 ruling either.
+
+### Defect → disposition
+
+| # | severity | defect | disposition | commit |
+| --- | --- | --- | --- | --- |
+| 1 | HIGH | G-KF3-4 RED, fork retirement unlanded | **ESCALATED (unchanged from E-R1-1).** The one L-7 act needs the `.c2` public-surface pick first. Any unruled substitute is barred by G-KF3-4's falsifier (a re-implementation under another name) and by `.b` §4(iii) (a new throw, wrapper, fallback or try/catch) | none |
+| 2 | MINOR | kf CI RED R-2; deploy/§6/G-KF3-8 pageerror arm owed | **ESCALATED (E-R1-2).** It needs the ESC-KFW3-d-1 publication-doc ruling, and no single command cures it | none |
+| 3 | MINOR | UIA-KF-321 vitest intermittency | **ESCALATED (E-R1-3), out of bounds.** `SharePopover.vue` is in no KF.W3 writable set, so it goes to the KF demo seat | none |
+| 4 | INFO | strip regex widened | no cure owed | — |
+
+**Cured: 0.** No kf byte written. No INBOX row (L-7: the O-11 §B row rides only with the retirement).
+
+### Gate re-reading (×2 at kf `d4148cdc`)
+
+- ⟨`git grep -c '\bserializeCssValue\b' HEAD -- src/animation/compile/emit/css-text.ts`⟩ → `6` ×2
+- ⟨`git grep -n unserializable HEAD -- css-text.ts demo/utils/helpers.ts`⟩ → `css-text.ts:72` + `helpers.ts:93` ×2
+- ⟨`git grep -nE "import.*serializeCssValue.*from '@mkbabb/value.js/css'" HEAD | wc -l`⟩ → `0` ×2
+- ⟨`grep -c 'O-11 §B' docs/tranches/V/coordination/INBOX.md`⟩ → `0`
+- ⟨`gh run list -R mkbabb/keyframes.js --workflow ci.yml -L 2`⟩ → `41450770277` push failure · `41433228470` schedule failure
+
+**G-KF3-4 RED → RED.** No byte moved, so G-KF3-3 was not re-run; Check 2's `21 files / 306 tests` ×2 stands. **Adjacent edits**: none. **LEDGER**: the row stays **PARTIAL**, and one event line is appended.
