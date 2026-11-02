@@ -790,3 +790,35 @@ SERVED MODEL: claude-opus-5-5. Authority: COHESION §0hd.2 (ESC-KFW3-d-1). Writa
 - **Routed to `.d2`/arbiter**: kf CI `proof:publish` stays RED until `README.md:834` reads `display 0.35s allow-discrete`. That is a one-line README oracle correction, which needs a grant.
 
 **Adjacent edits (§0bt)**: none. **Escalations**: the routed residual above (README.md:834), which needs a grant before `.d2` can turn kf CI GREEN.
+
+### KF.W3.d2
+
+SERVED MODEL: claude-opus-5-5. Authority: COHESION §0hd.5 · §0hb.3 · G-KF3-8 pageerror arm · the spec's §6 round-trip (`scripts/pages-deploy.sh:109-140`). Writable: vjs `evidence/W3/CLOSE-RECEIPTS.md` · this record · LEDGER. kf: push only.
+
+**Crash-recovery**: in kf, `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, never staged). The three vjs writable paths were clean. ⇒ **0 inherited paths.**
+
+**Acts, in order** (full receipts in `evidence/W3/CLOSE-RECEIPTS.md` § Addendum 2026-11-02 `.d2`)
+1. Local gates at kf `6a4556d3`: ⟨`guarded -- npm run check`⟩ ×2 → rc0 ×2. ⟨`guarded -- npx vitest run --maxWorkers=2`⟩ ×2 → `295 passed | 5 skipped (300)` files, `2316 passed | 2 expected fail | 14 skipped (2332)` tests, ×2.
+2. Push: ⟨`git push origin master`⟩ → `d4148cdc..6a4556d3` (4 commits: `.c2b` `.reg` `.sp` `.ps`; ordinary, no force).
+3. kf CI `41462383452` → `failure`. Both jobs fail at their `proof:publish` step on **one finding**: `proof:readme-runs — FAIL` · `snippet [beyond css › compileToEntry #20] … stated // => true but the dist computed false`. The library job is marked `cancelled` at run level, but its step `publish boundary` reads `failure`. Everything else is green: library 1332 tests, demo suite 166/981 (UIA-KF-321 GREEN on CI), lint, browser oracles, build demo. R-2 (published-surface (b)) is cured on CI.
+4. deploy-pages `41463139545` → **skipped** (gated on ci success). Break-glass was not used. The §6 round-trip and the post-deploy probe ×2 were **not run**, since a probe of production would read the pre-repin build.
+5. G9: ⟨`npm ls --prefix ../keyframes.js @mkbabb/value.js`⟩ → `@mkbabb/value.js@4.1.0` (and `4.1.0 deduped` under glass-ui 10.1.3) → **GREEN**.
+
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| kf check ×2 + vitest ×2 at final HEAD | GREEN (unit receipts) | **GREEN ×2** at `6a4556d3` |
+| kf CI GREEN (both jobs) | RED R-2 | **RED**: README.md:834 (`proof:readme-runs`) only |
+| deploy-pages | skipped | **skipped**: BLOCKED |
+| §6 round-trip | owed | **BLOCKED** |
+| post-deploy probe ×2, pageerror 0 | owed | **BLOCKED** |
+| G9 → 4.1.0 | GREEN | **GREEN** |
+
+**Adjacent edits (§0bt)**: none. README.md is a different concern (the README runnable oracle), and `.d2` holds no product write.
+**Escalation ESC-KFW3-d2-1**: a grant is needed for kf `README.md:834` → `display 0.35s allow-discrete`. It is a one-line oracle correction to the ruled CSS-time spelling, the same cure `d4148cdc` applied to entry-roundtrip, and `.ps` routed it here. After it lands: CI GREEN → deploy-pages → §6 → probe ×2 → Close.
+
+## Close 2 — 2026-11-02 (seat `.d2`, `claude-opus-5-5`): NOT CLOSED, PARTIAL
+
+- Units `.c2b` `8ca052ad` · `.reg` `2f498f0e` · `.sp` `f59d5259` · `.ps` `6a4556d3` are landed and pushed to kf `origin/master` = `6a4556d3`. G-KF3-4 is cured (per `.c2b`'s receipt). R-2 and UIA-KF-321 are GREEN on CI.
+- Local check ×2 and vitest ×2 are GREEN at `6a4556d3`. G9 is GREEN (4.1.0).
+- **Blocking**: kf CI `41462383452` is RED on `proof:readme-runs`, README.md:834 (ESC-KFW3-d2-1). So deploy-pages `41463139545` was skipped, and §6, the post-deploy probe ×2 and the G-KF3-8 pageerror arm are owed. §0hb.3's X-W11 VERIFIED stamp waits on the deploy.
+- **Next**: an orchestrator grant for README.md:834. Then a `.d2` repair seat: CI GREEN → deploy → §6 → probe ×2 → Close 3 → a fresh check.

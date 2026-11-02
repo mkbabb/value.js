@@ -88,3 +88,44 @@ A `workflow_dispatch` break-glass (`require_demo_green=false`) would be a bypass
 **Residuals**:
 - The `docs/published-surface.md:17` stale 4.0.0 prose.
 - `.c2`'s open escalation, so G-KF3-4 stays RED.
+
+---
+
+## Addendum 2026-11-02 — `.d2` (RESUME 2, COHESION §0hd.5 · §0hb.3 · G-KF3-8 pageerror arm)
+
+SERVED MODEL: claude-opus-5-5. Seat `.d2`. The sections above are left as they were (E-3); this addendum records the `.d2` sitting.
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, §0hb.1; never staged). In vjs, ⟨`git status --porcelain -- <3 writable paths>`⟩ → empty. **0 inherited paths.**
+
+### d2.1 Local gates at the final HEAD kf `6a4556d3` (×2, settled bytes)
+- ⟨`guarded --timeout 15 -- npm run check`⟩ ×2 → rc **0**, rc **0**.
+- ⟨`guarded --timeout 25 -- npx vitest run --maxWorkers=2`⟩ ×2 → `Test Files 295 passed | 5 skipped (300)` · `Tests 2316 passed | 2 expected fail | 14 skipped (2332)`, the same on both runs, rc 0 both times.
+- Caveat: the working tree carries the sibling's dirty `KeyframeTimeline.vue`, which neither run staged or touched.
+
+### d2.2 Push (ordinary)
+⟨`git log --oneline origin/master..master`⟩ → 4 commits (`8ca052ad` `2f498f0e` `f59d5259` `6a4556d3`). ⟨`git push origin master`⟩ → `d4148cdc..6a4556d3  master -> master` (no force).
+
+### d2.3 kf CI `41462383452` (push `6a4556d3`): **RED on both jobs, one finding**
+⟨`gh run view 41462383452 --json conclusion,jobs`⟩ → `failure` · `demo correctness (browser roster) failure` · `library gates (library tests + proof:publish) cancelled`. The library job is marked `cancelled` at the run level, but its steps read: ⟨`gh api …/actions/jobs/125334446633 -q '.steps[]'`⟩ → `demo correctness suite success` · `lint success` · `publish boundary failure`.
+- **library gates**: `check:lib` / `check` / `build:lib` passed. The `correctness suite` gave `127 passed | 5 skipped (132)` files and `1332 passed | 2 expected fail | 14 skipped` tests. The `demo correctness suite` gave `166 passed (166)` files and `981 passed (981)` tests, so UIA-KF-321 (`.sp`) is GREEN on CI. `lint` passed. `publish boundary` **FAILED** (log line 1848-1850): `proof:readme-runs — FAIL (1 finding(s); the docs oracle is not runnable truth)` · `✗ snippet [beyond css › compileToEntry #20] FAILED to execute against dist (exit 2)` · `ASSERT FAIL [… #20 line 14]: stated // => true but the dist computed false`.
+- **demo correctness**: `browser oracles` passed, and so did `build demo`. `publish artifact boundary (post-build)` **FAILED** on the same finding (log line 783-786; `proof:boundary — PASS` and `proof:published-surface` clause (b) passed before it). `demo roster` and `record last-demo-green` were skipped.
+- **R-2 (ESC-KFW3-d-1) is cured on CI**: published-surface (b) no longer appears in either job. The sole finding is the residual that `.ps` routed: ⟨`grep -n '350ms allow-discrete' README.md`⟩ → `834:dialog.css.includes("display 350ms allow-discrete"); // => true`. The dist emits `display 0.35s allow-discrete` (`reverseCSSTime`'s seconds-on-a-tie rule; the same drift that `d4148cdc` cured in the entry-roundtrip oracle).
+
+### d2.4 Deploy · §6 round-trip · post-deploy probe ×2: **BLOCKED, not attempted**
+⟨`gh run list -L 3`⟩ → `41463139545 deploy-pages workflow_run skipped`, gated on ci success. A break-glass `workflow_dispatch` would bypass a RED gate, so it was **not used**. The §6 round-trip (`scripts/pages-deploy.sh:109-140`) and the post-deploy probe ×2 of `https://keyframes.babb.dev` (the G-KF3-8 pageerror arm) were **not run**. Probing production now would read the previous build, not the repin, so it would witness nothing.
+
+### d2.5 X-W11 G9 re-read
+⟨`npm ls --prefix ../keyframes.js @mkbabb/value.js`⟩ → `├─┬ @mkbabb/glass-ui@10.1.3 │ └── @mkbabb/value.js@4.1.0 deduped └── @mkbabb/value.js@4.1.0` → **G9 GREEN (4.1.0)**.
+
+### d2.6 Gate ledger (`.d2`)
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| kf check ×2 | rc0 (`.ps`/`.sp`) | **GREEN** ×2 at `6a4556d3` |
+| kf vitest ×2 | 2316 (`.reg`) | **GREEN** ×2 at `6a4556d3` (2316 passed) |
+| kf CI GREEN (both jobs) | RED R-2 (`41450770277`) | **RED**: R-2 cured; sole finding `proof:readme-runs` README.md:834, in both jobs (`41462383452`) |
+| deploy-pages | skipped (`41451374073`) | **skipped** (`41463139545`); BLOCKED on CI |
+| §6 round-trip | not run | **not run** (BLOCKED) |
+| post-deploy probe ×2, pageerror 0 (G-KF3-8 arm) | not run | **not run** (BLOCKED) |
+| G9 → 4.1.0 | GREEN | **GREEN** |
+
+**Escalation ESC-KFW3-d2-1**: kf `README.md:834` must read `dialog.css.includes("display 0.35s allow-discrete"); // => true`. This is a one-line correction to the README runnable oracle, to the ruled CSS-time spelling. It is outside `.d2`'s writable set, and `.d2` holds no product write. It needs a grant, either to a kf docs seat or to a `.d2` repair. After it lands: CI GREEN → deploy-pages → §6 → probe ×2 → close.
