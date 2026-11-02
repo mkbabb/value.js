@@ -1,0 +1,103 @@
+(node:30090) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:30144) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 8 tests using 1 worker
+
+[1A[2K(node:30228) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/8] [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[1A[2K[2m[WebServer] [22m[2m8:41:45 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (boundary · mounted hook) TypeError: Importing a module script failed.
+
+[1A[2K[2m[WebServer] [22m[2m8:41:45 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Importing a module script failed.
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[2m8:41:45 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (unhandledrejection) TypeError: Importing a module script failed.
+
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+
+[1A[2K[O-2] --saved-bg write trace: [#7c8922]
+
+[1A[2K[O-2] field presents 158 ms after the material settled (cssPlaceholder=false, draws=3)
+
+[1A[2K(node:30364) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/8] [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+
+[1A[2K[O-2] --saved-bg write trace: [#7c8922]
+
+[1A[2K[O-2] field presents 52 ms after the material settled (cssPlaceholder=false, draws=2)
+
+[1A[2K(node:30458) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/8] [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+
+[1A[2K[O-2] --saved-bg write trace: [#7c8922]
+
+[1A[2K[O-2] field presents 153 ms after the material settled (cssPlaceholder=false, draws=4)
+
+[1A[2K(node:30539) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/8] [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+
+[1A[2K[O-2] --saved-bg write trace: [#7c8922]
+
+[1A[2K[O-2] field presents 9 ms after the material settled (cssPlaceholder=false, draws=4)
+
+[1A[2K(node:30691) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/8] [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+
+[1A[2K[O-2] --saved-bg write trace: [#7c8922]
+
+[1A[2K[O-2] field presents 34 ms after the material settled (cssPlaceholder=false, draws=2)
+
+[1A[2K(node:30751) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[6/8] [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+
+[1A[2K[O-2] --saved-bg write trace: [#7c8922]
+
+[1A[2K[O-2] field presents 35 ms after the material settled (cssPlaceholder=false, draws=1)
+
+[1A[2K(node:30810) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[7/8] [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+
+[1A[2K[O-2] --saved-bg write trace: [#7c8922]
+
+[1A[2K[O-2] field presents 156 ms after the material settled (cssPlaceholder=false, draws=4)
+
+[1A[2K(node:30898) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[8/8] [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+
+[1A[2K[O-2] --saved-bg write trace: [#7c8922]
+
+[1A[2K[O-2] field presents 32 ms after the material settled (cssPlaceholder=false, draws=1)
+
+[1A[2K  8 passed (22.0s)

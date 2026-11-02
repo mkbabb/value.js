@@ -1,0 +1,24 @@
+{
+  "servedModel": "claude-opus-5-5",
+  "unit": "X.W11.dep",
+  "gate": "G5 production leg",
+  "state": "ZONE-REFUSED",
+  "cmd": "~/.claude/guard/guarded --timeout 10 -- node scripts/ci/boot-smoke.mjs --mode=prod-preview --origin=https://color.babb.dev/ --json=<this dir>/boot-smoke-production.json",
+  "guardedOutput": "[guarded] waiting for headroom (kernel zone data.kalloc.1024 at 18.4M (panics near 20.8M): reboot the Mac)",
+  "zoneLog": "2026-10-31 07:32:05 inuse=18385240 load=8",
+  "ruling": "COHESION \u00a70gc.9: a local heavy arm under the zone gate is banked ZONE-REFUSED, owner reboot owed; no CI job runs the identical command (--origin=https://color.babb.dev/), so no CI read substitutes",
+  "corroborationNotSubstitute": {
+    "ciBootSmoke": {
+      "run": 41187025722,
+      "job": 124495916326,
+      "headSha": "d99ab0deb0df3adcf16d4c6c773fc66696799545",
+      "result": "dev GREEN; prod-preview (bare 127.0.0.1) 8/8 seed cases passed"
+    },
+    "productionServesBuild": {
+      "run": 41196718854,
+      "step": "G-21",
+      "result": "https://color.babb.dev/ serves the build of d99ab0deb (attempt 1/18 HTTP 200 MATCH)"
+    }
+  },
+  "owed": "re-run the cmd above after the owner reboots (zone < 13M)"
+}

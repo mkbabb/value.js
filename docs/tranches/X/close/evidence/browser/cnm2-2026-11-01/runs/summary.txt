@@ -1,0 +1,38 @@
+gpu-before-r1.json: expected 2 unexpected 2 skipped 0 flaky 0
+  [gpu] light no-preference: failed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 3.8853
+  [gpu] dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 5.0894
+  [gpu] light reduce: failed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 4.1000
+  [gpu-renderer] renderer of the cell: passed [ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) browser 1.60.0
+gpu-before-r2.json: expected 2 unexpected 2 skipped 0 flaky 0
+  [gpu] light no-preference: failed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 3.9932
+  [gpu] dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 5.2922
+  [gpu] light reduce: failed ink oklch(0.307762 0.124262 2) -> [92, 0, 43] worst 4.1000
+  [gpu-renderer] renderer of the cell: passed [ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) browser 1.60.0
+gpu-after-r1.json: expected 4 unexpected 0 skipped 0 flaky 0
+  [gpu] light no-preference: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 5.3798
+  [gpu] dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 5.2231
+  [gpu] light reduce: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 5.5237
+  [gpu-renderer] renderer of the cell: passed [ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) browser 1.60.0
+gpu-after-r2.json: expected 4 unexpected 0 skipped 0 flaky 0
+  [gpu] light no-preference: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 5.3798
+  [gpu] dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 5.1193
+  [gpu] light reduce: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 5.5237
+  [gpu-renderer] renderer of the cell: passed [ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) browser 1.60.0
+keep-r1.json: expected 39 unexpected 0 skipped 0 flaky 0
+  [smoke] light no-preference: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 6.7656
+  [smoke] dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 5.0165
+  [smoke] light reduce: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 6.7656
+keep-r2.json: expected 39 unexpected 0 skipped 0 flaky 0
+  [smoke] light no-preference: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 6.7656
+  [smoke] dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 5.0165
+  [smoke] light reduce: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 6.7656
+gpu-keep-r1.json: expected 40 unexpected 0 skipped 0 flaky 0
+  [gpu] light no-preference: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 5.3740
+  [gpu] dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 5.2922
+  [gpu] light reduce: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 5.5237
+  [gpu-renderer] renderer of the cell: passed [ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) browser 1.60.0
+gpu-keep-r2.json: expected 40 unexpected 0 skipped 0 flaky 0
+  [gpu] light no-preference: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 5.3798
+  [gpu] dark no-preference: passed ink oklch(0.821313 0.107264 2) -> [255, 167, 191] worst 5.2922
+  [gpu] light reduce: passed ink oklch(0.185044 0.0747136 2) -> [42, 0, 16] worst 5.5237
+  [gpu-renderer] renderer of the cell: passed [ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) browser 1.60.0

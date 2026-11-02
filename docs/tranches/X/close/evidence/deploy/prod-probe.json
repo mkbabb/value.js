@@ -1,0 +1,27 @@
+{
+  "servedModel": "claude-opus-5-5",
+  "unit": "X.W11.g5p",
+  "origin": "https://color.babb.dev/",
+  "commit": "d99ab0deb0df3adcf16d4c6c773fc66696799545",
+  "servedBuild": {
+    "apiHealthCommit": "d99ab0deb0df3adcf16d4c6c773fc66696799545",
+    "apiHealthStatus": "ok",
+    "indexFingerprint": "24 same-origin hashed refs served == deploy-pages run 41196718854 'built fingerprint (24)' (G-21 step, BUILT_SHA d99ab0deb); diff empty",
+    "equalsD99ab0deb": true
+  },
+  "runs": {
+    "r1": {
+      "verdict": "ORIGIN-FORM-REFUSED",
+      "exit": 1,
+      "json": "boot-smoke-production-2026-11-01-r1.json",
+      "sha256": "8a1389148180c08703599c623e1ed8e850d8d242d5bd7d9f9c8ae1a9d253b35c"
+    },
+    "r2": {
+      "verdict": "ORIGIN-FORM-REFUSED",
+      "exit": 1,
+      "json": "boot-smoke-production-2026-11-01-r2.json",
+      "sha256": "cd96787fe879198fb1383fa7f5e3c8800ac60c79683b5d7fe9826fc0b0028dd8"
+    }
+  },
+  "g5Production": "RED \u2014 unmeasured \u00d72: instrument refuses non-loopback origin; ESCALATED"
+}

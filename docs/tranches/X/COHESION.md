@@ -4920,3 +4920,67 @@ Ruled:
 9. **ESC-W11g13-1:** no glass relay row. The A/B shows o33 identical on 10.1.2, so 10.1.3 did not regress it.
 10. **Owner design rows, recorded and not acted on:** the light dead band. Seed `oklch(0.66 0.16 28)` reaches 3.59 at its worst over all four stops; its live caption reads 4.68 in docker and 4.77 on the GPU cell. 10 of the 14 field seeds fall short over all four stops in the model (3.09–3.60). These go to the owner, and no surface is altered to hide them.
 11. **The order:** items 1, 2, 4, 5 and 8 in parallel → 3 (re-mint) → push → read `ci.yml` at one HEAD → `.dep` → the host's ordinal migration (orchestrator) → close (rewrite `FINAL.md`, `OWNER-REPORT.md` and the LEDGER G3 cell) and a fresh check. Honest-RED: G9 (O-117), w7 (O-106), R-vrb-1, and the manifest's rows.
+
+## §0gz — 2026-10-31: X-W11's ninth set ruled (delegate, §0ge); the demo is deployed, and the machine is held for a reboot
+Landed since §0gy:
+- the o33 oracle reads its real ground: GREEN on both cells ×2, with the worst-sample mutant RED;
+- SS8-0363 restored at its root (`.n2`, bisected to `.ref`);
+- the N1 census at glass 10.1.3;
+- `.cut` locks;
+- the lhci GPU cell on the one witness binary (Chrome 156): TBT 52 and 61 at valid load;
+- the 99 light goldens re-minted, all attributed to `.ref`, and `keyboard-focus-desktop` cured at its settle;
+- **ci.yml 8/8 GREEN at `8b2692271` and on master `d99ab0deb`;**
+- **deploy-pages `41196718854` succeeded:** `color.babb.dev` serves `d99ab0deb`, the API auto-redeployed through the cured webhook (`/health` reads `d99ab0deb`), and the TLS smoke passed ×2.
+
+Ruled:
+1. **ESC-W11cnm-1 (default-seed component-name ink 4.08 on the GPU cell, light): arm (a), a hue-bounded maximin for the accent's resting walk.**
+   - The referent moves toward the plate referent only while the ink keeps `IDENTITY_CHROMA_HOLD` (0.4) of the pick's chroma, so the identity hue is held. That keeps fourier UIA-F-172 and the owner's identity-colour law.
+   - The 4.5:1 floor and the headroom constants do not move.
+   - The leg joins o18, on both cells ×2.
+   - Any `--accent-live` move re-mints its cells under §0gv.2 with counterfactual attribution.
+   - The remainder over the model's darkest stop (about 4.18) is an owner dead-band design row, recorded and not hidden.
+   - Arm (c) stays refused: a readback of glass's GPU field, or any change to the floor or headroom.
+2. **The machine is held.** The kernel zone count `data.kalloc.1024` is at 18.46M, against a guard refusal at 13M and a panic at about 20.8M. No heavy run, browser run or workflow seat starts until the owner reboots. The next Track A sitting is staged and launches only after the reboot, once `zone.log` reads below 8M.
+3. **After the reboot, in this order:**
+   - (i) the G5 production boot-smoke ×2, writing `prod-probe.json`;
+   - (ii) the G8 darwin real-GPU WebKit witness under `guarded --exclusive webkit`, curing any red at its root;
+   - (iii) item 1;
+   - (iv) close, rewriting `FINAL.md`, `OWNER-REPORT.md` and the LEDGER G3 cell, then a fresh check.
+4. **The ordinal migration is an orchestrator host act, and it is now urgent.** Production serves the §0gt.5 contract, so a write that re-sends a legacy fractional row unchanged is refused until the migration runs. The host is unreachable without the owner's VPN. Run order: the dry run with its count report, then the live run.
+5. **Recorded only:** R17-6 (worktree hygiene), R17-8 (the cost-only `.lck` mutants are GREEN by construction), R17-9 (8 flaky e2e-smoke tests on master CI; a one-off ENOENT on a `/tmp` bench fixture under the producer tests, which is a durable-path defect for the next hygiene seat to move under a repo-local dir; 6 uncited `*.log` files).
+
+### §0gz.6 — 2026-11-02: the ordinal migration, done over the owner's VPN
+- **Pre-migration backup:** a one-shot `mongodump` taken through the backup sidecar's own environment into `/backups/palette-db-<UTC ts>` (palettes, palette_versions, flags, proposed_names and the rest). It is in addition to the sidecar's scheduled dump of 00:53Z. Never via mongosh in the capped mongo container.
+- **Dry run → live → idempotence**, run in the `api` container (`node dist/modules/palette/migrate-ordinal-positions.js`):
+  - scanned 10 palettes; 0 positions normalized; 0 reordered; 10 `currentHash` re-stamped;
+  - scanned 1 version row; 0 normalized; 1 `payloadHash` re-stamped;
+  - the second dry run reports 0 for every write.
+- **After:** `/health` reads `d99ab0deb` with mongo ok, and the palettes list returns 200. Production data already held 0-based ordinals; the migration's only effect was re-stamping hashes under §0gt.5 (ordered colours only).
+- **The legacy-row write refusal from §0gz.4 is discharged.** G10 is GREEN.
+- **Erratum (the act's own):** the first attempt ran the sidecar's `backup.sh`, which is a sleep loop, not a one-shot. It held the session until timeout, so the migration never ran on that attempt. The stray second loop was killed by PID; the sidecar's original PID 1897 is untouched. Logs are in `~/.fourier-frel/palette-migration/` (private).
+
+## §0ha — 2026-11-02: X-W11's tenth set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gz:
+- the darwin real-GPU WebKit witness at HEAD: 199 executed, 195 passed, 4 red, all w7 on O-106, with the o2 cold-load read cured at its harness root;
+- the hue-bounded accent walk (`.cnm2`): the default-seed component-name ink reads 5.38 on the GPU cell and 6.77 in docker, the floor and headroom are byte-equal, and the 8 light goldens are re-minted and attributed;
+- the bench fixture moved off `/tmp`;
+- the production ordinal migration (§0gz.6).
+
+Ruled:
+1. **ESC-W11dep2-RUNNER-IMAGE: pin every workflow's `runs-on` to `ubuntu-24.04`.** GitHub moved `ubuntu-latest` to 26.04 under the repo, and Playwright refuses to install a browser there.
+   - A floating label is an unpinned dependency, and CI mirrors a fixed substrate (§0gh), so the pin is the root cure, not a workaround. Jobs already pinned to an exact image (§0gh's ubuntu-22.04 mongo) keep that pin.
+   - Every workflow under `.github/workflows/` is granted to the unit `X.W11.rimg`. A comment cites this section.
+   - A Playwright bump is a separate concern, owed at the next dependency pass. Its absence is not the cause here.
+2. **ESC-W11g5p-1: arm (a).** `boot-smoke.mjs`'s origin form gains a production form: protocol `https:`, a host exactly on a named allowlist of the deploy origins (`color.babb.dev`), no port, a root path, and no query or fragment. The 127.0.0.1 loopback form is unchanged.
+   - The sub-path and query/fragment complaints apply to both forms, so G-13's falsifier is kept whole.
+   - With a production origin, no local server is started. The probe reads the deployed bytes, and `prod-probe.json` records the served build fingerprint.
+   - `scripts/ci/boot-smoke.mjs` is granted to the unit `X.W11.g5o`. Falsifiers: a sub-path production URL and an unlisted https host are both refused, run ×2.
+3. **The order:** `.rimg` ∥ `.g5o` → push → ci.yml 8/8 at one HEAD → `.dep2` re-sits:
+   - the ordinary §0ga master merge;
+   - deploy-pages success;
+   - `/health` equal to the merge commit;
+   - the TLS smoke ×2;
+   - G5 production ×2 against `https://color.babb.dev/` with `prod-probe.json`.
+
+   Then close and a fresh check. If any product byte changes after the WebKit witness reading, the witness is re-read at the new HEAD under `guarded --exclusive webkit`.
+4. **Honest-RED, recorded only:** G9 (O-117), w7 ×4 (O-106), the 4 manifest rows, R-vrb-1, and the dead-band owner design row (4.196 / 4.240).

@@ -1686,3 +1686,115 @@ for (const scheme of ["light", "dark"] as const) {
         });
     });
 }
+
+// ---- THE DEFAULT-SEED COMPONENT-NAME LEG ON ITS REAL GROUND (COHESION §0gz.1) ----
+// ESC-W11cnm-1: the Nutrition label's component name (`useSafeAccentFn("resting")`)
+// was read only at the OWNER colour against the CSS-stack ground (the leg above),
+// so no oracle saw the default seed's name read 4.08:1 on the GPU cell's real
+// plate (`close/evidence/browser/cnm-2026-10-31/`). This leg reads it with the
+// §0gy.1 real-ground instrument: the ink is the settled computed colour on the
+// 8-bit grid (a 1×1 canvas, §0gw.3); the ground is the plate under the name's
+// own line boxes (Range client rects, 1 px inset), shot with every glyph masked
+// (the mask is asserted at the DOM); the verdict is the WORST plate sample over
+// three frames, against the unchanged 4.5:1 text floor.
+const COMPONENT_NAME = '[data-o18="component-name"]';
+
+async function nameLineBoxes(page: Page) {
+    return page.locator(COMPONENT_NAME).first().evaluate((el) => {
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        return Array.from(range.getClientRects())
+            .filter((b) => b.width > 2 && b.height > 2)
+            .map((b) => ({ x: b.x, y: b.y, w: b.width, h: b.height }));
+    });
+}
+
+/** Every pixel of `png` inside the boxes (1 px inset), decoded in the page. */
+async function boxPixels(
+    page: Page,
+    png: Buffer,
+    boxes: Array<{ x: number; y: number; w: number; h: number }>,
+): Promise<Array<[number, number, number]>> {
+    return page.evaluate(
+        async ([b64, bs]) => {
+            const img = new Image();
+            img.src = `data:image/png;base64,${b64}`;
+            await img.decode();
+            const cv = document.createElement("canvas");
+            cv.width = img.width;
+            cv.height = img.height;
+            const ctx = cv.getContext("2d", { willReadFrequently: true })!;
+            ctx.drawImage(img, 0, 0);
+            const out: Array<[number, number, number]> = [];
+            for (const b of bs) {
+                const x0 = Math.ceil(b.x) + 1;
+                const y0 = Math.ceil(b.y) + 1;
+                const x1 = Math.floor(b.x + b.w) - 1;
+                const y1 = Math.floor(b.y + b.h) - 1;
+                const d = ctx.getImageData(x0, y0, x1 - x0, y1 - y0).data;
+                for (let i = 0; i < d.length; i += 4) out.push([d[i]!, d[i + 1]!, d[i + 2]!]);
+            }
+            return out;
+        },
+        [png.toString("base64"), boxes] as const,
+    );
+}
+
+/** The name's computed colour once two reads 500 ms apart agree (the ink
+ *  publishes after the atmosphere's ink settle). */
+async function settledNameInk(page: Page): Promise<string> {
+    let last = "";
+    for (let i = 0; i < 40; i++) {
+        const now = await page.locator(COMPONENT_NAME).first().evaluate((el) => getComputedStyle(el).color);
+        if (now !== "" && now === last) return now;
+        last = now;
+        await page.waitForTimeout(500);
+    }
+    throw new Error(`component-name ink never settled (last ${last})`);
+}
+
+for (const [scheme, motion] of [
+    ["light", "no-preference"],
+    ["dark", "no-preference"],
+    ["light", "reduce"],
+] as const) {
+    test.describe(`O-18 census · the default-seed component name on its real ground (${scheme}, ${motion})`, () => {
+        test.use({ colorScheme: scheme, viewport: { width: 1440, height: 900 } });
+
+        test("the component-name ink clears 4.5:1 over the worst glyph-masked plate sample (§0gz.1)", async ({
+            page,
+        }) => {
+            test.setTimeout(120_000);
+            await page.emulateMedia({ colorScheme: scheme, reducedMotion: motion });
+            await bootAtDefaultSeed(page);
+            await page.locator(COMPONENT_NAME).first().waitFor({ timeout: 30_000 });
+            const color = await settledNameInk(page);
+            const ink = await resolveRgbInPage(page, color);
+            const boxes = await nameLineBoxes(page);
+            expect(boxes.length, "the name has line boxes").toBeGreaterThan(0);
+            let worst = Infinity;
+            for (let frame = 0; frame < 3; frame++) {
+                const mask = await page.addStyleTag({
+                    content: `${COMPONENT_NAME},${COMPONENT_NAME} *{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;transition:none!important}`,
+                });
+                expect(
+                    await page.locator(COMPONENT_NAME).first().evaluate((el) => getComputedStyle(el).color),
+                    "the glyphs are masked",
+                ).toBe("rgba(0, 0, 0, 0)");
+                await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => r(null)))));
+                const plate = await boxPixels(page, await page.screenshot(), boxes);
+                await mask.evaluate((node) => node.parentNode?.removeChild(node));
+                expect(plate.length, "the name's boxes hold plate samples").toBeGreaterThan(0);
+                for (const ground of plate) worst = Math.min(worst, wcagRatio(ink, ground));
+                await page.waitForTimeout(400);
+            }
+            test.info().annotations.push({
+                type: "o18-component-name-real-ground",
+                description: JSON.stringify({ scheme, motion, color, ink, worst }),
+            });
+            expect(worst, `component-name ${color} → rgb(${ink.join(",")}) worst plate sample`).toBeGreaterThanOrEqual(
+                TEXT_FLOOR,
+            );
+        });
+    });
+}

@@ -27,7 +27,7 @@ permissions:
 jobs:
     smoke:
         name: palette API — strict TLS · 200 JSON · cert > 14 d
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
         timeout-minutes: 5
         steps:
             - uses: actions/checkout@v5

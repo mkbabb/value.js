@@ -1,0 +1,46 @@
+[guarded] waiting for the 'webkit' lock
+(node:40030) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:40096) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+[1A[2K(node:40253) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+
+[1A[2K[O-2] --saved-bg write trace: [#7c8922]
+
+[1A[2K  1) [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path 
+
+    Error: field absent on natural cold load within 8 s (first read: cssPlaceholder=false, draws=0)
+
+    field absent on natural cold load within 8 s (first read: cssPlaceholder=false, draws=0)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      165 |             },
+      166 |         )
+    > 167 |         .toBe(true);
+          |          ^
+      168 |     console.log(
+      169 |         `[O-2] field presents ${Date.now() - settledAt} ms after the material settled (cssPlaceholder=${present.cssPlaceholder}, draws=${present.draws})`,
+      170 |     );
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:167:10
+
+    Error Context: test-results/o2-real-hydration-coldload-2cfae--field-via-the-natural-path-oracles-safari/error-context.md
+
+
+[1A[2K  1 failed
+    [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path 

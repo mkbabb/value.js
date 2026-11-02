@@ -1,0 +1,99 @@
+{
+  "tool": "scripts/ci/boot-smoke.mjs",
+  "mode": "prod-preview",
+  "origin": "https://color.babb.dev",
+  "form": "production",
+  "ranAt": "2026-11-02T07:05:00.540Z",
+  "node": "v26.0.0",
+  "seedCount": 1,
+  "passCount": 1,
+  "failCount": 0,
+  "census": null,
+  "servedBuild": {
+    "index": {
+      "url": "https://color.babb.dev/",
+      "status": 200,
+      "sha256": "86a529aa302733dcc155585b08682912538555786bcaaa8259e8ec15691f01d1"
+    },
+    "fingerprintCount": 24,
+    "fingerprint": [
+      "./assets/PopperContent-Baxq4tX3.js",
+      "./assets/Presence-Bvvl9Vx-.js",
+      "./assets/button-BOFTUPyU-Bf7MWLbN.js",
+      "./assets/color-model-EyquewSU.js",
+      "./assets/createLucideIcon-C9ReE7V-.js",
+      "./assets/dist-JZMFlpPu.js",
+      "./assets/dom-DgIApRUZ.js",
+      "./assets/fading-scroll-CTeW3KNS-CWoCn7t5.js",
+      "./assets/favicon-BCX-nAdh.svg",
+      "./assets/glass-fonts-PBJY3762.css",
+      "./assets/index-CpTpi_Rq.css",
+      "./assets/index-DxQdiFwv.js",
+      "./assets/keyframes-iZdbN1lK.js",
+      "./assets/picker-color-vxPFipSO.js",
+      "./assets/preload-helper-kNaey6uv.js",
+      "./assets/rolldown-runtime-QTnfLwEv.js",
+      "./assets/seeded-ground-9mEBtB_H.js",
+      "./assets/serialize-BtpoAFZw-C086w664.js",
+      "./assets/slider-5uoY-cLG-CkZeIK1m.js",
+      "./assets/useIntersectionPause-CzKR3EyP-DVCl7fIh.js",
+      "./assets/useResizeObserver-CdUlm2QZ-7ORH9RJ4.js",
+      "./assets/vue.runtime.esm-bundler-2l_pzWEZ.js",
+      "./fonts/fraunces-latin-italic.woff2",
+      "./fonts/fraunces-latin-normal.woff2"
+    ],
+    "health": {
+      "url": "https://api.color.babb.dev/health",
+      "status": 200,
+      "service": "palette-api",
+      "version": "2.0.0",
+      "commit": "d99ab0deb0df3adcf16d4c6c773fc66696799545"
+    }
+  },
+  "cases": [
+    {
+      "seed": "default",
+      "class": "the W1.md literal — a cold boot with no seed at all",
+      "url": "https://color.babb.dev/",
+      "httpStatus": 200,
+      "assertions": [
+        {
+          "id": "A1",
+          "name": "#app has >= 1 element child",
+          "pass": true,
+          "reading": "#app is <DIV> with 1 element child(ren): [DIV]"
+        },
+        {
+          "id": "A2",
+          "name": "a role=main landmark exists",
+          "pass": true,
+          "reading": "1 landmark(s): [(unlabelled)]"
+        },
+        {
+          "id": "A3",
+          "name": "pageerror collected []",
+          "pass": true,
+          "reading": "[]"
+        },
+        {
+          "id": "A4",
+          "name": ">= 1 desktop utility class in the emitted CSS",
+          "pass": true,
+          "reading": "9 desktop utility rule(s) across 10 sheet(s) — e.g. .lg\\:block @ (width >= 64rem), .lg\\:contents @ (width >= 64rem), .lg\\:flex @ (width >= 64rem)"
+        }
+      ],
+      "pass": true,
+      "pageErrors": [],
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+        "Loading the font 'data:font/woff2;base64,d09GMgABAAAAAGrUABQAAAAA7vwAAGpeAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoMxG8gwHIgyP0hWQVKHLz9NVkFSRgZgP1NUQVSBHACFNC9cEQgKgYxI7lYLhDwAMIHLEAE2AiQDiHQEIAWGXAeKIQwHG3PcNaoT5UJ2rjvBFbXb1zrCyICwcZDhsTEZibBTnFVS2f//PUGNMeRZOxBMy80nwssIL4KRVlVWPVvuKhLWyDHqzqzt9i3jsf0imSFDA83Xui3bPfnMmSlI4ra1RWYWA5CO0JIgbL6GrFlWgrQtAUMewx/GbmdZhDMtwyvcUyGwCAQQBKSCx4kzvZdsNH8uuPVF/bVT/8p1W/EwLmL+iGO3nSXL8vN9/SLAnR4iZT19eH5uf+59sbegxpijxghhKDmhB44xYcCGtHzFJtsojI+R/T8/GptfhdWI1T8wcj/V1K8HVdwsthXizzMZpuviafZGcATqkjRA...G0e+Y4QpQIfGhNImHvqX900vDmZaWxdklKFIREkxgSS+JIPNGTBJJIBhODkmRUskwaohSlyqw0pStDFllZItliF1x10SU945LeGktaS8QVx9V946vzcjJELZuKMN2gaKb0uZSz4dEVx0PVov+L1a7mDr5uU3I4tKLhMa07d65pft+Vsw9qbIe7Rk1FQ13j3Nc2nHPebDgvSnWluvNcYQLOXbmKV1BAd76i6s5TPIPSHCiCSv+i0teCIrTCNJ4BXgGEBhXBM4IAeKZBpUEQPEOsVnWwCWmVLkNfC8Mus9IZaoSAOaOwTijzjiudjBTupVtv69zsmJQVkqjO3rO5nuzZvXVl/vsI+BuzOgT7w54ONA+uLI+N9OcBM3AjuaqHTQXw7SDcJSO9KO+yMe8/rHu4/d99u53X3DoyfGHoXl2rDHuIvOGu5W3SOEnox02Lif5Ga2syXtCqgvTgktEMdHvusr6+nr2Vg4flOW19w3OUS7tB+3XGF9Kuf/gEuwsA' violates the following Content Security Policy directive: \"font-src 'self'\". The action has been blocked.",
+        "Loading the font 'data:font/woff2;base64,d09GMgABAAAAAFTgABQAAAAA2kQAAFRpAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoQRG7xcHIR+P0hWQVKIBD9NVkFSRgZgP1NUQVSBHACIPC9cEQgK+1DoHAuFfgAwgag0ATYCJAOLeAQgBYZcB5pCDAcbN8w3mHNwTVdBuauyiO3HjhxkZiC3gyik7NdHUSsYKTT7///PSjpkaIguANjWzen/Q8zdQ8hCl0lJrpJpxDF69mh0ei6kF1Sn8XXOt1lp0nymC+Fu3IYkNFTlOJqGKZFGpSNcIgFXspAJx/VFIi9k3sydaXmQiGD+5edcRrgjcJr1rKR6oJ0kqoP5ysMKIs8bzmI6v7QhxCQuNjpsQG+xtGVE/IYbRXlehUB05yO35bjMyG36odJo+Est82vFQ9JGQRITtHMVosPM/T+7lL3LtHBviBf44xf1Ma1MvmDzG/1vb9GQ6MBhns8OBz0D3FGNOikAu6CqZ3Gw...JaUfOMT+UEp6W99w0ccMLPQJzz2oGNJSEW2RLuZmugz67PK4cu0c2Yv2fjGwbmHTbcm3sy0QRz+GVa3f/hkq1Dvl+e9i/xYf5FQQOVOWPf73xLxs2Z9liwYR8IeOX8HumpsGWagTT8jdoVPZ1Rm4zmCfcG9+lOY/rzaLo37kQoSPP3NOHEPT1BzpBYkLCjNGzw0eYv2ceGhNJrt2CazwhQnD7aCk1o2BB6dg/nChf2paHdowEIZ4TTDWJ/XImdePYX7oYqvLCOMt2E96xv3dqbMPDSWd+fKhGJHcOO+x17/SMtwt81/foA5OuHE8znxMbRJKZ/x/pxTAl3FMYZT4XDP/oYbEPCSdViw8BKy4TUlYJgzbCgNmZ+IuVh4aWrD9XSfzrLKNlBamUoTlT42K+Mz/cvyI9yauLPc8kBg8caPXo8FZ3LofpGPvNRuy2CUW1N1K8lfexlENmgUDLmOd5ulOgSPzkFv0fMcwUSdsCC1VnBgZv/1avtdwAAAAA=' violates the following Content Security Policy directive: \"font-src 'self'\". The action has been blocked.",
+        "Loading the font 'data:font/woff2;base64,d09GMgABAAAAAI20ABUAAAABPRAAAI06AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoEPG4cuHIGHGj9IVkFSiwY/TVZBUkQGYD9TVEFUdCcmAIUWL2ARCAqB5CCBtxwLhxIAMIGoaAE2AiQDjXwEIAWGVAeqHQwHW4ohcYBNB+brS29WvZjLP3fgBezYC+5W1bk4AGc2woKNAwCFXUBk//8nJR0iMzANkJZunao/GEhThIzMSGJYii6nEwi6JKYNv1d7JwiapMt0iXR6xUGxIJy4aqvQRGVHOspKRGWBqBCRKKISYTKZtySrPXKzbmq6XeH1KzyFtPEWJJn6oKrGOQfGHljLfPayu8e7nObDXvSL7pc2aO+F+IH59P1Hc5kIULQBkg4ZNLRhaeNR/4evicaaRs93YuFrgx5J/yVzHZG/3GVg7MIobcQ68U6POe2fLJARCHPUCaWhoSW0ZJOhvdnSySckpZ89slf2zu6d...Gy5drT4juXrWQICxG1RvfRXsOQNkgCIV4pqMs7yNrQboyvWDzrFb2TNqE9Gls4KspZ7cu1mFNim2oyUE8hUH/KZWGYHeyoCl7LIkfBSzdpzQwd+vrfyRAhCyX29mbKiVDh1OaGqGDBB3viRM+jjkSTwbEBrX0r/SO1WGhVYH6HHi1bZzpMNpntA350Ac9iet0gkESAQJ9lUXtKYFhs5QS7POiMuCWvw/gr1rwaTmm8onrKoGk0LdYik+N7f0PbrKIpN+1XhUmhC8ZsgVN8YZNb8zsqusigzq5LaRkLNrdomUt01ryqadft+FAsM5lLNuRE7X62tDaLDOoCTZm3Zr1hjDZjUt9ZlOw00UCCcwWTx9vSlunatAPA3e0mxTthTt41VcnYu5PbdTfOx781h5fgFyj6hARF5oNvJBiR/XAgHP+esiElv1NMu+89ecfPCUUMPW9d6l+lkjnoexGGFniliMVILcMDJiBhdD71xuzXIZ0UUaj4p/9cwwz2AwAA' violates the following Content Security Policy directive: \"font-src 'self'\". The action has been blocked.",
+        "Loading the font 'data:font/woff2;base64,d09GMgABAAAAADPYABUAAAAAaWwAADNhAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoJeG4kuHIFuP0hWQVKGBz9NVkFSRAZgP1NUQVR0JyYAhCwvYBEICtNAxSALg2gAML4yATYCJAOHFAQgBYZUB49sDAcb+V4VbNcLoDsIUuVlLnxkINg4gAJ2xcj+/3qcDBmsA25eq0pyvKg9MzYtKJs6FL0smI7JWOWhTevefHhUuSeBrIYKQ4+0sHFXj3EgskY3EYdUiMVikQx9MNyN0XSRCYRIkWzf62DgtfxdjVxhshBYIp31yxkM+gur2X+SSMp/h1qtiA5erUKUpwddndJ663toP6FyhCSz/gPO+X9ukpY0FBmUgr8iIp8h5n8UlbIiOlNnKvZMmZZ/eA5/9/2xKoOAA2mDrAESxRpF2drHo7D4f/oLveftXwgFgl4taK1Y6UzBqROCatl69j8DPkWFROiQNRiBixZFIRES...TAruw2VaU3jaQOWBXU5bAypHaR8bh//8Vd0WTqYOZY6kyzXf+6bYP1fO2G1SdW1jcdbc/5dmRvrmGXjvbPAy/D3ugK3MEo946c+86if38SuzJc9N5M+SX437N7MJjDB3yXZbLzPZy+Pyg/j7usHBcw84MKHnEhj+iRNr0PSL+ol/EO4YQxIAUJJLBwMZ2UQi+psozqeM2uqqkCUmElGL99GWc9cRrjan61uPs/p9YM0MaZbhfKgjaJsPeFtfMryNmg2qbRaUtCWZqgMeQPZKAHY86bJw9cCi91gzWR8lYikwO3/I1sZMPN2IyDPnoO46CRgYyLugq8CvQFlvyLj32j6vUgjSftFj5tXzi50WKiYONYYHjvMiMWSZ15rCuDpvK5E7FwgubgGoStbbBmRtec3m8UO86/Mm9E2hpcGpXD5WeSr8QTrzioGvvCRFG2oFiR+xFPPGIcilxcxJo4QQ6hsPO4mC++YHgxVXoHSttwVB/a+37jv8x4KN8BAAAA' violates the following Content Security Policy directive: \"font-src 'self'\". The action has been blocked."
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092 :: csp"
+      ]
+    }
+  ]
+}

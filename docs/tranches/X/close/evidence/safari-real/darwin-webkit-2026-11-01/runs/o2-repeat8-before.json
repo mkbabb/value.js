@@ -1,0 +1,614 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 8,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/oracles/o2-real-hydration-coldload.spec.ts",
+      "file": "smoke/oracles/o2-real-hydration-coldload.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "oracles-safari",
+              "projectName": "oracles-safari",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3187,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[O-2] persisted=#7c8922 restored --saved-bg=#7c8922\n"
+                    },
+                    {
+                      "text": "[O-2] --saved-bg write trace: [#7c8922]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T01:40:38.556Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211fd004ebc6a419840a-d313f822e546c460be8b",
+          "file": "smoke/oracles/o2-real-hydration-coldload.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "oracles-safari",
+              "projectName": "oracles-safari",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1525,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[O-2] persisted=#7c8922 restored --saved-bg=#7c8922\n"
+                    },
+                    {
+                      "text": "[O-2] --saved-bg write trace: [#7c8922]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T01:40:42.709Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211fd004ebc6a419840a-69f82ac62a75b32b86d3",
+          "file": "smoke/oracles/o2-real-hydration-coldload.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "oracles-safari",
+              "projectName": "oracles-safari",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1822,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[O-2] persisted=#7c8922 restored --saved-bg=#7c8922\n"
+                    },
+                    {
+                      "text": "[O-2] --saved-bg write trace: [#7c8922]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T01:40:44.882Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211fd004ebc6a419840a-766ba51a1600340c35d4",
+          "file": "smoke/oracles/o2-real-hydration-coldload.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "oracles-safari",
+              "projectName": "oracles-safari",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1421,
+                  "error": {
+                    "message": "Error: field absent on natural cold load (cssPlaceholder=false, draws=0)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: field absent on natural cold load (cssPlaceholder=false, draws=0)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:153:7",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts",
+                      "column": 7,
+                      "line": 153
+                    },
+                    "snippet": "  151 |         present.cssPlaceholder || present.draws > 0,\n  152 |         `field absent on natural cold load (cssPlaceholder=${present.cssPlaceholder}, draws=${present.draws})`,\n> 153 |     ).toBe(true);\n      |       ^\n  154 | });\n  155 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts",
+                        "column": 7,
+                        "line": 153
+                      },
+                      "message": "Error: field absent on natural cold load (cssPlaceholder=false, draws=0)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  151 |         present.cssPlaceholder || present.draws > 0,\n  152 |         `field absent on natural cold load (cssPlaceholder=${present.cssPlaceholder}, draws=${present.draws})`,\n> 153 |     ).toBe(true);\n      |       ^\n  154 | });\n  155 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:153:7"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[O-2] persisted=#7c8922 restored --saved-bg=#7c8922\n"
+                    },
+                    {
+                      "text": "[O-2] --saved-bg write trace: [#7c8922]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T01:40:47.382Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/o2-real-hydration-coldload-2cfae--field-via-the-natural-path-oracles-safari-repeat3/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts",
+                    "column": 7,
+                    "line": 153
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "211fd004ebc6a419840a-32ccf823edbdd4a57945",
+          "file": "smoke/oracles/o2-real-hydration-coldload.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "oracles-safari",
+              "projectName": "oracles-safari",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1498,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[O-2] persisted=#7c8922 restored --saved-bg=#7c8922\n"
+                    },
+                    {
+                      "text": "[O-2] --saved-bg write trace: [#7c8922]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T01:40:49.528Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211fd004ebc6a419840a-368e2b75775873f46dff",
+          "file": "smoke/oracles/o2-real-hydration-coldload.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "oracles-safari",
+              "projectName": "oracles-safari",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1463,
+                  "error": {
+                    "message": "Error: field absent on natural cold load (cssPlaceholder=false, draws=0)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: field absent on natural cold load (cssPlaceholder=false, draws=0)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:153:7",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts",
+                      "column": 7,
+                      "line": 153
+                    },
+                    "snippet": "  151 |         present.cssPlaceholder || present.draws > 0,\n  152 |         `field absent on natural cold load (cssPlaceholder=${present.cssPlaceholder}, draws=${present.draws})`,\n> 153 |     ).toBe(true);\n      |       ^\n  154 | });\n  155 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts",
+                        "column": 7,
+                        "line": 153
+                      },
+                      "message": "Error: field absent on natural cold load (cssPlaceholder=false, draws=0)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  151 |         present.cssPlaceholder || present.draws > 0,\n  152 |         `field absent on natural cold load (cssPlaceholder=${present.cssPlaceholder}, draws=${present.draws})`,\n> 153 |     ).toBe(true);\n      |       ^\n  154 | });\n  155 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:153:7"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[O-2] persisted=#7c8922 restored --saved-bg=#7c8922\n"
+                    },
+                    {
+                      "text": "[O-2] --saved-bg write trace: [#7c8922]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T01:40:51.757Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/o2-real-hydration-coldload-2cfae--field-via-the-natural-path-oracles-safari-repeat5/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts",
+                    "column": 7,
+                    "line": 153
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "211fd004ebc6a419840a-a3560d09466604a30f14",
+          "file": "smoke/oracles/o2-real-hydration-coldload.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "oracles-safari",
+              "projectName": "oracles-safari",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1448,
+                  "error": {
+                    "message": "Error: field absent on natural cold load (cssPlaceholder=false, draws=0)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: field absent on natural cold load (cssPlaceholder=false, draws=0)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:153:7",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts",
+                      "column": 7,
+                      "line": 153
+                    },
+                    "snippet": "  151 |         present.cssPlaceholder || present.draws > 0,\n  152 |         `field absent on natural cold load (cssPlaceholder=${present.cssPlaceholder}, draws=${present.draws})`,\n> 153 |     ).toBe(true);\n      |       ^\n  154 | });\n  155 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts",
+                        "column": 7,
+                        "line": 153
+                      },
+                      "message": "Error: field absent on natural cold load (cssPlaceholder=false, draws=0)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  151 |         present.cssPlaceholder || present.draws > 0,\n  152 |         `field absent on natural cold load (cssPlaceholder=${present.cssPlaceholder}, draws=${present.draws})`,\n> 153 |     ).toBe(true);\n      |       ^\n  154 | });\n  155 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:153:7"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[O-2] persisted=#7c8922 restored --saved-bg=#7c8922\n"
+                    },
+                    {
+                      "text": "[O-2] --saved-bg write trace: [#7c8922]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T01:40:53.908Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/o2-real-hydration-coldload-2cfae--field-via-the-natural-path-oracles-safari-repeat6/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts",
+                    "column": 7,
+                    "line": 153
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "211fd004ebc6a419840a-eb4231cb3895d0c3d94c",
+          "file": "smoke/oracles/o2-real-hydration-coldload.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "oracles-safari",
+              "projectName": "oracles-safari",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1293,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[O-2] persisted=#7c8922 restored --saved-bg=#7c8922\n"
+                    },
+                    {
+                      "text": "[O-2] --saved-bg write trace: [#7c8922]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T01:40:56.033Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211fd004ebc6a419840a-9e6e42ba705d7f93259c",
+          "file": "smoke/oracles/o2-real-hydration-coldload.spec.ts",
+          "line": 44,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T01:40:35.905Z",
+    "duration": 21672.512,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

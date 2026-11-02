@@ -19,6 +19,7 @@ import {
     resolveMutedInk,
     resolvePaintedLightness,
     resolvePlateInk,
+    resolveRestingAccentReferent,
     resolveSurfaceLightness,
     type InkContrast,
     type InkSurface,
@@ -374,6 +375,33 @@ function certifyAccentInkOnce(css: string, surfaceL: number, floor?: number): st
     return safe;
 }
 
+/**
+ * The accent certified on the RESTING plate, its referent the hue-bounded
+ * maximin between the ambient and the plate referent (§0gz.1,
+ * `resolveRestingAccentReferent`), then the one memoised walk on that
+ * referent ({@link certifyAccentInkOnce}). The boot writer's `--accent-live`
+ * and every resting-rung `safeCss` consumer ask the same question, so the
+ * referent's bisection is memoised the same way.
+ */
+const restingReferentCache = new Map<string, number>();
+function certifyRestingAccentInkOnce(
+    css: string,
+    ambientL: number,
+    plateL: number,
+    dark: boolean,
+    floor?: number,
+): string {
+    const surfaceAt = (referent: number) => surfaceLightnessNow("resting", referent, dark);
+    const key = `${css}|${surfaceAt(ambientL)}|${surfaceAt(plateL)}|${ambientL}|${plateL}|${floor ?? ""}`;
+    let referent = restingReferentCache.get(key);
+    if (referent === undefined) {
+        referent = resolveRestingAccentReferent(css, ambientL, plateL, surfaceAt, floor);
+        if (restingReferentCache.size >= 64) restingReferentCache.clear();
+        restingReferentCache.set(key, referent);
+    }
+    return certifyAccentInkOnce(css, surfaceAt(referent), floor);
+}
+
 /** The surface referent, live-first: probe the painted recipe, compose with
  *  the ambient; the static model serves only where nothing can be measured.
  *  Tracks the probe epoch so a reactive caller re-drives its live read once
@@ -440,14 +468,13 @@ export function useContrastSafeColor(
         preferredContrast.value === "more" ? "more" : "no-preference",
     );
 
+    // §0gz.1: the resting accent's referent is the hue-bounded maximin.
     const safeAccentCss = computed(() =>
-        certifyAccentInkOnce(
+        certifyRestingAccentInkOnce(
             cssColorOpaque.value,
-            surfaceLightnessNow(
-                "resting",
-                ambientLightness.value,
-                isDark.value,
-            ),
+            ambientLightness.value,
+            plateReferent.value,
+            isDark.value,
         ),
     );
 
@@ -672,12 +699,24 @@ function lightDarkArm(css: string, dark: boolean): string {
 export function useSafeAccentFn(surface: InkSurface = "page") {
     const { isDark } = useGlobalDark();
     const ambient = inject(INK_AMBIENT_KEY)!;
+    // §0gz.1: the resting rung's accent walks the hue-bounded maximin between
+    // the ambient and the plate referent. A host with no atmosphere has only the ambient.
+    const plateReferent = inject(INK_PLATE_REFERENT_KEY, ambient);
     bumpProbeEpochOnMount();
 
     /** @param floor optional WCAG floor override — pass
      *  `GRAPHICS_CONTRAST_FLOOR` (3) for non-text ink (WCAG 1.4.11: slider
      *  tracks, rails — the T-44a rung); defaults to the 4.5 text floor. */
     function safeCss(css: string, floor?: number): string {
+        if (surface === "resting") {
+            return certifyRestingAccentInkOnce(
+                css,
+                ambient.value,
+                plateReferent.value,
+                isDark.value,
+                floor,
+            );
+        }
         return certifyAccentInkOnce(
             css,
             surfaceLightnessNow(surface, ambient.value, isDark.value),

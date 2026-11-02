@@ -1,0 +1,98 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ❯ test/ink.test.ts (42 tests | 3 failed | 38 skipped) 11ms
+   ↓ D6 — resolveSurfaceLightness (the ladder referent) > page = the live ambient, verbatim
+   ↓ D6 — resolveSurfaceLightness (the ladder referent) > translucent rungs obey the α-composite law: ambient-monotone, α-damped
+   ↓ D6 — resolveSurfaceLightness (the ladder referent) > the well is an IN-PLATE wash: it lifts toward the scheme's default elevation and flips away only from a departed ink (COHESION §0gv.6)
+   ↓ D6 — resolveSurfaceLightness (the ladder referent) > the veil is an IN-PLATE composite — quiet-α over the RESTING rung, never the bare ambient (T.W6.5-P · T-34)
+   ↓ D6 — resolveSurfaceLightness (the ladder referent) > the rail's rest rung clears the 4.5:1 floor on the veil ground (the O-18 channel-letter row's static twin)
+   ↓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > clears the 4.5:1 text floor — ambient band × surfaces × failure picks (light)
+   ↓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > clears the 4.5:1 text floor — ambient band × surfaces × failure picks (dark)
+   ↓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > keeps the ORIGINAL string when it already clears floor + headroom (fidelity)
+   ↓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > hue survives certification (the guard moves L, never spins H)
+   ↓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > unparseable input passes through (the null-tolerant house contract)
+   ↓ D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > ≥4.5:1 on the live resting plate across the ambient band (light)
+   ↓ D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light)
+   ↓ D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > ≥4.5:1 on the live resting plate across the ambient band (dark)
+   ↓ D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark)
+   ↓ X-DS pass 4 · V4C-01 — resolvePlateInk (ONE polarity per plate) > the primary clears 4.5:1 and the muted rung shares its pole, across the ambient band (light)
+   ↓ X-DS pass 4 · V4C-01 — resolvePlateInk (ONE polarity per plate) > the primary clears 4.5:1 and the muted rung shares its pole, across the ambient band (dark)
+   ↓ D6 — contrastInkFor (the seal-ink exemplar, generalized — F-3's dependent guard) > light fills stamp dark ink; dark fills stamp light ink
+   ↓ D6 — contrastInkFor (the seal-ink exemplar, generalized — F-3's dependent guard) > unparseable fill resolves to null (the caller keeps its resting ink)
+   ↓ T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light)
+   ↓ T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark)
+   ↓ T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)
+   ↓ D6 — the certification headroom (the interim-model tolerance) > is a named, positive constant (dies with the P3/P5 publish swap)
+   ↓ X-DS pass 18 (V18C-01) — certifyIdentityInk holds the identity hue > clears the floor and keeps the gold, or speaks the plate ink (floor 4.5, headroom 1.25)
+   ↓ X-DS pass 18 (V18C-01) — certifyIdentityInk holds the identity hue > clears the floor and keeps the gold, or speaks the plate ink (floor 4.5, headroom 0)
+   ↓ X-DS pass 18 (V18C-01) — certifyIdentityInk holds the identity hue > clears the floor and keeps the gold, or speaks the plate ink (floor 3, headroom 1.25)
+   ↓ X-DS pass 18 (V18C-01) — certifyIdentityInk holds the identity hue > clears the floor and keeps the gold, or speaks the plate ink (floor 3, headroom 0)
+   ↓ X-DS pass 18 (V18C-01) — certifyIdentityInk holds the identity hue > the mid-dark band that drained gold to white now keeps it (owner brown, L 0.5)
+   ↓ §0gw.4 — the certify walk's cut keeps every certified ink > plate, accent and identity inks are the reference walk's, string for string (light)
+   ↓ §0gw.4 — the certify walk's cut keeps every certified ink > plate, accent and identity inks are the reference walk's, string for string (dark)
+   ↓ the light plate referent is maximin (§0gx.2) > the floor and the headroom constants are byte-equal
+   ↓ the light plate referent is maximin (§0gx.2) > a pale field keeps the pick: the darkest stop clears floor + headroom
+   ↓ the light plate referent is maximin (§0gx.2) > the dead band keeps the region's polarity: the guard does not flip it light
+   ↓ the light plate referent is maximin (§0gx.2) > beats the retired mean over the worst stop on a field that spans mid-luminance
+   ↓ the light plate referent is maximin (§0gx.2) > a dark field takes the light pole, pair-wide
+   ↓ the light plate referent is maximin (§0gx.2) > the certified pair keeps one pole across the resting and floating rungs
+   ↓ prefers-contrast: more never lowers a plate ink's ratio (X.W11.n2, §0gy.5, SS8-0363) > on one plate, "more" reads the guard's ceiling, never under no-preference (light)
+   ↓ prefers-contrast: more never lowers a plate ink's ratio (X.W11.n2, §0gy.5, SS8-0363) > on one plate, "more" reads the guard's ceiling, never under no-preference (dark)
+   ↓ prefers-contrast: more never lowers a plate ink's ratio (X.W11.n2, §0gy.5, SS8-0363) > a cleaner plate under "more" never reads under the dead band's pole walk (light, the dark pole)
+   × the resting accent walk is a hue-bounded maximin (COHESION §0gz.1, ESC-W11cnm-1) > the default seed's component-name ink moves toward the plate referent and holds its hue 6ms
+     → expected 49 to be less than or equal to 2
+   × the resting accent walk is a hue-bounded maximin (COHESION §0gz.1, ESC-W11cnm-1) > the ink still clears the floor on its own resting referent 1ms
+     → expected 0.30776197486324003 to be less than 0.30776197486324003
+   × the resting accent walk is a hue-bounded maximin (COHESION §0gz.1, ESC-W11cnm-1) > a held plate-referent ink is the plate referent's own walk; dark keeps the ambient 3ms
+     → expected 'oklch(29.110602205619% 0 0deg)' to be 'oklch(5.334033882245% 0 0deg)' // Object.is equality
+   ✓ the resting accent walk is a hue-bounded maximin (COHESION §0gz.1, ESC-W11cnm-1) > the floor and the headroom constants are byte-equal 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/ink.test.ts > the resting accent walk is a hue-bounded maximin (COHESION §0gz.1, ESC-W11cnm-1) > the default seed's component-name ink moves toward the plate referent and holds its hue
+AssertionError: expected 49 to be less than or equal to 2
+ ❯ test/ink.test.ts:672:35
+    670|         // at the held bound (~rgb 43,0,16).
+    671|         const [r, g, b] = rgb8(ink);
+    672|         expect(Math.abs(r! - 43)).toBeLessThanOrEqual(2);
+       |                                   ^
+    673|         expect(g).toBe(0);
+    674|         expect(Math.abs(b! - 16)).toBeLessThanOrEqual(2);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  test/ink.test.ts > the resting accent walk is a hue-bounded maximin (COHESION §0gz.1, ESC-W11cnm-1) > the ink still clears the floor on its own resting referent
+AssertionError: expected 0.30776197486324003 to be less than 0.30776197486324003
+ ❯ test/ink.test.ts:682:26
+    680|         const ink = restingInk(SEED, ambient, plate, restingOver);
+    681|         const walked = parseOklch(ink);
+    682|         expect(walked.L).toBeLessThan(parseOklch(certifyAccentInk(SEED…
+       |                          ^
+    683|         expect(ratioOn(ink, restingOver(ambient))).toBeGreaterThanOrEq…
+    684|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  test/ink.test.ts > the resting accent walk is a hue-bounded maximin (COHESION §0gz.1, ESC-W11cnm-1) > a held plate-referent ink is the plate referent's own walk; dark keeps the ambient
+AssertionError: expected 'oklch(29.110602205619% 0 0deg)' to be 'oklch(5.334033882245% 0 0deg)' // Object.is equality
+
+Expected: [32m"oklch([7m5.334033882245[27m% 0 0deg)"[39m
+Received: [31m"oklch([7m29.110602205619[27m% 0 0deg)"[39m
+
+ ❯ test/ink.test.ts:689:63
+    687|         // An achromatic pick holds trivially, so it takes the plate r…
+    688|         const grey = "oklch(0.6 0 0)";
+    689|         expect(restingInk(grey, ambient, plate, restingOver)).toBe(
+       |                                                               ^
+    690|             certifyAccentInk(grey, restingOver(plate)),
+    691|         );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 1 passed | 38 skipped (42)
+   Start at  21:25:32
+   Duration  991ms (transform 147ms, setup 47ms, collect 209ms, tests 11ms, environment 359ms, prepare 70ms)
+

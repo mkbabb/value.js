@@ -51,7 +51,7 @@ jobs:
             (github.event.workflow_run.conclusion == 'success' &&
              github.event.workflow_run.head_branch == 'master' &&
              github.event.workflow_run.event == 'push')
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
         timeout-minutes: 20
         # NESTED-WORKSPACE LAYOUT (R.W7 X3 first-wire finding): the repo nests at
         # ./value.js because actions/checkout refuses paths outside

@@ -21,7 +21,7 @@ permissions:
 
 jobs:
     publish:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v5

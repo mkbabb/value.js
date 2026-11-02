@@ -1,0 +1,85 @@
+{
+  "servedModel": "claude-opus-5-5",
+  "unit": "X.W11.dep2",
+  "date": "2026-11-01",
+  "workflow": "ci.yml",
+  "runId": 41383433362,
+  "headSha": "3de4049d72f572b452938ca8a164e33692a297e0",
+  "headBranch": "tranche-u",
+  "event": "push",
+  "createdAt": "2026-11-02T03:30:04Z",
+  "readAt": "after run completion",
+  "runStatus": "completed",
+  "runConclusion": "failure",
+  "jobs": [
+    {
+      "id": 125078976589,
+      "name": "producer / Node 24",
+      "status": "completed",
+      "conclusion": "failure",
+      "failedSteps": [
+        "Run npx playwright install --with-deps chromium"
+      ]
+    },
+    {
+      "id": 125078976706,
+      "name": "e2e-smoke",
+      "status": "completed",
+      "conclusion": "failure",
+      "failedSteps": [
+        "Run npx playwright install --with-deps chromium"
+      ]
+    },
+    {
+      "id": 125078976781,
+      "name": "lhci",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "id": 125078976818,
+      "name": "boot-smoke",
+      "status": "completed",
+      "conclusion": "failure",
+      "failedSteps": [
+        "Run npx playwright install --with-deps chromium",
+        "boot-smoke \u2014 prod-preview (bare 127.0.0.1)"
+      ]
+    },
+    {
+      "id": 125078976887,
+      "name": "oracle slate",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "id": 125078976943,
+      "name": "visual",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "id": 125078976970,
+      "name": "api / Node 22",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "id": 125078977538,
+      "name": "producer / Node 22",
+      "status": "completed",
+      "conclusion": "failure",
+      "failedSteps": [
+        "Run npx playwright install --with-deps chromium"
+      ]
+    }
+  ],
+  "rootCause": "GitHub-hosted ubuntu-latest resolved to runner image ubuntu-26.04 (20261025.179); `npx playwright install --with-deps chromium` (@playwright/test ^1.60.0) exits 1: 'ERROR: Playwright does not support chromium on ubuntu26.04-x64'. Every ubuntu-latest job that installs Chromium fails at that step before any test runs.",
+  "productDiffSinceDeploy": "git diff --stat d99ab0deb HEAD -- . ':!docs' -> 14 files changed, 314 insertions(+), 19 deletions(-)",
+  "masterMerge": "NOT MADE: ci.yml is RED at HEAD; ADDENDUM sixth: .c deploys only when ci.yml on master is GREEN",
+  "verdict": "RED"
+}
