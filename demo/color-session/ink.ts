@@ -647,6 +647,55 @@ export function certifyIdentityInk(
 }
 
 /**
+ * THE RESTING ACCENT'S HUE-BOUNDED MAXIMIN (COHESION §0gz.1, ESC-W11cnm-1).
+ * The accent certified on the resting plate (`--accent-live`, the Nutrition
+ * label's component name) walked on the field's mean, and the mean is not
+ * the ground under the card: the default seed's name read 4.08:1 on the GPU
+ * cell's real plate (`close/evidence/browser/cnm-2026-10-31/`). The plate
+ * referent (`resolveFieldPlateReferent`, maximin) names the worst region, but
+ * on it the walk reaches the pole and drains the identity hue (C 0.08 of the
+ * pick), which the identity-colour law refuses (fourier UIA-F-172).
+ *
+ * So the referent moves from the ambient toward the plate referent only while
+ * the certified ink keeps {@link IDENTITY_CHROMA_HOLD} of the pick's chroma:
+ * the plate referent itself where the ink there is held, else the bisected
+ * referent nearest it that still holds. Where even the ambient's ink is not
+ * held, the ambient stands. The caller certifies the accent on the returned
+ * referent with the house certify (`certifyAccentInk`), so the floor and the
+ * headroom are unchanged; only the referent moves. A shortfall the bound
+ * leaves over the darkest stop is an owner dead-band row
+ * (`close/evidence/browser/cnm2-2026-11-01/README.md`).
+ *
+ * @param surfaceAt the resting plate's lightness over a given field referent
+ * @returns the field referent the resting accent certifies on
+ */
+export function resolveRestingAccentReferent(
+    css: string,
+    ambientL: number,
+    plateL: number,
+    surfaceAt: (referent: number) => number,
+    floor: number = TEXT_CONTRAST_FLOOR,
+    headroom: number = CERTIFY_HEADROOM,
+): number {
+    const accent = parseOklch(css);
+    if (!accent || plateL === ambientL) return ambientL;
+    const referentAt = (t: number) => ambientL + t * (plateL - ambientL);
+    const held = (t: number) =>
+        chroma(certify(accent, surfaceAt(referentAt(t)), floor, headroom))
+            >= IDENTITY_CHROMA_HOLD * chroma(accent);
+    if (!held(0)) return ambientL;
+    if (held(1)) return plateL;
+    let pass = 0;
+    let fail = 1;
+    for (let i = 0; i < 16; i++) {
+        const middle = (pass + fail) / 2;
+        if (held(middle)) pass = middle;
+        else fail = middle;
+    }
+    return referentAt(pass);
+}
+
+/**
  * THE PRIMARY PLATE INK (X-DS pass 4 · V4C-01) — the ONE polarity decision
  * per plate. The scheme's foreground, certified against the composited plate
  * by the same guard as every other ink: where it clears, it is kept; where

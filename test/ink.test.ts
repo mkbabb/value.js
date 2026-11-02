@@ -34,11 +34,15 @@ import {
     certifyIdentityInk,
     contrastInkFor,
     plateInkDeparts,
+    resolveFieldAmbientLightness,
     resolveFieldPlateReferent,
     resolveMutedInk,
     resolvePlateInk,
+    resolveRestingAccentReferent,
     resolveSurfaceLightness,
 } from "../demo/color-session/ink";
+import { resolveAtmosphereField } from "../demo/app/composables/boot/atmosphere-calibration";
+import { DEFAULT_AURORA_ATOMS } from "../demo/scenes/atmosphere/aurora-atoms";
 
 import producerHeld from "./producer-held.json";
 
@@ -636,5 +640,67 @@ describe("prefers-contrast: more never lowers a plate ink's ratio (X.W11.n2, §0
                 }
             }
         }
+    });
+});
+
+describe("the resting accent walk is a hue-bounded maximin (COHESION §0gz.1, ESC-W11cnm-1)", () => {
+    // The default seed (`color-model.ts`) and its resolved light field.
+    const SEED = "oklch(73% 0.185 2)";
+    const SEED_C = 0.185;
+    const field = resolveAtmosphereField({ ...structuredClone(DEFAULT_AURORA_ATOMS), seed: SEED }).palette;
+    const restingOver = (referent: number) => resolveSurfaceLightness("resting", referent, false);
+    const ambient = resolveFieldAmbientLightness(field, false);
+    const plate = resolveFieldPlateReferent(field, false);
+    /** The shipped resting walk: the house certify on the hue-bounded referent. */
+    const restingInk = (css: string, a: number, p: number, over: (r: number) => number) =>
+        certifyAccentInk(css, over(resolveRestingAccentReferent(css, a, p, over)));
+    const rgb8 = (css: string) => {
+        const rgb = convertColor(requiredOklch(css), "rgb");
+        if (!rgb.ok) throw new Error(css);
+        return rgb.value.channels.slice(0, 3).map((v) => Math.round(Math.min(255, Math.max(0, v as number))));
+    };
+
+    it("the default seed's component-name ink moves toward the plate referent and holds its hue", () => {
+        const ink = restingInk(SEED, ambient, plate, restingOver);
+        const { C, H } = parseOklch(ink);
+        // The hue is held: C at or above IDENTITY_CHROMA_HOLD of the pick.
+        expect(C).toBeGreaterThanOrEqual(IDENTITY_CHROMA_HOLD * SEED_C - 1e-6);
+        expect(H).toBeCloseTo(2, 6);
+        // Deeper than the mean's walk (rgb 92,0,43, 4.08:1 on the GPU ground),
+        // at the held bound (~rgb 43,0,16).
+        const [r, g, b] = rgb8(ink);
+        expect(Math.abs(r! - 43)).toBeLessThanOrEqual(2);
+        expect(g).toBe(0);
+        expect(Math.abs(b! - 16)).toBeLessThanOrEqual(2);
+        // The bound binds: the plate referent's own walk drains the hue (the pole).
+        expect(parseOklch(certifyAccentInk(SEED, restingOver(plate))).C).toBeLessThan(IDENTITY_CHROMA_HOLD * SEED_C);
+    });
+
+    it("the ink still clears the floor on its own resting referent", () => {
+        const ink = restingInk(SEED, ambient, plate, restingOver);
+        const walked = parseOklch(ink);
+        expect(walked.L).toBeLessThan(parseOklch(certifyAccentInk(SEED, restingOver(ambient))).L);
+        expect(ratioOn(ink, restingOver(ambient))).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+    });
+
+    it("a held plate-referent ink is the plate referent's own walk; dark keeps the ambient", () => {
+        // An achromatic pick holds trivially, so it takes the plate referent whole.
+        const grey = "oklch(0.6 0 0)";
+        expect(restingInk(grey, ambient, plate, restingOver)).toBe(
+            certifyAccentInk(grey, restingOver(plate)),
+        );
+        // Dark: the plate referent is the ambient, so the walk is the ambient's.
+        const darkAmbient = resolveFieldAmbientLightness(field, true);
+        const darkOver = (referent: number) => resolveSurfaceLightness("resting", referent, true);
+        expect(resolveFieldPlateReferent(field, true)).toBe(darkAmbient);
+        expect(restingInk(SEED, darkAmbient, darkAmbient, darkOver)).toBe(
+            certifyAccentInk(SEED, darkOver(darkAmbient)),
+        );
+    });
+
+    it("the floor and the headroom constants are byte-equal", () => {
+        expect(TEXT_CONTRAST_FLOOR).toBe(4.5);
+        expect(CERTIFY_HEADROOM).toBe(1.25);
+        expect(IDENTITY_CHROMA_HOLD).toBe(0.4);
     });
 });
