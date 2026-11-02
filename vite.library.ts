@@ -23,6 +23,7 @@ export const libraryExternal: string[] = [];
  *   - `serialize` (`serializeCssColor` and the value serializers; no grammar);
  *   - `actions`: the math and colour action tables BOTH grammars bind (`math`/`color`/`mix`);
  *   - `color-grammar`: `color.bbnf` compiled alone, its action table and `parseCssColor`;
+ *   - `palette`: the categorical-palette check (4.2.0), after `color-grammar` so it claims only itself;
  *   - `css-grammar`: the stylesheet grammar, the parser instance and every reader that calls it.
  * The grammar instances (`createParser(...)` at module load) live only in their grammar's chunk, so
  * an eager colour import from `./css` or `./color` leaves the stylesheet grammar lazy.
@@ -42,6 +43,7 @@ export const libraryCodeSplitting = {
         { name: "serialize", test: area("css[\\\\/]serialize\\.ts$"), priority: 75 },
         { name: "actions", test: area("css[\\\\/](?:named-colors|bbnf[\\\\/](?:math|color|mix))\\.ts$"), priority: 70 },
         { name: "color-grammar", test: area("css[\\\\/]bbnf[\\\\/](?:color-parse|color-actions|generated[\\\\/]color)\\.[jt]s$"), priority: 60 },
+        { name: "palette", test: area("palette\\.ts$"), priority: 55 },
         { name: "css-grammar", test: area("css[\\\\/]"), priority: 50 },
     ],
 };
