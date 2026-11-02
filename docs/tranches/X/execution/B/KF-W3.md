@@ -872,3 +872,69 @@ SERVED MODEL: claude-opus-5-5. Substrate kf `HEAD` = `origin/master` = `6a4556d3
 **Escalations**: none new (ESC-KFW3-d2-1 stands). **Adjacent edits**: none.
 
 **Four-verb line**: IMPLEMENTED — **NOT advanced** (spec §State: *"gates green + bytes landed in the named execution site stamps this"*; kf CI is RED and the deploy/§6/probe acts are owed). VERIFIED — not this seat's to stamp. Row stays **PARTIAL**.
+
+## Check 1 (pass 1 after Close 3; record sequence Check 4) — 2026-11-02 (fresh adversarial L-20, VERIFY-ONLY, `claude-opus-5-5`)
+
+SERVED MODEL: claude-opus-5-5. Substrate kf `HEAD` = `origin/master` = `6a4556d3`; vjs `96ecc12db`. I authored none of the wave's bytes, its receipts, or Close 1–3. kf working tree: `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, §0hb.1; never staged, not read as wave work).
+
+**Verdict: NOT-CONFORMANT.** All 7 close gates (G-KF3-1…7) and every GREEN Close 3 claims reproduce at this seat. One RED remains on the close path that §0hd.5 orders: kf CI on `proof:readme-runs` (`README.md:834`), which skipped the deploy and left the §6 round-trip and the post-deploy probe ×2 unrun. The spec gives this RED no relief: it is not producer-owned and not routed to a later wave, and it is not a spec-named honest-RED id. ESC-KFW3-d2-1 is an escalation that awaits a grant; it is not a relief. Close 3 itself is PARTIAL. The LEDGER row is **not** promoted.
+
+### Axis 1 — reproduction at this seat (kf `6a4556d3`; every heavy run through `guarded`, vitest `--maxWorkers=2`, strictly sequential)
+
+| gate | reading |
+| --- | --- |
+| G-KF3-1 | ⟨`grep -rln RC-P docs/tranches/X/fourier/ \| wc -l`⟩ → `1`; `evidence/W3/rc-p-4.1.0.md` present — **GREEN** |
+| G-KF3-2 | ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ sha1 `d488535c9bfc` = ⟨`npm view … dist.shasum`⟩ `d488535c9bfc`; the unmodified probe (sha256 `77678a574d7c6b11`, last touched `c0078d962`) symlinked into the untarred mirror; ⟨`guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 → `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` both — **GREEN ×2** |
+| G-KF3-3 | roster re-derived at HEAD (the spec's `git grep -l -E …` ∪ `git grep -l serialize-value`, `.test.ts`) → 19 files; ⟨`guarded -- npx vitest run <19> --maxWorkers=2`⟩ ×2 → `Test Files 19 passed (19)` · `Tests 235 passed (235)` both — **GREEN ×2** |
+| G-KF3-4 | ⟨`git grep -n unserializable HEAD -- src demo \| wc -l`⟩ → `0`; fork defs ⟨`git grep -nE 'function serializeCssValue\|const serializeCssValue' HEAD -- src demo \| wc -l`⟩ → `0`; value's `./css` import → `serialize-value.ts:2` · `timelineEngine.ts:2`; seam importers → 15 (8 src census-1 + `css-text.ts` + 5 test census-1 + the invariant test); pin `package.json:71` `"4.1.0"`, ⟨`npm ls @mkbabb/value.js`⟩ → one `4.1.0` (glass deduped); ⟨`grep -c 'O-11 §B' INBOX.md`⟩ → `1` — **GREEN** |
+| G-KF3-5 | one def `css-text.ts:33`; ⟨`git grep -n "value.js's OWN\|published 0.12.0 inverse" HEAD -- src test`⟩ → only `internal/leaves.ts:8`, which names the `/math` subpath and is outside the census-2 predicate — **GREEN** (discharge (b)) |
+| G-KF3-6 | INBOX `O-11 §D2` carries `1.923e-1` · `6.930e-2` · `4.489e-2` · `DECLINED`; fence + invariant roster ⟨`guarded -- npx vitest run test/_root/public-surface.test.ts test/compile/easing-identity.test.ts test/compile/timing-function-names.test.ts test/orchestration/orchestration-api.test.ts test/compile/serialize-invariant.test.ts --maxWorkers=2`⟩ ×2 → `Test Files 5 passed (5)` · `Tests 130 passed (130)` both — **GREEN ×2** |
+| G-KF3-7 | `evidence/W3/CALL-MAP.md` present (8 artefacts in `evidence/W3/`) — **GREEN** |
+| UIA-KF-321 | ⟨`guarded -- npx vitest run test/demo/app/r4dock-share-fallback.test.ts --maxWorkers=2`⟩ ×3 → `Tests 1 passed (1)` ×3 — **GREEN** |
+| kf `npm run check` | ×2 rc 0, ends `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` — **GREEN ×2** |
+| kf vitest whole (lib + demo) | ⟨`guarded -- npx vitest run --maxWorkers=2`⟩ ×2 → `Test Files 295 passed \| 5 skipped (300)` · `Tests 2316 passed \| 2 expected fail \| 14 skipped (2332)` both — **GREEN ×2** |
+| G9 | ⟨`npm ls @mkbabb/value.js`⟩ → `4.1.0` — **GREEN** |
+| kf CI / `proof:readme-runs` | ⟨`gh run list -L 4`⟩ → `41462383452` ci push `6a4556d3` **failure**; `41463139545` deploy-pages **skipped**. Reproduced locally: ⟨`guarded --light -- node scripts/gates/surface/index.mjs`⟩ → rc 1, `proof:published-surface — PASS` (R-2 cured) then `proof:readme-runs — FAIL (1 finding(s))` · `snippet [beyond css › compileToEntry #20] … line 14: stated // => true but the dist computed false`; ⟨`sed -n 834p README.md`⟩ → `dialog.css.includes("display 350ms allow-discrete"); // => true` — **RED** |
+| deploy · §6 round-trip · post-deploy probe ×2 (G-KF3-8 pageerror arm) | not run: blocked by CI (§0hd.5 order) — **OWED** |
+| G-KF3-8 / G-KF3-9 | floors, not close gates (spec §Gates) |
+
+**Count**: 14 claimed GREENs reproduced (G-KF3-1…7, the invariant + bypass mutant inside the G-KF3-6 run, UIA-KF-321, check, whole vitest, G9, R-2 `proof:published-surface`, and the 0-landed-wrong roster). 0 claimed GREENs failed. The one RED is the RED that Close 3 itself reports.
+
+### Axes 2–9
+
+- **(2) Bounds.** ⟨`git show --stat`⟩ for the RESUME 2 commits: `8ca052ad` touches 19 paths, all inside the `.c2b` row, and none outside it. `2f498f0e` touches `registry.ts` and `easing-identity.test.ts`. `f59d5259` touches `SharePopover.vue` only. `6a4556d3` touches `docs/published-surface.md` only. The earlier units (`c18a9bd9` `bc37f98f` `4ed542d5` `17a5c34d` `d4148cdc`) were adjudicated by Checks 1–3, and their stats are unchanged. ⟨`git log --format=%h 3e89df9f3^..HEAD -- scripts/dev/dev.sh`⟩ → empty, so dev.sh is untouched. **Clean.**
+- **(3) Masking.** ⟨`git show <c> \| grep -nE '^\+.*(\.skip|try|catch|allowlist|setTimeout|\.todo)\|^-.*expect\('`⟩ over the 5 newest commits finds only three things. (i) A `try/catch` in `serialize-invariant.test.ts` that captures the raised error so it can be asserted (it is not around a defect). (ii) Three `expect(serializeCssValue(…))` lines in `8ca052ad` that were re-pointed to `serializeAdmittedValue(…)` with the same expected text. (iii) `d4148cdc`'s 350ms→0.35s ruled-spelling re-aim, already adjudicated as INFO. The seam `serialize-value.ts` raises one named `SerializeInvariantError` and has no fallback string. The demo `timelineEngine.ts` refuses through `importCSSToTimeline`'s existing throw channel. `SharePopover.vue` has no timer and no retry. **Clean.**
+- **(4) Commit families.** L-7 holds: `.c2b` is ONE kf commit, plus its vjs INBOX commit (`db04c4f7c`). `.reg`, `.sp` and `.ps` are one commit each. **Clean.**
+- **(5) E-3.** ⟨`git diff --stat 3e89df9f3^..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/conformance`⟩ → empty. **Held.**
+- **(6) Mail.** INBOX mtime is `Nov 2 08:54`. ⟨`find V/coordination kf/V/coordination -maxdepth 1 -newer INBOX.md`⟩ → 0. Glass commits since then are `9051506d1` and `2edc9cc3b` (BL O-118 cursor/INBOUND, out of scope, as Close 3 already judged). INBOX Status-column UNREAD rows → 0 (the 6 hits on the `| UNREAD |` regex are sweep prose and O-115…117 note text, not status cells). **Clean.**
+- **(7) Four-verb line.** Close 3 left IMPLEMENTED not advanced and the row PARTIAL. That is lawful, because the §0hd.5 close path is unfinished. **Lawful.**
+- **(8) Goal criterion at the bytes.** It is MET. kf owns no value serializer: `serialize-value.ts` wraps value's published one, and the demo imports value's directly. Exactly one `reverseAnimationShorthand` exists (`css-text.ts:33`), and its provider prose is true. The call-map spans both organs. `serializeCompiledValue` renders kf's `ValueTemplate`, which is a different concern, as named in `8ca052ad`.
+- **(9) Published figures.** Close 3's figures reproduce byte for byte: 0/1548, 19/235, 5/130, 295|5 / 2316|2|14, and 15 seam importers.
+
+### Axis 10 — honest-RED adjudication
+
+**kf CI `proof:readme-runs` (README.md:834) → deploy → §6 → probe ×2: UNRELIEVED.** COHESION §0hd.5 (`:5077`) makes these acts the close path: *"kf CI GREEN → deploy-pages → the §6 round-trip → the post-deploy probe ×2 … → close and a fresh check"*. The RED fails each relief test:
+- **Producer-owned?** No. Both the README and the oracle are kf's, and value 4.1.0 is MET.
+- **Routed to a later wave by the spec?** No. No §Excluded or cross-edge row names it.
+- **A spec-named honest-RED id?** No.
+
+Attribution: the README line dates from 2026-07 (`4749e318`). It went false when KF.W13X `ca8c0433` (2026-10-08, UIA-KF-177 r4lib) ruled seconds-on-tie, which spells a programmatic 350 ms as `0.35s`. The RED was then masked behind R-2 `proof:published-surface` until KF.W3 `.ps` cured R-2. So the bytes that caused it are not this wave's, but the RED sits on this wave's ruled close path and no seat has discharged it. ESC-KFW3-d2-1 names an owner (orchestrator grant, then the `.d2` repair). That is an owner, not a relief.
+
+G-KF3-8's pageerror arm is a FLOOR, not a gate, so it is not in the honest-RED set.
+
+**Honest-RED set: none.**
+
+### Successor conjuncts
+
+KF.W3 is GATE-KEYED, and no wave's "Opens after" conjunct names it. ⟨`grep -nE '[Oo]pens after' X/*/waves/*.md \| grep KF.W3`⟩ → 0. KF-W10 §head carves KF.W3 out by name, and KF.W10 is CLOSED. The only downstream dependant is X-W11's G9 VERIFIED stamp (§0hb.3, Track A), which waits on this wave's deploy. That stamp is **lawfully blocked**. Its G9 conjunct (`npm ls` → 4.1.0) is GREEN, and its deploy conjunct is RED.
+
+### Register
+
+| severity | claim | receipt | cure |
+| --- | --- | --- | --- |
+| HIGH | §0hd.5's close path stands unfinished. kf CI is RED on `proof:readme-runs`, so deploy-pages was skipped, and the §6 round-trip and the post-deploy probe ×2 were never run. The spec gives no relief. | CI `41462383452` failure / deploy `41463139545` skipped. This seat reproduced it locally (rc 1, `beyond css › compileToEntry #20 line 14`). `README.md:834` reads `display 350ms`. | Change `README.md:834` to the ruled spelling `display 0.35s allow-discrete`. This is the string the oracle asserts for the UIA-KF-177 spelling, and it is arguably within the §0bt adjacent-line rule for the seat that owns that concern. Otherwise it needs the ESC-KFW3-d2-1 grant. Then: CI GREEN ×1 → deploy-pages → §6 → probe ×2 (pageerror 0) → Close 4 → fresh check. |
+| MINOR | `useKeyframeOps.ts:45-46` drops the authored `<time>` unit (Close 3 residual 2). | Close 3 §Residuals 2 | A seat granted on UIA-KF-177. |
+| INFO | 2 → 2 throw sites after `.c2b` (the seam invariant and the demo refusal) | Close 3 §Residuals 3 | KF.W7 / KF.W2 posture (L-5) |
+| INFO | `KeyframeTimeline.vue` in kf is dirty (`MM`). It belongs to a sibling seat (§0hb.1) and is untouched by the wave. All local runs above include that dirty file in the tree, as Close 3's did. | ⟨`git status --porcelain`⟩ | none (sibling's) |
+
+**LEDGER**: the row is not promoted, and it stays PARTIAL. An event line is appended.
