@@ -4958,3 +4958,29 @@ Ruled:
 - **After:** `/health` reads `d99ab0deb` with mongo ok, and the palettes list returns 200. Production data already held 0-based ordinals; the migration's only effect was re-stamping hashes under §0gt.5 (ordered colours only).
 - **The legacy-row write refusal from §0gz.4 is discharged.** G10 is GREEN.
 - **Erratum (the act's own):** the first attempt ran the sidecar's `backup.sh`, which is a sleep loop, not a one-shot. It held the session until timeout, so the migration never ran on that attempt. The stray second loop was killed by PID; the sidecar's original PID 1897 is untouched. Logs are in `~/.fourier-frel/palette-migration/` (private).
+
+## §0ha — 2026-11-02: X-W11's tenth set ruled (delegate, §0ge); the Check-3 halt is lifted again
+Landed since §0gz:
+- the darwin real-GPU WebKit witness at HEAD: 199 executed, 195 passed, 4 red, all w7 on O-106, with the o2 cold-load read cured at its harness root;
+- the hue-bounded accent walk (`.cnm2`): the default-seed component-name ink reads 5.38 on the GPU cell and 6.77 in docker, the floor and headroom are byte-equal, and the 8 light goldens are re-minted and attributed;
+- the bench fixture moved off `/tmp`;
+- the production ordinal migration (§0gz.6).
+
+Ruled:
+1. **ESC-W11dep2-RUNNER-IMAGE: pin every workflow's `runs-on` to `ubuntu-24.04`.** GitHub moved `ubuntu-latest` to 26.04 under the repo, and Playwright refuses to install a browser there.
+   - A floating label is an unpinned dependency, and CI mirrors a fixed substrate (§0gh), so the pin is the root cure, not a workaround. Jobs already pinned to an exact image (§0gh's ubuntu-22.04 mongo) keep that pin.
+   - Every workflow under `.github/workflows/` is granted to the unit `X.W11.rimg`. A comment cites this section.
+   - A Playwright bump is a separate concern, owed at the next dependency pass. Its absence is not the cause here.
+2. **ESC-W11g5p-1: arm (a).** `boot-smoke.mjs`'s origin form gains a production form: protocol `https:`, a host exactly on a named allowlist of the deploy origins (`color.babb.dev`), no port, a root path, and no query or fragment. The 127.0.0.1 loopback form is unchanged.
+   - The sub-path and query/fragment complaints apply to both forms, so G-13's falsifier is kept whole.
+   - With a production origin, no local server is started. The probe reads the deployed bytes, and `prod-probe.json` records the served build fingerprint.
+   - `scripts/ci/boot-smoke.mjs` is granted to the unit `X.W11.g5o`. Falsifiers: a sub-path production URL and an unlisted https host are both refused, run ×2.
+3. **The order:** `.rimg` ∥ `.g5o` → push → ci.yml 8/8 at one HEAD → `.dep2` re-sits:
+   - the ordinary §0ga master merge;
+   - deploy-pages success;
+   - `/health` equal to the merge commit;
+   - the TLS smoke ×2;
+   - G5 production ×2 against `https://color.babb.dev/` with `prod-probe.json`.
+
+   Then close and a fresh check. If any product byte changes after the WebKit witness reading, the witness is re-read at the new HEAD under `guarded --exclusive webkit`.
+4. **Honest-RED, recorded only:** G9 (O-117), w7 ×4 (O-106), the 4 manifest rows, R-vrb-1, and the dead-band owner design row (4.196 / 4.240).
