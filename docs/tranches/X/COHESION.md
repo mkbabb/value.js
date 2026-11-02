@@ -5101,3 +5101,29 @@ Ruled:
    - **KF-3:** a sampled LUT form of `springTimingFunction`, built for per-frame and many-mark use and for ECharts/CSS (atlas A2(b)).
    - Each gets a standalone repro first. KF-1 and KF-2 come from code comments and are confirmed before any cure.
    - **Vehicle:** a keyframes minor release after KF.W3 ships, as its own pass. Reply to sci-report-a4 with the release that carries each row.
+
+## §0hf — 2026-11-02: value.js 4.2.0, a post-X library minor: VJ-1 plus the R-ink-1 export (delegate, §0ge)
+**Inbound:** VJ-1, from the Gregg Museum dashboard via sci-report-82. It asks for a categorical-palette check with colour-vision-deficiency simulation, covering:
+- an OKLab lightness band;
+- a chroma floor;
+- adjacent-pair ΔE under deutan, protan and tritan simulation;
+- a normal-vision ΔE floor;
+- WCAG contrast against the ground.
+
+Gregg runs an unversioned borrowed script, and atlas carries only `deltaEOK` and `wcagContrast` (`atlas/src/charts/scale/oklab.ts:145-162`; atlas row A8, U/B8). The perceptual colour math belongs in value.js, and atlas wraps it.
+
+Ruled:
+1. **Vehicle: `@mkbabb/value.js` 4.2.0.** This is semver-minor and additive, on the `@mkbabb/value.js/color` subpath. It is a post-X cut, so the 4.1.0 tag and X's records are not reopened.
+2. **The surface, as one design passed through a judge:**
+   - `contrastRatio(a, b)`: WCAG 2.x. It is the same predicate `safeAccentColor` uses, exported, so the demo's `guardContrast` twin (R-ink-1, `test/ink.test.ts` drift lock) is deleted onto it in the same cut.
+   - `deltaEOK(a, b)`: Euclidean OKLab, with its scale documented.
+   - `simulateColorVision(color, { kind: "protan" | "deutan" | "tritan", severity = 1, method = "machado" | "vienot" })`: Machado 2009 matrices in linear sRGB, with severity interpolated over the published 0.0–1.0 table; Viénot 1999 as the dichromat form. Gamut clamped and documented.
+   - `checkCategoricalPalette(colors, { ground, scheme, ...thresholds })`: a Result carrying per-check, per-pair findings (measured value, threshold, pass). Every default threshold is cited to a source, or stated as an explicit design choice. None is silent.
+   - Inputs are any CSS `<color>` value.js parses, not hex only.
+3. **Gates:**
+   - reference vectors for the CVD matrices, checked against an independent implementation (for example colorspacious or DaltonLens), to a stated tolerance;
+   - property tests (severity 0 is the identity; severity 1 equals the dichromat form within tolerance);
+   - the existing suite GREEN ×2, typecheck and lint;
+   - the published-surface manifest and the README gaining rows;
+   - CI GREEN, then publish through the standing `release.yml` path with provenance, then the registry read back.
+4. **After publish:** reply to sci-report-82 and sci-report-a4 with the version. Gregg and atlas adopt it on their own pins.
