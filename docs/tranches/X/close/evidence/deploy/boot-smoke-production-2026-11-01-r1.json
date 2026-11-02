@@ -1,0 +1,28 @@
+{
+  "servedModel": "claude-opus-5-5",
+  "unit": "X.W11.g5p",
+  "gate": "G5 production leg",
+  "run": "r1",
+  "state": "ORIGIN-FORM-REFUSED",
+  "verdict": "RED (unmeasured: the instrument refuses the origin before any browser launch)",
+  "cmd": "~/.claude/guard/guarded --timeout 10 -- node scripts/ci/boot-smoke.mjs --mode=prod-preview --origin=https://color.babb.dev/ --json=docs/tranches/X/close/evidence/deploy/boot-smoke-production-2026-11-01-r1.json",
+  "guardRun": "c7de044ad5",
+  "start": "2026-11-01 20:12:55",
+  "end": "2026-11-01 20:13:00",
+  "exit": 1,
+  "stderrLine1": "[boot-smoke] FAIL \u2014 Error: ORIGIN-FORM: https://color.babb.dev/ is not a bare 127.0.0.1:PORT origin \u2014 protocol https: (want http:); host color.babb.dev (want 127.0.0.1); no explicit port",
+  "jsonWrittenByScript": false,
+  "instrument": {
+    "path": "scripts/ci/boot-smoke.mjs",
+    "lastCommit": "c1fb8958a72334b71827c50910b1e0e84e5845ff",
+    "sha256": "a0cc8d714ea9b87e206f1b432ff296019760485d3a7b8ca21c95ba3b22de849a",
+    "refusingSite": "assertBareOrigin :198-222 (HOST = \"127.0.0.1\" :77), called on --origin at :663"
+  },
+  "assertions": {
+    "appNonEmpty": null,
+    "roleMain": null,
+    "pageerrors": null,
+    "desktopUtilityClass": null
+  },
+  "note": "boot-smoke's ORIGIN-FORM check admits only http://127.0.0.1:PORT/; an https production origin is refused by design. boot-smoke.mjs is execute-only for this unit (X-W1 owns bytes), so no substitute probe was run."
+}
