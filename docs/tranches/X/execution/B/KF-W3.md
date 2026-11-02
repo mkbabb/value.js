@@ -709,3 +709,35 @@ Owed, strictly ordered (§0hd order; concurrency cap 1 ⇒ singleton groups): `[
 **Adjacent edits (§0bt)**: `format/format.ts:420-422` comment (names the seam; same concern) · `css-text.ts` selector docblock (`:58-59`, same concern). Both inside the writable set anyway.
 
 **Residuals**: (i) the demo's `timelineEngine.ts` `!ok` refusal is unreachable from parse-sourced input (the invariant), kept because value's `Result` must be handled and the demo cannot reach the kf-private seam — named, not a second invariant; (ii) not pushed (`.d2` pushes). **Escalations**: none.
+
+### KF.W3.reg
+
+**Seat** `.reg`, 2026-11-02, `claude-opus-5-5`. Authority COHESION §0hd.4. Spec sections executed: §B.2 registry row (modify, guarded — only what the deletion forces) · G-KF3-6 boot fence (§Gates, fence re-resolved at true bytes).
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's; never staged/edited) ⇒ **0 inherited paths** in this unit's set. kf `HEAD` = `8ca052ad` (`.c2b`).
+
+**Anchors at true bytes (kf `8ca052ad`)** — drift recorded as INTENT:
+- memo: brief `registry.ts:35-53` → true docblock **`:33-53`** (schedule `:51-52` holds verbatim: *"when value.js 4.1's memoised `easing()` lands, this memo is deleted in KF.W3's repin commit"*), entries initializer `:54-65` (fence throw `:60-62`), the memo Map `:67 const timingFunctionRegistry = new Map(timingFunctionEntries);`, its one reader `:160` (registry-first branch, comment `:148-159`).
+- spec G-KF3-6 fence anchors `:31` / `:37-48` / `:43-46` → true `:28 ...Object.keys(bezierPresets),` / `:54-65` / `:60-62` (drifted by W4's edits; intent unchanged).
+- `timingFunctionEntries` consumers (⟨`git grep -n 'timingFunctionRegistry\|timingFunctionEntries' -- src test demo`⟩): `emit/easing-serialize.ts:10/:71` (reverse lookup) · `load-engine.ts:65/:124` · `public.ts:171` · `demo/state/animationOptionsStore.ts:83` · 4 tests. `timingFunctionRegistry` had **0** readers outside `registry.ts` (private).
+
+**Acts (in order)**
+1. **Memo deleted** (`registry.ts`): the name→curve Map `timingFunctionRegistry` and its K1 docblock are gone. New private `registryEasing(name)` = value's memoised `easing(name)`; its `!ok` arm is the fence's own `throw new Error("value.js rejected its own easing …")` (moved, not changed — now `:44`). `resolveTimingFunction` **keeps its order**: a `ReadonlySet` of the registry names is consulted first (`registeredNames.has(name)` ⇒ `registryEasing(name)`), only a non-registry string reaches the CSS parser; its comment re-worded (no "memo above").
+2. **Fence kept**: `timingFunctionEntries` is still evaluated at module top level (`registryNames.map((name) => [name, registryEasing(name)])`, `:67-70`), so a `bezierPresets` key value stops accepting is still a kf boot throw; docblock re-written to name it THE BOOT FENCE (G-KF3-6) and to carry the 40→31 stable-not-injective facts the deleted block held.
+3. **Export surface**: **unchanged** — `timingFunctionEntries` keeps name and type; `resolveTimingFunction` unchanged signature; the deleted Map was never exported. Nothing for `.ps` to re-measure beyond its baseline five.
+4. **Test re-aim** (`test/compile/easing-identity.test.ts`, prose only): header `:4-12` now says kf's memo was deleted and the clauses assert value-side stability; `:19` fence anchor `registry.ts:43` → `registry.ts:44`; the describe title `"K1 — the module-evaluation memo makes registry identities stable"` → `"K1 — value.js's memoised \`easing()\` makes registry identities stable"`; the `:66-68` comment re-worded. ⟨`git diff 8ca052ad -- test | grep '^[-+]' | grep -c expect`⟩ → **0** (no assertion touched).
+5. **`useKeyframeOps.ts:45-46` NOT cured — not the same concern** (named, not substituted): the memo deletion is easing-identity (value's memoised `easing()`); the residual is CSS `<time>` unit fidelity (`reverseCSSTime(animation.options.duration)` dropping `durationUnit`/`delayUnit`, `.c4`'s concern, UIA-KF-177). §0hd.4 grants it "if it is the same concern"; it is not, so the file is untouched. The cure stays the two-argument change `.c4` named (`reverseCSSTime(animation.options.duration, animation.options.durationUnit)` · same for `delay`/`delayUnit`) for a seat granted it on that concern.
+
+**Gates BEFORE → AFTER** (kf `8ca052ad` → `2f498f0e`)
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| memo present | ⟨`grep -c timingFunctionRegistry registry.ts`⟩ → `2` | ⟨same⟩ → **`0`**; ⟨`grep -c 'rejected its own easing' registry.ts`⟩ → `1` (fence throw kept) |
+| G-KF3-6 boot fence + easing roster | GREEN 110/110 (RESUME 2 baseline) | **GREEN ×2 on settled bytes** — ⟨`guarded --timeout 10 -- npx vitest run test/_root/public-surface.test.ts test/compile/easing-identity.test.ts test/compile/timing-function-names.test.ts test/orchestration/orchestration-api.test.ts --maxWorkers=2`⟩ → `Test Files 4 passed (4)` · `Tests 110 passed (110)` run 1 ≡ run 2 (and ×2 again before the docblock wording fix) |
+| kf `npm run check` | rc 0 (`.c2b`) | **rc 0 ×2** on settled bytes (vue-tsc src + test; `proof:structure — PASS: scope=src clean (0 violations across R1–R6)`) |
+| kf vitest `--maxWorkers=2` | 2316/2316 (`.c2b`) | run 1 (one comment byte later re-worded) `Test Files 295 passed \| 5 skipped (300)` · `Tests 2316 passed \| 2 expected fail \| 14 skipped (2332)` rc 0; run 2 (settled) `1 failed \| 2315 passed` — the one failure is `test/demo/app/r4dock-share-fallback.test.ts (2)` = **UIA-KF-321**, the selection race `.sp` owns (born-RED alone at the RESUME 2 baseline; imports nothing from `easing/`); run 3 (settled) **`2316 passed \| 2 expected fail \| 14 skipped (2332)` rc 0**. ⇒ GREEN ×2 (runs 1, 3) |
+
+**Commits**: kf **`2f498f0e`** (2 paths: `src/animation/compile/easing/registry.ts` · `test/compile/easing-identity.test.ts`; ⟨`git show --stat HEAD`⟩ → `2 files changed, 55 insertions(+), 52 deletions(-)`; `KeyframeTimeline.vue` not in it) · vjs this record (pathspec). Not pushed (`.d2` pushes).
+
+**Adjacent edits (§0bt)**: none.
+
+**Residuals**: (i) `useKeyframeOps.ts:45-46` unit pass-through — not this concern (act 5); needs a demo seat granted on UIA-KF-177's concern. (ii) UIA-KF-321 intermittent in the full suite → `.sp`. **Escalations**: none.
