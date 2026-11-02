@@ -412,3 +412,54 @@ Unmoved. The spec's IMPLEMENTED row requires *"gates green + bytes landed"*. G-K
 ### Act 7 — push
 
 kf was already at `origin/master` `d4148cdc` (`.d` pushed it). vjs `tranche-u` is pushed after this close commit (ordinary push).
+
+## Check 1
+
+**Seat**: CHECK 1 (fresh adversarial L-20 pass 1, VERIFY-ONLY, `claude-opus-5-5`), 2026-11-02. Authored no byte of the wave, its units or its Close. **Crash-recovery**: ⟨`git status --porcelain` over this record + LEDGER⟩ → clean; kf ⟨`git status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling; untouched) ⇒ 0 inherited paths. kf `HEAD` = `origin/master` = `d4148cdc`.
+
+**Verdict: NOT-CONFORMANT.** Every GREEN the Close claims reproduces at this seat (9 of 9 readings). The verdict turns on one gate: **G-KF3-4 is a RED close gate with no relief in the spec** (axis 10).
+
+### Axis 1 / 9 — the claimed GREENs, re-run by this seat
+
+| gate | this seat's command | reading | reproduces? |
+| --- | --- | --- | --- |
+| G-KF3-1 | ⟨`grep -c 'evaluates TRUE per …RELEASE-CONDITION.md` §6a' KF-W3.md`⟩ · ⟨`grep -rn RC-P docs/tranches/X/fourier/ \| wc -l`⟩ · ⟨`grep -c 'GREEN — every public parser is total' evidence/W3/rc-p-4.1.0.md`⟩ | 1 · 1 · 1 | yes |
+| G-KF3-2 | ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ → sha1 `d488535c…b3d6` = ⟨`npm view … dist.shasum`⟩; untarred into a scratch mirror, the unmodified probe (sha256 `77678a57…`) symlinked in; ⟨`npm_config_ignore_scripts=true guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 | rc 0 ×2 · `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` · `cmp` identical | yes |
+| G-KF3-3 | roster re-derived with the spec's `git grep -l -E …` at kf `HEAD` → **18** paths; ∪ the 3 O-117 files outside it (`timeline-hover-preview`, `easing-identity`, `grammar-fuzz`); ⟨`guarded --timeout 10 -- npx vitest run <21> --maxWorkers=2`⟩ ×2 | rc 0 ×2 · `Test Files 21 passed (21)` · `Tests 306 passed (306)` ×2; ⟨`git diff --stat 5c48e3da..HEAD -- test/fixtures`⟩ → empty (no silent re-baseline, epsilon untouched) | yes |
+| G-KF3-5 | ⟨`git grep -n '\breverseAnimationShorthand\b' HEAD -- src test`⟩ | 10 lines; one implementation (`css-text.ts:35`); every attributing sentence names kf (`backward.ts:20`, `options.ts:10/:82`, `index.ts:233`); 0 name value.js. Discharge (b) | yes |
+| G-KF3-6 | ⟨`grep -c '^\| I-77 .*O-11 §D2.*1.923e-1.*DECLINED' INBOX.md`⟩ | 1 | yes |
+| G-KF3-7 | ⟨`head -1 CALL-MAP.md`⟩ · ⟨`grep -cE 'REACHABLE\|UNREACHABLE'`⟩ · ⟨`grep -c KF-HA-19`⟩ | `SERVED MODEL: claude-opus-5-5` · 48 · 2 | yes |
+| G-KF3-8 (floor) | ⟨`git grep -nE 'cssTwinFor\("(easeOutCubic\|bounceInEase)"\)' HEAD -- test \| wc -l`⟩ | 0 (pageerror arm owed with deploy) | yes |
+| G-KF3-9 (floor) | ⟨`guarded --light -- npm run check`⟩ | rc 0 (vue-tsc ×2 projects + proof:structure) | yes |
+| G9 | ⟨`npm ls @mkbabb/value.js`⟩ in kf | `@mkbabb/value.js@4.1.0` (+ deduped under glass 10.1.3) | yes |
+
+Readings the Close left RED, also reproduced: G-KF3-4 RED (⟨`git grep -n serializeCssValue HEAD -- …/css-text.ts`⟩ → fork `:59`, self-calls `:61 :66`; consumers on `value.js/css` → 0). kf CI RED (⟨`gh run list -R mkbabb/keyframes.js --workflow ci.yml -L 2`⟩ → `41450770277` push `d4148cdc` **failure**).
+
+### Axes 2–7
+
+- **(2) Bounds.** ⟨`git show --stat`⟩ on all 5 kf commits (`c18a9bd9 bc37f98f 4ed542d5 17a5c34d d4148cdc`) and all 13 vjs commits (`3e89df9f3` … `7fe705060`): every path is in its unit's writable set or is a declared §0bt adjacent edit (`.c4`: `constants/types.ts`, `engine/css/metadata.ts`, `engine/option-setters.ts`; `.c5`: `scene-skeleton-shimmer.test.ts`). `scripts/dev/dev.sh`, glass-ui and sibling trees untouched. **Landed-wrong 0.**
+- **(3) Masking.** ⟨`git show <5 kf commits> | grep -E '^\+' | grep -E 'test\.skip|it\.skip|\.todo|catch *\(|try *\{|allowlist'`⟩ → 0. The re-aimed `.c1` tests assert 4.1.0's behaviour with positive subjects (`toThrow` → a named refusal plus `parseStylesheet(css).ok === false`; `unstable.length` 21 → 0 with a per-name identity clause). `.d`'s `entry-roundtrip` change follows the ruled UIA-KF-177 spelling (`0.35s`); its strip regex widens to `\d*\.?\d+m?s`. That widening matches the ruled spelling and silences no assertion (INFO). No patched node_modules. No copied producer selector.
+- **(4) Commit families.** The repin (`c18a9bd9`) and the glass bump (`17a5c34d`) are separate commits, as §0hb.2 requires. L-7's retirement family was never split, because it never landed.
+- **(5) E-3.** ⟨`git diff --stat 3e89df9f3^..HEAD -- docs/tranches/X/keyframes/waves docs/tranches/V/megatranche/registry/adjudicated scripts/dev/dev.sh`⟩ → empty.
+- **(6) Mail.** ⟨`find <the 4-path sweep> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0. No `I-n` row has an UNREAD status: the three status cells that mention UNREAD read `was UNREAD` or `READ → FOLDED`. **Clean.**
+- **(7) Four-verb line.** Unmoved, which is lawful: the spec's IMPLEMENTED row requires *"gates green + bytes landed"*, and one close gate is RED.
+- **(8) Goal criterion.** **NOT MET at the bytes.** The wave's title acts are *"the repin, the `serializeCssValue` fork retirement, the DUAL-1 unification, the 8-curve ack, the R1 call-map"*. The fork retirement has not happened: `css-text.ts:59` and its throw at `:72` stand, the demo twin `helpers.ts:75-96` stands, and no O-11 §B row exists.
+
+### Axis 10 — honest-RED adjudication
+
+**G-KF3-4 has no relief.** The spec gives this gate no producer-gated relief: its one producer conjunct, *"`serializeCssValue` enumerable on `V`'s packed `./css` surface"*, is **MET** (4.1.0 `dist/subpaths/css.d.ts`: `serializeCssValue(value: CssValue): Result<string, ColorIssue>`, re-read by this seat). The spec does not route the retirement to a later wave: §Excluded/E-rows and §Sequencing assign it to no successor, and L-5 sends only *posture* elsewhere, while this gate's own falsifier keeps the `:54` throw's death inside G-KF3-4. The spec also names no honest-RED id for it. The blocker is a kf public-surface design decision (`.c2`: (A) widen · (B) ingest totality · (C) ruled boundary throw). The escalation itself is honest and well measured, and the residual register names an owner (owner/arbiter, then a KF.W3 repair seat). But an owner-pending ruling is a reason to escalate, not spec relief, so the gate is an **unrelieved RED close gate**.
+
+**Honest-RED set: none** that meets axis 10's bar. The non-gate items are kf CI R-2 (ESC-KFW3-d-1, `proof:published-surface`; red on master since 2026-10-21, before this wave), the deploy, §6 and the G-KF3-8 pageerror arm. None of them is one of the seven close gates, and each has a named owner in the residual register.
+
+**Successors.** No LEDGER row and no X·KF spec names KF.W3 as an *Opens after* conjunct. ⟨`awk` over LEDGER col 2⟩ → no row keyed on KF.W3; KF.W3 is GATE-KEYED, a leaf. **No successor is blocked** by this verdict.
+
+### Register
+
+| severity | claim | receipt | cure |
+| --- | --- | --- | --- |
+| **HIGH** | G-KF3-4 (close gate) is RED with no spec relief; the fork retirement (a title act of the wave) has not landed | `css-text.ts:59` fork + `:72` throw at kf `d4148cdc`; 0 `value.js/css` consumers; 0 O-11 §B rows; 4.1.0 publishes the target | owner/arbiter rules `.c2`'s (A)/(B)/(C); a KF.W3 repair seat lands retirement + every census-1 consumer + `helpers.ts` twin delete + dated manifest row + INBOX O-11 §B as ONE L-7 act; G-KF3-3 re-run ×2 |
+| MINOR | kf CI RED (R-2, `proof:published-surface`), so the deploy, §6 and the G-KF3-8 pageerror arm are owed | run `41450770277` failure | ESC-KFW3-d-1 publication-doc ruling (owner), then a `.d` repair; not a close gate |
+| MINOR | vitest ×2 intermittency from UIA-KF-321 (`SharePopover.vue` select race) | `.c5`/`.d` receipts; not reproduced here (the roster excludes it) | demo seat (ESC-KFW3-d-2) |
+| INFO | `entry-roundtrip` strip regex widened to `\d*\.?\d+m?s` | `d4148cdc` diff | follows the UIA-KF-177 ruled spelling; none |
+
+**LEDGER**: not promoted. The row stays **PARTIAL**, and one event line is appended.
