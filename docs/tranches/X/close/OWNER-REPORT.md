@@ -199,3 +199,12 @@ SERVED MODEL `claude-opus-5-5`, the X-W11 close seat (VERIFY-ONLY), HEAD `480f58
 3. **GitHub's runner image moved under us, so nothing new is deployed.** `ubuntu-latest` is now Ubuntu 26.04, and Playwright 1.60 refuses to install Chromium there. Four of eight CI jobs fail before any test runs. A fix means pinning the workflows to `ubuntu-24.04` (or bumping Playwright), which needs an orchestrator grant (ESC-W11dep2-RUNNER-IMAGE). Production still serves `d99ab0deb`, which was green; the cures above are not live yet.
 4. **The production boot check cannot run as ruled.** `boot-smoke.mjs` accepts only `http://127.0.0.1:PORT`, so it refuses `https://color.babb.dev/` before opening a browser. The script's owner needs to add a production-origin form, or a ruling needs to name another instrument (ESC-W11g5p-1).
 5. **The X close is still not VERIFIED.** G9 is RED: keyframes pins `4.0.0` exactly (O-117). The darwin WebKit witness reads 192/196 with the 4 w7 rows on O-106. Four producer-held reds ship known. The npm token rotation (§3 item 1) still stands.
+
+## Addendum 2026-11-02 — what changed at the nineteenth sitting (supersedes the 2026-11-01 addendum's items 3–5; E-3, the bytes above are unchanged)
+
+SERVED MODEL `claude-opus-5-5`, the X-W11 close seat (VERIFY-ONLY), HEAD `0429e0f3a`, master `80774cd7e`.
+
+1. **CI is green again.** Every workflow now runs on `ubuntu-24.04` instead of the floating `ubuntu-latest` (`0bbfc7e8e`). `ci.yml` reads 8/8 on tranche-u (`41404338825`) and on master (`41421507774`). A Playwright bump is still owed at the next dependency pass.
+2. **Everything since `d99ab0deb` is deployed.** Master is `80774cd7e`, an ordinary merge with no force. Cloudflare Pages deploy `41433934453` succeeded, the API reports commit `80774cd7e`, and the TLS check passes with 63 days left on the certificate.
+3. **Production boots.** `boot-smoke.mjs` now accepts `https://color.babb.dev/` and refuses any other host, sub-path, port, query or fragment (`b6b504059`). Against the live site it reads 8/8 seeds, no page errors, twice, and the served files match the deploy's build.
+4. **X-W11 is IMPLEMENTED, not VERIFIED.** G9 is still red: keyframes pins `4.0.0` exactly (O-117); that is keyframes' cut to make. The four producer-held e2e reds and the w7 ×4 WebKit rows ship known. The dead-band contrast row is your design call. The npm token rotation (§3 item 1) still stands. A fresh adversarial check is next.
