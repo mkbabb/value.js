@@ -5042,3 +5042,36 @@ Ruled:
    - inv-28 stays as the host's fail-closed check.
    - The hooks.json change and the secret are orchestrator host acts. The `ci.yml` job is the unit's work.
 4. **The order:** the units, then branch CI GREEN, then an ordinary merge. The merge's own CI deploys the API. Then prod-verify ×2 with the rate window respected, a deploy record OK at the merge, and deploy-alert OK.
+
+## §0hd — 2026-11-02: KF.W3's first set ruled (delegate, §0ge)
+Landed:
+- `.a` call-map: 27 ids; 4.1.0 throws 0 times where 4.0.0 threw 9;
+- `.b` DUAL-1 design: UNIFY-BY-TRUTH, plus the second fork copy at `demo/utils/helpers.ts:75-96`;
+- `.c1` repin to `@mkbabb/value.js` 4.1.0 exact, with O-117's matrix re-home and the four tests re-aimed (kf `c18a9bd9`; typecheck exit 0 ×2; vitest 2290 ×2);
+- `.c3`, `.c4`, `.c5`.
+
+Ruled:
+1. **G-KF3-4, the Triumvirate on retiring the `serializeCssValue` fork: arm (B), totality at ingest, with one named invariant at the boundary.**
+   - **The measured basis:** `.a` shows that on every value the library admits, `serializeCssValue` never returns `!ok` and never throws, at either version. `.b` shows 0 divergent outputs over the 14 fixtures. So a refusal at emit is unreachable from admitted input. The refusal channel belongs at ingest, where kf already has one (the parse facade's Result and the CC-3 refusals).
+   - **The act:**
+     - Every emit site calls value's `serializeCssValue` through one kf-internal helper. On `!ok` that helper raises one named invariant error ("ingest admitted a value the serializer refuses"), which is a broken invariant, not a user refusal.
+     - The fork (`css-text.ts:53-68`, with its `:66` throw) and the demo twin (`helpers.ts:75-96`, with its throw) are deleted. So the count of throw sites does not grow: two forks' throws become one assertion.
+     - Arm (A) is refused. Widening four public signatures (`CSSKeyframesToStrings`, `CompileRefusalReason`, `EntryRefusal`, the sink) for an unreachable case would be contrivance.
+     - Arm (C) alone, a bare throw at each site, is refused.
+   - **The proof the invariant needs:**
+     - A test that every value reaching emit has passed ingest admission. A differential or property test over the fixture corpus plus generated CSS values asserts that ingest admits ⇒ serialize is ok.
+     - A mutant that bypasses ingest must reach the invariant.
+   - **One act, under L-7:**
+     - the retirement;
+     - all 14 census-1 consumers moved;
+     - the `helpers.ts` twin deleted;
+     - the third list serializer at `compile/value/compile.ts:259-268`, named in the census and moved if it is the same concern;
+     - the stale `css-text.ts:13-18` unit prose corrected;
+     - the dated manifest divergence row for `.b`'s 28 whitespace-collapse nodes, all inside `if()` inputs and asserted by nothing;
+     - the INBOX O-11 §B row.
+
+     Then G-KF3-3 ×2.
+2. **ESC-KFW3-d-1 (kf CI RED on `proof:published-surface` (b)):** one docs commit adds the five KF.W5 HEAVY exports to `docs/published-surface.md` (`cssIdent`, `resolveTimingFunction`, `reverseCSSTime`, `serializeTimingFunction`, `timingFunctionEntries`), each with name · HEAVY · a README anchor, or "manifest-only: <reason>". The same commit corrects the stale 4.0.0 pin prose at `:17` to the 4.1.0 coordinate. No allowlist.
+3. **ESC-KFW3-d-2 (UIA-KF-321, the r4dock-share-fallback selection race):** the demo seat is granted `demo/app/dock/menu/SharePopover.vue` to cure the focus-then-select ordering at its root (select after the focus has landed). No retry and no skip. The test must be GREEN alone ×3 and in the whole suite ×2.
+4. **The `registry.ts:33-53` memo:** its premise read TRUE at 4.1.0 (0 of 40 unstable, and `easing(n).value === resolveTimingFunction(n)` for all 40). Delete the kf memo as its own comment schedules, keeping the G-KF3-6 boot fence GREEN. The `.c4` residual `useKeyframeOps.ts:45-46` unit pass-through is cured in the same pass if it is the same concern.
+5. **Then:** kf CI GREEN → deploy-pages → the §6 round-trip → the post-deploy probe ×2, which covers G-KF3-8's pageerror arm → close and a fresh check. The glass 10.1.3 repin (§0hb.2) rides `.d` if it has not landed; check `package.json`. Then X-W11 G9 is re-read and its VERIFIED stamp follows (§0hb.3).
