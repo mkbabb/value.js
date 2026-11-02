@@ -5147,3 +5147,12 @@ Ruled:
 - **prod-verify:** 21/21 GREEN ×2, 75 s apart.
 
 **Residual, recorded.** The `edge_reload` refusal detection and the `deploy-switch-smoke` section C landed with the limiter. The `git stash` cross-worktree incident during the seats lost no work; the foreign `stash@{0}` (926ca6a, glass-ui Q.W1 Lane D) is intact in the fourier repo's stash list.
+
+## §0hg — 2026-11-02: ESC-KFW3-d3-1 ruled, the kf CI library-job budget (delegate, §0ge)
+**Inbound:** KF.W3 `.d3` (run `wf_a2fa28e6-46f`). kf `.github/workflows/ci.yml:31` sets `timeout-minutes: 4` on the library-gates job, a figure set at `552a19ff` (2026-07-12) when the job ran in about 1m50s (last GREEN `35251074426`). The job now measures about 4m31s: npm ci 35s, types 22s, build 9s, correctness 56s, demo correctness 1m55s, lint 5s, proof:publish 16s. Every step is GREEN and the job is still cancelled by the timeout (`41450770277`, `41462383452`, `41466910668`, `41504991466`).
+
+Ruled:
+1. **The budget is a hang guard, not a performance bar.** It is re-set to fit the measured step sum: `timeout-minutes: 10`, about 2.2× the measured 4m31s, so a shared runner's ordinary variance never cancels a GREEN job, while a hung step still dies well before GitHub's 6 h default. A one-line YAML comment beside it cites the measured sum and this ruling.
+2. **No job split.** Splitting the job adds a second npm ci and a second build for no gate gain (E-2, KISS). No step is skipped, reordered or relaxed.
+3. **Not a lucky re-run.** The `.d3` seat writes the ci.yml line as the cure, under the adjacent-line rule (same repo, same concern: the close order's "kf CI GREEN" clause), pushes it, and then resumes the close order of §0he.3 from its CI step: kf CI GREEN (both jobs) → deploy-pages → §6 round-trip → post-deploy probe ×2 (G-KF3-8 pageerror arm) → close → fresh check → X-W11's VERIFIED stamp (§0hb.3).
+4. **Residuals from Close 5** (`animationOptionsStore.ts:95-96` authored-unit seeding; the two gate scripts' `navToScene(null)` 12 s waits) are routed to the post-W3 keyframes minor of §0he.4, beside K-1 and KF-1..KF-4.
