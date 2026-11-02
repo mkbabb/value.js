@@ -494,3 +494,54 @@ Readings the Close left RED, also reproduced: G-KF3-4 RED (⟨`git grep -n seria
 **Escalations (to owner/arbiter)**: (E-R1-1) rule `.c2` (A)/(B)/(C); after that ruling a KF.W3 repair seat lands the L-7 act and re-runs G-KF3-3 ×2. (E-R1-2) the ESC-KFW3-d-1 publication-doc ruling, then a `.d` repair. (E-R1-3) UIA-KF-321 goes to the KF demo seat (ESC-KFW3-d-2).
 
 **Adjacent edits**: none. **LEDGER**: the row stays **PARTIAL**, and one event line is appended.
+
+## Check 2
+
+**Seat**: CHECK 2 (fresh adversarial L-20 pass 2, VERIFY-ONLY, `claude-opus-5-5`), 2026-11-02. Authored no byte of the wave, its units, its Close, Check 1 or Repair 1. **Crash-recovery**: ⟨`git status --porcelain` over this record + LEDGER⟩ → clean; kf ⟨`git status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, §0hb.1; untouched) ⇒ 0 inherited paths. kf `HEAD` = `origin/master` = `d4148cdc` (unmoved since Repair 1).
+
+**Verdict: NOT-CONFORMANT.** All 9 claimed GREEN readings reproduce at this seat. **G-KF3-4 is still a RED close gate with no spec relief.** No owner/arbiter ruling on `.c2`'s (A)/(B)/(C) has landed: ⟨`git log -3 -- COHESION.md`⟩ → newest `4d05351c1` §0hc (fourier), and §0hb is silent on the fork.
+
+### Axes 1 / 9 — reproduction (this seat's own runs)
+
+| gate | command | reading | reproduces? |
+| --- | --- | --- | --- |
+| G-KF3-1 | ⟨`grep -c` opening sentence KF-W3.md⟩ · ⟨`grep -rn RC-P docs/tranches/X/fourier/ \| wc -l`⟩ · ⟨`grep -c 'GREEN — every public parser is total' evidence/W3/rc-p-4.1.0.md`⟩ | 1 · 1 · 1 | yes |
+| G-KF3-2 | ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ sha1 `d488535c…b3d6` = ⟨`npm view … dist.shasum`⟩; untarred into a scratch mirror; unmodified probe (sha256 `77678a574d7c6b11…`) symlinked at its path; ⟨`npm_config_ignore_scripts=true guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 | rc 0 ×2 · `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` · `cmp` identical | yes |
+| G-KF3-3 | roster re-derived by the spec's `git grep -l -E …` at kf `HEAD` → **18**; ∪ the 3 O-117 files outside it → 21; ⟨`guarded --timeout 10 -- npx vitest run <21> --maxWorkers=2`⟩ ×2 | rc 0 ×2 · `Test Files 21 passed (21)` · `Tests 306 passed (306)` ×2 | yes |
+| G-KF3-5 | ⟨`git grep -n '\breverseAnimationShorthand\b' HEAD -- src test`⟩ | 10 lines; one implementation `css-text.ts:35`; attributing sentences name kf (`backward.ts:20`, `options.ts:10/:82`, `index.ts:233`); 0 name value.js | yes |
+| G-KF3-6 | ⟨`grep -c '^\| I-77 .*O-11 §D2.*1.923e-1.*DECLINED' INBOX.md`⟩ | 1 | yes |
+| G-KF3-7 | ⟨`head -1`⟩ · ⟨`grep -cE 'REACHABLE\|UNREACHABLE'`⟩ · ⟨`grep -c KF-HA-19`⟩ on CALL-MAP.md | `SERVED MODEL: claude-opus-5-5` · 48 · 2 | yes |
+| G-KF3-8 (floor) | ⟨`git grep -nE 'cssTwinFor\("(easeOutCubic\|bounceInEase)"\)' HEAD -- test \| wc -l`⟩ | 0 (pageerror arm owed with deploy) | yes |
+| G-KF3-9 (floor) | ⟨`guarded --light -- npm run check`⟩ | rc 0 (vue-tsc + proof:structure) | yes |
+| G9 | ⟨`guarded --light -- npm ls @mkbabb/value.js`⟩ in kf | `@mkbabb/value.js@4.1.0` (+ deduped under glass 10.1.3) | yes |
+
+RED, reproduced: **G-KF3-4**. ⟨`git grep -n unserializable HEAD -- src demo`⟩ → `css-text.ts:72` + `demo/utils/helpers.ts:93` (both throws stand). `serializeCssValue` importers from `@mkbabb/value.js/css` → 0. ⟨`grep -c 'O-11 §B' INBOX.md`⟩ → 0. **kf CI** ⟨`gh run list -L 2`⟩ → `41450770277` push `d4148cdc` failure and `41433228470` schedule failure.
+
+### Axes 2–8
+
+- **(2) Bounds.** ⟨`git show --stat`⟩ over all 5 kf commits `5c48e3da..d4148cdc`: every path is in its unit's set or is a declared §0bt adjacent edit, the same as Check 1. vjs commits since Check 1 (`6e841b7d6`, `3b1794e80`) touch only this record + LEDGER. `scripts/dev/dev.sh`, glass-ui and sibling trees untouched. **Landed-wrong 0.**
+- **(3) Masking.** ⟨`git show 5c48e3da..HEAD \| grep '^+' \| grep -cE 'test\.skip|it\.skip|\.todo\(|catch *\(|try *\{|allowlist'`⟩ → **0**. No patched node_modules. No copied producer selector.
+- **(4) Commit families.** The repin `c18a9bd9` and the glass bump `17a5c34d` are separate. The L-7 retirement family is unsplit because it never landed.
+- **(5) E-3.** ⟨`git diff --stat 3e89df9f3^..HEAD -- docs/tranches/X/keyframes/waves docs/tranches/V/megatranche/registry/adjudicated scripts/dev/dev.sh`⟩ → empty.
+- **(6) Mail.** No `I-n` row is UNREAD. Since Check 1, no mail file has been added in the sweep paths. **Clean.**
+- **(7) Four-verb.** Unmoved, which is lawful: IMPLEMENTED needs *"gates green + bytes landed"*.
+- **(8) Goal.** **NOT MET.** The title act *"the `serializeCssValue` fork retirement"* has not happened (`css-text.ts` fork + `:72` throw; demo twin `helpers.ts:75-96`).
+
+### Axis 10 — honest-RED adjudication
+
+**G-KF3-4: unrelieved.** Check 1's reading stands at the spec bytes. The gate's only producer conjunct (`serializeCssValue` on `V`'s packed `./css`) is **MET** at 4.1.0, so this is not a producer-owned RED. No §Excluded / §Sequencing row routes the retirement to a successor. L-5 sends only *posture* elsewhere, and the gate's own falsifier keeps the throw's death inside G-KF3-4. No honest-RED id names it. An owner-pending public-surface ruling is a lawful **escalation**, and the residual register names its owner (owner/arbiter, then a KF.W3 repair seat). It is not **spec relief**.
+
+**Honest-RED set: none.** The non-gate items each have a named owner: kf CI R-2 (ESC-KFW3-d-1), deploy + §6 + the G-KF3-8 pageerror arm, and UIA-KF-321 (demo seat). §0hb.2 also rules *"its own CI must be GREEN ×2"*, and that stays owed with ESC-KFW3-d-1.
+
+**Successors.** ⟨`grep -rln 'Opens after.*KF\.W3' keyframes/waves/`⟩ → only `KF-W10.md`, and its `Opens after` (line 22) reads W0·W1·W9 + W2·W4–W9, **not** KF.W3. KF.W10 is CLOSED anyway. No LEDGER row is keyed on KF.W3, so **no successor is blocked**. Downstream of §0hb.3: X-W11's G9 is GREEN (4.1.0), but the step *"keyframes ships through its own deploy path"* waits on ESC-KFW3-d-1.
+
+### Register
+
+| severity | claim | receipt | cure |
+| --- | --- | --- | --- |
+| **HIGH** | G-KF3-4 (close gate) RED with no spec relief; the fork retirement has not landed | `css-text.ts:72` + `helpers.ts:93` throws at kf `d4148cdc`; 0 `value.js/css` importers; 0 `O-11 §B` rows; no ruling in COHESION after §0hc | owner/arbiter rules `.c2` (A)/(B)/(C); then a KF.W3 repair seat lands it as ONE L-7 act: retirement, every census-1 consumer, the `helpers.ts` twin, the dated manifest row and the INBOX O-11 §B row; G-KF3-3 re-run ×2 |
+| MINOR | kf CI RED (R-2 `proof:published-surface`), so §0hb.2's CI ×2, the deploy, §6 and the G-KF3-8 pageerror arm are owed | runs `41450770277`, `41433228470` failure | ESC-KFW3-d-1 owner publication-doc ruling, then a `.d` repair |
+| MINOR | vitest intermittency UIA-KF-321 (`SharePopover.vue`) | `.c5`/`.d` receipts; outside the G-KF3-3 roster | KF demo seat (ESC-KFW3-d-2) |
+| INFO | `entry-roundtrip` strip regex widened to the ruled UIA-KF-177 spelling | `d4148cdc` | none |
+
+**LEDGER**: not promoted. The row stays **PARTIAL**, and one event line is appended.
