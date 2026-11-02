@@ -295,3 +295,50 @@ Reachability (L-5, recorded): parse-sourced colours never serialize `!ok` at 4.1
 **Adjacent edits**: `keyframes.js/test/demo/app/scene-skeleton-shimmer.test.ts:6-9,:17-18,:22,:24,:27-28` — the pin oracle for the version this unit changed (§0bt).
 
 **Escalations**: none. **Residual (for `.d`)**: `test/demo/app/r4dock-share-fallback.test.ts:70` (UIA-KF-321) is intermittent (full demo 2/4 RED, isolated 2/5 at 10.1.3, 1/6 at 10.1.2): `selectionStart/End` read `[145,145]` — the fallback field is focused but its whole-link selection is lost to a later value write. It will redden `.d`'s GREEN ×2 / CI at random; the cure is at the root of `demo/app/dock/menu/SharePopover.vue`'s focus-then-select ordering (or the limb's wait), owned by a demo seat — never a retry/skip.
+
+### d
+
+**Seat**: `.d` (claude-opus-5-5), 2026-11-02. **Sections**: COHESION §0hb.2 last bullet · §0hb.3. **Status: ESCALATED.** Full receipts are in `docs/tranches/X/keyframes/evidence/W3/CLOSE-RECEIPTS.md`.
+
+**Crash recovery**: kf has `MM KeyframeTimeline.vue` only (the sibling's, never staged). The vjs set is clean, so **0 inherited paths**.
+
+**Acts, in order**
+1. Ran ⟨`guarded --light -- npm run check`⟩ ×2 at `17a5c34d` → rc 0 ×2.
+2. Ran ⟨`guarded --timeout 20 -- npx vitest run --maxWorkers=2`⟩ ×2 at `17a5c34d` → rc 0 ×2 (`2296 passed | 2 expected fail | 14 skipped (2312)`).
+3. **Baseline CI attribution** (`41433228470`): two pre-existing REDs, both present since at least `39071539437` (2026-10-17).
+   - **R-1** `entry-roundtrip` S1/S4. This is the wave's concern: `ca8c0433` (UIA-KF-177, seconds on a tie) left this chromium-gated oracle at `350ms`. Reproduced locally with `KF_PLAYWRIGHT_DIR` → 2/5 RED.
+   - **R-2** `proof:published-surface` (b). Five HEAVY exports from KF.W5's `2e0d91ae` publication door are neither taught nor manifested.
+4. **Cure R-1**: kf **`d4148cdc`** (`test/compile/entry-roundtrip.test.ts` only).
+   - S1 asserts `display 0.35s allow-discrete`.
+   - S4's strip regex matches any `<time>`.
+   - No assertion is removed or relaxed.
+   - Chromium reading ×2 → 5/5 · 5/5.
+5. On the settled `d4148cdc`:
+   - check ×2 → rc 0 ×2.
+   - vitest ×2 → rc 1 (`1 failed | 2295 passed`, `r4dock-share-fallback.test.ts` (2) `[145,145]` vs `[0,145]`, which is `.c5`'s UIA-KF-321 residual) · rc 0 (2296 passed).
+6. Pushed ⟨`git push origin master`⟩ → `5c48e3da..d4148cdc` (ordinary push).
+7. Read CI `41450770277` → **failure**.
+   - Every library-gates step is green up to `publish boundary`, which fails on R-2.
+   - `browser oracles` is **success** (R-1 cured).
+   - The demo job fails at `publish artifact boundary (post-build)`, on R-2. Behind it, `demo roster` and `record last-demo-green` were skipped.
+8. `deploy-pages` `41451374073` → **skipped** (it is gated on ci success). The break-glass dispatch was not used, because it would bypass a RED gate. The §6 round-trip and the post-deploy probe ×2 were **not run**.
+9. Read G9 ⟨`npm ls --prefix ../keyframes.js @mkbabb/value.js`⟩ ×2 → `4.1.0` (deduped under glass 10.1.3) ×2 → **GREEN**.
+
+**Gates BEFORE → AFTER**
+
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| check ×2 | — | **GREEN** ×2, at both coordinates |
+| vitest ×2 | — | GREEN ×2 at `17a5c34d`, but only 1 of 2 at `d4148cdc` (r4dock race) |
+| kf CI | RED (R-1 + R-2) | **RED** (R-2 only) |
+| deploy + §6 | — | **BLOCKED** |
+| post-deploy probe ×2 | — | **NOT RUN** |
+| G9 | RED (4.0.0) | **GREEN** (4.1.0) |
+
+**Commits**: kf `d4148cdc`, plus this record and `CLOSE-RECEIPTS.md` (vjs). **Adjacent edits**: none.
+
+**Escalations**:
+- **ESC-KFW3-d-1** (R-2): a publication-doc ruling is needed for the five KF.W5 doors. The proposed root cure is five `docs/published-surface.md` rows, one per name (tier · README anchor or `manifest-only: <reason>`), plus the stale *"exact `@mkbabb/value.js@4.0.0` pin"* prose at `:17`, in one docs commit. Never an allowlist.
+- **ESC-KFW3-d-2**: the UIA-KF-321 race in `demo/app/dock/menu/SharePopover.vue`. The cure is the focus-then-`select()` ordering at the root, by a demo seat; it is not retried here.
+
+**Residual**: `.c2`'s escalation still stands, so G-KF3-4 stays RED.
