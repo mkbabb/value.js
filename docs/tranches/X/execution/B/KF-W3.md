@@ -143,3 +143,31 @@ Order: `[.a] → [.b] → [.c1] → [.c2] → [.c3] → [.c4] → [.c5] → [.d]
 7. **Write** `DUAL-1-DESIGN.md` (163 lines ⟨`wc -l`⟩ ×2, written in pieces, every anchor re-verified at the bytes after writing; 4 drifted line cites in my own draft corrected before commit). **Commit `d97d62f1e`** (pathspec, 1 file).
 
 **Gates**: design input to G-KF3-4 and G-KF3-5 — **turns none** (both stay RED: BEFORE RED → AFTER RED, as planned). **Adjacent edits**: none. **Escalations**: none. **Residuals / for the orchestrator**: (i) `.c2`'s planned writable set omits `demo/utils/helpers.ts` — the twin fork's delete is in-concern (§0bt), named here so `.c2` lists it under adjacent edits (or the plan widens it); (ii) the string-only emit sites (`format.ts:67` · `densify.ts:51` · `entry.ts:166` · `css-text.ts:98/:115/:121` · `metadata.ts:158` · `interp-slot.ts:333/:336` · `timelineEngine.ts:196`) need a refusal channel `.c2` must find at the bytes — if none is reachable without widening a public signature, `.c2` escalates rather than throwing.
+
+### c1
+
+**Seat**: `.c1` (claude-opus-5-5), 2026-11-02. Sections: §B.2 `package.json` row · G-KF3-3 · G-KF3-8 · COHESION §0hb.2 bullets 1-3 · O-117 packet §2-§3. Writes in kf `master` + vjs `evidence/W3/REPIN-ATTRIBUTION.md` + this record.
+
+**Crash-recovery** ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling; never staged/edited) · vjs ⟨`git status --porcelain -- <record> evidence/W3/`⟩ → empty ⇒ **0 inherited paths**.
+
+**Acts, in order**
+
+1. **Repin** ⟨`guarded --light -- npm install @mkbabb/value.js@4.1.0 --save-exact`⟩ → `package.json:71` `4.1.0`; lock 4 lines, `integrity sha512-K7wcvd…95SQ==` = ⟨`npm view … dist.integrity`⟩; ⟨`npm ls`⟩ one copy `4.1.0` (glass 10.1.2's deduped).
+2. **BEFORE at 4.1.0, uncured** ⟨`guarded --light -- npm run check`⟩ → exit 2, 3 × TS2305 `TimelineHoverPreview.vue(276,10)(276,29)(277,15)`; ⟨`guarded -- vitest run <the 4 O-117 files>`⟩ → `13 failed | 92 passed (105)` (= packet §2).
+3. **Re-home at the root** — no kf decomposition existed (⟨`git grep -n -i decompose -- src demo test`⟩ → prose only), 4.1.0 `./transform` has none ⇒ new kf-owned `demo/components/instrument/timeline/utils/decomposeMatrix.ts`: CSSOM §15.1 2D + unmatrix Gram–Schmidt 3D, computing only what the ghost reads (rotation, scale, 2D skew; translation dropped and perspective unrepresented, as the component already states); 3D returns `null` on a degenerate linear part instead of writing `NaN`. `TimelineHoverPreview.vue` imports it (`:276`), `Mat4` cast removed (`:355`), the `:347` comment naming the retired `recomposeMatrix2D` corrected. No shim, no forwarding export, value.js untouched.
+4. **Re-aim the four** (each re-measured at 4.1.0 by a throwaway probe, deleted after): `timeline-hover-preview` +2 (volumetric arm had no assertion: `matrix3d` rotateY(90°) → `rotate3d(0,1,0,π/2)` `scale3d(1, 1, 1)`, translate dropped; degenerate control → no ghost transform) · `keyframes-name-escapes` clause (b) asserts end-to-end linkage (diag `[]`, 2500ms) for the 5 names 4.1.0 accepts; clause (c) asserts the 4.0.0 refusal gone for `pu\+lse` and keeps the real refused subject `a\(b` (rule-level `PARSE_ERROR`, sibling `input`, 0 frames) · `easing-identity` asserts 4.1.0 `easing()` stable ×40 and equal to the registry's reference; negative control re-cut onto a non-registry `cubic-bezier()` (fresh ref per call, grid-equal) · `grammar-fuzz` tripwire PROMOTED: no throw, `PARSE_ERROR` naming `${fn}()`, `parseStylesheet(css).ok === false`. No assertion deleted or relaxed; docblocks restated with the 4.0.0 → 4.1.0 history.
+5. **Gates** — 4 files `108 passed (108)`; ⟨`npm run check`⟩ exit 0 ×2; ⟨`guarded -- vitest run --maxWorkers=2`⟩ ×4: runs 1, 4 `2290 passed | 2 expected fail | 14 skipped (2306)`, runs 2, 3 `1 failed` = `r4dock-share-fallback` (2) `[145,145]` vs `[0,145]`, the pre-existing banked flake (`pass-46/test-demo-flake-r4dock.log`), isolated ×3 GREEN.
+6. **Commit kf `c18a9bd9`** (pathspec, 8 paths: `package.json` · `package-lock.json` · `TimelineHoverPreview.vue` · `utils/decomposeMatrix.ts` · the four tests) — L-7 one commit. Not pushed (`.d`).
+7. **G-KF3-3 attribution** — arm (c) roster re-derived by the spec's command at `HEAD` (18 paths; worktree identical; spec's 12 + 6) ∪ the 3 O-117 files = 21. ⟨`attribution-harness.mjs --source HEAD`⟩ → `{"GREEN":17,"VALUE-SIDE":4}` (13 ids, all O-117, 0 KF-SIDE); ⟨`--source worktree`⟩ → `{"GREEN":18,"VALUE-SIDE-CURED":3}`. Arms (a)(b) GREEN at both coordinates, both runs; no fixture text changed ⇒ no manifest row owed. **`REPIN-ATTRIBUTION.md`** written (100 lines, in pieces; anchors re-verified).
+8. **G-KF3-8 floor re-read** — 0 phantom asserts (3 prose hits); boot fence evaluates at 4.1.0.
+
+**Gates BEFORE → AFTER**
+
+| gate | before | after | reading |
+| --- | --- | --- | --- |
+| G-KF3-3 | RED (no `V ≠ 4.0.0` run; uncured 4.1.0: 13 RED) | **GREEN** | arms (a)(b)(c) GREEN at 4.1.0 over the re-derived roster; every RED attributed (13/13 VALUE-SIDE); `REPIN-ATTRIBUTION.md` §2-§4 |
+| kf typecheck | exit 2 (4.1.0 uncured) | **exit 0 ×2** | `npm run check` |
+| kf vitest | 13 failed | **2290/2290 ×2** (runs 1, 4) | flake run 2-3 named above |
+| G-KF3-8 (floor) | GREEN before cure | **holds** | `REPIN-ATTRIBUTION.md` §6; pageerror probe = `.d` |
+
+**Adjacent edits**: none (the `:347` comment is inside `TimelineHoverPreview.vue`, in the set). **Escalations**: none. **Residuals**: (i) `registry.ts:51-52` declares the kf memo *deleted in KF.W3's repin commit* once 4.1's memoised `easing()` lands — premise measured TRUE, but `registry.ts` is `.c3`'s guarded path / the G-KF3-6 boot fence: orchestrator to route; (ii) `parse-facade.ts:33-38` *"ABSORB IS UNREACHABLE … 4.0.0's parseStylesheet THROWS"* false at 4.1.0 → `.c4` (owns the file); (iii) `r4dock-share-fallback` flake → `.d`.
