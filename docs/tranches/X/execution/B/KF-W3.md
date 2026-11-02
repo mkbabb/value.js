@@ -1680,3 +1680,27 @@ Owed: `[.d4]`, one group. All seats `opus` (owner: Opus only). Machine law: ever
   6. G9 → 4.1.0. Write the CLOSE-RECEIPTS addendum, a `## Close 6`, the LEDGER cells + an event line; hand to a fresh check.
 
 ## RESUME 4 — Unit receipts
+
+### .d4
+
+SERVED MODEL: claude-opus-5-5. Sections: COHESION §0hg.1–3 · §0he.3 · §0hd.5 · §0hb.3 · spec G-KF3-8 (`KF-W3.md:261-265`) · RESUME 4 Unit plan. Full receipts: `keyframes/evidence/W3/CLOSE-RECEIPTS.md` § Addendum `.d4` (d4.1–d4.6).
+
+**Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, §0hb.1; never staged). vjs writable paths: clean. **0 inherited paths.** kf `HEAD` = `origin/master` = `8294a715` before the act.
+
+**Acts, in order.**
+1. **The §0hg.1 cure.** Anchor at true bytes: ⟨`sed -n 31p .github/workflows/ci.yml`⟩ → `        timeout-minutes: 4` (holds). Edited `:31` alone to `timeout-minutes: 10` with the one-line comment trailing on the same line (keeps the `:31` anchor; one comment, no other line): `# hang guard, not a perf bar: ~2.2x the measured step sum ~4m31s (npm ci 35s, types 22s, build 9s, correctness 56s, demo correctness 1m55s, lint 5s, proof:publish 16s); COHESION §0hg`. ⟨`git diff --stat`⟩ (ci.yml) → `1 file changed, 1 insertion(+), 1 deletion(-)`. ⟨`ruby -ryaml … ["jobs"]["gates"]["timeout-minutes"]`⟩ → `10`. ⟨`grep -n timeout-minutes ci.yml`⟩ → `31: … 10 …` · `103: 50` (unchanged). No job split, no step touched (§0hg.2).
+2. **Commit + push.** Pathspec commit **`1fd86e04`** (`-- .github/workflows/ci.yml`; ⟨`git show --stat`⟩ → `1 file changed`). ⟨`git push origin master`⟩ → `8294a715..1fd86e04  master -> master` (ordinary, no force).
+3. **kf CI `41512393978`** (push, `1fd86e04`) → run `success`: library job `success` (3 m 29 s; correctness `127 passed | 5 skipped (132)` files, demo correctness `167 passed (167)`, lint, publish boundary) · demo job `success` (oracles `5 passed (5)`, roster `passed: 6/6`). No re-run, no dispatch. This run's library time would have fit 4 m too; the prior four cancels (4 m 05 s – 4 m 36 s) are the variance §0hg.1 absorbs.
+4. **deploy-pages `41513147414` → success** (preflight + ship). §6 in-job: `Round-trip VALIDATED: https://keyframes.babb.dev serves the built bundle (index-CoV850J-.js), HTTP 200.`; re-read ×2 by this seat → `200 assets/index-CoV850J-.js`.
+5. **Probe ×2** via `guarded` (browser pool, one headless chromium, context per route, closed in `finally`): the staged `d3-probe.mjs` could not resolve `playwright` from kf (kf has none installed; `Cannot find module`, not counted); re-staged as `/Users/mkbabb/Programming/.kf-d3-logs/d4/d4-probe.mjs` resolving from value.js → runs 1 and 2: `/#/easing pageerror=0` · `/#/spring pageerror=0` · `TOTAL pageerror=0`; `leftovers_killed=0`.
+6. **G9** ⟨`npm ls @mkbabb/value.js`⟩ ×2 → `2 value.js@4.1.0`, 0 other. GREEN.
+
+**Commits.** kf `1fd86e04` (ci.yml:31, pushed). vjs: this record + CLOSE-RECEIPTS addendum `.d4` + LEDGER (one record commit).
+
+**Gates BEFORE → AFTER.** ci.yml:31 RED→**GREEN** · kf CI both jobs RED→**GREEN** · deploy-pages skipped→**GREEN** · §6 not run→**GREEN** · probe ×2 not run→**GREEN** · G9 GREEN→**GREEN**.
+
+**Adjacent edits:** none. **Escalations:** none. **Residuals:** §0hg.4's routed rows (`animationOptionsStore.ts:95-96`; gate scripts' `navToScene(null)` waits) stand, routed to the post-W3 keyframes minor (§0he.4); deploy log's pre-existing `Could not capture rollback target` line (not this concern).
+
+## Close 6 — 2026-11-02 (seat `.d4`, `claude-opus-5-5`): CLOSE-READY, handed to a fresh check
+
+kf origin/master is `1fd86e04`. ESC-KFW3-d3-1 is cured at the root per §0hg (budget 4→10, hang guard). The §0he.3 / §0hd.5 close order is discharged: kf CI `41512393978` GREEN on both jobs → deploy-pages `41513147414` success → §6 round-trip VALIDATED → post-deploy probe ×2 pageerror 0 on `/#/easing` + `/#/spring` (G-KF3-8 arm) → G9 4.1.0. Every other gate cites Check 3 post-Close 5 (12 GREENs reproduced). The row moves to CLOSE-READY pending a fresh adversarial check; X-W11's VERIFIED stamp (§0hb.3) is Track A's after that check.
