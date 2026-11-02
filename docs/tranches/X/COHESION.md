@@ -5020,3 +5020,25 @@ Ruled:
    - The Playwright bump (R19-5) moves every browser binary, so every golden. It is the next tranche's dependency pass, not an X act.
    - The owner's dead-band design rows wait for the owner.
    - The glass rows (O-104…O-123) ride glass's own releases. Their landings are adopted when they publish.
+
+## §0hc — 2026-11-02: fourier shipped; three production defects found and ruled (delegate, §0ge)
+**Shipped.** fourier master is at `8c5e71a`: an ordinary merge of m/w1, with master CI `41437392137` 5/5 GREEN and the three watched tests passing on the first try.
+- Pages deployed in run `41446028860`.
+- The API deploy was refused at push time, correctly, by inv-28. The orchestrator then dispatched it from the host over loopback: an HMAC-signed `refs/heads/master` body, with the secret read on the host and never printed. Result: `DEPLOY OK 50ef781 → 8c5e71a`, 13:14:18Z. Off-host `/api/health` returned 200 on 69 of 69 checks across the switch.
+- deploy-alert `41451476683` succeeded, and issue #2 is closed.
+- prod-verify: 21/21 GREEN. A second read, 75 s later, had 2 RED: defect 2 below.
+
+**Ruled. Every cure lands at its root and none weakens a gate.**
+1. **compute-cache store fails on non-string keys.** `api/services/compute_cache.py:96` upserts the raw result dict, and results with integer dict keys raise `bson.errors.InvalidDocument` ("key was 4"). The error is swallowed fail-open, so those results are never cached and recompute on every request. That is a hidden performance defect, and the extra load feeds defect 2.
+   - **The cure:** the cache stores, and returns, the result in its wire form, the same JSON encoding the response uses, so a cache hit is byte-identical on the wire to a fresh compute.
+   - **The falsifier:** a test that stores and looks up an integer-keyed result. It is RED before the cure and GREEN after, and it checks wire equality.
+2. **The api_compute limiter.** In `nginx/fourier.conf` (2 r/s, burst 5) the limiter counts CORS preflights and refuses with 503 and no CORS headers, so a real two-image session trips it and the browser cannot read the refusal.
+   - **The cure:** `OPTIONS` is exempt from `api_compute` (an empty limit key, so it is not counted), `limit_req_status 429`, and the 429 carries the same CORS headers as a normal response, so a real limit is readable.
+   - The rates stay where they are.
+   - **The falsifiers:** `nginx -t`; a burst of preflights passes; a POST burst over the limit reads 429 with `Access-Control-Allow-Origin`.
+3. **The deploy trigger fires before CI is green.** The GitHub webhook sends `push`, the host's inv-28 refuses every merge, and nothing retries it after green, so every API deploy has needed a hand dispatch.
+   - **The cure:** a final `ci.yml` job, run only on a push to master and needing every other job, sends the HMAC-signed deploy request after green. The host hook's trigger rule additionally requires a field that only that job sends, so GitHub's push-time delivery no longer fires a refused deploy or a false deploy-alert.
+   - The HMAC secret goes from the host straight into a repo secret, never written or printed.
+   - inv-28 stays as the host's fail-closed check.
+   - The hooks.json change and the secret are orchestrator host acts. The `ci.yml` job is the unit's work.
+4. **The order:** the units, then branch CI GREEN, then an ordinary merge. The merge's own CI deploys the API. Then prod-verify ×2 with the rate window respected, a deploy record OK at the merge, and deploy-alert OK.
