@@ -5,9 +5,9 @@ The implementation follows `SPEC.md`, the judged spec. This directory holds the 
 | File | What it is |
 |---|---|
 | `cvd_reference.py` | A frozen copy of `test/support/cvd_reference.py`, the generator of `test/fixtures/cvd/reference.json`. Its sources are colorspacious 1.1.2 and DaltonLens 0.1.5, run under numpy in a pinned venv. |
-| `cvd-reference.log` | The generator's stdout: library versions, grid size, the off-grid matrices from both libraries, the Viénot matrices, and the end-to-end uint8 rows. |
+| `cvd-reference.out.txt` | The generator's stdout: library versions, grid size, the off-grid matrices from both libraries, the Viénot matrices, and the end-to-end uint8 rows. |
 | `palette_parity.mjs` | A frozen copy of `test/support/palette_parity.mjs`, the generator of `test/fixtures/cvd/palette-parity.json`. It holds the borrowed dataviz `validate_palette.js`'s own figures. |
-| `palette-parity.log` | The parity run's stdout: the validator's own reports for Gregg light, Gregg dark and ECharts 5. |
+| `palette-parity.out.txt` | The parity run's stdout: the validator's own reports for Gregg light, Gregg dark and ECharts 5. |
 | `venv-freeze.txt` | `pip freeze` of `~/.dev-logs/value-4.2.0/venv`. |
 | `sha256.txt` | Hashes of both fixtures, both generators and the validator script that was read. |
 | `measured.txt` | Headline figures measured against the built `dist/` after the gates ran, including the cross-model bound. |
