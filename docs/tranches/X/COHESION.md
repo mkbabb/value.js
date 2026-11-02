@@ -4948,3 +4948,13 @@ Ruled:
    - (iv) close, rewriting `FINAL.md`, `OWNER-REPORT.md` and the LEDGER G3 cell, then a fresh check.
 4. **The ordinal migration is an orchestrator host act, and it is now urgent.** Production serves the §0gt.5 contract, so a write that re-sends a legacy fractional row unchanged is refused until the migration runs. The host is unreachable without the owner's VPN. Run order: the dry run with its count report, then the live run.
 5. **Recorded only:** R17-6 (worktree hygiene), R17-8 (the cost-only `.lck` mutants are GREEN by construction), R17-9 (8 flaky e2e-smoke tests on master CI; a one-off ENOENT on a `/tmp` bench fixture under the producer tests, which is a durable-path defect for the next hygiene seat to move under a repo-local dir; 6 uncited `*.log` files).
+
+### §0gz.6 — 2026-11-02: the ordinal migration, done over the owner's VPN
+- **Pre-migration backup:** a one-shot `mongodump` taken through the backup sidecar's own environment into `/backups/palette-db-<UTC ts>` (palettes, palette_versions, flags, proposed_names and the rest). It is in addition to the sidecar's scheduled dump of 00:53Z. Never via mongosh in the capped mongo container.
+- **Dry run → live → idempotence**, run in the `api` container (`node dist/modules/palette/migrate-ordinal-positions.js`):
+  - scanned 10 palettes; 0 positions normalized; 0 reordered; 10 `currentHash` re-stamped;
+  - scanned 1 version row; 0 normalized; 1 `payloadHash` re-stamped;
+  - the second dry run reports 0 for every write.
+- **After:** `/health` reads `d99ab0deb` with mongo ok, and the palettes list returns 200. Production data already held 0-based ordinals; the migration's only effect was re-stamping hashes under §0gt.5 (ordered colours only).
+- **The legacy-row write refusal from §0gz.4 is discharged.** G10 is GREEN.
+- **Erratum (the act's own):** the first attempt ran the sidecar's `backup.sh`, which is a sleep loop, not a one-shot. It held the session until timeout, so the migration never ran on that attempt. The stray second loop was killed by PID; the sidecar's original PID 1897 is untouched. Logs are in `~/.fourier-frel/palette-migration/` (private).
