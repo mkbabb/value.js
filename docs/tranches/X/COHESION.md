@@ -4984,3 +4984,39 @@ Ruled:
 
    Then close and a fresh check. If any product byte changes after the WebKit witness reading, the witness is re-read at the new HEAD under `guarded --exclusive webkit`.
 4. **Honest-RED, recorded only:** G9 (O-117), w7 ×4 (O-106), the 4 manifest rows, R-vrb-1, and the dead-band owner design row (4.196 / 4.240).
+
+## §0hb — 2026-11-02: X-W11 CLOSED; KF.W3 opens; fourier's m/w1 ships (delegate, §0ge)
+X-W11 is **CLOSED (CONFORMANT-HONEST-RED)** at Check 1 of the nineteenth sitting:
+- the demo is deployed at master `80774cd7e`;
+- `/health` reads `80774cd7e`;
+- G5 production passes 8/8 ×2;
+- the TLS smoke passes ×2;
+- ci.yml is 8/8 on both the tranche-u HEAD and master;
+- the ordinal migration is done.
+
+Every Track A wave is now CLOSED.
+
+Ruled:
+1. **KF.W3 opens.** `RC-P(4.1.0)` read TRUE at X.W11.e, act 7: PUBLISHED · TOTALITY · EQUIVALENCE · BAR-DISCHARGED · ROUTED, each ×2. The wave's own law forbids opening on a status word, so KF.W3's open seat re-runs those commands itself against the registry coordinate `4.1.0`. If any conjunct reads FALSE, the wave does not open and the reading is recorded.
+   - **OP-2, the write hand (ruled here):** KF.W3 executes in `/Users/mkbabb/Programming/keyframes.js`, on `master`, under Track B's hand. This is the same site as KF.W13*. Commits are by pathspec only. The pre-existing dirty `demo/components/instrument/timeline/KeyframeTimeline.vue` belongs to a sibling and is never staged, restored or edited.
+   - OP-3 (SS-1), OP-4 (KF.W0), OP-5 (KF.W1), OP-6 (KF.W4) and OP-7 (KF.W2) are discharged: each of those waves is CLOSED in the LEDGER.
+   - **`V = 4.1.0`.**
+2. **O-117 folds into KF.W3 `.c`, the repin:**
+   - Move `@mkbabb/value.js` from exact `4.0.0` to exact `4.1.0`.
+   - Re-home the demo's matrix decomposition at the root, off the retired `decomposeMatrix2D/3D` and `Mat4` exports (`TimelineHoverPreview.vue:276-277`). This uses the library's current surface, with no compat shim.
+   - Re-aim the four test files that assert 4.0.0 behaviour at the 4.1.0 contract. Each re-aimed test asserts the new behaviour, and none is weakened or deleted.
+   - Land the `durationUnit` item named in O-117.
+   - In the same pass, a separate commit repins glass to `10.1.3` exact. That release carries the dock-anchor cure, and fourier and value.js both read it GREEN. O-117's "with glass 10.2.0" was a timing note: 10.2.0 is unpublished, and 10.1.3 is the coordinate today.
+   - kf typecheck, test and its own CI must be GREEN ×2.
+3. **After KF.W3:** keyframes ships through its own deploy path with its post-deploy probe. Then X-W11's G9 is re-read: `npm ls --prefix ../keyframes.js @mkbabb/value.js` must give `4.1.0`. With G9 GREEN, R-A's blocker is gone, and X-W11's designated seat may stamp VERIFIED over the remaining producer-owned honest-REDs. Those honest-REDs are recorded and never counted GREEN.
+4. **fourier `m/w1-bump-migration` ships.** It holds the closed OD19 work plus the glass 10.1.3 adoption (`3bb9da5`, the four cells GREEN ×2, CI `41096126057` green). The procedure:
+   - an ordinary merge to master (no force, reset or rebase);
+   - master CI GREEN;
+   - Pages and the API deploy through fourier's standing path;
+   - `prod-verify` ×2.
+
+   The three retries that were new on 10.1.3 (`f-w14u-vedit` v87, UIA-F-48, the od19-load visualization) are read on the master CI. A repeat is cured at its root before the merge stands, or relayed to glass with an A/B against 10.1.1. Machine law holds: COMPUTE_CONCURRENCY=1, and never mongosh in the capped prod container.
+5. **Out of tranche X (stated, so nothing is silently dropped):**
+   - The Playwright bump (R19-5) moves every browser binary, so every golden. It is the next tranche's dependency pass, not an X act.
+   - The owner's dead-band design rows wait for the owner.
+   - The glass rows (O-104…O-123) ride glass's own releases. Their landings are adopted when they publish.
