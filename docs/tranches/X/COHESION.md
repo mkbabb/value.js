@@ -5127,3 +5127,22 @@ Ruled:
    - the published-surface manifest and the README gaining rows;
    - CI GREEN, then publish through the standing `release.yml` path with provenance, then the registry read back.
 4. **After publish:** reply to sci-report-82 and sci-report-a4 with the version. Gregg and atlas adopt it on their own pins.
+
+### §0hc.5 — 2026-11-02: the three fourier production defects are CURED and LIVE
+**Merge.** `be252f4`, an ordinary merge of `fix/prod-defects-2026-11-02` (`c17245a`, branch CI `41465697926` 5/5 GREEN), onto `8c5e71a`.
+
+**Ratified (§0hc.3 shape).** The trigger is a separate `deploy-trigger.yml` on `workflow_run: CI completed`, gated on success, master and push, not a final `ci.yml` job. A job inside `ci.yml` runs before its own run has a conclusion, and inv-28 matches only completed green runs. So this shape is the only one that can pass inv-28. Ratified as the root cure.
+
+**Host acts (orchestrator).**
+- `FOURIER_DEPLOY_HMAC` was set from the hook's own secret, piped and never printed.
+- `hooks.json` gained the `deploy_trigger == "ci-green"` clause (backup `hooks.json.bak-0hc3-20261102`, reloaded with USR1). A signed push-shaped body without the field now reads "Hook rules were not satisfied".
+
+**Self-deploy, proven.** Master CI `41474041574` success → deploy-trigger `41482406631` success → host `DEPLOY OK 8c5e71a → be252f4` (16:33:40Z, health gate GREEN) → deploy-alert `41482406628` success, with 0 open deploy-alert issues. No hand dispatch.
+
+**Live readings.**
+- **The api_compute limiter (1):** 20/20 OPTIONS preflights read 200 (previously 6×200 then 503s).
+- **The api_compute limiter (2):** a POST burst read 5×200 then 429. The refusal is `application/problem+json`, with `Access-Control-Allow-Origin: https://fourier.babb.dev`, and readable.
+- **The compute cache:** `POST …/compute/bases` ×2 read 1.20 s then 0.39 s (a hit), with 0 `InvalidDocument` and 0 `compute_cache.store failed` since the deploy.
+- **prod-verify:** 21/21 GREEN ×2, 75 s apart.
+
+**Residual, recorded.** The `edge_reload` refusal detection and the `deploy-switch-smoke` section C landed with the limiter. The `git stash` cross-worktree incident during the seats lost no work; the foreign `stash@{0}` (926ca6a, glass-ui Q.W1 Lane D) is intact in the fourier repo's stash list.
