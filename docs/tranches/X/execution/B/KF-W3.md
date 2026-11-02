@@ -1631,3 +1631,52 @@ G-KF3-8's pageerror arm is a FLOOR (spec §Gates), outside the close set. **Hone
 | INFO | every local run's tree includes the sibling's dirty `KeyframeTimeline.vue` | ⟨`git status --porcelain`⟩ | none |
 
 **LEDGER**: not promoted. The row stays PARTIAL, and an event line is appended.
+
+## RESUME 4 — Open (2026-11-02, seat 0, `claude-opus-5-5`, on COHESION §0hg)
+
+SERVED MODEL: claude-opus-5-5.
+
+**Mode**: RESUME (fourth). Ledger row 66 status before: `OPEN 2026-09-17 (RESUME 3 …) · PARTIAL — …` (not CLOSED), and this record exists, so this is a resume. Authority: COHESION §0hg (2026-11-02, read whole, `COHESION.md:5151-5158`). §0hg.1 rules ESC-KFW3-d3-1: kf `ci.yml:31` `timeout-minutes: 4 → 10`, a hang guard re-set to fit the measured step sum (~4m31s), with a one-line YAML comment citing the sum and §0hg. §0hg.2: no job split; no step skipped, reordered or relaxed. §0hg.3: not a lucky re-run; the cure is written, pushed, and the §0he.3 close order resumes from its CI step. §0hg.4 routes Close 5's residuals (`animationOptionsStore.ts:95-96`; the two gate scripts' `navToScene(null)` waits) to the post-W3 keyframes minor (§0he.4), outside this wave. §0he, §0hd, §0hb stand.
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, §0hb.1; never staged); ⟨`git status --porcelain -- .github`⟩ → empty. vjs record / LEDGER / INBOX / evidence/W3 → empty. **0 inherited paths.** kf `HEAD` = `origin/master` = `8294a715` (⟨`git ls-remote origin master`⟩ → `8294a7156f85`); no kf commit since Close 5.
+
+**Already done (commits exist, never re-dispatched)**: `.a` · `.b` · `.c1` `c18a9bd9` · `.c3` `bc37f98f` · `.c4` `4ed542d5` · `.c5` `17a5c34d` · `.d` `d4148cdc` · `.c2b` `8ca052ad` · `.reg` `2f498f0e` · `.sp` `f59d5259` · `.ps` `6a4556d3` · Repair 1 README `fb87dbcd` · `.bis` `2582da86`+`608748e2` · `.u177` `8294a715` (all pushed). `.d2` and `.d3` are superseded by `.d4` (the same ship-and-close act, now with the §0hg cure in front of it).
+
+**Preconditions**: RC-P(4.1.0) TRUE banked at this record's Open and reproduced ×2 at Check 3 post-Close 5 (`TOTAL 0 throws / 1548 calls`). The owed unit's only new precondition is the §0hg ruling, which exists (`grep -n '§0hg' COHESION.md` → `5151`). **MET.**
+
+**E13 Step-0 sweep** (9 paths): value V/ + V/coordination · glass BK/coordination + BL + BL/audit (⟨`ls -dt`⟩ → `BL BK BJ`) · kf V/coordination · atlas P/coordination + U + U/coordination (newest `U`). ⟨`find -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 10:40) → glass `BL/FORMATION-PROGRESS.md` + `BL/audit/INBOUND.md` (⟨`git -C glass-ui log -1 -- docs/tranches/BL`⟩ → `b4b6b76ee`, the tip Checks 1–3 adjudicated; out of scope) and atlas `U/STATE.md` + `U/REGISTRY.md` (untracked dir; their value.js/keyframes lines are the K-1/KF-1..KF-3 letter already rowed as I-79 and routed by §0he.4, and the U-F04 analysis note naming the kf pin — not mail addressed to value.js). **0 new rows; UNREAD in KF.W3 scope: 0.** A dated sweep line is appended to INBOX.
+
+### RESUME 4 — Baseline (READ-ONLY, kf `8294a715`, value.js `291add68c`)
+
+Only the owed unit's gates are read. Every other gate cites Check 3 post-Close 5's readings (12 claimed GREENs reproduced, 0 failed).
+
+| gate | BEFORE | reading |
+| --- | --- | --- |
+| kf `ci.yml:31` budget (§0hg.1) | **RED at the bytes** | ⟨`grep -n timeout-minutes .github/workflows/ci.yml`⟩ → `31:        timeout-minutes: 4` · `103:        timeout-minutes: 50` |
+| kf CI both jobs GREEN | **RED** | ⟨`gh run list -L 4`⟩ → `41504991466 ci cancelled 5m25s` (library job cancelled at the 4m budget; demo roster `success` per Check 3) · `41466910668 ci cancelled` |
+| deploy-pages · §6 · post-deploy probe ×2 (G-KF3-8 arm) | **skipped / owed** | ⟨`gh run list -L 4`⟩ → `41505833861 deploy-pages skipped` · `41468193578 deploy-pages skipped`; §6 = `scripts/pages-deploy.sh:109-140` (⟨`sed -n 109p`⟩ → `# ── 6. Post-deploy validation — the round-trip oracle`) |
+| G9 (`npm ls` → 4.1.0) | GREEN | cited (Check 3 post-Close 5) |
+
+Note for `.d4`: the deploy job carries its own budget, ⟨`grep -n timeout-minutes .github/workflows/deploy-pages.yml`⟩ → `43: 5` · `79: 20`. It is not in §0hg's grant; a cancel there is a new ESCALATION, never a silent edit.
+
+**greenBeforeCure**: none.
+
+### RESUME 4 — Unit plan
+
+Owed: `[.d4]`, one group. All seats `opus` (owner: Opus only). Machine law: every run through `guarded`; browser runs never `--light`; one browser per probe run, closed in `finally`.
+
+| unit | sections | writable | gates | locks |
+| --- | --- | --- | --- | --- |
+| `.d4` the §0hg budget cure, ship + close | COHESION §0hg.1–3 · §0he.3 · §0hd.5 · §0hb.3 · spec §Gates G-KF3-8 (`KF-W3.md:261-265`) | kf `.github/workflows/ci.yml` (`:31` + one comment line only) · kf push (ordinary) · vjs `docs/tranches/X/keyframes/evidence/W3/CLOSE-RECEIPTS.md` (dated addendum) · this record · LEDGER (row 66 cells + event line) | `ci.yml:31` reads `10` with the §0hg comment · kf CI GREEN on BOTH jobs at that head (no re-run, no `workflow_dispatch`) · deploy-pages `success` · §6 round-trip · post-deploy probe ×2 `/#/easing` + `/#/spring` pageerror 0 · G9 → 4.1.0 | one commit (the budget line + comment); no job split, no step skipped/reordered/relaxed (§0hg.2); never force-push; then close + fresh check; X-W11 VERIFIED stamp is Track A's (§0hb.3) |
+
+#### Brief (the dispatched text)
+
+- **`.d4`** (§0hg):
+  1. In kf, edit `.github/workflows/ci.yml:31` `timeout-minutes: 4` → `10`, with a one-line YAML comment citing the measured step sum (~4m31s: npm ci 35s · types 22s · build 9s · correctness 56s · demo correctness 1m55s · lint 5s · proof:publish 16s) and COHESION §0hg. Change nothing else.
+  2. Pathspec commit, ordinary push to `origin master`.
+  3. Watch the push-triggered ci run: BOTH jobs GREEN. Never re-run, never `workflow_dispatch`. A new RED outside the concern = ESCALATE with the log.
+  4. deploy-pages `success`; run the §6 round-trip (`scripts/pages-deploy.sh:109-140`).
+  5. Post-deploy probe ×2 of `https://keyframes.babb.dev` `/#/easing` + `/#/spring`, pageerror 0 (G-KF3-8 arm), via `guarded`, one browser per run, closed in `finally`.
+  6. G9 → 4.1.0. Write the CLOSE-RECEIPTS addendum, a `## Close 6`, the LEDGER cells + an event line; hand to a fresh check.
+
+## RESUME 4 — Unit receipts
