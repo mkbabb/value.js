@@ -969,3 +969,66 @@ SERVED MODEL: claude-opus-5-5. Substrate at open: kf `HEAD` = `origin/master` = 
 The README cure lets CI reach the `demo roster` step for the first time since at least `40567329956` (2026-10-27): every CI run from then through `41462383452` died earlier (`browser oracles` or `publish artifact boundary`). The roster's two REDs are demo dock/sheet UI behaviour (the control-tab projection after a scene switch, the touch sheet scroll/close), not parser consumption. **Measured attribution window**: at KF.W13X close6 (`keyframes/evidence/W13X/close6/e2e-r2.log.txt:87,102`) S5 was `PASS · visited 8` and M2 dock SWITCH was `PASS` (control-tab `"Curve" PROJECTS`); M1 sheet SCROLL was already RED there (the banked honest-RED SHEET-POSITION). So the S5 + M2 regression entered between W13X close6 (`389e31d2`) and `fb87dbcd`; candidates are OD19 (`cc1a8669`, glass 10.1.2 `5c48e3da`), KF.W3 `.c5` glass 10.1.3 `17a5c34d`, and `.c2b`/`.reg`/`.sp`. No local bisect was run: a local build would include the sibling's dirty `KeyframeTimeline.vue` and overwrite the shared `dist/`. A cure lies in demo dock/glass-consumption files outside spec §B.2, and glass is read-only. **Owner**: the orchestrator, who must rule an attribution bisect and the owning seat. The deploy, the §6 round-trip and the probe ×2 stay owed behind it.
 
 **Verdict**: the HIGH's named RED (`README.md:834`) is **cured** (local ×2 + CI). The close path is **still blocked**, now on ESC-KFW3-r1-1. MINOR #2 is escalated. The row stays **PARTIAL**, and there is no Close 4 until CI is GREEN.
+
+## Check 2 (pass 2 after Close 3; record sequence Check 5) — 2026-11-02 (fresh adversarial L-20, VERIFY-ONLY, `claude-opus-5-5`)
+
+SERVED MODEL: claude-opus-5-5. Substrate kf `HEAD` = `origin/master` = `fb87dbcd`; vjs `bf3728be9`. I authored none of the wave's bytes, receipts, closes, Check 1 or Repair 1. kf tree: `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, §0hb.1; never staged). vjs record/LEDGER clean ⇒ 0 inherited paths.
+
+**Verdict: NOT-CONFORMANT.** Every claimed GREEN reproduces at `fb87dbcd`, including Repair 1's `proof:readme-runs` cure. The §0hd.5 close path is still unfinished. kf CI `41466910668` is RED on `demo roster (report-all)` (4/6; `live-session` S5 and `live-session-mobile` M1/M2), so deploy-pages `41468193578` was skipped, and the §6 round-trip and the post-deploy probe ×2 were never run. ESC-KFW3-r1-1 names an owner, the orchestrator, but the RED has no spec relief. The row is **not** promoted.
+
+### Axis 1 — reproduction (kf `fb87dbcd`; every run through `guarded`, vitest `--maxWorkers=2`, strictly sequential)
+
+| gate | reading |
+| --- | --- |
+| G-KF3-1 | ⟨`grep -rln RC-P docs/tranches/X/fourier/ \| wc -l`⟩ → `1`; `evidence/W3/rc-p-4.1.0.md` present — **GREEN** |
+| G-KF3-2 | ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ sha1 `d488535c9bfc` = ⟨`npm view … dist.shasum`⟩ `d488535c9bfc`. I symlinked the unmodified probe (sha256 `77678a574d7c6b11`) into the untarred scratch mirror. ⟨`npm_config_ignore_scripts=true guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 → `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` · `GREEN`, rc 0 both runs — **GREEN ×2** |
+| G-KF3-3 | Roster re-derived at HEAD (the spec's `git grep -l -E …` ∪ `git grep -l serialize-value`, `.test.ts`) → 19 files. ⟨`guarded -- npx vitest run <19> --maxWorkers=2`⟩ ×2 → `Test Files 19 passed (19)` · `Tests 235 passed (235)` both runs — **GREEN ×2** |
+| G-KF3-4 | ⟨`git grep -n unserializable HEAD -- src demo \| wc -l`⟩ → `0`. Fork defs → `0`. Value's `./css` `serializeCssValue` imports → `serialize-value.ts:2` · `timelineEngine.ts:2`. Seam importers → `15`. Pin `package.json:71` `"4.1.0"`. ⟨`npm ls`⟩ → one `4.1.0` (glass 10.1.3 deduped). INBOX `O-11 §B` → `1` — **GREEN** |
+| G-KF3-5 | One def at `css-text.ts:33`. ⟨`git grep -n "value.js's OWN\|published 0.12.0 inverse" HEAD -- src test`⟩ → only `internal/leaves.ts:8`, which concerns the `/math` subpath and is outside the census-2 predicate — **GREEN** (discharge (b)) |
+| G-KF3-6 + boot fence + invariant/bypass mutant | The INBOX `O-11 §D2` row carries `1.923e-1` · `6.930e-2` · `4.489e-2` · `DECLINED`. ⟨`guarded -- npx vitest run test/_root/public-surface.test.ts test/compile/easing-identity.test.ts test/compile/timing-function-names.test.ts test/orchestration/orchestration-api.test.ts test/compile/serialize-invariant.test.ts --maxWorkers=2`⟩ ×2 → `Test Files 5 passed (5)` · `Tests 130 passed (130)` both runs — **GREEN ×2** |
+| G-KF3-7 | `evidence/W3/CALL-MAP.md` present (9 files in `evidence/W3/`, incl. Repair 1's CI excerpt) — **GREEN** |
+| `proof:publish` (R-2 + Repair 1's `proof:readme-runs`) | ⟨`guarded --light -- node scripts/gates/surface/index.mjs`⟩ ×2 → `proof:published-surface — PASS` · `proof:readme-runs — PASS: 20 snippet(s) … 29 stated result(s) verified` · `proof:publish — PASS` both runs — **GREEN ×2** |
+| kf `npm run check` | ⟨`guarded --light -- npm run check`⟩ ×2 → rc 0, ends `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` — **GREEN ×2** |
+| kf vitest whole (lib + demo) | ⟨`guarded --timeout 20 -- npx vitest run --maxWorkers=2`⟩ ×2 → `Test Files 295 passed \| 5 skipped (300)` · `Tests 2316 passed \| 2 expected fail \| 14 skipped (2332)` both runs — **GREEN ×2** |
+| G9 | ⟨`npm ls @mkbabb/value.js`⟩ → `4.1.0` — **GREEN** |
+| kf CI | ⟨`gh run view 41466910668 --json jobs`⟩ → `demo correctness (browser roster)` **failure**, `library gates` cancelled (sibling-fail). ⟨`--log-failed`⟩ → `passed: 4/6` · `✗ failed: live-session, live-session-mobile` (S5 `visited 2`; M1 sheet SCROLL/CLOSE; M2 dock SWITCH `trigger=null`). ⟨`gh run list -L 6`⟩ shows no newer run — **RED** |
+| deploy-pages · §6 · post-deploy probe ×2 (G-KF3-8 pageerror arm) | `41468193578` **skipped**. Not run: blocked behind CI — **OWED** |
+
+### Axes 2–9
+
+- **(2) Bounds.** The only kf commit since Check 1 is `fb87dbcd`. ⟨`git show --stat`⟩ → `README.md | 2 +-`, a one-line oracle-string swap (`350ms` → `0.35s`). That is a lawful §0bt adjacent edit (the string an oracle asserts, same repo, same UIA-KF-177 spelling concern), and it is listed under the receipt's "Adjacent edits". vjs `bf3728be9` touches the record, the LEDGER (+1 line) and one evidence excerpt, all in-set. Earlier commits were adjudicated by Checks 1–4, and their stats are unchanged. ⟨`git log 3e89df9f3^..HEAD -- scripts/dev/dev.sh \| wc -l`⟩ → `0`. **Clean.**
+- **(3) Masking.** The `fb87dbcd` diff is one `-`/`+` pair. No assertion was removed, the oracle was not edited, and there is no skip and no allowlist. Repair 1 refused a break-glass `workflow_dispatch` deploy, which is correct. **Clean.**
+- **(4) Commit families.** One commit per meaning holds (README cure = 1 kf commit; record = 1 vjs commit). **Clean.**
+- **(5) E-3.** ⟨`git diff --stat 3e89df9f3^..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/conformance`⟩ → empty. **Held.**
+- **(6) Mail.** INBOX mtime is `Nov 2 08:54`. Files newer than it across the swept paths: glass `BL/FORMATION-PROGRESS.md` and `BL/audit/INBOUND.md` only (commits `9051506d1` and `2edc9cc3b`, the O-118 rulings and cursor; they name neither value.js nor keyframes.js, so they are out of scope). INBOX status-cell UNREAD → 0. **Clean.**
+- **(7) Four-verb line.** IMPLEMENTED is not advanced and the row stays PARTIAL. That is lawful while §0hd.5 is unfinished. **Lawful.**
+- **(8) Goal criterion.** MET at the bytes, as Check 1 found. Nothing in that finding has moved (`fb87dbcd` is README-only).
+- **(9) Published figures.** These reproduce: 0/1548, 19/235, 5/130, 15 seam importers, readme-runs 20 snippets / 29 results, roster 4/6.
+
+### Axis 10 — honest-RED adjudication
+
+**kf CI `demo roster` (S5 · M1 · M2) → deploy → §6 → probe ×2: UNRELIEVED.** §0hd.5 (`COHESION.md`) names *kf CI GREEN → deploy-pages → §6 → post-deploy probe ×2 → close* as this wave's close path. The RED fails each relief test:
+- **Producer-owned?** Not shown. Glass is a candidate (`.c5` 10.1.3 · OD19 10.1.2), but no measurement attributes the RED to the producer.
+- **Routed to a later wave by the spec?** No §Excluded row or cross-edge does so.
+- **A spec-named honest-RED id?** No.
+
+One part is narrower. M1 sheet SCROLL was already RED at W13X close6 as the banked honest-RED SHEET-POSITION, and that relief is another wave's, not KF.W3's. It does not relieve S5 or M2. Those regressed inside a window (`389e31d2`..`fb87dbcd`) that contains three of this wave's own commits: `.c5` `17a5c34d`, `.c2b` `8ca052ad` and `.sp` `f59d5259`. So the RED may be this wave's own. ESC-KFW3-r1-1 names an owner (the orchestrator: an attribution bisect, then the owning seat), which is an owner, not a relief.
+
+G-KF3-8's pageerror arm is a FLOOR and is not in the set. **Honest-RED set: none.**
+
+### Successor conjuncts
+
+⟨`grep -nE '[Oo]pens after' X/*/waves/*.md \| grep KF.W3`⟩ → 5 hits, all citations inside prose or bounds cells. None is an "Opens after" conjunct on KF.W3, so no successor wave is gated on this row. The one dependant is X-W11's G9 VERIFIED stamp (§0hb.3, Track A). Its `npm ls` → 4.1.0 conjunct is GREEN; its deploy conjunct is RED. It is **lawfully blocked**.
+
+**Count**: 12 claimed GREENs reproduced: G-KF3-1…7, the invariant + bypass mutant, `proof:publish` (incl. Repair 1's readme-runs cure), check, whole vitest and G9. 0 claimed GREENs failed.
+
+### Register
+
+| severity | claim | receipt | cure |
+| --- | --- | --- | --- |
+| HIGH | §0hd.5's close path stands unfinished. kf CI is RED on `demo roster (report-all)` (4/6: `live-session` S5, `live-session-mobile` M1/M2), so deploy-pages was skipped, and §6 and the post-deploy probe ×2 (the G-KF3-8 pageerror arm) were never run. There is no spec relief, and the S5/M2 regression window holds three of this wave's own commits. | CI `41466910668` demo job failure; deploy `41468193578` skipped; `evidence/W3/repair1-ci-41466910668-demo-roster.log.txt`; ESC-KFW3-r1-1 | The orchestrator rules ESC-KFW3-r1-1: bisect `389e31d2`..`fb87dbcd` (candidates OD19 glass 10.1.2, `.c5` `17a5c34d`, `.c2b`, `.sp`) in a clean worktree, never the sibling-dirty tree. Then the owning seat cures at the root (a glass cause rides mail, not a frontend hack; M1 rides its banked SHEET-POSITION honest-RED only if the spec-of-record relief is extended to it by ruling). Then CI GREEN → deploy-pages → §6 → probe ×2 → Close 4 → fresh check. |
+| MINOR | `useKeyframeOps.ts:45-46` drops the authored `<time>` unit. | Close 3 residual 2; Repair 1 escalation | A seat granted on UIA-KF-177. |
+| INFO | 2 → 2 throw sites after `.c2b`. | Close 3 residual 3 | KF.W7 / KF.W2 posture (L-5) |
+| INFO | `KeyframeTimeline.vue` in kf is dirty (sibling's), and all local runs include it. | ⟨`git status --porcelain`⟩ | none |
+
+**LEDGER**: not promoted; the row stays PARTIAL; an event line is appended.
