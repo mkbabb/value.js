@@ -1327,3 +1327,37 @@ The whole-suite runs read the shared working tree, which includes the sibling's 
 2. kf `master` is now 3 commits ahead of `origin` (`fb87dbcd` → `8294a715`). The push is `.d3`'s.
 
 **Escalations:** none.
+
+### KF.W3.d3
+
+SERVED MODEL: claude-opus-5-5. Sections: COHESION §0he.3 · §0hd.5 · §0hb.3 · spec G-KF3-8 · RESUME 3 Unit plan. **Status: ESCALATED (ESC-KFW3-d3-1).** The full receipts are at `keyframes/evidence/W3/CLOSE-RECEIPTS.md` § Addendum `.d3` (d3.1–d3.5).
+
+**Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → `MM …/KeyframeTimeline.vue` only (the sibling's; never staged). The vjs writable paths are clean. **0 inherited paths.**
+
+**Acts, in order.**
+1. **Push.** ⟨`git push origin master`⟩ → `fb87dbcd..8294a715  master -> master`, an ordinary push carrying `.bis` `2582da86` `608748e2` and `.u177` `8294a715`.
+2. **kf CI `41504991466`** → run `cancelled`.
+   - The **demo correctness (browser roster)** job is **success**, with `passed: 6/6`. ESC-KFW3-r1-1 is cured on CI.
+   - The **library gates** job is **cancelled**. All 11 steps passed: correctness `127 passed | 5 skipped (132)` files, demo correctness `167 passed (167)`, lint, `proof:publish`. The annotation then reads `The job has exceeded the maximum execution time of 4m0s` (`ci.yml:31 timeout-minutes: 4`; the job ran 18:54:45Z–18:59:25Z).
+   - The same timeout cancelled the library job at `41450770277` / `41462383452` / `41466910668`. Earlier seats read that as collateral of the demo RED. The last GREEN library job was `35251074426` (2026-09-17, 1 m 50 s).
+3. **deploy-pages `41505833861` → skipped**, gated on CI success at `deploy-pages.yml:39-41`. The break-glass dispatch was not used. The §6 round-trip and the post-deploy probe ×2 were **not run**, because there was no deploy. The probe is staged at `/Users/mkbabb/Programming/.kf-d3-logs/d3-probe.mjs`.
+4. **G9.** ⟨`npm ls @mkbabb/value.js`⟩ ×2 → `4.1.0` (2 hits, 0 other versions). **GREEN.**
+
+**Gates BEFORE → AFTER.**
+- kf CI both jobs: RED (4/6 + cancelled) → **RED** (demo GREEN; library cancelled by the time budget).
+- deploy-pages: skipped → **skipped**.
+- §6: not run → **not run**.
+- probe ×2: not run → **not run**.
+- G9: GREEN → **GREEN**.
+
+**Escalation ESC-KFW3-d3-1.**
+- The kf `ci.yml:31` library-job budget of 4 min is below the measured step sum of about 4 m 31 s. The job is cancelled with every step GREEN. This is a new RED outside the wave's concern, and the cure is a `ci.yml` write outside `.d3`'s set.
+- The ruling is needed on either a budget fitting the measured sum or a job split. No step is skipped and no assertion is relaxed.
+- Logs: `/Users/mkbabb/Programming/.kf-d3-logs/ci-41504991466-{library,demo}.log`.
+- After the ruling: re-run `.d3` from act 2.
+
+**Residuals.** `.u177` residual 1 (`animationOptionsStore.ts:95-96`) stands untouched.
+
+## Close 4 — 2026-11-02 (seat `.d3`, `claude-opus-5-5`): NOT CLOSED, PARTIAL
+
+kf origin/master is `8294a715`. Demo roster CI is GREEN, 6/6. kf CI is RED on ESC-KFW3-d3-1 alone: the library-job 4-minute budget, with every step GREEN. deploy-pages was skipped, so the §6 round-trip and the post-deploy probe ×2 (the G-KF3-8 arm) are still owed. G9 is GREEN (4.1.0). The row stays PARTIAL, and X-W11's VERIFIED stamp (§0hb.3) is not reached. The next acts are: rule ESC-KFW3-d3-1 → `.d3` re-run → close → fresh check.
