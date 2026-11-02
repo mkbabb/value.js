@@ -342,3 +342,73 @@ Reachability (L-5, recorded): parse-sourced colours never serialize `!ok` at 4.1
 - **ESC-KFW3-d-2**: the UIA-KF-321 race in `demo/app/dock/menu/SharePopover.vue`. The cure is the focus-then-`select()` ordering at the root, by a demo seat; it is not retried here.
 
 **Residual**: `.c2`'s escalation still stands, so G-KF3-4 stays RED.
+
+## Close
+
+**Seat**: CLOSE (VERIFY-ONLY, `claude-opus-5-5`), 2026-11-02. Cured nothing. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, untouched); vjs ⟨`git status --porcelain`⟩ over this record + LEDGER → clean ⇒ **0 inherited paths**. kf `HEAD` = `origin/master` = `d4148cdc` (status `## master...origin/master`, 0 ahead).
+
+**Verdict: PARTIAL.** Six of seven close gates are GREEN at this seat's own double-run. **G-KF3-4 stays RED** on `.c2`'s escalation, which is a Triumvirate trigger. kf CI is RED on R-2 (ESC-KFW3-d-1), so deploy and the post-deploy probe are still owed.
+
+### Act 1 — commit roster and bounds (⟨`git show --stat`⟩ on each commit)
+
+| unit | repo | commit | paths | in writable set? |
+| --- | --- | --- | --- | --- |
+| open | vjs | `3e89df9f3` | record · LEDGER · INBOX (sweep line) | yes |
+| `.a` | vjs | `a487be784` · `381a31e2e` | `evidence/W3/{CALL-MAP.md,attribution-harness.mjs,rc-p-4.1.0.md}` · record | yes |
+| `.b` | vjs | `d97d62f1e` · `c577f3569` | `evidence/W3/DUAL-1-DESIGN.md` · record | yes |
+| `.c1` | kf | `c18a9bd9` | `package.json` · `package-lock.json` · `TimelineHoverPreview.vue` · `timeline/utils/decomposeMatrix.ts` (new, plan-licensed) · the 4 re-aimed tests | yes |
+| `.c1` | vjs | `b10555f6b` | `evidence/W3/REPIN-ATTRIBUTION.md` · record | yes |
+| `.c2` | vjs | `d5cf129c7` | record only (ESCALATED, no product byte) | yes |
+| `.c3` | kf | `bc37f98f` | `backward.ts` · `format/options.ts` · `src/animation/index.ts` (comment only) | yes |
+| `.c3` | vjs | `f3e409656` · `5fd046ff2` | INBOX (`I-77`) · `evidence/W3/EIGHT-CURVE-DELTA.md` · record | yes |
+| `.c4` | kf | `4ed542d5` | `css-text.ts` · `entry.ts` · `format/options.ts` · `view-transition.ts` (emit sites) · falsifier test; adjacent §0bt: `constants/types.ts` · `engine/css/metadata.ts` · `engine/option-setters.ts` (declared in the receipt) | yes (adjacent edits declared) |
+| `.c4` | vjs | `015dc855a` | record | yes |
+| `.c5` | kf | `17a5c34d` | `package.json` · `package-lock.json`; adjacent §0bt `scene-skeleton-shimmer.test.ts` (declared) | yes, and kept separate from `.c1` |
+| `.c5` | vjs | `04b4f6701` | record | yes |
+| `.d` | kf | `d4148cdc` | `test/compile/entry-roundtrip.test.ts` (R-1, this wave's concern: UIA-KF-177) | yes |
+| `.d` | vjs | `791b95b1f` | record · LEDGER (+1 line) · `evidence/W3/CLOSE-RECEIPTS.md` | yes |
+
+**Landed-wrong: 0.** No commit touches a path outside its unit's set or its declared adjacent edits. glass-ui, sibling trees and `scripts/dev/dev.sh` were untouched.
+
+### Act 2 — every spec gate re-run by this seat (×2 where a run is involved)
+
+| gate | BEFORE (Baseline) | AFTER (this seat) | reading |
+| --- | --- | --- | --- |
+| G-KF3-1 | RED (conj 3 owed) | **GREEN** | conj 1: ⟨`grep -c 'evaluates TRUE per …RELEASE-CONDITION.md` §6a' KF-W3.md`⟩ → 1 · conj 2: ⟨`grep -rn 'RC-P' docs/tranches/X/fourier/ \| wc -l`⟩ → 1 (fourier's own file) · conj 3: `evidence/W3/rc-p-4.1.0.md` (4083 B) present, with ⟨`grep -c 'GREEN — every public parser is total'`⟩ → 1 |
+| G-KF3-2 | GREEN before cure | **GREEN** | ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ sha1 `d488535c9bfc…b3d6` = ⟨`npm view … dist.shasum`⟩. The probe is unmodified (sha256 `77678a57…d4ec`) and symlinked into the untarred mirror. ⟨`npm_config_ignore_scripts=true guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 → rc 0 ×2, `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` · `GREEN — every public parser is total.`; the two outputs are `cmp`-identical |
+| G-KF3-3 | RED | **GREEN** | I re-derived the arm (c) roster with the spec's `git grep -l -E …` at kf `HEAD` `d4148cdc` → 18 paths (= `.c1`'s 18). I ran that roster ∪ the 3 O-117 files (21 files, including arm (a) `roundtrip-fidelity` over the 14 `.css` + manifest, and arm (b) `compile-roundtrip`) with ⟨`guarded --timeout 10 -- npx vitest run <21> --maxWorkers=2`⟩ ×2 → `Test Files 21 passed (21)` · `Tests 306 passed (306)`, rc 0 ×2. The attribution of every RED (13/13 VALUE-SIDE, O-117) stands in `REPIN-ATTRIBUTION.md`. The worktree diff over `test src` is empty |
+| G-KF3-4 | RED | **RED** | ⟨`git grep -n serializeCssValue HEAD -- …/css-text.ts`⟩ → the fork still stands at `:59` with its recursive self-calls `:61 :66`. The throw survives at `:72` (`throw new TypeError("Value returned an unserializable CSS color.")`), and its demo twin at `helpers.ts:93`. Consumers importing it from `@mkbabb/value.js/css` → **0**. INBOX rows reading O-11 §B retired → **0**. Cause: `.c2` ESCALATED (Triumvirate) |
+| G-KF3-5 | RED | **GREEN** | at `HEAD`: implementations (`export const reverseAnimationShorthand`) → **1** · sentences attributing it to value.js or to a published inverse → **0** · total symbol lines → 10 (= `.c3`'s partition re-read). Discharge (b) UNIFY-BY-TRUTH |
+| G-KF3-6 | RED | **GREEN** | ⟨`grep -c '^\| I-77 .*O-11 §D2.*1.923e-1.*DECLINED' INBOX.md`⟩ → 1 |
+| G-KF3-7 | RED | **GREEN** | `CALL-MAP.md` exists (28061 B, line 1 SERVED MODEL). It covers both organs (channel (i) and channel (ii) rows), §3 lists the 27-id denominator (E-15's 26 + `KF-HA-19`), and the C-4/C-5 pair is stated (row 1b, the `!ok` arm, REACHABLE) |
+| G-KF3-8 (floor) | GREEN before cure | **holds** | ⟨`git grep -nE 'cssTwinFor\("(easeOutCubic\|bounceInEase)"\)' HEAD -- test \| wc -l`⟩ → 0. The `/#/easing` and `/#/spring` pageerror probe needs a deploy, so it is owed with `.d` |
+| G-KF3-9 (floor) | inherited, chassis present | **holds** | ⟨`guarded --light -- npm run check`⟩ at `d4148cdc` → rc 0, `proof:structure — PASS … 0 violations across R1–R6` (vue-tsc typechecks the demo) |
+| G9 (X-W11) | RED (4.0.0) | **GREEN** | ⟨`npm ls --prefix ../keyframes.js @mkbabb/value.js`⟩ → `@mkbabb/value.js@4.1.0` (deduped under glass 10.1.3) |
+| kf CI | RED (R-1 + R-2) | **RED** (R-2 only) | ⟨`gh run list -R mkbabb/keyframes.js --workflow ci.yml -L 3`⟩ → `41450770277` push `d4148cdc` **failure** (= `.d`'s reading). `deploy-pages` was skipped, so §6 and the post-deploy probe ×2 are owed |
+
+**§Verification Artefacts**: the spec has no section by that name (⟨`grep -n 'Verification Artefact' KF-W3.md`⟩ → 0). Its artefacts are the §B.2 `evidence/W3/**` files, and all seven are present (`CALL-MAP` · `CLOSE-RECEIPTS` · `DUAL-1-DESIGN` · `EIGHT-CURVE-DELTA` · `REPIN-ATTRIBUTION` · `attribution-harness.mjs` · `rc-p-4.1.0`).
+
+### Act 4 — E13
+
+I re-swept the four paths: value `V/` + `V/coordination` · glass `BL` (newest; `ls -dt` → `BL BK`) + `BL/audit` + `BK/coordination` · keyframes.js `V/coordination` · atlas (`sci-report/atlas/docs/tranches/`, newest `U`) `U` + `U/coordination` + `P/coordination`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 2026-11-02 07:36) → **0 files**. ⟨`git -C glass-ui log --since='2026-11-02 07:36' -- docs/tranches/BL docs/tranches/BK/coordination`⟩ → 0. UNREAD `I-n` rows → **0**. **No UNREAD mail in scope.**
+
+### Residuals (named owners)
+
+1. **G-KF3-4 RED** — `.c2` ESC (Triumvirate trigger). Retiring the fork onto 4.1.0's `Result`-returning `serializeCssValue` without a throw, wrapper, fallback or try/catch would widen public kf signatures (`CSSKeyframesToString(s)`, `CompileRefusalReason`, `EntryRefusal`, the sink path). **Owner/arbiter** must rule (A) widen, (B) totality at ingest, or (C) a ruled boundary throw. After the ruling, a KF.W3 repair seat lands the retirement, the dated manifest divergence row and the INBOX O-11 §B row as **one** act (L-7), and deletes the demo twin `demo/utils/helpers.ts:75-96` with it.
+2. **ESC-KFW3-d-1** (kf CI R-2, `proof:published-surface`): five KF.W5 HEAVY exports are unmanifested. The fix needs a **publication-doc ruling (owner)**: five `docs/published-surface.md` rows plus the stale `4.0.0` pin prose at `:17`. After that, a KF.W3 `.d` repair seat lands it, pushes, confirms CI GREEN, runs `deploy-pages` + §6, and runs the post-deploy probe ×2 (this also discharges G-KF3-8's pageerror arm).
+3. **ESC-KFW3-d-2 / UIA-KF-321**: the `r4dock-share-fallback` selection race in `demo/app/dock/menu/SharePopover.vue`. The cure is the root focus-then-`select()` ordering, owned by a **demo seat** (KF demo wave). It is intermittent and makes vitest ×2 flaky.
+4. `registry.ts:33-53` still describes the 4.0.0 un-memoised `easing()` and schedules the memo for deletion "in KF.W3's repin commit". **Owner: the KF easing-hygiene seat** (`.c1`/`.c3` residual). Not forced by the delta.
+5. `.c4` residuals: the demo `useKeyframeOps.ts:45-46` unit pass-through (**demo seat**), and the stated ctor-merge unit ride (`engine/css/animation.ts:207`).
+6. `compile/value/compile.ts:259-268` is a third list serializer that the G-KF3-4 ruling's census should name (`.c2`).
+
+### Escalations
+
+`.c2` Triumvirate (G-KF3-4) · ESC-KFW3-d-1 · ESC-KFW3-d-2, each carried as filed by its unit. This seat adds none.
+
+### Four-verb line
+
+Unmoved. The spec's IMPLEMENTED row requires *"gates green + bytes landed"*. G-KF3-4 is RED, so the wave is **not IMPLEMENTED**, and VERIFIED is not this wave's seat to stamp (R-A). The LEDGER row reads **PARTIAL**.
+
+### Act 7 — push
+
+kf was already at `origin/master` `d4148cdc` (`.d` pushed it). vjs `tranche-u` is pushed after this close commit (ordinary push).
