@@ -1,0 +1,298 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/.dev-logs/cnm2/gpu/docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/gpu.config.ts",
+    "rootDir": "/Users/mkbabb/.dev-logs/cnm2/gpu/e2e/smoke",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/cnm2/gpu/test-results/ref-gpu",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "gpu",
+        "name": "gpu",
+        "testDir": "/Users/mkbabb/.dev-logs/cnm2/gpu/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/cnm2/gpu/test-results/ref-gpu",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "gpu-renderer",
+        "name": "gpu-renderer",
+        "testDir": "/Users/mkbabb/.dev-logs/cnm2/gpu/docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe",
+        "testIgnore": [],
+        "testMatch": [
+          "renderer.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "oracles/o18-contrast-census.spec.ts",
+      "file": "oracles/o18-contrast-census.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "O-18 census · the default-seed component name on its real ground (light, no-preference)",
+          "file": "oracles/o18-contrast-census.spec.ts",
+          "line": 1761,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the component-name ink clears 4.5:1 over the worst glyph-masked plate sample (§0gz.1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "o18-component-name-real-ground",
+                      "description": "{\"scheme\":\"light\",\"motion\":\"no-preference\",\"color\":\"oklch(0.185044 0.0747136 2)\",\"ink\":[42,0,16],\"worst\":5.379805121716152}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4294,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T02:35:48.793Z",
+                      "annotations": [
+                        {
+                          "type": "o18-component-name-real-ground",
+                          "description": "{\"scheme\":\"light\",\"motion\":\"no-preference\",\"color\":\"oklch(0.185044 0.0747136 2)\",\"ink\":[42,0,16],\"worst\":5.379805121716152}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-5637900416970a59fd2b",
+              "file": "oracles/o18-contrast-census.spec.ts",
+              "line": 1764,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · the default-seed component name on its real ground (dark, no-preference)",
+          "file": "oracles/o18-contrast-census.spec.ts",
+          "line": 1761,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the component-name ink clears 4.5:1 over the worst glyph-masked plate sample (§0gz.1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "o18-component-name-real-ground",
+                      "description": "{\"scheme\":\"dark\",\"motion\":\"no-preference\",\"color\":\"oklch(0.821313 0.107264 2)\",\"ink\":[255,167,191],\"worst\":5.1193357991017585}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3392,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T02:35:53.512Z",
+                      "annotations": [
+                        {
+                          "type": "o18-component-name-real-ground",
+                          "description": "{\"scheme\":\"dark\",\"motion\":\"no-preference\",\"color\":\"oklch(0.821313 0.107264 2)\",\"ink\":[255,167,191],\"worst\":5.1193357991017585}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-3ede8c0872c7a3c4360d",
+              "file": "oracles/o18-contrast-census.spec.ts",
+              "line": 1764,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · the default-seed component name on its real ground (light, reduce)",
+          "file": "oracles/o18-contrast-census.spec.ts",
+          "line": 1761,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the component-name ink clears 4.5:1 over the worst glyph-masked plate sample (§0gz.1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "o18-component-name-real-ground",
+                      "description": "{\"scheme\":\"light\",\"motion\":\"reduce\",\"color\":\"oklch(0.185044 0.0747136 2)\",\"ink\":[42,0,16],\"worst\":5.523698374562937}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "gpu",
+                  "projectName": "gpu",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3334,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T02:35:56.913Z",
+                      "annotations": [
+                        {
+                          "type": "o18-component-name-real-ground",
+                          "description": "{\"scheme\":\"light\",\"motion\":\"reduce\",\"color\":\"oklch(0.185044 0.0747136 2)\",\"ink\":[42,0,16],\"worst\":5.523698374562937}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-63f25045d31d6a1a5666",
+              "file": "oracles/o18-contrast-census.spec.ts",
+              "line": 1764,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+      "file": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "renderer of the cell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "gpu-renderer",
+              "projectName": "gpu-renderer",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 434,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ref-renderer] ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T02:36:03.075Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2554cc55ec191e6d66a6-9f74c57bc907ae48cde9",
+          "file": "../../docs/tranches/X/close/evidence/browser/ref-2026-10-30/probe/renderer.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T02:35:44.737Z",
+    "duration": 23324.447,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

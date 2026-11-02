@@ -1,0 +1,6 @@
+Checking formatting...
+[warn] demo/color-session/ink.ts
+[warn] demo/color-session/useContrastSafeColor.ts
+[warn] test/ink.test.ts
+[warn] e2e/smoke/oracles/o18-contrast-census.spec.ts
+[warn] Code style issues found in 4 files. Run Prettier with --write to fix.

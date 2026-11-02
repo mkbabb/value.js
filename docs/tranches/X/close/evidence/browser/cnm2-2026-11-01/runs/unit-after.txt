@@ -1,0 +1,12 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/ink.test.ts (42 tests) 3423ms
+   ✓ §0gw.4 — the certify walk's cut keeps every certified ink > plate, accent and identity inks are the reference walk's, string for string (light)  1416ms
+   ✓ §0gw.4 — the certify walk's cut keeps every certified ink > plate, accent and identity inks are the reference walk's, string for string (dark)  1551ms
+
+ Test Files  1 passed (1)
+      Tests  42 passed (42)
+   Start at  21:25:11
+   Duration  4.47s (transform 169ms, setup 58ms, collect 246ms, tests 3.42s, environment 349ms, prepare 72ms)
+

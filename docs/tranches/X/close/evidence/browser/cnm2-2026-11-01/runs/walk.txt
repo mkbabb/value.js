@@ -1,0 +1,18 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+stdout | docs/tranches/X/close/evidence/browser/cnm2-2026-11-01/probe/walk.test.ts > cnm2 walk
+[cnm2-walk] mean (HEAD): oklch(30.776197486324% 0.124262102015 2deg) rgb(92,0,43) C 0.1243 (0.672 of pick) | GPU 4.078 docker 5.022 darkest-stop 3.114
+[cnm2-walk] hue-bounded (cnm2): oklch(18.504375204444% 0.074713341724 2deg) rgb(42,0,16) C 0.0747 (0.404 of pick) | GPU 5.494 docker 6.766 darkest-stop 4.196
+[cnm2-walk] plate (refused): oklch(3.444638154004% 0.013908085221 2deg) rgb(0,0,0) C 0.0139 (0.075 of pick) | GPU 6.076 docker 7.482 darkest-stop 4.640
+[cnm2-model] mean (HEAD): per-stop resting-plate ratio 3.147 / 4.472 / 6.647 / 9.322 (stops L 0.630,0.737,0.843,0.950)
+[cnm2-model] hue-bounded (cnm2): per-stop resting-plate ratio 4.240 / 6.025 / 8.955 / 12.559 (stops L 0.630,0.737,0.843,0.950)
+[cnm2-walk] mean 0.7900 plate 0.6218
+
+ ✓ docs/tranches/X/close/evidence/browser/cnm2-2026-11-01/probe/walk.test.ts (1 test) 41ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  21:46:58
+   Duration  1.07s (transform 98ms, setup 51ms, collect 138ms, tests 41ms, environment 456ms, prepare 67ms)
+

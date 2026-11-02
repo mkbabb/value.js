@@ -1,0 +1,151 @@
+diff --git a/demo/color-session/ink.ts b/demo/color-session/ink.ts
+index 830ad4559..68ad93d83 100644
+--- a/demo/color-session/ink.ts
++++ b/demo/color-session/ink.ts
+@@ -646,55 +646,6 @@ export function certifyIdentityInk(
+     return resolvePlateInk(surfaceL, dark);
+ }
+ 
+-/**
+- * THE RESTING ACCENT'S HUE-BOUNDED MAXIMIN (COHESION §0gz.1, ESC-W11cnm-1).
+- * The accent certified on the resting plate (`--accent-live`, the Nutrition
+- * label's component name) walked on the field's mean, and the mean is not
+- * the ground under the card: the default seed's name read 4.08:1 on the GPU
+- * cell's real plate (`close/evidence/browser/cnm-2026-10-31/`). The plate
+- * referent (`resolveFieldPlateReferent`, maximin) names the worst region, but
+- * on it the walk reaches the pole and drains the identity hue (C 0.08 of the
+- * pick), which the identity-colour law refuses (fourier UIA-F-172).
+- *
+- * So the referent moves from the ambient toward the plate referent only while
+- * the certified ink keeps {@link IDENTITY_CHROMA_HOLD} of the pick's chroma:
+- * the plate referent itself where the ink there is held, else the bisected
+- * referent nearest it that still holds. Where even the ambient's ink is not
+- * held, the ambient stands. The caller certifies the accent on the returned
+- * referent with the house certify (`certifyAccentInk`), so the floor and the
+- * headroom are unchanged; only the referent moves. A shortfall the bound
+- * leaves over the darkest stop is an owner dead-band row
+- * (`close/evidence/browser/cnm2-2026-11-01/README.md`).
+- *
+- * @param surfaceAt the resting plate's lightness over a given field referent
+- * @returns the field referent the resting accent certifies on
+- */
+-export function resolveRestingAccentReferent(
+-    css: string,
+-    ambientL: number,
+-    plateL: number,
+-    surfaceAt: (referent: number) => number,
+-    floor: number = TEXT_CONTRAST_FLOOR,
+-    headroom: number = CERTIFY_HEADROOM,
+-): number {
+-    const accent = parseOklch(css);
+-    if (!accent || plateL === ambientL) return ambientL;
+-    const referentAt = (t: number) => ambientL + t * (plateL - ambientL);
+-    const held = (t: number) =>
+-        chroma(certify(accent, surfaceAt(referentAt(t)), floor, headroom))
+-            >= IDENTITY_CHROMA_HOLD * chroma(accent);
+-    if (!held(0)) return ambientL;
+-    if (held(1)) return plateL;
+-    let pass = 0;
+-    let fail = 1;
+-    for (let i = 0; i < 16; i++) {
+-        const middle = (pass + fail) / 2;
+-        if (held(middle)) pass = middle;
+-        else fail = middle;
+-    }
+-    return referentAt(pass);
+-}
+-
+ /**
+  * THE PRIMARY PLATE INK (X-DS pass 4 · V4C-01) — the ONE polarity decision
+  * per plate. The scheme's foreground, certified against the composited plate
+diff --git a/demo/color-session/useContrastSafeColor.ts b/demo/color-session/useContrastSafeColor.ts
+index 54125131d..cf2a60615 100644
+--- a/demo/color-session/useContrastSafeColor.ts
++++ b/demo/color-session/useContrastSafeColor.ts
+@@ -19,7 +19,6 @@ import {
+     resolveMutedInk,
+     resolvePaintedLightness,
+     resolvePlateInk,
+-    resolveRestingAccentReferent,
+     resolveSurfaceLightness,
+     type InkContrast,
+     type InkSurface,
+@@ -375,33 +374,6 @@ function certifyAccentInkOnce(css: string, surfaceL: number, floor?: number): st
+     return safe;
+ }
+ 
+-/**
+- * The accent certified on the RESTING plate, its referent the hue-bounded
+- * maximin between the ambient and the plate referent (§0gz.1,
+- * `resolveRestingAccentReferent`), then the one memoised walk on that
+- * referent ({@link certifyAccentInkOnce}). The boot writer's `--accent-live`
+- * and every resting-rung `safeCss` consumer ask the same question, so the
+- * referent's bisection is memoised the same way.
+- */
+-const restingReferentCache = new Map<string, number>();
+-function certifyRestingAccentInkOnce(
+-    css: string,
+-    ambientL: number,
+-    plateL: number,
+-    dark: boolean,
+-    floor?: number,
+-): string {
+-    const surfaceAt = (referent: number) => surfaceLightnessNow("resting", referent, dark);
+-    const key = `${css}|${surfaceAt(ambientL)}|${surfaceAt(plateL)}|${ambientL}|${plateL}|${floor ?? ""}`;
+-    let referent = restingReferentCache.get(key);
+-    if (referent === undefined) {
+-        referent = resolveRestingAccentReferent(css, ambientL, plateL, surfaceAt, floor);
+-        if (restingReferentCache.size >= 64) restingReferentCache.clear();
+-        restingReferentCache.set(key, referent);
+-    }
+-    return certifyAccentInkOnce(css, surfaceAt(referent), floor);
+-}
+-
+ /** The surface referent, live-first: probe the painted recipe, compose with
+  *  the ambient; the static model serves only where nothing can be measured.
+  *  Tracks the probe epoch so a reactive caller re-drives its live read once
+@@ -468,13 +440,14 @@ export function useContrastSafeColor(
+         preferredContrast.value === "more" ? "more" : "no-preference",
+     );
+ 
+-    // §0gz.1: the resting accent's referent is the hue-bounded maximin.
+     const safeAccentCss = computed(() =>
+-        certifyRestingAccentInkOnce(
++        certifyAccentInkOnce(
+             cssColorOpaque.value,
+-            ambientLightness.value,
+-            plateReferent.value,
+-            isDark.value,
++            surfaceLightnessNow(
++                "resting",
++                ambientLightness.value,
++                isDark.value,
++            ),
+         ),
+     );
+ 
+@@ -699,24 +672,12 @@ function lightDarkArm(css: string, dark: boolean): string {
+ export function useSafeAccentFn(surface: InkSurface = "page") {
+     const { isDark } = useGlobalDark();
+     const ambient = inject(INK_AMBIENT_KEY)!;
+-    // §0gz.1: the resting rung's accent walks the hue-bounded maximin between
+-    // the ambient and the plate referent. A host with no atmosphere has only the ambient.
+-    const plateReferent = inject(INK_PLATE_REFERENT_KEY, ambient);
+     bumpProbeEpochOnMount();
+ 
+     /** @param floor optional WCAG floor override — pass
+      *  `GRAPHICS_CONTRAST_FLOOR` (3) for non-text ink (WCAG 1.4.11: slider
+      *  tracks, rails — the T-44a rung); defaults to the 4.5 text floor. */
+     function safeCss(css: string, floor?: number): string {
+-        if (surface === "resting") {
+-            return certifyRestingAccentInkOnce(
+-                css,
+-                ambient.value,
+-                plateReferent.value,
+-                isDark.value,
+-                floor,
+-            );
+-        }
+         return certifyAccentInkOnce(
+             css,
+             surfaceLightnessNow(surface, ambient.value, isDark.value),

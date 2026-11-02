@@ -1,0 +1,25 @@
+(node:2187) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:2263) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 13 tests using 1 worker
+
+(node:2341) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [visual] › e2e/visual/golden-integrity.spec.ts:71:1 › every committed golden matches its manifest digest (130ms)
+  ✓   2 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › mix (7.5s)
+  ✓   3 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › mix (3.2s)
+  ✓   4 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8) › mix (6.1s)
+  ✓   5 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › mix (7.7s)
+  ✓   6 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › mix (6.5s)
+  ✓   7 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus gap › mix (10.2s)
+  ✓   8 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · both · light (5.3s)
+  ✓   9 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · both · dark (6.5s)
+  ✓  10 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › mix · both · light (5.6s)
+  ✓  11 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › mix · both · dark (5.6s)
+  ✓  12 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › mix · both · light (7.5s)
+  ✓  13 [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › mix · both · dark (6.7s)
+
+  13 passed (1.4m)
+exit 0
