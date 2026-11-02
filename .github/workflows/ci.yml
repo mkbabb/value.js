@@ -52,7 +52,7 @@ concurrency:
 jobs:
     producer:
         name: producer / Node ${{ matrix.node }}
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
         strategy:
             fail-fast: false
             matrix:
@@ -117,7 +117,7 @@ jobs:
     # now fails CI, closing the "prod runs untested api code" gap.
     api:
         name: api / Node 22
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
         defaults:
             run:
                 working-directory: api
@@ -142,7 +142,7 @@ jobs:
     # that resolves to nothing.
     oracle-slate:
         name: oracle slate
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
@@ -159,7 +159,7 @@ jobs:
     # build inside the webServer timeout.
     e2e-smoke:
         name: e2e-smoke
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
@@ -230,7 +230,7 @@ jobs:
     # exists to undo.
     boot-smoke:
         name: boot-smoke
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
@@ -269,7 +269,7 @@ jobs:
     # Metal, run ×2 under `guarded`). LCP, CLS and accessibility stay `error`.
     lhci:
         name: lhci
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
         steps:
             - uses: actions/checkout@v4
               with:
