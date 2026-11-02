@@ -1032,3 +1032,44 @@ G-KF3-8's pageerror arm is a FLOOR and is not in the set. **Honest-RED set: none
 | INFO | `KeyframeTimeline.vue` in kf is dirty (sibling's), and all local runs include it. | ⟨`git status --porcelain`⟩ | none |
 
 **LEDGER**: not promoted; the row stays PARTIAL; an event line is appended.
+
+## Repair 2 (round 2 after Check 2 post-Close 3; record sequence Repair 4) — 2026-11-02 (REPAIR SEAT, `claude-opus-5-5`)
+
+SERVED MODEL: claude-opus-5-5. Substrate at open: kf `HEAD` = `origin/master` = `fb87dbcd`; vjs `78837ac70`. Crash-recovery: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, §0hb.1; never staged) ⇒ **0 inherited paths**. No kf product byte was written by this seat.
+
+### Defect → cure → commit
+
+| # | sev | defect | disposition | commit |
+| --- | --- | --- | --- | --- |
+| 1 | HIGH | kf CI `demo roster` RED (S5 · M1 · M2) blocks deploy → §6 → probe ×2 | **ATTRIBUTED, NOT KF.W3's — ESCALATED** (the cure lies outside §B.2; see the attribution below). The S5/M2 cause is in the window, but it is not in any KF.W3 commit | vjs (this record + evidence) |
+| 2 | MINOR | `useKeyframeOps.ts:45-46` drops the authored `<time>` unit | **ESCALATED, re-stated**: the file is outside §B.2, and it is not a one-command cure (the unit fields have to be threaded through `reverseCSSTime` and its oracles). Owner: a seat granted on UIA-KF-177 | — |
+| 3 | INFO | 2 → 2 throw sites | none (KF.W7 / KF.W2, L-5) | — |
+| 4 | INFO | `KeyframeTimeline.vue` dirty | none (sibling's) | — |
+
+### ESC-KFW3-r1-1 attribution (the bisect Check 2 asked for, run at its decisive endpoint)
+
+**Pre-wave endpoint, measured.** kf `5c48e3da` is the last commit before KF.W3's first byte (`c18a9bd9`). It carries glass **10.1.2** (OD19) and value **4.0.0**, so it excludes `.c1`, `.c5` (glass 10.1.3), `.c2b`, `.reg`, `.sp`, `.ps`, `.d` and Repair 1. Method: a clean detached worktree (never the sibling-dirty tree) and `npm ci` (rc 0). Then ⟨`KF_PLAYWRIGHT_DIR=<value.js> guarded --timeout 25 -- npm run demo:correctness -- --only=live-session,live-session-mobile --timeout=600`⟩ ×2 → both runs `passed: 0/2` · `✗ failed: live-session, live-session-mobile`, rc 1. The REDs are byte-for-byte the CI `41466910668` REDs:
+- S5: `visited 2`, `cube: ENTRY red — … trigger=null (want "Controls")`.
+- M1 sheet SCROLL: `scrollTop=0; 702px content in a 85px body`.
+- M1 sheet CLOSE: `closed=false, --detent-t=0`.
+- M2 dock SWITCH: `machine=easing, trigger=null`.
+
+The excerpt for both runs is at `docs/tranches/X/keyframes/evidence/W3/repair2-attribution-5c48e3da.log.txt`. The worktree was removed after the runs, and no browser or roster process was left (`ps` → 0). **KF.W3's own commits (incl. glass 10.1.3) are exonerated: the RED predates the wave.**
+
+**Root cause (S5 + M2), read from the bytes.** Both oracles read `document.querySelector('[data-dock-surface-item][aria-checked="true"]')?.getAttribute("aria-label")` with the dock at rest (`scripts/observe/demo/live-session.mjs:910,958`; `live-session-mobile.mjs` twin).
+- At W13X close6 `389e31d2`, `ChromeDock.vue:510-513` rendered the surface items as **dock-level** buttons carrying `data-selected` and `aria-label="item.title"`, and S5/M2 were GREEN.
+- **OD19-K6 `13762e6e`** (2026-10-19) moved them into a glass `DropdownMenu` (`ChromeDock.vue:561-586` at `5c48e3da`). Those rows mount only while the menu is open, and they carry no `aria-label`.
+- OD19 repair 1 `2457f241` then re-spelled the probe selector (`[data-selected]` → `[aria-checked="true"]`) but never re-aimed the at-rest read. So the oracle has been unsatisfiable since `13762e6e`.
+
+CI never reached the `demo roster` step from 2026-10-27 through Repair 1 (Repair 1 §ESC), so this went unseen. **M1 SCROLL/CLOSE** are also RED at `5c48e3da`. SCROLL is the banked SHEET-POSITION honest-RED. CLOSE was GREEN at close6, so it too regressed before the wave, inside OD19.
+
+**Why no cure lands here.** The cure is either the probe oracle (`scripts/observe/demo/live-session*.mjs`) re-aimed at the at-rest surface fact (the `data-dock-surface-trigger` face's `data-surface`), or a dock change. Neither is in KF.W3's §B.2 writable set, and neither is KF.W3's concern (parser consumption). Either is the OD19 dock/probe owner's. §0bt does not stretch to it: it is a different concern, and the files belong to another unit. An edit here would also be an oracle rewrite made to get to green, which is a HIGH. M1 CLOSE is a glass-Drawer or kf-sheet regression, also OD19's.
+
+### Gate re-reading
+
+| gate | reading |
+| --- | --- |
+| roster live-session + live-session-mobile @ `5c48e3da` (pre-wave) | ×2 → `passed: 0/2`, identical REDs to CI — **RED predates KF.W3** |
+| kf CI / deploy-pages / §6 / probe ×2 | unchanged from Check 2: CI `41466910668` RED, deploy `41468193578` skipped, §6 + probe ×2 **OWED**. No kf byte moved, so no gate re-run is owed (every G-KF3-* GREEN stands as Check 2 reproduced it at `fb87dbcd`) |
+
+**Verdict.** The HIGH is **escalated with a measured attribution**: ESC-KFW3-r1-1 → the OD19 dock/probe owner (S5 + M2 = `13762e6e` probe-oracle staleness; M1 CLOSE = an OD19-window sheet regression; M1 SCROLL = the banked SHEET-POSITION). KF.W3's close path stays blocked behind that owner's cure, then CI GREEN → deploy-pages → §6 → probe ×2 → Close 4. The MINOR stays escalated. The row stays **PARTIAL**.
