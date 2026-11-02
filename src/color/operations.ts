@@ -206,7 +206,14 @@ function luminance(
         + 0.7152 * srgbLinear(channel(channels.value[1]!))
         + 0.0722 * srgbLinear(channel(channels.value[2]!)));
 }
-function contrast(
+/**
+ * The WCAG 2.x ratio of two sRGB colours, one arm: `quantized` reads each
+ * channel through the `toRgba8` byte quantizer first. INTERNAL: `safeAccentColor`
+ * runs it on its own candidates and its unmapped surface, and `contrastRatio`
+ * runs it on gamut-mapped inputs, so the two share one body (SPEC R5). It is
+ * exported for the bit-equality test only and is not in the barrel.
+ */
+export function contrast(
     first: Color<"rgb">,
     second: Color<"rgb">,
     quantized: boolean,
@@ -216,6 +223,66 @@ function contrast(
     const b = luminance(second, quantized);
     if (!b.ok) return b;
     return ok((Math.max(a.value, b.value) + 0.05) / (Math.min(a.value, b.value) + 0.05));
+}
+
+function opaqueSrgb(color: AnyColor): Result<Color<"rgb">, ColorIssue> {
+    const mapped = mapColorToGamut(color, "srgb");
+    if (!mapped.ok) return mapped;
+    return convertColor(mapped.value as AnyColor, "rgb");
+}
+
+/**
+ * The WCAG 2.x contrast ratio of two opaque colours: the predicate
+ * `safeAccentColor` admits candidates with, exported (R-ink-1).
+ *
+ * Relative luminance is `0.2126R + 0.7152G + 0.0722B` over the IEC 61966-2-1
+ * EOTF (knee 0.04045, WCAG 2.2; WCAG 2.0's 0.03928 knee gives the same byte arm,
+ * since no 8-bit value lies between the two). Each input is mapped into sRGB
+ * first (`mapColorToGamut`; WCAG luminance is defined on sRGB; in-gamut input
+ * is unchanged), and the answer is the lesser of the float ratio and the ratio
+ * of the `toRgba8`-quantized bytes, so a colour that clears a bar clears it as
+ * painted too. Symmetric, in [1, 21], and NEVER rounded (WCAG Understanding SC
+ * 1.4.3: a ratio is not rounded up to meet a threshold). For hex inputs the two
+ * arms are equal.
+ *
+ * Errors, in `safeAccentColor`'s order: alpha `"none"` → `color_missing_alpha`;
+ * alpha other than 1 → `color_invalid_input`; a `"none"` channel →
+ * `color_missing_channel`.
+ */
+export function contrastRatio(a: AnyColor, b: AnyColor): Result<number, ColorIssue> {
+    if (!isAnyColor(a) || !isAnyColor(b)) return err({ code: "color_invalid_input" });
+    if (a.alpha === "none" || b.alpha === "none") return err({ code: "color_missing_alpha" });
+    if (a.alpha !== 1 || b.alpha !== 1) return err({ code: "color_invalid_input" });
+    const first = opaqueSrgb(a);
+    if (!first.ok) return first;
+    const second = opaqueSrgb(b);
+    if (!second.ok) return second;
+    const float = contrast(first.value, second.value, false);
+    if (!float.ok) return float;
+    const byte = contrast(first.value, second.value, true);
+    if (!byte.ok) return byte;
+    return ok(Math.min(float.value, byte.value));
+}
+
+/**
+ * ΔEOK: the Euclidean distance between two colours in OKLab, on value.js's own
+ * CSS Color 4 OKLab path. UNIT scale: black to white is 1.0, the CSS Color 4
+ * gamut-mapping JND is 0.02. Multiply by 100 to read validate_palette.js's
+ * figures (its "ΔE 8" is 0.08 here). Alpha is ignored, `"none"` included, and
+ * nothing is gamut-mapped: OKLab is defined for every colour. A `"none"`
+ * channel → `color_missing_channel`.
+ */
+export function deltaEOK(a: AnyColor, b: AnyColor): Result<number, ColorIssue> {
+    const left = convertColor(a, "oklab");
+    if (!left.ok) return left;
+    const right = convertColor(b, "oklab");
+    if (!right.ok) return right;
+    const [l1, a1, b1] = left.value.channels;
+    const [l2, a2, b2] = right.value.channels;
+    if (l1 === "none" || a1 === "none" || b1 === "none" || l2 === "none" || a2 === "none" || b2 === "none") {
+        return err({ code: "color_missing_channel" });
+    }
+    return ok(Math.hypot(l1 - l2, a1 - a2, b1 - b2));
 }
 
 export function safeAccentColor(

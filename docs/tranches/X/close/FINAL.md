@@ -290,3 +290,15 @@ Counts (⟨`awk -F' \\| ' '{print $4}' annex \| grep -c '^<word>'`⟩, read twic
 - **Unchanged.** G1 `17 BLOCKED-ON · 18 RETIRED · 83 VERIFIED` ×2. G3 ×2 exit 0, `runtimeExports 83 · smokeInvocations 83`. G4 md5 `e9d1f380…` ×2, `{"latest":"4.1.0"}`, tag `v4.1.0` → `d25c4514b`. Lint and typecheck ×2 exit 0. G11 `0`. G12 0 UNREAD. ⟨`npm ls --prefix ../keyframes.js @mkbabb/value.js`⟩ → `4.0.0` (G9 RED, O-117).
 
 **R-A.** G9 is RED, CI is RED, and the G5 production leg is unmeasured, so **no wave is stamped VERIFIED.** X-W11 stays **PARTIAL**: not IMPLEMENTED.
+
+## Addendum 2026-11-02 — the nineteenth sitting's close (supersedes the 2026-11-01 addendum's CI/G5/deploy rows; E-3, the bytes above are unchanged)
+
+**Seat**: X-W11 close (RESUME nineteenth), VERIFY-ONLY, SERVED MODEL `claude-opus-5-5`, HEAD `0429e0f3a`, master `80774cd7e`. Every commit below was checked with ⟨`git cat-file -e <sha>^{commit}`⟩.
+
+- **Runner image pinned.** `0bbfc7e8e`: ⟨`grep -c 'runs-on: ubuntu-latest' .github/workflows/*.yml | grep -v ':0$'`⟩ → ∅ ×2; `ubuntu-24.04` × 10; ⟨`actionlint`⟩ exit 0 ×2.
+- **CI.** ⟨`gh run view 41404338825`⟩ → `{"success":8}` @ `350011fea`; ⟨`gh run view 41421507774`⟩ → `{"success":8}` @ `80774cd7e`.
+- **Deploy of record.** `80774cd7e` (parents `d99ab0deb`, `350011fea`; tree == `350011fea^{tree}`); ⟨`gh run list --workflow deploy-pages.yml --limit 3`⟩ → `41433934453 success` @ `80774cd7e`; `v4.1.0^{commit}` is an ancestor. ⟨`curl -sS https://api.color.babb.dev/health`⟩ ×2 → `"commit":"80774cd7e6c2…"`, mongo ok. TLS ×2 → `"ok":true "status":200 "daysLeft":63.2`.
+- **G5 production.** `b6b504059`; ⟨`guarded -- node scripts/ci/boot-smoke.mjs --mode=prod-preview --origin=https://color.babb.dev/`⟩ ×2 → `8/8 seed cases passed`, `form production`, 24 served refs, pageErrors 0; 6 refused origins ×2 → 12/12 `ORIGIN-FORM`. Evidence `4c1bf04b0`.
+- **Unchanged.** G1 `17 BLOCKED-ON · 18 RETIRED · 83 VERIFIED` ×2 · G3 ×2 `runtimeExports 83 · smokeInvocations 83` · G4 md5 `e9d1f380…` ×2 · vitest `1515 passed (1515)` · lint/typecheck exit 0 · G11 `0` · G12 0 UNREAD.
+
+**R-A.** G9 is honest-RED (⟨`npm ls --prefix ../keyframes.js @mkbabb/value.js`⟩ → `4.0.0`, O-117), so **no wave is stamped VERIFIED.** X-W11 is **IMPLEMENTED**; the honest-RED set of COHESION §0ha.4 is recorded, never counted GREEN.

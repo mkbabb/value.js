@@ -473,7 +473,10 @@ describe("Value 4 exact runtime surfaces", () => {
         expect(Object.keys(color).sort()).toEqual([
             "NAMED_COLORS",
             "a98Rgb",
+            "checkCategoricalPalette",
+            "contrastRatio",
             "convertColor",
+            "deltaEOK",
             "displayP3",
             "hsl",
             "hsv",
@@ -498,6 +501,7 @@ describe("Value 4 exact runtime surfaces", () => {
             "safeAccentColor",
             "sampleColorRamp",
             "serializeCssColor",
+            "simulateColorVision",
             "toHex",
             "toRgba8",
             "toRgba8Into",

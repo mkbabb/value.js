@@ -4984,3 +4984,165 @@ Ruled:
 
    Then close and a fresh check. If any product byte changes after the WebKit witness reading, the witness is re-read at the new HEAD under `guarded --exclusive webkit`.
 4. **Honest-RED, recorded only:** G9 (O-117), w7 ×4 (O-106), the 4 manifest rows, R-vrb-1, and the dead-band owner design row (4.196 / 4.240).
+
+## §0hb — 2026-11-02: X-W11 CLOSED; KF.W3 opens; fourier's m/w1 ships (delegate, §0ge)
+X-W11 is **CLOSED (CONFORMANT-HONEST-RED)** at Check 1 of the nineteenth sitting:
+- the demo is deployed at master `80774cd7e`;
+- `/health` reads `80774cd7e`;
+- G5 production passes 8/8 ×2;
+- the TLS smoke passes ×2;
+- ci.yml is 8/8 on both the tranche-u HEAD and master;
+- the ordinal migration is done.
+
+Every Track A wave is now CLOSED.
+
+Ruled:
+1. **KF.W3 opens.** `RC-P(4.1.0)` read TRUE at X.W11.e, act 7: PUBLISHED · TOTALITY · EQUIVALENCE · BAR-DISCHARGED · ROUTED, each ×2. The wave's own law forbids opening on a status word, so KF.W3's open seat re-runs those commands itself against the registry coordinate `4.1.0`. If any conjunct reads FALSE, the wave does not open and the reading is recorded.
+   - **OP-2, the write hand (ruled here):** KF.W3 executes in `/Users/mkbabb/Programming/keyframes.js`, on `master`, under Track B's hand. This is the same site as KF.W13*. Commits are by pathspec only. The pre-existing dirty `demo/components/instrument/timeline/KeyframeTimeline.vue` belongs to a sibling and is never staged, restored or edited.
+   - OP-3 (SS-1), OP-4 (KF.W0), OP-5 (KF.W1), OP-6 (KF.W4) and OP-7 (KF.W2) are discharged: each of those waves is CLOSED in the LEDGER.
+   - **`V = 4.1.0`.**
+2. **O-117 folds into KF.W3 `.c`, the repin:**
+   - Move `@mkbabb/value.js` from exact `4.0.0` to exact `4.1.0`.
+   - Re-home the demo's matrix decomposition at the root, off the retired `decomposeMatrix2D/3D` and `Mat4` exports (`TimelineHoverPreview.vue:276-277`). This uses the library's current surface, with no compat shim.
+   - Re-aim the four test files that assert 4.0.0 behaviour at the 4.1.0 contract. Each re-aimed test asserts the new behaviour, and none is weakened or deleted.
+   - Land the `durationUnit` item named in O-117.
+   - In the same pass, a separate commit repins glass to `10.1.3` exact. That release carries the dock-anchor cure, and fourier and value.js both read it GREEN. O-117's "with glass 10.2.0" was a timing note: 10.2.0 is unpublished, and 10.1.3 is the coordinate today.
+   - kf typecheck, test and its own CI must be GREEN ×2.
+3. **After KF.W3:** keyframes ships through its own deploy path with its post-deploy probe. Then X-W11's G9 is re-read: `npm ls --prefix ../keyframes.js @mkbabb/value.js` must give `4.1.0`. With G9 GREEN, R-A's blocker is gone, and X-W11's designated seat may stamp VERIFIED over the remaining producer-owned honest-REDs. Those honest-REDs are recorded and never counted GREEN.
+4. **fourier `m/w1-bump-migration` ships.** It holds the closed OD19 work plus the glass 10.1.3 adoption (`3bb9da5`, the four cells GREEN ×2, CI `41096126057` green). The procedure:
+   - an ordinary merge to master (no force, reset or rebase);
+   - master CI GREEN;
+   - Pages and the API deploy through fourier's standing path;
+   - `prod-verify` ×2.
+
+   The three retries that were new on 10.1.3 (`f-w14u-vedit` v87, UIA-F-48, the od19-load visualization) are read on the master CI. A repeat is cured at its root before the merge stands, or relayed to glass with an A/B against 10.1.1. Machine law holds: COMPUTE_CONCURRENCY=1, and never mongosh in the capped prod container.
+5. **Out of tranche X (stated, so nothing is silently dropped):**
+   - The Playwright bump (R19-5) moves every browser binary, so every golden. It is the next tranche's dependency pass, not an X act.
+   - The owner's dead-band design rows wait for the owner.
+   - The glass rows (O-104…O-123) ride glass's own releases. Their landings are adopted when they publish.
+
+## §0hc — 2026-11-02: fourier shipped; three production defects found and ruled (delegate, §0ge)
+**Shipped.** fourier master is at `8c5e71a`: an ordinary merge of m/w1, with master CI `41437392137` 5/5 GREEN and the three watched tests passing on the first try.
+- Pages deployed in run `41446028860`.
+- The API deploy was refused at push time, correctly, by inv-28. The orchestrator then dispatched it from the host over loopback: an HMAC-signed `refs/heads/master` body, with the secret read on the host and never printed. Result: `DEPLOY OK 50ef781 → 8c5e71a`, 13:14:18Z. Off-host `/api/health` returned 200 on 69 of 69 checks across the switch.
+- deploy-alert `41451476683` succeeded, and issue #2 is closed.
+- prod-verify: 21/21 GREEN. A second read, 75 s later, had 2 RED: defect 2 below.
+
+**Ruled. Every cure lands at its root and none weakens a gate.**
+1. **compute-cache store fails on non-string keys.** `api/services/compute_cache.py:96` upserts the raw result dict, and results with integer dict keys raise `bson.errors.InvalidDocument` ("key was 4"). The error is swallowed fail-open, so those results are never cached and recompute on every request. That is a hidden performance defect, and the extra load feeds defect 2.
+   - **The cure:** the cache stores, and returns, the result in its wire form, the same JSON encoding the response uses, so a cache hit is byte-identical on the wire to a fresh compute.
+   - **The falsifier:** a test that stores and looks up an integer-keyed result. It is RED before the cure and GREEN after, and it checks wire equality.
+2. **The api_compute limiter.** In `nginx/fourier.conf` (2 r/s, burst 5) the limiter counts CORS preflights and refuses with 503 and no CORS headers, so a real two-image session trips it and the browser cannot read the refusal.
+   - **The cure:** `OPTIONS` is exempt from `api_compute` (an empty limit key, so it is not counted), `limit_req_status 429`, and the 429 carries the same CORS headers as a normal response, so a real limit is readable.
+   - The rates stay where they are.
+   - **The falsifiers:** `nginx -t`; a burst of preflights passes; a POST burst over the limit reads 429 with `Access-Control-Allow-Origin`.
+3. **The deploy trigger fires before CI is green.** The GitHub webhook sends `push`, the host's inv-28 refuses every merge, and nothing retries it after green, so every API deploy has needed a hand dispatch.
+   - **The cure:** a final `ci.yml` job, run only on a push to master and needing every other job, sends the HMAC-signed deploy request after green. The host hook's trigger rule additionally requires a field that only that job sends, so GitHub's push-time delivery no longer fires a refused deploy or a false deploy-alert.
+   - The HMAC secret goes from the host straight into a repo secret, never written or printed.
+   - inv-28 stays as the host's fail-closed check.
+   - The hooks.json change and the secret are orchestrator host acts. The `ci.yml` job is the unit's work.
+4. **The order:** the units, then branch CI GREEN, then an ordinary merge. The merge's own CI deploys the API. Then prod-verify ×2 with the rate window respected, a deploy record OK at the merge, and deploy-alert OK.
+
+## §0hd — 2026-11-02: KF.W3's first set ruled (delegate, §0ge)
+Landed:
+- `.a` call-map: 27 ids; 4.1.0 throws 0 times where 4.0.0 threw 9;
+- `.b` DUAL-1 design: UNIFY-BY-TRUTH, plus the second fork copy at `demo/utils/helpers.ts:75-96`;
+- `.c1` repin to `@mkbabb/value.js` 4.1.0 exact, with O-117's matrix re-home and the four tests re-aimed (kf `c18a9bd9`; typecheck exit 0 ×2; vitest 2290 ×2);
+- `.c3`, `.c4`, `.c5`.
+
+Ruled:
+1. **G-KF3-4, the Triumvirate on retiring the `serializeCssValue` fork: arm (B), totality at ingest, with one named invariant at the boundary.**
+   - **The measured basis:** `.a` shows that on every value the library admits, `serializeCssValue` never returns `!ok` and never throws, at either version. `.b` shows 0 divergent outputs over the 14 fixtures. So a refusal at emit is unreachable from admitted input. The refusal channel belongs at ingest, where kf already has one (the parse facade's Result and the CC-3 refusals).
+   - **The act:**
+     - Every emit site calls value's `serializeCssValue` through one kf-internal helper. On `!ok` that helper raises one named invariant error ("ingest admitted a value the serializer refuses"), which is a broken invariant, not a user refusal.
+     - The fork (`css-text.ts:53-68`, with its `:66` throw) and the demo twin (`helpers.ts:75-96`, with its throw) are deleted. So the count of throw sites does not grow: two forks' throws become one assertion.
+     - Arm (A) is refused. Widening four public signatures (`CSSKeyframesToStrings`, `CompileRefusalReason`, `EntryRefusal`, the sink) for an unreachable case would be contrivance.
+     - Arm (C) alone, a bare throw at each site, is refused.
+   - **The proof the invariant needs:**
+     - A test that every value reaching emit has passed ingest admission. A differential or property test over the fixture corpus plus generated CSS values asserts that ingest admits ⇒ serialize is ok.
+     - A mutant that bypasses ingest must reach the invariant.
+   - **One act, under L-7:**
+     - the retirement;
+     - all 14 census-1 consumers moved;
+     - the `helpers.ts` twin deleted;
+     - the third list serializer at `compile/value/compile.ts:259-268`, named in the census and moved if it is the same concern;
+     - the stale `css-text.ts:13-18` unit prose corrected;
+     - the dated manifest divergence row for `.b`'s 28 whitespace-collapse nodes, all inside `if()` inputs and asserted by nothing;
+     - the INBOX O-11 §B row.
+
+     Then G-KF3-3 ×2.
+2. **ESC-KFW3-d-1 (kf CI RED on `proof:published-surface` (b)):** one docs commit adds the five KF.W5 HEAVY exports to `docs/published-surface.md` (`cssIdent`, `resolveTimingFunction`, `reverseCSSTime`, `serializeTimingFunction`, `timingFunctionEntries`), each with name · HEAVY · a README anchor, or "manifest-only: <reason>". The same commit corrects the stale 4.0.0 pin prose at `:17` to the 4.1.0 coordinate. No allowlist.
+3. **ESC-KFW3-d-2 (UIA-KF-321, the r4dock-share-fallback selection race):** the demo seat is granted `demo/app/dock/menu/SharePopover.vue` to cure the focus-then-select ordering at its root (select after the focus has landed). No retry and no skip. The test must be GREEN alone ×3 and in the whole suite ×2.
+4. **The `registry.ts:33-53` memo:** its premise read TRUE at 4.1.0 (0 of 40 unstable, and `easing(n).value === resolveTimingFunction(n)` for all 40). Delete the kf memo as its own comment schedules, keeping the G-KF3-6 boot fence GREEN. The `.c4` residual `useKeyframeOps.ts:45-46` unit pass-through is cured in the same pass if it is the same concern.
+5. **Then:** kf CI GREEN → deploy-pages → the §6 round-trip → the post-deploy probe ×2, which covers G-KF3-8's pageerror arm → close and a fresh check. The glass 10.1.3 repin (§0hb.2) rides `.d` if it has not landed; check `package.json`. Then X-W11 G9 is re-read and its VERIFIED stamp follows (§0hb.3).
+
+## §0he — 2026-11-02: KF.W3's second set ruled; the keyframes letters booked (delegate, §0ge)
+Landed:
+- `.c2b`: the fork and the demo twin are retired onto value 4.1.0 `./css`. A single invariant seam raises `SerializeInvariantError`. The property test (16 fixture sheets plus 800 generated values) and the bypass mutant read 20/20.
+- `.reg`: the memo is deleted and the boot fence is kept.
+- `.sp`: the SharePopover root cure. The cause was Vue's same-millisecond `_vts` drop of the event.
+- `.ps`: the published-surface rows.
+- Repair 1: the README `compileToEntry` #20 time spelling.
+- **G9 reads `npm ls @mkbabb/value.js` → 4.1.0.**
+
+Ruled:
+1. **ESC-KFW3-r1-1: the kf CI demo roster is RED at 4 of 6 (live-session S5, live-session-mobile M1/M2).** CI has not reached the roster since 2026-10-27. The two readings so far disagree: the check calls it a stale oracle from OD19-K6 `13762e6e`, while the repair found S5 and M2 GREEN at W13X close6 `389e31d2`. So **attribution comes first.**
+   - **The bisect.** Run it in a clean worktree with its own `dist/`, never the shared one, and never including the sibling's dirty `KeyframeTimeline.vue`. Candidates, in order: `389e31d2` → `cc1a8669` → `5c48e3da` (glass 10.1.2) → `13762e6e` (OD19-K6) → `17a5c34d` (glass 10.1.3) → `8ca052ad`/`2f498f0e`/`f59d5259` → `fb87dbcd`. Each step runs the roster ×2.
+   - **If the oracle is stale:** re-aim `scripts/observe/demo/live-session{,-mobile}.mjs` and `scripts/lib/demo-driver.mjs:941` at the at-rest surface fact, the trigger face's `data-surface`. The assertion is never loosened.
+   - **If it is a kf product regression:** cure it at the root in the kf demo dock or sheet files, which are granted.
+   - **If it is glass:** A/B against the prior glass pin, then relay it to glass with the numbers. Hold it with a cited O-id, an expiry at the repin, and a falsifier that turns RED.
+   - **M1 sheet scroll (SHEET-POSITION) is a banked honest-RED.** It keeps its existing relief only if that relief names a producer O-id. Otherwise it is cured. No CI step is skipped.
+2. **UIA-KF-177 residual:** `useKeyframeOps.ts:45-46` drops the authored `<time>` unit. A seat is granted on that concern: thread `durationUnit`/`delayUnit` through the two-argument `reverseCSSTime` and its oracles, with the round-trip falsifier ×2.
+3. **Then the close order of §0hd.5:** kf CI GREEN → deploy-pages → §6 round-trip → post-deploy probe ×2 (G-KF3-8 pageerror arm) → close → fresh check. **Then X-W11's VERIFIED stamp (§0hb.3).**
+4. **The keyframes letters, booked (atlas U/B7 via sci-report-a4, and the Gregg parity pass; owner: this session):**
+   - **K-1:** after `Draggable.handleUp` with snap calls `spring.reset(release, velocity)`, it sets a target equal to the release point. `SpringProgress`'s `set target` returns early on the equal value, so the spring never ticks and never commits. The cure: a velocity reset re-seats the spring, so an equal target with nonzero velocity still runs to rest. Falsifiers: glass `useDragMorph.grab.test.ts` and `SegmentedTabs.glide.spec.ts`, RED before and GREEN after, plus a kf unit test. Glass's 9d93e6097 compensation comes out once this lands.
+   - **KF-1:** `splitText(el, {by:"word"})` keeps trailing punctuation with its word.
+   - **KF-2:** `splitText` never overwrites an element's existing semantic role, so h1–h6 keep the heading outline. It adds a role only where none exists.
+   - **KF-3:** a sampled LUT form of `springTimingFunction`, built for per-frame and many-mark use and for ECharts/CSS (atlas A2(b)).
+   - Each gets a standalone repro first. KF-1 and KF-2 come from code comments and are confirmed before any cure.
+   - **Vehicle:** a keyframes minor release after KF.W3 ships, as its own pass. Reply to sci-report-a4 with the release that carries each row.
+
+## §0hf — 2026-11-02: value.js 4.2.0, a post-X library minor: VJ-1 plus the R-ink-1 export (delegate, §0ge)
+**Inbound:** VJ-1, from the Gregg Museum dashboard via sci-report-82. It asks for a categorical-palette check with colour-vision-deficiency simulation, covering:
+- an OKLab lightness band;
+- a chroma floor;
+- adjacent-pair ΔE under deutan, protan and tritan simulation;
+- a normal-vision ΔE floor;
+- WCAG contrast against the ground.
+
+Gregg runs an unversioned borrowed script, and atlas carries only `deltaEOK` and `wcagContrast` (`atlas/src/charts/scale/oklab.ts:145-162`; atlas row A8, U/B8). The perceptual colour math belongs in value.js, and atlas wraps it.
+
+Ruled:
+1. **Vehicle: `@mkbabb/value.js` 4.2.0.** This is semver-minor and additive, on the `@mkbabb/value.js/color` subpath. It is a post-X cut, so the 4.1.0 tag and X's records are not reopened.
+2. **The surface, as one design passed through a judge:**
+   - `contrastRatio(a, b)`: WCAG 2.x. It is the same predicate `safeAccentColor` uses, exported, so the demo's `guardContrast` twin (R-ink-1, `test/ink.test.ts` drift lock) is deleted onto it in the same cut.
+   - `deltaEOK(a, b)`: Euclidean OKLab, with its scale documented.
+   - `simulateColorVision(color, { kind: "protan" | "deutan" | "tritan", severity = 1, method = "machado" | "vienot" })`: Machado 2009 matrices in linear sRGB, with severity interpolated over the published 0.0–1.0 table; Viénot 1999 as the dichromat form. Gamut clamped and documented.
+   - `checkCategoricalPalette(colors, { ground, scheme, ...thresholds })`: a Result carrying per-check, per-pair findings (measured value, threshold, pass). Every default threshold is cited to a source, or stated as an explicit design choice. None is silent.
+   - Inputs are any CSS `<color>` value.js parses, not hex only.
+3. **Gates:**
+   - reference vectors for the CVD matrices, checked against an independent implementation (for example colorspacious or DaltonLens), to a stated tolerance;
+   - property tests (severity 0 is the identity; severity 1 equals the dichromat form within tolerance);
+   - the existing suite GREEN ×2, typecheck and lint;
+   - the published-surface manifest and the README gaining rows;
+   - CI GREEN, then publish through the standing `release.yml` path with provenance, then the registry read back.
+4. **After publish:** reply to sci-report-82 and sci-report-a4 with the version. Gregg and atlas adopt it on their own pins.
+
+### §0hc.5 — 2026-11-02: the three fourier production defects are CURED and LIVE
+**Merge.** `be252f4`, an ordinary merge of `fix/prod-defects-2026-11-02` (`c17245a`, branch CI `41465697926` 5/5 GREEN), onto `8c5e71a`.
+
+**Ratified (§0hc.3 shape).** The trigger is a separate `deploy-trigger.yml` on `workflow_run: CI completed`, gated on success, master and push, not a final `ci.yml` job. A job inside `ci.yml` runs before its own run has a conclusion, and inv-28 matches only completed green runs. So this shape is the only one that can pass inv-28. Ratified as the root cure.
+
+**Host acts (orchestrator).**
+- `FOURIER_DEPLOY_HMAC` was set from the hook's own secret, piped and never printed.
+- `hooks.json` gained the `deploy_trigger == "ci-green"` clause (backup `hooks.json.bak-0hc3-20261102`, reloaded with USR1). A signed push-shaped body without the field now reads "Hook rules were not satisfied".
+
+**Self-deploy, proven.** Master CI `41474041574` success → deploy-trigger `41482406631` success → host `DEPLOY OK 8c5e71a → be252f4` (16:33:40Z, health gate GREEN) → deploy-alert `41482406628` success, with 0 open deploy-alert issues. No hand dispatch.
+
+**Live readings.**
+- **The api_compute limiter (1):** 20/20 OPTIONS preflights read 200 (previously 6×200 then 503s).
+- **The api_compute limiter (2):** a POST burst read 5×200 then 429. The refusal is `application/problem+json`, with `Access-Control-Allow-Origin: https://fourier.babb.dev`, and readable.
+- **The compute cache:** `POST …/compute/bases` ×2 read 1.20 s then 0.39 s (a hit), with 0 `InvalidDocument` and 0 `compute_cache.store failed` since the deploy.
+- **prod-verify:** 21/21 GREEN ×2, 75 s apart.
+
+**Residual, recorded.** The `edge_reload` refusal detection and the `deploy-switch-smoke` section C landed with the limiter. The `git stash` cross-worktree incident during the seats lost no work; the foreign `stash@{0}` (926ca6a, glass-ui Q.W1 Lane D) is intact in the fourier repo's stash list.
