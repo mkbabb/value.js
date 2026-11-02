@@ -95,12 +95,18 @@ export type PaletteIssue = Readonly<{
     diagnostics?: readonly [ParseIssue, ...ParseIssue[]];
 }>;
 
-const LIGHTNESS = { light: [0.43, 0.77], dark: [0.48, 0.67] } as const;
-const DEFAULT_CHROMA: PaletteBand = { target: 0.10, floor: 0.10 };
-const DEFAULT_CONTRAST: PaletteBand = { target: 3, floor: 1 };
-const DEFAULT_NORMAL: PaletteBand = { target: 0.15, floor: 0.15 };
-const DEFAULT_CVD: PaletteBand = { target: 0.08, floor: 0.06 };
-const DEFAULT_GATE: Readonly<Record<ColorVisionKind, boolean>> = { protan: true, deutan: true, tritan: false };
+// The defaults are handed to every report by reference (settings.* and each
+// finding's threshold), so they are frozen: a caller mutating one report must
+// not move the thresholds of every later call. Overrides are frozen the same way.
+const LIGHTNESS = Object.freeze({
+    light: Object.freeze([0.43, 0.77] as const),
+    dark: Object.freeze([0.48, 0.67] as const),
+});
+const DEFAULT_CHROMA: PaletteBand = Object.freeze({ target: 0.10, floor: 0.10 });
+const DEFAULT_CONTRAST: PaletteBand = Object.freeze({ target: 3, floor: 1 });
+const DEFAULT_NORMAL: PaletteBand = Object.freeze({ target: 0.15, floor: 0.15 });
+const DEFAULT_CVD: PaletteBand = Object.freeze({ target: 0.08, floor: 0.06 });
+const DEFAULT_GATE: Readonly<Record<ColorVisionKind, boolean>> = Object.freeze({ protan: true, deutan: true, tritan: false });
 const KINDS: readonly ColorVisionKind[] = ["protan", "deutan", "tritan"];
 const VISIONS: readonly PaletteVision[] = ["normal", ...KINDS];
 
@@ -149,7 +155,7 @@ function readBand(
     const { target, floor } = value;
     if (!Number.isFinite(target) || !Number.isFinite(floor)) return fail("color_non_finite", "options");
     if (floor > target || floor < min || target > max) return fail("color_out_of_range", "options");
-    return { ok: true, value: { target, floor } };
+    return { ok: true, value: Object.freeze({ target, floor }) };
 }
 
 function readLightness(value: unknown, scheme: "light" | "dark"): Result<readonly [number, number], PaletteIssue> {
@@ -160,7 +166,7 @@ function readLightness(value: unknown, scheme: "light" | "dark"): Result<readonl
     const [min, max] = value as [number, number];
     if (!Number.isFinite(min) || !Number.isFinite(max)) return fail("color_non_finite", "options");
     if (min < 0 || max > 1 || min > max) return fail("color_out_of_range", "options");
-    return { ok: true, value: [min, max] };
+    return { ok: true, value: Object.freeze([min, max] as const) };
 }
 
 function readGate(value: unknown): Result<Readonly<Record<ColorVisionKind, boolean>>, PaletteIssue> {
@@ -173,7 +179,7 @@ function readGate(value: unknown): Result<Readonly<Record<ColorVisionKind, boole
         }
         gate[kind as ColorVisionKind] = on;
     }
-    return { ok: true, value: gate };
+    return { ok: true, value: Object.freeze(gate) };
 }
 
 /** The pair list the mode names, or the explicit list verbatim. */

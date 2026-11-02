@@ -279,3 +279,50 @@ describe("H. unusable input is an err, never a throw", () => {
         expect(issue(["#982a6b"], { ...base, gate: { achromat: true } })).toEqual({ ok: false, error: { code: "color_invalid_input", at: "options" } });
     });
 });
+
+describe("H. a report never aliases mutable shared state", () => {
+    const mutate = (report: CategoricalPaletteReport) => {
+        const s = report.settings as unknown as Record<string, Record<string, unknown> & unknown[]>;
+        const attempts = [
+            () => { s.chroma!.target = 0.5; },
+            () => { s.cvd!.floor = 0.5; },
+            () => { s.normal!.target = 0.9; },
+            () => { s.contrast!.target = 21; },
+            () => { (s.lightness as unknown as number[])[0] = 0.9; },
+            () => { s.gate!.tritan = true; },
+            () => { (report.findings[0]!.threshold as unknown as number[])[1] = 0.1; },
+            () => { (report.findings[1]!.threshold as unknown as Record<string, number>).floor = 0.9; },
+            () => { (report.findings.at(-1)!.threshold as unknown as Record<string, number>).target = 0.9; },
+        ];
+        for (const attempt of attempts) expect(attempt).toThrow(TypeError);
+    };
+
+    it("the default thresholds are frozen: mutating one report leaves the next call identical", () => {
+        const first = of(GREGG_LIGHT);
+        const snapshot = structuredClone(first);
+        expect(Object.isFrozen(first.settings.chroma)).toBe(true);
+        expect(Object.isFrozen(first.settings.lightness)).toBe(true);
+        expect(Object.isFrozen(first.settings.gate)).toBe(true);
+        mutate(first);
+        const second = of(GREGG_LIGHT);
+        expect(second).toEqual(snapshot);
+        expect(second.verdict).toBe("pass");
+        expect(of(GREGG_DARK).settings.lightness).toEqual([0.48, 0.67]);
+    });
+
+    it("override thresholds are frozen the same way", () => {
+        const overrides = {
+            lightness: [0.4, 0.8] as const,
+            chroma: { target: 0.1, floor: 0.05 },
+            contrast: { target: 3, floor: 1 },
+            normal: { target: 0.15, floor: 0.1 },
+            cvd: { target: 0.08, floor: 0.06 },
+            gate: { tritan: true },
+        };
+        const first = of(GREGG_LIGHT, overrides);
+        const snapshot = structuredClone(first);
+        mutate(first);
+        expect(of(GREGG_LIGHT, overrides)).toEqual(snapshot);
+        expect(overrides.chroma).toEqual({ target: 0.1, floor: 0.05 });
+    });
+});
