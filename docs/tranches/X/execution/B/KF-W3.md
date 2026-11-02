@@ -463,3 +463,34 @@ Readings the Close left RED, also reproduced: G-KF3-4 RED (⟨`git grep -n seria
 | INFO | `entry-roundtrip` strip regex widened to `\d*\.?\d+m?s` | `d4148cdc` diff | follows the UIA-KF-177 ruled spelling; none |
 
 **LEDGER**: not promoted. The row stays **PARTIAL**, and one event line is appended.
+
+## Repair 1
+
+**Seat**: REPAIR 1 (`claude-opus-5-5`), 2026-11-02. Read: the spec whole; this record's header through the Unit plan, `.c2`'s receipt, and §Check 1. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, §0hb.1; untouched) ⇒ **0 inherited paths**. kf `HEAD` = `origin/master` = `d4148cdc`.
+
+**Ruling search (the HIGH's cure precondition)**: ⟨`awk 'NR>4988 && /serializeCssValue|\(A\) widen|boundary throw|ESC-KFW3/' COHESION.md`⟩ → **no output**. The newest sections are §0hb (KF.W3 opens) and §0hc (fourier). No owner/arbiter ruling on `.c2`'s (A)/(B)/(C) exists. The Check 1 cure is conditional on that ruling, and the spec forbids every unruled substitute: G-KF3-4's falsifier rejects a re-implementation under another name, and `.b` §4(iii) bars a new throw, wrapper, fallback or try/catch.
+
+### Defect → disposition
+
+| # | severity | defect | disposition | commit |
+| --- | --- | --- | --- | --- |
+| 1 | HIGH | G-KF3-4 RED with no relief; the fork retirement has not landed | **ESCALATED, not cured.** The only conforming cure (the ONE L-7 act) needs the owner/arbiter's pick of `.c2` (A) widen kf's public signatures, semver-major · (B) totality at ingest · (C) a ruled typed boundary throw. All three are kf public-surface decisions outside a repair seat's hand. Landing the channel-bearing half alone would be a line-count discharge (LAW A) and would split L-7's family | none (product) |
+| 2 | MINOR | kf CI RED on R-2 (`proof:published-surface`), so deploy, §6 and the G-KF3-8 pageerror arm are owed | **ESCALATED.** The cure is ESC-KFW3-d-1's owner publication-doc ruling, which no single command supplies. It is not a close gate | none |
+| 3 | MINOR | vitest ×2 intermittent on UIA-KF-321 (`SharePopover.vue` select race) | **ESCALATED (out of bounds).** `demo/app/dock/menu/SharePopover.vue` is in no KF.W3 §B.2 row and no unit writable set, and the item is a different concern (demo focus ordering vs parser consumption), so the §0bt adjacent-line rule does not reach it. Owner: the KF demo seat (ESC-KFW3-d-2). The cure is a root focus-then-select ordering fix, more than one command | none |
+| 4 | INFO | `entry-roundtrip` strip regex widened | no cure owed | — |
+
+**Cured: 0.** No kf product byte written, and no INBOX row (L-7: the O-11 §B row rides only with the retirement).
+
+### Gate re-reading (no cure landed, so no gate could move; G-KF3-4 re-read ×2 at kf `d4148cdc`)
+
+- ⟨`git grep -c '\bserializeCssValue\b' HEAD -- src/animation/compile/emit/css-text.ts`⟩ → `6` ×2 (fork `:59`, self-calls `:61 :66`, callers `:104 :121 :127`)
+- ⟨`git grep -n unserializable HEAD -- src/animation/compile/emit/css-text.ts demo/utils/helpers.ts`⟩ → `css-text.ts:72` + `helpers.ts:93`, ×2 (both throws stand)
+- consumers importing `serializeCssValue` from `@mkbabb/value.js/css` → `0` ×2
+- ⟨`grep -c 'O-11 §B' docs/tranches/V/coordination/INBOX.md`⟩ → `0`
+- ⟨`gh run list -R mkbabb/keyframes.js --workflow ci.yml -L 1`⟩ → `41450770277` push `master` **failure** (unchanged)
+
+**G-KF3-4 RED → RED.** G-KF3-3 was not re-run: no byte changed, and Check 1's `21 files / 306 tests` ×2 at `d4148cdc` stands. Every other gate keeps Check 1's reading.
+
+**Escalations (to owner/arbiter)**: (E-R1-1) rule `.c2` (A)/(B)/(C); after that ruling a KF.W3 repair seat lands the L-7 act and re-runs G-KF3-3 ×2. (E-R1-2) the ESC-KFW3-d-1 publication-doc ruling, then a `.d` repair. (E-R1-3) UIA-KF-321 goes to the KF demo seat (ESC-KFW3-d-2).
+
+**Adjacent edits**: none. **LEDGER**: the row stays **PARTIAL**, and one event line is appended.
