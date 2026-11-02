@@ -5099,7 +5099,8 @@ Ruled:
    - **KF-1:** `splitText(el, {by:"word"})` keeps trailing punctuation with its word.
    - **KF-2:** `splitText` never overwrites an element's existing semantic role, so h1–h6 keep the heading outline. It adds a role only where none exists.
    - **KF-3:** a sampled LUT form of `springTimingFunction`, built for per-frame and many-mark use and for ECharts/CSS (atlas A2(b)).
-   - Each gets a standalone repro first. KF-1 and KF-2 come from code comments and are confirmed before any cure.
+   - **KF-4** (booked 2026-11-02, Gregg pass 3 via sci-report-82; consumer gregg; ledger `~/Programming/gregg/docs/ROOT-FIXES.md`): `flip` (`src/animation/orchestration/flip.ts`) exposes no cancel. A second filter click in Gregg's How section waits out the running 680 ms re-sort. The cure: `flip` returns a cancellable handle, and a re-targeted flip on an element already in flight starts from its current interpolated rect, so an interrupt glides from where the element is rather than snapping or queueing. Falsifier: a mid-flight re-target whose first frame equals the interrupted frame's rect (within 0.5 px), RED before and GREEN after. The related "rows jump on By attendance → By date" symptom is Gregg-side until pass 4 roots it in `flip`.
+   - Each gets a standalone repro first (KF-4's is a two-target interrupt). KF-1 and KF-2 come from code comments and are confirmed before any cure.
    - **Vehicle:** a keyframes minor release after KF.W3 ships, as its own pass. Reply to sci-report-a4 with the release that carries each row.
 
 ## §0hf — 2026-11-02: value.js 4.2.0, a post-X library minor: VJ-1 plus the R-ink-1 export (delegate, §0ge)
