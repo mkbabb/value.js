@@ -1413,3 +1413,67 @@ SERVED MODEL: claude-opus-5-5. Substrate: kf `HEAD` = `origin/master` = `8294a71
 **Escalations**: none new (ESC-KFW3-d3-1 stands). **Adjacent edits**: none.
 
 **Four-verb line**: IMPLEMENTED — **NOT advanced**. Spec §State says *"gates green + bytes landed in the named execution site stamps this"*, and kf CI is RED with the deploy, §6 and probe acts still owed. VERIFIED is not this seat's to stamp. The row stays **PARTIAL**.
+
+## Check 1 (pass 1 after Close 5; record sequence Check 7) — 2026-11-02 (fresh adversarial L-20, VERIFY-ONLY, `claude-opus-5-5`)
+
+SERVED MODEL: claude-opus-5-5. Substrate: kf `HEAD` = `origin/master` = `8294a715` (⟨`git fetch && git log -1 origin/master`⟩; no kf commit since Close 5); vjs `337fd9d40`. I authored none of the wave's bytes, closes, checks or repairs. Crash-recovery: ⟨`git status --porcelain -- <record> <LEDGER>`⟩ → empty; the kf tree carries `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, §0hb.1; never staged) ⇒ **0 inherited paths**.
+
+**Verdict: NOT-CONFORMANT.** Every GREEN Close 5 claims reproduces at `8294a715`, and the RESUME 3 commits are in-set and unmasked. But §0he.3 (restating §0hd.5) rules the close order *kf CI GREEN → deploy-pages → §6 → probe ×2 → close*, and kf CI is still not GREEN: run `41504991466`'s `library gates` job is `cancelled` by the `ci.yml:31` `timeout-minutes: 4` budget, deploy-pages `41505833861` is `skipped`, and §6 + the post-deploy probe ×2 were never run. ESC-KFW3-d3-1 has no ruling (⟨`grep -n ESC-KFW3-d3-1 docs/tranches/X/COHESION.md`⟩ → 0, staged index included). The row is **not** promoted.
+
+### Axis 1 — reproduction (kf `8294a715`; every run through `guarded`, vitest `--maxWorkers=2`, strictly sequential)
+
+| gate | reading |
+| --- | --- |
+| G-KF3-1 | ⟨`grep -rln RC-P docs/tranches/X/fourier/ \| wc -l`⟩ → `1`; `evidence/W3/rc-p-4.1.0.md` present; `evidence/W3/` holds 14 files — **GREEN** |
+| G-KF3-2 | ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ sha1 `d488535c9bfc` = ⟨`npm view @mkbabb/value.js@4.1.0 dist.shasum`⟩ `d488535c9bfc`; probe sha256 `77678a574d7c6b11` (unmodified), symlinked into the untarred scratch mirror; ⟨`npm_config_ignore_scripts=true guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 → `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` · `GREEN — every public parser is total.` rc 0 both — **GREEN ×2** |
+| G-KF3-3 | roster re-derived at HEAD (spec's `git grep -l -E …` ∪ `git grep -l serialize-value`, `.test.ts`) → `19`; ⟨`xargs guarded -- npx vitest run --maxWorkers=2 < roster`⟩ ×2 → `Test Files 19 passed (19)` · `Tests 235 passed (235)` both — **GREEN ×2** |
+| G-KF3-4 | `unserializable` in src+demo → `0`; fork defs (`export (const\|function) serializeCssValue`) → `0`; `@mkbabb/value.js/css` imports → `serialize-value.ts:2` · `timelineEngine.ts:2`; pin `package.json:71` `"4.1.0"`; INBOX `O-11 §B` → `1` — **GREEN** |
+| G-KF3-5 | one def `css-text.ts:33`; ⟨`git grep -n "value.js's OWN\|published 0.12.0 inverse" HEAD -- src test`⟩ → `internal/leaves.ts:8` only (`/math` subpath; outside the census-2 predicate) — **GREEN** (discharge (b)) |
+| G-KF3-6 + boot fence + invariant/bypass mutant | INBOX `O-11 §D2` → `1`; 5-file fence (`_root/public-surface` · `compile/easing-identity` · `compile/serialize-invariant` · `compile/timing-function-names` · `orchestration/orchestration-api`) ×2 → `Test Files 5 passed (5)` · `Tests 130 passed (130)` both — **GREEN ×2** |
+| G-KF3-7 | `evidence/W3/CALL-MAP.md` present — **GREEN** |
+| UIA-KF-177 | the 3 files ×1 → `Test Files 3 passed (3)` · `Tests 19 passed (19)` — **GREEN** (Close 5 banked ×2) |
+| kf `npm run check` | ⟨`guarded --light -- npm run check`⟩ ×2 → rc 0 both — **GREEN ×2** |
+| kf vitest whole | ⟨`guarded --timeout 25 -- npx vitest run --maxWorkers=2`⟩ ×1 → rc 0, `Test Files 296 passed \| 5 skipped (301)` · `Tests 2318 passed \| 2 expected fail \| 14 skipped (2334)` = Close 5's figure exactly (Close 5 banked ×2) — **GREEN** |
+| G9 | ⟨`npm ls @mkbabb/value.js`⟩ → `4.1.0` + glass's copy `deduped` — **GREEN** |
+| demo roster (CI) | ⟨`gh run view 41504991466 --json jobs`⟩ → `demo correctness (browser roster) success` — **GREEN** (CI reading; not re-run locally, a browser run) |
+| kf CI (library job) | same run → `library gates … cancelled` 18:54:45Z–18:59:25Z (4m40s); its steps `npm ci` … `publish boundary` all `success`; `ci.yml:31` reads `timeout-minutes: 4`; ⟨`gh run list -L 5`⟩ → no newer run — **RED** |
+| deploy-pages · §6 · probe ×2 | `41505833861` → `skipped`; not run — **OWED** |
+
+### Axes 2–9
+
+- **(2) Bounds.** ⟨`git show --stat`⟩: kf `2582da86` = `scripts/lib/demo-driver.mjs` · `scripts/observe/demo/live-session{,-mobile}.mjs` + the two declared §0bt one-line adjacents (`subject-animates.mjs`, `usability.mjs`); kf `608748e2` = `live-session-mobile.mjs`; kf `8294a715` = `useKeyframeOps.ts` + new `test/demo/instrument/uia-kf-177-store-roundtrip.test.ts` — all inside the §0he.1/§0he.2 grants. vjs `9edd3d8d3` · `17ac66620` · `506c35bcf` · `2076808c3` touch only the record, LEDGER and `evidence/W3/**`. ⟨`git diff --stat fb87dbcd..8294a715 -- package.json package-lock.json`⟩ → empty (no pin moved). ⟨`git log --oneline 9edd3d8d3^..HEAD -- scripts/dev/dev.sh \| wc -l`⟩ → `0`. **Clean.**
+- **(3) Masking.** The `.u177` diff threads `durationUnit`/`delayUnit` into the two-argument `reverseCSSTime` (root cure, no fallback). ⟨`git show 2582da86 608748e2 \| grep -nE '^\+.*(skip\|catch\|allow\|\|\| true\|tolerance\|optional)'`⟩ → no output. The `.bis` re-aims read the at-rest dock fact and the live detent rung; no assertion was loosened. **Clean.**
+- **(4) Commit families.** One kf commit per meaning (`.bis` oracle re-aim · `.bis` M1 · `.u177` cure+falsifier), one record commit per seat. **Clean.**
+- **(5) E-3.** ⟨`git diff --stat 9edd3d8d3^..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/conformance`⟩ → empty. **Held.**
+- **(6) Mail.** INBOX mtime `Nov 2 10:40`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ over value V/ + V/coordination · glass BK/coordination + BL + BL/audit · kf V/coordination → glass `BL/FORMATION-PROGRESS.md` + `BL/audit/INBOUND.md` only. Their added lines since 10:40 (`97352c0e8` … `b4b6b76ee`) carry one `keyframes` hit: the O-119 Gregg inventory row, whose keyframes item is KF-4, booked by §0he.4 to the post-KF.W3 keyframes minor. No INBOX status cell reads UNREAD in KF.W3 scope (I-79 is routed by §0he.4 outside this wave). **UNREAD in scope: 0.**
+- **(7) Four-verb line.** IMPLEMENTED not advanced; row PARTIAL. Lawful while §0he.3's close order is unfinished.
+- **(8) Goal criterion.** MET at the bytes: `CALL-MAP.md` spans both organs; exactly one `serializeCssValue` provider reachable from the emit tier (value's `./css` through `serialize-value.ts`; 0 kf fork defs); exactly one `reverseAnimationShorthand` (`css-text.ts:33`) with its provider prose true (discharge (b)).
+- **(9) Published figures.** Reproduce: 0/1548, sha1 `d488535c9bfc`, 19/235, 5/130, 3/19, 296|5 (301) · 2318|2|14 (2334), 14 evidence files, 4m40s library job with all steps success, deploy skipped.
+
+### Axis 10 — honest-RED adjudication
+
+**kf CI `library gates` cancelled (ESC-KFW3-d3-1) → deploy-pages skipped → §6 + probe ×2 owed: UNRELIEVED.**
+- **Producer-owned?** No. The budget is kf's own `.github/workflows/ci.yml:31`.
+- **Routed to a later wave by the spec?** No. The spec's seven close gates are G-KF3-1…7 (all GREEN); the CI → deploy → §6 → probe order is COHESION §0hd.5 / §0he.3's ruled close conjunct, and no §Excluded row, lock or cross-edge routes it elsewhere.
+- **A spec-named honest-RED id?** No.
+- **Owner.** Close 5's residual 1 names it: orchestrator ruling (a budget fitting the measured step sum, or a job split; no step skipped), then the `.d3` re-run from act 2. No ruling has landed. The RED is not a product defect of this wave (every step is `success`), but it is not relieved, and §0he.3 binds the close to CI GREEN.
+
+G-KF3-8's pageerror arm is a FLOOR, outside the close set. **Honest-RED set: none.**
+
+### Successor conjuncts
+
+⟨`grep -nE '[Oo]pens after' docs/tranches/X/*/waves/*.md \| grep 'KF\.W3'`⟩ → 3 hits: KF-W10 `:47`, KF-W4 `:55`, KF-W7 `:61`. Each is a citation inside a provenance or bounds cell, not a conjunct on KF.W3 (KF-W10 `:47` states its *"Opens after"* is not widened by it). **No successor wave is gated on this row.** The dependant X-W11 VERIFIED stamp (§0hb.3, Track A) has its `npm ls → 4.1.0` conjunct GREEN and its deploy conjunct RED: **lawfully blocked**.
+
+**Count**: 14 claimed GREENs reproduced (G-KF3-1…7, the invariant/bypass fence, UIA-KF-177, check, vitest whole, G9, demo roster on CI, the library job's 11 steps); 0 claimed GREENs failed.
+
+### Register
+
+| severity | claim | receipt | cure |
+| --- | --- | --- | --- |
+| HIGH | §0he.3 / §0hd.5's ruled close order is unfinished: kf CI is not GREEN (library job `cancelled` at the 4-minute `ci.yml:31` budget, every step `success`), so deploy-pages was skipped and §6 + the post-deploy probe ×2 (G-KF3-8 pageerror arm) never ran. No spec relief, no honest-RED id, not producer-owned; ESC-KFW3-d3-1 unruled. | CI `41504991466` (library `cancelled` 4m40s); deploy `41505833861` `skipped`; ⟨`grep -n ESC-KFW3-d3-1 COHESION.md`⟩ → 0 | Orchestrator rules ESC-KFW3-d3-1 (budget fitting the measured sum, or a job split; no step skipped); then the `.d3` re-run: CI GREEN → deploy-pages → §6 → probe ×2 → close → fresh check |
+| MINOR | `demo/state/animationOptionsStore.ts:95-96` seeds fresh entries as `${duration}ms` (lossless, not the authored unit) | Close 5 residual 2 | post-W3 keyframes minor (§0he.4) or a granted seat |
+| INFO | `scripts/gates/visual/index.mjs` + `register-census.mjs` pass null to `navToScene` (12 s waits, not assertions) | Close 5 residual 3 | post-W3 keyframes minor |
+| INFO | throw sites 2 → 2 | Close 5 residual 4 | KF.W7 / KF.W2 posture (L-5) |
+| INFO | the sibling's dirty `KeyframeTimeline.vue` is in every local run's tree | ⟨`git status --porcelain`⟩ | none |
+
+**LEDGER**: not promoted; the row stays PARTIAL; an event line is appended.
