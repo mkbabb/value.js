@@ -1,0 +1,343 @@
+SERVED MODEL: claude-opus-5-5
+# KF.W3.bis — ESC-KFW3-r1-1 attribution bisect (COHESION §0he.1): demo roster live-session (S5) + live-session-mobile (M1/M2), x2 per step
+# Method: ONE clean detached kf worktree /Users/mkbabb/Programming/.kf-bis-wt (durable, non-/tmp; never the sibling-dirty tree), per step:
+#   git checkout --detach <c>; npm ci when package-lock changed (guarded); rm -rf dist; guarded npm run gh-pages (own dist/);
+#   KF_PLAYWRIGHT_DIR=<value.js> guarded --timeout 25 -- npm run demo:correctness -- --only=live-session,live-session-mobile --timeout=600   (x2)
+# Order (§0he.1, as ruled): 389e31d2 -> cc1a8669 -> 5c48e3da -> 13762e6e -> (13762e6e^, added: the OD19-K6 parent) -> 17a5c34d -> 8ca052ad -> 2f498f0e -> f59d5259 -> fb87dbcd  ·  then the glass A/B pair 8876e82e^ (glass 10.1.0) -> 8876e82e (glass 10.1.1, adopted; no kf sheet file in its diff)
+# Chronology note (git log): 389e31d2 (10-16) < 13762e6e^ < 13762e6e (10-19) < cc1a8669 (10-27) < 5c48e3da (10-27) < 17a5c34d < 8ca052ad < 2f498f0e < f59d5259 < fb87dbcd (11-02); the ruled order is not chronological at cc1a8669/13762e6e.
+# Pins: 389e31d2/13762e6e glass 10.1.0 value 4.0.0 · cc1a8669 glass 10.1.1 · 5c48e3da glass 10.1.2 · 17a5c34d..fb87dbcd glass 10.1.3 value 4.1.0
+# Lines below: every ✗ line + the REPORT line of each run, verbatim (cut -c1-260).
+## step 389e31d2
+npm ci rc=0
+build rc=0
+### run1
+  ✗ B7 the glass ::before carry NO bloom at rest — FAIL · {"totalGlass":62,"maxRest":0.16,"bloomers":["cube:dock-icon-button glass-s(op=0.16)","amiga:dock-icon-button glass-s(op=0.16)","square:dock-icon-button glass-s(op=0.16)","easing:dock-icon-button glass-s
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 742px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — PASS · {"roster":7,"visited":8,"sceneFails"
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+  ✓ M2 dock SWITCH: the touch combobox commit landed cube→easing per the expected-destination-state predicate (machine=easing, control-tab "
+### run2
+  ✗ B7 the glass ::before carry NO bloom at rest — FAIL · {"totalGlass":62,"maxRest":0.16,"bloomers":["cube:dock-icon-button glass-s(op=0.16)","amiga:dock-icon-button glass-s(op=0.16)","square:dock-icon-button glass-s(op=0.16)","easing:dock-icon-button glass-s
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 742px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — PASS · {"roster":7,"visited":8,"sceneFails"
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+  ✓ M2 dock SWITCH: the touch combobox commit landed cube→easing per the expected-destination-state predicate (machine=easing, control-tab "
+## step cc1a8669
+npm ci rc=0
+build rc=0
+### run1
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=179px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+### run2
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=288px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+## step 5c48e3da
+npm ci rc=0
+build rc=0
+### run1
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=278px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+### run2
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=179px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+## step 13762e6e
+npm ci rc=0
+build rc=0
+### run1
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+### run2
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+## step 13762e6e-parent
+build rc=0
+### run1
+  ✗ B7 the glass ::before carry NO bloom at rest — FAIL · {"totalGlass":62,"maxRest":0.16,"bloomers":["cube:dock-icon-button glass-s(op=0.16)","amiga:dock-icon-button glass-s(op=0.16)","square:dock-icon-button glass-s(op=0.16)","easing:dock-icon-button glass-s
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — PASS · {"roster":7,"visited":8,"sceneFails"
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+  ✓ M2 dock SWITCH: the touch combobox commit landed cube→easing per the expected-destination-state predicate (machine=easing, control-tab "
+### run2
+  ✗ B7 the glass ::before carry NO bloom at rest — FAIL · {"totalGlass":62,"maxRest":0.16,"bloomers":["cube:dock-icon-button glass-s(op=0.16)","amiga:dock-icon-button glass-s(op=0.16)","square:dock-icon-button glass-s(op=0.16)","easing:dock-icon-button glass-s
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — PASS · {"roster":7,"visited":8,"sceneFails"
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+  ✓ M2 dock SWITCH: the touch combobox commit landed cube→easing per the expected-destination-state predicate (machine=easing, control-tab "
+## step 17a5c34d
+npm ci rc=0
+build rc=0
+### run1
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=302px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+### run2
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=179px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+## step 8ca052ad
+build rc=0
+### run1
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=245px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+### run2
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=179px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+## step 2f498f0e
+build rc=0
+### run1
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=274px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+### run2
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=286px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+## step f59d5259
+build rc=0
+### run1
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=282px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+### run2
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=241px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+## step fb87dbcd
+build rc=0
+### run1
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=179px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+### run2
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=283px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+## step 8876e82e-parent
+npm ci rc=0
+build rc=0
+### run1
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+### run2
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+## step 8876e82e
+npm ci rc=0
+build rc=0
+### run1
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=179px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+### run2
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  passed: 0/2
+  ✗ failed: live-session, live-session-mobile
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=179px) — the M2 re-open latch holds on a real touch co
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+## SUMMARY (chronological; 1 = the clause's ✓ line present in that run, 0 = absent/✗; read by grep -c from the raw runs)
+389e31d2 r1 S5=1 M2=1 M1open=0 M1scroll=0 M1close=1 B7red=1 passed:0/2
+389e31d2 r2 S5=1 M2=1 M1open=0 M1scroll=0 M1close=1 B7red=1 passed:0/2
+13762e6e-parent r1 S5=1 M2=1 M1open=0 M1scroll=0 M1close=1 B7red=1 passed:0/2
+13762e6e-parent r2 S5=1 M2=1 M1open=0 M1scroll=0 M1close=1 B7red=1 passed:0/2
+13762e6e r1 S5=0 M2=0 M1open=0 M1scroll=0 M1close=1 B7red=0 passed:0/2
+13762e6e r2 S5=0 M2=0 M1open=0 M1scroll=0 M1close=1 B7red=0 passed:0/2
+cc1a8669 r1 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+cc1a8669 r2 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+5c48e3da r1 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+5c48e3da r2 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+8876e82e-parent r1 S5=0 M2=0 M1open=0 M1scroll=0 M1close=1 B7red=0 passed:0/2
+8876e82e-parent r2 S5=0 M2=0 M1open=0 M1scroll=0 M1close=1 B7red=0 passed:0/2
+8876e82e r1 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+8876e82e r2 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+17a5c34d r1 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+17a5c34d r2 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+8ca052ad r1 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+8ca052ad r2 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+2f498f0e r1 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+2f498f0e r2 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+f59d5259 r1 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+f59d5259 r2 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+fb87dbcd r1 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+fb87dbcd r2 S5=0 M2=0 M1open=1 M1scroll=0 M1close=0 B7red=0 passed:0/2
+## POST-CURE (kf 608748e2 bytes = clean worktree fb87dbcd + 2582da86 + 608748e2 script hunks, cmp-verified); full roster: KF_PLAYWRIGHT_DIR=<value.js> guarded --timeout 40 -- npm run demo:correctness -- --timeout=600 (x2)
+### cure run1
+  passed: 6/6
+  ✓ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — PASS · {"roster":7,"visited":8,"sceneFails":[],"pass":true}
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=1, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet SCROLL: a real touch swipe scrolls the open sheet to below-fold content (scrollTop=179px of 179px overflow)
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  ✓ M2 dock SWITCH: the touch combobox commit landed cube→easing per the expected-destination-state predicate (machine=easing, surface "easing" PROJECTS — the T.B2-derived triad's tell, the #25 asymme
+### cure run2
+  passed: 6/6
+  ✓ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — PASS · {"roster":7,"visited":8,"sceneFails":[],"pass":true}
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=1, spring-settled — not a fixed wait) on 390×844
+  ✓ M1 sheet SCROLL: a real touch swipe scrolls the open sheet to below-fold content (scrollTop=179px of 179px overflow)
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  ✓ M2 dock SWITCH: the touch combobox commit landed cube→easing per the expected-destination-state predicate (machine=easing, surface "easing" PROJECTS — the T.B2-derived triad's tell, the #25 asymme
+### kf npm run check (guarded --light) x2
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)

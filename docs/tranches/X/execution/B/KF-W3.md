@@ -1222,3 +1222,76 @@ Machine law:
   6. Write the CLOSE-RECEIPTS addendum, a `## Close 4`, and the LEDGER cells + an event line, then hand to a fresh check.
 
 ## RESUME 3 — Unit receipts
+
+### KF.W3.bis
+
+SERVED MODEL: claude-opus-5-5. Sections: COHESION §0he.1 (ESC-KFW3-r1-1) · §0hd.5 · Check 3 Register HIGH. **Status: DONE** (the stale-oracle arm, both halves; no kf product byte, no glass row).
+
+**Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, §0hb.1; never staged, never in the worktree). The vjs evidence/W3, record and INBOX were clean ⇒ **0 inherited paths**.
+
+**Act 1: the bisect** (§0he.1, in a clean worktree).
+- Worktree: ⟨`git worktree add --detach /Users/mkbabb/Programming/.kf-bis-wt 389e31d2`⟩. It is durable and outside /tmp.
+- Per step: `git checkout --detach <c>`; `guarded npm ci` when the lock changed; `rm -rf dist`; `guarded npm run gh-pages`, so each step has its own `dist/`.
+- Then ⟨`KF_PLAYWRIGHT_DIR=<value.js> guarded --timeout 25 -- npm run demo:correctness -- --only=live-session,live-session-mobile --timeout=600`⟩ ×2.
+- The ruled order ran in full. I added two steps: `13762e6e^`, the OD19-K6 parent, and the glass A/B pair `8876e82e^` → `8876e82e`.
+- The bank is `evidence/W3/bis-bisect-roster.log.txt`: every ✗ and REPORT line per run, plus a chronological summary read by `grep -c` from the raw runs. The runner is `evidence/W3/bis-step.sh`.
+
+Chronological readings (1 = the clause's ✓ line present; every step identical across its 2 runs; every step `passed: 0/2`):
+
+| step (glass) | S5 | M2 SWITCH | M1 OPEN | M1 SCROLL | M1 CLOSE | B7 |
+| --- | --- | --- | --- | --- | --- | --- |
+| `389e31d2` (10.1.0) | 1 | 1 | 0 | 0 | 1 | RED |
+| `13762e6e^` (10.1.0) | 1 | 1 | 0 | 0 | 1 | RED |
+| **`13762e6e`** OD19-K6 (10.1.0) | **0** | **0** | 0 | 0 | 1 | — |
+| `8876e82e^` (10.1.0) | 0 | 0 | 0 | 0 | 1 | — |
+| **`8876e82e`** (10.1.1) | 0 | 0 | **1** | 0 | **0** | — |
+| `cc1a8669` (10.1.1) · `5c48e3da` (10.1.2) · `17a5c34d` `8ca052ad` `2f498f0e` `f59d5259` `fb87dbcd` (10.1.3) | 0 | 0 | 1 | 0 | 0 | — |
+
+The ruled order is not chronological: `13762e6e` (10-19) predates `cc1a8669` (10-27). The table re-sorts it. B7 is the banked honest-RED B7 SPECULAR-REST. It measured the dock-level `dock-icon-button`s that `13762e6e` removed, and it is outside this unit.
+
+**Act 2: attribution.** Both halves are stale oracles. Neither is a kf product regression, a glass regression, or KF.W3's.
+- **S5 + M2 = `13762e6e` (OD19-K6).** Both turn GREEN → RED across one kf edge, with glass at 10.1.0 on both sides. Repair 2's reading holds, and the two §0he.1 readings reconcile: S5/M2 *were* GREEN at `389e31d2`, and `13762e6e` is where they broke.
+  - Mechanism: the four dock-level surface items moved into a glass `DropdownMenu`. Its rows mount only while the menu is open, and they carry no `aria-label`.
+  - OD19 repair 1 `2457f241` re-spelled the selector but kept the at-rest read.
+  - So `demo-driver.mjs` `navToScene` (brief anchor `:941`, true bytes `:936-945`), S5's `assertEntry`/`dockSwitchTo` (`live-session.mjs:910,958`) and M2 (`live-session-mobile.mjs:767,785`) had no subject. The product state they meant is present on the trigger face (`ChromeDock.vue:554-555`).
+- **M1 = glass 10.1.0 → 10.1.1.** It flips at `8876e82e^` → `8876e82e`. That diff's kf files are ChromeDock/scenes/tests/observe scripts, with no sheet file. 10.1.1's G-1 made `SheetContent` `position: fixed`, which *cured* SHEET-POSITION (O-74c; `ControlsPaneWrapper.vue` note since `f8d6077b`).
+  - The O-74c relief therefore no longer names a live producer defect, so M1 is **cured, not held**.
+  - Measured ×2 at `fb87dbcd`: ⟨`guarded --timeout 10 -- node bis-m1probe.mjs`⟩. One browser, one context per run, both closed in `finally`. Bank: `evidence/W3/bis-m1-sheet-geometry-fb87dbcd.raw.txt`.
+  - PEEK (`--detent-t` 0.12) sits at `top 545 / h 171` = **visible 0.354**, above the probe's Drawer-era cuts: open > 0.35, closed < 0.30.
+  - So M1 OPEN skipped its expand drag on a parked sheet (`geo.open` true at PEEK). SCROLL then swiped the 85 px PEEK body, and CLOSE could never read closed.
+  - The product walks PEEK → FULL (t 1, top 107) → OPEN (0.36) → PEEK on real touch drags. A 360 px drag from FULL lands one rung down, on OPEN. A 480 px drag lands on PEEK (the measured FULL → PEEK travel is 438 px).
+- **Glass arm:** not taken. There is no glass regression, so there is **no INBOX O-n row**.
+- **kf-product arm:** not taken. No dock or sheet byte was touched.
+
+**Act 3: the cures** (kf, oracle arm). One commit per meaning, pathspec commits, not pushed; the push is `.d3`'s.
+- **kf `2582da86`: the surface oracle reads the at-rest face.**
+  - The read is now `[data-dock-surface-trigger]` → `data-surface`. Its subject is `faceItem`, the selected surface the pane holds, which `test/demo/app/dock-surface-items.test.ts` already asserts.
+  - Paths: `scripts/lib/demo-driver.mjs` (`navToScene(page, sceneId, expectedSurface)`), `scripts/observe/demo/live-session.mjs` and `live-session-mobile.mjs` (the M2 hunks).
+  - S5 `SWEEP_META` expects surface ids: controls ×3, easing (= Curve), spring (= Physics), timeline; home expects no face. M2 expects a face carrying a surface. Same predicates, re-aimed.
+  - Three in-set easing callers passed `null`, a wait that only resolved because the read was stale. They now name `"easing"`.
+  - **Adjacent edits (§0bt):** `scripts/observe/demo/subject-animates.mjs:254` and `scripts/observe/demo/usability.mjs:426`, `"Controls"` → `"controls"`. These are the twin call sites of the re-aimed `navToScene`.
+- **kf `608748e2`: M1 reads the sheet's live detent rung.**
+  - `open` = `--detent-t` ≥ `SHEET_OPEN_T` 0.36 **and** the old visible > 0.35 floor, which is kept.
+  - `closed` = the `SHEET_PEEK_T` 0.12 rung. Both are the portrait `ControlsPaneWrapper.vue` `PEEK_SNAP`/`OPEN_SNAP`.
+  - The collapse drag is 480 px (the measured travel). RE-OPEN's wait and predicate read the same rung fact.
+- **Not used:** no clause removed, no assertion loosened, no skip, no allowlist, no producer selector.
+- **Write-then-measure:** the five committed blobs at `608748e2` `cmp` byte-equal to the worktree files that ran the gates below.
+
+**Gates (BEFORE → AFTER).**
+
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| roster S5 / M1 / M2, ×2 per bisect step | — | 12 steps × 2 runs banked, attribution above |
+| roster `fb87dbcd` (live-session + live-session-mobile) | ×2 `passed: 0/2` (S5 · M1 SCROLL · M1 CLOSE · M2 ✗) | — |
+| **full roster** (`demo:correctness`, all 6), fb87dbcd + the cure bytes, clean worktree | CI `41466910668` `4/6` | ⟨`guarded --timeout 40 -- npm run demo:correctness -- --timeout=600`⟩ ×2 → **`passed: 6/6` · `6/6`** (S5 `visited 8, sceneFails []`; M1 OPEN `--detent-t=1` · SCROLL `scrollTop=179px of 179px` · CLOSE `--detent-t=0.12`; M2 `surface "easing"`). No SHEET-POSITION relief used |
+| kf `npm run check` | GREEN (Check 3) | ⟨`guarded --light -- npm run check`⟩ ×2 → rc 0 ×2, `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` |
+| probe-adjacent unit tests | — | ⟨`guarded -- npx vitest run test/demo/instrument/live-session-spring-interact.test.ts test/demo/app/dock-surface-items.test.ts --maxWorkers=2`⟩ → `Test Files 2 passed (2)` · `Tests 13 passed (13)` |
+
+**Teardown.** ⟨`git worktree remove --force /Users/mkbabb/Programming/.kf-bis-wt`⟩ → removed (`--force` because the measured cure hunks were applied there; those bytes are committed). ⟨`pgrep -fl 'kf-bis|run-demo-roster'`⟩ → none. The raw per-run logs stay durable at `/Users/mkbabb/Programming/.kf-bis-logs/`, outside every repo.
+
+**Residuals.**
+1. `scripts/gates/visual/index.mjs:181,310` and `scripts/gates/register-census.mjs:354` call `navToScene` with `null`/omitted. With the face read, a non-home scene now spends that wait's 12 s ceiling, the same as before `13762e6e`. It is only a wait, not an assertion. Those files are outside the set and are not roster members, so they are untouched.
+2. `faceItem` falls back to the first live surface when `selectedControl` names no enabled row (`ChromeDock.vue:187-189`). The re-aimed oracle inherits that ruled product semantics.
+3. Not pushed: kf `master` is 2 commits ahead of `origin` (`fb87dbcd` → `608748e2`), and kf CI is RED until `.d3` pushes.
+
+**Escalations:** none. **INBOX:** no row (the glass arm was not attributed).
