@@ -673,3 +673,39 @@ Owed, strictly ordered (§0hd order; concurrency cap 1 ⇒ singleton groups): `[
 - **`.d2`** — Push kf `master` (ordinary). kf CI GREEN (both jobs); a new RED outside this wave's concern = ESCALATE with the log. Then `deploy-pages` (workflow_run) succeeds, run the spec's §6 round-trip, post-deploy probe ×2 of `https://keyframes.babb.dev` (one browser, `--workers=1`, pageerror 0 = G-KF3-8 arm). Re-read G9 (`npm ls @mkbabb/value.js` → 4.1.0). Write `evidence/W3/CLOSE-RECEIPTS.md` addendum, a `## Close 2` here, LEDGER row cells + event line → fresh check.
 
 ## RESUME 2 — Unit receipts
+
+### KF.W3.c2b
+
+**Seat** `.c2b`, 2026-11-02, `claude-opus-5-5`. Authority COHESION §0hd.1 arm **(B)** (A and bare C refused). Spec sections executed: §B.2 css-text row · §B.5 census 1/1b · G-KF3-4 · L-7.
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's; never staged/edited) ⇒ **0 inherited paths** in this unit's set.
+
+**Anchors at true bytes (kf `d4148cdc`)** — drift recorded as INTENT:
+- fork: brief `css-text.ts:53-72` → true **`:59-74`** (`export const serializeCssValue` `:59`, throw `:72`); in-file callers `:104 :121 :127` (declaration · `initial-value` · parameter default).
+- demo twin `demo/utils/helpers.ts:75-96` holds (docblock `:66-74`, throw `:93`); its only importer `timelineEngine.ts:1-5`, call `:196`.
+- `css-text.ts:13-18` prose: the stale *"`CSSAnimationOptions` carries no unit"* sentence lived at `5c48e3da`; ⟨`git show 5c48e3da:…/css-text.ts | sed -n 12,20p`⟩ shows it, and `.c4` `4ed542d5` already rewrote the block (now `:13-23`, *"value.js 4.1.0's `CSSAnimationOptions` carries the authored `<time>` unit…"*) — re-read TRUE at 4.1.0, **no byte owed** (the RESUME 2 baseline's *"stands"* cell mis-read it).
+- `compile/value/compile.ts:256-268` `serializeCompiledValue` — **NOT moved, different concern**: it renders kf's `ValueTemplate` (nodes `slot`/`list`/call with `calc` space-join), whose `slot` nodes are not `CssValue` and cannot be handed to value's `serializeCssValue`; it composes `serializeInterpSlot`, which itself routes through the seam.
+
+**Acts (in order)**
+1. **Seam** — new `src/animation/compile/emit/serialize-value.ts`: `serializeAdmittedValue(value)` = value's `serializeCssValue` (`@mkbabb/value.js/css`, `css.d.ts:303` `Result<string, ColorIssue>`); `!ok` ⇒ `throw new SerializeInvariantError(value, issue)` (`code "SERIALIZE_INVARIANT"`, message *"ingest admitted a value the serializer refuses (<ColorIssue.code>)."*). The one throw; no fallback string, no try/catch.
+2. **Fork deleted** `css-text.ts:59-74` + `:72` throw; imports `CssColor`/`serializeCssColor`/`CssValue` dropped; the 3 in-file callers → the seam; selector docblock's *"beside the value and declaration serializers"* corrected (same concern).
+3. **8 src consumers** → the seam: `emit/densify.ts:13` · `emit/entry.ts:37` · `emit/format/format.ts:7` (+ its `:420-422` comment names the seam) · `frame/interp-slot.ts:19` · `engine/css/metadata.ts:37-38` · `resolve/{browser,conditional,function}.ts`.
+4. **Demo twin deleted** `helpers.ts:66-96` (+ its three now-unused imports `:18-20`); **its one caller** `timelineEngine.ts` imports value's published `serializeCssValue` directly (the demo cannot reach kf-private `src/` — KF-CE-12's law) and refuses `!ok` through `importCSSToTimeline`'s existing channel (a `TypeError` to the submission surface, the same channel `parseAnimationCSS` uses for a parse issue); throw-site count: 2 fork throws → 1 invariant + 1 demo submission refusal (does not grow).
+5. **5 test consumers** → the seam (import swap only; assertions untouched): `structural-emit:10` · `emerging-css-resolve-{fn:31,now:23,p2:26}` · `value4-immutable-resolve:9`.
+6. **Manifest** — dated top-level `_divergences` row appended to `test/fixtures/keyframes/manifest.json` (2026-11-02: `.b`'s 28 `:`/`;` whitespace-collapse nodes, all inside the 7 `if()` inputs, asserted by nothing; 0 of the 14 fixtures; no row's frames/keys/roundtrip/verbatim changes). Its only reader (`roundtrip-fidelity.test.ts:87-89`) reads `.fixtures` only.
+7. **Invariant proof** `test/compile/serialize-invariant.test.ts` (20 tests): ingest (`parse-facade` `parseStylesheet`) admits ⇒ every `CssValue` node at every depth serializes `ok` and the seam does not throw, over the **16** fixture sheets (14 keyframes + 2 compile; count asserted) and every item emits via `serializeStylesheetItem`; **800** seeded (mulberry32) generated values over numbers×units, colours in 10 spellings incl. out-of-range and `none` channels, `calc`/`var`/`if()`/transform calls, space/comma/slash lists — admitted ≥ ½ asserted (non-vacuous); **bypass mutant** (never parsed: `rgb` with a `NaN` channel) → value `{ok:false,error:{code:"color_non_finite"}}` and the seam raises `SerializeInvariantError` (code/issue/message asserted), and nested in `drop-shadow()` through the real `serializeDeclaration` emit path.
+
+**Gates BEFORE → AFTER** (kf `d4148cdc` → `8ca052ad`; settled bytes, ×2 where run)
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| G-KF3-4 | RED (fork + twin throws stand; 0 value-`./css` serializer imports; O-11 §B rows 0) | **GREEN** — ⟨`grep -rn unserializable src demo \| wc -l`⟩ → `0`; ⟨`grep -rnE 'export const serializeCssValue\|function serializeCssValue' src demo \| wc -l`⟩ → `0`; ⟨`grep -rnE 'import \{ serializeCssValue \} from "@mkbabb/value.js/css"' src demo test`⟩ → `serialize-value.ts:2` · `timelineEngine.ts:2` · `serialize-invariant.test.ts:22`; ⟨`grep -rl 'serialize-value"' src demo test \| wc -l`⟩ → `15` (8 src consumers + `css-text.ts` + 5 test consumers + the proof); census 1b at 4.1.0 → `css 20 [ 'serializeCssValue' ]`; ⟨`grep -c 'O-11 §B' INBOX.md`⟩ → `1` (I-78) |
+| invariant property + bypass mutant | absent | **GREEN** ⟨`guarded --timeout 10 -- npx vitest run test/compile/serialize-invariant.test.ts --maxWorkers=2`⟩ → `Tests 20 passed (20)`; and inside both full runs |
+| G-KF3-3 | GREEN (Check 3, cited) | **GREEN ×2** — roster re-derived by the spec's command (raw output in `docs/tranches/X/keyframes/evidence/W3/C2B-RECEIPTS.md`), 19 files → `Test Files 19 passed (19)` · `Tests 235 passed (235)` run 1 ≡ run 2 |
+| kf `npm run check` | rc 0 (Check 3) | **rc 0 ×2** (vue-tsc src + test, `proof:structure` PASS R1–R6); `npm run lint` rc 0 (depcruise 462 modules, 0 violations) |
+| kf vitest `--maxWorkers=2` | 2296 (`.c4`) | **`Test Files 295 passed \| 5 skipped (300)` · `Tests 2316 passed \| 2 expected fail \| 14 skipped (2332)` ×2** (rc 0 ×2; +20 = the proof) |
+
+**Commits**: kf **`8ca052ad`** (the L-7 family, 19 paths, one commit; `git show --stat` → `19 files changed, 271 insertions(+), 104 deletions(-)`; `KeyframeTimeline.vue` not in it) · vjs **`db04c4f7c`** (INBOX I-78 O-11 §B, pathspec) · vjs this record + `evidence/W3/C2B-RECEIPTS.md` (pathspec).
+
+**Adjacent edits (§0bt)**: `format/format.ts:420-422` comment (names the seam; same concern) · `css-text.ts` selector docblock (`:58-59`, same concern). Both inside the writable set anyway.
+
+**Residuals**: (i) the demo's `timelineEngine.ts` `!ok` refusal is unreachable from parse-sourced input (the invariant), kept because value's `Result` must be handled and the demo cannot reach the kf-private seam — named, not a second invariant; (ii) not pushed (`.d2` pushes). **Escalations**: none.
