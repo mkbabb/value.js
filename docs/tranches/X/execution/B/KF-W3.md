@@ -171,3 +171,36 @@ Order: `[.a] → [.b] → [.c1] → [.c2] → [.c3] → [.c4] → [.c5] → [.d]
 | G-KF3-8 (floor) | GREEN before cure | **holds** | `REPIN-ATTRIBUTION.md` §6; pageerror probe = `.d` |
 
 **Adjacent edits**: none (the `:347` comment is inside `TimelineHoverPreview.vue`, in the set). **Escalations**: none. **Residuals**: (i) `registry.ts:51-52` declares the kf memo *deleted in KF.W3's repin commit* once 4.1's memoised `easing()` lands — premise measured TRUE, but `registry.ts` is `.c3`'s guarded path / the G-KF3-6 boot fence: orchestrator to route; (ii) `parse-facade.ts:33-38` *"ABSORB IS UNREACHABLE … 4.0.0's parseStylesheet THROWS"* false at 4.1.0 → `.c4` (owns the file); (iii) `r4dock-share-fallback` flake → `.d`.
+
+### c2
+
+**Seat**: `.c2` (claude-opus-5-5), 2026-11-02. Sections: §B.2 css-text row · §B.5 census 1/1b · G-KF3-4 · L-7. **Status: ESCALATED — no product byte written, no INBOX row (L-7: the O-11 §B row rides only with the retirement).**
+
+**Crash-recovery** ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling; untouched) · vjs ⟨`git status --porcelain -- INBOX.md <this record>`⟩ → empty ⇒ **0 inherited paths**. kf `HEAD` = `c18a9bd9` (`.c1`).
+
+**Acts, in order (all read-only)**
+
+1. **Census 1 re-derived at `HEAD`** ⟨`git grep -n '\bserializeCssValue\b' HEAD -- src demo test scripts`⟩ + ⟨`git grep -n css-text HEAD -- src demo test scripts | grep -E 'import|from|export'`⟩ → **= `.b` §1.2 exactly**: 13 importing modules (8 src · 5 test) + in-file `:98 :115 :121` + the demo twin `helpers.ts:75` → `timelineEngine.ts:4,:196`. No barrel re-exports the symbol (`emit/index.ts:57,:64` carry other names). No drift since `.b`.
+2. **Census 1b re-read** — installed `node_modules/@mkbabb/value.js` `4.1.0`; `dist/subpaths/css.d.ts:303` `export declare function serializeCssValue(value: CssValue): Result<string, ColorIssue>;` — the only `CssValue → string` serializer on the seven subpaths (⟨`grep -n '): string;' dist/subpaths/*.d.ts`⟩ → `math.d.ts:25 cubicBezierToString` only). The retirement is therefore an **unwrap at every site** (`.b` §2), with `ColorIssue.code` ∈ 7 codes (`css.d.ts:84-86`).
+3. **Channel measurement per string-only site** (`.b` §4 left these to `.c2` "at the bytes, under (iii)/(v)": no throw, no wrapper, no fallback string, no try/catch; *"If a site has no reachable channel without widening a public signature, that is a Triumvirate trigger for `.c2`, not a licence for a throw"*):
+
+| site (kf `HEAD`) | returns | nearest caller with a refusal channel | measured |
+| --- | --- | --- | --- |
+| `function.ts:34` · `conditional.ts:84/:119` · `browser.ts:146/:217` · `format.ts:338` · `metadata.ts:158` | — | own channel (`param.default ?? DROP` · `undefined`/`false` · `BrowserScalarResolutionError` · `{refused,key}` · the `syntax == null` `continue` skip `:151`) | **channel exists** (`.b` §4 holds) |
+| `format.ts:67` `declaredDeclarationsFor` | `DeclaredDeclaration[]` (`value: string`) | none: → `declaredKeyframeBody :151` → **`CSSKeyframesToStrings` `:168`, public** (`public.ts:201`, `load-engine.ts:111`, `Promise<string[]>`); → `view-transition.ts:164` | **no channel without widening a public signature** |
+| `css-text.ts:98/:115/:121` (`serializeDeclaration` · `serializeStylesheetItem`) | `string` | none: → `parse-facade.ts:206 serializeDeclarationBlock` (string); → `options.ts:166 propertyRegistryToString` → `format.ts:409` → `keyframesBlock` → **`CSSKeyframesToString`, public** (`public.ts:200`) | **no channel without widening** |
+| `densify.ts:51` · `format.ts:257 keyframesBlock` | `string` | `backward.ts:274-275` → `compileToCSS` `refusals: CompileRefusal[]` — but `CompileRefusalReason` (`refusal-probes.ts:4`) is **public** (`emit/index.ts:37` → `public.ts`) and the *"CC-3 four named refusals"* trust surface (`backward.ts:78`, `:176-178`); a 5th reason widens it | **channel only by widening a public union** |
+| `entry.ts:166` `frameDecls` | `Decl[]` | `EntryRefusal` taxonomy (`entry.ts:77-106`), **public** (`public.ts:190`, consumed by `demo/scenes/spring/StartingStyleTarget.vue:233`) | **channel only by widening a public union** |
+| `interp-slot.ts:333/:336` `serializeInterpSlot` | `string` | none: → `compile/value/compile.ts:261 serializeCompiledValue` → `sink.ts:45/:77` (the per-frame style writer). Its own colour arm `:325-328` already **throws** `TypeError(\`Color serialization failed: ${code}.\`)` (pre-existing, kf-authored) | **no channel**; the frame tier's only precedent is a throw |
+| demo `timelineEngine.ts:196` (after the `helpers.ts:66-96` twin delete) | `flatVars` string | none in the engine | **no channel** |
+
+**Why not land the channel-bearing half**: G-KF3-4 is GREEN only when the fork **and** its `:66` throw are deleted **and every** consumer imports `./css` (spec G-KF3-4 (i)); L-7 binds retirement + divergence row + O-11 §B row to ONE act. A partial re-route leaves the fork live and discharges nothing; landing it would be a line-count discharge (LAW A).
+
+**ESCALATION (Triumvirate trigger named by `.b` §4, measured above).** Retiring the fork onto value 4.1.0's `Result`-returning `serializeCssValue` with no throw / wrapper / fallback / try-catch requires widening **public** kf signatures (`CSSKeyframesToString(s)`, `CompileRefusalReason`, `EntryRefusal`, the view-transition and per-frame sink paths). That is a kf public-surface decision outside a unit's hand. Rulings that would make it executable (owner/arbiter picks one):
+- **(A) widen** — the string emitters return a typed refusal; `CompileRefusalReason`/`EntryRefusal` gain an `unserializable-value` reason (the trust surface's "four" restated); `CSSKeyframesToString(s)` + `serializeDeclarationBlock` return `Result`; the sink path gets a declared channel. Semver-major for kf's public surface.
+- **(B) totality by construction** — refuse an un-serializable colour leaf at INGEST (`parse-facade` / `parseAndFlattenObject` already carry diagnostics), so every `CssValue` reaching emit is serializable; the emit-side `!ok` arm then still needs a ruled disposition (types force it).
+- **(C) ruled boundary throw** — a typed kf error carrying `ColorIssue.code` at the emit tier (the `interp-slot.ts:327` precedent), explicitly authorized; today barred by `.b` §4(iii) and G-KF3-4's "re-implement under another name" arm.
+
+Reachability (L-5, recorded): parse-sourced colours never serialize `!ok` at 4.1.0 (`.a` `sercolor.mjs`: 0/18); the arm is reached only by programmatic `CssValue`s (demo HSV, `canonicalizeColors`, computed channels).
+
+**Gates BEFORE → AFTER**: G-KF3-4 **RED → RED** (fork `css-text.ts:53-68` + `:66` throw standing; twin `helpers.ts:75-96` standing; 0 consumers on `./css`; no O-11 §B row). G-KF3-3: not re-run (no byte changed; `.c1`'s GREEN stands at `c18a9bd9`). **Commits**: this record only. **Adjacent edits**: none. **Residual noted for the ruling**: `compile/value/compile.ts:259-268 serializeCompiledValue` renders space-lists with `" "` (no `:`/`;` collapse) — a third list serializer the ruling's census should name.
