@@ -1,0 +1,94 @@
+{
+  "servedModel": "claude-opus-5-5",
+  "unit": "X.W11.g5o",
+  "run": "r2",
+  "ranAt": "2026-11-02T07:05:22.658Z",
+  "head": "7168e7533",
+  "script": "scripts/ci/boot-smoke.mjs",
+  "scriptSha256": "a50dfe7213082b1da96ca587f94e4c9607e325830c982246353ad040ac5c0fd7",
+  "refusedCount": 9,
+  "caseCount": 9,
+  "cases": [
+    {
+      "label": "production sub-path",
+      "origin": "https://color.babb.dev/gh-pages/",
+      "exitCode": 1,
+      "refused": true,
+      "stdout": "",
+      "failLine": "ORIGIN-FORM: https://color.babb.dev/gh-pages/ is not a bare production https://{color.babb.dev}/ origin — sub-path /gh-pages/ — a sub-path origin masks base-path defects",
+      "failLineSha256": "4adfc6c5dd146ccfce605e30a50aea86e323c44b74a3bcaa2549b734106bacaa"
+    },
+    {
+      "label": "production unlisted host",
+      "origin": "https://example.com/",
+      "exitCode": 1,
+      "refused": true,
+      "stdout": "",
+      "failLine": "ORIGIN-FORM: https://example.com/ is not a bare production https://{color.babb.dev}/ origin — host example.com (want one of color.babb.dev)",
+      "failLineSha256": "64b199bac6a1366c8ab78acc8ad6d2b76422f893fd778922fd57630433f47f5e"
+    },
+    {
+      "label": "production query",
+      "origin": "https://color.babb.dev/?q=1",
+      "exitCode": 1,
+      "refused": true,
+      "stdout": "",
+      "failLine": "ORIGIN-FORM: https://color.babb.dev/?q=1 is not a bare production https://{color.babb.dev}/ origin — query ?q=1",
+      "failLineSha256": "e6b6bc7bc214b035801a6a8218bc3f2fbfd5897f88e6dd19960a752a58156688"
+    },
+    {
+      "label": "production fragment",
+      "origin": "https://color.babb.dev/#x",
+      "exitCode": 1,
+      "refused": true,
+      "stdout": "",
+      "failLine": "ORIGIN-FORM: https://color.babb.dev/#x is not a bare production https://{color.babb.dev}/ origin — fragment #x",
+      "failLineSha256": "5eed8befb132257a226d99e8b9b220d07f6a54a91bdbd2e89c7d8a9abb561959"
+    },
+    {
+      "label": "production explicit port",
+      "origin": "https://color.babb.dev:8443/",
+      "exitCode": 1,
+      "refused": true,
+      "stdout": "",
+      "failLine": "ORIGIN-FORM: https://color.babb.dev:8443/ is not a bare production https://{color.babb.dev}/ origin — explicit port 8443 (want none)",
+      "failLineSha256": "f9bba2c751e88448b19084df4ea314cefd29bf530175d2927b5635f785dc7175"
+    },
+    {
+      "label": "loopback sub-path (G-13)",
+      "origin": "http://127.0.0.1:4173/gh-pages/",
+      "exitCode": 1,
+      "refused": true,
+      "stdout": "",
+      "failLine": "ORIGIN-FORM: http://127.0.0.1:4173/gh-pages/ is not a bare 127.0.0.1:PORT origin — sub-path /gh-pages/ — a sub-path origin masks base-path defects",
+      "failLineSha256": "b9118d0754abe9f96a4657370a02897648469b67b2ecd64249e98736e057328d"
+    },
+    {
+      "label": "loopback query",
+      "origin": "http://127.0.0.1:4173/?q=1",
+      "exitCode": 1,
+      "refused": true,
+      "stdout": "",
+      "failLine": "ORIGIN-FORM: http://127.0.0.1:4173/?q=1 is not a bare 127.0.0.1:PORT origin — query ?q=1",
+      "failLineSha256": "fdf2b26df322226cafc4e9d07df0de3bb047b4696cc23b565386383c056b6ea6"
+    },
+    {
+      "label": "loopback fragment",
+      "origin": "http://127.0.0.1:4173/#x",
+      "exitCode": 1,
+      "refused": true,
+      "stdout": "",
+      "failLine": "ORIGIN-FORM: http://127.0.0.1:4173/#x is not a bare 127.0.0.1:PORT origin — fragment #x",
+      "failLineSha256": "ebbdfd8ed55b4c07ce94dddbea00ef2a7beed45c968a43aff96ffde1816e244f"
+    },
+    {
+      "label": "loopback no port",
+      "origin": "http://127.0.0.1/",
+      "exitCode": 1,
+      "refused": true,
+      "stdout": "",
+      "failLine": "ORIGIN-FORM: http://127.0.0.1/ is not a bare 127.0.0.1:PORT origin — no explicit port",
+      "failLineSha256": "6e7f878eb0f99c886851027ede4677ca3794b77b73d719b18f9691764b9e924a"
+    }
+  ]
+}

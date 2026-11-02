@@ -57,15 +57,22 @@
  *   node scripts/ci/boot-smoke.mjs --mode=dev
  *   node scripts/ci/boot-smoke.mjs --mode=prod-preview [--build]
  *   node scripts/ci/boot-smoke.mjs --mode=prod-preview --origin=http://127.0.0.1:4173
+ *   node scripts/ci/boot-smoke.mjs --mode=prod-preview --origin=https://color.babb.dev/
  *   ... [--json=<path>] [--seed=<id>] [--timeout=<ms>]
  *
  * `--origin` probes an origin someone else is already serving (the form is
- * still checked). `--build` runs `npm run gh-pages` first. `--seed` narrows the
- * matrix to one case for triage — it is a DIAGNOSTIC, never a gate posture: a
- * gate run takes the whole matrix.
+ * still checked). It takes two forms (COHESION §0ha.2): the loopback form
+ * `http://127.0.0.1:PORT/`, and the production form — `https:`, a host on the
+ * named `PRODUCTION_ORIGINS` allowlist, no port. Both must be a bare root: no
+ * sub-path, query or fragment. A production origin starts no local server; it
+ * reads the deployed bytes, and the report records the served build's
+ * fingerprint (`servedBuild`). `--build` runs `npm run gh-pages` first.
+ * `--seed` narrows the matrix to one case for triage — it is a DIAGNOSTIC,
+ * never a gate posture: a gate run takes the whole matrix.
  */
 import { spawn } from "node:child_process";
 import { setTimeout as sleep } from "node:timers/promises";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";
@@ -77,6 +84,16 @@ const GH_PAGES_DIR = path.join(REPO_ROOT, "dist", "gh-pages");
 const HOST = "127.0.0.1";
 const SERVER_READY_TIMEOUT_MS = 180_000;
 const DEFAULT_CASE_TIMEOUT_MS = 30_000;
+
+/**
+ * The deploy origins of record (COHESION §0ha.2) — the only https hosts the
+ * production origin form admits, each with the `/health` of the API its build
+ * talks to (`.env.example` `API_HEALTH_URL`), whose `commit` is recorded beside
+ * the served fingerprint.
+ */
+const PRODUCTION_ORIGINS = new Map([
+    ["color.babb.dev", { apiHealth: "https://api.color.babb.dev/health" }],
+]);
 
 /* ─────────────────────────── the seed matrix (R16/R17) ─────────────────────
  * `hash` is the hash-router query the resolver reads pre-router
@@ -194,6 +211,11 @@ function parseArgs(argv) {
  * pass for a build that cannot be served from a site root. The origin form is
  * therefore checked, not assumed: loopback host, explicit port, ROOT path, no
  * query, no fragment.
+ *
+ * The production form (COHESION §0ha.2) is an `https:` origin whose host is
+ * exactly a `PRODUCTION_ORIGINS` key, with no port. The sub-path, query and
+ * fragment complaints are shared, so G-13's falsifier holds for both forms.
+ * Returns the bare origin and which form it took.
  */
 function assertBareOrigin(origin) {
     let url;
@@ -202,11 +224,20 @@ function assertBareOrigin(origin) {
     } catch {
         throw new Error(`ORIGIN-FORM: not a URL: ${origin}`);
     }
+    const production = url.protocol === "https:";
+    const productionHosts = [...PRODUCTION_ORIGINS.keys()].join(", ");
     const complaints = [];
-    if (url.protocol !== "http:")
-        complaints.push(`protocol ${url.protocol} (want http:)`);
-    if (url.hostname !== HOST) complaints.push(`host ${url.hostname} (want ${HOST})`);
-    if (!url.port) complaints.push("no explicit port");
+    if (production) {
+        if (!PRODUCTION_ORIGINS.has(url.hostname))
+            complaints.push(`host ${url.hostname} (want one of ${productionHosts})`);
+        if (url.port) complaints.push(`explicit port ${url.port} (want none)`);
+    } else {
+        if (url.protocol !== "http:")
+            complaints.push(`protocol ${url.protocol} (want http:)`);
+        if (url.hostname !== HOST)
+            complaints.push(`host ${url.hostname} (want ${HOST})`);
+        if (!url.port) complaints.push("no explicit port");
+    }
     if (url.pathname !== "/" && url.pathname !== "") {
         complaints.push(
             `sub-path ${url.pathname} — a sub-path origin masks base-path defects`,
@@ -215,11 +246,17 @@ function assertBareOrigin(origin) {
     if (url.search) complaints.push(`query ${url.search}`);
     if (url.hash) complaints.push(`fragment ${url.hash}`);
     if (complaints.length) {
+        const form = production
+            ? `production https://{${productionHosts}}/`
+            : `${HOST}:PORT`;
         throw new Error(
-            `ORIGIN-FORM: ${origin} is not a bare ${HOST}:PORT origin — ${complaints.join("; ")}`,
+            `ORIGIN-FORM: ${origin} is not a bare ${form} origin — ${complaints.join("; ")}`,
         );
     }
-    return `${url.protocol}//${url.host}`;
+    return {
+        origin: `${url.protocol}//${url.host}`,
+        form: production ? "production" : "loopback",
+    };
 }
 
 /* ──────────────────────────────── servers ───────────────────────────────── */
@@ -641,6 +678,70 @@ function censusGhPages(root) {
     };
 }
 
+/* ─────────────────────── the served build (§0ha.2) ──────────────────────── */
+
+/**
+ * The same-origin references in an `index.html`: its build fingerprint. The
+ * rule is `deploy-age-served.mjs`'s `fingerprint` (G-21), so this set compares
+ * one-to-one with the `built fingerprint` that deploy logs: the asset names
+ * are content hashed, so the set names the build.
+ */
+function fingerprintIndex(html) {
+    const refs = new Set();
+    for (const m of html.matchAll(/\b(?:src|href)="([^"]+)"/g)) {
+        const ref = m[1];
+        if (/^[a-z][a-z0-9+.-]*:|^\/\/|^#/i.test(ref)) continue; // absolute, protocol-relative, fragment
+        refs.add(ref);
+    }
+    return [...refs].sort();
+}
+
+/**
+ * Read the build a production origin SERVES: its `index.html` fingerprint and
+ * the deployed API's `/health` commit. Fail-closed — an origin that serves no
+ * fingerprint, or an API that does not name its commit, measured nothing.
+ */
+async function readServedBuild(origin) {
+    const { apiHealth } = PRODUCTION_ORIGINS.get(new URL(origin).hostname);
+    const indexUrl = origin + "/";
+    const indexRes = await fetch(indexUrl, {
+        cache: "no-store",
+        headers: { "cache-control": "no-cache" },
+    });
+    if (!indexRes.ok)
+        throw new Error(`served build: ${indexUrl} → HTTP ${indexRes.status}`);
+    const html = await indexRes.text();
+    const fingerprint = fingerprintIndex(html);
+    if (fingerprint.length === 0) {
+        throw new Error(
+            `served build: ${indexUrl} carries no same-origin asset reference`,
+        );
+    }
+    const healthRes = await fetch(apiHealth, { cache: "no-store" });
+    if (!healthRes.ok)
+        throw new Error(`served build: ${apiHealth} → HTTP ${healthRes.status}`);
+    const health = await healthRes.json();
+    if (typeof health.commit !== "string" || !health.commit) {
+        throw new Error(`served build: ${apiHealth} names no commit`);
+    }
+    return {
+        index: {
+            url: indexUrl,
+            status: indexRes.status,
+            sha256: crypto.createHash("sha256").update(html).digest("hex"),
+        },
+        fingerprintCount: fingerprint.length,
+        fingerprint,
+        health: {
+            url: apiHealth,
+            status: healthRes.status,
+            service: health.service ?? null,
+            version: health.version ?? null,
+            commit: health.commit,
+        },
+    };
+}
+
 /* ───────────────────────────────── main ─────────────────────────────────── */
 
 async function main() {
@@ -658,21 +759,32 @@ async function main() {
     let origin = null;
     let stop = async () => {};
     let census = null;
+    let form = "loopback";
+    let servedBuild = null;
 
     if (args.origin) {
-        origin = assertBareOrigin(args.origin);
+        ({ origin, form } = assertBareOrigin(args.origin));
+        if (form === "production" && args.mode !== "prod-preview") {
+            throw new Error(
+                `ORIGIN-FORM: ${origin} is a deployed build — probe it with --mode=prod-preview`,
+            );
+        }
         await waitForServer(origin, Date.now() + 30_000);
-        if (args.mode === "prod-preview" && fs.existsSync(GH_PAGES_DIR)) {
+        if (form === "production") {
+            // The local dist/gh-pages is not what production serves; the
+            // served bytes are read instead.
+            servedBuild = await readServedBuild(origin);
+        } else if (args.mode === "prod-preview" && fs.existsSync(GH_PAGES_DIR)) {
             census = censusGhPages(GH_PAGES_DIR);
         }
     } else if (args.mode === "dev") {
         const dev = await startDevServer();
-        origin = assertBareOrigin(dev.origin);
+        origin = assertBareOrigin(dev.origin).origin;
         stop = dev.stop;
     } else {
         if (args.build) await buildGhPages();
         const served = await serveStatic(GH_PAGES_DIR);
-        origin = assertBareOrigin(served.origin);
+        origin = assertBareOrigin(served.origin).origin;
         stop = async () => await new Promise((r) => served.server.close(r));
         census = censusGhPages(GH_PAGES_DIR);
     }
@@ -680,6 +792,13 @@ async function main() {
     console.log(
         `[boot-smoke] mode=${args.mode} origin=${origin} seeds=${seeds.length}`,
     );
+    if (servedBuild) {
+        console.log(
+            `[boot-smoke] served build (§0ha.2): ${servedBuild.fingerprintCount} same-origin ` +
+                `refs · index.html sha256 ${servedBuild.index.sha256.slice(0, 12)} · ` +
+                `${servedBuild.health.url} commit ${servedBuild.health.commit}`,
+        );
+    }
     if (census) {
         console.log(
             `[boot-smoke] artifact census (R42): ${census.assetCount} assets · entry ` +
@@ -734,12 +853,14 @@ async function main() {
         tool: "scripts/ci/boot-smoke.mjs",
         mode: args.mode,
         origin,
+        form,
         ranAt: new Date().toISOString(),
         node: process.version,
         seedCount: seeds.length,
         passCount: cases.length - failed.length,
         failCount: failed.length,
         census,
+        servedBuild,
         cases,
     };
     if (args.json) {
