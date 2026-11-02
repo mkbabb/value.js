@@ -1704,3 +1704,54 @@ SERVED MODEL: claude-opus-5-5. Sections: COHESION §0hg.1–3 · §0he.3 · §0h
 ## Close 6 — 2026-11-02 (seat `.d4`, `claude-opus-5-5`): CLOSE-READY, handed to a fresh check
 
 kf origin/master is `1fd86e04`. ESC-KFW3-d3-1 is cured at the root per §0hg (budget 4→10, hang guard). The §0he.3 / §0hd.5 close order is discharged: kf CI `41512393978` GREEN on both jobs → deploy-pages `41513147414` success → §6 round-trip VALIDATED → post-deploy probe ×2 pageerror 0 on `/#/easing` + `/#/spring` (G-KF3-8 arm) → G9 4.1.0. Every other gate cites Check 3 post-Close 5 (12 GREENs reproduced). The row moves to CLOSE-READY pending a fresh adversarial check; X-W11's VERIFIED stamp (§0hb.3) is Track A's after that check.
+
+## Close 7 — 2026-11-02 (CLOSE SEAT, RESUME 4 unit `.d4`, `claude-opus-5-5`, VERIFY-ONLY): IMPLEMENTED
+
+SERVED MODEL: claude-opus-5-5. Substrate: kf `HEAD` = `origin/master` = `1fd86e04` (⟨`git fetch && git log -1 --format=%h origin/master`⟩ → `1fd86e04`); value.js `65b93354a`. Crash-recovery: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, §0hb.1; never staged); vjs record / LEDGER / evidence/W3 clean. **0 inherited paths.** This seat cured nothing. Logs: `/Users/mkbabb/Programming/.kf-close7-logs/`.
+
+**Commit roster and writable-set check** (⟨`git show --stat <c>`⟩):
+
+| unit | commit | files | in writable set |
+| --- | --- | --- | --- |
+| `.d4` | kf `1fd86e04` | `.github/workflows/ci.yml` (`1 file changed, 1 insertion(+), 1 deletion(-)`; the diff is `:31` `timeout-minutes: 4` → `10 # hang guard … COHESION §0hg`) | YES (`:31` + the one comment, trailing on the same line) |
+| `.d4` | vjs `65b93354a` | `execution/B/KF-W3.md` · `execution/LEDGER.md` · `keyframes/evidence/W3/CLOSE-RECEIPTS.md` | YES |
+
+**landedWrong: none.** No commit touches glass-ui, a pin, a step, a job, or `KeyframeTimeline.vue`; `ci.yml:103` still reads `timeout-minutes: 50`.
+
+**Gates re-run by this seat at kf `1fd86e04`.** Every heavy run went through `guarded`; vitest `--maxWorkers=2`; one heavy run at a time.
+
+| gate | BEFORE (RESUME 4 baseline / Close 5) | AFTER (this seat) |
+| --- | --- | --- |
+| G-KF3-1 | GREEN | **GREEN**: ⟨`grep -rln RC-P docs/tranches/X/fourier/ \| wc -l`⟩ → `1`; `evidence/W3/rc-p-4.1.0.md` present (14 files in `evidence/W3/`) |
+| G-KF3-2 | GREEN | **GREEN ×2**: ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ sha1 `d488535c9bfc` = ⟨`npm view … dist.shasum`⟩ `d488535c9bfc`; the unmodified probe (sha256 `77678a574d7c6b11`) symlinked into the untarred mirror, ⟨`npm_config_ignore_scripts=true guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 → `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` · `GREEN — every public parser is total.`, rc 0 both |
+| G-KF3-3 | GREEN | **GREEN ×2**: roster re-derived at HEAD by the spec's command (`git grep -l -E '@mkbabb/value\.js/css\|parseCss(Color\|Scalar\|Values)\|parseTimingFunction\|serializeCssValue\|reverseAnimationShorthand\|cssIdent' HEAD -- test/` ∪ `git grep -l serialize-value HEAD -- test/`, `.test.ts`) → 19 files; ⟨`guarded -- npx vitest run --maxWorkers=2 <roster>`⟩ ×2 → `Test Files 19 passed (19)` · `Tests 235 passed (235)` both |
+| G-KF3-4 | GREEN | **GREEN**: `unserializable` in src+demo → `0`; fork defs → `0`; `serializeCssValue` from `@mkbabb/value.js/css` → `serialize-value.ts:2` · `timelineEngine.ts:2`; pin `package.json:71` `"4.1.0"`; INBOX `O-11 §B` → `1` |
+| G-KF3-5 | GREEN | **GREEN**: one def `css-text.ts:33`; ⟨`git grep -n "value.js's OWN" HEAD -- src`⟩ → `internal/leaves.ts:8` only (the `/math` subpath, outside the census-2 predicate) |
+| G-KF3-6 + boot fence + invariant/bypass | GREEN | **GREEN ×2**: INBOX `O-11 §D2` → `1`; the 5-file fence (`public-surface` · `easing-identity` · `timing-function-names` · `orchestration-api` · `serialize-invariant`) ×2 → `Test Files 5 passed (5)` · `Tests 130 passed (130)` both |
+| G-KF3-7 | GREEN | **GREEN**: `evidence/W3/CALL-MAP.md` present |
+| UIA-KF-177 | GREEN | **GREEN ×2**: the 3 files ×2 → `Test Files 3 passed (3)` · `Tests 19 passed (19)` both |
+| kf `npm run check` | GREEN | **GREEN ×2**: ⟨`guarded --light -- npm run check`⟩ rc 0 ×2; ends `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` |
+| kf vitest whole | GREEN | **GREEN ×2**: ⟨`guarded --timeout 25 -- npx vitest run --maxWorkers=2`⟩ rc 0 ×2 → `Test Files 296 passed \| 5 skipped (301)` · `Tests 2318 passed \| 2 expected fail \| 14 skipped (2334)` both (shared tree incl. the sibling's uncommitted `KeyframeTimeline.vue`) |
+| kf `ci.yml:31` budget (§0hg.1) | RED (`4`) | **GREEN**: ⟨`grep -n timeout-minutes ci.yml`⟩ → `31: … 10 # hang guard …` · `103: 50`; ⟨`ruby -ryaml … ["jobs"]["gates"]["timeout-minutes"]`⟩ → `10` |
+| kf CI both jobs | RED (cancelled) | **GREEN**: ⟨`gh run view 41512393978 --json jobs,headSha,event`⟩ → head `1fd86e04`, event `push`; `library gates … success` (19:42:16Z–19:45:45Z, 3m29s) · `demo correctness (browser roster) success` (–19:47:02Z). No re-run, no dispatch (one ci run at that head in ⟨`gh run list -L 5`⟩) |
+| deploy-pages | skipped | **GREEN**: `41513147414` head `1fd86e04` → `preflight … success` · `build demo + ship → Cloudflare Pages success` |
+| §6 round-trip | owed | **GREEN**: in-job log `Round-trip VALIDATED: https://keyframes.babb.dev serves the built bundle (index-CoV850J-.js)`; this seat ⟨`curl -s https://keyframes.babb.dev/ \| grep -o 'assets/index-…js'`⟩ ×2 → `assets/index-CoV850J-.js`, asset HTTP `200` ×2 |
+| post-deploy probe ×2 (G-KF3-8 pageerror arm) | owed | **GREEN ×2**: ⟨`guarded --timeout 5 -- node .kf-close7-logs/c7-probe.mjs`⟩ (the `.d4` probe, copied unchanged; one headless chromium, context per route, closed in `finally`) ×2 → `/#/easing status=200 pageerror=0` · `/#/spring status=200 pageerror=0` · `TOTAL pageerror=0`, rc 0 both |
+| G9 | GREEN | **GREEN ×2**: ⟨`npm ls @mkbabb/value.js`⟩ ×2 → `2 value.js@4.1.0`, 0 other versions |
+| G-KF3-8 / G-KF3-9 | floors | not close gates (spec §Gates) |
+
+**Verification artefacts.** The spec names no separate §Verification Artefacts block; the evidence bank `docs/tranches/X/keyframes/evidence/W3/` holds 14 files (⟨`ls | wc -l`⟩ → `14`), incl. `rc-p-4.1.0.md`, `CALL-MAP.md` and `CLOSE-RECEIPTS.md` (Addendum `.d4` present).
+
+**E13.** Swept again: value V/ + V/coordination · glass BK/coordination + BL + BL/audit (⟨`ls -dt`⟩ newest `BL`) · keyframes V/coordination · atlas P/coordination + U + U/coordination. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 2026-11-02 14:40) → only atlas `U/STATE.md` (its new lines are the B7e/B8 atlas+glass log, N-1 traced to glass; no row addressed to value.js or keyframes.js; the KF-1..KF-3/K-1 letter is I-79, already rowed). INBOX open row: I-79 `UNREAD`, routed by §0he.4 to the post-KF.W3 keyframes minor — outside this wave's scope. **No UNREAD mail in scope.**
+
+**Residuals (named owners).**
+1. `demo/state/animationOptionsStore.ts:95-96` seeds fresh entries as `${duration}ms` (not the authored unit). Owner: the post-W3 keyframes minor (§0he.4 / §0hg.4).
+2. `scripts/gates/visual/index.mjs` + `scripts/gates/register-census.mjs` pass null to `navToScene` (12 s ceiling wait, not an assertion). Owner: the post-W3 keyframes minor (§0hg.4).
+3. Throw sites 2 → 2 (seam invariant + `timelineEngine.ts` refusal). Owner: KF.W7 / KF.W2 posture (L-5).
+4. deploy log `Could not capture rollback target` (pre-existing `pages-deploy.sh` rollback-capture line, outside §0hg). Owner: the post-W3 keyframes minor.
+5. I-79 (atlas K-1 + KF-1..KF-3 letter). Owner: the post-KF.W3 keyframes minor (§0he.4).
+6. X-W11's VERIFIED stamp (§0hb.3). Owner: Track A, after a fresh check of this close.
+
+**Escalations**: none (ESC-KFW3-d3-1 cured at kf `1fd86e04`). **Adjacent edits**: none.
+
+**Four-verb line**: **IMPLEMENTED — ADVANCED** (spec §State: *"gates green + bytes landed in the named execution site stamps this"*; all seven close gates plus the §0he.3 close order — CI GREEN both jobs → deploy-pages → §6 → probe ×2 — are GREEN at kf `1fd86e04`). VERIFIED is **not** this seat's to stamp (spec §State; §0hb.3 → Track A).
