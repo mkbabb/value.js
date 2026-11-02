@@ -46,7 +46,9 @@ export {
     xyz,
 } from "./model";
 export {
+    contrastRatio,
     convertColor,
+    deltaEOK,
     interpolateHue,
     mapColorToGamut,
     mixColors,
@@ -57,4 +59,6 @@ export {
     toRgba8,
     toRgba8Into,
 } from "./operations";
+export type { ColorVisionKind, ColorVisionMethod, ColorVisionOptions } from "./vision";
+export { simulateColorVision } from "./vision";
 export type { Result } from "../foundation/result";

@@ -1,4 +1,5 @@
 import {
+    contrastRatio,
     convertColor,
     mapColorToGamut,
     mixColors,
@@ -6,7 +7,6 @@ import {
     parseCssColor,
     safeAccentColor,
     serializeCssColor,
-    toRgba8,
     xyz,
     type Color,
 } from "@mkbabb/value.js/color";
@@ -210,36 +210,19 @@ function walkToFloor(
  * step, and each far-side probe, ran a full 32-step lightness bisection
  * (each candidate gamut-mapped by its own 32-step chroma bisection) to learn
  * one bit. `safeAccentColor` (`src/color/operations.ts`) admits a candidate
- * iff BOTH its float and its byte-quantized WCAG ratio clear the target;
- * these two functions are that predicate, term for term: the candidate is
- * the library's own (`oklch` → `mapColorToGamut`, sRGB), the byte arm is the
- * library's own quantizer (`toRgba8`, round-half-even), and the luminance
- * sum and ratio are the guard's expression in the guard's order, so a
- * verdict here is the guard's verdict. The ink returned is still the
- * guard's: these only steer which question it is asked.
+ * iff BOTH its float and its byte-quantized WCAG ratio clear the target, and
+ * since 4.2.0 the library publishes that predicate as `contrastRatio` (the
+ * lesser of the two arms; R-ink-1 deleted this module's twin of it). The
+ * candidate is the library's own (`oklch` → `mapColorToGamut`, sRGB) and the
+ * surfaces are neutral `oklch(L 0 0)`, so the export's gamut map is a no-op on
+ * both and a verdict here is the guard's verdict. The ink returned is still
+ * the guard's: these only steer which question it is asked.
  */
-const srgbLinear = (encoded: number) => {
-    const value = encoded / 255;
-    return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
-};
-
-function guardLuminance(channels: readonly number[]): number {
-    return 0.2126 * srgbLinear(channels[0]!)
-        + 0.7152 * srgbLinear(channels[1]!)
-        + 0.0722 * srgbLinear(channels[2]!);
-}
-
-function guardRatio(a: number, b: number): number {
-    return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
-}
-
-/** The guard's two luminances (float, byte) of an opaque colour. */
-function guardLuminances(color: Color<"oklch">): readonly [number, number] {
-    const rgb = convertColor(color, "rgb");
-    if (!rgb.ok) throw new Error(`Ink guard probe failed: ${rgb.error.code}`);
-    const bytes = toRgba8(color, { gamut: "clip" });
-    if (!bytes.ok) throw new Error(`Ink guard probe failed: ${bytes.error.code}`);
-    return [guardLuminance(rgb.value.channels as readonly number[]), guardLuminance(bytes.value)];
+/** The ratio the guard reads for `candidate` on `surface` (the lesser arm); a probe that cannot be measured throws. */
+function inkContrast(candidate: Color<"oklch">, surface: Color<"oklch">): number {
+    const ratio = contrastRatio(candidate, surface);
+    if (!ratio.ok) throw new Error(`Ink guard probe failed: ${ratio.error.code}`);
+    return ratio.value;
 }
 
 /** The guard's candidate at lightness `L` for `accent`'s chroma and hue. */
@@ -251,21 +234,14 @@ function guardCandidate(accent: Color<"oklch">, L: number): Color<"oklch"> {
     return mapped.value;
 }
 
-/** The ratio the guard reads for `candidate` on `surface`: the lesser arm. */
-function guardContrast(candidate: Color<"oklch">, surface: readonly [number, number]): number {
-    const [float, byte] = guardLuminances(candidate);
-    return Math.min(guardRatio(float, surface[0]), guardRatio(byte, surface[1]));
-}
-
 /** The highest target the guard admits for `accent` on `surface`: the best
  *  of the pick and the two poles, the three inks it tries first. */
 function guardCeiling(accent: Color<"oklch">, surface: Color<"oklch">): number {
-    const ground = guardLuminances(surface);
     const L = Math.min(1, Math.max(0, lightness(accent)));
     return Math.max(
-        guardContrast(guardCandidate(accent, L), ground),
-        guardContrast(guardCandidate(accent, 0), ground),
-        guardContrast(guardCandidate(accent, 1), ground),
+        inkContrast(guardCandidate(accent, L), surface),
+        inkContrast(guardCandidate(accent, 0), surface),
+        inkContrast(guardCandidate(accent, 1), surface),
     );
 }
 
@@ -477,8 +453,8 @@ export function resolveFieldPlateReferent(
 /** The pole that reads the higher ratio on a neutral ground: the choice the
  *  guard makes where the headroom target is out of reach (`guardCeiling`). */
 function darkPoleWins(surfaceL: number): boolean {
-    const ground = guardLuminances(surfaceColor(surfaceL));
-    return guardContrast(surfaceColor(0), ground) > guardContrast(surfaceColor(1), ground);
+    const ground = surfaceColor(surfaceL);
+    return inkContrast(surfaceColor(0), ground) > inkContrast(surfaceColor(1), ground);
 }
 
 /** The lowest ground in [0, 1] where {@link darkPoleWins}, to 2^-24. */
@@ -527,8 +503,8 @@ function lightPoleCrossover(): { bare: number; plated: number } {
 function maximinFieldReferent(groundLs: readonly number[]): number {
     const darkest = Math.min(...groundLs);
     const lightest = Math.max(...groundLs);
-    const worstDarkInk = guardContrast(surfaceColor(0), guardLuminances(surfaceColor(darkest)));
-    const worstLightInk = guardContrast(surfaceColor(1), guardLuminances(surfaceColor(lightest)));
+    const worstDarkInk = inkContrast(surfaceColor(0), surfaceColor(darkest));
+    const worstLightInk = inkContrast(surfaceColor(1), surfaceColor(lightest));
     const { bare, plated } = lightPoleCrossover();
     return worstDarkInk >= worstLightInk
         ? Math.max(darkest, plated)
@@ -570,10 +546,10 @@ function chroma(color: Color<"oklch">): number {
 
 /** True where `color` already clears `floor` on the surface (the guard
  *  would return it unwalked). §0gw.4: read off the guard's predicate
- *  ({@link guardContrast}), never by running its walk to see whether it
+ *  ({@link inkContrast}), never by running its walk to see whether it
  *  moved. */
-function clearsAt(color: Color<"oklch">, ground: readonly [number, number], floor: number): boolean {
-    return guardContrast(guardCandidate(color, lightness(color)), ground) >= floor;
+function clearsAt(color: Color<"oklch">, ground: Color<"oklch">, floor: number): boolean {
+    return inkContrast(guardCandidate(color, lightness(color)), ground) >= floor;
 }
 
 /**
@@ -588,7 +564,7 @@ function farSideInk(
     walked: Color<"oklch">,
     floor: number,
 ): Color<"oklch"> | null {
-    const ground = guardLuminances(surfaceColor(surfaceL));
+    const ground = surfaceColor(surfaceL);
     const pole = lightness(walked) >= surfaceL ? 0 : 1;
     const hue = accent.channels[2];
     const at = (L: number): Color<"oklch"> => {

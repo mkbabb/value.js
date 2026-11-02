@@ -37,12 +37,16 @@ const expected = {
     // `mixColorsInto`, `toRgba8Into`, plus `toHex` and the `isAnyColor` guard)
     // and did not pay this file's two-edit ratchet, so the shipped tarball
     // failed its own check at the runtime export-list assertion (G20).
+    // 4.2.0 (COHESION §0hf · VJ-1) adds the colour-vision palette surface: the
+    // three primitives in the barrel and `checkCategoricalPalette` forwarded
+    // beside `parseCssColor`, each with its smoke case below.
     color: [
-        "NAMED_COLORS", "a98Rgb", "convertColor", "displayP3", "hsl", "hsv", "hwb",
+        "NAMED_COLORS", "a98Rgb", "checkCategoricalPalette", "contrastRatio", "convertColor",
+        "deltaEOK", "displayP3", "hsl", "hsv", "hwb",
         "ictcp", "interpolateHue", "isAnyColor", "jzazbz", "kelvin", "lab", "lch",
         "linearSrgb", "mapColorToGamut", "mixColors", "mixColorsInto", "oklab", "oklch",
         "parseCssColor", "prophotoRgb", "rec2020", "rgb", "safeAccentColor", "sampleColorRamp",
-        "serializeCssColor",
+        "serializeCssColor", "simulateColorVision",
         "toHex", "toRgba8", "toRgba8Into", "xyz",
     ],
     value: ["isLayoutTrackingUnit"],
@@ -130,7 +134,17 @@ export const SMOKE = {
         // The named-colour table the parser reads (the picker's named snap reads it back).
         NAMED_COLORS: () => expect(Object.isFrozen(color.NAMED_COLORS) && color.NAMED_COLORS.hotpink === "#ff69b4" && color.NAMED_COLORS.constructor === undefined && unwrap(color.parseCssColor(color.NAMED_COLORS.rebeccapurple)).alpha === 1, "./color NAMED_COLORS is not the frozen prototype-free table"),
         a98Rgb: () => unwrap(color.a98Rgb(0.1, 0.2, 0.3)).channels,
+        // VJ-1: Gregg's light attendance palette on its chart ground passes untuned (SPEC §8).
+        checkCategoricalPalette: () => {
+            const report = unwrap(color.checkCategoricalPalette(
+                ["#982A6B", "#338C00", "#1A5FA0", "#BC0007", "#008E84", "#A88F42", "#7C4D00", "#D65A04"],
+                { ground: "#fcfcfb", scheme: "light" },
+            ));
+            return expect(report.verdict === "pass" && report.findings.length === 8 * 3 + 7 * 4, "checkCategoricalPalette did not pass Gregg light with every finding");
+        },
+        contrastRatio: () => expect(Math.abs(unwrap(color.contrastRatio(unwrap(color.rgb(0x76, 0x76, 0x76)), WHITE)) - 4.542225) < 1e-6, "contrastRatio(#767676, #fff) is not 4.542225"),
         convertColor: () => unwrap(color.convertColor(RGB, "oklch")).channels,
+        deltaEOK: () => expect(Math.abs(unwrap(color.deltaEOK(unwrap(color.rgb(0, 0, 0)), WHITE)) - 1) <= 1e-12, "deltaEOK(black, white) is not unit scale"),
         displayP3: () => unwrap(color.displayP3(0.1, 0.2, 0.3)).channels,
         hsl: () => unwrap(color.hsl(210, 0.5, 0.4)).channels,
         hsv: () => unwrap(color.hsv(210, 0.5, 0.4)).channels,
@@ -161,6 +175,10 @@ export const SMOKE = {
         rgb: () => unwrap(color.rgb(12, 34, 56)).channels,
         safeAccentColor: () => unwrap(color.safeAccentColor(ACCENT, WHITE, { minimumRatio: 4.5, gamut: "srgb" })).channels,
         sampleColorRamp: () => expect(unwrap(color.sampleColorRamp(RGB, RGB_WARM, 5, { space: "oklab" })).length === 5, "sampleColorRamp returned the wrong stop count"),
+        simulateColorVision: () => {
+            const [r, g, b] = unwrap(color.simulateColorVision(unwrap(color.rgb(128, 128, 128)), { kind: "deutan" })).channels;
+            return expect(Math.max(r, g, b) - Math.min(r, g, b) <= 2e-6, "simulateColorVision moved #808080 off the grey axis");
+        },
         serializeCssColor: () => expect(color.serializeCssColor === css.serializeCssColor && unwrap(color.serializeCssColor(unwrap(color.parseCssColor("red")))) === "rgb(255 0 0)", "./color serializeCssColor is not ./css's or its round text changed"),
         toHex: () => expect(unwrap(color.toHex(RGB, { gamut: "clip" })) === "#0c2238", "toHex changed its spelling"),
         toRgba8: () => expect(unwrap(color.toRgba8(RGB, { gamut: "clip" })).length === 4, "toRgba8 did not return four bytes"),

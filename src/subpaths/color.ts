@@ -28,3 +28,23 @@ export type { CssColor, CssColorSpace, ParseIssue, ParseResult } from "../css/ty
  * reads the library's own table rather than keeping a copy that can drift.
  */
 export { NAMED_COLORS } from "../css/named-colors";
+/**
+ * The categorical-palette check (value.js 4.2.0, VJ-1). It accepts CSS colour
+ * text as well as colour objects, so it reads `parseCssColor`, and for the same
+ * cycle reason as `parseCssColor` above it cannot sit in `../color/index`: it
+ * lives in `../palette` and is forwarded here. Its three primitives
+ * (`contrastRatio`, `deltaEOK`, `simulateColorVision`) take colour objects only
+ * and are in the barrel. PSL-2: every type its signature names is listed.
+ */
+export { checkCategoricalPalette } from "../palette";
+export type {
+    CategoricalPaletteOptions,
+    CategoricalPaletteReport,
+    ColorInput,
+    PaletteBand,
+    PaletteFinding,
+    PaletteIssue,
+    PalettePairs,
+    PaletteVerdict,
+    PaletteVision,
+} from "../palette";
