@@ -1554,3 +1554,15 @@ G-KF3-8's pageerror arm is a FLOOR (spec §Gates), outside the close set. **Hone
 | INFO | every local run's tree includes the sibling's dirty `KeyframeTimeline.vue` | ⟨`git status --porcelain`⟩ | none |
 
 **LEDGER**: not promoted. The row stays PARTIAL, and an event line is appended.
+
+## Repair 2 (after Check 2, post-Close 5) — 2026-11-02 (REPAIR SEAT round 2, `claude-opus-5-5`): 0 cured · 2 escalated · nothing in bounds to cure
+
+Crash-recovery: ⟨`git status --porcelain`, keyframes.js⟩ → only `MM demo/components/instrument/timeline/KeyframeTimeline.vue`. That path belongs to a sibling seat, is outside this unit's set, and was left alone. ⟨`git status --porcelain docs/tranches/X/execution/B/KF-W3.md`⟩ → clean. Nothing inherited.
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| HIGH: close order unfinished; library-gates job cancelled at the 4-min budget | **ESCALATED, unchanged since Repair 1.** ⟨`grep -c ESC-KFW3-d3-1 docs/tranches/X/COHESION.md`⟩ → **0**, so there is still no ruling. ⟨`grep -n timeout-minutes .github/workflows/ci.yml`⟩ (kf) → `31: timeout-minutes: 4` · `103: timeout-minutes: 50`. ⟨`gh run list --limit 4`⟩ → ci 41504991466 `cancelled` and deploy-pages 41505833861 `skipped` at `8294a715`, with no newer run. `.github/workflows/ci.yml` is not in §B.2. A CI budget is a different concern from the parser wave, so the adjacent-line rule does not reach it. | none | not re-run: no cure landed, so no gate could move. Check 2's readings stand. |
+| MINOR: `demo/state/animationOptionsStore.ts:95-96` seeds `${duration}ms` / `${delay}ms` (re-read, unchanged) | **ESCALATED.** `demo/state/**` is not in §B.2, and the fix changes the store's seeding data flow, which is more than a one-command cure. Routed to the post-W3 keyframes minor (§0he.4) or a seat granted on it. | none | — |
+| INFO ×2 (navToScene null waits; throw sites = 2) | no cure owed (INFO) | none | — |
+
+**Next act**: the orchestrator rules ESC-KFW3-d3-1, either with a budget that fits the measured step sum or with a job split, with no step skipped. Then the `.d3` seat runs CI GREEN → deploy-pages → §6 → probe ×2 → close, followed by a fresh check. **LEDGER**: untouched; the row stays PARTIAL.
