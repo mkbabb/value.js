@@ -1361,3 +1361,55 @@ SERVED MODEL: claude-opus-5-5. Sections: COHESION §0he.3 · §0hd.5 · §0hb.3 
 ## Close 4 — 2026-11-02 (seat `.d3`, `claude-opus-5-5`): NOT CLOSED, PARTIAL
 
 kf origin/master is `8294a715`. Demo roster CI is GREEN, 6/6. kf CI is RED on ESC-KFW3-d3-1 alone: the library-job 4-minute budget, with every step GREEN. deploy-pages was skipped, so the §6 round-trip and the post-deploy probe ×2 (the G-KF3-8 arm) are still owed. G9 is GREEN (4.1.0). The row stays PARTIAL, and X-W11's VERIFIED stamp (§0hb.3) is not reached. The next acts are: rule ESC-KFW3-d3-1 → `.d3` re-run → close → fresh check.
+
+## Close 5 — 2026-11-02 (CLOSE SEAT, RESUME 3 units `.bis` `.u177` `.d3`, `claude-opus-5-5`, VERIFY-ONLY): PARTIAL
+
+SERVED MODEL: claude-opus-5-5. Substrate: kf `HEAD` = `origin/master` = `8294a715` (⟨`git fetch && git log -1 origin/master`⟩). Crash-recovery: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, §0hb.1; never staged). The vjs record and LEDGER were clean. **0 inherited paths.** This seat cured nothing.
+
+**Commit roster and writable-set check** (⟨`git show --stat <c>`⟩):
+
+| unit | commit | files | in writable set |
+| --- | --- | --- | --- |
+| `.bis` | kf `2582da86` | `scripts/lib/demo-driver.mjs` · `scripts/observe/demo/live-session.mjs` · `scripts/observe/demo/live-session-mobile.mjs` + §0bt adjacent `subject-animates.mjs` (1 line) and `usability.mjs` (1 line), both declared in the receipt | YES (oracle arm + declared adjacent) |
+| `.bis` | kf `608748e2` | `scripts/observe/demo/live-session-mobile.mjs` | YES |
+| `.bis` | vjs `9edd3d8d3` | record · `evidence/W3/bis-bisect-roster.log.txt` · `bis-m1-sheet-geometry-fb87dbcd.raw.txt` · `bis-m1probe.mjs` · `bis-step.sh` | YES |
+| `.u177` | kf `8294a715` | `demo/components/instrument/keyframes/composables/useKeyframeOps.ts` · new `test/demo/instrument/uia-kf-177-store-roundtrip.test.ts` | YES |
+| `.u177` | vjs `17ac66620` | record | YES |
+| `.d3` | kf push `fb87dbcd..8294a715` (no product write) · vjs `506c35bcf` | record · LEDGER · `evidence/W3/CLOSE-RECEIPTS.md` | YES |
+
+**landedWrong: none.** No commit touches glass-ui, a pin, or `KeyframeTimeline.vue`.
+
+**Gates re-run by this seat at kf `8294a715`.** Every heavy run went through `guarded`, with vitest `--maxWorkers=2`, one run at a time.
+
+| gate | BEFORE (RESUME 3 baseline / Close 4) | AFTER (this seat) |
+| --- | --- | --- |
+| G-KF3-1 | GREEN | **GREEN**: ⟨`grep -rln RC-P docs/tranches/X/fourier/ \| wc -l`⟩ → `1`; `evidence/W3/rc-p-4.1.0.md` present (14 files in `evidence/W3/`) |
+| G-KF3-2 | GREEN | **GREEN ×2**: ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ sha1 `d488535c9bfc` = ⟨`npm view … dist.shasum`⟩ `d488535c9bfc`. The unmodified probe (sha256 `77678a574d7c6b11`) was symlinked into the untarred mirror, then ⟨`npm_config_ignore_scripts=true guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 → `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` · `GREEN — every public parser is total.`, rc 0 both runs |
+| G-KF3-3 | GREEN | **GREEN ×2**: the roster re-derived at HEAD (the spec's `git grep -l -E '@mkbabb/value\.js/css\|parseCss(Color\|Scalar\|Values)\|parseTimingFunction\|serializeCssValue\|reverseAnimationShorthand\|cssIdent' HEAD -- test/` ∪ `git grep -l serialize-value HEAD -- test/`, `.test.ts`) → 19 files; ⟨`xargs guarded -- npx vitest run --maxWorkers=2 < roster`⟩ ×2 → `Test Files 19 passed (19)` · `Tests 235 passed (235)` both runs |
+| G-KF3-4 | GREEN | **GREEN**: `unserializable` in src+demo → `0`; fork defs → `0`; `@mkbabb/value.js/css` `serializeCssValue` imports → `serialize-value.ts:2` · `timelineEngine.ts:2`; seam importers → `15`; pin `package.json:71` `"4.1.0"`; INBOX `O-11 §B` → `1` |
+| G-KF3-5 | GREEN | **GREEN**: one def, `css-text.ts:33`; ⟨`git grep -n "value.js's OWN" HEAD -- src`⟩ → `internal/leaves.ts:8` only (the `/math` subpath, outside the census-2 predicate) |
+| G-KF3-6 + boot fence + invariant/bypass mutant | GREEN | **GREEN ×2**: INBOX `O-11 §D2` → `1`; the 5-file fence run (`public-surface` · `easing-identity` · `timing-function-names` · `orchestration-api` · `serialize-invariant`) ×2 → `Test Files 5 passed (5)` · `Tests 130 passed (130)` both runs |
+| G-KF3-7 | GREEN | **GREEN**: `evidence/W3/CALL-MAP.md` present |
+| UIA-KF-177 (`.u177`) | RED at the bytes | **GREEN ×2**: ⟨`guarded -- npx vitest run test/demo/instrument/uia-kf-177-store-roundtrip.test.ts test/compile/uia-kf-177-css-time.test.ts test/compile/uia-kf-177-authored-unit.test.ts --maxWorkers=2`⟩ ×2 → `Test Files 3 passed (3)` · `Tests 19 passed (19)` both runs |
+| demo roster (`.bis`, ESC-KFW3-r1-1) | RED 4/6 | **GREEN on CI**: ⟨`gh run view 41504991466 --json jobs`⟩ → `demo correctness (browser roster) success`; ⟨`--log`⟩ → `passed: 6/6`. Not re-run locally: it is a browser run, and `.bis` banked it ×2 at the cure bytes; CI is the independent reading |
+| kf `npm run check` | GREEN | **GREEN ×2**: ⟨`guarded --light -- npm run check`⟩ rc 0 ×2; ends `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` |
+| kf vitest whole (lib + demo) | GREEN | **GREEN ×2**: ⟨`guarded --timeout 25 -- npx vitest run --maxWorkers=2`⟩ ×2 → rc 0 both; `Test Files 296 passed \| 5 skipped (301)` · `Tests 2318 passed \| 2 expected fail \| 14 skipped (2334)` both runs. The runs read the shared tree, which includes the sibling's uncommitted `KeyframeTimeline.vue`. Logs at `/Users/mkbabb/Programming/.kf-close5-logs/` |
+| kf CI (both jobs) | RED | **RED, unchanged** (ESC-KFW3-d3-1): ⟨`gh run list -L 6`⟩ → `41504991466` ci `cancelled`, with no newer run. ⟨`gh run view 41504991466 --json jobs`⟩ → `library gates … cancelled` (18:54:45Z–18:59:25Z), and all 11 of its steps are `success` (`npm ci` → `publish boundary`). kf `ci.yml:31` still reads `timeout-minutes: 4`. ⟨`grep -n ESC-KFW3-d3-1 COHESION.md`⟩ → 0, so there is no ruling yet |
+| deploy-pages · §6 round-trip · post-deploy probe ×2 (G-KF3-8 pageerror arm) | skipped / owed | **BLOCKED** behind CI: `41505833861` deploy-pages `skipped`. These were not run, because probing prod now would read the pre-W3 build |
+| G9 | GREEN | **GREEN**: ⟨`npm ls @mkbabb/value.js`⟩ → `4.1.0` (2 hits, 0 other versions) |
+| G-KF3-8 / G-KF3-9 | floors | not close gates (spec §Gates) |
+
+**Verification artefacts.** The spec names no separate §Verification Artefacts block. The evidence bank `docs/tranches/X/keyframes/evidence/W3/` holds the eight named artefacts plus the `.bis` bank (`bis-bisect-roster.log.txt` · `bis-m1-sheet-geometry-fb87dbcd.raw.txt` · `bis-m1probe.mjs` · `bis-step.sh`). That is 14 files.
+
+**E13.** The paths were swept again: value V/ + V/coordination · glass BK/coordination + BL + BL/audit (newest `BL`) · keyframes V/coordination. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 2026-11-02 10:40) returned files only for glass `BL/FORMATION-PROGRESS.md` + `BL/audit/INBOUND.md` (commits `97352c0e8`…`ed1bc0cd8`: the glass 10.1.4 cursor and O-119 Gregg inventory). Their added lines carry no keyframes.js or KF.W3 row, so they are out of scope. INBOX `UNREAD` status rows: I-79 is the only open one. It is routed by §0he.4 to the post-KF.W3 keyframes minor, outside this wave. **UNREAD in KF.W3 scope: 0.**
+
+**Residuals (named owners).**
+1. ESC-KFW3-d3-1: the kf `ci.yml:31` library-job budget (4 min) is below the measured step sum. It needs an orchestrator ruling (a budget fitting the sum, or a job split; no step skipped). After that, the `.d3` re-run from act 2: CI GREEN → deploy-pages → §6 → probe ×2 (pageerror 0 = G-KF3-8 arm) → close + fresh check. Owner: orchestrator → `.d3` re-run.
+2. `demo/state/animationOptionsStore.ts:95-96` seeds fresh entries as `${duration}ms` (lossless, not the authored unit). This is a separate site from the §0he.2 grant. Owner: the post-W3 keyframes minor (§0he.4) or a seat granted on it.
+3. `.bis` residual: `scripts/gates/visual/index.mjs` + `scripts/gates/register-census.mjs` pass null to `navToScene`, so each non-home scene waits out the 12 s ceiling. It is a wait, not an assertion, and those files are not roster members. Owner: the post-W3 keyframes minor.
+4. Throw sites 2 → 2 (seam invariant + `timelineEngine.ts` refusal). Owner: KF.W7 / KF.W2 posture (L-5).
+5. §0hb.3's X-W11 VERIFIED stamp waits on the deploy. Owner: Track A after the `.d3` re-run.
+
+**Escalations**: none new (ESC-KFW3-d3-1 stands). **Adjacent edits**: none.
+
+**Four-verb line**: IMPLEMENTED — **NOT advanced**. Spec §State says *"gates green + bytes landed in the named execution site stamps this"*, and kf CI is RED with the deploy, §6 and probe acts still owed. VERIFIED is not this seat's to stamp. The row stays **PARTIAL**.
