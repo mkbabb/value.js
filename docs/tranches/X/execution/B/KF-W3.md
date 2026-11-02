@@ -95,3 +95,31 @@ Order: `[.a] → [.b] → [.c1] → [.c2] → [.c3] → [.c4] → [.c5] → [.d]
 
 ## Unit receipts
 
+
+### a
+
+**Seat**: `.a` (claude-opus-5-5), 2026-11-02. Sections: §Carry C-1..C-5 · §B.3 · G-KF3-7 · E-14.5/E-15 · G-KF3-1 conj 3 · G-KF3-2. kf READ-ONLY (every kf byte via `git show HEAD:` / `git grep … HEAD`).
+
+**Crash-recovery** ⟨`git status --porcelain -- docs/tranches/X/keyframes/evidence/W3 docs/tranches/X/execution/B/KF-W3.md`⟩ → empty; `evidence/W3` absent → **0 inherited paths**. kf ⟨`git rev-parse HEAD origin/master`⟩ → both `5c48e3da9bbb…`; kf dirty = `KeyframeTimeline.vue` only (sibling; read at `HEAD`, never the working tree).
+
+**Acts, in order**
+
+1. **Coordinates packed fresh** ⟨`npm pack @mkbabb/value.js@{4.0.0,4.1.0}`⟩ + ⟨`shasum -a1`⟩ → `ccb962e5…8b9d` (4.0.0) · `d488535c…b3d6` (4.1.0) = ⟨`npm view … dist.shasum`⟩ for 4.1.0. Scratch = session scratchpad `kfw3a/` (non-durable; readings pasted into CALL-MAP §0).
+2. **Failure modes by execution** ⟨`guarded --light -- node reach.mjs <v>/package`⟩ ×2 per coordinate, `cmp` identical both → 31 lines each; **THROW 9 at 4.0.0 · 0 at 4.1.0** (`parseCssColor` empty-body ×5, `parseCssScalar("oklch()")`, `parseTimingFunction(null|42|{})`). `bezierPresets` 30 keys + 10 kf names → `easing()` 0 `!ok` at both. `"serializeCssValue" in css` false→true; `reverseAnimationShorthand` false at both. Instrument note: the first launch, named `probe.mjs`, was held by the guard's browser pool (name match) — killed and re-run as `reach.mjs`, script unchanged. ⟨`node sercolor.mjs`⟩ (18 colour spellings): serialize `!ok`/throw on parsed-ok colours = **0 at both** (→ `css-text.ts:66` UNREACHABLE on parsed input); `color-mix(in srgb, red, blue)` `ok=false`@4.0.0 → `ok=true`@4.1.0.
+3. **§B.3 re-resolved** ⟨`git grep -n 'parseCssColor\|parseCssScalar\|parseCssValues' HEAD -- demo/`⟩ → **6 hits = 2 imports + 3 calls + 1 comment** (spec: 3+3; `KeyframesEditor.vue` deleted at kf `5e56d266`). **CSSCodeEditor ingress re-resolved**: `emitNow` `:435-438` / `debounce` `:440` → consumer `KeyframesStringControls.vue:200-215` (`await updateFromString` inside `try`) — contained. Every drifted anchor recorded with its TRUE bytes at CALL-MAP §5 (14 rows).
+4. **Channel (ii)** ⟨`git grep -n 'parseTimingFunction\|bezierPresets' HEAD -- src demo`⟩: `parseTimingFunction` calls `registry.ts:165` (REACHABLE, kf-authored `requireParsed` throw) · `options.ts:105` (UNREACHABLE for registry curves) · `animationDescriptions.ts:74` (total) + `useTimingFunctionEditor.ts:231` (total; not in the spec seed, booked for completeness). `bezierPresets`: `registry.ts:4/:28` only; demo consumers ×7 → **0 calls** (5 comment hits) — blast radius = one module.
+5. **Denominator** — 27 ids (E-15's 26 + KF-HA-19) entered with banked owner/classification + frontier re-check (per-component direct-edge census). Two mechanisms drifted and are restated (OrbitalDrag gained a `/math` edge; TimelineHoverPreview gained `/math` + runtime `/transform`), classification unchanged; O-117's retired-export break named for `.c1`.
+6. **C-4/C-5 pair** (CALL-MAP §4): token path **UNREACHABLE** (empty → declared-literal fallback `:84`; shipped tokens all `ok=true`); `!ok` arm **REACHABLE** on authored CSS. **Intent at the true bytes**: the spec's `:23` `throw` no longer exists — KF.W13X MISS-4/D-27 made the arm (`:86-92`) degrade-not-throw; reachability unchanged, blast radius *"loop wedged"* → *"recolour off, reported once"*.
+7. **`attribution-harness.mjs`** written (255 lines; `node --check` OK): copies kf bytes (`git archive <ref>` or `--source worktree`) twice into scratch, APFS-clones `node_modules`, installs the registry tarball of OLD vs NEW (sha1-verified) over every installed `@mkbabb/value.js` copy, runs the same `vitest run <files> --maxWorkers=2 --reporter=json` **serially through `guarded`**, classifies per file and per test id: VALUE-SIDE · KF-SIDE · VALUE-SIDE-CURED · GREEN · NOT-RUN · UNATTRIBUTABLE; exit 0/1/2. **Smoke** (files `easing-identity` · `selector-value4` · `entry-roundtrip`): run 1 exposed that env-gated browser-oracle tests (skipped at both) fell to UNATTRIBUTABLE → added the named **NOT-RUN** verdict (never counted GREEN); runs 2 ≡ 3 (`rows equal: true`) → `{"VALUE-SIDE":1,"GREEN":2}`, exit 1: `easing-identity` K1 *"NEGATIVE CONTROL — value.js's own easing() is unstable for 21 of the 40"* passed@4.0.0 / failed@4.1.0 = **VALUE-SIDE** (agrees with the banked trial, X-W11.md:6072); `selector-value4` GREEN; `entry-roundtrip`'s 5 browser-oracle ids NOT-RUN locally (its CI S1/S4 RED is therefore not attributable by this harness on this host — stated, not guessed).
+8. **`rc-p-4.1.0.md`** = this record's OP-1 body (lines 16-30) pasted byte-for-byte ⟨`diff <(sed -n 16,30p KF-W3.md) <(tail -n +11 rc-p-4.1.0.md)`⟩ → identical.
+9. **Commit** `a487be784` — `docs/tranches/X/keyframes/evidence/W3/{CALL-MAP.md,rc-p-4.1.0.md,attribution-harness.mjs}` (3 files, +412), pathspec.
+
+**Gates BEFORE → AFTER** (read off the committed bytes ×2)
+
+| gate | before | after | reading |
+|---|---|---|---|
+| G-KF3-7 | RED (no map) | **GREEN** | `CALL-MAP.md` 132 lines: CALL-graph method §0; channel (i) 8 sites §1 + channel (ii) 6 seeds §2; denominator ⟨awk over §3⟩ → `rows 27 · UNREACHABLE 21 · REACHABLE 3 · REACHABLE-but-correct 1 · POSTURE 1 · DECLINED 1 · other 0` ×2 (= spec `21+3+1+1+1`); C-4 UNREACHABLE ∧ C-5 REACHABLE both stated §4 |
+| G-KF3-1 (conj 3) | RED (`evidence/W3` absent) | **GREEN** | ⟨`ls evidence/W3`⟩ → `CALL-MAP.md attribution-harness.mjs rc-p-4.1.0.md` ×2; paste carries 5 conjunct rows + `RC-P(4.1.0) = TRUE` (`grep -c` 5 · 1, ×2). Conj 1/2 GREEN at baseline → G-KF3-1 whole **GREEN** |
+| G-KF3-2 (paste) | GREEN before cure (entry condition) | **GREEN, pasted** | conj-2 row `TOTAL 0 throws / 1548 calls` ×2 in `rc-p-4.1.0.md`; corroborated at kf's routed inputs: THROW 0 at 4.1.0 (act 2) |
+
+**Adjacent edits**: none. **Escalations**: none. **Residuals**: (i) the harness cannot attribute env-gated browser-oracle tests (NOT-RUN) — `entry-roundtrip` S1/S4 (the pre-existing kf CI RED) need a browser-capable run for attribution (`.d`'s concern); (ii) §5 drifts are recorded at their true bytes, the spec text is untouched (E-3).
