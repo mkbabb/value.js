@@ -1566,3 +1566,68 @@ Crash-recovery: ⟨`git status --porcelain`, keyframes.js⟩ → only `MM demo/c
 | INFO ×2 (navToScene null waits; throw sites = 2) | no cure owed (INFO) | none | — |
 
 **Next act**: the orchestrator rules ESC-KFW3-d3-1, either with a budget that fits the measured step sum or with a job split, with no step skipped. Then the `.d3` seat runs CI GREEN → deploy-pages → §6 → probe ×2 → close, followed by a fresh check. **LEDGER**: untouched; the row stays PARTIAL.
+
+## Check 3 (pass 3 after Close 5; record sequence Check 9) — 2026-11-02 (fresh adversarial L-20, VERIFY-ONLY, `claude-opus-5-5`)
+
+SERVED MODEL: claude-opus-5-5. Substrate: kf `HEAD` = `origin/master` = `8294a715` (⟨`git fetch && git log -3 origin/master`⟩; no kf commit since Close 5, Check 1, Repair 1, Check 2 or Repair 2); vjs `0733bc45b`. I authored none of the wave's bytes, closes, checks or repairs. Crash-recovery: ⟨`git status --porcelain -- <record> <LEDGER>`⟩ → empty; kf tree `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, §0hb.1; never staged) ⇒ **0 inherited paths**.
+
+**Verdict: NOT-CONFORMANT.** Nothing has moved since Check 2. Repair 2 cured nothing and escalated both rows. ⟨`grep -n ESC-KFW3-d3-1 docs/tranches/X/COHESION.md`⟩ → no output, so ESC-KFW3-d3-1 is still unruled. kf `ci.yml:31` still reads `timeout-minutes: 4`. ⟨`gh run list -L 5`⟩ → newest ci `41504991466` `cancelled`, deploy-pages `41505833861` `skipped`, no newer run. §0he.3's ruled close order (kf CI GREEN → deploy-pages → §6 → probe ×2 → close → fresh check) is still unfinished. Every claimed GREEN that I re-ran reproduces.
+
+### Axis 1 — reproduction (kf `8294a715`; every run through `guarded`, vitest `--maxWorkers=2`, strictly sequential)
+
+| gate | reading |
+| --- | --- |
+| G-KF3-1 | ⟨`grep -rln RC-P docs/tranches/X/fourier/ \| wc -l`⟩ → `1`; `evidence/W3/rc-p-4.1.0.md` + `CALL-MAP.md` present; ⟨`ls evidence/W3 \| wc -l`⟩ → `14` — **GREEN** |
+| G-KF3-2 | ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ → ⟨`shasum -a 1`⟩ `d488535c9bfc747e318895417c28a753a3b7b3d6` = ⟨`npm view … dist.shasum`⟩; probe sha256 `77678a574d7c6b11` (unmodified, symlinked into the untarred scratch mirror at its own relative path); ⟨`npm_config_ignore_scripts=true guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 → `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` · `GREEN — every public parser is total.`, rc 0 both, logs `cmp`-identical — **GREEN ×2** |
+| G-KF3-3 | roster re-derived at HEAD by the spec's `git grep -l -E …` ∪ `git grep -l serialize-value`, `.test.ts`, `sort -u` → `19`; ⟨`xargs guarded -- npx vitest run --maxWorkers=2 < roster`⟩ → rc 0, `Test Files 19 passed (19)` · `Tests 235 passed (235)` — **GREEN** (banked ×2 at Close 5, Check 1, Check 2) |
+| G-KF3-4 | `unserializable` in src+demo → `0`; ⟨`git grep -nE 'export (const\|function) serializeCssValue' HEAD -- src demo`⟩ → `0`; `serializeCssValue` from `@mkbabb/value.js/css` → `serialize-value.ts:2` · `timelineEngine.ts:2`; pin `package.json:71` `"4.1.0"`; INBOX `O-11 §B` → `1` — **GREEN** |
+| G-KF3-5 | ⟨`git grep -nE 'export (const\|function) reverseAnimationShorthand' HEAD -- src`⟩ → `css-text.ts:33` only; ⟨`git grep -n "value.js's OWN\|published 0.12.0 inverse" HEAD -- src test`⟩ → `internal/leaves.ts:8` only (the `/math` subpath, outside census 2) — **GREEN** (discharge (b)) |
+| G-KF3-6 + boot fence + invariant/bypass mutant + UIA-KF-177 | INBOX `O-11 §D2` → `1`; one run over the 5 fence files + the 3 UIA-KF-177 files → rc 0, `Test Files 8 passed (8)` · `Tests 149 passed (149)` — **GREEN** |
+| G-KF3-7 | `evidence/W3/CALL-MAP.md` present — **GREEN** |
+| kf `npm run check` | ⟨`guarded --light -- npm run check`⟩ → rc 0, ends `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` — **GREEN** |
+| kf vitest whole | ⟨`guarded --timeout 25 -- npx vitest run --maxWorkers=2`⟩ was started by this seat but had not settled when the seat had to return, so I do **not** count it as reproduced here. It stands on the bank: Close 5 ×2 and Check 2 ×1 → `Test Files 296 passed \| 5 skipped (301)` · `Tests 2318 passed \| 2 expected fail \| 14 skipped (2334)`, at unchanged kf bytes `8294a715` — **GREEN (banked; not re-read by this seat)** |
+| G9 | ⟨`npm ls @mkbabb/value.js`⟩ → `@mkbabb/value.js@4.1.0` + glass 10.1.3's copy `deduped` — **GREEN** |
+| demo roster (CI) | ⟨`gh run view 41504991466 --json jobs`⟩ → `demo correctness (browser roster) success` 18:54:45Z–19:00:07Z — **GREEN** (CI reading; a browser run, not re-run locally) |
+| kf CI (library job) | same run → `library gates (library tests + proof:publish) cancelled` 18:54:45Z–18:59:25Z (4m40s); `ci.yml:31` `timeout-minutes: 4`; no newer run — **RED** |
+| deploy-pages · §6 · probe ×2 | `41505833861` → `skipped`; never run — **OWED** |
+
+### Axes 2–9
+
+- **(2) Bounds.** No new product commit since Close 5. Since Check 1, vjs carries only `779116ab2` (Repair 1: record), `175506586` (Check 2: record + LEDGER) and `0733bc45b` (Repair 2: record), by ⟨`git show --stat`⟩. Check 1's roster of `2582da86` · `608748e2` · `8294a715` (inside the §0he.1/§0he.2 grants) stands at unchanged bytes. ⟨`git log --oneline 9edd3d8d3^..HEAD -- scripts/dev/dev.sh \| wc -l`⟩ → `0`. **Clean.**
+- **(3) Masking.** There is no new diff, so Check 1's masking sweep of the RESUME 3 diffs stands. Both repairs left `ci.yml:31` alone and skipped no step, which is lawful. **Clean.**
+- **(4) Commit families.** One commit per meaning, one record commit per seat. **Clean.**
+- **(5) E-3.** ⟨`git diff --stat 9edd3d8d3^..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/conformance`⟩ → empty. **Held.**
+- **(6) Mail.** ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ over value V/ + V/coordination · glass BK/coordination + BL + BL/audit (newest `BL`, ⟨`ls -dt`⟩) · kf V/coordination → glass `BL/FORMATION-PROGRESS.md` + `BL/audit/INBOUND.md` only. That is the same pair Checks 1 and 2 adjudicated. ⟨`git -C glass-ui log -1 -- docs/tranches/BL`⟩ → `b4b6b76ee`, which is Check 2's tip, so there are no new lines. INBOX has no UNREAD row in KF.W3 scope (I-79 is routed by §0he.4 outside this wave). **UNREAD in scope: 0.**
+- **(7) Four-verb line.** IMPLEMENTED was not advanced and the row stays PARTIAL. That is lawful, because the close order is not complete.
+- **(8) Goal criterion.** **MET at the bytes.** `CALL-MAP.md` spans both organs. There is exactly one `serializeCssValue` provider (value `./css`, with 0 kf fork defs). There is exactly one `reverseAnimationShorthand` (`css-text.ts:33`), and its provider prose is true.
+- **(9) Published figures.** These reproduce: 0/1548, sha1 `d488535c9bfc`, 19 / 235, 130 + 19 = 149, 14 evidence files, the 4m40s cancelled library job, and the skipped deploy.
+
+### Axis 10 — honest-RED adjudication
+
+**kf CI `library gates` cancelled (ESC-KFW3-d3-1) → deploy-pages skipped → §6 + probe ×2 owed: UNRELIEVED, unchanged since Check 1.**
+- It is not producer-owned: the budget is kf's own `.github/workflows/ci.yml:31`.
+- The spec does not route it to a later wave. The conjunct is COHESION §0he.3 / §0hd.5, and no §Excluded row, lock or cross-edge in KF-W3.md routes it elsewhere.
+- It has no spec-named honest-RED id.
+- An owner is named: the orchestrator ruling on ESC-KFW3-d3-1, then the `.d3` re-run. A named owner without spec relief does not make the RED honest, so the HIGH stands.
+
+G-KF3-8's pageerror arm is a FLOOR (spec §Gates), outside the close set. **Honest-RED set: none.**
+
+### Successor conjuncts
+
+⟨`grep -nE '[Oo]pens after' docs/tranches/X/*/waves/*.md \| grep 'KF\.W3'`⟩ → KF-W7 `:61`, KF-W10 `:47` and KF-W4 `:55`. Each is a citation inside a bounds or provenance cell, not a conjunct on KF.W3, so no successor wave is gated on this row. Two dependants are lawfully blocked on the deploy conjunct:
+- X-W11's VERIFIED stamp (§0hb.3). Its `npm ls → 4.1.0` conjunct is GREEN.
+- §0he.4's post-KF.W3 keyframes minor.
+
+**Count**: I reproduced 12 claimed GREENs: G-KF3-1…7, the fence + UIA-KF-177, check, G9, the demo roster on CI, and the library job steps (`success` up to the cancel). 0 claimed GREENs failed. kf vitest whole is banked, not re-read. There is 1 RED (the library job cancel) and 3 acts are owed.
+
+### Register
+
+| severity | claim | receipt | cure |
+| --- | --- | --- | --- |
+| HIGH | §0he.3 / §0hd.5's ruled close order is still unfinished, with no change since Check 1. kf CI is not GREEN because the library job was `cancelled` at the 4-minute `ci.yml:31` budget. As a result deploy-pages was skipped, and §6 and the post-deploy probe ×2 (the G-KF3-8 pageerror arm) never ran. It has no spec relief and no honest-RED id, and it is not producer-owned. ESC-KFW3-d3-1 is unruled. | CI `41504991466` (library `cancelled` 4m40s, demo `success`); deploy `41505833861` `skipped`; ⟨`grep -n ESC-KFW3-d3-1 docs/tranches/X/COHESION.md`⟩ → none; ⟨`grep -n timeout-minutes .github/workflows/ci.yml`⟩ (kf) → `31: 4` · `103: 50` | the orchestrator rules ESC-KFW3-d3-1 (a budget that fits the measured step sum, or a job split, with no step skipped). Then the `.d3` re-run: CI GREEN → deploy-pages → §6 → probe ×2 → close → fresh check |
+| MINOR | `demo/state/animationOptionsStore.ts:95-96` seeds fresh entries as `${duration}ms`. That is lossless, but it is not the authored unit. | Close 5 residual 2; Repairs 1–2 escalated | the post-W3 keyframes minor (§0he.4) or a granted seat |
+| INFO | `scripts/gates/visual/index.mjs` + `register-census.mjs` pass null to `navToScene`, which costs 12 s waits but no assertions | Close 5 residual 3 | the post-W3 keyframes minor |
+| INFO | throw sites 2 → 2 | Close 5 residual 4 | KF.W7 / KF.W2 posture (L-5) |
+| INFO | every local run's tree includes the sibling's dirty `KeyframeTimeline.vue` | ⟨`git status --porcelain`⟩ | none |
+
+**LEDGER**: not promoted. The row stays PARTIAL, and an event line is appended.
