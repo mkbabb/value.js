@@ -1,0 +1,45 @@
+SERVED MODEL: claude-opus-5-5
+# kf CI run 41466910668 (push fb87dbcd), job 125350097965 'demo correctness (browser roster)' — excerpt: live-session + live-session-mobile + REPORT (gh api repos/mkbabb/keyframes.js/actions/jobs/125350097965/logs | sed -n 878,920p)
+  ✓ B1 COLD hero play STARTS the engine (aria flips Play→Pause + slider advances from "0"; idle bob excluded) — PASS · {"aria":"Play→Pause","slider":"null→33.200000000000045","ariaIsPause":true,"sliderAdvanced":true,"wrapperDistinctGated":1,"pass":true}
+  ✓ B2 synthetic visibilitychange on a playing scene raises NO _gen throw — PASS · {"genThrows":0,"switchNote":"dock-Select clicked \"Cube\" (of 7 options, trusted)","pass":true,"replayClean":true}
+  ✓ B4 switch-into-easing mounts the EasingPicker + a handle-drag mutates — PASS · {"present":true,"mountedActive":true,"handleCount":2,"dMutated":true,"pass":true}
+  ✓ B3 amiga centre-drag moves the SUBJECT not the room — PASS · {"mad":{"centreMAD":33.912972753151685,"peripheryMAD":0},"pass":true}
+  ✓ B6 /square drag selects NO text + the transform PERSISTS — PASS · {"selectedChars":0,"bodyDragging":true,"userSelectSuppressed":true,"persisted":true,"pass":true}
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":2,"sceneFails":["cube: ENTRY red — machine=cube (want cube), trigger=null (want \"Controls\"), subject ok","amiga: ENTRY red — machine=amiga (want amiga), trigger=null (want \"Controls\"), subject o
+  ✓ B7 the glass ::before carry NO bloom at rest — PASS · {"totalGlass":38,"maxRest":0,"bloomers":[],"pass":true}
+  ✓ B9 every scene glyph PAINTS — PASS · {"scenesGlyphPainted":7,"total":7,"glyphFailures":[],"pass":true}
+  ✓ font register — the body font IS Plus Jakarta Sans (T.D3/OD-6) — PASS · {"body":"\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback","jakarta":true,"pass":true}
+  ✓ S2 the engine's respectReducedMotion path SNAPS live under PRM (dots rest · sheet one-emit) — PASS · {"prmMatches":true,"controlChurn":[4,4,4],"prmChurn":[1,1,1],"sheetTrail":null,"sheetLeg":"Glass-owned Drawer spring; trail recorded only","pass":true}
+  ✓ S4 keyboard operability — Tab reaches play · focus-visible ring · Enter + global Space actuate — PASS · {"reachedAt":17,"sawTransport":true,"focusRing":{"matchesFV":true,"ringPainted":true},"enterToggled":true,"enterLive":199,"spaceToggled":true,"pass":true}
+
+live-session observation — FAIL (2): the human battery (PLAY + SWITCH + DRAG) blew the ERROR BUDGET (S2a) or a product-facing DOM assertion failed.
+
+──── live-session-mobile ────
+live-session-mobile observation — a REAL 390×844 + hasTouch context: sheet open/scroll/close/RE-OPEN + dock switch + touch-drag + play, every gesture a TOUCH gesture, ERROR BUDGET = 0 + an honest Glass Drawer/menubar overlap measurement
+  ✓ M1 sheet OPEN: the Drawer reaches its expanded detent (--detent-t=0.12, spring-settled — not a fixed wait) on 390×844
+  ✓ Glass consume-edge observation (sheet OPEN): sheet.bottom 716 ≤ menubar.top 716 on 390×844 — the bottom menubar clears the sheet
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 702px content in a 85px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet CLOSE: the drag did not collapse the Drawer (closed=false, --detent-t=0)
+  ✓ Glass consume-edge observation (sheet CLOSED (peek)): sheet.bottom 716 ≤ menubar.top 716 on 390×844 — the bottom menubar clears the sheet
+  ✓ M1 sheet RE-OPEN: the SECOND expand re-arms the scroll latch (overflow-y=auto) on a real touch context — the M2 latch holds
+  ✓ M1 sheet RE-OPEN: the re-opened Drawer scrolls to its content on touch (scrollTop=165px) — the M2 re-open latch holds on a real touch context
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+  ✗ M2 dock SWITCH: the destination state never projected (machine=easing, trigger=null; expected easing + a PRESENT control-tab per the T.B2 derivation) — the touch switch is broken or lags its control surface
+  ✓ M3 touch-drag: the /square touch drag COMPLETED — transform persists (matrix(1.10611, -6.13463e-06, 1.31705e-05, 1.106…) and getSelection() is empty (no touch-drag text selection)
+  · M4 play: the group-play button is behind the ADOPTED Drawer (bottom:0, z-modal 140) on 390×844 — UPSTREAM GLASS 5 OVERLAP queued to Glass 6; no touch-reachability claim is made here.
+  ✓ ERROR BUDGET = 0 across the mobile battery (sheet + dock + drag + play, all touch): zero HARD + zero PROMOTED charges (the lib-sourced live-session allowlist, by reference)
+  · Keyframes-owned mobile interaction observations completed; the Glass 5 Drawer/menubar overlap was reported separately above. Appearance observations run next.
+  ✓ A1 appearance — 390×844 hero/subject print-over contract holds: hero h1 (y 150–267) vs cube (y 298–510), overlap=0px² (disjoint)
+  ✓ A2 appearance — DARK --ball-tone/accent legible: the .dark token surface is LIVE (html.dark, backdrop rgb(11, 10, 9)), --ball-tone resolves the OD-6 accent (oklch(74% .13 305)); the violet tile ball (oklch(0.74 0.13 305)) contrasts 8.19 and the selected tile's accent name (rgb(233, 230, 226)) contrasts 15.90 — both ≥ the 3 legibility floor
+  ✓ A3 appearance — ghost rail ABSENT on the home sweep: home (railless, wrapper null×null) + sequence (paned, wrapper null×null, the full-width bottom sheet) carry NO hollow rail-width side column (XH-1)
+
+live-session-mobile observation — FAIL (3): the 390×844 + hasTouch session found a Keyframes-owned touch, interaction, error-budget, or appearance defect.
+
+════ run-demo-roster — REPORT ════
+  passed: 4/6
+  ✗ failed: live-session, live-session-mobile
+##[error]Process completed with exit code 1.
+##[group]Run npm i --no-save lighthouse || echo "observer install unavailable; recorded"
+[36;1mnpm i --no-save lighthouse || echo "observer install unavailable; recorded"[0m
+shell: /usr/bin/bash -e {0}
+##[endgroup]

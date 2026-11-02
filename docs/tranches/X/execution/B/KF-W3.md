@@ -938,3 +938,34 @@ KF.W3 is GATE-KEYED, and no wave's "Opens after" conjunct names it. ⟨`grep -nE
 | INFO | `KeyframeTimeline.vue` in kf is dirty (`MM`). It belongs to a sibling seat (§0hb.1) and is untouched by the wave. All local runs above include that dirty file in the tree, as Close 3's did. | ⟨`git status --porcelain`⟩ | none (sibling's) |
 
 **LEDGER**: the row is not promoted, and it stays PARTIAL. An event line is appended.
+
+## Repair 1 (round 1 after Check 1 post-Close 3; record sequence Repair 3) — 2026-11-02 (REPAIR SEAT, `claude-opus-5-5`)
+
+SERVED MODEL: claude-opus-5-5. Substrate at open: kf `HEAD` = `origin/master` = `6a4556d3`; vjs `2ed512a4d`. Crash-recovery: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, §0hb.1; never staged) ⇒ **0 inherited paths**.
+
+### Defect → cure → commit
+
+| # | sev | defect | cure | commit |
+| --- | --- | --- | --- | --- |
+| 1 | HIGH | §0hd.5 close path unfinished: kf CI RED on `proof:readme-runs` (`README.md:834` `display 350ms allow-discrete`), deploy skipped, §6 + probe ×2 unrun | **Adjacent edit (§0bt)**: `README.md:834` → `dialog.css.includes("display 0.35s allow-discrete"); // => true` — the string the runnable-README oracle asserts for the UIA-KF-177 ruled spelling (the concern `.d` `d4148cdc` re-aimed in the browser oracle); same repo, same concern, one line, no assertion removed. Then push → CI → deploy-pages (§6 inside `scripts/pages-deploy.sh`) → probe ×2 | kf `fb87dbcd` (pushed `6a4556d3..fb87dbcd`, ordinary) |
+| 2 | MINOR | `useKeyframeOps.ts:45-46` drops the authored `<time>` unit | **ESCALATED**, not cured: the file is outside the spec §B.2 writable set (its only grant was `.reg`'s "iff same concern", which Close 3 judged a different concern); not a one-command cure (needs the unit fields threaded through `reverseCSSTime` + its oracles). Owner: a seat granted on UIA-KF-177 | — |
+| 3 | INFO | 2 → 2 throw sites | none (KF.W7 / KF.W2, L-5) | — |
+| 4 | INFO | `KeyframeTimeline.vue` dirty | none (sibling's) | — |
+
+**Adjacent edits**: kf `README.md:834` — the README runnable oracle string for the UIA-KF-177 ruled spelling (§0bt "the string an oracle asserts"); ESC-KFW3-d2-1 discharged by this edit.
+
+### Gate re-reading (WRITE-THEN-MEASURE, settled bytes kf `fb87dbcd`)
+
+| gate | reading |
+| --- | --- |
+| `proof:readme-runs` / `proof:publish` local | ⟨`guarded --light -- node scripts/gates/surface/index.mjs`⟩ ×2 → `proof:published-surface — PASS` · `proof:readme-runs — PASS: 20 snippet(s) executed against the built dist, 29 stated result(s) verified, the runnable set covers the taught roster (19).` · `proof:publish — PASS: package boundary, consumption, and runnable docs are green.` both; rc `0` — **GREEN ×2** |
+| kf CI `41466910668` (push `fb87dbcd`) library job | every step `success` incl. `publish boundary` (log: `proof:readme-runs — PASS: 20 snippet(s) … 29 stated result(s)` · `proof:publish — PASS`); job conclusion reads `cancelled` (the repo's sibling-fail cancellation, the same shape as `41462383452`/`41450770277`) — **the HIGH's RED is CURED on CI** |
+| kf CI `41466910668` demo job | `browser oracles` · `build demo` · `publish artifact boundary (post-build)` all `success` (the step that was RED in `41462383452` and `41450770277`) — then **`demo roster (report-all)` FAILURE**: `passed: 4/6` · `✗ failed: live-session, live-session-mobile` (S5 `visited 2/7`, `cube`/`amiga` `trigger=null (want "Controls")`; M1 sheet SCROLL/CLOSE; M2 dock SWITCH `trigger=null`). Excerpt: `docs/tranches/X/keyframes/evidence/W3/repair1-ci-41466910668-demo-roster.log.txt` |
+| deploy-pages | ⟨`gh run list -L 2`⟩ → `41468193578 deploy-pages fb87dbcd completed skipped` (gated on ci success) — **BLOCKED** |
+| §6 round-trip · post-deploy probe ×2 (G-KF3-8 pageerror arm) | **not run** — no deploy; no break-glass `workflow_dispatch` (it would bypass a RED gate) |
+
+### Escalation ESC-KFW3-r1-1 (newly exposed RED, outside this wave's concern)
+
+The README cure lets CI reach the `demo roster` step for the first time since at least `40567329956` (2026-10-27): every CI run from then through `41462383452` died earlier (`browser oracles` or `publish artifact boundary`). The roster's two REDs are demo dock/sheet UI behaviour (the control-tab projection after a scene switch, the touch sheet scroll/close), not parser consumption. **Measured attribution window**: at KF.W13X close6 (`keyframes/evidence/W13X/close6/e2e-r2.log.txt:87,102`) S5 was `PASS · visited 8` and M2 dock SWITCH was `PASS` (control-tab `"Curve" PROJECTS`); M1 sheet SCROLL was already RED there (the banked honest-RED SHEET-POSITION). So the S5 + M2 regression entered between W13X close6 (`389e31d2`) and `fb87dbcd`; candidates are OD19 (`cc1a8669`, glass 10.1.2 `5c48e3da`), KF.W3 `.c5` glass 10.1.3 `17a5c34d`, and `.c2b`/`.reg`/`.sp`. No local bisect was run: a local build would include the sibling's dirty `KeyframeTimeline.vue` and overwrite the shared `dist/`. A cure lies in demo dock/glass-consumption files outside spec §B.2, and glass is read-only. **Owner**: the orchestrator, who must rule an attribution bisect and the owning seat. The deploy, the §6 round-trip and the probe ×2 stay owed behind it.
+
+**Verdict**: the HIGH's named RED (`README.md:834`) is **cured** (local ×2 + CI). The close path is **still blocked**, now on ESC-KFW3-r1-1. MINOR #2 is escalated. The row stays **PARTIAL**, and there is no Close 4 until CI is GREEN.
