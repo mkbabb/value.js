@@ -1073,3 +1073,73 @@ CI never reached the `demo roster` step from 2026-10-27 through Repair 1 (Repair
 | kf CI / deploy-pages / §6 / probe ×2 | unchanged from Check 2: CI `41466910668` RED, deploy `41468193578` skipped, §6 + probe ×2 **OWED**. No kf byte moved, so no gate re-run is owed (every G-KF3-* GREEN stands as Check 2 reproduced it at `fb87dbcd`) |
 
 **Verdict.** The HIGH is **escalated with a measured attribution**: ESC-KFW3-r1-1 → the OD19 dock/probe owner (S5 + M2 = `13762e6e` probe-oracle staleness; M1 CLOSE = an OD19-window sheet regression; M1 SCROLL = the banked SHEET-POSITION). KF.W3's close path stays blocked behind that owner's cure, then CI GREEN → deploy-pages → §6 → probe ×2 → Close 4. The MINOR stays escalated. The row stays **PARTIAL**.
+
+## Check 3 (pass 3 after Close 3; record sequence Check 6) — 2026-11-02 (fresh adversarial L-20, VERIFY-ONLY, `claude-opus-5-5`)
+
+SERVED MODEL: claude-opus-5-5. Substrate: kf `HEAD` = `origin/master` = `fb87dbcd` (⟨`git ls-remote origin master`⟩ → `fb87dbcd26b9…`; no kf commit since Check 2); vjs `df1759e91`. I authored none of the wave's bytes, closes, checks or repairs. kf tree: `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (sibling's, §0hb.1; never staged). vjs record/LEDGER clean ⇒ 0 inherited paths.
+
+**Verdict: NOT-CONFORMANT.** Every claimed GREEN reproduces at `fb87dbcd`. Repair 2's attribution also holds at the bytes: the demo-roster RED predates the wave, so KF.W3's commits are exonerated. But §0hd.5's ruled close order (*kf CI GREEN → deploy-pages → §6 → probe ×2 → close*) is still unfinished, and the RED blocking it has no relief under axis 10. The owner Repair 2 named is a **closed** unit, OD19, CLOSED 2026-10-21, and OD19's own `CLOSE.md:48` books this exact probe staleness as a *"residual outside the set … a script fix, not a product row"* with no owner. The row is **not** promoted.
+
+### Axis 1 — reproduction (kf `fb87dbcd`; every run through `guarded`, vitest `--maxWorkers=2`, strictly sequential)
+
+| gate | reading |
+| --- | --- |
+| G-KF3-1 | ⟨`grep -rln RC-P docs/tranches/X/fourier/ \| wc -l`⟩ → `1`; `evidence/W3/rc-p-4.1.0.md` present (10 files in `evidence/W3/`) — **GREEN** |
+| G-KF3-2 | ⟨`npm pack @mkbabb/value.js@4.1.0`⟩ sha1 `d488535c9bfc` = ⟨`npm view … dist.shasum`⟩ `d488535c9bfc`. The unmodified probe (sha256 `77678a574d7c6b11`) was symlinked into the untarred scratch mirror, then ⟨`npm_config_ignore_scripts=true guarded --light -- node --preserve-symlinks-main --preserve-symlinks …/r1-published-totality.mjs`⟩ ×2 → `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` · `GREEN — every public parser is total.` both runs — **GREEN ×2** |
+| G-KF3-3 | Roster re-derived at HEAD (the spec's `git grep -l -E '@mkbabb/value\.js/css\|parseCss(Color\|Scalar\|Values)\|parseTimingFunction\|serializeCssValue\|reverseAnimationShorthand\|cssIdent' HEAD -- test/` ∪ `git grep -l serialize-value HEAD -- test/`, `.test.ts`) → 19. ⟨`guarded -- npx vitest run <19> --maxWorkers=2`⟩ ×2 → `Test Files 19 passed (19)` · `Tests 235 passed (235)` both — **GREEN ×2** |
+| G-KF3-4 | `unserializable` in src+demo → `0`. Fork defs → `0`. `@mkbabb/value.js/css` `serializeCssValue` imports → `serialize-value.ts:2` · `timelineEngine.ts:2`. Seam importers → `15`. Pin `package.json:71` `"4.1.0"`. ⟨`npm ls @mkbabb/value.js`⟩ → `4.1.0` (glass's copy deduped). INBOX `O-11 §B` → `1` — **GREEN** |
+| G-KF3-5 | One def, `css-text.ts:33`. ⟨`git grep -n "value.js's OWN\|published 0.12.0 inverse" HEAD -- src test`⟩ → `internal/leaves.ts:8` only (the `/math` subpath; outside the census-2 predicate) — **GREEN** (discharge (b)) |
+| G-KF3-6 + boot fence + invariant/bypass mutant | The INBOX `O-11 §D2` row (I-77) carries `1.923e-1` · `6.930e-2` · `4.489e-2` · `DECLINED`. The 5-file fence run ×2 → `Test Files 5 passed (5)` · `Tests 130 passed (130)` both — **GREEN ×2** |
+| G-KF3-7 | `evidence/W3/CALL-MAP.md` present — **GREEN** |
+| UIA-KF-321 | ⟨`guarded -- npx vitest run test/demo/app/r4dock-share-fallback.test.ts --maxWorkers=2`⟩ ×3 → `Tests 1 passed (1)` ×3 — **GREEN ×3** |
+| `proof:publish` (incl. readme-runs) | ⟨`guarded --light -- node scripts/gates/surface/index.mjs`⟩ run 1 → `proof:readme-runs — PASS: 20 snippet(s) … 29 stated result(s) verified` · `proof:publish — PASS`, rc 0, both runs — **GREEN ×2** |
+| kf CI | ⟨`gh run view 41466910668 --json jobs`⟩ → `demo correctness (browser roster)` **failure**, `library gates` cancelled (sibling-fail). ⟨`--log-failed`⟩ → `passed: 4/6` · `✗ failed: live-session, live-session-mobile`. ⟨`gh run list -L 6`⟩ shows no newer run — **RED** |
+| deploy-pages · §6 · post-deploy probe ×2 (G-KF3-8 pageerror arm) | `41468193578` **skipped**; not run, blocked behind CI — **OWED** |
+| kf `npm run check` | ⟨`guarded --light -- npm run check`⟩ ×2 → rc 0, ends `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` — **GREEN ×2** |
+| kf vitest whole (lib + demo) | ⟨`guarded --timeout 25 -- npx vitest run --maxWorkers=2`⟩ ×2 → `Test Files 295 passed \| 5 skipped (300)` · `Tests 2316 passed \| 2 expected fail \| 14 skipped (2332)` both runs — **GREEN ×2** |
+| G9 | ⟨`npm ls @mkbabb/value.js`⟩ → `4.1.0` — **GREEN** |
+
+### Axes 2–9
+
+- **(2) Bounds.** No kf commit since Check 2 (`origin/master` = `fb87dbcd`). The only commit since Check 2 is vjs `df1759e91`. ⟨`git show --stat`⟩ → record +41 · LEDGER +1 · `evidence/W3/repair2-attribution-5c48e3da.log.txt` +26, all in-set. Repair 2 wrote no kf byte, and its bisect ran in a clean detached worktree that it then removed. ⟨`git log --oneline 3e89df9f3^..HEAD -- scripts/dev/dev.sh \| wc -l`⟩ → `0`. **Clean.**
+- **(3) Masking.** Nothing changed in the diff. Repair 2 explicitly refused to re-aim the probe oracle to get to green, which is correct: that edit is outside the set and of a different concern. **Clean.**
+- **(4) Commit families.** One record commit per meaning. **Clean.**
+- **(5) E-3.** ⟨`git diff --stat 3e89df9f3^..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/conformance`⟩ → empty. **Held.**
+- **(6) Mail.** INBOX mtime is `Nov 2 08:54`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ over value V/ + V/coordination · glass BK/coordination + BL + BL/audit (BL is the newest) · kf V/coordination → glass `BL/FORMATION-PROGRESS.md` + `BL/audit/INBOUND.md` only. The added lines of glass commits `2edc9cc3b` / `9051506d1` / `e410b7f21` contain `value.js\|keyframes` → `0` hits, so they are out of scope. The `UNREAD` tokens inside INBOX table rows are all prose ("was UNREAD", sweep notes); no status cell reads UNREAD. **Clean.**
+- **(7) Four-verb line.** IMPLEMENTED is not advanced and the row stays PARTIAL. That is lawful while §0hd.5 is unfinished.
+- **(8) Goal criterion.** MET at the bytes. The R1 call-map spans both organs (`CALL-MAP.md`). There is exactly one `serializeCssValue` provider reachable from the emit tier (value's `./css`, through the `serialize-value.ts` seam; 0 kf fork defs). There is exactly one `reverseAnimationShorthand` (`css-text.ts:33`), and its provider prose is true (discharge (b)).
+- **(9) Published figures.** These reproduce: 0/1548, 19/235, 5/130, 15 seam importers, readme-runs 20 snippets / 29 results, roster 4/6, and the vitest whole figures in the table above.
+
+### Axis 10 — honest-RED adjudication
+
+**Repair 2's attribution, re-verified at the bytes.**
+- ⟨`git merge-base --is-ancestor 13762e6e 5c48e3da`⟩ and ⟨`… 5c48e3da c18a9bd9`⟩ both hold, so OD19-K6 predates KF.W3's first byte.
+- The probe reads `[data-dock-surface-item][aria-checked="true"]` → `aria-label` at rest (`scripts/observe/demo/live-session.mjs:910,958`).
+- At HEAD, `ChromeDock.vue:574`'s `data-dock-surface-item` sits on a `DropdownMenuRadioItem` inside `DropdownMenuContent`. That item mounts only while the menu is open and carries no `aria-label`. At `389e31d2:ChromeDock.vue:510-513` the item was a dock-level button with `:aria-label="item.title"`.
+- **The S5/M2 RED is OD19's probe staleness, not this wave's.** I did not repeat the 2×-run pre-wave roster. It is a heavy browser run whose result the byte reading already settles, and Repair 2's banked log stands.
+
+**The close-path RED (kf CI demo roster S5 · M1 · M2 → deploy → §6 → probe ×2): still UNRELIEVED.**
+- **Producer-owned?** No. The S5/M2 root is a kf probe script, not glass.
+- **Routed to a later wave by the spec?** No §Excluded row, cross-edge or lock routes the demo roster.
+- **A spec-named honest-RED id?** No. M1 SCROLL alone matches the banked SHEET-POSITION honest-RED, and that relief is W13X's, not KF.W3's.
+- **The owner named for it does not exist.** X-OD19 is **CLOSED 2026-10-21** (LEDGER `:119`). `OD19/CLOSE.md:48` books this exact staleness (*"`scripts/lib/demo-driver.mjs:941` and `scripts/observe/demo/live-session{,-mobile}.mjs` still read `[data-dock-surface-item][data-selected]` (a script fix, not a product row)"*) as a residual outside its set, with no successor. ⟨`grep -rn ESC-KFW3-r1-1 COHESION.md INBOX.md`⟩ → `0`, so no ruling has landed.
+- **Consequence.** The RED is not KF.W3's fault, but it is not relieved either. §0hd.5 binds the close to CI GREEN, and only an orchestrator act clears that: a grant to a seat for the script fix, or a dated ruling that relieves the CI conjunct.
+
+G-KF3-8's pageerror arm is a FLOOR and is outside the close set. **Honest-RED set: none.**
+
+### Successor conjuncts
+
+⟨`grep -nE '[Oo]pens after' X/*/waves/*.md \| grep KF.W3`⟩ → 5 hits: KF-W1 `:415` `:461`, KF-W4 `:55`, KF-W7 `:61` and KF-W10 `:47`. Each is a citation inside a bounds, provenance or carve-out cell. KF-W10 `:47` states its *"Opens after"* is *"not widened"* by KF.W3. None is a conjunct on KF.W3, so **no successor wave is gated on this row**. The one dependant is X-W11 G9's VERIFIED stamp (§0hb.3, Track A). Its `npm ls` → 4.1.0 conjunct is GREEN and its deploy conjunct is RED, so it is **lawfully blocked**.
+
+**Count**: 13 claimed GREENs reproduced: G-KF3-1…7, the invariant + bypass mutant, UIA-KF-321, `proof:publish` (incl. readme-runs), check, whole vitest and G9. 0 claimed GREENs failed.
+
+### Register
+
+| severity | claim | receipt | cure |
+| --- | --- | --- | --- |
+| HIGH | §0hd.5's ruled close order is unfinished. kf CI is RED on `demo roster (report-all)` (4/6: `live-session` S5, `live-session-mobile` M1/M2), so deploy-pages was skipped, and §6 and the post-deploy probe ×2 (the G-KF3-8 pageerror arm) were never run. KF.W3 is now exonerated by measurement (the RED predates the wave: OD19-K6 `13762e6e` probe-oracle staleness). The RED is still **unrelieved**: no spec routing, no honest-RED id, not producer-owned. Its named owner, OD19, is a **closed** unit that booked the very script fix as an unowned residual (`OD19/CLOSE.md:48`). | CI `41466910668` demo job failure; deploy `41468193578` skipped; `evidence/W3/repair2-attribution-5c48e3da.log.txt`; `ChromeDock.vue:574` (radio item inside `DropdownMenuContent`, no `aria-label`) vs `389e31d2:ChromeDock.vue:510-513`; `live-session.mjs:910,958`; LEDGER `:119` X-OD19 CLOSED; ⟨`grep ESC-KFW3-r1-1 COHESION.md`⟩ → 0 | Orchestrator act on ESC-KFW3-r1-1, either way: **(a)** grant a seat the script-fix concern OD19 left unowned. It would re-aim `scripts/observe/demo/live-session{,-mobile}.mjs` and `scripts/lib/demo-driver.mjs:941` at the at-rest surface fact (the `data-dock-surface-trigger` face's `data-surface`), never by loosening the assertion. The M1 CLOSE sheet regression gets the same grant or its own root cure. Then CI GREEN → deploy-pages → §6 → probe ×2 → Close 4 → fresh check. **(b)** A dated COHESION ruling that relieves §0hd.5's CI conjunct for this pre-wave RED by name, then deploy by the ruled path. |
+| MINOR | `useKeyframeOps.ts:45-46` drops the authored `<time>` unit. | Close 3 residual 2; Repairs 1–2 escalation | A seat granted on UIA-KF-177. |
+| INFO | 2 → 2 throw sites after `.c2b`. | Close 3 residual 3 | KF.W7 / KF.W2 posture (L-5) |
+| INFO | `KeyframeTimeline.vue` in kf is dirty (sibling's), and all local runs include it. | ⟨`git status --porcelain`⟩ | none |
+
+**LEDGER**: not promoted; the row stays PARTIAL; an event line is appended.
