@@ -1295,3 +1295,35 @@ The ruled order is not chronological: `13762e6e` (10-19) predates `cc1a8669` (10
 3. Not pushed: kf `master` is 2 commits ahead of `origin` (`fb87dbcd` → `608748e2`), and kf CI is RED until `.d3` pushes.
 
 **Escalations:** none. **INBOX:** no row (the glass arm was not attributed).
+
+### KF.W3.u177
+
+SERVED MODEL: claude-opus-5-5. Sections: COHESION §0he.2 (UIA-KF-177 grant) · Close 3 residual 2 · RESUME 3 Baseline/Unit plan. **Status: DONE.**
+
+**Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, §0hb.1; outside this set, never staged) ⇒ **0 inherited paths**. kf `HEAD` at open = `608748e2` (`.bis`).
+
+**Act 1: anchors at the true bytes.** ⟨`sed -n 44-46p useKeyframeOps.ts`⟩ → `stored.duration = reverseCSSTime(animation.options.duration);` · `stored.delay = reverseCSSTime(animation.options.delay);` (anchor HOLDS, `:45-46`). Signature `css-text.ts:22 reverseCSSTime(milliseconds: number, unit?: CssTimeUnit)`; sibling two-argument sites confirmed at `css-text.ts:36` · `emit/entry.ts:402,418` · `format/options.ts:46`. `parseAnimationCSS` spreads value.js `CSSAnimationOptions` (`...rest`, which carries `durationUnit`/`delayUnit`) into the engine options, so the unit reaches `animation.options` after `adoptCompiled`.
+
+**Act 2: the falsifier, RED at baseline.** New `test/demo/instrument/uia-kf-177-store-roundtrip.test.ts`: square demo animation → `useKeyframeOps(...).updateFromString(buffer)` → `getStoredAnimationOptions(anim).animationOptions` → feed the stored spellings back through the same op (fixed point) → `animationOptionsToString` re-emit. Two cases author 350 ms in both spellings, one per field (`0.35s`/`350ms` and `350ms`/`0.35s`), so a dropped unit on either field reads RED.
+⟨`guarded --light -- npx vitest run test/demo/instrument/uia-kf-177-store-roundtrip.test.ts --maxWorkers=2`⟩ → `Tests 2 failed (2)`: `expected '0.35s' to be '350ms'` at `:51` (delay) and `:50` (duration). It is RED for the intended reason: the one-argument call takes the shortest-exact spelling with seconds on the tie.
+
+**Act 3: the cure.** `useKeyframeOps.ts:45-46` now reads `reverseCSSTime(animation.options.duration, animation.options.durationUnit)` and `reverseCSSTime(animation.options.delay, animation.options.delayUnit)`. This is the sibling idiom, with no shim and no fallback. The two uia-kf-177 oracles' asserted text did not move, so **neither oracle was re-aimed** (both files byte-unchanged).
+
+**Commit (kf, pathspec, not pushed; the push is `.d3`'s).** **`8294a715`** `fix(X·KF.W3.u177 · UIA-KF-177, COHESION §0he.2): the demo store keeps the authored <time> unit …`. ⟨`git show --stat HEAD`⟩ → `useKeyframeOps.ts | 12 +++-` · `uia-kf-177-store-roundtrip.test.ts | 72 +++` · `2 files changed, 82 insertions(+), 2 deletions(-)`. The committed bytes are the bytes the gates below ran on: no edit landed between the gate runs and the commit. Adjacent edits: none.
+
+**Gates (BEFORE → AFTER).**
+
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| round-trip falsifier | **RED** `2 failed (2)` | ⟨`guarded --light -- npx vitest run <falsifier> <uia-kf-177-css-time> <uia-kf-177-authored-unit> --maxWorkers=2`⟩ ×2 → `Test Files 3 passed (3)` · `Tests 19 passed (19)` ×2 |
+| uia-kf-177 oracles (css-time + authored-unit) | GREEN (Check 3) | in the same run, ×2 GREEN, unchanged |
+| kf `npm run check` | GREEN (Check 3) | ⟨`guarded --light -- npm run check`⟩ ×2 → rc 0 ×2, `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` |
+| kf vitest whole | — | ⟨`guarded --timeout 30 -- npx vitest run --maxWorkers=2`⟩ ×2 → rc 0 ×2: `Test Files 296 passed \| 5 skipped (301)` · `Tests 2318 passed \| 2 expected fail \| 14 skipped (2334)`, the same both runs |
+
+The whole-suite runs read the shared working tree, which includes the sibling's uncommitted `KeyframeTimeline.vue`. Both runs were GREEN. Logs are durable at `/Users/mkbabb/Programming/.kf-u177-logs/`.
+
+**Residuals.**
+1. `demo/state/animationOptionsStore.ts:95-96` (`storedOptionsFrom`) seeds a *fresh* store entry as `${duration}ms` / `${delay}ms`. That is a lossless ms spelling, not the authored unit. It is a different site from the §0he.2 grant (`useKeyframeOps.ts:45-46`) and lies outside this set, so it is untouched and recorded for the owner.
+2. kf `master` is now 3 commits ahead of `origin` (`fb87dbcd` → `8294a715`). The push is `.d3`'s.
+
+**Escalations:** none.
