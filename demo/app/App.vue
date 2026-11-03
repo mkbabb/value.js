@@ -232,7 +232,7 @@ import {
     type HydrationStrategy,
 } from "vue";
 import { useRoute } from "vue-router";
-import { useMounted } from "@vueuse/core";
+import { useDocumentVisibility, useMounted } from "@vueuse/core";
 
 import type { ColorModel, EditTarget } from "../color-session/color-model";
 import { ColorPicker } from "../picker";
@@ -620,6 +620,14 @@ onMounted(() => {
         };
         port2.postMessage(null);
     });
+});
+// OD-3 (COHESION §0hh): names approved after boot reach an open tab — the
+// registry re-reads whenever the document becomes visible again.
+const documentVisibility = useDocumentVisibility();
+watch(documentVisibility, (state, prev) => {
+    if (state === "visible" && prev === "hidden" && afterFirstPaint.value) {
+        loadCustomColorNames();
+    }
 });
 </script>
 
