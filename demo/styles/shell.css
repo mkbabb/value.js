@@ -245,7 +245,18 @@
  * (its field is the stage) and Library (its field is the palettes region
  * beside the shared picker). A route not named keeps equal tracks. The query
  * is the row's two-track condition, read off the band (the row's width is the
- * band's), with the token values written out as the row contract does. */
+ * band's), with the token values written out as the row contract does.
+ *
+ * X·§0hk OD-15 (owner 2026-11-03: "the left picker is too wide on desktop--
+ * bound it a bit more") — THE RATIO IS NOW A STAGE FRACTION WITH A CEILING.
+ * The ratio was two `fr` shares, and an `fr` track cannot be capped, so the
+ * shared picker stood at 61.8 % of any band: 1043 px at 1800, 2051 px at 3440
+ * (its spectrum a 5 : 1 strip). The stage track's growth limit is now its
+ * fraction of the row less the gap — the same split the two shares made, floors
+ * included — taken against `--pane-stage-max`, and the inspector is the `1fr`
+ * remainder, so the slack a ceiling frees goes to the inspector. Only a stage
+ * that shows the shared picker sets a ceiling (`--picker-measure`); the
+ * workbench stages keep the unbounded ratio. */
 .app-layout:is(
         [data-view="picker"],
         [data-view="generate"],
@@ -253,22 +264,28 @@
         [data-view="extract"],
         [data-view="mix"]
     ) {
-    --pane-stage-share: 61.8033989fr;
-    --pane-inspector-share: 38.1966011fr;
+    --pane-stage-fraction: 0.618033989;
 }
 .app-layout[data-view="browse"] {
-    --pane-stage-share: 2fr;
-    --pane-inspector-share: 1fr;
+    --pane-stage-fraction: 0.666666667;
 }
 .app-layout[data-view="palettes"] {
-    --pane-stage-share: 1fr;
-    --pane-inspector-share: 2fr;
+    --pane-stage-fraction: 0.333333333;
+}
+.pane-container:has(> .pane-wrapper--stage[data-shown="color-picker"]) {
+    --pane-stage-max: var(--picker-measure);
 }
 @container scene (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-container:has(> .pane-wrapper--stage + .pane-wrapper--inspector) {
         grid-template-columns:
-            minmax(var(--pane-min), var(--pane-stage-share, 1fr))
-            minmax(var(--pane-min), var(--pane-inspector-share, 1fr));
+            minmax(
+                var(--pane-min),
+                min(
+                    var(--pane-stage-max, 100%),
+                    calc((100% - var(--pane-gap)) * var(--pane-stage-fraction, 0.5))
+                )
+            )
+            minmax(var(--pane-min), 1fr);
     }
 }
 

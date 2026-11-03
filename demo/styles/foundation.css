@@ -563,6 +563,12 @@
      * wrap mid-word ("a* (Green-Red)" breaks). */
     --pane-min: 25rem;
     --card-measure: 32rem;
+    /* X·§0hk OD-15 — the shared picker's inline ceiling: one φ step above the
+     * lone-card measure (32rem × φ ≈ 51.8rem ≈ 828px), which is the width the
+     * golden stage already reaches at 1440. Wider bands hand the surplus to
+     * the inspector (shell.css, THE PER-ROUTE TRACK RATIO); narrower bands
+     * never reach it, so 390 and 1024 are unchanged. */
+    --picker-measure: calc(var(--card-measure) * 1.618034);
     --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
