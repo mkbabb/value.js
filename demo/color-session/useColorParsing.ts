@@ -17,6 +17,7 @@ import {
 } from "./picker-color";
 import type { ColorModel, DisplayColorSpace } from "./color-model";
 import { resolveColorSpace } from "./color-model";
+import { COLOR_NAME_KEY, normalizeColorNameKey, useColorNameInput } from "./color-name-input";
 
 export function useColorParsing(deps: {
     model: ShallowRef<ColorModel>;
@@ -57,48 +58,98 @@ export function useColorParsing(deps: {
     // and on its blur snap-back — or a parse succeeds.
     let initialParse = true;
     const parseError = ref(false);
+    // OD-7: a name typed while the registry read is in flight resolves late.
+    // Every parse and every text change takes a new token; a late answer for a
+    // superseded token is dropped — it never overwrites newer text and never
+    // raises a badge on text that is no longer there.
+    let parseSeq = 0;
     const clearParseError = () => {
+        parseSeq++;
         parseError.value = false;
+    };
+
+    const { resolveName, pending, isNamePrefix } = useColorNameInput();
+
+    const applyParsed = (parsed: PickerColor, inputColor: string, selected: DisplayColorSpace) => {
+        const converted = convertPickerColor(parsed, resolveColorSpace(selected));
+        parseError.value = false;
+        if (serializePickerColor(converted) === serializePickerColor(model.value.color)) return;
+        updateModel({ inputColor, color: converted, selectedColorSpace: selected });
+        try {
+            const hsv = convertPickerColor(converted, "hsv");
+            if (channelNumber(hsv, "s") * channelNumber(hsv, "v") > 0.01) {
+                stableHue.value = channelNumber(hsv, "h");
+            }
+        } catch {
+            // Preserve stable hue for powerless colors.
+        }
+    };
+
+    /** The approved-name half of the parse: `true` when `key` named a colour and it was set. */
+    const applyApprovedName = (key: string): boolean => {
+        const resolved = resolveName(key);
+        if (!resolved) return false;
+        // `inputColor` stores the approved css, not the key: boot hydration
+        // re-parses it before the registry has loaded.
+        applyParsed(resolved.color, resolved.css, resolved.color.space);
+        return true;
     };
 
     // SS-8 Z-ColorInput-1 (BANK-1 fired): the library parse is total, so the
     // field reads its Result — an invalid parse raises the badge, and nothing
     // else does. The bare catch that turned ANY throw into "not a valid color"
     // is gone: an internal fault after a good parse propagates, loud.
-    const parseAndSetColor = (source: string) => {
+    //
+    // OD-7 (COHESION §0hh): ONE name→colour path for input and display. CSS is
+    // read first (syntax + the CSS keywords), so CSS wins every collision —
+    // the display snap's tie rule. On a CSS miss the text is looked up as an
+    // approved name (`color-name-input.ts`: "Daraksha Sage" = `daraksha-sage`).
+    // While the registry read is in flight the lookup waits for it; a settled
+    // registry answers synchronously. `provisional` is the debounced parse of
+    // text still being typed: a strict prefix of a name ("Dara") is withheld,
+    // not reported — Enter / Apply commit and report it.
+    const parseAndSetColor = (
+        source: string,
+        opts: { provisional?: boolean } = {},
+    ): void | Promise<void> => {
         const input = source.trim().toLowerCase();
         if (!input) return;
-        try {
-            const result = readPickerColor(input);
-            if (!result.ok) {
-                if (!initialParse) parseError.value = true;
-                return;
-            }
+        const seq = ++parseSeq;
+        const boot = initialParse;
+        initialParse = false;
+
+        const result = readPickerColor(input);
+        if (result.ok) {
             const parsed = result.value;
             const selected: DisplayColorSpace = parsed.space === "rgb" && input.startsWith("#")
                 ? "hex"
                 : parsed.space;
-            const converted = convertPickerColor(parsed, resolveColorSpace(selected));
-            if (serializePickerColor(converted) === serializePickerColor(model.value.color)) {
-                parseError.value = false;
-                return;
-            }
-            parseError.value = false;
-            updateModel({ inputColor: input, color: converted, selectedColorSpace: selected });
-            try {
-                const hsv = convertPickerColor(converted, "hsv");
-                if (channelNumber(hsv, "s") * channelNumber(hsv, "v") > 0.01) {
-                    stableHue.value = channelNumber(hsv, "h");
-                }
-            } catch {
-                // Preserve stable hue for powerless colors.
-            }
-        } finally {
-            initialParse = false;
+            applyParsed(parsed, input, selected);
+            return;
         }
+
+        const key = normalizeColorNameKey(input);
+        if (applyApprovedName(key)) return;
+
+        const verdict = () => {
+            if (opts.provisional && isNamePrefix(key)) return;
+            if (!boot) parseError.value = true;
+        };
+        const loading = COLOR_NAME_KEY.test(key) ? pending() : null;
+        if (!loading) {
+            verdict();
+            return;
+        }
+        return loading.then(() => {
+            if (seq !== parseSeq) return;
+            if (!applyApprovedName(key)) verdict();
+        });
     };
 
-    const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000);
+    const parseAndSetColorDebounced = debounce(
+        (source: string) => parseAndSetColor(source, { provisional: true }),
+        2000,
+    );
 
     // X.W5.a · gate N4 + ⟨shell-dock-parseechoreadout A-7⟩ — the echo tells the
     // truth about a MISSING component. The readers beneath it are now total

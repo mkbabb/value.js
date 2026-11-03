@@ -32,6 +32,7 @@ import { displayColorName } from "../../color-session/useColorNameResolution";
 import { CSS_NAMED_COLOR_ENTRIES, nearestNamedColor } from "../../color-session/named-color-snap";
 import { convertPickerColor, parsePickerColor, serializePickerColor } from "../../color-session/picker-color";
 import type { ColorModel } from "../../color-session/color-model";
+import { COLOR_NAME_KEY, normalizeColorNameKey } from "../../color-session/color-name-input";
 
 const DARAKSHA: Record<string, string> = {
     daraksha: "oklch(73% 0.185 2)",
@@ -205,4 +206,17 @@ describe("OD-7 — partial text while typing is not a verdict", () => {
             expect(api.parseError.value).toBe(true);
         },
     );
+});
+
+describe("OD-7 — the one key form (the API schema's `/^[a-z][a-z0-9-]*$/`)", () => {
+    it.each([
+        ["Daraksha Sage", "daraksha-sage"],
+        [" daraksha_sage ", "daraksha-sage"],
+        ["Daraksha-Plum", "daraksha-plum"],
+        ["daraksha  --  fern", "daraksha-fern"],
+        ["-daraksha-", "daraksha"],
+    ])("%j → %j", (typed, key) => {
+        expect(normalizeColorNameKey(typed)).toBe(key);
+        expect(COLOR_NAME_KEY.test(key)).toBe(true);
+    });
 });
