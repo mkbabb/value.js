@@ -5,7 +5,8 @@
 import { Hono } from "hono";
 import { z } from "zod";
 import type { AppEnv } from "../../../types.js";
-import { deletePalette, setFeatured } from "../service/palettes.js";
+import { deletePalette, reassignPaletteOwner, setFeatured } from "../service/palettes.js";
+import { reassignOwnerBody } from "../schema.js";
 import { ValidationError } from "../../../platform/http/errors/index.js";
 
 const router = new Hono<AppEnv>();
@@ -29,6 +30,27 @@ router.post("/palettes/:slug/feature", async (c) => {
         c.var.adminActor,
         c.req.param("slug"),
         parsed.data.featured,
+    );
+    return c.json(result);
+});
+
+// POST /admin/palettes/:slug/owner — OD-3b: move a palette to another user.
+// Body: { "userSlug": string }. Ownership only — authorship history, votes,
+// forks and the ETag are untouched. Idempotent; the audit row fires per call.
+router.post("/palettes/:slug/owner", async (c) => {
+    const raw = await c.req.json().catch(() => ({}));
+    const parsed = reassignOwnerBody.safeParse(raw);
+    if (!parsed.success) {
+        throw new ValidationError(
+            "Invalid request body — expected { userSlug: string }",
+            parsed.error.format(),
+        );
+    }
+    const result = await reassignPaletteOwner(
+        c.var.services,
+        c.var.adminActor,
+        c.req.param("slug"),
+        parsed.data.userSlug,
     );
     return c.json(result);
 });

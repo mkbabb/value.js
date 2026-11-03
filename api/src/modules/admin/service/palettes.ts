@@ -3,6 +3,7 @@
  *
  * Owns:
  *   - POST /admin/palettes/:slug/feature  (idempotent featured/standard tier set)
+ *   - POST /admin/palettes/:slug/owner    (idempotent owner reassignment)
  *   - DELETE /admin/palettes/:slug        (SOFT delete — sets `deletedAt`, and
  *                                          decrements the parent's `forkCount`
  *                                          when the row is itself a fork)
@@ -23,6 +24,7 @@
 import type { Services } from "../../../platform/http/inject-services.js";
 import { emitAuditEvent } from "../audit-log.js";
 import type { PaletteTier } from "../../palette/model.js";
+import { NotFoundError } from "../../../platform/http/errors/index.js";
 import {
     adminPolicyPayload,
     authorizeAdminPaletteOp,
@@ -62,6 +64,47 @@ export async function setFeatured(
         payload: adminPolicyPayload(branch),
     });
     return { slug, tier: newTier };
+}
+
+export interface ReassignOwnerResult {
+    slug: string;
+    userSlug: string;
+    previousUserSlug: string | null;
+}
+
+/**
+ * X·§0hi item 1 (OD-3b) — move a palette to another existing user.
+ *
+ * Ownership is `Palette.userSlug` and nothing else: `PaletteVersion.authorSlug`
+ * is history and stays true, votes and forks stay attached, and neither
+ * `updatedAt` nor `currentHash` moves — ownership is not content, so an ETag a
+ * client already holds stays valid. A soft-deleted palette is not reassignable
+ * (restore it first). Re-posting the current owner is a no-op on state; the
+ * audit row fires per call, as `setFeatured`'s does.
+ */
+export async function reassignPaletteOwner(
+    services: Services,
+    actorSlug: string | undefined,
+    slug: string,
+    userSlug: string,
+): Promise<ReassignOwnerResult> {
+    const { users, palettes } = services.repositories;
+    if (!(await users.findBySlug(userSlug))) {
+        throw new NotFoundError("User not found");
+    }
+    const { palette, branch } = await authorizeAdminPaletteOp(services, slug);
+    if (palette.deletedAt) {
+        throw new NotFoundError("Palette not found");
+    }
+    const previousUserSlug = palette.userSlug ?? null;
+    if (previousUserSlug !== userSlug) {
+        await palettes.update(slug, { $set: { userSlug } });
+    }
+    await emitAuditEvent(services, actorSlug, "reassign-palette-owner", {
+        target: `slug=${slug} from=${previousUserSlug ?? "none"} to=${userSlug} ${describeAdminPolicy(branch)}`,
+        payload: adminPolicyPayload(branch),
+    });
+    return { slug, userSlug, previousUserSlug };
 }
 
 export async function deletePalette(
