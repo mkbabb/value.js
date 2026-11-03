@@ -5156,3 +5156,12 @@ Ruled:
 2. **No job split.** Splitting the job adds a second npm ci and a second build for no gate gain (E-2, KISS). No step is skipped, reordered or relaxed.
 3. **Not a lucky re-run.** The `.d3` seat writes the ci.yml line as the cure, under the adjacent-line rule (same repo, same concern: the close order's "kf CI GREEN" clause), pushes it, and then resumes the close order of §0he.3 from its CI step: kf CI GREEN (both jobs) → deploy-pages → §6 round-trip → post-deploy probe ×2 (G-KF3-8 pageerror arm) → close → fresh check → X-W11's VERIFIED stamp (§0hb.3).
 4. **Residuals from Close 5** (`animationOptionsStore.ts:95-96` authored-unit seeding; the two gate scripts' `navToScene(null)` 12 s waits) are routed to the post-W3 keyframes minor of §0he.4, beside K-1 and KF-1..KF-4.
+
+## §0hh — 2026-11-03: owner defects reported on the served app (owner, verbatim, with two screenshots)
+*"The final phase of the dock transition animation is still not rounded … the top part of the search bar, and other extant bars are still clipped at the top; the daraksha palettes and colors are still not displayed"*, followed by *"List them, mark"*.
+
+Marked as OPEN owner rows. Each is reproduced on the served page before any cure, and none is closed on a harness reading alone.
+- **OD-1, dock morph's final phase not rounded.** The screenshot shows the collapsed Home pill ending as an irregular, non-circular blob with a soft halo, rather than a round end state. Likely producer: glass-ui (dock morph, `DOCK-MORPH-ROOT` lineage). Read the consumer seam first, then relay.
+- **OD-2, top edge of the search bar and other bars clipped.** The screenshot shows the bar's top border and radius cut at the viewport or container top edge. Consumer layout or a glass bar primitive, to be attributed by reproduction.
+- **OD-3, Daraksha palettes and colours not displayed in the app.** The data is served: prod `/palettes` lists `daraksha` and `daraksha-gradient` first, and `/colors/approved` holds all 8 names; the local API holds both palettes and all 8 names. So the defect is on the display path: browse, swatches, the name line, or oklch swatch rendering. Reproduce on both color.babb.dev and localhost:9000.
+- **OD-4 (found while checking OD-3), test debris on prod.** Prod `/palettes` lists test palettes in public view: `hey-v2-*` remixes, `hey-7600d315`, and `audit-test-palette-51f63f52`. Each is to be checked against its creator before removal; nothing is deleted without that read.
