@@ -5205,3 +5205,13 @@ Marked as OPEN owner rows. Each is reproduced on the served page before any cure
 - **OD-6:** the CSP is live (`font-src 'self' data:`); the prod after-probe ×2 is owed.
 - **OD-1 / OD-5:** glass O-123 → 10.2.0.
 - **Carried:** webkit-hosted e2e-safari has been RED on every head since `0d1a43bbf`.
+
+## §0hj — 2026-11-03: owner — the reclaim, the reboot, then resume (relayed to all sessions)
+Owner, verbatim: *"Ensure this disk reclamation context is removed and our original task is resumed after we reclaim and thereupon reboot--communicate to all sessions"*.
+- **Relayed** to all 7 live sessions (glass-ui-6e, glass-ui-3c, sci-report-82, sci-report-a4, gaggle-61, hassio-config-54, csc411-hw2-programmingquestion-71). Each was asked to:
+  - write its resume state durably before the reboot;
+  - reclaim only from the owner-approved list in `~/.claude/guard/disk-assay-2026-11-03/REPORT.md`;
+  - drop the disk context after the reboot;
+  - resume its original task.
+- **Disk holds lifted after the reboot.** These were temporary: "delete nothing", "no new multi-GB artifacts" and "no worktrees". value.js's normal law returns after the reboot.
+- **value.js resume point:** §0hh, §0hh.1, §0hh.2 and §0hi. The in-flight OD-3b workflow is re-launched from its script path, because run IDs do not survive a new session. The owed list is in the session's project memory, in the pre-reboot block of `x-execution-open.md`.
