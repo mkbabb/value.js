@@ -1,0 +1,137 @@
+[guarded] WARNING: the kernel zone leak is ARMED (armed 1793669332 slope=30.2/s inuse=36211 net=- kext=nfs); see ~/.claude/guard/ZONE-ARMED. Finish what you are doing and report it; the owner decides on the reboot.
+(node:79118) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+[1A[2K(node:79125) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/5] [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/browse)
+[1A[2K  1) [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/browse) 
+
+    Error: /browse: room above the first-row bar inside the port (0px) holds the focus ring (8px)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m8[39m
+    Received:    [31m0[39m
+
+      61 |             r.room,
+      62 |             `${route}: room above the first-row bar inside the port (${r.room}px) holds the focus ring (${r.extent}px)`,
+    > 63 |         ).toBeGreaterThanOrEqual(r.extent);
+         |           ^
+      64 |     });
+      65 | }
+      66 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od2-first-row-ring.spec.ts:63:11
+
+    Error Context: test-results/od2-first-row-ring-OD-2-—--797b4-its-inside-the-port-browse--smoke/error-context.md
+
+
+[1A[2K(node:79431) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/5] [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/palettes)
+[1A[2K  2) [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/palettes) 
+
+    Error: /palettes: room above the first-row bar inside the port (0px) holds the focus ring (8px)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m8[39m
+    Received:    [31m0[39m
+
+      61 |             r.room,
+      62 |             `${route}: room above the first-row bar inside the port (${r.room}px) holds the focus ring (${r.extent}px)`,
+    > 63 |         ).toBeGreaterThanOrEqual(r.extent);
+         |           ^
+      64 |     });
+      65 | }
+      66 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od2-first-row-ring.spec.ts:63:11
+
+    Error Context: test-results/od2-first-row-ring-OD-2-—--96e67-s-inside-the-port-palettes--smoke/error-context.md
+
+
+[1A[2K(node:79671) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/5] [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/extract)
+[1A[2K  3) [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/extract) 
+
+    Error: /extract: room above the first-row bar inside the port (0px) holds the focus ring (8px)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m8[39m
+    Received:    [31m0[39m
+
+      61 |             r.room,
+      62 |             `${route}: room above the first-row bar inside the port (${r.room}px) holds the focus ring (${r.extent}px)`,
+    > 63 |         ).toBeGreaterThanOrEqual(r.extent);
+         |           ^
+      64 |     });
+      65 | }
+      66 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od2-first-row-ring.spec.ts:63:11
+
+    Error Context: test-results/od2-first-row-ring-OD-2-—--81d09-ts-inside-the-port-extract--smoke/error-context.md
+
+
+[1A[2K(node:79971) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/5] [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/generate)
+[1A[2K  4) [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/generate) 
+
+    Error: /generate: room above the first-row bar inside the port (0px) holds the focus ring (8px)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m8[39m
+    Received:    [31m0[39m
+
+      61 |             r.room,
+      62 |             `${route}: room above the first-row bar inside the port (${r.room}px) holds the focus ring (${r.extent}px)`,
+    > 63 |         ).toBeGreaterThanOrEqual(r.extent);
+         |           ^
+      64 |     });
+      65 | }
+      66 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od2-first-row-ring.spec.ts:63:11
+
+    Error Context: test-results/od2-first-row-ring-OD-2-—--05e8b-s-inside-the-port-generate--smoke/error-context.md
+
+
+[1A[2K(node:80092) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/5] [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/gradient)
+[1A[2K  5) [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/gradient) 
+
+    Error: /gradient: room above the first-row bar inside the port (0px) holds the focus ring (8px)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m8[39m
+    Received:    [31m0[39m
+
+      61 |             r.room,
+      62 |             `${route}: room above the first-row bar inside the port (${r.room}px) holds the focus ring (${r.extent}px)`,
+    > 63 |         ).toBeGreaterThanOrEqual(r.extent);
+         |           ^
+      64 |     });
+      65 | }
+      66 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od2-first-row-ring.spec.ts:63:11
+
+    Error Context: test-results/od2-first-row-ring-OD-2-—--26733-s-inside-the-port-gradient--smoke/error-context.md
+
+
+[1A[2K  5 failed
+    [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/browse) 
+    [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/palettes) 
+    [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/extract) 
+    [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/generate) 
+    [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/gradient) 

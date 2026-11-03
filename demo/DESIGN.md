@@ -442,6 +442,9 @@ and an interval cites which one it reads. An interval that comes out of flex sla
 whatever it measures. Flex slack means free space left by `justify-content: space-between`, an
 unbounded `flex: 1`, or a min-height remainder. One interval has one name: the header-to-body
 gap is `--pane-header-gap` (`--phi-3`), and a body never adds its own top padding on top of it.
+Since X·§0hh OD-2 that gap is the scroll port's block-start padding (`.pane-scroll-fade`), not the
+header's block-end padding: the interval sits inside the port's clip, so a first row's focus ring
+and glow paint whole instead of being sliced at the port's top edge.
 The picker card's rhythm (W6 g1, ruled to X-W10 at COHESION §0aq) is the first surface this law
 decides.
 
@@ -468,7 +471,9 @@ The glyphs shrink, and the box keeps most of its size.
 1. **Block-start padding** steps **one φ rung down**: rest `1rem` (`--phi-2`) → condensed
    `0.618rem` (`--phi-1`). The ratio is **1/φ**.
 2. **The title→content gap** (`--pane-header-gap`) steps **one φ rung down**: rest `--phi-3`
-   (1.618rem) → condensed `--phi-2` (1rem). The ratio is **1/φ**.
+   (1.618rem) → condensed `--phi-2` (1rem). The ratio is **1/φ**. (Since X·§0hh OD-2 the gap is
+   the port's padding and every pane header is seated, and a seated header never condenses, so the
+   gap holds `--phi-3`.)
 3. **The caption's box leaves the layout.** It contributes 0 to the condensed block size. A caption
    that has left the reading MUST also leave the layout.
 4. **The title** steps from its rest rung (`--pane-title-size`) to `--type-heading`. That is

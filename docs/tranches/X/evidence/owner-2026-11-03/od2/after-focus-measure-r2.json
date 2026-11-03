@@ -1,0 +1,269 @@
+{
+ "dev_browse": {
+  "bars": [
+   {
+    "cls": "input-bar search-seated",
+    "top": 202.53125,
+    "portTop": 176.65625,
+    "gap": 25.875,
+    "headerBottom": 176.65625,
+    "x": 70,
+    "w": 1075,
+    "h": 36,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "pane-body flex flex-col min-h-0 min-w-0 pb-4 px-4 sm:px-6 gap-3",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   },
+   {
+    "cls": "input-bar search-seated flex-1 min-w-0",
+    "top": 202.359375,
+    "portTop": 176.484375,
+    "gap": 25.875,
+    "headerBottom": 176.484375,
+    "x": 1217.5,
+    "w": 512.5,
+    "h": 36,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   }
+  ],
+  "focused": [
+   {
+    "i": 0,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 58,
+     "y": 188.53125,
+     "width": 500,
+     "height": 64
+    }
+   },
+   {
+    "i": 1,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 1205.5,
+     "y": 188.359375,
+     "width": 500,
+     "height": 64
+    }
+   }
+  ]
+ },
+ "dev_palettes": {
+  "bars": [
+   {
+    "cls": "input-bar search-seated flex-1 min-w-0",
+    "top": 202.53125,
+    "portTop": 176.65625,
+    "gap": 25.875,
+    "headerBottom": 176.65625,
+    "x": 655,
+    "w": 1075,
+    "h": 36,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   }
+  ],
+  "focused": [
+   {
+    "i": 0,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 643,
+     "y": 188.53125,
+     "width": 500,
+     "height": 64
+    }
+   }
+  ]
+ },
+ "dev_extract": {
+  "bars": [
+   {
+    "cls": "input-bar search-seated flex-1 min-w-0",
+    "top": 202.53125,
+    "portTop": 176.65625,
+    "gap": 25.875,
+    "headerBottom": 176.65625,
+    "x": 1135.421875,
+    "w": 594.578125,
+    "h": 36,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   }
+  ],
+  "focused": [
+   {
+    "i": 0,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 1123.421875,
+     "y": 188.53125,
+     "width": 500,
+     "height": 64
+    }
+   }
+  ]
+ },
+ "dev_generate": {
+  "bars": [
+   {
+    "cls": "input-bar search-seated flex-1 min-w-0",
+    "top": 202.390625,
+    "portTop": 176.515625,
+    "gap": 25.875,
+    "headerBottom": 176.515625,
+    "x": 1135.421875,
+    "w": 594.578125,
+    "h": 36,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   }
+  ],
+  "focused": [
+   {
+    "i": 0,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 1123.421875,
+     "y": 188.390625,
+     "width": 500,
+     "height": 64
+    }
+   }
+  ]
+ },
+ "dev_gradient": {
+  "bars": [
+   {
+    "cls": "input-bar search-seated flex-1 min-w-0",
+    "top": 202.53125,
+    "portTop": 176.65625,
+    "gap": 25.875,
+    "headerBottom": 176.65625,
+    "x": 1135.421875,
+    "w": 594.578125,
+    "h": 36,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   }
+  ],
+  "focused": [
+   {
+    "i": 0,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 1123.421875,
+     "y": 188.53125,
+     "width": 500,
+     "height": 64
+    }
+   }
+  ]
+ },
+ "dev_mix": {
+  "bars": [
+   {
+    "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track",
+    "top": 202.53125,
+    "portTop": 176.65625,
+    "gap": 25.875,
+    "headerBottom": 176.65625,
+    "x": 1135.421875,
+    "w": 187.25,
+    "h": 43.9375,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "pane-body flex flex-col min-h-0 min-w-0 pb-4 px-4 sm:px-6 gap-4",
+     "pt": "0px"
+    },
+    "restShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+    "focusable": false
+   }
+  ],
+  "focused": []
+ }
+}

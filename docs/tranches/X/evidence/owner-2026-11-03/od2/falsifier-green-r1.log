@@ -1,0 +1,15 @@
+[guarded] WARNING: the kernel zone leak is ARMED (armed 1793669332 slope=30.2/s inuse=36211 net=- kext=nfs); see ~/.claude/guard/ZONE-ARMED. Finish what you are doing and report it; the owner decides on the reboot.
+(node:176) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+[1A[2K(node:256) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/5] [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/browse)
+[1A[2K[2/5] [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/palettes)
+[1A[2K[3/5] [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/extract)
+[1A[2K[4/5] [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/generate)
+[1A[2K[5/5] [smoke] › e2e/smoke/od2-first-row-ring.spec.ts:23:5 › OD-2 — a focused first-row bar's ring fits inside the port (/gradient)
+[1A[2K  5 passed (15.0s)
