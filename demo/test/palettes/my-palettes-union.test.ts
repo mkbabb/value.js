@@ -169,7 +169,7 @@ describe("routeMyPaletteVerbs — each row's verbs go to its own source", () => 
         const h = harness();
         h.accountVerbs.onDeleteOwned.mockResolvedValueOnce({ success: false, message: "Delete failed: x" });
         const verdict = await h.verbs.onDelete(server("s"));
-        expect(verdict.success).toBe(false);
+        expect(verdict?.success).toBe(false);
         expect(h.refresh).not.toHaveBeenCalled();
     });
 });

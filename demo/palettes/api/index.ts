@@ -21,6 +21,7 @@
 export {
     type ListPalettesOptions,
     listPalettes,
+    listMyPalettes,
     getPalette,
     createAndSavePalette,
     publishPalette,
