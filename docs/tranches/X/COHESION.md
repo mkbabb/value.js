@@ -5190,3 +5190,18 @@ Marked as OPEN owner rows. Each is reproduced on the served page before any cure
   - **OD-8 CURED on prod:** "notacolour" + Enter raises the badge below the field, and it does not intersect the text run (frame `r2/od7-desk-notacolour.png`).
   - **OD-3 display path on prod:** the Browse wall lists "Daraksha Gradient" then "Daraksha" first, in both viewports (frame `r2/od2-mob_browse.png`). The owner-context explanation (cached bundle, service worker or localStorage) stays owed before OD-3 is ruled.
 - **Still open:** OD-1/OD-5 (glass relay), OD-4 (prod test debris, creator read first), OD-6 (CSP font-src).
+
+## §0hi — 2026-11-03: owner rulings on §0hh (via the question dialog), and the deploy state
+**Owner rulings:**
+1. **OD-3 surface → My Palettes.** "My Palettes" also lists the server palettes owned by the user's account, and the two Daraksha palettes move to the owner's account. Unit `OD-3b`.
+2. **OD-4 → keep all five test palettes.** Closed by owner ruling. Nothing is deleted.
+3. **OD-1 seal → keep the WatercolorDot blob.** Its irregular shape is design. Only the glass plate outline is cured, by glass O-123 in 10.2.0.
+4. **Worktrees → prune the clean ones.** Removed: cvd-4.2.0, ss8r-h110, ss8r-pre, v1c, v1c-bis (all clean, HEADs on origin), plus 226 non-worktree log and output entries under `.worktrees/`. Kept: p2-work, ss8r, v1, v1-bis, v1c-wt, v1e-wt, v1f-wt (each holds uncommitted work). Data volume free space went from 15 to 39 GiB. Further reclaim, including `~/.dev-logs` at 90 GB, waits on the owner's machine disk assay.
+
+**Deploy state:**
+- **Shipped:** master `30c510b3d`; deploy-pages `41615171407` succeeded; bundle `index-LmUYsQfA.js`.
+- **OD-2, OD-7, OD-8:** cured on prod ×2.
+- **Visual re-mint:** `756f76c3f` re-minted 150 goldens, each attributed to OD-2 by a counterfactual.
+- **OD-6:** the CSP is live (`font-src 'self' data:`); the prod after-probe ×2 is owed.
+- **OD-1 / OD-5:** glass O-123 → 10.2.0.
+- **Carried:** webkit-hosted e2e-safari has been RED on every head since `0d1a43bbf`.
