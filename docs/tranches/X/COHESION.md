@@ -5215,3 +5215,12 @@ Owner, verbatim: *"Ensure this disk reclamation context is removed and our origi
   - resume its original task.
 - **Disk holds lifted after the reboot.** These were temporary: "delete nothing", "no new multi-GB artifacts" and "no worktrees". value.js's normal law returns after the reboot.
 - **value.js resume point:** §0hh, §0hh.1, §0hh.2 and §0hi. The in-flight OD-3b workflow is re-launched from its script path, because run IDs do not survive a new session. The owed list is in the session's project memory, in the pre-reboot block of `x-execution-open.md`.
+
+## §0hk — 2026-11-03 14:19: owner defects on the served dock field and the atmosphere (owner, verbatim, with a screenshot)
+*"search bar is partially clipped on the right, and the crown is layred ontop of the x--the invalid color box is not formatted right. And the background aurora doesn't properly display our actual color. Tweak that to better display our chosen color with our hyperparams."*
+
+Screenshot: `docs/tranches/X/evidence/owner-2026-11-03/od9-field-clipped-crown-over-x.png`. It shows the dock colour field reading "daraksha". The field's right end fades and is cut off, the crown sits at the far right where the clear (x) control is, and the background is a flat crimson rather than the Daraksha pink.
+- **OD-9:** the dock colour field is clipped on its right side.
+- **OD-10:** the crown indicator (`ColorInput.vue:33-42`) is layered on top of the field's clear (x) control. The two must not share a slot.
+- **OD-11:** the invalid-colour badge (OD-8's teleported badge) is not formatted right. Re-read it against glass's badge and tooltip canon: type, radius, padding, tone, offset.
+- **OD-12 (owner design request):** the background aurora does not show the chosen colour. It must render the user's actual colour faithfully, tuned with the existing aurora hyperparameters (`demo/scenes/atmosphere/aurora-atoms.ts`, `aurora-harmony-stops.ts`, `AuroraPane.vue`, `atmosphere-calibration.ts`) rather than with new knobs. Acceptance: for the Daraksha default and the eight family colours, the dominant aurora field reads as the chosen colour (OKLab ΔE of the dominant region against the chosen colour is measured and recorded, light and dark), and the owner's animations are preserved.
