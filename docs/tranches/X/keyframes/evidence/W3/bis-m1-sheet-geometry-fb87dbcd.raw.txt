@@ -1,0 +1,21 @@
+SERVED MODEL: claude-opus-5-5
+# KF.W3.bis — M1 sheet geometry, kf fb87dbcd (glass 10.1.3), clean worktree dist/gh-pages, one headless chromium, 390x844 hasTouch isMobile, /#/amiga, CDP touch drags on [data-slot=sheet-detent-handle] (dy 360 unless noted), 1.5 s settle; read-only, browser+context closed in finally; KF_PLAYWRIGHT_DIR=<value.js> guarded --timeout 10 -- node m1probe{,2}.mjs
+## probe 1 (born -> up360 -> down360 -> down360)
+{"run":1,"tag":"born","t":"0.12","pos":"fixed","top":545,"h":171,"visFrac":0.354,"paneClientH":85,"paneScrollH":702,"overflowY":"hidden"}
+{"run":1,"tag":"after-up","t":"1","pos":"fixed","top":107,"h":609,"visFrac":0.873,"paneClientH":523,"paneScrollH":702,"overflowY":"auto"}
+{"run":1,"tag":"after-down","t":"0.36","pos":"fixed","top":412,"h":304,"visFrac":0.512,"paneClientH":218,"paneScrollH":702,"overflowY":"auto"}
+{"run":1,"tag":"after-down-from-peek","t":"0.12","pos":"fixed","top":545,"h":171,"visFrac":0.354,"paneClientH":85,"paneScrollH":702,"overflowY":"hidden"}
+{"run":2,"tag":"born","t":"0.12","pos":"fixed","top":545,"h":171,"visFrac":0.354,"paneClientH":85,"paneScrollH":702,"overflowY":"hidden"}
+{"run":2,"tag":"after-up","t":"1","pos":"fixed","top":107,"h":609,"visFrac":0.873,"paneClientH":523,"paneScrollH":702,"overflowY":"auto"}
+{"run":2,"tag":"after-down","t":"0.36","pos":"fixed","top":412,"h":304,"visFrac":0.512,"paneClientH":218,"paneScrollH":702,"overflowY":"auto"}
+{"run":2,"tag":"after-down-from-peek","t":"0.12","pos":"fixed","top":545,"h":171,"visFrac":0.354,"paneClientH":85,"paneScrollH":702,"overflowY":"hidden"}
+## probe 2 (born -> up360 -> down480 -> up200)
+{"run":1,"tag":"born","t":"0.12","pos":"fixed","top":545,"h":171,"visFrac":0.354,"paneClientH":85,"paneScrollH":702,"overflowY":"hidden"}
+{"run":1,"tag":"after-up","t":"1","pos":"fixed","top":107,"h":609,"visFrac":0.873,"paneClientH":523,"paneScrollH":702,"overflowY":"auto"}
+{"run":1,"tag":"after-down-480-from-full","t":"0.12","pos":"fixed","top":545,"h":171,"visFrac":0.354,"paneClientH":85,"paneScrollH":702,"overflowY":"hidden"}
+{"run":1,"tag":"after-up-200-from-peek","t":"0.36","pos":"fixed","top":412,"h":304,"visFrac":0.512,"paneClientH":218,"paneScrollH":702,"overflowY":"auto"}
+{"run":2,"tag":"born","t":"0.12","pos":"fixed","top":545,"h":171,"visFrac":0.354,"paneClientH":85,"paneScrollH":702,"overflowY":"hidden"}
+{"run":2,"tag":"after-up","t":"1","pos":"fixed","top":107,"h":609,"visFrac":0.873,"paneClientH":523,"paneScrollH":702,"overflowY":"auto"}
+{"run":2,"tag":"after-down-480-from-full","t":"0.12","pos":"fixed","top":545,"h":171,"visFrac":0.354,"paneClientH":85,"paneScrollH":702,"overflowY":"hidden"}
+{"run":2,"tag":"after-up-200-from-peek","t":"0.36","pos":"fixed","top":412,"h":304,"visFrac":0.512,"paneClientH":218,"paneScrollH":702,"overflowY":"auto"}
+## reading: PEEK (t=0.12) shows visFrac 0.354 > the probe's 0.35 "open" cut and > its 0.30 "closed" cut, so M1 OPEN skipped its expand drag (geo.open true at PEEK), SCROLL ran on the 85px PEEK body, and CLOSE could never read closed. The product walks PEEK -> FULL -> OPEN -> PEEK on real touch drags; position:fixed (glass 10.1.1 G-1, SHEET-POSITION cured).

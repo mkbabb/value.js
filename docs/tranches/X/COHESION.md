@@ -5099,7 +5099,8 @@ Ruled:
    - **KF-1:** `splitText(el, {by:"word"})` keeps trailing punctuation with its word.
    - **KF-2:** `splitText` never overwrites an element's existing semantic role, so h1–h6 keep the heading outline. It adds a role only where none exists.
    - **KF-3:** a sampled LUT form of `springTimingFunction`, built for per-frame and many-mark use and for ECharts/CSS (atlas A2(b)).
-   - Each gets a standalone repro first. KF-1 and KF-2 come from code comments and are confirmed before any cure.
+   - **KF-4** (booked 2026-11-02, Gregg pass 3 via sci-report-82; consumer gregg; ledger `~/Programming/gregg/docs/ROOT-FIXES.md`): `flip` (`src/animation/orchestration/flip.ts`) exposes no cancel. A second filter click in Gregg's How section waits out the running 680 ms re-sort. The cure: `flip` returns a cancellable handle, and a re-targeted flip on an element already in flight starts from its current interpolated rect, so an interrupt glides from where the element is rather than snapping or queueing. Falsifier: a mid-flight re-target whose first frame equals the interrupted frame's rect (within 0.5 px), RED before and GREEN after. The related "rows jump on By attendance → By date" symptom is Gregg-side until pass 4 roots it in `flip`.
+   - Each gets a standalone repro first (KF-4's is a two-target interrupt). KF-1 and KF-2 come from code comments and are confirmed before any cure.
    - **Vehicle:** a keyframes minor release after KF.W3 ships, as its own pass. Reply to sci-report-a4 with the release that carries each row.
 
 ## §0hf — 2026-11-02: value.js 4.2.0, a post-X library minor: VJ-1 plus the R-ink-1 export (delegate, §0ge)
@@ -5146,3 +5147,26 @@ Ruled:
 - **prod-verify:** 21/21 GREEN ×2, 75 s apart.
 
 **Residual, recorded.** The `edge_reload` refusal detection and the `deploy-switch-smoke` section C landed with the limiter. The `git stash` cross-worktree incident during the seats lost no work; the foreign `stash@{0}` (926ca6a, glass-ui Q.W1 Lane D) is intact in the fourier repo's stash list.
+
+## §0hg — 2026-11-02: ESC-KFW3-d3-1 ruled, the kf CI library-job budget (delegate, §0ge)
+**Inbound:** KF.W3 `.d3` (run `wf_a2fa28e6-46f`). kf `.github/workflows/ci.yml:31` sets `timeout-minutes: 4` on the library-gates job, a figure set at `552a19ff` (2026-07-12) when the job ran in about 1m50s (last GREEN `35251074426`). The job now measures about 4m31s: npm ci 35s, types 22s, build 9s, correctness 56s, demo correctness 1m55s, lint 5s, proof:publish 16s. Every step is GREEN and the job is still cancelled by the timeout (`41450770277`, `41462383452`, `41466910668`, `41504991466`).
+
+Ruled:
+1. **The budget is a hang guard, not a performance bar.** It is re-set to fit the measured step sum: `timeout-minutes: 10`, about 2.2× the measured 4m31s, so a shared runner's ordinary variance never cancels a GREEN job, while a hung step still dies well before GitHub's 6 h default. A one-line YAML comment beside it cites the measured sum and this ruling.
+2. **No job split.** Splitting the job adds a second npm ci and a second build for no gate gain (E-2, KISS). No step is skipped, reordered or relaxed.
+3. **Not a lucky re-run.** The `.d3` seat writes the ci.yml line as the cure, under the adjacent-line rule (same repo, same concern: the close order's "kf CI GREEN" clause), pushes it, and then resumes the close order of §0he.3 from its CI step: kf CI GREEN (both jobs) → deploy-pages → §6 round-trip → post-deploy probe ×2 (G-KF3-8 pageerror arm) → close → fresh check → X-W11's VERIFIED stamp (§0hb.3).
+4. **Residuals from Close 5** (`animationOptionsStore.ts:95-96` authored-unit seeding; the two gate scripts' `navToScene(null)` 12 s waits) are routed to the post-W3 keyframes minor of §0he.4, beside K-1 and KF-1..KF-4.
+
+## §0hh — 2026-11-03: owner defects reported on the served app (owner, verbatim, with two screenshots)
+*"The final phase of the dock transition animation is still not rounded … the top part of the search bar, and other extant bars are still clipped at the top; the daraksha palettes and colors are still not displayed"*, followed by *"List them, mark"*.
+
+Marked as OPEN owner rows. Each is reproduced on the served page before any cure, and none is closed on a harness reading alone.
+- **OD-1, dock morph's final phase not rounded.** The screenshot shows the collapsed Home pill ending as an irregular, non-circular blob with a soft halo, rather than a round end state. Likely producer: glass-ui (dock morph, `DOCK-MORPH-ROOT` lineage). Read the consumer seam first, then relay.
+- **OD-2, top edge of the search bar and other bars clipped.** The screenshot shows the bar's top border and radius cut at the viewport or container top edge. Consumer layout or a glass bar primitive, to be attributed by reproduction.
+- **OD-3, Daraksha palettes and colours not displayed in the app.** The data is served: prod `/palettes` lists `daraksha` and `daraksha-gradient` first, and `/colors/approved` holds all 8 names; the local API holds both palettes and all 8 names. So the defect is on the display path: browse, swatches, the name line, or oklch swatch rendering. Reproduce on both color.babb.dev and localhost:9000.
+- **OD-4 (found while checking OD-3), test debris on prod.** Prod `/palettes` lists test palettes in public view: `hey-v2-*` remixes, `hey-7600d315`, and `audit-test-palette-51f63f52`. Each is to be checked against its creator before removal; nothing is deleted without that read.
+- **OD-5 (owner, 2026-11-03): an elliptical dock artifact persists during colour input.** Owner: *"during color input a strange elliptical dock artifact, likely due to a glass-ui defect, persists"*. The screenshot shows the dock in its input mode (back arrow · oklab text field · go arrow · tag button), with a reddish ellipse wider than the pill and offset from it painted behind the dock and outside its rounded silhouette. Likely producer: glass-ui (dock surface or morph backdrop); same lineage as OD-1.
+- Evidence (owner screenshots, durable copies): `docs/tranches/X/evidence/owner-2026-11-03/` (od1, od2, od5).
+- **OD-6 (found 2026-11-03 by the Daraksha live check `wf_38706096-be4`): prod CSP blocks glass's inlined fonts.** color.babb.dev serves `font-src 'self'`, and glass's `glass-fonts-*.css` inlines Plus Jakarta Sans and Fira Code as `data:` woff2. All four faces are refused, so every route renders in system fallback fonts. Also refused: the Cloudflare Web Analytics beacon (`script-src`). Five console errors per route; 0 pageerrors. Font metrics can move bar geometry, so OD-2 is re-read after OD-6.
+- **OD-3 note:** in a clean headless profile on prod, Daraksha displays correctly, ×2: the name line, both `/browse` cards, the 8 swatches, and Sage/Plum near-miss names. The owner's not-displayed observation must be explained from the owner's context (a stale cached bundle, a service worker, localStorage, or localhost) before OD-3 is called cured or not reproduced.
+- **Follow-up (npm):** the 6.1.0 publish warned that 2FA-bypass tokens are being restricted for direct publishing. Move the value.js and keyframes.js release.yml to npm trusted publishing (OIDC) before the token stops working.

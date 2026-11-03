@@ -1,0 +1,300 @@
+export const meta = {
+  name: 'x-kf-w3',
+  description: 'Tranche X Track B — KF.W3 Parser Consumption (gate-keyed on RC-P(4.1.0); COHESION §0hb): open → units → verify-only close → fresh check → bounded repair',
+  phases: [{"title":"KF.W3"}],
+}
+
+const TRACK = {
+  "id": "B",
+  "name": "X·KF (keyframes.js)",
+  "repo": "/Users/mkbabb/Programming/value.js/../keyframes.js",
+  "rbSection": "§1.2",
+  "maxWaves": 1,
+  "maxUnits": 1,
+  "dir": "B",
+  "waves": {
+    "KF.W0": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W0.md",
+      "after": [],
+      "note": "OP-1 + the §B-12 act are RULED at COHESION §0j — read the ruling and perform §B-12 EXACTLY as ruled there (snapshot-first, never a bare reset); every anchor re-resolves at origin/master 81a56990"
+    },
+    "KF.W1": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W1.md",
+      "after": [],
+      "note": "MINTS O-21 — MINT LAW: re-run the outbound max-grep over INBOX.md at open (I-30 is inbound and does not move the max); deliver to the exec-visible path (keyframes-v-exec) per spec"
+    },
+    "KF.W4": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W4.md",
+      "after": [
+        "KF.W0"
+      ],
+      "note": "THE SEQUENCING HEAD; peak concurrency 2; the scripts/observe/demo/usability.mjs half is written ONLY inside the KF.W4∥KF.W6 atomic bundle — since W6 opens after W4, this wave AUTHORS its half as a patch file at the wave record path (execution/B/KF-W4-usability-bundle.patch) and does NOT commit usability.mjs; W6's first commit lands the bundle with both halves"
+    },
+    "KF.W9": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W9.md",
+      "after": [
+        "KF.W0"
+      ],
+      "note": "after §B-12 only; OP-3/OP-4/OP-5/OP-6/OP-7 as ruled at §0j; OD-V3/OD-V5 are produced here, RULED at KF.W10 (§0j)"
+    },
+    "KF.W2": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W2.md",
+      "after": [
+        "KF.W0",
+        "KF.W4"
+      ],
+      "note": "opening commit states its ref; publishes both registries before any cure commit"
+    },
+    "KF.W5": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W5.md",
+      "after": [
+        "KF.W4"
+      ],
+      "note": "S-0: G-XSS lands as commit 1; S-5 cure (4.0.0→V at RC-P(V)) is a dated addendum-beside at KF-W5.md — already landed at union repair r1; verify at open"
+    },
+    "KF.W6": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W6.md",
+      "after": [
+        "KF.W4"
+      ],
+      "note": "FIRST COMMIT = the KF.W4∥KF.W6 usability.mjs atomic bundle (apply execution/B/KF-W4-usability-bundle.patch + this wave's half, ONE commit, both seats named); R4-1 delete+barrel+token ONE commit"
+    },
+    "KF.W7": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W7.md",
+      "after": [
+        "KF.W2"
+      ],
+      "note": "G14 resolves against KF.W2's posture registry; per-surface SWAP verdicts (KF-AV-28 rider) recorded in the wave record for KF.W11-13"
+    },
+    "KF.W8": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W8.md",
+      "after": [
+        "KF.W0",
+        "KF.W4",
+        "KF.W5",
+        "KF.W6"
+      ],
+      "note": "W6 SCOPED for G7's measurement only; git mv + four repoints + docblock ONE commit"
+    },
+    "KF.W10": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W10.md",
+      "after": [
+        "KF.W0",
+        "KF.W1",
+        "KF.W9",
+        "KF.W2",
+        "KF.W4",
+        "KF.W5",
+        "KF.W6",
+        "KF.W7",
+        "KF.W8"
+      ],
+      "note": "stamps the AUTHORED ELEVEN only; O-21 cited by id; OD-V3/OD-V5 ruled at §0j; .g = fresh-Fable adjudicator"
+    },
+    "KF.W11": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W11.md",
+      "after": [
+        "KF.W10",
+        "AUTHOR-KF-W11-13"
+      ],
+      "note": "authored by the SS-1/SS-2 block this run; cargo per KF-W10.md §6.D"
+    },
+    "KF.W12": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W12.md",
+      "after": [
+        "KF.W10",
+        "AUTHOR-KF-W11-13"
+      ],
+      "note": "authored by the SS-1/SS-2 block this run; cargo per KF-W10.md §6.D"
+    },
+    "KF.W13": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W10",
+        "AUTHOR-KF-W11-13"
+      ],
+      "note": "authored by the SS-1/SS-2 block this run; cargo per KF-W10.md §6.D"
+    },
+    "KF.W13S": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13"
+      ],
+      "note": "THE X·KF SUPPLEMENT WAVE minted by COHESION §0ai — RESUME 3 (2026-09-22) on COHESION §0ap + KF-W13.md ADDENDUM 2026-09-22 (third): KF.W13.a2 · .e · .a3 · .e2 · .a4 · .e3 · .t are ALL alreadyDone (commits exist; never re-dispatched); the units still owed are [KF.W13.t2] → [KF.W13.f2], both opus, serial; §0ap grants the nine library test files and rules the deliberately-invalid-input idiom ((i) unknown ingress, else (ii) @ts-expect-error with reason; casts stay forbidden); the §0ai close literal stands (vue-tsc 0 · test:demo green · npm run check exit 0); the lint line is read without the demo/styles glob; keyframes.js pushed at every unit's close; value.js pushed only if no sibling staged path sits in the shared index"
+    },
+    "KF.W13R": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13U"
+      ],
+      "note": "AUTHORITY: COHESION §0bs + KF-W13.md\'s KF.W13R addendum (READ it whole, and the frame keyframes/evidence/W13U/owner-2026-09-23-mobile-controls.png). The owner, verbatim: \"the dock transitions and animations from small to large are blurry, slow, and jittery--not smooth and ios 27 loke\". Strictly serial: [KF.W13R.m] (ALSO per §0cd: migrate the snap-point Drawer to glass\'s Sheet at the root for DRAWER-DETENT-REACH; QUIET-FOCUS-RING rides the repin; pin @mkbabb/glass-ui 10.0.1 exact; read the 8/9/10 CHANGELOG + migration notes whole; migrate at the root, no shims; npm run check 0, vitest, e2e --workers=1 with load) → [KF.W13R.v] (ALSO per §0cd: re-read kf e2e S4 ringPainted and M1 at a point on the pane, unmoved; re-read every glass-owned KFA row + the KF.W13U served-page gates at 10.0.1: CURED-BY-REPIN with frames, or still-live) → [KF.W13R.d] (OA-41 + OA-48 dock morph smooth and sharp at 10.0.1; the rest DOCK-MORPH-ROOT with the 10.0.1 measurement). Served-page instrument rule; every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
+    "KF.W3": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W3.md",
+      "after": [],
+      "note": "RESUME (fourth) 2026-11-02 on COHESION §0hg (binding; read whole) + §0he.3: DONE units stay alreadyDone (.bis 2582da86+608748e2, .u177 8294a715, pushed; every earlier unit). Owed: [KF.W3.d4] ONE act: kf .github/workflows/ci.yml:31 timeout-minutes 4 -> 10 with a one-line comment citing the measured step sum (~4m31s) and §0hg (no job split, no step skipped/relaxed), commit + push; then kf CI GREEN on BOTH jobs at that head (never a lucky re-run, never workflow_dispatch break-glass) -> deploy-pages success -> §6 round-trip (scripts/pages-deploy.sh:109-140) -> post-deploy probe x2 of https://keyframes.babb.dev /#/easing + /#/spring pageerror 0 (G-KF3-8 arm; one browser per run, closed in finally, via guarded) -> close and fresh check. Close 5 residuals are routed to the post-W3 kf minor (§0he.4), not this wave. PRIOR NOTE: RESUME (third) 2026-11-02 on COHESION §0he (binding; read whole) + §0hd: DONE units stay alreadyDone (.c2b .reg .sp .ps + Repair 1 README fb87dbcd landed; G9 npm ls -> 4.1.0). Owed: [KF.W3.bis] §0he.1 attribution bisect of the kf CI demo-roster RED (live-session S5, live-session-mobile M1/M2) in a CLEAN worktree with its own dist/ (never the shared dist/, never the sibling dirty KeyframeTimeline.vue), candidates in order 389e31d2 -> cc1a8669 -> 5c48e3da -> 13762e6e -> 17a5c34d -> 8ca052ad/2f498f0e/f59d5259 -> fb87dbcd, roster x2 per step; then by attribution: stale oracle -> re-aim scripts/observe/demo/live-session{,-mobile}.mjs + scripts/lib/demo-driver.mjs:941 at the at-rest surface fact (trigger face data-surface), never loosened; kf product -> root cure in the kf demo dock/sheet files (granted); glass -> A/B vs the prior glass pin + escalate the relay with numbers (orchestrator delivers) and hold with a cited O-id; M1 SHEET-POSITION keeps its banked relief only if it names a producer O-id, else cure; no CI step skipped ∥ [KF.W3.u177] §0he.2 useKeyframeOps.ts:45-46 threads durationUnit/delayUnit through the two-argument reverseCSSTime + its oracles, round-trip falsifier x2 -> [KF.W3.d3] push, kf CI GREEN, deploy-pages, §6 round-trip (scripts/pages-deploy.sh:109-140), post-deploy probe x2 of https://keyframes.babb.dev (pageerror 0) -> close and fresh check. PRIOR NOTE: RESUME (second) 2026-11-02 on COHESION §0hd (binding; read whole) + §0hb: DONE units stay alreadyDone (.a .b .c1 .c3 .c4 .c5 done; glass 10.1.3 already pinned). Owed, strictly ordered: [KF.W3.c2b] §0hd.1 arm (B): ONE L-7 act retiring the serializeCssValue fork (css-text.ts:53-68 + its :66 throw) and the demo twin (demo/utils/helpers.ts:75-96 + its throw) onto @mkbabb/value.js/css serializeCssValue via ONE kf-internal helper whose !ok arm raises one named invariant error; all 14 census-1 consumers moved; compile/value/compile.ts:259-268 named in the census and moved if same concern; css-text.ts:13-18 unit prose corrected; dated manifest divergence row for the 28 whitespace-collapse nodes; INBOX O-11 §B row; plus the invariant proof: ingest-admits implies serialize-ok differential/property test over the fixture corpus + generated values, and a bypass mutant reaching the invariant; then G-KF3-3 x2 ∥ [KF.W3.reg] §0hd.4 delete the registry.ts:33-53 kf memo per its own schedule (G-KF3-6 boot fence GREEN) + the useKeyframeOps.ts:45-46 pass-through if same concern ∥ [KF.W3.sp] §0hd.3 SharePopover.vue focus-then-select root cure (r4dock-share-fallback GREEN alone x3, whole suite x2; no retry, no skip) ∥ [KF.W3.ps] §0hd.2 docs/published-surface.md rows for the 5 KF.W5 HEAVY exports + the :17 pin prose to 4.1.0, no allowlist -> [KF.W3.d2] push, kf CI GREEN, deploy-pages, the §6 round-trip, post-deploy probe x2 (G-KF3-8 pageerror arm) -> close and fresh check. Machine law: guarded, vitest --maxWorkers=2, playwright --workers=1. PRIOR NOTE: OPEN 2026-11-02 on COHESION §0hb (binding; read whole) + KF-W3.md whole: KF.W3 opens if and only if RC-P(V) evaluates TRUE at V = 4.1.0. The OPEN seat RE-RUNS the conjunct commands itself against the registry coordinate 4.1.0 (the X.W11.e act-7 reading in docs/tranches/X/execution/A/X-W11.md:6079 names them: PUBLISHED verify, TOTALITY mirror with --preserve-symlinks-main, EQUIVALENCE bench vitest 19/19 MIRROR-DEFECTS 0, BAR-DISCHARGED §0j.E, ROUTED) and returns blocked if any reads FALSE; never open on a status word. OP-2 RULED: execute in /Users/mkbabb/Programming/keyframes.js on master under Track B, pathspec commits only; the pre-existing dirty demo/components/instrument/timeline/KeyframeTimeline.vue is a sibling's and is never staged, restored or edited. OP-3..OP-7 discharged (their waves are CLOSED). Units per the spec: .a R1 call-map + attribution harness ∥ .b DUAL-1/fork unification design, then .c the repin @mkbabb/value.js 4.0.0 -> 4.1.0 exact, the serializeCssValue fork retirement, DUAL-1 unification, 8-curve delta acknowledgement, the two mail-ledger discharges + BH relay; .c ALSO carries O-117 (§0hb.2): re-home TimelineHoverPreview.vue:276-277's matrix decomposition off the retired decomposeMatrix2D/3D + Mat4 at the root (no shim), re-aim the four 4.0.0-behaviour test files at the 4.1.0 contract (re-aim, never weaken or delete), land durationUnit; and a separate commit repinning @mkbabb/glass-ui 10.1.2 -> 10.1.3 exact (lock integrity equal to the registry). kf typecheck + tests GREEN x2 and kf CI GREEN; then keyframes ships through its own standing deploy path with its post-deploy probe x2. Machine law: guarded for every run, vitest --maxWorkers=2, playwright --workers=1, browser runs never --light."
+    },
+    "KF.W13X": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13W"
+      ],
+      "note": "RESUME 2026-10-16 (third) on COHESION §0fm + KF-W13.md ADDENDUM (k) (binding; ESC-W13X-a3-1 RULED: the A3 RED is a stale oracle). Every landed unit incl. .a3 (diagnosis, 0 bytes) is alreadyDone, never re-dispatched. Owed: [KF.W13X.a3o] (grant scripts/observe/demo/live-session-mobile.mjs, the A3 block only: re-point the [class*=rail] selector at :1151 to the rail track's exact emitted class(es), enumerated from the rail CSS/template and cited at the bytes, plus .controls-pane-wrapper; no substring match, no exclusion list; geometry test unchanged; falsifier: inject a synthetic hollow rail-track column with the rail's own class at ghost geometry -> ghostCol=true, remove -> GREEN, x2; A3 GREEN x2 at kf HEAD and GREEN at 71480d85; rail-fill NOT renamed). Then the close (verify-only, §0ev.2) with honest-RED exactly B7 SPECULAR-REST + SHEET-POSITION; .r3res2e relieved by §0fl(1), .r3res2f kf half by §0fl(2); then the check. PRIOR NOTE: RESUME 2026-10-16 (second) on COHESION §0fl + KF-W13.md ADDENDUM (j) (binding; RESUME 3's three HIGHs RULED): every landed unit incl. .r3res2a..f is alreadyDone, never re-dispatched. .r3res2e is KILLED-BY-DELETION by id (receipt: the 0-read at 099a1627); the .r3res2f kf half is RE-HOMED BY ID to the X-W11 release repin (value.js 4.1.x publish is an owner act). Owed: [KF.W13X.a3] (the mobile #/sequence A3 ghost rail introduced at X-DS fa09924b; bisect GREEN 71480d85; grant the fa09924b files on the ghost-rail path (ControlsPaneWrapper.css, the ChannelControls host, the rail FadingScroll seat) under §0ev.3 own hunks by index blob; root cure keeping X-DS KF-C5-01/-02 desktop intent; falsifier live-session-mobile A3 RED->GREEN x2 and X-DS pass-5 desktop readings stay GREEN; a line in X-DS's keyframes pass record naming the cure). Then the close (verify-only, §0ev.2) with honest-RED exactly B7 SPECULAR-REST + SHEET-POSITION, relieving .r3res2e by §0fl(1) and the .r3res2f kf half by §0fl(2); then the check. Gates read under --light with the reason disclosed count as read (§0fl 4). PRIOR NOTE: RESUME 2026-10-16 on COHESION §0fj + KF-W13.md ADDENDUM (i) (binding; ESC-W13X-r3res-1 RULED: the six R-3 rows granted one unit each): every landed unit is alreadyDone (never re-dispatched). Owed, strictly serial: [KF.W13X.r3res2a] (easing reset order; grant demo/scenes/easing/useEasingDemo.ts) -> [KF.W13X.r3res2b] (Sweep Reverse ball; grant demo/scenes/spring/** + demo/components/playback/**; served read first, CLOSED-BY-READING x2 allowed) -> [KF.W13X.r3res2c] (square axis readout from the live transform; grant demo/scenes/square/SquareScene.vue) -> [KF.W13X.r3res2d] (844x390 Matrix heading; grant demo/components/instrument/pane/** + demo/scenes/cube/matrix-editor/**; read first) -> [KF.W13X.r3res2e] (KFA-31/85: cube lighting consumes the group onRender; grant demo/scenes/cube/**) -> [KF.W13X.r3res2f] (UIA-KF-177: value.js src/css CSSAnimationOptions authored unit + colocated tests + CHANGELOG Unreleased, then the one kf consumer file; E-6 under §0fg item 3). Each: falsifier RED->GREEN x2. X-DS dirty paths: own hunks by index blob (§0ev.3). Then the close, verify-only under §0ev.2 (3x re-read, load recorded, WebKit via guarded --exclusive webkit), honest-RED exactly B7 SPECULAR-REST + SHEET-POSITION; then the check as an audit. Every heavy run via ~/.claude/guard/guarded. PRIOR NOTE: RESUME 2026-10-13 on COHESION §0fa + §0ex + §0ez + §0ev and KF-W13.md ADDENDUM (h) (binding; the seven escalations RULED; they ARE the resume spec): every landed unit is alreadyDone (never re-dispatched). Owed, strictly serial: [KF.W13X.pc2] -> [KF.W13X.r4ribbon] -> [KF.W13X.r4init] -> [KF.W13X.r4fade] -> [KF.W13X.r4press] -> [KF.W13X.r4shared2] -> [KF.W13X.r3res] -> [KF.W13X.rel2], then the close reads NOW under §0ev.2 (3x re-read, load recorded; no load bar) incl. the KF-ET-10 reading, then the check as an audit. Host-load rule of §0fa binds every seat. Earlier RESUME 2026-10-07 on COHESION §0er + KF-W13.md ADDENDUM (g) (binding; the nine escalations RULED) and addenda (e)(f): every landed unit is alreadyDone (never re-dispatched). Owed, strictly serial: [KF.W13X.pc] (pane cut square by .controls-surface at 1440x900/1024x768; cure in ControlsPaneWrapper) -> [KF.W13X.dh2] (UIA-KF-098/317 limbs; brief first) -> [KF.W13X.esc] (the nine rulings exactly as addendum (g) states: ESC-mobile-1/2, dock-1 popover form, dock-2, dock-3 Home miniature, spring-1 one time base, tl-1 steps 1-2, kf-1 uninstall highlight.js+html2canvas, scene-1; may split .esc1..esc3 by disjoint files) -> [KF.W13X.cube] (reproduce R-r-2 on a served cold load, then an ORDERING cure, deterministic falsifier, nothing absorbed in the library) -> the R-4 rows as units by id -> [KF.W13X.rel] (file the three outstanding glass asks as O-rows after O-89, INBOX rows via index blob, a live send after ListAgents). Then close: kf e2e --workers=1 x2, test:demo x2, gh-pages, served probes re-run, ALL only at 1-min load < 25 (bounded wait up to 60 min, else UNREAD; never bank a reading under thrash). X-DS (paused) has dirty kf files: stage only your own hunks via index blob; never commit or revert theirs. X-DS canon (§0ek) binds every design act. Browsers HEADLESS only (§0ei); nothing durable in /tmp (§0eo). EARLIER: AUTHORITY: COHESION §0cw + KF-W13.md's KF.W13X section (READ whole) + KF.W13V's .k/.u dispositions (W13V/u/DISPOSITION.md and the .k receipt) + the owner's OA-37 full UI audit and OA-30 animation audit. Open seat: list every OPEN consumer KFA row (183), OPEN-CARRIED/SPLIT UIA-KF row (240+17), KFA-15 re-capture, the 4 critic gaps, KFE-ORPHAN, the vue-sonner pin, and AUDIT-2's keyframes rows if landed; group by page/scene family into units with DISJOINT file sets (parallel groups allowed), BROKEN first; plus [KF.W13X.r] the [real-cube] intermittent root-caused from the playhead trace (never retried until green). Per row: served frame before, root cure, falsifier RED->GREEN x2, frame after, disposition; glass rows relay-only. Close: all dispositioned; npm run check 0; test:demo green; kf e2e --workers=1 x2 within the honest-RED set. Every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
+    "KF.W13W": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13V"
+      ],
+      "note": "ALSO §0cq (2026-09-24): KF-W13.md's KF.W13W ADDENDUM adds units after .v, serially: [KF.W13W.p] (easing picker hierarchy: one glass segmented family filter, divider, family sections with headers, one tile idiom on --radius-field, one picker component everywhere) → [KF.W13W.e] (ONE shared floating top-right eye/eye-off preview toggle in every view, out of flow, animated; retire every duplicate) → [KF.W13W.m] (mobile controls/panes centred and aligned at 390/430 portrait+landscape) → [KF.W13W.d] (collapsed dock consumer half; producer O-65 DOCK-COLLAPSED-FORM honest-RED). AUTHORITY: the owner, verbatim (2026-09-24): \"with all the easing curves and simulators, the tracking ball must be on the curve itself--mark and ecoute-moi\". COHESION §0co + KF-W13.md's KF.W13W section (READ it whole, and the frame keyframes/evidence/W13U/owner-2026-09-24-ball-on-curve.png). Strictly serial: [KF.W13W.c] (census: every curve/simulation plot with a moving marker incl. easing gallery tiles, easing scene plot, easing picker trigger + dropdown previews, Spring/linear()/sweep traces, Sequence rails, living dock minis) → [KF.W13W.b] (one shared curve-to-point primitive; the ball derives from the same function as the stroke; overshoot followed; steps jump; reduced motion = ball on curve at rest; no mid-height rail under the ball) → [KF.W13W.v] (served page, headed, 1440+390, both themes: ball centre within 1.5 CSS px of the rendered curve at >=12 samples per site; RED before on every site; frames before/after). Every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
+    "KF.W13V": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13R"
+      ],
+      "note": "RESUME 2026-09-24 on COHESION §0cw + KF-W13.md's KF.W13V ADDENDUM (the dry loop, ruled): every dispatched unit incl. .u2 is alreadyDone. Owed: [KF.W13V.s2] (Sequence's 5 re-time handles + master scrub leave the stage and become a Sequence mode of the SHARED Timeline pane opened from the Timeline dock item; 0 inline editors on every scene, headed; re-time in the pane drives the stage, falsifier x2). Then close: k1 (183 KFA) + u1 (240+17 UIA-KF) + k2 + k3 + k4 relieved by citing KF.W13X (authored). Never dispatch a Repair 3 on the re-homed gates. EARLIER NOTES FOLLOW: AUTHORITY: the owner\'s 2026-09-23 words verbatim in KF-W13.md\'s KF.W13V addendum (READ it and the frame keyframes/evidence/W13U/owner-2026-09-23-easing-page.png); COHESION §0bl. PRECONDITION: both registers exist — docs/tranches/X/keyframes/audit/KF-ANIMATION-AUDIT.md and docs/tranches/X/audit/UI-AUDIT-keyframes.md — else return blocked naming the missing one. Served-page instrument rule (§0be). Strictly serial: [KF.W13V.s] (OA-46: every scene\'s editors — Keyframes, Timeline, Controls, editor facets — are DOCK ITEMS opening shared panes, 0 inline editors in any scene; one scene idiom: every scene on Cube/Amiga\'s regions, the shared keyframes pane only, Spring\'s inline editor and every one-off retired) → [KF.W13V.c] (OA-47: controls-pane rows — label + control on one line, divider above the easing group, tighter rhythm) → [KF.W13V.y] (OA-49, effort high design-author: Easing, Sequence, Spring redesigned to the Cube/Amiga idiom, glass radius canon, type scale, space for the subject) → [KF.W13V.p] (multi-line tiles off rounded-full onto glass\'s card radius; O-58) → [KF.W13V.k] (every open KFA row) → [KF.W13V.u] (every UIA-KF row); glass rows routed, never copied; every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
+    "KF.W13U": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13T"
+      ],
+      "note": "RESUME 2026-09-23 (second) on COHESION §0cd and KF-W13.md\'s KF.W13U SEVENTH addendum (read it and every earlier KF.W13U addendum; they ARE the resume spec): KF.W13U.w · .t · .e · .d · .t2 · .d2 · .d4 are alreadyDone; .d3 and .x are closed as escalations ruled in §0cd (never re-dispatched). Still owed: [KF.W13U.d5] (one commit point: every scene-derived dock/pane read incl. the Scene label flips once at resolve on sceneBoundToCurrent; warm-on-intent additive; whole-file grant App.vue + ChromeDock.vue + the warmScene module; gate probe-switch10 x2 dev x2 gh-pages, first visits, load recorded). Then close: the e2e clause reads GREEN-WITH-HONEST-RED for exactly S4 QUIET-FOCUS-RING and M1 DRAWER-DETENT-REACH (owner KF.W13R); every other case green at --workers=1. Honest-RED ids: DOCK-MORPH-ROOT, DOCK-SCROLL-MORPH, GLASS-SURFACE-PAINT-CONTAIN, KF-TIMELINE-FILL, DARK-MENU-ITEM, QUIET-FOCUS-RING, DRAWER-DETENT-REACH. Served-page instrument rule (§0be). Every seat Opus 5.5. PRIOR NOTE FOLLOWS: RESUME 2026-09-23 on COHESION §0br and KF-W13.md\'s KF.W13U SIXTH addendum (read it and the earlier KF.W13U addenda; they ARE the resume spec): KF.W13U.w · .t · .e · .d are alreadyDone (never re-dispatched); still owed, strictly serial: [KF.W13U.t2] (retire isAnimStarted + its three mounts) → [KF.W13U.d2] (OA-32 living dock icons: scenes.ts descriptor binding + per-scene mini-rendition seams + ChromeDock) → [KF.W13U.d3] (App.vue:266-276 + controlSurfaces.ts: dock/pane change once per scene switch) → [KF.W13U.d4] (Share row keyboard via SharePopover open model; theme row DARK-MENU-ITEM honest-RED unless installed glass has it) → [KF.W13U.x] (re-seat scripts/observe/demo/{subject-animates,live-session}.mjs + cure usability/S4/S5/M1; e2e at --workers=1 with the load average recorded). Served-page instrument rule (§0be). Honest-RED ids: DOCK-MORPH-ROOT, DOCK-SCROLL-MORPH, GLASS-SURFACE-PAINT-CONTAIN, KF-TIMELINE-FILL, DARK-MENU-ITEM. Every seat Opus 5.5; ESCALATED units do not halt the wave. ORIGINAL AUTHORITY: AUTHORITY: the owner's 2026-09-23 keyframes docket, VERBATIM (it is the request this wave executes): 'Dock animations and transitions for keyframes.js are also awful, blurry, janky, and jittery. The cube doesnt\' animate, none of the animationsa re wired up -- the easing picker doesn\'t diplsay the current curve in the preview/header label or in the dropdown -- the timeline is always greyed out; the animations are all entirely broken'. Spec = KF-W13.md ADDENDUM 2026-09-23 (KF.W13U) — READ it and the two frames in docs/tranches/X/keyframes/evidence/W13U/. Minted by COHESION §0be; every seat Opus 5.5. THE INSTRUMENT RULE: every gate is read on the SERVED dev page http://localhost:5173/ in a HEADED real-GPU browser (plus the gh-pages build); KF.W13T\'s harness GREENs were contradicted by the owner\'s live surface, so a harness-only GREEN does not count; reproduce the owner\'s observation first. Strictly serial: [KF.W13U.w] (wiring: the cube and every animation run) → [KF.W13U.t] (timeline not greyed; drag scrubs) → [KF.W13U.e] (easing trigger + rows show the curve; name/description separated) → [KF.W13U.d] (dock blur/jitter cured at consumer root; producer halves DOCK-MORPH-ROOT with O-55/O-56, no consumer copy); glass-ui READ-ONLY; ESCALATED units do not halt the wave"
+    },
+    "KF.W13T": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13S"
+      ],
+      "note": "THE OWNER AUDIT DOCKET, KF-side — RESUME 2026-09-22 on COHESION §0ar + KF-W13.md ADDENDUM 2026-09-22 (fourth) (read both; they ARE this wave's resume spec; KF-W13.md's earlier units belong to KF.W13/KF.W13S/this wave's first sitting and are NOT re-dispatched): KF.W13.k · .e · .k2 are alreadyDone; still owed, strictly serial: [KF.W13.e2] (easingPreview field grant + R-e-2 repaint) → [KF.W13.k3] (R-k-1: the ribbon's controls ride the ChromeDock, ribbon retired; ESC-k2-1: six no-mutating-props rows cured at the state owner via defineModel/emit) → [KF.W13.k4] (verify-only close); every seat opus; measured in a live browser with screenshots; producer defects ride mail to BK; keyframes.js pushed at every unit close"
+    }
+  },
+  "author": {
+    "id": "AUTHOR-KF-W11-13",
+    "after": [
+      "KF.W7"
+    ],
+    "register": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W10.md",
+    "specs": [
+      "KF-W11.md",
+      "KF-W12.md",
+      "KF-W13.md"
+    ],
+    "dir": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves"
+  },
+  "stages": [
+    ["KF.W3"]
+  ]
+}
+
+const ROOT = '/Users/mkbabb/Programming/value.js'
+const X = ROOT + '/docs/tranches/X'
+const EXEC = X + '/execution'
+const RB = X + '/EXECUTION-RUNBOOK.md'
+const COH = X + '/COHESION.md'
+const INBOX = ROOT + '/docs/tranches/V/coordination/INBOX.md'
+const TRAILER = 'Claude-Session: https://claude.ai/code/session_01QkbQV4VgkoQgSoUj2oKZim'
+const DATE = '2026-09-17'
+const PATHS = ROOT + '/docs/tranches/V/ + ' + ROOT + '/docs/tranches/V/coordination/ · ' + ROOT + '/../glass-ui/docs/tranches/BK/coordination/ (confirm BK is still the newest tranche dir) · ' + ROOT + '/../keyframes.js/docs/tranches/V/coordination/ · ' + ROOT + '/../sci-report/atlas/docs/tranches/P/coordination/'
+const LAW = 'ADJACENT-LINE RULE (COHESION §0bt, 2026-09-23): when a cure your unit owns strictly requires editing a few lines outside your writable set in the SAME repository and the same concern (a dead re-export of the file you delete, the twin call site a cure lock names, the string an oracle asserts for copy you changed, an ignore entry for non-code paths), make that minimal edit in the same commit and list each such path:line in your receipt under \"adjacent edits\" with the reason — do NOT escalate for it. This never extends to: glass-ui or any sibling repo, package pins, a different concern, deleting tests or assertions, or anything another unit in the same group owns. STANDING LAW (binding on every seat): CONTEXT ECONOMY (measured 2026-09-20/21: seats reading 3,000-line records whole ran 300-500K-token contexts, answered in minutes of silence, and were killed by the 180 s watchdog ~90 times in one run): read the spec WHOLE exactly once; of the execution record read ONLY the header through the end of the current "## Unit plan" (or the RESUME plan), your own unit\'s prior receipt if one exists, and the LAST "## Close" / "## Check n" / "## Repair n" section — never a prior sitting whole; locate everything else with grep -n and read sed ranges; pipe every tool output through head/tail/cut so no single result exceeds ~150 lines; think briefly between tool calls and let each tool result be the heartbeat. STALL WATCHDOG (measured 2026-09-19: six X.P.W4S open seats were killed mid-generation, 4-17 min after their last fast tool call): the runner kills a seat after 180 s with NO transcript event, and a long generation is a silent one. Therefore: keep every turn short — think briefly, act, and let the tool result be the heartbeat; write a large file in ≤6 KB pieces (Write a skeleton, then append each section with a separate Edit/Bash append), never compose a whole record or receipt in one tool call; never run a foreground command expected to exceed 120 s (run it with run_in_background and poll its output every ≤60 s, or cap with timeout and chunk); at a RESUME-mode open, re-run at baseline only the gates the still-owed units turn and cite the banked baseline for the rest. CRASH-RECOVERY (the host process was restarted on 2026-09-18 and seats were killed mid-work): before any other act, run git status --porcelain in every repo you may write and look ONLY at paths inside your own writable set. Uncommitted edits there are a killed predecessor seat\'s partial work on YOUR unit: read that diff whole, judge every hunk against the spec, finish what conforms, rewrite what does not, and name the inherited paths in your receipt. Never stash, never blanket-restore, never touch a dirty path outside your writable set (it belongs to a sibling seat), and never treat inherited edits as done until the gates you own measure green. the owner\'s 2026-09-17 begin-word opened execution and authorized publish/push/pull/deploy; the spec you are given GOVERNS — execute it exactly, never a quick fix, never a workaround, never a masking fallback (no try/catch around a defect, no test.skip, no allowlist, no copied producer selector, no local patch of node_modules — each is a HIGH defect); idiomatic root-cause cures only. Writes are lawful ONLY inside the wave\'s §File Bounds writable set for your unit; any write outside it is an ESCALATION — stop and return it. NEVER touch ' + ROOT + '/scripts/dev/dev.sh (unowned, dirty by standing arrangement — never staged). Pathspec commits only, ON THE COMMIT ITSELF: git add <exact paths> && git commit --no-verify --quiet -m "<msg>" -m "' + TRAILER + '" -- <the same exact paths> — four tracks share this git index, so a commit without its own pathspec sweeps in whatever a sibling seat has staged (measured at X-W0: three contaminated commits); never "git add -A" or "-u", never "git commit -a", never reset or unstage another seat\'s paths (if git reports index.lock, sleep 5-20s and retry up to 5×; never delete the lock file). One commit per meaning; commit families the spec declares must not split. E-3: dated specs, the adjudicated registry, conformance artifacts and prior evidence are IMMUTABLE — corrections are dated addenda-beside. Portable BSD commands. WRITE-THEN-MEASURE: every published count is read from the settled bytes and double-run. SELF-COUNT LAW for receipts. Quote-by-command (⟨cmd⟩ … → output). Receipts every seat: line 1 of any file you create = SERVED MODEL: <your model id>. Sibling trees other than this track\'s repo are READ-ONLY; glass-ui is READ-ONLY always (producer rows ride mail, never frontend hacks). No git stash, no reset --hard, no force-push anywhere unless the spec or COHESION §0j prescribes that exact command. E13 mail: no wave closes with UNREAD mail in scope. Probe parsimony (§5.2): bounded Playwright/DevTools use. Edit ' + EXEC + '/LEDGER.md only by minimal in-place replacement of YOUR wave\'s row cells or by appending lines (re-read immediately before editing; other seats edit it concurrently) — never rewrite the file. Return ONLY the JSON schema asked, nothing else.'
+
+const rec = (w) => EXEC + '/' + TRACK.dir + '/' + w.id.replace(/\./g, '-') + '.md'
+
+const sleep = (ms) => (typeof setTimeout === 'function' ? new Promise(res => setTimeout(res, ms)) : Promise.resolve())
+// A dead agent() = the harness killed all 6 attempts (measured 2026-09-19: synchronized kills across workflows = a shared 429 storm with silent SDK retries, not the seat's fault). Wait out the storm, then re-seat — up to 3 more times — before the wave is declared dead.
+// agent() THROWS (not null) when all 6 harness attempts stall — measured 2026-09-19 22:2x on X.P.W4S: the throw escaped withRetry, parallel() swallowed it, and the wave died without a single re-seat. Catch it.
+const withRetry = async (label, f) => { const once = async () => { try { return await f() } catch (e) { log(label + ' threw: ' + ((e && e.message) || String(e))); return null } }; let r = await once(); for (let i = 1; !r && i <= 3; i++) { log(label + ' died — waiting 300 s for the storm to pass, then retry ' + i + ' of 3'); await sleep(300000); r = await once() } return r }
+const STAGGER_MS = 120000
+const staggered = (thunks, ms) => thunks.map((t, i) => async () => { if (i) await sleep(i * ms); return t() })
+
+const OPENP = (w) => 'You are SEAT 0 (OPEN) of wave ' + w.id + ' on Track ' + TRACK.id + ' (' + TRACK.name + ') of tranche X, executing on the owner\'s begin-word (' + DATE + '). ' + LAW + '\nFIRST read ' + EXEC + '/LEDGER.md: if ' + w.id + '\'s status is CLOSED → return {skip:true}. If it is OPEN or IMPLEMENTED and ' + rec(w) + ' exists → RESUME MODE: read the record, verify which units\' commits already exist (git log --oneline in ' + TRACK.repo + ' and ' + ROOT + '), and return the plan with those units listed in alreadyDone as BARE unit ids (exactly the id string, no annotation), and OMIT them from groups — a unit whose commits exist is NEVER re-dispatched; groups then carries only the units still owed (it may be empty).\nThen read the spec WHOLE: ' + w.spec + '. Read ' + RB + ' ' + TRACK.rbSection + ' (the order + edge reasons), §3.4 (locks), §5 (seat law), and ' + COH + ' §0i, §0j and every later §0k+ addendum (read to the file end) — every owner-gated item in your spec is RULED there (cite the ruling id; never presume, never re-open). Orchestrator note for this wave: ' + w.note + '.\nACTS: (1) E13 Step-0: four-path mail sweep (' + PATHS + '); compare with every row of ' + INBOX + '; row anything unrowed and addressed to value.js as UNREAD (next I-n) and append a dated sweep line at the file end; (2) verify every "Opens after" precondition at the bytes AND in the ledger (predecessors CLOSED or IMPLEMENTED with the spec\'s named artefacts present) — if any fails, write the record with the measured reason and return {blocked:"<condition>"}; (3) run the spec\'s own §Gates / §Hard Gate born-RED commands READ-ONLY and bank them as the BEFORE baseline in the record (R.2: a GREEN before its cure is a finding — list it in greenBeforeCure); (4) build the UNIT PLAN from §Agent Units + §Sequencing/§Disjointness/§Worktree Plan + the Agents line: for each unit → id · model ("opus" unless the spec names a Fable / fresh-Fable / adjudicator / design-author seat → "fable") · the spec sections it executes (heading + line range) · its writable set from §File Bounds · the gates it must turn · the locks/same-commit families binding it · a ≤700-char brief (the exact acts, in order, with the spec\'s own idioms named); group units into ORDERED parallel groups honoring the spec\'s declared serial/parallel order, at most ' + TRACK.maxUnits + ' concurrent, and never two concurrent units sharing a modify path; (5) write ' + rec(w) + ' (mkdir -p): SERVED MODEL line; "## Open" (date, preconditions with receipts, mail sweep result); "## Baseline" (gate table + pasted outputs); "## Unit plan"; an empty "## Unit receipts" section; (6) LEDGER: set ' + w.id + '\'s status cell to "OPEN ' + DATE + '" (minimal in-place edit) and append an event-log line; commit pathspec ' + rec(w) + ' ' + EXEC + '/LEDGER.md (+ ' + INBOX + ' if touched): "docs(X·exec): ' + w.id + ' OPEN — baseline banked, <n> units planned".\nReturn ONLY {skip?: boolean, blocked?: string, groups: string[][], units: [{id, model, sections, writable: string[], gates: string[], locks: string, brief}], alreadyDone: string[], greenBeforeCure: string[], recordCommit: string}.'
+const OPENO = (w) => ({ label: w.id + ':open', phase: w.id, model: 'opus', effort: 'medium', schema: { type: 'object', required: ['groups', 'units'], properties: { skip: { type: 'boolean' }, blocked: { type: 'string' }, groups: { type: 'array', items: { type: 'array', items: { type: 'string' } } }, units: { type: 'array', items: { type: 'object', required: ['id', 'model', 'brief'], properties: { id: { type: 'string' }, model: { type: 'string' }, sections: { type: 'string' }, writable: { type: 'array', items: { type: 'string' } }, gates: { type: 'array', items: { type: 'string' } }, locks: { type: 'string' }, brief: { type: 'string' } } } }, alreadyDone: { type: 'array', items: { type: 'string' } }, greenBeforeCure: { type: 'array', items: { type: 'string' } }, recordCommit: { type: 'string' } } } })
+
+const UNITP = (w, u) => 'You are UNIT ' + u.id + ' of wave ' + w.id + ' (Track ' + TRACK.id + ' · ' + TRACK.name + '; repo ' + TRACK.repo + '). ' + LAW + '\nRead the spec WHOLE (' + w.spec + '), then execute EXACTLY the unit\'s sections: ' + (u.sections || 'see §Agent Units ' + u.id) + '. Read the wave record ' + rec(w) + ' (baseline + plan + other units\' receipts) and ' + COH + ' §0j and every later §0k+ addendum (read to the file end) for rulings your unit consumes. Seat-0 brief: ' + u.brief + '\nWRITABLE SET (hard bound): ' + JSON.stringify(u.writable || []) + '. LOCKS: ' + (u.locks || 'none declared') + '. GATES you must turn: ' + JSON.stringify(u.gates || []) + '.\nMETHOD: measure before you edit (verify every anchor at true bytes — drifted anchors get INTENT at the true bytes, recorded); implement the spec\'s cure as specified (no improvisation — if the specified cure is impossible at the bytes, do NOT substitute: return status ESCALATED with the measured reason, per the spec\'s §Triumvirate Dispatch triggers); run the unit\'s gates after each landing; commit per the spec\'s §Commit Plan (families that must not split stay in one commit; one commit per meaning); WRITE-THEN-MEASURE for any figure you publish. Then APPEND your receipts to ' + rec(w) + ' under "## Unit receipts" as "### ' + u.id + '" (acts in order with ⟨cmd⟩ receipts, commit hashes, gate readings BEFORE→AFTER, residuals, escalations) and commit the record (pathspec ' + rec(w) + ').\nReturn ONLY {unit: "' + u.id + '", status: "DONE"|"PARTIAL"|"ESCALATED", commits: string[], gatesGreen: string[], gatesRed: string[], escalation?: string, notes: string[]}.'
+const UNITO = (w, u) => ({ label: w.id + ':' + u.id, phase: w.id, model: 'opus' /* owner 2026-09-23: Opus 5.5 for all seats; Fable not yet */, effort: (u.model === 'fable' ? 'high' : 'medium'), schema: { type: 'object', required: ['unit', 'status', 'commits'], properties: { unit: { type: 'string' }, status: { type: 'string' }, commits: { type: 'array', items: { type: 'string' } }, gatesGreen: { type: 'array', items: { type: 'string' } }, gatesRed: { type: 'array', items: { type: 'string' } }, escalation: { type: 'string' }, notes: { type: 'array', items: { type: 'string' } } } } })
+
+const CLOSEP = (w, units) => 'You are the CLOSE SEAT of wave ' + w.id + ' (Track ' + TRACK.id + '; repo ' + TRACK.repo + '). VERIFY-ONLY — you cure nothing. ' + LAW + '\nRead the spec WHOLE (' + w.spec + ') and the record ' + rec(w) + '. Unit returns: ' + JSON.stringify(units).slice(0, 6000) + '.\nACTS: (1) every unit\'s commits exist (git log) and touch only that unit\'s writable set (git show --stat) — landed-wrong findings go in the close, never fixed here; (2) re-run EVERY spec gate (§Gates / §Hard Gate) yourself and paste readings against the spec\'s GREEN definitions; (3) run §Verification Artefacts as written; (4) E13: sweep the four paths again — no UNREAD mail in scope; (5) write "## Close" in the record: gate table BEFORE→AFTER, commit roster, residuals with named owners, escalations, and the four-verb line moved ONLY as the spec\'s §State says this wave moves it (IMPLEMENTED; VERIFIED only if the spec designates this wave\'s own seat to stamp it); (6) LEDGER: status "IMPLEMENTED ' + DATE + '" (or "BLOCKED-ON <condition>" / "PARTIAL — <what remains>") + the commit list in the commit cell; commit pathspec; (7) PUSH: git -C ' + TRACK.repo + ' push origin HEAD, and git -C ' + ROOT + ' push origin HEAD (the owner authorized push; never force).\nReturn ONLY {verdict: "IMPLEMENTED"|"PARTIAL"|"BLOCKED", gatesGreen: string[], gatesRed: string[], residuals: string[], landedWrong: string[], commit: string}.'
+const CLOSEO = (w) => ({ label: w.id + ':close', phase: w.id, model: 'opus', effort: 'medium', schema: { type: 'object', required: ['verdict', 'gatesGreen', 'gatesRed'], properties: { verdict: { type: 'string' }, gatesGreen: { type: 'array', items: { type: 'string' } }, gatesRed: { type: 'array', items: { type: 'string' } }, residuals: { type: 'array', items: { type: 'string' } }, landedWrong: { type: 'array', items: { type: 'string' } }, commit: { type: 'string' } } } })
+
+const CHECKP = (w, n) => 'FRESH ADVERSARIAL CHECK (L-20, pass ' + n + ') of wave ' + w.id + '\'s close (Track ' + TRACK.id + '; repo ' + TRACK.repo + '). ' + LAW + '\nRead the spec WHOLE (' + w.spec + '), the record ' + rec(w) + ' (its Unit receipts, Close' + (n > 1 ? ', and the prior Check/Repair sections' : '') + '), and every commit it names. AXES: (1) every GREEN the close claims reproduces when YOU run the gate command; (2) no write outside §File Bounds (git show --stat every commit; ' + ROOT + '/scripts/dev/dev.sh untouched); (3) no masking fallback anywhere in the diff (try/catch around a defect, test.skip, allowlist, copied producer selector, patched node_modules, silently narrowed assertion) — each is HIGH; (4) commit families per §Commit Plan / runbook §3.4 not split; one commit per meaning; (5) E-3 held: the dated spec, the adjudicated registry (docs/tranches/V/megatranche/registry/adjudicated/), conformance artifacts and sibling specs byte-untouched by this wave (git diff --stat <pre-wave base>..HEAD -- <those paths> prints nothing); (6) mail clean (INBOX has no UNREAD row in scope); (7) the four-verb line moved lawfully; (8) the spec\'s own goal criterion is MET at the bytes, not merely its gates; (9) the record\'s published figures reproduce (write-then-measure); (10) HONEST-RED ADJUDICATION — for EVERY gate the close left RED, decide at the spec bytes whether it is RED BY THE SPEC\'S OWN RELIEF: producer-owned (green only upstream; a consumer patch is a gate failure), owned by a later wave by the spec\'s own routing (e.g. an uplift\'s cure, an act the spec assigns to a successor), or an honest-RED the spec names by id — and whether the record\'s residual register names an owner for it; a RED gate with NO such relief is a real defect (severity by the spec\'s own weight). Also verify the successor waves\' declared "Opens after" conjuncts against this wave: state which conjuncts are GREEN and whether any successor is lawfully blocked. BAR: CONFORMANT = zero BLOCKER/CRITICAL/HIGH and every claimed GREEN reproduces; CONFORMANT-HONEST-RED = the same bar with every remaining RED gate relieved under axis (10) and owner-named (state the set); MINOR-with-mitigation does not block; INFO never blocks. Weigh honestly both ways — do not manufacture materiality, do not soften a real HIGH, and do not launder an unrelieved RED as honest. Write "## Check ' + n + '" in the record (register: severity · claim · receipt · cure; the honest-RED set with each gate\'s relief cited); on CONFORMANT or CONFORMANT-HONEST-RED set the LEDGER status to "CLOSED ' + DATE + '" (append " (honest-RED: <gates>)" in the honest-RED case; minimal edit) and append an event line; commit pathspec the record + ledger.\nReturn ONLY {verdict: "CONFORMANT"|"CONFORMANT-HONEST-RED"|"NOT-CONFORMANT", defects: [{severity, claim, receipt, cure}], honestRed: string[], gatesReproduced: number, gatesFailed: string[]}.'
+const CHECKO = (w, n) => ({ label: w.id + ':check' + n, phase: w.id, model: 'opus', effort: 'medium', schema: { type: 'object', required: ['verdict', 'defects'], properties: { verdict: { type: 'string' }, defects: { type: 'array', items: { type: 'object', required: ['severity', 'claim'], properties: { severity: { type: 'string' }, claim: { type: 'string' }, receipt: { type: 'string' }, cure: { type: 'string' } } } }, honestRed: { type: 'array', items: { type: 'string' } }, gatesReproduced: { type: 'number' }, gatesFailed: { type: 'array', items: { type: 'string' } } } } })
+const OK = (v) => v === 'CONFORMANT' || v === 'CONFORMANT-HONEST-RED'
+
+const REPAIRP = (w, check, n) => 'You are the REPAIR SEAT (round ' + n + ') of wave ' + w.id + ' (Track ' + TRACK.id + '; repo ' + TRACK.repo + '). ' + LAW + '\nRegister: the "## Check ' + n + '" section of ' + rec(w) + ' — defects: ' + JSON.stringify(check.defects).slice(0, 5000) + '. Read the spec WHOLE (' + w.spec + ') and the record. Cure EVERY defect at ≥MEDIUM and every MINOR with a one-command cure, inside the wave\'s §File Bounds, with the spec\'s own cure idiom — a masking fallback is never a cure; if a defect\'s only cure lies outside bounds, record it as an escalation with the measured reason. After all cures land: re-run every gate a cure could move, WRITE-THEN-MEASURE the record\'s figures, double-run, then append "## Repair ' + n + '" (defect → cure → commit → gate re-reading) and commit pathspec.\nReturn ONLY {cured: number, escalated: [{claim, reason}], commits: string[]}.'
+const REPAIRO = (w, n) => ({ label: w.id + ':repair' + n, phase: w.id, model: 'opus', effort: 'medium', schema: { type: 'object', required: ['cured', 'commits'], properties: { cured: { type: 'number' }, escalated: { type: 'array' }, commits: { type: 'array', items: { type: 'string' } } } } })
+
+async function runWave(w) {
+  phase(w.id)
+  const open = await withRetry(w.id + ':open', () => agent(OPENP(w), OPENO(w)))
+  if (!open) return { id: w.id, status: 'SEAT0-DEAD' }
+  if (open.skip) { log(w.id + ': already CLOSED — skipped'); return { id: w.id, status: 'CLOSED(prior)' } }
+  if (open.blocked) { log(w.id + ': BLOCKED-ON ' + open.blocked); return { id: w.id, status: 'BLOCKED-ON ' + open.blocked } }
+  const byId = Object.fromEntries((open.units || []).map(u => [u.id, u]))
+  // alreadyDone entries may come back annotated ("X.P.W1.a — d8a529a …"): match on the leading id token, never the whole string
+  const doneIds = (open.alreadyDone || []).map(x => String(x).trim().split(/\s/)[0])
+  const done = new Set(doneIds)
+  const unitResults = {}
+  let escalated = null
+  for (const group of (open.groups || [])) {
+    const todo = group.filter(id => !done.has(id) && byId[id])
+    if (!todo.length) continue
+    const rs = await parallel(staggered(todo.map(id => () => withRetry(w.id + ':' + id, () => agent(UNITP(w, byId[id]), UNITO(w, byId[id])))), STAGGER_MS))
+    todo.forEach((id, i) => { unitResults[id] = rs[i] || { unit: id, status: 'DEAD', commits: [] } })
+    const escs = todo.map(id => unitResults[id]).filter(r => r.status === 'ESCALATED' || r.status === 'DEAD')
+    for (const e of escs) { escalated = escalated || e; log(w.id + ': unit ' + e.unit + ' ' + e.status + ' — ' + (e.escalation || '')) }
+    // §0ax: an ESCALATED unit is a RETURN to the orchestrator, not a halt — later groups still run; only a DEAD seat halts the wave
+    if (escs.some(e => e.status === 'DEAD')) break
+  }
+  const close = await withRetry(w.id + ':close', () => agent(CLOSEP(w, unitResults), CLOSEO(w)))
+  if (!close) return { id: w.id, status: 'CLOSE-DEAD', units: unitResults }
+  if (close.verdict === 'BLOCKED') { log(w.id + ': close verdict BLOCKED'); return { id: w.id, status: 'BLOCKED' + (escalated ? ' (escalation: ' + (escalated.escalation || escalated.status) + ')' : ''), units: unitResults, close } }
+  if (close.verdict !== 'IMPLEMENTED') log(w.id + ': close verdict ' + close.verdict + ' — ' + (close.gatesRed || []).length + ' gates RED; the fresh check adjudicates each RED under the spec\'s own relief (axis 10)')
+  let n = 1
+  let check = await withRetry(w.id + ':check1', () => agent(CHECKP(w, 1), CHECKO(w, 1)))
+  while (check && !OK(check.verdict) && n <= 2) {
+    log(w.id + ': check ' + n + ' NOT-CONFORMANT — ' + check.defects.length + ' defects; repair round ' + n)
+    await withRetry(w.id + ':repair' + n, () => agent(REPAIRP(w, check, n), REPAIRO(w, n)))
+    n++
+    check = await withRetry(w.id + ':check' + n, () => agent(CHECKP(w, n), CHECKO(w, n)))
+  }
+  const status = check ? (OK(check.verdict) ? 'CLOSED' + (check.verdict === 'CONFORMANT-HONEST-RED' ? ' (honest-RED: ' + (check.honestRed || []).join(' ') + ')' : '') : 'NOT-CONFORMANT after ' + (n - 1) + ' repairs') : 'CHECK-DEAD'
+  log(w.id + ': ' + status)
+  return { id: w.id, status, units: unitResults, close, check }
+}
+
+async function runAuthor(a) {
+  phase(a.id)
+  // RESUME: the authoring block is idempotent-by-skip — sealed specs are never re-authored (E-3)
+  const probe = await agent('Tranche X Track B: RESUME PROBE for the SS-1/SS-2 authoring block (READ-ONLY, write nothing). Check whether the three specs of record exist on disk with a §Provenance/agglomeration record: ' + a.specs.map(s => a.dir + '/' + s).join(', ') + ' — and whether ' + EXEC + '/LEDGER.md rows KF.W11/KF.W12/KF.W13 read "planned (AUTHORED …)". Return ONLY {authored: boolean, commit: string} with authored=true iff BOTH hold.', { label: a.id + ':probe', phase: a.id, model: 'opus', effort: 'medium', schema: { type: 'object', required: ['authored'], properties: { authored: { type: 'boolean' }, commit: { type: 'string' } } } })
+  if (probe && probe.authored) { log(a.id + ': already AUTHORED (' + (probe.commit || '') + ') — skipped'); return { id: a.id, status: 'CLOSED(prior)' } }
+  const base = 'Tranche X, Track B: the SS-1/SS-2 AUTHORING BLOCK for the minted-unauthored successors KF.W11 · KF.W12 · KF.W13 (runbook §4.5; COHESION §0d; register of record ' + a.register + ' §6.D — the 17-packet partition 9+6+2 with the six travelling locks; all 17 sequence after G-KFW4-1; the drag-seam and transport/ribbon packets sequence AFTER KF.W7\'s per-surface SWAP verdicts — read them in ' + EXEC + '/B/KF-W7.md). ' + LAW + ' Read the register whole, the eleven authored specs\' shape (KF-W0..KF-W10 in ' + a.dir + ' — match their §State/§Scope/§File Bounds/§Agent Units/§Gates/§Sequencing/§Commit Plan/§L-18 rider structure and idiom exactly), the KF.W7 SWAP verdicts, and the live keyframes tree (READ-ONLY) to anchor every packet at true bytes.'
+  const authorP = (who) => base + ' You are the ' + who + ' AUTHOR — author all three specs BLIND (do not read the other author\'s draft) as ' + a.dir + '/drafts/' + who + '/KF-W11.md, KF-W12.md, KF-W13.md (mkdir -p). Every packet from §6.D lands in exactly one spec with its lock; born-RED gates with literal commands; status planned. Commit pathspec the three drafts: "docs(X·KF): KF.W11–13 drafts (' + who + ' author, M-23 §3)". Return ONLY {files: string[], packetsPlaced: number, commit: string}.'
+  const authorO = (who, model) => ({ label: a.id + ':' + who, phase: a.id, model, schema: { type: 'object', required: ['files', 'packetsPlaced'], properties: { files: { type: 'array', items: { type: 'string' } }, packetsPlaced: { type: 'number' }, commit: { type: 'string' } } } })
+  const [fa, op] = await parallel([() => withRetry(a.id + ':fable', () => agent(authorP('fable'), authorO('fable', 'fable'))), () => withRetry(a.id + ':opus', () => agent(authorP('opus'), authorO('opus', 'opus')))])
+  const aggP = base + ' You are the FRESH AGGLOMERATION SEAT (M-23 §3): read BOTH draft sets whole (' + a.dir + '/drafts/fable/ and ' + a.dir + '/drafts/opus/) and the register; resolve every disagreement AT THE REGISTER BYTES and the live tree (never by preference); write the three specs of record ' + a.specs.map(s => a.dir + '/' + s).join(', ') + ' with a §Provenance/agglomeration record; verify 17/17 packets placed exactly once with their locks (paste the census); commit pathspec the three specs (+ the drafts dir if untracked): "docs(X·KF): KF.W11 · KF.W12 · KF.W13 AUTHORED — agglomerated from Fable ∥ Opus drafts; 17/17 packets homed". Then append the ledger event line and set the KF.W11/W12/W13 rows to "planned (AUTHORED ' + DATE + ')"; commit. Return ONLY {packetsHomed: number, commit: string}.'
+  const agg = await withRetry(a.id + ':agg', () => agent(aggP, { label: a.id + ':agg', phase: a.id, model: 'opus', effort: 'high', schema: { type: 'object', required: ['packetsHomed'], properties: { packetsHomed: { type: 'number' }, commit: { type: 'string' } } } }))
+  const ok = !!(agg && agg.packetsHomed === 17)
+  log(a.id + ': ' + (ok ? 'AUTHORED 17/17' : 'author block incomplete: ' + JSON.stringify(agg)))
+  return { id: a.id, status: ok ? 'CLOSED' : 'INCOMPLETE', fable: fa, opus: op, agg }
+}
+
+const isDone = (s) => /^CLOSED/.test(s) || /^IMPLEMENTED/.test(s)
+const results = {}
+for (const stage of TRACK.stages) {
+  const runnable = stage.filter(id => {
+    const after = (TRACK.waves[id] || TRACK.author).after || []
+    const ok = after.every(p => results[p] && isDone(results[p].status))
+    if (!ok) { results[id] = { id, status: 'NOT-OPENED — predecessor not done: ' + after.filter(p => !(results[p] && isDone(results[p].status))).join(',') }; log(results[id].status) }
+    return ok
+  })
+  if (!runnable.length) continue
+  // maxWaves honoured: waves of a stage run in chunks of TRACK.maxWaves (serial when 1), each chunk's seats staggered — fresh seats' large prompts against the input-rate limit are what the 429 storm punishes
+  const thunks = runnable.map(id => () => (TRACK.author && id === TRACK.author.id) ? runAuthor(TRACK.author) : runWave({ id, ...TRACK.waves[id] }))
+  const rs = []
+  for (let i = 0; i < thunks.length; i += TRACK.maxWaves) { const part = await parallel(staggered(thunks.slice(i, i + TRACK.maxWaves), STAGGER_MS)); rs.push(...part) }
+  runnable.forEach((id, i) => { results[id] = rs[i] || { id, status: 'WAVE-RUNNER-DEAD' } })
+}
+const summary = Object.fromEntries(Object.entries(results).map(([k, v]) => [k, v.status]))
+log('TRACK ' + TRACK.id + ' summary: ' + JSON.stringify(summary))
+return { track: TRACK.id, summary, results }

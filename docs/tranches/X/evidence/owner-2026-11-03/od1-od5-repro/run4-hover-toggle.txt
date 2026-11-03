@@ -1,0 +1,17 @@
+http://localhost:9000 main, pointer mid-dock: plate=9999px run=428/428 lastSeat w=78.3 scale=1 transform=none
+http://localhost:9000 main, hover last seat: plate=9999px run=428/428 lastSeat w=78.3 scale=1 transform=none
+http://localhost:9000 input, pointer on toggle: plate=50% calc(47.9167% + 0.666667px) calc(47.9167% + 0.666667px) 50% run=356/354 lastSeat w=78.3 scale=1 transform=none
+http://localhost:9000 input, pointer on field: plate=9999px run=354/354 lastSeat w=78.3 scale=1 transform=none
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.hover: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /color input|propose|name/i }).last()[22m
+
+    at /Users/mkbabb/.dev-logs/x-0hh/od1-od5/probe4.mjs:26:84 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0

@@ -15,7 +15,10 @@
 #                              lockstep with boot/ground.ts) — Vite leaves classic
 #                              inline scripts in the built HTML. No 'unsafe-eval':
 #                              Vue SFCs are precompiled at build; WebGL shader
-#                              compilation is not eval.
+#                              compilation is not eval. + https://static.
+#                              cloudflareinsights.com — the Cloudflare Web
+#                              Analytics beacon the zone injects (COHESION §0hh
+#                              OD-6).
 #   style-src   'self'         + 'unsafe-inline' for the index.html <style> blocks
 #                              (@font-face / @property / fouc-guard) and the inline
 #                              styles Vue :style bindings, reka-ui, and KaTeX inject.
@@ -23,12 +26,16 @@
 #                              lib/palette/export.ts object URLs) +
 #                              https://avatars.githubusercontent.com (the GitHub
 #                              avatar in dock/menus/ProfileSection.vue).
-#   font-src    'self'         Fraunces (public/fonts/*.woff2) AND the KaTeX faces
+#   font-src    'self' data:   Fraunces (public/fonts/*.woff2) AND the KaTeX faces
 #                              (bundled via katex.min.css) are both self-hosted;
 #                              the Google-Fonts actor was retired (T.W2 · LS-6).
+#                              data: — glass's glass-fonts-*.css inlines Plus
+#                              Jakarta Sans + Fira Code as data: woff2 (a font
+#                              carries no script capability; COHESION §0hh OD-6).
 #   connect-src 'self'         + https://api.color.babb.dev — the palette API fetch
 #                              target (lib/palette/api/client.ts:36-37, the resolved
-#                              cross-origin BASE_URL).
+#                              cross-origin BASE_URL) + https://cloudflareinsights.com
+#                              — the Web Analytics beacon's report endpoint (OD-6).
 #   object-src 'none' · base-uri 'self' · form-action 'self' · frame-ancestors
 #   'none' · upgrade-insecure-requests   standing hardening; frame-ancestors 'none'
 #                              is the CSP-level twin of X-Frame-Options: DENY.
@@ -40,7 +47,7 @@
 # is deploy-dependent — owner-attested at deploy, BOOKED to U.W-CLOSE / U-F61.
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://avatars.githubusercontent.com; font-src 'self'; connect-src 'self' https://api.color.babb.dev; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://avatars.githubusercontent.com; font-src 'self' data:; connect-src 'self' https://api.color.babb.dev https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=63072000; includeSubDomains
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff

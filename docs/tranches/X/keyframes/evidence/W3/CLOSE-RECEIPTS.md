@@ -129,3 +129,72 @@ SERVED MODEL: claude-opus-5-5. Seat `.d2`. The sections above are left as they w
 | G9 → 4.1.0 | GREEN | **GREEN** |
 
 **Escalation ESC-KFW3-d2-1**: kf `README.md:834` must read `dialog.css.includes("display 0.35s allow-discrete"); // => true`. This is a one-line correction to the README runnable oracle, to the ruled CSS-time spelling. It is outside `.d2`'s writable set, and `.d2` holds no product write. It needs a grant, either to a kf docs seat or to a `.d2` repair. After it lands: CI GREEN → deploy-pages → §6 → probe ×2 → close.
+
+## Addendum 2026-11-02 — `.d3` (RESUME 3, COHESION §0he.3 · §0hd.5 · §0hb.3 · G-KF3-8 pageerror arm)
+
+SERVED MODEL: claude-opus-5-5. Seat `.d3`. The sections above are left as they were (E-3). This addendum records the `.d3` sitting.
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only. That path is the sibling's (§0hb.1) and was never staged. In vjs, ⟨`git status --porcelain -- <3 writable paths>`⟩ → empty. **0 inherited paths.**
+
+### d3.1 Push (ordinary)
+⟨`git log --oneline origin/master..master`⟩ → 3 commits (`2582da86` `608748e2` `8294a715`). ⟨`git fetch && git log master..origin/master`⟩ → empty. ⟨`git push origin master`⟩ → `fb87dbcd..8294a715  master -> master` (no force). ⟨`git ls-remote origin master`⟩ → `8294a7156f85…`.
+
+### d3.2 kf CI `41504991466` (push `8294a715`): demo job GREEN; library job cancelled by its 4-minute budget
+⟨`gh run view 41504991466 --json conclusion,jobs`⟩ → run `cancelled` · `demo correctness (browser roster) success` · `library gates (library tests + proof:publish) cancelled`.
+- **demo correctness: GREEN.** The demo job log (`/Users/mkbabb/Programming/.kf-d3-logs/ci-41504991466-demo.log`) reads `passed: 6/6` at 18:59:53Z. ESC-KFW3-r1-1 (S5 · M1/M2) is cured on CI by `.bis` `2582da86` + `608748e2`.
+- **library gates: every step passed, and the job then hit its time budget.** ⟨`gh api …/actions/jobs/125481891360 -q '.steps[]'`⟩ → steps 1–11 and the post steps all `success`: `npm ci` 35 s · `check library types` 2 s · `check types` 20 s · `build library` 9 s · `correctness suite` 56 s (`127 passed | 5 skipped (132)` files) · `demo correctness suite` 1 m 55 s (`167 passed (167)` files) · `lint` 5 s · `publish boundary` (`proof:publish`) 16 s. The job ran from 18:54:45Z to 18:59:25Z. ⟨`gh api …/check-runs/125481891360/annotations`⟩ → **`failure: The job has exceeded the maximum execution time of 4m0s`**. The budget is `.github/workflows/ci.yml:31 timeout-minutes: 4`, introduced at `552a19ff` (2026-07-12). The last GREEN library job was `35251074426` (2026-09-17), which took 1 m 50 s.
+- **This is a structural RED, it was mis-read before, and it is outside this wave's concern.** The same `cancelled` conclusion appears at `41450770277` (4 m 05 s), `41462383452` (4 m 35 s) and `41466910668` (4 m 36 s). The `.d2` addendum and Checks 1–3 read it as a side effect of the demo-job RED. The demo job is GREEN now, which isolates the cause as the time budget. ⟨`grep -rn 'maximum execution\|timeout-minutes' execution/B/KF-W3.md evidence/W3/*.md COHESION.md`⟩ → 0 hits, so the cause was never recorded. The cure is a `ci.yml` write, and `.d3` holds no product write. It was not re-run in the hope of a faster runner, because the steps alone sum to about 4 m 31 s and a lucky re-run would mask the budget. → **ESC-KFW3-d3-1.**
+
+### d3.3 Deploy · §6 round-trip · post-deploy probe ×2: **BLOCKED, not attempted**
+⟨`gh run list -w deploy-pages.yml -L 2`⟩ → `41505833861 completed skipped 8294a715`. `deploy-pages.yml:39-41` gates on `workflow_run.conclusion == 'success'`, and the run concluded `cancelled`. A break-glass `workflow_dispatch` would bypass a RED gate, so it was **not used**. Without a deploy, the §6 round-trip (`scripts/pages-deploy.sh:109-140`) and the post-deploy probe ×2 of `https://keyframes.babb.dev` (the G-KF3-8 pageerror arm on `/#/easing` + `/#/spring`) have no subject. The probe is staged at `/Users/mkbabb/Programming/.kf-d3-logs/d3-probe.mjs`: one headless Chromium, a fresh context per route, both closed in `finally`. It is to be run under `guarded --timeout 5 --` (never `--light`).
+
+### d3.4 X-W11 G9 re-read
+⟨`npm ls @mkbabb/value.js`⟩ (kf) → `├─┬ @mkbabb/glass-ui… └── @mkbabb/value.js@4.1.0 deduped └── @mkbabb/value.js@4.1.0`. A second read: ⟨`… | grep -c 'value.js@4.1.0'`⟩ → `2` · ⟨`… | grep 'value.js@' | grep -vc 4.1.0`⟩ → `0`. `package.json:71` → `"@mkbabb/value.js": "4.1.0"`. **G9 GREEN (4.1.0).**
+
+### d3.5 Gate ledger (`.d3`)
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| kf CI GREEN (both jobs) | RED: demo roster 4/6, library `cancelled` (`41466910668`) | **RED**: demo job **GREEN** (`passed: 6/6`); library job **cancelled** on the `ci.yml:31` 4 m budget, with every step passing (`41504991466`) |
+| deploy-pages success | skipped (`41468193578`) | **skipped** (`41505833861`), BLOCKED on CI |
+| §6 round-trip (`pages-deploy.sh:109-140`) | not run | **not run** (BLOCKED) |
+| post-deploy probe ×2, pageerror 0 (G-KF3-8 arm) | not run | **not run** (BLOCKED; probe staged) |
+| G9 → 4.1.0 | GREEN | **GREEN** ×2 |
+
+**Escalation ESC-KFW3-d3-1 (new RED, outside the concern).** The kf CI `library gates` job has `timeout-minutes: 4` (`.github/workflows/ci.yml:31`, set at `552a19ff`). Its steps now take about 4 m 31 s of wall time. They all pass, and the job is cancelled anyway: the annotation reads `The job has exceeded the maximum execution time of 4m0s`. This has held since at least `41450770277`. The only owner of a fix is a ruling: either a budget that fits the measured step sum, or a split of the job. Both are `ci.yml` writes. No gate assertion would be relaxed, and no step skipped. With that ruling, re-run `.d3` from d3.2: CI → deploy-pages → §6 → probe ×2.
+
+## Addendum 2026-11-02 — `.d4` (RESUME 4, COHESION §0hg.1–3 · §0he.3 · §0hd.5 · §0hb.3 · G-KF3-8 pageerror arm)
+
+SERVED MODEL: claude-opus-5-5. Seat `.d4`. The sections above are left as they were (E-3). This addendum records the `.d4` sitting.
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → `MM demo/components/instrument/timeline/KeyframeTimeline.vue` only (the sibling's, §0hb.1; never staged). vjs writable paths clean. **0 inherited paths.**
+
+### d4.1 The §0hg.1 cure (kf `.github/workflows/ci.yml:31`)
+⟨`sed -n 31p .github/workflows/ci.yml`⟩ before → `        timeout-minutes: 4`. After → `        timeout-minutes: 10 # hang guard, not a perf bar: ~2.2x the measured step sum ~4m31s (npm ci 35s, types 22s, build 9s, correctness 56s, demo correctness 1m55s, lint 5s, proof:publish 16s); COHESION §0hg`. The comment trails on `:31` itself, so the `:31` anchor holds and exactly one line changes. ⟨`git diff --stat -- .github/workflows/ci.yml`⟩ → `1 insertion(+), 1 deletion(-)`. YAML parse ⟨`ruby -ryaml … ["jobs"]["gates"]["timeout-minutes"]`⟩ → `10`. ⟨`grep -n timeout-minutes ci.yml`⟩ → `:31` 10 · `:103` 50 (untouched). No job split; no step skipped, reordered or relaxed (§0hg.2).
+
+### d4.2 Commit + push (ordinary)
+Pathspec commit **`1fd86e04`** (`-- .github/workflows/ci.yml`, 1 file). ⟨`git push origin master`⟩ → `8294a715..1fd86e04  master -> master` (no force).
+
+### d4.3 kf CI `41512393978` (push-triggered, `1fd86e04`): BOTH jobs GREEN
+⟨`gh run view 41512393978 --json conclusion,jobs`⟩ → run `success` · `library gates (library tests + proof:publish) success` 19:42:16Z–19:45:45Z (3 m 29 s) · `demo correctness (browser roster) success` 19:42:16Z–19:47:02Z. No re-run, no `workflow_dispatch`. Library steps all `success`: npm ci 27 s · check library types 1 s · check types 16 s · build 6 s · correctness 42 s (`Test Files 127 passed | 5 skipped (132)`) · demo correctness 1 m 25 s (`Test Files 167 passed (167)`) · lint 3 s · publish boundary 14 s. Demo job: browser oracles `Test Files 5 passed (5)` · demo roster `passed: 6/6`. Log: `/Users/mkbabb/Programming/.kf-d3-logs/d4/ci-41512393978.log`.
+**Recorded honestly:** this run's library job (3 m 29 s) would also have fit the old 4 m budget; the shared-runner variance (4 m 05 s – 4 m 36 s at `41450770277` / `41462383452` / `41466910668` / `41504991466`) is exactly what §0hg.1's hang-guard ruling absorbs. The GREEN is not credited to the budget alone — it is the push-triggered reading at the cured head.
+
+### d4.4 deploy-pages `41513147414` → success; §6 round-trip VALIDATED
+⟨`gh run view 41513147414 --json conclusion,jobs`⟩ → `success` · preflight `success` 19:47:09Z–19:47:29Z · `build demo + ship → Cloudflare Pages` `success` 19:47:31Z–19:48:50Z (headSha `1fd86e04`, triggered by `workflow_run`). §6 (`scripts/pages-deploy.sh:109-140`) in the deploy log: `Built entry bundle: index-CoV850J-.js` → attempt 1 `served=index-9E-8lial.js (waiting for edge propagation)` → `Round-trip VALIDATED: https://keyframes.babb.dev serves the built bundle (index-CoV850J-.js), HTTP 200.` Independent re-read ×2 by this seat: ⟨`curl -w '%{http_code}' …/ ; curl …/ | grep -oE 'assets/index-…\.js'`⟩ → `200 assets/index-CoV850J-.js` ×2. Residual (pre-existing, not this concern): the deploy log reads `Could not capture rollback target (first deploy, or list failed)`. Log: `/Users/mkbabb/Programming/.kf-d3-logs/d4/deploy-41513147414.log`.
+
+### d4.5 Post-deploy probe ×2 (G-KF3-8 pageerror arm)
+The staged `d3-probe.mjs` resolves `playwright` from kf's `package.json`, and kf has no playwright installed (⟨first attempt⟩ → `Cannot find module` ×2, measured, not counted). The probe was re-staged unchanged in logic at `/Users/mkbabb/Programming/.kf-d3-logs/d4/d4-probe.mjs`, resolving from value.js's install: one headless chromium (default shell), a fresh context per route, context and browser closed in `finally`. ⟨`guarded --timeout 10 -- node d4-probe.mjs https://keyframes.babb.dev`⟩ ×2 → run 1 and run 2 each: `/#/easing status=200 hash=#/easing pageerror=0` · `/#/spring status=200 hash=#/spring pageerror=0` · `TOTAL pageerror=0`, exit 0. guarded log: `end … rc=0 leftovers_killed=0`; ⟨`pgrep -f d4-probe | wc -l`⟩ → `0`.
+
+### d4.6 X-W11 G9 re-read
+⟨`npm ls @mkbabb/value.js | grep -o 'value.js@[0-9.]*' | sort | uniq -c`⟩ ×2 → `2 value.js@4.1.0` both times (0 other versions); `package.json:71` → `"@mkbabb/value.js": "4.1.0"`. **G9 GREEN.**
+
+### d4.7 Gate ledger (`.d4`)
+| gate | BEFORE | AFTER |
+| --- | --- | --- |
+| `ci.yml:31` reads `timeout-minutes: 10` with the §0hg comment | RED (`4`) | **GREEN** (`1fd86e04`) |
+| kf CI GREEN (both jobs, push-triggered) | RED (`41504991466` library cancelled) | **GREEN** (`41512393978`: library `success`, demo `success`) |
+| deploy-pages success | skipped (`41505833861`) | **GREEN** (`41513147414`) |
+| §6 round-trip (`pages-deploy.sh:109-140`) | not run | **GREEN** (VALIDATED in-job; re-read ×2 `200 index-CoV850J-.js`) |
+| post-deploy probe ×2, pageerror 0 (G-KF3-8 arm) | not run | **GREEN** ×2 (`/#/easing` 0 · `/#/spring` 0) |
+| G9 → 4.1.0 | GREEN | **GREEN** ×2 |
+
+**Escalations: none.** The §0he.3 / §0hd.5 close order is discharged through the post-deploy probe. Next: close → fresh check → X-W11's VERIFIED stamp (Track A's, §0hb.3).
