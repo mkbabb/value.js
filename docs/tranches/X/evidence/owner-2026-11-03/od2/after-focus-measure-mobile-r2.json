@@ -1,0 +1,302 @@
+{
+ "dev-m_browse": {
+  "bars": [
+   {
+    "cls": "input-bar search-seated",
+    "top": 205.25,
+    "portTop": 179.375,
+    "gap": 25.875,
+    "headerBottom": 179.375,
+    "x": 29,
+    "w": 332,
+    "h": 54,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "pane-body flex flex-col min-h-0 min-w-0 pb-4 px-4 sm:px-6 gap-3",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   },
+   {
+    "cls": "input-bar search-seated flex-1 min-w-0",
+    "top": 684.734375,
+    "portTop": 658.859375,
+    "gap": 25.875,
+    "headerBottom": 658.859375,
+    "x": 29,
+    "w": 332,
+    "h": 54,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   }
+  ],
+  "focused": [
+   {
+    "i": 0,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 17,
+     "y": 191.25,
+     "width": 356,
+     "height": 82
+    }
+   },
+   {
+    "i": 1,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 17,
+     "y": 670.734375,
+     "width": 356,
+     "height": 82
+    }
+   }
+  ]
+ },
+ "dev-m_palettes": {
+  "bars": [
+   {
+    "cls": "input-bar search-seated flex-1 min-w-0",
+    "top": 205.25,
+    "portTop": 179.375,
+    "gap": 25.875,
+    "headerBottom": 179.375,
+    "x": 29,
+    "w": 332,
+    "h": 54,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   }
+  ],
+  "focused": [
+   {
+    "i": 0,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 17,
+     "y": 191.25,
+     "width": 356,
+     "height": 82
+    }
+   }
+  ]
+ },
+ "dev-m_extract": {
+  "bars": [
+   {
+    "cls": "input-bar search-seated flex-1 min-w-0",
+    "top": 779.265625,
+    "portTop": 753.390625,
+    "gap": 25.875,
+    "headerBottom": 753.390625,
+    "x": 29,
+    "w": 332,
+    "h": 54,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   }
+  ],
+  "focused": [
+   {
+    "i": 0,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 17,
+     "y": 765.265625,
+     "width": 356,
+     "height": 82
+    }
+   }
+  ]
+ },
+ "dev-m_generate": {
+  "bars": [
+   {
+    "cls": "input-bar search-seated flex-1 min-w-0",
+    "top": 717.75,
+    "portTop": 691.875,
+    "gap": 25.875,
+    "headerBottom": 691.875,
+    "x": 29,
+    "w": 332,
+    "h": 54,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   }
+  ],
+  "focused": [
+   {
+    "i": 0,
+    "info": {
+     "shadow": "color(srgb 0.999921 0.655037 0.748994 / 0.3) 0px 0px 0px 2px, color(srgb 0.999921 0.655037 0.748994 / 0.15) 0px 0px 8px 0px",
+     "focus": true
+    },
+    "clip": {
+     "x": 17,
+     "y": 703.75,
+     "width": 356,
+     "height": 82
+    }
+   }
+  ]
+ },
+ "dev-m_gradient": {
+  "bars": [
+   {
+    "cls": "input-bar search-seated flex-1 min-w-0",
+    "top": 1300.265625,
+    "portTop": 1274.390625,
+    "gap": 25.875,
+    "headerBottom": 1274.390625,
+    "x": 29,
+    "w": 332,
+    "h": 54,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": true
+   }
+  ],
+  "focused": []
+ },
+ "dev-m/gradient": {
+  "error": "Error: page.screenshot: Clipped area is either empty or outside the resulting image\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+ },
+ "dev-m_mix": {
+  "bars": [
+   {
+    "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track",
+    "top": 205.25,
+    "portTop": 179.375,
+    "gap": 25.875,
+    "headerBottom": 179.375,
+    "x": 29,
+    "w": 138.375,
+    "h": 32.25,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "pane-body flex flex-col min-h-0 min-w-0 pb-4 px-4 sm:px-6 gap-4",
+     "pt": "0px"
+    },
+    "restShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+    "focusable": false
+   },
+   {
+    "cls": "segmented-tab",
+    "top": 208.25,
+    "portTop": 179.375,
+    "gap": 28.875,
+    "headerBottom": 179.375,
+    "x": 32,
+    "w": 66.1875,
+    "h": 26.25,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "pane-body flex flex-col min-h-0 min-w-0 pb-4 px-4 sm:px-6 gap-4",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": false
+   },
+   {
+    "cls": "segmented-tab glass-capsule-hover",
+    "top": 208.25,
+    "portTop": 179.375,
+    "gap": 28.875,
+    "headerBottom": 179.375,
+    "x": 98.1875,
+    "w": 66.1875,
+    "h": 26.25,
+    "port": {
+     "overflow": "hidden/auto",
+     "contain": "content",
+     "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(",
+     "pt": "25.888px"
+    },
+    "body": {
+     "cls": "pane-body flex flex-col min-h-0 min-w-0 pb-4 px-4 sm:px-6 gap-4",
+     "pt": "0px"
+    },
+    "restShadow": "none",
+    "focusable": false
+   }
+  ],
+  "focused": []
+ }
+}

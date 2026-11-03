@@ -9,6 +9,7 @@ import {
 } from "./api";
 import { useAdminAccess, useAdminNotice, latestRequest, type AdminResult } from "./api/admin-call";
 import type { ProposedColorName } from "../color-session/color-names";
+import { useCustomColorNames } from "../color-session/useCustomColorNames";
 import { usePager } from "./usePager";
 
 export function useColorNameQueue(deps: {
@@ -18,6 +19,9 @@ export function useColorNameQueue(deps: {
     // is never told the queue is clear.
     const { access, call } = useAdminAccess();
     const { notice, settle, dismiss: dismissNotice } = useAdminNotice();
+    // The picker's name registry re-reads after a write that changes the
+    // approved set, so the open tab names the colour without a reload.
+    const { loadFromAPI: refreshNameRegistry } = useCustomColorNames();
     const queueRead = latestRequest();
     const approvedRead = latestRequest();
 
@@ -121,6 +125,7 @@ export function useColorNameQueue(deps: {
             leaveQueue(item.id);
             approvedColors.value = [...approvedColors.value, { ...item, status: "approved" as const }];
             approvedPager.total += 1;
+            void refreshNameRegistry();
         }
         return result;
     }
@@ -145,6 +150,7 @@ export function useColorNameQueue(deps: {
         );
         if (result?.ok) {
             leaveQueue(item.id);
+            void refreshNameRegistry();
             if (approvedColors.value.some((q) => q.id === item.id)) {
                 approvedColors.value = approvedColors.value.filter((q) => q.id !== item.id);
                 if (approvedPager.settle(approvedPager.total - 1, approvedColors.value.length)) {

@@ -14,7 +14,7 @@
          was never generated (display:none in 48/48 census cells). -->
     <CardHeader
         shrink
-        class="pane-header px-4 sm:px-6 pb-(--pane-header-gap) [--card-pad:1rem] sticky top-0 z-header"
+        class="pane-header px-4 sm:px-6 pb-0 [--card-pad:1rem] sticky top-0 z-header"
     >
         <!-- Q5 (S.W4 W4-7): the pane title speaks the DISPLAY voice — the ONE
              site; all 9 panes inherit. The three-voice law's hierarchy fix:
@@ -78,6 +78,20 @@ const { level = 2, titleId } = defineProps<{
  * never leak into ancestor containers. The named `--pane-scroll` timeline
  * this block declared fed only the header veil, and died with it (SS8-0192). */
 .pane-scroll-fade {
+    /* X·§0hh OD-2: THE HEADER-TO-BODY GAP LIVES INSIDE THE PORT. It was the
+     * header's block-end padding, OUTSIDE this port, so every pane's first row
+     * (the seated search bars, Mix's segmented tabs) sat flush against the
+     * port's top edge, and the port's padding box (overflow + this paint
+     * containment) sliced the outward chrome a focused bar paints (glass's
+     * `--focus-ring-shadow`: a 2px ring + 8px glow) flat along its top. As the
+     * port's block-start padding the same one token sets the same rhythm (the
+     * first row lands on the same pixel), and that interval is now inside the
+     * clip, so a first row's ring and glow paint whole. It scrolls away with
+     * the body. One owner for every body, guttered or not (About, My Palettes,
+     * Config, Not found bring their own body and inherit it). A seated header
+     * never condenses (SS8-0189), so the gap holds its rest rung. */
+    --pane-header-gap: var(--phi-3);
+    padding-block-start: var(--pane-header-gap);
     contain: layout style paint;
     /* X.W10.d (CC-101): the condensing header's real box shrinks by more than
      * glass's hysteresis band (condense at 20, expand at 12). Scroll anchoring
@@ -129,12 +143,10 @@ const { level = 2, titleId } = defineProps<{
 }
 
 .pane-header {
-    /* X-DS pass 4 (V4C-06): THE HEADER-TO-BODY GAP, one token at the app's
-     * section rhythm (the φ rung every in-pane section clears its rule by). The
-     * bodies carry no top padding of their own: the per-body `pt-2`/`py-4`
-     * that compensated for the old `pb-2` set the rhythm per instance, and on
-     * four panes jammed the first row against the header band. */
-    --pane-header-gap: var(--phi-3);
+    /* X-DS pass 4 (V4C-06): the header-to-body gap (`--pane-header-gap`) is
+     * one token at the app's section rhythm; the bodies carry no top padding of
+     * their own. X·§0hh OD-2 seats it as the PORT's block-start padding
+     * (`.pane-scroll-fade`, above), inside the clip: the header ends flush. */
     /* X-DS pass 7 (VC7-03): THE TITLE-TO-CAPTION GAP. glass's header gap is
      * `--card-gap` = `--space-atom`, which halves to 0.25rem under 768px, so on
      * phones the caption sat 4px under a display title that wraps to two lines.
@@ -157,12 +169,13 @@ const { level = 2, titleId } = defineProps<{
 
 /* ── THE CONDENSED REGISTER (X.W10.d · CC-101 · demo/DESIGN.md §3.2 P-2) ──
  * A condensed header is condensed: each spacing channel steps one φ rung
- * down (ratio 1/φ) — the block-start padding `--phi-2` → `--phi-1`, the
- * title→content gap `--phi-3` → `--phi-2` — and the caption, having left the
- * reading, leaves the layout (glass's `visibility: hidden` keeps its box).
+ * down (ratio 1/φ) — the block-start padding `--phi-2` → `--phi-1` — and the
+ * caption, having left the reading, leaves the layout (glass's `visibility:
+ * hidden` keeps its box). The title→content gap is the port's padding since
+ * X·§0hh OD-2, not the header's: a seated header never condenses, so it holds
+ * `--phi-3`.
  * Glass still owns the state machine and the threshold; these are the rungs. */
 .pane-header[data-condensed="true"] {
-    --pane-header-gap: var(--phi-2);
     padding-block-start: var(--pane-header-pad-condensed);
 }
 

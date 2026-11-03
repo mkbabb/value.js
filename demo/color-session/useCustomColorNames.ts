@@ -9,12 +9,24 @@ const customNameRegistry = ref<Map<string, ProposedColorName>>(new Map());
 // custom half (`named-color-snap.ts`). It replaced a full-precision XYZ-string
 // map that matched a bit-identical colour only.
 const customNameEntries = shallowRef<readonly NamedColorEntry[]>([]);
+// `loaded` = a registry has been read at least once. It is NOT a latch: the
+// approved set changes while a tab is open (an admin approves, a seed lands),
+// so every call re-reads it — at boot, when the document becomes visible
+// again, and after an admin approve/delete (OD-3, COHESION §0hh). Concurrent
+// calls share the one in-flight read.
 const loaded = ref(false);
 const loading = ref(false);
+let inFlight: Promise<void> | null = null;
 
 export function useCustomColorNames() {
-    async function loadFromAPI(): Promise<void> {
-        if (loaded.value || loading.value) return;
+    function loadFromAPI(): Promise<void> {
+        inFlight ??= readRegistry().finally(() => {
+            inFlight = null;
+        });
+        return inFlight;
+    }
+
+    async function readRegistry(): Promise<void> {
         loading.value = true;
 
         try {
@@ -46,6 +58,7 @@ export function useCustomColorNames() {
             // behind the same undiagnosable silence. In DEV only, and only for a
             // throw that is NOT the expected backend-absence signal, emit a
             // console.debug (never an error/warn — the e2e gate stays clean).
+            // A failed re-read keeps the last good registry.
             const isBackendAbsence =
                 e instanceof ApiUnavailableError || e instanceof TypeError;
             if (import.meta.env.DEV && !isBackendAbsence) {

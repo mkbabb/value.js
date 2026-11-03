@@ -16,6 +16,8 @@
                         autocapitalize="off"
                         autocorrect="off"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
+                        :aria-invalid="parseError && !proposeMode ? 'true' : undefined"
+                        :aria-describedby="parseError && !proposeMode ? 'color-input-error' : undefined"
                         class="color-input w-full block border overflow-hidden bg-background rounded-media px-3 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center"
                         :class="{
                             'color-input-error': parseError && !proposeMode,
@@ -83,13 +85,25 @@
                         <ArrowRight class="w-4 h-4" :style="{ stroke: safeAccent }" />
                     </button>
 
-                    <!-- Parse error popover — celebration family (a one-shot
-                         feedback beat; geometry vars live on .error-badge). -->
-                    <Transition name="vj-celebrate">
-                        <span v-if="parseError && !proposeMode" class="error-badge"
-                            >not a valid color</span
-                        >
-                    </Transition>
+                    <!-- Parse error badge — celebration family (a one-shot
+                         feedback beat; geometry vars live on .error-badge).
+                         OD-8 (COHESION §0hh): it hangs BELOW the field, never
+                         over the text it reports on. In flow it cannot: the
+                         glass dock run is a scroll container that clips 4 px
+                         under the field, so the badge leaves the run for the
+                         body and is anchored to the field's rect. -->
+                    <Teleport to="body">
+                        <Transition name="vj-celebrate">
+                            <span
+                                v-if="parseError && !proposeMode"
+                                id="color-input-error"
+                                role="status"
+                                class="error-badge"
+                                :style="badgeAnchor"
+                                >not a valid color</span
+                            >
+                        </Transition>
+                    </Teleport>
                 </div>
             </PopoverTrigger>
 
@@ -116,6 +130,7 @@
 
 <script setup lang="ts">
 import { computed, inject, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from "vue";
+import { useElementBounding } from "@vueuse/core";
 import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import {
     Popover,
@@ -134,6 +149,7 @@ import ParseEchoReadout from "./ParseEchoReadout.vue";
 import { proposeColorName } from "../../color-session/color-names";
 import { useSession } from "../../platform/auth/useSession";
 import { serializePickerColor } from "../../color-session/picker-color";
+import { normalizeColorNameKey } from "../../color-session/color-name-input";
 import { formatColor, formatCssCaption } from "../../color-session/format-color";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 
@@ -163,6 +179,17 @@ const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
 const inputColorRef = useTemplateRef<HTMLElement>("inputColorRef");
 const inputIsFocused = ref(false);
+
+// OD-8: the badge's anchor — the field's bottom centre, re-read as the badge
+// raises (the dock's layer motion moves the field without a resize or scroll).
+const fieldRect = useElementBounding(inputColorRef);
+watch(parseError, (raised) => {
+    if (raised) fieldRect.update();
+});
+const badgeAnchor = computed(() => ({
+    "--anchor-cx": `${fieldRect.x.value + fieldRect.width.value / 2}px`,
+    "--anchor-bottom": `${fieldRect.bottom.value}px`,
+}));
 
 const inputStyle = computed(() => {
     if (!proposeMode && parseError.value) return { borderColor: "var(--destructive)" };
@@ -240,12 +267,14 @@ const proposing = ref(false);
 const session = useSession();
 
 async function submitProposedName() {
-    if (!proposedName.value.trim() || proposing.value) return;
+    if (!normalizeColorNameKey(proposedName.value) || proposing.value) return;
     proposing.value = true;
     try {
         await session.ensureSession();
         const cssStr = serializePickerColor(currentPhysicalColor.value);
-        const name = proposedName.value.trim().toLowerCase();
+        // OD-7: the key form the field reads back ("Daraksha Rose" →
+        // `daraksha-rose`) — the API's name schema refuses the spaced form.
+        const name = normalizeColorNameKey(proposedName.value);
         await proposeColorName(name, cssStr);
         proposedName.value = "";
         // UIA-V-12: the parent owns the toolbar mode, so the success is a
@@ -408,11 +437,15 @@ defineExpose({
     cursor: not-allowed;
 }
 
+/* OD-8: anchored under the field's bottom centre (`badgeAnchor`), outside
+ * the text run and the Apply arrow, at the tooltip tier (it is the field's
+ * floating status, above the dock and the pane beneath it). */
 .error-badge {
-    position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
+    position: fixed;
+    left: var(--anchor-cx);
+    top: calc(var(--anchor-bottom) + 0.375rem);
+    transform: translateX(-50%);
+    z-index: var(--z-tooltip);
     @apply text-caption;
     line-height: 1;
     padding: 0.2rem 0.4rem;
@@ -422,9 +455,11 @@ defineExpose({
     white-space: nowrap;
     pointer-events: none;
     font-family: var(--font-sans);
-    /* vj-celebrate geometry: the badge rests at translateY(-50%), so the
-       from-state matches it (pure pop, no positional jump). */
-    --vj-celebrate-y: -50%;
+    /* vj-celebrate geometry: the badge rests at translateX(-50%), so the
+       from-state keeps that x and drops in from just under the field (a pop
+       out of the field, no sideways jump). */
+    --vj-celebrate-x: -50%;
+    --vj-celebrate-y: -0.25rem;
     --vj-celebrate-scale: 0.85;
 }
 </style>
