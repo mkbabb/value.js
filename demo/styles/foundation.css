@@ -576,8 +576,16 @@
      * lone-card measure (32rem × φ ≈ 51.8rem ≈ 828px), which is the width the
      * golden stage already reaches at 1440. Wider bands hand the surplus to
      * the inspector (shell.css, THE PER-ROUTE TRACK RATIO); narrower bands
-     * never reach it, so 390 and 1024 are unchanged. */
-    --picker-measure: calc(var(--card-measure) * 1.618034);
+     * never reach it, so 390 and 1024 are unchanged.
+     *
+     * X·§0hn (visual seat) — THE CEILING CLEARS THE 1440 STAGE BY ONE φ RUNG.
+     * Measured, 828px sat UNDER the 1440 golden stage ((1440 − 2·36 − 18) ×
+     * 0.618 ≈ 834px), so 1440 was already bound, stage@3440 equalled
+     * stage@1440 (828 = 828) and Z-LG-3 ("the stage spends the surplus") read
+     * RED. The ceiling is now the φ-step measure plus the --phi-3 rung
+     * (≈ 53.4rem ≈ 854px): 1440 keeps its golden 834px, and every wider band
+     * is still bound (1800: 1043 → 854px). */
+    --picker-measure: calc(var(--card-measure) * 1.618034 + var(--phi-3));
     --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */

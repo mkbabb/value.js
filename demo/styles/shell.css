@@ -254,9 +254,17 @@
  * (its spectrum a 5 : 1 strip). The stage track's growth limit is now its
  * fraction of the row less the gap — the same split the two shares made, floors
  * included — taken against `--pane-stage-max`, and the inspector is the `1fr`
- * remainder, so the slack a ceiling frees goes to the inspector. Only a stage
- * that shows the shared picker sets a ceiling (`--picker-measure`); the
- * workbench stages keep the unbounded ratio. */
+ * remainder, so the slack a ceiling frees goes to the inspector. Only a route
+ * whose stage seats the shared picker (viewSchema: picker, palettes, mix, blob)
+ * sets a ceiling (`--picker-measure`); the workbench stages keep the unbounded
+ * ratio.
+ *
+ * X·§0hn (visual seat) — THE CEILING READS THE ROUTE, AS THE FRACTION DOES.
+ * It was keyed on the stage's `data-shown`, which the slot stamps only after
+ * its hold and leave, while the fraction moves with `data-view` at the input.
+ * The one track then ran on two clocks: from Mix to Browse it took Browse's
+ * 2 : 1 fraction under the picker's ceiling, a 61 % field (Z-chassis-2 RED,
+ * 0.613 at 1440). Both now read the route, so the row has one clock. */
 .app-layout:is(
         [data-view="picker"],
         [data-view="generate"],
@@ -272,7 +280,12 @@
 .app-layout[data-view="palettes"] {
     --pane-stage-fraction: 0.333333333;
 }
-.pane-container:has(> .pane-wrapper--stage[data-shown="color-picker"]) {
+.app-layout:is(
+        [data-view="picker"],
+        [data-view="palettes"],
+        [data-view="mix"],
+        [data-view="blob"]
+    ) {
     --pane-stage-max: var(--picker-measure);
 }
 @container scene (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
