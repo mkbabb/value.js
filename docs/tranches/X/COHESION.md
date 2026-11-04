@@ -5338,3 +5338,18 @@ Format: id · severity · app · owner — surface — claim. *Evidence.* **Cure
 - **KF-M1:** D-2 (KF-R1), D-3 (KF-R2), D-28 (KF-R9 peek detent, the same snapPoints source), and RR5-5's centroid and landscape fit. One root: a visible-stage box derived from the sheet's detent.
 - **KF-M2:** D-7 (KF-R3 pinch), D-13 (KF-R5 pan model), D-14 (KF-R4 single pointer source), D-15 (KF-R7 inertia), D-16 (KF-R6 readout), and D-30 (KF-R11, dissolved by the pointer model). The quaternion core is kept.
 - **Not in the build:** D-6 (the kf seal is glass's), D-12 (glass), D-18 and D-29 (keyframes DP-1 follow-ups).
+
+## §0hi.1 readings — OD-3b independent checker (2026-11-03, post-reboot, verify-only)
+
+**Verdict: NOT-CONFORMANT.** The code is sound, but two of the four required readings are missing: OD-3b is not on master or prod, and the Daraksha palettes are still not on the owner's account.
+
+- **Diffs: PASS.** `f9ffe3ce2` adds the API verb POST /admin/palettes/:slug/owner in 3 files (+71), in the existing admin service → repo → audit idiom. `4343087c3` adds the demo union across 6 files (+301/−40). There is one list source: the account shelf reads the existing GET /palettes/mine through `listMyPalettes`, and no new list endpoint was added. Dedupe is by slug and the server row wins. `filteredSaved` was replaced by `filteredMine`, not run alongside it. The account shelf lives in its own module, `demo/palettes/useOwnedPalettes.ts` (177 lines), and usePalettePorts only wires it. There is no shim and no new glass primitive.
+- **Prod bundle: MISS.** origin/master is `30c510b3d`, and `merge-base --is-ancestor 4343087c3 origin/master` says it is not an ancestor. api.color.babb.dev/health reports commit `30c510b3d`. The last deploy-pages run on master `30c510b3d` was skipped. The served index still points at `assets/index-LmUYsQfA.js`.
+- **Daraksha owner: MISS.** GET /palettes/daraksha returns userSlug=glacial-keeping-khaki-wasp, public, 8 colours. GET /palettes/daraksha-gradient returns the same owner, public, 5 colours. The transfer has not run. It needs two things first: the reassign endpoint deployed, and the owner's slug relayed. No owner slug has been relayed.
+- **Tranche-u CI 41764285397 on `64ee320ea`: still running.** 6 of 8 jobs are green. e2e-smoke and visual have not finished.
+- **OD-6 after-probe on prod, run twice: PASS.** I ran `guarded --timeout 10 -- node probe.mjs` from ~/.dev-logs/x-0hh/od6 twice, and both runs exited 0. On both routes, `/` and `#/browse`, each run had 0 CSP errors, 0 console errors and 0 page errors, and `document.fonts.check` for Plus Jakarta Sans returned true. The logs are run1.log and run2.log.
+- **Still open, in order:**
+  1. CI green on all 8 jobs.
+  2. The §0ga merge to master, then deploy-pages, then API /health reporting the merged commit.
+  3. The owner's slug relayed. This is an owner act; the steps are in §0hi OD-3b ownerAct.
+  4. The prod transfer for daraksha and daraksha-gradient, then the audit rows read back.
