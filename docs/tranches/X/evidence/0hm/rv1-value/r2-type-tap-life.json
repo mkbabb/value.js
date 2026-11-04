@@ -1,0 +1,51 @@
+{
+ "search-desk": {
+  "inputFont": "17.3px",
+  "inputH": 36,
+  "subFont": "15.14px",
+  "small": [],
+  "cardName": [
+   "SPAN",
+   183,
+   183,
+   "20.352px"
+  ]
+ },
+ "search-mob": {
+  "inputFont": "21px",
+  "inputH": 54,
+  "subFont": "12.179px",
+  "small": [
+   "0 votes, click to vote 38x24",
+   "0 votes, click to vote 38x24",
+   "0 votes, click to vote 38x24",
+   "0 votes, click to vote 38x24"
+  ],
+  "cardName": [
+   "SPAN",
+   170,
+   183,
+   "20.352px"
+  ]
+ },
+ "home-mob": {
+  "inspH": 7684,
+  "sections": 21,
+  "docH": 8380,
+  "dockAfter": [
+   17,
+   356,
+   60
+  ]
+ },
+ "life-desk": {
+  "raf": {
+   "n": 460,
+   "p50": 8.3,
+   "p95": 10,
+   "max": 75.4,
+   "over50": 2
+  },
+  "lt": 0
+ }
+}
