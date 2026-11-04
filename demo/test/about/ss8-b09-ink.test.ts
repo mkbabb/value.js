@@ -35,6 +35,7 @@ import {
     TEXT_CONTRAST_FLOOR,
 } from "../../color-session/ink";
 import { resolveAtmosphereField } from "../../app/composables/boot/atmosphere-calibration";
+import { fieldAtomsFor } from "../../app/composables/boot/seeded-ground";
 import { DEFAULT_AURORA_ATOMS } from "../../scenes/atmosphere/aurora-atoms";
 
 const toOklch = (css: string): Color<"oklch"> => {
@@ -114,14 +115,13 @@ const restingPlateOver = (stop: { L: number; C: number; h: number }, dark: boole
     return out.value;
 };
 
-/** The field the app resolves (useAtmosphere's `fieldAtoms`: dark takes the
- *  producer's dark band). */
+/** The field the app resolves in that scheme (useAtmosphere's `fieldAtoms`:
+ *  the seed-anchored band in light, §0hk OD-12; dark held on the dark band
+ *  until glass O-130, §0hn arm B). */
 const fieldFor = (seed: string, dark: boolean) =>
-    resolveAtmosphereField({
-        ...structuredClone(DEFAULT_AURORA_ATOMS),
-        seed,
-        ...(dark ? { lightnessScheme: "dark" as const } : {}),
-    }).palette;
+    resolveAtmosphereField(
+        fieldAtomsFor({ ...structuredClone(DEFAULT_AURORA_ATOMS), seed }, dark),
+    ).palette;
 
 const componentInk = (seed: string, dark: boolean) => {
     const ambient = resolveFieldAmbientLightness(fieldFor(seed, dark), dark);

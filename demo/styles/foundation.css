@@ -560,9 +560,32 @@
      * 1/3 smaller, maybe a bit less"). It is the measure of a LONE card that
      * centres in a one-region scene (Atmosphere, Not found), never the row's.
      * 32rem over 30rem by eye: at 30rem the About card's Components labels
-     * wrap mid-word ("a* (Green-Red)" breaks). */
-    --pane-min: 25rem;
+     * wrap mid-word ("a* (Green-Red)" breaks).
+     * X·§0hm D-19 — THE FLOOR IS BLOCK-AWARE: a region's floor never exceeds
+     * the viewport's block size. At 844×390 the 25rem floor asked for an
+     * 810.5 px row in an 802 px band, so the row stacked: a 534 px picker in a
+     * 390 px viewport with its sliders below the fold, and every companion
+     * under it. A region at least one viewport wide is no narrower than it is
+     * tall on screen, so in a short landscape the two regions take two tracks
+     * (and the row contract's companion scrolls in its own port). Every band
+     * taller than 25rem keeps the 25rem floor, so portrait phones, tablets and
+     * desktop are unchanged. The row's size queries write this value out. */
+    --pane-min: min(25rem, 100svh);
     --card-measure: 32rem;
+    /* X·§0hk OD-15 — the shared picker's inline ceiling: one φ step above the
+     * lone-card measure (32rem × φ ≈ 51.8rem ≈ 828px), which is the width the
+     * golden stage already reaches at 1440. Wider bands hand the surplus to
+     * the inspector (shell.css, THE PER-ROUTE TRACK RATIO); narrower bands
+     * never reach it, so 390 and 1024 are unchanged.
+     *
+     * X·§0hn (visual seat) — THE CEILING CLEARS THE 1440 STAGE BY ONE φ RUNG.
+     * Measured, 828px sat UNDER the 1440 golden stage ((1440 − 2·36 − 18) ×
+     * 0.618 ≈ 834px), so 1440 was already bound, stage@3440 equalled
+     * stage@1440 (828 = 828) and Z-LG-3 ("the stage spends the surplus") read
+     * RED. The ceiling is now the φ-step measure plus the --phi-3 rung
+     * (≈ 53.4rem ≈ 854px): 1440 keeps its golden 834px, and every wider band
+     * is still bound (1800: 1043 → 854px). */
+    --picker-measure: calc(var(--card-measure) * 1.618034 + var(--phi-3));
     --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */

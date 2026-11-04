@@ -48,7 +48,7 @@
                 <Button
                     icon-only
                     emphasis="quiet"
-                    size="sm"
+                    size="xs"
                     :aria-label="`Colors of ${palette.name}`"
                     class="shrink-0"
                 >
@@ -74,7 +74,7 @@
                     <Button
                         icon-only
                         emphasis="quiet"
-                        size="sm"
+                        size="xs"
                         :aria-label="`Palette menu for ${palette.name}`"
                         class="shrink-0"
                         @focus="onMenuFocusReturned"
@@ -499,11 +499,11 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
     isolation: isolate;
     container: palette-card / inline-size;
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    grid-template-columns: auto minmax(0, 1fr) auto auto auto;
     grid-template-areas:
-        "strip strip strip strip"
-        "grip head meta menu"
-        "detail detail detail detail";
+        "strip strip strip strip strip"
+        "grip head meta vote menu"
+        "detail detail detail detail detail";
     align-items: center;
     transition:
         translate var(--duration-fast) var(--ease-cartoon-punch),
@@ -513,16 +513,20 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
     --specimen-radius: calc(var(--radius-card) - 1px);
 }
 .palette-card[data-layout="aside"] {
-    grid-template-columns: auto auto minmax(0, 1fr) auto auto;
+    grid-template-columns: auto auto minmax(0, 1fr) auto auto auto;
     grid-template-rows: auto 1fr;
     grid-template-areas:
-        "strip grip head meta menu"
-        "strip detail detail detail detail";
+        "strip grip head meta vote menu"
+        "strip detail detail detail detail detail";
 }
 .palette-card__grip {
     grid-area: grip;
     margin-inline: 0.75rem -0.25rem;
 }
+/* X·§0hm D-24 — the card's two actions sit on glass's `xs` rung: the coarse
+ * floor (44 px, `--touch-target`) on a phone, 28 px on a fine pointer. On
+ * `sm` the coarse rung is 54 px, so the pair and its margins spent 132 of a
+ * 332 px card at 390 and the name truncated beside their empty padding. */
 .palette-card__menu {
     grid-area: menu;
     margin-inline: 0.5rem 0.75rem;
@@ -562,29 +566,23 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
     }
 }
 
-/* X.W12U.s2 · UIA-V-30 (+ A2-VA-L3-8): below 30rem of card the head row holds
- * only name + colour count + menu — the meta cluster (tags, vote) takes its own
- * row beneath the name, so the name (the row's primary) is no longer squeezed
- * to a few characters by the meta and the count is never under a chip. The
- * card is the container, so its children are re-placed rather than its
- * template re-written. The aside layout keeps its own template. */
+/* X·§0hm D-24 (supersedes X.W12U.s2 · UIA-V-30's second meta row): below
+ * 30rem of card the card is ONE row, as it is wider. The meta's two cells keep
+ * the name row: the tags as their compact `N tags` reveal (PaletteCardMeta's
+ * band 0, no chip beside the name, so the name is never squeezed to a few
+ * characters by chips) and the vote pill. The second row cost 35 px on every
+ * card (128 against 93 at 390), with the vote alone in it. The aside layout
+ * keeps its own template. */
 @container palette-card (width < 30rem) {
-    .palette-card:not([data-layout="aside"]) > .palette-meta {
-        grid-area: auto;
-        grid-row: 3;
-        grid-column: 2 / 4;
-        justify-self: start;
-        margin-inline-start: 0.75rem;
-        padding-block-end: 0.5rem;
+    /* X·§0hm D-24 — the name row's actions compact: the pair touch (their
+     * 44 px boxes already part the two glyphs) and the row's end inset is one
+     * spacing step, so the slack goes to the name. */
+    .palette-card:not([data-layout="aside"]) .palette-card__menu {
+        margin-inline: 0 0.25rem;
+        gap: 0;
     }
-    /* X-DS pass 9 (P9R-01): a DESCENDANT, not a child — the detail band sits
-     * inside the Collapsible's `display: contents` root, so a child selector
-     * never matched and the band kept the `detail` area (row 3), painting the
-     * swatches over the meta row on every expanded narrow card. */
-    .palette-card:not([data-layout="aside"]) .palette-card__detail {
-        grid-area: auto;
-        grid-row: 4;
-        grid-column: 1 / -1;
+    .palette-card:not([data-layout="aside"]) :deep(.palette-meta__vote) {
+        margin-inline-start: 0.25rem;
     }
 }
 

@@ -11,6 +11,7 @@ import { useColorNameQueue } from "./useColorNameQueue";
 import { useSlugMigration } from "./useSlugMigration";
 import { usePaletteActions } from "./usePaletteActions";
 import { useFilteredList } from "./useFilteredList";
+import { mergeMyPalettes, routeMyPaletteVerbs, useOwnedPalettes } from "./useOwnedPalettes";
 import { useAdminAudit } from "./admin/composables/useAdminAudit";
 import { useAdminFlagged } from "./admin/composables/useAdminFlagged";
 import { useAdminTags } from "./admin/composables/useAdminTags";
@@ -155,7 +156,17 @@ export function providePalettePorts(deps: PalettePortsDeps) {
     });
 
 
-    const filteredSaved = useFilteredList(savedPalettes, librarySearch, (p, q) =>
+    // X·§0hi item 1 (OD-3b): My Palettes is the union of this browser's saved
+    // palettes and the session user's account shelf, one row per slug.
+    const owned = useOwnedPalettes();
+    const myPalettes = computed(() => mergeMyPalettes(savedPalettes.value, owned.ownedPalettes.value));
+    const myVerbs = routeMyPaletteVerbs({
+        local: actions,
+        account: browse,
+        refresh: owned.refresh,
+    });
+
+    const filteredMine = useFilteredList(myPalettes, librarySearch, (p, q) =>
         p.name.toLowerCase().includes(q) || p.slug.includes(q),
     );
 
@@ -178,7 +189,11 @@ export function providePalettePorts(deps: PalettePortsDeps) {
     // ── PORT 2 · Library — the saved local palette inventory ──────────────────
     const libraryPort = {
         savedPalettes,
-        filteredSaved,
+        myPalettes,
+        filteredMine,
+        ownedStatus: owned.status,
+        ownedError: owned.error,
+        refreshOwned: owned.refresh,
         searchQuery: librarySearch,
         createPalette,
         movePalette,
@@ -186,10 +201,11 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         expandedId: actions.expandedId,
         toggleExpand: actions.toggleExpand,
         onEditColor: actions.onEditColor,
-        onDelete: actions.onDelete,
+        onDelete: myVerbs.onDelete,
         onDeleteAllSaved: actions.onDeleteAllSaved,
-        onPublish: actions.onPublish,
-        onRenameSaved: actions.onRenameSaved,
+        onPublish: myVerbs.onPublish,
+        onRename: myVerbs.onRename,
+        onSetVisibility: myVerbs.onSetVisibility,
         onCurrentPaletteSaved: actions.onCurrentPaletteSaved,
         onCurrentPaletteUpdated: actions.onCurrentPaletteUpdated,
         showDeleteAllConfirm: actions.showDeleteAllConfirm,

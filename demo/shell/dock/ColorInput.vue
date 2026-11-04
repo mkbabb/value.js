@@ -7,7 +7,22 @@
             class="pointer-events-auto w-full"
         >
             <PopoverTrigger as-child>
-                <div class="relative w-full flex items-center cursor-default">
+                <!-- OD-9 · OD-10 (COHESION §0hk): this row IS the field box
+                     (border, plate, radius, focus/error ring) and lays its three
+                     parts out in flow — the text run, the crown, the Apply
+                     arrow — so no part sits on another. The fade that used to
+                     mask the text under an absolutely placed arrow masked the
+                     whole box with it: the border and plate faded out at the
+                     right end, which read as the field being clipped. -->
+                <div
+                    ref="fieldBox"
+                    class="color-field relative w-full flex items-center cursor-default border bg-background rounded-media"
+                    :class="{
+                        'color-input-error': parseError && !proposeMode,
+                        'color-input-mode-flash': modeTransition,
+                    }"
+                    :style="inputStyle"
+                >
                     <span
                         ref="inputColorRef"
                         contenteditable
@@ -18,25 +33,21 @@
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
                         :aria-invalid="parseError && !proposeMode ? 'true' : undefined"
                         :aria-describedby="parseError && !proposeMode ? 'color-input-error' : undefined"
-                        class="color-input w-full block border overflow-hidden bg-background rounded-media px-3 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center"
-                        :class="{
-                            'color-input-error': parseError && !proposeMode,
-                            'color-input-mode-flash': modeTransition,
-                        }"
-                        :style="inputStyle"
+                        class="color-input flex-1 min-w-0 block overflow-hidden ps-3 pe-1 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center"
                         @keydown="onInputKeydown"
                         @input="onInputInput"
                         @focus="onInputFocus"
                         @blur="onInputBlur"
                     ></span>
 
-                    <!-- Crown indicator for approved custom color names -->
+                    <!-- Crown indicator for approved custom color names — its own
+                         slot between the text and the Apply arrow (OD-10). -->
                     <TooltipProvider v-if="currentColorMeta && !proposeMode" :delay-duration="200">
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <Crown
                                     :key="crownKey"
-                                    class="absolute right-2 top-1/2 -translate-y-1/2 w-[0.75em] h-[0.75em] gold-ink hover:scale-110 transition-transform cursor-help"
+                                    class="shrink-0 w-[0.75em] h-[0.75em] gold-ink hover:scale-110 transition-transform cursor-help"
                                     :stroke-width="1.75"
                                     style="
                                         animation: crown-appear var(--duration-panel) var(--ease-decelerate) forwards;
@@ -87,6 +98,10 @@
 
                     <!-- Parse error badge — celebration family (a one-shot
                          feedback beat; geometry vars live on .error-badge).
+                         OD-11 (COHESION §0hk): it is glass's Badge on the
+                         destructive tone at the caption rung, so type, stadium
+                         radius, pad and plate are the badge canon; this file
+                         owns only where it hangs.
                          OD-8 (COHESION §0hh): it hangs BELOW the field, never
                          over the text it reports on. In flow it cannot: the
                          glass dock run is a scroll container that clips 4 px
@@ -94,13 +109,15 @@
                          body and is anchored to the field's rect. -->
                     <Teleport to="body">
                         <Transition name="vj-celebrate">
-                            <span
+                            <Badge
                                 v-if="parseError && !proposeMode"
                                 id="color-input-error"
                                 role="status"
+                                tone="destructive"
+                                size="sm"
                                 class="error-badge"
                                 :style="badgeAnchor"
-                                >not a valid color</span
+                                >not a valid color</Badge
                             >
                         </Transition>
                     </Teleport>
@@ -144,6 +161,7 @@ import {
     TooltipTrigger,
 } from "@mkbabb/glass-ui/tooltip";
 import { Separator } from "@mkbabb/glass-ui/separator";
+import { Badge } from "@mkbabb/glass-ui/badge";
 import { Crown, ArrowRight, Loader2 } from "@lucide/vue";
 import ParseEchoReadout from "./ParseEchoReadout.vue";
 import { proposeColorName } from "../../color-session/color-names";
@@ -182,7 +200,10 @@ const inputIsFocused = ref(false);
 
 // OD-8: the badge's anchor — the field's bottom centre, re-read as the badge
 // raises (the dock's layer motion moves the field without a resize or scroll).
-const fieldRect = useElementBounding(inputColorRef);
+// OD-9: the field is the box row, not the text run inside it (the run stops
+// short of the crown and the arrow, so its centre is off the field's).
+const fieldBox = useTemplateRef<HTMLElement>("fieldBox");
+const fieldRect = useElementBounding(fieldBox);
 watch(parseError, (raised) => {
     if (raised) fieldRect.update();
 });
@@ -369,8 +390,7 @@ defineExpose({
     /* X.W12U.m2 · A2-VA-X-13: the inline action (Apply / Propose) takes the
      * control floor the slug cluster's seats take (SlugEditLayer.vue): glass's
      * `--control-floor` is 0px at :root and `--touch-target` (44 px) under
-     * `(pointer: coarse)`, so it is 24 px fine · 44 px coarse. The field's end
-     * padding, its fade and the button all read this one width. */
+     * `(pointer: coarse)`, so it is 24 px fine · 44 px coarse. */
     --input-action-size: max(1.5rem, var(--control-floor));
 }
 
@@ -380,21 +400,19 @@ defineExpose({
  * 46 px at 1440 and 42 px at 390, and since this face shares the dock-layer
  * grid the dock grew on the first Tools visit and never came back to 40.
  * `align-content` centres the one line inside that box. */
-.color-input {
+.color-field {
     block-size: var(--dock-control-size);
-    align-content: center;
     border-color: var(--input);
     transition:
         border-color var(--duration-fast) var(--ease-standard),
         box-shadow var(--duration-fast) var(--ease-standard);
-    --input-action-width: calc(var(--input-action-size) + 1rem);
-    padding-inline-end: calc(var(--input-action-size) + 0.75rem);
-    mask-image: linear-gradient(to right, black calc(100% - var(--input-action-width)), transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, black calc(100% - var(--input-action-width)), transparent 100%);
 }
-.color-input:focus {
-    mask-image: none;
-    -webkit-mask-image: none;
+/* OD-9: the box is the row (`.color-field`); the text run fills what the
+ * crown and the arrow leave, stretched to the row so its whole height takes
+ * the caret, and ends in an ellipsis — nothing fades the box. */
+.color-input {
+    align-self: stretch;
+    align-content: center;
 }
 
 .color-input-error {
@@ -421,14 +439,12 @@ defineExpose({
  * deleted (X.W8.d, W5-BTN-INTERACTIVE-DEAD; the motion question rides O-52
  * R-2). This block keeps ONLY the seat geometry. */
 .send-btn {
-    position: absolute;
-    right: 0.25rem;
+    flex: none;
+    margin-inline-end: 0.25rem;
     display: grid;
     place-items: center;
     min-inline-size: var(--input-action-size);
     min-block-size: var(--input-action-size);
-    top: 50%;
-    transform: translateY(-50%);
     padding: 0.25rem;
     border-radius: var(--radius-sm);
     cursor: pointer;
@@ -439,22 +455,15 @@ defineExpose({
 
 /* OD-8: anchored under the field's bottom centre (`badgeAnchor`), outside
  * the text run and the Apply arrow, at the tooltip tier (it is the field's
- * floating status, above the dock and the pane beneath it). */
+ * floating status, above the dock and the pane beneath it). OD-11: placement
+ * only — the face is glass's Badge (tone destructive, size sm). */
 .error-badge {
     position: fixed;
     left: var(--anchor-cx);
     top: calc(var(--anchor-bottom) + 0.375rem);
     transform: translateX(-50%);
     z-index: var(--z-tooltip);
-    @apply text-caption;
-    line-height: 1;
-    padding: 0.2rem 0.4rem;
-    border-radius: var(--radius-sm);
-    background: var(--destructive);
-    color: var(--destructive-foreground);
-    white-space: nowrap;
     pointer-events: none;
-    font-family: var(--font-sans);
     /* vj-celebrate geometry: the badge rests at translateX(-50%), so the
        from-state keeps that x and drops in from just under the field (a pop
        out of the field, no sideways jump). */

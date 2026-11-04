@@ -1,0 +1,82 @@
+[
+ {
+  "i": 0,
+  "vw": 1800,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": []
+ },
+ {
+  "i": 1,
+  "vw": 1440,
+  "colorScheme": "light",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": []
+ },
+ {
+  "i": 2,
+  "vw": 390,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": []
+ },
+ {
+  "i": 3,
+  "vw": 430,
+  "colorScheme": "light",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": []
+ },
+ {
+  "i": 4,
+  "vw": 844,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": []
+ },
+ {
+  "i": 5,
+  "vw": 1800,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": []
+ },
+ {
+  "i": 6,
+  "vw": 1440,
+  "colorScheme": "light",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": []
+ },
+ {
+  "i": 7,
+  "vw": 390,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": []
+ },
+ {
+  "i": 8,
+  "vw": 430,
+  "colorScheme": "light",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": []
+ },
+ {
+  "i": 9,
+  "vw": 844,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": []
+ }
+]

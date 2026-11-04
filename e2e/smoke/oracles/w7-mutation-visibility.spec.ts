@@ -307,7 +307,9 @@ userTest.describe("G13 · library rows (Repair 1)", () => {
         await seedLibrary(page, 3);
         await page.goto("/#/palettes");
         await expect(page.locator("[data-palette-name]").filter({ hasText: "Wide Library" })).toBeVisible();
-        await page.getByRole("button", { name: "Delete all saved palettes", exact: true }).click();
+        // OD-3b (`4343087c3`): My Palettes lists local ∪ account, and Delete all
+        // takes only the browser's own rows, so its name says so.
+        await page.getByRole("button", { name: "Delete all palettes saved on this browser", exact: true }).click();
         const dialog = page.getByRole("dialog");
         await expect(dialog).toBeVisible();
         // Nothing is destroyed before the confirm is accepted.

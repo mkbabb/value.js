@@ -245,7 +245,26 @@
  * (its field is the stage) and Library (its field is the palettes region
  * beside the shared picker). A route not named keeps equal tracks. The query
  * is the row's two-track condition, read off the band (the row's width is the
- * band's), with the token values written out as the row contract does. */
+ * band's), with the token values written out as the row contract does.
+ *
+ * X·§0hk OD-15 (owner 2026-11-03: "the left picker is too wide on desktop--
+ * bound it a bit more") — THE RATIO IS NOW A STAGE FRACTION WITH A CEILING.
+ * The ratio was two `fr` shares, and an `fr` track cannot be capped, so the
+ * shared picker stood at 61.8 % of any band: 1043 px at 1800, 2051 px at 3440
+ * (its spectrum a 5 : 1 strip). The stage track's growth limit is now its
+ * fraction of the row less the gap — the same split the two shares made, floors
+ * included — taken against `--pane-stage-max`, and the inspector is the `1fr`
+ * remainder, so the slack a ceiling frees goes to the inspector. Only a route
+ * whose stage seats the shared picker (viewSchema: picker, palettes, mix, blob)
+ * sets a ceiling (`--picker-measure`); the workbench stages keep the unbounded
+ * ratio.
+ *
+ * X·§0hn (visual seat) — THE CEILING READS THE ROUTE, AS THE FRACTION DOES.
+ * It was keyed on the stage's `data-shown`, which the slot stamps only after
+ * its hold and leave, while the fraction moves with `data-view` at the input.
+ * The one track then ran on two clocks: from Mix to Browse it took Browse's
+ * 2 : 1 fraction under the picker's ceiling, a 61 % field (Z-chassis-2 RED,
+ * 0.613 at 1440). Both now read the route, so the row has one clock. */
 .app-layout:is(
         [data-view="picker"],
         [data-view="generate"],
@@ -253,22 +272,33 @@
         [data-view="extract"],
         [data-view="mix"]
     ) {
-    --pane-stage-share: 61.8033989fr;
-    --pane-inspector-share: 38.1966011fr;
+    --pane-stage-fraction: 0.618033989;
 }
 .app-layout[data-view="browse"] {
-    --pane-stage-share: 2fr;
-    --pane-inspector-share: 1fr;
+    --pane-stage-fraction: 0.666666667;
 }
 .app-layout[data-view="palettes"] {
-    --pane-stage-share: 1fr;
-    --pane-inspector-share: 2fr;
+    --pane-stage-fraction: 0.333333333;
 }
-@container scene (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+.app-layout:is(
+        [data-view="picker"],
+        [data-view="palettes"],
+        [data-view="mix"],
+        [data-view="blob"]
+    ) {
+    --pane-stage-max: var(--picker-measure);
+}
+@container scene (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-container:has(> .pane-wrapper--stage + .pane-wrapper--inspector) {
         grid-template-columns:
-            minmax(var(--pane-min), var(--pane-stage-share, 1fr))
-            minmax(var(--pane-min), var(--pane-inspector-share, 1fr));
+            minmax(
+                var(--pane-min),
+                min(
+                    var(--pane-stage-max, 100%),
+                    calc((100% - var(--pane-gap)) * var(--pane-stage-fraction, 0.5))
+                )
+            )
+            minmax(var(--pane-min), 1fr);
     }
 }
 
@@ -451,7 +481,7 @@
  * `auto-fit` condition of `.pane-container` above: its inline size is at
  * least two `--pane-min` tracks plus one `--pane-gap`. A size query cannot
  * read custom properties, so the two token values are written out here —
- * `--pane-min: 25rem` and `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`
+ * `--pane-min: min(25rem, 100svh)` and `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`
  * (foundation.css). A change to either token changes this line with it.
  *
  * It sits on the WRAPPER, not the card: the pane swap sets `contain: layout
@@ -462,7 +492,7 @@
  * inspector region. Palettes, Mix and the config pane declare it too, and the
  * config pane is also the sole stage of /atmosphere, where no sibling sets the
  * row and `contain: size` would collapse it. */
-@container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+@container pane-row (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-wrapper--inspector:has(> .pane-row-follow) {
         contain: size layout;
         min-block-size: var(--pane-follow-floor, 0px);
@@ -478,6 +508,29 @@
         flex-direction: column;
     }
     .pane-wrapper--inspector:has(> .pane-row-follow) > .pane-row-follow {
+        block-size: auto;
+        flex: 0 1 auto;
+        min-block-size: 0;
+    }
+}
+
+/* X·§0hm D-20 — ONE TRACK: THE COMPANION'S PORT IS THE SCENE BAND.
+ * Beside the stage the companion follows the stage's height (above). Stacked
+ * under it, it had no measure at all: Home's About unrolled all 21 sections
+ * to 7664 px at 390 and 7486 px at 430, so the phone's home was ten screens
+ * long while the same pane on desktop is a 685 px port. In one track the
+ * companion's ceiling is the block the scene band shows at rest
+ * (`--scene-band-block`, the shell's own measure), and the same pane scrolls
+ * its body inside its own card on the same FadingScroll port. A companion
+ * shorter than the band keeps its content height (`flex: 0 1 auto`, as in two
+ * tracks), so Mix and an empty My Palettes are unchanged. */
+@container pane-row not (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
+    .pane-wrapper--inspector > .pane-row-follow {
+        display: flex;
+        flex-direction: column;
+        max-block-size: var(--scene-band-block);
+    }
+    .pane-wrapper--inspector > .pane-row-follow > .pane-shell__card {
         block-size: auto;
         flex: 0 1 auto;
         min-block-size: 0;
@@ -531,7 +584,7 @@
  * rule is keyed on the stage showing the picker while the inspector shows
  * something other than About (Home is the one picker view whose inspector is
  * About). The settled order is unchanged, and the flip moves to the commit. */
-@container pane-row not (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+@container pane-row not (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-container:has(> .pane-wrapper--inspector:not([data-shown="about"]))
         > .pane-wrapper--stage[data-shown="color-picker"] {
         order: 1;

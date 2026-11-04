@@ -24,6 +24,11 @@ export const impersonateBody = z.object({
 // Tag management
 // ---------------------------------------------------------------
 
+/** OD-3b: `POST /admin/palettes/:slug/owner` — the palette's new owner. */
+export const reassignOwnerBody = z.object({
+    userSlug: z.string().trim().min(1),
+});
+
 export const createTagBody = z.object({
     name: z
         .string()

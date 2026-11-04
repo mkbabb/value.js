@@ -1,0 +1,16 @@
+import fs from "node:fs";
+const root = process.argv[2];
+const read = (p) => fs.readFileSync(root + "/demo/" + p, "utf8");
+const rc = (s) => [...s.matchAll(/@container (?:scene|pane-row)(?: not)? \(inline-size >= (calc\([^{]*\))\)\s*\{/g)].map((m) => m[1]);
+const r = {};
+r.D19_token = /--pane-min:\s*min\(25rem,\s*100svh\);/.test(read("styles/foundation.css"));
+const sites = [...rc(read("styles/shell.css")), ...rc(read("shell/PaneShell.vue"))];
+r.D19_sites = sites.length >= 5 && sites.every((c) => c === "calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))");
+const b = read("styles/shell.css").match(/@container pane-row not \([^{]*\)\s*\{\s*\.pane-wrapper--inspector > \.pane-row-follow \{([^}]*)\}/);
+r.D20 = !!b && /max-block-size:\s*var\(--scene-band-block\)/.test(b[1]);
+const sfc = read("palettes/inspector/PaletteInspector.vue"), meta = read("palettes/inspector/PaletteCardMeta.vue");
+r.D24_grid = /"grip head meta vote menu"/.test(sfc) && /\.palette-meta__vote \{[^}]*grid-area:\s*vote/.test(meta);
+const tpl = sfc.slice(0, sfc.indexOf("<script"));
+r.D24_xs = JSON.stringify([...tpl.matchAll(/icon-only\s+emphasis="quiet"\s+size="(\w+)"/g)].map((m) => m[1])) === '["xs","xs"]';
+r.D31 = /@media \(pointer: coarse\) \{\s*\.palette-meta__vote::after \{[^}]*inset-block:[^;]*var\(--touch-target/.test(meta);
+console.log(root.split("/").pop(), JSON.stringify(r));

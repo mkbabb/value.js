@@ -1,0 +1,870 @@
+[
+ {
+  "cell": "d1440L",
+  "route": "/paper",
+  "loadMs": 1146,
+  "url": "/paper",
+  "title": "Paper \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 900,
+  "offscreen": [],
+  "bodyFont": "18.608px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:53.28px:\"Computer Modern Serif\":An Introduction to\u2131ourier An@551,121w686",
+   "H2:26px:\"Computer Modern Serif\":0.1.Introduction@551,340w686",
+   "H2:26px:\"Computer Modern Serif\":1.Origin and Derivation@551,1708w686"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 454,12 530x56",
+   "dock-plate 454,12 530x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 466,20 506x40"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.6,
+   "max": 10.4,
+   "over33": 0
+  },
+  "theme": "",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1440L",
+  "route": "/w",
+  "loadMs": 1037,
+  "url": "/w",
+  "title": "Visualize \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 900,
+  "offscreen": [],
+  "bodyFont": "18.608px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:41.888px:\"Computer Modern Serif\":Draw any outline in circles@474,368w491"
+  ],
+  "canvases": [
+   "1406x798@17,89 bs1406x798"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 442,12 555x56",
+   "dock-plate 442,12 555x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 454,20 531x40"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.7,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1440L",
+  "route": "/gallery",
+  "loadMs": 955,
+  "url": "/gallery",
+  "title": "Gallery \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 900,
+  "offscreen": [],
+  "bodyFont": "18.608px/400/\"Computer Modern Serif\"",
+  "headings": [],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 448,12 542x56",
+   "dock-plate 448,12 542x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 460,20 518x40"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.9,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1440L",
+  "route": "/equation",
+  "loadMs": 4434,
+  "url": "/equation",
+  "title": "Equation Explorer \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 900,
+  "offscreen": [],
+  "bodyFont": "18.608px/400/\"Computer Modern Serif\"",
+  "headings": [],
+  "canvases": [
+   "850x526@29,304 bs850x526"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 441,12 556x56",
+   "dock-plate 441,12 556x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 453,20 532x40"
+  ],
+  "raf": {
+   "n": 122,
+   "p50": 25,
+   "p95": 40.2,
+   "max": 41.8,
+   "over33": 15
+  },
+  "theme": "",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1440L",
+  "route": "/morph",
+  "loadMs": 1129,
+  "url": "/morph",
+  "title": "Morph \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 900,
+  "offscreen": [],
+  "bodyFont": "18.608px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:41.888px:\"Computer Modern Serif\":Fourier Morph@160,92w1120",
+   "H3:20.352px:\"Computer Modern Serif\":Settle Out@617,212w178",
+   "H3:20.352px:\"Computer Modern Serif\":Morph@849,212w178",
+   "H3:20.352px:\"Computer Modern Serif\":Settle In@1081,212w178",
+   "H3:20.352px:\"Computer Modern Serif\":Harmonic Levels@617,489w642"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 451,12 536x56",
+   "dock-plate 451,12 536x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 463,20 512x40"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.9,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1440L",
+  "route": "/nope-404",
+  "loadMs": 1080,
+  "url": "/nope-404",
+  "title": "Not found \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 900,
+  "offscreen": [],
+  "bodyFont": "18.608px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:41.888px:\"Computer Modern Serif\":Page not found@539,425w360"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 445,12 548x56",
+   "dock-plate 445,12 548x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 457,20 524x40"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 10.1,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1800D",
+  "route": "/paper",
+  "loadMs": 1056,
+  "url": "/paper",
+  "title": "Paper \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 1000,
+  "offscreen": [],
+  "bodyFont": "19.58px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:53.28px:\"Computer Modern Serif\":An Introduction to\u2131ourier An@731,121w686",
+   "H2:26px:\"Computer Modern Serif\":0.1.Introduction@731,340w686",
+   "H2:26px:\"Computer Modern Serif\":1.Origin and Derivation@731,1708w686"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 632,12 535x56",
+   "dock-plate 632,12 535x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 644,20 511x40"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.9,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1800D",
+  "route": "/w",
+  "loadMs": 934,
+  "url": "/w",
+  "title": "Visualize \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 1000,
+  "offscreen": [],
+  "bodyFont": "19.58px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:41.888px:\"Computer Modern Serif\":Draw any outline in circles@654,416w491"
+  ],
+  "canvases": [
+   "1766x898@17,89 bs1766x898"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 619,12 562x56",
+   "dock-plate 619,12 562x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 631,20 538x40"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.7,
+   "max": 10.4,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1800D",
+  "route": "/gallery",
+  "loadMs": 1022,
+  "url": "/gallery",
+  "title": "Gallery \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 1000,
+  "offscreen": [],
+  "bodyFont": "19.58px/400/\"Computer Modern Serif\"",
+  "headings": [],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 626,12 547x56",
+   "dock-plate 626,12 547x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 638,20 523x40"
+  ],
+  "raf": {
+   "n": 362,
+   "p50": 8.3,
+   "p95": 9.8,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1800D",
+  "route": "/equation",
+  "loadMs": 4433,
+  "url": "/equation",
+  "title": "Equation Explorer \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 1000,
+  "offscreen": [],
+  "bodyFont": "19.58px/400/\"Computer Modern Serif\"",
+  "headings": [],
+  "canvases": [
+   "1168x620@29,310 bs1169x621"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 618,12 563x56",
+   "dock-plate 618,12 563x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 630,20 539x40"
+  ],
+  "raf": {
+   "n": 82,
+   "p50": 34.1,
+   "p95": 58.3,
+   "max": 66.6,
+   "over33": 45
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1800D",
+  "route": "/morph",
+  "loadMs": 1032,
+  "url": "/morph",
+  "title": "Morph \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 1000,
+  "offscreen": [],
+  "bodyFont": "19.58px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:41.888px:\"Computer Modern Serif\":Fourier Morph@340,92w1120",
+   "H3:20.352px:\"Computer Modern Serif\":Settle Out@797,214w178",
+   "H3:20.352px:\"Computer Modern Serif\":Morph@1029,214w178",
+   "H3:20.352px:\"Computer Modern Serif\":Settle In@1261,214w178",
+   "H3:20.352px:\"Computer Modern Serif\":Harmonic Levels@797,493w642"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 628,12 542x56",
+   "dock-plate 628,12 542x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 640,20 518x40"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.8,
+   "max": 10.4,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "d1800D",
+  "route": "/nope-404",
+  "loadMs": 942,
+  "url": "/nope-404",
+  "title": "Not found \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 1000,
+  "offscreen": [],
+  "bodyFont": "19.58px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:41.888px:\"Computer Modern Serif\":Page not found@712,474w375"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 622,12 554x56",
+   "dock-plate 622,12 554x56",
+   "dock-controls 0,0 0x0",
+   "dock-layers 634,20 530x40"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.8,
+   "max": 10.4,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m390D",
+  "route": "/paper",
+  "loadMs": 983,
+  "url": "/paper",
+  "title": "Paper \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 844,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:32.928px:\"Computer Modern Serif\":An Introduction to\u2131ourier An@33,181w324",
+   "H2:26px:\"Computer Modern Serif\":0.1.Introduction@33,312w324"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 43,8 303x60",
+   "dock-plate 43,8 303x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 55,16 279x44"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.8,
+   "max": 10.4,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m390D",
+  "route": "/w",
+  "loadMs": 974,
+  "url": "/w",
+  "title": "Visualize \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 844,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:25.888px:\"Computer Modern Serif\":Draw any outline in circles@43,336w303"
+  ],
+  "canvases": [
+   "356x758@17,81 bs356x758"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 43,8 303x60",
+   "dock-plate 43,8 303x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 55,16 279x44"
+  ],
+  "raf": {
+   "n": 362,
+   "p50": 8.3,
+   "p95": 9.8,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m390D",
+  "route": "/gallery",
+  "loadMs": 1001,
+  "url": "/gallery",
+  "title": "Gallery \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 844,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 43,8 303x60",
+   "dock-plate 43,8 303x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 55,16 279x44"
+  ],
+  "raf": {
+   "n": 362,
+   "p50": 8.3,
+   "p95": 9.7,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m390D",
+  "route": "/equation",
+  "loadMs": 4594,
+  "url": "/equation",
+  "title": "Equation Explorer \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 844,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [],
+  "canvases": [
+   "0x0@0,0 bs300x150"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 43,8 303x60",
+   "dock-plate 43,8 303x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 55,16 279x44"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.7,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m390D",
+  "route": "/morph",
+  "loadMs": 1073,
+  "url": "/morph",
+  "title": "Morph \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 844,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:25.888px:\"Computer Modern Serif\":Fourier Morph@16,84w358",
+   "H3:20.352px:\"Computer Modern Serif\":Settle Out@29,387w332",
+   "H3:20.352px:\"Computer Modern Serif\":Morph@29,654w332",
+   "H3:20.352px:\"Computer Modern Serif\":Settle In@29,920w332",
+   "H3:20.352px:\"Computer Modern Serif\":Harmonic Levels@29,1186w332"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 43,8 303x60",
+   "dock-plate 43,8 303x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 55,16 279x44"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.6,
+   "max": 10.4,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m390D",
+  "route": "/nope-404",
+  "loadMs": 961,
+  "url": "/nope-404",
+  "title": "Not found \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 844,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:25.888px:\"Computer Modern Serif\":Page not found@29,387w332"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 43,8 303x60",
+   "dock-plate 43,8 303x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 55,16 279x44"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.6,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m390L",
+  "route": "/paper",
+  "loadMs": 1017,
+  "url": "/paper",
+  "title": "Paper \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 844,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:32.928px:\"Computer Modern Serif\":An Introduction to\u2131ourier An@33,181w324",
+   "H2:26px:\"Computer Modern Serif\":0.1.Introduction@33,312w324"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 43,8 303x60",
+   "dock-plate 43,8 303x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 55,16 279x44"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 10,
+   "max": 10.4,
+   "over33": 0
+  },
+  "theme": "",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m390L",
+  "route": "/w",
+  "loadMs": 946,
+  "url": "/w",
+  "title": "Visualize \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 844,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:25.888px:\"Computer Modern Serif\":Draw any outline in circles@43,336w303"
+  ],
+  "canvases": [
+   "356x758@17,81 bs356x758"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 43,8 303x60",
+   "dock-plate 43,8 303x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 55,16 279x44"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.9,
+   "max": 10.2,
+   "over33": 0
+  },
+  "theme": "",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m390L",
+  "route": "/equation",
+  "loadMs": 4460,
+  "url": "/equation",
+  "title": "Equation Explorer \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 844,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [],
+  "canvases": [
+   "0x0@0,0 bs300x150"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 43,8 303x60",
+   "dock-plate 43,8 303x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 55,16 279x44"
+  ],
+  "raf": {
+   "n": 362,
+   "p50": 8.3,
+   "p95": 9.8,
+   "max": 10.4,
+   "over33": 0
+  },
+  "theme": "",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m430D",
+  "route": "/paper",
+  "loadMs": 1061,
+  "url": "/paper",
+  "title": "Paper \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 932,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:33.46px:\"Computer Modern Serif\":An Introduction to\u2131ourier An@33,181w364",
+   "H2:26px:\"Computer Modern Serif\":0.1.Introduction@33,313w364"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 40,8 348x60",
+   "dock-plate 40,8 348x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 52,16 324x44"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.7,
+   "max": 10.2,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m430D",
+  "route": "/w",
+  "loadMs": 965,
+  "url": "/w",
+  "title": "Visualize \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 932,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:26.08px:\"Computer Modern Serif\":Draw any outline in circles@62,380w305"
+  ],
+  "canvases": [
+   "396x846@17,81 bs396x846"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 30,8 369x60",
+   "dock-plate 30,8 369x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 42,16 345x44"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.7,
+   "max": 10.4,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "m430D",
+  "route": "/gallery",
+  "loadMs": 953,
+  "url": "/gallery",
+  "title": "Gallery \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 932,
+  "offscreen": [],
+  "bodyFont": "16px/400/\"Computer Modern Serif\"",
+  "headings": [],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 35,8 358x60",
+   "dock-plate 35,8 358x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 47,16 334x44"
+  ],
+  "raf": {
+   "n": 362,
+   "p50": 8.3,
+   "p95": 9.5,
+   "max": 10,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "l844D",
+  "route": "/paper",
+  "loadMs": 1119,
+  "url": "/paper",
+  "title": "Paper \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 390,
+  "offscreen": [],
+  "bodyFont": "16.9988px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:42.568px:\"Computer Modern Serif\":An Introduction to\u2131ourier An@57,159w730",
+   "H2:26px:\"Computer Modern Serif\":0.1.Introduction@57,313w730"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 159,4 525x60",
+   "dock-plate 159,4 525x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 171,12 501x44"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.8,
+   "max": 10.4,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "l844D",
+  "route": "/w",
+  "loadMs": 1012,
+  "url": "/w",
+  "title": "Visualize \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 390,
+  "offscreen": [],
+  "bodyFont": "16.9988px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:32.704px:\"Computer Modern Serif\":Draw any outline in circles@230,111w383"
+  ],
+  "canvases": [
+   "810x312@17,73 bs810x312"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 147,4 548x60",
+   "dock-plate 147,4 548x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 159,12 524x44"
+  ],
+  "raf": {
+   "n": 361,
+   "p50": 8.3,
+   "p95": 9.5,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "l844D",
+  "route": "/equation",
+  "loadMs": 4483,
+  "url": "/equation",
+  "title": "Equation Explorer \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 390,
+  "offscreen": [],
+  "bodyFont": "16.9988px/400/\"Computer Modern Serif\"",
+  "headings": [],
+  "canvases": [
+   "232x148@262,81 bs232x148"
+  ],
+  "docks": [
+   "app-dock glass-dock horizontal 147,4 549x60",
+   "dock-plate 147,4 549x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 159,12 525x44"
+  ],
+  "raf": {
+   "n": 352,
+   "p50": 8.3,
+   "p95": 9.9,
+   "max": 17,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ },
+ {
+  "cell": "l844D",
+  "route": "/morph",
+  "loadMs": 978,
+  "url": "/morph",
+  "title": "Morph \u2014 Fourier Analysis",
+  "overflowX": 0,
+  "docH": 390,
+  "offscreen": [],
+  "bodyFont": "16.9988px/400/\"Computer Modern Serif\"",
+  "headings": [
+   "H1:32.704px:\"Computer Modern Serif\":Fourier Morph@16,80w812",
+   "H3:20.352px:\"Computer Modern Serif\":Settle Out@37,431w770",
+   "H3:20.352px:\"Computer Modern Serif\":Morph@37,737w770",
+   "H3:20.352px:\"Computer Modern Serif\":Settle In@37,1042w770",
+   "H3:20.352px:\"Computer Modern Serif\":Harmonic Levels@37,1347w770"
+  ],
+  "canvases": [],
+  "docks": [
+   "app-dock glass-dock horizontal 156,4 531x60",
+   "dock-plate 156,4 531x60",
+   "dock-controls 0,0 0x0",
+   "dock-layers 168,12 507x44"
+  ],
+  "raf": {
+   "n": 362,
+   "p50": 8.3,
+   "p95": 9.8,
+   "max": 10.3,
+   "over33": 0
+  },
+  "theme": "dark",
+  "consoleErrorCount": 2
+ }
+]

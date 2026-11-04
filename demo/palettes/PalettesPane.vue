@@ -35,12 +35,14 @@
                  sr-only companion carries the count with a separator.
                  X-DS pass 6 (V6C-04): the app's ONE count idiom — a muted mono
                  tabular numeral on the heading's baseline, no chip. -->
+            <!-- X·§0hi item 1 (OD-3b): the count is the whole library — this
+                 browser's saved palettes and the account's, one per slug. -->
             <span
-                v-if="pm.savedPalettes.value.length > 0"
+                v-if="pm.myPalettes.value.length > 0"
                 class="text-mono-small tabular-nums text-muted-foreground ml-2"
                 aria-hidden="true"
-            >{{ searchNarrows ? `${pm.filteredSaved.value.length}/${pm.savedPalettes.value.length}` : pm.savedPalettes.value.length }}</span>
-            <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ searchNarrows ? `${pm.filteredSaved.value.length} of ${pm.savedPalettes.value.length} shown` : `${pm.savedPalettes.value.length} saved` }})</span>
+            >{{ searchNarrows ? `${pm.filteredMine.value.length}/${pm.myPalettes.value.length}` : pm.myPalettes.value.length }}</span>
+            <span v-if="pm.myPalettes.value.length > 0" class="sr-only"> ({{ searchNarrows ? `${pm.filteredMine.value.length} of ${pm.myPalettes.value.length} shown` : `${pm.myPalettes.value.length} palettes` }})</span>
         </template>
             <div class="px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0">
                 <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
@@ -74,7 +76,7 @@
                         emphasis="text"
                         size="sm"
                         class="shrink-0 cursor-pointer text-(color:--ink-muted) hover:text-destructive focus-visible:text-destructive"
-                        aria-label="Delete all saved palettes"
+                        aria-label="Delete all palettes saved on this browser"
                         @click="pm.showDeleteAllConfirm.value = true"
                     >
                         Delete all
@@ -118,29 +120,53 @@
                         ref="sortableGridRef"
                         class="palettes-companion-grid"
                         empty-compact
-                        :empty="pm.filteredSaved.value.length === 0"
-                        :empty-text="searchNarrows ? `No saved palette matches “${pm.searchQuery.value.trim()}”.` : 'No saved palettes yet.'"
-                        :empty-hint="searchNarrows ? `${pm.savedPalettes.value.length} saved palette${pm.savedPalettes.value.length === 1 ? '' : 's'} hidden by the search.` : 'Add colors, then save.'"
+                        :empty="pm.filteredMine.value.length === 0 && pm.ownedStatus.value !== 'loading'"
+                        :empty-text="searchNarrows ? `No palette matches “${pm.searchQuery.value.trim()}”.` : 'No saved palettes yet.'"
+                        :empty-hint="searchNarrows ? `${pm.myPalettes.value.length} palette${pm.myPalettes.value.length === 1 ? '' : 's'} hidden by the search.` : 'Add colors, then save.'"
                     >
                         <!-- X.W12.u1 (UIA-V-26): a search that matches nothing says so and
                              offers the way back; it never claims the library is empty. -->
                         <template v-if="searchNarrows" #emptyAction>
                             <Button emphasis="text" @click="pm.searchQuery.value = ''">Clear search</Button>
                         </template>
+                        <!-- X·§0hi item 1 (OD-3b): one list, one source per row. A
+                             local row (store-backed, drag-sortable) and an account
+                             row (the user's server shelf, owned, newest first) each
+                             route their verbs by their own `isLocal`. -->
                         <PaletteInspector
-                            v-for="palette in pm.filteredSaved.value"
-                            :ref="(el: any) => el && (cardRefs[palette.id] = el)"
-                            :key="palette.id"
+                            v-for="palette in pm.filteredMine.value"
+                            :ref="(el: any) => el && (cardRefs[myPaletteKey(palette)] = el)"
+                            :key="myPaletteKey(palette)"
                             :palette="palette"
-                            :expanded="pm.expandedId.value === palette.id"
-                            draggable
-                            @click="pm.toggleExpand(palette.id)"
+                            :expanded="pm.expandedId.value === myPaletteKey(palette)"
+                            :is-owned="!palette.isLocal"
+                            :draggable="palette.isLocal"
+                            @click="pm.toggleExpand(myPaletteKey(palette))"
                             @delete="(p) => onRequestDelete(p)"
                             @publish="(p) => onPublish(p)"
-                            @rename="(p, name) => pm.onRenameSaved(p, name)"
+                            @rename="(p, name) => onRename(p, name)"
+                            @set-visibility="onSetVisibility"
                             @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
                         />
                     </PaletteCardGrid>
+
+                    <!-- The account half never blocks the local half: its load
+                         and its failure are one inline line beneath the list. -->
+                    <div aria-live="polite" data-owned-status>
+                        <p
+                            v-if="pm.ownedStatus.value === 'loading'"
+                            class="text-caption text-muted-foreground"
+                        >Loading your account's palettes…</p>
+                        <div v-else-if="pm.ownedStatus.value === 'error'" class="flex items-center gap-2">
+                            <ActionFeedback
+                                :message="`Couldn't load your account's palettes. ${pm.ownedError.value ?? ''}`.trim()"
+                                variant="error"
+                                :visible="true"
+                                :auto-dismiss-ms="0"
+                            />
+                            <Button emphasis="text" size="sm" @click="pm.refreshOwned()">Retry</Button>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- UIA-V-104: deleting ONE saved palette is confirmed like deleting all
@@ -153,7 +179,7 @@
                             <DialogDescription>
                                 This will permanently delete
                                 <span class="font-display font-medium text-foreground">{{ deleteConfirmName }}</span>
-                                from this browser. This cannot be undone.
+                                {{ deleteConfirmLocal ? "from this browser" : "from your account" }}. This cannot be undone.
                             </DialogDescription>
                         </DialogHeader>
                         <DialogFooter>
@@ -202,6 +228,7 @@ import { Button } from "@mkbabb/glass-ui/button";
 import { Search, Trash2 } from "@lucide/vue";
 import { useSortable, insertNodeAt, removeNode } from "@vueuse/integrations/useSortable";
 import { LIBRARY_PORT_KEY, COLOR_TARGET_PORT_KEY } from "./usePalettePorts";
+import { myPaletteKey, type MyPaletteVerdict } from "./useOwnedPalettes";
 import { CSS_COLOR_KEY } from "../color-session/keys";
 import {
     CurrentPaletteEditor,
@@ -233,11 +260,15 @@ const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(LIBRARY_PORT_KEY)!;
 /** A non-empty query over a non-empty library: the list is filtered, not empty. */
 const searchNarrows = computed(
-    () => pm.searchQuery.value.trim() !== "" && pm.savedPalettes.value.length > 0,
+    () => pm.searchQuery.value.trim() !== "" && pm.myPalettes.value.length > 0,
+);
+/** The visible local rows, in list order — the only rows that sort or Delete all takes. */
+const visibleLocalIds = computed(() =>
+    pm.filteredMine.value.flatMap((p) => (p.isLocal && p.id != null ? [p.id] : [])),
 );
 /** Saved palettes a search is hiding — Delete all takes them too (UIA-V-278). */
 const hiddenBySearch = computed(() =>
-    searchNarrows.value ? pm.savedPalettes.value.length - pm.filteredSaved.value.length : 0,
+    searchNarrows.value ? pm.savedPalettes.value.length - visibleLocalIds.value.length : 0,
 );
 const colorTarget = inject(COLOR_TARGET_PORT_KEY)!;
 
@@ -258,6 +289,7 @@ const cardRefs = reactive<Record<string, InstanceType<typeof PaletteInspector>>>
 // on any dismissal — one acceptance, exactly one delete (Browse's idiom).
 const deleteConfirmOpen = ref(false);
 const deleteConfirmName = ref("");
+const deleteConfirmLocal = ref(true);
 const deleteConfirmTarget = shallowRef<Palette | null>(null);
 watch(
     deleteConfirmOpen,
@@ -268,15 +300,30 @@ watch(
 );
 function onRequestDelete(palette: Palette) {
     deleteConfirmName.value = palette.name;
+    deleteConfirmLocal.value = palette.isLocal;
     deleteConfirmTarget.value = palette;
     deleteConfirmOpen.value = true;
 }
-function onDeleteConfirm() {
+async function onDeleteConfirm() {
     const target = deleteConfirmTarget.value;
     if (!target) return;
     deleteConfirmTarget.value = null;
     deleteConfirmOpen.value = false;
-    pm.onDelete(target);
+    showVerdict(target, await pm.onDelete(target));
+}
+
+/** An account write's verdict, on the row's own rail (a local write has none). */
+function showVerdict(palette: Palette, verdict: MyPaletteVerdict | null) {
+    if (!verdict) return;
+    cardRefs[myPaletteKey(palette)]?.showFeedback(verdict.message, verdict.success ? "success" : "error");
+}
+
+async function onRename(palette: Palette, name: string) {
+    showVerdict(palette, await pm.onRename(palette, name));
+}
+
+async function onSetVisibility(palette: Palette, visibility: "public" | "private") {
+    showVerdict(palette, await pm.onSetVisibility(palette, visibility));
 }
 
 // Drag-to-reorder
@@ -290,7 +337,9 @@ const sortableEl = computed(() => (sortableGridRef.value as any)?.$el as HTMLEle
 // double-applied the move and persisted a scrambled order. Here the DOM node the
 // drag moved is put back (Vue owns the list's DOM and re-renders it from the
 // store), and the store permutes only the slots the VISIBLE palettes occupy — a
-// palette hidden by the search keeps its place.
+// palette hidden by the search keeps its place. OD-3b: account rows follow the
+// local rows and carry no drag handle, so a drop past the last local row lands
+// on the last local slot.
 useSortable(sortableEl, [], {
     handle: ".drag-handle",
     animation: 150,
@@ -300,24 +349,21 @@ useSortable(sortableEl, [], {
         if (oldIndex == null || newIndex == null) return;
         removeNode(evt.item);
         insertNodeAt(evt.from, evt.item, oldIndex);
-        pm.movePalette(
-            pm.filteredSaved.value.map((p) => p.id),
-            oldIndex,
-            newIndex,
-        );
+        const ids = visibleLocalIds.value;
+        pm.movePalette(ids, oldIndex, Math.min(newIndex, ids.length - 1));
     },
 });
 
 async function onPublish(palette: Palette) {
-    const result = await pm.onPublish(palette);
-    // K-PALID: the feedback card is registered under the local store key; a
-    // palette with no local `id` has no card to address.
-    const id = palette.id;
-    if (id == null) return;
-    const card = cardRefs[id];
-    if (card) {
-        card.showFeedback(result.message, result.success ? "success" : "error");
-    }
+    const verdict = await pm.onPublish(palette);
+    if (!verdict.success) return showVerdict(palette, verdict);
+    // OD-3b: the published palette is now an account row, and its local twin
+    // (same slug) leaves the list — the selection and the verdict follow it.
+    const accountTwin: Palette = { ...palette, isLocal: false };
+    if (pm.expandedId.value === myPaletteKey(palette)) pm.expandedId.value = myPaletteKey(accountTwin);
+    await nextTick();
+    const listed = pm.myPalettes.value.some((p) => !p.isLocal && p.slug === palette.slug);
+    showVerdict(listed ? accountTwin : palette, verdict);
 }
 
 // X.W7.d2 (G7 host): export is the inspector's own act — it performs it and

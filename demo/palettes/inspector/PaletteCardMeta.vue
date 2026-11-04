@@ -10,7 +10,12 @@
          priority read from the card's own inline size (container `palette-card`
          on the card root) — composition, not masking; nothing is measured in
          JS and nothing is silently dropped. -->
+    <!-- X·§0hm D-24: the root is `display: contents` (the Collapsible idiom
+         PaletteInspector already uses), so its two cells are the CARD's grid
+         cells: the tags (area `meta`) and the vote (area `vote`), both on the
+         name row at every card width. -->
     <div class="palette-meta" @click.stop>
+        <div v-if="tags.length > 0" class="palette-meta__tags">
         <span
             v-for="(tag, rank) in shownTags"
             :key="tag"
@@ -47,13 +52,14 @@
                 </ul>
             </PopoverContent>
         </Popover>
+        </div>
 
         <!-- Vote count. SS-8 B10 (SS8-0288): the button speaks the count's
              rung itself, so its box is not sized by the meta row's inherited
              body size. -->
         <button
             v-if="!palette.isLocal"
-            class="flex items-center gap-1 px-1.5 py-0.5 text-mono-small rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors duration-fast cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+            class="palette-meta__vote flex items-center gap-1 px-1.5 py-0.5 text-mono-small rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors duration-fast cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
             :aria-label="`${palette.voteCount ?? 0} votes, click to vote`"
             @click.stop="emit('vote', palette)"
         >
@@ -114,6 +120,9 @@ const moreClasses = computed(() =>
 /* The meta cluster yields before the specimen's head does: it never grows,
  * and it clips rather than widen the card (the G9 backstop). */
 .palette-meta {
+    display: contents;
+}
+.palette-meta__tags {
     grid-area: meta;
     display: flex;
     align-items: center;
@@ -122,35 +131,50 @@ const moreClasses = computed(() =>
     overflow: hidden;
     margin-inline-start: 0.5rem;
 }
+.palette-meta__vote {
+    grid-area: vote;
+    position: relative;
+    margin-inline-start: 0.5rem;
+}
+/* X·§0hm D-31 — the vote's TARGET meets the coarse-pointer floor while its
+ * painted pill keeps its 38×24 size: glass's corner-affordance idiom
+ * (dissolve.css, G-COARSE-TARGET), a transparent child inset negatively to
+ * `--touch-target` on each axis it falls short on. */
+@media (pointer: coarse) {
+    .palette-meta__vote::after {
+        content: "";
+        position: absolute;
+        inset-block: min(0px, calc((100% - var(--touch-target, 2.75rem)) / 2));
+        /* inline, the whole shortfall grows toward the name: the card's actions
+         * abut the pill's end and own their own 44 px targets. */
+        inset-inline: min(0px, calc(100% - var(--touch-target, 2.75rem))) 0;
+    }
+}
 
 /* The declared priority — width bands of the CARD (container `palette-card`).
- * X-DS pass 6 (VC6-01): the bands are derived from the room the meta row
- * actually has. Below 30rem the cluster takes its OWN row under the name
- * (PaletteInspector's UIA-V-30 rule), the card width less the menu column:
- * a 9ch chip is ~4.5rem and the `+N` + vote pair ~6rem, so one chip fits
- * from 18rem of card and two from 24rem. From 30rem the cluster rejoins the
- * head row and shares it with the name, so the head-row bands keep their
- * old steps. The shipped two-column wall (≈29rem cards at 1440, ≈20rem at
- * 390) therefore always shows its first tag; band 0 is a narrow-card
- * remainder only, and its count names its noun.
- *   band 0  < 18rem                  no chip · `N tags`
- *   band 1  18–24rem | 30–36rem      1 chip  · `+N`
- *   band 2  24–30rem | 36–42rem      2 chips · `+N`
- *   band 3  ≥ 42rem                  3 chips · `+N`
+ * X·§0hm D-24: the cluster shares the name row at every card width (below
+ * 30rem it used to take a row of its own), so the bands are the head row's:
+ * a 9ch chip is ~4.5rem, and from 30rem of card one chip fits beside the
+ * name, two from 36rem, three from 42rem. Below 30rem no chip renders and
+ * the reveal carries its noun (`2 tags`); every tag stays reachable.
+ *   band 0  < 30rem      no chip · `N tags`
+ *   band 1  30–36rem     1 chip  · `+N`
+ *   band 2  36–42rem     2 chips · `+N`
+ *   band 3  ≥ 42rem      3 chips · `+N`
  * Exactly one label renders per band. */
 .palette-meta__chip,
 .palette-meta__band {
     display: none;
 }
-@container palette-card (width < 18rem) {
+@container palette-card (width < 30rem) {
     .palette-meta__band-0 { display: inline; }
     .palette-meta__more--none-0 { display: none; }
 }
-@container palette-card ((18rem <= width < 24rem) or (30rem <= width < 36rem)) {
+@container palette-card (30rem <= width < 36rem) {
     .palette-meta__band-1 { display: inline; }
     .palette-meta__more--none-1 { display: none; }
 }
-@container palette-card ((24rem <= width < 30rem) or (36rem <= width < 42rem)) {
+@container palette-card (36rem <= width < 42rem) {
     .palette-meta__band-2 { display: inline; }
     .palette-meta__more--none-2 { display: none; }
 }
@@ -158,10 +182,10 @@ const moreClasses = computed(() =>
     .palette-meta__band-3 { display: inline; }
     .palette-meta__more--none-3 { display: none; }
 }
-@container palette-card (width >= 18rem) {
+@container palette-card (width >= 30rem) {
     .palette-meta__rank-0 { display: inline-block; }
 }
-@container palette-card ((24rem <= width < 30rem) or (width >= 36rem)) {
+@container palette-card (width >= 36rem) {
     .palette-meta__rank-1 { display: inline-block; }
 }
 @container palette-card (width >= 42rem) {

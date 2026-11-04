@@ -176,7 +176,7 @@ const bodyClass = computed(() => [
     flex: 0 1 auto;
     min-block-size: 0;
 }
-@container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+@container pane-row (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-wrapper:has(> .pane-shell--bounded) {
         contain: size layout;
     }

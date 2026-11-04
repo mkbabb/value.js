@@ -1,0 +1,213 @@
+{
+ "eq1800": {
+  "dpr": 2,
+  "cvW": 1169,
+  "roDeviceVsCss": [
+   1169,
+   1168.65625
+  ],
+  "fonts": [
+   "Computer Modern Serif:loaded",
+   "Computer Modern Serif:loaded",
+   "Computer Modern Serif:loaded",
+   "Computer Modern Serif:loaded",
+   "Fraunces:unloaded",
+   "Fraunces:loaded",
+   "Fira Code:loaded",
+   "KaTeX_AMS:unloaded",
+   "KaTeX_Caligraphic:unloaded",
+   "KaTeX_Caligraphic:unloaded",
+   "KaTeX_Fraktur:unloaded",
+   "KaTeX_Fraktur:unloaded",
+   "KaTeX_Main:unloaded",
+   "KaTeX_Main:unloaded"
+  ],
+  "panel": [
+   [
+    "configurator grid min-h-0",
+    88,
+    988,
+    16,
+    1784
+   ],
+   [
+    "configurator-stage relative mi",
+    88,
+    988,
+    16,
+    1308
+   ],
+   [
+    "eq-panel-right",
+    89,
+    987,
+    17,
+    1307
+   ],
+   [
+    "px-3 py-2 flex-1 min-h-0 flex ",
+    301,
+    987,
+    17,
+    1307
+   ],
+   [
+    "configurator-aside flex min-h-",
+    100,
+    988,
+    1320,
+    1784
+   ],
+   [
+    "eq-panel-left-wrap",
+    101,
+    910,
+    1321,
+    1783
+   ]
+  ],
+  "rafPlaying": {
+   "n": 85,
+   "p50": 33.4,
+   "p95": 51.5,
+   "max": 58.4,
+   "over33": 53,
+   "longtasks": []
+  }
+ },
+ "eq1800_errs": "2 :: Loading the script 'https://static.cloudflareinsights.com/be | Loading the font 'data:font/woff2;base64,d09GMgABAAAAAA4oAA4",
+ "eqLand": {
+  "katex": [
+   33,
+   393,
+   360
+  ],
+  "katexScroll": [
+   361,
+   361
+  ],
+  "clipper": [
+   "fading-scroll fading-scroll--x eq-scroll",
+   [
+    17,
+    249,
+    232
+   ]
+  ],
+  "btns": [
+   [
+    "About Fourier analysis",
+    [
+     159,
+     330,
+     171
+    ]
+   ],
+   [
+    "About this approximation",
+    [
+     153,
+     197,
+     44
+    ]
+   ],
+   [
+    "Copy LaTeX",
+    [
+     205,
+     249,
+     44
+    ]
+   ],
+   [
+    "Pause the convergence sw",
+    [
+     262,
+     322,
+     60
+    ]
+   ]
+  ],
+  "legend": [
+   "n=1",
+   "n=2",
+   "n=3",
+   "n=4",
+   "n=5",
+   "n=6",
+   "n=7",
+   "n=8"
+  ]
+ },
+ "eqLand_errs": "2 :: Loading the script 'https://static.cloudflareinsights.com/be | Loading the font 'data:font/woff2;base64,d09GMgABAAAAAA4oAA4",
+ "morph1440": {
+  "sliders": [
+   [
+    "50",
+    "150",
+    "800",
+    640,
+    0,
+    20,
+    "0"
+   ],
+   [
+    "50",
+    "50",
+    "800",
+    849,
+    0,
+    20,
+    "0"
+   ],
+   [
+    "50",
+    "150",
+    "800",
+    1104,
+    0,
+    20,
+    "0"
+   ],
+   [
+    "1",
+    "5",
+    "49",
+    810,
+    0,
+    20,
+    "0"
+   ],
+   [
+    "6",
+    "50",
+    "50",
+    1259,
+    0,
+    20,
+    "0"
+   ]
+  ],
+  "rafDuringMorph": {
+   "n": 181,
+   "p50": 8.3,
+   "p95": 9.9,
+   "max": 10.4,
+   "over33": 0,
+   "longtasks": []
+  }
+ },
+ "morph1440_errs": "2 :: Loading the script 'https://static.cloudflareinsights.com/be | Loading the font 'data:font/woff2;base64,d09GMgABAAAAAA4oAA4",
+ "dockMob": {
+  "lbl": "Navigate — current section Paper",
+  "raf": {
+   "n": 128,
+   "p50": 8.3,
+   "p95": 10.1,
+   "max": 58,
+   "over33": 3,
+   "longtasks": []
+  }
+ },
+ "dockMob_errs": "2 :: Loading the script 'https://static.cloudflareinsights.com/be | Loading the font 'data:font/woff2;base64,d09GMgABAAAAAA4oAA4"
+}

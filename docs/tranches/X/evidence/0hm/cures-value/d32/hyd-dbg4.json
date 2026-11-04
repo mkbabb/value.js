@@ -1,0 +1,48 @@
+[
+ {
+  "i": 0,
+  "vw": 1800,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": [],
+  "warns": []
+ },
+ {
+  "i": 1,
+  "vw": 1440,
+  "colorScheme": "light",
+  "firstView": "shell",
+  "mismatch": true,
+  "msgs": [
+   "warning [Vue warn]: Hydration node mismatch:\n- rendered on server: JSHandle@node  \n- expected on client: p",
+   "error Hydration completed but contains mismatches."
+  ],
+  "warns": [
+   "[Vue warn]: Hydration node mismatch:\n- rendered on server: | #8: |  | \n- expected on client: | p"
+  ]
+ },
+ {
+  "i": 2,
+  "vw": 390,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": [],
+  "warns": []
+ },
+ {
+  "i": 3,
+  "vw": 430,
+  "colorScheme": "light",
+  "firstView": "shell",
+  "mismatch": true,
+  "msgs": [
+   "warning [Vue warn]: Hydration node mismatch:\n- rendered on server: JSHandle@node  \n- expected on client: p",
+   "error Hydration completed but contains mismatches."
+  ],
+  "warns": [
+   "[Vue warn]: Hydration node mismatch:\n- rendered on server: | #8: |  | \n- expected on client: | p"
+  ]
+ }
+]

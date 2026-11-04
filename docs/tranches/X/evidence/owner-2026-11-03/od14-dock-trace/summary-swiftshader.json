@@ -1,0 +1,5759 @@
+{
+ "local": {
+  "url": "http://localhost:9000/",
+  "when": "2026-11-04T02:51:35.262Z",
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+  "cells": {
+   "desktop": {
+    "viewport": {
+     "width": 1800,
+     "height": 1000
+    },
+    "dpr": 2,
+    "idle": {
+     "idleRafP50": 8.3
+    },
+    "notes": [],
+    "error": null,
+    "transitions": [
+     {
+      "name": "collapse-r1",
+      "how": "mouse leaves dock; idle collapse (DOCK_COLLAPSE_DELAY_MS)",
+      "windowMs": 847.4,
+      "rafFrames": 54,
+      "expected60": 51,
+      "rafDeltaMs": {
+       "n": 53,
+       "p50": 9.8,
+       "p95": 26.6,
+       "max": 41.8
+      },
+      "dropped60": 9,
+      "loaf": [
+       [
+        437.2,
+        50.5,
+        0.2,
+        []
+       ],
+       [
+        518.2,
+        60.5,
+        5.1,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 193,
+       "UpdateLayoutTree": 105,
+       "Layout": 101,
+       "PrePaint": 131,
+       "Paint": 87,
+       "Layerize": 49,
+       "Commit": 57
+      },
+      "traceMs": {
+       "FunctionCall": 68.7,
+       "UpdateLayoutTree": 75.3,
+       "Layout": 7.6,
+       "PrePaint": 4,
+       "Paint": 5.4,
+       "Commit": 3.4
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.98,
+       "Layout": 1.91,
+       "PrePaint": 2.47,
+       "Paint": 1.64,
+       "Commit": 1.08
+      },
+      "styleElementsRecalculated": 6630,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 507,
+       "ThreadPoolForegroundWorker:RasterTask": 85,
+       "raster:RasterTask": 85
+      },
+      "animations": [
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 14,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         450,
+         54
+        ],
+        "last": [
+         54,
+         54
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-layers": {
+        "n": 14,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 14,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         56,
+         56
+        ],
+        "maxStepW": 380
+       }
+      },
+      "attrMutations": {
+       "div.glass-dock.horizontal.shape-pill@style": 82,
+       "div.dock-layer.dock-layer--full.dock-run@style": 113,
+       "div.dock-layer.dock-layer--summary.is-active[Expand dock]@style": 101,
+       "div.glass-dock.horizontal.shape-pill@data-morphing": 1,
+       "div.dock-layers@style": 1,
+       "div.dock-layer.dock-layer--full.dock-run@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/collapse-r1.trace.json",
+      "traceBytes": 19519055
+     },
+     {
+      "name": "expand-r1",
+      "how": "mouse enters collapsed dock (hover expand)",
+      "windowMs": 914.4,
+      "rafFrames": 43,
+      "expected60": 55,
+      "rafDeltaMs": {
+       "n": 42,
+       "p50": 8.9,
+       "p95": 66.3,
+       "max": 76.3
+      },
+      "dropped60": 26,
+      "loaf": [
+       [
+        256.1,
+        75.3,
+        3.2,
+        []
+       ],
+       [
+        332.2,
+        72.4,
+        3.6,
+        []
+       ],
+       [
+        405.3,
+        67.1,
+        0,
+        []
+       ],
+       [
+        473,
+        70.7,
+        0.1,
+        []
+       ],
+       [
+        546.9,
+        71.2,
+        0.2,
+        []
+       ],
+       [
+        624.2,
+        67.1,
+        0,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 142,
+       "UpdateLayoutTree": 55,
+       "Layout": 43,
+       "PrePaint": 94,
+       "Paint": 63,
+       "Layerize": 38,
+       "Commit": 43
+      },
+      "traceMs": {
+       "FunctionCall": 48,
+       "UpdateLayoutTree": 58.7,
+       "Layout": 5,
+       "PrePaint": 3.3,
+       "Paint": 5,
+       "Commit": 3
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.31,
+       "Layout": 1.02,
+       "PrePaint": 2.24,
+       "Paint": 1.5,
+       "Commit": 1.02
+      },
+      "styleElementsRecalculated": 3143,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 444,
+       "ThreadPoolForegroundWorker:RasterTask": 88,
+       "raster:RasterTask": 89,
+       "ThreadPoolBackgroundWorker:RasterTask": 1
+      },
+      "animations": [
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 10,
+        "first": [
+         435.6,
+         40.2
+        ],
+        "last": [
+         427.6,
+         40.2
+        ],
+        "maxStepW": 1.9
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         450,
+         54.2
+        ],
+        "last": [
+         449.6,
+         54.2
+        ],
+        "maxStepW": 0.4
+       },
+       "div.dock-layers": {
+        "n": 10,
+        "first": [
+         435.6,
+         40.2
+        ],
+        "last": [
+         427.6,
+         40.2
+        ],
+        "maxStepW": 1.9
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 10,
+        "first": [
+         435.6,
+         40.2
+        ],
+        "last": [
+         427.6,
+         40.2
+        ],
+        "maxStepW": 1.9
+       }
+      },
+      "attrMutations": {
+       "div.dock-layer.dock-layer--full.dock-run@class": 1,
+       "div.dock-layer.dock-layer--summary.is-leaving@class": 1,
+       "div.glass-dock.horizontal.shape-pill@class": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 42,
+       "div.dock-layer.dock-layer--full.dock-run@style": 60,
+       "div.dock-layer.dock-layer--summary.is-leaving@style": 22,
+       "div.glass-dock.horizontal.shape-pill@data-morphing": 2,
+       "div.dock-layers@style": 4,
+       "div.dock-layer.dock-layer--summary@class": 1,
+       "div.dock-layer.dock-layer--summary@style": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/expand-r1.trace.json",
+      "traceBytes": 5070905
+     },
+     {
+      "name": "face-to-actionbar-r1",
+      "how": "main face -> action-bar layer (\"Toggle action bar\")",
+      "windowMs": 921.5,
+      "rafFrames": 29,
+      "expected60": 55,
+      "rafDeltaMs": {
+       "n": 28,
+       "p50": 33.4,
+       "p95": 66.7,
+       "max": 66.8
+      },
+      "dropped60": 27,
+      "loaf": [
+       [
+        114,
+        70,
+        4,
+        [
+         "ActionBarLayer.vue: 10ms"
+        ]
+       ],
+       [
+        220.7,
+        66,
+        0.1,
+        []
+       ],
+       [
+        288.8,
+        63.4,
+        0.2,
+        []
+       ],
+       [
+        352.6,
+        66.8,
+        1,
+        [
+         "dist-vzlhttbQ.js?v=093c0a82: 11ms"
+        ]
+       ],
+       [
+        485,
+        68.4,
+        0.1,
+        []
+       ],
+       [
+        554.5,
+        69,
+        0.2,
+        []
+       ],
+       [
+        624.7,
+        68.8,
+        0.1,
+        []
+       ],
+       [
+        694.7,
+        70.5,
+        0,
+        []
+       ],
+       [
+        766.4,
+        63.7,
+        0.1,
+        []
+       ],
+       [
+        861.7,
+        59.9,
+        0.1,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 106,
+       "UpdateLayoutTree": 58,
+       "Layout": 11,
+       "PrePaint": 60,
+       "Paint": 47,
+       "Layerize": 28,
+       "Commit": 30
+      },
+      "traceMs": {
+       "FunctionCall": 40.5,
+       "UpdateLayoutTree": 50.7,
+       "Layout": 3,
+       "PrePaint": 3.4,
+       "Paint": 3.3,
+       "Commit": 2.6
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2.07,
+       "Layout": 0.39,
+       "PrePaint": 2.14,
+       "Paint": 1.68,
+       "Commit": 1.07
+      },
+      "styleElementsRecalculated": 2887,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 458,
+       "ThreadPoolForegroundWorker:RasterTask": 62,
+       "raster:RasterTask": 62
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 3,
+        "first": [
+         354,
+         42
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 3,
+        "first": [
+         376,
+         56
+        ],
+        "last": [
+         376,
+         58
+        ]
+       },
+       "div.dock-layers": {
+        "n": 3,
+        "first": [
+         354,
+         42
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 3,
+        "first": [
+         354,
+         42
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 3,
+        "first": [
+         354,
+         42
+        ],
+        "last": [
+         354,
+         44
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 10,
+       "div.dock-face.is-leaving@style": 10,
+       "div.dock-face.is-active@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "div.dock-crossfade@style": 6,
+       "div.dock-crossfade.dock-layer-grid.flex-1@style": 2,
+       "div.glass-dock.horizontal.shape-pill@style": 13,
+       "div.dock-layer.dock-layer--full.dock-run@style": 24,
+       "div.dock-layer.dock-layer--summary@style": 12,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@style": 2,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]@data-state": 1,
+       "div@style": 8,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 1,
+       "div.dock-face@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/face-to-actionbar-r1.trace.json",
+      "traceBytes": 5583438
+     },
+     {
+      "name": "actionbar-to-input-r1",
+      "how": "action bar -> colour input (\"Open color input\")",
+      "windowMs": 518,
+      "rafFrames": 21,
+      "expected60": 31,
+      "rafDeltaMs": {
+       "n": 20,
+       "p50": 25,
+       "p95": 57.3,
+       "max": 58.9
+      },
+      "dropped60": 11,
+      "loaf": [
+       [
+        78.2,
+        53.5,
+        0.8,
+        []
+       ],
+       [
+        133.6,
+        54.8,
+        0.1,
+        []
+       ],
+       [
+        188.9,
+        61.8,
+        3.5,
+        [
+         "vue.runtime.esm-bundler-DQai_KuN.js?v=093c0a82: 5ms"
+        ]
+       ],
+       [
+        251.3,
+        50.5,
+        0.1,
+        []
+       ],
+       [
+        385.5,
+        51.9,
+        0.2,
+        []
+       ],
+       [
+        437.9,
+        52.9,
+        0.1,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 82,
+       "UpdateLayoutTree": 54,
+       "Layout": 8,
+       "PrePaint": 49,
+       "Paint": 61,
+       "Layerize": 20,
+       "Commit": 22
+      },
+      "traceMs": {
+       "FunctionCall": 25,
+       "UpdateLayoutTree": 26.7,
+       "Layout": 0.9,
+       "PrePaint": 2,
+       "Paint": 2.1,
+       "Commit": 2
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2.7,
+       "Layout": 0.4,
+       "PrePaint": 2.45,
+       "Paint": 3.05,
+       "Commit": 1.1
+      },
+      "styleElementsRecalculated": 1866,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 291,
+       "ThreadPoolForegroundWorker:RasterTask": 54,
+       "raster:RasterTask": 54
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]::before CSSTransition:opacity [opacity] 300ms",
+       "div.color-field.relative.w-full CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-right-color [borderRightColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-top-color [borderTopColor] 200ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSAnimation:glass-reveal-out [scale+opacity+filter] 250ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:translate [translate] 250ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         376,
+         58
+        ],
+        "last": [
+         376,
+         58
+        ]
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]@data-state": 1,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@data-state": 1,
+       "div.dock-face.is-active@style": 11,
+       "div.dock-face.is-leaving@style": 11,
+       "div.dock-face.is-leaving@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 7,
+       "div.glass-dock.horizontal.shape-pill@style": 8,
+       "div.dock-layer.dock-layer--full.dock-run@style": 16,
+       "div.dock-layer.dock-layer--summary@style": 8,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]@style": 2,
+       "div.color-field.relative.w-full@style": 1,
+       "div@style": 14,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 2,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/actionbar-to-input-r1.trace.json",
+      "traceBytes": 4212940
+     },
+     {
+      "name": "input-to-actionbar-r1",
+      "how": "colour input -> action bar (\"Close input\")",
+      "windowMs": 527,
+      "rafFrames": 25,
+      "expected60": 32,
+      "rafDeltaMs": {
+       "n": 24,
+       "p50": 24.7,
+       "p95": 34.9,
+       "max": 41.6
+      },
+      "dropped60": 7,
+      "loaf": [],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 120,
+       "UpdateLayoutTree": 54,
+       "Layout": 7,
+       "PrePaint": 54,
+       "Paint": 41,
+       "Layerize": 24,
+       "Commit": 26
+      },
+      "traceMs": {
+       "FunctionCall": 24.6,
+       "UpdateLayoutTree": 20.5,
+       "Layout": 0.9,
+       "PrePaint": 1.8,
+       "Paint": 1.4,
+       "Commit": 1.6
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2.25,
+       "Layout": 0.29,
+       "PrePaint": 2.25,
+       "Paint": 1.71,
+       "Commit": 1.08
+      },
+      "styleElementsRecalculated": 1945,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 327,
+       "ThreadPoolForegroundWorker:RasterTask": 26,
+       "raster:RasterTask": 26
+      },
+      "animations": [
+       "div.color-field.relative.w-full CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-right-color [borderRightColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-top-color [borderTopColor] 200ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         376,
+         58
+        ],
+        "last": [
+         376,
+         58
+        ]
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.color-field.relative.w-full@style": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 10,
+       "div.dock-layer.dock-layer--full.dock-run@style": 20,
+       "div.dock-layer.dock-layer--summary@style": 10,
+       "div.dock-face.is-active@style": 13,
+       "div.dock-face.is-leaving@style": 13,
+       "div.dock-face.is-active@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 7,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/input-to-actionbar-r1.trace.json",
+      "traceBytes": 3994286
+     },
+     {
+      "name": "actionbar-to-face-r1",
+      "how": "action-bar layer -> main face (\"Back\")",
+      "windowMs": 407.5,
+      "rafFrames": 20,
+      "expected60": 24,
+      "rafDeltaMs": {
+       "n": 19,
+       "p50": 24.9,
+       "p95": 33.3,
+       "max": 48.8
+      },
+      "dropped60": 7,
+      "loaf": [],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 84,
+       "UpdateLayoutTree": 28,
+       "Layout": 4,
+       "PrePaint": 41,
+       "Paint": 40,
+       "Layerize": 18,
+       "Commit": 24
+      },
+      "traceMs": {
+       "FunctionCall": 12.4,
+       "UpdateLayoutTree": 16.9,
+       "Layout": 0.4,
+       "PrePaint": 1.1,
+       "Paint": 1.6,
+       "Commit": 1.6
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.47,
+       "Layout": 0.21,
+       "PrePaint": 2.16,
+       "Paint": 2.11,
+       "Commit": 1.26
+      },
+      "styleElementsRecalculated": 1012,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 268,
+       "ThreadPoolForegroundWorker:RasterTask": 47,
+       "raster:RasterTask": 47
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back]::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back]::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-trigger.dock-select-trigger.view-select-trigger[Select view]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         376,
+         58
+        ],
+        "last": [
+         449.6,
+         58
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 13,
+       "div.dock-face.is-leaving@style": 13,
+       "div.dock-face.is-leaving@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back]@style": 2,
+       "div.glass-dock.horizontal.shape-pill@style": 3,
+       "div.dock-layer.dock-layer--full.dock-run@style": 4,
+       "div.dock-layer.dock-layer--summary@style": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/actionbar-to-face-r1.trace.json",
+      "traceBytes": 3158567
+     },
+     {
+      "name": "menu-open-r1",
+      "how": "open the dock menu (first visible [aria-haspopup=menu])",
+      "windowMs": 417.2,
+      "rafFrames": 17,
+      "expected60": 25,
+      "rafDeltaMs": {
+       "n": 16,
+       "p50": 25,
+       "p95": 48.1,
+       "max": 50.3
+      },
+      "dropped60": 8,
+      "loaf": [
+       [
+        93.2,
+        53.6,
+        0.4,
+        []
+       ],
+       [
+        147.3,
+        55.2,
+        0.6,
+        []
+       ],
+       [
+        203.5,
+        52.5,
+        0.7,
+        []
+       ],
+       [
+        285.1,
+        51.3,
+        0.1,
+        []
+       ],
+       [
+        337,
+        52,
+        0.1,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 46,
+       "UpdateLayoutTree": 31,
+       "Layout": 6,
+       "PrePaint": 39,
+       "Paint": 33,
+       "Layerize": 16,
+       "Commit": 18
+      },
+      "traceMs": {
+       "FunctionCall": 11.2,
+       "UpdateLayoutTree": 20.6,
+       "Layout": 0.8,
+       "PrePaint": 1.2,
+       "Paint": 2.3,
+       "Commit": 1.5
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.94,
+       "Layout": 0.38,
+       "PrePaint": 2.44,
+       "Paint": 2.06,
+       "Commit": 1.13
+      },
+      "styleElementsRecalculated": 1370,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 267,
+       "ThreadPoolForegroundWorker:RasterTask": 93,
+       "raster:RasterTask": 93
+      },
+      "animations": [
+       "button.dock-trigger.dock-select-trigger.view-select-trigger[Select view]::before CSSTransition:opacity [opacity] 300ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger CSSTransition:background-color [backgroundColor] 200ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:filter [filter] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:opacity [opacity] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:scale [scale] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:translate [translate] 200ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {},
+      "attrMutations": {
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger@data-state": 1,
+       "body.relative@style": 2,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 2,
+       "div@style": 8,
+       "div.glass-dock.horizontal.shape-pill@style": 4,
+       "div.dock-layer.dock-layer--full.dock-run@style": 8,
+       "div.dock-layer.dock-layer--summary@style": 4,
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger@style": 2,
+       "img.avatar__image@style": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/menu-open-r1.trace.json",
+      "traceBytes": 3594151
+     },
+     {
+      "name": "collapse-r2",
+      "how": "mouse leaves dock; idle collapse (DOCK_COLLAPSE_DELAY_MS)",
+      "windowMs": 836.1,
+      "rafFrames": 46,
+      "expected60": 50,
+      "rafDeltaMs": {
+       "n": 45,
+       "p50": 9,
+       "p95": 41.2,
+       "max": 42.8
+      },
+      "dropped60": 17,
+      "loaf": [
+       [
+        332,
+        61.2,
+        0.2,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 158,
+       "UpdateLayoutTree": 78,
+       "Layout": 73,
+       "PrePaint": 103,
+       "Paint": 76,
+       "Layerize": 39,
+       "Commit": 47
+      },
+      "traceMs": {
+       "FunctionCall": 125.9,
+       "UpdateLayoutTree": 143.3,
+       "Layout": 8.6,
+       "PrePaint": 5,
+       "Paint": 7.5,
+       "Commit": 3.6
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.73,
+       "Layout": 1.62,
+       "PrePaint": 2.29,
+       "Paint": 1.69,
+       "Commit": 1.04
+      },
+      "styleElementsRecalculated": 9941,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 432,
+       "ThreadPoolForegroundWorker:RasterTask": 63,
+       "raster:RasterTask": 63
+      },
+      "animations": [
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 10,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         450,
+         54
+        ],
+        "last": [
+         54,
+         54
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-layers": {
+        "n": 10,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 10,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         56,
+         56
+        ],
+        "maxStepW": 380
+       }
+      },
+      "attrMutations": {
+       "div.dock-layer.dock-layer--full.dock-run@class": 2,
+       "div.dock-layer.dock-layer--summary.is-active[Expand dock]@class": 1,
+       "div.glass-dock.horizontal.shape-pill@class": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 76,
+       "div.dock-layer.dock-layer--full.dock-run@style": 90,
+       "div.dock-layer.dock-layer--summary.is-active[Expand dock]@style": 80,
+       "div.glass-dock.horizontal.shape-pill@data-morphing": 2,
+       "div.dock-layers@style": 6
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/collapse-r2.trace.json",
+      "traceBytes": 19660193
+     },
+     {
+      "name": "expand-r2",
+      "how": "mouse enters collapsed dock (hover expand)",
+      "windowMs": 912.2,
+      "rafFrames": 42,
+      "expected60": 55,
+      "rafDeltaMs": {
+       "n": 41,
+       "p50": 8.8,
+       "p95": 58.4,
+       "max": 66.8
+      },
+      "dropped60": 27,
+      "loaf": [
+       [
+        222.5,
+        69.2,
+        5,
+        []
+       ],
+       [
+        292.5,
+        70.8,
+        6.2,
+        [
+         "@mkbabb_glass-ui_dock.js?v=093c0a82: 5ms"
+        ]
+       ],
+       [
+        395.2,
+        70.4,
+        0.3,
+        []
+       ],
+       [
+        470.5,
+        75.4,
+        0.3,
+        []
+       ],
+       [
+        587.7,
+        74.9,
+        4.1,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 139,
+       "UpdateLayoutTree": 51,
+       "Layout": 38,
+       "PrePaint": 91,
+       "Paint": 61,
+       "Layerize": 31,
+       "Commit": 42
+      },
+      "traceMs": {
+       "FunctionCall": 59.2,
+       "UpdateLayoutTree": 92.6,
+       "Layout": 5,
+       "PrePaint": 3.8,
+       "Paint": 5.6,
+       "Commit": 3.4
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.24,
+       "Layout": 0.93,
+       "PrePaint": 2.22,
+       "Paint": 1.49,
+       "Commit": 1.02
+      },
+      "styleElementsRecalculated": 5862,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 428,
+       "ThreadPoolForegroundWorker:RasterTask": 88,
+       "raster:RasterTask": 88
+      },
+      "animations": [
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 9,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 395.6
+       },
+       "div.dock-plate": {
+        "n": 3,
+        "first": [
+         54,
+         54
+        ],
+        "last": [
+         449.6,
+         58
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 9,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 395.6
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 9,
+        "first": [
+         56,
+         56
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 379.6
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary.is-active[Expand dock]": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-layer.dock-layer--full.dock-run@class": 1,
+       "div.dock-layer.dock-layer--summary.is-leaving@class": 1,
+       "div.glass-dock.horizontal.shape-pill@class": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 38,
+       "div.dock-layer.dock-layer--full.dock-run@style": 48,
+       "div.dock-layer.dock-layer--summary.is-leaving@style": 18,
+       "div.glass-dock.horizontal.shape-pill@data-morphing": 2,
+       "div.dock-layers@style": 4,
+       "div.dock-layer.dock-layer--summary@class": 1,
+       "div.dock-layer.dock-layer--summary@style": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/expand-r2.trace.json",
+      "traceBytes": 5372381
+     },
+     {
+      "name": "face-to-actionbar-r2",
+      "how": "main face -> action-bar layer (\"Toggle action bar\")",
+      "windowMs": 851.1,
+      "rafFrames": 31,
+      "expected60": 51,
+      "rafDeltaMs": {
+       "n": 30,
+       "p50": 25.2,
+       "p95": 51.3,
+       "max": 58.4
+      },
+      "dropped60": 20,
+      "loaf": [
+       [
+        76,
+        57.6,
+        0.8,
+        []
+       ],
+       [
+        135.3,
+        56.2,
+        0.8,
+        []
+       ],
+       [
+        192.9,
+        55.9,
+        0.2,
+        []
+       ],
+       [
+        250.1,
+        56,
+        0.2,
+        []
+       ],
+       [
+        336.7,
+        55.6,
+        0.5,
+        []
+       ],
+       [
+        393.7,
+        61.6,
+        0.1,
+        []
+       ],
+       [
+        456.3,
+        60.1,
+        0.2,
+        []
+       ],
+       [
+        517.6,
+        60,
+        0.1,
+        []
+       ],
+       [
+        577.9,
+        61.2,
+        0.1,
+        []
+       ],
+       [
+        640.1,
+        59.4,
+        0.2,
+        []
+       ],
+       [
+        700.4,
+        58.5,
+        0.1,
+        []
+       ],
+       [
+        759.9,
+        60,
+        0.2,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 111,
+       "UpdateLayoutTree": 46,
+       "Layout": 5,
+       "PrePaint": 52,
+       "Paint": 36,
+       "Layerize": 31,
+       "Commit": 31
+      },
+      "traceMs": {
+       "FunctionCall": 15.4,
+       "UpdateLayoutTree": 22.4,
+       "Layout": 0.9,
+       "PrePaint": 1.9,
+       "Paint": 2,
+       "Commit": 2.6
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.53,
+       "Layout": 0.17,
+       "PrePaint": 1.73,
+       "Paint": 1.2,
+       "Commit": 1.03
+      },
+      "styleElementsRecalculated": 1099,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 460,
+       "ThreadPoolForegroundWorker:RasterTask": 44,
+       "raster:RasterTask": 44
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 2,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         449.6,
+         58
+        ],
+        "last": [
+         376,
+         58
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 2,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 2,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 2,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 13,
+       "div.dock-face.is-leaving@style": 13,
+       "div.dock-face.is-active@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@style": 2,
+       "div.glass-dock.horizontal.shape-pill@style": 3,
+       "div.dock-layer.dock-layer--full.dock-run@style": 4,
+       "div.dock-layer.dock-layer--summary@style": 2,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]@data-state": 1,
+       "div@style": 8,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 1,
+       "div.dock-face@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/face-to-actionbar-r2.trace.json",
+      "traceBytes": 5034031
+     },
+     {
+      "name": "actionbar-to-input-r2",
+      "how": "action bar -> colour input (\"Open color input\")",
+      "windowMs": 590.7,
+      "rafFrames": 20,
+      "expected60": 35,
+      "rafDeltaMs": {
+       "n": 19,
+       "p50": 25.1,
+       "p95": 58.4,
+       "max": 66.6
+      },
+      "dropped60": 18,
+      "loaf": [
+       [
+        114.1,
+        60.8,
+        0.5,
+        []
+       ],
+       [
+        175.6,
+        64,
+        1.2,
+        []
+       ],
+       [
+        276.4,
+        64.7,
+        0.3,
+        []
+       ],
+       [
+        403.6,
+        59.6,
+        0.1,
+        []
+       ],
+       [
+        531.9,
+        59,
+        0.2,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 77,
+       "UpdateLayoutTree": 55,
+       "Layout": 8,
+       "PrePaint": 46,
+       "Paint": 57,
+       "Layerize": 17,
+       "Commit": 20
+      },
+      "traceMs": {
+       "FunctionCall": 30.1,
+       "UpdateLayoutTree": 33.5,
+       "Layout": 1,
+       "PrePaint": 2.3,
+       "Paint": 2.4,
+       "Commit": 2.1
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2.89,
+       "Layout": 0.42,
+       "PrePaint": 2.42,
+       "Paint": 3,
+       "Commit": 1.05
+      },
+      "styleElementsRecalculated": 1834,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 301,
+       "ThreadPoolForegroundWorker:RasterTask": 51,
+       "raster:RasterTask": 51
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]::before CSSTransition:opacity [opacity] 300ms",
+       "div.color-field.relative.w-full CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-right-color [borderRightColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-top-color [borderTopColor] 200ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSAnimation:glass-reveal-out [scale+opacity+filter] 250ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:translate [translate] 250ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {},
+      "attrMutations": {
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]@data-state": 1,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@data-state": 1,
+       "div.dock-face.is-active@style": 11,
+       "div.dock-face.is-leaving@style": 11,
+       "div.dock-face.is-leaving@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 7,
+       "div.glass-dock.horizontal.shape-pill@style": 8,
+       "div.dock-layer.dock-layer--full.dock-run@style": 16,
+       "div.dock-layer.dock-layer--summary@style": 8,
+       "div.color-field.relative.w-full@style": 1,
+       "div@style": 15,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 1,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 2,
+       "div.dock-face@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/actionbar-to-input-r2.trace.json",
+      "traceBytes": 4212460
+     },
+     {
+      "name": "input-to-actionbar-r2",
+      "how": "colour input -> action bar (\"Close input\")",
+      "windowMs": 525.8,
+      "rafFrames": 25,
+      "expected60": 32,
+      "rafDeltaMs": {
+       "n": 24,
+       "p50": 24.7,
+       "p95": 33.4,
+       "max": 50.9
+      },
+      "dropped60": 7,
+      "loaf": [
+       [
+        222.4,
+        50.6,
+        3.1,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 120,
+       "UpdateLayoutTree": 56,
+       "Layout": 7,
+       "PrePaint": 53,
+       "Paint": 43,
+       "Layerize": 22,
+       "Commit": 26
+      },
+      "traceMs": {
+       "FunctionCall": 23.3,
+       "UpdateLayoutTree": 19.6,
+       "Layout": 0.9,
+       "PrePaint": 1.6,
+       "Paint": 1.4,
+       "Commit": 1.6
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2.33,
+       "Layout": 0.29,
+       "PrePaint": 2.21,
+       "Paint": 1.79,
+       "Commit": 1.08
+      },
+      "styleElementsRecalculated": 1956,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 320,
+       "ThreadPoolForegroundWorker:RasterTask": 27,
+       "raster:RasterTask": 27
+      },
+      "animations": [
+       "div.color-field.relative.w-full CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-right-color [borderRightColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-top-color [borderTopColor] 200ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {},
+      "attrMutations": {
+       "div.color-field.relative.w-full@style": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 10,
+       "div.dock-layer.dock-layer--full.dock-run@style": 20,
+       "div.dock-layer.dock-layer--summary@style": 10,
+       "div.dock-face.is-active@style": 14,
+       "div.dock-face.is-leaving@style": 14,
+       "div.dock-face.is-active@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 7,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/input-to-actionbar-r2.trace.json",
+      "traceBytes": 3989960
+     },
+     {
+      "name": "actionbar-to-face-r2",
+      "how": "action-bar layer -> main face (\"Back\")",
+      "windowMs": 391.8,
+      "rafFrames": 20,
+      "expected60": 24,
+      "rafDeltaMs": {
+       "n": 19,
+       "p50": 23.7,
+       "p95": 33.3,
+       "max": 41.9
+      },
+      "dropped60": 4,
+      "loaf": [],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 83,
+       "UpdateLayoutTree": 28,
+       "Layout": 4,
+       "PrePaint": 41,
+       "Paint": 39,
+       "Layerize": 19,
+       "Commit": 24
+      },
+      "traceMs": {
+       "FunctionCall": 11.1,
+       "UpdateLayoutTree": 15.1,
+       "Layout": 0.4,
+       "PrePaint": 1.1,
+       "Paint": 1.7,
+       "Commit": 1.6
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.47,
+       "Layout": 0.21,
+       "PrePaint": 2.16,
+       "Paint": 2.05,
+       "Commit": 1.26
+      },
+      "styleElementsRecalculated": 1044,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 274,
+       "ThreadPoolForegroundWorker:RasterTask": 56,
+       "raster:RasterTask": 56
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-trigger.dock-select-trigger.view-select-trigger[Select view]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         376,
+         58
+        ],
+        "last": [
+         449.6,
+         58
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 13,
+       "div.dock-face.is-leaving@style": 13,
+       "div.dock-face.is-leaving@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 3,
+       "div.dock-layer.dock-layer--full.dock-run@style": 4,
+       "div.dock-layer.dock-layer--summary@style": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/actionbar-to-face-r2.trace.json",
+      "traceBytes": 3395182
+     },
+     {
+      "name": "menu-open-r2",
+      "how": "open the dock menu (first visible [aria-haspopup=menu])",
+      "windowMs": 411.8,
+      "rafFrames": 20,
+      "expected60": 25,
+      "rafDeltaMs": {
+       "n": 19,
+       "p50": 24.9,
+       "p95": 42.6,
+       "max": 50.1
+      },
+      "dropped60": 7,
+      "loaf": [
+       [
+        232.7,
+        50.4,
+        0.2,
+        []
+       ],
+       [
+        309.1,
+        51.2,
+        0.2,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 57,
+       "UpdateLayoutTree": 25,
+       "Layout": 5,
+       "PrePaint": 41,
+       "Paint": 31,
+       "Layerize": 17,
+       "Commit": 23
+      },
+      "traceMs": {
+       "FunctionCall": 5.5,
+       "UpdateLayoutTree": 13.3,
+       "Layout": 0.7,
+       "PrePaint": 0.9,
+       "Paint": 1.3,
+       "Commit": 1.4
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.32,
+       "Layout": 0.26,
+       "PrePaint": 2.16,
+       "Paint": 1.63,
+       "Commit": 1.21
+      },
+      "styleElementsRecalculated": 734,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 270,
+       "ThreadPoolForegroundWorker:RasterTask": 87,
+       "raster:RasterTask": 87
+      },
+      "animations": [
+       "button.dock-trigger.dock-select-trigger.view-select-trigger[Select view]::before CSSTransition:opacity [opacity] 300ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger CSSTransition:background-color [backgroundColor] 200ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:filter [filter] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:opacity [opacity] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:scale [scale] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:translate [translate] 200ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         449.6,
+         58
+        ],
+        "last": [
+         449.6,
+         58
+        ]
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger@data-state": 1,
+       "body.relative@style": 2,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 2,
+       "div@style": 8,
+       "img.avatar__image@style": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-desktop/menu-open-r2.trace.json",
+      "traceBytes": 3327013
+     }
+    ]
+   },
+   "mobile": {
+    "viewport": {
+     "width": 390,
+     "height": 844
+    },
+    "dpr": 3,
+    "idle": {
+     "idleRafP50": 8.3
+    },
+    "notes": [],
+    "error": "locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.glass-dock [aria-haspopup=menu]:visible').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-v-720745ef=\"\" data-press-armed=\"\" data-state=\"closed\" aria-haspopup=\"menu\" aria-expanded=\"false\" data-glass-dock-seat=\"\" data-slot=\"menu-trigger\" aria-label=\"More actions\" id=\"reka-dropdown-menu-trigger-v-124\" class=\"dock-icon-button glass-specular-track glass-capsule-hover menu__trigger shrink-0\">\u2026</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 \u00d7 waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <nav data-v-f13b4d11=\"\" aria-label=\"Ap",
+    "transitions": [
+     {
+      "name": "face-to-actionbar-r1",
+      "how": "main face -> action-bar layer (\"Toggle action bar\")",
+      "windowMs": 632.6,
+      "rafFrames": 72,
+      "expected60": 38,
+      "rafDeltaMs": {
+       "n": 71,
+       "p50": 8.3,
+       "p95": 9.8,
+       "max": 41.7
+      },
+      "dropped60": 2,
+      "loaf": [
+       [
+        16.2,
+        55.4,
+        3,
+        [
+         "vue.runtime.esm-bundler-DQai_KuN.js?v=093c0a82:invoker 42ms"
+        ]
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 262,
+       "UpdateLayoutTree": 105,
+       "Layout": 12,
+       "PrePaint": 97,
+       "Paint": 124,
+       "Layerize": 72,
+       "Commit": 76
+      },
+      "traceMs": {
+       "FunctionCall": 29.8,
+       "UpdateLayoutTree": 51.2,
+       "Layout": 2.6,
+       "PrePaint": 5.5,
+       "Paint": 4.3,
+       "Commit": 5.5
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.48,
+       "Layout": 0.17,
+       "PrePaint": 1.37,
+       "Paint": 1.75,
+       "Commit": 1.07
+      },
+      "styleElementsRecalculated": 3437,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 609,
+       "ThreadPoolForegroundWorker:RasterTask": 111,
+       "raster:RasterTask": 111
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         354,
+         58
+        ],
+        "last": [
+         354,
+         58
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 29,
+       "div.dock-face.is-leaving@style": 29,
+       "div.dock-face.is-active@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "div.dock-crossfade.dock-layer-grid.flex-1@style": 6,
+       "div.glass-dock.horizontal.shape-pill@style": 14,
+       "div.dock-layer.dock-layer--full.dock-run@style": 24,
+       "div.dock-layer.dock-layer--summary@style": 12,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@style": 2,
+       "div.dock-face@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-mobile/face-to-actionbar-r1.trace.json",
+      "traceBytes": 8184742
+     },
+     {
+      "name": "actionbar-to-input-r1",
+      "how": "action bar -> colour input (\"Open color input\")",
+      "windowMs": 451.3,
+      "rafFrames": 55,
+      "expected60": 27,
+      "rafDeltaMs": {
+       "n": 54,
+       "p50": 8.3,
+       "p95": 9.5,
+       "max": 10.1
+      },
+      "dropped60": 0,
+      "loaf": [],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 211,
+       "UpdateLayoutTree": 78,
+       "Layout": 7,
+       "PrePaint": 85,
+       "Paint": 147,
+       "Layerize": 53,
+       "Commit": 59
+      },
+      "traceMs": {
+       "FunctionCall": 23.5,
+       "UpdateLayoutTree": 30.4,
+       "Layout": 0.8,
+       "PrePaint": 3.8,
+       "Paint": 5.3,
+       "Commit": 4.4
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.44,
+       "Layout": 0.13,
+       "PrePaint": 1.57,
+       "Paint": 2.72,
+       "Commit": 1.09
+      },
+      "styleElementsRecalculated": 2176,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 497,
+       "ThreadPoolForegroundWorker:RasterTask": 148,
+       "raster:RasterTask": 148
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes]::before CSSTransition:opacity [opacity] 300ms",
+       "div.color-field.relative.w-full CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-right-color [borderRightColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-top-color [borderTopColor] 200ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         354,
+         58
+        ],
+        "last": [
+         354,
+         58
+        ]
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         44,
+         44
+        ],
+        "last": [
+         44,
+         44
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 32,
+       "div.dock-face.is-leaving@style": 32,
+       "div.dock-face.is-leaving@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 7,
+       "div.glass-dock.horizontal.shape-pill@style": 8,
+       "div.dock-layer.dock-layer--full.dock-run@style": 16,
+       "div.dock-layer.dock-layer--summary@style": 8,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]@style": 2,
+       "div.color-field.relative.w-full@style": 1,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-mobile/actionbar-to-input-r1.trace.json",
+      "traceBytes": 6484149
+     },
+     {
+      "name": "input-to-actionbar-r1",
+      "how": "colour input -> action bar (\"Close input\")",
+      "windowMs": 453.4,
+      "rafFrames": 55,
+      "expected60": 27,
+      "rafDeltaMs": {
+       "n": 54,
+       "p50": 8.3,
+       "p95": 9.6,
+       "max": 10.1
+      },
+      "dropped60": 0,
+      "loaf": [],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 266,
+       "UpdateLayoutTree": 103,
+       "Layout": 7,
+       "PrePaint": 87,
+       "Paint": 92,
+       "Layerize": 46,
+       "Commit": 59
+      },
+      "traceMs": {
+       "FunctionCall": 33.5,
+       "UpdateLayoutTree": 26.7,
+       "Layout": 0.9,
+       "PrePaint": 3.4,
+       "Paint": 3.4,
+       "Commit": 3.7
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.91,
+       "Layout": 0.13,
+       "PrePaint": 1.61,
+       "Paint": 1.7,
+       "Commit": 1.09
+      },
+      "styleElementsRecalculated": 2025,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 463,
+       "ThreadPoolForegroundWorker:RasterTask": 62,
+       "raster:RasterTask": 62
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input]::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-right-color [borderRightColor] 200ms",
+       "div.color-field.relative.w-full CSSTransition:border-top-color [borderTopColor] 200ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         354,
+         58
+        ],
+        "last": [
+         354,
+         58
+        ]
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         44,
+         44
+        ],
+        "last": [
+         44,
+         44
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.color-field.relative.w-full@style": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 10,
+       "div.dock-layer.dock-layer--full.dock-run@style": 20,
+       "div.dock-layer.dock-layer--summary@style": 10,
+       "div.dock-face.is-active@style": 32,
+       "div.dock-face.is-leaving@style": 32,
+       "div.dock-face.is-active@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 7,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input]@style": 1,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-mobile/input-to-actionbar-r1.trace.json",
+      "traceBytes": 6278172
+     },
+     {
+      "name": "actionbar-to-face-r1",
+      "how": "action-bar layer -> main face (\"Back\")",
+      "windowMs": 396.9,
+      "rafFrames": 48,
+      "expected60": 24,
+      "rafDeltaMs": {
+       "n": 47,
+       "p50": 8.3,
+       "p95": 9.5,
+       "max": 10.2
+      },
+      "dropped60": 0,
+      "loaf": [],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 183,
+       "UpdateLayoutTree": 59,
+       "Layout": 6,
+       "PrePaint": 76,
+       "Paint": 125,
+       "Layerize": 46,
+       "Commit": 52
+      },
+      "traceMs": {
+       "FunctionCall": 25.1,
+       "UpdateLayoutTree": 32.1,
+       "Layout": 0.6,
+       "PrePaint": 2.8,
+       "Paint": 4.2,
+       "Commit": 3.5
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.26,
+       "Layout": 0.13,
+       "PrePaint": 1.62,
+       "Paint": 2.66,
+       "Commit": 1.11
+      },
+      "styleElementsRecalculated": 2098,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 405,
+       "ThreadPoolForegroundWorker:RasterTask": 93,
+       "raster:RasterTask": 93
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back]::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 3,
+        "first": [
+         164,
+         46
+        ],
+        "last": [
+         164,
+         48
+        ]
+       },
+       "div.dock-plate": {
+        "n": 3,
+        "first": [
+         186,
+         60
+        ],
+        "last": [
+         186,
+         62
+        ]
+       },
+       "div.dock-layers": {
+        "n": 3,
+        "first": [
+         164,
+         46
+        ],
+        "last": [
+         164,
+         48
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 3,
+        "first": [
+         164,
+         46
+        ],
+        "last": [
+         164,
+         48
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 3,
+        "first": [
+         164,
+         46
+        ],
+        "last": [
+         164,
+         48
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 32,
+       "div.dock-face.is-leaving@style": 32,
+       "div.dock-face.is-leaving@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "div.dock-crossfade@style": 6,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back]@style": 2,
+       "div.glass-dock.horizontal.shape-pill@style": 7,
+       "div.dock-layer.dock-layer--full.dock-run@style": 12,
+       "div.dock-layer.dock-layer--summary@style": 6
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/local-mobile/actionbar-to-face-r1.trace.json",
+      "traceBytes": 5212799
+     }
+    ]
+   }
+  }
+ },
+ "prod": {
+  "url": "https://color.babb.dev/",
+  "when": "2026-11-04T02:52:37.068Z",
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+  "cells": {
+   "desktop": {
+    "viewport": {
+     "width": 1800,
+     "height": 1000
+    },
+    "dpr": 2,
+    "idle": {
+     "idleRafP50": 8.3
+    },
+    "notes": [],
+    "error": null,
+    "transitions": [
+     {
+      "name": "collapse-r1",
+      "how": "mouse leaves dock; idle collapse (DOCK_COLLAPSE_DELAY_MS)",
+      "windowMs": 861.2,
+      "rafFrames": 50,
+      "expected60": 52,
+      "rafDeltaMs": {
+       "n": 49,
+       "p50": 9,
+       "p95": 41.6,
+       "max": 41.7
+      },
+      "dropped60": 12,
+      "loaf": [
+       [
+        21.6,
+        59,
+        4.4,
+        []
+       ],
+       [
+        318.5,
+        59.6,
+        0.2,
+        []
+       ],
+       [
+        411,
+        56.2,
+        0.2,
+        []
+       ],
+       [
+        499.1,
+        57.1,
+        0.3,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 180,
+       "UpdateLayoutTree": 91,
+       "Layout": 87,
+       "PrePaint": 120,
+       "Paint": 76,
+       "Layerize": 45,
+       "Commit": 54
+      },
+      "traceMs": {
+       "FunctionCall": 70.4,
+       "UpdateLayoutTree": 75.4,
+       "Layout": 7.5,
+       "PrePaint": 4,
+       "Paint": 5.3,
+       "Commit": 3.2
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.86,
+       "Layout": 1.78,
+       "PrePaint": 2.45,
+       "Paint": 1.55,
+       "Commit": 1.1
+      },
+      "styleElementsRecalculated": 5733,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 481,
+       "ThreadPoolForegroundWorker:RasterTask": 74,
+       "raster:RasterTask": 74
+      },
+      "animations": [
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 12,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         450,
+         54
+        ],
+        "last": [
+         54,
+         54
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-layers": {
+        "n": 12,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 12,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         56,
+         56
+        ],
+        "maxStepW": 380
+       }
+      },
+      "attrMutations": {
+       "div.glass-dock.horizontal.shape-pill@style": 71,
+       "div.dock-layer.dock-layer--full.dock-run@style": 97,
+       "div.dock-layer.dock-layer--summary.is-active[Expand dock]@style": 87,
+       "div.glass-dock.horizontal.shape-pill@data-morphing": 1,
+       "div.dock-layers@style": 1,
+       "div.dock-layer.dock-layer--full.dock-run@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/collapse-r1.trace.json",
+      "traceBytes": 18809842
+     },
+     {
+      "name": "expand-r1",
+      "how": "mouse enters collapsed dock (hover expand)",
+      "windowMs": 911.6,
+      "rafFrames": 46,
+      "expected60": 55,
+      "rafDeltaMs": {
+       "n": 45,
+       "p50": 9,
+       "p95": 50,
+       "max": 67.9
+      },
+      "dropped60": 22,
+      "loaf": [
+       [
+        196.4,
+        63.4,
+        2.8,
+        []
+       ],
+       [
+        265.1,
+        58.3,
+        2.8,
+        []
+       ],
+       [
+        358.4,
+        66.5,
+        0.1,
+        []
+       ],
+       [
+        427.8,
+        61.9,
+        0.2,
+        []
+       ],
+       [
+        490.2,
+        69.9,
+        0.1,
+        []
+       ],
+       [
+        595.3,
+        71,
+        1.9,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 158,
+       "UpdateLayoutTree": 57,
+       "Layout": 45,
+       "PrePaint": 107,
+       "Paint": 69,
+       "Layerize": 37,
+       "Commit": 48
+      },
+      "traceMs": {
+       "FunctionCall": 39.1,
+       "UpdateLayoutTree": 50.9,
+       "Layout": 4.4,
+       "PrePaint": 3,
+       "Paint": 4.9,
+       "Commit": 3
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.27,
+       "Layout": 1,
+       "PrePaint": 2.38,
+       "Paint": 1.53,
+       "Commit": 1.07
+      },
+      "styleElementsRecalculated": 3305,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 465,
+       "ThreadPoolForegroundWorker:RasterTask": 92,
+       "raster:RasterTask": 92
+      },
+      "animations": [
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 11,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         427.6,
+         40.2
+        ],
+        "maxStepW": 395.6
+       },
+       "div.dock-plate": {
+        "n": 3,
+        "first": [
+         54,
+         54
+        ],
+        "last": [
+         449.6,
+         54.2
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 11,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         427.6,
+         40.2
+        ],
+        "maxStepW": 395.6
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 11,
+        "first": [
+         56,
+         56
+        ],
+        "last": [
+         427.6,
+         40.2
+        ],
+        "maxStepW": 379.6
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         427.6,
+         40.2
+        ],
+        "last": [
+         427.6,
+         40.2
+        ]
+       },
+       "div.dock-layer.dock-layer--summary.is-active[Expand dock]": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-layer.dock-layer--full.dock-run@class": 1,
+       "div.dock-layer.dock-layer--summary.is-leaving@class": 1,
+       "div.glass-dock.horizontal.shape-pill@class": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 44,
+       "div.dock-layer.dock-layer--full.dock-run@style": 60,
+       "div.dock-layer.dock-layer--summary.is-leaving@style": 22,
+       "div.glass-dock.horizontal.shape-pill@data-morphing": 2,
+       "div.dock-layers@style": 4,
+       "div.dock-layer.dock-layer--summary@class": 1,
+       "div.dock-layer.dock-layer--summary@style": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/expand-r1.trace.json",
+      "traceBytes": 5265630
+     },
+     {
+      "name": "face-to-actionbar-r1",
+      "how": "main face -> action-bar layer (\"Toggle action bar\")",
+      "windowMs": 886.1,
+      "rafFrames": 23,
+      "expected60": 53,
+      "rafDeltaMs": {
+       "n": 22,
+       "p50": 33.7,
+       "p95": 75.3,
+       "max": 79.6
+      },
+      "dropped60": 34,
+      "loaf": [
+       [
+        72.9,
+        51.9,
+        4.6,
+        [
+         "dock-BI0r5Zbg.js: 10ms"
+        ]
+       ],
+       [
+        125.7,
+        68.8,
+        0,
+        []
+       ],
+       [
+        236.7,
+        76.6,
+        0.2,
+        []
+       ],
+       [
+        313.9,
+        79.6,
+        1,
+        [
+         "menu-DaYAZiVW-eDmxKFyn.js: 12ms"
+        ]
+       ],
+       [
+        396.3,
+        71.9,
+        0.1,
+        []
+       ],
+       [
+        468.6,
+        86.2,
+        0,
+        []
+       ],
+       [
+        556.3,
+        86,
+        0.1,
+        []
+       ],
+       [
+        643.6,
+        82.7,
+        0.2,
+        []
+       ],
+       [
+        727.6,
+        76.8,
+        0.1,
+        []
+       ],
+       [
+        805.9,
+        79.3,
+        0,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 84,
+       "UpdateLayoutTree": 53,
+       "Layout": 11,
+       "PrePaint": 52,
+       "Paint": 42,
+       "Layerize": 23,
+       "Commit": 23
+      },
+      "traceMs": {
+       "FunctionCall": 39.6,
+       "UpdateLayoutTree": 51.9,
+       "Layout": 3,
+       "PrePaint": 3.2,
+       "Paint": 3.4,
+       "Commit": 2.4
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2.41,
+       "Layout": 0.5,
+       "PrePaint": 2.36,
+       "Paint": 1.91,
+       "Commit": 1.05
+      },
+      "styleElementsRecalculated": 2602,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 381,
+       "ThreadPoolForegroundWorker:RasterTask": 63,
+       "raster:RasterTask": 63
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 4,
+        "first": [
+         427.6,
+         40.2
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-plate": {
+        "n": 4,
+        "first": [
+         449.6,
+         54.2
+        ],
+        "last": [
+         376,
+         58
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 4,
+        "first": [
+         427.6,
+         40.2
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 4,
+        "first": [
+         427.6,
+         40.2
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 4,
+        "first": [
+         427.6,
+         40.2
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 10,
+       "div.dock-face.is-leaving@style": 10,
+       "div.dock-face.is-active@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "div.dock-crossfade@style": 6,
+       "div.dock-crossfade.dock-layer-grid.flex-1@style": 2,
+       "div.glass-dock.horizontal.shape-pill@style": 11,
+       "div.dock-layer.dock-layer--full.dock-run@style": 20,
+       "div.dock-layer.dock-layer--summary@style": 10,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@style": 2,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]@data-state": 1,
+       "div@style": 8,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 1,
+       "div.dock-face@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/face-to-actionbar-r1.trace.json",
+      "traceBytes": 4691955
+     },
+     {
+      "name": "actionbar-to-input-r1",
+      "how": "action bar -> colour input (\"Open color input\")",
+      "windowMs": 685.9,
+      "rafFrames": 19,
+      "expected60": 41,
+      "rafDeltaMs": {
+       "n": 18,
+       "p50": 33.4,
+       "p95": 75,
+       "max": 83.3
+      },
+      "dropped60": 22,
+      "loaf": [
+       [
+        58.6,
+        59,
+        0.4,
+        []
+       ],
+       [
+        118.4,
+        85.1,
+        1.6,
+        []
+       ],
+       [
+        250.2,
+        84.7,
+        5.2,
+        [
+         "vue.runtime.esm-bundler-2l_pzWEZ.js: 10ms"
+        ]
+       ],
+       [
+        335.8,
+        70.5,
+        0.2,
+        []
+       ],
+       [
+        407.6,
+        69.3,
+        0.1,
+        []
+       ],
+       [
+        512.4,
+        68.8,
+        0.1,
+        []
+       ],
+       [
+        618.1,
+        68.1,
+        0.3,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 71,
+       "UpdateLayoutTree": 48,
+       "Layout": 9,
+       "PrePaint": 44,
+       "Paint": 48,
+       "Layerize": 18,
+       "Commit": 19
+      },
+      "traceMs": {
+       "FunctionCall": 45.8,
+       "UpdateLayoutTree": 45.2,
+       "Layout": 1.4,
+       "PrePaint": 2.8,
+       "Paint": 2.5,
+       "Commit": 2.5
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2.67,
+       "Layout": 0.5,
+       "PrePaint": 2.44,
+       "Paint": 2.67,
+       "Commit": 1.06
+      },
+      "styleElementsRecalculated": 1840,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 291,
+       "ThreadPoolForegroundWorker:RasterTask": 48,
+       "raster:RasterTask": 48
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSAnimation:glass-reveal-out [opacity+scale+filter] 250ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:translate [translate] 250ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-right-color [borderRightColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-top-color [borderTopColor] 200ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         376,
+         58
+        ],
+        "last": [
+         376,
+         58
+        ]
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]@data-state": 1,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@data-state": 1,
+       "div.dock-face.is-active@style": 10,
+       "div.dock-face.is-leaving@style": 10,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 7,
+       "div.dock-face.is-leaving@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 8,
+       "div.dock-layer.dock-layer--full.dock-run@style": 16,
+       "div.dock-layer.dock-layer--summary@style": 8,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]@style": 2,
+       "span.color-input.w-full.block[Enter a CSS color]@style": 1,
+       "div@style": 10,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 1,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 4,
+       "div.dock-face@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/actionbar-to-input-r1.trace.json",
+      "traceBytes": 3831615
+     },
+     {
+      "name": "input-to-actionbar-r1",
+      "how": "colour input -> action bar (\"Close input\")",
+      "windowMs": 568.7,
+      "rafFrames": 21,
+      "expected60": 34,
+      "rafDeltaMs": {
+       "n": 20,
+       "p50": 25.2,
+       "p95": 50,
+       "max": 66.6
+      },
+      "dropped60": 13,
+      "loaf": [
+       [
+        79.7,
+        59.7,
+        0.4,
+        []
+       ],
+       [
+        172,
+        60.5,
+        0.4,
+        []
+       ],
+       [
+        232.8,
+        63.4,
+        3.7,
+        [
+         "vue.runtime.esm-bundler-2l_pzWEZ.js: 5ms"
+        ]
+       ],
+       [
+        350.9,
+        60.7,
+        0.2,
+        []
+       ],
+       [
+        412.1,
+        63.4,
+        0,
+        []
+       ],
+       [
+        476,
+        62.4,
+        0.2,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 100,
+       "UpdateLayoutTree": 47,
+       "Layout": 7,
+       "PrePaint": 49,
+       "Paint": 37,
+       "Layerize": 17,
+       "Commit": 22
+      },
+      "traceMs": {
+       "FunctionCall": 29.9,
+       "UpdateLayoutTree": 23.5,
+       "Layout": 1,
+       "PrePaint": 1.9,
+       "Paint": 1.8,
+       "Commit": 1.7
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2.35,
+       "Layout": 0.35,
+       "PrePaint": 2.45,
+       "Paint": 1.85,
+       "Commit": 1.1
+      },
+      "styleElementsRecalculated": 1981,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 298,
+       "ThreadPoolForegroundWorker:RasterTask": 24,
+       "raster:RasterTask": 24
+      },
+      "animations": [
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-right-color [borderRightColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-top-color [borderTopColor] 200ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {},
+      "attrMutations": {
+       "span.color-input.w-full.block[Enter a CSS color]@style": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 10,
+       "div.dock-layer.dock-layer--full.dock-run@style": 20,
+       "div.dock-layer.dock-layer--summary@style": 10,
+       "div.dock-face.is-active@style": 12,
+       "div.dock-face.is-leaving@style": 12,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 7,
+       "div.dock-face.is-active@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 4,
+       "div.dock-face@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/input-to-actionbar-r1.trace.json",
+      "traceBytes": 3643614
+     },
+     {
+      "name": "actionbar-to-face-r1",
+      "how": "action-bar layer -> main face (\"Back\")",
+      "windowMs": 396.2,
+      "rafFrames": 18,
+      "expected60": 24,
+      "rafDeltaMs": {
+       "n": 17,
+       "p50": 24.9,
+       "p95": 33.4,
+       "max": 58.3
+      },
+      "dropped60": 6,
+      "loaf": [
+       [
+        77.1,
+        55.8,
+        0.7,
+        []
+       ],
+       [
+        134,
+        55.1,
+        0.8,
+        []
+       ],
+       [
+        190.4,
+        53.9,
+        0.2,
+        []
+       ],
+       [
+        272.1,
+        50.2,
+        0.1,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 72,
+       "UpdateLayoutTree": 26,
+       "Layout": 4,
+       "PrePaint": 38,
+       "Paint": 36,
+       "Layerize": 17,
+       "Commit": 20
+      },
+      "traceMs": {
+       "FunctionCall": 14.3,
+       "UpdateLayoutTree": 17.2,
+       "Layout": 0.4,
+       "PrePaint": 1.2,
+       "Paint": 1.5,
+       "Commit": 1.5
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.53,
+       "Layout": 0.24,
+       "PrePaint": 2.24,
+       "Paint": 2.12,
+       "Commit": 1.18
+      },
+      "styleElementsRecalculated": 991,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 246,
+       "ThreadPoolForegroundWorker:RasterTask": 42,
+       "raster:RasterTask": 42
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back]::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back]::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-trigger.dock-select-trigger.view-select-trigger[Select view]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         376,
+         58
+        ],
+        "last": [
+         449.6,
+         58
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 2,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 11,
+       "div.dock-face.is-leaving@style": 11,
+       "div.dock-face.is-leaving@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back]@style": 2,
+       "div.glass-dock.horizontal.shape-pill@style": 3,
+       "div.dock-layer.dock-layer--full.dock-run@style": 4,
+       "div.dock-layer.dock-layer--summary@style": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/actionbar-to-face-r1.trace.json",
+      "traceBytes": 2940584
+     },
+     {
+      "name": "menu-open-r1",
+      "how": "open the dock menu (first visible [aria-haspopup=menu])",
+      "windowMs": 439.9,
+      "rafFrames": 18,
+      "expected60": 26,
+      "rafDeltaMs": {
+       "n": 17,
+       "p50": 24.3,
+       "p95": 50,
+       "max": 57.7
+      },
+      "dropped60": 10,
+      "loaf": [
+       [
+        98,
+        53.2,
+        0.1,
+        []
+       ],
+       [
+        152.6,
+        53.6,
+        0.4,
+        []
+       ],
+       [
+        233.9,
+        54.8,
+        0.2,
+        []
+       ],
+       [
+        289,
+        56.8,
+        0.2,
+        []
+       ],
+       [
+        376.7,
+        63.3,
+        0,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 47,
+       "UpdateLayoutTree": 32,
+       "Layout": 6,
+       "PrePaint": 40,
+       "Paint": 34,
+       "Layerize": 16,
+       "Commit": 19
+      },
+      "traceMs": {
+       "FunctionCall": 12.6,
+       "UpdateLayoutTree": 21.9,
+       "Layout": 0.8,
+       "PrePaint": 1.4,
+       "Paint": 2.2,
+       "Commit": 1.6
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.88,
+       "Layout": 0.35,
+       "PrePaint": 2.35,
+       "Paint": 2,
+       "Commit": 1.12
+      },
+      "styleElementsRecalculated": 1415,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 270,
+       "ThreadPoolForegroundWorker:RasterTask": 93,
+       "raster:RasterTask": 93
+      },
+      "animations": [
+       "button.dock-trigger.dock-select-trigger.view-select-trigger[Select view]::before CSSTransition:opacity [opacity] 300ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger CSSTransition:background-color [backgroundColor] 200ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:filter [filter] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:opacity [opacity] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:scale [scale] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:translate [translate] 200ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {},
+      "attrMutations": {
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger@data-state": 1,
+       "body.relative@style": 2,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 2,
+       "div@style": 8,
+       "div.glass-dock.horizontal.shape-pill@style": 4,
+       "div.dock-layer.dock-layer--full.dock-run@style": 8,
+       "div.dock-layer.dock-layer--summary@style": 4,
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger@style": 2,
+       "img.avatar__image@style": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/menu-open-r1.trace.json",
+      "traceBytes": 3560335
+     },
+     {
+      "name": "collapse-r2",
+      "how": "mouse leaves dock; idle collapse (DOCK_COLLAPSE_DELAY_MS)",
+      "windowMs": 831.4,
+      "rafFrames": 46,
+      "expected60": 50,
+      "rafDeltaMs": {
+       "n": 45,
+       "p50": 8.7,
+       "p95": 41.7,
+       "max": 50
+      },
+      "dropped60": 17,
+      "loaf": [
+       [
+        355.8,
+        55.9,
+        0.3,
+        []
+       ],
+       [
+        443.4,
+        65.7,
+        0.3,
+        []
+       ],
+       [
+        513.7,
+        70.1,
+        9.6,
+        [
+         "dock-CZYoPhoG.js: 8ms"
+        ]
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 163,
+       "UpdateLayoutTree": 90,
+       "Layout": 86,
+       "PrePaint": 111,
+       "Paint": 86,
+       "Layerize": 38,
+       "Commit": 47
+      },
+      "traceMs": {
+       "FunctionCall": 120.3,
+       "UpdateLayoutTree": 135.8,
+       "Layout": 8.6,
+       "PrePaint": 5.4,
+       "Paint": 7.8,
+       "Commit": 3.6
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2,
+       "Layout": 1.91,
+       "PrePaint": 2.47,
+       "Paint": 1.91,
+       "Commit": 1.04
+      },
+      "styleElementsRecalculated": 11717,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 461,
+       "ThreadPoolForegroundWorker:RasterTask": 71,
+       "raster:RasterTask": 71
+      },
+      "animations": [
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 12,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         450,
+         54
+        ],
+        "last": [
+         54,
+         54
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-layers": {
+        "n": 12,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ],
+        "maxStepW": 396
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 12,
+        "first": [
+         428.4,
+         40
+        ],
+        "last": [
+         56,
+         56
+        ],
+        "maxStepW": 380
+       }
+      },
+      "attrMutations": {
+       "div.glass-dock.horizontal.shape-pill@style": 70,
+       "div.dock-layer.dock-layer--full.dock-run@style": 97,
+       "div.dock-layer.dock-layer--summary.is-active[Expand dock]@style": 87,
+       "div.glass-dock.horizontal.shape-pill@data-morphing": 1,
+       "div.dock-layers@style": 1,
+       "div.dock-layer.dock-layer--full.dock-run@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/collapse-r2.trace.json",
+      "traceBytes": 19281455
+     },
+     {
+      "name": "expand-r2",
+      "how": "mouse enters collapsed dock (hover expand)",
+      "windowMs": 956.3,
+      "rafFrames": 43,
+      "expected60": 57,
+      "rafDeltaMs": {
+       "n": 42,
+       "p50": 8.4,
+       "p95": 74.9,
+       "max": 75.1
+      },
+      "dropped60": 27,
+      "loaf": [
+       [
+        81.2,
+        52.7,
+        8.8,
+        [
+         "dock-CZYoPhoG.js: 15ms",
+         "dock-CZYoPhoG.js: 5ms"
+        ]
+       ],
+       [
+        310.6,
+        78.2,
+        6.6,
+        [
+         "dock-CZYoPhoG.js: 6ms"
+        ]
+       ],
+       [
+        389.5,
+        74.2,
+        6.1,
+        [
+         "dock-CZYoPhoG.js: 5ms"
+        ]
+       ],
+       [
+        464.4,
+        68.2,
+        0.3,
+        []
+       ],
+       [
+        533.2,
+        75.1,
+        0.2,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 140,
+       "UpdateLayoutTree": 51,
+       "Layout": 38,
+       "PrePaint": 88,
+       "Paint": 57,
+       "Layerize": 38,
+       "Commit": 43
+      },
+      "traceMs": {
+       "FunctionCall": 71.3,
+       "UpdateLayoutTree": 97.4,
+       "Layout": 5.3,
+       "PrePaint": 4.1,
+       "Paint": 5.4,
+       "Commit": 3.2
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.21,
+       "Layout": 0.9,
+       "PrePaint": 2.1,
+       "Paint": 1.36,
+       "Commit": 1.02
+      },
+      "styleElementsRecalculated": 6002,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 431,
+       "ThreadPoolForegroundWorker:RasterTask": 75,
+       "raster:RasterTask": 75
+      },
+      "animations": [
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 9,
+        "first": [
+         435.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 2.5
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         450,
+         58
+        ],
+        "last": [
+         449.6,
+         58
+        ],
+        "maxStepW": 0.4
+       },
+       "div.dock-layers": {
+        "n": 9,
+        "first": [
+         435.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 2.5
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 9,
+        "first": [
+         435.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ],
+        "maxStepW": 2.5
+       }
+      },
+      "attrMutations": {
+       "div.dock-layer.dock-layer--full.dock-run@class": 1,
+       "div.dock-layer.dock-layer--summary.is-leaving@class": 1,
+       "div.glass-dock.horizontal.shape-pill@class": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 38,
+       "div.dock-layer.dock-layer--full.dock-run@style": 52,
+       "div.dock-layer.dock-layer--summary.is-leaving@style": 20,
+       "div.glass-dock.horizontal.shape-pill@data-morphing": 2,
+       "div.dock-layers@style": 4,
+       "div.dock-layer.dock-layer--summary@class": 1,
+       "div.dock-layer.dock-layer--summary@style": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/expand-r2.trace.json",
+      "traceBytes": 5346005
+     },
+     {
+      "name": "face-to-actionbar-r2",
+      "how": "main face -> action-bar layer (\"Toggle action bar\")",
+      "windowMs": 880.1,
+      "rafFrames": 28,
+      "expected60": 53,
+      "rafDeltaMs": {
+       "n": 27,
+       "p50": 25,
+       "p95": 66.7,
+       "max": 75.2
+      },
+      "dropped60": 27,
+      "loaf": [
+       [
+        129.4,
+        68,
+        0.9,
+        []
+       ],
+       [
+        199.6,
+        65.7,
+        0.2,
+        []
+       ],
+       [
+        267.2,
+        65.5,
+        0.2,
+        []
+       ],
+       [
+        369.7,
+        72.9,
+        0.7,
+        []
+       ],
+       [
+        444.1,
+        72.6,
+        0.1,
+        []
+       ],
+       [
+        517.1,
+        72.3,
+        0.2,
+        []
+       ],
+       [
+        591.5,
+        70.8,
+        0.2,
+        []
+       ],
+       [
+        663.5,
+        70.4,
+        0.1,
+        []
+       ],
+       [
+        735.3,
+        71.1,
+        0.2,
+        []
+       ],
+       [
+        807.5,
+        71.5,
+        0.2,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 98,
+       "UpdateLayoutTree": 42,
+       "Layout": 5,
+       "PrePaint": 50,
+       "Paint": 30,
+       "Layerize": 28,
+       "Commit": 28
+      },
+      "traceMs": {
+       "FunctionCall": 19.8,
+       "UpdateLayoutTree": 26.6,
+       "Layout": 1,
+       "PrePaint": 2.2,
+       "Paint": 2.1,
+       "Commit": 2.9
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.56,
+       "Layout": 0.19,
+       "PrePaint": 1.85,
+       "Paint": 1.11,
+       "Commit": 1.04
+      },
+      "styleElementsRecalculated": 1063,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 426,
+       "ThreadPoolForegroundWorker:RasterTask": 43,
+       "raster:RasterTask": 43
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 2,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         449.6,
+         58
+        ],
+        "last": [
+         376,
+         58
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 2,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 2,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 2,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ],
+        "maxStepW": 73.6
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 12,
+       "div.dock-face.is-leaving@style": 12,
+       "div.dock-face.is-active@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@style": 2,
+       "div.glass-dock.horizontal.shape-pill@style": 3,
+       "div.dock-layer.dock-layer--full.dock-run@style": 4,
+       "div.dock-layer.dock-layer--summary@style": 2,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]@data-state": 1,
+       "div@style": 8,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 1,
+       "div.dock-face@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/face-to-actionbar-r2.trace.json",
+      "traceBytes": 4653504
+     },
+     {
+      "name": "actionbar-to-input-r2",
+      "how": "action bar -> colour input (\"Open color input\")",
+      "windowMs": 551.1,
+      "rafFrames": 20,
+      "expected60": 33,
+      "rafDeltaMs": {
+       "n": 19,
+       "p50": 33.2,
+       "p95": 50,
+       "max": 50
+      },
+      "dropped60": 16,
+      "loaf": [
+       [
+        97,
+        70.8,
+        1.4,
+        []
+       ],
+       [
+        205.7,
+        75.1,
+        5,
+        [
+         "vue.runtime.esm-bundler-2l_pzWEZ.js: 7ms"
+        ]
+       ],
+       [
+        416,
+        66.8,
+        0.2,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 75,
+       "UpdateLayoutTree": 45,
+       "Layout": 9,
+       "PrePaint": 47,
+       "Paint": 57,
+       "Layerize": 19,
+       "Commit": 20
+      },
+      "traceMs": {
+       "FunctionCall": 34.5,
+       "UpdateLayoutTree": 34.5,
+       "Layout": 1.2,
+       "PrePaint": 2.5,
+       "Paint": 2.7,
+       "Commit": 2.4
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2.37,
+       "Layout": 0.47,
+       "PrePaint": 2.47,
+       "Paint": 3,
+       "Commit": 1.05
+      },
+      "styleElementsRecalculated": 1852,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 272,
+       "ThreadPoolForegroundWorker:RasterTask": 53,
+       "raster:RasterTask": 53
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSAnimation:glass-reveal-out [opacity+scale+filter] 250ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:translate [translate] 250ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-right-color [borderRightColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-top-color [borderTopColor] 200ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         376,
+         58
+        ],
+        "last": [
+         376,
+         58
+        ]
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Copy color]@data-state": 1,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@data-state": 1,
+       "div.dock-face.is-active@style": 10,
+       "div.dock-face.is-leaving@style": 10,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 7,
+       "div.dock-face.is-leaving@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 8,
+       "div.dock-layer.dock-layer--full.dock-run@style": 16,
+       "div.dock-layer.dock-layer--summary@style": 8,
+       "span.color-input.w-full.block[Enter a CSS color]@style": 1,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 2,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/actionbar-to-input-r2.trace.json",
+      "traceBytes": 3749456
+     },
+     {
+      "name": "input-to-actionbar-r2",
+      "how": "colour input -> action bar (\"Close input\")",
+      "windowMs": 517.7,
+      "rafFrames": 19,
+      "expected60": 31,
+      "rafDeltaMs": {
+       "n": 18,
+       "p50": 25.1,
+       "p95": 57.7,
+       "max": 59.1
+      },
+      "dropped60": 14,
+      "loaf": [
+       [
+        88.4,
+        62.1,
+        0.3,
+        []
+       ],
+       [
+        151,
+        58.5,
+        0.4,
+        []
+       ],
+       [
+        209.9,
+        64.5,
+        4.8,
+        [
+         "vue.runtime.esm-bundler-2l_pzWEZ.js: 5ms"
+        ]
+       ],
+       [
+        303,
+        60.4,
+        0.2,
+        []
+       ],
+       [
+        364,
+        63.3,
+        0.1,
+        []
+       ],
+       [
+        457.8,
+        59.3,
+        0.1,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 88,
+       "UpdateLayoutTree": 44,
+       "Layout": 7,
+       "PrePaint": 45,
+       "Paint": 33,
+       "Layerize": 18,
+       "Commit": 19
+      },
+      "traceMs": {
+       "FunctionCall": 34.6,
+       "UpdateLayoutTree": 28.4,
+       "Layout": 1,
+       "PrePaint": 2,
+       "Paint": 1.6,
+       "Commit": 1.7
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 2.44,
+       "Layout": 0.39,
+       "PrePaint": 2.5,
+       "Paint": 1.83,
+       "Commit": 1.06
+      },
+      "styleElementsRecalculated": 1963,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 275,
+       "ThreadPoolForegroundWorker:RasterTask": 22,
+       "raster:RasterTask": 22
+      },
+      "animations": [
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-right-color [borderRightColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-top-color [borderTopColor] 200ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         376,
+         58
+        ],
+        "last": [
+         376,
+         58
+        ]
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         354,
+         44
+        ],
+        "last": [
+         354,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "span.color-input.w-full.block[Enter a CSS color]@style": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 10,
+       "div.dock-layer.dock-layer--full.dock-run@style": 20,
+       "div.dock-layer.dock-layer--summary@style": 10,
+       "div.dock-face.is-active@style": 10,
+       "div.dock-face.is-leaving@style": 10,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 7,
+       "div.dock-face.is-active@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/input-to-actionbar-r2.trace.json",
+      "traceBytes": 3294923
+     },
+     {
+      "name": "actionbar-to-face-r2",
+      "how": "action-bar layer -> main face (\"Back\")",
+      "windowMs": 417.3,
+      "rafFrames": 18,
+      "expected60": 25,
+      "rafDeltaMs": {
+       "n": 17,
+       "p50": 16.7,
+       "p95": 57.7,
+       "max": 58.4
+      },
+      "dropped60": 11,
+      "loaf": [
+       [
+        83.7,
+        62,
+        0.8,
+        []
+       ],
+       [
+        146.9,
+        60.1,
+        1.2,
+        []
+       ],
+       [
+        207.5,
+        61,
+        0.2,
+        []
+       ],
+       [
+        270.2,
+        58.6,
+        0.2,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 65,
+       "UpdateLayoutTree": 26,
+       "Layout": 4,
+       "PrePaint": 34,
+       "Paint": 27,
+       "Layerize": 16,
+       "Commit": 18
+      },
+      "traceMs": {
+       "FunctionCall": 15.8,
+       "UpdateLayoutTree": 20,
+       "Layout": 0.5,
+       "PrePaint": 1.1,
+       "Paint": 1.5,
+       "Commit": 1.5
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.53,
+       "Layout": 0.24,
+       "PrePaint": 2,
+       "Paint": 1.59,
+       "Commit": 1.06
+      },
+      "styleElementsRecalculated": 963,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 240,
+       "ThreadPoolForegroundWorker:RasterTask": 43,
+       "raster:RasterTask": 43
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-trigger.dock-select-trigger.view-select-trigger[Select view]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         449.6,
+         58
+        ],
+        "last": [
+         449.6,
+         58
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 11,
+       "div.dock-face.is-leaving@style": 11,
+       "div.dock-face.is-leaving@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 3,
+       "div.dock-layer.dock-layer--full.dock-run@style": 4,
+       "div.dock-layer.dock-layer--summary@style": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/actionbar-to-face-r2.trace.json",
+      "traceBytes": 3053061
+     },
+     {
+      "name": "menu-open-r2",
+      "how": "open the dock menu (first visible [aria-haspopup=menu])",
+      "windowMs": 423.5,
+      "rafFrames": 16,
+      "expected60": 25,
+      "rafDeltaMs": {
+       "n": 15,
+       "p50": 25,
+       "p95": 50,
+       "max": 58.3
+      },
+      "dropped60": 11,
+      "loaf": [
+       [
+        108,
+        72.2,
+        0.6,
+        []
+       ],
+       [
+        181.7,
+        69.2,
+        0.6,
+        []
+       ],
+       [
+        288,
+        68.2,
+        0.1,
+        []
+       ],
+       [
+        356.7,
+        67.2,
+        0.3,
+        []
+       ]
+      ],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 41,
+       "UpdateLayoutTree": 22,
+       "Layout": 5,
+       "PrePaint": 34,
+       "Paint": 27,
+       "Layerize": 14,
+       "Commit": 16
+      },
+      "traceMs": {
+       "FunctionCall": 5.9,
+       "UpdateLayoutTree": 15.9,
+       "Layout": 0.7,
+       "PrePaint": 1,
+       "Paint": 1.5,
+       "Commit": 1.5
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.47,
+       "Layout": 0.33,
+       "PrePaint": 2.27,
+       "Paint": 1.8,
+       "Commit": 1.07
+      },
+      "styleElementsRecalculated": 700,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 230,
+       "ThreadPoolForegroundWorker:RasterTask": 82,
+       "raster:RasterTask": 82
+      },
+      "animations": [
+       "button.dock-trigger.dock-select-trigger.view-select-trigger[Select view]::before CSSTransition:opacity [opacity] 300ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger CSSTransition:background-color [backgroundColor] 200ms",
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:filter [filter] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:opacity [opacity] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:scale [scale] 200ms",
+       "div.glass-floating.glass-overlay-plate.glass-reveal CSSTransition:translate [translate] 200ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         449.6,
+         58
+        ],
+        "last": [
+         449.6,
+         58
+        ]
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         427.6,
+         44
+        ],
+        "last": [
+         427.6,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         40,
+         40
+        ],
+        "last": [
+         40,
+         40
+        ]
+       }
+      },
+      "attrMutations": {
+       "button.menu__trigger.dock-trigger.dock-dropdown-trigger@data-state": 1,
+       "body.relative@style": 2,
+       "div.glass-floating.glass-overlay-plate.glass-reveal@style": 2,
+       "div@style": 8,
+       "img.avatar__image@style": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-desktop/menu-open-r2.trace.json",
+      "traceBytes": 2901161
+     }
+    ]
+   },
+   "mobile": {
+    "viewport": {
+     "width": 390,
+     "height": 844
+    },
+    "dpr": 3,
+    "idle": {
+     "idleRafP50": 8.3
+    },
+    "notes": [],
+    "error": "locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.glass-dock [aria-haspopup=menu]:visible').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-v-f438d6e7=\"\" data-press-armed=\"\" data-state=\"closed\" aria-haspopup=\"menu\" aria-expanded=\"false\" data-glass-dock-seat=\"\" data-slot=\"menu-trigger\" aria-label=\"More actions\" id=\"reka-dropdown-menu-trigger-v-37\" class=\"dock-icon-button glass-specular-track glass-capsule-hover menu__trigger shrink-0\">\u2026</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 \u00d7 waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <nav data-v-112be1c2=\"\" aria-label=\"App",
+    "transitions": [
+     {
+      "name": "face-to-actionbar-r1",
+      "how": "main face -> action-bar layer (\"Toggle action bar\")",
+      "windowMs": 633.7,
+      "rafFrames": 73,
+      "expected60": 38,
+      "rafDeltaMs": {
+       "n": 72,
+       "p50": 8.3,
+       "p95": 8.7,
+       "max": 41.6
+      },
+      "dropped60": 1,
+      "loaf": [],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 266,
+       "UpdateLayoutTree": 106,
+       "Layout": 12,
+       "PrePaint": 98,
+       "Paint": 124,
+       "Layerize": 73,
+       "Commit": 77
+      },
+      "traceMs": {
+       "FunctionCall": 31.4,
+       "UpdateLayoutTree": 51,
+       "Layout": 2,
+       "PrePaint": 4.7,
+       "Paint": 4.3,
+       "Commit": 5
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.47,
+       "Layout": 0.17,
+       "PrePaint": 1.36,
+       "Paint": 1.72,
+       "Commit": 1.07
+      },
+      "styleElementsRecalculated": 3583,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 620,
+       "ThreadPoolForegroundWorker:RasterTask": 111,
+       "raster:RasterTask": 111
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 2,
+        "first": [
+         164,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ],
+        "maxStepW": 168
+       },
+       "div.dock-plate": {
+        "n": 2,
+        "first": [
+         186,
+         58
+        ],
+        "last": [
+         354,
+         58
+        ],
+        "maxStepW": 168
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 2,
+        "first": [
+         164,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ],
+        "maxStepW": 168
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 2,
+        "first": [
+         164,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ],
+        "maxStepW": 168
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 2,
+        "first": [
+         164,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ],
+        "maxStepW": 168
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         44,
+         44
+        ],
+        "last": [
+         44,
+         44
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 29,
+       "div.dock-face.is-leaving@style": 29,
+       "div.dock-face.is-active@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "div.dock-crossfade.dock-layer-grid.flex-1@style": 6,
+       "div.glass-dock.horizontal.shape-pill@style": 14,
+       "div.dock-layer.dock-layer--full.dock-run@style": 24,
+       "div.dock-layer.dock-layer--summary@style": 12,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@style": 2,
+       "div.dock-face@class": 1
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-mobile/face-to-actionbar-r1.trace.json",
+      "traceBytes": 7718755
+     },
+     {
+      "name": "actionbar-to-input-r1",
+      "how": "action bar -> colour input (\"Open color input\")",
+      "windowMs": 472.8,
+      "rafFrames": 57,
+      "expected60": 28,
+      "rafDeltaMs": {
+       "n": 56,
+       "p50": 8.3,
+       "p95": 8.8,
+       "max": 9.3
+      },
+      "dropped60": 0,
+      "loaf": [],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 218,
+       "UpdateLayoutTree": 80,
+       "Layout": 8,
+       "PrePaint": 86,
+       "Paint": 146,
+       "Layerize": 55,
+       "Commit": 61
+      },
+      "traceMs": {
+       "FunctionCall": 33.8,
+       "UpdateLayoutTree": 39.4,
+       "Layout": 1.1,
+       "PrePaint": 4.3,
+       "Paint": 5.7,
+       "Commit": 5.6
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.43,
+       "Layout": 0.14,
+       "PrePaint": 1.54,
+       "Paint": 2.61,
+       "Commit": 1.09
+      },
+      "styleElementsRecalculated": 2226,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 507,
+       "ThreadPoolForegroundWorker:RasterTask": 144,
+       "raster:RasterTask": 144
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Palettes]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-right-color [borderRightColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-top-color [borderTopColor] 200ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-type-icon.lucide-type CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {},
+      "attrMutations": {
+       "div.dock-face.is-active@style": 32,
+       "div.dock-face.is-leaving@style": 32,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 7,
+       "div.dock-face.is-leaving@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 8,
+       "div.dock-layer.dock-layer--full.dock-run@style": 16,
+       "div.dock-layer.dock-layer--summary@style": 8,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Close input]@style": 2,
+       "span.color-input.w-full.block[Enter a CSS color]@style": 1,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-mobile/actionbar-to-input-r1.trace.json",
+      "traceBytes": 6519255
+     },
+     {
+      "name": "input-to-actionbar-r1",
+      "how": "colour input -> action bar (\"Close input\")",
+      "windowMs": 460.8,
+      "rafFrames": 56,
+      "expected60": 28,
+      "rafDeltaMs": {
+       "n": 55,
+       "p50": 8.3,
+       "p95": 8.9,
+       "max": 9.1
+      },
+      "dropped60": 0,
+      "loaf": [],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 268,
+       "UpdateLayoutTree": 104,
+       "Layout": 7,
+       "PrePaint": 87,
+       "Paint": 93,
+       "Layerize": 55,
+       "Commit": 60
+      },
+      "traceMs": {
+       "FunctionCall": 42.1,
+       "UpdateLayoutTree": 32.3,
+       "Layout": 1,
+       "PrePaint": 3.9,
+       "Paint": 3.7,
+       "Commit": 4.4
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.89,
+       "Layout": 0.13,
+       "PrePaint": 1.58,
+       "Paint": 1.69,
+       "Commit": 1.09
+      },
+      "styleElementsRecalculated": 2109,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 473,
+       "ThreadPoolForegroundWorker:RasterTask": 63,
+       "raster:RasterTask": 63
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input]::before CSSTransition:--specular-y [--specular-y] 200ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-bottom-color [borderBottomColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-left-color [borderLeftColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-right-color [borderRightColor] 200ms",
+       "span.color-input.w-full.block[Enter a CSS color] CSSTransition:border-top-color [borderTopColor] 200ms",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:opacity [opacity] 200ms",
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical CSSTransition:transform [transform] 200ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-plate": {
+        "n": 1,
+        "first": [
+         354,
+         58
+        ],
+        "last": [
+         354,
+         58
+        ]
+       },
+       "div.dock-controls": {
+        "n": 1,
+        "first": [
+         0,
+         0
+        ],
+        "last": [
+         0,
+         0
+        ]
+       },
+       "div.dock-layers": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 1,
+        "first": [
+         332,
+         44
+        ],
+        "last": [
+         332,
+         44
+        ]
+       },
+       "div.dock-layer.dock-layer--summary": {
+        "n": 1,
+        "first": [
+         44,
+         44
+        ],
+        "last": [
+         44,
+         44
+        ]
+       }
+      },
+      "attrMutations": {
+       "span.color-input.w-full.block[Enter a CSS color]@style": 1,
+       "div.glass-dock.horizontal.shape-pill@style": 10,
+       "div.dock-layer.dock-layer--full.dock-run@style": 20,
+       "div.dock-layer.dock-layer--summary@style": 10,
+       "div.dock-face.is-active@style": 33,
+       "div.dock-face.is-leaving@style": 33,
+       "svg.lucide.lucide-ellipsis-vertical-icon.lucide-ellipsis-vertical@class": 7,
+       "div.dock-face.is-active@class": 1,
+       "div.dock-face.is-leaving@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input]@style": 1,
+       "svg.lucide.lucide-type-icon.lucide-type@class": 2
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-mobile/input-to-actionbar-r1.trace.json",
+      "traceBytes": 6306446
+     },
+     {
+      "name": "actionbar-to-face-r1",
+      "how": "action-bar layer -> main face (\"Back\")",
+      "windowMs": 405.3,
+      "rafFrames": 48,
+      "expected60": 24,
+      "rafDeltaMs": {
+       "n": 47,
+       "p50": 8.3,
+       "p95": 9.3,
+       "max": 16.7
+      },
+      "dropped60": 0,
+      "loaf": [],
+      "longTasks": [],
+      "trace": {
+       "FireAnimationFrame": 183,
+       "UpdateLayoutTree": 57,
+       "Layout": 6,
+       "PrePaint": 76,
+       "Paint": 113,
+       "Layerize": 44,
+       "Commit": 52
+      },
+      "traceMs": {
+       "FunctionCall": 34.7,
+       "UpdateLayoutTree": 42.3,
+       "Layout": 0.8,
+       "PrePaint": 3.5,
+       "Paint": 4.7,
+       "Commit": 4.3
+      },
+      "perRafFrame": {
+       "UpdateLayoutTree": 1.21,
+       "Layout": 0.13,
+       "PrePaint": 1.62,
+       "Paint": 2.4,
+       "Commit": 1.11
+      },
+      "styleElementsRecalculated": 2102,
+      "layoutRoots": {},
+      "frameStates": {},
+      "raster": {
+       "Compositor:RunTask": 407,
+       "ThreadPoolForegroundWorker:RasterTask": 90,
+       "raster:RasterTask": 90
+      },
+      "animations": [
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back]::before CSSTransition:--specular-x [--specular-x] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input] CSSTransition:scale [scale] 120ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Open color input]::before CSSTransition:opacity [opacity] 300ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:background-color [backgroundColor] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar] CSSTransition:color [color] 200ms",
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]::before CSSTransition:opacity [opacity] 300ms",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-end [borderBottomRightRadius+borderTopRightRadius] automs tl=ScrollTimeline",
+       "div.dock-plate CSSAnimation:gl-dock-cap-inline-start [borderBottomLeftRadius+borderTopLeftRadius] automs tl=ScrollTimeline",
+       "svg.lucide.lucide-crown-icon.lucide-crown CSSAnimation:crown-appear [color+opacity+transform] 550ms"
+      ],
+      "resized": {
+       "div.glass-dock.horizontal.shape-pill": {
+        "n": 3,
+        "first": [
+         164,
+         46
+        ],
+        "last": [
+         164,
+         48
+        ]
+       },
+       "div.dock-plate": {
+        "n": 3,
+        "first": [
+         186,
+         60
+        ],
+        "last": [
+         186,
+         62
+        ]
+       },
+       "div.dock-layers": {
+        "n": 3,
+        "first": [
+         164,
+         46
+        ],
+        "last": [
+         164,
+         48
+        ]
+       },
+       "div.dock-layer.dock-layer--full.dock-run": {
+        "n": 3,
+        "first": [
+         164,
+         46
+        ],
+        "last": [
+         164,
+         48
+        ]
+       },
+       "div.dock-layer-group.horizontal.switcher-start": {
+        "n": 3,
+        "first": [
+         164,
+         46
+        ],
+        "last": [
+         164,
+         48
+        ]
+       }
+      },
+      "attrMutations": {
+       "div.dock-face.is-active@style": 31,
+       "div.dock-face.is-leaving@style": 31,
+       "div.dock-face.is-leaving@class": 1,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Toggle action bar]@class": 1,
+       "div.dock-face.is-active@class": 1,
+       "div.dock-crossfade@style": 6,
+       "button.dock-icon-button.glass-specular-track.glass-capsule-hover[Back]@style": 2,
+       "div.glass-dock.horizontal.shape-pill@style": 7,
+       "div.dock-layer.dock-layer--full.dock-run@style": 12,
+       "div.dock-layer.dock-layer--summary@style": 6
+      },
+      "traceFile": "/Users/mkbabb/.dev-logs/x-0hk/trace/r2/prod-mobile/actionbar-to-face-r1.trace.json",
+      "traceBytes": 5230176
+     }
+    ]
+   }
+  }
+ }
+}

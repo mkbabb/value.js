@@ -12,6 +12,7 @@ import type {
     Palette,
     PaletteColor,
     CursorPaginatedResponse,
+    PaginatedResponse,
 } from "../types";
 
 import { request, type RequestOptions } from "../../platform/transport/client";
@@ -99,6 +100,26 @@ export function listPalettes(
     if (opts.colorB != null) params.set("colorB", String(opts.colorB));
     if (opts.colorRadius != null) params.set("colorRadius", String(opts.colorRadius));
     return palettesRequest(`/palettes?${params}`, undefined, isPalettePage);
+}
+
+/** The `GET /palettes/mine` page shape: `data` plus the offset page's `total`. */
+function isOffsetPalettePage(body: unknown): body is PaginatedResponse<Palette> {
+    return isPalettePage(body) && typeof (body as { total?: unknown }).total === "number";
+}
+
+/**
+ * X·§0hi item 1 (OD-3b) — the session user's own shelf (`GET /palettes/mine`):
+ * every live palette they own, private ones included, newest first, offset-paged
+ * (`limit` ≤ 100). Session-authenticated: no session is a 401, which the caller
+ * reads as "no account to show", never as a failure.
+ */
+export function listMyPalettes(
+    opts: { limit?: number; offset?: number } = {},
+): Promise<PaginatedResponse<Palette>> {
+    const params = new URLSearchParams();
+    if (opts.limit) params.set("limit", String(opts.limit));
+    if (opts.offset) params.set("offset", String(opts.offset));
+    return palettesRequest(`/palettes/mine?${params}`, undefined, isOffsetPalettePage);
 }
 
 export function getPalette(slug: string): Promise<Palette> {

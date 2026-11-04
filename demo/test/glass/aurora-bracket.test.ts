@@ -5,6 +5,7 @@ import {
 } from "@mkbabb/glass-ui/aurora";
 import { DEFAULT_AURORA_ATOMS } from "../../scenes/atmosphere/aurora-atoms";
 import { auroraHarmonyStops } from "../../scenes/atmosphere/aurora-harmony-stops";
+import { fieldAtomsFor } from "../../app/composables/boot/seeded-ground";
 import {
     CALIBRATED_BREATH_PERIOD,
     CALIBRATED_SOFTMAX_BETA,
@@ -189,13 +190,16 @@ describe("O-14 · auroraHarmonyStops ≡ the FIELD resolve (strict; AP-5 / SS8-0
     it("every seed × harmony strip is the field palette selecting it paints", () => {
         let diverged = 0;
         let cells = 0;
-        for (const seed of seeds) {
+        // §0hn arm B: the field is banded by scheme, so the strip is held to
+        // the field the ACTIVE scheme paints, in both schemes.
+        const cases = [false, true].flatMap((dark) => seeds.map((seed) => [dark, seed] as const));
+        for (const [dark, seed] of cases) {
             const atoms = structuredClone(DEFAULT_AURORA_ATOMS);
             atoms.seed = seed;
             for (const harmony of HARMONIES) {
                 cells++;
-                const strip = auroraHarmonyStops(atoms, harmony);
-                const field = resolveAtmosphereField({ ...atoms, harmony }).palette;
+                const strip = auroraHarmonyStops(atoms, harmony, dark);
+                const field = resolveAtmosphereField(fieldAtomsFor({ ...atoms, harmony }, dark)).palette;
                 expect(strip).toHaveLength(field.length);
                 const off = strip.some((s, i) => {
                     const m = /^oklch\(([\d.]+) ([\d.]+) ([\d.]+)\)$/.exec(s);
@@ -209,7 +213,7 @@ describe("O-14 · auroraHarmonyStops ≡ the FIELD resolve (strict; AP-5 / SS8-0
                 if (off) diverged++;
             }
         }
-        expect(cells).toBe(seeds.length * HARMONIES.length);
+        expect(cells).toBe(2 * seeds.length * HARMONIES.length);
         expect(diverged, `${diverged}/${cells} strip≠field cells`).toBe(0);
     });
 });

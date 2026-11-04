@@ -1,0 +1,510 @@
+[
+ {
+  "c": "land",
+  "r": "/",
+  "errs": [],
+  "vw": 844,
+  "vh": 390,
+  "docH": 8027,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    21,
+    83,
+    802,
+    534
+   ],
+   [
+    "pane-wrapper--inspector",
+    21,
+    632,
+    802,
+    7387
+   ]
+  ],
+  "row": [
+   21,
+   83,
+   802,
+   7936
+  ],
+  "cols": "801.812px",
+  "inspector": [
+   21,
+   632,
+   802,
+   7387
+  ],
+  "lastSliderBottom": 574,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "land",
+  "r": "/mix",
+  "errs": [],
+  "vw": 844,
+  "vh": 390,
+  "docH": 1264,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    21,
+    723,
+    802,
+    534
+   ],
+   [
+    "pane-wrapper--inspector",
+    21,
+    83,
+    802,
+    624
+   ]
+  ],
+  "row": [
+   21,
+   83,
+   802,
+   1174
+  ],
+  "cols": "801.812px",
+  "inspector": [
+   21,
+   83,
+   802,
+   624
+  ],
+  "lastSliderBottom": 1214,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "m390",
+  "r": "/",
+  "errs": [],
+  "vw": 390,
+  "vh": 844,
+  "docH": 8361,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    366,
+    569
+   ],
+   [
+    "pane-wrapper--inspector",
+    12,
+    689,
+    366,
+    7664
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   366,
+   8249
+  ],
+  "cols": "366px",
+  "inspector": [
+   12,
+   689,
+   366,
+   7664
+  ],
+  "lastSliderBottom": 635,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "m430",
+  "r": "/",
+  "errs": [],
+  "vw": 430,
+  "vh": 932,
+  "docH": 8184,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    406,
+    570
+   ],
+   [
+    "pane-wrapper--inspector",
+    12,
+    690,
+    406,
+    7486
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   406,
+   8072
+  ],
+  "cols": "406px",
+  "inspector": [
+   12,
+   690,
+   406,
+   7486
+  ],
+  "lastSliderBottom": 637,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "m390",
+  "r": "/browse",
+  "errs": [],
+  "vw": 390,
+  "vh": 844,
+  "docH": 1029,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    366,
+    463
+   ],
+   [
+    "pane-wrapper--inspector",
+    12,
+    583,
+    366,
+    437
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   366,
+   917
+  ],
+  "cols": "366px",
+  "inspector": [
+   12,
+   583,
+   366,
+   437
+  ],
+  "lastSliderBottom": null,
+  "cards": [
+   {
+    "card": [
+     29,
+     271,
+     332,
+     128
+    ],
+    "name": [
+     42,
+     324,
+     170,
+     31
+    ],
+    "nameTrunc": true,
+    "nameText": "Daraksha Gradient",
+    "vote": [
+     42,
+     366,
+     38,
+     24
+    ],
+    "voteHit": [
+     39,
+     25
+    ]
+   },
+   {
+    "card": [
+     29,
+     411,
+     332,
+     128
+    ],
+    "name": [
+     42,
+     464,
+     93,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha",
+    "vote": [
+     42,
+     506,
+     38,
+     24
+    ],
+    "voteHit": [
+     39,
+     24
+    ]
+   }
+  ],
+  "labels": []
+ },
+ {
+  "c": "d18",
+  "r": "/atmosphere",
+  "errs": [],
+  "vw": 1800,
+  "vh": 1000,
+  "docH": 1000,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    45,
+    88,
+    1710,
+    688
+   ]
+  ],
+  "row": [
+   45,
+   88,
+   1710,
+   688
+  ],
+  "cols": "1710px 0px 0px 0px",
+  "inspector": null,
+  "lastSliderBottom": 670,
+  "cards": [],
+  "labels": [
+   [
+    "Harmony",
+    684,
+    259,
+    93,
+    21,
+    12
+   ],
+   [
+    "Arrangement",
+    684,
+    307,
+    93,
+    21,
+    12
+   ],
+   [
+    "Medium",
+    684,
+    355,
+    93,
+    21,
+    12
+   ],
+   [
+    "Motion",
+    684,
+    403,
+    93,
+    21,
+    12
+   ]
+  ]
+ },
+ {
+  "c": "m390",
+  "r": "/atmosphere",
+  "errs": [],
+  "vw": 390,
+  "vh": 844,
+  "docH": 873,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    366,
+    761
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   366,
+   761
+  ],
+  "cols": "366px",
+  "inspector": null,
+  "lastSliderBottom": 750,
+  "cards": [],
+  "labels": [
+   [
+    "Harmony",
+    44,
+    269,
+    113,
+    26,
+    12
+   ],
+   [
+    "Arrangement",
+    44,
+    335,
+    113,
+    26,
+    12
+   ],
+   [
+    "Medium",
+    44,
+    401,
+    113,
+    26,
+    12
+   ],
+   [
+    "Motion",
+    44,
+    467,
+    113,
+    26,
+    12
+   ]
+  ]
+ },
+ {
+  "c": "d14",
+  "r": "/",
+  "errs": [],
+  "vw": 1440,
+  "vh": 900,
+  "docH": 900,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    36,
+    88,
+    828,
+    685
+   ],
+   [
+    "pane-wrapper--inspector",
+    882,
+    88,
+    522,
+    685
+   ]
+  ],
+  "row": [
+   36,
+   88,
+   1368,
+   685
+  ],
+  "cols": "828.422px 521.578px",
+  "inspector": [
+   882,
+   88,
+   522,
+   685
+  ],
+  "lastSliderBottom": 731,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "d14",
+  "r": "/browse",
+  "errs": [],
+  "vw": 1440,
+  "vh": 900,
+  "docH": 900,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    36,
+    88,
+    900,
+    388
+   ],
+   [
+    "pane-wrapper--inspector",
+    954,
+    88,
+    450,
+    480
+   ]
+  ],
+  "row": [
+   36,
+   88,
+   1368,
+   480
+  ],
+  "cols": "900px 450px",
+  "inspector": [
+   954,
+   88,
+   450,
+   480
+  ],
+  "lastSliderBottom": null,
+  "cards": [
+   {
+    "card": [
+     61,
+     250,
+     850,
+     93
+    ],
+    "name": [
+     74,
+     301,
+     183,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha Gradient",
+    "vote": [
+     774,
+     302,
+     40,
+     27
+    ],
+    "voteHit": [
+     40,
+     27
+    ]
+   },
+   {
+    "card": [
+     61,
+     354,
+     850,
+     93
+    ],
+    "name": [
+     74,
+     405,
+     93,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha",
+    "vote": [
+     774,
+     407,
+     40,
+     27
+    ],
+    "voteHit": [
+     40,
+     28
+    ]
+   }
+  ],
+  "labels": []
+ }
+]

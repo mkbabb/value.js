@@ -66,9 +66,18 @@
                 <!-- The colour's NAME (owner 2026-10-19), IFF it has one: a
                      CSS keyword or an approved name within ΔE_OK 0.02 of the
                      current colour (`named-color-snap.ts`). No name, no line —
-                     the readout above is then the colour's only text. -->
+                     the readout above is then the colour's only text.
+                     X·§0hm D-32: the line is CLIENT-ONLY. The approved names
+                     arrive by fetch at run time, which the build-time prerender
+                     of `/` never has; the stage hydrates lazily (on idle), so
+                     when the fetch landed first, the client's first render
+                     asked for a <p> where the prerender holds a comment
+                     ("Hydration completed but contains mismatches", 5/10 cold
+                     loads at 6x CPU). Gated on the plate's mount, the server
+                     render and the hydrating render agree (no line), and the
+                     line appears on the mount's own update. -->
                 <p
-                    v-if="currentColorName"
+                    v-if="nameLineMounted && currentColorName"
                     class="picker-color-name"
                     data-testid="picker-color-name"
                 >{{ currentColorName }}</p>
@@ -410,7 +419,11 @@ onDeactivated(() => {
 
 // --- Lifecycle ---
 
+// X·§0hm D-32 — the name line renders from the mount on (template note).
+const nameLineMounted = ref(false);
+
 onMounted(() => {
+    nameLineMounted.value = true;
     window.addEventListener("keydown", handleKeydown);
     requestAnimationFrame(() => {
         const cascade = Array.from(
