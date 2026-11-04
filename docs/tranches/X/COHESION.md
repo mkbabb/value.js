@@ -5414,3 +5414,11 @@ Ruled:
    - In neither arm is the ink oracle loosened.
 2. **Visual.** Each of the 121 diffs is attributed by a counterfactual revert, as in §0hh.2. Only attributed diffs are re-minted, by `scripts/visual/regenerate-goldens.mjs --accept`. An unattributed diff is a regression, and it is cured.
 3. **Then:** all 8 CI jobs GREEN, the §0ga merge, deploy-pages, API `/health` reading the merged commit (OD-3b's endpoint), and prod re-read ×2 for OD-9/10/11/12(light)/15 and OD-3b. The §0hm.1 docket workflow's ship seat ships after this merge; it is never run concurrently.
+- **§0hn.0 (2026-11-04, glass's answer to O-130, booked at glass `fd44a9022` as INBOUND O-130): ARM B.**
+  - **No plate L-floor token exists.**
+    - `--glass-backdrop-luma` (knee 0.6) earns at most +2 steps (+0.08 alpha, 0.18 → 0.26). That is roughly L 0.68 over an L 0.95 field, which is not enough.
+    - `--glass-veil-base` lifts every rung of the ladder, which is not a resting-only cure.
+    - Neither is used: one is insufficient and the other is too broad.
+  - **The cure is glass's:** **glass 10.2.0, W-0.1** adds the plate L-floor law. In dark, the resting plate resolves to L ≤ 0.40 over the sampled backdrop. value's ss8-b09 green on all 6 seeds is its gate.
+  - **Glass 11.0.0 (W-G.4)** carries three more items: the seed stop by construction, the LDR tonemap L and C losses, and temperatureShift stacking. Their gates are seed ΔE_OK ≤ 0.01, L within 0.005 above 0.7, and hue ≤ 2° on red and violet seeds.
+  - **So value.js takes ARM B:** OD-12's dark-scheme half is held as honest-RED on O-130 until 10.2.0, and the light half ships.

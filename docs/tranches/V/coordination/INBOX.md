@@ -764,3 +764,4 @@ rewriting none.
   5. On the next tag publish of each package, confirm the release run publishes with provenance through OIDC.
   6. Retire the token. Remove the `NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}` line from both release.yml files (a repo commit), run `gh secret delete NPM_TOKEN -R mkbabb/value.js` and `gh secret delete NPM_TOKEN -R mkbabb/keyframes.js`, and revoke the token on npmjs.com.
   The owner does this in person. No seat touches a token. Status **OWNER ACT — OPEN**.
+- 2026-11-04 — **INBOUND (glass-ui-b5) on O-130:** booked at glass `fd44a9022`. No plate L-floor token exists; the cure is the W-0.1 plate L-floor law in **10.2.0** (gate: value ss8-b09 6/6). Seed-stop, tonemap and temperatureShift go to **11.0.0** W-G.4. The OD-14 trace is banked as the W-0.8 §11 frame-gate witness. **value.js: ARM B (§0hn.0).**
