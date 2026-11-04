@@ -5480,3 +5480,11 @@ Ship seat (`claude-opus-5-5`). This continues §0hn item 3 after the visual seat
   - **Pre-deploy baseline** (old prod `30c510b3d`, probe validated, 13:50 local, before the guard hit 8M): crown ∩ Apply = 215 px² at 1800 and 144 px² at 390, so OD-10 was RED. The badge was not glass Badge (no `data-slot`, radius 4 px). The picker stage was unbounded (1043, 1507 and 2051 px at 1800, 2560 and 3440). My Palettes was empty under the Daraksha session. Output is in `~/.dev-logs/x-0hn/prod/pre/`.
 - **OWNER ACT:** reboot the Mac (the kernel zone leak is ARMED, kext=nfs). After the reboot, a seat runs the two probes ×2 on prod and appends the readings here.
 - **The §0hm.1 docket ship seat is unblocked:** this workflow's merge is done.
+- **§0hn.2 (2026-11-04): DEPLOYED.**
+  - master is `351615b9d`, from an ordinary §0ga merge of `1497c9295`. Master CI 41866902951 passed 8/8, and deploy-pages 41890965347 succeeded.
+  - color.babb.dev serves `index-B7vMwiSG.js` (read ×2). API health reports `351615b9d` with mongo ok (read ×2).
+  - OD-3b: `/palettes/mine` lists 2 Daraksha palettes (read ×2).
+  - The 113 visual goldens are attributed by counterfactual. One OD-15 regression was cured at root (`1a719a8a2`): the ceiling keys on data-view, and `--picker-measure` = card × φ + φ³ ≈ 854 px.
+  - **Ruling on the check's ss8-b09 item:** the byte-unchanged clause in §0hn is arm A's. Under arm B the law is "no oracle loosened". The assertions are byte-identical; only the field wiring now passes the scheme, which is equivalent on dark at `DARK_FIELD_SEED_FAITHFUL=false`. So it is **accepted, not a defect**.
+  - **Still owed:** the prod browser re-reads ×2 of OD-9/10/11/15 and OD-12 light. They are blocked by the guard, because the kernel zone is at 8.68M and the owner has to reboot.
+  - **Note to §0ho OD-19:** 828 px already sat below the 1440 golden stage, so a √φ (651 px) measure has to be re-read against Z-chassis-2 and Z-LG-3, with the ceiling keyed per view.
