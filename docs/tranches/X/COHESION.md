@@ -5422,3 +5422,15 @@ Ruled:
   - **The cure is glass's:** **glass 10.2.0, W-0.1** adds the plate L-floor law. In dark, the resting plate resolves to L ≤ 0.40 over the sampled backdrop. value's ss8-b09 green on all 6 seeds is its gate.
   - **Glass 11.0.0 (W-G.4)** carries three more items: the seed stop by construction, the LDR tonemap L and C losses, and temperatureShift stacking. Their gates are seed ΔE_OK ≤ 0.01, L within 0.005 above 0.7, and hue ≤ 2° on red and violet seeds.
   - **So value.js takes ARM B:** OD-12's dark-scheme half is held as honest-RED on O-130 until 10.2.0, and the light half ships.
+- **§0hn.1 (2026-11-04, the INK seat): ARM B landed. OD-12's dark half is held as honest-RED on glass O-130.**
+  - **Token reading.** Glass 10.1.3 publishes `--glass-veil-base` as a `material` override point (`dist/styles/tokens/manifest.d.ts`; dark-arm `0.18`). It is the base of the whole ladder, so a value that holds the dark resting plate at L ≤ 0.40 over the band ceiling (α ≈ 0.75) re-tiers every dark plate. The sweep measured ss8-b09 6/6 only from α ≥ 0.60. `--glass-backdrop-luma` lifts at most +0.08. There is no resting-only density token and no plate L-floor token, which agrees with §0hn.0. Arm A is therefore not available.
+  - **The cure, one derive with a scheme branch.** `seeded-ground.ts` adds `DARK_FIELD_SEED_FAITHFUL = false`, and `fieldAtomsFor(atoms, dark)` gives:
+    - light: the seed-anchored band (OD-12, shipping);
+    - held dark: the producer's dark band through the same atoms door (`lightnessScheme: "dark"`, L 0.18–0.42).
+    The ground is still the field in both schemes. `seededGroundStops(seed, dark)` is the field's palette, and the index.html boot passes `dark`. `FIRST_VISIT_GROUND.dark` is regenerated to `#25001d #470027 #6c0028 #90131b`, and `GROUND_RECORD_VERSION` goes 2 → 3. AuroraPane's harmony strips follow the active scheme.
+  - **Oracles.**
+    - **ss8-b09:** every assertion is byte-unchanged. Only its `fieldFor` wiring changed: it takes the scheme again, as it did before `bee03a760`, because the field it models is banded by scheme again. GREEN.
+    - **Seed-fidelity:** split. The light arm is GREEN. The dark arm is a single `it.fails` cell tagged O-130.
+    - **O-14 strip-truth:** now covers both schemes.
+  - **Counterfactual.** Flipping the flag to `true` turns the 6 ss8-b09 dark cells, the measured-plate cell and the O-130 cell RED.
+  - **To lift the hold:** when glass 10.2.0 W-0.1 lands, flip the flag to `true` and unwrap the `it.fails` cell. ss8-b09 must then read 6/6 over the faithful dark field.
