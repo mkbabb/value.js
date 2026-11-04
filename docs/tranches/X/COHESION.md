@@ -5434,3 +5434,7 @@ Ruled:
     - **O-14 strip-truth:** now covers both schemes.
   - **Counterfactual.** Flipping the flag to `true` turns the 6 ss8-b09 dark cells, the measured-plate cell and the O-130 cell RED.
   - **To lift the hold:** when glass 10.2.0 W-0.1 lands, flip the flag to `true` and unwrap the `it.fails` cell. ss8-b09 must then read 6/6 over the faithful dark field.
+
+## §0hm.3 — 2026-11-04: records erratum (O-130 id collision; E-3)
+- §0hm.2 names the fourier follow-up to O-119 "O-130". That id was also given to the glass aurora plate-rung relay (`d8bf09bc6`), which glass booked as INBOUND O-130 (`fd44a9022`) and which §0hn, §0hn.0 and §0hn.1 cite. Glass's booking keeps O-130. The fourier follow-up is **O-132** (INBOX dated erratum). §0hm.2 stands unedited; read its "O-130" as O-132.
+- LEDGER caught up for §0hn through §0hn.1, the D-19/20/24/31, D-32 and D-33 cures, and glass 10.1.4 live.
