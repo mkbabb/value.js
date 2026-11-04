@@ -1,0 +1,32 @@
+{
+ "base": "http://localhost:5291/",
+ "at": "2026-11-04T05:19:07.398Z",
+ "out": [
+  {
+   "cell": "orbit-390x844",
+   "closedSquareMaxDm": 0,
+   "faceTrack40": 30.12595455746434,
+   "faceTrackDir": 30.089927673339844,
+   "faceTrackRate": 1.0119163772871087,
+   "pinchRatio": 1.995390481176381,
+   "pinchCentreShift": 5.3967262164734215,
+   "pan100": 99.64002732547301,
+   "panScreenZ": 0.00002814558642683096,
+   "twistTransforms": [
+    "translate3d(-6.67461px, 92.9654px, 35.2281px) rotate3d(-0.0669873, 0.933013, 0.353553, 30.515deg) scale3d(1, 1, 1)",
+    "translate3d(-6.67461px, 92.9654px, 35.2281px) rotate3d(-0.58429, -0.0746148, 0.808108, 93.8052deg) scale3d(1, 1, 1)"
+   ],
+   "twistDeg": 89.82222045924104,
+   "twistScale": 0.9999997096839578,
+   "transform": "translate3d(-6.67461px, 92.9654px, 35.2281px) rotate3d(-0.58429, -0.0746148, 0.808108, 93.8052deg) scale3d(1, 1, 1)"
+  },
+  {
+   "cell": "orbit-1440x900",
+   "closedSquareMaxDm": 0,
+   "faceTrack40": 29.69719367691251,
+   "faceTrackDir": 29.54571533203125,
+   "faceTrackRate": 1.0032327435960333,
+   "transform": "translate3d(0px, 0px, 0px) rotate3d(-0.0669873, 0.933013, 0.353553, 17.0313deg) scale3d(1, 1, 1)"
+  }
+ ]
+}
