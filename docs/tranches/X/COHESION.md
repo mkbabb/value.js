@@ -5399,3 +5399,18 @@ Deploy seat (`claude-opus-5-5`). Head `d0438a9ed` on tranche-u carries OD-9/10/1
   - O-119 gets the follow-up O-130 to fourier-analysis. No fourier session is live, so the letter is held for the orchestrator to deliver.
   - O-131 is the OWNER ACT for npm trusted publishers.
 - LEDGER caught up for §0hi through §0hm.1.
+
+## §0hn — 2026-11-04: the §0hk deploy unblock, ruled (delegate, §0ge)
+**State:** every §0hk cure (OD-9/10/11 `e9b265d0f`, OD-15 `501a8910a`, OD-12 `bee03a760`) and the OD-3b cures are on origin/tranche-u. CI `41776894193` at `d0438a9ed` is RED in two places:
+- the producer ×2, on 6 `ss8-b09-ink` cells: dark-scheme plates at L 0.58–0.89 over the now-faithful dark aurora, where no light ink clears 4.5:1;
+- visual, with 121 diffs.
+
+Prod is still `30c510b3d`. The owner ordered the §0hk fixes live before the restart.
+
+Ruled:
+1. **Ink over the faithful dark aurora.** The plate's dark rung is glass's (relayed as O-130).
+   - **Arm A (preferred):** if glass publishes a consumer theming token for the resting plate density or an L floor, value.js sets it from its atmosphere calibration. That is ordinary theming, not a selector override. `ss8-b09` must then read GREEN unchanged, with no oracle relaxed.
+   - **Arm B:** if no such token exists, value.js holds OD-12's dark-scheme half. The light-scheme fidelity ships. The dark-scheme half is held as an honest-RED that names glass O-130 until glass ships the adaptive rung. This is a feature flag on the scheme branch of the same derive. There is no revert of the shared work and no shim.
+   - In neither arm is the ink oracle loosened.
+2. **Visual.** Each of the 121 diffs is attributed by a counterfactual revert, as in §0hh.2. Only attributed diffs are re-minted, by `scripts/visual/regenerate-goldens.mjs --accept`. An unattributed diff is a regression, and it is cured.
+3. **Then:** all 8 CI jobs GREEN, the §0ga merge, deploy-pages, API `/health` reading the merged commit (OD-3b's endpoint), and prod re-read ×2 for OD-9/10/11/12(light)/15 and OD-3b. The §0hm.1 docket workflow's ship seat ships after this merge; it is never run concurrently.
