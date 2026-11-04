@@ -5229,3 +5229,22 @@ Screenshot: `docs/tranches/X/evidence/owner-2026-11-03/od9-field-clipped-crown-o
 - **OD-5b (owner 14:21:39, `od5b-expanded-dock-ellipse-squared.png`): "ellipse and squared off border".** The action-bar dock is shown expanded, with Home and chevron, the brush, and the more menu. The plate has an elliptical leading cap and a squared-off (16px) trailing cap, inside the 9999px pill outline. This is the OD-5 / OD-1 cut-cap mechanism (glass O-123 → 10.2.0) in a second posture: the ordinary expanded action bar, not only input mode. So the trigger is any run overflow, not only the trailing toggle's hover scale. Added to the O-128 relay as evidence for O-123's gates.
 - **OD-15 (owner 14:22, `od15-picker-too-wide.png`): the left picker pane is too wide on desktop.** Owner: *"the left picker is too wide on desktop--bound it a bit more"*. The picker card (title, readout, spectrum, sliders) spans about 1900 CSS px at 2× on the owner's display. Cure: bound the picker pane's inline size with a max-inline-size token in the existing layout scale. The spectrum's aspect stays sane, and the right pane or the remaining space takes the slack. No per-instance override.
 - **Owner order (14:22):** *"Let's fix some of these now before the restart and then re-deploy live."* The §0hk workflow is re-launched to carry OD-9, OD-10, OD-11, OD-12 and OD-15, plus the OD-14 timing trace for glass, in one deploy before the reboot.
+
+## §0hl — 2026-11-03: owner — the Daraksha colours get clever names (owner ruling via the question dialog)
+Owner, verbatim: *"for the color names, they need be clever and not just 'daraksha sage' or 'daraksha' but something in line with a clever colour name or a web colour name."* The owner chose the South Indian set:
+
+| Colour | Old key | New key | Gloss |
+|---|---|---|---|
+| `oklch(73% 0.185 2)` | `daraksha` | `efflorescence` | — |
+| `oklch(90% 0.055 18)` | `daraksha-rose` | `gulabi` | rose-pink |
+| `oklch(82% 0.145 76)` | `daraksha-marigold` | `haldi` | turmeric ceremony |
+| `oklch(72% 0.12 88)` | `daraksha-gold` | `zari` | sari gold thread |
+| `oklch(55% 0.085 56)` | `daraksha-teak` | `sheesham` | Indian rosewood |
+| `oklch(72% 0.055 145)` | `daraksha-sage` | `tulsi` | holy basil |
+| `oklch(43% 0.085 152)` | `daraksha-fern` | `curry-leaf` | — |
+| `oklch(39% 0.1 356)` | `daraksha-plum` | `jamun` | black plum |
+
+The palettes keep the name "Daraksha" ("Daraksha" and "Daraksha Gradient").
+- **Act:** a data rename, with no code change. Each new name is proposed by the owning session and approved by an admin. The old name is then retired (admin DELETE `/colors/:id`, since an identical css would tie the snap). The swatch names on both palettes are then PATCHed (owner session, If-Match).
+- **Script:** `~/.fourier-samples/daraksha-outfits/design/rename-names.mjs`. The local seed `register-oklch.mjs` now carries the new keys.
+- **BLOCKED (2026-11-03, post-reboot):** the production admin token is read over the VPN-only ssh to the host, and the VPN is down. The prod rename runs once the owner reconnects the VPN.
