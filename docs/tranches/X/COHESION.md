@@ -5454,3 +5454,9 @@ Ruled:
   - **Why:** identity is a slug session token in localStorage, which is per-origin. A second serving origin would split the owner's palettes and session, and would need a second CORS origin.
   - **Mechanism:** a `colour` Pages redirect project, deployed by a focused `domains.yml` in value.js using value.js's own Cloudflare secrets.
   - Workflow `wf_0d8fd0eb-bee` runs it, and it is serialized behind the §0hn and §0ho merges.
+- **§0hp.1 (2026-11-04): daraksha.babb.dev is LIVE** (200 ×2 with valid TLS, deploy run 41868113178).
+  - The owner authorized use of the existing babb.dev Cloudflare token (*"You have full auth to use this token--no rotation needed"*).
+  - A one-shot job (run 41865610763, from the orphan branch `ops/daraksha-bootstrap`) seeded `mkbabb/daraksha`'s CLOUDFLARE_* secrets from value.js's own secrets. It also created the Pages project `daraksha`, attached the domain, and created the proxied CNAME. Every API call returned 200, and only status codes were logged.
+  - The temporary `TMP_GH_ADMIN` secret and the ops branch are deleted.
+  - The Daraksha cube mode is live on keyframes.babb.dev (kf 6.2.0).
+  - Repair round 1 is in flight as `wf_17cd7d56-b53`: skin shading, the reduced-motion (PRM) rest pose, the AnimationGroup child-delay bug as kf 6.2.1, the site moving onto the kf presets, phone readouts, and the aurora from her stops. Its daraksha CI auto-redeploys.
