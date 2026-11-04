@@ -5230,6 +5230,33 @@ Screenshot: `docs/tranches/X/evidence/owner-2026-11-03/od9-field-clipped-crown-o
 - **OD-15 (owner 14:22, `od15-picker-too-wide.png`): the left picker pane is too wide on desktop.** Owner: *"the left picker is too wide on desktop--bound it a bit more"*. The picker card (title, readout, spectrum, sliders) spans about 1900 CSS px at 2× on the owner's display. Cure: bound the picker pane's inline size with a max-inline-size token in the existing layout scale. The spectrum's aspect stays sane, and the right pane or the remaining space takes the slack. No per-instance override.
 - **Owner order (14:22):** *"Let's fix some of these now before the restart and then re-deploy live."* The §0hk workflow is re-launched to carry OD-9, OD-10, OD-11, OD-12 and OD-15, plus the OD-14 timing trace for glass, in one deploy before the reboot.
 
+- **§0hk OD-12 record (2026-11-03, the aurora build seat): CURED with residuals, not yet deployed.** Commits: RED `1c82f6cbe`, cure `bee03a760` (tranche-u, not pushed). The dark band (`lightnessScheme: "dark"` gives [0.18, 0.42]) and the second ground derive (`groundPaletteFor`, the raw dark `deriveAurora`) are deleted. The field and the ground now take one `seedAnchoredLBand` in both schemes, through the shipped `lBand` door: a half-spread (0.16) window centred one seam floor above the seed. Also landed: `hueSpread: 14`, the `guaranteeSeamOffset` tie-break (`delta > -1e-6`), FIRST_VISIT_GROUND regenerated as one literal, and GROUND_RECORD_VERSION set to 2. The AuroraPane strips route through `fieldAtomsFor`, so O-14 holds.
+  - **Deviation from the OD-12 merged design, measured:** the merged t=1/3 full-width band read a pale wash as the largest region on vivid seeds (served worst ΔE_OK 0.112 on zari, tomato and efflorescence). Live variants put the half-spread window at worst 0.057.
+  - **Before/after** (dominant region = the largest k-means k=3 cluster; ΔE_OK against the chosen colour, with the hue error in brackets; 1800×1000@2x, Metal ANGLE). Before is prod color.babb.dev, one frame. After is :9000, the upper median of 4 frames 3 s apart, run twice; 390×844@2x matches within 0.004. Probe: `docs/tranches/X/evidence/0hk/od12-aurora/probe-served.mjs`; frames and tables: `~/.dev-logs/x-0hk/aurora/{before-prod,green1,green2}-{desk,mob}/`.
+
+| Colour | dark before | dark after | light before | light after |
+|---|---|---|---|---|
+| efflorescence | 0.354 (21°) | 0.029 (7.2°) | 0.098 (18.7°) | 0.029 (7.4°) |
+| gulabi | 0.628 (8.8°) | 0.020 (6.4°) | 0.065 (18.2°) | 0.020 (5.7°) |
+| haldi | 0.521 (47.9°) | 0.046 (2.2°) | 0.109 (13.3°) | 0.046 (2.2°) |
+| zari | 0.421 (48.6°) | 0.032 (1°) | 0.025 (5.8°) | 0.033 (1°) |
+| sheesham | 0.244 (30.2°) | 0.037 (5.2°) | 0.041 (11°) | 0.037 (5.2°) |
+| tulsi | 0.430 (4.9°) | 0.025 (1.5°) | 0.014 (6.7°) | 0.025 (1.5°) |
+| curry-leaf | 0.117 (8.5°) | 0.044 (1.7°) | 0.113 (6.8°) | 0.044 (1.7°) |
+| jamun | 0.049 (12.6°) | 0.042 (7°) | 0.066 (10.3°) | 0.042 (7.1°) |
+| rebeccapurple | 0.131 (10.1°) | 0.039 (7.4°) | 0.048 (11.6°) | 0.039 (7.4°) |
+| teal | 0.168 (21.2°) | 0.057 (1.3°) | 0.038 (8.4°) | 0.057 (1.3°) |
+| tomato | 0.390 (9.4°) | 0.035 (7.3°) | 0.058 (9.6°) | 0.035 (7.4°) |
+| skyblue | 0.441 (27.5°) | 0.018 (1.8°) | 0.040 (12.1°) | 0.018 (1.8°) |
+
+  - **Gate:**
+    - Dominant ≤ 0.05: 11 of 12 pass. Teal reads 0.057, because its dominant zone reads the field mean, which sits L +0.06 above the seed: that is the T-37 seam floor itself.
+    - Area-mean ≤ 0.07: teal 0.077 and curry-leaf 0.06 (desk); every other seed is ≤ 0.053.
+    - Hue: worst 7.6° on desk and 8.4° on mobile (gulabi, C 0.055); the upper median is 5.2–5.7°. These are just over the ≤ 8° and ≤ 5° bounds, and the residual on red and violet seeds is the producer's temperature pull.
+    - Re-seed ΔmedL ≤ 0.006. Ground snap 0. Light is identical to dark.
+  - **RED, a glass relay:** the ss8-b09 dark ink fails in 6 cells. The dark resting rung (veil α 0.18) over a field as light as the seed gives a plate at L 0.30–0.83, so no light ink clears 4.5:1. The cure is never a darker field.
+  - **RULING FLAG (owner):** dark mode now paints a field as light as the chosen colour, which reverses F-6's "luminous-dark band", as OD-12 orders. Teal's residual is the seam floor (0.06) against fidelity; this is the owner's call.
+
 ## §0hl — 2026-11-03: owner — the Daraksha colours get clever names (owner ruling via the question dialog)
 Owner, verbatim: *"for the color names, they need be clever and not just 'daraksha sage' or 'daraksha' but something in line with a clever colour name or a web colour name."* The owner chose the South Indian set:
 
