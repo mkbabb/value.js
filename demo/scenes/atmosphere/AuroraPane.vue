@@ -231,7 +231,10 @@ const SECTIONS: SliderSection[] = [
      * the console well and footer — two right edges. The field fills the card. */
     grid-template-columns: max-content minmax(0, 1fr);
     align-items: center;
-    gap: 0.75rem;
+    /* §0hm D-33: the label column already fits 'Arrangement'; the crowding was
+     * the 0.75rem gutter. The column gap takes the φ rung, the row rhythm stays. */
+    row-gap: 0.75rem;
+    column-gap: var(--phi-3);
 }
 .aurora-row {
     display: contents;
