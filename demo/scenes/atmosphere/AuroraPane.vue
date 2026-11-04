@@ -39,12 +39,15 @@ import type { SliderSection } from "../ConfigSliderPane.vue";
 // SelectContent renders (it unmounts closed), so zero rest cost.
 import { PreviewStrip } from "../../shared/ui/color-chips";
 import { auroraHarmonyStops } from "./aurora-harmony-stops";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { usePanePopups } from "../../shell/usePanePopups";
 
 // A2-VA-L2-11 — this pane's popups close when the pane deactivates.
 const popups = usePanePopups();
 
 const atoms = inject(AURORA_ATOMS_KEY)!;
+// The strip previews the field the ACTIVE scheme paints (§0hn arm B).
+const { isDark } = useGlobalDark();
 
 // X.W7.g (OM-15 §1.B.3 #23–#26): each visible row label NAMES its select
 // (`aria-labelledby`), so the drifting second name each trigger carried
@@ -164,7 +167,7 @@ const SECTIONS: SliderSection[] = [
                             <SelectItem v-for="h in HARMONIES" :key="h" :value="h">
                                 {{ label(h) }}
                                 <template #description>
-                                    <PreviewStrip :stops="auroraHarmonyStops(atoms, h)" />
+                                    <PreviewStrip :stops="auroraHarmonyStops(atoms, h, isDark)" />
                                 </template>
                             </SelectItem>
                         </SelectContent>

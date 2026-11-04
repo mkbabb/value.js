@@ -6,7 +6,8 @@
  * The ground (`--saved-bg-0..3`) IS the atmosphere field's own resolved
  * palette, in both schemes (§0hk OD-12: the former dark ground derive —
  * `deriveAurora(seed, { scheme: "dark" })` — was the second half of the
- * owner's flat crimson, and is gone; ONE derive paints field and ground).
+ * owner's flat crimson, and is gone; ONE derive paints field and ground,
+ * banded by scheme only through `fieldAtomsFor`, §0hn arm B).
  * This module is that derive and nothing else — no Vue, no DOM, no storage —
  * so TWO callers run the SAME function:
  *
@@ -14,7 +15,7 @@
  *     `groundStopsFor`), over the live atoms;
  *   - the pre-paint boot script in `index.html`, which reads a `#/?color=`
  *     seed (`parseUrlSeed`, also hydrate's URL reader) and paints
- *     `seededGroundStops(seed)` before any module runs.
+ *     `seededGroundStops(seed, dark)` before any module runs.
  *
  * The boot script cannot import, so the build bundles THIS module for it:
  * `vite.config.ts`'s `seededGroundInline` plugin builds this file twice, as
@@ -37,14 +38,27 @@ import { normalizeGroundStops } from "./ground";
 export type GroundPalette = ReturnType<typeof deriveAurora>;
 
 /**
- * §0hk OD-12 — the field's atoms: the SEED-ANCHORED band through the shipped
- * `lBand` door (`seedAnchoredLBand`: the dominant stop on the chosen colour),
- * the same rule in light and dark. The atoms stay the tuning surface: an
- * explicit `lightnessScheme` or `lBand` authored in AuroraPane WINS. (This
- * supersedes X.W6.i's dark band, which crushed every seed to L ≈ 0.31.)
+ * §0hn arm B — whether DARK takes OD-12's seed-faithful band (light always
+ * does). Dark is HELD on glass O-130: over a field as light as the seed, glass
+ * 10.1.3's dark resting rung (veil oklch(0.17 0.03 70) at α 0.18) leaves the
+ * plate at L 0.30–0.83 and no light ink clears 4.5:1 (ss8-b09). Glass books
+ * the cure as the 10.2.0 W-0.1 plate L-floor law; on that cut, flip this to
+ * true and unwrap the O-130 expected-fail in `aurora-seed-fidelity.test.ts`.
  */
-export function fieldAtomsFor(atoms: AuroraAtoms): AuroraAtoms {
+export const DARK_FIELD_SEED_FAITHFUL: boolean = false;
+
+/**
+ * The field's atoms, one derive with a scheme branch. Light (and dark, once
+ * `DARK_FIELD_SEED_FAITHFUL`) takes the SEED-ANCHORED band through the
+ * shipped `lBand` door (`seedAnchoredLBand`, §0hk OD-12: the dominant stop on
+ * the chosen colour); held dark takes the producer's dark band through the same atoms door
+ * (`lightnessScheme: "dark"`, L 0.18–0.42, X.W6.i). The atoms stay the tuning
+ * surface: an explicit `lightnessScheme` or `lBand` authored in AuroraPane
+ * WINS.
+ */
+export function fieldAtomsFor(atoms: AuroraAtoms, dark: boolean): AuroraAtoms {
     if (atoms.lightnessScheme !== undefined || atoms.lBand !== undefined) return atoms;
+    if (dark && !DARK_FIELD_SEED_FAITHFUL) return { ...atoms, lightnessScheme: "dark" };
     const lBand = seedAnchoredLBand(atoms.seed);
     return lBand ? { ...atoms, lBand } : atoms;
 }
@@ -70,16 +84,16 @@ export function parseUrlSeed(hash: string): { space: string; color: string } | n
 
 /**
  * The ground a seed paints under the default atoms — the stops the reactive
- * sink's first write lands on for that seed, in either scheme (the ground is
+ * sink's first write lands on for that seed in that scheme (the ground is
  * the field). Null when the producer derive refuses the seed (the app keeps
  * its default atoms then, too).
  */
-export function seededGroundStops(seed: string): string[] | null {
+export function seededGroundStops(seed: string, dark: boolean): string[] | null {
     try {
         deriveAurora(seed); // throws iff un-parseable (useAtmosphere's seed gate)
     } catch {
         return null;
     }
     const atoms: AuroraAtoms = { ...DEFAULT_AURORA_ATOMS, seed };
-    return groundStopsFor(resolveAtmosphereField(fieldAtomsFor(atoms)).palette);
+    return groundStopsFor(resolveAtmosphereField(fieldAtomsFor(atoms, dark)).palette);
 }

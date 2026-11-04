@@ -5,8 +5,9 @@
  *
  * THE TRUTH LAW (O-14): the strip a harmony row shows must be byte-identical
  * to the palette selecting it yields. What selecting yields is the FIELD
- * resolve — `resolveAtmosphereField(fieldAtomsFor({...atoms, harmony}))`
- * (the seed-anchored band the field takes, §0hk OD-12) — the calibrated
+ * resolve — `resolveAtmosphereField(fieldAtomsFor({...atoms, harmony}, dark))`
+ * (the band the field takes in the active scheme: seed-anchored in light,
+ * §0hk OD-12; dark held on glass O-130, §0hn arm B) — the calibrated
  * resolve (the Q2-NOW knobs ride it; a raw `deriveAurora` preview would LIE
  * about vividness/energy) under the derive-seam guarantee the painted field
  * carries (AP-5 / SS8-0063: the bare calibrated resolve diverged from the
@@ -38,7 +39,8 @@ function fmt(v: number): string {
 export function auroraHarmonyStops(
     atoms: AuroraAtoms,
     harmony: AuroraHarmony,
+    dark: boolean,
 ): string[] {
-    const palette = resolveAtmosphereField(fieldAtomsFor({ ...atoms, harmony })).palette;
+    const palette = resolveAtmosphereField(fieldAtomsFor({ ...atoms, harmony }, dark)).palette;
     return palette.map((s) => `oklch(${fmt(s.L)} ${fmt(s.C)} ${fmt(s.h)})`);
 }

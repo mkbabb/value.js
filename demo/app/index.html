@@ -233,7 +233,7 @@
                 // `injectGroundTokens` at build/serve time, so a
                 // GROUND_RECORD_VERSION bump propagates here and never strands
                 // the boot. (Since §0hk OD-12 both members are the field's
-                // own palette — one derive in both schemes.)
+                // own palette — one derive, banded by scheme, §0hn arm B.)
                 var FIRST_VISIT = __GROUND_FIRST_VISIT__;
                 var VERSION = __GROUND_RECORD_VERSION__;
                 var scheme = dark ? 'dark' : 'light';
@@ -247,7 +247,7 @@
                 var url = __vjsUrlSeed.parseUrlSeed(location.hash);
                 var seeded = url && window.__vjsSeededGround &&
                     window.__vjsSeededGround.seededGroundStops(
-                        url.color.trim().toLowerCase());
+                        url.color.trim().toLowerCase(), dark);
                 if (seeded) stops = seeded;
                 else try {
                     var rec = JSON.parse(localStorage.getItem('color-picker-ground'));

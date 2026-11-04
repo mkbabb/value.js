@@ -297,7 +297,8 @@ describe("VJ-U-F26 (BR-2) — the rendered-tier accent re-guard: one surface ref
     // per scheme; the page ambient is its mean OKLab L. Inlined + cited (the
     // test gates the MECHANISM, not the exact literal — regenerate with it).
     // FIRST_VISIT_GROUND (boot/ground.ts) for reference (§0hk OD-12: one
-    // derive, both schemes): #df77c2→#ffc3bd (mean OKLab L ≈ 0.79).
+    // derive; §0hn arm B: dark held on the dark band): light #df77c2→#ffc3bd
+    // (mean OKLab L ≈ 0.79), dark #25001d→#90131b.
 
     /**
      * Reproduce the boot cascade for the default seed, both schemes:

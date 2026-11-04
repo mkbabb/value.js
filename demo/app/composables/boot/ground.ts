@@ -62,7 +62,7 @@ export const GROUND_STORE_KEY = "color-picker-ground";
  *  the first-visit constants — never a wrong-material paint). A bump propagates
  *  into the pre-module boot guard automatically via `injectGroundTokens`
  *  (U-F23): the boot read no longer carries a hand-typed twin to strand. */
-export const GROUND_RECORD_VERSION = 2; // §0hk OD-12: the one-derive ground (v1 = the dark-band crimson)
+export const GROUND_RECORD_VERSION = 3; // §0hn arm B: dark ground = the held dark-band field (v2 = the seed-faithful dark ground; v1 = the raw dark derive)
 
 /** The fixed template's stop count — the template never changes shape. */
 export const GROUND_STOP_COUNT = 4;
@@ -78,22 +78,23 @@ export interface GroundRecord {
 /**
  * THE FIRST-VISIT CONSTANT PAIR — the DEFAULT seed's derived gradient, one
  * member per scheme. Since §0hk OD-12 the ground is the field's own resolved
- * palette in BOTH schemes (one derive; the former dark member — the producer's
- * raw dark band, #673255… — was the owner's flat crimson), so the two members
- * are the same literal. The Record shape stays: the boot token injection and
- * the scheme-in-record fouc-guard read it per scheme.
+ * palette (one derive; the former dark member — the producer's raw dark band,
+ * #673255… — is gone). §0hn arm B holds the DARK field on the producer's dark
+ * band (glass O-130; `seeded-ground.ts`'s `DARK_FIELD_SEED_FAITHFUL`), so the
+ * dark member is that held field's palette and light is the seed-faithful one.
+ * The scheme-in-record fouc-guard reads them per scheme.
  *
  * Generated from the LIVE first-visit sink write (`seededGroundStops` for the
- * default model's opaque seed `oklch(73% 0.185 2)`). Constant ≡ the sink's
- * first write BY CONSTRUCTION, so a first visit never shifts material when the
- * sink lands. Regenerate when the default seed or the derive changes (then
- * bump GROUND_RECORD_VERSION). index.html receives these literals through the
- * build's token injection (`plugins/vite-ground-tokens.ts`) — never by hand.
+ * default model's opaque seed `oklch(73% 0.185 2)`, per scheme). Constant ≡
+ * the sink's first write BY CONSTRUCTION, so a first visit never shifts
+ * material when the sink lands. Regenerate when the default seed or the derive
+ * changes (then bump GROUND_RECORD_VERSION). index.html receives these
+ * literals through the build's token injection (`plugins/vite-ground-tokens.ts`)
+ * — never by hand.
  */
-const FIRST_VISIT_STOPS = ["#df77c2", "#ff83b9", "#ffa6b4", "#ffc3bd"] as const;
 export const FIRST_VISIT_GROUND: Record<GroundScheme, readonly string[]> = {
-    light: FIRST_VISIT_STOPS,
-    dark: FIRST_VISIT_STOPS,
+    light: ["#df77c2", "#ff83b9", "#ffa6b4", "#ffc3bd"],
+    dark: ["#25001d", "#470027", "#6c0028", "#90131b"],
 };
 
 /** Normalize a derived palette to the template's fixed stop count (the
