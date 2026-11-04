@@ -1,0 +1,52 @@
+[
+ {
+  "i": 0,
+  "vw": 1800,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": [],
+  "warns": [],
+  "nameLine": "Efflorescence"
+ },
+ {
+  "i": 1,
+  "vw": 1440,
+  "colorScheme": "light",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": [],
+  "warns": [],
+  "nameLine": "Efflorescence"
+ },
+ {
+  "i": 2,
+  "vw": 390,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": [],
+  "warns": [],
+  "nameLine": "Efflorescence"
+ },
+ {
+  "i": 3,
+  "vw": 430,
+  "colorScheme": "light",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": [],
+  "warns": [],
+  "nameLine": "Efflorescence"
+ },
+ {
+  "i": 4,
+  "vw": 844,
+  "colorScheme": "dark",
+  "firstView": "shell",
+  "mismatch": false,
+  "msgs": [],
+  "warns": [],
+  "nameLine": "Efflorescence"
+ }
+]
