@@ -5449,3 +5449,8 @@ Ruled:
   - Workflow `wf_d1b61659-0e1` runs design, then cube mode (keyframes.js → keyframes.babb.dev), then the site (new private repo `mkbabb/daraksha`, Cloudflare Pages project `daraksha`), then deploy, then check.
   - **Privacy law stands:** no photo is ever published; the site uses her colours, her name and generated art only.
   - **Deploy constraint:** the babb.dev Cloudflare token lives only as GitHub secrets on the existing repos; local wrangler is the Friday Institute account. If `mkbabb/daraksha` has no secrets, that is an OWNER ACT (`gh secret set`), never a cross-repo workaround.
+- **§0hq (2026-11-04): owner order, verbatim: *"color with no u, too, should be a domain. both."***
+  - **Ruling (delegate):** both spellings resolve. color.babb.dev stays the one canonical origin, and colour.babb.dev returns a 301 to it that keeps the path, query and hash.
+  - **Why:** identity is a slug session token in localStorage, which is per-origin. A second serving origin would split the owner's palettes and session, and would need a second CORS origin.
+  - **Mechanism:** a `colour` Pages redirect project, deployed by a focused `domains.yml` in value.js using value.js's own Cloudflare secrets.
+  - Workflow `wf_0d8fd0eb-bee` runs it, and it is serialized behind the §0hn and §0ho merges.
