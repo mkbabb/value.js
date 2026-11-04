@@ -5460,3 +5460,23 @@ Ruled:
   - The temporary `TMP_GH_ADMIN` secret and the ops branch are deleted.
   - The Daraksha cube mode is live on keyframes.babb.dev (kf 6.2.0).
   - Repair round 1 is in flight as `wf_17cd7d56-b53`: skin shading, the reduced-motion (PRM) rest pose, the AnimationGroup child-delay bug as kf 6.2.1, the site moving onto the kf presets, phone readouts, and the aurora from her stops. Its daraksha CI auto-redeploys.
+
+## §0hn.1 readings — 2026-11-04: SHIP seat (§0hn item 3) — MERGED, DEPLOYED, API live; prod browser re-reads ×2 REFUSED by the machine guard (kernel zone)
+Ship seat (`claude-opus-5-5`). This continues §0hn item 3 after the visual seat. It is distinct from the §0hn.1 INK seat bullet above.
+- **Gate in.** tranche-u ci `41844837516` @ `1497c9295` reads 8/8 success. That head carries OD-9/10/11 `e9b265d0f`, OD-15 `501a8910a` with its cure `1a719a8a2`, OD-12 `bee03a760` with arm B `f4bd4680e`, and OD-3b `4343087c3`.
+- **§0ga merge.** `git merge-tree --write-tree origin/master 1497c9295` came back clean (tree `d208dc0ec`). The ordinary merge **`351615b9d`** has parents `30c510b3d` and `1497c9295` and was built with commit-tree. It was pushed `"${M}:refs/heads/master"` as a fast-forward of master, not forced. The merge did not carry the local tranche-u commits beyond `1497c9295`: §0ho OD-19 `80d31f511`/`3647f2d1e`, §0hq `5400259cd`, and the §0hp records. Those ship in their own workflow's merge.
+- **master ci `41866902951` @ `351615b9d`: 8/8 success** (lhci, visual, oracle slate, e2e-smoke, boot-smoke, producer Node 24, producer Node 22, api Node 22).
+  - e2e-smoke: 463 passed, 11 flaky, 2 skipped, 4 failed.
+  - All 4 failures are in the job's own producer-held list: O-122 (glass O-115) o21:287, glass O-112(2) o29:395, and webgl-blob-idle:276 ×2.
+- **deploy-pages `41890965347`: success** through its triple gate (CI success, master, push).
+  - Served bundle `index-LmUYsQfA.js` → **`index-B7vMwiSG.js`**; CSS `index-1Li6W4HP.css`. Read twice.
+- **API.** `https://api.color.babb.dev/health` gives `commit == 351615b9d9455e5c39a82bec7ddbf4da9563b8b1`, with mongo ok and primary true. Read twice; it was already live when master CI went green (host webhook).
+- **Static prod readings (no browser), ×2:**
+  - **OD-15:** the served CSS carries `--picker-measure: calc(var(--card-measure) * 1.61803 + var(--phi-3))` with `--card-measure: 32rem`, about 854 px. The ceiling is keyed on `[data-view=picker|palettes|mix|blob]`, and `--pane-stage-max` is present.
+  - **OD-3b:** `GET /palettes/mine` with the Daraksha keychain session (inline, never printed) returns 200, total 2: "Daraksha Gradient" and "Daraksha". `palettes/mine` is in the served entry bundle.
+- **Prod browser readings ×2: NOT TAKEN. The guard refused them.** `guarded` returned `REFUSED: kernel zone data.kalloc.1024 at 8.67M … heavy and browser runs stop at 8M: reboot the Mac` (zone.log 13:53 local, inuse 8,671,163, slope 64.8/s, kext=nfs). Per machine law this seat stopped all browser work.
+  - **Still owed:** OD-9 (field not faded), OD-10 (crown ∩ Apply = 0), OD-11 (glass Badge), OD-15 (live stage ≤ measure at 1800, 2560 and 3440), OD-12 light (dominant ΔE_OK ≤ 0.05, with dark per arm B in the producer band L 0.18–0.42), and OD-3b in the UI (My Palettes lists the account rows). Each is owed at 1800×1000@2x and 390×844, dark and light.
+  - **The probe is ready.** `~/.dev-logs/x-0hn/prod/probe-od.mjs` covers OD-9/10/11/15/3b; its token is passed by env only. For OD-12, re-run `docs/tranches/X/evidence/0hk/od12-aurora/probe-served.mjs https://color.babb.dev/ prod0hn desk|mob`.
+  - **Pre-deploy baseline** (old prod `30c510b3d`, probe validated, 13:50 local, before the guard hit 8M): crown ∩ Apply = 215 px² at 1800 and 144 px² at 390, so OD-10 was RED. The badge was not glass Badge (no `data-slot`, radius 4 px). The picker stage was unbounded (1043, 1507 and 2051 px at 1800, 2560 and 3440). My Palettes was empty under the Daraksha session. Output is in `~/.dev-logs/x-0hn/prod/pre/`.
+- **OWNER ACT:** reboot the Mac (the kernel zone leak is ARMED, kext=nfs). After the reboot, a seat runs the two probes ×2 on prod and appends the readings here.
+- **The §0hm.1 docket ship seat is unblocked:** this workflow's merge is done.
