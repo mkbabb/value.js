@@ -550,7 +550,8 @@ Layout tokens (`:root` in `demo/styles/foundation.css`):
   (`.app-layout { min-block-size: 100svh }`) and caps it nowhere, so a scene taller than the
   viewport grows the document instead of being clipped. The token is deliberately absent:
   "cap the page by viewport aspect" is unrepresentable (L-8).
-- **`--pane-min: 25rem` / `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`**: the pane row. It has
+- **`--pane-min: min(25rem, 100svh)` / `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`**: the pane row (the floor
+  never exceeds the viewport's block size, so a short landscape takes two tracks; X·§0hm D-19). It has
   **no page cap** (layout-gestalt UL-1; SS-8 Z1):
     - `.pane-container` spans the scene band; `auto-fit` decides one track or two;
     - two tracks take the route's ratio from `.app-layout[data-view]`: golden 61.8/38.2 (stage

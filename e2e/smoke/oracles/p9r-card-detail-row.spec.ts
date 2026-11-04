@@ -5,8 +5,9 @@ import { mainPane } from "../fixtures/dock";
 /**
  * X-DS · value · pass 9 · P9R-01 — AN EXPANDED CARD'S SWATCHES NEVER COVER ITS META ROW.
  *
- * Below 30rem of card, the meta cluster (tags, vote) drops to grid row 3 and the
- * detail band must drop to row 4. The band sits inside the Collapsible's
+ * The detail band must sit below the card's meta (X·§0hm D-24: tags and vote share the name
+ * row at every card width). Before, below 30rem the meta took row 3 and the detail band had to
+ * drop to row 4. The band sits inside the Collapsible's
  * `display: contents` root, so a CHILD selector never matched it: the band kept
  * the `detail` area (row 3) and the swatch row painted over the tags and the
  * vote on every expanded Browse card at 1440 (460 px cards) and 390.
@@ -33,10 +34,12 @@ for (const [label, width, height] of [
             .poll(async () => (await detail.boundingBox())?.height ?? 0, { timeout: 10_000 })
             .toBeGreaterThan(40);
         await page.waitForTimeout(600);
-        const [meta, band] = await Promise.all([
-            card.locator(".palette-meta").boundingBox(),
-            detail.boundingBox(),
-        ]);
+        // X·§0hm D-24: the meta's two cells (tags, vote) are the card's own
+        // grid cells on the name row; the tags cell renders only when the
+        // palette has tags, so the vote is the cell every card has.
+        const tags = card.locator(".palette-meta__tags");
+        const metaCell = (await tags.count()) > 0 ? tags : card.locator(".palette-meta__vote");
+        const [meta, band] = await Promise.all([metaCell.boundingBox(), detail.boundingBox()]);
         expect(meta, "meta row box").not.toBeNull();
         expect(band, "detail band box").not.toBeNull();
         const m = meta!;

@@ -1,0 +1,614 @@
+[
+ {
+  "c": "land",
+  "r": "/",
+  "errs": [],
+  "vw": 844,
+  "vh": 390,
+  "docH": 604,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    21,
+    83,
+    401,
+    513
+   ],
+   [
+    "pane-wrapper--inspector",
+    433,
+    83,
+    390,
+    513
+   ]
+  ],
+  "row": [
+   21,
+   83,
+   802,
+   513
+  ],
+  "cols": "401.266px 390px",
+  "inspector": [
+   433,
+   83,
+   390,
+   513
+  ],
+  "lastSliderBottom": 558,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "land",
+  "r": "/mix",
+  "errs": [],
+  "vw": 844,
+  "vh": 390,
+  "docH": 604,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    21,
+    83,
+    401,
+    513
+   ],
+   [
+    "pane-wrapper--inspector",
+    433,
+    83,
+    390,
+    513
+   ]
+  ],
+  "row": [
+   21,
+   83,
+   802,
+   513
+  ],
+  "cols": "401.266px 390px",
+  "inspector": [
+   433,
+   83,
+   390,
+   513
+  ],
+  "lastSliderBottom": 558,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "land",
+  "r": "/browse",
+  "errs": [],
+  "vw": 844,
+  "vh": 390,
+  "docH": 571,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    21,
+    83,
+    401,
+    395
+   ],
+   [
+    "pane-wrapper--inspector",
+    433,
+    83,
+    390,
+    480
+   ]
+  ],
+  "row": [
+   21,
+   83,
+   802,
+   480
+  ],
+  "cols": "401.266px 390px",
+  "inspector": [
+   433,
+   83,
+   390,
+   480
+  ],
+  "lastSliderBottom": null,
+  "cards": [
+   {
+    "card": [
+     46,
+     251,
+     351,
+     93
+    ],
+    "name": [
+     59,
+     302,
+     183,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha Gradient",
+    "vote": [
+     265,
+     305,
+     39,
+     25
+    ],
+    "voteHit": [
+     44,
+     44
+    ]
+   },
+   {
+    "card": [
+     46,
+     356,
+     351,
+     93
+    ],
+    "name": [
+     59,
+     407,
+     93,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha",
+    "vote": [
+     265,
+     409,
+     39,
+     25
+    ],
+    "voteHit": [
+     -1,
+     -1
+    ]
+   }
+  ],
+  "labels": []
+ },
+ {
+  "c": "m390",
+  "r": "/",
+  "errs": [],
+  "vw": 390,
+  "vh": 844,
+  "docH": 1429,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    366,
+    569
+   ],
+   [
+    "pane-wrapper--inspector",
+    12,
+    689,
+    366,
+    732
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   366,
+   1317
+  ],
+  "cols": "366px",
+  "inspector": [
+   12,
+   689,
+   366,
+   732
+  ],
+  "lastSliderBottom": 635,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "m430",
+  "r": "/",
+  "errs": [],
+  "vw": 430,
+  "vh": 932,
+  "docH": 1518,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    406,
+    570
+   ],
+   [
+    "pane-wrapper--inspector",
+    12,
+    690,
+    406,
+    820
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   406,
+   1406
+  ],
+  "cols": "406px",
+  "inspector": [
+   12,
+   690,
+   406,
+   820
+  ],
+  "lastSliderBottom": 637,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "m390",
+  "r": "/browse",
+  "errs": [],
+  "vw": 390,
+  "vh": 844,
+  "docH": 959,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    366,
+    393
+   ],
+   [
+    "pane-wrapper--inspector",
+    12,
+    513,
+    366,
+    437
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   366,
+   847
+  ],
+  "cols": "366px",
+  "inspector": [
+   12,
+   513,
+   366,
+   437
+  ],
+  "lastSliderBottom": null,
+  "cards": [
+   {
+    "card": [
+     29,
+     271,
+     332,
+     93
+    ],
+    "name": [
+     42,
+     322,
+     167,
+     31
+    ],
+    "nameTrunc": true,
+    "nameText": "Daraksha Gradient",
+    "vote": [
+     230,
+     326,
+     38,
+     24
+    ],
+    "voteHit": [
+     44,
+     45
+    ]
+   },
+   {
+    "card": [
+     29,
+     376,
+     332,
+     93
+    ],
+    "name": [
+     42,
+     427,
+     93,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha",
+    "vote": [
+     230,
+     430,
+     38,
+     24
+    ],
+    "voteHit": [
+     44,
+     45
+    ]
+   }
+  ],
+  "labels": []
+ },
+ {
+  "c": "m430",
+  "r": "/browse",
+  "errs": [],
+  "vw": 430,
+  "vh": 932,
+  "docH": 959,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    406,
+    393
+   ],
+   [
+    "pane-wrapper--inspector",
+    12,
+    513,
+    406,
+    437
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   406,
+   847
+  ],
+  "cols": "406px",
+  "inspector": [
+   12,
+   513,
+   406,
+   437
+  ],
+  "lastSliderBottom": null,
+  "cards": [
+   {
+    "card": [
+     29,
+     271,
+     372,
+     93
+    ],
+    "name": [
+     42,
+     322,
+     183,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha Gradient",
+    "vote": [
+     270,
+     326,
+     38,
+     24
+    ],
+    "voteHit": [
+     44,
+     45
+    ]
+   },
+   {
+    "card": [
+     29,
+     376,
+     372,
+     93
+    ],
+    "name": [
+     42,
+     427,
+     93,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha",
+    "vote": [
+     270,
+     430,
+     38,
+     24
+    ],
+    "voteHit": [
+     44,
+     45
+    ]
+   }
+  ],
+  "labels": []
+ },
+ {
+  "c": "d14",
+  "r": "/",
+  "errs": [],
+  "vw": 1440,
+  "vh": 900,
+  "docH": 900,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    36,
+    88,
+    828,
+    685
+   ],
+   [
+    "pane-wrapper--inspector",
+    882,
+    88,
+    522,
+    685
+   ]
+  ],
+  "row": [
+   36,
+   88,
+   1368,
+   685
+  ],
+  "cols": "828.422px 521.578px",
+  "inspector": [
+   882,
+   88,
+   522,
+   685
+  ],
+  "lastSliderBottom": 731,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "d14",
+  "r": "/browse",
+  "errs": [],
+  "vw": 1440,
+  "vh": 900,
+  "docH": 900,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    36,
+    88,
+    900,
+    388
+   ],
+   [
+    "pane-wrapper--inspector",
+    954,
+    88,
+    450,
+    480
+   ]
+  ],
+  "row": [
+   36,
+   88,
+   1368,
+   480
+  ],
+  "cols": "900px 450px",
+  "inspector": [
+   954,
+   88,
+   450,
+   480
+  ],
+  "lastSliderBottom": null,
+  "cards": [
+   {
+    "card": [
+     61,
+     249,
+     850,
+     93
+    ],
+    "name": [
+     74,
+     300,
+     183,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha Gradient",
+    "vote": [
+     790,
+     302,
+     40,
+     27
+    ],
+    "voteHit": [
+     40,
+     28
+    ]
+   },
+   {
+    "card": [
+     61,
+     354,
+     850,
+     93
+    ],
+    "name": [
+     74,
+     405,
+     93,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha",
+    "vote": [
+     790,
+     407,
+     40,
+     27
+    ],
+    "voteHit": [
+     40,
+     27
+    ]
+   }
+  ],
+  "labels": []
+ },
+ {
+  "c": "d18",
+  "r": "/",
+  "errs": [],
+  "vw": 1800,
+  "vh": 1000,
+  "docH": 1000,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    45,
+    88,
+    828,
+    685
+   ],
+   [
+    "pane-wrapper--inspector",
+    896,
+    88,
+    859,
+    685
+   ]
+  ],
+  "row": [
+   45,
+   88,
+   1710,
+   685
+  ],
+  "cols": "828.422px 859.078px",
+  "inspector": [
+   896,
+   88,
+   859,
+   685
+  ],
+  "lastSliderBottom": 731,
+  "cards": [],
+  "labels": []
+ }
+]

@@ -275,7 +275,7 @@
 .pane-container:has(> .pane-wrapper--stage[data-shown="color-picker"]) {
     --pane-stage-max: var(--picker-measure);
 }
-@container scene (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+@container scene (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-container:has(> .pane-wrapper--stage + .pane-wrapper--inspector) {
         grid-template-columns:
             minmax(
@@ -468,7 +468,7 @@
  * `auto-fit` condition of `.pane-container` above: its inline size is at
  * least two `--pane-min` tracks plus one `--pane-gap`. A size query cannot
  * read custom properties, so the two token values are written out here —
- * `--pane-min: 25rem` and `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`
+ * `--pane-min: min(25rem, 100svh)` and `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`
  * (foundation.css). A change to either token changes this line with it.
  *
  * It sits on the WRAPPER, not the card: the pane swap sets `contain: layout
@@ -479,7 +479,7 @@
  * inspector region. Palettes, Mix and the config pane declare it too, and the
  * config pane is also the sole stage of /atmosphere, where no sibling sets the
  * row and `contain: size` would collapse it. */
-@container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+@container pane-row (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-wrapper--inspector:has(> .pane-row-follow) {
         contain: size layout;
         min-block-size: var(--pane-follow-floor, 0px);
@@ -495,6 +495,29 @@
         flex-direction: column;
     }
     .pane-wrapper--inspector:has(> .pane-row-follow) > .pane-row-follow {
+        block-size: auto;
+        flex: 0 1 auto;
+        min-block-size: 0;
+    }
+}
+
+/* X·§0hm D-20 — ONE TRACK: THE COMPANION'S PORT IS THE SCENE BAND.
+ * Beside the stage the companion follows the stage's height (above). Stacked
+ * under it, it had no measure at all: Home's About unrolled all 21 sections
+ * to 7664 px at 390 and 7486 px at 430, so the phone's home was ten screens
+ * long while the same pane on desktop is a 685 px port. In one track the
+ * companion's ceiling is the block the scene band shows at rest
+ * (`--scene-band-block`, the shell's own measure), and the same pane scrolls
+ * its body inside its own card on the same FadingScroll port. A companion
+ * shorter than the band keeps its content height (`flex: 0 1 auto`, as in two
+ * tracks), so Mix and an empty My Palettes are unchanged. */
+@container pane-row not (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
+    .pane-wrapper--inspector > .pane-row-follow {
+        display: flex;
+        flex-direction: column;
+        max-block-size: var(--scene-band-block);
+    }
+    .pane-wrapper--inspector > .pane-row-follow > .pane-shell__card {
         block-size: auto;
         flex: 0 1 auto;
         min-block-size: 0;
@@ -548,7 +571,7 @@
  * rule is keyed on the stage showing the picker while the inspector shows
  * something other than About (Home is the one picker view whose inspector is
  * About). The settled order is unchanged, and the flip moves to the commit. */
-@container pane-row not (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+@container pane-row not (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-container:has(> .pane-wrapper--inspector:not([data-shown="about"]))
         > .pane-wrapper--stage[data-shown="color-picker"] {
         order: 1;
