@@ -5438,3 +5438,10 @@ Ruled:
 ## §0hm.3 — 2026-11-04: records erratum (O-130 id collision; E-3)
 - §0hm.2 names the fourier follow-up to O-119 "O-130". That id was also given to the glass aurora plate-rung relay (`d8bf09bc6`), which glass booked as INBOUND O-130 (`fd44a9022`) and which §0hn, §0hn.0 and §0hn.1 cite. Glass's booking keeps O-130. The fourier follow-up is **O-132** (INBOX dated erratum). §0hm.2 stands unedited; read its "O-130" as O-132.
 - LEDGER caught up for §0hn through §0hn.1, the D-19/20/24/31, D-32 and D-33 cures, and glass 10.1.4 live.
+
+## §0ho — owner field report 2026-11-04 09:45 (Safari, color.babb.dev on master `30c510b3d`, i.e. before the §0hk/§0hm/§0hn train ships)
+
+- **OD-16 (`od16-collapsed-squared-safari.png`).** Just before the dock finishes collapsing, the plate shows a squared-off rounded rectangle, with a darker square ghost behind it, and the motion is janky. **Owner: glass** (O-123 collapsed seal / cut-cap and O-124 morph). The relay goes to glass-ui-b5 with the Safari frame.
+- **OD-17 (`od17-focus-ring-clipped.png`).** The Home pill's focus ring is clipped on its left and top edges inside the dock. **Owner: glass.** The dock plate or run clips its own focus outline. *Gate:* the ring is drawn whole on every seat, whether the dock is collapsed, expanded or in input mode.
+- **OD-18.** The dock morph when a tool is chosen is still not smooth or well defined. The owner wants **the liquid animations to work on Safari**. **Owner: glass** (O-124 / O-128 / O-129 r3–r4), with a new WebKit axis. value.js owes a WebKit trace witness: a guarded `--exclusive webkit` run, one browser, frame dt plus plate radius and width per frame across a tool click.
+- **OD-19 (`od19-picker-wide.png`, plus the 09:45 frame at about 877 CSS px).** The picker is still too wide on desktop. OD-15's cure (`--picker-measure` = card × φ ≈ 828 px, `501a8910a`) is **not on prod yet**. Even once it ships, 828 px is only about 6 % under what the owner sees. **Ruling (delegate):** tighten to `--picker-measure: calc(var(--card-measure) * 1.272)` (√φ, about 651 px) as a follow-up after the train deploys, and re-mint by attribution only.
