@@ -296,8 +296,8 @@ describe("VJ-U-F26 (BR-2) — the rendered-tier accent re-guard: one surface ref
     // FIRST_VISIT_GROUND (boot/ground.ts) — the default seed's derived field,
     // per scheme; the page ambient is its mean OKLab L. Inlined + cited (the
     // test gates the MECHANISM, not the exact literal — regenerate with it).
-    // FIRST_VISIT_GROUND (boot/ground.ts) for reference: light pinks
-    // #b37290→#ffcfc8 (mean OKLab L ≈ 0.77), dark #673255→#d6917c (mean ≈ 0.56).
+    // FIRST_VISIT_GROUND (boot/ground.ts) for reference (§0hk OD-12: one
+    // derive, both schemes): #df77c2→#ffc3bd (mean OKLab L ≈ 0.79).
 
     /**
      * Reproduce the boot cascade for the default seed, both schemes:

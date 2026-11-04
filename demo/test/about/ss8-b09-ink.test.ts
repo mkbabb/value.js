@@ -35,6 +35,7 @@ import {
     TEXT_CONTRAST_FLOOR,
 } from "../../color-session/ink";
 import { resolveAtmosphereField } from "../../app/composables/boot/atmosphere-calibration";
+import { fieldAtomsFor } from "../../app/composables/boot/seeded-ground";
 import { DEFAULT_AURORA_ATOMS } from "../../scenes/atmosphere/aurora-atoms";
 
 const toOklch = (css: string): Color<"oklch"> => {
@@ -114,17 +115,15 @@ const restingPlateOver = (stop: { L: number; C: number; h: number }, dark: boole
     return out.value;
 };
 
-/** The field the app resolves (useAtmosphere's `fieldAtoms`: dark takes the
- *  producer's dark band). */
-const fieldFor = (seed: string, dark: boolean) =>
-    resolveAtmosphereField({
-        ...structuredClone(DEFAULT_AURORA_ATOMS),
-        seed,
-        ...(dark ? { lightnessScheme: "dark" as const } : {}),
-    }).palette;
+/** The field the app resolves (useAtmosphere's `fieldAtoms`: the
+ *  seed-anchored band, one rule in both schemes — §0hk OD-12). */
+const fieldFor = (seed: string) =>
+    resolveAtmosphereField(
+        fieldAtomsFor({ ...structuredClone(DEFAULT_AURORA_ATOMS), seed }),
+    ).palette;
 
 const componentInk = (seed: string, dark: boolean) => {
-    const ambient = resolveFieldAmbientLightness(fieldFor(seed, dark), dark);
+    const ambient = resolveFieldAmbientLightness(fieldFor(seed), dark);
     return certifyAccentInk(seed, resolveSurfaceLightness("resting", ambient, dark));
 };
 
@@ -145,7 +144,7 @@ describe("SS8-0259 · the component ink clears the floor on the rendered plate",
     for (const seed of SEEDS) {
         it(`dark · ${seed}: the ink clears 4.5:1 over every field stop`, () => {
             const ink = toOklch(componentInk(seed, true));
-            const failing = fieldFor(seed, true)
+            const failing = fieldFor(seed)
                 .filter((stop) => !clears(ink, restingPlateOver(stop, true)))
                 .map((stop) => `L${stop.L.toFixed(3)} C${stop.C.toFixed(3)} h${stop.h.toFixed(1)}`);
             expect(failing, failing.join("; ")).toEqual([]);
@@ -154,7 +153,7 @@ describe("SS8-0259 · the component ink clears the floor on the rendered plate",
 
     it("light keeps the field's mean L (the arm read 5.64:1 live)", () => {
         for (const seed of SEEDS) {
-            const field = fieldFor(seed, false);
+            const field = fieldFor(seed);
             const mean = field.reduce((sum, stop) => sum + stop.L, 0) / field.length;
             expect(resolveFieldAmbientLightness(field, false)).toBeCloseTo(mean, 12);
         }

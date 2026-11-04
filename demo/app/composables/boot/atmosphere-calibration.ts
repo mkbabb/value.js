@@ -33,11 +33,13 @@
  * 7.0.0 packed bytes that is FALSE: `resolveAtoms` forwards
  * `lightnessScheme` → `deriveAurora`'s `scheme` and `lBand` → `lBand`, both
  * measured to move the derived ramp (light L 0.50–0.82 → dark L 0.18–0.42;
- * an explicit `lBand: [0.10, 0.34]` honoured exactly). The band now lands on
- * the field in `useAtmosphere`'s `fieldAtoms`, through the shipped door.
- * This module is deliberately unchanged by that: the scheme is a SHELL fact
- * and this resolver is pure, so `aurora-harmony-stops.ts` and the O-6
- * bracket test keep calling it with no shell to know about.
+ * an explicit `lBand: [0.10, 0.34]` honoured exactly).
+ * §0hk OD-12 SUPERSEDES the dark band: it crushed every seed to L ≈ 0.31
+ * (the owner's flat crimson). The field now takes ONE scheme-free band,
+ * `seedAnchoredLBand` below, through the same `lBand` door (applied by
+ * `seeded-ground.ts`'s `fieldAtomsFor`). This resolver stays pure, so
+ * `aurora-harmony-stops.ts` and the O-6 bracket test keep calling it with
+ * no shell to know about.
  *
  * THE DRAG PATH IS BYTE-IDENTICAL: this module changes only the RESOLVED
  * CONFIG's ambient knobs; the per-frame re-seed mechanism (the rAF coalesce
@@ -147,6 +149,43 @@ function seedLightness(seed: AuroraAtoms["seed"]): number | null {
     }
 }
 
+// --- X·§0hk OD-12 — THE SEED-ANCHORED BAND (the aurora shows the chosen colour) ---
+// The owner (2026-11-03): "the background aurora doesn't properly display our
+// actual color". The derive centred the ramp on the seed over the producer's
+// full 0.32 spread, and in dark the band [0.18, 0.42] crushed every seed to a
+// dominant L ≈ 0.31 (the flat crimson). The shipped `lBand` atom is the
+// control surface, one rule in both schemes, never a darker band (that was
+// the defect): a HALF-spread window centred one seam floor above the seed.
+// The field's mean then sits exactly at the T-37 seam (the guard below is a
+// no-op on this path), the seed lies ON the ramp near its foot (t = 0.125),
+// and every stop stays within 0.14 L of the chosen colour. Measured on the
+// served field (§0hk OD-12 record): the merged design's full-width band read
+// a pale dominant wash on vivid seeds (worst ΔE_OK 0.112, zari/tomato/
+// efflorescence); this window reads 0.026–0.049 on them.
+
+/** The producer derive's `lightnessSpread` default (the ramp's L width). */
+const DERIVE_L_SPREAD = 0.32;
+/** The seed band's width: half the producer spread. */
+const SEED_BAND_WIDTH = DERIVE_L_SPREAD / 2;
+
+/**
+ * The seed-anchored lightness band: [c − w/2, c + w/2] with c = seed L +
+ * DERIVE_SEAM_FLOOR (the field mean on the seam) and w = SEED_BAND_WIDTH,
+ * narrowed only where the 0.98 ceiling forces it (near white the seed then
+ * sits below the ramp by the seam's provable cost; L > 0.92 has no room above
+ * and the guard below flips the field under the wax). Undefined for an
+ * un-parseable seed.
+ */
+export function seedAnchoredLBand(
+    seed: AuroraAtoms["seed"],
+): readonly [number, number] | undefined {
+    const L = seedLightness(seed);
+    if (L == null) return undefined;
+    const c = L + DERIVE_SEAM_FLOOR;
+    const half = clamp(0.98 - c, 0, SEED_BAND_WIDTH / 2);
+    return [clamp(c - half, 0.02, 0.98), clamp(c + half, 0.02, 0.98)];
+}
+
 /**
  * Guarantee |field mean L − wax L| ≥ DERIVE_SEAM_FLOOR by shifting the whole
  * derived palette uniformly away from the seed when they would collide. Pure;
@@ -160,8 +199,11 @@ function guaranteeSeamOffset(config: AuroraConfig, seed: AuroraAtoms["seed"]): A
     const delta = meanL - seedL;
     if (Math.abs(delta) >= DERIVE_SEAM_FLOOR) return config;
     // Push AWAY from the wax on the side the field already leans; flip if that
-    // side has no headroom (closed-form — two branches, zero iteration).
-    let dir = delta >= 0 ? 1 : -1;
+    // side has no headroom (closed-form — two branches, zero iteration). A mean
+    // ON the wax within float noise leans UP: the sign of ±1e-16 noise once
+    // chose the side, a 0.12 L swing between two re-seeds of one colour
+    // (§0hk OD-12, seat 1's live coin flip).
+    let dir = delta > -1e-6 ? 1 : -1;
     const need = DERIVE_SEAM_FLOOR - Math.abs(delta);
     const headroom = dir === 1 ? 0.98 - meanL : meanL - 0.02;
     if (headroom < need) dir = -dir;

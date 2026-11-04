@@ -3,7 +3,8 @@
 // For each chosen colour × scheme × viewport: load the app seeded by the
 // share link, wait for the atmosphere's arrival, hide everything but the
 // canvas, capture, and read the canvas-only frame in OKLab:
-//   · dominant region = the largest k-means (k=3) cluster centroid;
+//   · dominant region = the largest k-means (k=3) cluster centroid, the
+//     median over FRAMES (default 4) frames 3 s apart (the field drifts);
 //     dEdom = ΔE_OK(dominant, seed), hueErr = |h_dom − h_seed| (C ≥ 0.05)
 //   · dEarea = ΔE_OK(area mean, seed)
 //   · medL = the frame's median OKLab L (the re-seed determinism read)
@@ -41,6 +42,7 @@ const SEEDS = [
     ["tomato", "tomato"],
     ["skyblue", "skyblue"],
 ].filter(([n]) => !process.env.ONLY || process.env.ONLY.split(",").includes(n));
+const FRAMES = +(process.env.FRAMES || 4);
 const SCHEMES = (process.env.SCHEMES || "dark,light").split(",");
 const RESEED = new Set((process.env.RESEED ?? "efflorescence,tulsi,teal").split(","));
 
@@ -138,10 +140,21 @@ try {
             });
             await page.addStyleTag({ content: "body *:not(.atmosphere-canvas){visibility:hidden!important} .atmosphere-canvas{visibility:visible!important}" });
             await page.waitForTimeout(300);
-            const buf = await page.screenshot({ type: "png", scale: "css" });
-            const f = `${OUT}/${name}-${scheme}${pass ? "-reseed" : ""}.png`;
-            fs.writeFileSync(f, buf);
-            const m = await analyzer.evaluate(analyze, { b64: buf.toString("base64"), css });
+            // The field DRIFTS (motion "drifting") and its zones are near-equal
+            // in area, so one frame's largest cluster is a drift-phase sample:
+            // read FRAMES frames 3 s apart and keep the per-metric median.
+            const reads = [];
+            for (let k = 0; k < FRAMES; k++) {
+                if (k) await page.waitForTimeout(3000);
+                const buf = await page.screenshot({ type: "png", scale: "css" });
+                if (!k) fs.writeFileSync(`${OUT}/${name}-${scheme}${pass ? "-reseed" : ""}.png`, buf);
+                reads.push(await analyzer.evaluate(analyze, { b64: buf.toString("base64"), css }));
+            }
+            const med = (key) => {
+                const v = reads.map((r) => r[key]).filter((x) => x != null).sort((a, b) => a - b);
+                return v.length ? v[v.length >> 1] : null; // upper median (conservative)
+            };
+            const m = { ...reads[0], dEdom: med("dEdom"), hueErr: med("hueErr"), dEarea: med("dEarea"), medL: med("medL"), frames: reads.map((r) => r.dEdom) };
             const g = await analyzer.evaluate(({ a, b, css }) => {
                 const lin = (u) => { u /= 255; return u <= 0.04045 ? u / 12.92 : Math.pow((u + 0.055) / 1.055, 2.4); };
                 const lab = (c) => {

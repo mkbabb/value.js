@@ -5,6 +5,7 @@ import {
 } from "@mkbabb/glass-ui/aurora";
 import { DEFAULT_AURORA_ATOMS } from "../../scenes/atmosphere/aurora-atoms";
 import { auroraHarmonyStops } from "../../scenes/atmosphere/aurora-harmony-stops";
+import { fieldAtomsFor } from "../../app/composables/boot/seeded-ground";
 import {
     CALIBRATED_BREATH_PERIOD,
     CALIBRATED_SOFTMAX_BETA,
@@ -195,7 +196,7 @@ describe("O-14 · auroraHarmonyStops ≡ the FIELD resolve (strict; AP-5 / SS8-0
             for (const harmony of HARMONIES) {
                 cells++;
                 const strip = auroraHarmonyStops(atoms, harmony);
-                const field = resolveAtmosphereField({ ...atoms, harmony }).palette;
+                const field = resolveAtmosphereField(fieldAtomsFor({ ...atoms, harmony })).palette;
                 expect(strip).toHaveLength(field.length);
                 const off = strip.some((s, i) => {
                     const m = /^oklch\(([\d.]+) ([\d.]+) ([\d.]+)\)$/.exec(s);

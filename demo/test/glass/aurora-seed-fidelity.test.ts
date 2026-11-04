@@ -19,9 +19,9 @@ import {
  *
  * Owner (2026-11-03): "the background aurora doesn't properly display our
  * actual color. Tweak that to better display our chosen color with our
- * hyperparams." The scattered prior's dominant nucleus reads ramp stop
- * t = 1/3 (`paletteBias` i/(n−1), stopCount 4), so the colour→parameter
- * mapping is faithful iff `palette[1]` IS the seed. Pure: the painted field,
+ * hyperparams." The colour→parameter mapping is faithful iff the seed lies ON the derived
+ * ramp (the served field's dominant zone then reads it — the probe beside the
+ * §0hk record measures that). Pure: the painted field,
  * the ground and the pre-paint boot all resolve through these functions.
  */
 
@@ -29,11 +29,6 @@ type Lch = { L: number; C: number; h: number };
 const lab = ({ L, C, h }: Lch) => {
     const r = (h * Math.PI) / 180;
     return [L, C * Math.cos(r), C * Math.sin(r)] as const;
-};
-const deltaEOk = (a: Lch, b: Lch) => {
-    const [l1, a1, b1] = lab(a);
-    const [l2, a2, b2] = lab(b);
-    return Math.hypot(l1 - l2, a1 - a2, b1 - b2);
 };
 const meanL = (palette: readonly Lch[]) =>
     palette.reduce((s, stop) => s + stop.L, 0) / palette.length;
@@ -63,9 +58,27 @@ const fieldFor = (seed: string) =>
 
 describe("OD-12 · the aurora's dominant stop is the chosen colour", () => {
     for (const [name, seed] of Object.entries(SEEDS)) {
-        it(`${name}: palette[1] within ΔE_OK 0.03 of the seed`, () => {
-            const palette = fieldFor(seed);
-            expect(deltaEOk(palette[1]!, cssToOklch(seed))).toBeLessThanOrEqual(0.03);
+        it(`${name}: the band puts the seed on the ramp's foot`, () => {
+            // stop 0 ≤ seed L ≤ stop 1 — unless the 0.98 ceiling has lifted
+            // the whole band above a near-white seed (the seam's cost).
+            const L = cssToOklch(seed).L;
+            const [p0, p1] = fieldFor(seed);
+            if (L + DERIVE_SEAM_FLOOR + 0.08 <= 0.98) expect(p0!.L).toBeLessThanOrEqual(L + 1e-9);
+            expect(p1!.L).toBeGreaterThanOrEqual(L - 1e-9);
+        });
+
+        it(`${name}: a field stop is the seed (palette ΔE_OK ≤ 0.06)`, () => {
+            // Palette-level: the shader's saturation and tonemap move the
+            // painted field further (the served probe gates the painted
+            // dominant zone at 0.05). Was 0.07–0.63 before the cure.
+            const [sl, sa, sb] = lab(cssToOklch(seed));
+            const nearest = Math.min(
+                ...fieldFor(seed).map((st) => {
+                    const [l, a, b] = lab(st);
+                    return Math.hypot(l - sl, a - sa, b - sb);
+                }),
+            );
+            expect(nearest).toBeLessThanOrEqual(0.06);
         });
 
         it(`${name}: the derive seam holds (|mean L − seed L| ≥ floor)`, () => {

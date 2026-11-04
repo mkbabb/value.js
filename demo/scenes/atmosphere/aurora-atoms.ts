@@ -71,6 +71,11 @@ export const SOFTWARE_RASTER_KEY: InjectionKey<boolean> = Symbol("software-raste
 export const DEFAULT_AURORA_ATOMS: AuroraAtoms = {
     harmony: "analogous",
     colorEnergy: 0.76,
+    // §0hk OD-12: the analogous walk's span, narrowed from the energy-derived
+    // ≈37° so the zones nearest the seed stay on its hue (served dominant hue
+    // error ≤ 7° over the 12 OD-12 seeds; 10 flattened the zones' variety).
+    // Energy is untouched, so the T-26 register holds.
+    hueSpread: 14,
     zones: { count: 6, arrangement: "scattered" },
     noise: 0.5,
     medium: { kind: "smooth" },
