@@ -1,0 +1,5158 @@
+{
+ "local": {
+  "url": "http://127.0.0.1:9471/",
+  "when": "2026-11-04T15:10:15.688Z",
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15",
+  "cells": {
+   "desktop": {
+    "viewport": {
+     "width": 1440,
+     "height": 900
+    },
+    "bundle": "http://127.0.0.1:9471/assets/index-B7vMwiSG.js",
+    "dom": {
+     "cls": "glass-dock horizontal shape-pill expanded fit-content",
+     "buttons": [
+      "Select view",
+      "Toggle action bar",
+      "Login",
+      "@mbabb"
+     ]
+    },
+    "error": null,
+    "reps": [
+     {
+      "collapse": {
+       "how": "mouse leaves; idle collapse; class flip after ~3270 ms polling",
+       "frames": 305,
+       "morphFrames": 34,
+       "settleFrame": 250,
+       "maxDt": 27,
+       "p50Dt": 17,
+       "framesOver20ms": 7,
+       "paintW": {
+        "start": 440.31,
+        "end": 56,
+        "min": 56,
+        "max": 440.31
+       },
+       "block": {
+        "start": 56,
+        "end": 56
+       },
+       "maxWidthStepPx": 68.14,
+       "maxWidthStepAtMs": 3682,
+       "widthStepFracOfDelta": 0.177,
+       "widthStepFracOfRange": 0.177,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 250,
+         "tMs": 4183,
+         "stepPx": 24.44,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": 24.44,
+       "nonUniformFrames": 88,
+       "nonUniformCornerFrames": 55,
+       "ellipticalFrames": 33,
+       "nonUniformDuringMorph": 33,
+       "nonUniformSample": [
+        {
+         "frame": 217,
+         "tMs": 3628,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ]
+         ],
+         "sx": 0.9567,
+         "paintW": 420.93,
+         "paintH": 56
+        },
+        {
+         "frame": 239,
+         "tMs": 3999,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ]
+         ],
+         "sx": 0.1273,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 261,
+         "tMs": 4369,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 283,
+         "tMs": 4733,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.1273,
+        "sxMax": 1.0007,
+        "plateTransformEnd": "none"
+       }
+      },
+      "expand": {
+       "how": "hover expand",
+       "frames": 44,
+       "morphFrames": 34,
+       "settleFrame": 38,
+       "maxDt": 21,
+       "p50Dt": 17,
+       "framesOver20ms": 1,
+       "paintW": {
+        "start": 56,
+        "end": 440.31,
+        "min": 56,
+        "max": 440.31
+       },
+       "block": {
+        "start": 56,
+        "end": 56
+       },
+       "maxWidthStepPx": 62.35,
+       "maxWidthStepAtMs": 122,
+       "widthStepFracOfDelta": 0.162,
+       "widthStepFracOfRange": 0.162,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": 0.02,
+       "nonUniformFrames": 17,
+       "nonUniformCornerFrames": 4,
+       "ellipticalFrames": 13,
+       "nonUniformDuringMorph": 13,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 4,
+         "tMs": 71,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ]
+         ],
+         "sx": 0.1273,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 8,
+         "tMs": 134,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           14.4,
+           28.0
+          ],
+          [
+           14.4,
+           28.0
+          ],
+          [
+           14.4,
+           28.0
+          ],
+          [
+           14.4,
+           28.0
+          ]
+         ],
+         "sx": 0.5143,
+         "paintW": 226.29,
+         "paintH": 56
+        },
+        {
+         "frame": 12,
+         "tMs": 206,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           23.67,
+           28.0
+          ],
+          [
+           23.67,
+           28.0
+          ],
+          [
+           23.67,
+           28.0
+          ],
+          [
+           23.67,
+           28.0
+          ]
+         ],
+         "sx": 0.8454,
+         "paintW": 371.97,
+         "paintH": 56
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.1273,
+        "sxMax": 1.0007,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-open": {
+       "how": "Tools (\"Toggle action bar\"): main face -> action-bar face",
+       "frames": 48,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 45,
+       "p50Dt": 17,
+       "framesOver20ms": 2,
+       "paintW": {
+        "start": 440.31,
+        "end": 378,
+        "min": 378,
+        "max": 440.31
+       },
+       "block": {
+        "start": 56,
+        "end": 60
+       },
+       "maxWidthStepPx": 62.31,
+       "maxWidthStepAtMs": 64,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 4,
+         "tMs": 64,
+         "stepPx": 1.0,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 0,
+       "nonUniformCornerFrames": 0,
+       "ellipticalFrames": 0,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1.0007,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-back": {
+       "how": "\"Back\": action-bar face -> main face",
+       "frames": 47,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 21,
+       "p50Dt": 17,
+       "framesOver20ms": 1,
+       "paintW": {
+        "start": 378,
+        "end": 440.31,
+        "min": 378,
+        "max": 440.31
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 62.31,
+       "maxWidthStepAtMs": 33,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 0,
+       "nonUniformCornerFrames": 0,
+       "ellipticalFrames": 0,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1.0007,
+        "plateTransformEnd": "none"
+       }
+      },
+      "view-switch": {
+       "how": "view select -> /mix/i",
+       "frames": 91,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 61,
+       "p50Dt": 17,
+       "framesOver20ms": 20,
+       "paintW": {
+        "start": 440.31,
+        "end": 421.67,
+        "min": 421.67,
+        "max": 440.31
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 18.64,
+       "maxWidthStepAtMs": 664,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 0,
+       "nonUniformCornerFrames": 0,
+       "ellipticalFrames": 0,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.9992,
+        "sxMax": 1.0007,
+        "plateTransformEnd": "none"
+       }
+      }
+     },
+     {
+      "collapse": {
+       "how": "mouse leaves; idle collapse; class flip after ~3240 ms polling",
+       "frames": 286,
+       "morphFrames": 18,
+       "settleFrame": 233,
+       "maxDt": 52,
+       "p50Dt": 17,
+       "framesOver20ms": 27,
+       "paintW": {
+        "start": 421.67,
+        "end": 56,
+        "min": 56,
+        "max": 422
+       },
+       "block": {
+        "start": 60,
+        "end": 56
+       },
+       "maxWidthStepPx": 127.81,
+       "maxWidthStepAtMs": 3761,
+       "widthStepFracOfDelta": 0.35,
+       "widthStepFracOfRange": 0.349,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 233,
+         "tMs": 4211,
+         "stepPx": 24.28,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": 24.28,
+       "nonUniformFrames": 70,
+       "nonUniformCornerFrames": 53,
+       "ellipticalFrames": 17,
+       "nonUniformDuringMorph": 17,
+       "nonUniformSample": [
+        {
+         "frame": 216,
+         "tMs": 3661,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ]
+         ],
+         "sx": 0.9569,
+         "paintW": 403.82,
+         "paintH": 56
+        },
+        {
+         "frame": 233,
+         "tMs": 4211,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 250,
+         "tMs": 4518,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 267,
+         "tMs": 4800,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.1327,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "expand": {
+       "how": "hover expand",
+       "frames": 28,
+       "morphFrames": 20,
+       "settleFrame": 24,
+       "maxDt": 46,
+       "p50Dt": 23,
+       "framesOver20ms": 22,
+       "paintW": {
+        "start": 56,
+        "end": 421.67,
+        "min": 56,
+        "max": 422
+       },
+       "block": {
+        "start": 56,
+        "end": 60
+       },
+       "maxWidthStepPx": 121.34,
+       "maxWidthStepAtMs": 202,
+       "widthStepFracOfDelta": 0.332,
+       "widthStepFracOfRange": 0.332,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": 0.02,
+       "nonUniformFrames": 11,
+       "nonUniformCornerFrames": 4,
+       "ellipticalFrames": 7,
+       "nonUniformDuringMorph": 7,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 2,
+         "tMs": 40,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 4,
+         "tMs": 73,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           3.98,
+           30.0
+          ],
+          [
+           3.98,
+           30.0
+          ],
+          [
+           3.98,
+           30.0
+          ],
+          [
+           3.98,
+           30.0
+          ]
+         ],
+         "sx": 0.1327,
+         "paintW": 56,
+         "paintH": 60
+        },
+        {
+         "frame": 6,
+         "tMs": 158,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           12.98,
+           30.0
+          ],
+          [
+           12.98,
+           30.0
+          ],
+          [
+           12.98,
+           30.0
+          ],
+          [
+           12.98,
+           30.0
+          ]
+         ],
+         "sx": 0.4327,
+         "paintW": 182.59,
+         "paintH": 60
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.1327,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-open": {
+       "how": "Tools (\"Toggle action bar\"): main face -> action-bar face",
+       "frames": 43,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 42,
+       "p50Dt": 17,
+       "framesOver20ms": 5,
+       "paintW": {
+        "start": 421.67,
+        "end": 221,
+        "min": 221,
+        "max": 421.67
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 108.67,
+       "maxWidthStepAtMs": 33,
+       "widthStepFracOfDelta": 0.542,
+       "widthStepFracOfRange": 0.542,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 5,
+         "tMs": 58,
+         "stepPx": 80.5,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 38,
+       "nonUniformCornerFrames": 38,
+       "ellipticalFrames": 38,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 5,
+         "tMs": 58,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 14,
+         "tMs": 233,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 23,
+         "tMs": 407,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 32,
+         "tMs": 550,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.9992,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-back": {
+       "how": "\"Back\": action-bar face -> main face",
+       "frames": 43,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 38,
+       "p50Dt": 17,
+       "framesOver20ms": 15,
+       "paintW": {
+        "start": 221,
+        "end": 421.67,
+        "min": 221,
+        "max": 421.67
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 200.67,
+       "maxWidthStepAtMs": 34,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 3,
+         "tMs": 34,
+         "stepPx": 80.52,
+         "from": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "to": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 3,
+       "nonUniformCornerFrames": 3,
+       "ellipticalFrames": 3,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 1,
+         "tMs": 17,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 2,
+         "tMs": 18,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.9992,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "view-switch": {
+       "how": "view select -> /gradient/i",
+       "frames": 82,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 70,
+       "p50Dt": 17,
+       "framesOver20ms": 22,
+       "paintW": {
+        "start": 421.67,
+        "end": 461.45,
+        "min": 421.67,
+        "max": 461.45
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 39.78,
+       "maxWidthStepAtMs": 645,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 0,
+       "nonUniformCornerFrames": 0,
+       "ellipticalFrames": 0,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.9992,
+        "sxMax": 1.001,
+        "plateTransformEnd": "none"
+       }
+      }
+     }
+    ]
+   },
+   "mobile": {
+    "viewport": {
+     "width": 390,
+     "height": 844
+    },
+    "bundle": "http://127.0.0.1:9471/assets/index-B7vMwiSG.js",
+    "dom": {
+     "cls": "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded",
+     "buttons": [
+      "Select view",
+      "Toggle action bar",
+      "Menu"
+     ]
+    },
+    "error": null,
+    "reps": [
+     {
+      "tool-open": {
+       "how": "Tools (\"Toggle action bar\"): main face -> action-bar face",
+       "frames": 48,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 57,
+       "p50Dt": 17,
+       "framesOver20ms": 1,
+       "paintW": {
+        "start": 188,
+        "end": 356,
+        "min": 188,
+        "max": 356
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 168,
+       "maxWidthStepAtMs": 77,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 4,
+         "tMs": 77,
+         "stepPx": 64.0,
+         "from": [
+          "50%",
+          "calc(48.076923% + 0.615385px)",
+          "calc(48.076923% + 0.615385px)",
+          "50%"
+         ],
+         "to": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 4,
+       "nonUniformCornerFrames": 4,
+       "ellipticalFrames": 4,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(48.076923% + 0.615385px)",
+          "calc(48.076923% + 0.615385px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           30.0
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           94.0,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 60
+        },
+        {
+         "frame": 1,
+         "tMs": 17,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(48.076923% + 0.615385px)",
+          "calc(48.076923% + 0.615385px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           30.0
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           94.0,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 60
+        },
+        {
+         "frame": 2,
+         "tMs": 18,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(48.076923% + 0.615385px)",
+          "calc(48.076923% + 0.615385px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           30.0
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           94.0,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 60
+        },
+        {
+         "frame": 3,
+         "tMs": 20,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(48.076923% + 0.615385px)",
+          "calc(48.076923% + 0.615385px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           30.0
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           94.0,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 60
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(48.076923% + 0.615385px)",
+         "calc(48.076923% + 0.615385px)",
+         "50%"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-back": {
+       "how": "\"Back\": action-bar face -> main face",
+       "frames": 46,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 19,
+       "p50Dt": 17,
+       "framesOver20ms": 0,
+       "paintW": {
+        "start": 356,
+        "end": 188,
+        "min": 188,
+        "max": 356
+       },
+       "block": {
+        "start": 60,
+        "end": 64
+       },
+       "maxWidthStepPx": 168,
+       "maxWidthStepAtMs": 34,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 4,
+         "tMs": 34,
+         "stepPx": 64.0,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 42,
+       "nonUniformCornerFrames": 42,
+       "ellipticalFrames": 42,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 4,
+         "tMs": 34,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           31.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           31.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 62
+        },
+        {
+         "frame": 14,
+         "tMs": 200,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 24,
+         "tMs": 368,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 34,
+         "tMs": 534,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "view-switch": {
+       "how": "view select -> /mix/i",
+       "frames": 86,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 59,
+       "p50Dt": 17,
+       "framesOver20ms": 20,
+       "paintW": {
+        "start": 188,
+        "end": 188,
+        "min": 188,
+        "max": 188
+       },
+       "block": {
+        "start": 64,
+        "end": 64
+       },
+       "maxWidthStepPx": 0,
+       "maxWidthStepAtMs": 17,
+       "widthStepFracOfDelta": null,
+       "widthStepFracOfRange": null,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 86,
+       "nonUniformCornerFrames": 86,
+       "ellipticalFrames": 86,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 21,
+         "tMs": 317,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 42,
+         "tMs": 680,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 63,
+         "tMs": 1134,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      }
+     },
+     {
+      "tool-open": {
+       "how": "Tools (\"Toggle action bar\"): main face -> action-bar face",
+       "frames": 43,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 43,
+       "p50Dt": 17,
+       "framesOver20ms": 7,
+       "paintW": {
+        "start": 188,
+        "end": 287,
+        "min": 188,
+        "max": 287
+       },
+       "block": {
+        "start": 64,
+        "end": 64
+       },
+       "maxWidthStepPx": 99,
+       "maxWidthStepAtMs": 34,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 4,
+         "tMs": 34,
+         "stepPx": 62.0,
+         "from": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "to": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 4,
+       "nonUniformCornerFrames": 4,
+       "ellipticalFrames": 4,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 1,
+         "tMs": 19,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 2,
+         "tMs": 20,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 3,
+         "tMs": 21,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-back": {
+       "how": "\"Back\": action-bar face -> main face",
+       "frames": 43,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 38,
+       "p50Dt": 17,
+       "framesOver20ms": 8,
+       "paintW": {
+        "start": 287,
+        "end": 188,
+        "min": 188,
+        "max": 287
+       },
+       "block": {
+        "start": 64,
+        "end": 64
+       },
+       "maxWidthStepPx": 99,
+       "maxWidthStepAtMs": 32,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 4,
+         "tMs": 32,
+         "stepPx": 62.0,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 39,
+       "nonUniformCornerFrames": 39,
+       "ellipticalFrames": 39,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 4,
+         "tMs": 32,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 13,
+         "tMs": 232,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 22,
+         "tMs": 381,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 31,
+         "tMs": 532,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "view-switch": {
+       "how": "view select -> /gradient/i",
+       "frames": 83,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 74,
+       "p50Dt": 17,
+       "framesOver20ms": 19,
+       "paintW": {
+        "start": 188,
+        "end": 188,
+        "min": 188,
+        "max": 188
+       },
+       "block": {
+        "start": 64,
+        "end": 64
+       },
+       "maxWidthStepPx": 0,
+       "maxWidthStepAtMs": 22,
+       "widthStepFracOfDelta": null,
+       "widthStepFracOfRange": null,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 83,
+       "nonUniformCornerFrames": 83,
+       "ellipticalFrames": 83,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 20,
+         "tMs": 366,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 40,
+         "tMs": 796,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 60,
+         "tMs": 1252,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      }
+     }
+    ]
+   }
+  }
+ },
+ "prod": {
+  "url": "https://color.babb.dev/",
+  "when": "2026-11-04T15:10:53.554Z",
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15",
+  "cells": {
+   "desktop": {
+    "viewport": {
+     "width": 1440,
+     "height": 900
+    },
+    "bundle": "https://color.babb.dev/assets/index-LmUYsQfA.js",
+    "dom": {
+     "cls": "glass-dock horizontal shape-pill expanded fit-content",
+     "buttons": [
+      "Select view",
+      "Toggle action bar",
+      "Login",
+      "@mbabb"
+     ]
+    },
+    "error": null,
+    "reps": [
+     {
+      "collapse": {
+       "how": "mouse leaves; idle collapse; class flip after ~3240 ms polling",
+       "frames": 304,
+       "morphFrames": 33,
+       "settleFrame": 249,
+       "maxDt": 32,
+       "p50Dt": 17,
+       "framesOver20ms": 3,
+       "paintW": {
+        "start": 440.31,
+        "end": 56,
+        "min": 56,
+        "max": 440.31
+       },
+       "block": {
+        "start": 56,
+        "end": 56
+       },
+       "maxWidthStepPx": 85.98,
+       "maxWidthStepAtMs": 3702,
+       "widthStepFracOfDelta": 0.224,
+       "widthStepFracOfRange": 0.224,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 249,
+         "tMs": 4184,
+         "stepPx": 24.44,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": 24.44,
+       "nonUniformFrames": 87,
+       "nonUniformCornerFrames": 55,
+       "ellipticalFrames": 32,
+       "nonUniformDuringMorph": 32,
+       "nonUniformSample": [
+        {
+         "frame": 217,
+         "tMs": 3636,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ]
+         ],
+         "sx": 0.9567,
+         "paintW": 420.93,
+         "paintH": 56
+        },
+        {
+         "frame": 238,
+         "tMs": 4000,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ]
+         ],
+         "sx": 0.1273,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 259,
+         "tMs": 4350,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 280,
+         "tMs": 4699,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.1273,
+        "sxMax": 1.0007,
+        "plateTransformEnd": "none"
+       }
+      },
+      "expand": {
+       "how": "hover expand",
+       "frames": 43,
+       "morphFrames": 33,
+       "settleFrame": 37,
+       "maxDt": 24,
+       "p50Dt": 17,
+       "framesOver20ms": 3,
+       "paintW": {
+        "start": 56,
+        "end": 440.31,
+        "min": 56,
+        "max": 440.31
+       },
+       "block": {
+        "start": 56,
+        "end": 56
+       },
+       "maxWidthStepPx": 69.07,
+       "maxWidthStepAtMs": 128,
+       "widthStepFracOfDelta": 0.18,
+       "widthStepFracOfRange": 0.18,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": 0.02,
+       "nonUniformFrames": 17,
+       "nonUniformCornerFrames": 4,
+       "ellipticalFrames": 13,
+       "nonUniformDuringMorph": 13,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 4,
+         "tMs": 71,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ],
+          [
+           3.56,
+           28.0
+          ]
+         ],
+         "sx": 0.1273,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 8,
+         "tMs": 142,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           15.54,
+           28.0
+          ],
+          [
+           15.54,
+           28.0
+          ],
+          [
+           15.54,
+           28.0
+          ],
+          [
+           15.54,
+           28.0
+          ]
+         ],
+         "sx": 0.5549,
+         "paintW": 244.14,
+         "paintH": 56
+        },
+        {
+         "frame": 12,
+         "tMs": 219,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           24.73,
+           28.0
+          ],
+          [
+           24.73,
+           28.0
+          ],
+          [
+           24.73,
+           28.0
+          ],
+          [
+           24.73,
+           28.0
+          ]
+         ],
+         "sx": 0.8832,
+         "paintW": 388.63,
+         "paintH": 56
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.1273,
+        "sxMax": 1.0007,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-open": {
+       "how": "Tools (\"Toggle action bar\"): main face -> action-bar face",
+       "frames": 47,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 46,
+       "p50Dt": 17,
+       "framesOver20ms": 2,
+       "paintW": {
+        "start": 440.31,
+        "end": 378,
+        "min": 378,
+        "max": 440.31
+       },
+       "block": {
+        "start": 56,
+        "end": 60
+       },
+       "maxWidthStepPx": 62.31,
+       "maxWidthStepAtMs": 64,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 5,
+         "tMs": 64,
+         "stepPx": 1.0,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 0,
+       "nonUniformCornerFrames": 0,
+       "ellipticalFrames": 0,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1.0007,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-back": {
+       "how": "\"Back\": action-bar face -> main face",
+       "frames": 46,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 19,
+       "p50Dt": 16,
+       "framesOver20ms": 0,
+       "paintW": {
+        "start": 378,
+        "end": 440.31,
+        "min": 378,
+        "max": 440.31
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 62.31,
+       "maxWidthStepAtMs": 32,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 0,
+       "nonUniformCornerFrames": 0,
+       "ellipticalFrames": 0,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1.0007,
+        "plateTransformEnd": "none"
+       }
+      },
+      "view-switch": {
+       "how": "view select -> /mix/i",
+       "frames": 89,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 66,
+       "p50Dt": 17,
+       "framesOver20ms": 19,
+       "paintW": {
+        "start": 440.31,
+        "end": 421.67,
+        "min": 421.67,
+        "max": 440.31
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 18.64,
+       "maxWidthStepAtMs": 653,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 0,
+       "nonUniformCornerFrames": 0,
+       "ellipticalFrames": 0,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.9992,
+        "sxMax": 1.0007,
+        "plateTransformEnd": "none"
+       }
+      }
+     },
+     {
+      "collapse": {
+       "how": "mouse leaves; idle collapse; class flip after ~3270 ms polling",
+       "frames": 285,
+       "morphFrames": 18,
+       "settleFrame": 231,
+       "maxDt": 53,
+       "p50Dt": 17,
+       "framesOver20ms": 28,
+       "paintW": {
+        "start": 421.67,
+        "end": 56,
+        "min": 56,
+        "max": 422
+       },
+       "block": {
+        "start": 60,
+        "end": 56
+       },
+       "maxWidthStepPx": 129.47,
+       "maxWidthStepAtMs": 3713,
+       "widthStepFracOfDelta": 0.354,
+       "widthStepFracOfRange": 0.354,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 231,
+         "tMs": 4210,
+         "stepPx": 24.28,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": 24.28,
+       "nonUniformFrames": 71,
+       "nonUniformCornerFrames": 54,
+       "ellipticalFrames": 17,
+       "nonUniformDuringMorph": 17,
+       "nonUniformSample": [
+        {
+         "frame": 214,
+         "tMs": 3662,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ],
+          [
+           26.79,
+           28.0
+          ]
+         ],
+         "sx": 0.9569,
+         "paintW": 403.82,
+         "paintH": 56
+        },
+        {
+         "frame": 231,
+         "tMs": 4210,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 248,
+         "tMs": 4533,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 265,
+         "tMs": 4815,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.1327,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "expand": {
+       "how": "hover expand",
+       "frames": 27,
+       "morphFrames": 20,
+       "settleFrame": 24,
+       "maxDt": 47,
+       "p50Dt": 27,
+       "framesOver20ms": 22,
+       "paintW": {
+        "start": 56,
+        "end": 421.67,
+        "min": 56,
+        "max": 422
+       },
+       "block": {
+        "start": 56,
+        "end": 60
+       },
+       "maxWidthStepPx": 125.33,
+       "maxWidthStepAtMs": 198,
+       "widthStepFracOfDelta": 0.343,
+       "widthStepFracOfRange": 0.342,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": 0.02,
+       "nonUniformFrames": 11,
+       "nonUniformCornerFrames": 4,
+       "ellipticalFrames": 7,
+       "nonUniformDuringMorph": 7,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 2,
+         "tMs": 43,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           28.0,
+           28.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           28.0,
+           28.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 56,
+         "paintH": 56
+        },
+        {
+         "frame": 4,
+         "tMs": 73,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           3.98,
+           30.0
+          ],
+          [
+           3.98,
+           30.0
+          ],
+          [
+           3.98,
+           30.0
+          ],
+          [
+           3.98,
+           30.0
+          ]
+         ],
+         "sx": 0.1327,
+         "paintW": 56,
+         "paintH": 60
+        },
+        {
+         "frame": 6,
+         "tMs": 157,
+         "morph": 1,
+         "radiusRaw": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "paintR": [
+          [
+           12.55,
+           30.0
+          ],
+          [
+           12.55,
+           30.0
+          ],
+          [
+           12.55,
+           30.0
+          ],
+          [
+           12.55,
+           30.0
+          ]
+         ],
+         "sx": 0.4182,
+         "paintW": 176.49,
+         "paintH": 60
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.1327,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-open": {
+       "how": "Tools (\"Toggle action bar\"): main face -> action-bar face",
+       "frames": 45,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 36,
+       "p50Dt": 17,
+       "framesOver20ms": 6,
+       "paintW": {
+        "start": 421.67,
+        "end": 221,
+        "min": 221,
+        "max": 421.67
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 108.67,
+       "maxWidthStepAtMs": 32,
+       "widthStepFracOfDelta": 0.542,
+       "widthStepFracOfRange": 0.542,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 5,
+         "tMs": 56,
+         "stepPx": 80.5,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 40,
+       "nonUniformCornerFrames": 40,
+       "ellipticalFrames": 40,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 5,
+         "tMs": 56,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 15,
+         "tMs": 215,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 25,
+         "tMs": 413,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 35,
+         "tMs": 568,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.9992,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-back": {
+       "how": "\"Back\": action-bar face -> main face",
+       "frames": 44,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 34,
+       "p50Dt": 17,
+       "framesOver20ms": 13,
+       "paintW": {
+        "start": 221,
+        "end": 421.67,
+        "min": 221,
+        "max": 421.67
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 200.67,
+       "maxWidthStepAtMs": 50,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 5,
+         "tMs": 50,
+         "stepPx": 80.52,
+         "from": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "to": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 5,
+       "nonUniformCornerFrames": 5,
+       "ellipticalFrames": 5,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 1,
+         "tMs": 16,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 2,
+         "tMs": 35,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        },
+        {
+         "frame": 3,
+         "tMs": 36,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           110.5,
+           30.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           110.5,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 221,
+         "paintH": 60
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.9992,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "view-switch": {
+       "how": "view select -> /gradient/i",
+       "frames": 82,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 69,
+       "p50Dt": 17,
+       "framesOver20ms": 23,
+       "paintW": {
+        "start": 421.67,
+        "end": 461.45,
+        "min": 421.67,
+        "max": 461.45
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 39.78,
+       "maxWidthStepAtMs": 630,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 0,
+       "nonUniformCornerFrames": 0,
+       "ellipticalFrames": 0,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 0.9992,
+        "sxMax": 1.001,
+        "plateTransformEnd": "none"
+       }
+      }
+     }
+    ]
+   },
+   "mobile": {
+    "viewport": {
+     "width": 390,
+     "height": 844
+    },
+    "bundle": "https://color.babb.dev/assets/index-LmUYsQfA.js",
+    "dom": {
+     "cls": "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded",
+     "buttons": [
+      "Select view",
+      "Toggle action bar",
+      "Menu"
+     ]
+    },
+    "error": null,
+    "reps": [
+     {
+      "tool-open": {
+       "how": "Tools (\"Toggle action bar\"): main face -> action-bar face",
+       "frames": 48,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 55,
+       "p50Dt": 16,
+       "framesOver20ms": 2,
+       "paintW": {
+        "start": 188,
+        "end": 356,
+        "min": 188,
+        "max": 356
+       },
+       "block": {
+        "start": 60,
+        "end": 60
+       },
+       "maxWidthStepPx": 168,
+       "maxWidthStepAtMs": 75,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 4,
+         "tMs": 75,
+         "stepPx": 64.0,
+         "from": [
+          "50%",
+          "calc(48.076923% + 0.615385px)",
+          "calc(48.076923% + 0.615385px)",
+          "50%"
+         ],
+         "to": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 4,
+       "nonUniformCornerFrames": 4,
+       "ellipticalFrames": 4,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(48.076923% + 0.615385px)",
+          "calc(48.076923% + 0.615385px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           30.0
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           94.0,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 60
+        },
+        {
+         "frame": 1,
+         "tMs": 16,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(48.076923% + 0.615385px)",
+          "calc(48.076923% + 0.615385px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           30.0
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           94.0,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 60
+        },
+        {
+         "frame": 2,
+         "tMs": 18,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(48.076923% + 0.615385px)",
+          "calc(48.076923% + 0.615385px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           30.0
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           94.0,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 60
+        },
+        {
+         "frame": 3,
+         "tMs": 20,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(48.076923% + 0.615385px)",
+          "calc(48.076923% + 0.615385px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           30.0
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           91.0,
+           29.46
+          ],
+          [
+           94.0,
+           30.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 60
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(48.076923% + 0.615385px)",
+         "calc(48.076923% + 0.615385px)",
+         "50%"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-back": {
+       "how": "\"Back\": action-bar face -> main face",
+       "frames": 45,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 33,
+       "p50Dt": 17,
+       "framesOver20ms": 1,
+       "paintW": {
+        "start": 356,
+        "end": 188,
+        "min": 188,
+        "max": 356
+       },
+       "block": {
+        "start": 60,
+        "end": 64
+       },
+       "maxWidthStepPx": 168,
+       "maxWidthStepAtMs": 34,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 4,
+         "tMs": 34,
+         "stepPx": 64.0,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 41,
+       "nonUniformCornerFrames": 41,
+       "ellipticalFrames": 41,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 4,
+         "tMs": 34,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           31.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           31.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 62
+        },
+        {
+         "frame": 14,
+         "tMs": 217,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 24,
+         "tMs": 385,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 34,
+         "tMs": 550,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "view-switch": {
+       "how": "view select -> /mix/i",
+       "frames": 84,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 87,
+       "p50Dt": 17,
+       "framesOver20ms": 21,
+       "paintW": {
+        "start": 188,
+        "end": 188,
+        "min": 188,
+        "max": 188
+       },
+       "block": {
+        "start": 64,
+        "end": 64
+       },
+       "maxWidthStepPx": 0,
+       "maxWidthStepAtMs": 19,
+       "widthStepFracOfDelta": null,
+       "widthStepFracOfRange": null,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 84,
+       "nonUniformCornerFrames": 84,
+       "ellipticalFrames": 84,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 21,
+         "tMs": 316,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 42,
+         "tMs": 698,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 63,
+         "tMs": 1207,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      }
+     },
+     {
+      "tool-open": {
+       "how": "Tools (\"Toggle action bar\"): main face -> action-bar face",
+       "frames": 40,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 42,
+       "p50Dt": 17,
+       "framesOver20ms": 6,
+       "paintW": {
+        "start": 188,
+        "end": 287,
+        "min": 188,
+        "max": 287
+       },
+       "block": {
+        "start": 64,
+        "end": 64
+       },
+       "maxWidthStepPx": 99,
+       "maxWidthStepAtMs": 30,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 4,
+         "tMs": 30,
+         "stepPx": 62.0,
+         "from": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "to": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 4,
+       "nonUniformCornerFrames": 4,
+       "ellipticalFrames": 4,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 1,
+         "tMs": 15,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 2,
+         "tMs": 16,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 3,
+         "tMs": 18,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "tool-back": {
+       "how": "\"Back\": action-bar face -> main face",
+       "frames": 41,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 54,
+       "p50Dt": 17,
+       "framesOver20ms": 7,
+       "paintW": {
+        "start": 287,
+        "end": 188,
+        "min": 188,
+        "max": 287
+       },
+       "block": {
+        "start": 64,
+        "end": 64
+       },
+       "maxWidthStepPx": 99,
+       "maxWidthStepAtMs": 33,
+       "widthStepFracOfDelta": 1.0,
+       "widthStepFracOfRange": 1.0,
+       "radiusChangesAfterSettle": 1,
+       "radiusAfterSettle": [
+        {
+         "frame": 4,
+         "tMs": 33,
+         "stepPx": 62.0,
+         "from": [
+          "9999px",
+          "9999px",
+          "9999px",
+          "9999px"
+         ],
+         "to": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ]
+        }
+       ],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 37,
+       "nonUniformCornerFrames": 37,
+       "ellipticalFrames": 37,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 4,
+         "tMs": 33,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 13,
+         "tMs": 250,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 22,
+         "tMs": 415,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 31,
+         "tMs": 570,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "9999px",
+         "9999px",
+         "9999px",
+         "9999px"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      },
+      "view-switch": {
+       "how": "view select -> /gradient/i",
+       "frames": 78,
+       "morphFrames": 0,
+       "settleFrame": null,
+       "maxDt": 74,
+       "p50Dt": 17,
+       "framesOver20ms": 17,
+       "paintW": {
+        "start": 188,
+        "end": 188,
+        "min": 188,
+        "max": 188
+       },
+       "block": {
+        "start": 64,
+        "end": 64
+       },
+       "maxWidthStepPx": 0,
+       "maxWidthStepAtMs": 16,
+       "widthStepFracOfDelta": null,
+       "widthStepFracOfRange": null,
+       "radiusChangesAfterSettle": 0,
+       "radiusAfterSettle": [],
+       "settleRadiusJumpPx": null,
+       "nonUniformFrames": 78,
+       "nonUniformCornerFrames": 78,
+       "ellipticalFrames": 78,
+       "nonUniformDuringMorph": 0,
+       "nonUniformSample": [
+        {
+         "frame": 0,
+         "tMs": 0,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 19,
+         "tMs": 382,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 38,
+         "tMs": 810,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        },
+        {
+         "frame": 57,
+         "tMs": 1266,
+         "morph": 0,
+         "radiusRaw": [
+          "50%",
+          "calc(0% + 16px)",
+          "calc(0% + 16px)",
+          "50%"
+         ],
+         "paintR": [
+          [
+           94.0,
+           32.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           16.0,
+           16.0
+          ],
+          [
+           94.0,
+           32.0
+          ]
+         ],
+         "sx": 1,
+         "paintW": 188,
+         "paintH": 64
+        }
+       ],
+       "restRadius": {
+        "start": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ],
+        "end": [
+         "50%",
+         "calc(0% + 16px)",
+         "calc(0% + 16px)",
+         "50%"
+        ]
+       },
+       "scale": {
+        "rootStart": "none",
+        "rootEnd": "none",
+        "sxMin": 1,
+        "sxMax": 1,
+        "plateTransformEnd": "none"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

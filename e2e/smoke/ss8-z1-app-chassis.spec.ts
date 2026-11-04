@@ -10,10 +10,15 @@
  *              (Dock G-P, consumer half; the readback half is glass's).
  *   Z-chassis-2  Browse and Library compose preview-dominant (2:1, the field
  *                the major track).
- *   Z-chassis-3  Picker / Generate / Gradient / Extract / Mix compose golden
- *                (61.8 / 38.2, the stage the major track).
- *   Z-LG-3/4   The surplus reaches the stage: stage@3440 > stage@1440, and the
- *              pane row covers ≥ 90 % of a 3440 viewport.
+ *   Z-chassis-3  Generate / Gradient / Extract compose golden (61.8 / 38.2,
+ *                the stage the major track).
+ *   Z-chassis-3m Picker / Mix seat the shared picker, whose stage stands AT
+ *                `--picker-measure` (card × √φ, X·§0ho OD-19) at 1440 and
+ *                3440 alike; the inspector is the remainder.
+ *   Z-LG-3/4   The surplus reaches the stage (workbench routes) or, on the
+ *              picker routes, the inspector: stage@3440 > stage@1440 or
+ *              inspector@3440 > inspector@1440, and the pane row covers
+ *              ≥ 90 % of a 3440 viewport.
  *   Z-LG-5     `--pane-max` (the page cap) is gone.
  *   Z-LG-6     The gutter is clamp(0.75rem, 2.5cqi, 3rem): 12 / 36 / 48 px at
  *              390 / 1440 / 3440.
@@ -63,6 +68,18 @@ function widths(page: Page) {
     });
 }
 
+/** `--picker-measure` resolved to layout px, read the way a track reads it. */
+function pickerMeasure(page: Page) {
+    return page.evaluate(() => {
+        const probe = document.createElement("div");
+        probe.style.cssText = "position:absolute;visibility:hidden;width:var(--picker-measure)";
+        document.body.append(probe);
+        const px = probe.getBoundingClientRect().width;
+        probe.remove();
+        return px;
+    });
+}
+
 test.describe("Z1-app-chassis — the row composition", () => {
     test.setTimeout(180_000);
 
@@ -81,9 +98,18 @@ test.describe("Z1-app-chassis — the row composition", () => {
         const share = (r: string, side: "stage" | "inspector") =>
             at1440[r]![side] / (at1440[r]!.stage + at1440[r]!.inspector);
 
-        // Z-chassis-3: the stage takes the golden major track.
-        for (const r of ["/", "/generate", "/gradient", "/extract", "/mix"]) {
+        // Z-chassis-3: the workbench stage takes the golden major track.
+        for (const r of ["/generate", "/gradient", "/extract"]) {
             expect(share(r, "stage"), `${r} stage share`).toBeCloseTo(GOLDEN, 2);
+        }
+        // Z-chassis-3m (X·§0ho OD-19): the shared picker's stage stands at the
+        // measure — the ceiling binds below the golden track at 1440 — and the
+        // inspector takes the slack.
+        const measure = await pickerMeasure(page);
+        expect(measure, "--picker-measure = 32rem × √φ").toBeCloseTo(32 * 16 * 1.272, 0);
+        for (const r of ["/", "/mix"]) {
+            expect(Math.abs(at1440[r]!.stage - measure), `${r} stage@1440 = measure`).toBeLessThanOrEqual(1);
+            expect(share(r, "inspector"), `${r} inspector takes the slack`).toBeGreaterThan(1 - GOLDEN);
         }
         // Z-chassis-2: the FIELD takes 64–66.7 % — Browse's field is its stage,
         // Library's field is the palettes region beside the shared picker.
@@ -100,8 +126,17 @@ test.describe("Z1-app-chassis — the row composition", () => {
         for (const route of ["/", "/generate", "/browse", "/mix"]) {
             await go(page, route);
             const u = await widths(page);
-            // Z-LG-3: the stage spends the surplus.
-            expect(u.stage, `${route} stage@3440 vs @1440`).toBeGreaterThan(at1440[route]!.stage);
+            if (route === "/" || route === "/mix") {
+                // Z-LG-3 (picker routes): the ceiling holds and the inspector
+                // spends the surplus.
+                expect(Math.abs(u.stage - measure), `${route} stage@3440 = measure`).toBeLessThanOrEqual(1);
+                expect(u.inspector, `${route} inspector@3440 vs @1440`).toBeGreaterThan(
+                    at1440[route]!.inspector,
+                );
+            } else {
+                // Z-LG-3: the stage spends the surplus.
+                expect(u.stage, `${route} stage@3440 vs @1440`).toBeGreaterThan(at1440[route]!.stage);
+            }
             // Z-LG-4: the row covers ≥ 90 % of the viewport.
             expect(u.row / ULTRA.width, `${route} row coverage`).toBeGreaterThanOrEqual(0.9);
         }

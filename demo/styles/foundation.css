@@ -584,8 +584,18 @@
      * stage@1440 (828 = 828) and Z-LG-3 ("the stage spends the surplus") read
      * RED. The ceiling is now the φ-step measure plus the --phi-3 rung
      * (≈ 53.4rem ≈ 854px): 1440 keeps its golden 834px, and every wider band
-     * is still bound (1800: 1043 → 854px). */
-    --picker-measure: calc(var(--card-measure) * 1.618034 + var(--phi-3));
+     * is still bound (1800: 1043 → 854px).
+     *
+     * X·§0ho OD-19 (owner 2026-11-04, Safari at 1512: "the picker is still
+     * too wide") — THE CEILING IS √φ, NOT φ. The φ-step ceiling sat only
+     * ~6 % under the width the owner saw, so it is tightened by half a φ
+     * step to the lone-card measure × √φ (32rem × 1.272 ≈ 40.7rem ≈ 651px)
+     * and the inspector takes the slack (the `1fr` remainder). The ceiling
+     * now binds at 1440 too: the shared picker's stage stands at the measure
+     * on every desktop band, and the surplus beyond it is the inspector's
+     * (Z-chassis-3 / Z-LG-3 in e2e/smoke/ss8-z1-app-chassis.spec.ts read the
+     * picker routes against the measure accordingly). */
+    --picker-measure: calc(var(--card-measure) * 1.272);
     --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */

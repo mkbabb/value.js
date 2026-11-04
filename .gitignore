@@ -14,6 +14,9 @@ _*
 # colocated per-domain test dirs (T.W1 Q17) — `_*` above would swallow them
 !**/__tests__/
 !**/__tests__/**
+# §0hq: the colour.babb.dev Pages project's redirect rules — `_*` above would
+# silently drop the file (demo/app/public/_headers is tracked only by force-add)
+!scripts/deploy/colour/_redirects
 dist/
 # test/dist/ holds the U.W-CANON repo-hygiene gates (U-F49/U-F50). The broad
 # `dist/` ignore above would swallow them — the same unanchored-dir silent-drop

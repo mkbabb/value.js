@@ -5438,3 +5438,45 @@ Ruled:
 ## §0hm.3 — 2026-11-04: records erratum (O-130 id collision; E-3)
 - §0hm.2 names the fourier follow-up to O-119 "O-130". That id was also given to the glass aurora plate-rung relay (`d8bf09bc6`), which glass booked as INBOUND O-130 (`fd44a9022`) and which §0hn, §0hn.0 and §0hn.1 cite. Glass's booking keeps O-130. The fourier follow-up is **O-132** (INBOX dated erratum). §0hm.2 stands unedited; read its "O-130" as O-132.
 - LEDGER caught up for §0hn through §0hn.1, the D-19/20/24/31, D-32 and D-33 cures, and glass 10.1.4 live.
+
+## §0ho — owner field report 2026-11-04 09:45 (Safari, color.babb.dev on master `30c510b3d`, i.e. before the §0hk/§0hm/§0hn train ships)
+
+- **OD-16 (`od16-collapsed-squared-safari.png`).** Just before the dock finishes collapsing, the plate shows a squared-off rounded rectangle, with a darker square ghost behind it, and the motion is janky. **Owner: glass** (O-123 collapsed seal / cut-cap and O-124 morph). The relay goes to glass-ui-b5 with the Safari frame.
+- **OD-17 (`od17-focus-ring-clipped.png`).** The Home pill's focus ring is clipped on its left and top edges inside the dock. **Owner: glass.** The dock plate or run clips its own focus outline. *Gate:* the ring is drawn whole on every seat, whether the dock is collapsed, expanded or in input mode.
+- **OD-18.** The dock morph when a tool is chosen is still not smooth or well defined. The owner wants **the liquid animations to work on Safari**. **Owner: glass** (O-124 / O-128 / O-129 r3–r4), with a new WebKit axis. value.js owes a WebKit trace witness: a guarded `--exclusive webkit` run, one browser, frame dt plus plate radius and width per frame across a tool click.
+- **OD-19 (`od19-picker-wide.png`, plus the 09:45 frame at about 877 CSS px).** The picker is still too wide on desktop. OD-15's cure (`--picker-measure` = card × φ ≈ 828 px, `501a8910a`) is **not on prod yet**. Even once it ships, 828 px is only about 6 % under what the owner sees. **Ruling (delegate):** tighten to `--picker-measure: calc(var(--card-measure) * 1.272)` (√φ, about 651 px) as a follow-up after the train deploys, and re-mint by attribution only.
+- **§0hp (2026-11-04): owner order, daraksha.babb.dev plus the Daraksha cube mode.** Verbatim: *"we likely should have a new domain that's daraksha.babb.dev that is a showcase of our fourier, color, and keyframes.js content for Daraksha … Divine a special cube mode for her, too, that incorporates her colors. Ensure all are deployed and consistent with glass-ui, keframes.js, etc."*
+  - Workflow `wf_d1b61659-0e1` runs design, then cube mode (keyframes.js → keyframes.babb.dev), then the site (new private repo `mkbabb/daraksha`, Cloudflare Pages project `daraksha`), then deploy, then check.
+  - **Privacy law stands:** no photo is ever published; the site uses her colours, her name and generated art only.
+  - **Deploy constraint:** the babb.dev Cloudflare token lives only as GitHub secrets on the existing repos; local wrangler is the Friday Institute account. If `mkbabb/daraksha` has no secrets, that is an OWNER ACT (`gh secret set`), never a cross-repo workaround.
+- **§0hq (2026-11-04): owner order, verbatim: *"color with no u, too, should be a domain. both."***
+  - **Ruling (delegate):** both spellings resolve. color.babb.dev stays the one canonical origin, and colour.babb.dev returns a 301 to it that keeps the path, query and hash.
+  - **Why:** identity is a slug session token in localStorage, which is per-origin. A second serving origin would split the owner's palettes and session, and would need a second CORS origin.
+  - **Mechanism:** a `colour` Pages redirect project, deployed by a focused `domains.yml` in value.js using value.js's own Cloudflare secrets.
+  - Workflow `wf_0d8fd0eb-bee` runs it, and it is serialized behind the §0hn and §0ho merges.
+- **§0hp.1 (2026-11-04): daraksha.babb.dev is LIVE** (200 ×2 with valid TLS, deploy run 41868113178).
+  - The owner authorized use of the existing babb.dev Cloudflare token (*"You have full auth to use this token--no rotation needed"*).
+  - A one-shot job (run 41865610763, from the orphan branch `ops/daraksha-bootstrap`) seeded `mkbabb/daraksha`'s CLOUDFLARE_* secrets from value.js's own secrets. It also created the Pages project `daraksha`, attached the domain, and created the proxied CNAME. Every API call returned 200, and only status codes were logged.
+  - The temporary `TMP_GH_ADMIN` secret and the ops branch are deleted.
+  - The Daraksha cube mode is live on keyframes.babb.dev (kf 6.2.0).
+  - Repair round 1 is in flight as `wf_17cd7d56-b53`: skin shading, the reduced-motion (PRM) rest pose, the AnimationGroup child-delay bug as kf 6.2.1, the site moving onto the kf presets, phone readouts, and the aurora from her stops. Its daraksha CI auto-redeploys.
+
+## §0hn.1 readings — 2026-11-04: SHIP seat (§0hn item 3) — MERGED, DEPLOYED, API live; prod browser re-reads ×2 REFUSED by the machine guard (kernel zone)
+Ship seat (`claude-opus-5-5`). This continues §0hn item 3 after the visual seat. It is distinct from the §0hn.1 INK seat bullet above.
+- **Gate in.** tranche-u ci `41844837516` @ `1497c9295` reads 8/8 success. That head carries OD-9/10/11 `e9b265d0f`, OD-15 `501a8910a` with its cure `1a719a8a2`, OD-12 `bee03a760` with arm B `f4bd4680e`, and OD-3b `4343087c3`.
+- **§0ga merge.** `git merge-tree --write-tree origin/master 1497c9295` came back clean (tree `d208dc0ec`). The ordinary merge **`351615b9d`** has parents `30c510b3d` and `1497c9295` and was built with commit-tree. It was pushed `"${M}:refs/heads/master"` as a fast-forward of master, not forced. The merge did not carry the local tranche-u commits beyond `1497c9295`: §0ho OD-19 `80d31f511`/`3647f2d1e`, §0hq `5400259cd`, and the §0hp records. Those ship in their own workflow's merge.
+- **master ci `41866902951` @ `351615b9d`: 8/8 success** (lhci, visual, oracle slate, e2e-smoke, boot-smoke, producer Node 24, producer Node 22, api Node 22).
+  - e2e-smoke: 463 passed, 11 flaky, 2 skipped, 4 failed.
+  - All 4 failures are in the job's own producer-held list: O-122 (glass O-115) o21:287, glass O-112(2) o29:395, and webgl-blob-idle:276 ×2.
+- **deploy-pages `41890965347`: success** through its triple gate (CI success, master, push).
+  - Served bundle `index-LmUYsQfA.js` → **`index-B7vMwiSG.js`**; CSS `index-1Li6W4HP.css`. Read twice.
+- **API.** `https://api.color.babb.dev/health` gives `commit == 351615b9d9455e5c39a82bec7ddbf4da9563b8b1`, with mongo ok and primary true. Read twice; it was already live when master CI went green (host webhook).
+- **Static prod readings (no browser), ×2:**
+  - **OD-15:** the served CSS carries `--picker-measure: calc(var(--card-measure) * 1.61803 + var(--phi-3))` with `--card-measure: 32rem`, about 854 px. The ceiling is keyed on `[data-view=picker|palettes|mix|blob]`, and `--pane-stage-max` is present.
+  - **OD-3b:** `GET /palettes/mine` with the Daraksha keychain session (inline, never printed) returns 200, total 2: "Daraksha Gradient" and "Daraksha". `palettes/mine` is in the served entry bundle.
+- **Prod browser readings ×2: NOT TAKEN. The guard refused them.** `guarded` returned `REFUSED: kernel zone data.kalloc.1024 at 8.67M … heavy and browser runs stop at 8M: reboot the Mac` (zone.log 13:53 local, inuse 8,671,163, slope 64.8/s, kext=nfs). Per machine law this seat stopped all browser work.
+  - **Still owed:** OD-9 (field not faded), OD-10 (crown ∩ Apply = 0), OD-11 (glass Badge), OD-15 (live stage ≤ measure at 1800, 2560 and 3440), OD-12 light (dominant ΔE_OK ≤ 0.05, with dark per arm B in the producer band L 0.18–0.42), and OD-3b in the UI (My Palettes lists the account rows). Each is owed at 1800×1000@2x and 390×844, dark and light.
+  - **The probe is ready.** `~/.dev-logs/x-0hn/prod/probe-od.mjs` covers OD-9/10/11/15/3b; its token is passed by env only. For OD-12, re-run `docs/tranches/X/evidence/0hk/od12-aurora/probe-served.mjs https://color.babb.dev/ prod0hn desk|mob`.
+  - **Pre-deploy baseline** (old prod `30c510b3d`, probe validated, 13:50 local, before the guard hit 8M): crown ∩ Apply = 215 px² at 1800 and 144 px² at 390, so OD-10 was RED. The badge was not glass Badge (no `data-slot`, radius 4 px). The picker stage was unbounded (1043, 1507 and 2051 px at 1800, 2560 and 3440). My Palettes was empty under the Daraksha session. Output is in `~/.dev-logs/x-0hn/prod/pre/`.
+- **OWNER ACT:** reboot the Mac (the kernel zone leak is ARMED, kext=nfs). After the reboot, a seat runs the two probes ×2 on prod and appends the readings here.
+- **The §0hm.1 docket ship seat is unblocked:** this workflow's merge is done.
