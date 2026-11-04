@@ -1,0 +1,8 @@
+# colour.babb.dev -> color.babb.dev (owner order 2026-11-04, COHESION 0hq).
+# The Cloudflare Pages project `colour` serves nothing else: every path, on the
+# custom domain and on the project's own *.pages.dev host, is a permanent
+# redirect to the one canonical origin. The hash router's state (#/...?space=)
+# never reaches the server; browsers re-attach the original fragment to a
+# Location that carries none (RFC 9110 section 10.2.2).
+/   https://color.babb.dev/ 301
+/*  https://color.babb.dev/:splat 301
