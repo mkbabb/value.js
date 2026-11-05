@@ -1,0 +1,32 @@
+[
+ {
+  "w": 1440,
+  "chain": [
+   "301 https://colour.babb.dev/",
+   "200 https://color.babb.dev/"
+  ],
+  "href": "https://color.babb.dev/#/palettes",
+  "view": "palettes",
+  "grid": true,
+  "heading": [
+   "My Palettes"
+  ],
+  "ok": true,
+  "errors": []
+ },
+ {
+  "w": 390,
+  "chain": [
+   "301 https://colour.babb.dev/",
+   "200 https://color.babb.dev/"
+  ],
+  "href": "https://color.babb.dev/#/palettes",
+  "view": "palettes",
+  "grid": true,
+  "heading": [
+   "My Palettes"
+  ],
+  "ok": true,
+  "errors": []
+ }
+]

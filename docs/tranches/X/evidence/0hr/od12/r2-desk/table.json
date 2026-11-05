@@ -1,0 +1,501 @@
+{
+ "base": "https://color.babb.dev/",
+ "view": {
+  "width": 1800,
+  "height": 1000,
+  "deviceScaleFactor": 2
+ },
+ "gate": {
+  "worstDEdom": 0.0574,
+  "worstDEarea": 0.0765,
+  "worstHue": 7.2,
+  "medianHue": 5.5,
+  "worstReseed": 0.0006,
+  "worstSnap": 0,
+  "pass": false
+ },
+ "reseed": [
+  {
+   "name": "efflorescence",
+   "scheme": "light",
+   "dMedL": 0
+  },
+  {
+   "name": "tulsi",
+   "scheme": "light",
+   "dMedL": 0.0006
+  },
+  {
+   "name": "teal",
+   "scheme": "light",
+   "dMedL": 0
+  }
+ ],
+ "rows": [
+  {
+   "name": "efflorescence",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.772,
+    0.111,
+    11.084
+   ],
+   "share": 0.41,
+   "seed": [
+    0.727,
+    0.183,
+    1.336
+   ],
+   "dEdom": 0.029,
+   "hueErr": 7.2,
+   "dEarea": 0.0452,
+   "medL": 0.7392,
+   "frames": [
+    0.0883,
+    0.0271,
+    0.0284,
+    0.029
+   ],
+   "ground": "rgb(223, 119, 194) rgb(255, 131, 185) rgb(255, 166, 180) rgb(255, 195, 189)",
+   "groundSnap": 0,
+   "ground1dE": 0.0486,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "efflorescence",
+   "scheme": "light",
+   "pass": 1,
+   "dom": [
+    0.772,
+    0.111,
+    11.087
+   ],
+   "share": 0.41,
+   "seed": [
+    0.727,
+    0.183,
+    1.336
+   ],
+   "dEdom": 0.029,
+   "hueErr": 7.2,
+   "dEarea": 0.0453,
+   "medL": 0.7392,
+   "frames": [
+    0.0883,
+    0.0271,
+    0.0284,
+    0.029
+   ],
+   "ground": "rgb(223, 119, 194) rgb(255, 131, 185) rgb(255, 166, 180) rgb(255, 195, 189)",
+   "groundSnap": 0,
+   "ground1dE": 0.0486,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "gulabi",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.887,
+    0.041,
+    24.302
+   ],
+   "share": 0.49,
+   "seed": [
+    0.898,
+    0.053,
+    18.188
+   ],
+   "dEdom": 0.0197,
+   "hueErr": 6.4,
+   "dEarea": 0.019,
+   "medL": 0.8848,
+   "frames": [
+    0.017,
+    0.0183,
+    0.0197,
+    0.0222
+   ],
+   "ground": "rgb(255, 226, 236) rgb(255, 233, 236) rgb(255, 240, 238) rgb(255, 246, 243)",
+   "groundSnap": 0,
+   "ground1dE": 0.0619,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "haldi",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.849,
+    0.105,
+    77.791
+   ],
+   "share": 0.41,
+   "seed": [
+    0.82,
+    0.145,
+    76.255
+   ],
+   "dEdom": 0.0242,
+   "hueErr": 2.1,
+   "dEarea": 0.027,
+   "medL": 0.8236,
+   "frames": [
+    0.0495,
+    0.02,
+    0.0236,
+    0.0242
+   ],
+   "ground": "rgb(252, 167, 112) rgb(255, 194, 109) rgb(255, 218, 162) rgb(255, 240, 214)",
+   "groundSnap": 0,
+   "ground1dE": 0.0391,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "zari",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.787,
+    0.14,
+    89.882
+   ],
+   "share": 0.46,
+   "seed": [
+    0.721,
+    0.121,
+    88.203
+   ],
+   "dEdom": 0.0331,
+   "hueErr": 1,
+   "dEarea": 0.0516,
+   "medL": 0.7632,
+   "frames": [
+    0.0694,
+    0.0331,
+    0.0244,
+    0.0202
+   ],
+   "ground": "rgb(189, 153, 79) rgb(208, 170, 79) rgb(222, 188, 96) rgb(232, 208, 129)",
+   "groundSnap": 0,
+   "ground1dE": 0.0342,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "sheesham",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.565,
+    0.118,
+    52.012
+   ],
+   "share": 0.37,
+   "seed": [
+    0.549,
+    0.085,
+    56.566
+   ],
+   "dEdom": 0.0377,
+   "hueErr": 5.5,
+   "dEarea": 0.0508,
+   "medL": 0.5839,
+   "frames": [
+    0.0377,
+    0.0379,
+    0.0359,
+    0.0353
+   ],
+   "ground": "rgb(145, 92, 81) rgb(164, 108, 79) rgb(175, 128, 84) rgb(185, 148, 106)",
+   "groundSnap": 0,
+   "ground1dE": 0.0366,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "tulsi",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.743,
+    0.064,
+    143.602
+   ],
+   "share": 0.37,
+   "seed": [
+    0.72,
+    0.054,
+    144.987
+   ],
+   "dEdom": 0.0254,
+   "hueErr": 1.6,
+   "dEarea": 0.0485,
+   "medL": 0.7627,
+   "frames": [
+    0.0254,
+    0.0266,
+    0.0165,
+    0.0114
+   ],
+   "ground": "rgb(143, 166, 139) rgb(155, 184, 153) rgb(170, 202, 172) rgb(188, 218, 193)",
+   "groundSnap": 0,
+   "ground1dE": 0.0325,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "tulsi",
+   "scheme": "light",
+   "pass": 1,
+   "dom": [
+    0.743,
+    0.064,
+    143.599
+   ],
+   "share": 0.37,
+   "seed": [
+    0.72,
+    0.054,
+    144.987
+   ],
+   "dEdom": 0.0254,
+   "hueErr": 1.6,
+   "dEarea": 0.0482,
+   "medL": 0.7621,
+   "frames": [
+    0.0254,
+    0.0265,
+    0.0155,
+    0.0113
+   ],
+   "ground": "rgb(143, 166, 139) rgb(155, 184, 153) rgb(170, 202, 172) rgb(188, 218, 193)",
+   "groundSnap": 0,
+   "ground1dE": 0.0325,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "curry-leaf",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.467,
+    0.114,
+    150.875
+   ],
+   "share": 0.47,
+   "seed": [
+    0.43,
+    0.085,
+    152.239
+   ],
+   "dEdom": 0.0452,
+   "hueErr": 1.7,
+   "dEarea": 0.0603,
+   "medL": 0.4788,
+   "frames": [
+    0.047,
+    0.0452,
+    0.0391,
+    0.0384
+   ],
+   "ground": "rgb(45, 85, 51) rgb(51, 102, 64) rgb(62, 118, 81) rgb(82, 132, 102)",
+   "groundSnap": 0,
+   "ground1dE": 0.0337,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "jamun",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.406,
+    0.138,
+    350.572
+   ],
+   "share": 0.46,
+   "seed": [
+    0.39,
+    0.101,
+    355.774
+   ],
+   "dEdom": 0.0415,
+   "hueErr": 7.1,
+   "dEarea": 0.048,
+   "medL": 0.4171,
+   "frames": [
+    0.0419,
+    0.0415,
+    0.0403,
+    0.0394
+   ],
+   "ground": "rgb(89, 45, 83) rgb(116, 53, 87) rgb(137, 67, 86) rgb(151, 87, 88)",
+   "groundSnap": 0,
+   "ground1dE": 0.036,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "rebeccapurple",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.445,
+    0.194,
+    297.985
+   ],
+   "share": 0.46,
+   "seed": [
+    0.44,
+    0.16,
+    303.373
+   ],
+   "dEdom": 0.0388,
+   "hueErr": 7.2,
+   "dEarea": 0.0381,
+   "medL": 0.457,
+   "frames": [
+    0.0377,
+    0.0388,
+    0.0406,
+    0.0386
+   ],
+   "ground": "rgb(66, 63, 148) rgb(101, 66, 168) rgb(136, 74, 172) rgb(163, 90, 165)",
+   "groundSnap": 0,
+   "ground1dE": 0.0389,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "teal",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.6,
+    0.099,
+    193.716
+   ],
+   "share": 0.38,
+   "seed": [
+    0.543,
+    0.093,
+    194.769
+   ],
+   "dEdom": 0.0574,
+   "hueErr": 1.2,
+   "dEarea": 0.0765,
+   "medL": 0.6143,
+   "frames": [
+    0.0574,
+    0.0575,
+    0.0491,
+    0.0463
+   ],
+   "ground": "rgb(36, 120, 116) rgb(32, 138, 136) rgb(53, 154, 155) rgb(88, 168, 172)",
+   "groundSnap": 0,
+   "ground1dE": 0.0336,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "teal",
+   "scheme": "light",
+   "pass": 1,
+   "dom": [
+    0.6,
+    0.099,
+    193.722
+   ],
+   "share": 0.38,
+   "seed": [
+    0.543,
+    0.093,
+    194.769
+   ],
+   "dEdom": 0.0574,
+   "hueErr": 1.2,
+   "dEarea": 0.0767,
+   "medL": 0.6143,
+   "frames": [
+    0.0574,
+    0.0575,
+    0.0491,
+    0.0463
+   ],
+   "ground": "rgb(36, 120, 116) rgb(32, 138, 136) rgb(53, 154, 155) rgb(88, 168, 172)",
+   "groundSnap": 0,
+   "ground1dE": 0.0336,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "tomato",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.689,
+    0.171,
+    25.867
+   ],
+   "share": 0.39,
+   "seed": [
+    0.696,
+    0.196,
+    32.321
+   ],
+   "dEdom": 0.0353,
+   "hueErr": 7.2,
+   "dEarea": 0.0432,
+   "medL": 0.7051,
+   "frames": [
+    0.0332,
+    0.0333,
+    0.0353,
+    0.0353
+   ],
+   "ground": "rgb(233, 100, 129) rgb(255, 120, 114) rgb(255, 154, 118) rgb(255, 183, 133)",
+   "groundSnap": 0,
+   "ground1dE": 0.0512,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "skyblue",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.832,
+    0.088,
+    227.851
+   ],
+   "share": 0.35,
+   "seed": [
+    0.815,
+    0.082,
+    225.754
+   ],
+   "dEdom": 0.0179,
+   "hueErr": 1.8,
+   "dEarea": 0.0134,
+   "medL": 0.8193,
+   "frames": [
+    0.0179,
+    0.0151,
+    0.0178,
+    0.0201
+   ],
+   "ground": "rgb(137, 199, 220) rgb(146, 217, 244) rgb(180, 232, 255) rgb(223, 244, 255)",
+   "groundSnap": 0,
+   "ground1dE": 0.0331,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  }
+ ]
+}

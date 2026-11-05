@@ -33,20 +33,13 @@
             // import is relative to its physical home. No `@styles`/`@components`/
             // `@utils`/`@lib`/`@composables`/`@assets` project alias survives.
             "vue": ["./node_modules/vue"],
-            "@vue/*": ["./node_modules/@vue/*"],
-            // The value.js published surface: the bare `.` root + the 7 subpath
-            // barrels, each → its `dist/*.d.ts` (the T.W1 demo-dogfood keystone;
-            // TS `paths` needs an explicit per-subpath entry — there is no `.../*`
-            // wildcard because the `exports` map is a CLOSED 8-key set). Mirrors
-            // the `vite.config.ts` runtime self-alias generated from the same map.
-            "@mkbabb/value.js": ["./dist/index.d.ts"],
-            "@mkbabb/value.js/color": ["./dist/subpaths/color.d.ts"],
-            "@mkbabb/value.js/parsing": ["./dist/subpaths/parsing.d.ts"],
-            "@mkbabb/value.js/math": ["./dist/subpaths/math.d.ts"],
-            "@mkbabb/value.js/easing": ["./dist/subpaths/easing.d.ts"],
-            "@mkbabb/value.js/units": ["./dist/subpaths/units.d.ts"],
-            "@mkbabb/value.js/transform": ["./dist/subpaths/transform.d.ts"],
-            "@mkbabb/value.js/quantize": ["./dist/subpaths/quantize.d.ts"]
+            "@vue/*": ["./node_modules/@vue/*"]
+            // X·§0hw.4 V-D6 (BC-PCS-30 / H-c): no `@mkbabb/value.js*` paths.
+            // The demo's self-reference resolves through the package's own
+            // `exports` map under `moduleResolution: bundler` — the same map
+            // the `vite.config.ts` runtime self-alias is generated from. The
+            // deleted block pointed at `dist/index.d.ts` (absent) and at two
+            // subpaths the map does not export (`/parsing`, `/units`).
         }
     },
     // `src/vite-env.d.ts` carries `/// <reference types="vite/client" />`

@@ -1,0 +1,1104 @@
+[
+ {
+  "scene": "home",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "vw": 390,
+  "sw": 390,
+  "docks": [
+   [
+    167,
+    30,
+    56,
+    62
+   ],
+   [
+    167,
+    729,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   28,
+   102,
+   334,
+   613
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "cube",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "vw": 390,
+  "sw": 390,
+  "docks": [
+   [
+    167,
+    30,
+    56,
+    62
+   ],
+   [
+    167,
+    729,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   0,
+   517,
+   390,
+   206
+  ],
+  "stage": [
+   28,
+   102,
+   334,
+   407
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "easing",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "vw": 390,
+  "sw": 390,
+  "docks": [
+   [
+    167,
+    30,
+    56,
+    62
+   ],
+   [
+    167,
+    729,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   0,
+   552,
+   390,
+   171
+  ],
+  "stage": [
+   28,
+   102,
+   334,
+   442
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "home",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "vw": 390,
+  "sw": 390,
+  "docks": [
+   [
+    167,
+    30,
+    56,
+    62
+   ],
+   [
+    167,
+    729,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   28,
+   102,
+   334,
+   613
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "cube",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "vw": 390,
+  "sw": 390,
+  "docks": [
+   [
+    167,
+    30,
+    56,
+    62
+   ],
+   [
+    167,
+    729,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   0,
+   517,
+   390,
+   206
+  ],
+  "stage": [
+   28,
+   102,
+   334,
+   407
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "easing",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "vw": 390,
+  "sw": 390,
+  "docks": [
+   [
+    167,
+    30,
+    56,
+    62
+   ],
+   [
+    167,
+    729,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   0,
+   552,
+   390,
+   171
+  ],
+  "stage": [
+   28,
+   102,
+   334,
+   442
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "sequence",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "vw": 390,
+  "sw": 390,
+  "docks": [
+   [
+    167,
+    30,
+    56,
+    62
+   ],
+   [
+    167,
+    729,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   0,
+   552,
+   390,
+   171
+  ],
+  "stage": [
+   28,
+   102,
+   334,
+   442
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "spring",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "vw": 390,
+  "sw": 390,
+  "docks": [
+   [
+    167,
+    30,
+    56,
+    62
+   ],
+   [
+    167,
+    729,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   0,
+   515,
+   390,
+   207
+  ],
+  "stage": [
+   28,
+   102,
+   334,
+   406
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "home",
+  "w": 430,
+  "h": 932,
+  "scheme": "light",
+  "vw": 430,
+  "sw": 430,
+  "docks": [
+   [
+    187,
+    30,
+    56,
+    62
+   ],
+   [
+    187,
+    817,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   28,
+   102,
+   374,
+   701
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "cube",
+  "w": 430,
+  "h": 932,
+  "scheme": "light",
+  "vw": 430,
+  "sw": 430,
+  "docks": [
+   [
+    187,
+    30,
+    56,
+    62
+   ],
+   [
+    187,
+    817,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   0,
+   605,
+   430,
+   206
+  ],
+  "stage": [
+   28,
+   102,
+   374,
+   495
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "home",
+  "w": 430,
+  "h": 932,
+  "scheme": "dark",
+  "vw": 430,
+  "sw": 430,
+  "docks": [
+   [
+    187,
+    30,
+    56,
+    62
+   ],
+   [
+    187,
+    817,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   28,
+   102,
+   374,
+   701
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "cube",
+  "w": 430,
+  "h": 932,
+  "scheme": "dark",
+  "vw": 430,
+  "sw": 430,
+  "docks": [
+   [
+    187,
+    30,
+    56,
+    62
+   ],
+   [
+    187,
+    817,
+    56,
+    62
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   0,
+   605,
+   430,
+   206
+  ],
+  "stage": [
+   28,
+   102,
+   374,
+   495
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "home",
+  "w": 844,
+  "h": 390,
+  "scheme": "light",
+  "vw": 844,
+  "sw": 844,
+  "docks": [
+   [
+    394,
+    2,
+    56,
+    63
+   ],
+   [
+    394,
+    319,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   36,
+   75,
+   772,
+   229
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "cube",
+  "w": 844,
+  "h": 390,
+  "scheme": "light",
+  "vw": 844,
+  "sw": 844,
+  "docks": [
+   [
+    394,
+    2,
+    56,
+    63
+   ],
+   [
+    394,
+    319,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   540,
+   75,
+   304,
+   237
+  ],
+  "stage": [
+   36,
+   75,
+   468,
+   229
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "home",
+  "w": 844,
+  "h": 390,
+  "scheme": "dark",
+  "vw": 844,
+  "sw": 844,
+  "docks": [
+   [
+    394,
+    2,
+    56,
+    63
+   ],
+   [
+    394,
+    319,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   36,
+   75,
+   772,
+   229
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "cube",
+  "w": 844,
+  "h": 390,
+  "scheme": "dark",
+  "vw": 844,
+  "sw": 844,
+  "docks": [
+   [
+    394,
+    2,
+    56,
+    63
+   ],
+   [
+    394,
+    319,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   540,
+   75,
+   304,
+   237
+  ],
+  "stage": [
+   36,
+   75,
+   468,
+   229
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "spring",
+  "w": 844,
+  "h": 390,
+  "scheme": "dark",
+  "vw": 844,
+  "sw": 844,
+  "docks": [
+   [
+    394,
+    2,
+    56,
+    63
+   ],
+   [
+    394,
+    319,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": [
+   540,
+   75,
+   304,
+   237
+  ],
+  "stage": [
+   36,
+   75,
+   468,
+   229
+  ],
+  "truncTitles": [
+   "Spring Keyframes",
+   "Physics"
+  ],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "home",
+  "w": 1440,
+  "h": 900,
+  "scheme": "light",
+  "vw": 1440,
+  "sw": 1440,
+  "docks": [
+   [
+    692,
+    43,
+    56,
+    63
+   ],
+   [
+    692,
+    764,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   43,
+   127,
+   1354,
+   623
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "cube",
+  "w": 1440,
+  "h": 900,
+  "scheme": "light",
+  "vw": 1440,
+  "sw": 1440,
+  "docks": [
+   [
+    692,
+    43,
+    56,
+    63
+   ],
+   [
+    692,
+    764,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   518,
+   127,
+   878,
+   623
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "easing",
+  "w": 1440,
+  "h": 900,
+  "scheme": "light",
+  "vw": 1440,
+  "sw": 1440,
+  "docks": [
+   [
+    692,
+    43,
+    56,
+    63
+   ],
+   [
+    692,
+    764,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   518,
+   127,
+   878,
+   623
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "home",
+  "w": 1440,
+  "h": 900,
+  "scheme": "dark",
+  "vw": 1440,
+  "sw": 1440,
+  "docks": [
+   [
+    692,
+    43,
+    56,
+    63
+   ],
+   [
+    692,
+    764,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   43,
+   127,
+   1354,
+   623
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "cube",
+  "w": 1440,
+  "h": 900,
+  "scheme": "dark",
+  "vw": 1440,
+  "sw": 1440,
+  "docks": [
+   [
+    692,
+    43,
+    56,
+    63
+   ],
+   [
+    692,
+    764,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   518,
+   127,
+   878,
+   623
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "easing",
+  "w": 1440,
+  "h": 900,
+  "scheme": "dark",
+  "vw": 1440,
+  "sw": 1440,
+  "docks": [
+   [
+    692,
+    43,
+    56,
+    63
+   ],
+   [
+    692,
+    764,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   518,
+   127,
+   878,
+   623
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "sequence",
+  "w": 1440,
+  "h": 900,
+  "scheme": "dark",
+  "vw": 1440,
+  "sw": 1440,
+  "docks": [
+   [
+    692,
+    43,
+    56,
+    63
+   ],
+   [
+    692,
+    764,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   518,
+   127,
+   878,
+   623
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "spring",
+  "w": 1440,
+  "h": 900,
+  "scheme": "dark",
+  "vw": 1440,
+  "sw": 1440,
+  "docks": [
+   [
+    692,
+    43,
+    56,
+    63
+   ],
+   [
+    692,
+    764,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   518,
+   127,
+   878,
+   623
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "home",
+  "w": 1800,
+  "h": 1000,
+  "scheme": "light",
+  "vw": 1800,
+  "sw": 1800,
+  "docks": [
+   [
+    872,
+    48,
+    56,
+    63
+   ],
+   [
+    872,
+    864,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   54,
+   134,
+   1692,
+   715
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "cube",
+  "w": 1800,
+  "h": 1000,
+  "scheme": "light",
+  "vw": 1800,
+  "sw": 1800,
+  "docks": [
+   [
+    872,
+    48,
+    56,
+    63
+   ],
+   [
+    872,
+    864,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   566,
+   134,
+   1180,
+   715
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "home",
+  "w": 1800,
+  "h": 1000,
+  "scheme": "dark",
+  "vw": 1800,
+  "sw": 1800,
+  "docks": [
+   [
+    872,
+    48,
+    56,
+    63
+   ],
+   [
+    872,
+    864,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   54,
+   134,
+   1692,
+   715
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ },
+ {
+  "scene": "cube",
+  "w": 1800,
+  "h": 1000,
+  "scheme": "dark",
+  "vw": 1800,
+  "sw": 1800,
+  "docks": [
+   [
+    872,
+    48,
+    56,
+    63
+   ],
+   [
+    872,
+    864,
+    56,
+    63
+   ]
+  ],
+  "dockCentreOff": [
+   0,
+   0
+  ],
+  "sheet": null,
+  "stage": [
+   566,
+   134,
+   1180,
+   715
+  ],
+  "truncTitles": [],
+  "tooltips": 0,
+  "errs": []
+ }
+]

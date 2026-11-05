@@ -1,0 +1,614 @@
+[
+ {
+  "c": "land",
+  "r": "/",
+  "errs": [],
+  "vw": 844,
+  "vh": 390,
+  "docH": 604,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    21,
+    83,
+    401,
+    513
+   ],
+   [
+    "pane-wrapper--inspector",
+    433,
+    83,
+    390,
+    513
+   ]
+  ],
+  "row": [
+   21,
+   83,
+   802,
+   513
+  ],
+  "cols": "401.266px 390px",
+  "inspector": [
+   433,
+   83,
+   390,
+   513
+  ],
+  "lastSliderBottom": 558,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "land",
+  "r": "/mix",
+  "errs": [],
+  "vw": 844,
+  "vh": 390,
+  "docH": 604,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    21,
+    83,
+    401,
+    513
+   ],
+   [
+    "pane-wrapper--inspector",
+    433,
+    83,
+    390,
+    513
+   ]
+  ],
+  "row": [
+   21,
+   83,
+   802,
+   513
+  ],
+  "cols": "401.266px 390px",
+  "inspector": [
+   433,
+   83,
+   390,
+   513
+  ],
+  "lastSliderBottom": 558,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "m390",
+  "r": "/",
+  "errs": [],
+  "vw": 390,
+  "vh": 844,
+  "docH": 1429,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    366,
+    569
+   ],
+   [
+    "pane-wrapper--inspector",
+    12,
+    689,
+    366,
+    732
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   366,
+   1317
+  ],
+  "cols": "366px",
+  "inspector": [
+   12,
+   689,
+   366,
+   732
+  ],
+  "lastSliderBottom": 635,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "m430",
+  "r": "/",
+  "errs": [],
+  "vw": 430,
+  "vh": 932,
+  "docH": 1518,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    406,
+    570
+   ],
+   [
+    "pane-wrapper--inspector",
+    12,
+    690,
+    406,
+    820
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   406,
+   1406
+  ],
+  "cols": "406px",
+  "inspector": [
+   12,
+   690,
+   406,
+   820
+  ],
+  "lastSliderBottom": 637,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "m390",
+  "r": "/browse",
+  "errs": [],
+  "vw": 390,
+  "vh": 844,
+  "docH": 2004,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    366,
+    1439
+   ],
+   [
+    "pane-wrapper--inspector",
+    12,
+    1559,
+    366,
+    437
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   366,
+   1892
+  ],
+  "cols": "366px",
+  "inspector": [
+   12,
+   1559,
+   366,
+   437
+  ],
+  "lastSliderBottom": null,
+  "cards": [
+   {
+    "card": [
+     29,
+     271,
+     332,
+     93
+    ],
+    "name": [
+     42,
+     322,
+     167,
+     31
+    ],
+    "nameTrunc": true,
+    "nameText": "Daraksha Gradient",
+    "vote": [
+     230,
+     326,
+     38,
+     24
+    ],
+    "voteHit": [
+     44,
+     45
+    ]
+   },
+   {
+    "card": [
+     29,
+     376,
+     332,
+     93
+    ],
+    "name": [
+     42,
+     427,
+     93,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha",
+    "vote": [
+     230,
+     430,
+     38,
+     24
+    ],
+    "voteHit": [
+     44,
+     45
+    ]
+   },
+   {
+    "card": [
+     29,
+     480,
+     332,
+     93
+    ],
+    "name": [
+     42,
+     531,
+     138,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "hey v2 (remix)",
+    "vote": [
+     230,
+     535,
+     38,
+     24
+    ],
+    "voteHit": [
+     44,
+     45
+    ]
+   },
+   {
+    "card": [
+     29,
+     585,
+     332,
+     93
+    ],
+    "name": [
+     42,
+     636,
+     138,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "hey v2 (remix)",
+    "vote": [
+     230,
+     639,
+     38,
+     24
+    ],
+    "voteHit": [
+     44,
+     45
+    ]
+   }
+  ],
+  "labels": []
+ },
+ {
+  "c": "d18",
+  "r": "/atmosphere",
+  "errs": [],
+  "vw": 1800,
+  "vh": 1000,
+  "docH": 1000,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    45,
+    88,
+    1710,
+    688
+   ]
+  ],
+  "row": [
+   45,
+   88,
+   1710,
+   688
+  ],
+  "cols": "1710px 0px 0px 0px",
+  "inspector": null,
+  "lastSliderBottom": 670,
+  "cards": [],
+  "labels": [
+   [
+    "Harmony",
+    684,
+    259,
+    97,
+    21,
+    26
+   ],
+   [
+    "Arrangement",
+    684,
+    307,
+    97,
+    21,
+    26
+   ],
+   [
+    "Medium",
+    684,
+    355,
+    97,
+    21,
+    26
+   ],
+   [
+    "Motion",
+    684,
+    403,
+    97,
+    21,
+    26
+   ]
+  ]
+ },
+ {
+  "c": "m390",
+  "r": "/atmosphere",
+  "errs": [],
+  "vw": 390,
+  "vh": 844,
+  "docH": 873,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    12,
+    104,
+    366,
+    761
+   ]
+  ],
+  "row": [
+   12,
+   104,
+   366,
+   761
+  ],
+  "cols": "366px",
+  "inspector": null,
+  "lastSliderBottom": 750,
+  "cards": [],
+  "labels": [
+   [
+    "Harmony",
+    44,
+    269,
+    117,
+    26,
+    26
+   ],
+   [
+    "Arrangement",
+    44,
+    335,
+    117,
+    26,
+    26
+   ],
+   [
+    "Medium",
+    44,
+    401,
+    117,
+    26,
+    26
+   ],
+   [
+    "Motion",
+    44,
+    467,
+    117,
+    26,
+    26
+   ]
+  ]
+ },
+ {
+  "c": "d14",
+  "r": "/",
+  "errs": [],
+  "vw": 1440,
+  "vh": 900,
+  "docH": 900,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    36,
+    88,
+    651,
+    685
+   ],
+   [
+    "pane-wrapper--inspector",
+    705,
+    88,
+    699,
+    685
+   ]
+  ],
+  "row": [
+   36,
+   88,
+   1368,
+   685
+  ],
+  "cols": "651.25px 698.75px",
+  "inspector": [
+   705,
+   88,
+   699,
+   685
+  ],
+  "lastSliderBottom": 731,
+  "cards": [],
+  "labels": []
+ },
+ {
+  "c": "d14",
+  "r": "/browse",
+  "errs": [],
+  "vw": 1440,
+  "vh": 900,
+  "docH": 1529,
+  "panes": [
+   [
+    "pane-wrapper--stage",
+    36,
+    88,
+    900,
+    1433
+   ],
+   [
+    "pane-wrapper--inspector",
+    954,
+    88,
+    450,
+    1433
+   ]
+  ],
+  "row": [
+   36,
+   88,
+   1368,
+   1433
+  ],
+  "cols": "900px 450px",
+  "inspector": [
+   954,
+   88,
+   450,
+   1433
+  ],
+  "lastSliderBottom": null,
+  "cards": [
+   {
+    "card": [
+     61,
+     250,
+     850,
+     93
+    ],
+    "name": [
+     74,
+     301,
+     183,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha Gradient",
+    "vote": [
+     790,
+     302,
+     40,
+     27
+    ],
+    "voteHit": [
+     40,
+     27
+    ]
+   },
+   {
+    "card": [
+     61,
+     354,
+     850,
+     93
+    ],
+    "name": [
+     74,
+     405,
+     93,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "Daraksha",
+    "vote": [
+     790,
+     407,
+     40,
+     27
+    ],
+    "voteHit": [
+     40,
+     28
+    ]
+   },
+   {
+    "card": [
+     61,
+     459,
+     850,
+     93
+    ],
+    "name": [
+     74,
+     510,
+     138,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "hey v2 (remix)",
+    "vote": [
+     790,
+     511,
+     40,
+     27
+    ],
+    "voteHit": [
+     40,
+     27
+    ]
+   },
+   {
+    "card": [
+     61,
+     563,
+     850,
+     93
+    ],
+    "name": [
+     74,
+     614,
+     138,
+     31
+    ],
+    "nameTrunc": false,
+    "nameText": "hey v2 (remix)",
+    "vote": [
+     790,
+     616,
+     40,
+     27
+    ],
+    "voteHit": [
+     40,
+     28
+    ]
+   }
+  ],
+  "labels": []
+ }
+]

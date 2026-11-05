@@ -1,0 +1,714 @@
+[
+ {
+  "cell": "1440",
+  "beforeSkin": "crayon",
+  "radioChecked": "true",
+  "skin": "daraksha",
+  "crayonStep": [
+   {
+    "side": "front",
+    "dE": 0
+   },
+   {
+    "side": "right",
+    "dE": 0.0453
+   },
+   {
+    "side": "back",
+    "dE": 0
+   },
+   {
+    "side": "left",
+    "dE": 0.049
+   },
+   {
+    "side": "top",
+    "dE": 0.0431
+   },
+   {
+    "side": "bottom",
+    "dE": 0.0901
+   }
+  ],
+  "crayonStepPresent": true,
+  "faces": [
+   {
+    "side": "front",
+    "name": "efflorescence",
+    "bg": "oklab(0.73 0.184887 0.00645641)",
+    "dE": 0
+   },
+   {
+    "side": "right",
+    "name": "haldi",
+    "bg": "oklab(0.82 0.0350787 0.140693)",
+    "dE": 0
+   },
+   {
+    "side": "back",
+    "name": "tulsi",
+    "bg": "oklab(0.72 -0.0450534 0.0315467)",
+    "dE": 0
+   },
+   {
+    "side": "left",
+    "name": "zari",
+    "bg": "oklab(0.72 0.00418793 0.119927)",
+    "dE": 0
+   },
+   {
+    "side": "top",
+    "name": "gulabi",
+    "bg": "oklab(0.9 0.0523081 0.0169959)",
+    "dE": 0
+   },
+   {
+    "side": "bottom",
+    "name": "sheesham",
+    "bg": "oklab(0.55 0.0475314 0.0704682)",
+    "dE": 0
+   }
+  ],
+  "maxFaceDE": 0,
+  "restDeg": 2.223,
+  "restOff": {
+   "dx": -18.34,
+   "dy": 6.86
+  },
+  "bobTransform": "matrix(0.999248, 0.0387833, -0.0387833, 0.999248, 0.103443, -2.66521)",
+  "unfurl": {
+   "frames": 380,
+   "spanMs": 3504.9,
+   "per": [
+    {
+     "i": 0,
+     "sawClosed": true,
+     "start": 276.5,
+     "open": 352.1,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.984,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 1,
+     "sawClosed": true,
+     "start": 339.3,
+     "open": 423.9,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.984,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 2,
+     "sawClosed": true,
+     "start": 412.5,
+     "open": 499.8,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.984,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 3,
+     "sawClosed": true,
+     "start": 499.8,
+     "open": 573.7,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.984,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 4,
+     "sawClosed": true,
+     "start": 546.2,
+     "open": 626.6,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.984,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 5,
+     "sawClosed": true,
+     "start": 618.2,
+     "open": 696.3,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.983,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    }
+   ],
+   "startGaps": [
+    62.8,
+    73.2,
+    87.3,
+    46.4,
+    72
+   ],
+   "staggerMs": 341.7,
+   "monotoneStarts": true,
+   "anySnapBack": false,
+   "allOpened": true,
+   "inlineFramesSeen": true
+  },
+  "errors": []
+ },
+ {
+  "cell": "390",
+  "beforeSkin": "crayon",
+  "radioChecked": "true",
+  "skin": "daraksha",
+  "crayonStep": [
+   {
+    "side": "front",
+    "dE": 0
+   },
+   {
+    "side": "right",
+    "dE": 0.0453
+   },
+   {
+    "side": "back",
+    "dE": 0
+   },
+   {
+    "side": "left",
+    "dE": 0.049
+   },
+   {
+    "side": "top",
+    "dE": 0.0431
+   },
+   {
+    "side": "bottom",
+    "dE": 0.0901
+   }
+  ],
+  "crayonStepPresent": true,
+  "faces": [
+   {
+    "side": "front",
+    "name": "efflorescence",
+    "bg": "oklab(0.73 0.184887 0.00645641)",
+    "dE": 0
+   },
+   {
+    "side": "right",
+    "name": "haldi",
+    "bg": "oklab(0.82 0.0350787 0.140693)",
+    "dE": 0
+   },
+   {
+    "side": "back",
+    "name": "tulsi",
+    "bg": "oklab(0.72 -0.0450534 0.0315467)",
+    "dE": 0
+   },
+   {
+    "side": "left",
+    "name": "zari",
+    "bg": "oklab(0.72 0.00418793 0.119927)",
+    "dE": 0
+   },
+   {
+    "side": "top",
+    "name": "gulabi",
+    "bg": "oklab(0.9 0.0523081 0.0169959)",
+    "dE": 0
+   },
+   {
+    "side": "bottom",
+    "name": "sheesham",
+    "bg": "oklab(0.55 0.0475314 0.0704682)",
+    "dE": 0
+   }
+  ],
+  "maxFaceDE": 0,
+  "restDeg": 2.238,
+  "restOff": {
+   "dx": -7.78,
+   "dy": 0.65
+  },
+  "bobTransform": "matrix(0.999237, 0.0390566, -0.0390566, 0.999237, 0.104907, -2.68397)",
+  "unfurl": {
+   "frames": 421,
+   "spanMs": 3501.3,
+   "per": [
+    {
+     "i": 0,
+     "sawClosed": true,
+     "start": 346.8,
+     "open": 421.4,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.984,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 1,
+     "sawClosed": true,
+     "start": 412.2,
+     "open": 493.1,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.984,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 2,
+     "sawClosed": true,
+     "start": 486.2,
+     "open": 559.7,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.984,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 3,
+     "sawClosed": true,
+     "start": 551.3,
+     "open": 626.4,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.981,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 4,
+     "sawClosed": true,
+     "start": 620.4,
+     "open": 701.5,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.984,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 5,
+     "sawClosed": true,
+     "start": 692.3,
+     "open": 769.6,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 0.984,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    }
+   ],
+   "startGaps": [
+    65.4,
+    74,
+    65.1,
+    69.1,
+    71.9
+   ],
+   "staggerMs": 345.5,
+   "monotoneStarts": true,
+   "anySnapBack": false,
+   "allOpened": true,
+   "inlineFramesSeen": true
+  },
+  "errors": []
+ },
+ {
+  "cell": "1440-prm",
+  "beforeSkin": "crayon",
+  "radioChecked": "true",
+  "skin": "daraksha",
+  "crayonStep": [
+   {
+    "side": "front",
+    "dE": 0
+   },
+   {
+    "side": "right",
+    "dE": 0.0453
+   },
+   {
+    "side": "back",
+    "dE": 0
+   },
+   {
+    "side": "left",
+    "dE": 0.049
+   },
+   {
+    "side": "top",
+    "dE": 0.0431
+   },
+   {
+    "side": "bottom",
+    "dE": 0.0901
+   }
+  ],
+  "crayonStepPresent": true,
+  "faces": [
+   {
+    "side": "front",
+    "name": "efflorescence",
+    "bg": "oklab(0.73 0.184887 0.00645641)",
+    "dE": 0
+   },
+   {
+    "side": "right",
+    "name": "haldi",
+    "bg": "oklab(0.82 0.0350787 0.140693)",
+    "dE": 0
+   },
+   {
+    "side": "back",
+    "name": "tulsi",
+    "bg": "oklab(0.72 -0.0450534 0.0315467)",
+    "dE": 0
+   },
+   {
+    "side": "left",
+    "name": "zari",
+    "bg": "oklab(0.72 0.00418793 0.119927)",
+    "dE": 0
+   },
+   {
+    "side": "top",
+    "name": "gulabi",
+    "bg": "oklab(0.9 0.0523081 0.0169959)",
+    "dE": 0
+   },
+   {
+    "side": "bottom",
+    "name": "sheesham",
+    "bg": "oklab(0.55 0.0475314 0.0704682)",
+    "dE": 0
+   }
+  ],
+  "maxFaceDE": 0,
+  "restDeg": 0,
+  "restOff": {
+   "dx": 0,
+   "dy": 0
+  },
+  "bobTransform": "matrix(1, 0, 0, 1, 0, 0)",
+  "unfurl": {
+   "frames": 420,
+   "spanMs": 3501.3,
+   "per": [
+    {
+     "i": 0,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 1,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 2,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 3,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 4,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 5,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    }
+   ],
+   "startGaps": [],
+   "staggerMs": 0,
+   "monotoneStarts": true,
+   "anySnapBack": false,
+   "allOpened": false,
+   "inlineFramesSeen": false
+  },
+  "errors": []
+ },
+ {
+  "cell": "390-prm",
+  "beforeSkin": "crayon",
+  "radioChecked": "true",
+  "skin": "daraksha",
+  "crayonStep": [
+   {
+    "side": "front",
+    "dE": 0
+   },
+   {
+    "side": "right",
+    "dE": 0.0453
+   },
+   {
+    "side": "back",
+    "dE": 0
+   },
+   {
+    "side": "left",
+    "dE": 0.049
+   },
+   {
+    "side": "top",
+    "dE": 0.0431
+   },
+   {
+    "side": "bottom",
+    "dE": 0.0901
+   }
+  ],
+  "crayonStepPresent": true,
+  "faces": [
+   {
+    "side": "front",
+    "name": "efflorescence",
+    "bg": "oklab(0.73 0.184887 0.00645641)",
+    "dE": 0
+   },
+   {
+    "side": "right",
+    "name": "haldi",
+    "bg": "oklab(0.82 0.0350787 0.140693)",
+    "dE": 0
+   },
+   {
+    "side": "back",
+    "name": "tulsi",
+    "bg": "oklab(0.72 -0.0450534 0.0315467)",
+    "dE": 0
+   },
+   {
+    "side": "left",
+    "name": "zari",
+    "bg": "oklab(0.72 0.00418793 0.119927)",
+    "dE": 0
+   },
+   {
+    "side": "top",
+    "name": "gulabi",
+    "bg": "oklab(0.9 0.0523081 0.0169959)",
+    "dE": 0
+   },
+   {
+    "side": "bottom",
+    "name": "sheesham",
+    "bg": "oklab(0.55 0.0475314 0.0704682)",
+    "dE": 0
+   }
+  ],
+  "maxFaceDE": 0,
+  "restDeg": 0,
+  "restOff": {
+   "dx": 0,
+   "dy": 0
+  },
+  "bobTransform": "matrix(1, 0, 0, 1, 0, 0)",
+  "unfurl": {
+   "frames": 421,
+   "spanMs": 3504.3,
+   "per": [
+    {
+     "i": 0,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 1,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 2,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 3,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 4,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "i": 5,
+     "sawClosed": false,
+     "start": null,
+     "open": null,
+     "snapBack": 0,
+     "reclose": false,
+     "minAfterOpen": 1,
+     "last": [
+      1,
+      1,
+      0
+     ]
+    }
+   ],
+   "startGaps": [],
+   "staggerMs": 0,
+   "monotoneStarts": true,
+   "anySnapBack": false,
+   "allOpened": false,
+   "inlineFramesSeen": false
+  },
+  "errors": []
+ }
+]

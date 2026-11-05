@@ -1,0 +1,2621 @@
+{
+ "wptCommit": "5a5b2b591b39c59d5bca77819db305474dcfd18a",
+ "modules": [
+  "css-variables",
+  "css-syntax"
+ ],
+ "count": 317,
+ "files": [
+  {
+   "file": "css/css-syntax/anb-parsing.html",
+   "sha256": "e11b74d37e03deda5595ac3a26ecfcf10c4efeb08acfed9371ca56fffe5695db",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/anb-serialization.html",
+   "sha256": "9016b296ae079a56c21233513ac8f0fd5223837c934c37e6541715fd47a09500",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/at-rule-in-declaration-list.html",
+   "sha256": "00093c4749ae4a24fa4fffbe5cd3f881f7b4a0f17dff3558a7089fa82d07feaa",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/cdc-vs-ident-tokens.html",
+   "sha256": "5f52d414359c7e39d49e356c84af9be914f336926d31ddb94321978131d5edf9",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset-is-not-a-rule.html",
+   "sha256": "17c76572cdb4c09b6efc78be51648b2e2df32ba4f669cdff34f1ce93c54c94d9",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-utf16-css-bomless-utf16.html",
+   "sha256": "ec07148974b50700e84427aef9eaebc04bbb5149b6b409fd50c43e4da5456e5a",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-utf16-css-bomless-utf16be.html",
+   "sha256": "41eeacaa689a740bff6fad8c5d4559ab94e718ce6176f933b8eb100025a8f59e",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-utf16-css-no-decl-ascii-only.html",
+   "sha256": "bc858770dcc60f6188c91bcfbfc8ee96e5bef2fc2def0ca0afbc83e35f17f7bc",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-utf16-css-no-decl.html",
+   "sha256": "688864b0f7064240d9f5ee641617a9d4af046628688bd672bac55b1d72ec02eb",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-charset-attribute-bogus.html",
+   "sha256": "fe097f6728dfac36b454584bd85dfde3226115b38b8f6b820b14a31e85782b43",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-1250-charset-attribute-windows-1253.html",
+   "sha256": "f45a00517dda1394a913c7c6cfd0bd1fe696676ab80eb88ca0cc76e8a6367dcc",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-bogus-charset-attribute-windows-1250.html",
+   "sha256": "93a2af49452324a1a275dfc2be5e4b8475d3fec21255b10f096435393a72ada2",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-bogus.html",
+   "sha256": "95ccf808f50473642db80ee962ac47f706cda736229e2bc364650db14cfedf76",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-utf16-ascii-only.html",
+   "sha256": "e2a1423f156e5c0ce14d8a3794c268620c993ee5536828ca472beb798e6de8df",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-utf16.html",
+   "sha256": "34d4684edf04aa795e63c906b8f03023334d89a98cac366cfb94daff466eab9f",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-utf16be.html",
+   "sha256": "ec6cee23a32954f0c63fbff0fd2d51009e01fe09f75ebe1e5da9ec998c4be9a8",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-windows-1250-in-utf16.html",
+   "sha256": "0124f8ca6c06f17a8f47bc5463d13e8cde0a141c972a780c394d36ba8443e774",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-windows-1250-in-utf16be.html",
+   "sha256": "7cada9496d122764ac1b87dec1d8c7c24bc91359876ae997ff66ff9a799706fd",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-http-bogus-at-charset-windows-1250.html",
+   "sha256": "9a4395334baae3af1835bdc6eba4610a9d8046a1da3ce24cd009c8ae3fe49029",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-http-bogus.html",
+   "sha256": "bb687111b6fab54b5cc3535b76195159686dfce66b24d02c977aaf60ec01b510",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-http-windows-1250-at-charset-windows-1253.html",
+   "sha256": "c132d485cabae5de86f7ee3e4e7a81e1f747daf711a0bfe6291348a0f7343c09",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-no-decl.html",
+   "sha256": "b45435fa96a493eed00a15f31982058b84396e05a9a8447345e0581ec93e5e74",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1251-css-utf8-bom.html",
+   "sha256": "f46c43a0f35cefa1f9247a9babd19e1b0f36046f57021a3eac38a079897bba9c",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/page-windows-1252-http-windows-1251-css-utf8-bom.html",
+   "sha256": "d0dd0ae4e69fa4f99f780e2a38ddfd8b2fffd05faa95385f5a09241951a1e59e",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/charset/xml-stylesheet-page-windows-1251-charset-attribute-windows-1250.xhtml",
+   "sha256": "b1e0221b1cb687971928c392ffa019a1caaf4c5dcf46d70f50d8981911caa749",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/crashtests/atrule-with-escape-character.html",
+   "sha256": "5a65642b7aa31cd527a655331f1bf9c6a4ff892105f2363df44394ef95c7fb9b",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/crashtests/unclosed-content-attr-bracket.html",
+   "sha256": "943454cdf4ea1c6f28a2032e354a2dce2c5dfc3e97030bbccff8c7da83aa2867",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/crashtests/unclosed-open-brackets.html",
+   "sha256": "11747534e4277158b582c1c85a96b2a7cc0b5968c8138e877903d4a88f70a672",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/custom-property-rule-ambiguity.html",
+   "sha256": "fe7b5a092b043dcd195af19a62f896a256ab5b2b1f9787d80a836eb5c5dea034",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/decimal-points-in-numbers.html",
+   "sha256": "fb28315244b2e1da0277b9e5d20bcd0470a3a11bd0cfc6b531fd3b072df859ed",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": "roundtrip"
+  },
+  {
+   "file": "css/css-syntax/declarations-trim-whitespace.html",
+   "sha256": "af6e5414e18c8ce42c3d0f8614837493e7495b5a7f8f84f8bddb9d2654d4c62d",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/escaped-eof.html",
+   "sha256": "dec0d40911d7247999dbb2866c5a58b7a884198285dd766bf55d5ce468c8cff2",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/ident-three-code-points.html",
+   "sha256": "322c18b47b5ad84f3ed48523ffc7936f2a82922e07beb4cd1f51ce81cbdcfe7b",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/inclusive-ranges.html",
+   "sha256": "1564c7326e163a1af28b4dee6ba83a1806b6e75c150c215fc1bd1598b2ee16b6",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/input-preprocessing.html",
+   "sha256": "8792806053c83b90517e2c4b64fec98ba8b6146e15f19e1fa1078694aace6aa0",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/invalid-nested-rules.html",
+   "sha256": "fe53ac01f159378c2e0288ce7250ac541c9ee8cea2850cf551292b3dfb000086",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/missing-semicolon-ref.html",
+   "sha256": "07b331da3ceb9aecccf8dca1e2013ddc71ffa8fd7e51421221479bbded19f6eb",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/missing-semicolon.html",
+   "sha256": "9e680e04b419240f2286095835b5bccde94dbdbdfbd07272296e9d1aeecea5f1",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/non-ascii-codepoints.html",
+   "sha256": "088c26b4953dea137e486a8b4b7fefb89cea2420e7c86bd2ad23ff12bd1d288d",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/serialize-consecutive-tokens.html",
+   "sha256": "8f51db51d5355c42a8179beed9933cfcf90f5b676f41c3ca5f913ff3f723b467",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/serialize-escape-identifiers.html",
+   "sha256": "8dc1a23f3b52255ac0749c25b3bb269660165c00be5dd0f20c9762cafad8f498",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/trailing-braces.html",
+   "sha256": "279e348aa2dfdc33507d6fd07f59ecec7b9a5f9cd43707c51d0d1168b6e29f02",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/unclosed-constructs.html",
+   "sha256": "c723813cc24a16220ac06632f076bf779fea06687ec67c91ac9ff42fe19e0426",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/unclosed-url-at-eof.html",
+   "sha256": "b4dbc9b5aa113d06ba8627bc1fdc0abd9b669ccebc399c81d8f07889e135f2ca",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/unicode-range-selector.html",
+   "sha256": "af71a88d187bd5f5b1cd919b16a5d70f624d45384f708368442d246bfbdeda92",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/urange-parsing.html",
+   "sha256": "82a1c67287d32f62512ef34a16362255f20f73a071da7ec2addef1f7e1fb9a9b",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": "roundtrip"
+  },
+  {
+   "file": "css/css-syntax/url-whitespace-consumption.html",
+   "sha256": "de6b0b77b042d25cc5c9746f15a0a7743d9086d8f116f1d71f81a63414b71f85",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": "roundtrip"
+  },
+  {
+   "file": "css/css-syntax/var-with-blocks.html",
+   "sha256": "af3956010a00321e51159d67f92bf7554ca79881c78de745ea2c5ccef91620bc",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-syntax/whitespace.html",
+   "sha256": "a0e5681545a109760025d0bf7e919c251747a5c09febbe705d4f6b322647fe51",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/css-variable-change-style-001.html",
+   "sha256": "c3ce0fa1edf83bafae5002c14b1e5bceb039e135d3dfdb92621c7bfd6f0d5c2f",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/css-variable-change-style-002.html",
+   "sha256": "3c58bed5ae153adc9857dfab667555957a5b53acee11e1a1f322a9eec5a7d67f",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/css-vars-custom-property-case-sensitive-001.html",
+   "sha256": "8da3e66ac23a01cfdfbfb5eea134dd775830721ec3231c74a465f4c6502c17c8",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/css-vars-custom-property-inheritance.html",
+   "sha256": "3cded4005de38ed5dfaae355963029c4e97069fd13d37550aba030d2940bf07d",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/long-variable-reference-crash.html",
+   "sha256": "e3d97cf1ddabbc686ab16c0c944ad92785de5a30cb96b8b05ccd1b757cc82271",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/missing-closing-nested-fallback-crash.html",
+   "sha256": "1f6b42ceb2076f1db36c887d9dce571bf192424a57a40ca72b6cbffe6f08917f",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/missing-closing-nested-fallback.html",
+   "sha256": "10ddd7a59c4a3d43ef13d88e1f288f4cb834af40a9e710f45a5a95bd839a10bd",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/reference/variable-reference-without-whitespace-ref.html",
+   "sha256": "9991fc1c92ed17b8eee9eb1e9e05d081009390e7c753b6834348da70118008c2",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/reference/vars-background-shorthand-001-ref.html",
+   "sha256": "1972e066065e11c1af9188f9d72fc781fbbec027d104f40fcc748d4a5006fad0",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/reference/vars-font-shorthand-001-ref.html",
+   "sha256": "77b93d09f7434a2a731c86d9bd96cbffcc9882c6f817fe0995b9267119c340b1",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/registered-property-light-dark.html",
+   "sha256": "7dd03e678837ace24657809c63d6f8667b4ffc91078c26475a4f08b8138e2666",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/resources/variable-reference-refresh-iframe.html",
+   "sha256": "21fdc33d5e3ce6fe7fc6834d496cd991647e5da9d58189f5f3ae51bdbbd30e9d",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/revert-in-fallback.html",
+   "sha256": "3d7e8b6c5650ff42b53ca10a36dcea09814d80b223ecd40228e7cbf1e8aaac20",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/revert-layer-in-fallback.html",
+   "sha256": "ec09fff1a29e310379025a86bd915f9b8f2d5e3488bfb797b89c0cfa33c43d8d",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/revert-rule-in-fallback.html",
+   "sha256": "134fc3d10d1e48e2d9f8f35f9911b9d38a7da3c168eabe5f8576e9ca30f47d6a",
+   "harness": [
+    "CSS.supports",
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/revert-rule-to-var.html",
+   "sha256": "7e55c9fb7f4f89b9cf375010762fc3069d82b2ff3868dab1ec0297d7fa4bf1bb",
+   "harness": [
+    "CSS.supports",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/support/color-green-ref.html",
+   "sha256": "4326c62090051d7907afd589dd4271f48cd4cee8d9f47cb50adfa2322a299cec",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/test_variable_legal_values.html",
+   "sha256": "a9e89b82452ea15e2b44ebc2c70a0470d59b53c5cc00a1a3e65abbca83507502",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/url-syntax-crash.html",
+   "sha256": "581780f87305cf514b3432e701ee353e7877f68e664dfc3ae3a96951a0ce353e",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/url-token-serialization.html",
+   "sha256": "8b292976a2183211b8668829d18a7e7d29feea7712bcc424ebabb611c9e16540",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": "roundtrip"
+  },
+  {
+   "file": "css/css-variables/var-ident-function.html",
+   "sha256": "88d020657ec0e3dc4c7b2f3a1719fdd5cf8809e90dbf11072e84cf7b1bce4e11",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/var-parsing.html",
+   "sha256": "0d0399e71df2139ba0bf1114227982be1cb2c523e5f58a45a77d8bd4322bf02f",
+   "harness": [
+    "test_valid_value",
+    "testharness"
+   ],
+   "extract": "parsing-testcommon"
+  },
+  {
+   "file": "css/css-variables/variable-animation-from-to.html",
+   "sha256": "ed453ff33ba506bd51cee28a49d82f11e24965f513823228d146cb699e6403b1",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-animation-guaranteed-invalid.html",
+   "sha256": "a9dd3ad8c28ae623e5b582886a23216eb8e0556525f4930e9ced8f4c9a4ffb75",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-animation-over-transition.html",
+   "sha256": "0f25661c447eb9eccbdc9198b0808f21c826dfa84e5bf25271a7cfb2c8d0dc85",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-animation-substitute-into-keyframe-shorthand.html",
+   "sha256": "0c7b7d32d5a34f1a305d1053a983d509436f1d4b92df405858063d2c058226cd",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-animation-substitute-into-keyframe-transform.html",
+   "sha256": "309a5869311b6060244e04a70c1ac559a9e860cec2a97ccc5b08eb91a044d924",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-animation-substitute-into-keyframe.html",
+   "sha256": "8e2998fafb57fe8577f02227eb24fcdb8ab62e2032f1e3c7c1b5e3962248bde7",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-animation-substitute-within-keyframe-fallback.html",
+   "sha256": "f1152be999100ff4736c782afe0050b0a734a048d7bcbc00ffbc7f6a9d1020d6",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-animation-substitute-within-keyframe-multiple.html",
+   "sha256": "3174ec6cd5fe9f84f2c9e92f7e3349704e806d4f2e1dc381a7bee9aa5cfbd352",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-animation-substitute-within-keyframe.html",
+   "sha256": "089dc7cd080102c5a82b02a833e34f02c9ad9bd1d95e8c84d5b5aa23b0d08f1e",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-animation-to-only.html",
+   "sha256": "81dc3e48a8b906b7bf0f670554a7adbfb8755d7cd237fe26cc68eeaf6da0a221",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-created-document.html",
+   "sha256": "f9ce5d026a15323a652a25775e4df173bc4a684ecad9be0e5edbd440f38a2c48",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-created-element.html",
+   "sha256": "ec7051cda9aafa4ee1fb6755016c3fb770934ca46508fdf699ab8a75b5abaa28",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-css-wide-keywords-after-substitution.html",
+   "sha256": "0ede0f507165a19f44da5996d018465c05c20a0b9876e76f87273946db38ac6b",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-css-wide-keywords.html",
+   "sha256": "93c9830f8f4350ffcb71096a27cf336cbfedb131a2538baafb43b58b14b5afc5",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-cssText.html",
+   "sha256": "dab9f284bd88b9bb1364db57119529d7eda28aba6161ac33d52ae201fb87f4ae",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-cycles.html",
+   "sha256": "a787dbc45d029c765d144309e0c003e731986595ced4555dae217e531dae39f7",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-01.html",
+   "sha256": "75d382c248f581ac63727276f7e8f63df32792e9638c062e5e58c2e89d11548f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-02.html",
+   "sha256": "a7377315e7c22971577a3e10a900f899e764cdf5f6e540ebfed02c1d6387d0f6",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-03.html",
+   "sha256": "9c263f51563324b9e4062a87cccfc210fc3b48ee08a0e3c2e2df9ab647f32129",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-04.html",
+   "sha256": "3bc202b4d04205119a62d3acd2d327a086be40db5346516bc2ba0689368dcbf7",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-05.html",
+   "sha256": "f1e1a2bea0a0492762ec238aa1801a8f27fc06961f0a85edeb2e937b1d53349f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-06.html",
+   "sha256": "ac9cb169541be04c0c412b4a5b3878cb12cbbe0cb60b06fcb3612809985c6bd6",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-07.html",
+   "sha256": "4485e92bcb93775a748432e71dd425ad5547fb81696b679a53c019f55b160a6b",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-08.html",
+   "sha256": "c57bb003f739a1077ed0f88096f21e34969df040c48189ed7c10c1559a6baaf3",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-09.html",
+   "sha256": "eae7520ab81e632b42033d7015a003e871942362c80b47cb299b110337b8fd62",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-10.html",
+   "sha256": "8f8b3d14157bea4d699fd7c325405eec3e5d2e96f7c6d0327b50de9c351c39da",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-11.html",
+   "sha256": "a661c0527d062b90d3a24cf5cfbb5fd7a2fc42e6b63eae0eeb166dffe1863675",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-12.html",
+   "sha256": "b036dc62a5a362c8822ea40a3fdb32d9aed93c09300bf21f044f62afa4b7cade",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-13.html",
+   "sha256": "e7b852d2347f367ee357bbc01bd8029ddb6717dd79f500b55a3bbae752264d63",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-14.html",
+   "sha256": "c8483fa1185d748e328ff7d61bc866ff3aa216e3739af0d209e5fae63c80b06c",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-15-ref.html",
+   "sha256": "10082aec56c048b7cba85f1a9bd91273d3fea41189cd5fd4cb1066d967d48c38",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-15.html",
+   "sha256": "d4693c8bf540f8d9f88aba88d9d087f16499214e0a8cc59b1a284d3939247d9b",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-16-ref.html",
+   "sha256": "10082aec56c048b7cba85f1a9bd91273d3fea41189cd5fd4cb1066d967d48c38",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-16.html",
+   "sha256": "82999c3ff9dfeddf631d983cfc396cab9a4ede9702555aab0f77f739db609399",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-17-ref.html",
+   "sha256": "9def03a75b05b269655f6eddeb712c78b74986d863fc935c7e59bdb993a73a51",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-17.html",
+   "sha256": "56c393cf7353cd4c56a0fa1d29562b564a7efb4ef89aef807cfa24d6853a1d63",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-18-ref.html",
+   "sha256": "10082aec56c048b7cba85f1a9bd91273d3fea41189cd5fd4cb1066d967d48c38",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-18.html",
+   "sha256": "9d13697cf61b0eae5ea1408583e2b3fe66182ff0424b635e5365dbe50e55eb12",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-19.html",
+   "sha256": "530f5853da104be23f50bf7ce41b4c12516a9c2c9c8e0c8b8d09e1e530bbf636",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-20.html",
+   "sha256": "07a7fa8be201abebaf389a167b09288881c4501bc6bceb78cc81ae69ed535235",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-21.html",
+   "sha256": "93d282ae8e41593b349a75ea7e2d4284dd5a3d24e66dc5dbf4e400dfa1384f68",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-22.html",
+   "sha256": "ada8906aae9e49b1433f2b17a1668122f0f611e5a3d9778b0269ff1e577e3fd7",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-23.html",
+   "sha256": "f6ea6dc3c52a3877f554849a0757e85dafb392a3a23399ab77899f9b99cddf53",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-24.html",
+   "sha256": "9e3e03b92ada032aa1e5ce1b9e3f0df862a1d4146605ae04bdd3d18d5f536cfa",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-25.html",
+   "sha256": "642d464d88ad3e0e0624ba1ae422d1a311af14a6702df6da73d0ebb09c7fb798",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-26.html",
+   "sha256": "0e2a21e9c82485be095d550c1bf589930fb7f36430ad9aab396ecac0b6d1cdad",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-29.html",
+   "sha256": "a1e8b606408dedc0e8a012b1b5b2a4c9c0a968124a37133b6601ac9ed2ed7447",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-30.html",
+   "sha256": "dfe43bed5285dabb2ac215e3386d1c08349396d0a5561629f64f4758fedbb4e9",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-31.html",
+   "sha256": "4183ff10748103008877a18e6e87b33040210d0221c5056b01ebc0726bf9fd1e",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-32.html",
+   "sha256": "311631dc24dce059da146d442896d042244f7c432f8ca7dcd5d8e9c76dfde93f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-33.html",
+   "sha256": "d376b5fdf153578a425aa3e212b299582be53cfbbd6b7625f3fd82bf94cec220",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-34.html",
+   "sha256": "86d58e4c38ef2ca9d7c3279458c6575082f0c089ad7fb66e49f61be70fa2e1d6",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-35.html",
+   "sha256": "427d71c3b691c35e4f9a44ff8b5a622d406034324818e7d9769d8ab0a92cc111",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-36.html",
+   "sha256": "e7abaa43dcbf8ec19c08fb9c13d9bc47e50d456b2e1c9762c990175970c86a80",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-37.html",
+   "sha256": "689ff0af61045d239ea0b1869e7fd5745d595da80e0b181a2d250ab6f5abc17c",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-38.html",
+   "sha256": "f8f9a2efd4779e61a1f7d2d5a28cdbe5ebeccb8d534ea31c9f8ebbbe6a2ce836",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-39.html",
+   "sha256": "1c0121ff7ac2525d9e2913c9a50a71753df5848b948521920dcf916779ba302c",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-40.html",
+   "sha256": "88d8449234aa7c5b5db9afc94de1a5613ea7c49c759159a080a6843ccf3ea656",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-41.html",
+   "sha256": "19f8e418e71dcd5fdea1cdef05f4b26a05870a456de149fe18f260a61572c27f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-42.html",
+   "sha256": "77a89054f2504b442f849c75ae26b06335380b6783f8f7bbee0d9f2a9c8ccf01",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-43.html",
+   "sha256": "2692cafcbbc831a0ec78c16f43b367892598dacc3d26860dc64a0a8d8bc9f5ac",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-44.html",
+   "sha256": "849fd46e722724094a806cf28c9a356d3fed5a339f2d32f39b3a8651a455e493",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-45.html",
+   "sha256": "7fffb5df721c62d1144b68199c913c0669d8f13d2e758fa5cc176ddbb06edaf1",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-46.html",
+   "sha256": "ff9da8e89b75e1e21c83a52f744d301b4c66da4d0ff5067b8cdedca693594b65",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-47.html",
+   "sha256": "c9291928a4497ff953b778fba55ff7ed602e48b3a88ce234fd343dac8d6301aa",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-48.html",
+   "sha256": "9a6af27fd79faa94a8ae566150ce3cfbfb28c5a90a9024f296111535524dc8d7",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-49.html",
+   "sha256": "3b42be1ab41969cb35f34b2da2245eeb5e248779754a0e2a757f4500e3166082",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-50.html",
+   "sha256": "e220f40d55c958fa75451c43be32cec52c9306700e3fdae9bb7b4c17dbc1347a",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-51.html",
+   "sha256": "f14eaaa251e169efaa7eb82c2add2ea2103d4a8d3852e13094fd475ca9bbefb1",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-52.html",
+   "sha256": "67a945099d904ff14cbc7f6e14a881178357b55ef88d2f8a03114add70652f9a",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-53.html",
+   "sha256": "3306786de615f38a088deb37609b4f5ed7b42d52c34e1ff2f7eb9a5f482bb437",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-54.html",
+   "sha256": "f1a8f634b829990dea542f7bf2ba46c27779f291df94253dde8cfe6a91c22a90",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-55.html",
+   "sha256": "1deb001995e5247af95f25d852d707acb3bd7d4f8b5e1303f06c9df694f8eae7",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-56.html",
+   "sha256": "cf6e4d1d9269c3f6673b618b21ffec823c798d51f984b902d56bc3ae70122240",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-57.html",
+   "sha256": "1a42c04e1029c5ac3d06c990d1df5f052bdb9ee4a6b5977900b30d2ec6915645",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-58.html",
+   "sha256": "44ae839affc84a19502928ec58b5ce1525e37ec895003b8a45a0d84baccb059c",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-59.html",
+   "sha256": "4ee25add8b3fe29eecbd89487c51035847a1f5305045905b08d21a420d9d43c4",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-declaration-60.html",
+   "sha256": "d15734b7b76d22d929030a0d5cb49af2c14df29f7a093c92a95fc2eab71eef2e",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-definition-border-shorthand-serialize.html",
+   "sha256": "b8c85608f299156936733c4e4c9fe8bc45ffba7174323a6f3a24ee431c78e25f",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-definition-cascading.html",
+   "sha256": "d194abd48e90406d79e64a2a71a8007faf94ab1397a12628412e6aee737f6ef9",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-definition-keywords.html",
+   "sha256": "9ad30dfddbcbc219ed1923a215a4220c7c5977c696576ef6c065a25c999696f9",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-definition.html",
+   "sha256": "eb5cc33abd082593d00a34edcd91cb8b4eb16e2093865320275384998b334732",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-empty-name-reserved.html",
+   "sha256": "7976885a0fe99f81ef30b6d109a7f41e316daf90549d31dedac5f1dee4caa6d1",
+   "harness": [
+    "CSS.supports",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-exponential-blowup.html",
+   "sha256": "7ce39f8b3292d84d771463c30e9f190c096250aee1ec99abf064f6284a6a002f",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-external-declaration-01.html",
+   "sha256": "c9c2215257ff050d58876f0555ac980be6984f60136b7298b8bf12c18940560b",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-external-font-face-01-ref.html",
+   "sha256": "59b3337c5d22dec71405a1919f173a41b02be9958a8dc621b4fd9b726abae953",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-external-font-face-01.html",
+   "sha256": "d1914c6cae1447cdaa11ec994a9422dac1278fb93b4476beb24cc5847f4f631b",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-external-reference-01.html",
+   "sha256": "9cd86e37693f6929f631a39f6433beb235e217e9a8cab869bd59e8be11042fba",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-external-supports-01.html",
+   "sha256": "02b3426d76a6167ad66b20af5d344d7b267a01f388d63411a4c42803a93d5321",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-first-letter.html",
+   "sha256": "33209a1201a8fa1da8eca9e6ec5bf4b641acae4842980ebea41e0709a4b755c2",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-first-line.html",
+   "sha256": "e54ba9008c153d87f2da1f0217b4b864a809d45bfd6bfdc6ec7d379c7c0e796c",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-font-face-01-ref.html",
+   "sha256": "59b3337c5d22dec71405a1919f173a41b02be9958a8dc621b4fd9b726abae953",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-font-face-01.html",
+   "sha256": "74911e3784116037b5431ce3c3c4b12612d4ed019f539a0ab8c2f392196aee32",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-font-face-02-ref.html",
+   "sha256": "59b3337c5d22dec71405a1919f173a41b02be9958a8dc621b4fd9b726abae953",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-font-face-02.html",
+   "sha256": "2623fec9dc96e662727e9b99663ba41a21f07bdf4ff2e7c514641a8cd961cd74",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-generated-content-dynamic-001-ref.html",
+   "sha256": "206a095293076ad414eb6dee8a2b86489894c4b1b7a5392d2c4f54df9e3bb17a",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-generated-content-dynamic-001.html",
+   "sha256": "189cf9e61cb179c1aee43399068230209a784739183673584449206a8f98a216",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-invalid-recovery.html",
+   "sha256": "36b1c7715bc0bdf83a3d97e094cf3c0d52abb1c45ebec6ac213e0d47dc8f1ee0",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-invalidation.html",
+   "sha256": "06c94de729748abf4335ef111ad6123d572695b146dfc4d16a20ae7a0b34cbd8",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-presentation-attribute.html",
+   "sha256": "aeebf763f034c5c4727b5b781bedd8d4c720277578101963818b62f7b1e1119e",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-pseudo-element.html",
+   "sha256": "8ea159c1ebb494af7989725f06bf30b1162794b3a26b63a54376c61cdc1d2d89",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-recalc-with-initial.html",
+   "sha256": "518a2e646c8a87554a7756b9005267050488ea4078140eb410c9385c19774cb2",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-01.html",
+   "sha256": "a8428af734e85f457f82a81f6f75fd3feb6eea9e1a2254df97e6bf75e41e65d7",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-02.html",
+   "sha256": "f9e04956767dc1107d77339eb2d33f6da283484db89f71dce73bd4a938e20db8",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-03.html",
+   "sha256": "d3c977f19ec124c2090399646bb751b834375d8821a0bae9e229b66b29e5d123",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-04.html",
+   "sha256": "eb7c06f94acb10d310c925d966060f0c3a03f0c7c72bb0f1632261e7281c366e",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-05.html",
+   "sha256": "418ce3e7fbc2b5a9ecc36f881ee7fdc37e3ebc50dfafee8e9f4aa1d651c7d1b0",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-06.html",
+   "sha256": "27a820dc85afd0584ba153c33ffa12cfd66d291a634de997cd9196d0284ed2dc",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-07.html",
+   "sha256": "0e695c0ca1e44d41372f97850db35a31e1b25a85b80716f807bf98feea8007f6",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-08.html",
+   "sha256": "d70c9b15da676e6b76faf45f6bee94fdf8220f296a0b0db3fae99145630f7f7d",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-09.html",
+   "sha256": "676f2aa9cf669a315ffedfcb10e6c3be3180b9de66d1fe619cbc08694baa1cb7",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-10.html",
+   "sha256": "2fbbf70bf1c642426a859cbbf7ef1245e18c46f1c85f2287c982b7bda169d726",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-11.html",
+   "sha256": "69671588c011e9bc965036564b2f8ff10d81da475d209e792cbcb14180f9f01a",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-12-ref.html",
+   "sha256": "1baa140a94b24c032265ccc29a7e9d34d54957b3c723a8f30bc08398bc15f907",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-12.html",
+   "sha256": "577c4f6e507221ec24bd3e63e7aa1f4c5f30fc8a1bb8a915b23dce199d367748",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-13.html",
+   "sha256": "770148d3f2805ac2df97607902d132e75677ec2f2e720ce5b9c2e2ab7fdb4fb9",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-14.html",
+   "sha256": "cd06bf42a0a1a4a65103a0670dc7444a2f178edfcbac71494cb763688e68d714",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-15.html",
+   "sha256": "021d5c57d86167854b506ed2552f25702ea5b760367b792063e3bc6a4220792a",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-16.html",
+   "sha256": "ddfa6cbbffe69c3663039645682b04db73b6da096a44370c40b0d01bb624011d",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-17.html",
+   "sha256": "9f9d304eb6ca75f263a18115587fe3e31b60f02667f4cb61ae15aefb8ce77b9d",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-18.html",
+   "sha256": "39b4d0a9c6f6976a2c82b0bc9cc8935694862ccee42cd9646b3627b1218be916",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-19.html",
+   "sha256": "db6a4c22a96098285e560b6f410815a7fb1894bd7f64d2702ea4cd22d8397cf5",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-20.html",
+   "sha256": "a09ce9c386c0b691ced18965800ba6212674ed27597730cc53c5d6f9c76adc77",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-21.html",
+   "sha256": "bce31be5cdcce521dda38738750e1e65e9f3daa857e93b83387c4a1dfb6424da",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-22.html",
+   "sha256": "2aed9b87f7da0127abf756d5006080300b75db1a00ae8c34c846a0c72a0a728f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-23.html",
+   "sha256": "93f373894c481f41021ace90a2b0038d0aaaa8c71c9b3be2baa15ccc2adb98e7",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-24.html",
+   "sha256": "76fc7106d3bc98527fd753d942071b940107b20e4b84ea5998b9cb12c476bc19",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-25.html",
+   "sha256": "945bf7970077e5c4bc4393acf2ef18de0866abf42d364416a8a41062e5053239",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-26.html",
+   "sha256": "d16d52cf6b54bc85baf88677bfad3782b347a03152a5431f4f9a7739f59d6d54",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-27.html",
+   "sha256": "11f5df6720cd8f2036797934f5b0647222e04a51a1cce6b6344b5e77d0486e33",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-28.html",
+   "sha256": "415345b8e47663311b04c8ea2ade9c080e07389f3e6fd0a4c02b77e24704983b",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-29.html",
+   "sha256": "07d6afa41594d7e4b8b7e03a2377583f792db65a73421c2abbd66e650ed38f70",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-30.html",
+   "sha256": "5cd8806fb88265de9ad4044a5c29efdb7026b0cdddb257857c2e2bdcd9017c56",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-31.html",
+   "sha256": "8f312a5d68d31223b7187173a69e34db6f4750143124bf1b91db4bd003b716f8",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-32.html",
+   "sha256": "dc89169d97c28445bfa885d75dc0a853061f1f051ce4fdbc18d178670db9e83b",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-33.html",
+   "sha256": "da9ee65f44642d958cda4d1cca753bad11d535887cddb0cbb2f9c90e1bbf3b34",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-34.html",
+   "sha256": "4b3abedb004869fdd7d8193c566af051f83e2372241a311a728a97c39b91737b",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-35.html",
+   "sha256": "5f33c0a72575d9a64e9435f650f5094caeac90c4f646a10d1fd21b2da6f45142",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-36-ref.html",
+   "sha256": "116fc33b5e21a237cc38053fedd52b4bd90ccb2b43e974460c21f3376b1f1d00",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-36.html",
+   "sha256": "8745bbe7924b2eac4b1e47a5bbdd4b8292e65deebf983bbf2424ce67784e8daf",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-37-ref.html",
+   "sha256": "116fc33b5e21a237cc38053fedd52b4bd90ccb2b43e974460c21f3376b1f1d00",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-37.html",
+   "sha256": "b5d5a946831af535849c0db6cde301e9d6f2180a9d8755b6f021dd26cc862a55",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-38-ref.html",
+   "sha256": "094023147a73eabe403969403263daa4f9104d8aeff04773c64547e59250b4ac",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-38.html",
+   "sha256": "41add8156e9a53b19aa0bc432f42ee2f34babfed37d3ce83daf8ae878b562c5f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-39.html",
+   "sha256": "1c7981be4096f1df5a5efe41d76b57e3e3486e4d2c0985db9853c98cb69e10ce",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-40-ref.html",
+   "sha256": "977ca3cfbac74c5ad00830b63fcf513dd2954b5167047dffefe017620256ec67",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-40.html",
+   "sha256": "2def573fce3764c078d8cdf7d6c4fdde9c6de48dabb28e1f88bd33befbf12b30",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-cssom.html",
+   "sha256": "a37095cdade1c5652decab53699cdbc5f2c6c3fd0b30c3e817f0ab587e1e147c",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-name-substitution-attr-taint.html",
+   "sha256": "e33bfa8b3f264c4894e1c30f0b3d288fe93b6f0532e9ac628822474283b00b6b",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-name-substitution.html",
+   "sha256": "6f3b90b18822585b9b74c61e08c161a3fc1977992104825dee045473500e8c11",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-perspective-origin.html",
+   "sha256": "9990adb9e7198abc6f44ca2f38fd1903d3593a1e1e90fbb7f4d0304f369ac50f",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-refresh.html",
+   "sha256": "05dd190b13597d3ebb9ad6172a2ce2f925a124aa1e3cdc46ed35c173628f10a2",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-shorthands-cssom.html",
+   "sha256": "ba34ab033063fd8ca11418ab92fc862ab1308b5695d1c1aa0a90040b38f9f3e0",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-shorthands.html",
+   "sha256": "1523d5b4589c6db0ed3c4ff23ff5addf26458c4dbede65b0e7fe0193ccc97f3e",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-variable.html",
+   "sha256": "5f692c133fb0b1c3f926348c8032cb428536d79fdc2c3199dde22b2626d418c7",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-visited-ref.html",
+   "sha256": "66231a7a16361ad8963466674232b237320f87e011ebe1eb41695b18727bb87a",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-visited.html",
+   "sha256": "49ec591bb891cfff1198b96b82d3645138c799eb0a0eefb8e903c6cf61f4764a",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference-without-whitespace.html",
+   "sha256": "6c626eb9a4aac4286ae7bf11ba6c46510ec4dce650a214e4a365b323125989d8",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-reference.html",
+   "sha256": "768af12681417cff4d461c8b0b42816c55d242ad61c43160b18a75a1e29aa89f",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-resolution-during-prioritary-properties.html",
+   "sha256": "8ebaa3476bc6697df79dbb8796c765ef2eb48acb965e3599fe5a50993f868717",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-substitution-background-properties.html",
+   "sha256": "c2233bfe950ea88f46353a082ae21e086100c3d457670e7301edc104de352bf6",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-substitution-basic.html",
+   "sha256": "9ab046ba2a45c038a64e62d4db29fb8ee7c55a2ea12b67ac205e1b9c15beba09",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-substitution-filters.html",
+   "sha256": "cddc6a95438613e9fce169729efe00e48ad1850314db6b8e0b1117e378d3e020",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-substitution-replaced-size.html",
+   "sha256": "3c59fdc571b026cdf28a6e3b31dcd1efd8cca9757319adb23082f8cf4ed1d1e8",
+   "harness": [
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-substitution-shadow-properties.html",
+   "sha256": "68fb9b09033893b6c0fcb25f00ff38ae47c448212018658733e0cd841f8f3bc2",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-substitution-shorthands.html",
+   "sha256": "11e5f809f9d05d66c474b9cf47ed5d561c6b1301d844e14e6d2d614b67715719",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-substitution-variable-declaration.html",
+   "sha256": "a2314fe684eababdaa4a93202d2f9c90bc47981a80eb800e64db7da4ec8460f9",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-01.html",
+   "sha256": "0e3954427fde5f43582b1cb66b65e2db0bb66695f31c2cbe942f57d670a8b6b7",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-02.html",
+   "sha256": "a7a6182a73161811e5dbc11c7f7bfc9c3a675ad1398f5df999f3676ac9f2e740",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-03.html",
+   "sha256": "8d94065a50849db2125285b716868330c7db18f652f9db181d666136494659f8",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-04.html",
+   "sha256": "a6ebe65695d80af116306562844b68fa269c0b0b268c3f96e55c68027fe1e8c9",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-05.html",
+   "sha256": "621b87025ae80ce84b1e14972aac1485272dc94cc8ba3444e717c844fe9df95f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-06.html",
+   "sha256": "c0e22b389f82cc1ad67ae1853e4bc0590d839c91b0379cb859345137dc2db2ce",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-07.html",
+   "sha256": "f056c155a2c7952581242628271422bd94b769cf5fca60cbe1a252d33ae6cbc2",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-08.html",
+   "sha256": "063f1de8b2c8c86f8267f256af7d16dd1aa02745480efbc2a60cef08ff623445",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-09.html",
+   "sha256": "101d4303f1bb44bf6b8ec111c5f199311b670eab85db763bc294d99c4ee107bf",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-10.html",
+   "sha256": "051aa2e76a6323ab2e6ab8ecc966a8a89d2e43228e8a4c4354db9bc2d9b52bfe",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-11.html",
+   "sha256": "6cb19f8d4042d369e8dbb858322a3ae26093b4ae7298bdfa6052c35b9da6fe47",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-12.html",
+   "sha256": "98a5d4c9f4ed347189dc46a3d006d72adcff7d76d8e840a96c9786375e77d41a",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-13.html",
+   "sha256": "71573d6f35e02334540cbdb793297b9782191d0e8189e8551886ba311bd33375",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-14.html",
+   "sha256": "566ae706dd12e2a5496957c9512dc84b5d9a11415cbd251fc007074f6e991503",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-15.html",
+   "sha256": "823c450fa4db2b5aa9fd5ce2b6c579e122d22f4db2340a56df0cb160763b74ef",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-16.html",
+   "sha256": "a1e5b7bb5c336bf5636f72331354faee8a74335b0c29e26442e05e20da65d164",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-17.html",
+   "sha256": "7796f0b51cdb2d85dbd762a9bcdae7ba1b8462a379b4726bbd0ea5ee844f0d52",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-18.html",
+   "sha256": "4915ef54930b8834cf602febfb1e1b5750115d027cbd6bb7f18129b2683e4d1a",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-19.html",
+   "sha256": "d10de53c48cecd3a125110474aab88112efa8afaf40350abeda73d920cf0ad2e",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-20.html",
+   "sha256": "788f3d52ae5a0da711ea7e3618f9665c28680bb65dadd4ebe8aa821514912613",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-21.html",
+   "sha256": "a7a919d7fb0921ffcb95c9955cec799aeb3c8c61f5540e10af47a92fdbff3b87",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-22.html",
+   "sha256": "69e479af865fa5e39790adc77e57c44ef4375b3e96ee5c21472caeb424e5d0e9",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-23.html",
+   "sha256": "28d3043a961237d9a9e05ee5cd7e095f85cb4aa4e4a47a2b86de65da0e55f39a",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-24.html",
+   "sha256": "fb6373ba0099c6666c58b3b13d47bc75db7fd6a49d7b0b32a8a31a3bfbfebdc4",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-25.html",
+   "sha256": "bcb4a759516b30994e7e6510c8c5d3dfc948b9464f69e0f24733615d5a922ee8",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-26.html",
+   "sha256": "e11c7c389c9fcaa6ce8202bb30dff4e9ff3c135d32ae6c22286cefc1c634bff4",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-27.html",
+   "sha256": "72e7580d8357914a42be96ed139e39efd0fcf31785b2915094d0f640b2a2a7c9",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-28.html",
+   "sha256": "6e54e64760e91b7a618f1ed4a975390a27d2a1c426cde85e933ddd028609a4ae",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-29.html",
+   "sha256": "9370f1e25ca88500ca162e817e343d4c1022b49ede5867df5da9d105ba8d5388",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-30.html",
+   "sha256": "52bfd161a45c8015f446cfb22f03a98a4b492a96b837339084f7a515def8ec99",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-31.html",
+   "sha256": "062ce8a5b109a1db10bf596d8b6bba0bf8de6556c98f272d5cde0ba78530c296",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-32.html",
+   "sha256": "f38d3b94593f055a9b54ce1d9562f4b207b711929996d51dd1a37a5c6723ebbd",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-33.html",
+   "sha256": "b064db5939259dff00ba0c2343a240a101ca977e9fedf56d374e6fd0f643babb",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-34.html",
+   "sha256": "83e17e147acc427b46e8d441512bbdcb6af9e7d9073bcf5bcbf3f2627c30493f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-35.html",
+   "sha256": "b071223c2f6b024f25f092ff580a4bee5ce81e249c782f510cfa76f0bd76dfb4",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-36.html",
+   "sha256": "78a1018a77e68d381093069f722f26d8a49dd190e04da67207df7eb4bae81e41",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-37.html",
+   "sha256": "9c006dbcb11785662a5a838b886522371fea7cb4c332c34fe16d5c9cab227eee",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-38.html",
+   "sha256": "1ce101dba1ca27bfa4fe7308bf3098264ba8bc3dde23eeb0bf9d0a419d93e705",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-39.html",
+   "sha256": "16495a86eadf8fb797c67fce7b48e24da2386dc699f7155ce49e607889c79189",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-40.html",
+   "sha256": "4e605d979188b447a99802c1738a56d9228cb77c627cd0feedeb440ae723dfd2",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-41.html",
+   "sha256": "1a3d5eef49eb8c669743ca0cb5d853085710447c8ea2ad597a4295d20f40235d",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-42.html",
+   "sha256": "836d5f9afad790142c1216a396934e366eeed2f12c05e3d733c1a441c0be1662",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-43.html",
+   "sha256": "18ed6ae91c85635eb6171b638b2715f23c0fc2eb2bbc71ddacf5f0726cf7f554",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-44.html",
+   "sha256": "6d3a7235b3e67528c8feb2624f47acd47f9fb4c54a7d369e9eeaae2973a00d1c",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-45.html",
+   "sha256": "1e6e3090eb162213d6bcab9c36607d91964efef4ad887784fd582c734d70c547",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-46.html",
+   "sha256": "86ba18dce43b1e92a73a8150a552c5d64d2f3065579ec142328b4995448dec65",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-47.html",
+   "sha256": "8e5911d29cc28137b61f69f621e6c85554218a066f1d7e082cfa6e0c37fcdd8a",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-48.html",
+   "sha256": "2e3b54838022738a83a92d7068e0bdf3373cd2de1ade12f642152960e0529bcc",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-49.html",
+   "sha256": "db3b7cca183cd914036c5dfa53dca0535de89121ae48a64d21b4ecb26f0ab104",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-50.html",
+   "sha256": "8568d35afa1dc9f2e6cf38eef0d0b97b27878638a9ab74a985265c2e3126c572",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-51.html",
+   "sha256": "7417d547663559314399101980ce7d0c6c804eea857fb7b686a021384b92cc5f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-52.html",
+   "sha256": "c2f7c3d3424b26c0af2a702fa2270eee16e0634326890fcff842e21b6c9c67fc",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-53.html",
+   "sha256": "462361b08aa0a40d19cefbdb3dbce36755cb8e0d63f87756bb7ece34eb2182c9",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-54.html",
+   "sha256": "2340a33d291a811ebd58798011bb7d67c2a8c11d19db40a7e50e8b55de1a4680",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-55.html",
+   "sha256": "06590643da30330cf110a9769a41b3468fe3e1b4abad5706407eb6329d826d29",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-56.html",
+   "sha256": "d7c3da400f2389edf06c52482cf5e3cf197a18e028d8409bb1d71b6ad486f406",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-57.html",
+   "sha256": "7d35b63aa2c4a80e9cf87cd58ec9bd6c212f08a879f2b5a11011fdb55aed583f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-58.html",
+   "sha256": "7cb658e89c2ce84b46981ebfe340a4c27568e03adf506e24e3c52c215139f073",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-59.html",
+   "sha256": "7b3e55a07eb28a9e3365ecfbda09fff523dece12422f3718ca0b4a4f829d4107",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-60.html",
+   "sha256": "643a0e52c90512a37a457bbf3e006c637706422f1fbd94fef383923af3fbf9a5",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-61.html",
+   "sha256": "24f28a568e125cdb1fbaf2b578a72f92dde3bd3cb4dd39d54e7be82a803ba637",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-62.html",
+   "sha256": "00c12546f4b342fa1aee1bb84020fac550ee013264eb5537f5c5e0e643c30372",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-63.html",
+   "sha256": "9d4d91176b401375e4845f0aa73225d2b71ca9d2ea5663a446eadf0157c7d870",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-64.html",
+   "sha256": "ea04f0d3227a180cdff471e810620f07025b35a8cf6189209fb3392ff294973c",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-65.html",
+   "sha256": "4017ef59819726171b35d6da4a077ea662301fd568c1acd826f4e4b6326a34ba",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-66.html",
+   "sha256": "3166b4a222e18b652c447b8fbeb7e6091232c796b9abac3154773b7323e18e9f",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-supports-67.html",
+   "sha256": "2e3977a7933ec59f63e3642bb9bb4eac29c5b18151244618a83458cccfb93aed",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-transitions-transition-property-all-before-value.html",
+   "sha256": "6bbee07bd97c8934dd8a513ec4ee2d7aee5a4467bff26996fc3dfe4cea790813",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variable-transitions-value-before-transition-property-all.html",
+   "sha256": "1ddbad1a2798092cfae17f5b7aff16a705ea261ed7dcbbe872b7681e2704431a",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variables-animation-math-functions.html",
+   "sha256": "2e3e5541eb58500b7bd125b673773e69b05ba9511c38bc5490022584c6a91276",
+   "harness": [
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/variables-substitute-guaranteed-invalid.html",
+   "sha256": "a7882c04b44b2ab2b89af26ffbd5f969faeb7ccb3594acabaf925d2a4d6c5bc9",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "getComputedStyle",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/vars-background-shorthand-001.html",
+   "sha256": "3057e89cbd18d82c29a69515afb909d0db7b6352ccc8f5d8492c1d7a532b2629",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/vars-border-shorthand-serialize.html",
+   "sha256": "ab38b3a71039f6ad0b467a545d8a6d57e61c0cc23cb532f359f5d7e174ad2c57",
+   "harness": [
+    "setProperty/getPropertyValue",
+    "testharness"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/vars-font-shorthand-001.html",
+   "sha256": "faf76cb6eddfc87ccfce6de04792b0190be39ae8b0f2ff4ca6414a8b5f31211d",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/whitespace-in-fallback-crash.html",
+   "sha256": "f04cc9aeb2e41a4e2b50c672e47bc00bcf9db022310ec814556f2b2f3dac5df5",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/wide-keyword-fallback-001-ref.html",
+   "sha256": "6bd215507f927289547e43514c1baf5dc7e5190b2830a89f31e9ff551d536717",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/wide-keyword-fallback-001.html",
+   "sha256": "e8944b14d26b2f38d0094fe6341b67167832d2246ca48dc79197db13f2ac0067",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/wide-keyword-fallback-002-ref.html",
+   "sha256": "32949c2111c5e9af489b9fc905dab646f708fcfe6041fe0385a8866e90780c54",
+   "harness": [],
+   "extract": null
+  },
+  {
+   "file": "css/css-variables/wide-keyword-fallback-002.html",
+   "sha256": "1ff1249096f96b85d66409f6fbd987a9b34c6f511f622cd6df8e030adc982465",
+   "harness": [
+    "reftest"
+   ],
+   "extract": null
+  }
+ ]
+}

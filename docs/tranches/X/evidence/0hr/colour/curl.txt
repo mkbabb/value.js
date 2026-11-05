@@ -1,0 +1,12 @@
+== r1 https://colour.babb.dev/
+HTTP/2 301 
+location: https://color.babb.dev/
+== r1 https://colour.babb.dev/palettes/x?a=1&b=two
+HTTP/2 301 
+location: https://color.babb.dev/palettes/x?a=1&b=two
+== r2 https://colour.babb.dev/
+HTTP/2 301 
+location: https://color.babb.dev/
+== r2 https://colour.babb.dev/palettes/x?a=1&b=two
+HTTP/2 301 
+location: https://color.babb.dev/palettes/x?a=1&b=two

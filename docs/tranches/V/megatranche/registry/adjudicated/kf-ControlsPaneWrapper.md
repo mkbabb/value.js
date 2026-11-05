@@ -166,3 +166,4 @@ SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
 
 **Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
 
+**ADDENDUM 2026-11-04 (E-3; realization K-D9, KF.W5 G-TAX annotation leg).** KF.W5-PARTIALS (S-5/6/7) is SUPERSEDED by the census taxonomy `formation/keyframes/CENSUS-2026-08-03.md:177-206`; S-5/6/7 are KF.W6's (`X/keyframes/carry/KF-W6-CARRY.md:9-13`). The header line that names KF.W5-PARTIALS above is left as written.

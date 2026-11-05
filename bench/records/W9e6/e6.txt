@@ -1,0 +1,5 @@
+read1 grammar.js min=112616 gz=15619
+read1 color.js min=39446 gz=6147
+read2 grammar.js min=112616 gz=15619
+read2 color.js min=39446 gz=6147
+HEAD f1c8390e7 · method: npx esbuild --minify --loader=js < src/css/bbnf/generated/<f>.js | wc -c ; | gzip | wc -c

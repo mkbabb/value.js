@@ -1,0 +1,392 @@
+{
+ "base": "https://color.babb.dev/",
+ "view": {
+  "width": 390,
+  "height": 844,
+  "deviceScaleFactor": 2
+ },
+ "gate": {
+  "worstDEdom": 0.0573,
+  "worstDEarea": 0.0781,
+  "worstHue": 7.6,
+  "medianHue": 5.7,
+  "worstReseed": null,
+  "worstSnap": 0,
+  "pass": false
+ },
+ "reseed": [],
+ "rows": [
+  {
+   "name": "efflorescence",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.772,
+    0.112,
+    11.048
+   ],
+   "share": 0.41,
+   "seed": [
+    0.727,
+    0.183,
+    1.336
+   ],
+   "dEdom": 0.029,
+   "hueErr": 7.3,
+   "dEarea": 0.0431,
+   "medL": 0.7362,
+   "frames": [
+    0.0882,
+    0.0271,
+    0.0287,
+    0.029
+   ],
+   "ground": "rgb(223, 119, 194) rgb(255, 131, 185) rgb(255, 166, 180) rgb(255, 195, 189)",
+   "groundSnap": 0,
+   "ground1dE": 0.0486,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "gulabi",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.885,
+    0.042,
+    12.694
+   ],
+   "share": 0.51,
+   "seed": [
+    0.898,
+    0.053,
+    18.188
+   ],
+   "dEdom": 0.0198,
+   "hueErr": 6.3,
+   "dEarea": 0.0183,
+   "medL": 0.8851,
+   "frames": [
+    0.0179,
+    0.0181,
+    0.0198,
+    0.0199
+   ],
+   "ground": "rgb(255, 226, 236) rgb(255, 233, 236) rgb(255, 240, 238) rgb(255, 246, 243)",
+   "groundSnap": 0,
+   "ground1dE": 0.0619,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "haldi",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.849,
+    0.105,
+    77.799
+   ],
+   "share": 0.41,
+   "seed": [
+    0.82,
+    0.145,
+    76.255
+   ],
+   "dEdom": 0.048,
+   "hueErr": 2.5,
+   "dEarea": 0.0292,
+   "medL": 0.8294,
+   "frames": [
+    0.0494,
+    0.048,
+    0.0225,
+    0.0246
+   ],
+   "ground": "rgb(252, 167, 112) rgb(255, 194, 109) rgb(255, 218, 162) rgb(255, 240, 214)",
+   "groundSnap": 0,
+   "ground1dE": 0.0391,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "zari",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.787,
+    0.14,
+    89.893
+   ],
+   "share": 0.46,
+   "seed": [
+    0.721,
+    0.121,
+    88.203
+   ],
+   "dEdom": 0.0341,
+   "hueErr": 1,
+   "dEarea": 0.0528,
+   "medL": 0.7653,
+   "frames": [
+    0.0695,
+    0.0341,
+    0.0261,
+    0.0207
+   ],
+   "ground": "rgb(189, 153, 79) rgb(208, 170, 79) rgb(222, 188, 96) rgb(232, 208, 129)",
+   "groundSnap": 0,
+   "ground1dE": 0.0342,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "sheesham",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.565,
+    0.118,
+    52.032
+   ],
+   "share": 0.37,
+   "seed": [
+    0.549,
+    0.085,
+    56.566
+   ],
+   "dEdom": 0.0376,
+   "hueErr": 5.7,
+   "dEarea": 0.0516,
+   "medL": 0.5856,
+   "frames": [
+    0.0376,
+    0.038,
+    0.0361,
+    0.0355
+   ],
+   "ground": "rgb(145, 92, 81) rgb(164, 108, 79) rgb(175, 128, 84) rgb(185, 148, 106)",
+   "groundSnap": 0,
+   "ground1dE": 0.0366,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "tulsi",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.743,
+    0.064,
+    143.602
+   ],
+   "share": 0.37,
+   "seed": [
+    0.72,
+    0.054,
+    144.987
+   ],
+   "dEdom": 0.0254,
+   "hueErr": 1.6,
+   "dEarea": 0.0496,
+   "medL": 0.7652,
+   "frames": [
+    0.0254,
+    0.0269,
+    0.0177,
+    0.0119
+   ],
+   "ground": "rgb(143, 166, 139) rgb(155, 184, 153) rgb(170, 202, 172) rgb(188, 218, 193)",
+   "groundSnap": 0,
+   "ground1dE": 0.0325,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "curry-leaf",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.467,
+    0.114,
+    150.869
+   ],
+   "share": 0.46,
+   "seed": [
+    0.43,
+    0.085,
+    152.239
+   ],
+   "dEdom": 0.0455,
+   "hueErr": 1.8,
+   "dEarea": 0.0616,
+   "medL": 0.4795,
+   "frames": [
+    0.047,
+    0.0455,
+    0.0407,
+    0.038
+   ],
+   "ground": "rgb(45, 85, 51) rgb(51, 102, 64) rgb(62, 118, 81) rgb(82, 132, 102)",
+   "groundSnap": 0,
+   "ground1dE": 0.0337,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "jamun",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.406,
+    0.138,
+    350.573
+   ],
+   "share": 0.47,
+   "seed": [
+    0.39,
+    0.101,
+    355.774
+   ],
+   "dEdom": 0.0416,
+   "hueErr": 7,
+   "dEarea": 0.0487,
+   "medL": 0.4181,
+   "frames": [
+    0.0419,
+    0.0416,
+    0.0405,
+    0.0397
+   ],
+   "ground": "rgb(89, 45, 83) rgb(116, 53, 87) rgb(137, 67, 86) rgb(151, 87, 88)",
+   "groundSnap": 0,
+   "ground1dE": 0.036,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "rebeccapurple",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.445,
+    0.194,
+    297.999
+   ],
+   "share": 0.46,
+   "seed": [
+    0.44,
+    0.16,
+    303.373
+   ],
+   "dEdom": 0.0401,
+   "hueErr": 7.6,
+   "dEarea": 0.0401,
+   "medL": 0.4613,
+   "frames": [
+    0.0376,
+    0.0384,
+    0.0401,
+    0.0402
+   ],
+   "ground": "rgb(66, 63, 148) rgb(101, 66, 168) rgb(136, 74, 172) rgb(163, 90, 165)",
+   "groundSnap": 0,
+   "ground1dE": 0.0389,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "teal",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.6,
+    0.099,
+    193.725
+   ],
+   "share": 0.38,
+   "seed": [
+    0.543,
+    0.093,
+    194.769
+   ],
+   "dEdom": 0.0573,
+   "hueErr": 1.3,
+   "dEarea": 0.0781,
+   "medL": 0.6171,
+   "frames": [
+    0.0573,
+    0.058,
+    0.0513,
+    0.046
+   ],
+   "ground": "rgb(36, 120, 116) rgb(32, 138, 136) rgb(53, 154, 155) rgb(88, 168, 172)",
+   "groundSnap": 0,
+   "ground1dE": 0.0336,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "tomato",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.689,
+    0.17,
+    25.865
+   ],
+   "share": 0.39,
+   "seed": [
+    0.696,
+    0.196,
+    32.321
+   ],
+   "dEdom": 0.0348,
+   "hueErr": 7.5,
+   "dEarea": 0.0444,
+   "medL": 0.7066,
+   "frames": [
+    0.0332,
+    0.0332,
+    0.0348,
+    0.036
+   ],
+   "ground": "rgb(233, 100, 129) rgb(255, 120, 114) rgb(255, 154, 118) rgb(255, 183, 133)",
+   "groundSnap": 0,
+   "ground1dE": 0.0512,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  },
+  {
+   "name": "skyblue",
+   "scheme": "light",
+   "pass": 0,
+   "dom": [
+    0.831,
+    0.088,
+    227.856
+   ],
+   "share": 0.37,
+   "seed": [
+    0.815,
+    0.082,
+    225.754
+   ],
+   "dEdom": 0.0177,
+   "hueErr": 1.9,
+   "dEarea": 0.0129,
+   "medL": 0.8197,
+   "frames": [
+    0.0177,
+    0.0148,
+    0.0172,
+    0.0198
+   ],
+   "ground": "rgb(137, 199, 220) rgb(146, 217, 244) rgb(180, 232, 255) rgb(223, 244, 255)",
+   "groundSnap": 0,
+   "ground1dE": 0.0331,
+   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max",
+   "isDark": false
+  }
+ ]
+}

@@ -1,0 +1,1400 @@
+[
+ {
+  "scheme": "light",
+  "vp": "390x844",
+  "route": "/",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 27,
+   "w": 336,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "390x844",
+  "route": "/w",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 16,
+   "w": 358,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Visualize — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "390x844",
+  "route": "/equation",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 16,
+   "w": 359,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "Fira Code Fallback"
+  ],
+  "fps": {
+   "p50": 8.300000000000182,
+   "p95": 9.100000000000364
+  },
+  "title": "Equation Explorer — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "390x844",
+  "route": "/morph",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 24,
+   "w": 342,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Morph — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "390x844",
+  "route": "/paper",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 27,
+   "w": 336,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "390x844",
+  "route": "/gallery",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 22,
+   "w": 346,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Gallery — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "430x932",
+  "route": "/",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 47,
+   "w": 336,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "430x932",
+  "route": "/w",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 36,
+   "w": 358,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Visualize — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "430x932",
+  "route": "/equation",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 36,
+   "w": 359,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "Fira Code Fallback"
+  ],
+  "fps": {
+   "p50": 8.300000000000182,
+   "p95": 9.399999999999636
+  },
+  "title": "Equation Explorer — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "430x932",
+  "route": "/morph",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 44,
+   "w": 342,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Morph — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "430x932",
+  "route": "/paper",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 47,
+   "w": 336,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "430x932",
+  "route": "/gallery",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 42,
+   "w": 346,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Gallery — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "844x390",
+  "route": "/",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 161,
+   "w": 522,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "844x390",
+  "route": "/w",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 150,
+   "w": 545,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Visualize — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "844x390",
+  "route": "/equation",
+  "errs": [
+   "Failed to load resource: the server responded with a status of 429 (Too Many Requests)"
+  ],
+  "hOverflow": 0,
+  "dock": {
+   "x": 149,
+   "w": 546,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": {
+   "p50": 8.300000000000182,
+   "p95": 9.199999999999818
+  },
+  "title": "Equation Explorer — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "844x390",
+  "route": "/morph",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 158,
+   "w": 528,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Morph — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "844x390",
+  "route": "/paper",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 161,
+   "w": 522,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "844x390",
+  "route": "/gallery",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 156,
+   "w": 532,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Gallery — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1440x900",
+  "route": "/",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 455,
+   "w": 530,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1440x900",
+  "route": "/w",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 442,
+   "w": 555,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Visualize — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1440x900",
+  "route": "/equation",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 442,
+   "w": 557,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": {
+   "p50": 25,
+   "p95": 41.600000000000364
+  },
+  "title": "Equation Explorer — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1440x900",
+  "route": "/morph",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 452,
+   "w": 537,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Morph — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1440x900",
+  "route": "/paper",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 455,
+   "w": 530,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1440x900",
+  "route": "/gallery",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 449,
+   "w": 542,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Gallery — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1800x1000",
+  "route": "/",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 632,
+   "w": 536,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1800x1000",
+  "route": "/w",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 619,
+   "w": 562,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Visualize — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1800x1000",
+  "route": "/equation",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 618,
+   "w": 563,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": {
+   "p50": 25.100000000000364,
+   "p95": 50
+  },
+  "title": "Equation Explorer — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1800x1000",
+  "route": "/morph",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 629,
+   "w": 542,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Morph — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1800x1000",
+  "route": "/paper",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 632,
+   "w": 536,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "light",
+  "vp": "1800x1000",
+  "route": "/gallery",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 626,
+   "w": 548,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Gallery — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "390x844",
+  "route": "/",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 27,
+   "w": 336,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "390x844",
+  "route": "/w",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 16,
+   "w": 358,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Visualize — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "390x844",
+  "route": "/equation",
+  "errs": [
+   "Failed to load resource: the server responded with a status of 429 (Too Many Requests)"
+  ],
+  "hOverflow": 0,
+  "dock": {
+   "x": 16,
+   "w": 359,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "Fira Code Fallback"
+  ],
+  "fps": {
+   "p50": 8.300000000000182,
+   "p95": 9.100000000000364
+  },
+  "title": "Equation Explorer — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "390x844",
+  "route": "/morph",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 24,
+   "w": 342,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Morph — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "390x844",
+  "route": "/paper",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 27,
+   "w": 336,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "390x844",
+  "route": "/gallery",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 22,
+   "w": 346,
+   "cx": 195,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Gallery — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "430x932",
+  "route": "/",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 47,
+   "w": 336,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "430x932",
+  "route": "/w",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 36,
+   "w": 358,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Visualize — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "430x932",
+  "route": "/equation",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 36,
+   "w": 359,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "Fira Code Fallback"
+  ],
+  "fps": {
+   "p50": 8.300000000000182,
+   "p95": 9.099999999999454
+  },
+  "title": "Equation Explorer — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "430x932",
+  "route": "/morph",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 44,
+   "w": 342,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Morph — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "430x932",
+  "route": "/paper",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 47,
+   "w": 336,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "430x932",
+  "route": "/gallery",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 42,
+   "w": 346,
+   "cx": 215,
+   "y": 8,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Gallery — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "844x390",
+  "route": "/",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 161,
+   "w": 522,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "844x390",
+  "route": "/w",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 150,
+   "w": 545,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Visualize — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "844x390",
+  "route": "/equation",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 149,
+   "w": 546,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": {
+   "p50": 8.300000000000182,
+   "p95": 9.300000000000182
+  },
+  "title": "Equation Explorer — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "844x390",
+  "route": "/morph",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 158,
+   "w": 528,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Morph — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "844x390",
+  "route": "/paper",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 161,
+   "w": 522,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "844x390",
+  "route": "/gallery",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 156,
+   "w": 532,
+   "cx": 422,
+   "y": 4,
+   "h": 48
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Gallery — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1440x900",
+  "route": "/",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 455,
+   "w": 530,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1440x900",
+  "route": "/w",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 442,
+   "w": 555,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Visualize — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1440x900",
+  "route": "/equation",
+  "errs": [
+   "Failed to load resource: the server responded with a status of 429 (Too Many Requests)"
+  ],
+  "hOverflow": 0,
+  "dock": {
+   "x": 442,
+   "w": 557,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": {
+   "p50": 25,
+   "p95": 41.600000000000364
+  },
+  "title": "Equation Explorer — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1440x900",
+  "route": "/morph",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 452,
+   "w": 537,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Morph — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1440x900",
+  "route": "/paper",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 455,
+   "w": 530,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1440x900",
+  "route": "/gallery",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 449,
+   "w": 542,
+   "cx": 720,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Gallery — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1800x1000",
+  "route": "/",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 632,
+   "w": 536,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1800x1000",
+  "route": "/w",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 619,
+   "w": 562,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Visualize — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1800x1000",
+  "route": "/equation",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 618,
+   "w": 563,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": {
+   "p50": 33.30000000000018,
+   "p95": 58.80000000000109
+  },
+  "title": "Equation Explorer — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1800x1000",
+  "route": "/morph",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 629,
+   "w": 542,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Morph — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1800x1000",
+  "route": "/paper",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 632,
+   "w": 536,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces",
+   "Fira Code",
+   "KaTeX_Main",
+   "KaTeX_Math",
+   "KaTeX_Size2",
+   "Fira Code Fallback"
+  ],
+  "fps": null,
+  "title": "Paper — Fourier Analysis"
+ },
+ {
+  "scheme": "dark",
+  "vp": "1800x1000",
+  "route": "/gallery",
+  "errs": [],
+  "hOverflow": 0,
+  "dock": {
+   "x": 626,
+   "w": 548,
+   "cx": 900,
+   "y": 12,
+   "h": 56
+  },
+  "fonts": [
+   "Computer Modern Serif",
+   "Fraunces"
+  ],
+  "fps": null,
+  "title": "Gallery — Fourier Analysis"
+ }
+]

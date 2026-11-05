@@ -8,7 +8,7 @@
             role="img"
             :aria-label="spectrumAriaLabel"
             :class="[
-                'spectrum-picker flex w-full h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] lg:max-h-none cursor-crosshair relative touch-gate-target',
+                'spectrum-picker flex w-full h-[20dvh] min-h-24 max-h-40 lg:max-h-none cursor-crosshair relative touch-gate-target',
                 spectrumGate.isActive.value && 'touch-gate-active',
             ]"
             :style="spectrumStyle"
@@ -271,6 +271,19 @@ onUnmounted(() => {
      * activates it. The pointer class is CSS's to read, never a setup-time
      * inline style the prerendered first view would have to guess. */
     touch-action: none;
+}
+/* X·§0hr OD-19 — THE FIELD'S BLOCK SIZE RIDES THE BOUNDED MEASURE.
+ * A fixed 14rem under the √φ picker measure (651px stage, 593px field) stood
+ * the field at 2.65 : 1, over the ≤ 2.5 bar. The block size is now the pane
+ * slot's inline size (`cqi`, the .pane-wrapper container) capped at
+ * `--picker-measure`, divided by φ² — the layout scale's two-rung step
+ * (--phi-4 / --phi-2) — floored at the old 14rem: at the measure it is
+ * 651 / φ² ≈ 249px (593 : 249 ≈ 2.38), and a narrower slot (Library's 1 : 2
+ * stage, 450–562px) keeps its 14rem, so only the bounded case moves. */
+@variant lg {
+    .spectrum-picker {
+        block-size: max(14rem, calc(min(var(--picker-measure), 100cqi) / 2.618034));
+    }
 }
 @media (pointer: coarse) {
     .spectrum-picker:not(.touch-gate-active) {

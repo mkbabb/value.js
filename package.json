@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "4.2.0",
+    "version": "4.2.1",
     "description": "Immutable, failure-explicit CSS color, value, easing, transform, math, and quantization capabilities.",
     "license": "MIT",
     "keywords": [
@@ -86,7 +86,7 @@
     "homepage": "https://github.com/mkbabb/value.js#readme",
     "devDependencies": {
         "@lucide/vue": "^1.16.0",
-        "@mkbabb/bbnf-lang": "0.2.0",
+        "@mkbabb/bbnf-lang": "0.3.0",
         "@mkbabb/glass-ui": "10.1.3",
         "@mkbabb/keyframes.js": "^6.0.0",
         "@playwright/test": "^1.60.0",

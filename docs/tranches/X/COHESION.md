@@ -5480,3 +5480,208 @@ Ship seat (`claude-opus-5-5`). This continues §0hn item 3 after the visual seat
   - **Pre-deploy baseline** (old prod `30c510b3d`, probe validated, 13:50 local, before the guard hit 8M): crown ∩ Apply = 215 px² at 1800 and 144 px² at 390, so OD-10 was RED. The badge was not glass Badge (no `data-slot`, radius 4 px). The picker stage was unbounded (1043, 1507 and 2051 px at 1800, 2560 and 3440). My Palettes was empty under the Daraksha session. Output is in `~/.dev-logs/x-0hn/prod/pre/`.
 - **OWNER ACT:** reboot the Mac (the kernel zone leak is ARMED, kext=nfs). After the reboot, a seat runs the two probes ×2 on prod and appends the readings here.
 - **The §0hm.1 docket ship seat is unblocked:** this workflow's merge is done.
+- **§0hn.2 (2026-11-04): DEPLOYED.**
+  - master is `351615b9d`, from an ordinary §0ga merge of `1497c9295`. Master CI 41866902951 passed 8/8, and deploy-pages 41890965347 succeeded.
+  - color.babb.dev serves `index-B7vMwiSG.js` (read ×2). API health reports `351615b9d` with mongo ok (read ×2).
+  - OD-3b: `/palettes/mine` lists 2 Daraksha palettes (read ×2).
+  - The 113 visual goldens are attributed by counterfactual. One OD-15 regression was cured at root (`1a719a8a2`): the ceiling keys on data-view, and `--picker-measure` = card × φ + φ³ ≈ 854 px.
+  - **Ruling on the check's ss8-b09 item:** the byte-unchanged clause in §0hn is arm A's. Under arm B the law is "no oracle loosened". The assertions are byte-identical; only the field wiring now passes the scheme, which is equivalent on dark at `DARK_FIELD_SEED_FAITHFUL=false`. So it is **accepted, not a defect**.
+  - **Still owed:** the prod browser re-reads ×2 of OD-9/10/11/15 and OD-12 light. They are blocked by the guard, because the kernel zone is at 8.68M and the owner has to reboot.
+  - **Note to §0ho OD-19:** 828 px already sat below the 1440 golden stage, so a √φ (651 px) measure has to be re-read against Z-chassis-2 and Z-LG-3, with the ceiling keyed per view.
+- **§0hr (2026-11-04, after the reboot; zone 1,691):**
+  - **Live:** master `0a2c35d74` (§0ho: OD-19 √φ picker, the OD-18 WebKit trace, §0hq) is deployed. color.babb.dev serves `index-B3dwCeez.js`. **colour.babb.dev is LIVE**, returning a 301 to color.babb.dev with the path and query kept (domains run success).
+  - **Relaunched:**
+    - `wf_bbc795a2` (resumed): the §0ho ship and check.
+    - `wf_014d8c52`: the owed prod browser reads ×2, plus the root cure of the OD-19 spectrum aspect (2.65:1 against ≤ 2.5).
+    - `wf_689afa82`: daraksha v2.
+  - **Owner brief for v2, verbatim (2026-11-04):** "each page should be a slice of each app's demo part … no meta language whatsoever … her name written in caligraphy arabic … a generalized facility for the visualization and reading of arabic scripture from the quaran … The highlighted verse should be from surah al duhaa … many elements of gold and a sense of proportion, too, partiuarlly for the arabic text and the name".
+  - **Rulings for v2 (delegate):**
+    - The Qur'an text is byte-verbatim Tanzil Uthmani, with its attribution kept.
+    - The translation must be public domain, used verbatim.
+    - Interpretations are shown only from a cleanly licensed source, else none; they are never generated.
+    - The Arabic name defaults to درخشا as one constant, and the owner may correct it.
+- 2026-11-04: Gregg (sci-report-ef, formerly f8) adopted kf 6.2.1 exact and stays on value 4.2.0; nothing is owed.
+- **§0ho.1 (2026-11-04): SHIPPED + READ.**
+  - Another seat had already done the merge. master is `0a2c35d74`, an ordinary §0ga merge carrying `80d31f511` (OD-19 √φ measure), `3647f2d1e` (12 attributed 3440 goldens + MANIFEST), `90f6ff7f8`/`3e3ed6d9b` (OD-18 WebKit trace) and `5400259cd` (§0hq). Its message cites ci 41891669611 at 8/8 GREEN.
+  - Master runs on `0a2c35d74`: ci 41920320369 succeeded, domains 41920320330 succeeded, deploy-pages 41939659512 succeeded, deploy-age 41940079586 succeeded. webkit-hosted 41920320457 failed; it has never been green and is not a gate.
+  - color.babb.dev serves `index-B3dwCeez.js` (read ×2, curl). API `/health` reports commit `0a2c35d74` with mongo ok and primary true (read ×2).
+  - Prod browser re-read ×2: one guarded headless Chromium per run (`evidence/0ho/od19-measure/prod-probe.mjs`), light theme. `--picker-measure` = `calc(32rem * 1.272)`. At 1440×900 the stage is 651 and the inspector 699. At 1800×1000 the stage is 651 and the inspector 1036. The bundle is `index-B3dwCeez.js`, with 0 console errors in both runs. This matches the local OD-19 table exactly.
+  - Still open: the spectrum aspect is 2.65:1, above the ≤ 2.5 limit, as the picker seat reported. The prod re-reads of OD-9/10/11/15 and OD-12 light from §0hn.2 are still owed.
+- **§0ht (2026-11-04): X·P W9 and W10 MINTED (design and plan, owner order "items … fully realized … What of the bbnf and parse-that items").**
+  - `parse-that/waves/W9.md` (the residuals) has these units: `.o104` (XP-5 live acknowledgements), `.pt` (PT-1..3: the parse-that `x-p-w7`→master merge PR, with the CI triage measured against F-b-2), `.e6` (XP-3: E-6 binds both emitted files; proposed color.js ceiling 6,150 gz), `.vc9` (XP-9: harness census and extractor for css-variables-1 and css-syntax-3), `.bl` (XP-4, bbnf-lang#2: an emitter cure in bbnf-lang `typescript/`, with the emitted file staying self-contained, then 0.3.0), `.rel` (PT-4/BL-5, an OWNER ACT: neither parse-that nor bbnf-lang has an npm release workflow or token; arm A is a provenance workflow with a seeded secret, arm B is an OTP), `.pin` (re-pin, lowered E-6, value 4.2.1), `.rd` (XP-1/2: L-G1 ×2 in a quiet window covering `91f96b06a` and the new emitter bytes; speed outranks size, so `.pin` is reverted on a regression) and `.n` (XP-7).
+  - `parse-that/waves/W10.md` (the L4+ extension) opens after W9 `.pin`, because its grammar needs the recovered headroom; 31 B today means a crossing escalates. Its units are `.c10` (XP-12: the computed, relative-colour, easing, tree-counting, progress, calc-size and anchor corpora, with a per-module entry map in V-C, born RED), `.t10` (XP-11: typed math in timing arguments, BBNF), `.m10` (W8t-COLOR-SPACE-NONE: xyz-d50 and display-p3-linear model members), `.r10` (XP-14: absolute-origin relative colour resolved at parse; context origins keep R-c-2) and `.k10` (calc-size → sibling-* → progress(no-clamp) → anchor/anchor-size). Then value 4.3.0.
+  - **Owner rulings owed before the dependent units start:**
+    - DR-a: property-aware grammars. Recommend keep.
+    - DR-b: canonical specified-value serialization. Recommend keep.
+    - DR-c/XP-14: recommend resolving at parse.
+    - XP-13: recommend claiming calc-size, sibling-*, progress(no-clamp) (if it is in the ED), and the anchor argument grammar; recommend ruling random() and calc-mix() out of scope, with a shipping-engine re-trigger.
+    - `.rel`: arm A or arm B.
+  - **Discharged:** XP-6, XP-8. **Untouched:** BL-3, BL-4. No engineering ran in this seat.
+- **§0hu (2026-11-04): X·P W9/W10 EXECUTION, first sitting (records `execution/D/X-P-W9.md`, `X-P-W10.md`).**
+  - **DONE:**
+    - `.e6`: E-6 binds both files. grammar.js ≤ 15,650 gz (31 B headroom); color.js ≤ 6,150 gz / 39,446 raw (3 B headroom).
+    - `.pt`: parse-that PR #1 merged with `--merge` → master `7098c86`. `git diff v2.0.0 origin/master -- typescript/src` is empty. The typescript job is GREEN: its RED was gitignored `../data` fixtures, not F-b-2. The Rust job's `egraph-derive` failure is pre-existing. No release is owed.
+    - `.vc9`: a census of all 317 css-variables/css-syntax files. 5 are extracted (var-parsing, plus 4 through the new CSSOM round-trip recorder) and 312 are ruled at file level. It found 42 misses, routed to W10 as `.s10` (`<urange>` serialization) and `.v10` (`var()` arguments).
+    - `.bl`: bbnf-lang#2 cured at the root (`3a2e03671` → master `7bd8e7a14`, 0.3.0, **unpublished**). grammar.js shrinks by 577 B gz and color.js by 119 B gz. MIRROR is 0, V-C and L-G2 are byte-identical, the module stays self-contained, and a size test was added.
+    - `.n`: done.
+    - W10 `.c10`: 15 WPT files vendored, 17,307 cases, born RED ×2 with 6,220 misses.
+  - **OPEN:**
+    - `.o104`: all three addressees are UNREACHABLE (no live session).
+    - `.rel`: an OWNER ACT (arm A or arm B). Until it is ruled, `.pin` and value 4.2.1 wait. The ceilings to set at `.pin` are 15,050 and 6,050 gz.
+    - `.rd`: no quiet window (load 17–30).
+    - W10 `.t10`, `.m10`, `.s10` and `.v10` wait for `.pin` headroom. `.r10` waits on DR-c, and `.k10` on XP-13.
+    - V-C stays RED until those cures land (ESC-W9-1).
+- **§0ht.1 (2026-11-04): adversarial re-check of the X·P first sitting (§0hu) — one masking defect repaired at root (record: `execution/D/X-P-W9.md` addendum §0ht.1).** E-6 ×2, V-C ×2 (6,220, identical, ruled rows still 3,898), MIRROR 0, test/css 311/311 and bbnf-lang size 3/3 all re-read and hold. npm: value.js 4.2.0 has provenance; bbnf-lang 0.2.0 and parse-that 2.0.0 have none and 0.3.0 is unpublished (`.rel`). **Defect:** the `.vc9` round-trip recorder skipped `<script type=…>` inline scripts, and the census refused round-trip extraction for any `getComputedStyle` file. Three css-variables files, carrying 9 specified-value cases, were ruled at file level for false reasons. **Repair:** `inlineScripts()` is shared by the recorder and `extract.mjs`, and the exclusion is gone. The census was re-run as `census-2026-11-04-r1.json` (8 extracted / 309 ruled), with cases in `cases-2026-11-04-r1.json` (17,316; the prior 17,307 identical in order). V-C ×2 → **6,226 MISS**: the 6 new ones are custom-property values serialized as `rgb()`, routed to `.v10` and not ruled. Open asks are unchanged: `.rel`, DR-c, XP-13 and the `.rd` window.
+- **§0hv (2026-11-04): delegate rulings on the X.P §0hu asks (the owner's begin-word; "No deferring any item").**
+  - **`.rel` → ARM A.** Add tag-triggered npm publish workflows with `--provenance` to parse-that and bbnf-lang. `NPM_TOKEN` is seeded on both repos from the owner-given npm token (piped, never printed), the same as keyframes.js on 2026-11-03. Trusted publishing (OIDC) replaces the token once the owner's 2FA act lands (O-131).
+  - **DR-c → RECOMMENDED arm:** absolute-origin relative colour is resolved at parse, and context-dependent origins keep `color_context_required`.
+  - **XP-13 → RECOMMENDED claims, in W10.md's order** (calc-size → sibling-* → progress → anchor/anchor-size).
+  - **`.rd`:** the L-G1 read waits for a real quiet window (1-minute load < 8). That is waited for, never claimed.
+- **§0hs (2026-11-04): X realization PLANNING pass over the three DESIGN passes (owner order "items … fully realized … What of the bbnf and parse-that items").** `docs/tranches/X/realization/PLAN.md` orders value VW0–VW4 + VG (V-D1..V-D12), kf KW0–KW3 + KV + KG (K-D1..K-D13), fourier FW0–FW3 + FG + F-TAIL (F-D1..F-D14), and X·P PW9 `.rel` → `.pin` (value 4.2.1) → PW10 (value 4.3.0 with V-D4.2) → kf/fourier repins; each unit has an exit gate over the U-GATE. Glass gates: 10.1.5 (npm latest read 10.1.4: not yet out), 10.2.0, 11.0.0. 15 relays **O-134..O-148** SENT to glass-ui-c7 (glass-ui-b5 not live), ids allocated at send time (fourier's drafts moved from O-137..O-142 to O-143..O-148); O-133 reserved for the fourier O-119 follow-up; INBOX rowed. One merged owner packet OA-1..OA-26 (adds X·P DR-a/DR-b). No engineering ran.
+
+## §0hw — 2026-11-04: realization EXECUTION, value track (PLAN §2, VW0..VW3 + VG)
+One Opus 5.5 seat executes the value units of `realization/PLAN.md` in order. Each sub-addendum below names one unit, its falsifier RED-before and GREEN-after, and its receipts. E-3: addenda only.
+
+### §0hw.1 — V-D2 · the §0hr prod readings, on the record (OD-PROD-REREADS)
+- **Source.** The §0hr prod browser re-reads (`f55d5f5ac`, served bundle `index-B3dwCeez.js`, master `0a2c35d74`), banked at `evidence/0hr/od/r1..r3/od.json` and `evidence/0hr/od12/{r1,r2}-{desk,mob}/table.json`. The OD-12 light desk log that read 0 B at design time was re-run by the §0hr batch (`~/.dev-logs/x-0hr/od12-r1-desk.log`, 2,201 B, 20:33); both runs now carry both cells.
+- **Falsifier.** `node docs/tranches/X/realization/prod-readings.mjs --check`: RED before this addendum (no block), GREEN after, ×2. The rows below are emitted from the JSON by that script, never hand-typed.
+- **Readings.** OD-9 clippedPx 0, OD-10 crown ∩ Apply 0, OD-11 `data-slot=badge` on every cell ×3. OD-15 stage 651.3 = measure on picker/mix, palettes 450–562.5 ≤ measure. OD-3b: r1 ran without the Daraksha session (`mineStatus=null`, an instrument gap, not a reading); r2 and r3 list both Daraksha rows at 1800 and 390. **OD-19 spectrum 2.648 ×3 RED** (cured by V-D1 / `7904869ce`, §0hw.3). **OD-12 light: teal dEdom 0.0570–0.0574 > 0.05, `pass:false` in all 4 cells.** Per PLAN it is reported under OA-5 (A-2: OD-12 vs F-6, teal seam floor), never loosened.
+
+<!-- V-D2 rows begin -->
+```
+r1 OD-9/10/11 1800x1000 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r1 OD-9/10/11 1800x1000 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r1 OD-9/10/11 390x844 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r1 OD-9/10/11 390x844 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r1 OD-15/19 1440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1440 dark palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r1 OD-15/19 1440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1440 light palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r1 OD-15/19 1512 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1512 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1512 dark palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r1 OD-15/19 1512 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1512 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1512 light palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r1 OD-15/19 1800 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1800 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1800 dark palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r1 OD-15/19 1800 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1800 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1800 light palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r1 OD-15/19 2560 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 2560 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 2560 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 2560 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 2560 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 2560 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-3b 1800x1000 mineStatus=null Daraksha=false DarakshaGradient=false
+r1 OD-3b 390x844 mineStatus=null Daraksha=false DarakshaGradient=false
+r2 OD-9/10/11 1800x1000 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r2 OD-9/10/11 1800x1000 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r2 OD-9/10/11 390x844 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r2 OD-9/10/11 390x844 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r2 OD-15/19 1440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1440 dark palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r2 OD-15/19 1440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1440 light palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r2 OD-15/19 1512 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1512 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1512 dark palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r2 OD-15/19 1512 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1512 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1512 light palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r2 OD-15/19 1800 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1800 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1800 dark palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r2 OD-15/19 1800 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1800 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1800 light palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r2 OD-15/19 2560 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 2560 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 2560 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 2560 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 2560 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 2560 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-3b 1800x1000 mineStatus=200 Daraksha=true DarakshaGradient=true
+r2 OD-3b 390x844 mineStatus=200 Daraksha=true DarakshaGradient=true
+r3 OD-9/10/11 1800x1000 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r3 OD-9/10/11 1800x1000 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r3 OD-9/10/11 390x844 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r3 OD-9/10/11 390x844 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r3 OD-15/19 1440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1440 dark palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r3 OD-15/19 1440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1440 light palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r3 OD-15/19 1512 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1512 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1512 dark palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r3 OD-15/19 1512 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1512 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1512 light palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r3 OD-15/19 1800 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1800 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1800 dark palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r3 OD-15/19 1800 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1800 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1800 light palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r3 OD-15/19 2560 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 2560 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 2560 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 2560 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 2560 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 2560 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-3b 1800x1000 mineStatus=200 Daraksha=true DarakshaGradient=true
+r3 OD-3b 390x844 mineStatus=200 Daraksha=true DarakshaGradient=true
+r1-desk OD-12-light 1800x1000 gate={"worstDEdom":0.0574,"worstDEarea":0.0769,"worstHue":8.5,"medianHue":5.9,"worstReseed":0.0032,"worstSnap":0,"pass":false}
+r1-mob OD-12-light 390x844 gate={"worstDEdom":0.0573,"worstDEarea":0.0781,"worstHue":7.6,"medianHue":5.7,"worstReseed":null,"worstSnap":0,"pass":false}
+r2-desk OD-12-light 1800x1000 gate={"worstDEdom":0.0574,"worstDEarea":0.0765,"worstHue":7.2,"medianHue":5.5,"worstReseed":0.0006,"worstSnap":0,"pass":false}
+r2-mob OD-12-light 390x844 gate={"worstDEdom":0.057,"worstDEarea":0.0753,"worstHue":7.6,"medianHue":5.7,"worstReseed":null,"worstSnap":0,"pass":false}
+```
+<!-- V-D2 rows end -->
+
+### §0hw.2 — V-D8 · the records: one crosswalk addendum
+- **Falsifier.** `node docs/tranches/X/realization/records-check.mjs`, five legs (L1 Track A honest-RED labels have a crosswalk row; L2 regenerated Annex A ids well-formed and disposed; L3 INBOX outbound collisions resolved; L4 the 15 MT-REGISTER records have an X row; L5 the CARRY-LEDGER §B–§F rows have a crosswalk row). **RED before:** L1 59/59, L3 `O-132{glass-ui,fourier}`, L4 15/15, L5 22/22, and L2 against FINAL's own annex (`ANNEX=close/FINAL.md`: `ESC-F14h-1.`, `ESC-R1-XP-REST.`, `ESC-n1.`). **GREEN after ×2:** 5/5 legs (59 labels · 107 ids · 15 · 22).
+- **V-D8.1 INBOX erratum.** The fourier follow-up to O-119 is **O-149** (glass held O-133). Collision register: `realization/RECORDS-CROSSWALK.md` §3.
+- **V-D8.2 Annex A.** Regenerated as `close/ANNEX-A-2026-11-04.md` from a re-tokenized census (`execution/A/census/esc-nohome-2026-11-04-v2.txt`, 107 ids); FINAL takes a pointer addendum. `ESC-R1-XP-REST` → superseded-by X-W7 CLOSED.
+- **V-D8.3 wave-label crosswalk.** `RECORDS-CROSSWALK.md` §1, 59 rows. The spot-cures were read: ci `41920320369` and deploy-pages `41939659512` both success at `0a2c35d74` (X-W1 G-17/19/20); vitest 1515/1515 ×2 at `480f58f7e` (C-5/NG-6); real-GPU lhci TBT 52/61 ms (X-W2 G3).
+- **V-D8.4 MT→X crosswalk.** §2, 15 records. The four BLOCKERs re-measured on the live tree: MT-F012 prod entry `index-B3dwCeez.js` 482,599 B and mounted (CURED); C-1 `main.ts:139` awaits `router.isReady()` (CURED); D-4 the route `<h1>` exists (CURED); C-2 ≡ D-1's aggravation, the `whenColorPickerReady` 40 × 50 ms give-up poll, **was still in the tree and is cured at root here**. The wait now watches the picker ref (no timer, latest intent per label wins), and startEdit reads after the switch's `nextTick` flush instead of a 50 ms timeout. Falsifier `demo/test/app/when-ref-ready.test.ts`: RED 3/4 on the hoisted old poll (late mount dropped, timers scheduled, both intents replayed), GREEN 4/4 ×2. typecheck 0; eslint 0.
+- **V-D8.5 X-W12 lineage.** Written at each adoption read (V-G1/V-G2/V-G3), not before; §1 names the unit per label.
+- **V-D8.6 CARRY-LEDGER.** §4, 22 rows, read from the committed bytes. The working-tree +34-line hunk is OA-14's and is untouched.
+- **V-D8.7 INDEX hygiene.** The 11 staged `evidence/0hm/*` files and the dirty chassis `x-track-A/B.js` belong to the §0hm seat; this seat commits by pathspec only and leaves them as found.
+
+### §0hw.4 — V-D6 · demo type plumbing: the phantom `@mkbabb/value.js*` paths deleted (BC-PCS-30 / H-c)
+- **Cure.** `tsconfig.demo.json` loses the 8-key `@mkbabb/value.js*` paths block (`.` → absent `dist/index.d.ts`; `/parsing` and `/units`, which the exports map does not export). The demo's self-reference resolves through `package.json#exports` under `moduleResolution: bundler`, the map the `vite.config.ts` runtime self-alias is generated from.
+- **Falsifier.** `node docs/tranches/X/realization/value-paths-parity.mjs`: leg A (no phantom paths keys) RED 8 → GREEN; leg B (the specifiers the demo program resolves == the 7 exports; `.`, `/parsing`, `/units` unresolved) GREEN before and after, which proves the block was inert. ×2. A planted `import … from "@mkbabb/value.js/parsing"` fails `vue-tsc -p tsconfig.demo.json` with TS2307; without it the demo program is clean. Full typecheck 0 ×2; lint 0.
+
+## §0hx — 2026-11-04: realization EXECUTION, keyframes track (PLAN §3, KW0..KW3)
+
+### §0hx.1 — K-D9 · the keyframes records (KF-REC-1 · G-ID · G-TAX · INBOX O-63/65/66/67/68)
+- **Falsifier.** `realization/records-check.mjs` gains legs K1..K5 (LEDGER `9bd5b335` event with ci `41804538410` + deploy `41805222686`; one dated SUPERSEDED addendum per G-TAX record; `KF-W5-ADDENDUM-GID.md` names `:386` and `:412`; the INBOX erratum names each doubled id; kf-m-checker tracked = 5). RED 5/5 kf legs → GREEN 10/10 ×2.
+- **Records.** LEDGER event (the four kf items, and the correction that the D-28 checker read the row foot, not the clip edge); G-TAX addenda at the foot of `kf-AnimationControlsGroup.md`, `kf-ControlsPaneWrapper.md`, `kf-DemoGlobalChrome.md`; `keyframes/waves/KF-W5-ADDENDUM-GID.md`; evidence `evidence/0hm/kf-m-checker/` (p1 p2 p3 + two frames) committed in this commit.
+- **INBOX erratum.** O-63 FW14U addendum → O-150 · O-65 OA-50 addendum → O-151 · O-66 TEXT-TRIGGER-ROOT → O-152 · O-67 TILE-PRIMITIVE → O-142 (already sent) · O-68 HeroBlob G-3 → O-153. The ids glass booked keep their subjects.
+- **DESIGN-pass id map.** K-D1..K-D13 (keyframes-DESIGN §1) ↔ the 46 inventory items + 3 new (§5 of that file); R-K1..R-K6 = O-137..O-142; K-A1..K-A7 merged into PLAN §7 OA-n.

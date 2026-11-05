@@ -1,0 +1,4 @@
+[guarded] WARNING: the kernel zone leak is ARMED (armed 1793759449 slope=40.7/s inuse=30389 net=- kext=nfs); see ~/.claude/guard/ZONE-ARMED. Finish what you are doing and report it; the owner decides on the reboot.
+cube {"sheet":[515,716,201],"rows":[[581,636],[644,704],[708,768],[772,832]],"vh":844}
+square {"sheet":[515,716,201],"rows":[[581,636],[644,704],[708,768],[772,832]],"vh":844}
+spring {"sheet":[521,716,195],"rows":[[587,642],[587,642],[650,704],[650,704]],"vh":844}

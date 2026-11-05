@@ -1,0 +1,2 @@
+stdin /Users/mkbabb/Programming/value.js/.worktrees/w9bl/equiv-1.json differ: char 113, line 6
+cmp exit 1

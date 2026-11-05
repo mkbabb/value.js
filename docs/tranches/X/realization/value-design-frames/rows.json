@@ -1,0 +1,398 @@
+[
+ {
+  "name": "picker",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "vw": 390,
+  "sw": 390,
+  "dock": [
+   113,
+   25,
+   164,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   390,
+   844
+  ],
+  "errs": 0
+ },
+ {
+  "name": "palettes",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "vw": 390,
+  "sw": 390,
+  "dock": [
+   113,
+   25,
+   164,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   390,
+   844
+  ],
+  "errs": 0
+ },
+ {
+  "name": "about",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "vw": 390,
+  "sw": 390,
+  "dock": [
+   141,
+   25,
+   108,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   390,
+   844
+  ],
+  "errs": 0
+ },
+ {
+  "name": "picker",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "vw": 390,
+  "sw": 390,
+  "dock": [
+   113,
+   25,
+   164,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   390,
+   844
+  ],
+  "errs": 0
+ },
+ {
+  "name": "palettes",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "vw": 390,
+  "sw": 390,
+  "dock": [
+   113,
+   25,
+   164,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   390,
+   844
+  ],
+  "errs": 0
+ },
+ {
+  "name": "about",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "vw": 390,
+  "sw": 390,
+  "dock": [
+   141,
+   25,
+   108,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   390,
+   844
+  ],
+  "errs": 0
+ },
+ {
+  "name": "picker",
+  "w": 430,
+  "h": 932,
+  "scheme": "light",
+  "vw": 430,
+  "sw": 430,
+  "dock": [
+   133,
+   25,
+   164,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   430,
+   932
+  ],
+  "errs": 0
+ },
+ {
+  "name": "picker",
+  "w": 430,
+  "h": 932,
+  "scheme": "dark",
+  "vw": 430,
+  "sw": 430,
+  "dock": [
+   133,
+   25,
+   164,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   430,
+   932
+  ],
+  "errs": 0
+ },
+ {
+  "name": "picker",
+  "w": 844,
+  "h": 390,
+  "scheme": "light",
+  "vw": 844,
+  "sw": 844,
+  "dock": [
+   317,
+   13,
+   211,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   844,
+   390
+  ],
+  "errs": 0
+ },
+ {
+  "name": "picker",
+  "w": 844,
+  "h": 390,
+  "scheme": "dark",
+  "vw": 844,
+  "sw": 844,
+  "dock": [
+   317,
+   13,
+   211,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   844,
+   390
+  ],
+  "errs": 0
+ },
+ {
+  "name": "picker",
+  "w": 1440,
+  "h": 900,
+  "scheme": "light",
+  "vw": 1440,
+  "sw": 1440,
+  "dock": [
+   512,
+   17,
+   416,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   1440,
+   900
+  ],
+  "errs": 0
+ },
+ {
+  "name": "palettes",
+  "w": 1440,
+  "h": 900,
+  "scheme": "light",
+  "vw": 1440,
+  "sw": 1440,
+  "dock": [
+   505,
+   17,
+   430,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   1440,
+   900
+  ],
+  "errs": 0
+ },
+ {
+  "name": "about",
+  "w": 1440,
+  "h": 900,
+  "scheme": "light",
+  "vw": 1440,
+  "sw": 1440,
+  "dock": [
+   561,
+   17,
+   318,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   1440,
+   900
+  ],
+  "errs": 0
+ },
+ {
+  "name": "picker",
+  "w": 1440,
+  "h": 900,
+  "scheme": "dark",
+  "vw": 1440,
+  "sw": 1440,
+  "dock": [
+   512,
+   17,
+   416,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   1440,
+   900
+  ],
+  "errs": 0
+ },
+ {
+  "name": "palettes",
+  "w": 1440,
+  "h": 900,
+  "scheme": "dark",
+  "vw": 1440,
+  "sw": 1440,
+  "dock": [
+   505,
+   17,
+   430,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   1440,
+   900
+  ],
+  "errs": 0
+ },
+ {
+  "name": "about",
+  "w": 1440,
+  "h": 900,
+  "scheme": "dark",
+  "vw": 1440,
+  "sw": 1440,
+  "dock": [
+   561,
+   17,
+   318,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   1440,
+   900
+  ],
+  "errs": 0
+ },
+ {
+  "name": "picker",
+  "w": 1800,
+  "h": 1000,
+  "scheme": "light",
+  "vw": 1800,
+  "sw": 1800,
+  "dock": [
+   686,
+   16,
+   428,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   1800,
+   1000
+  ],
+  "errs": 0
+ },
+ {
+  "name": "picker",
+  "w": 1800,
+  "h": 1000,
+  "scheme": "dark",
+  "vw": 1800,
+  "sw": 1800,
+  "dock": [
+   686,
+   16,
+   428,
+   48
+  ],
+  "dockCentreOff": 0,
+  "spectrum": [
+   0,
+   0,
+   1800,
+   1000
+  ],
+  "errs": 0
+ }
+]
