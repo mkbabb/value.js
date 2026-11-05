@@ -5848,3 +5848,11 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   2. Whether the 6 `W10v-CUSTOM-COMPONENTS` rows stay DR-b (against §0ht.1's routing as an owed cure).
   3. Whether the V-C value judge `d58db7362` and the new class `W10k-COMPUTED-VALUE` (34 `used` rows) stand.
 - **Push held:** tranche-u is 21 ahead of origin and 0 behind. Another seat's `ci` 42019540010 (`d2d006cb9`) has sat in e2e-smoke's playwright step since 13:58Z. Under the push law nothing is pushed while it runs; the next seat to find tranche-u's CI idle pushes by an ordinary fetch and merge.
+- **§0hy (2026-11-05): ESC-W10-1 RULED (delegate).**
+  - **The crossing:** W10 adds the whole css-color-5 / values-5 / anchor / easing-2 surface (V-C 6,226 → 66 unruled misses). E-6 grows from the `.pin` ceilings (15,050 / 6,050) to **15,181 / 6,054 gz**.
+  - **Correctness over the ceiling, by the §0fe precedent.** The ceilings become the measured figures rounded up to 50 B: **15,200 / 6,100 gz**.
+  - **Net size:** grammar.js is still **438 B under** its pre-W9 size (15,619), because the bbnf-lang#2 emitter cure paid for the new syntax.
+  - **4.3.0 is cleared to cut** once tranche-u CI is GREEN.
+  - **The 66 css-color misses** (24 trig relative colours and others) go to the lockstep programme's consumers lane.
+  - **`.rd`** keeps waiting for a quiet window.
+- **The xp-w9-w10-continue workflow is DONE.** bbnf-lang 0.3.0 and value.js 4.2.1 are on npm, both with SLSA provenance; parse-that and bbnf-lang now have their own publish workflows.
