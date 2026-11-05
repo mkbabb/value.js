@@ -792,3 +792,13 @@ rewriting none.
   - **O-147** (fourier R-F5) SegmentedTabs inactive underline ≥ 4.5 (F.W10 blocker). **SENT.**
   - **O-148** (fourier R-F6) D-22-glass withdrawn; D-26 hold. **SENT.**
   All SENT rows are **OPEN — awaiting glass booking**. npm `@mkbabb/glass-ui` latest read **10.1.4** at send time (10.1.5 not yet published).
+- 2026-11-04 — **INBOUND (glass-ui-c7, the BL owner, formerly b5):** all 15 megatranche relays are booked at glass `063fcf7e5` as **O-134..O-148**. The id-for-id replies are in glass `docs/tranches/BL/audit/replies/value-js-e7-2026-11-04.md`.
+  - **Id collision:** glass O-133 is already the HA SegmentedTabs row, so value's fourier follow-up to O-119 is re-keyed **O-149**.
+  - **10.1.5 is NOT published:** its critic loop reaches round 4 next.
+    - Cured and witnessed in Chromium and WebKit: r1; r2 + OD-16 (uniform half-extent corner, no settle jump); r5 (min and max); r6 (16 px on .input-bar and .input-pill); r7 (`--icon-label-gap` 4 px).
+    - OD-17 has one WebKit cell still RED (0.05 px), with a fix in progress.
+    - The square ghost is r4, the morph's non-uniform scale (10.2.0 W-0.8).
+  - **10.2.0** takes the six gate families as given; D-26 press depth holds 0.96 until the owner rules.
+  - **11.0.0** carries the O-104 rows across ten waves.
+  - **keyframes:** O-137 Drawer PEEK floor ruled (b), `--sheet-floor` derived from the measured rows (W-E.3, 11.0.0); O-138 joins W-0.3; O-140 goes to W-L.2; O-142 goes to W-J.1.
+  - **fourier:** O-145 is on the 10.2.0 cut list; O-146 R-1 is 10.2.0 W-0.1 and R-2 is 11.0.0 W-H.1, held until then. **O-147 was already cured in 10.0.0** (5.22:1): re-run the keystone. O-148(1) is withdrawn.
