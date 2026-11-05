@@ -5538,3 +5538,128 @@ Ship seat (`claude-opus-5-5`). This continues §0hn item 3 after the visual seat
   - **XP-13 → RECOMMENDED claims, in W10.md's order** (calc-size → sibling-* → progress → anchor/anchor-size).
   - **`.rd`:** the L-G1 read waits for a real quiet window (1-minute load < 8). That is waited for, never claimed.
 - **§0hs (2026-11-04): X realization PLANNING pass over the three DESIGN passes (owner order "items … fully realized … What of the bbnf and parse-that items").** `docs/tranches/X/realization/PLAN.md` orders value VW0–VW4 + VG (V-D1..V-D12), kf KW0–KW3 + KV + KG (K-D1..K-D13), fourier FW0–FW3 + FG + F-TAIL (F-D1..F-D14), and X·P PW9 `.rel` → `.pin` (value 4.2.1) → PW10 (value 4.3.0 with V-D4.2) → kf/fourier repins; each unit has an exit gate over the U-GATE. Glass gates: 10.1.5 (npm latest read 10.1.4: not yet out), 10.2.0, 11.0.0. 15 relays **O-134..O-148** SENT to glass-ui-c7 (glass-ui-b5 not live), ids allocated at send time (fourier's drafts moved from O-137..O-142 to O-143..O-148); O-133 reserved for the fourier O-119 follow-up; INBOX rowed. One merged owner packet OA-1..OA-26 (adds X·P DR-a/DR-b). No engineering ran.
+
+## §0hw — 2026-11-04: realization EXECUTION, value track (PLAN §2, VW0..VW3 + VG)
+One Opus 5.5 seat executes the value units of `realization/PLAN.md` in order. Each sub-addendum below names one unit, its falsifier RED-before and GREEN-after, and its receipts. E-3: addenda only.
+
+### §0hw.1 — V-D2 · the §0hr prod readings, on the record (OD-PROD-REREADS)
+- **Source.** The §0hr prod browser re-reads (`f55d5f5ac`, served bundle `index-B3dwCeez.js`, master `0a2c35d74`), banked at `evidence/0hr/od/r1..r3/od.json` and `evidence/0hr/od12/{r1,r2}-{desk,mob}/table.json`. The OD-12 light desk log that read 0 B at design time was re-run by the §0hr batch (`~/.dev-logs/x-0hr/od12-r1-desk.log`, 2,201 B, 20:33); both runs now carry both cells.
+- **Falsifier.** `node docs/tranches/X/realization/prod-readings.mjs --check`: RED before this addendum (no block), GREEN after, ×2. The rows below are emitted from the JSON by that script, never hand-typed.
+- **Readings.** OD-9 clippedPx 0, OD-10 crown ∩ Apply 0, OD-11 `data-slot=badge` on every cell ×3. OD-15 stage 651.3 = measure on picker/mix, palettes 450–562.5 ≤ measure. OD-3b: r1 ran without the Daraksha session (`mineStatus=null`, an instrument gap, not a reading); r2 and r3 list both Daraksha rows at 1800 and 390. **OD-19 spectrum 2.648 ×3 RED** (cured by V-D1 / `7904869ce`, §0hw.3). **OD-12 light: teal dEdom 0.0570–0.0574 > 0.05, `pass:false` in all 4 cells.** Per PLAN it is reported under OA-5 (A-2: OD-12 vs F-6, teal seam floor), never loosened.
+
+<!-- V-D2 rows begin -->
+```
+r1 OD-9/10/11 1800x1000 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r1 OD-9/10/11 1800x1000 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r1 OD-9/10/11 390x844 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r1 OD-9/10/11 390x844 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r1 OD-15/19 1440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1440 dark palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r1 OD-15/19 1440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1440 light palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r1 OD-15/19 1512 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1512 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1512 dark palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r1 OD-15/19 1512 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1512 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1512 light palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r1 OD-15/19 1800 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1800 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1800 dark palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r1 OD-15/19 1800 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1800 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 1800 light palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r1 OD-15/19 2560 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 2560 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 2560 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 2560 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 2560 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 2560 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-15/19 3440 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r1 OD-3b 1800x1000 mineStatus=null Daraksha=false DarakshaGradient=false
+r1 OD-3b 390x844 mineStatus=null Daraksha=false DarakshaGradient=false
+r2 OD-9/10/11 1800x1000 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r2 OD-9/10/11 1800x1000 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r2 OD-9/10/11 390x844 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r2 OD-9/10/11 390x844 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r2 OD-15/19 1440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1440 dark palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r2 OD-15/19 1440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1440 light palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r2 OD-15/19 1512 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1512 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1512 dark palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r2 OD-15/19 1512 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1512 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1512 light palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r2 OD-15/19 1800 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1800 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1800 dark palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r2 OD-15/19 1800 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1800 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 1800 light palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r2 OD-15/19 2560 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 2560 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 2560 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 2560 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 2560 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 2560 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-15/19 3440 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r2 OD-3b 1800x1000 mineStatus=200 Daraksha=true DarakshaGradient=true
+r2 OD-3b 390x844 mineStatus=200 Daraksha=true DarakshaGradient=true
+r3 OD-9/10/11 1800x1000 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r3 OD-9/10/11 1800x1000 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r3 OD-9/10/11 390x844 dark clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r3 OD-9/10/11 390x844 light clippedPx=0 crownApplyOverlap=0 badge.slot=badge pageErrors=0
+r3 OD-15/19 1440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1440 dark palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r3 OD-15/19 1440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1440 light palettes stage=450 measure=651.3 spectrum=404x224x1.804
+r3 OD-15/19 1512 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1512 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1512 dark palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r3 OD-15/19 1512 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1512 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1512 light palettes stage=472.5 measure=651.3 spectrum=424.7x224x1.896
+r3 OD-15/19 1800 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1800 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1800 dark palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r3 OD-15/19 1800 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1800 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 1800 light palettes stage=562.5 measure=651.3 spectrum=507.5x224x2.266
+r3 OD-15/19 2560 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 2560 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 2560 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 2560 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 2560 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 2560 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 dark picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 dark mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 dark palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 light picker stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 light mix stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-15/19 3440 light palettes stage=651.3 measure=651.3 spectrum=593.3x224x2.648
+r3 OD-3b 1800x1000 mineStatus=200 Daraksha=true DarakshaGradient=true
+r3 OD-3b 390x844 mineStatus=200 Daraksha=true DarakshaGradient=true
+r1-desk OD-12-light 1800x1000 gate={"worstDEdom":0.0574,"worstDEarea":0.0769,"worstHue":8.5,"medianHue":5.9,"worstReseed":0.0032,"worstSnap":0,"pass":false}
+r1-mob OD-12-light 390x844 gate={"worstDEdom":0.0573,"worstDEarea":0.0781,"worstHue":7.6,"medianHue":5.7,"worstReseed":null,"worstSnap":0,"pass":false}
+r2-desk OD-12-light 1800x1000 gate={"worstDEdom":0.0574,"worstDEarea":0.0765,"worstHue":7.2,"medianHue":5.5,"worstReseed":0.0006,"worstSnap":0,"pass":false}
+r2-mob OD-12-light 390x844 gate={"worstDEdom":0.057,"worstDEarea":0.0753,"worstHue":7.6,"medianHue":5.7,"worstReseed":null,"worstSnap":0,"pass":false}
+```
+<!-- V-D2 rows end -->
