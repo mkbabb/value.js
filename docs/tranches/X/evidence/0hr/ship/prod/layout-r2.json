@@ -1,0 +1,1222 @@
+[
+ {
+  "c": "m390",
+  "r": "/browse",
+  "scheme": "dark",
+  "vw": 390,
+  "vh": 844,
+  "stage": [
+   12,
+   104,
+   366,
+   1439
+  ],
+  "sliders": 0,
+  "lastSliderBottom": null,
+  "stageBottom": 1543,
+  "spectrum": null,
+  "cards": [
+   {
+    "name": "Daraksha Gradient",
+    "nameBox": [
+     42,
+     322,
+     183,
+     31
+    ],
+    "trunc": false,
+    "need": 183,
+    "card": [
+     29,
+     271,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 5
+   },
+   {
+    "name": "Daraksha",
+    "nameBox": [
+     42,
+     427,
+     93,
+     31
+    ],
+    "trunc": false,
+    "need": 93,
+    "card": [
+     29,
+     376,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 8
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     42,
+     531,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     29,
+     480,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     42,
+     636,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     29,
+     585,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2",
+    "nameBox": [
+     42,
+     740,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     29,
+     689,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey",
+    "nameBox": [
+     42,
+     845,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     29,
+     794,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "Audit Test Palette",
+    "nameBox": [
+     42,
+     949,
+     171,
+     31
+    ],
+    "trunc": false,
+    "need": 171,
+    "card": [
+     29,
+     898,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 3
+   }
+  ]
+ },
+ {
+  "c": "m390",
+  "r": "/browse",
+  "scheme": "light",
+  "vw": 390,
+  "vh": 844,
+  "stage": [
+   12,
+   104,
+   366,
+   1439
+  ],
+  "sliders": 0,
+  "lastSliderBottom": null,
+  "stageBottom": 1543,
+  "spectrum": null,
+  "cards": [
+   {
+    "name": "Daraksha Gradient",
+    "nameBox": [
+     42,
+     322,
+     183,
+     31
+    ],
+    "trunc": false,
+    "need": 183,
+    "card": [
+     29,
+     271,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 5
+   },
+   {
+    "name": "Daraksha",
+    "nameBox": [
+     42,
+     427,
+     93,
+     31
+    ],
+    "trunc": false,
+    "need": 93,
+    "card": [
+     29,
+     376,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 8
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     42,
+     531,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     29,
+     480,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     42,
+     636,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     29,
+     585,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2",
+    "nameBox": [
+     42,
+     740,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     29,
+     689,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey",
+    "nameBox": [
+     42,
+     845,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     29,
+     794,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "Audit Test Palette",
+    "nameBox": [
+     42,
+     949,
+     171,
+     31
+    ],
+    "trunc": false,
+    "need": 171,
+    "card": [
+     29,
+     898,
+     332,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 3
+   }
+  ]
+ },
+ {
+  "c": "m430",
+  "r": "/browse",
+  "scheme": "dark",
+  "vw": 430,
+  "vh": 932,
+  "stage": [
+   12,
+   104,
+   406,
+   1439
+  ],
+  "sliders": 0,
+  "lastSliderBottom": null,
+  "stageBottom": 1543,
+  "spectrum": null,
+  "cards": [
+   {
+    "name": "Daraksha Gradient",
+    "nameBox": [
+     42,
+     322,
+     183,
+     31
+    ],
+    "trunc": false,
+    "need": 183,
+    "card": [
+     29,
+     271,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 5
+   },
+   {
+    "name": "Daraksha",
+    "nameBox": [
+     42,
+     427,
+     93,
+     31
+    ],
+    "trunc": false,
+    "need": 93,
+    "card": [
+     29,
+     376,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 8
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     42,
+     531,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     29,
+     480,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     42,
+     636,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     29,
+     585,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2",
+    "nameBox": [
+     42,
+     741,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     29,
+     690,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey",
+    "nameBox": [
+     42,
+     845,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     29,
+     794,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "Audit Test Palette",
+    "nameBox": [
+     42,
+     950,
+     171,
+     31
+    ],
+    "trunc": false,
+    "need": 171,
+    "card": [
+     29,
+     899,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 3
+   }
+  ]
+ },
+ {
+  "c": "m430",
+  "r": "/browse",
+  "scheme": "light",
+  "vw": 430,
+  "vh": 932,
+  "stage": [
+   12,
+   104,
+   406,
+   1439
+  ],
+  "sliders": 0,
+  "lastSliderBottom": null,
+  "stageBottom": 1543,
+  "spectrum": null,
+  "cards": [
+   {
+    "name": "Daraksha Gradient",
+    "nameBox": [
+     42,
+     322,
+     183,
+     31
+    ],
+    "trunc": false,
+    "need": 183,
+    "card": [
+     29,
+     271,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 5
+   },
+   {
+    "name": "Daraksha",
+    "nameBox": [
+     42,
+     427,
+     93,
+     31
+    ],
+    "trunc": false,
+    "need": 93,
+    "card": [
+     29,
+     376,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 8
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     42,
+     531,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     29,
+     480,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     42,
+     636,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     29,
+     585,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2",
+    "nameBox": [
+     42,
+     741,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     29,
+     690,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey",
+    "nameBox": [
+     42,
+     845,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     29,
+     794,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "Audit Test Palette",
+    "nameBox": [
+     42,
+     950,
+     171,
+     31
+    ],
+    "trunc": false,
+    "need": 171,
+    "card": [
+     29,
+     899,
+     372,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 3
+   }
+  ]
+ },
+ {
+  "c": "land",
+  "r": "/",
+  "scheme": "dark",
+  "vw": 844,
+  "vh": 390,
+  "stage": [
+   21,
+   83,
+   401,
+   302
+  ],
+  "sliders": 4,
+  "lastSliderBottom": 637,
+  "stageBottom": 385,
+  "hostScrolls": true,
+  "scrolledSliders": [
+   182,
+   347
+  ],
+  "slidersSeen": true,
+  "spectrum": [
+   359,
+   175,
+   2.058
+  ],
+  "cards": []
+ },
+ {
+  "c": "land",
+  "r": "/",
+  "scheme": "light",
+  "vw": 844,
+  "vh": 390,
+  "stage": [
+   21,
+   83,
+   401,
+   302
+  ],
+  "sliders": 4,
+  "lastSliderBottom": 637,
+  "stageBottom": 385,
+  "hostScrolls": true,
+  "scrolledSliders": [
+   182,
+   347
+  ],
+  "slidersSeen": true,
+  "spectrum": [
+   359,
+   175,
+   2.058
+  ],
+  "cards": []
+ },
+ {
+  "c": "land",
+  "r": "/mix",
+  "scheme": "dark",
+  "vw": 844,
+  "vh": 390,
+  "stage": [
+   21,
+   83,
+   401,
+   302
+  ],
+  "sliders": 4,
+  "lastSliderBottom": 637,
+  "stageBottom": 385,
+  "hostScrolls": true,
+  "scrolledSliders": [
+   182,
+   347
+  ],
+  "slidersSeen": true,
+  "spectrum": [
+   359,
+   175,
+   2.058
+  ],
+  "cards": []
+ },
+ {
+  "c": "land",
+  "r": "/mix",
+  "scheme": "light",
+  "vw": 844,
+  "vh": 390,
+  "stage": [
+   21,
+   83,
+   401,
+   302
+  ],
+  "sliders": 4,
+  "lastSliderBottom": 637,
+  "stageBottom": 385,
+  "hostScrolls": true,
+  "scrolledSliders": [
+   182,
+   347
+  ],
+  "slidersSeen": true,
+  "spectrum": [
+   359,
+   175,
+   2.058
+  ],
+  "cards": []
+ },
+ {
+  "c": "m390",
+  "r": "/",
+  "scheme": "dark",
+  "vw": 390,
+  "vh": 844,
+  "stage": [
+   12,
+   104,
+   366,
+   578
+  ],
+  "sliders": 4,
+  "lastSliderBottom": 644,
+  "stageBottom": 682,
+  "hostScrolls": false,
+  "scrolledSliders": [
+   479,
+   644
+  ],
+  "slidersSeen": true,
+  "spectrum": [
+   327,
+   169,
+   1.936
+  ],
+  "cards": []
+ },
+ {
+  "c": "m390",
+  "r": "/",
+  "scheme": "light",
+  "vw": 390,
+  "vh": 844,
+  "stage": [
+   12,
+   104,
+   366,
+   578
+  ],
+  "sliders": 4,
+  "lastSliderBottom": 644,
+  "stageBottom": 682,
+  "hostScrolls": false,
+  "scrolledSliders": [
+   479,
+   644
+  ],
+  "slidersSeen": true,
+  "spectrum": [
+   327,
+   169,
+   1.936
+  ],
+  "cards": []
+ },
+ {
+  "c": "d14",
+  "r": "/",
+  "scheme": "dark",
+  "vw": 1440,
+  "vh": 900,
+  "stage": [
+   36,
+   88,
+   651,
+   749
+  ],
+  "sliders": 4,
+  "lastSliderBottom": 795,
+  "stageBottom": 837,
+  "hostScrolls": false,
+  "scrolledSliders": [
+   621,
+   795
+  ],
+  "slidersSeen": false,
+  "spectrum": [
+   593,
+   288,
+   2.058
+  ],
+  "cards": []
+ },
+ {
+  "c": "d14",
+  "r": "/",
+  "scheme": "light",
+  "vw": 1440,
+  "vh": 900,
+  "stage": [
+   36,
+   88,
+   651,
+   749
+  ],
+  "sliders": 4,
+  "lastSliderBottom": 795,
+  "stageBottom": 837,
+  "hostScrolls": false,
+  "scrolledSliders": [
+   621,
+   795
+  ],
+  "slidersSeen": false,
+  "spectrum": [
+   593,
+   288,
+   2.058
+  ],
+  "cards": []
+ },
+ {
+  "c": "d14",
+  "r": "/browse",
+  "scheme": "dark",
+  "vw": 1440,
+  "vh": 900,
+  "stage": [
+   36,
+   88,
+   900,
+   1433
+  ],
+  "sliders": 0,
+  "lastSliderBottom": null,
+  "stageBottom": 1521,
+  "spectrum": null,
+  "cards": [
+   {
+    "name": "Daraksha Gradient",
+    "nameBox": [
+     74,
+     301,
+     183,
+     31
+    ],
+    "trunc": false,
+    "need": 183,
+    "card": [
+     61,
+     250,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 5
+   },
+   {
+    "name": "Daraksha",
+    "nameBox": [
+     74,
+     405,
+     93,
+     31
+    ],
+    "trunc": false,
+    "need": 93,
+    "card": [
+     61,
+     354,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 8
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     74,
+     510,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     61,
+     459,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     74,
+     614,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     61,
+     563,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2",
+    "nameBox": [
+     74,
+     719,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     61,
+     668,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey",
+    "nameBox": [
+     74,
+     823,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     61,
+     772,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "Audit Test Palette",
+    "nameBox": [
+     74,
+     928,
+     171,
+     31
+    ],
+    "trunc": false,
+    "need": 171,
+    "card": [
+     61,
+     877,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 3
+   }
+  ]
+ },
+ {
+  "c": "d14",
+  "r": "/browse",
+  "scheme": "light",
+  "vw": 1440,
+  "vh": 900,
+  "stage": [
+   36,
+   88,
+   900,
+   1433
+  ],
+  "sliders": 0,
+  "lastSliderBottom": null,
+  "stageBottom": 1521,
+  "spectrum": null,
+  "cards": [
+   {
+    "name": "Daraksha Gradient",
+    "nameBox": [
+     74,
+     300,
+     183,
+     31
+    ],
+    "trunc": false,
+    "need": 183,
+    "card": [
+     61,
+     249,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 5
+   },
+   {
+    "name": "Daraksha",
+    "nameBox": [
+     74,
+     405,
+     93,
+     31
+    ],
+    "trunc": false,
+    "need": 93,
+    "card": [
+     61,
+     354,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 8
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     74,
+     509,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     61,
+     458,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2 (remix)",
+    "nameBox": [
+     74,
+     614,
+     138,
+     31
+    ],
+    "trunc": false,
+    "need": 138,
+    "card": [
+     61,
+     563,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey v2",
+    "nameBox": [
+     74,
+     719,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     61,
+     668,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "hey",
+    "nameBox": [
+     74,
+     823,
+     80,
+     31
+    ],
+    "trunc": false,
+    "need": 80,
+    "card": [
+     61,
+     772,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 1
+   },
+   {
+    "name": "Audit Test Palette",
+    "nameBox": [
+     74,
+     928,
+     171,
+     31
+    ],
+    "trunc": false,
+    "need": 171,
+    "card": [
+     61,
+     877,
+     850,
+     93
+    ],
+    "voteOnRow": true,
+    "menuOnRow": true,
+    "bandsPainted": true,
+    "nBands": 3
+   }
+  ]
+ }
+]

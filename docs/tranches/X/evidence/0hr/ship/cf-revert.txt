@@ -1,0 +1,15 @@
+== revert 75be53f15:  M demo/picker/ColorPicker.vue 
+    Error: expect(page).toHaveScreenshot(expected) failed
+    Error: expect(page).toHaveScreenshot(expected) failed
+    Error: expect(page).toHaveScreenshot(expected) failed
+    Error: expect(page).toHaveScreenshot(expected) failed
+    Error: expect(page).toHaveScreenshot(expected) failed
+  5 failed
+  15 passed (2.0m)
+== revert fb71baedb:  M demo/palettes/inspector/PaletteInspector.vue 
+    Error: expect(page).toHaveScreenshot(expected) failed
+    Error: expect(page).toHaveScreenshot(expected) failed
+    Error: expect(page).toHaveScreenshot(expected) failed
+    Error: expect(page).toHaveScreenshot(expected) failed
+  4 failed
+  16 passed (1.9m)
