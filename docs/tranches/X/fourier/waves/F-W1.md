@@ -874,3 +874,19 @@ Both re-measured at `17a11bc5` by this seat, one command per key, double-run whe
 - **It rewrites no dated cell.** §8.6's register stands as returned; §9 sits beside it. No row is inserted above `:294`, so the four pinned coordinates nine sibling specs cite are unmoved.
 - **It stamps no gate but the one it records.** G19's condition — *"ESC-1..ESC-7 each carry a ruling or an explicit deferral with blocked rows named"* — is met by §0o and read here. **G4 · G6 · G8 · G10 · G11 · G13 remain the transaction's**, and G12 · G15(a) · G17 · G18 · G20 remain unit `f`'s.
 - **It re-opens no election.** ESC-1 is not re-litigated (§4's halt condition), and the §0i.2 glass-**9.0.0** re-trigger stays rowed and routed to its owner.
+
+---
+
+## §10 — DATED ADDENDUM-BESIDE (X realization, 2026-11-05, F-D10 · G20 leg (b)): the last escape CITED
+
+G20 leg (b) at these bytes, ⟨cmd⟩ `node evidence/w1/g20-join.mjs <scratch> .` (operands rebuilt by the
+`G20-CLOSURE.md` recipe; paste bounds `:550`/`:614` unchanged), run twice, outputs identical:
+**1 escape**, `fr-ExportModal R2-1`. The second escape `G20-CLOSURE.md` named (`fr-ContourSettings
+M-4`) no longer reads as one at these bytes (the instrument resolves the bare `M-4` token outside the paste); it is cited below all the same, as `G20-CLOSURE.md` asked.
+
+| row | disposition |
+|---|---|
+| **`fr-ExportModal R2-1`** — **CITED, NOT BOOKED** | The ruling row that sustains `fr-ExportModal K-16` (D-M3's WCAG 2.5.8 headline, killed on the Equivalent and Spacing exceptions). §2·R2a.1 carries its substance at `:361` (*"2.5.8 **headline** is KILLED on two independent grounds"*); this row is the token. No F.W1 obligation: a ruling row, not a defect. |
+| **`fr-ContourSettings M-4`** — **CITED, held F.W3/W4 beside `m-17`** | The literal `h-10` on SelectTrigger that loses the coarse-pointer clamp under glass's last-wins `cn`; its cure is the F.W3/W4 trigger re-seat, and its producer half rides `m-17`'s `cn` group table (§5, BH relay NWO-1). |
+
+After this addendum, leg (b) reads **0 escapes / 330** (receipts under `~/.dev-logs/x-realize-fourier/F-D10/g20/`).

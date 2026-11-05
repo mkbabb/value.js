@@ -416,3 +416,31 @@ src/components/visualization/ContourEditorCanvas.vue(42,9): error TS6133: 'dragg
 - It does **not** claim the three unreadable zero-console gates are green, and it does not claim they are broken. It claims they were **run**, and publishes what the run returned and why.
 - It does **not** re-derive `G-11`, `G-12`, the canonical, the carries or the registry. It quotes them, and where it disagrees it files a dated addendum-beside (**E-3**), never an edit.
 - It does **not** re-cut an atomiser. Steps (i)–(iv) ran as written; the two reading-rule widenings at §2.4 are **declarations of idioms the spec already uses**, published with the literal reading beside them so the widening can be refused.
+
+---
+
+## §10 — DATED ADDENDUM-BESIDE (X realization F-D10, 2026-11-05): G-F4 carry leg (b), census cells, anchors
+
+Read at fourier `master` `e5e34e8`. Nothing above is edited (E-3).
+
+**`G-F4-ANCHORS` — GREEN.** Rows 12–18 of §4 are now in G-11's own bytes, each re-resolved at HEAD
+first: fourier `docs/tranches/F/SUBSTRATE-LEDGER.md`, addendum to §2.1 (commit `e5e34e8`). Two moved:
+`GalleryView.vue` is now under `components/gallery/`, and `AppHeader.vue` (row 18) has left the tree.
+
+**`G-F4-CARRY-CLOSURE` leg (b) — the five named rows, each verified at HEAD or homed.**
+
+| row | at HEAD | disposition |
+|---|---|---|
+| `fr-ConvergenceLegend C-11` (`pointer-events-auto` vestigial) | `components/equation/convergence/ConvergenceLegend.vue:70` still `@apply pointer-events-auto`; the legend is now the plot's own grid cell (UIA-F-205) and no ancestor sets `none` (the only `pointer-events-none` in `components/equation/` are the tooltip and an EquationView overlay, neither an ancestor) | **CURED with F-D2** (the line is deleted in the convergence commit) |
+| `fr-ConvergenceTimeline M-5` (Slider re-render per tick + per-frame canvas reallocation) | `useCanvasSetup.ts:73` reassigns `canvas.width` only on a size change, so the reallocation half is **cured**; `ConvergenceTimeline.vue:99` still binds `:model-value="t"` per tick | **HALF CURED; the magnitude is F-D2's frame reading** (the sweep's rAF deltas at 1440 and 1800, `e2e/fd2-convergence-frames.spec.ts`) |
+| `fr-EquationPanel D-L1` (loading not request-scoped) | `EquationPanel.vue:26` takes `loading` from `useSimplifiedSeries`, whose `loading` clears only `if (gen === generation)` (`useSimplifiedSeries.ts:62`) and aborts in flight on dispose (`:67`) | **CURED** (generation-scoped) |
+| `fr-FullscreenViewer FM-4` (the sole dismiss control is nameless) | `FullscreenViewer.vue:100-123` has no close Button; it names the dialog (`DialogTitle`, `DialogDescription`, `sr-only`) and the exit is the canvas dock's `DockControl :aria-label="… 'Exit fullscreen' …"` (`CanvasControlsDock.vue:136`) | **CURED by deletion** (the nameless control no longer exists) |
+| `fr-VisualizationView L-23` (editor-state shape declared three times) | still three: `ContourEditorCanvas.vue:29` (emit type), `EditorControlsDock.vue:44-47` (props), `VisualizationView.vue:136` (ref) | **HOMED to F-TAIL** (one exported `EditorState` type, three consumers) |
+
+**`G-F4-CENSUS-CELLS` — the two uncorrected cells, corrected here.**
+
+- **Cell 2, `raw-findings.json:2968`** (`docs/audits/runs/2026-06-16-M-deep-audit/`, DOCK-ACTIVE: *"fourier hand-rolls `is-active` at 7 dock sites … NO backing paint in glass"*). **FALSE AT HEAD, as `.c` CCD D-3 found.** ⟨cmd⟩ `grep -c is-active CanvasControlsDock.vue EditorControlsDock.vue` → **0 · 0**; the dock toggles moved to glass's `DockControl` and its pressed state. The 7-site premise is void.
+- **Cell 6, the 2026-06-01 `HLG-8` claim** (*"the number/text inputs in HarmonicLevelGrid do carry `aria-label`"*, citing `:23`, which was the Slider). **The claim was false when made** (`fr-HarmonicLevelGrid.md:54`), and it is **moot at HEAD**: `HarmonicLevelGrid.vue:10-27` now renders two `SliderControl`s, each with a visible `label` and an `aria-label` (`"Low harmonic level"` · `"High harmonic level"`).
+- **Residual register row:** cell 3's clause miss (`lane-frontend.md:617`, corrected at `.e`'s close commit rather than with its cure) stays recorded as a miss; it cannot be cured after the fact.
+
+`G-F4-CENSUS-CELLS` reads **6 of 6 dispositioned** (4 corrected, 1 discharge record, 1 recorded clause miss).
