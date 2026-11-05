@@ -19,7 +19,7 @@ import path from "node:path";
 import { isDeepStrictEqual } from "node:util";
 import { parseCssColor, parseCssValue, parseTimingFunction, serializeCssColor, serializeCssValue } from "../../src/css/index";
 
-export const CASES_FILE = "cases-2026-11-04-c10.json";
+export const CASES_FILE = "cases-2026-11-04-r1.json";
 
 type Case = Readonly<{ module: string; file: string; kind: "valid" | "invalid" | "computed" | "used"; property: string; input: string; expected?: readonly string[]; fold?: "upper" | "lower"; epsilon?: number }>;
 type Ruled = Readonly<{ file: string; kind: string; property: string; input: string; class: string; reason: string; spec: string }>;
@@ -42,8 +42,10 @@ for (const r of ruledFiles) {
     if (!r.reason || !r.spec || !r.class) throw new Error(`HALT: ruled file without class/reason/spec: ${r.file}`);
 }
 const pinned = new Set(Object.keys((JSON.parse(readFileSync(path.join(VALUES, "pins.json"), "utf8")) as { files: Record<string, string> }).files));
-const censusFiles = readdirSync(VALUES).filter((n) => /^census-\d{4}-\d{2}-\d{2}\.json$/.test(n))
-    .flatMap((n) => (JSON.parse(readFileSync(path.join(VALUES, n), "utf8")) as { files: { file: string }[] }).files.map((f) => f.file));
+// A recorder repair re-runs the census on the same pin under a suffixed date (§0ht.1); the census
+// is the union of the files every census lists, each counted once.
+const censusFiles = [...new Set(readdirSync(VALUES).filter((n) => /^census-\d{4}-\d{2}-\d{2}(-[a-z0-9]+)?\.json$/.test(n))
+    .flatMap((n) => (JSON.parse(readFileSync(path.join(VALUES, n), "utf8")) as { files: { file: string }[] }).files.map((f) => f.file)))];
 const ruledFileSet = new Set(ruledFiles.map((r) => r.file));
 const unruledFiles = censusFiles.filter((f) => !pinned.has(f) && !ruledFileSet.has(f));
 const staleFiles = ruledFiles.filter((r) => pinned.has(r.file) || !censusFiles.includes(r.file)).map((r) => r.file);

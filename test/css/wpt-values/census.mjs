@@ -7,7 +7,7 @@
 //   - a CSSOM round-trip file (setProperty → getPropertyValue → assert_equals; `roundtrip.mjs`)
 //     that records ≥ 1 case is vendored + extracted;
 //   - every other file gets a ruled-file row (file, harness, class, reason, spec).
-// Run once per pin move (the checkout is the durable fetch cache, §0eo; never /tmp):
+// Run once per pin move (or per recorder repair, with a suffixed date: `2026-11-04-r1`) (the checkout is the durable fetch cache, §0eo; never /tmp):
 //   node test/css/wpt-values/census.mjs <wpt-checkout-of-WPT_COMMIT> <file-list> [YYYY-MM-DD]
 // <file-list> is the pinned tree's blob paths under the two modules (git tree API at WPT_COMMIT).
 // E-3: existing pins.json entries are never rewritten; new entries are appended.
@@ -78,8 +78,10 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         const calls = harnessOf(text);
         let extract = null;
         if (calls.includes("test_valid_value")) extract = "parsing-testcommon";
-        else if (calls.includes("setProperty/getPropertyValue") && !calls.includes("getComputedStyle")
-            && roundTripCases(text, module, rel).length > 0) extract = "roundtrip";
+        // The recorder reads element.style declarations only (a getComputedStyle read is inert), so a
+        // file that also asserts computed values is extracted iff it records a round-trip case
+        // (§0ht.1: the getComputedStyle exclusion ruled variable-invalidation.html's six away).
+        else if (calls.includes("setProperty/getPropertyValue") && roundTripCases(text, module, rel).length > 0) extract = "roundtrip";
         census.push({ file: rel, sha256: sha256(bytes), harness: calls, extract });
         if (extract) {
             const dest = path.join(HERE, "wpt", rel);

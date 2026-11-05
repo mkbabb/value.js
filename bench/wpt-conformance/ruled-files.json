@@ -1,5 +1,5 @@
 {
-  "about": "X.P.W9 .vc9 — the file-level rulings of the 2026-11-04 census (census-2026-11-04.json): every css-variables-1 / css-syntax-3 file at the pin that V-C does not extract, with the harness it calls and why it carries no specified-value case. A census file that is neither extracted nor ruled fails V-C (UNRULED FILE); a ruled file that is extracted fails it too (STALE FILE).",
+  "about": "X.P.W9 .vc9 — the file-level rulings of the 2026-11-04-r1 census (census-2026-11-04-r1.json): every css-variables-1 / css-syntax-3 file at the pin that V-C does not extract, with the harness it calls and why it carries no specified-value case. A census file that is neither extracted nor ruled fails V-C (UNRULED FILE); a ruled file that is extracted fails it too (STALE FILE).",
   "rows": [
     {
       "file": "css/css-syntax/anb-parsing.html",
@@ -1526,17 +1526,6 @@
       "spec": "https://drafts.csswg.org/css-variables-1/"
     },
     {
-      "file": "css/css-variables/variable-invalidation.html",
-      "harness": [
-        "setProperty/getPropertyValue",
-        "getComputedStyle",
-        "testharness"
-      ],
-      "class": "W9vc-COMPUTED",
-      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
-      "spec": "https://drafts.csswg.org/css-variables-1/"
-    },
-    {
       "file": "css/css-variables/variable-presentation-attribute.html",
       "harness": [
         "setProperty/getPropertyValue",
@@ -1964,16 +1953,6 @@
       "spec": "https://drafts.csswg.org/css-variables-1/"
     },
     {
-      "file": "css/css-variables/variable-reference-cssom.html",
-      "harness": [
-        "setProperty/getPropertyValue",
-        "testharness"
-      ],
-      "class": "W9vc-CSSOM-STRUCTURE",
-      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
-      "spec": "https://drafts.csswg.org/css-variables-1/"
-    },
-    {
       "file": "css/css-variables/variable-reference-name-substitution-attr-taint.html",
       "harness": [
         "setProperty/getPropertyValue",
@@ -2014,16 +1993,6 @@
       ],
       "class": "W9vc-COMPUTED",
       "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
-      "spec": "https://drafts.csswg.org/css-variables-1/"
-    },
-    {
-      "file": "css/css-variables/variable-reference-shorthands-cssom.html",
-      "harness": [
-        "setProperty/getPropertyValue",
-        "testharness"
-      ],
-      "class": "W9vc-CSSOM-STRUCTURE",
-      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
       "spec": "https://drafts.csswg.org/css-variables-1/"
     },
     {

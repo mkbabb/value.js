@@ -9,6 +9,18 @@
 //                                    just before the input (the fallback) → invalid case.
 // Anything else (assert_not_equals, stylesheet-text reads, selectors, DOM) records nothing; a file
 // that records nothing is ruled at file level by the census, never extracted.
+/**
+ * Every inline script of a WPT page: `<script>` and `<script type="text/javascript">` alike (X.P.W9
+ * `.vc9`, repaired at §0ht.1 — the bare-tag pattern skipped attributed inline scripts, so three
+ * css-variables files that carry round-trip cases were ruled as recording none). A `src=` script is
+ * the harness, not the test, and is never run.
+ */
+export function inlineScripts(text) {
+    return [...text.matchAll(/<script(\s[^>]*)?>([\s\S]*?)<\/script>/g)]
+        .filter((m) => !/\bsrc\s*=/.test(m[1] ?? ""))
+        .map((m) => m[2] ?? "");
+}
+
 const inert = new Proxy(function () {}, {
     get: (_t, key) => (key === Symbol.iterator ? function* () {} : key === Symbol.toPrimitive ? () => "" : inert),
     apply: () => inert,
@@ -85,7 +97,6 @@ export function roundTripCases(text, module, rel) {
         has: (target, key) => key in target || !(key in globalThis),
         get: (target, key) => (key === Symbol.unscopables ? undefined : key in target ? target[key] : inert),
     });
-    const scripts = [...text.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1] ?? "");
-    for (const body of scripts) new Function("__scope", `with (__scope) {\n${body}\n}`)(scope);
+    for (const body of inlineScripts(text)) new Function("__scope", `with (__scope) {\n${body}\n}`)(scope);
     return cases;
 }

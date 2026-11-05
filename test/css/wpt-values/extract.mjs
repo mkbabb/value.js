@@ -11,7 +11,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { roundTripCases } from "./roundtrip.mjs";
+import { inlineScripts, roundTripCases } from "./roundtrip.mjs";
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
@@ -29,7 +29,7 @@ export function loadPins() {
 /** X.P.W9 `.vc9`: the census files extracted by the CSSOM round-trip recorder (census-*.json). */
 export function roundTripFiles() {
     const files = new Set();
-    for (const name of readdirSync(HERE).filter((n) => /^census-\d{4}-\d{2}-\d{2}\.json$/.test(n))) {
+    for (const name of readdirSync(HERE).filter((n) => /^census-\d{4}-\d{2}-\d{2}(-[a-z0-9]+)?\.json$/.test(n))) {
         for (const f of JSON.parse(readFileSync(path.join(HERE, name), "utf8")).files) if (f.extract === "roundtrip") files.add(f.file);
     }
     return files;
@@ -74,8 +74,7 @@ export function casesOf(rel, pins = loadPins(), roundTrip = roundTripFiles()) {
         has: (target, key) => key in target || !(key in globalThis),
         get: (target, key) => (key === Symbol.unscopables ? undefined : key in target ? target[key] : inert),
     });
-    const scripts = [...bytes.toString("utf8").matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1] ?? "");
-    for (const body of scripts) new Function("__scope", `with (__scope) {\n${body}\n}`)(scope);
+    for (const body of inlineScripts(bytes.toString("utf8"))) new Function("__scope", `with (__scope) {\n${body}\n}`)(scope);
     return cases;
 }
 

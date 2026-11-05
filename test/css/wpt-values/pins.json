@@ -180,6 +180,9 @@
     "css/css-anchor-position/anchor-parse-valid.html": "e3f03cf9085c2ba16626e970460c0b7c844f75662bbda946dad0eacf85585d7f",
     "css/css-anchor-position/anchor-parse-invalid.html": "97427645812ee7508b6b251eaf86af19b6c30dcdbd4c70c4b78c28d31699ea99",
     "css/css-anchor-position/anchor-size-parse-valid.html": "43759361500d200d2506d290cd8bcf140e87d89ae80d484e34f949f961920f55",
-    "css/css-anchor-position/anchor-size-parse-invalid.html": "8c1409c9909021400784e801d55bb60f1c725990ea401ad17c1f91919af0f5a1"
+    "css/css-anchor-position/anchor-size-parse-invalid.html": "8c1409c9909021400784e801d55bb60f1c725990ea401ad17c1f91919af0f5a1",
+    "css/css-variables/variable-invalidation.html": "06c94de729748abf4335ef111ad6123d572695b146dfc4d16a20ae7a0b34cbd8",
+    "css/css-variables/variable-reference-cssom.html": "a37095cdade1c5652decab53699cdbc5f2c6c3fd0b30c3e817f0ab587e1e147c",
+    "css/css-variables/variable-reference-shorthands-cssom.html": "ba34ab033063fd8ca11418ab92fc862ab1308b5695d1c1aa0a90040b38f9f3e0"
   }
 }
