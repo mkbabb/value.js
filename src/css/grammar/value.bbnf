@@ -166,8 +166,12 @@ selectorNamed    = /(?:entry|exit|cover|contain)(?![\w-])/i , ( sp1 >> percentag
 // ── <easing-function> ─────────────────────────────────────────────────────────────
 timingFunction = sp >> ( cubicBezier | stepsFn | linearFn | timingKeyword ) << sp ;
 timingKeyword  = /(?:linear|ease-in-out|ease-in|ease-out|ease|step-start|step-end)(?![\w(-])/i ;
-cubicBezier    = /cubic-bezier\(\s*/i >> number , comma >> number , comma >> number , comma >> number << close ;
-stepsFn        = /steps\(\s*/i >> number , ( comma >> stepPosition ) ? << close ;
+// Each argument is a `<number>`, `<integer>` or `<percentage>` or a math function of that type
+// (css-easing-2 §2–§4 over css-values-4 §10); a timing argument is always absolute, so the action
+// resolves it at parse, rounding an `<integer>` and clamping its range (§10.9). X.P.W10 `.t10`.
+tArg           = mathFn | number | percentage ;
+cubicBezier    = /cubic-bezier\(\s*/i >> tArg , comma >> tArg , comma >> tArg , comma >> tArg << close ;
+stepsFn        = /steps\(\s*/i >> tArg , ( comma >> stepPosition ) ? << close ;
 stepPosition   = /(?:jump-start|jump-end|jump-none|jump-both|start|end)(?![\w-])/i ;
 linearFn       = /linear\(\s*/i >> linearStop , ( comma >> linearStop ) * << close ;
-linearStop     = number , ( sp1 >> percentage ) ? , ( sp1 >> percentage ) ? ;
+linearStop     = tArg , ( sp1 >> tArg ) ? , ( sp1 >> tArg ) ? ;

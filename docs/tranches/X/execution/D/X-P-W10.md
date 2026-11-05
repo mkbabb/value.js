@@ -73,3 +73,16 @@ These cover the 42 misses `.vc9` measured. No grammar bytes changed in W9.
 - **`.v10`**: `var()` keeps an empty fallback, its name argument is `<declaration-value>`, and the argument may be wrapped in `{}`. 10 rows.
 
 Both are BBNF and serialization cures, so both wait for `.pin` headroom, just as `.t10` does.
+
+## Addendum §0hv.2 (2026-11-05) — the W10 cures, sitting 1 (E-3: the sections above stand as written)
+Seat `claude-opus-5-5`, under COHESION §0hv (DR-c and XP-13 RECOMMENDED arms). Gates per unit: `bench/records/W10/gates.sh` (`--check` ×2, E-6 ×2, self-contained ×2, test/css ×2, MIRROR ×2, V-C ×2, L-G2 ×2 with `delta.mjs` against the W9 `.pin` read, the paired audit, L-G3), run under `guarded`.
+
+### `.t10` (XP-11): math functions in easing arguments
+- **Adopted** an uncommitted working tree an earlier seat left at 03:30 (no live seat held it). Re-read every receipt here; repaired two defects in it: (i) its 8 `W10t-EASING-CANONICAL` rows were keyed `kind: valid`, but the cases are `test_computed_value` (`computed`), so V-C read them 8 STALE + 8 MISS; re-keyed. (ii) its value-list `linear()` check opened 5,837 L-G2 rows and 456 MIRROR-DEFECTS with no class; classed **W10t-LINEAR** (DIVERGENCE-LEDGER §20-T, `w6-classes.ts`).
+- **RED ×2** on a `git archive HEAD` copy (`bench/records/red-before.sh`, outside the repo): `bbnf-easing-math.test.ts` `13 failed | 12 passed (25)` both. **GREEN ×2** `25 passed`.
+- **Gates ×2** (`bench/records/W10t10/gates/`): `--check` 0; self-contained 0/0; test/css 23 files / 336; MIRROR 19/19, MIRROR-DEFECTS 0; L-G2 `identical 3347 · gone 0 · moved 0 · new 5837` (all W10t-LINEAR), `cmp`-identical ×2; audit exit 0; L-G3 0; `tsc -p tsconfig.lib.json`, `vue-tsc -p tsconfig.test.json` and eslint 0.
+- **V-C ×2:** css-easing **MISS 0** (91 cases · 61 pass · 30 ruled). Total 6,226 → **6,201**. New ruled rows (12): `W10t-EASING-CANONICAL` ×8 (css-easing-2 §2.1.1: the computed value is the canonicalized `linear()`; `parseTimingFunction` keeps authored stops, the 4.x contract), `W8g-MATH-SERIALIZATION` ×2 (DR-b), `W8g-PROPERTY-GRAMMAR` ×1 (DR-a: `<easing-function>#`), `W10t-EASING-CONTEXT` ×1 (`em` in `steps()`).
+- **E-6 ×2: grammar.js 83,903 / 15,065 gz — CROSSES the 15,050 ceiling by 15 B** (+23 over `.pin`'s 15,042); color.js 29,586 / 6,028 (unchanged). **ESC-W10-1** (below). Not shaved.
+
+### ESC-W10-1 — the `.pin` ceilings leave W10's grammar 8 B
+W10.md §State: "The headroom W10's grammar needs is the headroom bbnf-lang#2 recovers." W9 §0hv.1 then set the ceilings to the `.pin` measurement rounded up to 50 B (15,050 / 6,050), so the recovered 577 B is no longer available to W10. Every W10 grammar unit therefore crosses. Shape as §0fc: the overage is spec cures, not bloat. **Ask:** rule a W10 ceiling (proposal: the W10 close measurement rounded up to 50 B, capped at the pre-`.pin` 15,650 / 6,150). Until ruled, each unit lands with its delta read and this row open; the 4.3.0 cut waits on it.

@@ -1825,3 +1825,16 @@ Under W8.md ADDENDUM 2026-10-15 (e), §Scope 2 and §Scope 4; COHESION §0fg.1�
 | **consumer direction** | **WIDENS** acceptance for `if()` with `;`-separated branches (restoring the pre-`.semi` reading). **NARROWS** it for an `if()` whose argument is not branches (`if(foo)`, `if(red: a)`, a condition holding a comma or slash, a branch after a `;` that has no `:`), refused `css_syntax` `expected "<if()>"`; no corpus or WPT source holds one (L-G2 `new 0`). CHANGELOG `[Unreleased]` records both. |
 
 Correction 2026-10-15 (X.P.W8.ifsemi, same seat; E-3, beside): in the oracle-rows field above, "the 12 `coerceToSyntax` sections" reads **the 11 `coerceToSyntax` sections** — ⟨`grep '^gone' bench/records/W8ifsemi/delta-1.txt | grep -o '"section":"[^"]*"' | sort -u | wc -l`⟩ → `13` = `parseCssValue` + `parseCssValues` + 11, × 2 sources = 26.
+
+## §20-T — X.P.W10.t10: math functions in easing arguments, resolved at parse; a value list's `linear()` checked (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+Under W10.md `.t10` (XP-11) and COHESION §0hv (DR-a, DR-b keep).
+
+| field | reading |
+|---|---|
+| **class** | **W10t-LINEAR** a value list's `linear()` refused unless it keeps css-easing-2 §3 (`linear( [ <number> && <percentage>{0,2} ]# )`, at least two stops), each argument a literal or a math function of that type; unchecked when the call holds a substitution function (css-variables-1 §3). |
+| **spec** | css-easing-2 §2.1, §3 `cubic-bezier()`, §4 `steps()`; css-values-4 §10.9 (a math function's value is rounded to `<integer>` and range-clamped at computed-value time, never refused at parse; NaN censored to 0). |
+| **cure** | `value.bbnf`: `tArg = mathFn \| number \| percentage` in `cubicBezier`, `stepsFn` and `linearStop`. `value.ts`: the timing actions resolve a math argument of the right type (`steps()` rounds, a tie toward +∞, then clamps to ≥ 1, ≥ 2 for `jump-none`; `cubic-bezier()` x clamps into [0, 1]); a literal out of range stays refused; `keepsLinearSignature` checks `linear()` in `callValue`. |
+| **oracle rows** | 3,347 → 9,184 ×2, `cmp`-identical. Against the W9 `.pin` read (`bench/records/W10/base-w9pin-equiv.json.gz`): `identical 3347 · gone 0 · moved 0 · new 5837`; every new row has a `linear(` source: 449 sources × 13 sections (`parseCssValue`, `parseCssValues`, 11 `coerceToSyntax`). **W10t-LINEAR**. |
+| **value differential** | `w6-classes.ts` gains **W10t-LINEAR** (FALSE_REJECT_IN_SHAPE), ordered after W8semi-SEMI: each `linear()` spelled `red`, the rest must agree, and each call alone, with its other ruled constructs (`;`, an empty comma part) repaired by their own classes' edits, must be refused as `<linear()>`. 456 cells per value entry (449 + 7 that also hold a `;` or `,,`); W8semi-SEMI stays 126. MIRROR-DEFECTS 0 every entry ×2. |
+| **consumer direction** | **WIDENS** `parseTimingFunction` (math arguments). **NARROWS** `parseCssValue` for a malformed `linear()` (`css_syntax` `expected "<linear()>"`). |

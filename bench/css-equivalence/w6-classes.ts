@@ -68,6 +68,7 @@ const COLOUR_HEADS = ["rgb", "rgba", "hsl", "hsla", "hwb", "lab", "lch", "oklab"
 const MATH_HEADS = new Set(["calc", "min", "max", "clamp", "abs", "sign"]);
 const COLOUR5_HEADS = new Set(["color-mix", "light-dark"]);
 const MIX_HEAD = new Set(["color-mix"]);
+const LINEAR_HEAD = new Set(["linear"]);
 
 /** A colour argument that IS one math-function call, as the span it covers. */
 function mathArguments(input: string): Edit[] {
@@ -245,6 +246,25 @@ export const W6_CLASSES: readonly W6Class[] = [
         holds: ({ candidate }) =>
             (candidate.value?.diagnostics ?? []).some((d) => (d as { actual?: unknown }).actual === ";")
                 ? null : "the candidate's refusal does not name a `;`",
+    },
+    {
+        // W10t-LINEAR (X.P.W10 `.t10`; DIVERGENCE-LEDGER §20-T): a value list's `linear()` keeps css-easing-2 §3,
+        // `linear( [ <number> && <percentage>{0,2} ]# )` with at least two stops; the incumbent reads any
+        // `linear(…)` as a generic call. Repair: each `linear()` call spelled `red` — the rest must then agree,
+        // and every call so spelled must be one the candidate refuses ALONE as `<linear()>`.
+        id: "W10t-LINEAR",
+        governs: "FALSE_REJECT_IN_SHAPE",
+        edits: (input) => callSpans(input, LINEAR_HEAD).map((s) => ({ start: s.start, end: s.end, text: "red" })),
+        //  A call that also holds another ruled construct (a `;`, W8semi-SEMI; an empty comma part, ID-2) is
+        //  read alone with those constructs repaired by their own classes' edits: what the candidate then
+        //  refuses must be the `linear()` signature itself.
+        holds: ({ run, input }) => {
+            const calls = callSpans(input, LINEAR_HEAD).map((s) => input.slice(s.start, s.end));
+            const others = (call: string) => { const semi = call.replace(/;/g, " "); return spliceAll(semi, emptyCommaParts(semi)); };
+            const named = (r: CellResult) => (r.value?.diagnostics ?? []).some((d) => (d as { expected?: readonly string[] }).expected?.includes("<linear()>"));
+            return calls.every((call) => { const r = run.candidate(others(call)); return ok(r) || named(r); }) && calls.some((call) => !ok(run.candidate(call)))
+                ? null : "a repaired linear() call is not one the candidate refuses alone as <linear()>";
+        },
     },
     {
         // SC-2 (COHESION §0bx; W6.md `.b`): `display-p3-linear` (css-color-4 §10.5). Repair: the space

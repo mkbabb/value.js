@@ -35082,6 +35082,114 @@
       "class": "W8r1-CSS-VALUES-5",
       "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
       "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-easing/linear-timing-functions-syntax.html",
+      "kind": "valid",
+      "property": "animation-timing-function",
+      "input": "linear(0 calc(50% - 50%), 0 calc(50% + 50%))",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped as authored (a fixpoint, measured); WPT expects the simplified specified value of the math function inside linear() (calc(50% - 50%) as calc(0%), calc(0/0) censored and the stops canonicalized). value.js serializes a math function as authored (DR-b, COHESION §0hv: canonical specified-value serialization is not claimed); the computed form is read by parseTimingFunction and passes.",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization; css-easing-2 §2.1.1"
+    },
+    {
+      "file": "css/css-easing/linear-timing-functions-syntax.html",
+      "kind": "valid",
+      "property": "animation-timing-function",
+      "input": "linear(calc(0/0), 1)",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped as authored (a fixpoint, measured); WPT expects the simplified specified value of the math function inside linear() (calc(50% - 50%) as calc(0%), calc(0/0) censored and the stops canonicalized). value.js serializes a math function as authored (DR-b, COHESION §0hv: canonical specified-value serialization is not claimed); the computed form is read by parseTimingFunction and passes.",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization; css-easing-2 §2.1.1"
+    },
+    {
+      "file": "css/css-easing/timing-functions-syntax-computed.html",
+      "kind": "computed",
+      "property": "animation-timing-function",
+      "input": "linear, ease, linear",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "A comma list of easing functions is animation-timing-function's property grammar (<easing-function>#); parseTimingFunction reads one <easing-function> and is never given the property (DR-a, COHESION §0hv: property-aware grammars are not claimed). Each item parses on its own.",
+      "spec": "css-animations-1 §3.6 animation-timing-function (<easing-function>#); css-easing-2 §2"
+    },
+    {
+      "file": "css/css-easing/timing-functions-syntax-computed.html",
+      "kind": "computed",
+      "property": "animation-timing-function",
+      "input": "steps(calc(2 + sign(100em - 1px)), end)",
+      "class": "W10t-EASING-CONTEXT",
+      "reason": "The step count is calc(2 + sign(100em - 1px)); its sign depends on the element's computed font-size, which a parse has no element to read (css-values-4 §10.7: em resolves at computed-value time). parseTimingFunction resolves only absolute arguments and refuses a context-dependent one rather than guess.",
+      "spec": "css-values-4 §6.1.1 font-relative lengths, §10.7 computed value of a calculation; css-easing-2 §4 steps()"
+    },
+    {
+      "file": "css/css-easing/linear-timing-functions-syntax.html",
+      "kind": "computed",
+      "property": "animation-timing-function",
+      "input": "linear(0, 1)",
+      "class": "W10t-EASING-CANONICAL",
+      "reason": "parseTimingFunction reads the linear() function and keeps its stops as authored, each with zero, one or two inputs (the published 4.x contract, test/parsing/timeline/parsing-easing.test.ts 'keeps authored linear stops structural'); WPT's computed value is the canonicalized function, every stop with one input, missing inputs filled and spread evenly. Canonicalization is the step before evaluation (linearEasing takes resolved stops), not a parse result; the parsed stops evaluate to the same curve.",
+      "spec": "css-easing-2 §2.1.1 (canonicalize a linear() function), §2.1.2 (serialization of the computed value)"
+    },
+    {
+      "file": "css/css-easing/linear-timing-functions-syntax.html",
+      "kind": "computed",
+      "property": "animation-timing-function",
+      "input": "linear(-10, -5, 0, 5, 10)",
+      "class": "W10t-EASING-CANONICAL",
+      "reason": "parseTimingFunction reads the linear() function and keeps its stops as authored, each with zero, one or two inputs (the published 4.x contract, test/parsing/timeline/parsing-easing.test.ts 'keeps authored linear stops structural'); WPT's computed value is the canonicalized function, every stop with one input, missing inputs filled and spread evenly. Canonicalization is the step before evaluation (linearEasing takes resolved stops), not a parse result; the parsed stops evaluate to the same curve.",
+      "spec": "css-easing-2 §2.1.1 (canonicalize a linear() function), §2.1.2 (serialization of the computed value)"
+    },
+    {
+      "file": "css/css-easing/linear-timing-functions-syntax.html",
+      "kind": "computed",
+      "property": "animation-timing-function",
+      "input": "linear(-10 -10%, -5 -5%, 0, 5, 10)",
+      "class": "W10t-EASING-CANONICAL",
+      "reason": "parseTimingFunction reads the linear() function and keeps its stops as authored, each with zero, one or two inputs (the published 4.x contract, test/parsing/timeline/parsing-easing.test.ts 'keeps authored linear stops structural'); WPT's computed value is the canonicalized function, every stop with one input, missing inputs filled and spread evenly. Canonicalization is the step before evaluation (linearEasing takes resolved stops), not a parse result; the parsed stops evaluate to the same curve.",
+      "spec": "css-easing-2 §2.1.1 (canonicalize a linear() function), §2.1.2 (serialization of the computed value)"
+    },
+    {
+      "file": "css/css-easing/linear-timing-functions-syntax.html",
+      "kind": "computed",
+      "property": "animation-timing-function",
+      "input": "linear(0 0% 50%, 1 50% 100%)",
+      "class": "W10t-EASING-CANONICAL",
+      "reason": "parseTimingFunction reads the linear() function and keeps its stops as authored, each with zero, one or two inputs (the published 4.x contract, test/parsing/timeline/parsing-easing.test.ts 'keeps authored linear stops structural'); WPT's computed value is the canonicalized function, every stop with one input, missing inputs filled and spread evenly. Canonicalization is the step before evaluation (linearEasing takes resolved stops), not a parse result; the parsed stops evaluate to the same curve.",
+      "spec": "css-easing-2 §2.1.1 (canonicalize a linear() function), §2.1.2 (serialization of the computed value)"
+    },
+    {
+      "file": "css/css-easing/linear-timing-functions-syntax.html",
+      "kind": "computed",
+      "property": "animation-timing-function",
+      "input": "linear(0, 0.5 25% 75%, 1 100% 100%)",
+      "class": "W10t-EASING-CANONICAL",
+      "reason": "parseTimingFunction reads the linear() function and keeps its stops as authored, each with zero, one or two inputs (the published 4.x contract, test/parsing/timeline/parsing-easing.test.ts 'keeps authored linear stops structural'); WPT's computed value is the canonicalized function, every stop with one input, missing inputs filled and spread evenly. Canonicalization is the step before evaluation (linearEasing takes resolved stops), not a parse result; the parsed stops evaluate to the same curve.",
+      "spec": "css-easing-2 §2.1.1 (canonicalize a linear() function), §2.1.2 (serialization of the computed value)"
+    },
+    {
+      "file": "css/css-easing/linear-timing-functions-syntax.html",
+      "kind": "computed",
+      "property": "animation-timing-function",
+      "input": "linear(0, 1.3, 1, 0.92, 1, 0.99, 1, 0.998, 1 100% 100%)",
+      "class": "W10t-EASING-CANONICAL",
+      "reason": "parseTimingFunction reads the linear() function and keeps its stops as authored, each with zero, one or two inputs (the published 4.x contract, test/parsing/timeline/parsing-easing.test.ts 'keeps authored linear stops structural'); WPT's computed value is the canonicalized function, every stop with one input, missing inputs filled and spread evenly. Canonicalization is the step before evaluation (linearEasing takes resolved stops), not a parse result; the parsed stops evaluate to the same curve.",
+      "spec": "css-easing-2 §2.1.1 (canonicalize a linear() function), §2.1.2 (serialization of the computed value)"
+    },
+    {
+      "file": "css/css-easing/linear-timing-functions-syntax.html",
+      "kind": "computed",
+      "property": "animation-timing-function",
+      "input": "linear(0, 0 40%, 1, 0.5, 1)",
+      "class": "W10t-EASING-CANONICAL",
+      "reason": "parseTimingFunction reads the linear() function and keeps its stops as authored, each with zero, one or two inputs (the published 4.x contract, test/parsing/timeline/parsing-easing.test.ts 'keeps authored linear stops structural'); WPT's computed value is the canonicalized function, every stop with one input, missing inputs filled and spread evenly. Canonicalization is the step before evaluation (linearEasing takes resolved stops), not a parse result; the parsed stops evaluate to the same curve.",
+      "spec": "css-easing-2 §2.1.1 (canonicalize a linear() function), §2.1.2 (serialization of the computed value)"
+    },
+    {
+      "file": "css/css-easing/linear-timing-functions-syntax.html",
+      "kind": "computed",
+      "property": "animation-timing-function",
+      "input": "linear(0, 1.3, 1, 0.92, 1, 0.99, 1, 1.004, 0.998, 1 100% 100%)",
+      "class": "W10t-EASING-CANONICAL",
+      "reason": "parseTimingFunction reads the linear() function and keeps its stops as authored, each with zero, one or two inputs (the published 4.x contract, test/parsing/timeline/parsing-easing.test.ts 'keeps authored linear stops structural'); WPT's computed value is the canonicalized function, every stop with one input, missing inputs filled and spread evenly. Canonicalization is the step before evaluation (linearEasing takes resolved stops), not a parse result; the parsed stops evaluate to the same curve.",
+      "spec": "css-easing-2 §2.1.1 (canonicalize a linear() function), §2.1.2 (serialization of the computed value)"
     }
   ]
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+- **Math functions in easing arguments** (css-easing-2 §2–§4 over css-values-4 §10). `parseTimingFunction` reads `cubic-bezier()`, `steps()` and `linear()` arguments written as `calc()`, `min()`, `max()`, `clamp()` and the other math functions of the right type, and resolves them at parse: `steps(calc(5 / 2), start)` is `steps(3, jump-start)`, `linear(0 calc(50%), 0 100%)` has a stop at 0.5. A math `<integer>` rounds to the nearest integer and clamps into the range `steps()` admits; a math `cubic-bezier()` x clamps into [0, 1]; a NaN is censored to 0. A literal out of range is still refused, and a math argument whose value depends on the element (`em`) is refused. In a value list, `parseCssValue` now refuses a `linear()` call whose stops are not `<number> <percentage>{0,2}` with at least two stops (`linear(0)`, `linear(0% 1 50%)`).
+
 ## [4.2.1] — 2026-11-04
 
 ### Changed

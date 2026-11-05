@@ -11,7 +11,7 @@ import { NAMED_COLORS } from "../named-colors";
 import type { CssLinearStop, CssTimingFunction, JumpPosition, KeyframeSelector, ParseIssue } from "../types";
 import type { ColorNode, MixMethodNode } from "./color";
 import { keywordColor } from "./color";
-import { isCalculation, substitutes } from "./calc";
+import { baseOf, isCalculation, substitutes } from "./calc";
 import { isMixItem, keepsSignature } from "./color5";
 import { keepsImageSignature } from "./image";
 import { keepsPaletteSignature } from "./palette";
@@ -104,7 +104,20 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
     //  `alpha()` and `contrast-color()` keep their css-color-5 signatures (`./color5`; X.P.W8 `.t`).
     //  The css-images-4 image functions keep theirs (`./image`; X.P.W8 `.i`), css-fonts-4 `palette-mix()`
     //  its (`./palette`; X.P.W8 `.f`).
-    return keepsSignature(call) && keepsImageSignature(call) && keepsPaletteSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
+    return keepsSignature(call) && keepsImageSignature(call) && keepsPaletteSignature(call) && keepsLinearSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
+}
+
+/**
+ * css-easing-2 §3 `linear( <linear-stop># )` in a value list: at least two stops, each a `<number>` and then
+ * at most two `<percentage>`s, a literal or a math function of that type (`./calc` `baseOf`). `linear()` names
+ * an easing function wherever it stands; a call holding a substitution function is unchecked (X.P.W10 `.t10`).
+ */
+function keepsLinearSignature(call: CssCall): boolean {
+    if (!/^linear$/i.test(call.name) || substitutes(call)) return true;
+    return call.args.length > 1 && call.args.every((stop) => {
+        const [output, ...inputs] = stop.kind === "list" && stop.separator === "space" ? stop.items : [stop];
+        return output !== undefined && baseOf(output) === "number" && inputs.length < 3 && inputs.every((p) => baseOf(p) === "percent");
+    });
 }
 
 //  A separator is its text, or `undefined` where `termSep` matched empty (`red:` stands against its `:`).
@@ -284,7 +297,16 @@ function namedSelector([rawName, offset]: readonly [string, Numeric | undefined]
 
 export type TimingNode = CssTimingFunction | Refused;
 const timingRefused = Object.freeze(refused("css_syntax", "timing function")); // shared: frozen once
-const numberOf = (q: Numeric | undefined): number | null => (q?.kind === "quantity" && q.type === "number" ? q.value : null);
+/**
+ * A timing argument of `type` (`tArg`: a literal, or a math function of that type — css-easing-2 §2–§4
+ * over css-values-4 §10; X.P.W10 `.t10`), or `null`. A math function's NaN is censored to 0 (§10.9).
+ */
+const ofType = (q: Numeric | undefined, type: "number" | "percentage"): number | null =>
+    q?.kind === "quantity" && q.type === type ? (q.math && Number.isNaN(q.value) ? 0 : q.value) : null;
+const numberOf = (q: Numeric | undefined): number | null => ofType(q, "number");
+/** A math function's value is range-clamped at computed-value time, never refused at parse (§10.9). */
+const clampIf = (q: Numeric | undefined, value: number, lo: number, hi: number): number =>
+    q?.kind === "quantity" && q.math ? Math.min(hi, Math.max(lo, value)) : value;
 
 /**
  * `steps()`' position keywords (css-easing-2 §4), `start`/`end` as their `jump-` spellings, keyed by
@@ -305,14 +327,19 @@ function timingKeyword(token: string): TimingNode {
 }
 
 function cubicBezier(args: readonly [Numeric, Numeric, Numeric, Numeric]): TimingNode {
-    const [x1, y1, x2, y2] = args.map(numberOf);
-    if (x1 == null || y1 == null || x2 == null || y2 == null) return timingRefused;
+    const [a, b, c, d] = args.map(numberOf);
+    if (a == null || b == null || c == null || d == null) return timingRefused;
+    const x1 = clampIf(args[0], a, 0, 1), y1 = b, x2 = clampIf(args[2], c, 0, 1), y2 = d;
     return x1 >= 0 && x1 <= 1 && x2 >= 0 && x2 <= 1 ? Object.freeze({ kind: "cubic-bezier", x1, y1, x2, y2 }) : timingRefused;
 }
 
 function stepsFn([countQ, rawPosition]: readonly [Numeric, string | undefined]): TimingNode {
-    const count = numberOf(countQ);
+    const authored = numberOf(countQ);
     const position = JUMP_ALIASES.get((rawPosition ?? "jump-end").toLowerCase());
+    //  A math function's `<integer>` rounds to the nearest integer, a tie toward +∞, then clamps to the
+    //  range `steps()` admits (css-values-4 §10.9): `steps(calc(5 / 2))` is `steps(3)`.
+    const count = authored !== null && countQ?.kind === "quantity" && countQ.math
+        ? Math.max(position === "jump-none" ? 2 : 1, Math.round(authored)) : authored;
     return count !== null && Number.isInteger(count) && count > 0 && position !== undefined && !(position === "jump-none" && count < 2)
         ? Object.freeze({ kind: "steps", count, position })
         : timingRefused;
@@ -322,9 +349,9 @@ function stepsFn([countQ, rawPosition]: readonly [Numeric, string | undefined]):
 function linearStop([outputQ, ...slots]: readonly [Numeric, Numeric | undefined, Numeric | undefined]): CssLinearStop | Refused {
     const output = numberOf(outputQ);
     if (output === null) return timingRefused;
-    const inputs = slots.filter((q): q is Numeric => q !== undefined);
-    const positions = inputs.map((q) => (q.kind === "quantity" && q.type === "percentage" ? q.value / 100 : NaN));
-    return Object.freeze({ output, input: Object.freeze(positions) as [] | [number] | [number, number] });
+    const positions = slots.filter((q): q is Numeric => q !== undefined).map((q) => ofType(q, "percentage"));
+    if (positions.some((p) => p === null)) return timingRefused;
+    return Object.freeze({ output, input: Object.freeze((positions as number[]).map((p) => p / 100)) as [] | [number] | [number, number] });
 }
 
 function linearFn([first, rest]: readonly [CssLinearStop | Refused, readonly (CssLinearStop | Refused)[]]): TimingNode {

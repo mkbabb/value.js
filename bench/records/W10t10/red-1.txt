@@ -1,0 +1,29 @@
+   × math functions in easing arguments (css-easing-2 over css-values-4 §10) > "linear(0 calc(50%), 0 100%)" resolves at parse 4ms
+   × math functions in easing arguments (css-easing-2 over css-values-4 §10) > "linear(0 calc(min(50%, 60%)), 0 100%)" resolves at parse 0ms
+   × math functions in easing arguments (css-easing-2 over css-values-4 §10) > "linear(calc(0/0), 1)" resolves at parse 0ms
+   × math functions in easing arguments (css-easing-2 over css-values-4 §10) > "steps(calc(5 / 2), start)" resolves at parse 0ms
+   × math functions in easing arguments (css-easing-2 over css-values-4 §10) > "steps(calc(-10), start)" resolves at parse 0ms
+   × math functions in easing arguments (css-easing-2 over css-values-4 §10) > "steps(calc(1), jump-none)" resolves at parse 0ms
+   × math functions in easing arguments (css-easing-2 over css-values-4 §10) > "cubic-bezier(calc(-2), calc(0.7 / 2), calc(1.5), calc(0))" resolves at parse 0ms
+   × a value list checks linear()'s stops > "linear(0)" is refused 3ms
+   × a value list checks linear()'s stops > "linear(100%)" is refused 1ms
+   × a value list checks linear()'s stops > "linear(0% 1 50%)" is refused 1ms
+   × a value list checks linear()'s stops > "linear(0 0% 100%)" is refused 0ms
+   × a value list checks linear()'s stops > "linear(0% 100% 0)" is refused 0ms
+   × a value list checks linear()'s stops > "linear(0 calc(50px - 50%), 0 calc(50em + 50em))" is refused 1ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/css/bbnf-easing-math.test.ts > math functions in easing arguments (css-easing-2 over css-values-4 §10) > "linear(0 calc(50%), 0 100%)" resolves at parse
+ FAIL  test/css/bbnf-easing-math.test.ts > math functions in easing arguments (css-easing-2 over css-values-4 §10) > "linear(0 calc(min(50%, 60%)), 0 100%)" resolves at parse
+ FAIL  test/css/bbnf-easing-math.test.ts > math functions in easing arguments (css-easing-2 over css-values-4 §10) > "linear(calc(0/0), 1)" resolves at parse
+ FAIL  test/css/bbnf-easing-math.test.ts > math functions in easing arguments (css-easing-2 over css-values-4 §10) > "steps(calc(5 / 2), start)" resolves at parse
+ FAIL  test/css/bbnf-easing-math.test.ts > math functions in easing arguments (css-easing-2 over css-values-4 §10) > "steps(calc(-10), start)" resolves at parse
+ FAIL  test/css/bbnf-easing-math.test.ts > math functions in easing arguments (css-easing-2 over css-values-4 §10) > "steps(calc(1), jump-none)" resolves at parse
+ FAIL  test/css/bbnf-easing-math.test.ts > math functions in easing arguments (css-easing-2 over css-values-4 §10) > "cubic-bezier(calc(-2), calc(0.7 / 2), calc(1.5), calc(0))" resolves at parse
+ FAIL  test/css/bbnf-easing-math.test.ts > a value list checks linear()'s stops > "linear(0)" is refused
+ FAIL  test/css/bbnf-easing-math.test.ts > a value list checks linear()'s stops > "linear(100%)" is refused
+ FAIL  test/css/bbnf-easing-math.test.ts > a value list checks linear()'s stops > "linear(0% 1 50%)" is refused
+ FAIL  test/css/bbnf-easing-math.test.ts > a value list checks linear()'s stops > "linear(0 0% 100%)" is refused
+ FAIL  test/css/bbnf-easing-math.test.ts > a value list checks linear()'s stops > "linear(0% 100% 0)" is refused
+ FAIL  test/css/bbnf-easing-math.test.ts > a value list checks linear()'s stops > "linear(0 calc(50px - 50%), 0 calc(50em + 50em))" is refused
+ Test Files  1 failed (1)
+      Tests  13 failed | 12 passed (25)
