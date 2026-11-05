@@ -1,0 +1,51 @@
+{
+ "at": "2026-11-05T18:05:04.234Z",
+ "cells": [
+  {
+   "name": "V-D1 spectrum 844x390",
+   "aspect": 2.058,
+   "w": 359.2,
+   "h": 174.5,
+   "doc": 390,
+   "inner": 390
+  },
+  {
+   "name": "V-D1 spectrum 1280x800",
+   "aspect": 2.181,
+   "w": 593.3,
+   "h": 272,
+   "doc": 825,
+   "inner": 800
+  },
+  {
+   "name": "V-D1 spectrum 1440x900",
+   "aspect": 2.058,
+   "w": 593.3,
+   "h": 288.2,
+   "doc": 900,
+   "inner": 900
+  },
+  {
+   "name": "V-D1 spectrum 390x844",
+   "aspect": 1.936,
+   "w": 326.8,
+   "h": 168.8,
+   "doc": 1438,
+   "inner": 844
+  },
+  {
+   "name": "V-D4 label 1800 dark",
+   "separators": 0,
+   "dl": 3,
+   "bdi": 32,
+   "hoverOnly": 0
+  },
+  {
+   "name": "V-D3 chip 1440",
+   "ratio": 2.618,
+   "surface": true,
+   "adjust": "none",
+   "image": true
+  }
+ ]
+}
