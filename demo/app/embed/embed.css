@@ -1,0 +1,16 @@
+/* The embed ground: transparent, so the slice sits on the host's own ground.
+ * Unlayered, so it outranks foundation's `@layer base` body ground. */
+html,
+body {
+    background: transparent;
+    margin: 0;
+}
+
+#app {
+    container-type: inline-size;
+}
+
+/* A host theme flip crossfades over the same 377 ms as the host's. */
+::view-transition-group(root) {
+    animation-duration: 377ms;
+}

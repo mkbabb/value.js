@@ -59,7 +59,7 @@
         "dev:web-only": "vite --port 9000",
         "build": "vite build --mode production",
         "build:watch": "vite build --mode production --watch",
-        "gh-pages": "vite build --mode gh-pages",
+        "gh-pages": "vite build --mode gh-pages && vite build --mode gh-pages-embed",
         "prepare": "rm -rf dist && npm run build",
         "pretypecheck": "npm run build",
         "typecheck": "vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit && vue-tsc -p tsconfig.test.json --noEmit && tsc -p tsconfig.e2e.json --noEmit",

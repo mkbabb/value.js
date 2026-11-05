@@ -417,6 +417,24 @@ export default defineConfig((mode) => {
             // prerendered HTML and is hydrated in place (scripts/build/prerender-shell.ts).
             plugins: [...defaultPlugins, deferGlassFonts(), prerenderShell()],
         };
+    } else if (mode.mode === "gh-pages-embed") {
+        // The embed entry (demo/app/embed/): one slice of the app for an
+        // allow-listed host, built as its OWN graph into the site's `embed/`
+        // directory after the app's build, so the app's bundle is untouched.
+        // The site's `public/` (fonts, `_headers`) is the app build's to copy.
+        return {
+            ...defaultOptions,
+            base: "./",
+            root: "./demo/app/embed/",
+            publicDir: false,
+            build: {
+                outDir: path.resolve(import.meta.dirname, "./dist/gh-pages/embed"),
+                emptyOutDir: true,
+                minify: true,
+                sourcemap: false,
+            },
+            plugins: [...defaultPlugins, deferGlassFonts()],
+        };
     } else {
         // Dev mode: serve the demo app with HMR
         return {
