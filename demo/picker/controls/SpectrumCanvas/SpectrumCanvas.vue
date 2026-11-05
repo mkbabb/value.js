@@ -1,6 +1,6 @@
 <template>
     <!-- Direct saturation/value field. -->
-    <figure class="spectrum-figure m-0 min-w-0 w-full flex flex-col">
+    <figure class="spectrum-figure m-0 min-w-0 w-full flex flex-col @container">
         <!-- W5-a11y: 2D saturation×lightness picker — not a linear slider,
              so role="img" with a reactive descriptive label, not role="slider". -->
         <div
@@ -8,7 +8,7 @@
             role="img"
             :aria-label="spectrumAriaLabel"
             :class="[
-                'spectrum-picker flex w-full h-[20dvh] min-h-24 max-h-40 lg:max-h-none cursor-crosshair relative touch-gate-target',
+                'spectrum-picker flex w-full cursor-crosshair relative touch-gate-target',
                 spectrumGate.isActive.value && 'touch-gate-active',
             ]"
             :style="spectrumStyle"
@@ -272,18 +272,23 @@ onUnmounted(() => {
      * inline style the prerendered first view would have to guess. */
     touch-action: none;
 }
-/* X·§0hr OD-19 — THE FIELD'S BLOCK SIZE RIDES THE BOUNDED MEASURE.
- * A fixed 14rem under the √φ picker measure (651px stage, 593px field) stood
- * the field at 2.65 : 1, over the ≤ 2.5 bar. The block size is now the pane
- * slot's inline size (`cqi`, the .pane-wrapper container) capped at
- * `--picker-measure`, divided by φ² — the layout scale's two-rung step
- * (--phi-4 / --phi-2) — floored at the old 14rem: at the measure it is
- * 651 / φ² ≈ 249px (593 : 249 ≈ 2.38), and a narrower slot (Library's 1 : 2
- * stage, 450–562px) keeps its 14rem, so only the bounded case moves. */
-@variant lg {
-    .spectrum-picker {
-        block-size: max(14rem, calc(min(var(--picker-measure), 100cqi) / 2.618034));
-    }
+/* X realization V-D1 (OD-19-SPECTRUM, after §0hr `7904869ce`) — THE PLANE'S
+ * SHAPE BELONGS TO THE PICKER MEASURE, NOT TO THE VIEWPORT HEIGHT.
+ * The inline size follows the measure; the block size used to follow `20dvh`
+ * (floored 6rem, capped 10rem) below lg and a measure term at lg — two scales,
+ * so the aspect was whatever they divided to: 3.74 : 1 at 844×390 (20dvh = 78
+ * hits the 6rem floor), 2.38–2.65 : 1 at 1440+. One rule now, no breakpoint:
+ * the figure is the size container (`cqi` = the plane's own inline size), and
+ * the block size is the old 20svh breath held between two ASPECT bounds from
+ * the φ ladder — φ ≤ w/h ≤ φ·√φ ≈ 2.058 (the √φ half-step the OD-19 measure
+ * took). Tokens: `--spectrum-aspect-min/max` (foundation.css, DESIGN §3.1).
+ * The pointer mapping reads the rect, so it is size-agnostic. */
+.spectrum-picker {
+    block-size: clamp(
+        calc(100cqi / var(--spectrum-aspect-max)),
+        20svh,
+        calc(100cqi / var(--spectrum-aspect-min))
+    );
 }
 @media (pointer: coarse) {
     .spectrum-picker:not(.touch-gate-active) {

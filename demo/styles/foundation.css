@@ -596,6 +596,10 @@
      * (Z-chassis-3 / Z-LG-3 in e2e/smoke/ss8-z1-app-chassis.spec.ts read the
      * picker routes against the measure accordingly). */
     --picker-measure: calc(var(--card-measure) * 1.272);
+    /* X realization V-D1: the spectrum plane's aspect bounds (DESIGN §3.1).
+     * φ ≤ w/h ≤ φ·√φ — the plane is never a strip and never a square. */
+    --spectrum-aspect-min: 1.618034;
+    --spectrum-aspect-max: 2.058171;
     --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
