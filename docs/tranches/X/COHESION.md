@@ -5892,3 +5892,38 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
     - **(6) bands:** GREEN ×2. Every band paints its row's css; the five near-black rows are unchanged data, still for the owner.
     - **(5) OD-12 light teal:** still honest-RED on glass O-130 (2): dEdom 0.0574 / 0.0570 (×2), hue 1.1–1.3°, every other seed ≤ 0.0471. Unchanged from §0hr.3; the gate is not loosened.
     - **OD-19:** 844×390 is 359×175 = 2.058, ×2. At 1440/1512/1800/2560, picker and mix are 593×288 = 2.058 and palettes is 2.058. At 3440 every route is 593×367 = 1.618. All 60 lg cells sit in [φ, φ√φ], ×2. 1280×800 is the OD-19 lane's (its §0hw.14 books V-D1.r2 OPEN there), and is not read here.
+- **§0hs.3 (2026-11-05): the adversarial check of the fourier execution (X·F, §0hy) — repairs.** Shipped to fourier master at **`c6afb46`** (§0ga merge-tree, PR #6 CI `42065878547` GREEN 5/5; master CI **`42074881128`** GREEN; deploy-pages, deploy-trigger and deploy-alert passed). Prod was re-read ×2: `fourier.babb.dev` `/`, `/equation` and `/morph` at 390 and 1440, light and dark. All 24 readings show 0 overflow, 0 CSP violations and 0 console errors, and the theme follows the scheme. Six frames were Read in each pass. Every falsifier below is RED ×2 before its cure and GREEN ×2 after.
+  - **F-D1, the record names its CI run — CURED, fourier `2afb801`.** On the jq-less host, the `sed` fallback now folds GitHub's pretty-printed answer onto one line before matching. A covered SHA whose answer names no run is now REFUSED instead of being recorded as `"unknown"`. The falsifier is `deploy-alert-fixture.sh` P/Q, run on GitHub's saved answer for `4ec3eed` (`tests/fixtures/gh-ci-runs-4ec3eed.json`). Before the cure, the no-jq leg returned `run=unknown` and a no-run answer was accepted. After it, both legs return `42040354998` and the no-run answer is refused.
+    - Prod: the merge deploy at `c6afb46` was run by the old hook and still read `"unknown"`, because the host invokes the hook it has before it fetches. The re-run deploy-trigger `42081219156` then ran the new hook, and the record reads **`"ci_run_id":"42074881128"`** (`api.fourier.babb.dev/deploy-record.json`, 18:11:26Z, OK). The record now names its CI run.
+  - **UIA-F-15 — ROOT FOUND AND CURED, fourier `1d74c26`.** The leave dialog's Save awaited `saveContourPoints`, which awaited the whole post-save recompute (epicycles and bases). Edit mode therefore stayed open for as long as compute/bases ran. The panel then swapped, and the Harmonics field remounted at its default 200, so a Backspace typed meanwhile was lost. A cached bases answer on the last retry explains why it passed only on retry #2.
+    - Cure: the save resolves when the contour is saved, and the recompute runs on inside its own `computing` brackets.
+    - Deterministic falsifier: the new f-w14-uia case, with compute/bases held. RED ×2 (the editor shell was not inert within 5 s) → GREEN ×2.
+    - UIA-F-15 itself and `save_contour_then_recompute` are GREEN ×2. vue-tsc rc 0 ×2, vitest 118/118 ×2.
+  - **D-21 oracle — TIGHTENED, fourier `5621f8f`.** The plate is now bound to `card − measured border − 0.5`. Mutant: 1 px of padding makes the plate 354 = card − 4. The old oracle accepted it; the tightened one rejects it, RED ×2. On the tree it is GREEN ×2, and prod measures the plate at 356 = 358 − 2 × 1 px.
+  - **R-k4.**
+    - **Bound:** the design said "retry once", but the app's protocol is `MAX_RATE_LIMIT_RETRIES = 2` (`web/src/lib/api.ts`). prod-verify now reads that bound from the app's own source and fails closed if the app stops stating it (fourier `0196f27`). Behaviour is unchanged, and the design's "once" is read against the app's contract.
+    - **Second RED:** the pre-cure script ran as a back-to-back pair on prod. `before-d` read **`RED upload daraksha.jpg {"status":429}`**, so the predecessor's spend gave a false RED. That makes RED ×2 together with the realization seat's `before-b`.
+    - **Unrelated reading:** `before-c` read one unrelated `upright 404`, recorded and not chased.
+    - **Probe residue:** the pair added 2 more probe rows on prod. R-k3 (the owner ask to hard-delete the tombstones) still governs them.
+  - **F-T1 — EXECUTED, fourier `82c5901`.** Three holds now have RED tests in `producer-held.json`:
+    - **LAYER-HEADER-LABEL** (O-77a): Image, Basis, Contour and Coefficients carry `text-overflow: ellipsis`.
+    - **GLASS-VEIL-GREY** (O-62): the light veil ink measures L 0.280.
+    - **DOCK-SCROLL-MORPH** (O-55 R-2): the `/paper` rim sits outside the app dock.
+    - Each is RED ×2 with its token on 10.1.3. The honest-red project with the reporter runs 10 held rows, all failing on their tokens, and the run passes rc 0 ×2.
+    - **Not carried, with reasons:**
+      - O-82 POPOVER-ANCHOR and O-86 TIMELINE-TRANSPORT ask for a published prop or part, which no served page can show before a consumer uses it. The repin reads the `.d.ts`.
+      - O-85 is already met by fourier's `< sm` split: f-w14v-au2 L2-15 is GREEN, so no RED can be written without removing it.
+      - L2-18ˢ/L3-14 (O-74a E-2) is a coarse-pointer type model, and the honest-red cell excludes `@coarse`.
+      - O-63 is a routed bundle of 74 rows.
+      - O-66 and O-67 are value.js and keyframes rows, with no fourier surface.
+      - O-65's two fourier sites keep their existing readings in f-w14u-d and f-w14v-pd.
+  - **F-T4 — EXECUTED, fourier `c048390`.** The 47 `web/e2e/screenshots/f-w14/after-*` captures that every default run rewrites leave the index. They were Read as contact sheets and archived in `~/.dev-logs/x-repair-fourier/F-T4/committed`. Before: the control-row run left 15 modified PNGs ×2. After: status shows only the deletions ×2. The primary checkout's 15 modified PNGs are another seat's tree, so it is not touched here.
+  - **F-T8 — EXECUTED, value `113f3d671`.** It adds the F-W10 §4b F.W7 row, the SEAMS.md SS-4 reciprocal and the API-row §6 in the cosign letter. F-W7 §13.6's own probe plus two exact-string probes read rc 1/1/1 → 0/0/0, ×2.
+  - **F-T9 — EXECUTED, value `681fa8270`.** VO-1 was already met by X-W3's release-hash `_id`, and the bare `findByHash` is retired. VO-2 is the two-histories test. Under a mutant where `_id = payloadHash`, palette B's revision vanishes, RED ×2. At HEAD it is GREEN ×2: the palette suite runs 21 files and 155 tests, and tsc rc 0. §D's "retire E1" ask is moot.
+  - **F-T7 remainder, L-23 — CURED, fourier `a3b4b62`:** one `EditorState` type replaces the three declarations. F-W4-CLOSURE had homed it to F-TAIL.
+  - **STILL OPEN; this seat does not claim them:**
+    - **F-T5:** the SS-13 probe sweep.
+    - **F-T6:** the records re-read, which re-runs each gate's command ×2.
+    - **F-T7:** classifying all 543 rows at bytes. The leg (a) re-measure ×2 found every id-bearing head homed. The heads that bear no id are matched only by the official G20 and G-F4-CARRY-CLOSURE transcripts, so this seat publishes no cured-at-bytes classification.
+    - Each needs a heavy seat. The guard's heavy queue stood 11 deep through this session. §0hy's **"F-TAIL GREEN" is therefore read as F-TAIL PARTIAL** until these three close.
+  - **Push held (value.js):** another seat's CI is in progress on `tranche-u`, so `681fa8270`, `113f3d671` and this line ride the next idle-CI push, by ordinary fetch and merge.
