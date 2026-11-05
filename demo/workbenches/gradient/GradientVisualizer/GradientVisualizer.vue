@@ -26,7 +26,7 @@ import GradientEasingEditor from "./GradientEasingEditor.vue";
 import { useGradientModel } from "../composables/useGradientModel";
 import type { GradientType } from "../model/types";
 import InterpolationFields from "../../../shared/ui/InterpolationFields.vue";
-import { LIBRARY_PORT_KEY } from "../../../palettes/usePalettePorts";
+import { LIBRARY_PORT_KEY } from "../../../palettes";
 import type { AcceptableValue } from "reka-ui";
 import { usePanePopups } from "../../../shell/usePanePopups";
 

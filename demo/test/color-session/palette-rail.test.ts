@@ -7,12 +7,12 @@ import { paletteRail } from "../../color-session/palette-rail";
 
 describe("paletteRail", () => {
     it("gives each colour an equal band with hard (two-position) stops", () => {
-        expect(paletteRail(["red", "blue"])).toBe("linear-gradient(to right, red 0% 50%, blue 50% 100%)");
+        expect(paletteRail(["red", "blue"])).toBe("linear-gradient(90deg, red 0% 50%, blue 50% 100%)");
     });
 
     it("opens each band exactly where the last closed, so no pixel is interpolated", () => {
-        const stops = paletteRail(["a", "b", "c", "d", "e", "f", "g"])
-            .replace(/^linear-gradient\(to right, |\)$/g, "")
+        const stops = paletteRail(["red", "orange", "yellow", "green", "blue", "indigo", "violet"])
+            .replace(/^linear-gradient\(90deg, |\)$/g, "")
             .split(", ")
             .map((s) => s.split(" "));
         expect(stops).toHaveLength(7);
@@ -22,6 +22,6 @@ describe("paletteRail", () => {
     });
 
     it("paints a single colour across the whole rail", () => {
-        expect(paletteRail(["red"])).toBe("linear-gradient(to right, red 0% 100%)");
+        expect(paletteRail(["red"])).toBe("linear-gradient(90deg, red 0% 100%)");
     });
 });

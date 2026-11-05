@@ -9,7 +9,7 @@ import {
     DropdownMenuSeparator, DropdownMenuLabel,
 } from "@mkbabb/glass-ui/menu";
 import { DockTrigger } from "@mkbabb/glass-ui/dock";
-import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
+import { SESSION_PORT_KEY } from "../../../palettes";
 import { useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
 import { DOCK_MENU_SIDE_OFFSET } from "./dockMenuOffset";
 

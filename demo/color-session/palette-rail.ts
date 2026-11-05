@@ -16,14 +16,18 @@
  * `var(--muted)` (a colour the capsule actually shows).
  */
 
+import { stopsToGradient } from "../shared/ui/color-chips/sample";
+
 /** One band's edge as a CSS percentage, exact to 4 decimals. */
 function edge(i: number, n: number): string {
     return `${Number(((i / n) * 100).toFixed(4))}%`;
 }
 
-/** A hard-stop `linear-gradient`: one equal band per colour. `colors` must be non-empty. */
+/** A hard-stop `linear-gradient`: one equal band per colour. `colors` must be
+ *  non-empty. Composed by the chip module's one serializer (V-D3 · BC-R-18);
+ *  a single band is its own gradient (minStops 1). */
 export function paletteRail(colors: readonly string[]): string {
     const n = colors.length;
     const bands = colors.map((css, i) => `${css} ${edge(i, n)} ${edge(i + 1, n)}`);
-    return `linear-gradient(to right, ${bands.join(", ")})`;
+    return stopsToGradient(bands, { minStops: 1 }) ?? "none";
 }

@@ -13,25 +13,29 @@
  * Static paint — no motion, PRM-neutral.
  */
 import { computed } from "vue";
-import { stampStops } from "./sample";
+import { stampStops, stopsToGradient } from "./sample";
 
 const { stops } = defineProps<{
     /** Serialized ramp stops (the sampler's own output — never re-derived). */
     stops: readonly string[];
 }>();
 
-const gradient = computed(
-    () => `linear-gradient(90deg, ${stops.join(", ")})`,
-);
+// BC-R-18: the one serializer; BC-R-26: unpaintable stops dropped, and an
+// absent ramp stamps `data-absent` and shows the well (honest absence).
+const gradient = computed(() => stopsToGradient(stops));
+// BC-R-16: the stamp is computed once per stops change, not per render.
+const stamped = computed(() => stampStops(stops));
 </script>
 
 <template>
     <span
         v-if="stops.length >= 2"
         class="preview-chip"
+        data-color-surface
         aria-hidden="true"
-        :data-stops="stampStops(stops)"
-        :style="{ backgroundImage: gradient }"
+        :data-stops="stamped"
+        :data-absent="gradient ? undefined : ''"
+        :style="gradient ? { backgroundImage: gradient } : undefined"
     ></span>
 </template>
 

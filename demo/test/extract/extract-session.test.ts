@@ -164,7 +164,7 @@ describe("extract session", () => {
         expect(colors).toHaveLength(3);
         // one equal band per returned colour; each band opens where the last closed
         expect(get().kSliderGradient.value).toBe(
-            `linear-gradient(to right, ${colors[0]} 0% 33.3333%, ${colors[1]} 33.3333% 66.6667%, ${colors[2]} 66.6667% 100%)`,
+            `linear-gradient(90deg, ${colors[0]} 0% 33.3333%, ${colors[1]} 33.3333% 66.6667%, ${colors[2]} 66.6667% 100%)`,
         );
     });
     it("§0gt.5 (PCS-3/PCS-11): the extracted palette carries 0-based ordinal positions and its population weights", async () => {

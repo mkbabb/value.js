@@ -31,6 +31,34 @@ import tsPlugin from "@typescript-eslint/eslint-plugin";
 import vue from "eslint-plugin-vue";
 import vueParser from "vue-eslint-parser";
 
+// G-6 (X.W8.b): the deleted demo/ui shadcn barrels (see the demo object below).
+const DEMO_UI_BARRELS = [
+    "**/ui/alert",
+    "**/ui/avatar",
+    "**/ui/badge",
+    "**/ui/button",
+    "**/ui/card",
+    "**/ui/checkbox",
+    "**/ui/collapsible",
+    "**/ui/dialog",
+    "**/ui/dropdown-menu",
+    "**/ui/input",
+    "**/ui/label",
+    "**/ui/popover",
+    "**/ui/radio-group",
+    "**/ui/select",
+    "**/ui/separator",
+    "**/ui/skeleton",
+    "**/ui/slider",
+    "**/ui/switch",
+    "**/ui/tooltip",
+];
+const DEMO_UI_BARREL_RULE = {
+    group: DEMO_UI_BARRELS,
+    message:
+        "G-6 (X.W8.b): the demo/ui shadcn barrels are deleted — import the real owner, the narrowest @mkbabb/glass-ui subpath.",
+};
+
 export default [
     {
         ignores: [
@@ -270,29 +298,37 @@ export default [
                 {
                     patterns: [
                         {
-                            group: [
-                                "**/ui/alert",
-                                "**/ui/avatar",
-                                "**/ui/badge",
-                                "**/ui/button",
-                                "**/ui/card",
-                                "**/ui/checkbox",
-                                "**/ui/collapsible",
-                                "**/ui/dialog",
-                                "**/ui/dropdown-menu",
-                                "**/ui/input",
-                                "**/ui/label",
-                                "**/ui/popover",
-                                "**/ui/radio-group",
-                                "**/ui/select",
-                                "**/ui/separator",
-                                "**/ui/skeleton",
-                                "**/ui/slider",
-                                "**/ui/switch",
-                                "**/ui/tooltip",
-                            ],
+                            group: DEMO_UI_BARRELS,
                             message:
                                 "G-6 (X.W8.b): the demo/ui shadcn barrels are deleted — import the real owner, the narrowest @mkbabb/glass-ui subpath.",
+                        },
+                    ],
+                },
+            ],
+        },
+    },
+    {
+        // X realization V-D5 · BC-PCS-9 — THE PALETTES AREA HAS ONE SEAM.
+        // Outside `demo/palettes/` (and its tests), a static import reaches the
+        // area only through `demo/palettes/index.ts`. A pane or component SFC
+        // is reached by its own path, so its chunk stays lazy (`import()` is
+        // never restricted). Flat config resolves `no-restricted-imports` by
+        // last match wins, so this object restates the G-6 barrel ban. The
+        // domain types (`palettes/types`) are a leaf a presentational primitive
+        // may read without reaching the area's ports.
+        files: ["demo/**/*.ts", "demo/**/*.vue"],
+        ignores: ["demo/palettes/**", "demo/test/**"],
+        rules: {
+            "no-restricted-imports": [
+                "error",
+                {
+                    patterns: [
+                        DEMO_UI_BARREL_RULE,
+                        {
+                            // Any `…/palettes/<deep>` specifier except the two seams and SFCs.
+                            regex: "(^|/)palettes/(?!export$|types$).+(?<!\\.vue)$",
+                            message:
+                                "V-D5 (BC-PCS-9): import the palettes area through its seam, `demo/palettes` (index.ts), the serializer seam `demo/palettes/export`, or the domain types `demo/palettes/types`; a component SFC by its own path.",
                         },
                     ],
                 },

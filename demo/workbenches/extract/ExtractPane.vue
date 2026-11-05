@@ -18,7 +18,7 @@
 import { inject } from "vue";
 import ExtractWorkbench from "./ExtractWorkbench.vue";
 import PaneShell from "../../shell/PaneShell.vue";
-import { COLOR_TARGET_PORT_KEY } from "../../palettes/usePalettePorts";
+import { COLOR_TARGET_PORT_KEY } from "../../palettes";
 import type { SpaceId } from "@mkbabb/value.js/color";
 
 type DisplayColorSpace = SpaceId | "hex";

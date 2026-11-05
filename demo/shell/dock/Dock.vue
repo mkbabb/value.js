@@ -18,7 +18,7 @@ import DockViewSelect from "./DockViewSelect.vue";
 import ApiStatusChip from "../../shared/ui/api-status/ApiStatusChip.vue";
 import { useMediaQuery, useMutationObserver } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../useViewManager";
-import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
+import { SESSION_PORT_KEY } from "../../palettes";
 import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { usePopupMutex } from "../../shared/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";

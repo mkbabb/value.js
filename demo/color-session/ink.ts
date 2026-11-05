@@ -1,4 +1,5 @@
 import {
+    contrastInk,
     contrastRatio,
     convertColor,
     mapColorToGamut,
@@ -9,6 +10,8 @@ import {
     serializeCssColor,
     xyz,
     type Color,
+    type ColorIssue,
+    type Result,
 } from "@mkbabb/value.js/color";
 
 /**
@@ -773,34 +776,30 @@ export function certifyInkOnFill(
 }
 
 /**
- * Choose the WCAG-maximal neutral endpoint for a concrete opaque fill.
+ * The neutral ink for a concrete fill, as the library's Result (X realization
+ * V-D4.2 · BC-CNL-4): `contrastInk` (`@mkbabb/value.js/color`) maps the fill
+ * into sRGB and chooses the WCAG-maximal endpoint at the text floor, then the
+ * graphics floor, then any. It REFUSES a translucent fill (no single ground)
+ * and a non-colour; the caller renders that refusal, never `"" → inherit`.
  *
- * SS8-0257b (C-2): TOTAL over opaque fills. The walk used to test the RAW
- * fill, and a fill outside sRGB (oklch(0.4 0.5 30)) has no in-gamut
- * luminance, so neither endpoint certified and the chip rendered with no
- * `color:` at all: 151 of 13,332 cells, L 0.40-0.82 at C >= 0.30. The fill is
- * now mapped into the gamut a screen paints first; there, one of black or
- * white always clears 4.58:1, so the 4.5:1 floor holds. The descending floors
- * after it return the higher-contrast endpoint rather than nothing. Null
- * remains only for a non-colour or a translucent fill, which has no single
- * ground to certify against.
+ * SS8-0257b (C-2) holds: over opaque fills the walk is total (one of black or
+ * white always clears 4.58:1 on an in-gamut fill).
  */
-export function contrastInkFor(fillCss: string): string | null {
+export function contrastInkResult(fillCss: string): Result<string, ColorIssue> {
     const parsed = parseOklch(fillCss);
-    if (!parsed || parsed.alpha !== 1) return null;
-    const mapped = mapColorToGamut(parsed, "srgb");
-    if (!mapped.ok) return null;
-    const fill = mapped.value;
-    const L = lightness(fill);
-    const endpoints = L >= 0.5 ? [0, 1] as const : [1, 0] as const;
-    for (const minimumRatio of [TEXT_CONTRAST_FLOOR, GRAPHICS_CONTRAST_FLOOR, 1]) {
-        for (const endpoint of endpoints) {
-            const ink = surfaceColor(endpoint);
-            const result = safeAccentColor(ink, fill, { minimumRatio, gamut: "srgb" });
-            if (result.ok && Math.abs(lightness(result.value) - endpoint) < 1e-9) {
-                return endpoint === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
-            }
-        }
-    }
-    return endpoints[0] === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
+    if (!parsed) return { ok: false, error: { code: "color_invalid_input" } };
+    const ink = contrastInk(parsed, {
+        floors: [TEXT_CONTRAST_FLOOR, GRAPHICS_CONTRAST_FLOOR, 1],
+        gamut: "srgb",
+    });
+    if (!ink.ok) return ink;
+    return { ok: true, value: ink.value.channels[0] === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)" };
+}
+
+/** The ink, or null where `contrastInkResult` refuses (a translucent fill or a
+ *  non-colour). Callers with an honest fallback read this; a node that must
+ *  show the refusal reads `contrastInkResult`. */
+export function contrastInkFor(fillCss: string): string | null {
+    const r = contrastInkResult(fillCss);
+    return r.ok ? r.value : null;
 }

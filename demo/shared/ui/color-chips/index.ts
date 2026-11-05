@@ -7,11 +7,16 @@
  *   - STRIP  (discrete)   — generate preset/harmony + AuroraPane harmony;
  *   - RAMP   (continuous) — gradient/mix space + hue-method rows.
  *
- * CONSUME MAP (the W6 single-writer law): Lane D wires MixConfigBar +
- * AuroraPane; the GenerateControls consume routes through Lane N's queue
- * and the GradientVisualizer consume through Lane G's queue (Lane D
- * authors the module + spec — `docs/tranches/T/audit/w6-lane-d-record.md`
- * §T-17 carries the handoff spec).
+ * CONSUME MAP (read from the tree, X realization V-D3 · BC-R-22): the RAMP's
+ * consumer is `InterpolationFields.vue` (the gradient and mix Space / Hue
+ * rows; MixConfigBar seats it); the STRIP's are `GenerateControls.vue`
+ * (preset + harmony rows) and `AuroraPane.vue` (admin harmony). The
+ * GradientVisualizer consume was NEVER wired, and X-W6 recorded why: the
+ * visualizer shows the real gradient, so a ramp there is redundant.
+ *
+ * `data-stops` (BC-R-24) is the O-14 public test contract on a data surface:
+ * every chip stamps its stop list there, and the e2e reads it. It is a
+ * named contract (demo/DESIGN.md §4.2), not scaffolding.
  *
  * THE RESTRAINT TABLE (F7 — which dropdowns get NO previews): the dock
  * view-select (T-10 governs it); gradient TYPE (geometry); mix
@@ -29,4 +34,5 @@ export {
     sampleInterpolationRamp,
     serializeStop,
     stampStops,
+    stopsToGradient,
 } from "./sample";

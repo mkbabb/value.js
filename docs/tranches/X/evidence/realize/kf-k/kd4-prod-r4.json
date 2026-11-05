@@ -1,0 +1,51 @@
+{
+ "base": "https://keyframes.babb.dev/",
+ "at": "2026-11-05T07:36:11.991Z",
+ "fails": [
+  "cube@390x844: dt p95 25 ms",
+  "cube@390x844: a frame of 34.2 ms",
+  "spring@390x844: a frame of 33.2 ms"
+ ],
+ "cells": [
+  {
+   "id": "cube@390x844",
+   "opened": true,
+   "frames": 276,
+   "p50": 9.5,
+   "p95": 25,
+   "max": 34.2,
+   "cls": 0,
+   "rectDelta": 0
+  },
+  {
+   "id": "spring@390x844",
+   "opened": true,
+   "frames": 355,
+   "p50": 8.3,
+   "p95": 16.7,
+   "max": 33.2,
+   "cls": 0,
+   "rectDelta": 0
+  },
+  {
+   "id": "cube@844x390",
+   "opened": true,
+   "frames": 372,
+   "p50": 8.3,
+   "p95": 9.9,
+   "max": 26.1,
+   "cls": 0,
+   "rectDelta": 0
+  },
+  {
+   "id": "spring@844x390",
+   "opened": true,
+   "frames": 370,
+   "p50": 8.3,
+   "p95": 9.9,
+   "max": 16.8,
+   "cls": 0,
+   "rectDelta": 0
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+ok   leg1: @mkbabb/value.js@4.2.0 · exports [./color, ./value, ./css, ./easing, ./math, ./transform, ./quantize] · ./color=35 ./value=1 ./css=20 ./easing=17
+info leg2: timingFunctions absent; easing(name) present
+ok   leg3: no curve drift over 22 names (worst max|Δ| = 4.563e-6)
+GREEN @ 4.2.0

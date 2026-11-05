@@ -11,7 +11,7 @@ import type { AnyColor, HueInterpolationMethod } from "@mkbabb/value.js/color";
 import { colorToCss, parseColorIn } from "../../color-session/color-utils";
 import { mixIn } from "../../color-session/sampling";
 import type { PickerColorIn, PickerSpace } from "../../color-session/picker-color";
-import type { Palette, PaletteColor } from "../../palettes/types";
+import type { Palette, PaletteColor } from "../../palettes";
 
 export type LeftoverStrategy = "distribute" | "repeat" | "discard";
 

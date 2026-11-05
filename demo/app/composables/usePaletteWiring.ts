@@ -22,7 +22,7 @@ import type { ColorPicker } from "../../picker";
 import type { ViewManager } from "../../shell/useViewManager";
 import { parsePickerColor, serializePickerColor } from "../../color-session/picker-color";
 import { debounce } from "../../shared/debounce";
-import { providePalettePorts, type PalettePorts } from "../../palettes/usePalettePorts";
+import { providePalettePorts, type PalettePorts } from "../../palettes";
 
 // MT-REGISTER C-2 ≡ D-1 (X realization §0hw.2): a palette → picker intent waits
 // on the picker REF, not on a clock. The S.W2 poll (40 × 50 ms, then give up)

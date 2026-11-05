@@ -401,6 +401,50 @@ function roundHalfEven(value: number): number {
 }
 
 /**
+ * The WCAG-maximal neutral ink (black or white) for an opaque fill, as a Result.
+ *
+ * The fill is mapped into `gamut` first (a fill outside it has no in-gamut
+ * luminance), then the two endpoints are tried pole-first (black on a light
+ * fill, white on a dark one) at each floor in `floors`, in order; the first
+ * endpoint that clears a floor, with its lightness unmoved, is the ink.
+ *
+ * Refusals (never `null`, never a silent inherit):
+ * - `contrast_translucent`: the fill's alpha is not 1, so there is no single
+ *   ground to certify against;
+ * - `contrast_unreachable`: neither endpoint clears the last floor;
+ * - the conversion's own issue when the fill cannot be mapped.
+ */
+export function contrastInk(
+    fill: AnyColor,
+    options: { readonly floors?: readonly number[]; readonly gamut?: RgbGamut } = {},
+): Result<Color<"oklch">, ColorIssue> {
+    const floors = options.floors ?? [4.5];
+    const gamut = options.gamut ?? "srgb";
+    if (fill.alpha === "none") return err({ code: "color_missing_alpha" });
+    if (fill.alpha !== 1) return err({ code: "contrast_translucent" });
+    if (!floors.length || !floors.every((f) => Number.isFinite(f) && f >= 1)) {
+        return err({ code: "color_out_of_range" });
+    }
+    const asOklch = convertColor(fill, "oklch");
+    if (!asOklch.ok) return asOklch;
+    const mapped = mapColorToGamut(asOklch.value, gamut);
+    if (!mapped.ok) return mapped;
+    const L = mapped.value.channels[0];
+    if (L === "none") return err({ code: "color_missing_channel" });
+    const endpoints = L >= 0.5 ? ([0, 1] as const) : ([1, 0] as const);
+    for (const minimumRatio of floors) {
+        for (const endpoint of endpoints) {
+            const ink = makeColor("oklch", [endpoint, 0, 0], 1);
+            if (!ink.ok) return ink;
+            const result = safeAccentColor(ink.value, mapped.value, { minimumRatio, gamut });
+            const resultL = result.ok ? result.value.channels[0] : "none";
+            if (result.ok && resultL !== "none" && Math.abs(resultL - endpoint) < 1e-9) return ink;
+        }
+    }
+    return err({ code: "contrast_unreachable" });
+}
+
+/**
  * SCI-1 — the perceptual ramp, owned here instead of by every consumer.
  *
  * keyframes' densify re-implements exactly this loop at

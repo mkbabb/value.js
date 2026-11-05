@@ -3,7 +3,9 @@
  * ruled module-local: imported by PreviewRamp and PreviewStrip, never re-minted
  * per SFC). Every chip-family cure lands here.
  *
- * PROPORTION (F7): 1em tall, one golden plate wide (φ² ≈ 2.618rem), `radius-sm`.
+ * PROPORTION (F7): one golden plate of its OWN em — 1em tall, φ² wide by
+ * `aspect-ratio` (BC-R-4), so the plate keeps φ² at any menu font size; a
+ * root-em width drifted off φ² wherever the chip's font was not 16px.
  *
  * THE SPECIMEN WELL (PS-2, W6·453): the specimen sits on its own opaque stage,
  * the menu's own material made opaque (`--popover`), with a 1px gutter of the
@@ -19,8 +21,8 @@
     display: inline-flex;
     flex: none;
     box-sizing: border-box;
-    inline-size: 2.618rem; /* one golden plate — φ² × 1em (F7) */
     block-size: 1em;
+    aspect-ratio: 2.618; /* one golden plate — φ² × the chip's own em (F7) */
     border: 1px solid var(--popover);
     border-radius: var(--radius-sm);
     background-color: var(--popover);

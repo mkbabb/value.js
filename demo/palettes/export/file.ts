@@ -22,7 +22,12 @@ export type ExportFileResult =
     | { readonly ok: true; readonly file: ExportFile }
     | { readonly ok: false; readonly failureCode: "serializer_contract" };
 
-function bytesFor(snapshot: ExportSnapshot, format: ExportFormat): Uint8Array | null {
+/** Export options the serializers read (V-D5 · BC-PCS-31: the SVG strip's direction). */
+export interface ExportFileOptions {
+    readonly direction?: "ltr" | "rtl";
+}
+
+function bytesFor(snapshot: ExportSnapshot, format: ExportFormat, options: ExportFileOptions): Uint8Array | null {
     switch (format) {
         case "json":
             return serializeJson(snapshot);
@@ -31,7 +36,7 @@ function bytesFor(snapshot: ExportSnapshot, format: ExportFormat): Uint8Array | 
         case "tailwind":
             return serializeTailwind(snapshot);
         case "svg":
-            return serializeSvg(snapshot);
+            return serializeSvg(snapshot, options.direction ? { direction: options.direction } : {});
         case "png": {
             const png = serializePng(snapshot);
             return png.ok ? png.bytes : null;
@@ -39,8 +44,12 @@ function bytesFor(snapshot: ExportSnapshot, format: ExportFormat): Uint8Array | 
     }
 }
 
-export function exportFile(snapshot: ExportSnapshot, format: ExportFormat): ExportFileResult {
-    const bytes = bytesFor(snapshot, format);
+export function exportFile(
+    snapshot: ExportSnapshot,
+    format: ExportFormat,
+    options: ExportFileOptions = {},
+): ExportFileResult {
+    const bytes = bytesFor(snapshot, format, options);
     if (bytes === null) return { ok: false, failureCode: "serializer_contract" };
     return {
         ok: true,

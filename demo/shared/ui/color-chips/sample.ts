@@ -24,6 +24,7 @@
  * can produce; a raw `hsv(…)`/`xyz(…)` string is not a CSS color).
  */
 
+import { parseCssColor } from "@mkbabb/value.js/color";
 import type { AnyColor, HueInterpolationMethod } from "@mkbabb/value.js/color";
 import { colorToCss, parseColorIn } from "../../../color-session/color-utils";
 import type { PickerSpace } from "../../../color-session/picker-color";
@@ -32,9 +33,43 @@ import { segmentSampler } from "../../../color-session/sampling";
 /** k — the F6 sample count (≈16): smooth to the eye, sub-ms to compute. */
 export const RAMP_SAMPLE_COUNT = 16;
 
-/** Serialize one sampled stop as paintable OKLCh (alpha only when < 1). */
+/** Serialize one sampled stop as paintable OKLCh (alpha only when < 1 —
+ *  `colorToCss` already omits an opaque alpha, so no strip is needed). */
 export function serializeStop(stop: AnyColor): string {
-    return colorToCss(stop, "oklch").replace(/ \/ 1\)$/, ")");
+    return colorToCss(stop, "oklch");
+}
+
+/** A stop's colour, with its trailing `<length-percentage>` positions removed. */
+function stopColour(stop: string): string {
+    return stop.trim().replace(/(\s+-?[\d.]+%)+$/, "");
+}
+
+/** A stop is paintable when its colour parses as one whole CSS `<color>`. */
+function paintable(stop: string): boolean {
+    return parseCssColor(stopColour(stop)).ok;
+}
+
+/**
+ * THE ONE GRADIENT SERIALIZER (X realization V-D3 · BC-R-18/19). Every
+ * horizontal ramp in the demo — the preview ramp, the component-slider
+ * tracks, the palette rails, the mix result strip — composes its
+ * `linear-gradient` here, in one notation: `90deg`, stops as given (each
+ * site's stops are already the paint: library-sampled OKLCh, or hard
+ * two-position bands). No `in <space>` clause is added: a clause would
+ * change the paint of stops whose default interpolation the sites rely on.
+ *
+ * TOTALITY (BC-R-26): unpaintable stops are dropped before composing, so
+ * one bad stop never nulls the whole `background-image`. Fewer than
+ * `minStops` paintable stops → `null`, the honest absence the host paints
+ * as its well.
+ */
+export function stopsToGradient(
+    stops: readonly string[],
+    { direction = "90deg", minStops = 2 }: { direction?: string; minStops?: number } = {},
+): string | null {
+    const kept = stops.filter(paintable);
+    if (kept.length < minStops) return null;
+    return `linear-gradient(${direction}, ${kept.join(", ")})`;
 }
 
 /**
@@ -50,8 +85,10 @@ export function sampleInterpolationRamp(
     operandsCss: readonly string[],
     space: PickerSpace,
     hueMethod: HueInterpolationMethod,
-    k: number = RAMP_SAMPLE_COUNT,
+    kIn: number = RAMP_SAMPLE_COUNT,
 ): string[] | null {
+    // BC-R-15: the domain guard — a non-finite or sub-2 k is the default count.
+    const k = Number.isFinite(kIn) ? Math.max(2, Math.floor(kIn)) : RAMP_SAMPLE_COUNT;
     if (operandsCss.length < 2) return null;
     const operands: AnyColor[] = [];
     for (const css of operandsCss) {

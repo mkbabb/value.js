@@ -33,7 +33,7 @@ export function useSpectrumPlateStyle(opts: {
         return {
             background: `
         linear-gradient(to top, #000, transparent),
-        linear-gradient(to right, #fff, hsl(${hue}deg, 100%, 50%))
+        linear-gradient(90deg, #fff, hsl(${hue}deg, 100%, 50%))
       `,
             "--spectrum-shadow": shadowStr,
             // X.W11.p3b (COHESION §0gl.12): `touch-action` is NOT computed

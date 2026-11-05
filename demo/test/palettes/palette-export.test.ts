@@ -8,7 +8,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { Palette } from "../../palettes/types";
-import { usePaletteExport } from "../../palettes/usePaletteExport";
+import { usePaletteExport } from "../../palettes/export/usePaletteExport";
 
 const decoder = new TextDecoder();
 

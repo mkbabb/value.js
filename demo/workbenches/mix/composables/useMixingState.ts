@@ -17,7 +17,7 @@
 
 import { ref, computed } from "vue";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
-import type { Palette, PaletteColor } from "../../../palettes/types";
+import type { Palette, PaletteColor } from "../../../palettes";
 import { mixColorSequence, mixPalettes, type LeftoverStrategy } from "../mix";
 import { colorToCss, parseColorIn } from "../../../color-session/color-utils";
 import type { PickerSpace } from "../../../color-session/picker-color";

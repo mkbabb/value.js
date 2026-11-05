@@ -9,14 +9,23 @@ import { utf8 } from "./bytes";
 import { canonicalColor, xmlEscape } from "./canonical";
 import type { ExportSnapshot } from "./types";
 
-export function serializeSvg(snapshot: ExportSnapshot): Uint8Array {
+/** The inline direction the strip reads in (V-D5 · BC-PCS-31). Document
+ *  order of the `<rect>`s is the palette order in both; under `rtl` the
+ *  first colour sits at the inline start, the right edge. `ltr` (the
+ *  default) is byte-identical to the W51 contract. */
+export interface SvgOptions {
+    readonly direction?: "ltr" | "rtl";
+}
+
+export function serializeSvg(snapshot: ExportSnapshot, { direction = "ltr" }: SvgOptions = {}): Uint8Array {
     const n = snapshot.orderedNamedColors.length;
     let out =
         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${n} 1" width="1200" height="240" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">\n` +
         `  <title id="title">${xmlEscape(snapshot.displayName)}</title>\n` +
         `  <desc id="desc">${n}-color palette</desc>\n`;
     snapshot.orderedNamedColors.forEach((color, i) => {
-        out += `  <rect x="${i}" y="0" width="1" height="1" fill="${xmlEscape(canonicalColor(color))}"/>\n`;
+        const x = direction === "rtl" ? n - 1 - i : i;
+        out += `  <rect x="${x}" y="0" width="1" height="1" fill="${xmlEscape(canonicalColor(color))}"/>\n`;
     });
     out += "</svg>\n";
     return utf8(out);

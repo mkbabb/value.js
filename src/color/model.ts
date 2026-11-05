@@ -34,6 +34,7 @@ export type ColorIssue = Readonly<{ code:
     | "color_missing_alpha"
     | "color_progress_out_of_range"
     | "contrast_unreachable"
+    | "contrast_translucent"
 }>;
 export type Color<S extends SpaceId> = Readonly<{
     space: S;
