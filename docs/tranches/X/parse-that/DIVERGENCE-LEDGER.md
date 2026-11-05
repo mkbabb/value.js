@@ -1849,3 +1849,13 @@ Under W10.md `.t10` (XP-11) and COHESION §0hv (DR-a, DR-b keep).
 | **value differential** | `w6-classes.ts` gains **W10m-SPACE** (governs DIVERGENT_VALUE): each such `color()` spelled `red`, the rest must agree, and each call read alone must convert (`convertColor(…, "xyz")`) to the incumbent's `xyz` colour within 1e-12, alpha equal. MIRROR-DEFECTS 0. |
 | **oracle rows** | 9,184 → 9,210: `new 26` against `.t10`, every one a `color(xyz-d50 …)` / `color(display-p3-linear …)` source (4 sources × the colour/value entries, 1 × 10 `coerceToSyntax` sections). **W10m-SPACE**. |
 | **consumer direction** | **WIDENS** (a `none` channel in either space parses; `SpaceId` gains two members). **CHANGES** the answered space for these two `color()` spaces (`xyz` → as authored). An exhaustive `Record<SpaceId, …>` in a consumer needs two entries. |
+
+## §20-S — X.P.W10.s10: `<urange>` spelled canonically and read through comments (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **cure** | `value.bbnf` `identTerm`'s `<urange>` alternative admits comments between `u`, `+` and the digits; `value.ts` `urangeValue` drops them, counts one to six digits a side and answers the CSSOM spelling. Supersedes §19-F's "kept as authored" (`bbnf-fonts.test.ts` assertions updated, commented). |
+| **spec** | css-syntax-3 §4 (a comment is no token), §7.1 `<urange>`; CSSOM serialization of a `<urange>`. |
+| **oracle rows / differential** | L-G2 `new 0` against `.m10` (no oracle source holds a `<urange>` the two arms read apart). MIRROR-DEFECTS 0, no class. |
+| **ruled** | 4 `urange-parsing.html` invalid cases (`u + abc`, `U + a b c`, `u/**/0`, `u-0-1`) are valid generic value lists: **W8g-PROPERTY-GRAMMAR** (DR-a). |
+| **consumer direction** | **CHANGES** the keyword text of a `<urange>` (canonical, not as authored); **WIDENS** to comments inside one. |

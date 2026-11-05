@@ -92,3 +92,8 @@ W10.md §State: "The headroom W10's grammar needs is the headroom bbnf-lang#2 re
 - **RED ×2** on `git archive 7114406a1`: `bbnf-color-space-members.test.ts` `8 failed | 1 passed (9)` both. **GREEN ×2** `9 passed`.
 - **V-C ×2:** 6,201 → **6,131** (−70). The 8 W8t-COLOR-SPACE-NONE rows and 28 W8t-COLOR-SERIALIZATION rows read STALE (passing) and are deleted (ruled rows 3,910 → 3,874). css-color MISS 3,769 → 3,699.
 - **Gates ×2** (`bench/records/W10m10/gates/`): `--check` 0; E-6 grammar.js 83,903 / 15,065 (unchanged from `.t10`; ESC-W10-1 stands), color.js 29,586 / 6,028 (unchanged: the cure is in actions, not the emitted module); test/css 24 files / 345; MIRROR 19/19 with **W10m-SPACE** (DIVERGENT_VALUE) — MIRROR-DEFECTS 0; L-G2 `new 26` against `.t10`, all W10m-SPACE (`new 5863` against `.pin` = 5837 + 26); audit 0; L-G3 0. Full unit suite 149 files / 1,735 ×1; `typecheck` (lib, demo, test, e2e) 0 after `npm run build`; eslint 0.
+
+### `.s10` (the 32 `<urange>` misses)
+- **Cure:** DIVERGENCE-LEDGER §20-S. **RED ×2** on `git archive c0ca1bb5d`: `bbnf-urange-serialize.test.ts` `17 failed | 8 passed (25)` both. **GREEN ×2** (with `bbnf-fonts.test.ts`) `33 passed`.
+- **V-C ×2:** css-syntax **MISS 0** (101 · 97 pass · 4 ruled W8g-PROPERTY-GRAMMAR, DR-a). Total 6,131 → **6,099**.
+- **Gates ×2** (`bench/records/W10s10/gates/`): `--check` 0; E-6 grammar.js **83,976 / 15,072** (+7 B gz; ESC-W10-1), color.js 29,586 / 6,028; test/css 25 files / 370; MIRROR 0 defects; L-G2 `new 0` beyond `.m10`; audit 0; L-G3 0.

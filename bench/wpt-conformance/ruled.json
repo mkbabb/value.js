@@ -34866,6 +34866,42 @@
       "class": "W10t-EASING-CANONICAL",
       "reason": "parseTimingFunction reads the linear() function and keeps its stops as authored, each with zero, one or two inputs (the published 4.x contract, test/parsing/timeline/parsing-easing.test.ts 'keeps authored linear stops structural'); WPT's computed value is the canonicalized function, every stop with one input, missing inputs filled and spread evenly. Canonicalization is the step before evaluation (linearEasing takes resolved stops), not a parse result; the parsed stops evaluate to the same curve.",
       "spec": "css-easing-2 §2.1.1 (canonicalize a linear() function), §2.1.2 (serialization of the computed value)"
+    },
+    {
+      "file": "css/css-syntax/urange-parsing.html",
+      "kind": "invalid",
+      "property": "unicode-range",
+      "input": "u + abc",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "Not a <urange> (css-syntax-3 §7.1 needs `u` then `+` with no whitespace, and digits or `?` after it), but a valid generic component-value list (an identifier, an operator or number, identifiers) that parseCssValue reads property-agnostically (DR-a, COHESION §0hv: property-aware grammars are not claimed). It is invalid only as unicode-range's <urange>#, which parseCssValue is never told.",
+      "spec": "css-syntax-3 §7.1 <urange>; css-fonts-4 §4.5 unicode-range (<urange>#); COHESION §0hv DR-a"
+    },
+    {
+      "file": "css/css-syntax/urange-parsing.html",
+      "kind": "invalid",
+      "property": "unicode-range",
+      "input": "U + a b c",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "Not a <urange> (css-syntax-3 §7.1 needs `u` then `+` with no whitespace, and digits or `?` after it), but a valid generic component-value list (an identifier, an operator or number, identifiers) that parseCssValue reads property-agnostically (DR-a, COHESION §0hv: property-aware grammars are not claimed). It is invalid only as unicode-range's <urange>#, which parseCssValue is never told.",
+      "spec": "css-syntax-3 §7.1 <urange>; css-fonts-4 §4.5 unicode-range (<urange>#); COHESION §0hv DR-a"
+    },
+    {
+      "file": "css/css-syntax/urange-parsing.html",
+      "kind": "invalid",
+      "property": "unicode-range",
+      "input": "u/**/0",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "Not a <urange> (css-syntax-3 §7.1 needs `u` then `+` with no whitespace, and digits or `?` after it), but a valid generic component-value list (an identifier, an operator or number, identifiers) that parseCssValue reads property-agnostically (DR-a, COHESION §0hv: property-aware grammars are not claimed). It is invalid only as unicode-range's <urange>#, which parseCssValue is never told.",
+      "spec": "css-syntax-3 §7.1 <urange>; css-fonts-4 §4.5 unicode-range (<urange>#); COHESION §0hv DR-a"
+    },
+    {
+      "file": "css/css-syntax/urange-parsing.html",
+      "kind": "invalid",
+      "property": "unicode-range",
+      "input": "u-0-1",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "Not a <urange> (css-syntax-3 §7.1 needs `u` then `+` with no whitespace, and digits or `?` after it), but a valid generic component-value list (an identifier, an operator or number, identifiers) that parseCssValue reads property-agnostically (DR-a, COHESION §0hv: property-aware grammars are not claimed). It is invalid only as unicode-range's <urange>#, which parseCssValue is never told.",
+      "spec": "css-syntax-3 §7.1 <urange>; css-fonts-4 §4.5 unicode-range (<urange>#); COHESION §0hv DR-a"
     }
   ]
 }

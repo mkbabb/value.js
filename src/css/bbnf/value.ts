@@ -250,16 +250,19 @@ const lineNamesValue = (token: string): CssScalar => {
 
 /**
  * A `<urange>` (css-syntax-3 §7.1; css-fonts-4 §4.5 `unicode-range`), read by `value.bbnf` `identTerm`'s
- * first alternative: the token as authored (`U+0025-00FF`). Refused when a `?` wildcard is not trailing
- * or stands in a range's start, or when the start exceeds the end or the end exceeds U+10FFFF (a `?`
- * reads `0` in the start, `F` in the end). X.P.W8 `.f`.
+ * first alternative, its comments dropped (css-syntax-3 §4). Refused unless each side holds one to six
+ * digits, a `?` wildcard trails and never stands in a range, and start ≤ end ≤ U+10FFFF (a `?` reads `0`
+ * in the start, `F` in the end). Spelled as CSSOM serializes a `<urange>`: `U+`, upper-case hex without
+ * leading zeros, and `-end` when the end differs (`u+0a??` → `U+A00-AFF`). X.P.W8 `.f`; X.P.W10 `.s10`.
  */
 function urangeValue(token: string): ValueNode {
-    const [lo, hi] = token.slice(2).split("-") as [string, string?];
+    const [lo, hi] = token.replace(/\/\*[\s\S]*?\*\//g, "").slice(2).split("-") as [string, string?];
     const start = parseInt(lo.replace(/\?/g, "0"), 16);
     const end = parseInt((hi ?? lo).replace(/\?/g, "F"), 16);
-    return /^[\da-f]*\?*$/i.test(lo) && !(hi && lo.includes("?")) && start <= end && end <= 0x10ffff
-        ? keyword(token)
+    const hex = (n: number) => n.toString(16).toUpperCase();
+    return /^[\da-f]{0,6}$/i.test(lo.replace(/\?+$/, "")) && lo.length <= 6 && (hi === undefined || /^[\da-f]{1,6}$/i.test(hi))
+        && !(hi && lo.includes("?")) && start <= end && end <= 0x10ffff
+        ? keyword(`U+${hex(start)}${end === start ? "" : `-${hex(end)}`}`)
         : refused("css_syntax", "<urange>");
 }
 
@@ -371,7 +374,7 @@ export const valueActions = {
     numeric: { kind: "groups", fn: numericScalar },
     string: { kind: "map", fn: keyword },
     operator: { kind: "map", fn: keyword },
-    identTerm: { kind: "map", fn: (token: string) => (/^u\+/i.test(token) ? urangeValue(token) : identScalar(token, keywordColor)) },
+    identTerm: { kind: "map", fn: (token: string) => (/^u(?:\/\*[\s\S]*?\*\/)*\+/i.test(token) ? urangeValue(token) : identScalar(token, keywordColor)) },
     colorCall: { kind: "map", fn: colorScalar },
     //  `color-mix()` / `light-dark()` stand in a scalar position as colours (their node, unwrapped).
     scalarTerm: { kind: "map", fn: (v: ValueNode | ColorNode) =>

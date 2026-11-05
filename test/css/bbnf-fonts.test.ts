@@ -35,18 +35,20 @@ const palettes = (kind: string) =>
     corpus.filter((c) => /\/palette-mix-/.test(c.file) && c.kind === kind).map((c) => c.input);
 
 describe("X.P.W8 .f — css-syntax-3 §7.1 <urange> (css-fonts-4 unicode-range)", () => {
-    it("reads a range, a single code point and a wildcard, kept as authored (named miss 4)", () => {
-        expect(roundTrip("U+0025-00FF").text).toBe("U+0025-00FF");
-        expect(roundTrip("u+0025-00ff").text).toBe("u+0025-00ff");
+    //  X.P.W10 `.s10`: a <urange> is spelled as CSSOM serializes it (upper-case, no leading zeros, `?`
+    //  expanded), no longer as authored; WPT urange-parsing.html expects exactly these.
+    it("reads a range, a single code point and a wildcard, spelled canonically (named miss 4)", () => {
+        expect(roundTrip("U+0025-00FF").text).toBe("U+25-FF");
+        expect(roundTrip("u+0025-00ff").text).toBe("U+25-FF");
         expect(roundTrip("U+26").text).toBe("U+26");
-        expect(roundTrip("U+4??").text).toBe("U+4??");
-        expect(roundTrip("U+?").text).toBe("U+?");
+        expect(roundTrip("U+4??").text).toBe("U+400-4FF");
+        expect(roundTrip("U+?").text).toBe("U+0-F");
         expect(roundTrip("U+0-10FFFF").text).toBe("U+0-10FFFF");
-        expect(roundTrip("U+10????").text).toBe("U+10????");
-        expect(roundTrip("U+0-7F, U+0590-05FF, U+4??").text).toBe("U+0-7F, U+0590-05FF, U+4??");
+        expect(roundTrip("U+10????").text).toBe("U+100000-10FFFF");
+        expect(roundTrip("U+0-7F, U+0590-05FF, U+4??").text).toBe("U+0-7F, U+590-5FF, U+400-4FF");
     });
-    it("is a keyword whose text is the token", () => {
-        expect(roundTrip("U+0025-00FF").value).toEqual({ kind: "scalar", payload: { type: "keyword", value: "U+0025-00FF" } });
+    it("is a keyword whose text is the canonical range", () => {
+        expect(roundTrip("U+0025-00FF").value).toEqual({ kind: "scalar", payload: { type: "keyword", value: "U+25-FF" } });
     });
     it("refuses malformed ranges", () => {
         for (const bad of ["U+", "U+1234567", "U+???????", "U+4?5", "U+4?-5", "U+12-", "U+-12", "U+12g", "U+1-1234567", "U+0025-00FF-", "U+0025--00FF"]) refused(bad);

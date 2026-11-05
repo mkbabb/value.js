@@ -1,0 +1,37 @@
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u+a?" → "U+A0-AF" 5ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u+a????" → "U+A0000-AFFFF" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u+0a" → "U+A" 1ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u+00000a" → "U+A" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u+0a????" → "U+A0000-AFFFF" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u+000000" → "U+0" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u+0?????" → "U+0-FFFFF" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u+0-0a" → "U+0-A" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u+000000-000001" → "U+0-1" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u+?" → "U+0-F" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+/**/a/**/?" → "U+A0-AF" 1ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+0a/**/?" → "U+A0-AF" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+0/**/?" → "U+0-F" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+0/**/-0a" → "U+0-A" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+0/**/-1" → "U+0-1" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+/**/?" → "U+0-F" 0ms
+   × <urange> canonical serialization (css-syntax-3 §7.1) > "u/**/+/**/1234567" stays refused 1ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u+a?" → "U+A0-AF"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u+a????" → "U+A0000-AFFFF"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u+0a" → "U+A"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u+00000a" → "U+A"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u+0a????" → "U+A0000-AFFFF"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u+000000" → "U+0"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u+0?????" → "U+0-FFFFF"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u+0-0a" → "U+0-A"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u+000000-000001" → "U+0-1"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u+?" → "U+0-F"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+/**/a/**/?" → "U+A0-AF"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+0a/**/?" → "U+A0-AF"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+0/**/?" → "U+0-F"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+0/**/-0a" → "U+0-A"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+0/**/-1" → "U+0-1"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > reads through comments: "u/**/+/**/?" → "U+0-F"
+ FAIL  test/css/bbnf-urange-serialize.test.ts > <urange> canonical serialization (css-syntax-3 §7.1) > "u/**/+/**/1234567" stays refused
+ Test Files  1 failed (1)
+      Tests  17 failed | 8 passed (25)
