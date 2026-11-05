@@ -16,7 +16,9 @@
 
 ## 0 · What the served app shows (read 2026-11-04 19:5x, prod `index-B3dwCeez.js`, master `0a2c35d74`)
 
-**Probes.** One guarded headless Chromium per run, one context per cell, closed in `finally`: `value-design-frames/frames.mjs` and `spectrum.mjs` (durable copies in `~/.dev-logs/x-design/`). There were 18 cells (picker at 390×844 / 430×932 / 844×390 / 1440×900 / 1800×1000; palettes and about at 390 and 1440; light and dark), with **0 page errors** and **0 horizontal overflow** (`scrollWidth == innerWidth` in every cell). The frames Read are banked in `docs/tranches/X/realization/value-design-frames/`.
+**Probes.** One guarded headless Chromium per run, one context per cell, closed in `finally`: `value-design-frames/frames.mjs` and `spectrum.mjs` (durable copies in `~/.dev-logs/x-design/`). There were 18 cells (picker at 390×844 / 430×932 / 844×390 / 1440×900 / 1800×1000; palettes and `/#/about` at 390 and 1440; light and dark), with **0 page errors** and **0 horizontal overflow** (`scrollWidth == innerWidth` in every cell). The frames Read are banked in `docs/tranches/X/realization/value-design-frames/`.
+
+`/#/about` is not a route. Its cells render the app's honest Not-found card ("This address names no view of this app.", with a link back to the picker), which is correct behaviour and has no row. The About surface is the inspector beside the picker, so its readings come from the picker frames.
 
 | Reading | Value | Verdict |
 |---|---|---|
