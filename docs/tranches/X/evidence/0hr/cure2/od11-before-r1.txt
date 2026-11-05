@@ -1,0 +1,5 @@
+{"vp":"1800x1000","scheme":"dark","present":true,"invalid":true,"visibleAll":false,"hits":[false,false,false],"helpOpen":true,"validAfterEdit":true,"ok":false}
+{"vp":"1800x1000","scheme":"light","present":true,"invalid":true,"visibleAll":false,"hits":[false,false,false],"helpOpen":true,"validAfterEdit":true,"ok":false}
+{"vp":"390x844","scheme":"dark","present":true,"invalid":true,"visibleAll":false,"hits":[false,false,false],"helpOpen":true,"validAfterEdit":true,"ok":false}
+{"vp":"390x844","scheme":"light","present":true,"invalid":true,"visibleAll":false,"hits":[false,false,false],"helpOpen":true,"validAfterEdit":true,"ok":false}
+OD11 RED
