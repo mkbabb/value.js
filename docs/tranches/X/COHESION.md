@@ -5856,3 +5856,6 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **The 66 css-color misses** (24 trig relative colours and others) go to the lockstep programme's consumers lane.
   - **`.rd`** keeps waiting for a quiet window.
 - **The xp-w9-w10-continue workflow is DONE.** bbnf-lang 0.3.0 and value.js 4.2.1 are on npm, both with SLSA provenance; parse-that and bbnf-lang now have their own publish workflows.
+
+### §0hx.12 — the sk-v27 lockstep programme plan, pointer (2026-11-05)
+- The plan of record for the §0hx owner order is in bbnf-lang, branch `sk-v27`: `restart/skinny/tranches/sk-v27/PLAN.md` and `LEDGER.md`. It has seven waves (LW1..LW7) across the TOPO, COMP, PERF, RX, PP, CON and USE lanes. Each wave ends at a lockstep gate: the cross-repo build, TS↔Rust parity, the consumer gates (V-C, MIRROR, E-6, kf, fourier), the benefit table and the competition re-read. Releases cascade bbnf-lang → parse-that → value.js → keyframes.js. LW1 (truth seal and custody) starts now; LW2 onward waits on owner rulings X-1..X-5 and X-7. The parse-that pointer is `docs/tranches/SK-V27.md` on branch `sk-v27`. This line touches no value.js source.
