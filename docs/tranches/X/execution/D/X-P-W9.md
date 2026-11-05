@@ -120,3 +120,9 @@ Seat `claude-opus-5-5`, under the §0hv rulings.
   - Tag `v4.2.1` → release run **41992815582: success**. npm `latest` = **4.2.1**, gitHead `594f423b5`, integrity `sha512-SNGjPbjQ…JsFdSg==`, with predicateType `https://slsa.dev/provenance/v1`. `npm audit signatures`: verified attestations.
   - master ci 41992804627 was started on `594f423b5`.
 - Still open: `.rd` (it waits for a real quiet window). The W10 units now have their headroom: grammar.js 8 B and color.js 22 B under the new ceilings.
+
+## Addendum §0hz (2026-11-05) — the W9 close reading (E-3: the sections above stand as written)
+- `.rel` arm A and `.pin`: re-read. npm provenance holds for value.js 4.2.1 and bbnf-lang 0.3.0 (SLSA v1, `npm audit signatures` verified); `NPM_TOKEN` present on mkbabb/bbnf-lang and mkbabb/parse-that. The `.pin` measurement (15,042 / 6,028) stands; W10 measured over it (X-P-W10 §0hz).
+- `.o104`: retried. ListAgents shows no parse-that, bbnf-lang or latex-paper session (live: glass-ui-c7, sci-report ×3, csc411, hassio-config, gaggle-24). **UNREACHABLE**, third attempt.
+- `.rd`: no quiet window (1-minute load 13–19 throughout). It waits, as §0hv rules.
+- **W9 verdict:** every unit DONE except `.rd` (waits on a window) and `.o104` (no addressee alive). ESC-W9-1 is carried by W10's V-C (66).

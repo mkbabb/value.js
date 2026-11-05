@@ -5830,3 +5830,21 @@ r2-mob OD-12-light 390x844 gate={"worstDEdom":0.057,"worstDEarea":0.0753,"worstH
   - **F-D2 is owner-held.** The static-layer cure measured worse on software raster (1440 p50 17.0 → 25.0 ms) and equal on the real GPU (p50 16.7, 0 frames over 33 ms, before and after), so it did not ship (`96540d1`). Headless Chrome caps rAF at 60 Hz, so the 120 Hz bar (p50 ≤ 8.4 ms) cannot be measured without a headed browser, and machine law forbids headed browsers. The ask: rule the bar to the instrument of record (display rate, 0 long frames on the real GPU, which already reads GREEN), or name a real-display witness.
   - **F-D14c** is gated on OA-25 (O-F6).
   - **F-G1, F-G2, F-D13 and F-G3** are gated on glass: npm latest is 10.1.4, and 10.1.5, 10.2.0 and 11.0.0 are not published.
+
+## §0hz — 2026-11-05: X·P W9 and W10 close reading, with an adversarial re-check (records: `execution/D/X-P-W9.md` and `X-P-W10.md`, addenda §0hz)
+Id note: the order asked for "§0hw"; §0hw is the value realization track's, so this X·P close takes the next free id. The X·P W9 `.rel`/`.pin` and W10 sitting-1 receipts were recorded in the records (§0hv.1, §0hv.2) and are summarized here for the first time.
+- **W9 — CLOSED bar `.rd` and `.o104`.**
+  - `.rel` arm A: release workflows in bbnf-lang (`typescript-v*.*.*`, master `c9b93adb4`) and parse-that (`v*.*.*`, master `47e928a`), `NPM_TOKEN` on both. bbnf-lang **0.3.0** published by run 41952612465.
+  - `.pin` `dd7a52156`: E-6 15,042 / 6,028 gz; ceilings lowered to 15,050 / 6,050.
+  - value.js **4.2.1** via §0ga merge `594f423b5`, release run 41992815582.
+  - Provenance re-read this seat: value.js 4.2.1 and bbnf-lang 0.3.0 each carry SLSA v1 provenance (`npm audit signatures`: 2 verified attestations). parse-that 2.0.0 has none; no release was owed.
+  - `.o104`: retried, UNREACHABLE (no parse-that, bbnf-lang or latex-paper session is live). `.rd`: no quiet window (load 13–22); it waits.
+- **W10 — every cure unit landed; the 4.3.0 cut waits on one ruling.**
+  - Units `.t10` `7114406a1`, `.m10` `c0ca1bb5d`, `.s10` `c74ba680a`, `.v10` `057c997ba`, V-C judge `d58db7362`, `.r10` (DR-c) `23766fe27`, `.k10a–d` `12462c749` `8d7bb5b82` `2fb233593` `12f35c8a7` (+ `51695cb20`).
+  - Close gates ×2 (`bench/records/W10close/gates/`): `--check` 0; E-6 **15,181 / 6,054** gz; self-contained 0/0; test/css 31 files / 510; MIRROR-DEFECTS 0; V-C **66** unruled misses (all css-color, routed), 0 stale; L-G2 against `.pin` `identical 3344 · moved 3 · new 6833`, `cmp`-identical ×2 and to the `.k10d` read; audit 0; L-G3 0.
+  - **Adversarial re-check:** independent verifiers re-derived each new class's stated mechanism per row. One defect: 8 of `.k10d`'s 2,224 `W8g-PROPERTY-SERIALIZATION` rows differ from WPT by calc simplification, not by the stated mechanism. They are re-classed `W8g-MATH-SERIALIZATION` with a true reason (`ruled.json`). This is a classing defect, not masking: the rows are fixpoints and DR-b, and the V-C counts do not move. `W10-SPECIFIED-SERIALIZATION` ×1,376 holds row by row (1,231 the same colour, 23 context origins, 122 `none` rows where WPT's form loses the missing channel). The custom-property rows hold 9/9.
+- **Owed rulings (delegate):**
+  1. **ESC-XPW10-1** (filed as "ESC-W10-1", which collides with §0ac's id): set the W10 E-6 ceilings at **15,200 / 6,100** gz (the close measurement rounded up to 50 B, inside the 15,650 / 6,150 cap). Ruling it releases the value.js **4.3.0** cut.
+  2. Whether the 6 `W10v-CUSTOM-COMPONENTS` rows stay DR-b (against §0ht.1's routing as an owed cure).
+  3. Whether the V-C value judge `d58db7362` and the new class `W10k-COMPUTED-VALUE` (34 `used` rows) stand.
+- **Push held:** tranche-u is 21 ahead of origin and 0 behind. Another seat's `ci` 42019540010 (`d2d006cb9`) has sat in e2e-smoke's playwright step since 13:58Z. Under the push law nothing is pushed while it runs; the next seat to find tranche-u's CI idle pushes by an ordinary fetch and merge.
