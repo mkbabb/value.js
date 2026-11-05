@@ -1,0 +1,15 @@
+RC-P(4.2.0) C3 — ERRATUM (X §0hs.1, 2026-11-05; addendum, the banked runs are not edited)
+
+c3-equivalence-run{1,2}.txt read "DEFECT 1304 · VALUE_GRAMMAR 0" and §0hw.12 routed that RED to X·P `.rd`.
+That RED is an INSTRUMENT artifact, not a parser defect:
+  - the v4.2.0 worktree's `node_modules` was a symlink to the primary checkout's;
+  - `bench/retired.ts` answered the retired module's path through that symlink, `vi.doMock` keyed on it,
+    and vite loaded the module by its realpath, so the mock never applied;
+  - the stylesheet differential's "hybrid" was therefore the retired layer itself (VALUE_GRAMMAR 0), and every
+    value-grammar difference (the 1304 `rgba(…)` sheets) fell into DEFECT.
+Re-read with a real (non-symlinked) cache, v4.2.0: AGREE 30246 · VALUE_GRAMMAR 1729 · BOTH_REFUSE 30 · DEFECT 0,
+GREEN x2 — c3-equivalence-realpath-run{1,2}.txt (the §0hw adversarial check's runs). RC-P(4.2.0) C3 is TRUE;
+RC-P(4.2.0) reads 6/6 TRUE.
+Cure at the instrument: `bench/retired.ts` answers `realpathSync` of the cache, and the stylesheet measure refuses
+to measure when its hybrid mock did not apply. Falsifier: a symlinked worktree at b290662b4 read DEFECT 1312 x2
+(RED); with the guard alone it refuses ("mock was not applied"); with the realpath cure it is GREEN x2.

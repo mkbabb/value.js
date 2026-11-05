@@ -12,7 +12,7 @@
                 ? 'flex flex-col w-10 h-full'
                 : 'flex h-10 w-full',
         ]"
-        :style="summary ? { backgroundImage: summaryGradient } : undefined"
+        :style="summary && summaryGradient ? { backgroundImage: summaryGradient } : undefined"
     >
         <!-- W5-a11y: color strip is a decorative visual, hidden from AT.
              SS-8 B10 (SS8-0285): the strip IS colour content —
@@ -44,6 +44,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { PaletteColor } from "../../palettes/types";
+import { stopsToGradient } from "./color-chips";
 
 const {
     colors,
@@ -96,7 +97,8 @@ const floor = computed(() =>
     weighted.value && colors.length * WEIGHT_FLOOR <= 1 ? `${WEIGHT_FLOOR * 100}%` : undefined,
 );
 
-/** Every colour at the centre of its weighted interval. */
+/** Every colour at the centre of its weighted interval, through the one
+ *  serializer (an unpaintable colour is dropped, never the whole strip). */
 const summaryGradient = computed(() => {
     const total = shares.value.reduce((sum, w) => sum + w, 0) || 1;
     let acc = 0;
@@ -106,7 +108,6 @@ const summaryGradient = computed(() => {
         acc += w;
         return `${c.css} ${centre.toFixed(3)}%`;
     });
-    const dir = orientation === "vertical" ? "to bottom" : "to right";
-    return `linear-gradient(${dir}, ${stops.join(", ")})`;
+    return stopsToGradient(stops, { direction: orientation === "vertical" ? "180deg" : "90deg" });
 });
 </script>

@@ -111,3 +111,21 @@
 .picker-body > .spectrum-figure {
     padding-inline-end: var(--spectrum-stamp);
 }
+
+/* V-D1.r2 (§0hw.14) — THE CARD IS BOUNDED BY THE SCENE BAND AT lg. The shell
+ * floors the block axis and never caps it (shell.css, the block law), so the
+ * stage's content sets the row and, through it, the document: a picker row
+ * that grows with data (the approved-name line) scrolled the one-viewport
+ * page (prod 1280×800: 825 > 800). At lg the picker caps itself at the band
+ * the scene shows at rest (`--scene-band-block`, the app layout's own
+ * subtraction), and the spectrum plane is the elastic member that yields the
+ * difference (SpectrumCanvas.vue). Below lg the page scrolls by design. */
+@media (width >= 64rem) {
+    .picker-shell {
+        /* A definite length, never `min(100%, …)`: the grid row sizes from
+         * this item's contribution, where a percentage of the indefinite row
+         * resolves to `none` — the row then took the uncapped content (745 px
+         * at 1280×800 with the name line) and the cap bound only the box. */
+        max-block-size: var(--scene-band-block, 100%);
+    }
+}

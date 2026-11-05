@@ -119,20 +119,25 @@
                 <!-- Color swatches. X.W12U.s3 · UIA-V-646: the cluster is one
                      fixed column (five 20 px dots, 4 px overlap = 5.25rem), so
                      every name shares one left edge whatever the colour count;
-                     a deleted palette holds the column with a dashed ghost. -->
-                <div class="flex -space-x-1 shrink-0 w-[5.25rem]">
+                     a deleted palette holds the column with a dashed ghost.
+                     V-D3 · BC-PCS-10: the cluster is the ONE compact render —
+                     past five colours it shows four and a `+k` seat (the
+                     retired `slice(0, 5)` dropped the rest silently). -->
+                <div
+                    v-if="!item.palette"
+                    class="shrink-0 w-[5.25rem]"
+                >
                     <div
-                        v-if="!item.palette"
                         class="h-5 w-5 rounded-full border border-dashed border-muted-foreground/60"
                         aria-hidden="true"
                     />
-                    <div
-                        v-for="(c, i) in (item.palette?.colors ?? []).slice(0, 5)"
-                        :key="i"
-                        class="h-5 w-5 rounded-full border border-background"
-                        :style="{ backgroundColor: c.css }"
-                    />
                 </div>
+                <CompactPalette
+                    v-else
+                    class="admin-flagged__swatches shrink-0 w-[5.25rem]"
+                    :colors="item.palette.colors.map((c) => c.css)"
+                    aria-hidden="true"
+                />
 
                 <div class="flex flex-col gap-0.5 min-w-0 flex-1 basis-40">
                     <!-- T.W4-6 (T-15/F7 population sweep): a palette NAME is a
@@ -257,6 +262,7 @@ import { Button } from "@mkbabb/glass-ui/button";
 import { Badge } from "@mkbabb/glass-ui/badge";
 import { RefreshCw, Trash2 } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
+import { CompactPalette } from "../../../shared/ui/color-chips";
 import ActionFeedback from "../../../shared/ui/ActionFeedback.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
@@ -300,3 +306,12 @@ function onConfirm() {
     act();
 }
 </script>
+
+<style scoped>
+/* The cluster's geometry (UIA-V-646): 20 px discs, each overlapping the last
+ * by 4 px, in the fixed 5.25rem column — five seats. */
+.admin-flagged__swatches {
+    --compact-size: 1.25rem;
+    --compact-step: 1rem;
+}
+</style>

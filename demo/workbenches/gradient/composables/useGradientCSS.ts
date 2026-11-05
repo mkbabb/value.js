@@ -16,6 +16,7 @@ import { linear } from "@mkbabb/value.js/easing";
 import { colorToCss, parseColorIn } from "../../../color-session/color-utils";
 import { convertPickerColor } from "../../../color-session/picker-color";
 import type { PickerSpace } from "../../../color-session/picker-color";
+import { stopsToGradient } from "../../../shared/ui/color-chips/sample";
 import { sampleCoalescedStops } from "../model/sample";
 import type { CoalescedSample } from "../model/sample";
 import type {
@@ -205,19 +206,21 @@ export function serializeGradient(
         : `${typeName}(${parts.join(", ")})`;
 }
 
-/** The 90° strip head every normalized ramp shares: the space alone, with
- *  `shorter` hue — the samples carry the path (see `preamble`, V11C-01). */
-function stripHead(source: GradientSampleSource): string {
-    const spaceClause = interpolationClause(source.interpolationSpace, "shorter");
-    return spaceClause ? `linear-gradient(90deg ${spaceClause}, ` : "linear-gradient(90deg, ";
+/** A normalized ramp through THE ONE SERIALIZER (`stopsToGradient`, V-D3 ·
+ *  BC-R-18/19): the 90° strip, with the space clause alone and `shorter` hue —
+ *  the samples carry the path (see `preamble`, V11C-01). */
+function strip(source: GradientSampleSource, stops: readonly string[]): string | null {
+    return stopsToGradient(stops, {
+        interpolation: interpolationClause(source.interpolationSpace, "shorter"),
+    });
 }
 
 /** Format eased samples as a normalized horizontal strip (the ONE ramp form). */
-function rampGradient(source: GradientSampleSource): string {
+function rampGradient(source: GradientSampleSource): string | null {
     const parts = sampleCoalescedStops(source).map(
         (s) => `${formatColorLiteral(s.color)} ${s.position.toFixed(2)}%`,
     );
-    return `${stripHead(source)}${parts.join(", ")})`;
+    return strip(source, parts);
 }
 
 /**
@@ -243,11 +246,11 @@ export function railPosition(fraction: number): string {
 }
 
 /** The rail's ramp: the ONE map applied to every sample's position. */
-function railRampGradient(source: GradientSampleSource): string {
+function railRampGradient(source: GradientSampleSource): string | null {
     const parts = sampleCoalescedStops(source).map(
         (s: CoalescedSample) => `${formatColorLiteral(s.color)} ${railPosition(s.position / 100)}`,
     );
-    return `${stripHead(source)}${parts.join(", ")})`;
+    return strip(source, parts);
 }
 
 /**
@@ -290,18 +293,18 @@ export function serializeIntervalRamp(
  * CSS-output truth). One sampling law feeds both.
  */
 export function serializeRailRamp(model: GradientModelState): string {
+    // No paintable ramp is an honest absence: the rail paints no image
+    // (`none`, the palette-rail idiom), never a minted transparent strip.
     const { stops } = model;
-    if (stops.length === 0) {
-        return "linear-gradient(90deg, transparent, transparent)";
-    }
+    if (stops.length === 0) return "none";
     if (stops.length === 1) {
-        return `linear-gradient(90deg, ${stops[0]!.cssColor}, ${stops[0]!.cssColor})`;
+        return stopsToGradient([stops[0]!.cssColor, stops[0]!.cssColor]) ?? "none";
     }
     // Rail-ONLY: the samples ride the one axis expression, so the ordinal a
     // handle paints at is the ordinal the ramp paints there. Beyond the first
     // and last stop CSS extends the terminal colour, which is what fills the
     // two inset bands the handle centres never reach.
-    return railRampGradient(model);
+    return railRampGradient(model) ?? "none";
 }
 
 /**

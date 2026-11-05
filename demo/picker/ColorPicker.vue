@@ -1,7 +1,7 @@
 <template>
     <div
         ref="paneShell"
-        class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full"
+        class="pane-shell picker-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full"
         :data-arrival="arrival"
     >
         <!-- The shell never self-clamps (R.W3 Lane A / A4 — the grid owns the
@@ -95,7 +95,7 @@
                 class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
                 :style="plateOpening ? { '--stagger-base': 'var(--overture-stagger-base)' } : undefined"
             >
-                <div class="picker-body flex flex-col">
+                <div class="picker-body flex flex-col lg:min-h-0">
                     <SpectrumCanvas />
                     <ComponentSliders />
                 </div>

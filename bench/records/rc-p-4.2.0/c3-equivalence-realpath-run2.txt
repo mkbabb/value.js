@@ -1,0 +1,20 @@
+
+ RUN  v3.2.6 /Users/mkbabb/.dev-logs/x-0hw-adv/wt/v420
+
+stdout | bench/css-equivalence/stylesheet.measure.test.ts > X.P.W6.x — parseStylesheet: stylesheet.bbnf ≡ the retired stylesheet layer > 32021 sheets: STYLESHEET DEFECTS 0
+parseStylesheet × 32021: {"AGREE":30246,"VALUE_GRAMMAR":1729,"BOTH_REFUSE":30,"DEFECT":0} · classes {"SH-2":1,"SH-1":13,"SH-3":2} · STYLESHEET DEFECTS 0
+
+stdout | bench/css-equivalence/stylesheet.measure.test.ts > X.P.W6.x — parseStylesheet: stylesheet.bbnf ≡ the retired stylesheet layer > parseAnimationTimeline × 32021 sources: STYLESHEET DEFECTS 0
+parseAnimationTimeline × 32021: AGREE 32021 · STYLESHEET DEFECTS 0
+
+stdout | bench/css-equivalence/stylesheet.measure.test.ts > X.P.W6.x — parseStylesheet: stylesheet.bbnf ≡ the retired stylesheet layer > parseAnimationRange × 32021 sources: STYLESHEET DEFECTS 0
+parseAnimationRange × 32021: AGREE 32021 · STYLESHEET DEFECTS 0
+
+ ✓ bench/css-equivalence/stylesheet.measure.test.ts (4 tests) 646ms
+   ✓ X.P.W6.x — parseStylesheet: stylesheet.bbnf ≡ the retired stylesheet layer > 32021 sheets: STYLESHEET DEFECTS 0  353ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  13:32:34
+   Duration  3.82s (transform 300ms, setup 0ms, collect 2.81s, tests 646ms, environment 0ms, prepare 50ms)
+

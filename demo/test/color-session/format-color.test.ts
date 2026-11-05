@@ -156,7 +156,7 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         ["A12", "workbenches/extract/ImageEyedropper/ImageEyedropper.vue", "formattedColor ? formatCssCaption(formattedColor)", 1],
         ["A13", CPE, "Add current color ({{ formatCssCaption(cssColorOpaque) }})", 1],
         ["A14", MRD, "{{ formatCssCaption(result.css) }}", 1],
-        ["A15", MRD, ':title="formatCssCaption(color.css)"', 1],
+        ["A15", MRD, ':title="formatCssCaption(color)"', 1], // V-D3 · PCS-10: the swatch slot hands the css itself
         ["A16", MSS, ":title=\"`${formatCssCaption(sc.css)} (${sc.source})`\"", 1],
         ["A17·A18", ANP, "{{ formatCssCaption(item.css) }}", 2],
         // §2.B — ARIA (10; B9 retired at X.W12.u1)

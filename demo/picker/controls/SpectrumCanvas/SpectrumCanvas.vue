@@ -1,6 +1,6 @@
 <template>
     <!-- Direct saturation/value field. -->
-    <figure class="spectrum-figure m-0 min-w-0 w-full flex flex-col @container">
+    <figure class="spectrum-figure m-0 min-w-0 w-full flex flex-col lg:min-h-0 @container">
         <!-- W5-a11y: 2D saturation×lightness picker — not a linear slider,
              so role="img" with a reactive descriptive label, not role="slider". -->
         <div
@@ -284,12 +284,17 @@ onUnmounted(() => {
  * took). Tokens: `--spectrum-aspect-min/max` (foundation.css, DESIGN §3.1).
  * The pointer mapping reads the rect, so it is size-agnostic.
  *
- * §0hw.13: at lg the shell is one viewport tall and the page must not scroll
- * on the block axis (X.W12.c), so the aspect FLOOR yields to a block budget
- * there: `--spectrum-block-budget` (foundation.css). On a short desktop
- * viewport (1280×800, 1366×768) the plane grows wider than φ·√φ rather than
- * push the page past the viewport; at 900 px and taller the aspect bound
- * holds unchanged. Below lg the page scrolls, and the aspect bound is whole. */
+ * V-D1.r2 (§0hw.14; supersedes §0hw.13's static 34svh budget): at lg the
+ * shell is one viewport tall and the page must not scroll on the block axis
+ * (X.W12.c), and the picker card holds a DATA-DEPENDENT row (the approved
+ * name under the readout, +33 px on prod) that no static budget can see. So
+ * at lg the plane is the card's ELASTIC member: the card is bounded by the
+ * scene band (ColorPicker.vue), the column chain down to this figure may
+ * shrink (`min-block-size: 0`), and the plane takes its aspect-bound size as
+ * its basis and gives back block size when the card's other rows need it,
+ * down to the 20svh breath. Where the card fits (1440×900 and taller) nothing
+ * shrinks and the aspect bound holds unchanged. Below lg the page scrolls,
+ * and the aspect bound is whole. */
 .spectrum-picker {
     block-size: clamp(
         calc(100cqi / var(--spectrum-aspect-max)),
@@ -297,11 +302,8 @@ onUnmounted(() => {
         calc(100cqi / var(--spectrum-aspect-min))
     );
     @variant lg {
-        block-size: clamp(
-            min(calc(100cqi / var(--spectrum-aspect-max)), var(--spectrum-block-budget)),
-            20svh,
-            calc(100cqi / var(--spectrum-aspect-min))
-        );
+        flex: 0 1 auto;
+        min-block-size: min(20svh, calc(100cqi / var(--spectrum-aspect-max)));
     }
 }
 @media (pointer: coarse) {

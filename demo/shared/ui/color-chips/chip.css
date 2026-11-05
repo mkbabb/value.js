@@ -10,7 +10,7 @@
  * THE SPECIMEN WELL (PS-2, W6·453): the specimen sits on its own opaque stage,
  * the menu's own material made opaque (`--popover`), with a 1px gutter of the
  * same tone. Translucent menu glass, page bleed and the selected/highlighted
- * row's fill therefore never composite through the masked tail segment or the
+ * row's fill therefore never composite through the segments or the
  * corner arcs (SS-8 B19: SS8-0554a, SS8-0546).
  *
  * THE RING (R-13, W6·440): an OUTSET outline from the one `--card-edge` mint.
