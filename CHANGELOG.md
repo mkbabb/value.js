@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.2.1] — 2026-11-04
+
+### Changed
+
+- The emitted CSS parser is smaller and parses identically. value.js now builds its grammar with `@mkbabb/bbnf-lang` **0.3.0** (exact; published from CI with SLSA provenance; bbnf-lang#2). The generated `src/css/bbnf/generated/grammar.js` and `color.js` are re-emitted: minified gzip falls from 15,619 to **15,042 B** (grammar.js, −577) and from 6,147 to **6,028 B** (color.js, −119). The size ceilings drop to 15,050 and 6,050 B gz. Behaviour is byte-identical: the BBNF-vs-retired-parser mirror shows 0 defects, the WPT conformance output is identical, the paired-equivalence read is byte-identical, and test/css passes 311/311. The generated modules still import nothing at runtime. No API changed.
+
 ## [4.2.0] — 2026-11-02
 
 ### Added
