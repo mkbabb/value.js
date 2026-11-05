@@ -47592,6 +47592,222 @@
       "class": "W10-SPECIFIED-SERIALIZATION",
       "reason": "Parsed, and its serialization is a fixpoint (re-parsed and re-serialized identically, measured): \"lch(from rgb(205 133 63) calc(l * 0.8) c h)\". WPT expects the specified value spelled as authored or CSSOM-canonical (\"lch(from peru calc(0.8 * l) c h)\"); value.js spells a colour argument in its own canonical form (a named colour as rgb(), lightness and alpha as percentages, xyz as xyz), which DR-b keeps as product policy (COHESION §0hv). The value is the same; a relative colour keeps its specified form as a call (DR-c).",
       "spec": "css-color-5 §4 (relative colour), §3 (color-mix()); css-color-4 §15 serialization; COHESION §0hv DR-b, DR-c"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "max-height",
+      "input": "calc-size(auto, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "max-width",
+      "input": "calc-size(auto, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "height",
+      "input": "calc-size(none, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "width",
+      "input": "calc-size(none, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "min-height",
+      "input": "calc-size(none, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "min-width",
+      "input": "calc-size(none, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "max-height",
+      "input": "calc-size(none, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "max-width",
+      "input": "calc-size(none, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "valid",
+      "property": "height",
+      "input": "calc-size(min-content, size * 2)",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a calc-size() sum as authored, where WPT expects the simplified, term-sorted specified value (size * 2 -> 2 * size, 2in -> 192px).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization; css-values-5 §5.1"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "valid",
+      "property": "max-width",
+      "input": "calc-size(max-content, size / 2)",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a calc-size() sum as authored, where WPT expects the simplified, term-sorted specified value (size * 2 -> 2 * size, 2in -> 192px).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization; css-values-5 §5.1"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "valid",
+      "property": "max-height",
+      "input": "calc-size(fit-content, 30px + size / 2)",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a calc-size() sum as authored, where WPT expects the simplified, term-sorted specified value (size * 2 -> 2 * size, 2in -> 192px).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization; css-values-5 §5.1"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "valid",
+      "property": "width",
+      "input": "calc-size(fit-content, 50% + size / 2)",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a calc-size() sum as authored, where WPT expects the simplified, term-sorted specified value (size * 2 -> 2 * size, 2in -> 192px).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization; css-values-5 §5.1"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "valid",
+      "property": "width",
+      "input": "calc-size(any, 50px + 30%)",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a calc-size() sum as authored, where WPT expects the simplified, term-sorted specified value (size * 2 -> 2 * size, 2in -> 192px).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization; css-values-5 §5.1"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "width",
+      "input": "size",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "valid",
+      "property": "width",
+      "input": "calc-size(calc-size(2in, 30px), 25em)",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a calc-size() sum as authored, where WPT expects the simplified, term-sorted specified value (size * 2 -> 2 * size, 2in -> 192px).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization; css-values-5 §5.1"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "width",
+      "input": "calc-size(content, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "height",
+      "input": "calc-size(content, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "max-width",
+      "input": "calc-size(content, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "max-height",
+      "input": "calc-size(content, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "min-width",
+      "input": "calc-size(content, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/calc-size-parsing.html",
+      "kind": "invalid",
+      "property": "min-height",
+      "input": "calc-size(content, size)",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed calc-size() (or a bare size keyword) whose basis keyword the property does not admit (max-width/max-height take no auto; none and content are no sizing property's <calc-size-basis>); which keywords a property admits is its grammar, which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-5 §5.1 <calc-size-basis> (<size-keyword>: any keyword the property allows)"
+    },
+    {
+      "file": "css/css-values/calc-size/interpolate-size-parsing.html",
+      "kind": "invalid",
+      "property": "interpolate-size",
+      "input": "auto",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed component value that interpolate-size's grammar (numeric-only | allow-keywords) refuses; property grammar, not value grammar.",
+      "spec": "css-values-5 §5.2 interpolate-size"
+    },
+    {
+      "file": "css/css-values/calc-size/interpolate-size-parsing.html",
+      "kind": "invalid",
+      "property": "interpolate-size",
+      "input": "none",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed component value that interpolate-size's grammar (numeric-only | allow-keywords) refuses; property grammar, not value grammar.",
+      "spec": "css-values-5 §5.2 interpolate-size"
+    },
+    {
+      "file": "css/css-values/calc-size/interpolate-size-parsing.html",
+      "kind": "invalid",
+      "property": "interpolate-size",
+      "input": "100%",
+      "class": "W8g-PROPERTY-GRAMMAR",
+      "reason": "a well-formed component value that interpolate-size's grammar (numeric-only | allow-keywords) refuses; property grammar, not value grammar.",
+      "spec": "css-values-5 §5.2 interpolate-size"
     }
   ]
 }

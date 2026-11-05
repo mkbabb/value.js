@@ -1885,3 +1885,14 @@ Under W10.md `.t10` (XP-11) and COHESION §0hv (DR-a, DR-b keep).
 | **ruled** | `W10-SPECIFIED-SERIALIZATION` ×1,376 (valid-relative, valid-color-mix, valid-color-function specified rows: value.js's canonical spelling of the call, DR-b; each row fixpoint-checked, the serialization re-reads to the same value), `W8t-CSS-COLOR-6` ×10 (color-layers), `W8t-COLOR-CONTEXT` ×23 (computed relative colour over `currentcolor`/`light-dark()`: context, value.js's contract). 8 stale rows deleted (opaque-alpha `currentcolor`). |
 | **residual** | css-color MISS 67: 25 refused computed-relative (trig `sin()`/`asin()` not in the colour channel's math; WPT's own `none`-vs-0 inconsistencies), 24 computed-relative serialization (a powerless hue answered as a number where WPT spells `none`), 17 `contrast-color()` computed, 1 `color-mix()` with `em`. Routed: X-P-W10.md addendum. |
 | **consumer direction** | **WIDENS** (`parseCssColor` answers a colour where it answered `color_context_required`). A consumer that treated every relative colour as context-dependent now receives the resolved colour for an absolute origin. |
+
+## §20-Ka — X.P.W10.k10 (a): `calc-size()` checked over a whole value (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | `parseCssValue` refuses (`css_syntax`, expected `<calc-size()>`) a value whose `calc-size()` or `size` breaks css-values-5 §5.1: not two arguments; a basis that is `size`, a `<number>` or a non-length-percentage sum; a `<calc-sum>` that is not length-percentage, names a sizing keyword, or names `size` under an `any` basis; a `calc-size()` inside a math function or another's `<calc-sum>`; a `size` inside a math function outside a `<calc-sum>`. The incumbent read every `calc-size()` as a generic call. |
+| **spec** | css-values-5 §5.1 (`calc-size( <calc-size-basis>, <calc-sum> )`), XP-13 (§0hv RECOMMENDED claim). |
+| **cure** | no grammar byte: `calc.ts` `keepsCalcSize` (a walk with `out` / `math` / `size` positions, typing each sum by `operand`/`sum`); `index.ts` `parseCssValue` runs it when the text holds `size`. `parseCustomPropertyValue` is unchecked (a custom property's value is any token sequence). A value holding a substitution function is unchecked. |
+| **value differential** | MIRROR 0 defects; L-G2 unchanged from `.r10` (no paired source holds `calc-size()`). |
+| **ruled** | `W8g-PROPERTY-GRAMMAR` ×18 (a basis keyword the property does not admit: `max-*: calc-size(auto, …)`, `none`, `content`; bare `size`; interpolate-size's keywords), `W8g-MATH-SERIALIZATION` ×6 (the sum serialized as authored, DR-b). |
+| **consumer direction** | **NARROWS** (`parseCssValue` refuses a malformed `calc-size()` it accepted). |

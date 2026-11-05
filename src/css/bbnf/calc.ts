@@ -225,3 +225,39 @@ export function baseOf(v: CssValue): Base | "number" | "any" | null {
     if (t === "any") return "any";
     return valueType(t) ? (exps(t)[0] ?? "number") : null;
 }
+
+/** A `<calc-sum>`'s one base type, as `baseOf` reads an operand (`null`: no calculation). */
+function sumBaseOf(v: CssValue): Base | "number" | "any" | null {
+    const t = sum(v);
+    if (t === null) return null;
+    if (t === "any") return "any";
+    return valueType(t) ? (exps(t)[0] ?? "number") : null;
+}
+
+const LENGTH_PERCENTAGE: ReadonlySet<string> = new Set(["length", "percent", "any"]);
+const isKeyword = (v: CssValue, re?: RegExp): boolean => v.kind === "scalar" && v.payload.type === "keyword" && (re === undefined || re.test(v.payload.value));
+const SIZE = /^size$/i;
+const CALC_SIZE = /^calc-size$/i;
+
+/**
+ * css-values-5 §5.1 — `calc-size( <calc-size-basis>, <calc-sum> )` and its `size` keyword, checked over a whole
+ * value (X.P.W10 `.k10`): two arguments; a basis that is a keyword other than `size`, a nested `calc-size()`,
+ * or a `<calc-sum>` of a length-percentage type; a `<calc-sum>` of a length-percentage type that names `size`
+ * only when the basis is not `any`; and no `calc-size()` inside a math function or another's `<calc-sum>`,
+ * nor `size` inside a math function outside a `<calc-sum>`. Which keywords a property admits as the basis is
+ * the property's grammar (DR-a). A value holding a substitution function is checked only after substitution.
+ * `at`: `out` outside any calculation; `math` inside one where `size` is not admitted; `size` inside a
+ * `<calc-sum>` that admits it.
+ */
+export function keepsCalcSize(v: CssValue, at: "out" | "math" | "size" = "out"): boolean {
+    if (v.kind === "scalar") return !isKeyword(v, SIZE) || at !== "math";
+    if (v.kind === "list") return v.items.every((item) => keepsCalcSize(item, at));
+    if (!CALC_SIZE.test(v.name)) return v.args.every((a) => keepsCalcSize(a, at === "out" && MATH_FUNCTION.test(v.name) ? "math" : at));
+    if (substitutes(v)) return true;
+    const [basis, calcSum] = v.args;
+    if (at !== "out" || v.args.length !== 2 || basis === undefined || calcSum === undefined) return false;
+    const basisOk = isKeyword(basis) ? !isKeyword(basis, SIZE)
+        : basis.kind === "call" && CALC_SIZE.test(basis.name) ? keepsCalcSize(basis)
+            : LENGTH_PERCENTAGE.has(sumBaseOf(basis) ?? "") && keepsCalcSize(basis, "math");
+    return basisOk && LENGTH_PERCENTAGE.has(sumBaseOf(calcSum) ?? "") && keepsCalcSize(calcSum, isKeyword(basis, /^any$/i) ? "math" : "size");
+}
