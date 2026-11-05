@@ -182,3 +182,16 @@ byte-unchanged; so are v1, the spec, the canonical and the adjudicated registry.
 **there is no longer a "co-sign the substance now, the spellings later" choice to make** — the
 spellings are identities and the census gate is ∅. Co-sign the contract as it stands at the digest in
 the table above, by clause id, and declare your end of the thirteen edges.
+
+---
+
+## §6 — ADDENDUM 2026-11-05: VALUE.JS API ROW RECIPROCAL TO F.W7 (§13.6 item 3) (X·F F-T8 / F-T9 · COHESION §0hs.3)
+
+F-W7 §13.6 item 3 asked the value.js API row to acknowledge two things from its end. It does:
+
+- **VO-0 closes the TA-4 limb as a non-obligation.** `atomdiff.ts` is wholly excised, and restoring it is not owed (F-SS4REST R1; F-W7 §13.3/§13.5). Neither limb is a fourier defect.
+- **VO-1 ⊕ VO-2 are this row's acts, and both are now executed:**
+  - **VO-1 (compound per-entity version identity)** is met at value bytes by X-W3's release/payload split. The version `_id` is the release hash (`computeReleaseHash`: palette slug, `revisionNo`, payload, parent, author), and `payloadHash` holds the content identity. Every service read goes through `findByPaletteAndHash`. The bare `findByHash` (`findOne({_id: hash})`, the door VO-1 names) is **retired** from `repository/paletteVersion.ts`, so nothing can call it.
+  - **VO-2 (the two-histories test)** is `api/src/modules/palette/__tests__/palette-versions.test.ts` › *"G-F7-4: two palettes sharing a content hash resolve to their own versions"*. It is RED ×2 on the pre-X-W3 identity (mutant `_id = payloadHash`: palette B's revision vanishes, `expected undefined to be 'b'`) and GREEN ×2 at HEAD.
+
+G-F7-4's value-side half (fourier-DESIGN-TAIL F-T9) is therefore **closed**. F.W7 clause E1 is executed, not retired, so the OA ask in DESIGN-TAIL §D ("retire E1 instead") is moot.
