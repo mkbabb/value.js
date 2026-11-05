@@ -1,0 +1,14 @@
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+
+GREEN — every public parser is total.

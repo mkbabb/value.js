@@ -46,6 +46,7 @@ export {
     xyz,
 } from "./model";
 export {
+    contrastInk,
     contrastRatio,
     convertColor,
     deltaEOK,

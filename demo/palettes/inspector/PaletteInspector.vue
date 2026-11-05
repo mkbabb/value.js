@@ -188,7 +188,7 @@ import {
     type PaletteSceneVerb,
     type SceneCommand,
 } from "../../color-session/keys";
-import { usePaletteExport } from "../usePaletteExport";
+import { usePaletteExport } from "../export/usePaletteExport";
 import { usePopupMutex } from "../../shared/usePopupMutex";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/glass-ui/collapsible";
 import PaletteSpecimen from "../../shared/ui/PaletteSpecimen.vue";

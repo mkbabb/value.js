@@ -1,0 +1,31 @@
+RED  leg1: value.js@4.2.1 exports = [./color, ./value, ./css, ./easing, ./math, ./transform, ./quantize]
+     no "." key / no "main" / no "module" — ERR_PACKAGE_PATH_NOT_EXPORTED at all 5 fourier sites:
+       web/src/components/equation/ConvergencePlot.vue:5   import … from "@mkbabb/value.js"
+       web/src/components/equation/composables/useCurveTransition.ts:8   import … from "@mkbabb/value.js"
+       web/src/components/equation/lib/harmonics.ts:5   import … from "@mkbabb/value.js"
+       web/src/lib/easings.ts:9   import … from "@mkbabb/value.js"
+       web/src/lib/easings.ts:16   import … from "@mkbabb/value.js"
+
+RED  leg2: `timingFunctions` absent from every 4.0.0 subpath
+     consumed at /Users/mkbabb/Programming/fourier-analysis/web/src/lib/easings.ts:9,55-58 (Object.fromEntries over 22 label keys)
+     ./easing ships 17 names, flat: CubicBezier bezierPresets easeInBounce easeInOutCirc easeInOutCubic easeInOutExpo easeInOutQuad easeInOutSine easeOutCubic easeOutExpo easing easingNames jumpTerms linear linearEasing smoothStep3 steppedEase
+node:internal/modules/esm/resolve:271
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/mkbabb/Programming/fourier-analysis/web/node_modules/@mkbabb/value.js/dist/value.js' imported from /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/probes/fourier-value-import-drift.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+    at moduleResolve (node:internal/modules/esm/resolve:861:10)
+    at defaultResolve (node:internal/modules/esm/resolve:988:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:700:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:717:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:749:52)
+    at #resolve (node:internal/modules/esm/loader:682:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:602:35)
+    at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:631:32)
+    at TracingChannel.tracePromise (node:diagnostics_channel:363:22) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///Users/mkbabb/Programming/fourier-analysis/web/node_modules/@mkbabb/value.js/dist/value.js'
+}
+
+Node.js v26.0.0

@@ -45,7 +45,7 @@ describe("ExtractControls", () => {
     });
 
     it("EC-25: a developed rail rides the gradient as an IMAGE layer over the ink", () => {
-        const gradient = "linear-gradient(to right, red 0% 50%, blue 50% 100%)";
+        const gradient = "linear-gradient(90deg, red 0% 50%, blue 50% 100%)";
         const rail = mount(ExtractControls, { props: { ...base, gradient, found: 2 } }).get('[data-o18="extract-k-rail"]');
         expect((rail.element as HTMLElement).style.backgroundImage).toContain("linear-gradient");
         const style = rail.attributes("style") ?? "";

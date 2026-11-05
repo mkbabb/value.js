@@ -32,7 +32,7 @@
  * slash, `none`) — no regex over serialized output, no second serializer.
  */
 import { parseCssColor } from "@mkbabb/value.js/color";
-import { canonicalColor } from "../palettes/export/canonical";
+import { canonicalColor } from "../palettes/export";
 import type { DisplayColorSpace } from "./color-model";
 import {
     CSS_PICKER_SPACES,

@@ -69,7 +69,7 @@
                  `py-[1.618rem]` here never painted — the card's cqi default did;
                  the W4 seed-rider-2 clause, generalized). -->
             <CardContent class="px-3 sm:px-6 pt-0 pb-phi-3">
-                <ColorNutritionLabel class="w-full p-0 m-0" v-model="model" />
+                <ColorNutritionLabel class="w-full p-0 m-0" :space="model.selectedColorSpace" />
             </CardContent>
 
             <Separator />

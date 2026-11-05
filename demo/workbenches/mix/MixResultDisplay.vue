@@ -4,6 +4,7 @@ import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { computed, TransitionGroup } from "vue";
 import { useClipboard } from "@mkbabb/glass-ui/dom";
 import { WatercolorDot } from "../../shared/ui/watercolor-dot";
+import { stopsToGradient } from "../../shared/ui/color-chips";
 import type { MixResult } from "./composables/useMixingState";
 import { formatCssCaption } from "../../color-session/format-color";
 
@@ -119,7 +120,7 @@ async function onCopy() {
                     <div
                         class="h-4 rounded-full overflow-hidden"
                         :style="{
-                            background: `linear-gradient(to right, ${result.colors.map(c => c.css).join(', ')})`,
+                            background: stopsToGradient(result.colors.map((c) => c.css)) ?? undefined,
                         }"
                         aria-hidden="true"
                         role="presentation"

@@ -29,7 +29,7 @@ import type {
     ScenePaneTargets,
 } from "../color-session/keys";
 import { SELECTED_ENTITY_KEY } from "../color-session/keys";
-import { paletteSceneActions } from "../palettes/sceneActions";
+import { paletteSceneActions } from "../palettes";
 import { colorSceneActions } from "../picker/sceneActions";
 import { generateSceneActions } from "../workbenches/generate/sceneActions";
 import { gradientSceneActions } from "../workbenches/gradient/sceneActions";

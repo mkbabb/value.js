@@ -163,7 +163,7 @@ import { COLOR_MODEL_KEY } from "../color-session/keys";
 import type { ColorSceneTarget } from "../color-session/keys";
 import { OVERTURE_KEY } from "../app/composables/boot/useOverture";
 import { VIEW_MANAGER_KEY } from "../shell/useViewManager";
-import { COLOR_TARGET_PORT_KEY } from "../palettes/usePalettePorts";
+import { COLOR_TARGET_PORT_KEY } from "../palettes";
 
 import { usePointerDebug, POINTER_DEBUG_KEY } from "./debug/usePointerDebug";
 import "./seat.css";

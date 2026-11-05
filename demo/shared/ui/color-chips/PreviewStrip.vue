@@ -31,6 +31,8 @@ const { stops } = defineProps<{
 }>();
 
 const truncated = computed(() => stops.length > STRIP_SEGMENT_CAP);
+// BC-R-16: the stamp is computed once per stops change, not per render.
+const stamped = computed(() => stampStops(stops));
 const visible = computed(() =>
     truncated.value ? stops.slice(0, STRIP_SEGMENT_CAP) : stops,
 );
@@ -41,8 +43,9 @@ const visible = computed(() =>
         v-if="stops.length >= 1"
         class="preview-chip preview-strip"
         :class="{ 'preview-strip--truncated': truncated }"
+        data-color-surface
         aria-hidden="true"
-        :data-stops="stampStops(stops)"
+        :data-stops="stamped"
     >
         <span
             v-for="(stop, i) in visible"

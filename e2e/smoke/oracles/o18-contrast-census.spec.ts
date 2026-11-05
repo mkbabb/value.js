@@ -863,7 +863,7 @@ for (const scheme of ["light", "dark"] as const) {
          * is RED today for a product reason, not for a dead binding.
          */
 
-        test("graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)", async ({
+        test("graph nodes — the plate ink on the well (V-D4 · BC-CNL-8: the hover-only highlight is gone)", async ({
             page,
         }) => {
             await bootAtOwnerColor(page);
@@ -883,19 +883,12 @@ for (const scheme of ["light", "dark"] as const) {
                 `resting node ink ${resting!.ink} vs ${resting!.ground}`,
             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
 
-            // Hovered: the fill goes live-colored and the ink derives from
-            // the FILL (contrastInkFor — WCAG-maximal, a pass by construction).
+            // V-D4 · BC-CNL-8: the conversion path is read, not operated; the
+            // hover-only live-colour highlight (no focus or touch twin) is
+            // gone, so hovering changes nothing and the resting row is the row.
             await node.hover();
-            await expect
-                .poll(async () => {
-                    const row = await censusElement(
-                        page,
-                        '[data-o18="graph-node"]',
-                        "graph-node-hovered",
-                    );
-                    return row?.ratio ?? 0;
-                })
-                .toBeGreaterThanOrEqual(TEXT_FLOOR);
+            const hovered = await censusElement(page, '[data-o18="graph-node"]', "graph-node-hovered");
+            expect(hovered?.ink, "hover leaves the node's ink unchanged").toBe(resting!.ink);
 
             // The component-name letters (the split's TEXT role, resting rung).
             //

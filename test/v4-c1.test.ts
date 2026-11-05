@@ -474,6 +474,8 @@ describe("Value 4 exact runtime surfaces", () => {
             "NAMED_COLORS",
             "a98Rgb",
             "checkCategoricalPalette",
+            // 4.3.0 (X realization V-D4.2 · BC-CNL-4): the ink Result.
+            "contrastInk",
             "contrastRatio",
             "convertColor",
             "deltaEOK",

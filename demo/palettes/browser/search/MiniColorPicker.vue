@@ -30,7 +30,7 @@
             <div
                 ref="hueRef"
                 class="relative w-full h-3 mt-2 rounded-full cursor-pointer overflow-hidden"
-                style="background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00)"
+                style="background: linear-gradient(90deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00)"
                 @pointerdown="onHuePointer"
                 @pointermove="onHueMove"
                 @pointerup="endDrag"
@@ -208,6 +208,6 @@ function updateHue(e: PointerEvent) {
 .sv-canvas {
     background:
         linear-gradient(to top, #000, transparent),
-        linear-gradient(to right, #fff, hsl(calc(var(--hue) * 1deg), 100%, 50%));
+        linear-gradient(90deg, #fff, hsl(calc(var(--hue) * 1deg), 100%, 50%));
 }
 </style>

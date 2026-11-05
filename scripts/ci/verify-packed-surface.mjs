@@ -40,8 +40,10 @@ const expected = {
     // 4.2.0 (COHESION §0hf · VJ-1) adds the colour-vision palette surface: the
     // three primitives in the barrel and `checkCategoricalPalette` forwarded
     // beside `parseCssColor`, each with its smoke case below.
+    // 4.3.0 (X realization V-D4.2 · BC-CNL-4) adds `contrastInk`, the ink
+    // Result the demo's `contrastInkFor` consumes, with its smoke case below.
     color: [
-        "NAMED_COLORS", "a98Rgb", "checkCategoricalPalette", "contrastRatio", "convertColor",
+        "NAMED_COLORS", "a98Rgb", "checkCategoricalPalette", "contrastInk", "contrastRatio", "convertColor",
         "deltaEOK", "displayP3", "hsl", "hsv", "hwb",
         "ictcp", "interpolateHue", "isAnyColor", "jzazbz", "kelvin", "lab", "lch",
         "linearSrgb", "mapColorToGamut", "mixColors", "mixColorsInto", "oklab", "oklch",
@@ -147,6 +149,7 @@ export const SMOKE = {
         deltaEOK: () => expect(Math.abs(unwrap(color.deltaEOK(unwrap(color.rgb(0, 0, 0)), WHITE)) - 1) <= 1e-12, "deltaEOK(black, white) is not unit scale"),
         displayP3: () => unwrap(color.displayP3(0.1, 0.2, 0.3)).channels,
         hsl: () => unwrap(color.hsl(210, 0.5, 0.4)).channels,
+        contrastInk: () => expect(unwrap(color.contrastInk(unwrap(color.oklch(0.25, 0.08, 250)))).channels[0] === 1, "contrastInk did not choose white on a dark fill"),
         hsv: () => unwrap(color.hsv(210, 0.5, 0.4)).channels,
         hwb: () => unwrap(color.hwb(210, 0.2, 0.3)).channels,
         ictcp: () => unwrap(color.ictcp(0.4, 0, 0)).channels,

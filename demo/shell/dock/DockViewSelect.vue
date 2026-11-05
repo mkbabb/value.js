@@ -5,7 +5,7 @@ import {
     Select, SelectContent, SelectGroup, SelectItem, SelectSeparator, SelectValue,
 } from "@mkbabb/glass-ui/select";
 import { computed, inject, watch } from "vue";
-import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
+import { SESSION_PORT_KEY } from "../../palettes";
 import { preloadView, warmViews } from "../usePaneRouter";
 import type { ViewEntry } from "./composables/useDockAdminMode";
 

@@ -34,8 +34,8 @@ import type { QuantizedColor } from "@mkbabb/value.js/quantize";
 import { serializeCssColor } from "@mkbabb/value.js/css";
 import { useImageQuantize, type QuantizeOutcome } from "./useImageQuantize";
 import { debounce } from "../../../shared/debounce";
-import { usePaletteStore } from "../../../palettes/usePaletteStore";
-import type { Palette, PaletteColor } from "../../../palettes/types";
+import { usePaletteStore } from "../../../palettes";
+import type { Palette, PaletteColor } from "../../../palettes";
 import { paletteRail } from "../../../color-session/palette-rail";
 
 type PresentedColor = Readonly<{

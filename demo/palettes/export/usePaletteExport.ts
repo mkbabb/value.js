@@ -1,12 +1,12 @@
 import { shallowRef } from "vue";
 
-import type { Palette } from "./types";
+import type { Palette } from "../types";
 import {
     captureSnapshot,
     downloadFile,
     exportFile,
     type ExportFormat,
-} from "./export/serializers";
+} from "./serializers";
 
 const FORMATS: ReadonlySet<string> = new Set<ExportFormat>(["json", "css", "tailwind", "svg", "png"]);
 
@@ -41,7 +41,9 @@ export function usePaletteExport() {
         }
         const captured = await captureSnapshot(palette);
         if (!captured.ok) return { ok: false, message: captured.message };
-        const result = exportFile(captured.snapshot, format);
+        // BC-PCS-31: the document's inline direction, read at download time.
+        const direction = getComputedStyle(document.documentElement).direction === "rtl" ? "rtl" : "ltr";
+        const result = exportFile(captured.snapshot, format, { direction });
         if (!result.ok) {
             return { ok: false, message: `The ${format.toUpperCase()} file could not be produced.` };
         }

@@ -6,193 +6,135 @@
          idiom). X-W6.f's o21 oracle reads the rendered values through them, so
          "About states true facts" is measured against what the user sees rather
          than against the table the component was handed. -->
-    <div
-        class="w-full grid grid-cols-1 gap-4 relative"
-        :data-space-facts="model.selectedColorSpace"
-    >
-        <!-- X-DS pass 3 (V3C-08): Definition is a section like its siblings —
-             the same display head, the text below, the rule after. The well it
-             sat in (V1-22's flattening of the old glass Alert) kept an
-             alert-shaped head in the body voice, a second section-head voice in
-             one card, and a box the original never had. -->
+    <!-- X realization V-D4 (BC-CNL-9/24/8/11/25): the label is a nutrition
+         label in RHYTHM, not in rules — the five Separators are gone; sections
+         are spaced by `--phi-3` and a heading sits `--phi-1` above its body.
+         The key/value groups are `<dl>` grids whose label column hugs the
+         labels (`max-content 1fr`), so the 1800 px card no longer opens a
+         ~500 px gutter between a key and its value. Values are bidi-isolated;
+         icons beside text are decorative. -->
+    <div class="nutrition-label w-full relative" :data-space-facts="space">
         <section>
-            <h2 class="font-display text-subheading mb-2">Definition</h2>
-            <p class="text-small" data-fact="definition">
-                {{ currentColorSpaceInfo.definition }}
+            <h2 class="nl-head font-display text-subheading">Definition</h2>
+            <p class="nl-prose text-small" data-fact="definition">
+                <bdi>{{ currentColorSpaceInfo.definition }}</bdi>
             </p>
         </section>
 
-        <Separator />
-
         <section>
-            <h2 class="font-display text-subheading mb-2">
-                Basic information
-            </h2>
-            <!-- S.W4-8 (design-docs-about P2-7): the former "Type:" row died —
-                 it restated the Definition alert above in shorthand ("Type:
-                 Cylindrical representation of OKLab" one screen under
-                 "Definition: A cylindrical representation of the OKLab color
-                 space"). One sentence, said once. -->
-            <!-- X-DS VR3-03: the fact table's key/value hierarchy — the key is
-                 the label in the muted plate ink, the value carries the
-                 weight (the original's bold-against-italic, 684c818f), both in
-                 the body voice. A component name is a value-sized weighted
-                 line in its accent ink, never a larger regular line that
-                 reads as a link.
-                 X-DS VC4-04: the key and the range's "to" are UPRIGHT. The body
-                 voice (Plus Jakarta Sans) ships no italic face, so `italic`
-                 was a synthetic slant, and the slanted "to" overhung the word
-                 space ("0% to100%"). The muted plate ink against the weighted
-                 value carries the key/value contrast alone; Fraunces stays
-                 reserved for the display rungs (three-voice law). -->
-            <div class="grid grid-cols-2 gap-2 text-small">
-                <div class="plate-ink">Device dependency:</div>
-                <div class="font-medium" data-fact="device-dependency">
-                    {{ currentColorSpaceInfo.deviceDependency }}
-                </div>
-                <div class="plate-ink">White point:</div>
-                <div class="font-medium" data-fact="white-point">{{ currentColorSpaceInfo.whitePoint }}</div>
-                <div class="plate-ink">Gamut:</div>
-                <div class="font-medium" data-fact="gamut">{{ currentColorSpaceInfo.gamut }}</div>
-                <div class="plate-ink">Created:</div>
-                <div class="font-medium" data-fact="created">{{ currentColorSpaceInfo.created }}</div>
-            </div>
+            <h2 class="nl-head font-display text-subheading">Basic information</h2>
+            <!-- X-DS VR3-03 / VC4-04: key in the muted plate ink, value weighted,
+                 both upright in the body voice. -->
+            <dl class="nl-facts text-small">
+                <dt class="plate-ink">Device dependency:</dt>
+                <dd class="font-medium" data-fact="device-dependency">
+                    <bdi>{{ currentColorSpaceInfo.deviceDependency }}</bdi>
+                </dd>
+                <dt class="plate-ink">White point:</dt>
+                <dd class="font-medium" data-fact="white-point"><bdi>{{ currentColorSpaceInfo.whitePoint }}</bdi></dd>
+                <dt class="plate-ink">Gamut:</dt>
+                <dd class="font-medium" data-fact="gamut"><bdi>{{ currentColorSpaceInfo.gamut }}</bdi></dd>
+                <dt class="plate-ink">Created:</dt>
+                <dd class="font-medium" data-fact="created"><bdi>{{ currentColorSpaceInfo.created }}</bdi></dd>
+            </dl>
         </section>
 
-        <Separator />
-
         <section>
-            <h2 class="font-display text-subheading mb-2">
-                Components
-            </h2>
-            <div class="grid grid-cols-3 gap-4 text-small">
+            <h2 class="nl-head font-display text-subheading">Components</h2>
+            <!-- One column per channel of THIS space (`--channel-count`), never
+                 an unconditional three. -->
+            <dl
+                class="nl-components text-small"
+                :style="{ '--channel-count': String(Object.keys(formattedRange).length) }"
+            >
                 <div
                     v-for="([rangeKey, range], index) in Object.entries(formattedRange)"
                     :key="index"
-                    class="space-y-1"
+                    class="nl-component"
                 >
-                    <div
+                    <dt
                         :style="mounted ? { color: componentInk } : undefined"
                         class="font-semibold"
                         data-o18="component-name"
                     >
-                        {{ currentColorSpaceInfo.components[index] ?? rangeKey }}
-                    </div>
-                    <div class="font-medium">
-                        {{ range.min }}
-                        <span class="font-normal plate-ink">to</span>
-                        {{ range.max }}
-                    </div>
+                        <bdi>{{ currentColorSpaceInfo.components[index] ?? rangeKey }}</bdi>
+                    </dt>
+                    <dd class="font-medium">
+                        <bdi>{{ range.min }}</bdi>
+                        <span class="font-normal plate-ink"> to </span>
+                        <bdi>{{ range.max }}</bdi>
+                    </dd>
                 </div>
-            </div>
+            </dl>
         </section>
-
-        <Separator />
 
         <section>
-            <h2 class="font-display text-subheading mb-2">
-                Key properties
-            </h2>
-            <div class="grid grid-cols-2 gap-2 text-small">
-                <div class="plate-ink">Perceptual uniformity:</div>
-                <div class="font-medium">
-                    {{ currentColorSpaceInfo.perceptualUniformity }}
-                </div>
-                <div class="plate-ink">Hue linearity:</div>
-                <div class="font-medium">
-                    {{ currentColorSpaceInfo.hueLinearity }}
-                </div>
-                <div class="plate-ink">Lightness separation:</div>
-                <div class="font-medium">
-                    {{ currentColorSpaceInfo.lightnessSeparation }}
-                </div>
-            </div>
+            <h2 class="nl-head font-display text-subheading">Key properties</h2>
+            <dl class="nl-facts text-small">
+                <dt class="plate-ink">Perceptual uniformity:</dt>
+                <dd class="font-medium"><bdi>{{ currentColorSpaceInfo.perceptualUniformity }}</bdi></dd>
+                <dt class="plate-ink">Hue linearity:</dt>
+                <dd class="font-medium"><bdi>{{ currentColorSpaceInfo.hueLinearity }}</bdi></dd>
+                <dt class="plate-ink">Lightness separation:</dt>
+                <dd class="font-medium"><bdi>{{ currentColorSpaceInfo.lightnessSeparation }}</bdi></dd>
+            </dl>
         </section>
 
-        <Separator />
-
-        <section class="space-y-4">
-            <h2 class="font-display text-subheading">
-                Conversion graph
-            </h2>
-            <div class="flex flex-wrap gap-4">
-                <!-- X.W12.c · UIA-V-4 — the chip is a path to READ, not a control.
-                     Each chip sat in its own TooltipProvider/Tooltip whose
-                     content was an empty `contents` box: hovering opened a
-                     1×1 px role=tooltip that said nothing, and the chip wore
-                     `cursor-pointer` with no action behind it. The empty
-                     tooltip layer and the pointer cursor are gone; the hover
-                     highlight (the chip's one real behaviour) stays. -->
-                <!-- AB-3 (D1): the conversion-graph node seats on the
-                     well recipe; the interactive hover follows the
-                     app's established well-row idiom (bg-well →
-                     hover:bg-accent/50, per VersionHistoryDrawer),
-                     collapsing the /50 /30 /60 muted-alpha species. -->
-                <div
+        <section>
+            <h2 class="nl-head font-display text-subheading">Conversion graph</h2>
+            <!-- X.W12.c · UIA-V-4: a path is something to READ, not a control.
+                 BC-CNL-8: the hover highlight had no focus or touch twin and no
+                 non-hover consumer, so it is gone with its handlers; every node
+                 rests on the well in the plate's own ink. -->
+            <ul class="flex flex-wrap gap-4" role="list">
+                <li
                     v-for="(path, index) in currentColorSpaceInfo.conversions"
                     :key="index"
-                    class="flex flex-wrap items-center p-3 bg-well rounded-panel hover:bg-accent/50 transition-colors max-w-full"
-                    @mouseenter="hoveredPathIndex = index"
-                    @mouseleave="hoveredPathIndex = null"
+                    class="flex flex-wrap items-center p-3 bg-well rounded-panel max-w-full"
                 >
-                    <template
-                        v-for="(space, spaceIndex) in path"
-                        :key="spaceIndex"
-                    >
-                        <!-- F-3 split: the hovered node commits to the live
-                             fill AND the fill-derived ink together — never a
-                             colored fill under the fixed foreground. -->
-                        <div
-                            :style="
-                                hoveredPathIndex === index
-                                    ? { backgroundColor: nodeFill, color: nodeInk }
-                                    : undefined
-                            "
-                            :class="['px-2 py-1 rounded transition-colors']"
-                            data-o18="graph-node"
-                        >
-                            {{ space }}
-                        </div>
+                    <template v-for="(node, nodeIndex) in path" :key="nodeIndex">
+                        <span class="px-2 py-1 rounded" data-o18="graph-node"><bdi>{{ node }}</bdi></span>
                         <ArrowRight
-                            v-if="spaceIndex < path.length - 1"
-                            class="mx-1"
+                            v-if="nodeIndex < path.length - 1"
+                            class="mx-1 rtl:-scale-x-100"
+                            aria-hidden="true"
                         />
                     </template>
-                </div>
-            </div>
+                </li>
+            </ul>
         </section>
 
-        <Separator />
-
         <section>
-            <h2 class="font-display text-subheading mb-2">Usage</h2>
-            <div class="space-y-2 text-small">
-                <div>
-                    <span class="plate-ink">Common applications: </span>
-                    <span class="font-medium">{{
-                        currentColorSpaceInfo.applications.join(", ")
-                    }}</span>
-                </div>
-                <div>
-                    <span class="plate-ink">Industries: </span>
-                    <span class="font-medium">{{ currentColorSpaceInfo.industries.join(", ") }}</span>
-                </div>
-            </div>
+            <h2 class="nl-head font-display text-subheading">Usage</h2>
+            <dl class="nl-facts text-small">
+                <dt class="plate-ink">Common applications:</dt>
+                <dd class="font-medium">
+                    <ul class="nl-inline" role="list">
+                        <li v-for="a in currentColorSpaceInfo.applications" :key="a"><bdi>{{ a }}</bdi></li>
+                    </ul>
+                </dd>
+                <dt class="plate-ink">Industries:</dt>
+                <dd class="font-medium">
+                    <ul class="nl-inline" role="list">
+                        <li v-for="i in currentColorSpaceInfo.industries" :key="i"><bdi>{{ i }}</bdi></li>
+                    </ul>
+                </dd>
+            </dl>
         </section>
     </div>
 </template>
 <script setup lang="ts">
-import { computed, ref, inject } from "vue";
+import { computed, inject } from "vue";
 import { useMounted } from "@vueuse/core";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
-import { contrastInkFor } from "../../color-session/ink";
-import { Separator } from "@mkbabb/glass-ui/separator";
 import { ArrowRight } from "@lucide/vue";
-import type { ColorModel } from "../../color-session/color-model";
+import type { DisplayColorSpace } from "../../color-session/color-model";
 import { SPACE_CATALOG } from "../../color-session/space-catalog";
 
-const model = defineModel<ColorModel>({ required: true });
+// BC-CNL-16: the label reads ONE fact — the space — as a prop. A two-way
+// binding of the whole model fanned every colour tick out to this subtree.
+const { space } = defineProps<{ space: DisplayColorSpace }>();
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 
@@ -212,13 +154,6 @@ const componentInk = computed(() => safeCss(cssColorOpaque.value));
 // plate's certified ink, which is what the prerendered shell painted.
 const mounted = useMounted();
 
-//   FILL role — the hovered graph node paints the LIVE COLOR as data (C3:
-//   color-data surface), and its ink derives from the FILL's own luminance —
-//   the `resolveSealInk` exemplar generalized (`contrastInkFor`): a pass by
-//   construction, the second, dependent guard the F-3 chain demands. On parse
-//   failure the caller keeps the resting ink (empty string → inherit).
-const nodeFill = cssColorOpaque;
-const nodeInk = computed(() => contrastInkFor(nodeFill.value) ?? "");
 
 /**
  * X-W6.f · X:CSS-1 (f2/f3) — THE MASKING FALLBACK IS GONE, AND UNSPELLABLE.
@@ -236,7 +171,7 @@ const nodeInk = computed(() => contrastInkFor(nodeFill.value) ?? "");
  * space, not the resolved one — Hex has its own authored facts and no longer
  * borrows RGB's.
  */
-const currentSpace = computed(() => SPACE_CATALOG[model.value.selectedColorSpace]);
+const currentSpace = computed(() => SPACE_CATALOG[space]);
 const currentColorSpaceInfo = computed(() => currentSpace.value.info);
 
 const formattedRange = computed<Record<string, { min: string; max: string }>>(() =>
@@ -254,10 +189,54 @@ const formattedRange = computed<Record<string, { min: string; max: string }>>(()
     ),
 );
 
-// X.W12.c · UIA-V-206 — the hover names ONE path. It used to hold the hovered
-// path's node NAMES, and every chip lit each node whose name was in that list,
-// so hovering `lab → xyz` also lit `xyz` in every other path. The index of the
-// hovered chip lights that chip's nodes and no other.
-const hoveredPathIndex = ref<number | null>(null);
 
 </script>
+
+<style scoped>
+/* V-D4 · BC-CNL-9: rhythm, not rules (DESIGN §3.1, the φ ladder). */
+.nutrition-label {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--phi-3);
+}
+.nl-head {
+    margin-block-end: var(--phi-1);
+}
+.nl-prose {
+    max-inline-size: 66ch;
+}
+/* BC-CNL-24: the label column hugs its labels. */
+.nl-facts {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: var(--phi-2);
+    row-gap: var(--phi-0);
+    margin: 0;
+}
+.nl-facts > dd,
+.nl-components dd {
+    margin: 0;
+}
+.nl-components {
+    display: grid;
+    grid-template-columns: repeat(var(--channel-count, 3), minmax(0, 1fr));
+    gap: var(--phi-2);
+    margin: 0;
+}
+/* BC-CNL-11: values are isolated runs inside the bidi algorithm. */
+.nl-facts > *,
+.nl-components > * {
+    unicode-bidi: isolate;
+}
+.nl-inline {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.5ch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nl-inline > li:not(:last-child)::after {
+    content: ",";
+}
+</style>

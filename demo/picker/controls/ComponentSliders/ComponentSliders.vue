@@ -101,6 +101,7 @@ import { readoutDecimals } from "../../display/ColorComponentDisplay/readoutRese
 import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
 import { useSliderTouchGates } from "./composables/useSliderTouchGates";
 import { useSliderAnnouncements } from "./composables/useSliderAnnouncements";
+import { stopsToGradient } from "../../../shared/ui/color-chips";
 import ConsoleRail from "./ConsoleRail.vue";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
 
@@ -233,7 +234,7 @@ const thumbInk = computed(() => {
 // via the producer's own `--glass-slider-track-background` seam.
 function sliderVars(component: string): Record<string, string | undefined> {
     const stops = componentsSlidersStyle.value[component];
-    const ramp = stops ? `linear-gradient(to right, ${stops.join(", ")})` : undefined;
+    const ramp = stops ? (stopsToGradient(stops) ?? undefined) : undefined;
     return {
         "--glass-slider-track-background":
             ramp && component === "alpha"
