@@ -1,0 +1,223 @@
+{
+ "base": "https://keyframes.babb.dev/",
+ "dir": null,
+ "at": "2026-11-05T06:06:20.392Z",
+ "fails": [
+  "home release: the stage is still at no-preference (running 21)",
+  "cube engage: motion under reduce (3 mover(s) div.cube-bob.preserve-3d div.cube-pose.preserve-3d div.cube.preserve-3d; pixels true; running 6 gl-dock-cap-inline-start,gl-dock-cap-inline-end,gl-fade-start-in,gl-fade-end-out)",
+  "cube engage2: motion under reduce (3 mover(s) div.cube-bob.preserve-3d div.cube-pose.preserve-3d div.cube.preserve-3d; pixels true; running 6 gl-dock-cap-inline-start,gl-dock-cap-inline-end,gl-fade-start-in,gl-fade-end-out)",
+  "amiga start: the stage is still at no-preference (running 6)",
+  "amiga release: the stage is still at no-preference (running 6)"
+ ],
+ "out": [
+  {
+   "scene": "home",
+   "phases": [
+    {
+     "name": "start",
+     "rm": "no-preference",
+     "moving": 0,
+     "movers": [],
+     "running": 24,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end",
+      "charLift-b34abf98",
+      ""
+     ],
+     "ticks": 25,
+     "pixels": true
+    },
+    {
+     "name": "engage",
+     "rm": "reduce",
+     "moving": 0,
+     "movers": [],
+     "running": 4,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end"
+     ],
+     "ticks": 25,
+     "pixels": false
+    },
+    {
+     "name": "release",
+     "rm": "no-preference",
+     "moving": 0,
+     "movers": [],
+     "running": 21,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end",
+      "charLift-b34abf98"
+     ],
+     "ticks": 25,
+     "pixels": false
+    },
+    {
+     "name": "engage2",
+     "rm": "reduce",
+     "moving": 0,
+     "movers": [],
+     "running": 4,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end"
+     ],
+     "ticks": 25,
+     "pixels": false
+    }
+   ],
+   "errs": []
+  },
+  {
+   "scene": "cube",
+   "phases": [
+    {
+     "name": "start",
+     "rm": "no-preference",
+     "moving": 3,
+     "movers": [
+      "div.cube-bob.preserve-3d",
+      "div.cube-pose.preserve-3d",
+      "div.cube.preserve-3d"
+     ],
+     "running": 6,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end",
+      "gl-fade-start-in",
+      "gl-fade-end-out"
+     ],
+     "ticks": 17,
+     "pixels": true
+    },
+    {
+     "name": "engage",
+     "rm": "reduce",
+     "moving": 3,
+     "movers": [
+      "div.cube-bob.preserve-3d",
+      "div.cube-pose.preserve-3d",
+      "div.cube.preserve-3d"
+     ],
+     "running": 6,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end",
+      "gl-fade-start-in",
+      "gl-fade-end-out"
+     ],
+     "ticks": 19,
+     "pixels": true
+    },
+    {
+     "name": "release",
+     "rm": "no-preference",
+     "moving": 3,
+     "movers": [
+      "div.cube-bob.preserve-3d",
+      "div.cube-pose.preserve-3d",
+      "div.cube.preserve-3d"
+     ],
+     "running": 6,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end",
+      "gl-fade-start-in",
+      "gl-fade-end-out"
+     ],
+     "ticks": 20,
+     "pixels": true
+    },
+    {
+     "name": "engage2",
+     "rm": "reduce",
+     "moving": 3,
+     "movers": [
+      "div.cube-bob.preserve-3d",
+      "div.cube-pose.preserve-3d",
+      "div.cube.preserve-3d"
+     ],
+     "running": 6,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end",
+      "gl-fade-start-in",
+      "gl-fade-end-out"
+     ],
+     "ticks": 19,
+     "pixels": true
+    }
+   ],
+   "errs": []
+  },
+  {
+   "scene": "amiga",
+   "phases": [
+    {
+     "name": "start",
+     "rm": "no-preference",
+     "moving": 0,
+     "movers": [],
+     "running": 6,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end",
+      "gl-fade-start-in",
+      "gl-fade-end-out"
+     ],
+     "ticks": 25,
+     "pixels": false
+    },
+    {
+     "name": "engage",
+     "rm": "reduce",
+     "moving": 0,
+     "movers": [],
+     "running": 6,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end",
+      "gl-fade-start-in",
+      "gl-fade-end-out"
+     ],
+     "ticks": 25,
+     "pixels": false
+    },
+    {
+     "name": "release",
+     "rm": "no-preference",
+     "moving": 0,
+     "movers": [],
+     "running": 6,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end",
+      "gl-fade-start-in",
+      "gl-fade-end-out"
+     ],
+     "ticks": 25,
+     "pixels": false
+    },
+    {
+     "name": "engage2",
+     "rm": "reduce",
+     "moving": 0,
+     "movers": [],
+     "running": 6,
+     "animNames": [
+      "gl-dock-cap-inline-start",
+      "gl-dock-cap-inline-end",
+      "gl-fade-start-in",
+      "gl-fade-end-out"
+     ],
+     "ticks": 25,
+     "pixels": false
+    }
+   ],
+   "errs": []
+  }
+ ]
+}

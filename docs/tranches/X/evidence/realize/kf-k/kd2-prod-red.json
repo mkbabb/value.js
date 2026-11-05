@@ -1,0 +1,2486 @@
+{
+ "base": "https://keyframes.babb.dev/",
+ "dir": null,
+ "at": "2026-11-05T04:08:06.817Z",
+ "fails": [
+  "spring@390x844 light (a) plate scrolls 585 in 404",
+  "spring@390x844 light (b) 8 box(es) past the plate, worst span.text-caption.text-muted-foreground by 80.1 px",
+  "square@390x844 light (d) clipped text \"Arrow keys nudge the box a quarter of it\" 2056/1, \"x 0.00\" 56/1, \"y 0.00\" 56/1",
+  "spring@390x844 dark (a) plate scrolls 585 in 404",
+  "spring@390x844 dark (b) 8 box(es) past the plate, worst span.text-caption.text-muted-foreground by 80.1 px",
+  "square@390x844 dark (d) clipped text \"Arrow keys nudge the box a quarter of it\" 2056/1, \"x 0.00\" 56/1, \"y 0.00\" 56/1",
+  "spring@430x932 light (a) plate scrolls 586 in 492",
+  "square@430x932 light (d) clipped text \"Arrow keys nudge the box a quarter of it\" 2072/1, \"x 0.00\" 56/1, \"y 0.00\" 56/1",
+  "spring@430x932 dark (a) plate scrolls 586 in 492",
+  "square@430x932 dark (d) clipped text \"Arrow keys nudge the box a quarter of it\" 2072/1, \"x 0.00\" 56/1, \"y 0.00\" 56/1",
+  "spring@844x390 light (a) plate scrolls 553 in 227",
+  "spring@844x390 light (b) 8 box(es) past the plate, worst span.text-caption.text-muted-foreground by 226.8 px",
+  "square@844x390 light (a) plate scrolls 275 in 227",
+  "square@844x390 light (b) 2 box(es) past the plate, worst span.text-mono-small.text-muted-foreground by 46.9 px",
+  "square@844x390 light (d) clipped text \"Arrow keys nudge the box a quarter of it\" 2598/1, \"x 0.00\" 70/1, \"y 0.00\" 71/1",
+  "sequence@844x390 light (a) plate scrolls 375 in 227",
+  "sequence@844x390 light (b) 8 box(es) past the plate, worst div.progress-ball.seq-ball by 115.9 px",
+  "spring@844x390 dark (a) plate scrolls 553 in 227",
+  "spring@844x390 dark (b) 8 box(es) past the plate, worst span.text-caption.text-muted-foreground by 226.8 px",
+  "square@844x390 dark (a) plate scrolls 275 in 227",
+  "square@844x390 dark (b) 2 box(es) past the plate, worst span.text-mono-small.text-muted-foreground by 46.9 px",
+  "square@844x390 dark (d) clipped text \"Arrow keys nudge the box a quarter of it\" 2598/1, \"x 0.00\" 70/1, \"y 0.00\" 71/1",
+  "sequence@844x390 dark (a) plate scrolls 375 in 227",
+  "sequence@844x390 dark (b) 8 box(es) past the plate, worst div.progress-ball.seq-ball by 115.9 px",
+  "spring@1024x768 light (a) plate scrolls 680 in 536",
+  "square@1024x768 light (d) clipped text \"Arrow keys nudge the box a quarter of it\" 2827/1, \"x 0.00\" 76/1, \"y 0.00\" 77/1",
+  "spring@1024x768 dark (a) plate scrolls 680 in 536",
+  "square@1024x768 dark (d) clipped text \"Arrow keys nudge the box a quarter of it\" 2827/1, \"x 0.00\" 76/1, \"y 0.00\" 77/1",
+  "spring@1440x900 light (a) plate scrolls 851 in 621",
+  "square@1440x900 light (d) clipped text \"Arrow keys nudge the box a quarter of it\" 3327/1, \"x 0.00\" 90/1, \"y 0.00\" 91/1",
+  "spring@1440x900 dark (a) plate scrolls 851 in 621",
+  "square@1440x900 dark (d) clipped text \"Arrow keys nudge the box a quarter of it\" 3327/1, \"x 0.00\" 90/1, \"y 0.00\" 91/1",
+  "spring@1800x1000 light (a) plate scrolls 1023 in 713",
+  "square@1800x1000 light (d) clipped text \"Arrow keys nudge the box a quarter of it\" 3327/1, \"x 0.00\" 90/1, \"y 0.00\" 91/1",
+  "spring@1800x1000 dark (a) plate scrolls 1023 in 713",
+  "square@1800x1000 dark (d) clipped text \"Arrow keys nudge the box a quarter of it\" 3327/1, \"x 0.00\" 90/1, \"y 0.00\" 91/1"
+ ],
+ "errors": [],
+ "cells": [
+  {
+   "scene": "spring",
+   "vp": "390x844",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 507.4,
+    "l": 28,
+    "r": 362
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 585,
+    "ch": 404
+   },
+   "outside": [
+    {
+     "el": "span.text-caption.text-muted-foreground",
+     "over": 80.1,
+     "t": 571.7,
+     "b": 587.5,
+     "l": 131.5,
+     "r": 214.7
+    },
+    {
+     "el": "span.plot-tick.code-token",
+     "over": 78.5,
+     "t": 573.7,
+     "b": 585.9,
+     "l": 91.5,
+     "r": 98.8
+    },
+    {
+     "el": "span.plot-tick.code-token",
+     "over": 78.5,
+     "t": 573.7,
+     "b": 585.9,
+     "l": 247.4,
+     "r": 298.5
+    },
+    {
+     "el": "span.curve-ball.spring-ball",
+     "over": 63.8,
+     "t": 547.2,
+     "b": 571.2,
+     "l": 79.5,
+     "r": 103.5
+    },
+    {
+     "el": "svg.plot-layer",
+     "over": 60.3,
+     "t": 439.7,
+     "b": 567.7,
+     "l": 91.5,
+     "r": 298.5
+    },
+    {
+     "el": "svg.plot-layer.plot-data",
+     "over": 60.3,
+     "t": 439.7,
+     "b": 567.7,
+     "l": 91.5,
+     "r": 298.5
+    },
+    {
+     "el": "span.curve-ball.sampler-ball",
+     "over": 59.8,
+     "t": 551.2,
+     "b": 567.2,
+     "l": 83.5,
+     "r": 99.5
+    },
+    {
+     "el": "span.plot-tick.plot-tick--value",
+     "over": 57.9,
+     "t": 553.1,
+     "b": 565.2,
+     "l": 66.2,
+     "r": 73.5
+    }
+   ],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 118.5,
+    "b": 176.4,
+    "l": 49,
+    "r": 341
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 507.4,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "390x844",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 508.7,
+    "l": 28,
+    "r": 362
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 405,
+    "ch": 405
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 2056,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 56,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 56,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 102.5,
+    "b": 176.4,
+    "l": 29,
+    "r": 361
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 508.7,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "390x844",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 543.6,
+    "l": 28,
+    "r": 362
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 440,
+    "ch": 440
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 102.5,
+    "b": 194.1,
+    "l": 29,
+    "r": 361
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 543.6,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "390x844",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 543.6,
+    "l": 28,
+    "r": 362
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 440,
+    "ch": 440
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 118.5,
+    "b": 181.1,
+    "l": 49,
+    "r": 341
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 543.6,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "390x844",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 101.5,
+    "b": 508.7,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "390x844",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 101.5,
+    "b": 508.7,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "390x844",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 507.4,
+    "l": 28,
+    "r": 362
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 585,
+    "ch": 404
+   },
+   "outside": [
+    {
+     "el": "span.text-caption.text-muted-foreground",
+     "over": 80.1,
+     "t": 571.7,
+     "b": 587.5,
+     "l": 131.2,
+     "r": 215
+    },
+    {
+     "el": "span.plot-tick.code-token",
+     "over": 78.5,
+     "t": 573.7,
+     "b": 585.9,
+     "l": 91.5,
+     "r": 98.8
+    },
+    {
+     "el": "span.plot-tick.code-token",
+     "over": 78.5,
+     "t": 573.7,
+     "b": 585.9,
+     "l": 247.4,
+     "r": 298.5
+    },
+    {
+     "el": "span.curve-ball.spring-ball",
+     "over": 63.8,
+     "t": 547.2,
+     "b": 571.2,
+     "l": 79.5,
+     "r": 103.5
+    },
+    {
+     "el": "svg.plot-layer",
+     "over": 60.3,
+     "t": 439.7,
+     "b": 567.7,
+     "l": 91.5,
+     "r": 298.5
+    },
+    {
+     "el": "svg.plot-layer.plot-data",
+     "over": 60.3,
+     "t": 439.7,
+     "b": 567.7,
+     "l": 91.5,
+     "r": 298.5
+    },
+    {
+     "el": "span.curve-ball.sampler-ball",
+     "over": 59.8,
+     "t": 551.2,
+     "b": 567.2,
+     "l": 83.5,
+     "r": 99.5
+    },
+    {
+     "el": "span.plot-tick.plot-tick--value",
+     "over": 57.9,
+     "t": 553.1,
+     "b": 565.2,
+     "l": 66.2,
+     "r": 73.5
+    }
+   ],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 118.5,
+    "b": 176.4,
+    "l": 49,
+    "r": 341
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 507.4,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "390x844",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 508.7,
+    "l": 28,
+    "r": 362
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 405,
+    "ch": 405
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 2056,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 56,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 56,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 102.5,
+    "b": 176.4,
+    "l": 29,
+    "r": 361
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 508.7,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "390x844",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 543.6,
+    "l": 28,
+    "r": 362
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 440,
+    "ch": 440
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 102.5,
+    "b": 194.1,
+    "l": 29,
+    "r": 361
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 543.6,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "390x844",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 543.6,
+    "l": 28,
+    "r": 362
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 440,
+    "ch": 440
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 118.5,
+    "b": 181.1,
+    "l": 49,
+    "r": 341
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 543.6,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "390x844",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 101.5,
+    "b": 508.7,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "390x844",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 101.5,
+    "b": 508.7,
+    "l": 28,
+    "r": 362
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "430x932",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 595.4,
+    "l": 28,
+    "r": 402
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 586,
+    "ch": 492
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 118.5,
+    "b": 177,
+    "l": 49,
+    "r": 381
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 595.4,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "430x932",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 596.7,
+    "l": 28,
+    "r": 402
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 493,
+    "ch": 493
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 2072,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 56,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 56,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 102.5,
+    "b": 177,
+    "l": 29,
+    "r": 401
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 596.7,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "430x932",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 631.6,
+    "l": 28,
+    "r": 402
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 528,
+    "ch": 528
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 102.5,
+    "b": 194.6,
+    "l": 29,
+    "r": 401
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 631.6,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "430x932",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 631.6,
+    "l": 28,
+    "r": 402
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 528,
+    "ch": 528
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 118.5,
+    "b": 181.6,
+    "l": 49,
+    "r": 381
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 631.6,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "430x932",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 101.5,
+    "b": 596.7,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "430x932",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 101.5,
+    "b": 596.7,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "430x932",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 595.4,
+    "l": 28,
+    "r": 402
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 586,
+    "ch": 492
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 118.5,
+    "b": 177,
+    "l": 49,
+    "r": 381
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 595.4,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "430x932",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 596.7,
+    "l": 28,
+    "r": 402
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 493,
+    "ch": 493
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 2072,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 56,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 56,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 102.5,
+    "b": 177,
+    "l": 29,
+    "r": 401
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 596.7,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "430x932",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 631.6,
+    "l": 28,
+    "r": 402
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 528,
+    "ch": 528
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 102.5,
+    "b": 194.6,
+    "l": 29,
+    "r": 401
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 631.6,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "430x932",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 101.5,
+    "b": 631.6,
+    "l": 28,
+    "r": 402
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 528,
+    "ch": 528
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 118.5,
+    "b": 181.6,
+    "l": 49,
+    "r": 381
+   },
+   "subject": {
+    "t": 101.5,
+    "b": 631.6,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "430x932",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 101.5,
+    "b": 596.7,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "430x932",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 101.5,
+    "b": 596.7,
+    "l": 28,
+    "r": 402
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "844x390",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 553,
+    "ch": 227
+   },
+   "outside": [
+    {
+     "el": "span.text-caption.text-muted-foreground",
+     "over": 226.8,
+     "t": 513.8,
+     "b": 530.9,
+     "l": 201.3,
+     "r": 291.6
+    },
+    {
+     "el": "span.plot-tick.code-token",
+     "over": 225.9,
+     "t": 516.8,
+     "b": 529.9,
+     "l": 119,
+     "r": 126.9
+    },
+    {
+     "el": "span.plot-tick.code-token",
+     "over": 225.9,
+     "t": 516.8,
+     "b": 529.9,
+     "l": 366,
+     "r": 421.1
+    },
+    {
+     "el": "span.curve-ball.spring-ball",
+     "over": 209.2,
+     "t": 489.3,
+     "b": 513.3,
+     "l": 107,
+     "r": 131
+    },
+    {
+     "el": "svg.plot-layer",
+     "over": 205.7,
+     "t": 381.8,
+     "b": 509.8,
+     "l": 119,
+     "r": 421.1
+    },
+    {
+     "el": "svg.plot-layer.plot-data",
+     "over": 205.7,
+     "t": 381.8,
+     "b": 509.8,
+     "l": 119,
+     "r": 421.1
+    },
+    {
+     "el": "span.curve-ball.sampler-ball",
+     "over": 205.2,
+     "t": 493.3,
+     "b": 509.3,
+     "l": 111,
+     "r": 127
+    },
+    {
+     "el": "span.plot-tick.plot-tick--value",
+     "over": 203.8,
+     "t": 494.7,
+     "b": 507.8,
+     "l": 93.1,
+     "r": 101
+    }
+   ],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 92,
+    "b": 160.9,
+    "l": 57,
+    "r": 483.2
+   },
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "844x390",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 275,
+    "ch": 227
+   },
+   "outside": [
+    {
+     "el": "span.text-mono-small.text-muted-foreground",
+     "over": 46.9,
+     "t": 330.1,
+     "b": 351,
+     "l": 203,
+     "r": 337.2
+    },
+    {
+     "el": "span.text-caption.text-muted-foreground",
+     "over": 22,
+     "t": 292,
+     "b": 326.1,
+     "l": 150.1,
+     "r": 390.1
+    }
+   ],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 2598,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 70,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 71,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 76,
+    "b": 160.9,
+    "l": 37,
+    "r": 503.2
+   },
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "844x390",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 375,
+    "ch": 227
+   },
+   "outside": [
+    {
+     "el": "div.progress-ball.seq-ball",
+     "over": 115.9,
+     "t": 402.1,
+     "b": 420,
+     "l": 261.3,
+     "r": 279.2
+    },
+    {
+     "el": "span.seq-row-name.text-mono-caption",
+     "over": 113.5,
+     "t": 404.5,
+     "b": 417.6,
+     "l": 57,
+     "r": 69
+    },
+    {
+     "el": "div.progress-rail",
+     "over": 108,
+     "t": 410,
+     "b": 412,
+     "l": 270.3,
+     "r": 423
+    },
+    {
+     "el": "div.progress-ball.seq-ball",
+     "over": 67.9,
+     "t": 354.1,
+     "b": 372,
+     "l": 217.2,
+     "r": 235.1
+    },
+    {
+     "el": "span.seq-row-name.text-mono-caption",
+     "over": 65.5,
+     "t": 356.5,
+     "b": 369.6,
+     "l": 57,
+     "r": 69
+    },
+    {
+     "el": "div.progress-rail",
+     "over": 60,
+     "t": 362,
+     "b": 364,
+     "l": 226.2,
+     "r": 423
+    },
+    {
+     "el": "div.progress-ball.seq-ball",
+     "over": 19.9,
+     "t": 306.1,
+     "b": 324,
+     "l": 173.1,
+     "r": 191
+    },
+    {
+     "el": "span.seq-row-name.text-mono-caption",
+     "over": 17.5,
+     "t": 308.5,
+     "b": 321.6,
+     "l": 57,
+     "r": 69
+    }
+   ],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 76,
+    "b": 179,
+    "l": 37,
+    "r": 503.2
+   },
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "844x390",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 227,
+    "ch": 227
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 92,
+    "b": 166.2,
+    "l": 57,
+    "r": 483.2
+   },
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "844x390",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "844x390",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "844x390",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 553,
+    "ch": 227
+   },
+   "outside": [
+    {
+     "el": "span.text-caption.text-muted-foreground",
+     "over": 226.8,
+     "t": 513.8,
+     "b": 530.9,
+     "l": 201.3,
+     "r": 291.6
+    },
+    {
+     "el": "span.plot-tick.code-token",
+     "over": 225.9,
+     "t": 516.8,
+     "b": 529.9,
+     "l": 119,
+     "r": 126.9
+    },
+    {
+     "el": "span.plot-tick.code-token",
+     "over": 225.9,
+     "t": 516.8,
+     "b": 529.9,
+     "l": 366,
+     "r": 421.1
+    },
+    {
+     "el": "span.curve-ball.spring-ball",
+     "over": 209.2,
+     "t": 489.3,
+     "b": 513.3,
+     "l": 107,
+     "r": 131
+    },
+    {
+     "el": "svg.plot-layer",
+     "over": 205.7,
+     "t": 381.8,
+     "b": 509.8,
+     "l": 119,
+     "r": 421.1
+    },
+    {
+     "el": "svg.plot-layer.plot-data",
+     "over": 205.7,
+     "t": 381.8,
+     "b": 509.8,
+     "l": 119,
+     "r": 421.1
+    },
+    {
+     "el": "span.curve-ball.sampler-ball",
+     "over": 205.2,
+     "t": 493.3,
+     "b": 509.3,
+     "l": 111,
+     "r": 127
+    },
+    {
+     "el": "span.plot-tick.plot-tick--value",
+     "over": 203.8,
+     "t": 494.7,
+     "b": 507.8,
+     "l": 93.1,
+     "r": 101
+    }
+   ],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 92,
+    "b": 160.9,
+    "l": 57,
+    "r": 483.2
+   },
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "844x390",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 275,
+    "ch": 227
+   },
+   "outside": [
+    {
+     "el": "span.text-mono-small.text-muted-foreground",
+     "over": 46.9,
+     "t": 330.1,
+     "b": 351,
+     "l": 203,
+     "r": 337.2
+    },
+    {
+     "el": "span.text-caption.text-muted-foreground",
+     "over": 22,
+     "t": 292,
+     "b": 326.1,
+     "l": 150.1,
+     "r": 390.1
+    }
+   ],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 2598,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 70,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 71,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 76,
+    "b": 160.9,
+    "l": 37,
+    "r": 503.2
+   },
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "844x390",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 375,
+    "ch": 227
+   },
+   "outside": [
+    {
+     "el": "div.progress-ball.seq-ball",
+     "over": 115.9,
+     "t": 402.1,
+     "b": 420,
+     "l": 261.3,
+     "r": 279.2
+    },
+    {
+     "el": "span.seq-row-name.text-mono-caption",
+     "over": 113.5,
+     "t": 404.5,
+     "b": 417.6,
+     "l": 57,
+     "r": 69
+    },
+    {
+     "el": "div.progress-rail",
+     "over": 108,
+     "t": 410,
+     "b": 412,
+     "l": 270.3,
+     "r": 423
+    },
+    {
+     "el": "div.progress-ball.seq-ball",
+     "over": 67.9,
+     "t": 354.1,
+     "b": 372,
+     "l": 217.2,
+     "r": 235.1
+    },
+    {
+     "el": "span.seq-row-name.text-mono-caption",
+     "over": 65.5,
+     "t": 356.5,
+     "b": 369.6,
+     "l": 57,
+     "r": 69
+    },
+    {
+     "el": "div.progress-rail",
+     "over": 60,
+     "t": 362,
+     "b": 364,
+     "l": 226.2,
+     "r": 423
+    },
+    {
+     "el": "div.progress-ball.seq-ball",
+     "over": 19.9,
+     "t": 306.1,
+     "b": 324,
+     "l": 173.1,
+     "r": 191
+    },
+    {
+     "el": "span.seq-row-name.text-mono-caption",
+     "over": 17.5,
+     "t": 308.5,
+     "b": 321.6,
+     "l": 57,
+     "r": 69
+    }
+   ],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 76,
+    "b": 179,
+    "l": 37,
+    "r": 503.2
+   },
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "844x390",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 227,
+    "ch": 227
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 92,
+    "b": 166.2,
+    "l": 57,
+    "r": 483.2
+   },
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "844x390",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "844x390",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 75,
+    "b": 304.1,
+    "l": 36,
+    "r": 504.2
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "1024x768",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 105,
+    "b": 642.5,
+    "l": 432,
+    "r": 992
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 680,
+    "ch": 536
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 122,
+    "b": 184.6,
+    "l": 453,
+    "r": 971
+   },
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "1024x768",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 105,
+    "b": 642.5,
+    "l": 432,
+    "r": 992
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 536,
+    "ch": 536
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 2827,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 76,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 77,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 106,
+    "b": 184.6,
+    "l": 433,
+    "r": 991
+   },
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "1024x768",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 105,
+    "b": 642.5,
+    "l": 432,
+    "r": 992
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 536,
+    "ch": 536
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 106,
+    "b": 202.4,
+    "l": 433,
+    "r": 991
+   },
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "1024x768",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 105,
+    "b": 642.5,
+    "l": 432,
+    "r": 992
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 536,
+    "ch": 536
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 122,
+    "b": 159.3,
+    "l": 453,
+    "r": 971
+   },
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "1024x768",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "1024x768",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "1024x768",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 105,
+    "b": 642.5,
+    "l": 432,
+    "r": 992
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 680,
+    "ch": 536
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 122,
+    "b": 184.6,
+    "l": 453,
+    "r": 971
+   },
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "1024x768",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 105,
+    "b": 642.5,
+    "l": 432,
+    "r": 992
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 536,
+    "ch": 536
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 2827,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 76,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 77,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 106,
+    "b": 184.6,
+    "l": 433,
+    "r": 991
+   },
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "1024x768",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 105,
+    "b": 642.5,
+    "l": 432,
+    "r": 992
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 536,
+    "ch": 536
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 106,
+    "b": 202.4,
+    "l": 433,
+    "r": 991
+   },
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "1024x768",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 105,
+    "b": 642.5,
+    "l": 432,
+    "r": 992
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 536,
+    "ch": 536
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 122,
+    "b": 159.3,
+    "l": 453,
+    "r": 971
+   },
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "1024x768",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "1024x768",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 105,
+    "b": 642.5,
+    "l": 400,
+    "r": 1024
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "1440x900",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 127,
+    "b": 750.1,
+    "l": 550.4,
+    "r": 1364.8
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 851,
+    "ch": 621
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 144,
+    "b": 214.5,
+    "l": 573.6,
+    "r": 1341.6
+   },
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "1440x900",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 127,
+    "b": 750.1,
+    "l": 550.4,
+    "r": 1364.8
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 621,
+    "ch": 621
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 3327,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 90,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 91,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 128,
+    "b": 214.5,
+    "l": 551.4,
+    "r": 1363.8
+   },
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "1440x900",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 127,
+    "b": 750.1,
+    "l": 550.4,
+    "r": 1364.8
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 621,
+    "ch": 621
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 128,
+    "b": 232.6,
+    "l": 551.4,
+    "r": 1363.8
+   },
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "1440x900",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 127,
+    "b": 750.1,
+    "l": 550.4,
+    "r": 1364.8
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 621,
+    "ch": 621
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 144,
+    "b": 188,
+    "l": 571.4,
+    "r": 1343.8
+   },
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "1440x900",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "1440x900",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "1440x900",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 127,
+    "b": 750.1,
+    "l": 550.4,
+    "r": 1364.8
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 851,
+    "ch": 621
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 144,
+    "b": 214.5,
+    "l": 573.6,
+    "r": 1341.6
+   },
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "1440x900",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 127,
+    "b": 750.1,
+    "l": 550.4,
+    "r": 1364.8
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 621,
+    "ch": 621
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 3327,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 90,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 91,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 128,
+    "b": 214.5,
+    "l": 551.4,
+    "r": 1363.8
+   },
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "1440x900",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 127,
+    "b": 750.1,
+    "l": 550.4,
+    "r": 1364.8
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 621,
+    "ch": 621
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 128,
+    "b": 232.6,
+    "l": 551.4,
+    "r": 1363.8
+   },
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "1440x900",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 127,
+    "b": 750.1,
+    "l": 550.4,
+    "r": 1364.8
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 621,
+    "ch": 621
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 144,
+    "b": 188,
+    "l": 571.4,
+    "r": 1343.8
+   },
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "1440x900",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "1440x900",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 127,
+    "b": 750.1,
+    "l": 518.4,
+    "r": 1396.8
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "1800x1000",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 134,
+    "b": 849.1,
+    "l": 598,
+    "r": 1714
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 1023,
+    "ch": 713
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 151,
+    "b": 222.8,
+    "l": 772,
+    "r": 1540
+   },
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "1800x1000",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 134,
+    "b": 849.1,
+    "l": 598,
+    "r": 1714
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 713,
+    "ch": 713
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 3327,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 90,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 91,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 135,
+    "b": 222.8,
+    "l": 599,
+    "r": 1713
+   },
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "1800x1000",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 134,
+    "b": 849.1,
+    "l": 676,
+    "r": 1636
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 713,
+    "ch": 713
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 135,
+    "b": 240.9,
+    "l": 677,
+    "r": 1635
+   },
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "1800x1000",
+   "theme": "light",
+   "plate": "glass-resting",
+   "box": {
+    "t": 134,
+    "b": 849.1,
+    "l": 598,
+    "r": 1714
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 713,
+    "ch": 713
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 151,
+    "b": 195,
+    "l": 619,
+    "r": 1693
+   },
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "1800x1000",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "1800x1000",
+   "theme": "light",
+   "plate": null,
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "spring",
+   "vp": "1800x1000",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 134,
+    "b": 849.1,
+    "l": 598,
+    "r": 1714
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 1023,
+    "ch": 713
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 151,
+    "b": 222.8,
+    "l": 772,
+    "r": 1540
+   },
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "square",
+   "vp": "1800x1000",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 134,
+    "b": 849.1,
+    "l": 598,
+    "r": 1714
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 713,
+    "ch": 713
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [
+    {
+     "text": "Arrow keys nudge the box a quarter of it",
+     "sw": 3327,
+     "cw": 1
+    },
+    {
+     "text": "x 0.00",
+     "sw": 90,
+     "cw": 1
+    },
+    {
+     "text": "y 0.00",
+     "sw": 91,
+     "cw": 1
+    }
+   ],
+   "header": {
+    "t": 135,
+    "b": 222.8,
+    "l": 599,
+    "r": 1713
+   },
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "sequence",
+   "vp": "1800x1000",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 134,
+    "b": 849.1,
+    "l": 676,
+    "r": 1636
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 713,
+    "ch": 713
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 135,
+    "b": 240.9,
+    "l": 677,
+    "r": 1635
+   },
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "easing",
+   "vp": "1800x1000",
+   "theme": "dark",
+   "plate": "glass-resting",
+   "box": {
+    "t": 134,
+    "b": 849.1,
+    "l": 598,
+    "r": 1714
+   },
+   "exempt": false,
+   "scroll": {
+    "sh": 713,
+    "ch": 713
+   },
+   "outside": [],
+   "collide": [],
+   "clipped": [],
+   "header": {
+    "t": 151,
+    "b": 195,
+    "l": 619,
+    "r": 1693
+   },
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "amiga",
+   "vp": "1800x1000",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  },
+  {
+   "scene": "cube",
+   "vp": "1800x1000",
+   "theme": "dark",
+   "plate": null,
+   "subject": {
+    "t": 134,
+    "b": 849.1,
+    "l": 566,
+    "r": 1746
+   }
+  }
+ ]
+}

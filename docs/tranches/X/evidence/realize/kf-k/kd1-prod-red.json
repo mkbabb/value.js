@@ -1,0 +1,417 @@
+{
+ "base": "https://keyframes.babb.dev/",
+ "at": "2026-11-05T04:01:13.383Z",
+ "rows": [
+  "d28",
+  "d28c"
+ ],
+ "fails": [
+  "D-28c cube@390 light: clip edge y=701.6 (div.fading-scroll) cuts [[690,730]]",
+  "D-28c amiga@390 light: clip edge y=701.6 (div.fading-scroll) cuts [[690,730]]",
+  "D-28c square@390 light: clip edge y=701.6 (div.fading-scroll) cuts [[690,730]]",
+  "D-28c spring@390 light: clip edge y=701.6 (div.fading-scroll) cuts [[698,739],[698,739]]",
+  "D-28c cube@390 dark: clip edge y=701.6 (div.fading-scroll) cuts [[690,730]]",
+  "D-28c amiga@390 dark: clip edge y=701.6 (div.fading-scroll) cuts [[690,730]]",
+  "D-28c square@390 dark: clip edge y=701.6 (div.fading-scroll) cuts [[690,730]]",
+  "D-28c spring@390 dark: clip edge y=701.6 (div.fading-scroll) cuts [[698,739],[698,739]]",
+  "D-28c cube@430 light: clip edge y=789.6 (div.fading-scroll) cuts [[778,818]]",
+  "D-28c amiga@430 light: clip edge y=789.6 (div.fading-scroll) cuts [[778,818]]",
+  "D-28c square@430 light: clip edge y=789.6 (div.fading-scroll) cuts [[778,818]]",
+  "D-28c spring@430 light: clip edge y=789.6 (div.fading-scroll) cuts [[786,827],[786,827]]",
+  "D-28c cube@430 dark: clip edge y=789.6 (div.fading-scroll) cuts [[778,818]]",
+  "D-28c amiga@430 dark: clip edge y=789.6 (div.fading-scroll) cuts [[778,818]]",
+  "D-28c square@430 dark: clip edge y=789.6 (div.fading-scroll) cuts [[778,818]]",
+  "D-28c spring@430 dark: clip edge y=789.6 (div.fading-scroll) cuts [[786,827],[786,827]]"
+ ],
+ "errors": [],
+ "out": {
+  "d28": [
+   {
+    "vp": "390x844",
+    "scene": "cube",
+    "sheetH": 206,
+    "foot": 686,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "390x844",
+    "scene": "amiga",
+    "sheetH": 206,
+    "foot": 686,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "390x844",
+    "scene": "square",
+    "sheetH": 206,
+    "foot": 686,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "390x844",
+    "scene": "easing",
+    "sheetH": 171,
+    "foot": 686,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "390x844",
+    "scene": "spring",
+    "sheetH": 207,
+    "foot": 686,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "390x844",
+    "scene": "sequence",
+    "sheetH": 171,
+    "foot": 686,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "430x932",
+    "scene": "cube",
+    "sheetH": 206,
+    "foot": 774,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "430x932",
+    "scene": "amiga",
+    "sheetH": 206,
+    "foot": 774,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "430x932",
+    "scene": "square",
+    "sheetH": 206,
+    "foot": 774,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "430x932",
+    "scene": "easing",
+    "sheetH": 171,
+    "foot": 774,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "430x932",
+    "scene": "spring",
+    "sheetH": 207,
+    "foot": 774,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   },
+   {
+    "vp": "430x932",
+    "scene": "sequence",
+    "sheetH": 171,
+    "foot": 774,
+    "clip": "div.fading-scroll[]",
+    "cut": []
+   }
+  ],
+  "d28c": [
+   {
+    "vp": "390x844",
+    "scheme": "light",
+    "scene": "cube",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 701.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 686,
+    "straddle": [
+     [
+      690,
+      730
+     ]
+    ]
+   },
+   {
+    "vp": "390x844",
+    "scheme": "light",
+    "scene": "amiga",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 701.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 686,
+    "straddle": [
+     [
+      690,
+      730
+     ]
+    ]
+   },
+   {
+    "vp": "390x844",
+    "scheme": "light",
+    "scene": "square",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 701.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 686,
+    "straddle": [
+     [
+      690,
+      730
+     ]
+    ]
+   },
+   {
+    "vp": "390x844",
+    "scheme": "light",
+    "scene": "spring",
+    "rung": null,
+    "sheetH": 207,
+    "edge": 701.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 686,
+    "straddle": [
+     [
+      698,
+      739
+     ],
+     [
+      698,
+      739
+     ]
+    ]
+   },
+   {
+    "vp": "390x844",
+    "scheme": "dark",
+    "scene": "cube",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 701.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 686,
+    "straddle": [
+     [
+      690,
+      730
+     ]
+    ]
+   },
+   {
+    "vp": "390x844",
+    "scheme": "dark",
+    "scene": "amiga",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 701.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 686,
+    "straddle": [
+     [
+      690,
+      730
+     ]
+    ]
+   },
+   {
+    "vp": "390x844",
+    "scheme": "dark",
+    "scene": "square",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 701.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 686,
+    "straddle": [
+     [
+      690,
+      730
+     ]
+    ]
+   },
+   {
+    "vp": "390x844",
+    "scheme": "dark",
+    "scene": "spring",
+    "rung": null,
+    "sheetH": 207,
+    "edge": 701.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 686,
+    "straddle": [
+     [
+      698,
+      739
+     ],
+     [
+      698,
+      739
+     ]
+    ]
+   },
+   {
+    "vp": "430x932",
+    "scheme": "light",
+    "scene": "cube",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 789.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 774,
+    "straddle": [
+     [
+      778,
+      818
+     ]
+    ]
+   },
+   {
+    "vp": "430x932",
+    "scheme": "light",
+    "scene": "amiga",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 789.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 774,
+    "straddle": [
+     [
+      778,
+      818
+     ]
+    ]
+   },
+   {
+    "vp": "430x932",
+    "scheme": "light",
+    "scene": "square",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 789.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 774,
+    "straddle": [
+     [
+      778,
+      818
+     ]
+    ]
+   },
+   {
+    "vp": "430x932",
+    "scheme": "light",
+    "scene": "spring",
+    "rung": null,
+    "sheetH": 207,
+    "edge": 789.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 774,
+    "straddle": [
+     [
+      786,
+      827
+     ],
+     [
+      786,
+      827
+     ]
+    ]
+   },
+   {
+    "vp": "430x932",
+    "scheme": "dark",
+    "scene": "cube",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 789.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 774,
+    "straddle": [
+     [
+      778,
+      818
+     ]
+    ]
+   },
+   {
+    "vp": "430x932",
+    "scheme": "dark",
+    "scene": "amiga",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 789.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 774,
+    "straddle": [
+     [
+      778,
+      818
+     ]
+    ]
+   },
+   {
+    "vp": "430x932",
+    "scheme": "dark",
+    "scene": "square",
+    "rung": null,
+    "sheetH": 206,
+    "edge": 789.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 774,
+    "straddle": [
+     [
+      778,
+      818
+     ]
+    ]
+   },
+   {
+    "vp": "430x932",
+    "scheme": "dark",
+    "scene": "spring",
+    "rung": null,
+    "sheetH": 207,
+    "edge": 789.6,
+    "clip": "div.fading-scroll",
+    "ramp": "1rem",
+    "lastWhole": 774,
+    "straddle": [
+     [
+      786,
+      827
+     ],
+     [
+      786,
+      827
+     ]
+    ]
+   }
+  ]
+ }
+}
