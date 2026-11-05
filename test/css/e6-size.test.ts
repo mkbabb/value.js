@@ -4,15 +4,19 @@
 // E-6 — the emitted parsers' size ceilings, held by a test. Each file under
 // `src/css/bbnf/generated/` is minified the way the gate reads it (esbuild
 // `--minify --loader=js`) and gzipped at the default level; the result must
-// sit at or under its ceiling in `e6-ceilings.json`. The ceilings are ruled
+// sit at or under its ceiling in `e6-ceilings.json`. The gzip is pako's, a
+// pure-JS port of reference zlib, so the byte count is the same on every host:
+// `node:zlib` links whatever zlib the runtime ships, and the Chromium fork in
+// the Linux Node builds compresses grammar.js to 15,207 B where reference zlib
+// (the `gzip` the ceilings were read with) gives 15,181 B. The ceilings are ruled
 // figures (COHESION §0hy, ESC-W10-1: 15,200 / 6,100 gz), so a crossing is a
 // ruling to ask for, not bytes to shave.
 
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { gzipSync } from "node:zlib";
 
 import { transformSync } from "esbuild";
+import { gzip } from "pako";
 import { describe, expect, it } from "vitest";
 
 const root = path.resolve(import.meta.dirname, "../..");
@@ -23,7 +27,7 @@ const config = JSON.parse(
 function minifiedGzipBytes(file: string): number {
     const source = readFileSync(path.join(root, file), "utf8");
     const { code } = transformSync(source, { minify: true, loader: "js" });
-    return gzipSync(code).length;
+    return gzip(code).length;
 }
 
 describe("E-6 emitted-parser size ceilings", () => {
