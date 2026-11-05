@@ -131,3 +131,12 @@ W10.md §State: "The headroom W10's grammar needs is the headroom bbnf-lang#2 re
 - **V-C ×2:** 2,366 → **2,332** (7 no-clamp refusals cured into the computed-value class; 34 ruled `W10k-COMPUTED-VALUE`, a new class: the case asserts a computed value the element-free parser does not compute). **css-values MISS 0** (976 · 794 pass · 182 ruled).
 - **Gates ×2** (`bench/records/W10k10c/gates/`): `--check` 0; E-6 15,181 / 6,054 (unchanged from `.k10b`); test/css 30 files / 463; MIRROR-DEFECTS 0; L-G2 unchanged; audit 0; L-G3 0; tsc, eslint 0.
 - **Flag:** `W10k-COMPUTED-VALUE` is a new ruling class (34 rows), named for the orchestrator.
+
+### `.k10` sub-unit (d): `anchor()` / `anchor-size()`
+- **Cure:** DIVERGENCE-LEDGER §20-Kd (no grammar byte). **RED ×2** on `git archive 2fb233593`: `bbnf-anchor-signature.test.ts` `27 failed | 20 passed (47)` both. **GREEN ×2** `47 passed`.
+- **V-C ×2:** 2,332 → 2,296 by the cure (36: 35 invalid columns now refused, `anchor-size()` read) → **66** with 2,230 ruled rows (`W8g-PROPERTY-GRAMMAR` ×6 DR-a; `W8g-PROPERTY-SERIALIZATION` ×2,224 DR-b, fixpoint-checked). **css-anchor-position MISS 0**: the invalid columns read 22/22 (anchor) and 19/19 (anchor-size) refused or ruled.
+- **Gates ×2** (`bench/records/W10k10d/gates/`): `--check` 0; E-6 15,181 / 6,054 (unchanged); test/css 31 files / 510; MIRROR-DEFECTS 0; L-G2 unchanged; audit 0; L-G3 0; tsc, eslint 0.
+
+### W10 sitting-1 close reading
+- V-C **6,226 → 66** unruled misses (ruled rows 3,910 → 7,599). Every module MISS 0 except css-color 66 (the `.r10` residual: 25 trig/none computed-relative refusals, 24 computed-relative serialization, 17 `contrast-color()` computed; the `em` mix row now reads ruled context). E-6 at close: grammar.js 84,412 / **15,181**, color.js 29,620 / **6,054**: ESC-W10-1's proposed ceiling (close measurement rounded up to 50 B) is **15,200 / 6,100**, inside the 15,650 / 6,150 cap.
+- **4.3.0 is not cut by this seat:** the cut waits on ESC-W10-1 (both files cross the `.pin` ceilings). Ruling ESC-W10-1 as proposed releases it.

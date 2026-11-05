@@ -14,6 +14,7 @@ import type { CssLinearStop, CssTimingFunction, JumpPosition, KeyframeSelector, 
 import type { ColorNode, MixMethodNode } from "./color";
 import { keywordColor } from "./color";
 import { baseOf, isCalculation, substitutes } from "./calc";
+import { keepsAnchorSignature } from "./anchor";
 import { isMixItem, keepsSignature } from "./color5";
 import { keepsImageSignature } from "./image";
 import { keepsPaletteSignature } from "./palette";
@@ -92,7 +93,7 @@ function listOf(separator: "comma" | "slash" | "space") {
 
 /** Functions whose argument list may be empty, and those that must be (css-values-5 §7). */
 const ZERO_ARGUMENT = /^(?:sibling-index|sibling-count)$/i;
-const MAY_BE_EMPTY = /^(?:--.*|scroll|view)$/i;
+const MAY_BE_EMPTY = /^(?:--.*|scroll|view|anchor-size)$/i;
 
 const NO_ARGS: readonly CssValue[] = Object.freeze([]);
 const callNode = (name: string, args: readonly CssValue[]): CssCall => Object.freeze({ kind: "call", name, args });
@@ -105,8 +106,8 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
     const call = callNode(name, body.kind === "list" && body.separator === "comma" ? body.items : Object.freeze([body]));
     //  `alpha()` and `contrast-color()` keep their css-color-5 signatures (`./color5`; X.P.W8 `.t`).
     //  The css-images-4 image functions keep theirs (`./image`; X.P.W8 `.i`), css-fonts-4 `palette-mix()`
-    //  its (`./palette`; X.P.W8 `.f`).
-    return keepsSignature(call) && keepsImageSignature(call) && keepsPaletteSignature(call) && keepsLinearSignature(call) && keepsRelativeColor(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
+    //  its (`./palette`; X.P.W8 `.f`), `anchor()` / `anchor-size()` theirs (`./anchor`; X.P.W10 `.k10`).
+    return keepsSignature(call) && keepsImageSignature(call) && keepsPaletteSignature(call) && keepsLinearSignature(call) && keepsRelativeColor(call) && keepsAnchorSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
 }
 
 /**

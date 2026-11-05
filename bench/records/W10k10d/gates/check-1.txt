@@ -1,0 +1,2 @@
+bbnf gen --check: src/css/bbnf/generated/grammar.js is current (sha256 4f7d0bb00de6b1f1d42772c7478a3675e1f3116e0ac0b4af859628a23e2a9590)
+bbnf gen --check: src/css/bbnf/generated/color.js is current (sha256 cab802ed8f201cf648e9569f734a4a5c72bacfb1097d364350623c2a02393c2d)

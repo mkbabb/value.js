@@ -1919,3 +1919,14 @@ Under W10.md `.t10` (XP-11) and COHESION §0hv (DR-a, DR-b keep).
 | **value differential** | MIRROR 0 defects; L-G2 unchanged from `.k10b`. |
 | **ruled** | `W10k-COMPUTED-VALUE` ×34: every `progress-computed.html` case asserts the computed value (the progress resolved to a `<number>`, `em`/`rem`/`lh`/`cqw` resolved against the element), which the element-free `parseCssValue` does not compute (DR-b keeps math as authored). |
 | **consumer direction** | **WIDENS** (`progress(no-clamp …)` parses). |
+
+## §20-Kd — X.P.W10.k10 (d): `anchor()` / `anchor-size()` signatures (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | A value-list `anchor()` keeps `<anchor-name>? && <anchor-side>, <length-percentage>?`, an `anchor-size()` `[ <anchor-name> || <anchor-size> ]? , <length-percentage>?` (the comma elided with an omitted first argument: `anchor-size(10px)`); a call that breaks it is refused (`css_syntax`, `<anchor()>` / `<anchor-size()>`). `anchor-size()` may be empty. The incumbent read both as generic calls (and refused `anchor-size()`). |
+| **spec** | css-anchor-position-1 §3.2, §4.1; css-values-4 §2.6 (commas beside an omitted term). |
+| **cure** | no grammar byte: `anchor.ts` `keepsAnchorSignature`, in `value.ts` `callValue`'s signature chain; `MAY_BE_EMPTY` gains `anchor-size`. A call holding a substitution function is unchecked. |
+| **value differential** | MIRROR 0 defects; L-G2 unchanged from `.k10c`. |
+| **ruled** | `W8g-PROPERTY-GRAMMAR` ×6 (a well-formed call in a property that does not admit it, DR-a), `W8g-PROPERTY-SERIALIZATION` ×2,224 (the canonical order `--name side`, a lone math wrapper dropped, `0` → `0px`; value.js keeps authored order, DR-b; each row fixpoint-checked, 0 failures). |
+| **consumer direction** | **NARROWS** (malformed `anchor()` / `anchor-size()` refused) and **WIDENS** (`anchor-size()` empty). |
