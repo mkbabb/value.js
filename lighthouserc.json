@@ -3,6 +3,7 @@
     "ci": {
         "collect": {
             "staticDistDir": "./value.js/dist/gh-pages",
+            "autodiscoverUrlBlocklist": ["/embed/index.html"],
             "numberOfRuns": 3
         },
         "assert": {
