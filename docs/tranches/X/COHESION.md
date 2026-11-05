@@ -5673,3 +5673,7 @@ r2-mob OD-12-light 390x844 gate={"worstDEdom":0.057,"worstDEarea":0.0753,"worstH
 - **V-D8.5 X-W12 lineage.** Written at each adoption read (V-G1/V-G2/V-G3), not before; §1 names the unit per label.
 - **V-D8.6 CARRY-LEDGER.** §4, 22 rows, read from the committed bytes. The working-tree +34-line hunk is OA-14's and is untouched.
 - **V-D8.7 INDEX hygiene.** The 11 staged `evidence/0hm/*` files and the dirty chassis `x-track-A/B.js` belong to the §0hm seat; this seat commits by pathspec only and leaves them as found.
+
+### §0hw.4 — V-D6 · demo type plumbing: the phantom `@mkbabb/value.js*` paths deleted (BC-PCS-30 / H-c)
+- **Cure.** `tsconfig.demo.json` loses the 8-key `@mkbabb/value.js*` paths block (`.` → absent `dist/index.d.ts`; `/parsing` and `/units`, which the exports map does not export). The demo's self-reference resolves through `package.json#exports` under `moduleResolution: bundler`, the map the `vite.config.ts` runtime self-alias is generated from.
+- **Falsifier.** `node docs/tranches/X/realization/value-paths-parity.mjs`: leg A (no phantom paths keys) RED 8 → GREEN; leg B (the specifiers the demo program resolves == the 7 exports; `.`, `/parsing`, `/units` unresolved) GREEN before and after, which proves the block was inert. ×2. A planted `import … from "@mkbabb/value.js/parsing"` fails `vue-tsc -p tsconfig.demo.json` with TS2307; without it the demo program is clean. Full typecheck 0 ×2; lint 0.
