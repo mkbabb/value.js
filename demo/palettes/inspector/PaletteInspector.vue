@@ -578,11 +578,23 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
      * 44 px boxes already part the two glyphs) and the row's end inset is one
      * spacing step, so the slack goes to the name. */
     .palette-card:not([data-layout="aside"]) .palette-card__menu {
-        margin-inline: 0 0.25rem;
+        margin-inline: 0;
         gap: 0;
     }
+    /* X·§0hr.2 (3) D-24 — THE ROW IS REDISTRIBUTED TO THE NAME. The name's
+     * type is untouched; the row's dead space moves to it. (a) The menu pair
+     * ends flush with the card's inner edge: its 44 px boxes already inset
+     * the ⋯ glyph 14 px from the hairline, so the 4 px end margin was a
+     * second inset. (b) The vote pill sheds its painted inline padding and
+     * its start margin: on a coarse pointer the 44 px target is the pill's
+     * `::after` (PaletteCardMeta D-31), which already grows toward the name
+     * over that space, so the touch target is unchanged while the painted
+     * glyph+count no longer reserves 12 + 4 px of empty plate. Together they
+     * hand the name 20 px: at 390 (card 332) "Daraksha Gradient" (183 px)
+     * fits whole beside its count, the vote and both actions. */
     .palette-card:not([data-layout="aside"]) :deep(.palette-meta__vote) {
-        margin-inline-start: 0.25rem;
+        margin-inline-start: 0;
+        padding-inline: 0;
     }
 }
 
