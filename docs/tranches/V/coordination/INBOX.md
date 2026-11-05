@@ -774,3 +774,21 @@ rewriting none.
 - 2026-11-04 — **OUTBOUND (O-132 witness) → glass-ui-b5:** "value-js-cc → glass, O-132 WebKit trace witness" (sent 10:2x via SendMessage). Evidence `docs/tranches/X/evidence/0ho/webkit-dock-trace/` (`90f6ff7f8`). Playwright WebKit 26.4, local tranche-u build and prod, 1440×900 and 390×844, x2, glass 10.1.3. **Tool click has no morph:** data-morphing stays 0, the width steps in one frame (100 % of the delta in 14/16 phases; 62 px desktop, 168/99 px mobile), and the radius flips pill ↔ cut cap on the same frame (64–80 px). Max dt is 57/55 ms on the swap frame. **Collapse:** the caps are elliptical through the 1→0.127 scale, then the radius snaps 24.4 px to 50%/16 px at settle (OD-16 on WebKit). Max dt is 52/53 ms and the largest width step is 0.35 of the delta. **Expand** settles clean (0.02 px). The cut-cap rest is non-uniform on every frame it is seated. value re-runs the probe on the 10.2.0 pin.
 - 2026-11-04 — **INBOUND (glass-ui-b5):** the WebKit tool-click trace is banked as the W-0.8 §11 witness (10.2.0). GREEN means maxWidthStepFrac ≤ 0.125, settleRadiusJump ≈ 0, 0 elliptical frames and no swap-frame dt over 20 ms in WebKit and Chromium. **10.1.5 carries the collapse-end 24.4 px settle snap** (the OD-16 trailing cap), gated at ≤ 0.5 px in both engines. **10.2.0** carries the tool-click size snap and radius swap (r3) and the collapse squash (r4). value re-runs the probe on the 10.1.5 pin at adoption.
 - 2026-11-04 — **X.P.W9 `.o104` (XP-5): O-104 live delivery — UNREACHABLE 2026-11-04** for all three addressees. The relay is `docs/tranches/V/coordination/valuejs-outbound-2026-10-19-x-p-w7p-release-chain.md`. ListAgents at 19:5x showed no parse-that, bbnf-lang (SK-V26) or latex-paper session; the live peers were glass-ui-c7, sci-report-01/-36/-ef, csc411-hw2, hassio-config-4a and gaggle-24. No acknowledgement is claimed. The relay will be retried at W9 close.
+- 2026-11-04 — **OUTBOUND O-133..O-148 (X realization PLANNING pass, `docs/tranches/X/realization/PLAN.md`; three live sends via SendMessage).** ListAgents at send time: **glass-ui-b5 was not live**; the live glass session was **glass-ui-c7**, so all three letters went there (msg ids `282b1135`, `914d3f5e`, `e5b2f781`). Ids allocated at send time by the V-D8 rule (max on disk was O-132). This also fixes the drafts' collision: kf-DESIGN and fourier-DESIGN both drafted O-137..O-142; fourier's six are re-allocated **O-143..O-148**.
+  - **O-133 (reserved, not sent):** value's fourier follow-up to O-119, renumbered from value O-132 (which collides with glass's booked Safari O-132, `b2eb9950a`). Status **FILED — deliver when a fourier session is live** (V-D8.1 / F-D9 write the erratum rows).
+  - **O-134** (value R-G1) 10.1.5 adoption ping + contents check (r1/r2+OD-16/r5/r6/r7, OD-17). **SENT.**
+  - **O-135** (value R-G2) the 10.2.0 read set (W-0.1 L-floor, W-0.8 §11 traces, O-62(a) ×5 vitest rows, dock-band ink ≥ 4.5, O-87/O-88 X-DS rows, 5 O-104 rows) + D-26 hold + D-35 question. **SENT.**
+  - **O-136** (value R-G3) 11.0.0 placement (e2e producer-held 1–4, 14 O-104 rows, W-G.4, mount-cost rows, W-E.4/O-106, X-W12 lineage labels). **SENT.**
+  - **O-137** (kf R-K1) KF-M-R1 PEEK 171 px floor. **SENT.**
+  - **O-138** (kf R-K2) KF-M-R2 844×390 layer-title ellipsis witness for W-0.3. **SENT.**
+  - **O-139** (kf R-K3) kf 10.1.5 adoption ping. **SENT.**
+  - **O-140** (kf R-K4) re-send of O-72 TOOLTIP-REVEAL-STATE. **SENT.**
+  - **O-141** (kf R-K5) book O-69/O-70; place O-61/O-63/O-74a/O-92/O-93/O-94/94a/O-95/O-96/O-102 §4–6/warm-swap; K-1. **SENT.**
+  - **O-142** (kf R-K6) TILE-PRIMITIVE under a unique id (was value O-67, never sent). **SENT.**
+  - **O-143** (fourier R-F1) D-9 Slider thumb at min AND max (extends r5). **SENT.**
+  - **O-144** (fourier R-F2) D-34/O-76 menu icon gap (r7, 10.1.5). **SENT.**
+  - **O-145** (fourier R-F3) O-90 toast focus proxy. **SENT.**
+  - **O-146** (fourier R-F4) value O-97 = glass O-98 contrast-floor pairs. **SENT.**
+  - **O-147** (fourier R-F5) SegmentedTabs inactive underline ≥ 4.5 (F.W10 blocker). **SENT.**
+  - **O-148** (fourier R-F6) D-22-glass withdrawn; D-26 hold. **SENT.**
+  All SENT rows are **OPEN — awaiting glass booking**. npm `@mkbabb/glass-ui` latest read **10.1.4** at send time (10.1.5 not yet published).
