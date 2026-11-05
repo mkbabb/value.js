@@ -5677,3 +5677,11 @@ r2-mob OD-12-light 390x844 gate={"worstDEdom":0.057,"worstDEarea":0.0753,"worstH
 ### §0hw.4 — V-D6 · demo type plumbing: the phantom `@mkbabb/value.js*` paths deleted (BC-PCS-30 / H-c)
 - **Cure.** `tsconfig.demo.json` loses the 8-key `@mkbabb/value.js*` paths block (`.` → absent `dist/index.d.ts`; `/parsing` and `/units`, which the exports map does not export). The demo's self-reference resolves through `package.json#exports` under `moduleResolution: bundler`, the map the `vite.config.ts` runtime self-alias is generated from.
 - **Falsifier.** `node docs/tranches/X/realization/value-paths-parity.mjs`: leg A (no phantom paths keys) RED 8 → GREEN; leg B (the specifiers the demo program resolves == the 7 exports; `.`, `/parsing`, `/units` unresolved) GREEN before and after, which proves the block was inert. ×2. A planted `import … from "@mkbabb/value.js/parsing"` fails `vue-tsc -p tsconfig.demo.json` with TS2307; without it the demo program is clean. Full typecheck 0 ×2; lint 0.
+
+## §0hx — 2026-11-04: realization EXECUTION, keyframes track (PLAN §3, KW0..KW3)
+
+### §0hx.1 — K-D9 · the keyframes records (KF-REC-1 · G-ID · G-TAX · INBOX O-63/65/66/67/68)
+- **Falsifier.** `realization/records-check.mjs` gains legs K1..K5 (LEDGER `9bd5b335` event with ci `41804538410` + deploy `41805222686`; one dated SUPERSEDED addendum per G-TAX record; `KF-W5-ADDENDUM-GID.md` names `:386` and `:412`; the INBOX erratum names each doubled id; kf-m-checker tracked = 5). RED 5/5 kf legs → GREEN 10/10 ×2.
+- **Records.** LEDGER event (the four kf items, and the correction that the D-28 checker read the row foot, not the clip edge); G-TAX addenda at the foot of `kf-AnimationControlsGroup.md`, `kf-ControlsPaneWrapper.md`, `kf-DemoGlobalChrome.md`; `keyframes/waves/KF-W5-ADDENDUM-GID.md`; evidence `evidence/0hm/kf-m-checker/` (p1 p2 p3 + two frames) committed in this commit.
+- **INBOX erratum.** O-63 FW14U addendum → O-150 · O-65 OA-50 addendum → O-151 · O-66 TEXT-TRIGGER-ROOT → O-152 · O-67 TILE-PRIMITIVE → O-142 (already sent) · O-68 HeroBlob G-3 → O-153. The ids glass booked keep their subjects.
+- **DESIGN-pass id map.** K-D1..K-D13 (keyframes-DESIGN §1) ↔ the 46 inventory items + 3 new (§5 of that file); R-K1..R-K6 = O-137..O-142; K-A1..K-A7 merged into PLAN §7 OA-n.
