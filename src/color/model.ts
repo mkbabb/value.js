@@ -4,7 +4,8 @@ import { err, ok } from "../foundation/result";
 export type SpaceId =
     | "rgb" | "hsl" | "hsv" | "hwb" | "lab" | "lch" | "oklab"
     | "oklch" | "xyz" | "kelvin" | "srgb-linear" | "display-p3"
-    | "a98-rgb" | "prophoto-rgb" | "rec2020" | "ictcp" | "jzazbz";
+    | "a98-rgb" | "prophoto-rgb" | "rec2020" | "ictcp" | "jzazbz"
+    | "xyz-d50" | "display-p3-linear";
 export type Channel = number | "none";
 export type Alpha = number | "none";
 export type ChannelsBySpace = {
@@ -25,6 +26,8 @@ export type ChannelsBySpace = {
     rec2020: readonly [r: Channel, g: Channel, b: Channel];
     ictcp: readonly [i: Channel, ct: Channel, cp: Channel];
     jzazbz: readonly [jz: Channel, az: Channel, bz: Channel];
+    "xyz-d50": readonly [x: Channel, y: Channel, z: Channel];
+    "display-p3-linear": readonly [r: Channel, g: Channel, b: Channel];
 };
 export type ColorIssue = Readonly<{ code:
     | "color_invalid_input"
@@ -72,6 +75,9 @@ export const SPACE_SCHEMA = {
     rec2020: { channels: ["r", "g", "b"], css: true },
     ictcp: { channels: ["i", "ct", "cp"], css: false },
     jzazbz: { channels: ["jz", "az", "bz"], css: false },
+    //  css-color-4 §10.8 / §10.5: two predefined spaces of their own, so a `none` channel stays missing.
+    "xyz-d50": { channels: ["x", "y", "z"], css: true },
+    "display-p3-linear": { channels: ["r", "g", "b"], css: true },
 } as const satisfies Record<SpaceId, SpaceSchema>;
 
 export const SPACE_IDS = Object.freeze(Object.keys(SPACE_SCHEMA) as SpaceId[]);
@@ -124,6 +130,8 @@ export const prophotoRgb = factory("prophoto-rgb");
 export const rec2020 = factory("rec2020");
 export const ictcp = factory("ictcp");
 export const jzazbz = factory("jzazbz");
+export const xyzD50 = factory("xyz-d50");
+export const displayP3Linear = factory("display-p3-linear");
 
 export function isAnyColor(value: unknown): value is AnyColor {
     if (!value || typeof value !== "object") return false;

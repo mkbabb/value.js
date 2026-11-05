@@ -23,16 +23,15 @@
 import type { Result } from "../../foundation/result";
 import type { ColorIssue } from "../../color/index";
 import {
-    a98Rgb, displayP3, hsl, hwb, lab, lch, linearSrgb, oklab, oklch, prophotoRgb, rec2020, rgb, xyz,
+    a98Rgb, displayP3, displayP3Linear, hsl, hwb, lab, lch, linearSrgb, oklab, oklch, prophotoRgb, rec2020, rgb, xyz, xyzD50,
 } from "../../color/index";
-import { adaptXyzD50ToD65 } from "../../color/anchors";
 import type { Alpha, Channel } from "../../value";
 import { NAMED_COLORS } from "../named-colors";
 import type { CssColor } from "../types";
 import type { Actions } from "./generated/grammar";
 import type { NoneToken, Numeric } from "./math";
 import type { HueMethod, MixItem } from "./mix";
-import { displayP3LinearToXyz, resolveColorMix } from "./mix";
+import { resolveColorMix } from "./mix";
 
 export type ColorNode =
     | Readonly<{ kind: "color"; color: CssColor }>
@@ -157,10 +156,6 @@ export function keywordColor(token: string): ColorNode {
 function predefined(space: string, parts: Channels): ColorNode {
     const R3: readonly [Reading, Reading, Reading] = [COLOR_FN, COLOR_FN, COLOR_FN];
     const scaled = (k: number) => (x: Channel): Channel => (x === "none" ? x : x * k);
-    const concrete = (convert: (v: readonly [number, number, number]) => readonly [number, number, number]): Factory =>
-        (a, b, c, alpha) => (a === "none" || b === "none" || c === "none"
-            ? { ok: false, error: { code: "color_missing_channel" } }
-            : xyz(...convert([a, b, c]), alpha));
     switch (space.toLowerCase()) {
         case "srgb": return build(parts, R3, ALPHA, (a, b, c, alpha) => rgb(scaled(255)(a), scaled(255)(b), scaled(255)(c), alpha));
         case "srgb-linear": return build(parts, R3, ALPHA, linearSrgb);
@@ -170,11 +165,9 @@ function predefined(space: string, parts: Channels): ColorNode {
         case "rec2020": return build(parts, R3, ALPHA, rec2020);
         case "xyz":
         case "xyz-d65": return build(parts, R3, ALPHA, xyz);
-        //  The two spaces `CssColorSpace` has no member for are written as the exact `xyz` they
-        //  name; a `none` there has no `xyz` channel to stay missing in, so it is refused
-        //  ("concrete xyz-d50", the contract value.js already carries for xyz-d50).
-        case "xyz-d50": return build(parts, R3, ALPHA, concrete(adaptXyzD50ToD65));
-        default: return build(parts, R3, ALPHA, concrete(([a, b, c]) => displayP3LinearToXyz([a, b, c])));
+        //  css-color-4 §10.8 / §10.5: each its own model member, so a `none` channel stays missing (X.P.W10 `.m10`).
+        case "xyz-d50": return build(parts, R3, ALPHA, xyzD50);
+        default: return build(parts, R3, ALPHA, displayP3Linear);
     }
 }
 

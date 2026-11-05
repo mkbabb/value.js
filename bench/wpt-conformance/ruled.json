@@ -8168,42 +8168,6 @@
       "file": "css/css-color/parsing/color-valid-color-function.html",
       "kind": "valid",
       "property": "color",
-      "input": "color(display-p3-linear 0% 0% 0%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear 10% 10% 10%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear .2 .2 25%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear 0 0 0 / 1)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
       "input": "color(display-p3-linear 0% 0 0 / 0.5)",
       "class": "W8t-COLOR-SERIALIZATION",
       "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
@@ -8240,24 +8204,6 @@
       "file": "css/css-color/parsing/color-valid-color-function.html",
       "kind": "valid",
       "property": "color",
-      "input": "color(display-p3-linear 50% -160 160)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear 50% -200 200)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
       "input": "color(display-p3-linear 0 0 0 / -10%)",
       "class": "W8t-COLOR-SERIALIZATION",
       "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
@@ -8267,70 +8213,7 @@
       "file": "css/css-color/parsing/color-valid-color-function.html",
       "kind": "valid",
       "property": "color",
-      "input": "color(display-p3-linear 0 0 0 / 110%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear 0 0 0 / 300%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear 200 200 200)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear 200 200 200 / 200)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear -200 -200 -200)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
       "input": "color(display-p3-linear -200 -200 -200 / -200)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear 200% 200% 200%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear 200% 200% 200% / 200%)",
       "class": "W8t-COLOR-SERIALIZATION",
       "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
       "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
@@ -8367,51 +8250,6 @@
       "kind": "valid",
       "property": "color",
       "input": "color(display-p3-linear calc(50%) 50% 0.5)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear none none none / none)",
-      "class": "W8t-COLOR-SPACE-NONE",
-      "reason": "Refused color_missing_channel (measured): color(xyz-d50 | display-p3-linear …) with a none channel. value.js's colour model has no member for these two spaces and writes each as the exact xyz colour it names, which a missing channel has no xyz channel to stay missing in (the concrete-xyz contract).",
-      "spec": "css-color-4 §4.4 (missing components), §10 color() predefined spaces"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear none none none)",
-      "class": "W8t-COLOR-SPACE-NONE",
-      "reason": "Refused color_missing_channel (measured): color(xyz-d50 | display-p3-linear …) with a none channel. value.js's colour model has no member for these two spaces and writes each as the exact xyz colour it names, which a missing channel has no xyz channel to stay missing in (the concrete-xyz contract).",
-      "spec": "css-color-4 §4.4 (missing components), §10 color() predefined spaces"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear 10% none none / none)",
-      "class": "W8t-COLOR-SPACE-NONE",
-      "reason": "Refused color_missing_channel (measured): color(xyz-d50 | display-p3-linear …) with a none channel. value.js's colour model has no member for these two spaces and writes each as the exact xyz colour it names, which a missing channel has no xyz channel to stay missing in (the concrete-xyz contract).",
-      "spec": "css-color-4 §4.4 (missing components), §10 color() predefined spaces"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear none none none / 0.5)",
-      "class": "W8t-COLOR-SPACE-NONE",
-      "reason": "Refused color_missing_channel (measured): color(xyz-d50 | display-p3-linear …) with a none channel. value.js's colour model has no member for these two spaces and writes each as the exact xyz colour it names, which a missing channel has no xyz channel to stay missing in (the concrete-xyz contract).",
-      "spec": "css-color-4 §4.4 (missing components), §10 color() predefined spaces"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(display-p3-linear 0 0 0 / none)",
       "class": "W8t-COLOR-SERIALIZATION",
       "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
       "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
@@ -8780,42 +8618,6 @@
       "file": "css/css-color/parsing/color-valid-color-function.html",
       "kind": "valid",
       "property": "color",
-      "input": "color(xyz-d50 0% 0% 0%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 10% 10% 10%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 .2 .2 25%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 0 0 0 / 1)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
       "input": "color(xyz-d50 0% 0 0 / 0.5)",
       "class": "W8t-COLOR-SERIALIZATION",
       "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
@@ -8852,24 +8654,6 @@
       "file": "css/css-color/parsing/color-valid-color-function.html",
       "kind": "valid",
       "property": "color",
-      "input": "color(xyz-d50 50% -160 160)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 50% -200 200)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
       "input": "color(xyz-d50 0 0 0 / -10%)",
       "class": "W8t-COLOR-SERIALIZATION",
       "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
@@ -8879,70 +8663,7 @@
       "file": "css/css-color/parsing/color-valid-color-function.html",
       "kind": "valid",
       "property": "color",
-      "input": "color(xyz-d50 0 0 0 / 110%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 0 0 0 / 300%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 200 200 200)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 200 200 200 / 200)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 -200 -200 -200)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
       "input": "color(xyz-d50 -200 -200 -200 / -200)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 200% 200% 200%)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 200% 200% 200% / 200%)",
       "class": "W8t-COLOR-SERIALIZATION",
       "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
       "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
@@ -8979,51 +8700,6 @@
       "kind": "valid",
       "property": "color",
       "input": "color(xyz-d50 calc(50%) 50% 0.5)",
-      "class": "W8t-COLOR-SERIALIZATION",
-      "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
-      "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 none none none / none)",
-      "class": "W8t-COLOR-SPACE-NONE",
-      "reason": "Refused color_missing_channel (measured): color(xyz-d50 | display-p3-linear …) with a none channel. value.js's colour model has no member for these two spaces and writes each as the exact xyz colour it names, which a missing channel has no xyz channel to stay missing in (the concrete-xyz contract).",
-      "spec": "css-color-4 §4.4 (missing components), §10 color() predefined spaces"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 none none none)",
-      "class": "W8t-COLOR-SPACE-NONE",
-      "reason": "Refused color_missing_channel (measured): color(xyz-d50 | display-p3-linear …) with a none channel. value.js's colour model has no member for these two spaces and writes each as the exact xyz colour it names, which a missing channel has no xyz channel to stay missing in (the concrete-xyz contract).",
-      "spec": "css-color-4 §4.4 (missing components), §10 color() predefined spaces"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 10% none none / none)",
-      "class": "W8t-COLOR-SPACE-NONE",
-      "reason": "Refused color_missing_channel (measured): color(xyz-d50 | display-p3-linear …) with a none channel. value.js's colour model has no member for these two spaces and writes each as the exact xyz colour it names, which a missing channel has no xyz channel to stay missing in (the concrete-xyz contract).",
-      "spec": "css-color-4 §4.4 (missing components), §10 color() predefined spaces"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 none none none / 0.5)",
-      "class": "W8t-COLOR-SPACE-NONE",
-      "reason": "Refused color_missing_channel (measured): color(xyz-d50 | display-p3-linear …) with a none channel. value.js's colour model has no member for these two spaces and writes each as the exact xyz colour it names, which a missing channel has no xyz channel to stay missing in (the concrete-xyz contract).",
-      "spec": "css-color-4 §4.4 (missing components), §10 color() predefined spaces"
-    },
-    {
-      "file": "css/css-color/parsing/color-valid-color-function.html",
-      "kind": "valid",
-      "property": "color",
-      "input": "color(xyz-d50 0 0 0 / none)",
       "class": "W8t-COLOR-SERIALIZATION",
       "reason": "The colour parses and its serialization is a fixpoint (re-parsed and re-serialized identically, measured); value.js serializes the colour it computes — a named, hex or in-range color(srgb …) colour as rgb(), the modern space-separated form, a hue with its unit, alpha as a percentage, lab()/lch() lightness as a percentage, xyz-d50 and display-p3-linear as the xyz they name, an identifier as authored — and the colours inside alpha()/contrast-color() likewise; WPT expects the CSSOM's specified-value serialization of the authored colour.",
       "spec": "css-color-4 §15 (serializing <color> values); cssom-1 §6.7.2 (serializing CSS component values)"

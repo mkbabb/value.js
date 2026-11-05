@@ -16,11 +16,10 @@
 //   css-color-4  §18   the sample conversion code — every matrix and transfer function below is
 //                      transcribed from it, not re-derived.
 //
-// THE RESULT'S SPACE. `CssColorSpace` has thirteen members; four of the sixteen interpolation
-// spaces are not among them, and each is written in the member that represents it exactly:
-//   srgb → `rgb` (channels ×255) · xyz / xyz-d65 → `xyz` · xyz-d50 → `xyz` (D50→D65, §18) ·
-//   display-p3-linear → `xyz` (its linear matrix, §18). css-color-4 §13.2: a missing component is
-//   0 through a conversion, so a `none` in those linear results converts as 0.
+// THE RESULT'S SPACE. `CssColorSpace` has fifteen members; two of the sixteen interpolation
+// spaces are spelled by another member that represents them exactly:
+//   srgb → `rgb` (channels ×255) · xyz / xyz-d65 → `xyz`. xyz-d50 and display-p3-linear are their own
+//   members (X.P.W10 `.m10`), so a missing component stays missing through the mix (css-color-4 §13.2).
 
 import type { CssColor } from "../types";
 
@@ -322,9 +321,6 @@ const SPACES: Readonly<Record<MixSpace, Space>> = Object.freeze({
     },
 });
 
-/** css-color-4 §18: `color(display-p3-linear …)` written exactly as the `xyz` (D65) it names. */
-export const displayP3LinearToXyz = (c: Vec3): Vec3 => mul(P3_TO_XYZ, c);
-
 /** The method's space as the table names it: `xyz` is `xyz-d65` (css-color-4 §10.8). */
 export const mixSpaceOf = (name: string): MixSpace => (name === "xyz" ? "xyz-d65" : name) as MixSpace;
 
@@ -458,8 +454,6 @@ export type ColorMix = Readonly<{ space?: string; hue?: HueMethod; items: readon
 /** The interpolation-space result as a `CssColor` (the header's four representations). */
 function toCssColor({ ch, alpha }: Placed, space: MixSpace): CssColor {
     const none = (x: Ch): number | "none" => (x === null ? "none" : x);
-    const zero: Vec3 = [ch[0] ?? 0, ch[1] ?? 0, ch[2] ?? 0];
-    const linear = (M: Mat3): CssColor => ({ space: "xyz", channels: mul(M, zero), alpha: none(alpha) });
     const channels = [none(ch[0]), none(ch[1]), none(ch[2])] as const;
     switch (space) {
         case "srgb": {
@@ -467,8 +461,6 @@ function toCssColor({ ch, alpha }: Placed, space: MixSpace): CssColor {
             return { space: "rgb", channels: [s(ch[0]), s(ch[1]), s(ch[2])], alpha: none(alpha) };
         }
         case "xyz-d65": return { space: "xyz", channels, alpha: none(alpha) };
-        case "xyz-d50": return linear(D50_TO_D65);
-        case "display-p3-linear": return linear(P3_TO_XYZ);
         default: return { space, channels, alpha: none(alpha) } as CssColor;
     }
 }

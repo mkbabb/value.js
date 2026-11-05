@@ -123,6 +123,8 @@ const GAMUT_BEARING = {
     rec2020: true,
     ictcp: false,
     jzazbz: false,
+    "xyz-d50": false,
+    "display-p3-linear": true,
     hex: true,
 } satisfies Record<DisplayColorSpace, boolean>;
 

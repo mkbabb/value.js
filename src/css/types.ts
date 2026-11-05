@@ -6,7 +6,8 @@ import type { Color, CssList, CssScalar, CssValue } from "../value";
 
 export type CssColorSpace =
     | "rgb" | "hsl" | "hwb" | "lab" | "lch" | "oklab" | "oklch"
-    | "xyz" | "srgb-linear" | "display-p3" | "a98-rgb" | "prophoto-rgb" | "rec2020";
+    | "xyz" | "srgb-linear" | "display-p3" | "a98-rgb" | "prophoto-rgb" | "rec2020"
+    | "xyz-d50" | "display-p3-linear";
 export type CssColor = { [S in CssColorSpace]: Color<S> }[CssColorSpace];
 export type ParseIssue = Readonly<{
     code:

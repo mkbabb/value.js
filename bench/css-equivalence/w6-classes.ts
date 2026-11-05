@@ -13,6 +13,9 @@
 
 import { isDeepStrictEqual } from "node:util";
 
+import type { AnyColor } from "../../src/color/index";
+import { convertColor } from "../../src/color/index";
+
 import type { CellResult } from "./lib/ruled.mjs";
 import type { Call, Token } from "./lib/tokens.mjs";
 import { callsOf, soleNumeric, spliceAll, tokenize } from "./lib/tokens.mjs";
@@ -31,7 +34,7 @@ export type W6Args = {
 };
 
 type Edit = { start: number; end: number; text: string };
-type Governs = "MIS_ACCEPT" | "FALSE_REJECT_IN_SHAPE" | "ADJUDICATION_UNHONOURED";
+type Governs = "MIS_ACCEPT" | "FALSE_REJECT_IN_SHAPE" | "ADJUDICATION_UNHONOURED" | "DIVERGENT_VALUE";
 type W6Class = Readonly<{
     id: string;
     /** The RED verdict(s) the class can govern: which engine accepts (or, for a construct an adjudication's
@@ -265,6 +268,29 @@ export const W6_CLASSES: readonly W6Class[] = [
             return calls.every((call) => { const r = run.candidate(others(call)); return ok(r) || named(r); }) && calls.some((call) => !ok(run.candidate(call)))
                 ? null : "a repaired linear() call is not one the candidate refuses alone as <linear()>";
         },
+    },
+    {
+        // W10m-SPACE (X.P.W10 `.m10`; DIVERGENCE-LEDGER §20-M): `color(xyz-d50 …)` (css-color-4 §10.8) and
+        // `color(display-p3-linear …)` (§10.5) are colour-model members of their own; the incumbent wrote each
+        // as the `xyz` (D65) it names. Repair: each such `color()` spelled `red` — the rest must then agree, and
+        // every call so spelled, read ALONE, must be the incumbent's `xyz` colour once converted to `xyz` (1e-12).
+        id: "W10m-SPACE",
+        governs: "DIVERGENT_VALUE",
+        edits: (input) =>
+            [...input.matchAll(/color\(\s*(?:xyz-d50|display-p3-linear)\b[^()]*\)/gi)].map((m) => ({ start: m.index, end: m.index + m[0].length, text: "red" })),
+        holds: ({ run, input }) => [...input.matchAll(/color\(\s*(?:xyz-d50|display-p3-linear)\b[^()]*\)/gi)].every((m) => {
+            const colour = (r: CellResult): AnyColor | undefined => {
+                type V = { kind?: string; items?: readonly V[]; payload?: { type?: string; value?: unknown } };
+                const top = r.value?.value as V | undefined;
+                const v = top?.kind === "list" && top.items?.length === 1 ? top.items[0] : top; //  parseCssValues' one-item list
+                return (v?.kind === "scalar" && v.payload?.type === "color" ? v.payload.value : v) as AnyColor | undefined;
+            };
+            const cand = colour(run.candidate(m[0]));
+            const inc = colour(run.incumbent(m[0]));
+            const asXyz = cand === undefined ? undefined : convertColor(cand, "xyz");
+            return inc?.space === "xyz" && asXyz?.ok === true && inc.alpha === asXyz.value.alpha
+                && asXyz.value.channels.every((c, i) => Math.abs((c as number) - (inc.channels[i] as number)) < 1e-12);
+        }) ? null : "a repaired call, read alone, is not the incumbent's xyz colour converted",
     },
     {
         // SC-2 (COHESION §0bx; W6.md `.b`): `display-p3-linear` (css-color-4 §10.5). Repair: the space

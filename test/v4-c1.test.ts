@@ -324,7 +324,8 @@ describe("Value 4 CSS and easing contracts", () => {
             channels: [51, 102, 153],
         });
         const d50 = css.parseCssColor("color(xyz-d50 0.2 0.3 0.4)");
-        expect(d50.ok && d50.value.space).toBe("xyz");
+        // 4.3.0 (X·P W10 `.m10`): xyz-d50 is a model space of its own (css-color-4 §10.8).
+        expect(d50.ok && d50.value.space).toBe("xyz-d50");
         expect(css.parseCssColor("SelectedItem")).toMatchObject({
             ok: false,
             diagnostics: [{ code: "color_context_required" }],
@@ -480,6 +481,8 @@ describe("Value 4 exact runtime surfaces", () => {
             "convertColor",
             "deltaEOK",
             "displayP3",
+            // 4.3.0 (X·P W10 `.m10`): the two css-color-4 spaces as model members.
+            "displayP3Linear",
             "hsl",
             "hsv",
             "hwb",
@@ -508,6 +511,7 @@ describe("Value 4 exact runtime surfaces", () => {
             "toRgba8",
             "toRgba8Into",
             "xyz",
+            "xyzD50",
         ]);
         expect(Object.keys(css).sort()).toEqual([
             "coerceToSyntax",

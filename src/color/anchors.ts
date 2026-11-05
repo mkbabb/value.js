@@ -378,6 +378,8 @@ export const CONVERSION_ANCHORS = {
     rec2020: { toXYZ: (channels) => rgbFamilyToXyz(channels, REC2020_TO_XYZ, rec2020Decode), fromXYZ: (xyz) => xyzToRgbFamily(xyz, XYZ_TO_REC2020, rec2020Encode) },
     ictcp: { toXYZ: (channels) => ictcpToXyz(channels as Vec3), fromXYZ: xyzToIctcp },
     jzazbz: { toXYZ: (channels) => jzazbzToXyz(channels as Vec3), fromXYZ: xyzToJzazbz },
+    "xyz-d50": { toXYZ: (channels) => multiply(channels as Vec3, D50_TO_D65), fromXYZ: (xyz) => multiply(xyz, D65_TO_D50) },
+    "display-p3-linear": { toXYZ: (channels) => multiply(channels as Vec3, P3_TO_XYZ), fromXYZ: (xyz) => multiply(xyz, XYZ_TO_P3) },
 } satisfies { [S in SpaceId]: Anchor<S> };
 
 export const HUE_INDEX = {

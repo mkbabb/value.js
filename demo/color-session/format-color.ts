@@ -102,6 +102,8 @@ export const CHANNEL_DECIMALS = Object.freeze({
     rec2020: { r: 1, g: 1, b: 1 },
     ictcp: { i: 3, ct: 3, cp: 3 },
     jzazbz: { jz: 3, az: 3, bz: 3 },
+    "xyz-d50": { x: 0, y: 0, z: 0 },
+    "display-p3-linear": { r: 1, g: 1, b: 1 },
 } satisfies Record<PickerSpace, Readonly<Record<string, DecimalCell>>>);
 
 /** Alpha's `compact` cell, in percent (the serializer spells alpha as `/ N%`). */

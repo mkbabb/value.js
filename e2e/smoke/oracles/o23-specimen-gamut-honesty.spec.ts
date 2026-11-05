@@ -105,6 +105,14 @@ const GAMUT_BOUNDS: Readonly<Record<string, GamutBounds>> = {
     ],
     ictcp: null,
     jzazbz: null,
+    // 4.3.0 (X·P W10 `.m10`): model members the catalog never lists (`listed: false`); the row
+    // loop reads only listed spaces, and these bounds mirror the specimen's GAMUT_BEARING.
+    "xyz-d50": null,
+    "display-p3-linear": [
+        [0, 1],
+        [0, 1],
+        [0, 1],
+    ],
     // Hex is 8-bit sRGB: its encoding FORCES a clip, so the mark is measured on
     // the sRGB coordinates and the printed hex is allowed to be in range.
     hex: [
