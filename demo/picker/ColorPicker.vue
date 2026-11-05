@@ -9,7 +9,7 @@
              owns the sub-lg width). -->
         <Card
             tier="resting"
-            class="paper-grain-overlay relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-hidden lg:overflow-visible"
+            class="picker-plate paper-grain-overlay relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-hidden lg:overflow-visible"
         >
             <!-- A2-VA-L1-2 — ONE condensing header: glass's. The scroll host is
                  glass's `.card-scroll-host`, an element INSIDE the plate (never
@@ -461,6 +461,24 @@ onUnmounted(() => {
        neither outrank nor be triggered by; the slot's vj-enter region rules
        own every swap. */
     transition: transform var(--spring-present-duration) var(--transition-liquid-spatial);
+}
+
+/* X·§0hr.2 (4) D-19 — THE PLATE'S BLOCK SIZE IS BOUNDED BY THE SCENE BAND.
+ * Below lg the plate is already a scroll host (`.card-scroll-host` +
+ * `CardHeader shrink`), but nothing bounded it: in a short landscape
+ * (844×390) the 513 px picker stood in a 297 px band and the sliders sat at
+ * 558, below the fold. The bound is the layout scale's own block measure,
+ * `--scene-band-block` (shell.css: the stable viewport less the dock band and
+ * the shell's block paddings), the same ceiling the one-track companion
+ * already takes (D-20). It binds only where the picker is taller than the
+ * band, so portrait phones (569 px in a ~750 px band), tablets and desktop are
+ * unchanged; there the plate scrolls its own body, the header condenses, and
+ * the sliders are reached inside the plate, never below the viewport. From lg
+ * the plate fits by construction (the host is `display: contents`). */
+@variant max-lg {
+    .picker-plate {
+        max-block-size: var(--scene-band-block);
+    }
 }
 
 /* T.W4-5 — THE SEAT lives in the colocated grammar sheet (./seat.css —
