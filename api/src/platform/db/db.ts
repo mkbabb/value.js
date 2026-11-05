@@ -61,7 +61,7 @@ export async function getDb(): Promise<Db> {
 
         // --- palette_versions ---
         // Only `{paletteSlug, createdAt}` is read (findByPaletteSlug +
-        // countByPaletteSlug; findByHash uses the implicit `_id` index). The
+        // countByPaletteSlug; findByPaletteAndHash uses the implicit `_id` index). The
         // former `forkedFromHash`/`rootHash`/`authorSlug+createdAt` indexes
         // had ZERO query consumers (write-only) and were dropped (N.W3.C).
         db.collection("palette_versions").createIndex({ paletteSlug: 1, createdAt: -1 }),

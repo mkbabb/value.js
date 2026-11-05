@@ -40,17 +40,17 @@ describe("repository.paletteVersion", () => {
         );
     });
 
-    it("insertIfAbsent + findByHash round-trip", async () => {
+    it("insertIfAbsent + findByPaletteAndHash round-trip", async () => {
         const hash = await repo.insertIfAbsent(makeVersion({ _id: "h-1" }));
         expect(hash).toBe("h-1");
-        const found = await repo.findByHash("h-1");
+        const found = await repo.findByPaletteAndHash("p1", "h-1");
         expect(found?.paletteSlug).toBe("p1");
     });
 
     it("insertIfAbsent is idempotent on duplicate hash (no second write)", async () => {
         await repo.insertIfAbsent(makeVersion({ _id: "h-dup", name: "first" }));
         await repo.insertIfAbsent(makeVersion({ _id: "h-dup", name: "second-attempt" }));
-        const found = await repo.findByHash("h-dup");
+        const found = await repo.findByPaletteAndHash("p1", "h-dup");
         expect(found?.name).toBe("first");
     });
 

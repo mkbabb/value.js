@@ -2,7 +2,9 @@
  * PaletteVersionRepository — owns all query/write ops for `palette_versions`.
  *
  * Document `_id` is the RELEASE hash (X-W3 · G-7); the content identity is the
- * `payloadHash` field. See `model.ts: PaletteVersion`.
+ * `payloadHash` field. See `model.ts: PaletteVersion`. A revision is read only
+ * by `(paletteSlug, hash)`: the bare by-hash read is retired (X·F F-T9 ·
+ * G-F7-4), so no caller can address a revision outside its palette.
  */
 
 import type { ClientSession, Collection, WithoutId } from "mongodb";
@@ -10,16 +12,6 @@ import type { PaletteVersion } from "../model.js";
 
 export class PaletteVersionRepository {
     constructor(private readonly col: Collection<PaletteVersion>) {}
-
-    /**
-     * The bare by-id primitive. Every SERVICE read of a revision goes through
-     * `findByPaletteAndHash` instead (X-W3 · G-5/G-6): a revision is addressed
-     * by `(paletteSlug, hash)`, never by hash alone, so no content can cross
-     * an object boundary.
-     */
-    findByHash(hash: string, session?: ClientSession): Promise<PaletteVersion | null> {
-        return this.col.findOne({ _id: hash }, session ? { session } : undefined);
-    }
 
     /**
      * X-W3 · G-5/G-6 — the joined revision read: `{ _id: hash, paletteSlug }`.

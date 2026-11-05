@@ -284,6 +284,42 @@ describe("service.palette.versions", () => {
     // G-6 (P0) — cross-object revert is refused, and nothing is written
     // -----------------------------------------------------------------
 
+    // X·F F-T9 · G-F7-4 (fourier-DESIGN-TAIL §C; COHESION §0hs.3) — F.W7
+    // clause E1: two palettes whose content is identical share a payload hash
+    // and must still each resolve to their OWN revision. Under a content-hash
+    // `_id` the second palette's revision vanished into the first's row.
+    it("G-F7-4: two palettes sharing a content hash resolve to their own versions", async () => {
+        const colors = [{ css: "#ff0000", position: 0 }];
+        await createPalette(services, {
+            body: { name: "A", slug: "a", colors, tags: [] },
+            userSlug: "alice",
+        });
+        await createPalette(services, {
+            body: { name: "B", slug: "b", colors, tags: [] },
+            userSlug: "bob",
+        });
+
+        const [aRow] = await services.repositories.paletteVersions.findByPaletteSlug("a", 0, 10);
+        const [bRow] = await services.repositories.paletteVersions.findByPaletteSlug("b", 0, 10);
+        expect(aRow?.paletteSlug).toBe("a");
+        expect(bRow?.paletteSlug).toBe("b");
+        // One content, two revisions under two ids.
+        expect(aRow?.payloadHash).toBe(bRow?.payloadHash);
+        expect(aRow?._id).not.toBe(bRow?._id);
+
+        // Each resolves through its own palette, by its own name.
+        const aRes = await app.request(`/palettes/a/versions/${aRow!._id}`);
+        const bRes = await app.request(`/palettes/b/versions/${bRow!._id}`);
+        expect(aRes.status).toBe(200);
+        expect(bRes.status).toBe(200);
+        expect((await aRes.json()).paletteSlug).toBe("a");
+        expect((await bRes.json()).paletteSlug).toBe("b");
+
+        // Neither is reachable through the other.
+        expect((await app.request(`/palettes/a/versions/${bRow!._id}`)).status).toBe(404);
+        expect((await app.request(`/palettes/b/versions/${aRow!._id}`)).status).toBe(404);
+    });
+
     it("G-6: owner of A reverting to a hash belonging to B → 404, A byte-unchanged", async () => {
         await createPalette(services, {
             body: {
