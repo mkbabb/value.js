@@ -5501,3 +5501,9 @@ Ship seat (`claude-opus-5-5`). This continues §0hn item 3 after the visual seat
     - Interpretations are shown only from a cleanly licensed source, else none; they are never generated.
     - The Arabic name defaults to درخشا as one constant, and the owner may correct it.
 - 2026-11-04: Gregg (sci-report-ef, formerly f8) adopted kf 6.2.1 exact and stays on value 4.2.0; nothing is owed.
+- **§0ho.1 (2026-11-04): SHIPPED + READ.**
+  - Another seat had already done the merge. master is `0a2c35d74`, an ordinary §0ga merge carrying `80d31f511` (OD-19 √φ measure), `3647f2d1e` (12 attributed 3440 goldens + MANIFEST), `90f6ff7f8`/`3e3ed6d9b` (OD-18 WebKit trace) and `5400259cd` (§0hq). Its message cites ci 41891669611 at 8/8 GREEN.
+  - Master runs on `0a2c35d74`: ci 41920320369 succeeded, domains 41920320330 succeeded, deploy-pages 41939659512 succeeded, deploy-age 41940079586 succeeded. webkit-hosted 41920320457 failed; it has never been green and is not a gate.
+  - color.babb.dev serves `index-B3dwCeez.js` (read ×2, curl). API `/health` reports commit `0a2c35d74` with mongo ok and primary true (read ×2).
+  - Prod browser re-read ×2: one guarded headless Chromium per run (`evidence/0ho/od19-measure/prod-probe.mjs`), light theme. `--picker-measure` = `calc(32rem * 1.272)`. At 1440×900 the stage is 651 and the inspector 699. At 1800×1000 the stage is 651 and the inspector 1036. The bundle is `index-B3dwCeez.js`, with 0 console errors in both runs. This matches the local OD-19 table exactly.
+  - Still open: the spectrum aspect is 2.65:1, above the ≤ 2.5 limit, as the picker seat reported. The prod re-reads of OD-9/10/11/15 and OD-12 light from §0hn.2 are still owed.
