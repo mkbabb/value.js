@@ -5517,3 +5517,17 @@ Ship seat (`claude-opus-5-5`). This continues §0hn item 3 after the visual seat
     - XP-13: recommend claiming calc-size, sibling-*, progress(no-clamp) (if it is in the ED), and the anchor argument grammar; recommend ruling random() and calc-mix() out of scope, with a shipping-engine re-trigger.
     - `.rel`: arm A or arm B.
   - **Discharged:** XP-6, XP-8. **Untouched:** BL-3, BL-4. No engineering ran in this seat.
+- **§0hu (2026-11-04): X·P W9/W10 EXECUTION, first sitting (records `execution/D/X-P-W9.md`, `X-P-W10.md`).**
+  - **DONE:**
+    - `.e6`: E-6 binds both files. grammar.js ≤ 15,650 gz (31 B headroom); color.js ≤ 6,150 gz / 39,446 raw (3 B headroom).
+    - `.pt`: parse-that PR #1 merged with `--merge` → master `7098c86`. `git diff v2.0.0 origin/master -- typescript/src` is empty. The typescript job is GREEN: its RED was gitignored `../data` fixtures, not F-b-2. The Rust job's `egraph-derive` failure is pre-existing. No release is owed.
+    - `.vc9`: a census of all 317 css-variables/css-syntax files. 5 are extracted (var-parsing, plus 4 through the new CSSOM round-trip recorder) and 312 are ruled at file level. It found 42 misses, routed to W10 as `.s10` (`<urange>` serialization) and `.v10` (`var()` arguments).
+    - `.bl`: bbnf-lang#2 cured at the root (`3a2e03671` → master `7bd8e7a14`, 0.3.0, **unpublished**). grammar.js shrinks by 577 B gz and color.js by 119 B gz. MIRROR is 0, V-C and L-G2 are byte-identical, the module stays self-contained, and a size test was added.
+    - `.n`: done.
+    - W10 `.c10`: 15 WPT files vendored, 17,307 cases, born RED ×2 with 6,220 misses.
+  - **OPEN:**
+    - `.o104`: all three addressees are UNREACHABLE (no live session).
+    - `.rel`: an OWNER ACT (arm A or arm B). Until it is ruled, `.pin` and value 4.2.1 wait. The ceilings to set at `.pin` are 15,050 and 6,050 gz.
+    - `.rd`: no quiet window (load 17–30).
+    - W10 `.t10`, `.m10`, `.s10` and `.v10` wait for `.pin` headroom. `.r10` waits on DR-c, and `.k10` on XP-13.
+    - V-C stays RED until those cures land (ESC-W9-1).
