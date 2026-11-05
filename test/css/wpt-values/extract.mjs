@@ -49,6 +49,26 @@ export function casesOf(rel, pins = loadPins(), roundTrip = roundTripFiles()) {
             expected: serialized === undefined ? [value] : Array.isArray(serialized) ? serialized : [serialized],
         }),
         test_invalid_value: (property, value) => cases.push({ module, file: rel, kind: "invalid", property, input: value }),
+        // X.P.W10 `.c10`: the computed and used harnesses, and color-testcommon.js's fuzzy forms
+        // (its comparison: numbers within epsilon, default 0.01, and the text without digits equal).
+        test_computed_value: (property, value, computed) => cases.push({
+            module, file: rel, kind: "computed", property, input: value,
+            expected: computed === undefined ? [value] : Array.isArray(computed) ? computed : [computed],
+        }),
+        fuzzy_test_valid_color: (value, parsed, epsilon) => cases.push({
+            module, file: rel, kind: "valid", property: "color", input: value,
+            expected: [parsed === undefined ? value : parsed], epsilon: epsilon || 0.01,
+        }),
+        fuzzy_test_computed_color: (value, computed, epsilon) => cases.push(computed
+            ? { module, file: rel, kind: "computed", property: "color", input: value, expected: [computed], epsilon: epsilon || 0.01 }
+            : { module, file: rel, kind: "computed", property: "color", input: value, expected: [value] }),
+        fuzzy_test_computed_color_property: (property, value, computed, epsilon) => cases.push(computed
+            ? { module, file: rel, kind: "computed", property, input: value, expected: [computed], epsilon: epsilon || 0.01 }
+            : { module, file: rel, kind: "computed", property, input: value, expected: [value] }),
+        test_math_used: (value, expected, options) => cases.push({
+            module, file: rel, kind: "used", property: (options && options.prop) || "width", input: value, expected: [expected],
+            ...(options && options.approx !== undefined ? { epsilon: options.approx } : {}),
+        }),
     };
     const scope = new Proxy(recorders, {
         has: (target, key) => key in target || !(key in globalThis),

@@ -1,0 +1,20 @@
+{
+  "about": "X.P.W10 .c10 (XP-12, XP-13 corpora; W10.md): the WPT files vendored at pin 5a5b2b59 for the L4+ extension. css-color relative colour / color-mix / contrast-color (valid + computed), css-easing timing-function syntax (valid + computed), css-values tree-counting, progress(), calc-size() / interpolate-size, css-anchor-position anchor() / anchor-size() parsing. Paths are WPT's at the pin (contrast-color's computed file is color-computed-contrast-color-function.html).",
+  "files": [
+    "css/css-color/parsing/color-valid-relative-color.html",
+    "css/css-color/parsing/color-computed-relative-color.html",
+    "css/css-color/parsing/color-valid-color-mix-function.html",
+    "css/css-color/parsing/color-computed-color-mix-function.html",
+    "css/css-color/parsing/color-computed-contrast-color-function.html",
+    "css/css-easing/linear-timing-functions-syntax.html",
+    "css/css-easing/timing-functions-syntax-computed.html",
+    "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+    "css/css-values/progress-computed.html",
+    "css/css-values/calc-size/calc-size-parsing.html",
+    "css/css-values/calc-size/interpolate-size-parsing.html",
+    "css/css-anchor-position/anchor-parse-valid.html",
+    "css/css-anchor-position/anchor-parse-invalid.html",
+    "css/css-anchor-position/anchor-size-parse-valid.html",
+    "css/css-anchor-position/anchor-size-parse-invalid.html"
+  ]
+}

@@ -16,11 +16,12 @@
 // fail. A round-trip case WPT compares case-folded (`fold`) is folded before comparison.
 import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
-import { parseCssValue, serializeCssValue } from "../../src/css/index";
+import { isDeepStrictEqual } from "node:util";
+import { parseCssColor, parseCssValue, parseTimingFunction, serializeCssColor, serializeCssValue } from "../../src/css/index";
 
-export const CASES_FILE = "cases-2026-11-04.json";
+export const CASES_FILE = "cases-2026-11-04-c10.json";
 
-type Case = Readonly<{ module: string; file: string; kind: "valid" | "invalid"; property: string; input: string; expected?: readonly string[]; fold?: "upper" | "lower" }>;
+type Case = Readonly<{ module: string; file: string; kind: "valid" | "invalid" | "computed" | "used"; property: string; input: string; expected?: readonly string[]; fold?: "upper" | "lower"; epsilon?: number }>;
 type Ruled = Readonly<{ file: string; kind: string; property: string; input: string; class: string; reason: string; spec: string }>;
 type Miss = Readonly<{ c: Case; why: "refused" | "serialize-error" | "serialization" | "accepted"; actual?: string }>;
 
@@ -47,14 +48,50 @@ const ruledFileSet = new Set(ruledFiles.map((r) => r.file));
 const unruledFiles = censusFiles.filter((f) => !pinned.has(f) && !ruledFileSet.has(f));
 const staleFiles = ruledFiles.filter((r) => pinned.has(r.file) || !censusFiles.includes(r.file)).map((r) => r.file);
 
+// X.P.W10 `.c10`: color-testcommon.js's fuzzy comparison, verbatim in effect — the numbers of the two
+// texts (split on space, "(" and ",", each parseFloat'd) within epsilon, and the texts stripped of
+// [0-9.] equal. A case carries `epsilon` only when WPT's own harness compares it fuzzily.
+function fuzzyEqual(actual: string, expected: string, epsilon: number): boolean {
+    const numbers = (t: string) => t.split(/( |\(|,)/).map((e) => parseFloat(e)).filter((n) => !Number.isNaN(n));
+    const a = numbers(actual), b = numbers(expected);
+    if (a.length !== b.length || a.some((n, k) => Math.abs(n - b[k]!) > epsilon)) return false;
+    return actual.replace(/[0-9.]/g, "") === expected.replace(/[0-9.]/g, "");
+}
+const matches = (c: Case, text: string) => (c.expected ?? [c.input]).some((e) => (c.epsilon === undefined ? e === text : fuzzyEqual(text, e, c.epsilon)));
+
+// X.P.W10 `.c10`: each case kind is judged by the entry that claims it (W10.md): a computed colour by
+// `parseCssColor` + `serializeCssColor`; a computed easing by `parseTimingFunction`, equal when the
+// expected text parses to the same timing function (no serializer is authored here); every other
+// computed and used case, and every specified case, by `parseCssValue` + `serializeCssValue`.
+function judgeComputed(c: Case): Miss | null {
+    if (c.module === "css-color") {
+        const parsed = parseCssColor(c.input);
+        if (!parsed.ok) return { c, why: "refused" };
+        const text = serializeCssColor(parsed.value);
+        if (!text.ok) return { c, why: "serialize-error" };
+        return matches(c, text.value) ? null : { c, why: "serialization", actual: text.value };
+    }
+    if (c.module === "css-easing") {
+        const parsed = parseTimingFunction(c.input);
+        if (!parsed.ok) return { c, why: "refused" };
+        const same = (c.expected ?? [c.input]).some((e) => { const x = parseTimingFunction(e); return x.ok && isDeepStrictEqual(x.value, parsed.value); });
+        return same ? null : { c, why: "serialization", actual: JSON.stringify(parsed.value) };
+    }
+    return judgeSpecified(c);
+}
+
 function judge(c: Case): Miss | null {
+    return c.kind === "computed" ? judgeComputed(c) : judgeSpecified(c);
+}
+
+function judgeSpecified(c: Case): Miss | null {
     const parsed = parseCssValue(c.input);
     if (c.kind === "invalid") return parsed.ok ? { c, why: "accepted" } : null;
     if (!parsed.ok) return { c, why: "refused" };
     const text = serializeCssValue(parsed.value);
     if (!text.ok) return { c, why: "serialize-error" };
     const got = c.fold === "upper" ? text.value.toUpperCase() : c.fold === "lower" ? text.value.toLowerCase() : text.value;
-    return (c.expected ?? [c.input]).includes(got) ? null : { c, why: "serialization", actual: text.value };
+    return matches(c, got) ? null : { c, why: "serialization", actual: text.value };
 }
 
 type Row = { cases: number; pass: number; ruled: number; refused: number; serialization: number; "serialize-error": number; accepted: number };
