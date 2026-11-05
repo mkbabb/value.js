@@ -1,0 +1,106 @@
+{
+  "label": "r3",
+  "at": "2026-11-05T12:31:52.799Z",
+  "rows": {
+    "D-8": {
+      "seriesOverflow": 0,
+      "pillInsideCard": true,
+      "pass": true
+    },
+    "D-21": {
+      "plateBlock": 358,
+      "labelPx": 12.179,
+      "valuePx": 14,
+      "pass": true
+    },
+    "D-22": {
+      "firstLineBottom": 565.5,
+      "dockShort": {
+        "padBlock": "calc(.25rem * 1)",
+        "paddingTop": "4px",
+        "height": 48
+      },
+      "dockTall": {
+        "padBlock": "calc(.5rem * 1)",
+        "paddingTop": "8px",
+        "height": 56
+      },
+      "pass": true
+    },
+    "D-25": {
+      "topDelta": 0,
+      "footDelta": 0,
+      "asideHeight": 900,
+      "pass": true
+    },
+    "D-27": {
+      "cells": 27,
+      "bad": [
+        {
+          "route": "/s/unknown-share",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "cm": true
+        },
+        {
+          "route": "/s/unknown-share",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "cm": true
+        },
+        {
+          "route": "/s/unknown-share",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "cm": true
+        },
+        {
+          "route": "/v/unknown-visualization",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "cm": true
+        },
+        {
+          "route": "/v/unknown-visualization",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "cm": true
+        },
+        {
+          "route": "/v/unknown-visualization",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "cm": true
+        }
+      ],
+      "pass": false
+    }
+  }
+}
