@@ -18,6 +18,19 @@ import { useCustomColorNames } from "./useCustomColorNames";
 export const COLOR_NAME_KEY = /^[a-z][a-z0-9-]*$/;
 
 /**
+ * Input aliases (COHESION §0hr.2 (7), delegate ruling): a typed key that is
+ * NOT a registry entry but resolves to one. "daraksha" is her name; the colour
+ * named for her is Efflorescence. The alias lives only on the input path: the
+ * display name stays the registry's, and the alias is never a second registry
+ * entry (two entries with one css would tie the display snap).
+ *
+ * An approved registry entry under the same key wins over the alias.
+ */
+export const COLOR_NAME_ALIASES: Readonly<Record<string, string>> = Object.freeze({
+    daraksha: "efflorescence",
+});
+
+/**
  * Typed text → the registry's key form: "Daraksha Sage", " daraksha_sage "
  * and "Daraksha-Sage" all read `daraksha-sage`.
  */
@@ -42,7 +55,8 @@ export function useColorNameInput() {
     /** The approved colour for a normalized key, or `undefined`. */
     function resolveName(key: string): ApprovedNameResolution | undefined {
         if (!COLOR_NAME_KEY.test(key)) return undefined;
-        const entry = names.getMetadata(key);
+        const alias = COLOR_NAME_ALIASES[key];
+        const entry = names.getMetadata(key) ?? (alias ? names.getMetadata(alias) : undefined);
         if (!entry) return undefined;
         const result = readPickerColor(entry.css);
         return result.ok ? { css: entry.css, color: result.value } : undefined;
@@ -63,12 +77,13 @@ export function useColorNameInput() {
         });
     }
 
-    /** True while `key` is a strict prefix of an approved name or a CSS keyword. */
+    /** True while `key` is a strict prefix of an approved name, an input alias or a CSS keyword. */
     function isNamePrefix(key: string): boolean {
         if (!COLOR_NAME_KEY.test(key)) return false;
         const strict = (name: string) => name !== key && name.startsWith(key);
         return CSS_NAMED_COLOR_ENTRIES.some((e) => strict(e.name))
-            || names.customNameEntries.value.some((e) => strict(e.name));
+            || names.customNameEntries.value.some((e) => strict(e.name))
+            || Object.keys(COLOR_NAME_ALIASES).some(strict);
     }
 
     return { resolveName, pending, isNamePrefix };

@@ -220,3 +220,51 @@ describe("OD-7 — the one key form (the API schema's `/^[a-z][a-z0-9-]*$/`)", (
         expect(COLOR_NAME_KEY.test(key)).toBe(true);
     });
 });
+
+describe("§0hr.2 (7) — the 'daraksha' input alias resolves to Efflorescence", () => {
+    // Prod after §0hl: the daraksha* names are retired; Efflorescence is approved.
+    const EFFLORESCENCE = "oklch(73% 0.185 2)";
+    const seedProd = () =>
+        approved.push({ id: "efflorescence", name: "efflorescence", css: EFFLORESCENCE, status: "approved", createdAt: "" });
+
+    it.each(["daraksha", "Daraksha", "  DARAKSHA "])(
+        "%j → Efflorescence's colour; the name line reads Efflorescence (display unchanged)",
+        async (typed) => {
+            seedProd();
+            const { api, model, names, nameLine } = harness();
+            await names.loadFromAPI();
+
+            await api.parseAndSetColor(typed);
+
+            expect(api.parseError.value).toBe(false);
+            expect(model.value.inputColor).toBe(EFFLORESCENCE);
+            expect(nameLine()).toBe("Efflorescence");
+            // The alias is never a registry entry (it would tie the snap).
+            expect(names.getMetadata("daraksha")).toBeUndefined();
+        },
+    );
+
+    it("typed while the registry read is in flight, the alias waits for it — no false badge", async () => {
+        seedProd();
+        const { api, model, names } = harness();
+        const release = deferred();
+        const load = names.loadFromAPI();
+        const parse = api.parseAndSetColor("daraksha");
+        expect(api.parseError.value).toBe(false);
+        release();
+        await load;
+        await parse;
+        expect(api.parseError.value).toBe(false);
+        expect(model.value.inputColor).toBe(EFFLORESCENCE);
+    });
+
+    it("a strict prefix of the alias is withheld while typing", async () => {
+        vi.useFakeTimers();
+        seedProd();
+        const { api, names } = harness();
+        await names.loadFromAPI();
+        api.parseAndSetColorDebounced("daraks");
+        await vi.advanceTimersByTimeAsync(2500);
+        expect(api.parseError.value).toBe(false);
+    });
+});
