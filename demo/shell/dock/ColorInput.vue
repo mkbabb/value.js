@@ -1,10 +1,19 @@
 <template>
     <div class="color-input-face grid grid-cols-1 gap-y-2 p-0 m-0">
+        <!-- X·§0hr.2 (2) OD-11: the help preview and the invalid badge hang
+             from the same edge of the field, and glass's scale stacks the
+             popover tier (130) over the tooltip tier (120) the badge rides.
+             The gestalt: while the field is invalid the badge IS the field's
+             floating status, so the help preview yields — it closes on the
+             invalid commit and cannot reopen until the field is valid again
+             (the next edit clears the badge; hover brings the help back). -->
         <Popover
             trigger="hover"
             :close-delay="0"
             :open-delay="300"
+            :open="helpOpen && !badgeRaised"
             class="pointer-events-auto w-full"
+            @update:open="helpOpen = $event"
         >
             <PopoverTrigger as-child>
                 <!-- OD-9 · OD-10 (COHESION §0hk): this row IS the field box
@@ -207,6 +216,13 @@ const fieldRect = useElementBounding(fieldBox);
 watch(parseError, (raised) => {
     if (raised) fieldRect.update();
 });
+/** OD-11: the badge is up — the help preview yields to it (see the Popover). */
+const badgeRaised = computed(() => parseError.value && !proposeMode);
+const helpOpen = ref(false);
+watch(badgeRaised, (up) => {
+    if (up) helpOpen.value = false;
+});
+
 const badgeAnchor = computed(() => ({
     "--anchor-cx": `${fieldRect.x.value + fieldRect.width.value / 2}px`,
     "--anchor-bottom": `${fieldRect.bottom.value}px`,
