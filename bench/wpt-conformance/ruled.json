@@ -48015,6 +48015,312 @@
       "class": "W8t-COLOR-CONTEXT",
       "reason": "A colour whose channel holds sibling-index() or sibling-count() (css-values-5 §8), an <integer> only the element knows, so the colour is not absolute at parse time; value.js's colour contract answers color_context_required (measured), as for var().",
       "spec": "css-values-5 §8 tree-counting functions; css-color-4 §4 (absolute colours)"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(1, 0, 1)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(progress(1, 0, 1), progress(0px, 0px, 1px), progress(1deg, 0deg, 1deg))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(sign(-10px) * 10px, (10px - 10px), 10px * progress(1deg, 0deg, 1deg))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(progress(100px, 0px, 50px) * 10px + 100px)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(progress(100, 0, sign(50px)))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(progress(abs(5%), hypot(3%, 4%), 10%))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(50em, 10em, 110em)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(1000em, 10em, 110em)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "transform",
+      "input": "scale(progress(50em, 10rem, 110em))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "transform",
+      "input": "scale(progress(1000em, 10rem, 110em))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "transform",
+      "input": "scale(progress(0em, 0rem, 0em))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "transform",
+      "input": "scale(progress(sign(1em - 1rem) * 1ex, 0rem, 0em))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(progress(1, 0, 1) * 10px)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(progress(1, 0, 1) * 1s)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(progress(1, 0, 1) * 1deg)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(progress(50%, 0px, 100px) * 10px)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "opacity",
+      "input": "calc(progress(sign(1001em - 10lh * progress(100px, 2rex, 10ex)) * 10em, 2rem, 12em) / 2)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "order",
+      "input": "calc(progress(sign(1001em - 10lh * progress(100px, 2rex, 10ex)) * 20em, 2rem, 12em) * 10)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "flex-grow",
+      "input": "calc(progress(sign(1001em - 10lh * progress(100px, 2rex, 10ex)) * 20em, 2rem, 12em) * 30)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "flex-grow",
+      "input": "calc(progress(sign(1001em - 10lh * progress(100px, 2rex, 10ex)) * 20em, 2rem, 12em) / 4)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "column-count",
+      "input": "calc(progress(sign(1001em - 10lh * progress(100px, 2rex, 10ex)) * 20em, 2rem, 12em) * 4)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "scale",
+      "input": "calc(progress(sign(1001em - 10lh * progress(100px, 2rex, 10ex)) * 20em, 2rem, 12em) * 2)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "transform",
+      "input": "rotate3d(progress(21em, 1rem, 11em), progress(21em, 1rem, 11em), progress(21em, 1rem, 11em), calc(progress(11em, 1rem, 11em) * 2deg))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(50% - 0px * clamp(0, progress(0cqw, 0px, 0px), 1))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(progress(no-clamp 100px, 0px, 50px) * 10px + 100px)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(progress(no-clamp 100, 0, sign(1rem - 5px)))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "calc(progress(no-clamp abs(5%), hypot(3%, 4%), 10%))",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(no-clamp 50em, 10em, 110em)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(no-clamp 1000em, 10em, 110em)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(no-clamp 10em, 50em, 100em)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(100px, 10px, 10px)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(1px, 10px, 10px)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(10px, 10px, 10px)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
+    },
+    {
+      "file": "css/css-values/progress-computed.html",
+      "kind": "used",
+      "property": "width",
+      "input": "progress(no-clamp 10px, 10px, 10px)",
+      "class": "W10k-COMPUTED-VALUE",
+      "reason": "parsed (progress(), and its no-clamp, as css-values-5 reads them) and kept as the specified value; the case asserts the COMPUTED value (the progress resolved to a <number>, font-relative and container units resolved against the element), which a property-agnostic, element-free parseCssValue does not compute. value.js keeps math functions as authored (DR-b).",
+      "spec": "css-values-5 progress() (#progress), css-values-4 §10.10 simplification, §10.13 serialization; CSSOM computed value"
     }
   ]
 }

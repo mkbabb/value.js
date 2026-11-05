@@ -1908,3 +1908,14 @@ Under W10.md `.t10` (XP-11) and COHESION §0hv (DR-a, DR-b keep).
 | **value differential** | MIRROR 0 defects; L-G2 unchanged from `.k10a`. |
 | **ruled** | `W8t-COLOR-CONTEXT` ×9 (the colour rows, and `LCH(from var(--accent) … sibling-index())`), `W8v-PROPERTY-TYPE` ×7 (a calculation's type against the property, DR-a), `W8g-MATH-SERIALIZATION` ×7 (DR-b). |
 | **consumer direction** | **REFINES** (a refusal's code moves from `css_syntax` to `color_context_required`). |
+
+## §20-Kc — X.P.W10.k10 (c): `progress(no-clamp …)` (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | `progress()` admits one leading `no-clamp` on its first argument; the incumbent typed `no-clamp 50em` as no calculation and refused the call. |
+| **spec** | css-values-5 progress() (#progress); WPT css/css-values/progress-computed.html. |
+| **cure** | no grammar byte: `calc.ts` `mathType` types `progress()`'s first argument without its leading `no-clamp` (`unclamped`). The call is kept as authored, `no-clamp` included. |
+| **value differential** | MIRROR 0 defects; L-G2 unchanged from `.k10b`. |
+| **ruled** | `W10k-COMPUTED-VALUE` ×34: every `progress-computed.html` case asserts the computed value (the progress resolved to a `<number>`, `em`/`rem`/`lh`/`cqw` resolved against the element), which the element-free `parseCssValue` does not compute (DR-b keeps math as authored). |
+| **consumer direction** | **WIDENS** (`progress(no-clamp …)` parses). |

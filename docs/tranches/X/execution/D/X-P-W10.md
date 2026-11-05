@@ -125,3 +125,9 @@ W10.md §State: "The headroom W10's grammar needs is the headroom bbnf-lang#2 re
 - **Cure:** DIVERGENCE-LEDGER §20-Kb. **RED ×2** on `git archive 12462c749`: `bbnf-tree-counting.test.ts` `8 failed | 1 passed (9)` both. **GREEN ×2** `9 passed`.
 - **V-C ×2:** 2,389 → **2,366** (23 ruled: `W8t-COLOR-CONTEXT` ×9, `W8v-PROPERTY-TYPE` ×7 DR-a, `W8g-MATH-SERIALIZATION` ×7 DR-b; the cure turns 9 colour refusals from syntax into the context contract). `tree-counting/` MISS 0.
 - **Gates ×2** (`bench/records/W10k10b/gates/`): `--check` 0; **E-6 grammar.js 84,412 / 15,181 (+23), color.js 29,620 / 6,054 (+26) — color.js now CROSSES its 6,050 ceiling by 4 B**; ESC-W10-1 covers both files (variants recorded; not shaved). self-contained 0/0; test/css 29 files / 453; MIRROR-DEFECTS 0; L-G2 unchanged; audit 0; L-G3 0; tsc and eslint 0.
+
+### `.k10` sub-unit (c): `progress(no-clamp …)`
+- **Cure:** DIVERGENCE-LEDGER §20-Kc (no grammar byte). **RED ×2** on `git archive 8d7bb5b82`: `bbnf-progress-no-clamp.test.ts` `5 failed | 5 passed (10)` both. **GREEN ×2** `10 passed`.
+- **V-C ×2:** 2,366 → **2,332** (7 no-clamp refusals cured into the computed-value class; 34 ruled `W10k-COMPUTED-VALUE`, a new class: the case asserts a computed value the element-free parser does not compute). **css-values MISS 0** (976 · 794 pass · 182 ruled).
+- **Gates ×2** (`bench/records/W10k10c/gates/`): `--check` 0; E-6 15,181 / 6,054 (unchanged from `.k10b`); test/css 30 files / 463; MIRROR-DEFECTS 0; L-G2 unchanged; audit 0; L-G3 0; tsc, eslint 0.
+- **Flag:** `W10k-COMPUTED-VALUE` is a new ruling class (34 rows), named for the orchestrator.

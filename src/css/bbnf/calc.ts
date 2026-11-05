@@ -169,6 +169,17 @@ const allOf = (args: readonly CssValue[]): MathType => {
 };
 const isNone = (v: CssValue) => v.kind === "scalar" && v.payload.type === "keyword" && /^none$/i.test(v.payload.value);
 
+/**
+ * `progress()`'s first argument without its leading `no-clamp` (css-values-5 §10.9.1, WPT
+ * css/css-values/progress-computed.html: `progress(no-clamp <calc-sum>, <calc-sum>, <calc-sum>)`; X.P.W10 `.k10`).
+ */
+function unclamped(v: CssValue): CssValue {
+    if (v.kind !== "list" || v.separator !== "space" || v.items.length < 2) return v;
+    const [lead, ...rest] = v.items;
+    if (lead === undefined || !isOperator(lead, /^no-clamp$/i)) return v;
+    return rest.length === 1 && rest[0] !== undefined ? rest[0] : { ...v, items: rest };
+}
+
 /** A math function's result type, or `null` when it is no calculation (§10.2–§10.7). */
 function mathType(call: CssCall): MathType {
     const args = call.args;
@@ -199,7 +210,7 @@ function mathType(call: CssCall): MathType {
         case "pow": return n === 2 && args.every((v) => numberLike(arg(v))) ? NUMBER : null;
         case "log": return (n === 1 || n === 2) && args.every((v) => numberLike(arg(v))) ? NUMBER : null;
         case "sign": return only !== null ? NUMBER : null;
-        case "progress": return n === 3 && allOf(args) !== null ? NUMBER : null;
+        case "progress": return n === 3 && allOf([unclamped(first), ...args.slice(1)]) !== null ? NUMBER : null;
         default: return null;
     }
 }
