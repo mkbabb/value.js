@@ -60,9 +60,14 @@ ifSemi     = /(?:\s|\/\*[\s\S]*?\*\/)*;(?:\s|\/\*[\s\S]*?\*\/)*/ ;
 badTerm    = /[^\s(),\/:;"']+|;/ ;
 
 // var() / env(): the fallback is a `<declaration-value>?` (css-variables-1 §2), which may end in a
-// comma or be empty — `var(--a, red,)` and `var(--a,)` are valid; the trailing comma carries no item.
-varCall    = /(?:var|env)(?=\()/i , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> varBody << close ;
-varBody    = commaList << ( /\s*,/ ? ) ;
+// comma or be empty — `var(--a, red,)` and `var(--a,)` are valid; `var(--a,)`'s comma keeps an EMPTY
+// fallback (it substitutes nothing, where no fallback leaves the declaration invalid). An argument list
+// the component values do not read (`var(--x ())`, `var({--x})`) is css-variables-2's free-form
+// `<declaration-value>` name, checked only at substitution: `varRaw` keeps its text as authored, and
+// the action holds it to css-values-5's {}-wrapping rule; `varBody` never opens on `{` (X.P.W10 `.v10`).
+varCall    = /(?:var|env)(?=\()/i , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> ( ( varBody << close ) | ( varRaw << ")" ) ) ;
+varBody    = /(?!\{)/ >> commaList , /\s*,/ ? ;
+varRaw     = balanced ;
 
 // A colour function is a colour, never a generic call: `rgb(1)` is a malformed colour.
 colorCall  = relativeColor | rgbFn | hslFn | hwbFn | labFn | lchFn | oklabFn | oklchFn | colorFn | hex ;

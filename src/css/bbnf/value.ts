@@ -367,6 +367,46 @@ function linearFn([first, rest]: readonly [CssLinearStop | Refused, readonly (Cs
 const EMPTY: CssEmpty = Object.freeze({ kind: "list", separator: "space", items: Object.freeze([]) as readonly [] });
 
 /**
+ * The top-level comma parts of a `varRaw` text (strings and `()`/`{}` blocks read whole), or `null` when
+ * the text is no `<declaration-value>`: an unmatched `}`, or a top-level `;` or `!` (css-syntax-3 §5.4.6).
+ */
+function rawParts(text: string): string[] | null {
+    const parts: string[] = [];
+    let depth = 0, from = 0, quote = "";
+    for (let i = 0; i < text.length; i++) {
+        const ch = text[i]!;
+        if (quote) { if (ch === quote) quote = ""; continue; }
+        if (ch === "\"" || ch === "'") quote = ch;
+        else if (ch === "(" || ch === "{") depth++;
+        else if (ch === ")" || ch === "}") { if (--depth < 0) return null; }
+        else if (depth === 0 && (ch === ";" || ch === "!")) return null;
+        else if (ch === "," && depth === 0) { parts.push(text.slice(from, i)); from = i + 1; }
+    }
+    return depth === 0 ? [...parts, text.slice(from)] : null;
+}
+
+/**
+ * `var()` / `env()` (css-variables-1 §2/§3; css-variables-2 #funcdef-var). The component-value reading
+ * (`varBody`) is the call it always was, and a name followed by a lone comma keeps an EMPTY fallback. A
+ * `var()` text it does not read (`varRaw`) is the free-form `<declaration-value>` name, kept as authored:
+ * its name part must hold a token, and a `{}` block in it must be the whole part (css-values-5
+ * #component-function-commas; `var({--x})`), else it is refused (X.P.W10 `.v10`).
+ */
+function varValue([name, body]: readonly [string, readonly [ValueNode, string | undefined] | string | undefined]): ValueNode {
+    if (body === undefined) return refused("css_syntax", `<${name.toLowerCase()}()>`);
+    if (typeof body !== "string") {
+        const [list, comma] = body;
+        const single = !(list.kind === "list" && list.separator === "comma");
+        return callValue([name, comma !== undefined && single && !isRefused(list) ? Object.freeze({ kind: "list", separator: "comma", items: Object.freeze([list, EMPTY]) }) as ValueNode : list]);
+    }
+    //  Only `var()` takes the free-form name (css-variables-2); `env()`'s is a `<custom-ident>` (css-env-1).
+    const first = /^var$/i.test(name) ? rawParts(body)?.[0]?.trim() ?? "" : "";
+    const inner = first.slice(1, -1);
+    const ok = first !== "" && (first.startsWith("{") ? first.endsWith("}") && inner.trim() !== "" && !/[{}]/.test(inner) : !/[{}]/.test(first));
+    return ok ? callNode(name, Object.freeze([keyword(body)])) : refused("css_syntax", `<${name.toLowerCase()}()>`);
+}
+
+/**
  * `value.bbnf`'s semantic actions, by production. Each receives its rule's value where the grammar
  * puts it (positional sequences: an unmatched optional keeps its `undefined` slot).
  */
@@ -382,7 +422,8 @@ export const valueActions = {
     call: { kind: "map", fn: callValue },
     ifCall: { kind: "map", fn: ifValue },
     mixCall: { kind: "map", fn: mixValue },
-    varCall: { kind: "map", fn: callValue },
+    varCall: { kind: "map", fn: varValue },
+    varRaw: { kind: "text", fn: (text: string): string => text },
     urlCall: { kind: "map", fn: urlValue },
     urlString: { kind: "map", fn: urlStringValue },
     typeCall: { kind: "groups", fn: leafCallValue },

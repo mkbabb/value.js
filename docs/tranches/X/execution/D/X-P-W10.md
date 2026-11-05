@@ -97,3 +97,8 @@ W10.md §State: "The headroom W10's grammar needs is the headroom bbnf-lang#2 re
 - **Cure:** DIVERGENCE-LEDGER §20-S. **RED ×2** on `git archive c0ca1bb5d`: `bbnf-urange-serialize.test.ts` `17 failed | 8 passed (25)` both. **GREEN ×2** (with `bbnf-fonts.test.ts`) `33 passed`.
 - **V-C ×2:** css-syntax **MISS 0** (101 · 97 pass · 4 ruled W8g-PROPERTY-GRAMMAR, DR-a). Total 6,131 → **6,099**.
 - **Gates ×2** (`bench/records/W10s10/gates/`): `--check` 0; E-6 grammar.js **83,976 / 15,072** (+7 B gz; ESC-W10-1), color.js 29,586 / 6,028; test/css 25 files / 370; MIRROR 0 defects; L-G2 `new 0` beyond `.m10`; audit 0; L-G3 0.
+
+### `.v10` (the 10 `var()` misses and the 6 custom-property rows)
+- **Cure:** DIVERGENCE-LEDGER §20-V. **RED ×2** on `git archive c74ba680a`: `bbnf-var-arguments.test.ts` `7 failed | 10 passed (17)` both. **GREEN ×2** `17 passed`.
+- **V-C ×2:** css-variables **MISS 0** (33 · 24 pass · 9 ruled: W10v-VAR-WHITESPACE ×3, W10v-CUSTOM-COMPONENTS ×6, both DR-b). Total 6,099 → **6,083**. **Flag for the orchestrator:** the 6 custom-property rows were routed by §0ht.1 as "an owed cure … not ruled"; this seat rules them under DR-b (§0hv, ruled after §0ht.1), because the cure (a custom property's value held as tokens) would change `parseCustomPropertyValue`'s 4.x contract for every consumer. Reverse by ruling, not by this seat.
+- **Gates ×2** (`bench/records/W10v10/gates/`): `--check` 0; **E-6 grammar.js 84,599 / 15,157 (+85 B gz; the smallest of six measured variants; ESC-W10-1)**, color.js 29,586 / 6,028; test/css 26 files / 387; MIRROR 0 defects (W10v-VAR); L-G2 `new 956 · moved 2` (W10v-VAR); audit 0; L-G3 0.

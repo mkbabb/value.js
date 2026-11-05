@@ -1859,3 +1859,16 @@ Under W10.md `.t10` (XP-11) and COHESION §0hv (DR-a, DR-b keep).
 | **oracle rows / differential** | L-G2 `new 0` against `.m10` (no oracle source holds a `<urange>` the two arms read apart). MIRROR-DEFECTS 0, no class. |
 | **ruled** | 4 `urange-parsing.html` invalid cases (`u + abc`, `U + a b c`, `u/**/0`, `u-0-1`) are valid generic value lists: **W8g-PROPERTY-GRAMMAR** (DR-a). |
 | **consumer direction** | **CHANGES** the keyword text of a `<urange>` (canonical, not as authored); **WIDENS** to comments inside one. |
+
+## §20-V — X.P.W10.v10: `var()` keeps an empty fallback and reads css-variables-2's free-form name (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | **W10v-VAR** `var(--x,)` keeps an EMPTY fallback (its second argument the empty value); a `var()` argument list the component values do not read is the free-form `<declaration-value>` name, one keyword argument holding the text as authored. The incumbent dropped the comma and refused the free form. |
+| **spec** | css-variables-1 §2 (`<declaration-value>?` fallback), §3; css-variables-2 #funcdef-var (the name is a `<declaration-value>` parsed only after substitution); css-values-5 #component-function-commas (`{}`-wrapping); css-syntax-3 (no top-level `;` or `!` in a `<declaration-value>`). |
+| **cure** | `value.bbnf`: `varCall` reads `varBody << close` (which never opens on `{`) or `varRaw << ")"`; `varBody = commaList , /\s*,/ ?`; `varRaw = balanced`. `value.ts` `varValue`: a lone trailing comma after the name adds the EMPTY fallback; a raw text is held to a non-empty name part, a `{}` block only as the whole part, no top-level `;`/`!`, and `var()` only (`env()`'s name is a `<custom-ident>`, css-env-1). |
+| **variants (E-6 gz)** | `bench/records/W10v10/variants/e6-variants.txt`: three alternatives with an own regex 15,181; with `balanced` 15,178; **two alternatives, landed: 15,157**; one shared close 15,164 (loses authored whitespace); `blockRun` 15,188; the empty fallback alone 15,071 (fails 7 falsifiers). |
+| **value differential** | `w6-classes.ts` **W10v-VAR** (MIS_ACCEPT, DIVERGENT_VALUE): each `var()` spelled `var(--g)`, the rest must agree, and each call read alone must be an EMPTY-fallback or a free-form `var()` node whose keyword is the call's own text. MIRROR-DEFECTS 0. |
+| **oracle rows** | against `.m10`: `new 956 · moved 2 · gone 0`; every new row a `var(`/`env(` source; the 2 moved rows are one prose source holding `var()` whose refusal's diagnostic moves (still refused). **W10v-VAR**. |
+| **ruled** | `W10v-VAR-WHITESPACE` ×3 (`var(--x,)`, `var(--x() )`, `var(--x(),)`: value.js's canonical spacing, DR-b) and `W10v-CUSTOM-COMPONENTS` ×6 (`--var*: blue/pink` read as component values, named colour → `rgb()`, DR-b; css-variables-1 §2 departure named in the row). |
+| **consumer direction** | **WIDENS** (`var()` free-form names; empty fallback kept). A consumer reading `var()`'s arguments sees an EMPTY second argument for `var(--x,)`, and one keyword argument for a free-form name. |
