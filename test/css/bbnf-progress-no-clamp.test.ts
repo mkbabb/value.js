@@ -18,7 +18,8 @@ describe("progress(no-clamp …) (css-values-5)", () => {
     ])("%s parses and keeps its no-clamp", (source) => {
         const parsed = parseCssValue(source);
         expect(parsed.ok).toBe(true);
-        if (parsed.ok) expect(serializeCssValue(parsed.value).value?.toLowerCase()).toContain("no-clamp");
+        const text = parsed.ok ? serializeCssValue(parsed.value) : null;
+        expect(text?.ok ? text.value.toLowerCase() : "").toContain("no-clamp");
     });
     it.each([
         "progress(no-clamp, 0, 1)", "progress(clamp 1, 0, 1)", "progress(no-clamp no-clamp 1, 0, 1)",
