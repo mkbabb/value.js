@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "4.2.1",
+    "version": "4.3.0",
     "description": "Immutable, failure-explicit CSS color, value, easing, transform, math, and quantization capabilities.",
     "license": "MIT",
     "keywords": [

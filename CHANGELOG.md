@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased]
+## [4.3.0] — 2026-11-05
+
+This release teaches the CSS parser most of what the newer drafts of CSS Color 5, Values 5, Anchor Positioning and Easing 2 have added, so that a great deal of syntax it used to refuse now reads the way a browser reads it. A few results do change, and each entry below says how. The ones most likely to matter to you are that a relative colour with an absolute origin now resolves to a real colour, that `xyz-d50` and `display-p3-linear` colours keep the space you wrote, that a unicode range is now written in its canonical spelling, and that `anchor()`, `anchor-size()`, `calc-size()` and `linear()` now refuse arguments their specifications do not allow. I checked every new case against the Web Platform Tests for these specifications; the handful that still disagree are colour cases, mostly relative colours built from trigonometric functions, and I plan to take them up next.
 
 ### Added
 
@@ -13,6 +15,10 @@
 - **`<urange>` is spelled canonically and read through comments** (css-syntax-3 §7.1, CSSOM). `parseCssValue("u+0a??")` serializes `U+A00-AFF`: `U+`, upper-case hex, no leading zeros, a `?` wildcard expanded to its range, `-end` only when it differs. A comment between its tokens (`u/**/+0/**/-1`) is read through. Before 4.3 the range was kept as authored.
 - **`xyz-d50` and `display-p3-linear` are colour-model spaces of their own** (css-color-4 §10.8, §10.5). `SpaceId` and `CssColorSpace` gain both, with the factories `xyzD50` and `displayP3Linear` and their conversions. `parseCssColor("color(xyz-d50 …)")` and `color(display-p3-linear …)` now answer a colour in that space, and a `none` channel stays missing, through `color()` and through `color-mix()` (css-color-4 §13.2), where it was refused (`color_missing_channel`). `color-mix(in xyz-d50 | display-p3-linear, …)` answers its result in that space. Before, both spaces were written as the `xyz` (D65) colour they name; a consumer that read `.space === "xyz"` for them now reads the space as authored (convert with `convertColor(c, "xyz")` for the old value).
 - **Math functions in easing arguments** (css-easing-2 §2–§4 over css-values-4 §10). `parseTimingFunction` reads `cubic-bezier()`, `steps()` and `linear()` arguments written as `calc()`, `min()`, `max()`, `clamp()` and the other math functions of the right type, and resolves them at parse: `steps(calc(5 / 2), start)` is `steps(3, jump-start)`, `linear(0 calc(50%), 0 100%)` has a stop at 0.5. A math `<integer>` rounds to the nearest integer and clamps into the range `steps()` admits; a math `cubic-bezier()` x clamps into [0, 1]; a NaN is censored to 0. A literal out of range is still refused, and a math argument whose value depends on the element (`em`) is refused. In a value list, `parseCssValue` now refuses a `linear()` call whose stops are not `<number> <percentage>{0,2}` with at least two stops (`linear(0)`, `linear(0% 1 50%)`).
+
+### Changed
+
+- The generated parser grows a little to carry the new syntax. Minified and gzipped, `src/css/bbnf/generated/grammar.js` is now 15,181 bytes and `color.js` is 6,054 bytes, against 15,042 and 6,028 in 4.2.1. The full grammar is still smaller than it was in 4.2.0, since the smaller output that 4.2.1 brought paid for everything added here. The generated modules still import nothing at runtime.
 
 ## [4.2.1] — 2026-11-04
 
