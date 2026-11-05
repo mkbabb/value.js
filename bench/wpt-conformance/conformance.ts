@@ -17,6 +17,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { isDeepStrictEqual } from "node:util";
+import { convertColor } from "../../src/color/index";
 import { parseCssColor, parseCssValue, parseTimingFunction, serializeCssColor, serializeCssValue } from "../../src/css/index";
 
 export const CASES_FILE = "cases-2026-11-04-r1.json";
@@ -71,7 +72,24 @@ function judgeComputed(c: Case): Miss | null {
         if (!parsed.ok) return { c, why: "refused" };
         const text = serializeCssColor(parsed.value);
         if (!text.ok) return { c, why: "serialize-error" };
-        return matches(c, text.value) ? null : { c, why: "serialization", actual: text.value };
+        //  X.P.W10 `.r10`: the computed colour is the VALUE, so an expectation also matches when it parses to the
+        //  colour the input computes to (value.js's own spelling is DR-b policy) — as a computed easing is judged
+        //  by the timing function its expectation parses to. Channels compare in the expectation's space within
+        //  WPT's epsilon in the units its text spells (`color(srgb …)` 0..1, which value.js holds as rgb 0..255).
+        const same = matches(c, text.value) || (c.expected ?? []).some((e) => {
+            const want = parseCssColor(e);
+            if (!want.ok) return false;
+            const got = convertColor(parsed.value, want.value.space);
+            if (!got.ok) return false;
+            const eps = c.epsilon ?? 1e-9;
+            const unit = want.value.space === "rgb" && /^\s*color\(\s*srgb\s/i.test(e) ? 255 : 1;
+            const hue = ({ hsl: 0, hwb: 0, lch: 2, oklch: 2 } as Record<string, number>)[want.value.space];
+            const turn = (x: number) => ((x % 360) + 360) % 360; //  a hue's value is its angle mod 360 (css-color-4 §4.3)
+            const near = (a: number | "none", b: number | "none", k: number, i?: number) => (a === "none" || b === "none" ? a === b
+                : i === hue ? Math.min(Math.abs(turn(a) - turn(b)), 360 - Math.abs(turn(a) - turn(b))) <= eps : Math.abs(a - b) <= eps * k);
+            return want.value.channels.every((w, i) => near(got.value.channels[i]!, w, unit, i)) && near(got.value.alpha, want.value.alpha, 1);
+        });
+        return same ? null : { c, why: "serialization", actual: text.value };
     }
     if (c.module === "css-easing") {
         const parsed = parseTimingFunction(c.input);
