@@ -5488,3 +5488,16 @@ Ship seat (`claude-opus-5-5`). This continues §0hn item 3 after the visual seat
   - **Ruling on the check's ss8-b09 item:** the byte-unchanged clause in §0hn is arm A's. Under arm B the law is "no oracle loosened". The assertions are byte-identical; only the field wiring now passes the scheme, which is equivalent on dark at `DARK_FIELD_SEED_FAITHFUL=false`. So it is **accepted, not a defect**.
   - **Still owed:** the prod browser re-reads ×2 of OD-9/10/11/15 and OD-12 light. They are blocked by the guard, because the kernel zone is at 8.68M and the owner has to reboot.
   - **Note to §0ho OD-19:** 828 px already sat below the 1440 golden stage, so a √φ (651 px) measure has to be re-read against Z-chassis-2 and Z-LG-3, with the ceiling keyed per view.
+- **§0hr (2026-11-04, after the reboot; zone 1,691):**
+  - **Live:** master `0a2c35d74` (§0ho: OD-19 √φ picker, the OD-18 WebKit trace, §0hq) is deployed. color.babb.dev serves `index-B3dwCeez.js`. **colour.babb.dev is LIVE**, returning a 301 to color.babb.dev with the path and query kept (domains run success).
+  - **Relaunched:**
+    - `wf_bbc795a2` (resumed): the §0ho ship and check.
+    - `wf_014d8c52`: the owed prod browser reads ×2, plus the root cure of the OD-19 spectrum aspect (2.65:1 against ≤ 2.5).
+    - `wf_689afa82`: daraksha v2.
+  - **Owner brief for v2, verbatim (2026-11-04):** "each page should be a slice of each app's demo part … no meta language whatsoever … her name written in caligraphy arabic … a generalized facility for the visualization and reading of arabic scripture from the quaran … The highlighted verse should be from surah al duhaa … many elements of gold and a sense of proportion, too, partiuarlly for the arabic text and the name".
+  - **Rulings for v2 (delegate):**
+    - The Qur'an text is byte-verbatim Tanzil Uthmani, with its attribution kept.
+    - The translation must be public domain, used verbatim.
+    - Interpretations are shown only from a cleanly licensed source, else none; they are never generated.
+    - The Arabic name defaults to درخشا as one constant, and the owner may correct it.
+- 2026-11-04: Gregg (sci-report-ef, formerly f8) adopted kf 6.2.1 exact and stays on value 4.2.0; nothing is owed.
