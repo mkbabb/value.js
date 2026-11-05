@@ -1114,3 +1114,4 @@ Workflow scripts (session-local, re-creatable from the runbook): `x-begin.js`, `
 - 2026-11-05 — **§0hw.7 V-D5 GREEN** (`ed73b1ebc`): palettes seam + export leaf + types leaf, eslint deep-import refusal (planted 0 → 1), rtl SVG (RED → GREEN ×2).
 - 2026-11-05 — **§0hw.8 V-D7 GREEN-BEFORE** : per-region boundaries live since X.W5.a; pane-boundary witness 9/9 ×2.
 - 2026-11-05 — **§0hw.9 V-D9 BLOCKED (owner OA-16)**; **§0hw.10 V-D11** RC-P(4.2.0) C1/C2/C5/C6 TRUE ×2 (C3 owed), drift-subpath GREEN ×2; **§0hw.11 V-G1/V-D10/V-G2/V-G3 BLOCKED (glass 10.1.5 / 10.2.0 / 11.0.0 unpublished; npm 10.1.4)**.
+- 2026-11-05 — **§0hw.12** visual re-mint 68 goldens by counterfactual (`ef299d044`, merge `d49670d27` supersedes `efbfd4f16` on 13 paths); RC-P(4.2.0) C3 RED ×2 (stylesheet DEFECT 1304) → X·P `.rd`.
