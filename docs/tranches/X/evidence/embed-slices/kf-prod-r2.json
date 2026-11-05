@@ -1,0 +1,118 @@
+{
+  "at": "2026-11-05T15:01:51.556Z",
+  "host": "https://daraksha.babb.dev",
+  "color": "https://color.babb.dev",
+  "keyframes": "https://keyframes.babb.dev",
+  "headers": {
+    "https://keyframes.babb.dev": {
+      "status": 200,
+      "csp": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors https://daraksha.babb.dev",
+      "xfo": null,
+      "cacheControl": "public, max-age=0, must-revalidate, no-transform",
+      "green": true
+    }
+  },
+  "cells": [
+    {
+      "slice": "cube",
+      "viewport": "desktop",
+      "scheme": "light",
+      "frame": [
+        420,
+        420
+      ],
+      "readyMs": 523,
+      "readyFrom": "https://keyframes.babb.dev",
+      "ground": {
+        "html": "rgba(0, 0, 0, 0)",
+        "body": "rgba(0, 0, 0, 0)",
+        "colorScheme": "light",
+        "dark": false,
+        "contentHeight": 420
+      },
+      "lastHeight": 420,
+      "ackMs": 19,
+      "themeApplied": true,
+      "contract": true,
+      "errors": [],
+      "foreign": [],
+      "green": true
+    },
+    {
+      "slice": "cube",
+      "viewport": "desktop",
+      "scheme": "dark",
+      "frame": [
+        420,
+        420
+      ],
+      "readyMs": 503,
+      "readyFrom": "https://keyframes.babb.dev",
+      "ground": {
+        "html": "rgba(0, 0, 0, 0)",
+        "body": "rgba(0, 0, 0, 0)",
+        "colorScheme": "dark",
+        "dark": true,
+        "contentHeight": 420
+      },
+      "lastHeight": 420,
+      "ackMs": 15,
+      "themeApplied": true,
+      "contract": true,
+      "errors": [],
+      "foreign": [],
+      "green": true
+    },
+    {
+      "slice": "cube",
+      "viewport": "mobile",
+      "scheme": "light",
+      "frame": [
+        358,
+        358
+      ],
+      "readyMs": 485,
+      "readyFrom": "https://keyframes.babb.dev",
+      "ground": {
+        "html": "rgba(0, 0, 0, 0)",
+        "body": "rgba(0, 0, 0, 0)",
+        "colorScheme": "light",
+        "dark": false,
+        "contentHeight": 358
+      },
+      "lastHeight": 358,
+      "ackMs": 20,
+      "themeApplied": true,
+      "contract": true,
+      "errors": [],
+      "foreign": [],
+      "green": true
+    },
+    {
+      "slice": "cube",
+      "viewport": "mobile",
+      "scheme": "dark",
+      "frame": [
+        358,
+        358
+      ],
+      "readyMs": 538,
+      "readyFrom": "https://keyframes.babb.dev",
+      "ground": {
+        "html": "rgba(0, 0, 0, 0)",
+        "body": "rgba(0, 0, 0, 0)",
+        "colorScheme": "dark",
+        "dark": true,
+        "contentHeight": 358
+      },
+      "lastHeight": 358,
+      "ackMs": 17,
+      "themeApplied": true,
+      "contract": true,
+      "errors": [],
+      "foreign": [],
+      "green": true
+    }
+  ],
+  "green": true
+}
