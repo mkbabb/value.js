@@ -1,0 +1,57 @@
+(node:78991) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+V-C · WPT 5a5b2b591b39 · cases-2026-11-04.json · 6392 cases · 3898 ruled rows · census 317 files (5 extracted, 312 ruled)
+module          cases  pass  ruled  refused  serialization  serialize-error  accepted  MISS
+css-color        1810   689   1121        0              0                0         0     0
+css-easing         35    17     18        0              0                0         0     0
+css-fonts         897   276    621        0              0                0         0     0
+css-grid          669   269    400        0              0                0         0     0
+css-images       1829   346   1483        0              0                0         0     0
+css-syntax        101    69      0        4             24                0         4    32
+css-transforms    231    78    153        0              0                0         0     0
+css-values        796   694    102        0              0                0         0     0
+css-variables      24    14      0        6              4                0         0    10
+TOTAL            6392  2452   3898       10             28                0         4    42
+MISS refused css/css-syntax/urange-parsing.html unicode-range: "u/**/+/**/a/**/?" expected=["U+A0-AF"]
+MISS accepted css/css-syntax/urange-parsing.html unicode-range: "u + abc"
+MISS accepted css/css-syntax/urange-parsing.html unicode-range: "U + a b c"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+a?" expected=["U+A0-AF"] actual="u+a?"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+a??" expected=["U+A00-AFF"] actual="u+a??"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+a???" expected=["U+A000-AFFF"] actual="u+a???"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+a????" expected=["U+A0000-AFFFF"] actual="u+a????"
+MISS refused css/css-syntax/urange-parsing.html unicode-range: "u/**/+0a/**/?" expected=["U+A0-AF"]
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+0a" expected=["U+A"] actual="u+0a"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "U+0a0" expected=["U+A0"] actual="U+0a0"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+0aaaaa" expected=["U+AAAAA"] actual="u+0aaaaa"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+0a0000" expected=["U+A0000"] actual="u+0a0000"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+00000a" expected=["U+A"] actual="u+00000a"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+0a????" expected=["U+A0000-AFFFF"] actual="u+0a????"
+MISS refused css/css-syntax/urange-parsing.html unicode-range: "u/**/+0/**/?" expected=["U+0-F"]
+MISS accepted css/css-syntax/urange-parsing.html unicode-range: "u/**/0"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+00" expected=["U+0"] actual="u+00"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+000" expected=["U+0"] actual="u+000"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+0000" expected=["U+0"] actual="u+0000"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+00000" expected=["U+0"] actual="u+00000"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+000000" expected=["U+0"] actual="u+000000"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+00000?" expected=["U+0-F"] actual="u+00000?"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+0?????" expected=["U+0-FFFFF"] actual="u+0?????"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u/**/+0/**/-0a" expected=["U+0-A"] actual="u 0 0a"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+0-0a" expected=["U+0-A"] actual="u+0-0a"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+000000-0aaaaa" expected=["U+0-AAAAA"] actual="u+000000-0aaaaa"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u/**/+0/**/-1" expected=["U+0-1"] actual="u 0 -1"
+MISS accepted css/css-syntax/urange-parsing.html unicode-range: "u-0-1"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+000000-000001" expected=["U+0-1"] actual="u+000000-000001"
+MISS refused css/css-syntax/urange-parsing.html unicode-range: "u/**/+/**/?" expected=["U+0-F"]
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+?" expected=["U+0-F"] actual="u+?"
+MISS serialization css/css-syntax/urange-parsing.html unicode-range: "u+?????" expected=["U+0-FFFFF"] actual="u+?????"
+MISS serialization css/css-variables/var-parsing.html width: "var(--x,)" expected=["var(--x,)"] actual="var(--x)"
+MISS serialization css/css-variables/var-parsing.html width: "var(--x, )" expected=["var(--x, )"] actual="var(--x)"
+MISS refused css/css-variables/var-parsing.html width: "var(--x ())" expected=["var(--x ())"]
+MISS refused css/css-variables/var-parsing.html width: "var(--x () )" expected=["var(--x () )"]
+MISS serialization css/css-variables/var-parsing.html width: "var(--x() )" expected=["var(--x() )"] actual="var(--x())"
+MISS refused css/css-variables/var-parsing.html width: "var(--x (),)" expected=["var(--x (),)"]
+MISS serialization css/css-variables/var-parsing.html width: "var(--x(),)" expected=["var(--x(),)"] actual="var(--x())"
+MISS refused css/css-variables/var-parsing.html width: "var({--x})" expected=["var({--x})"]
+MISS refused css/css-variables/var-parsing.html width: "var({--x}, 10px)" expected=["var({--x}, 10px)"]
+MISS refused css/css-variables/var-parsing.html width: "var({--x, --y})" expected=["var({--x, --y})"]
+V-C RED: 42 unruled misses, 0 stale ruled rows, 0 unruled files, 0 stale files
