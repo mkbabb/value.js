@@ -12,10 +12,10 @@
 //      not port-internal coherence.
 //
 // HARDEN-4 §1.2 note: `colorPickerRef` is passed as the REF OBJECT (not
-// `.value`) because the emitAddColor / emitStartEdit retry loops read
-// `colorPickerRef.value` after mount, not at call time.
+// `.value`) because the emitAddColor / emitStartEdit waits watch the ref and
+// read the picker when it mounts, not at call time.
 
-import { watch } from "vue";
+import { nextTick, watch } from "vue";
 import type { Ref, ShallowRef } from "vue";
 import type { ColorModel } from "../../color-session/color-model";
 import type { ColorPicker } from "../../picker";
@@ -24,6 +24,33 @@ import { parsePickerColor, serializePickerColor } from "../../color-session/pick
 import { debounce } from "../../shared/debounce";
 import { providePalettePorts, type PalettePorts } from "../../palettes/usePalettePorts";
 
+// MT-REGISTER C-2 ≡ D-1 (X realization §0hw.2): a palette → picker intent waits
+// on the picker REF, not on a clock. The S.W2 poll (40 × 50 ms, then give up)
+// dropped any intent whose picker mounted after ~2 s; this wait has no timer, so
+// a slow mount still receives it and an absent picker costs nothing. One intent
+// is pending per label: a newer one replaces the older (latest wins), so a
+// late mount never replays stale gestures.
+const pending = new Map<string, () => void>();
+export function whenRefReady<T>(
+    target: Ref<T | null>,
+    run: (value: T) => void,
+    label: string,
+): void {
+    pending.get(label)?.();
+    pending.delete(label);
+    if (target.value) {
+        run(target.value);
+        return;
+    }
+    const stop = watch(target, (value) => {
+        if (!value) return;
+        stop();
+        pending.delete(label);
+        run(value);
+    });
+    pending.set(label, stop);
+}
+
 export function usePaletteWiring(
     colorPickerRef: Ref<InstanceType<typeof ColorPicker> | null>,
     viewManager: ViewManager,
@@ -31,32 +58,10 @@ export function usePaletteWiring(
     applyColorString: (css: string) => void,
     savedColorStrings: Ref<string[]>,
 ): PalettePorts {
-    // S.W2 W2-6: a BOUNDED retry for the "colorPickerRef not yet mounted" race.
-    // The former self-rescheduling 50ms polls had no cap, deadline, or give-up
-    // path — a permanently-absent picker (a future layout, a ref regression) left
-    // a closure looping forever. Cap at a ~2s deadline, then log once and stop.
-    const PICKER_WAIT_ATTEMPTS = 40; // 40 × 50ms ≈ 2s
-    function whenColorPickerReady(
-        run: (picker: NonNullable<typeof colorPickerRef.value>) => void,
+    const whenColorPickerReady = (
+        run: (picker: InstanceType<typeof ColorPicker>) => void,
         label: string,
-    ): void {
-        let attempts = 0;
-        const poll = () => {
-            const picker = colorPickerRef.value;
-            if (picker) {
-                run(picker);
-                return;
-            }
-            if (attempts++ >= PICKER_WAIT_ATTEMPTS) {
-                console.warn(
-                    `[usePaletteWiring] gave up waiting for the color picker to mount (${label}).`,
-                );
-                return;
-            }
-            setTimeout(poll, 50);
-        };
-        poll();
-    }
+    ): void => whenRefReady(colorPickerRef, run, label);
 
     const ports = providePalettePorts({
         currentView: viewManager.currentView,
@@ -117,11 +122,11 @@ export function usePaletteWiring(
             // deferred tick is GONE with the index. It made the picker visible
             // for the edit by hiding the palettes pane the edit came FROM; both
             // regions are on screen now, so the edit no longer costs the user
-            // sight of its own subject. The deferral stays: it waits for the
-            // picker to mount after a view switch.
-            setTimeout(() => {
+            // sight of its own subject. The wait reads after the switch's
+            // render flush, so a picker the switch unmounts is not targeted.
+            void nextTick(() => {
                 whenColorPickerReady((picker) => picker.onStartEdit(target), "startEdit");
-            }, 50);
+            });
         },
 
         emitSetCurrentColor: (css: string) => {

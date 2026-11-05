@@ -5663,3 +5663,13 @@ r2-desk OD-12-light 1800x1000 gate={"worstDEdom":0.0574,"worstDEarea":0.0765,"wo
 r2-mob OD-12-light 390x844 gate={"worstDEdom":0.057,"worstDEarea":0.0753,"worstHue":7.6,"medianHue":5.7,"worstReseed":null,"worstSnap":0,"pass":false}
 ```
 <!-- V-D2 rows end -->
+
+### §0hw.2 — V-D8 · the records: one crosswalk addendum
+- **Falsifier.** `node docs/tranches/X/realization/records-check.mjs`, five legs (L1 Track A honest-RED labels have a crosswalk row; L2 regenerated Annex A ids well-formed and disposed; L3 INBOX outbound collisions resolved; L4 the 15 MT-REGISTER records have an X row; L5 the CARRY-LEDGER §B–§F rows have a crosswalk row). **RED before:** L1 59/59, L3 `O-132{glass-ui,fourier}`, L4 15/15, L5 22/22, and L2 against FINAL's own annex (`ANNEX=close/FINAL.md`: `ESC-F14h-1.`, `ESC-R1-XP-REST.`, `ESC-n1.`). **GREEN after ×2:** 5/5 legs (59 labels · 107 ids · 15 · 22).
+- **V-D8.1 INBOX erratum.** The fourier follow-up to O-119 is **O-149** (glass held O-133). Collision register: `realization/RECORDS-CROSSWALK.md` §3.
+- **V-D8.2 Annex A.** Regenerated as `close/ANNEX-A-2026-11-04.md` from a re-tokenized census (`execution/A/census/esc-nohome-2026-11-04-v2.txt`, 107 ids); FINAL takes a pointer addendum. `ESC-R1-XP-REST` → superseded-by X-W7 CLOSED.
+- **V-D8.3 wave-label crosswalk.** `RECORDS-CROSSWALK.md` §1, 59 rows. The spot-cures were read: ci `41920320369` and deploy-pages `41939659512` both success at `0a2c35d74` (X-W1 G-17/19/20); vitest 1515/1515 ×2 at `480f58f7e` (C-5/NG-6); real-GPU lhci TBT 52/61 ms (X-W2 G3).
+- **V-D8.4 MT→X crosswalk.** §2, 15 records. The four BLOCKERs re-measured on the live tree: MT-F012 prod entry `index-B3dwCeez.js` 482,599 B and mounted (CURED); C-1 `main.ts:139` awaits `router.isReady()` (CURED); D-4 the route `<h1>` exists (CURED); C-2 ≡ D-1's aggravation, the `whenColorPickerReady` 40 × 50 ms give-up poll, **was still in the tree and is cured at root here**. The wait now watches the picker ref (no timer, latest intent per label wins), and startEdit reads after the switch's `nextTick` flush instead of a 50 ms timeout. Falsifier `demo/test/app/when-ref-ready.test.ts`: RED 3/4 on the hoisted old poll (late mount dropped, timers scheduled, both intents replayed), GREEN 4/4 ×2. typecheck 0; eslint 0.
+- **V-D8.5 X-W12 lineage.** Written at each adoption read (V-G1/V-G2/V-G3), not before; §1 names the unit per label.
+- **V-D8.6 CARRY-LEDGER.** §4, 22 rows, read from the committed bytes. The working-tree +34-line hunk is OA-14's and is untouched.
+- **V-D8.7 INDEX hygiene.** The 11 staged `evidence/0hm/*` files and the dirty chassis `x-track-A/B.js` belong to the §0hm seat; this seat commits by pathspec only and leaves them as found.

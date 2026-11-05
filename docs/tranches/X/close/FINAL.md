@@ -302,3 +302,6 @@ Counts (⟨`awk -F' \\| ' '{print $4}' annex \| grep -c '^<word>'`⟩, read twic
 - **Unchanged.** G1 `17 BLOCKED-ON · 18 RETIRED · 83 VERIFIED` ×2 · G3 ×2 `runtimeExports 83 · smokeInvocations 83` · G4 md5 `e9d1f380…` ×2 · vitest `1515 passed (1515)` · lint/typecheck exit 0 · G11 `0` · G12 0 UNREAD.
 
 **R-A.** G9 is honest-RED (⟨`npm ls --prefix ../keyframes.js @mkbabb/value.js`⟩ → `4.0.0`, O-117), so **no wave is stamped VERIFIED.** X-W11 is **IMPLEMENTED**; the honest-RED set of COHESION §0ha.4 is recorded, never counted GREEN.
+
+## Addendum 2026-11-04 — Annex A regenerated (V-D8.2; E-3, the bytes above are unchanged)
+The census tokenizer took sentence-final punctuation into three ids. The re-tokenized census is `execution/A/census/esc-nohome-2026-11-04-v2.txt` (107 ids) and the regenerated annex is `close/ANNEX-A-2026-11-04.md` (generator `realization/annex-a-regen.mjs`). `ESC-F14h-1.` and `ESC-n1.` collapse into their bare rows. `ESC-R1-XP-REST` is superseded-by X-W7 CLOSED 2026-09-17, escalated in the X-W7 REPAIR 1 list (`X/execution/LEDGER.md:628`), with its X·P remainder in X·P (P layer CONFORMANT p10; residuals at parse-that W9). Annex A above stays the census of record for 2026-10-19.
