@@ -160,6 +160,11 @@
     "css/css-color/parsing/color-valid-system-color.html": "2f37dff300dedaba2b069df8c8adbaf6f146afd00ea62e62dee1e189272d4ccf",
     "css/css-color/parsing/color-valid.html": "55f5c21fd5075067a120e3162fc68dee1e6ccc8d74c4d6b65d07479f27e7a003",
     "css/css-color/parsing/opacity-invalid.html": "4877cc87c66c398adf8161de272ec981c30a7d81e7917f659ede127523f7da86",
-    "css/css-color/parsing/opacity-valid.html": "2eee93d728f5ce9da9478d3829d0f3483fb86e2d4dca8932228a9e2cecb6d76b"
+    "css/css-color/parsing/opacity-valid.html": "2eee93d728f5ce9da9478d3829d0f3483fb86e2d4dca8932228a9e2cecb6d76b",
+    "css/css-syntax/decimal-points-in-numbers.html": "fb28315244b2e1da0277b9e5d20bcd0470a3a11bd0cfc6b531fd3b072df859ed",
+    "css/css-syntax/urange-parsing.html": "82a1c67287d32f62512ef34a16362255f20f73a071da7ec2addef1f7e1fb9a9b",
+    "css/css-syntax/url-whitespace-consumption.html": "de6b0b77b042d25cc5c9746f15a0a7743d9086d8f116f1d71f81a63414b71f85",
+    "css/css-variables/url-token-serialization.html": "8b292976a2183211b8668829d18a7e7d29feea7712bcc424ebabb611c9e16540",
+    "css/css-variables/var-parsing.html": "0d0399e71df2139ba0bf1114227982be1cb2c523e5f58a45a77d8bd4322bf02f"
   }
 }

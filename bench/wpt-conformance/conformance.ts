@@ -10,13 +10,17 @@
 // `ruled.json` (exact file + kind + property + input, with its spec reason); there is no skip, no
 // pattern and no allowlist. A ruled row that no longer names a miss is STALE and fails too.
 // Exit 0 only when every miss is ruled and no row is stale; otherwise exit 1 (the born-RED read).
-import { readFileSync } from "node:fs";
+// X.P.W9 `.vc9`: the census (`census-*.json`) lists every css-variables-1 / css-syntax-3 file at the
+// pin; each is extracted (in pins.json) or ruled at file level (`ruled-files.json`). A census file
+// that is neither is an UNRULED FILE, and a ruled file that is also extracted is a STALE FILE; both
+// fail. A round-trip case WPT compares case-folded (`fold`) is folded before comparison.
+import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { parseCssValue, serializeCssValue } from "../../src/css/index";
 
-export const CASES_FILE = "cases-2026-10-07.json";
+export const CASES_FILE = "cases-2026-11-04.json";
 
-type Case = Readonly<{ module: string; file: string; kind: "valid" | "invalid"; property: string; input: string; expected?: readonly string[] }>;
+type Case = Readonly<{ module: string; file: string; kind: "valid" | "invalid"; property: string; input: string; expected?: readonly string[]; fold?: "upper" | "lower" }>;
 type Ruled = Readonly<{ file: string; kind: string; property: string; input: string; class: string; reason: string; spec: string }>;
 type Miss = Readonly<{ c: Case; why: "refused" | "serialize-error" | "serialization" | "accepted"; actual?: string }>;
 
@@ -30,13 +34,27 @@ for (const r of ruledRows) {
 }
 const ruled = new Map(ruledRows.map((r) => [key(r), r]));
 
+const VALUES = path.join(HERE, "../../test/css/wpt-values");
+type RuledFile = Readonly<{ file: string; class: string; reason: string; spec: string }>;
+const ruledFiles = (JSON.parse(readFileSync(path.join(HERE, "ruled-files.json"), "utf8")) as { rows: RuledFile[] }).rows;
+for (const r of ruledFiles) {
+    if (!r.reason || !r.spec || !r.class) throw new Error(`HALT: ruled file without class/reason/spec: ${r.file}`);
+}
+const pinned = new Set(Object.keys((JSON.parse(readFileSync(path.join(VALUES, "pins.json"), "utf8")) as { files: Record<string, string> }).files));
+const censusFiles = readdirSync(VALUES).filter((n) => /^census-\d{4}-\d{2}-\d{2}\.json$/.test(n))
+    .flatMap((n) => (JSON.parse(readFileSync(path.join(VALUES, n), "utf8")) as { files: { file: string }[] }).files.map((f) => f.file));
+const ruledFileSet = new Set(ruledFiles.map((r) => r.file));
+const unruledFiles = censusFiles.filter((f) => !pinned.has(f) && !ruledFileSet.has(f));
+const staleFiles = ruledFiles.filter((r) => pinned.has(r.file) || !censusFiles.includes(r.file)).map((r) => r.file);
+
 function judge(c: Case): Miss | null {
     const parsed = parseCssValue(c.input);
     if (c.kind === "invalid") return parsed.ok ? { c, why: "accepted" } : null;
     if (!parsed.ok) return { c, why: "refused" };
     const text = serializeCssValue(parsed.value);
     if (!text.ok) return { c, why: "serialize-error" };
-    return (c.expected ?? [c.input]).includes(text.value) ? null : { c, why: "serialization", actual: text.value };
+    const got = c.fold === "upper" ? text.value.toUpperCase() : c.fold === "lower" ? text.value.toLowerCase() : text.value;
+    return (c.expected ?? [c.input]).includes(got) ? null : { c, why: "serialization", actual: text.value };
 }
 
 type Row = { cases: number; pass: number; ruled: number; refused: number; serialization: number; "serialize-error": number; accepted: number };
@@ -67,7 +85,7 @@ for (const [module, r] of [...table].sort(([a], [b]) => a.localeCompare(b))) {
 lines.push(["TOTAL", ...(["cases", "pass", "ruled", "refused", "serialization", "serialize-error", "accepted"] as const).map((k) => String(total[k])), String(unruled.length)]);
 const width = cols.map((h, i) => Math.max(h.length, ...lines.map((l) => l[i]!.length)));
 const fmt = (l: readonly string[]) => l.map((v, i) => (i === 0 ? v.padEnd(width[i]!) : v.padStart(width[i]!))).join("  ");
-console.log(`V-C · WPT ${corpus.wptCommit.slice(0, 12)} · ${CASES_FILE} · ${corpus.count} cases · ${ruledRows.length} ruled rows`);
+console.log(`V-C · WPT ${corpus.wptCommit.slice(0, 12)} · ${CASES_FILE} · ${corpus.count} cases · ${ruledRows.length} ruled rows · census ${censusFiles.length} files (${censusFiles.length - ruledFiles.length} extracted, ${ruledFiles.length} ruled)`);
 console.log(fmt(cols));
 for (const l of lines) console.log(fmt(l));
 
@@ -82,6 +100,8 @@ if (want >= 0) {
     }
 }
 for (const r of stale) console.log(`STALE ruled row (names no miss): ${key(r)}`);
-const verdict = unruled.length === 0 && stale.length === 0;
-console.log(`V-C ${verdict ? "GREEN" : "RED"}: ${unruled.length} unruled misses, ${stale.length} stale ruled rows`);
+for (const f of unruledFiles) console.log(`UNRULED FILE (census, neither extracted nor ruled): ${f}`);
+for (const f of staleFiles) console.log(`STALE FILE (ruled but extracted, or not in the census): ${f}`);
+const verdict = unruled.length === 0 && stale.length === 0 && unruledFiles.length === 0 && staleFiles.length === 0;
+console.log(`V-C ${verdict ? "GREEN" : "RED"}: ${unruled.length} unruled misses, ${stale.length} stale ruled rows, ${unruledFiles.length} unruled files, ${staleFiles.length} stale files`);
 process.exitCode = verdict ? 0 : 1;

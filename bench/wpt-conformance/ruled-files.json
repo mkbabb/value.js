@@ -1,0 +1,2883 @@
+{
+  "about": "X.P.W9 .vc9 — the file-level rulings of the 2026-11-04 census (census-2026-11-04.json): every css-variables-1 / css-syntax-3 file at the pin that V-C does not extract, with the harness it calls and why it carries no specified-value case. A census file that is neither extracted nor ruled fails V-C (UNRULED FILE); a ruled file that is extracted fails it too (STALE FILE).",
+  "rows": [
+    {
+      "file": "css/css-syntax/anb-parsing.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/anb-serialization.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/at-rule-in-declaration-list.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/cdc-vs-ident-tokens.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset-is-not-a-rule.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-utf16-css-bomless-utf16.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-utf16-css-bomless-utf16be.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-utf16-css-no-decl-ascii-only.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-utf16-css-no-decl.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-charset-attribute-bogus.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-1250-charset-attribute-windows-1253.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-bogus-charset-attribute-windows-1250.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-bogus.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-utf16-ascii-only.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-utf16.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-utf16be.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-windows-1250-in-utf16.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-at-charset-windows-1250-in-utf16be.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-http-bogus-at-charset-windows-1250.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-http-bogus.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-http-windows-1250-at-charset-windows-1253.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-no-decl.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1251-css-utf8-bom.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/page-windows-1252-http-windows-1251-css-utf8-bom.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/charset/xml-stylesheet-page-windows-1251-charset-attribute-windows-1250.xhtml",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/crashtests/atrule-with-escape-character.html",
+      "harness": [],
+      "class": "W9vc-CRASHTEST",
+      "reason": "a crashtest: it asserts only that the engine does not crash, so it carries no parse outcome",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/crashtests/unclosed-content-attr-bracket.html",
+      "harness": [],
+      "class": "W9vc-CRASHTEST",
+      "reason": "a crashtest: it asserts only that the engine does not crash, so it carries no parse outcome",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/crashtests/unclosed-open-brackets.html",
+      "harness": [],
+      "class": "W9vc-CRASHTEST",
+      "reason": "a crashtest: it asserts only that the engine does not crash, so it carries no parse outcome",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/custom-property-rule-ambiguity.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/declarations-trim-whitespace.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/escaped-eof.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/ident-three-code-points.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/inclusive-ranges.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/input-preprocessing.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/invalid-nested-rules.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/missing-semicolon-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/missing-semicolon.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/non-ascii-codepoints.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/serialize-consecutive-tokens.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/serialize-escape-identifiers.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/trailing-braces.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/unclosed-constructs.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/unclosed-url-at-eof.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/unicode-range-selector.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/var-with-blocks.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-syntax/whitespace.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-syntax-3/"
+    },
+    {
+      "file": "css/css-variables/css-variable-change-style-001.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/css-variable-change-style-002.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/css-vars-custom-property-case-sensitive-001.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/css-vars-custom-property-inheritance.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/long-variable-reference-crash.html",
+      "harness": [],
+      "class": "W9vc-CRASHTEST",
+      "reason": "a crashtest: it asserts only that the engine does not crash, so it carries no parse outcome",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/missing-closing-nested-fallback-crash.html",
+      "harness": [],
+      "class": "W9vc-CRASHTEST",
+      "reason": "a crashtest: it asserts only that the engine does not crash, so it carries no parse outcome",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/missing-closing-nested-fallback.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/reference/variable-reference-without-whitespace-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/reference/vars-background-shorthand-001-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/reference/vars-font-shorthand-001-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/registered-property-light-dark.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/resources/variable-reference-refresh-iframe.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/revert-in-fallback.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/revert-layer-in-fallback.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/revert-rule-in-fallback.html",
+      "harness": [
+        "CSS.supports",
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/revert-rule-to-var.html",
+      "harness": [
+        "CSS.supports",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/support/color-green-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/test_variable_legal_values.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/url-syntax-crash.html",
+      "harness": [],
+      "class": "W9vc-CRASHTEST",
+      "reason": "a crashtest: it asserts only that the engine does not crash, so it carries no parse outcome",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/var-ident-function.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-animation-from-to.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-animation-guaranteed-invalid.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-animation-over-transition.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-animation-substitute-into-keyframe-shorthand.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-animation-substitute-into-keyframe-transform.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-animation-substitute-into-keyframe.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-animation-substitute-within-keyframe-fallback.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-animation-substitute-within-keyframe-multiple.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-animation-substitute-within-keyframe.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-animation-to-only.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-created-document.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-created-element.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-css-wide-keywords-after-substitution.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-css-wide-keywords.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-cssText.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-cycles.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-01.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-02.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-03.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-04.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-05.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-06.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-07.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-08.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-09.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-10.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-11.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-12.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-13.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-14.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-15-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-15.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-16-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-16.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-17-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-17.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-18-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-18.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-19.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-20.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-21.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-22.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-23.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-24.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-25.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-26.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-29.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-30.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-31.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-32.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-33.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-34.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-35.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-36.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-37.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-38.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-39.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-40.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-41.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-42.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-43.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-44.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-45.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-46.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-47.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-48.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-49.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-50.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-51.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-52.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-53.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-54.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-55.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-56.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-57.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-58.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-59.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-declaration-60.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-definition-border-shorthand-serialize.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-definition-cascading.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-definition-keywords.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-definition.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-empty-name-reserved.html",
+      "harness": [
+        "CSS.supports",
+        "testharness"
+      ],
+      "class": "W9vc-PROPERTY-NAME",
+      "reason": "asserts property-name validity through CSS.supports(name, value); V-C judges value grammar, not property names",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-exponential-blowup.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-external-declaration-01.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-external-font-face-01-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-external-font-face-01.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-external-reference-01.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-external-supports-01.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-first-letter.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-first-line.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-font-face-01-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-font-face-01.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-font-face-02-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-font-face-02.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-generated-content-dynamic-001-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-generated-content-dynamic-001.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-invalid-recovery.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-invalidation.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-presentation-attribute.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-pseudo-element.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-recalc-with-initial.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-01.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-02.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-03.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-04.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-05.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-06.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-07.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-08.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-09.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-10.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-11.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-12-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-12.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-13.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-14.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-15.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-16.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-17.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-18.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-19.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-20.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-21.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-22.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-23.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-24.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-25.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-26.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-27.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-28.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-29.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-30.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-31.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-32.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-33.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-34.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-35.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-36-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-36.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-37-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-37.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-38-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-38.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-39.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-40-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-40.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-cssom.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-name-substitution-attr-taint.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-name-substitution.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-perspective-origin.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-refresh.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-shorthands-cssom.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-shorthands.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-variable.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-visited-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-visited.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference-without-whitespace.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-reference.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-resolution-during-prioritary-properties.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-substitution-background-properties.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-substitution-basic.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-substitution-filters.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-substitution-replaced-size.html",
+      "harness": [
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-substitution-shadow-properties.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-substitution-shorthands.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-substitution-variable-declaration.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-01.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-02.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-03.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-04.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-05.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-06.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-07.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-08.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-09.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-10.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-11.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-12.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-13.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-14.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-15.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-16.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-17.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-18.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-19.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-20.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-21.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-22.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-23.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-24.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-25.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-26.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-27.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-28.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-29.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-30.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-31.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-32.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-33.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-34.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-35.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-36.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-37.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-38.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-39.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-40.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-41.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-42.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-43.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-44.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-45.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-46.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-47.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-48.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-49.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-50.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-51.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-52.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-53.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-54.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-55.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-56.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-57.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-58.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-59.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-60.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-61.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-62.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-63.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-64.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-65.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-66.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-supports-67.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-transitions-transition-property-all-before-value.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variable-transitions-value-before-transition-property-all.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variables-animation-math-functions.html",
+      "harness": [
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/variables-substitute-guaranteed-invalid.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "getComputedStyle",
+        "testharness"
+      ],
+      "class": "W9vc-COMPUTED",
+      "reason": "asserts a computed or cascaded value (substitution, inheritance, animation, registration) on an element tree; V-C judges specified values, property-agnostically (DR-a, R-c-2)",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/vars-background-shorthand-001.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/vars-border-shorthand-serialize.html",
+      "harness": [
+        "setProperty/getPropertyValue",
+        "testharness"
+      ],
+      "class": "W9vc-CSSOM-STRUCTURE",
+      "reason": "asserts stylesheet structure through the CSSOM (rule counts, selectorText, cssText, An+B, tokenization of rule preludes or selectors); the round-trip recorder reads no setProperty → getPropertyValue value case from it",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/vars-font-shorthand-001.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/whitespace-in-fallback-crash.html",
+      "harness": [],
+      "class": "W9vc-CRASHTEST",
+      "reason": "a crashtest: it asserts only that the engine does not crash, so it carries no parse outcome",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/wide-keyword-fallback-001-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/wide-keyword-fallback-001.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/wide-keyword-fallback-002-ref.html",
+      "harness": [],
+      "class": "W9vc-NOT-A-TEST",
+      "reason": "a reference, support or resource file: it asserts nothing",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    },
+    {
+      "file": "css/css-variables/wide-keyword-fallback-002.html",
+      "harness": [
+        "reftest"
+      ],
+      "class": "W9vc-REFTEST",
+      "reason": "a reftest: it compares rendering against a reference page, so it asserts no value V-C can read",
+      "spec": "https://drafts.csswg.org/css-variables-1/"
+    }
+  ]
+}
