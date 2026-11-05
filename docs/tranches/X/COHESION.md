@@ -5771,3 +5771,14 @@ r2-mob OD-12-light 390x844 gate={"worstDEdom":0.057,"worstDEarea":0.0753,"worstH
 - **K-D4 re-read** at load 12.6–15.8: r3 GREEN (4/4 cells), r4 RED (cube 390 p95 25 ms / 34.2 ms frame; spring 390 one 33.2 ms frame). Over four prod runs, CLS is 0 and the stage-cell rect Δ is 0 px in all 16 cell readings; every dt RED is in a **390×844 portrait** cell and none in 844×390. A portrait-only pattern is not plain host noise, so K-D4 stays **RED** and re-opens the portrait rung commit's frame cost (the side sheet never pays it). Booked **K-D4.r1**: a CDP performance trace of the 390 drag to name the long task.
 - **Not executed by this seat:** K-D10 (the fresh critic pass), K-D11 -2/-4/-6 (MATRIX.md, `ss13-residue.json`, the `.b` desktop flag register), K-D13 (the 16-cell transport-home packet), K-D2.r1 (the short-plate prose as a pane caption), K-D11.e (the engine's PRM suspend/resume), K-D4.r1. Each stands open under its id; none is closed by this addendum.
 - **Gated, with evidence (npm view, 2026-11-05):** `@mkbabb/glass-ui` latest **10.1.4** (10.1.5 / 10.2.0 / 11.0.0 unpublished) → K-G1 / K-G2 / K-G3 wait on glass. `@mkbabb/value.js` latest **4.2.0** (4.2.1 and 4.3.0 unpublished) → KV waits on value 4.3.0. `@mkbabb/keyframes.js` latest **6.3.0** — the K-1 pin glass asked for at O-141 is on npm.
+- **§0hr.2 (2026-11-05): the post-reboot read/cure/check (`wf_014d8c52`) is NOT-CONFORMANT.**
+  - **GREEN ×2 on prod `0a2c35d74`:** OD-9/10/11 geometry, OD-15, OD-3b (UI and API), D-19 rows, D-20/31/32/33, the colour.babb.dev 301 and hash landing, and the kf Daraksha skin (ΔE 0, PRM pose 0°, real stagger, crayon step kept).
+  - **Open defects:**
+    - (1) OD-19 at 844×390 is 3.741:1, outside the `lg` cure. Local `e47fa92e7` (a sibling seat's clamp) replaces `7904869ce`, and its goldens need re-attribution.
+    - (2) **OD-11:** the invalid-colour badge sits under the "Enter a color" popover (z 120 against 130) after an extra click.
+    - (3) **D-24:** "Daraksha Gradient" is still truncated at 390 (167 of 183 px).
+    - (4) **D-19:** the 844×390 sliders are below the fold (bottom 558).
+    - (5) **OD-12 light:** the teal control colour's dEdom is 0.057 against ≤ 0.05; the family colours are GREEN.
+    - (6) **Browse at 390:** prod rows ("hey v2 …") show empty dark swatch strips.
+    - (7) **Typing "daraksha"** reads "not a valid color".
+  - **Ruling (delegate) for (7):** her name is an input alias that resolves to Efflorescence. The display name stays Efflorescence; the alias is never a second registry entry, since that would tie the snap.
