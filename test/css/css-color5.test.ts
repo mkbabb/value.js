@@ -16,7 +16,8 @@
 // asserted so a drift in either direction is loud:
 //   (X.P.W10 `.m10` retired the "concrete" class: `xyz-d50` and `display-p3-linear` are model members of
 //   their own, so a `none` channel in them stays missing and every such case is in scope.)
-//   relative  `from` — relative colour syntax: parsed, and answered `color_context_required`
+//   relative  `from` — relative colour syntax: resolved from an absolute origin (X.P.W10 `.r10`, DR-c);
+//             a context origin answers `color_context_required`
 //   context   `currentcolor` · `light-dark()` · `var()` · a font/viewport-relative length inside a
 //             calculation — not absolute at parse time (css-color-5 §2; css-values-4 §10), so the
 //             answer is `color_context_required`, asserted
@@ -180,11 +181,14 @@ describe("light-dark() — css-color-5 §2: parsed, and not an absolute colour",
         expect(codes("color-mix(in srgb, light-dark(white, black), red)")).toEqual(["color_context_required"]);
     });
 
-    it("relative colour is a parsed production with value.js's context contract; a malformed one is syntax", () => {
-        expect(codes("rgb(from red r g b)")).toEqual(["color_context_required"]);
-        expect(codes("oklch(from #123456 calc(l * 0.8) c h / alpha)")).toEqual(["color_context_required"]);
-        expect(codes("color(from red srgb r g b)")).toEqual(["color_context_required"]);
-        expect(codes("color-mix(in srgb, rgb(from red r g b), blue)")).toEqual(["color_context_required"]);
+    // X.P.W10 `.r10` (§0hv DR-c): an absolute origin resolves at parse; a context origin keeps the contract.
+    it("relative colour resolves from an absolute origin, answers value.js's context contract from a context one; a malformed one is syntax", () => {
+        expect(codes("rgb(from red r g b)")).toEqual([]);
+        expect(codes("oklch(from #123456 calc(l * 0.8) c h / alpha)")).toEqual([]);
+        expect(codes("color(from red srgb r g b)")).toEqual([]);
+        expect(codes("color-mix(in srgb, rgb(from red r g b), blue)")).toEqual([]);
+        expect(codes("rgb(from currentcolor r g b)")).toEqual(["color_context_required"]);
+        expect(codes("color-mix(in srgb, rgb(from light-dark(red, blue) r g b), blue)")).toEqual(["color_context_required"]);
         expect(codes("rgb(from bogus r g b)")).toEqual(["css_syntax"]);
         expect(codes("rgb(from red r g)")).toEqual(["css_syntax"]);
     });

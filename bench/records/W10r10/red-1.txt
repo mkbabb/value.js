@@ -1,0 +1,31 @@
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "rgb(from rebeccapurple r g b)" → "rgb(102 51 153)" 4ms
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "hsl(from rebeccapurple h s l)" → "hsl(270deg 50% 40%)" 0ms
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "rgb(from rebeccapurple calc(r / 2) g b / calc(alpha / 2))" → "rgb(51 51 153 / 50%)" 1ms
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "lab(from lab(50 5 10 / 0.8) calc(l + 1) calc(a + 1) calc(b + 1) / calc(alpha + 0.01))" → "lab(51% 6 11 / 81%)" 1ms
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "color(from color(xyz-d50 7 -20.5 100 / 40%) xyz-d50 x 0 z / alpha)" → "color(xyz-d50 7 0 100 / 40%)" 0ms
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "color(from color(srgb 0.7 0.5 0.3 / 40%) srgb 0.2 g b / alpha)" → "rgb(51 127.5 76.5 / 40%)" 0ms
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "hwb(from rebeccapurple none none none / none)" → "hwb(none none none / none)" 0ms
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "rgb(from rgb(20% 40% 60% / 80%) r g b)" → "rgb(51 102 153 / 80%)" 0ms
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > oklch(from red l c h) is red in oklch 1ms
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "rgb(from rebeccapurple x g b)" is refused 3ms
+   × relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "rgb(from rebeccapurple l c h)" is refused 1ms
+   × relative colour in a value list: the specified form > "rgb(from rebeccapurple r g b)" → "rgb(from rgb(102 51 153) r g b)" 1ms
+   × relative colour in a value list: the specified form > "rgb(from currentcolor r g b)" → "rgb(from currentcolor r g b)" 0ms
+   × relative colour in a value list: the specified form > "oklch(from red calc(l * 0.5) c h / alpha)" → "oklch(from rgb(255 0 0) calc(l * 0.5) c h / alpha)" 0ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "rgb(from rebeccapurple r g b)" → "rgb(102 51 153)"
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "hsl(from rebeccapurple h s l)" → "hsl(270deg 50% 40%)"
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "rgb(from rebeccapurple calc(r / 2) g b / calc(alpha / 2))" → "rgb(51 51 153 / 50%)"
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "lab(from lab(50 5 10 / 0.8) calc(l + 1) calc(a + 1) calc(b + 1) / calc(alpha + 0.01))" → "lab(51% 6 11 / 81%)"
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "color(from color(xyz-d50 7 -20.5 100 / 40%) xyz-d50 x 0 z / alpha)" → "color(xyz-d50 7 0 100 / 40%)"
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "color(from color(srgb 0.7 0.5 0.3 / 40%) srgb 0.2 g b / alpha)" → "rgb(51 127.5 76.5 / 40%)"
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "hwb(from rebeccapurple none none none / none)" → "hwb(none none none / none)"
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "rgb(from rgb(20% 40% 60% / 80%) r g b)" → "rgb(51 102 153 / 80%)"
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > oklch(from red l c h) is red in oklch
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "rgb(from rebeccapurple x g b)" is refused
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour, absolute origin: resolved by parseCssColor (css-color-5 §4) > "rgb(from rebeccapurple l c h)" is refused
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour in a value list: the specified form > "rgb(from rebeccapurple r g b)" → "rgb(from rgb(102 51 153) r g b)"
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour in a value list: the specified form > "rgb(from currentcolor r g b)" → "rgb(from currentcolor r g b)"
+ FAIL  test/css/bbnf-relative-color.test.ts > relative colour in a value list: the specified form > "oklch(from red calc(l * 0.5) c h / alpha)" → "oklch(from rgb(255 0 0) calc(l * 0.5) c h / alpha)"
+ Test Files  1 failed (1)
+      Tests  14 failed | 7 passed (21)

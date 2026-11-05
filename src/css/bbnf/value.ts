@@ -6,6 +6,8 @@
 // which answers it as the `ParseResult` failure it names. Every node is built frozen: a published
 // result is immutable, and nothing walks it again (`../result`).
 
+import { serializeCssValue } from "../serialize";
+import { parseCssColor } from "./color-parse";
 import type { CssCall, CssEmpty, CssScalar, CssValue } from "../../value";
 import { NAMED_COLORS } from "../named-colors";
 import type { CssLinearStop, CssTimingFunction, JumpPosition, KeyframeSelector, ParseIssue } from "../types";
@@ -104,7 +106,21 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
     //  `alpha()` and `contrast-color()` keep their css-color-5 signatures (`./color5`; X.P.W8 `.t`).
     //  The css-images-4 image functions keep theirs (`./image`; X.P.W8 `.i`), css-fonts-4 `palette-mix()`
     //  its (`./palette`; X.P.W8 `.f`).
-    return keepsSignature(call) && keepsImageSignature(call) && keepsPaletteSignature(call) && keepsLinearSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
+    return keepsSignature(call) && keepsImageSignature(call) && keepsPaletteSignature(call) && keepsLinearSignature(call) && keepsRelativeColor(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
+}
+
+/**
+ * css-color-5 §4 — a relative colour (`rgb(from <color> …)`) in a value list keeps its specified form
+ * (COHESION §0hv DR-c); it must still be a colour `parseCssColor` reads (resolved, or
+ * `color_context_required` for a context origin), else it is refused (X.P.W10 `.r10`).
+ */
+function keepsRelativeColor(call: CssCall): boolean {
+    const first = call.args[0];
+    const lead = first?.kind === "list" ? first.items[0]?.kind === "list" ? first.items[0].items[0] : first.items[0] : first;
+    if (!/^(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)$/i.test(call.name) || lead?.kind !== "scalar" || lead.payload.type !== "keyword" || !/^from$/i.test(lead.payload.value)) return true;
+    const text = serializeCssValue(call);
+    const read = text.ok ? parseCssColor(text.value) : null;
+    return read !== null && (read.ok || read.diagnostics[0]?.code === "color_context_required");
 }
 
 /**
@@ -374,7 +390,7 @@ function rawParts(text: string): string[] | null {
     const parts: string[] = [];
     let depth = 0, from = 0, quote = "";
     for (let i = 0; i < text.length; i++) {
-        const ch = text[i]!;
+        const ch = text.charAt(i);
         if (quote) { if (ch === quote) quote = ""; continue; }
         if (ch === "\"" || ch === "'") quote = ch;
         else if (ch === "(" || ch === "{") depth++;

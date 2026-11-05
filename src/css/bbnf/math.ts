@@ -13,7 +13,12 @@ import type { Actions } from "./generated/grammar";
 
 /** `math` marks the result of a math function (a top-level calculation, css-values-4 §10.9). */
 export type Quantity = Readonly<{ kind: "quantity"; type: string; value: number; math?: true }>;
-export type Unresolved = Readonly<{ kind: "unresolved"; reason: "context" | "keyword" | "invalid" }>;
+/**
+ * `bind`, on a `keyword` calculation only: the calculation re-evaluated once its channel keywords are bound
+ * (a relative colour's origin, css-color-5 §4; X.P.W10 `.r10`). An unbound name answers INVALID.
+ */
+export type Unresolved = Readonly<{ kind: "unresolved"; reason: "context" | "keyword" | "invalid"; bind?: (env: Env) => Numeric }>;
+export type Env = (name: string) => Quantity | undefined;
 export type Numeric = Quantity | Unresolved;
 export type NoneToken = Readonly<{ kind: "none" }>;
 
@@ -79,10 +84,26 @@ function firstUnresolved(operands: readonly Numeric[]): Unresolved | null {
     return open.find((o) => o.reason === "invalid") ?? open.find((o) => o.reason === "context") ?? KEYWORD;
 }
 
+/** `q` under the bound keywords `env`: a keyword calculation re-evaluated, anything else as it is. */
+export const bindUnder = (q: Numeric, env: Env): Numeric => (q.kind === "unresolved" && q.bind !== undefined ? q.bind(env) : q);
+
+/**
+ * A step over `operands` that holds a channel keyword: deferred, so the relative colour that binds the
+ * keywords can evaluate it (`step` is re-run on the bound operands); a type error or a context operand
+ * still decides at once.
+ */
+function deferred(operands: readonly Numeric[], step: (bound: readonly Numeric[]) => Numeric): Numeric | null {
+    const open = firstUnresolved(operands);
+    if (open !== KEYWORD) return null;
+    return Object.freeze({ kind: "unresolved", reason: "keyword", bind: (env: Env) => step(operands.map((o) => bindUnder(o, env))) });
+}
+
 type Step = readonly [op: string, operand: Numeric];
 
 /** `calcSum` / `calcProduct`: the first operand, then each `[operator, operand]` step (§10.8). */
 export function fold(first: Numeric, steps: readonly Step[]): Numeric {
+    const later = deferred([first, ...steps.map(([, o]) => o)], ([f, ...os]) => fold(f ?? first, steps.map(([op, o], i) => [op, os[i] ?? o] as const)));
+    if (later !== null) return later;
     let acc: Numeric = first;
     for (const [rawOp, operand] of steps) {
         const op = rawOp.trim();
@@ -109,6 +130,8 @@ export function fold(first: Numeric, steps: readonly Step[]): Numeric {
 
 /** `min()` / `max()` / `clamp()`: every argument of one type (§10.3–§10.4). */
 export function comparison(name: "min" | "max" | "clamp", args: readonly Numeric[]): Numeric {
+    const later = deferred(args, (bound) => comparison(name, bound));
+    if (later !== null) return later;
     const open = firstUnresolved(args);
     if (open !== null) return open;
     const qs = args as readonly Quantity[];
@@ -124,6 +147,8 @@ export function comparison(name: "min" | "max" | "clamp", args: readonly Numeric
 
 /** `sign()` answers a <number>; `abs()` keeps its argument's type (§10.7). */
 export function signAbs(name: string, arg: Numeric): Numeric {
+    const later = deferred([arg], ([bound]) => signAbs(name, bound ?? arg));
+    if (later !== null) return later;
     if (arg.kind === "unresolved") return arg;
     return name.toLowerCase() === "sign"
         ? quantity("number", Number.isNaN(arg.value) ? NaN : Math.sign(arg.value))
@@ -131,7 +156,11 @@ export function signAbs(name: string, arg: Numeric): Numeric {
 }
 
 /** A math function's result, marked as a top-level calculation. */
-export const calculated = (q: Numeric): Numeric => (q.kind === "quantity" ? Object.freeze({ ...q, math: true as const }) : q);
+export const calculated = (q: Numeric): Numeric => {
+    if (q.kind === "quantity") return Object.freeze({ ...q, math: true as const });
+    const bind = q.bind;
+    return bind === undefined ? q : Object.freeze({ ...q, bind: (env: Env) => calculated(bind(env)) });
+};
 
 /**
  * `tokens.bbnf`'s numeric tokens and `math.bbnf`'s calculations, as typed quantities. Each action
@@ -145,7 +174,9 @@ export const mathActions = {
     dimension: { kind: "groups", fn: tokenQuantity },
     none: { kind: "map", fn: (): NoneToken => NONE },
     calcConstant: { kind: "map", fn: constantQuantity },
-    calcKeyword: { kind: "text", fn: (): Numeric => KEYWORD },
+    //  A channel keyword (css-color-5 §4) is bound by its relative colour; any other name stays INVALID there.
+    calcKeyword: { kind: "text", fn: (name: string): Numeric =>
+        Object.freeze({ kind: "unresolved", reason: "keyword", bind: (env: Env) => env(name.toLowerCase()) ?? INVALID }) },
     varFn: { kind: "text", fn: (): Numeric => CONTEXT },
     calc: { kind: "map", fn: calculated },
     calcSum: { kind: "map", fn: ([first, steps]: readonly [Numeric, readonly Step[]]) => fold(first, steps) },

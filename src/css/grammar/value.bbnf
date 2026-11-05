@@ -70,8 +70,10 @@ varBody    = /(?!\{)/ >> commaList , /\s*,/ ? ;
 varRaw     = balanced ;
 
 // A colour function is a colour, never a generic call: `rgb(1)` is a malformed colour.
-colorCall  = relativeColor | rgbFn | hslFn | hwbFn | labFn | lchFn | oklabFn | oklchFn | colorFn | hex ;
-colorHead  = /(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(/i ;
+// A relative colour (`rgb(from …)`, css-color-5 §4) in a value list is a call kept in its specified
+// form (COHESION §0hv DR-c), checked as a colour by its action; `parseCssColor` resolves it (X.P.W10 `.r10`).
+colorCall  = rgbFn | hslFn | hwbFn | labFn | lchFn | oklabFn | oklchFn | colorFn | hex ;
+colorHead  = /(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\((?!\s*from(?![\w-]))/i ;
 call       = ( callName - ( colorHead | /(?:url|type)\(/i ) ) , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> ( commaList ? ) << close ;
 callName   = /(?:--[\w-]*|[a-zA-Z_-][\w-]*)(?=\()/ ;
 
