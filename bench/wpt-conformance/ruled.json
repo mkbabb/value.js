@@ -47808,6 +47808,213 @@
       "class": "W8g-PROPERTY-GRAMMAR",
       "reason": "a well-formed component value that interpolate-size's grammar (numeric-only | allow-keywords) refuses; property grammar, not value grammar.",
       "spec": "css-values-5 §5.2 interpolate-size"
+    },
+    {
+      "file": "css/css-color/parsing/color-computed-relative-color.html",
+      "kind": "computed",
+      "property": "color",
+      "input": "LCH(from var(--accent) l c calc(h + 180 * sibling-index()))",
+      "class": "W8t-COLOR-CONTEXT",
+      "reason": "A colour whose channel holds sibling-index() or sibling-count() (css-values-5 §8), an <integer> only the element knows, so the colour is not absolute at parse time; value.js's colour contract answers color_context_required (measured), as for var().",
+      "spec": "css-values-5 §8 tree-counting functions; css-color-4 §4 (absolute colours)"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "invalid",
+      "property": "left",
+      "input": "calc(10 * sibling-index())",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation over sibling-index()/sibling-count() (css-values-5 §8, an <integer>) whose type does not match the property's (a <number> for left, a <length> or <time> for rotate, a <length> for opacity, a <length> or <angle> for animation-duration). A math function's type is matched against the property's grammar (css-values-4 §10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.9; css-values-5 §8"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "rotate",
+      "input": "calc(sibling-index() * 2rad * pi)",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a math function as authored, where WPT expects the simplified, canonical-unit specified value (1turn -> 360deg, 100ms -> 0.1s, calc(sibling-index()) -> sibling-index()).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "rotate",
+      "input": "calc(1turn * sibling-count())",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a math function as authored, where WPT expects the simplified, canonical-unit specified value (1turn -> 360deg, 100ms -> 0.1s, calc(sibling-index()) -> sibling-index()).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "rotate",
+      "input": "calc(sibling-count() * 1rad * pi)",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a math function as authored, where WPT expects the simplified, canonical-unit specified value (1turn -> 360deg, 100ms -> 0.1s, calc(sibling-index()) -> sibling-index()).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "invalid",
+      "property": "rotate",
+      "input": "calc(1px * sibling-index())",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation over sibling-index()/sibling-count() (css-values-5 §8, an <integer>) whose type does not match the property's (a <number> for left, a <length> or <time> for rotate, a <length> for opacity, a <length> or <angle> for animation-duration). A math function's type is matched against the property's grammar (css-values-4 §10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.9; css-values-5 §8"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "invalid",
+      "property": "rotate",
+      "input": "calc(1s * sibling-index())",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation over sibling-index()/sibling-count() (css-values-5 §8, an <integer>) whose type does not match the property's (a <number> for left, a <length> or <time> for rotate, a <length> for opacity, a <length> or <angle> for animation-duration). A math function's type is matched against the property's grammar (css-values-4 §10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.9; css-values-5 §8"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "z-index",
+      "input": "calc(sibling-index())",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a math function as authored, where WPT expects the simplified, canonical-unit specified value (1turn -> 360deg, 100ms -> 0.1s, calc(sibling-index()) -> sibling-index()).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "z-index",
+      "input": "calc(sibling-count())",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a math function as authored, where WPT expects the simplified, canonical-unit specified value (1turn -> 360deg, 100ms -> 0.1s, calc(sibling-index()) -> sibling-index()).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "calc(1ms * sibling-index())",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation over sibling-index()/sibling-count() (css-values-5 §8, an <integer>) whose type does not match the property's (a <number> for left, a <length> or <time> for rotate, a <length> for opacity, a <length> or <angle> for animation-duration). A math function's type is matched against the property's grammar (css-values-4 §10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.9; css-values-5 §8"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "calc(1px * sibling-count())",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation over sibling-index()/sibling-count() (css-values-5 §8, an <integer>) whose type does not match the property's (a <number> for left, a <length> or <time> for rotate, a <length> for opacity, a <length> or <angle> for animation-duration). A math function's type is matched against the property's grammar (css-values-4 §10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.9; css-values-5 §8"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "animation-duration",
+      "input": "calc(100ms * sibling-count())",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a math function as authored, where WPT expects the simplified, canonical-unit specified value (1turn -> 360deg, 100ms -> 0.1s, calc(sibling-index()) -> sibling-index()).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "animation-duration",
+      "input": "calc(250ms * sibling-index())",
+      "class": "W8g-MATH-SERIALIZATION",
+      "reason": "parsed and round-tripped; the product serializes a math function as authored, where WPT expects the simplified, canonical-unit specified value (1turn -> 360deg, 100ms -> 0.1s, calc(sibling-index()) -> sibling-index()).",
+      "spec": "css-values-4 §10.10 simplification, §10.13 serialization"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "invalid",
+      "property": "animation-duration",
+      "input": "calc(1px * sibling-index())",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation over sibling-index()/sibling-count() (css-values-5 §8, an <integer>) whose type does not match the property's (a <number> for left, a <length> or <time> for rotate, a <length> for opacity, a <length> or <angle> for animation-duration). A math function's type is matched against the property's grammar (css-values-4 §10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.9; css-values-5 §8"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "invalid",
+      "property": "animation-duration",
+      "input": "calc(1deg * sibling-index())",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation over sibling-index()/sibling-count() (css-values-5 §8, an <integer>) whose type does not match the property's (a <number> for left, a <length> or <time> for rotate, a <length> for opacity, a <length> or <angle> for animation-duration). A math function's type is matched against the property's grammar (css-values-4 §10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.9; css-values-5 §8"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "color",
+      "input": "color(srgb calc(0.1 * sibling-index()) 0.5 0.5)",
+      "class": "W8t-COLOR-CONTEXT",
+      "reason": "A colour whose channel holds sibling-index() or sibling-count() (css-values-5 §8), an <integer> only the element knows, so the colour is not absolute at parse time; value.js's colour contract answers color_context_required (measured), as for var().",
+      "spec": "css-values-5 §8 tree-counting functions; css-color-4 §4 (absolute colours)"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "color",
+      "input": "color(srgb 0 calc(0.1 * sibling-count()) 0.5)",
+      "class": "W8t-COLOR-CONTEXT",
+      "reason": "A colour whose channel holds sibling-index() or sibling-count() (css-values-5 §8), an <integer> only the element knows, so the colour is not absolute at parse time; value.js's colour contract answers color_context_required (measured), as for var().",
+      "spec": "css-values-5 §8 tree-counting functions; css-color-4 §4 (absolute colours)"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "color",
+      "input": "color(srgb 0 0 calc(0.1 * sibling-index()))",
+      "class": "W8t-COLOR-CONTEXT",
+      "reason": "A colour whose channel holds sibling-index() or sibling-count() (css-values-5 §8), an <integer> only the element knows, so the colour is not absolute at parse time; value.js's colour contract answers color_context_required (measured), as for var().",
+      "spec": "css-values-5 §8 tree-counting functions; css-color-4 §4 (absolute colours)"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "color",
+      "input": "color(srgb 0.5 0.5 0.5 / calc(0.1 * sibling-count()))",
+      "class": "W8t-COLOR-CONTEXT",
+      "reason": "A colour whose channel holds sibling-index() or sibling-count() (css-values-5 §8), an <integer> only the element knows, so the colour is not absolute at parse time; value.js's colour contract answers color_context_required (measured), as for var().",
+      "spec": "css-values-5 §8 tree-counting functions; css-color-4 §4 (absolute colours)"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "color",
+      "input": "oklch(calc(0.1 * sibling-index()) 0.2 180)",
+      "class": "W8t-COLOR-CONTEXT",
+      "reason": "A colour whose channel holds sibling-index() or sibling-count() (css-values-5 §8), an <integer> only the element knows, so the colour is not absolute at parse time; value.js's colour contract answers color_context_required (measured), as for var().",
+      "spec": "css-values-5 §8 tree-counting functions; css-color-4 §4 (absolute colours)"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "color",
+      "input": "oklch(0.5 calc(0.05 * sibling-count()) 180)",
+      "class": "W8t-COLOR-CONTEXT",
+      "reason": "A colour whose channel holds sibling-index() or sibling-count() (css-values-5 §8), an <integer> only the element knows, so the colour is not absolute at parse time; value.js's colour contract answers color_context_required (measured), as for var().",
+      "spec": "css-values-5 §8 tree-counting functions; css-color-4 §4 (absolute colours)"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "color",
+      "input": "oklch(0.5 0.2 calc(30deg * sibling-index()))",
+      "class": "W8t-COLOR-CONTEXT",
+      "reason": "A colour whose channel holds sibling-index() or sibling-count() (css-values-5 §8), an <integer> only the element knows, so the colour is not absolute at parse time; value.js's colour contract answers color_context_required (measured), as for var().",
+      "spec": "css-values-5 §8 tree-counting functions; css-color-4 §4 (absolute colours)"
+    },
+    {
+      "file": "css/css-values/tree-counting/calc-sibling-function-parsing.html",
+      "kind": "valid",
+      "property": "color",
+      "input": "oklch(0.5 0.2 180 / calc(0.1 * sibling-index()))",
+      "class": "W8t-COLOR-CONTEXT",
+      "reason": "A colour whose channel holds sibling-index() or sibling-count() (css-values-5 §8), an <integer> only the element knows, so the colour is not absolute at parse time; value.js's colour contract answers color_context_required (measured), as for var().",
+      "spec": "css-values-5 §8 tree-counting functions; css-color-4 §4 (absolute colours)"
     }
   ]
 }

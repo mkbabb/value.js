@@ -1896,3 +1896,15 @@ Under W10.md `.t10` (XP-11) and COHESION §0hv (DR-a, DR-b keep).
 | **value differential** | MIRROR 0 defects; L-G2 unchanged from `.r10` (no paired source holds `calc-size()`). |
 | **ruled** | `W8g-PROPERTY-GRAMMAR` ×18 (a basis keyword the property does not admit: `max-*: calc-size(auto, …)`, `none`, `content`; bare `size`; interpolate-size's keywords), `W8g-MATH-SERIALIZATION` ×6 (the sum serialized as authored, DR-b). |
 | **consumer direction** | **NARROWS** (`parseCssValue` refuses a malformed `calc-size()` it accepted). |
+
+## §20-Kb — X.P.W10.k10 (b): `sibling-index()` / `sibling-count()` in a colour's channel (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | A colour channel (or alpha) whose math holds `sibling-index()` / `sibling-count()` answers `color_context_required` (the element decides its value), as `var()` does; the incumbent refused it as `css_syntax`. |
+| **spec** | css-values-5 §8 (tree-counting functions, an `<integer>`); css-color-4 §4. |
+| **cure** | `math.bbnf` `calcConstant` also reads `sibling-(?:index|count)\(\s*\)`; `math.ts` answers it `CONTEXT`. |
+| **variants (E-6 gz)** | `bench/records/W10k10b/variants/e6-variants.txt`: an own `treeFn` rule in `mathFn` 15,239 / 6,106; **folded into `calcConstant`, landed: 15,181 / 6,054**. |
+| **value differential** | MIRROR 0 defects; L-G2 unchanged from `.k10a`. |
+| **ruled** | `W8t-COLOR-CONTEXT` ×9 (the colour rows, and `LCH(from var(--accent) … sibling-index())`), `W8v-PROPERTY-TYPE` ×7 (a calculation's type against the property, DR-a), `W8g-MATH-SERIALIZATION` ×7 (DR-b). |
+| **consumer direction** | **REFINES** (a refusal's code moves from `css_syntax` to `color_context_required`). |

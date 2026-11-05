@@ -173,7 +173,8 @@ export const mathActions = {
     angle: { kind: "groups", fn: tokenQuantity },
     dimension: { kind: "groups", fn: tokenQuantity },
     none: { kind: "map", fn: (): NoneToken => NONE },
-    calcConstant: { kind: "map", fn: constantQuantity },
+    //  `sibling-index()` / `sibling-count()` (css-values-5 §8) read here too: a number the element decides.
+    calcConstant: { kind: "map", fn: (token: string): Numeric => (/^s/i.test(token) ? CONTEXT : constantQuantity(token)) },
     //  A channel keyword (css-color-5 §4) is bound by its relative colour; any other name stays INVALID there.
     calcKeyword: { kind: "text", fn: (name: string): Numeric =>
         Object.freeze({ kind: "unresolved", reason: "keyword", bind: (env: Env) => env(name.toLowerCase()) ?? INVALID }) },
