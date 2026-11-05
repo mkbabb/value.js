@@ -282,13 +282,27 @@ onUnmounted(() => {
  * the block size is the old 20svh breath held between two ASPECT bounds from
  * the φ ladder — φ ≤ w/h ≤ φ·√φ ≈ 2.058 (the √φ half-step the OD-19 measure
  * took). Tokens: `--spectrum-aspect-min/max` (foundation.css, DESIGN §3.1).
- * The pointer mapping reads the rect, so it is size-agnostic. */
+ * The pointer mapping reads the rect, so it is size-agnostic.
+ *
+ * §0hw.13: at lg the shell is one viewport tall and the page must not scroll
+ * on the block axis (X.W12.c), so the aspect FLOOR yields to a block budget
+ * there: `--spectrum-block-budget` (foundation.css). On a short desktop
+ * viewport (1280×800, 1366×768) the plane grows wider than φ·√φ rather than
+ * push the page past the viewport; at 900 px and taller the aspect bound
+ * holds unchanged. Below lg the page scrolls, and the aspect bound is whole. */
 .spectrum-picker {
     block-size: clamp(
         calc(100cqi / var(--spectrum-aspect-max)),
         20svh,
         calc(100cqi / var(--spectrum-aspect-min))
     );
+    @variant lg {
+        block-size: clamp(
+            min(calc(100cqi / var(--spectrum-aspect-max)), var(--spectrum-block-budget)),
+            20svh,
+            calc(100cqi / var(--spectrum-aspect-min))
+        );
+    }
 }
 @media (pointer: coarse) {
     .spectrum-picker:not(.touch-gate-active) {

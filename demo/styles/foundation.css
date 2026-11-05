@@ -600,6 +600,11 @@
      * φ ≤ w/h ≤ φ·√φ — the plane is never a strip and never a square. */
     --spectrum-aspect-min: 1.618034;
     --spectrum-aspect-max: 2.058171;
+    /* §0hw.13: the plane's block budget at lg, where the shell is one viewport
+     * tall. The picker card's other rows and the shell chrome take ~520 px, so
+     * 34svh is what an 800 px viewport leaves (272 px); at 900 px and taller
+     * the aspect floor (≤ 288 px at the measure) is the smaller term. */
+    --spectrum-block-budget: 34svh;
     --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
