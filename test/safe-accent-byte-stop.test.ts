@@ -25,7 +25,7 @@ function oracle(accent: AnyColor, surface: AnyColor, minimumRatio: number): Out 
     const source = convertColor(accent, "oklch");
     const surfaceRgb = convertColor(surface, "rgb");
     if (!source.ok || !surfaceRgb.ok) return { ok: false, code: "convert" };
-    const [sourceL, sourceC, sourceH] = source.value.channels as number[];
+    const [sourceL, sourceC, sourceH] = source.value.channels as readonly number[];
     const evaluate = (lightness: number) => {
         const raw = makeColor("oklch", [lightness, sourceC!, sourceH!], 1);
         if (!raw.ok) throw new Error(raw.error.code);
