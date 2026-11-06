@@ -5947,3 +5947,10 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **The script** is `workflows/scripts/owner-1105-eve.js`: 7 lanes, each with an author, a critic and an adjudicator, then worktree builds, per-repo integration and ship, and a check.
   - **It is QUEUED for the first free slot** (the cap is full). The kf 6.3.0 NPIG-K1 settle unit follows it.
   - **Aurora:** item 2 likely traces to the §0hn arm-B dark band (L 0.18–0.42), so the lane re-reads arm B against the ss8-b09 oracle.
+- **§0hz.1 (2026-11-05): bbnf lockstep waves 0–1 closed as a workflow (wf_950f38d8); the LG-1 gate is NOT closed.**
+  - The plan (bbnf-lang `sk-v27` `restart/skinny/tranches/sk-v27/PLAN.md`) has 7 waves and 7 lanes.
+  - Rulings X-1..X-10 are ruled by the delegate in `RULINGS.md` `0c0a8b2a0`: §2 defaults confirmed, and X-10 = AST-equal 100 % with byte-identical ≥ 98 %.
+  - LW1 lanes: COMP 2/4, PERF 3/3 (canada 1.56× withdrawn as uncommitted), RX 4/4, PP 3/3, CON 5/5, USE 4/5 (USE-5 born-RED). TOPO never ran.
+  - Integration is on `sk-v27-lw1-gate`, with draft PRs bbnf-lang #8, parse-that #3 and pprint #2.
+  - The xpTail seat landed the E-6 ceilings test `50eeb196e` but did NOT cut 4.3.0, because tranche-u CI was not green. `.rd` is owed for want of a quiet window.
+  - **Next, queued for the first free slot:** a workflow `bbnf-lockstep-lw1-close` covering TOPO-0..5, COMP-2/4, the LG-1 gate on CI, then the 4.3.0 cut once tranche-u is green.
