@@ -1,14 +1,12 @@
 <template>
     <!-- The picker slice: the app's own plate, field and channel console, and
-         the host's swatches. No readout, no menus. -->
+         the host's swatches. No readout, no menus, no caption. -->
     <div class="pane-shell embed-picker">
         <Card tier="resting" class="picker-plate paper-grain-overlay relative flex flex-col rounded-card min-w-0">
-            <CardHeader class="embed-picker-header m-0 pb-0 [--card-pad:0.75rem] w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0">
-                <!-- The colour's name when it is one of the host's own; the line
-                     keeps its height either way, so the slice never jumps. -->
-                <p class="picker-color-name" data-testid="embed-color-name">{{ currentName ?? " " }}</p>
-            </CardHeader>
-            <CardContent class="flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0">
+            <!-- No standing caption: the pressed swatch names the colour (its
+                 accessible name and title), so the plate holds only the field,
+                 the console and the swatches. -->
+            <CardContent class="flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-[clamp(0.75rem,4cqi,1.5rem)] pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0">
                 <div class="picker-body flex flex-col">
                     <SpectrumCanvas />
                     <ComponentSliders />
@@ -39,7 +37,7 @@
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, provide, ref, shallowRef, useTemplateRef, watch } from "vue";
-import { Card, CardContent, CardHeader } from "@mkbabb/glass-ui/card";
+import { Card, CardContent } from "@mkbabb/glass-ui/card";
 import { createDefaultColorModel, type ColorModel } from "../../color-session/color-model";
 import { COLOR_MODEL_KEY } from "../../color-session/keys";
 import { useColorPipeline } from "../../color-session/useColorPipeline";
@@ -70,8 +68,7 @@ function pick(css: string) {
 }
 if (stops[0]) pick(stops[0].css);
 
-// The swatch the colour sits on (the app's own name-snap margin), and the name
-// line, which speaks the host's names only.
+// The swatch the colour sits on (the app's own name-snap margin): it is the one pressed.
 const entries = computed<(NamedColorEntry | undefined)[]>(() =>
     stops.map((s) => namedColorEntry(s.name ?? s.css, s.css, "custom")),
 );
@@ -79,10 +76,6 @@ const displayName = (name: string) => name.split("-").filter(Boolean).map((w) =>
 const currentIndex = computed(() => {
     const match = nearestNamedColor(model.value.color, entries.value.filter((e) => e !== undefined));
     return match ? entries.value.indexOf(match.entry) : -1;
-});
-const currentName = computed(() => {
-    const stop = stops[currentIndex.value];
-    return stop?.name ? displayName(stop.name) : null;
 });
 
 // The swatches share their rows evenly: the row's width and the first
@@ -111,12 +104,22 @@ watch(cssColorOpaqueFrame, (css) => emit("color", css));
 </script>
 
 <style scoped>
-/* The plate's resting shadow (glass --shadow-lg) falls inside the slice's own
-   box: the frame's edge is never the shadow's edge. */
+/* The plate's shadow falls wholly inside the slice's own box: the frame's edge
+   is never the shadow's edge. glass's resting cast (the under-shadow, 4px 4px
+   16px, and --shadow-lg, 0 4px 20px) reaches ~18px right and ~24px down, past
+   this padding, so the frame cut it into a hard dark sliver at the plate's
+   bottom-right corner, worst where the slice is framed wide. In the slice the
+   plate rests on glass's --shadow-sm alone (0 2px 8px), which the padding
+   holds, and the host gives the elevation. */
 .embed-picker {
     inline-size: 100%;
     box-sizing: border-box;
     padding: 0.25rem 0.75rem 1.5rem;
+}
+.embed-picker :deep(.picker-plate.card) {
+    --glass-under-shadow-default: none;
+    --card-cast-rung: none;
+    --shadow-card: var(--shadow-sm);
 }
 .embed-swatches {
     display: grid;
