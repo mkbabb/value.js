@@ -923,3 +923,9 @@ rewriting none.
   - **Site 3,** the dock layer measure, rides W-0.8 with O-171 R-2: one batched read per frame.
   - **Gates on both waves:** commit ≤ 250 ms, total ≤ 450 ms, forced style+layout ≤ 50 ms, p95 ≤ 16.7 ms.
   - **Expected at 11.1.0:** the commit drops by about 155–225 ms. The dock's 80–110 ms stays owed until W-0.8.
+- 2026-11-06 — **OUTBOUND O-181 → glass-ui-c7 (owner-1105-eve perf lane, unit U7): the Slider emits once per frame.**
+  - **Evidence:** a WebKit burst of 48 pointermoves at about 240 Hz lands 2 per rendering frame on the picker's channel Slider (1440 dark, 390 dark and light); Chromium shows the same 2 at 1440. Each emit runs value's whole synchronous colour path, so the second emit in a frame is never painted. Records: `~/.dev-logs/o1105/perf/runs/webkit-base-r1-*.json`, `chromium-*-r{1,2}-*.json`.
+  - **Slider drag at value head (U1–U4 landed), input-frame p95, two runs:** 1440 dark 22.5 / 23.8 ms, 1440 light 31.7 / 34.5 ms; 390@3 with CPU ×4 dark 92.5 / 101.4 ms, light 115 / 148 ms.
+  - **Ask:** `update:modelValue` at most once per animation frame during a pointer drag, the latest value winning; the pending value flushed synchronously before `valueCommit`; keyboard steps immediate.
+  - **Gates:** a 240 Hz WebKit burst gives at most one emit per frame; the final `valueCommit` value equals the last pointer value; keyboard steps emit synchronously; Chromium and WebKit, light and dark.
+  - **Consumer side:** value builds no Slider coalescer (ruling 8). The rail, which value owns, already writes once per frame (U4).
