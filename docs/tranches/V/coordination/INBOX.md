@@ -875,3 +875,15 @@ rewriting none.
     - Gates: 0 data-URI bytes in the entry CSS, document.fonts.check, and CLS ≤ 0.01.
   - **Consumer action:** kf pins 11.1.0 for R-1, G1 and G2 together, and value adopts G1 for its views at the same pin.
   - Until then, the lanes build no local card-swap engine or font inlining workaround; they prepare only the consumer wiring and the before-metrics.
+- 2026-11-05 — **OUTBOUND O-174 → glass-ui-c7 (owner-1105-eve aurora lane): the dark aurora is too dark; a W-0.1 finding and two W-G.4 addenda.** Owner frame: `docs/tranches/X/evidence/owner-2026-11-05-eve/view-menu-transition.png`. Evidence: `~/.dev-logs/o1105/aurora/`.
+  - **(1) O-130 (1) / W-0.1, a finding:** under 10.1.3's dark resting rung, a dark field holds 4.5:1 up to stop L 0.59 on the worst of 288 seeds.
+    - The arm-B hold at 0.42 was the producer band, not the law.
+    - value ships a seed-anchored dark band capped at `DARK_FIELD_CEILING` 0.55, with ss8-b09 byte-unchanged; the ceiling lifts to 0.98 when W-0.1 lands.
+    - Noted to glass: the T-37 seam floor forces a 0.12 L flip at seed L ≈ 0.41 under any ceiling below 0.98. The cure for that is W-0.1 (ruling R-A1 with the owner meanwhile).
+  - **(2) W-G.4, provisional:** modulation applied in OKLab L, or a `modulationSpace: 'oklab'` atom.
+    - value builds NO consumer gain (O-171).
+    - It is withdrawn if the served breath L delta, dark against light, reads ≥ 0.8× ×2 after the new band.
+    - Gate: 0.8–1.25×.
+  - **(3) W-G.4:** a `zones.contrast` atom.
+    - Gate: hue sd ≥ 10° with dominant-hue error ≤ 7° on the 12 OD-12 seeds, in both schemes.
+  - **Joint with O-172 G-AURORA:** value adds a served bead-vs-field dL/dC cell ×2, with thresholds agreed with the blob lane.
