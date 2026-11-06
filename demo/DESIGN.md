@@ -876,6 +876,7 @@ the standing example (COHESION §0el).
 | Pane swap ENTER (R2)                | the stacked deck on the pane wrappers (`demo/styles/animations.css`; §5.7)                                                             | transform `--spring-panel` @ `--spring-panel-duration`, from `translateY(0.5rem) scale(0.97)`; opacity held at 1                      | landed (O1105)         |
 | Pane swap LEAVE (R3)                | same block, leave-active; out of flow                                                                                                  | forward: transform `--ease-in` @ `--spring-world-exit-duration`; back: the sink on `--spring-panel`. Opacity cut over the last 10 % only | landed (O1105)         |
 | Region FLIP (G3)                    | `demo/shell/flipRegions.ts`, from App.vue's one `flip`                                                                                 | `translate` and the survivor's plate `clip-path`, both `--spring-panel` @ `--spring-panel-duration`                                   | landed (O1105)         |
+| Row split + scene height (G9)       | `.pane-container` (`animations.css`), height held by `demo/shell/followHeight.ts`                                                      | `grid-template-columns` and `height`, both `--spring-panel` @ `--spring-panel-duration`                                                | landed (O1105 r2)      |
 | Swap containment                    | the pane wrappers, `*-active` window only                                                                                              | `will-change: transform` + `contain: layout paint` for the swap's duration (X.W5.d2)                                                    | landed                 |
 | Specimen press (R4)                 | `demo/palettes/inspector/PaletteInspector.vue`                                                                                         | the producer press drive, `useLiquidPress` (the shared press spring clock, card amplitude). There is no cast (V1-02)                    | landed                 |
 | Channel rail press (R5)             | `.channel-rail-item` (`demo/picker/controls/ComponentSliders/ConsoleRail.vue`)                                                         | `--spring-press` @ its own clock                                                                                                        | landed                 |
@@ -966,6 +967,7 @@ in and out unless necessary and stacked with a card swapping animation for the v
 | ------------------- | ------------------------------------------------ | -------------------------------------------------- | ---------------------------------- |
 | Card swap           | a region's pane is replaced                      | the deck (G2), `vj-enter` on the pane wrappers     | demo, `animations.css`             |
 | Survivor reflow     | a region moves, or widens, because another changed | FLIP (G3), `demo/shell/flipRegions.ts`           | demo                               |
+| Row and scene size  | the split moves, or the scene's height changes   | track interpolation + held height (G9)             | demo, `animations.css` + `followHeight.ts` |
 | Surface resize      | the view menu plate, the dock's content width    | glass (O-171 R-1 menu bloom, R-2 dock width morph) | glass-ui                           |
 | In-place content    | one surface, new content                         | `vj-morph`, unchanged                              | demo                               |
 
@@ -985,12 +987,13 @@ filter makes the card a backdrop root and breaks its glass plate.
 
 **G3 · Out of flow, and the FLIP.** The leaver is `position: absolute; inset: 0 0 auto 0;
 pointer-events: none` in its wrapper, so the region is sized by the riser from the commit frame. Its
-block size is never 0 and never the sum of two panes. Every commit that can move a region (a slot's
+block size is never 0 and never the sum of two panes. The leaver keeps the block size it was drawn
+at (PaneSlot `hideLeaving`), so a companion that follows the row does not unroll its whole content
+while it is discarded. Every commit that can move a region (a slot's
 pane commit, and the scene's region set changing) runs through App.vue's one `flip`. A region that
 moves translates from where it was drawn. A region that widens on a dual → single hop opens its
 plate and its T-45 blur carrier with `clip-path: inset()` from the old edge to the new. The content
-reflows once, at the commit. Animating layout every frame is what W3-4 forbids, so the text is not
-animated; the plate edge is. Only the wrapper is written, and every write clears when its
+reflows once, at the commit; the plate edge travels. Only the wrapper is written, and every write clears when its
 transition ends or is cancelled, so a KeepAlive-cached pane never carries a FLIP away.
 
 **G4 · The cut law.** A fade is used only where there is no geometry to carry the change (the
@@ -999,7 +1002,7 @@ guard zeroes every duration, the delay survives it, and the leaver holds for 120
 `flipRegions` does nothing under reduce.
 
 **G5 · Each box has one owner.** Region and survivor: G3. Dock content width: glass O-171 R-2. Menu
-plate: glass O-171 R-1. Document height: G3 and G6.
+plate: glass O-171 R-1. The row's split and the scene's height: G9. Document scroll: G6.
 
 **G6 · Scroll.** The scroll offset is kept. The one exception is when the anchor region (the
 first) now ends above the viewport, which is the case where the browser would clamp anyway. Then
@@ -1009,6 +1012,19 @@ the anchor is scrolled into view at once, inside the FLIP, and the FLIP is read 
 A → B → C into one leave and one rise, and a FLIP still in flight is the First of the next.
 
 **G8 · Clocks.** As in G2. The `(pane, resolved)` key and `PANE_LOAD_DELAY_MS = 200` are unchanged.
+
+**G9 · The split and the height travel.** A view change that keeps two regions but moves the split
+(Home 61.8 % to Palettes 33.3 %: the picker 651 to 450 px at 1440) interpolates
+`.pane-container`'s track list on `--spring-panel`, so the survivor's edge and its neighbour move
+with the riser instead of snapping at the input. A change of track count does not interpolate; G3
+carries that hop. The container's height is held in px by `demo/shell/followHeight.ts` (the lowest
+region's layout end, so neither a FLIP's translate nor the out-of-flow leaver counts) and
+transitions on the same clock, retargeting from the live value. The rows are `max-content` while it
+is held, the size an `auto` row takes in an indefinite container, so a held height never caps the row
+it measures; `align-content: start` keeps them at their content while the box is taller. This
+supersedes W3-4's "layout never animates on a pane swap" for these two boxes only: the owner's order
+asks for every height and width to travel, and the probe reads no long frame added by it (O1105
+round 2, `views-r2.mjs`). Under reduced motion neither transitions and the height stays `auto`.
 
 **The retired grammar (OD19-V7, X.W5.d2), quoted once.** PaneSlot ran `mode="out-in"`, and the swap
 was opacity-led:
