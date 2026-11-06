@@ -20,8 +20,8 @@ import { detectRenderer, isSoftwareGL } from "./perf/frame-budget";
  *     travels: `.pane-container` takes more than two heights when its height
  *     changes by more than 48 px (before: exactly two, 716 → 572 and 1296 →
  *     961), the stage region's width never covers more than 60 % of a >100 px
- *     travel in one frame (before: 651 → 450 in one), and a leaver keeps the
- *     block size it was drawn at (before: About unrolled to its whole content).
+ *     travel in one 60 Hz frame (before: 651 → 450 in one), and a leaver keeps
+ *     the block size it was drawn at (before: About unrolled to ~6.6k px).
  * The before arm (out-in, opacity-led) is RED on U1's opacity rows and on U2's
  * plate step (428 px in one frame at 1440); the record is the lane's `~/.dev-logs/o1105/transitions-value`.
  */
@@ -113,17 +113,26 @@ function sizeFaults(samples: Sample[]) {
     const hs = samples.map((s) => Math.round(s.ph));
     if (Math.abs(hs[hs.length - 1]! - hs[0]!) > 48 && new Set(hs).size <= 2)
         faults.push(`pane-container height snapped ${hs[0]} → ${hs[hs.length - 1]} (${new Set(hs).size} values)`);
-    const ws = samples.map((s) => s.stw).filter((x): x is number => x != null);
-    const travel = ws.length ? Math.max(...ws) - Math.min(...ws) : 0;
+    // the width step is scaled to one 60 Hz frame of elapsed time, as
+    // `plateSteps` is: a long software-GL frame is frame production, a snap
+    // is a discontinuity at any frame rate
+    const ws = samples.filter((s) => s.stw != null).map((s) => [s.t, s.stw!] as const);
+    const xs = ws.map(([, x]) => x);
+    const travel = xs.length ? Math.max(...xs) - Math.min(...xs) : 0;
     let step = 0;
-    for (let i = 1; i < ws.length; i++) step = Math.max(step, Math.abs(ws[i]! - ws[i - 1]!));
+    for (let i = 1; i < ws.length; i++) {
+        const dt = Math.max(1000 / 60, ws[i]![0] - ws[i - 1]![0]);
+        step = Math.max(step, (Math.abs(ws[i]![1] - ws[i - 1]![1]) * (1000 / 60)) / dt);
+    }
     if (travel > 100 && step > 0.6 * travel) faults.push(`stage width stepped ${step.toFixed(0)} of ${travel.toFixed(0)} px in one frame`);
     const drawn = new Map<number, number>();
     for (const s of samples)
         for (const w of s.w)
             for (const k of w.kids) {
                 if (!k.leave) drawn.set(k.id, k.h);
-                else if (drawn.has(k.id) && k.h > drawn.get(k.id)! + 1) faults.push(`${w.role}: leaver grew ${drawn.get(k.id)} → ${k.h}`);
+                // 48 px of slack: the row's split may still be travelling between
+                // the last in-flow frame and the leave (an unroll is thousands)
+                else if (drawn.has(k.id) && k.h > drawn.get(k.id)! + 48) faults.push(`${w.role}: leaver grew ${drawn.get(k.id)} → ${k.h}`);
             }
     return [...new Set(faults)];
 }
