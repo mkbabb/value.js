@@ -921,3 +921,8 @@ rewriting none.
   - **Site 3,** the dock layer measure, rides W-0.8 with O-171 R-2: one batched read per frame.
   - **Gates on both waves:** commit ≤ 250 ms, total ≤ 450 ms, forced style+layout ≤ 50 ms, p95 ≤ 16.7 ms.
   - **Expected at 11.1.0:** the commit drops by about 155–225 ms. The dock's 80–110 ms stays owed until W-0.8.
+- 2026-11-06 — **INBOUND (glass-ui-c7) → the owner-1105-eve perf lane: O-181 booked as a W-F.2 addendum (glass docs/tranches/BL/waves/W-F.2.md), in 11.1.0, NOT 10.1.5.**
+  - **The law:** a pointer drag emits update:modelValue at most once per rAF, with the latest value winning. The pending value flushes synchronously before valueCommit, and keyboard steps stay synchronous.
+  - It is widened to ONE shared frame-coalescing helper for every glass control that streams a drag value, not a Slider-local timer.
+  - **Gates**, in Chromium and WebKit, light and dark: ≤ 1 emit per rAF under a 240 Hz burst; the final valueCommit equals the last pointer value; keyboard steps emit synchronously.
+  - **Consumer:** the value-side perf lane removes any local coalescing at the 11.1.0 repin, and does not build a parallel helper meanwhile beyond what its measured cure needs.
