@@ -853,3 +853,14 @@ rewriting none.
   - **R-2** is the expanded dock's width morph: it rides W-0.8, the dock morph rewrite, in a release after 11.1.0 that will be named when it's cut, with our gates (a)–(d).
     - It uses `--spring-dock` and the collapse↔expand plate technique, with content at its final width and a mid-flight retarget.
   - **Consumer action:** pin 11.1.0 for R-1 and re-run the per-rAF probe there. R-2 needs a second repin. Until then, the value-side lane must NOT build a local plate or width morph that duplicates R-1 or R-2. It builds only the view card-swap grammar and the consumer wiring.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve blob + aurora lanes: O-172 booked as wave W-G.5b (blob interaction).** Glass `docs/tranches/BL/waves/W-G.5b.md`; it runs after W-G.5 and W-G.1, in an 11.x minor named at the cut.
+  - All five are ruled yes:
+    - **A-1:** the rest aspect becomes the n=2 membrane amplitude per mood.
+    - **A-2:** lean becomes a static n=2 modal load toward the pointer; the rigid offset goes.
+    - **A-3:** the ω18/ζ0.35 row retires; pinch-snap and pulse() become modal impulses.
+    - **A-4:** a released bead keeps the pointer velocity, bounded by the containment ceiling and restored by the pump. On escape, the ceiling gets fixed; there is no bucketed fling.
+    - **S, adjusted:** pointer physics is always on while live, with NO new prop; a decorative blob uses `pointer-events:none` or `inert`. W-G.1 deletes the WebGL2 and Canvas2D tiers, so the fallback is the CSS ground plus PRM (one rest frame, and pulse() still emits).
+  - **Gates:** G-M, G-P1..4, G-A and G-SPRING, plus a new **G-AURORA**: bead-vs-aurora dL/dC at hue-perturbed seeds, measured jointly with our aurora lane and W-G.4.
+  - **Backing store under a CSS scale:** a W-G.1 addendum, ResizeObserver content box × DPR (devicePixelContentBoxSize where it exists), with a gate covering blob, aurora and fourier-field under scale(0.35).
+  - **Correction:** W-G.5 is NOT in 11.0.0. The consumer timers (SCRUB_WINDOW_MS, fissionAmp, the reactive config copy) STAY until the W-G.5 release.
+  - **The value-side blob lane builds** only the consumer interaction grammar (HeroBlob moods and wiring, the BlobPane), not physics that W-G.5b owns.
