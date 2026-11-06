@@ -44,11 +44,16 @@ describe("V.W29 Picker Blob fixed-footprint paint mass", () => {
 });
 
 describe("V.W20 Picker Blob semantics", () => {
+    // o1105 V-2a (O-172 ruling S): the picker specimen stays hidden and inert;
+    // only the /blob view hands the producer a press label, and the root opens
+    // the accessibility tree exactly then. The rendered half is
+    // e2e/smoke/blob-press.spec.ts.
     it("keeps the specimen hidden and free of activation or focus surfaces", () => {
         const template = source.slice(0, source.indexOf("</template>"));
 
-        expect(template).toContain('aria-hidden="true"');
-        expect(template).not.toMatch(/press-label=|<Tooltip|tabindex=|<button\b/);
+        expect(template).toContain(`:aria-hidden="pressLabel ? undefined : 'true'"`);
+        expect(source).toMatch(/route\.name === "blob" \? "Pulse blob" : ""/);
+        expect(template).not.toMatch(/<Tooltip|tabindex=|<button\b/);
         expect(template).not.toMatch(
             /@(click|dblclick|pointer\w*|mouse\w*|key\w*|focus\w*|touch\w*)=/,
         );
