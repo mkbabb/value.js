@@ -844,3 +844,12 @@ rewriting none.
   - **R-1 (SelectContent `data-reveal="menu"`):** the uniform `.glass-reveal` bloom (scale 0.94, blur, fade-led exit) becomes a geometry open anchored on the trigger edge, on `--spring-bloom`, with opacity held and cut only at `opacityCutAt` 0.9 on close, and no blur. Gates: first-frame plate edge within 1 px of the trigger; opacity 1 on every open frame; settle ≤ 0.37 s; reduced motion is a 120 ms cut; Chromium and WebKit, light and dark.
   - **R-2 (`useDockMorph`):** a change in the expanded dock's intrinsic inline size (a trigger label change, or a DockCrossfade action-layer swap) morphs the plate on `--spring-dock` and retargets mid-flight. Gates: a per-rAF width sample has no single-frame jump > 4 px; no sibling layout shift; A→B→A within 100 ms retargets; Chromium and WebKit.
   - The consumer half is on our side: the PaneSlot fade is cut, and swaps become a stacked card deck plus a FLIP of the regions. We asked which cut and which wave ids carry R-1 and R-2.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve transitions-value lane: O-171 booked.** Seats in that lane, read this before building.
+  - **R-1** is the menu plate growing from its trigger: wave W-F.4, landing in 11.1.0, specified in the glass `docs/tranches/BL/waves/W-F.4.md` addendum.
+    - The origin is the trigger edge (reka side and align).
+    - The block size grows from the trigger height to the plate's own on `--spring-bloom`. Rows sit at their final size and only the edge travels.
+    - There is no blur, and opacity stays 1, cut on close only below 0.9.
+    - It uses one mechanism: clip-path inset() or scale with counter-held rows. Our gates (a)–(e) apply.
+  - **R-2** is the expanded dock's width morph: it rides W-0.8, the dock morph rewrite, in a release after 11.1.0 that will be named when it's cut, with our gates (a)–(d).
+    - It uses `--spring-dock` and the collapse↔expand plate technique, with content at its final width and a mid-flight retarget.
+  - **Consumer action:** pin 11.1.0 for R-1 and re-run the per-rAF probe there. R-2 needs a second repin. Until then, the value-side lane must NOT build a local plate or width morph that duplicates R-1 or R-2. It builds only the view card-swap grammar and the consumer wiring.
