@@ -504,6 +504,21 @@ watch(
     animation: vj-settle var(--spring-dock-duration) var(--spring-dock);
 }
 
+/* R-2 (O-24, 2026-11-06): the dock plate carries no grain. glass paints its
+   paper grain on `.dock-plate::after` as a `url()` background (an SVG noise
+   tile at 0.04 alpha, under `--glass-grain-opacity` 0.025): about 0.1 % ink,
+   with no visible effect on the plate. Chromium still counts a `url()`
+   background as content, so that tile was the page's final LCP candidate,
+   timed by the tile's own decode after the dock lands (1.4–9.9 s in CI's
+   SwiftShader) and sized by the plate's morph at that frame. The page's LCP
+   was a race between an invisible texture and the About title. At opacity 0
+   the tile is not painted, so the title is the LCP in every boot. glass's
+   own cure (a non-contentful grain) is relayed in V·INBOX 2026-11-06; this
+   line goes when that ships. */
+.glass-dock {
+    --glass-grain-opacity: 0;
+}
+
 /* SS-8 B05 · 0133 (ABT-11): the dock's focus ring paints the band-certified
    `--focus-ring-color` (3:1, bandInkStyle) whole. glass seats each control's
    ring at a 48 % mix of that knob, which halves a certified ink back under the

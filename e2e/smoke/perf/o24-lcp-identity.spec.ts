@@ -27,6 +27,35 @@ import { mainPane } from "../fixtures/dock";
  * The BEFORE/AFTER records live in docs/tranches/T/audit/pi/w2/.
  */
 
+/**
+ * R-2 (delegate ruling, 2026-11-06) — the read waits for the boot's own end,
+ * not a wall-clock window.
+ *
+ * The flake (3/6 on base `cbf59ebe8` in §0hs.1; 4/10 and 2/10 here) had two
+ * causes, and both are cured.
+ *  - THE PAGE: the dock plate's paper grain, a `url()` background on glass's
+ *    `.dock-plate::after` at about 0.1 % ink, counted as content. Its LCP entry
+ *    came when the tile finished decoding after the dock landed: 1.4–9.9 s
+ *    under SwiftShader, sometimes after `overture:b4`. Its size (23.4k–25.3k
+ *    px against the About title's 19.6k) depended on the plate's morph at
+ *    that frame. Dock.vue now sets the grain to opacity 0, so it is not
+ *    painted and the title is the LCP in every boot.
+ *  - THE READ: a fixed 3 s window, which the light leg's own first paint could
+ *    miss (no entry at all). The boot marks its own end, the overture's last
+ *    beat `overture:b4` (useOverture.ts). The read happens one presented frame
+ *    past B4.
+ */
+async function bootEnded(page: import("@playwright/test").Page): Promise<void> {
+    await page.waitForFunction(
+        () => performance.getEntriesByName("overture:b4", "mark").length > 0,
+        null,
+        { timeout: 60_000 },
+    );
+    await page.evaluate(
+        () => new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r()))),
+    );
+}
+
 interface LcpRecord {
     time: number;
     size: number;
@@ -46,26 +75,29 @@ async function collectLcp(
         localStorage.setItem("vueuse-color-scheme", s as string);
         // Buffered LCP observer installed before any paint.
         (window as any).__lcpEntries = [];
-        new PerformanceObserver((list) => {
+        const observer = new PerformanceObserver((list) => {
             for (const e of list.getEntries()) (window as any).__lcpEntries.push(e);
-        }).observe({ type: "largest-contentful-paint", buffered: true });
+        });
+        observer.observe({ type: "largest-contentful-paint", buffered: true });
+        (window as any).__lcpObserver = observer;
     }, scheme);
 
     await page.goto("/");
     await expect(mainPane(page)).toBeVisible();
-    // Let the boot settle so the FINAL LCP candidate is recorded (LCP stops
-    // updating on first input; we provide none).
-    await page.waitForTimeout(3000);
+    await bootEnded(page);
 
     // The full candidate sequence — the diagnostic record (each successive
     // entry is a strictly larger candidate; the sequence names WHICH surfaces
-    // competed for LCP and when).
-    const sequence = await page.evaluate(() =>
-        ((window as any).__lcpEntries as any[]).map((e) => {
+    // competed for LCP and when). `takeRecords` drains any entry still queued
+    // for the observer's next callback, so the read holds every candidate.
+    const sequence = await page.evaluate(() => {
+        const w = window as any;
+        w.__lcpEntries.push(...w.__lcpObserver.takeRecords());
+        return (w.__lcpEntries as any[]).map((e) => {
             const el = e.element as HTMLElement | null;
             return `${e.startTime.toFixed(0)}ms size=${e.size} <${el?.tagName?.toLowerCase() ?? "?"}> ${String(el?.className ?? "").slice(0, 60)}`;
-        }),
-    );
+        });
+    });
     console.log(`[O-24 ${scheme}] candidate sequence:\n  ${sequence.join("\n  ")}`);
 
     return page.evaluate(() => {
@@ -107,7 +139,7 @@ test("O-24 LCP identity + reveal-only law — both schemes, built bundle", async
     // leg's paint timeline vs the second — the two scheme legs must be
     // measured on IDENTICALLY-warmed contexts or the comparison is corrupt).
     await page.goto("/");
-    await page.waitForTimeout(1500);
+    await bootEnded(page);
 
     // X-W1 · G-1 — each leg is COLLECTED, not indexed out of a bag. The old
     // shape built a `Record<string, LcpRecord>` and read `legs.light` back out,

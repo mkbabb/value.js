@@ -103,3 +103,43 @@
 .picker-header[data-condensed="true"] .picker-color-name {
     display: none;
 }
+
+/* ── The colour's badge (V-D1.r3 · delegate ruling R-1) ────────────────────
+ * On a short desktop block the name line yields (ColorPicker.vue), and the
+ * name waits behind this badge: a disc of the colour itself, the readout's
+ * trailing mark. It sits ON the readout's baseline (an empty flex item's
+ * baseline is its bottom edge) and rises 1/φ of the readout's em, so it reads
+ * as the tuple's full stop at the hero's scale, never a control strip. The
+ * ring is the chip family's outset `--card-edge` hairline (color-chips), so
+ * the disc bounds itself against a plate tinted by the same colour. */
+.picker-color-badge {
+    all: unset;
+    flex: none;
+    box-sizing: border-box;
+    inline-size: 0.618em;
+    block-size: 0.618em;
+    border-radius: 50%;
+    background-color: var(--picker-color-badge-fill);
+    outline: 1px solid var(--card-edge);
+    cursor: help;
+    -webkit-tap-highlight-color: transparent;
+}
+.picker-color-badge:focus-visible {
+    box-shadow: var(--focus-ring-shadow);
+}
+
+/* The gloss: the name in its own voice (display italic) inside glass's
+ * popover, which is portalled out of the header (hence global classes). The
+ * panel role's 21rem measure is for prose; a name is one line, so the plate
+ * takes the name's own measure under the same cap. */
+.picker-color-gloss-panel {
+    inline-size: max-content;
+    max-inline-size: min(21rem, calc(100dvw - 2 * var(--overlay-pad)));
+}
+.picker-color-gloss {
+    margin: 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--type-subheading);
+    line-height: var(--type-leading-heading);
+}
