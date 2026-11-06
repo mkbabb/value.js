@@ -47,15 +47,27 @@ export type GroundPalette = ReturnType<typeof deriveAurora>;
 export const DARK_FIELD_CEILING = 0.55;
 
 /**
+ * The dark field's lightness floor: the producer's dark band floor, where the
+ * dark field sat for every seed before it took the seed-anchored band. A
+ * near-black seed anchors its band at L ≈ 0.02–0.18, and the ground then
+ * paints black (w12-ground, 6,1,4 at the gutter after a drag to the black
+ * corner); on the floor that ground reads 33,20,29.
+ */
+export const DARK_FIELD_FLOOR = 0.18;
+
+/**
  * The field's atoms: the SEED-ANCHORED band through the shipped `lBand` door
  * (`seedAnchoredLBand`, §0hk OD-12: the dominant stop on the chosen colour),
- * under the 0.98 ceiling in light and `DARK_FIELD_CEILING` in dark. The atoms
+ * under the 0.98 ceiling in light and between `DARK_FIELD_FLOOR` and
+ * `DARK_FIELD_CEILING` in dark. The atoms
  * stay the tuning surface: an explicit `lightnessScheme` or `lBand` authored
  * in AuroraPane WINS.
  */
 export function fieldAtomsFor(atoms: AuroraAtoms, dark: boolean): AuroraAtoms {
     if (atoms.lightnessScheme !== undefined || atoms.lBand !== undefined) return atoms;
-    const lBand = seedAnchoredLBand(atoms.seed, dark ? DARK_FIELD_CEILING : 0.98);
+    const lBand = dark
+        ? seedAnchoredLBand(atoms.seed, DARK_FIELD_CEILING, DARK_FIELD_FLOOR)
+        : seedAnchoredLBand(atoms.seed);
     return lBand ? { ...atoms, lBand } : atoms;
 }
 

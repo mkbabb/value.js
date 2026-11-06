@@ -10,6 +10,7 @@ import {
 } from "../../app/composables/boot/atmosphere-calibration";
 import { FIRST_VISIT_GROUND } from "../../app/composables/boot/ground";
 import {
+    DARK_FIELD_FLOOR,
     fieldAtomsFor,
     groundStopsFor,
     seededGroundStops,
@@ -166,6 +167,16 @@ describe("OD-12 · the aurora's dominant stop is the chosen colour", () => {
             const raw = meanL(resolveCalibratedAtmosphere(atoms).palette!);
             expect(Math.abs(raw - L)).toBeLessThan(1e-6); // the construction holds
             expect(meanL(resolveAtmosphereField(atoms).palette!)).toBeGreaterThan(L);
+        }
+    });
+    it("the dark field never sinks under DARK_FIELD_FLOOR: a near-black seed keeps a lit ground (w12-ground)", () => {
+        for (const seed of ["oklch(0 0 0)", "oklch(0.05 0.02 330)", "oklch(0.12 0.1 30)"]) {
+            const [lo] = fieldAtomsFor(atomsFor(seed), true).lBand!;
+            expect(lo).toBeGreaterThanOrEqual(DARK_FIELD_FLOOR - 1e-9);
+            const dark = fieldFor(seed, true)!;
+            expect(Math.min(...dark.map((s) => s.L))).toBeGreaterThanOrEqual(DARK_FIELD_FLOOR - 0.02);
+            // light keeps its own band (no floor above 0.02)
+            expect(fieldAtomsFor(atomsFor(seed), false).lBand![0]).toBeLessThan(DARK_FIELD_FLOOR);
         }
     });
 });

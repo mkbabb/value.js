@@ -209,16 +209,20 @@ const SEED_BAND_WIDTH = DERIVE_L_SPREAD / 2;
  * jump 2 × the floor somewhere (glass W-0.1 lifts the dark ceiling to 0.98,
  * where the step sits by the near-white seeds, as in light). At 0.98 the
  * slide never fires and the band narrows instead (L > 0.92 has no room above
- * and the guard below flips the field under the wax). Undefined for an
+ * and the guard below flips the field under the wax). Over a lightness
+ * `floor` (0.02 in light; the dark field's is `DARK_FIELD_FLOOR`) a band
+ * that would sink under it rises onto it, which only widens the seam (the
+ * mean moves up, away from a seed already below it). Undefined for an
  * un-parseable seed.
  */
 export function seedAnchoredLBand(
     seed: AuroraAtoms["seed"],
     ceiling = 0.98,
+    floor = 0.02,
 ): readonly [number, number] | undefined {
     const L = seedLightness(seed);
     if (L == null) return undefined;
-    let c = L + DERIVE_SEAM_FLOOR;
+    let c = Math.max(L + DERIVE_SEAM_FLOOR, floor + SEED_BAND_WIDTH / 2);
     if (ceiling < 0.98 && c + SEED_BAND_WIDTH / 2 > ceiling) {
         c = ceiling - SEED_BAND_WIDTH / 2;
         if (Math.abs(c - L) < DERIVE_SEAM_FLOOR) c = L - DERIVE_SEAM_FLOOR;
