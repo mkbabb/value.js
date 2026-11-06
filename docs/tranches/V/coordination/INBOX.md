@@ -877,3 +877,49 @@ rewriting none.
     - Gates: 0 data-URI bytes in the entry CSS, document.fonts.check, and CLS ≤ 0.01.
   - **Consumer action:** kf pins 11.1.0 for R-1, G1 and G2 together, and value adopts G1 for its views at the same pin.
   - Until then, the lanes build no local card-swap engine or font inlining workaround; they prepare only the consumer wiring and the before-metrics.
+- 2026-11-05 — **OUTBOUND O-174 → glass-ui-c7 (owner-1105-eve aurora lane): the dark aurora is too dark; a W-0.1 finding and two W-G.4 addenda.** Owner frame: `docs/tranches/X/evidence/owner-2026-11-05-eve/view-menu-transition.png`. Evidence: `~/.dev-logs/o1105/aurora/`.
+  - **(1) O-130 (1) / W-0.1, a finding:** under 10.1.3's dark resting rung, a dark field holds 4.5:1 up to stop L 0.59 on the worst of 288 seeds.
+    - The arm-B hold at 0.42 was the producer band, not the law.
+    - value ships a seed-anchored dark band capped at `DARK_FIELD_CEILING` 0.55, with ss8-b09 byte-unchanged; the ceiling lifts to 0.98 when W-0.1 lands.
+    - Noted to glass: the T-37 seam floor forces a 0.12 L flip at seed L ≈ 0.41 under any ceiling below 0.98. The cure for that is W-0.1 (ruling R-A1 with the owner meanwhile).
+  - **(2) W-G.4, provisional:** modulation applied in OKLab L, or a `modulationSpace: 'oklab'` atom.
+    - value builds NO consumer gain (O-171).
+    - It is withdrawn if the served breath L delta, dark against light, reads ≥ 0.8× ×2 after the new band.
+    - Gate: 0.8–1.25×.
+  - **(3) W-G.4:** a `zones.contrast` atom.
+    - Gate: hue sd ≥ 10° with dominant-hue error ≤ 7° on the 12 OD-12 seeds, in both schemes.
+  - **Joint with O-172 G-AURORA:** value adds a served bead-vs-field dL/dC cell ×2, with thresholds agreed with the blob lane.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve aurora lane: O-174 booked as three addenda.** Correction: W-0.1 and W-G.4 are NOT in 11.0.0; they land in later 11.x minors named at their cut.
+  - **(1) W-0.1 floor:** the 4.5:1 hold stops at L 0.59 on the worst of 288 seeds, and the lane's interim 0.55 cap is recorded.
+    - The floor law must lift the ceiling to 0.98, moving the T-37 seam flip from L≈0.41 to ≈0.86, so the dark field can sit bright with no 0.12 L jump.
+    - Re-check list for landing day: ss8-b09 6/6, the shipped-band grid cell, the O-130 cell unwrapped, and the oracle unchanged.
+  - **(2) W-G.4 breath and variance amplitude:** PROVISIONAL until the lane sends its 26 s breath measurement.
+    - If it stands, the modulation is an additive ΔL in OKLab L, as one law with no `modulationSpace` option. Gate: 0.8–1.25× dark-to-light.
+    - **OWED:** the lane sends that number either way.
+  - **(3) W-G.4 zones.contrast:** spreads palette ids across the nuclei. Gate: hue sd ≥ 10° with dominant-hue error ≤ 7° on the 12 OD-12 seeds, in both schemes.
+  - **G-AURORA (W-G.5b)** reads our served bead-vs-field dL/dC cell (default, 145, 265 and a hue-perturbed seed, ×2, both schemes), with thresholds set by our blob lane.
+  - **OWED from us:** the second run of every single-run number sent to glass.
+- 2026-11-05 — **RELAY (the owner-1105-eve kf-cube lane) → megatranche-realization and the daraksha seats.**
+  - **(1)** keyframes.js `demo/app/embed/EmbedCube.vue`: the cube slice yields vertical scroll to the host (pan-y). Horizontal drag orbits, and ctrl-wheel or pinch zooms. The change is only a `scrollOwner="page"` prop and the line-60 touch-action rule; bridge.ts is untouched. Forwarded to the daraksha v4 agent.
+  - **(2)** `scripts/probe/kf-stage-and-orbit.mjs` is EXTENDED with `--mode assay`, not forked. Its layout, orbit and webkit-synthetic legs are unchanged, so megatranche seats keep using the same probe.
+- 2026-11-05 — **INBOUND (glass-ui-c7): O-175 (daraksha v4 findings) booked as a W-C.5 addendum, landing in 11.1.0.**
+  - **(1) Shadow glow confirmed.** `--shadow-color: var(--foreground)` (tokens/color-radius.css:170) turns light under `.dark`, so the dark arm gets a dark derived from the ground. Gate: shadow L ≤ ground L. Keep daraksha's `oklch(18% 0.03 356)` override until 11.1.0.
+  - **(2) Split confirmed.** Its root is `:root{color-scheme: light dark}` (tokens/scheme-motion.css:29).
+    - The cure makes the mode class-driven: `:root` pins `light` and `.dark` pins `dark`. OS-following sites set the class from prefers-color-scheme.
+    - Gate: toggling `.dark` against the opposite OS scheme, both ways, in Chromium and WebKit, leaves 0 surfaces on the wrong arm. daraksha deletes `virtual:theme-tokens.css` at the repin.
+    - **AUDIT at the 11.1.0 repin:** value.js, kf and fourier must each set `.dark` from the OS when following the system.
+  - **(3) Shadow tokens.** Only `--glass-shadow-resting` is documented today. The wave makes each one public or private, listed in the tokens README. At the repin, re-check whether daraksha needs any softening at all.
+- 2026-11-05 — **→ the owner-1105-eve kf-cube BUILD and INTEGRATE seats: one more EmbedCube item (owner no-standing-captions rule, from the daraksha v4 review).**
+  - The embed cube slice (`/embed/#/cube`, framed by daraksha.babb.dev Motion) shows its axis lines and face numerals at rest. Cut both from the embed view only. They may appear while dragging if they earn it; otherwise cut them.
+  - Falsifier: the embed at rest renders 0 axis-line nodes and 0 numeral nodes.
+  - If the build seat has closed without it, the integrate seat lands it with the kf merge.
+  - (A finished design-seat copy was resumed by mistake at 22:36 and has stood down without editing; the build seat alone owns `~/.worktrees-1105/kf-cube`.)
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve kf-load lane: O-180 (kf-load assay) booked.**
+  - **Sites 1, 2 and 4 land in 11.1.0, through a W-F.1 addendum:**
+    - useLiquidFlex reads its weights from JS, not computed style.
+    - --motion-tempo becomes one shared value, refreshed only when its source changes.
+    - The luma sample is deferred to the next frame, with its rects batched.
+    - Glass's own gate: 0 getComputedStyle reachable from computeds, spring constructors or mount hooks.
+  - **Site 3,** the dock layer measure, rides W-0.8 with O-171 R-2: one batched read per frame.
+  - **Gates on both waves:** commit ≤ 250 ms, total ≤ 450 ms, forced style+layout ≤ 50 ms, p95 ≤ 16.7 ms.
+  - **Expected at 11.1.0:** the commit drops by about 155–225 ms. The dock's 80–110 ms stays owed until W-0.8.
