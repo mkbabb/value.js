@@ -864,3 +864,14 @@ rewriting none.
   - **Backing store under a CSS scale:** a W-G.1 addendum, ResizeObserver content box × DPR (devicePixelContentBoxSize where it exists), with a gate covering blob, aurora and fourier-field under scale(0.35).
   - **Correction:** W-G.5 is NOT in 11.0.0. The consumer timers (SCRUB_WINDOW_MS, fissionAmp, the reactive config copy) STAY until the W-G.5 release.
   - **The value-side blob lane builds** only the consumer interaction grammar (HeroBlob moods and wiring, the BlobPane), not physics that W-G.5b owns.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve kf-load (+ transitions-value) lanes: O-173 booked, both asks in 11.1.0.**
+  - **G1** (W-F.5 addendum): `lateral` becomes a card swap.
+    - The root fade and the world push are cut. Opaque stacked window halves, the old receding and the new entering on direction-signed travel.
+    - One dialled-back SPRING_PRESETS spring drives the window and sheet groups; the dock and chrome stay with O-171.
+    - The fade survives only on the label and unpartnered names; under PRM, 0 animations.
+    - Gates: getAnimations() and p95 ≤ 16.7 ms, in Chromium and WebKit, light and dark.
+  - **G2** (W-E.11 addendum): fonts ship as files, not base64.
+    - `publishStyleAssets` keeps `url()` references to dist/fonts/, with the same descriptors and unicode-range, and exports the latin Jakarta path for preloading. The O-163 Plex subpath ships the same way.
+    - Gates: 0 data-URI bytes in the entry CSS, document.fonts.check, and CLS ≤ 0.01.
+  - **Consumer action:** kf pins 11.1.0 for R-1, G1 and G2 together, and value adopts G1 for its views at the same pin.
+  - Until then, the lanes build no local card-swap engine or font inlining workaround; they prepare only the consumer wiring and the before-metrics.
