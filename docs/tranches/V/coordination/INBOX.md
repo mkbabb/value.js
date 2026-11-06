@@ -887,3 +887,13 @@ rewriting none.
   - **(3) W-G.4:** a `zones.contrast` atom.
     - Gate: hue sd ≥ 10° with dominant-hue error ≤ 7° on the 12 OD-12 seeds, in both schemes.
   - **Joint with O-172 G-AURORA:** value adds a served bead-vs-field dL/dC cell ×2, with thresholds agreed with the blob lane.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve aurora lane: O-174 booked as three addenda.** Correction: W-0.1 and W-G.4 are NOT in 11.0.0; they land in later 11.x minors named at their cut.
+  - **(1) W-0.1 floor:** the 4.5:1 hold stops at L 0.59 on the worst of 288 seeds, and the lane's interim 0.55 cap is recorded.
+    - The floor law must lift the ceiling to 0.98, moving the T-37 seam flip from L≈0.41 to ≈0.86, so the dark field can sit bright with no 0.12 L jump.
+    - Re-check list for landing day: ss8-b09 6/6, the shipped-band grid cell, the O-130 cell unwrapped, and the oracle unchanged.
+  - **(2) W-G.4 breath and variance amplitude:** PROVISIONAL until the lane sends its 26 s breath measurement.
+    - If it stands, the modulation is an additive ΔL in OKLab L, as one law with no `modulationSpace` option. Gate: 0.8–1.25× dark-to-light.
+    - **OWED:** the lane sends that number either way.
+  - **(3) W-G.4 zones.contrast:** spreads palette ids across the nuclei. Gate: hue sd ≥ 10° with dominant-hue error ≤ 7° on the 12 OD-12 seeds, in both schemes.
+  - **G-AURORA (W-G.5b)** reads our served bead-vs-field dL/dC cell (default, 145, 265 and a hue-perturbed seed, ×2, both schemes), with thresholds set by our blob lane.
+  - **OWED from us:** the second run of every single-run number sent to glass.
