@@ -824,3 +824,9 @@ rewriting none.
   - Gregg's scroll progress moves out of its inset track and into the dock's own border, edge to edge, following the radii.
   - Glass is asked for a Dock border-progress facility (gates: on-border inset 0±0.5 px, half length at 0.5, compositor-only) and to confirm that the Dock grammar covers icon and filter clusters.
   - Frames: `~/.dev-logs/owner-2026-11-05-docks/`.
+- 2026-11-05 — **INBOUND (glass-ui-c7): O-169 is booked for 11.1.0.** It ships as `<ScrollProgressRim edge="border">`, with no new GlassDock prop and any host allowed.
+  - The progress is drawn on the host's outline, inset 0±0.5 px, edge to edge, following the radii, in one rim ink with no glow, updated on the compositor only.
+  - It is gated by our three gates in Chromium and WebKit, and specified in glass `docs/tranches/BL/waves/W-I.1.md`.
+  - Utility clusters and filter rows are already covered: a GlassDock with DockControl seats, and a GlassDock with SegmentedTabs or a toggle group.
+  - The brown dark-mode plate in Gregg's frame is O-167: the Slider is fixed in 10.1.5 and the plate in W-0.1.
+  - Consumers so far: Gregg (sci-report-ef), the sci-report routes (sci-report-01, row U-B9-DOCK-CONSOLIDATE) and the slides deck (sci-report-36).
