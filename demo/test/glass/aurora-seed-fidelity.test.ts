@@ -8,6 +8,7 @@ import {
     resolveAtmosphereField,
     resolveCalibratedAtmosphere,
 } from "../../app/composables/boot/atmosphere-calibration";
+import { FIRST_VISIT_GROUND } from "../../app/composables/boot/ground";
 import {
     fieldAtomsFor,
     groundStopsFor,
@@ -24,13 +25,12 @@ import {
  * §0hk record measures that). Pure: the painted field,
  * the ground and the pre-paint boot all resolve through these functions.
  *
- * §0hn arm B: the LIGHT arm ships and is GREEN. The DARK arm is HELD on glass
- * O-130 (`DARK_FIELD_SEED_FAITHFUL` false: dark keeps the producer's dark
- * band, because glass 10.1.3's dark resting rung over a seed-faithful field
- * leaves no light ink at 4.5:1 — ss8-b09). Its fidelity cells are the same
- * bars, run as an expected fail (`it.fails`) tagged O-130; when glass 10.2.0's
- * plate L-floor law lands and the flag flips, they pass and `it.fails` turns
- * RED — unwrap them to plain `it` then.
+ * Both schemes take the seed-anchored band. Light sits under the 0.98
+ * ceiling; dark sits under `DARK_FIELD_CEILING` (0.55), the highest ceiling
+ * at which glass's dark resting plate still leaves a light ink at 4.5:1 over
+ * every stop (ss8-b09's grid). A seed above the ceiling cannot sit on the
+ * dark ramp, so the dark cells gate its hue, and its nearness only where the
+ * band can reach it (seed L ≤ 0.43). Glass W-0.1 lifts the ceiling to 0.98.
  */
 
 type Lch = { L: number; C: number; h: number };
@@ -96,10 +96,22 @@ describe("OD-12 · the aurora's dominant stop is the chosen colour", () => {
             expect(nearestStopDelta(seed, false)).toBeLessThanOrEqual(0.06);
         });
 
-        it(`${name}: the derive seam holds (|mean L − seed L| ≥ floor)`, () => {
-            const palette = fieldFor(seed);
-            const gap = Math.abs(meanL(palette) - cssToOklch(seed).L);
-            expect(gap).toBeGreaterThanOrEqual(DERIVE_SEAM_FLOOR - 1e-9);
+        it(`${name}: the derive seam holds (|mean L − seed L| ≥ floor, both schemes)`, () => {
+            for (const dark of [false, true]) {
+                const gap = Math.abs(meanL(fieldFor(seed, dark)) - cssToOklch(seed).L);
+                expect(gap).toBeGreaterThanOrEqual(DERIVE_SEAM_FLOOR - 1e-9);
+            }
+        });
+
+        it(`${name}: the dark field keeps the seed's hue (dominant hue ≤ 7°)`, () => {
+            const seedLch = cssToOklch(seed);
+            if (seedLch.C < 0.03) return; // an achromatic seed has no hue to keep
+            const palette = fieldFor(seed, true);
+            const x = palette.reduce((s, st) => s + st.C * Math.cos((st.h * Math.PI) / 180), 0);
+            const y = palette.reduce((s, st) => s + st.C * Math.sin((st.h * Math.PI) / 180), 0);
+            const dominant = (Math.atan2(y, x) * 180) / Math.PI;
+            const err = Math.abs(((dominant - seedLch.h + 540) % 360) - 180);
+            expect(err).toBeLessThanOrEqual(7);
         });
 
         it(`${name}: the resolve is deterministic`, () => {
@@ -113,14 +125,31 @@ describe("OD-12 · the aurora's dominant stop is the chosen colour", () => {
         });
     }
 
-    // HELD on glass O-130 (§0hn arm B): the same two bars over the DARK field,
-    // across every seed. Expected fail until glass 10.2.0 W-0.1 (the dark
-    // plate L-floor) lets `DARK_FIELD_SEED_FAITHFUL` flip — then unwrap.
-    it.fails("O-130 · dark: every seed sits on the ramp's foot and on a field stop (ΔE_OK ≤ 0.06)", () => {
-        for (const seed of Object.values(SEEDS)) {
-            onRampFoot(seed, true);
+    it("dark: a seed the band can reach sits on a field stop (L ≤ 0.43, ΔE_OK ≤ 0.06)", () => {
+        const reachable = Object.values(SEEDS).filter((seed) => cssToOklch(seed).L <= 0.43);
+        expect(reachable.length).toBeGreaterThan(0);
+        for (const seed of reachable) {
             expect(nearestStopDelta(seed, true), seed).toBeLessThanOrEqual(0.06);
         }
+    });
+
+    it("dark: the field is luminous (mean L ≥ 0.42, ≥ 0.35 in the seam's forced step)", () => {
+        // The producer's dark band held every seed near L 0.30 — the swirl
+        // and blobs read as a dark wash (the owner, 2026-11-05). A seed within
+        // the seam floor of the ceiling band's mean (L 0.41–0.53) takes the
+        // band one floor below it instead (seedAnchoredLBand); glass W-0.1
+        // removes that step from the dark range.
+        for (const seed of Object.values(SEEDS)) {
+            const L = cssToOklch(seed).L;
+            const inStep = Math.abs(L - 0.47) < DERIVE_SEAM_FLOOR;
+            expect(meanL(fieldFor(seed, true)), seed).toBeGreaterThanOrEqual(inStep ? 0.35 : 0.42);
+        }
+    });
+
+    it("the first-visit ground is the default seed's field, per scheme", () => {
+        const seed = "oklch(73% 0.185 2)";
+        expect(FIRST_VISIT_GROUND.light).toEqual(seededGroundStops(seed, false));
+        expect(FIRST_VISIT_GROUND.dark).toEqual(seededGroundStops(seed, true));
     });
 
     it("the mean-equals-wax construction resolves UPWARD on either side of float noise", () => {

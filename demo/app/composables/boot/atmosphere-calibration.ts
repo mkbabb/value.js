@@ -37,7 +37,7 @@
  * §0hk OD-12 SUPERSEDES the dark band: it crushed every seed to L ≈ 0.31
  * (the owner's flat crimson). The field now takes ONE scheme-free band,
  * `seedAnchoredLBand` below, through the same `lBand` door (applied by
- * `seeded-ground.ts`'s `fieldAtomsFor`). This resolver stays pure, so
+ * `seeded-ground.ts`'s `fieldAtomsFor`), under a ceiling per scheme. This resolver stays pure, so
  * `aurora-harmony-stops.ts` and the O-6 bracket test keep calling it with
  * no shell to know about.
  *
@@ -171,18 +171,29 @@ const SEED_BAND_WIDTH = DERIVE_L_SPREAD / 2;
 /**
  * The seed-anchored lightness band: [c − w/2, c + w/2] with c = seed L +
  * DERIVE_SEAM_FLOOR (the field mean on the seam) and w = SEED_BAND_WIDTH,
- * narrowed only where the 0.98 ceiling forces it (near white the seed then
- * sits below the ramp by the seam's provable cost; L > 0.92 has no room above
+ * under a lightness `ceiling` (0.98 in light; the dark field's ceiling is
+ * `seeded-ground.ts`'s `DARK_FIELD_CEILING`). A band that would cross the
+ * ceiling slides under it; where that puts its mean within the seam floor of
+ * the seed, the mean sits one floor BELOW the seed instead. Below 0.98 that
+ * step is forced: a mean that keeps the floor and never crosses the seed must
+ * jump 2 × the floor somewhere (glass W-0.1 lifts the dark ceiling to 0.98,
+ * where the step sits by the near-white seeds, as in light). At 0.98 the
+ * slide never fires and the band narrows instead (L > 0.92 has no room above
  * and the guard below flips the field under the wax). Undefined for an
  * un-parseable seed.
  */
 export function seedAnchoredLBand(
     seed: AuroraAtoms["seed"],
+    ceiling = 0.98,
 ): readonly [number, number] | undefined {
     const L = seedLightness(seed);
     if (L == null) return undefined;
-    const c = L + DERIVE_SEAM_FLOOR;
-    const half = clamp(0.98 - c, 0, SEED_BAND_WIDTH / 2);
+    let c = L + DERIVE_SEAM_FLOOR;
+    if (ceiling < 0.98 && c + SEED_BAND_WIDTH / 2 > ceiling) {
+        c = ceiling - SEED_BAND_WIDTH / 2;
+        if (Math.abs(c - L) < DERIVE_SEAM_FLOOR) c = L - DERIVE_SEAM_FLOOR;
+    }
+    const half = clamp(ceiling - c, 0, SEED_BAND_WIDTH / 2);
     return [clamp(c - half, 0.02, 0.98), clamp(c + half, 0.02, 0.98)];
 }
 

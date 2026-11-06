@@ -6,8 +6,8 @@
  * THE TRUTH LAW (O-14): the strip a harmony row shows must be byte-identical
  * to the palette selecting it yields. What selecting yields is the FIELD
  * resolve — `resolveAtmosphereField(fieldAtomsFor({...atoms, harmony}, dark))`
- * (the band the field takes in the active scheme: seed-anchored in light,
- * §0hk OD-12; dark held on glass O-130, §0hn arm B) — the calibrated
+ * (the band the field takes in the active scheme: seed-anchored, §0hk OD-12,
+ * under that scheme's ceiling) — the calibrated
  * resolve (the Q2-NOW knobs ride it; a raw `deriveAurora` preview would LIE
  * about vividness/energy) under the derive-seam guarantee the painted field
  * carries (AP-5 / SS8-0063: the bare calibrated resolve diverged from the

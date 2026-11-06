@@ -112,16 +112,14 @@ export function useAtmosphere(
     // referent and the strip all agree on the offset field lightness.
     const { isDark } = useGlobalDark();
 
-    // --- §0hk OD-12: THE SEED-ANCHORED BAND (light; dark held, §0hn arm B) ---
+    // --- §0hk OD-12: THE SEED-ANCHORED BAND ---
     // The field takes `seedAnchoredLBand` through the shipped `lBand` atoms
     // door (`seeded-ground.ts`'s `fieldAtomsFor`, the one source the
     // pre-paint boot also runs): the dominant stop sits on the chosen colour.
     // That supersedes X.W6.i's dark band (`lightnessScheme: "dark"` →
-    // L 0.18–0.42) in LIGHT. In dark the band is HELD on glass O-130
-    // (`DARK_FIELD_SEED_FAITHFUL`): over the faithful dark field glass
-    // 10.1.3's dark resting rung leaves no light ink at 4.5:1 (ss8-b09) until
-    // the 10.2.0 plate L-floor law lands. An explicit `lightnessScheme` or
-    // `lBand` authored in AuroraPane still WINS.
+    // L 0.18–0.42). Dark sits under `DARK_FIELD_CEILING` until glass W-0.1's
+    // plate L-floor lets it take light's 0.98. An explicit `lightnessScheme`
+    // or `lBand` authored in AuroraPane still WINS.
     const fieldAtoms = (): AuroraAtoms => fieldAtomsFor(auroraAtoms, isDark.value);
 
     const aurora = useAurora(
@@ -185,7 +183,7 @@ export function useAtmosphere(
     // derived field. Scheme rides the record so the fouc-guard can refuse the
     // other band's material (F-6 dark honesty).
     // §0hk OD-12: the GROUND is the field's own resolved palette in both
-    // schemes — ONE derive (its scheme band is the field's, §0hn arm B). The former second derive (the producer's raw dark
+    // schemes — ONE derive (its scheme ceiling is the field's). The former second derive (the producer's raw dark
     // band, `deriveAurora(seed, { scheme: "dark" })`) grounded every dark
     // boot in the same flat crimson and is gone; FIRST_VISIT_GROUND is
     // regenerated from this sink's first write (GROUND_RECORD_VERSION 2
