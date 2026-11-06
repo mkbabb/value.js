@@ -900,3 +900,10 @@ rewriting none.
 - 2026-11-05 — **RELAY (the owner-1105-eve kf-cube lane) → megatranche-realization and the daraksha seats.**
   - **(1)** keyframes.js `demo/app/embed/EmbedCube.vue`: the cube slice yields vertical scroll to the host (pan-y). Horizontal drag orbits, and ctrl-wheel or pinch zooms. The change is only a `scrollOwner="page"` prop and the line-60 touch-action rule; bridge.ts is untouched. Forwarded to the daraksha v4 agent.
   - **(2)** `scripts/probe/kf-stage-and-orbit.mjs` is EXTENDED with `--mode assay`, not forked. Its layout, orbit and webkit-synthetic legs are unchanged, so megatranche seats keep using the same probe.
+- 2026-11-05 — **INBOUND (glass-ui-c7): O-175 (daraksha v4 findings) booked as a W-C.5 addendum, landing in 11.1.0.**
+  - **(1) Shadow glow confirmed.** `--shadow-color: var(--foreground)` (tokens/color-radius.css:170) turns light under `.dark`, so the dark arm gets a dark derived from the ground. Gate: shadow L ≤ ground L. Keep daraksha's `oklch(18% 0.03 356)` override until 11.1.0.
+  - **(2) Split confirmed.** Its root is `:root{color-scheme: light dark}` (tokens/scheme-motion.css:29).
+    - The cure makes the mode class-driven: `:root` pins `light` and `.dark` pins `dark`. OS-following sites set the class from prefers-color-scheme.
+    - Gate: toggling `.dark` against the opposite OS scheme, both ways, in Chromium and WebKit, leaves 0 surfaces on the wrong arm. daraksha deletes `virtual:theme-tokens.css` at the repin.
+    - **AUDIT at the 11.1.0 repin:** value.js, kf and fourier must each set `.dark` from the OS when following the system.
+  - **(3) Shadow tokens.** Only `--glass-shadow-resting` is documented today. The wave makes each one public or private, listed in the tokens README. At the repin, re-check whether daraksha needs any softening at all.
