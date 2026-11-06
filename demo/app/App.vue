@@ -176,6 +176,7 @@
                             :max="PANE_CACHE_MAX[region.role]"
                             appear
                             :on-appeared="slotReports(region.role).onAppeared"
+                            :flip="flip"
                         />
                     </ErrorBoundary>
                 </div>
@@ -222,6 +223,7 @@ import {
     defineAsyncComponent,
     hydrateOnIdle,
     hydrateOnInteraction,
+    nextTick,
     onMounted,
     provide,
     ref,
@@ -255,6 +257,7 @@ import {
 import { useColorPipeline } from "../color-session/useColorPipeline";
 import { usePaneRouter, PANE_CACHE_MAX, preloadPane } from "../shell/usePaneRouter";
 import { useSceneTargets } from "../shell/useSceneTargets";
+import { flipRegions } from "../shell/flipRegions";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
 import { useClipboard } from "@mkbabb/glass-ui/dom";
 import { Toaster } from "@mkbabb/glass-ui/toast";
@@ -406,6 +409,10 @@ const model = shallowRef<ColorModel>(hydration.model);
 //     corner AA under Chromium's backdrop-clip. Paint-only relative nudge. ---
 const paneContainer = useTemplateRef<HTMLDivElement>("paneContainer");
 useDevicePixelSnap(paneContainer);
+// G3 (DESIGN.md §5.7) — every commit that can move a region runs through ONE
+// flip: a slot's pane commit (PaneSlot's `flip`) and the scene's region set
+// changing (below). Stable, so a pre-hydration render never patches a slot.
+const flip = (apply: () => unknown) => flipRegions(paneContainer.value, apply);
 
 // --- Color model — the ONE pipeline (S.W2 · W2-1) ---
 // One composable owns the model + one derivation set + storage + the token sink.
@@ -522,6 +529,14 @@ watch(
         for (const role of Object.keys(shownPane.value) as RegionRole[])
             if (!roles.includes(role)) delete shownPane.value[role];
     },
+);
+
+// A region joining or leaving the scene re-lays the row: read First before
+// this flush patches it, play once it has.
+watch(
+    () => regions.value.map((region) => region.role).join(),
+    () => void flip(() => nextTick()),
+    { flush: "pre" },
 );
 
 // --- The route's voice (gates A5 / A7) ---

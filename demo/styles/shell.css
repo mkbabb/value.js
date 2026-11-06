@@ -691,8 +691,11 @@
  * verify-at-cut). This whole block dies the day that lands — never a demo
  * fork of the ladder, a booked-swap interim. */
 @supports selector(:has(*)) {
+    /* The carrier's seat needs a POSITIONED box, not `relative` itself: a
+     * leaving card is `absolute` in the deck (animations.css, DESIGN §5.7),
+     * which anchors the carrier as well, so the seat never pins it in flow. */
     .pane-wrapper:has(> .glass-resting),
-    .pane-wrapper:not(:has(> .glass-resting)) > div:has(> .glass-resting) {
+    .pane-wrapper:not(:has(> .glass-resting)) > div:has(> .glass-resting):not(.vj-enter-leave-active) {
         position: relative;
     }
 

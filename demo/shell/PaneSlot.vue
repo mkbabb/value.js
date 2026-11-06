@@ -32,42 +32,36 @@
 // measured 1275 ms window (fold W5F-02). Reporting the key with the instance
 // makes that cross-wiring unrepresentable.
 //
-// ── TRANSITION MODE — `out-in`, and why (fold W5F-04/W5F-05/W5F-07; X.W5.d2) ─
+// ── THE STACKED DECK — default mode, and why (owner order 2026-11-05;
+//    demo/DESIGN.md §5.7, the transition grammar) ────────────────────────
 //
-// The <Transition> below runs `mode="out-in"`: the leaving pane fades out
-// (`--duration-fast`, opacity-led, a 1.5rem drift), THEN the incoming pane
-// mounts and settles in (`--spring-panel`). OD19-V7 (owner docket 2026-10-19,
-// "the card or pane transition animations is very janky and slow") kept this
-// contract (ESC-W5t-2) and cut the role travel from an off-canvas ±110% +
-// ±2deg exit to that drift (`animations.css`), so the serialised leave is a
-// short fade, not a full-viewport departure. With the intent and idle warms
-// (`usePaneRouter`'s `preloadView` / `warmLazyPanes`) the incoming chunk has
-// already landed, so the commit below no longer holds on a cold chunk.
-// Measured on this file by the out-in co-mount re-probe
-// (`docs/tranches/V/megatranche/workflows/gates/out-in-reprobe.mjs`, RESULTS
-// under `docs/tranches/X/waves/W5/triumvirate/`):
-//   · The default (simultaneous) mode held TWO in-flow panes in one ordinary
-//     box for the whole overlap — the region's block size was the SUM of the
-//     two (7974 px = 7459 + 515 on a `/` → `/gradient` hop at 1440), and with
-//     the block axis uncapped (X.W5.b) the layout moved for the overlap. That
-//     was W5F-04. `out-in` holds one pane at a time: 0/5 co-mounted hops,
-//     0/5 stranded, on the built bundle and at +1000 ms RTT.
-//   · Under the DEV runtime `out-in` stranded the slot 5/5 while the Picker's
-//     template carried a root-level comment beside its root element: Vue's
-//     dev compiler keeps comments, the subtree became a dev-root fragment,
-//     `setTransitionHooks` stamped out-in's `afterLeave` continuation on the
-//     fragment instead of the leaving element, and the incoming pane never
-//     mounted. The comment now sits INSIDE the root element
-//     (`demo/picker/ColorPicker.vue`), and the re-probe's dev arm is this
-//     class's regression gate. A pane root must be ONE element with no
-//     sibling comment — every pane in `usePaneRouter`'s table is.
-//   · The mode, the rAF mirror below and the per-pane loading/error plates
-//     moved TOGETHER (the D-1 coupled-architecture lock): under `out-in` the
-//     region is EMPTY while an incoming chunk is in flight, and that empty
-//     frame has an honest occupant — `PaneLoadingPlate`, after
-//     `usePaneRouter`'s load delay — and a failed chunk its reload plate
-//     (`PaneErrorPlate`), which the region's boundary does not latch over
-//     (fold W5F-07 ≡ EB-4, CURE-LOCKed to EB-2 / W5F-53).
+// The <Transition> below runs the DEFAULT mode: the leaving card and the
+// rising card are co-mounted for one gesture, a stacked card swap. The
+// leaving card is taken OUT OF FLOW (`animations.css`: absolute in the
+// wrapper, inert, under or over the riser by direction), so the region is
+// sized by the riser alone from the commit frame. That is what retired
+// `out-in` (X.W5.d2 → OD19-V7, quoted in DESIGN.md §5.7): the serialised
+// leave held the region EMPTY between the two panes and faded both, and the
+// default mode it replaced had held TWO in-flow panes in one box (the region
+// the SUM of the two, 7974 px = 7459 + 515 on `/` → `/gradient` at 1440,
+// fold W5F-04). Out of flow, neither can happen: the region's block size is
+// never 0 and never a sum (the U1 falsifier, per rAF).
+//   · The D-1 coupled-architecture lock, rewritten to this contract: the rAF
+//     mirror below and the per-pane loading/error plates still move together.
+//     A plate is a leaver like any pane, so a plate → pane hop is the same
+//     out-of-flow co-mount; the region is never empty while a chunk is in
+//     flight, because the plate stays until the pane rises over it.
+//     `PaneLoadingPlate` (after `usePaneRouter`'s load delay) and
+//     `PaneErrorPlate` keep their EB-2 / W5F-53 cure-lock: the region's
+//     boundary does not latch over a failed chunk's plate.
+//   · The dev-root-fragment rule stands: a pane root must be ONE element with
+//     no sibling comment (Vue's dev compiler keeps comments, and a fragment
+//     root loses its transition hooks). Every pane in `usePaneRouter`'s table
+//     is; the out-in re-probe's dev arm
+//     (`docs/tranches/V/megatranche/workflows/gates/out-in-reprobe.mjs`) is
+//     the stranding sentinel for both modes.
+//   · Each commit runs through `flip` (`flipRegions`, App.vue): the regions
+//     whose box the swap moved settle with the card.
 //   · Appear hooks run only while the <Transition> is not yet mounted, so
 //     `@after-appear` can never fire for an async chunk that resolves later.
 //     Settlement is therefore ALSO state-checked (gate A2's b3 arm), never
@@ -101,6 +95,7 @@ const {
     onMount,
     appear = false,
     onAppeared,
+    flip = (apply: () => void) => apply(),
 } = defineProps<{
     /** The resolved async component for this slot. */
     component: Component | null;
@@ -130,6 +125,8 @@ const {
     /** The plate-land completion report. `null` when the settled pane's root is
      *  not a single element (a fragment root reports settlement without one). */
     onAppeared?: (el: Element | null) => void;
+    /** Runs a commit so the scene's regions can settle with it (`flipRegions`). */
+    flip?: (apply: () => void) => unknown;
 }>();
 
 // X.W11.p4c (COHESION §0go.2(a), ESC-W11p4b-1) — THE FIRST DOCUMENT LOAD PAINTS
@@ -156,12 +153,9 @@ const appearGrammar = import.meta.env.SSR
 
 // W3-4 (S.W3 · pane-swap payload): the rendered triplet TRAILS the incoming
 // props by one animation frame on a KEY change (a real pane swap), so the
-// click frame paints nothing but the input's own feedback. X.W5.d2 (P-2, kept
-// by decision, not by reflex): under `out-in` the incoming pane's synchronous
-// mount (the P1 long task, perf-transitions P1-1) is already deferred behind
-// the leave, so the mirror's remaining work is the one it always also did:
-// rapid A→B→C swaps COALESCE into one leave and one mount (only the latest
-// pane is committed), instead of queueing a leave per intermediate key.
+// click frame paints nothing but the input's own feedback, and rapid A→B→C
+// swaps COALESCE into one leave and one mount (only the latest pane is
+// committed), instead of queueing a leave per intermediate key.
 // Same-key prop updates flow through LIVE (the active pane never lags its
 // colour). The initial render and any swap with no enter animation commit
 // immediately (no blank frame).
@@ -174,7 +168,7 @@ const liveProps = shallowRef(componentProps);
 // `<pane>:plate`, never cached — `PANE_PLATE_PHASE` is the KeepAlive
 // `exclude`) until `usePaneRouter`'s loader publishes the resolved pane, then
 // as the pane itself (key `<pane>`, cached as before). The key change is a real
-// swap to `out-in`: the plate leaves, THEN the pane mounts and enters. The one
+// swap: the plate leaves out of flow while the pane rises over it. The one
 // thing that could never be allowed again is the old shape — the plate and the
 // pane as two roots of ONE child under ONE key — because Vue's enter guard
 // (`leavingVNodesCache[key] === vnode`) drops the pane's enter there. Only the
@@ -199,7 +193,7 @@ function schedule(key: string) {
         commit(key);
         return;
     }
-    raf = requestAnimationFrame(() => commit(key));
+    raf = requestAnimationFrame(() => void flip(() => commit(key)));
 }
 
 // X.W12.b (OA-25 — one enter per region): a swap to a lazy pane whose chunk
@@ -207,8 +201,8 @@ function schedule(key: string) {
 // chunk loads (`preloadPane`). Inside that window the swap commits straight
 // to the resolved pane — one leave, one enter, the region travels once.
 // Only a chunk slower than the window commits the plate phase, which then
-// shows its plate exactly as X.W5.d4 keyed it (`(pane, resolved)`, out-in:
-// plate-leave THEN pane-enter), so the cold-navigation cure stands whole.
+// shows its plate exactly as X.W5.d4 keyed it (`(pane, resolved)`: the plate
+// leaves as the pane rises), so the cold-navigation cure stands whole.
 watch(
     () => componentKey,
     (key) => {
@@ -354,7 +348,6 @@ onBeforeUnmount(() => {
     <Transition
         v-if="arrived"
         :name="transitionName"
-        mode="out-in"
         v-bind="appearGrammar"
         @before-enter="showEntering"
         @before-leave="hideLeaving"
