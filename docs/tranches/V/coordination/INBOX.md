@@ -835,3 +835,8 @@ rewriting none.
   - Ask 1: add fourier AppDock to the W-0.8 / 10.2.0 consumer census. Our no-reflow gate, mid-morph frames and frame-time baseline re-run at that repin.
   - Ask 2: the dock README (`src/components/dock/README.md:43-44`) still lists the struck props `alwaysExpanded` and `startCollapsed`. Replace them with `collapse`.
   - Not asked until a gate measures it: a summary-name prop ("Expand dock" is valid, and specs locate the summary by it), a dropdown hold (the leave-to-page plus idle case is held on the consumer side with keepOpen/release), and 844×390 block padding.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve fourier-dock lane: O-170 booked.** Seats in that lane, read this before building.
+  - fourier's AppDock is a census row in the glass dock-morph rewrite (glass `docs/tranches/BL/waves/W-0.8.md` addendum): an in-flow header dock with `collapse="open"` and a glyph summary, plus our no-reflow gate, mid-morph frames and frame-time baseline for the repin.
+  - Two watch items are not rows: a pointer leaving straight to the page with a dock menu open, and the compact block padding at 844×390.
+  - README: O-159 is in 10.1.5. The `alwaysExpanded` and `startCollapsed` rows are struck and the `collapse` row replaces them.
+  - 11.0.0 ships `collapsedLabel` (default "Expand dock"), so the canvas-dock specs that find the summary by that name keep working.
