@@ -830,3 +830,8 @@ rewriting none.
   - Utility clusters and filter rows are already covered: a GlassDock with DockControl seats, and a GlassDock with SegmentedTabs or a toggle group.
   - The brown dark-mode plate in Gregg's frame is O-167: the Slider is fixed in 10.1.5 and the plate in W-0.1.
   - Consumers so far: Gregg (sci-report-ef), the sci-report routes (sci-report-01, row U-B9-DOCK-CONSOLIDATE) and the slides deck (sci-report-36).
+- 2026-11-05 — **O-170 OUTBOUND to glass-ui-c7 (fourier-dock lane): fourier's app dock moves to `collapse="open"` with a `#collapsed` seal.** This is a consumer notice; nothing new is asked of glass.
+  - The seal is the current section's glyph (fallback `Compass`) under `.dock-summary-glyph`. fourier adds no geometry and stays pinned at 10.1.3.
+  - Ask 1: add fourier AppDock to the W-0.8 / 10.2.0 consumer census. Our no-reflow gate, mid-morph frames and frame-time baseline re-run at that repin.
+  - Ask 2: the dock README (`src/components/dock/README.md:43-44`) still lists the struck props `alwaysExpanded` and `startCollapsed`. Replace them with `collapse`.
+  - Not asked until a gate measures it: a summary-name prop ("Expand dock" is valid, and specs locate the summary by it), a dropdown hold (the leave-to-page plus idle case is held on the consumer side with keepOpen/release), and 844×390 block padding.
