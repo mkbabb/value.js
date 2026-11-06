@@ -1,0 +1,33 @@
+{"tag":"before-r2","verdict":{"d24":false,"mixLand":false,"field":false}}
+browse 360 dark 360  [["Daraksha Gradient",183,157,"","gap0","chev",93,"20.352px"],["Audit Test Palette",171,157,"","gap0","chev",93,"20.352px"],["Lavender Dreams",171,157,"","gap0","chev",93,"20.352px"],["Neon Cyberpunk",163,120,"badge29","gap0","chev",93,"20.352px"]]
+browse 360 light 360  [["Daraksha Gradient",183,157,"","gap0","chev",93,"20.352px"],["Audit Test Palette",171,157,"","gap0","chev",93,"20.352px"],["Lavender Dreams",171,157,"","gap0","chev",93,"20.352px"],["Neon Cyberpunk",163,120,"badge29","gap0","chev",93,"20.352px"]]
+browse 375 dark 375  [["Daraksha Gradient",183,172,"","gap0","chev",93,"20.352px"],["Audit Test Palette",171,171,"","gap1.6","chev",93,"20.352px"],["Lavender Dreams",171,171,"","gap1.5","chev",93,"20.352px"],["Neon Cyberpunk",163,135,"badge29","gap0","chev",93,"20.352px"]]
+browse 375 light 375  [["Daraksha Gradient",183,172,"","gap0","chev",93,"20.352px"],["Audit Test Palette",171,171,"","gap1.6","chev",93,"20.352px"],["Lavender Dreams",171,171,"","gap1.5","chev",93,"20.352px"],["Neon Cyberpunk",163,135,"badge29","gap0","chev",93,"20.352px"]]
+browse 390 dark 390  [["Daraksha Gradient",183,183,"","gap3.7","chev",93,"20.352px"],["Neon Cyberpunk",163,150,"badge29","gap0","chev",93,"20.352px"]]
+browse 390 light 390  [["Daraksha Gradient",183,183,"","gap3.7","chev",93,"20.352px"],["Neon Cyberpunk",163,150,"badge29","gap0","chev",93,"20.352px"]]
+browse 430 dark 430  [["Neon Cyberpunk",163,163,"badge29","gap27","chev",93,"20.352px"]]
+browse 430 light 430  [["Neon Cyberpunk",163,163,"badge29","gap27","chev",93,"20.352px"]]
+land 667 375 / dark {"st":83,"sb":370,"it":386,"sc":[154,328],"seen":true,"sp":2.058,"docW":667,"ok":true}
+land 667 375 / light {"st":83,"sb":370,"it":386,"sc":[154,328],"seen":true,"sp":2.058,"docW":667,"ok":true}
+land 667 375 /mix dark {"st":386,"sb":673,"it":83,"sc":[457,631],"seen":false,"sp":2.058,"docW":667,"ok":false}
+land 667 375 /mix light {"st":386,"sb":673,"it":83,"sc":[457,631],"seen":false,"sp":2.058,"docW":667,"ok":false}
+land 740 360 / dark {"st":82,"sb":354,"it":370,"sc":[138,312],"seen":true,"sp":2.058,"docW":740,"ok":true}
+land 740 360 / light {"st":82,"sb":354,"it":370,"sc":[138,312],"seen":true,"sp":2.058,"docW":740,"ok":true}
+land 740 360 /mix dark {"st":370,"sb":642,"it":82,"sc":[426,600],"seen":false,"sp":2.058,"docW":740,"ok":false}
+land 740 360 /mix light {"st":370,"sb":642,"it":82,"sc":[426,600],"seen":false,"sp":2.058,"docW":740,"ok":false}
+land 844 390 / dark {"st":83,"sb":385,"it":83,"sc":[182,347],"seen":true,"sp":2.058,"docW":844,"ok":true}
+land 844 390 / light {"st":83,"sb":385,"it":83,"sc":[182,347],"seen":true,"sp":2.058,"docW":844,"ok":true}
+land 844 390 /mix dark {"st":83,"sb":385,"it":83,"sc":[182,347],"seen":true,"sp":2.058,"docW":844,"ok":true}
+land 844 390 /mix light {"st":83,"sb":385,"it":83,"sc":[182,347],"seen":true,"sp":2.058,"docW":844,"ok":true}
+land 932 430 / dark {"st":83,"sb":425,"it":83,"sc":[222,388],"seen":true,"sp":2.058,"docW":932,"ok":true}
+land 932 430 / light {"st":83,"sb":425,"it":83,"sc":[222,388],"seen":true,"sp":2.058,"docW":932,"ok":true}
+land 932 430 /mix dark {"st":83,"sb":425,"it":83,"sc":[222,388],"seen":true,"sp":2.058,"docW":932,"ok":true}
+land 932 430 /mix light {"st":83,"sb":425,"it":83,"sc":[222,388],"seen":true,"sp":2.058,"docW":932,"ok":true}
+field 390 dark {"typed":"zzqq-not-a-colour","focused":true,"badge":true,"sw":179,"cw":94,"sl":81,"to":"ellipsis","last":true,"inkFrac":0.08,"after":{"text":"efflorescence","sl":47},"ok":false}
+field 390 dark {"typed":"oklch(70% 0.1 nonsense)","focused":true,"badge":true,"sw":237,"cw":94,"sl":138,"to":"ellipsis","last":false,"inkFrac":0.05,"after":{"text":"efflorescence","sl":47},"ok":false}
+field 390 light {"typed":"zzqq-not-a-colour","focused":true,"badge":true,"sw":179,"cw":94,"sl":81,"to":"ellipsis","last":true,"inkFrac":0.08,"after":{"text":"efflorescence","sl":47},"ok":false}
+field 390 light {"typed":"oklch(70% 0.1 nonsense)","focused":true,"badge":true,"sw":237,"cw":94,"sl":138,"to":"ellipsis","last":false,"inkFrac":0.05,"after":{"text":"efflorescence","sl":47},"ok":false}
+field 360 dark {"typed":"zzqq-not-a-colour","focused":true,"badge":true,"sw":179,"cw":82,"sl":93,"to":"ellipsis","last":true,"inkFrac":0.05,"after":{"text":"efflorescence","sl":59},"ok":false}
+field 360 dark {"typed":"oklch(70% 0.1 nonsense)","focused":true,"badge":true,"sw":237,"cw":82,"sl":150,"to":"ellipsis","last":false,"inkFrac":0.05,"after":{"text":"efflorescence","sl":59},"ok":false}
+field 1440 dark {"typed":"zzqq-not-a-colour","focused":true,"badge":true,"sw":206,"cw":180,"sl":21,"to":"ellipsis","last":false,"inkFrac":0.81,"after":{"text":"efflorescence","sl":0},"ok":false}
+field 1440 dark {"typed":"oklch(70% 0.1 nonsense)","focused":true,"badge":true,"sw":273,"cw":180,"sl":88,"to":"ellipsis","last":false,"inkFrac":0.44,"after":{"text":"efflorescence","sl":0},"ok":false}
