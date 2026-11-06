@@ -12,6 +12,7 @@ import {
     resolveHostOrigin,
 } from "../../app/embed/bridge";
 import { parsePalette, parseSliceRoute, parseStops } from "../../app/embed/params";
+import { balancedColumns } from "../../app/embed/balance";
 
 interface FakeWin {
     win: Window;
@@ -128,5 +129,26 @@ describe("route", () => {
         const route = parseSliceRoute("#/blob?scheme=sepia");
         expect(route.slice).toBeNull();
         expect(route.scheme).toBeNull();
+    });
+});
+
+describe("swatch balance", () => {
+    it("shares the swatches evenly between as few rows as fit: eight that fit seven to a row sit four and four", () => {
+        // 40 px swatches, 8 px gaps: 7 fit in 328 px.
+        expect(balancedColumns(8, 328, 40, 8)).toBe(4);
+        expect(balancedColumns(8, 400, 40, 8)).toBe(8);
+        expect(balancedColumns(7, 328, 40, 8)).toBe(7);
+        expect(balancedColumns(9, 328, 40, 8)).toBe(5);
+        expect(balancedColumns(5, 100, 40, 8)).toBe(2);
+    });
+    it("never orphans one swatch when four or more take two rows", () => {
+        for (let n = 4; n <= 16; n++)
+            for (let w = 40; w <= 800; w += 13) {
+                const fit = Math.floor((w + 8) / 48);
+                if (n <= fit || n > 2 * fit) continue;
+                const cols = balancedColumns(n, w, 40, 8);
+                const last = n % cols || cols;
+                if (n > cols) expect(last, `n=${n} w=${w}`).toBeGreaterThan(1);
+            }
     });
 });

@@ -94,6 +94,23 @@ describe("Z3 · GradientStopEditor REFUTED rows stay cured", () => {
         w.unmount();
     });
 
+    it("handles are ARIA sliders: no aria-selected; the selected stop says so in its value text", async () => {
+        const w = mountRail();
+        const handles = w.findAll('[role="slider"]');
+        for (const s of handles) {
+            expect(s.attributes("aria-selected")).toBeUndefined();
+            for (const a of ["aria-valuemin", "aria-valuemax", "aria-valuenow", "aria-valuetext"]) expect(s.attributes(a), a).toBeDefined();
+            expect(s.attributes("aria-valuetext")).not.toMatch(/selected/);
+        }
+        const id = handles[1]!.attributes("data-stop-id")!;
+        await w.setProps({ selectedId: id });
+        const after = w.findAll('[role="slider"]');
+        expect(after[1]!.attributes("aria-valuetext")).toMatch(/, selected$/);
+        expect(after[0]!.attributes("aria-valuetext")).not.toMatch(/selected/);
+        expect(after.every((s) => s.attributes("aria-selected") === undefined)).toBe(true);
+        w.unmount();
+    });
+
     it("-16/-17: at the floor Remove is disabled with its reason; position entry is numeric", () => {
         const stop = { id: "a", cssColor: "red", position: 50, easing: undefined as never };
         const w = mount(GradientStopInspector, {
