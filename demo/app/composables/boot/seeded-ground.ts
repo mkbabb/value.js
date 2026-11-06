@@ -7,7 +7,7 @@
  * palette, in both schemes (§0hk OD-12: the former dark ground derive —
  * `deriveAurora(seed, { scheme: "dark" })` — was the second half of the
  * owner's flat crimson, and is gone; ONE derive paints field and ground,
- * banded by scheme only through `fieldAtomsFor`, §0hn arm B).
+ * banded by scheme only through `fieldAtomsFor`'s ceiling).
  * This module is that derive and nothing else — no Vue, no DOM, no storage —
  * so TWO callers run the SAME function:
  *
@@ -38,28 +38,24 @@ import { normalizeGroundStops } from "./ground";
 export type GroundPalette = ReturnType<typeof deriveAurora>;
 
 /**
- * §0hn arm B — whether DARK takes OD-12's seed-faithful band (light always
- * does). Dark is HELD on glass O-130: over a field as light as the seed, glass
- * 10.1.3's dark resting rung (veil oklch(0.17 0.03 70) at α 0.18) leaves the
- * plate at L 0.30–0.83 and no light ink clears 4.5:1 (ss8-b09). Glass books
- * the cure as the 10.2.0 W-0.1 plate L-floor law; on that cut, flip this to
- * true and unwrap the O-130 expected-fail in `aurora-seed-fidelity.test.ts`.
+ * The dark field's lightness ceiling. Glass's dark resting plate (veil
+ * oklch(0.17 0.03 70) at α 0.18) over a field stop above L ≈ 0.59 leaves no
+ * light ink at 4.5:1 on the worst seed (ss8-b09's grid); 0.55 clears every
+ * cell of that grid. Glass W-0.1 (the plate L-floor) lifts it to 0.98, the
+ * light ceiling, and the dark field is then the light one.
  */
-export const DARK_FIELD_SEED_FAITHFUL: boolean = false;
+export const DARK_FIELD_CEILING = 0.55;
 
 /**
- * The field's atoms, one derive with a scheme branch. Light (and dark, once
- * `DARK_FIELD_SEED_FAITHFUL`) takes the SEED-ANCHORED band through the
- * shipped `lBand` door (`seedAnchoredLBand`, §0hk OD-12: the dominant stop on
- * the chosen colour); held dark takes the producer's dark band through the same atoms door
- * (`lightnessScheme: "dark"`, L 0.18–0.42, X.W6.i). The atoms stay the tuning
- * surface: an explicit `lightnessScheme` or `lBand` authored in AuroraPane
- * WINS.
+ * The field's atoms: the SEED-ANCHORED band through the shipped `lBand` door
+ * (`seedAnchoredLBand`, §0hk OD-12: the dominant stop on the chosen colour),
+ * under the 0.98 ceiling in light and `DARK_FIELD_CEILING` in dark. The atoms
+ * stay the tuning surface: an explicit `lightnessScheme` or `lBand` authored
+ * in AuroraPane WINS.
  */
 export function fieldAtomsFor(atoms: AuroraAtoms, dark: boolean): AuroraAtoms {
     if (atoms.lightnessScheme !== undefined || atoms.lBand !== undefined) return atoms;
-    if (dark && !DARK_FIELD_SEED_FAITHFUL) return { ...atoms, lightnessScheme: "dark" };
-    const lBand = seedAnchoredLBand(atoms.seed);
+    const lBand = seedAnchoredLBand(atoms.seed, dark ? DARK_FIELD_CEILING : 0.98);
     return lBand ? { ...atoms, lBand } : atoms;
 }
 

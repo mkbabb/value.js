@@ -190,7 +190,7 @@ describe("O-14 · auroraHarmonyStops ≡ the FIELD resolve (strict; AP-5 / SS8-0
     it("every seed × harmony strip is the field palette selecting it paints", () => {
         let diverged = 0;
         let cells = 0;
-        // §0hn arm B: the field is banded by scheme, so the strip is held to
+        // The field is banded by scheme (its ceiling), so the strip is held to
         // the field the ACTIVE scheme paints, in both schemes.
         const cases = [false, true].flatMap((dark) => seeds.map((seed) => [dark, seed] as const));
         for (const [dark, seed] of cases) {

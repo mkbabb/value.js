@@ -62,7 +62,7 @@ export const GROUND_STORE_KEY = "color-picker-ground";
  *  the first-visit constants — never a wrong-material paint). A bump propagates
  *  into the pre-module boot guard automatically via `injectGroundTokens`
  *  (U-F23): the boot read no longer carries a hand-typed twin to strand. */
-export const GROUND_RECORD_VERSION = 3; // §0hn arm B: dark ground = the held dark-band field (v2 = the seed-faithful dark ground; v1 = the raw dark derive)
+export const GROUND_RECORD_VERSION = 4; // dark ground = the seed-anchored field under DARK_FIELD_CEILING (v3 = the held dark-band field; v2 = the seed-faithful dark ground; v1 = the raw dark derive)
 
 /** The fixed template's stop count — the template never changes shape. */
 export const GROUND_STOP_COUNT = 4;
@@ -79,9 +79,8 @@ export interface GroundRecord {
  * THE FIRST-VISIT CONSTANT PAIR — the DEFAULT seed's derived gradient, one
  * member per scheme. Since §0hk OD-12 the ground is the field's own resolved
  * palette (one derive; the former dark member — the producer's raw dark band,
- * #673255… — is gone). §0hn arm B holds the DARK field on the producer's dark
- * band (glass O-130; `seeded-ground.ts`'s `DARK_FIELD_SEED_FAITHFUL`), so the
- * dark member is that held field's palette and light is the seed-faithful one.
+ * #673255… — is gone). Both members are the seed-anchored field: light under
+ * the 0.98 ceiling, dark under `seeded-ground.ts`'s `DARK_FIELD_CEILING`.
  * The scheme-in-record fouc-guard reads them per scheme.
  *
  * Generated from the LIVE first-visit sink write (`seededGroundStops` for the
@@ -94,7 +93,7 @@ export interface GroundRecord {
  */
 export const FIRST_VISIT_GROUND: Record<GroundScheme, readonly string[]> = {
     light: ["#df77c2", "#ff83b9", "#ffa6b4", "#ffc3bd"],
-    dark: ["#25001d", "#470027", "#6c0028", "#90131b"],
+    dark: ["#760f60", "#97025a", "#b01c4b", "#bc423f"],
 };
 
 /** Normalize a derived palette to the template's fixed stop count (the
