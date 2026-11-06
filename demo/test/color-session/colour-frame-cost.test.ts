@@ -39,6 +39,11 @@ import {
 } from "../../color-session/palettes-ramp";
 import { resolveSurfaceLightnessLive } from "../../color-session/useContrastSafeColor";
 import { resolveViewAccent } from "../../color-session/view-accent";
+import {
+    certifyInkOnFill,
+    contrastInkFor,
+    GRAPHICS_CONTRAST_FLOOR,
+} from "../../color-session/ink";
 import { useViewAccents } from "../../app/composables/boot/useViewAccents";
 
 const rootStyle = () => document.documentElement.style;
@@ -186,6 +191,89 @@ describe("OD19-V3 — one colour frame certifies each question once", () => {
                 real(pick.value, floatingL),
             ]);
         }
+        scope.stop();
+    });
+});
+
+/**
+ * o1105 U2 — the modal accent pair and the seal's gold leave the drag clock.
+ * Neither is on screen during a picker drag (the modal is closed; the gold
+ * glyph is the admin seal's), yet each is a WCAG walk per colour frame. They
+ * mint with the ramps once the input settles, and at once on the first run, a
+ * view change or a scheme flip. `--accent-view` and `--seal-ink` keep the
+ * frame clock. Settled tokens are byte-equal to a direct mint.
+ */
+describe("o1105 U2 — the off-screen accents settle with the ramps", () => {
+    beforeEach(() => vi.useFakeTimers());
+    afterEach(() => {
+        vi.useRealTimers();
+        isDark.value = true;
+    });
+
+    const OFF_SCREEN = ["--ink-modal-accent", "--ink-modal-accent-fg", "--seal-ink-gold"];
+    const offScreen = () => OFF_SCREEN.map(token);
+
+    function mount() {
+        const accent = ref("oklch(0.7 0.15 30)");
+        const shift = ref(0);
+        const ambient = ref(0.5);
+        const scope = effectScope();
+        scope.run(() =>
+            useViewAccents({
+                cssColorOpaque: computed(() => accent.value),
+                safeAccentCss: computed(() => accent.value),
+                currentConfig: computed(() => ({ accentHueShift: shift.value }) as never),
+                derivedLightness: computed(() => ambient.value),
+            }),
+        );
+        return { accent, shift, ambient, scope };
+    }
+
+    /** What a per-frame mint writes for the off-screen tokens. */
+    const direct = (css: string, ambient: number, shift = 0) => {
+        const modalL = resolveSurfaceLightnessLive("modal", ambient, isDark.value);
+        const modal = certifyAccentInk(resolveViewAccent(css, shift, modalL) ?? css, modalL);
+        const gold = certifyInkOnFill(goldIdentityCss(isDark.value), css, GRAPHICS_CONTRAST_FLOOR);
+        return [modal, contrastInkFor(modal) ?? "", gold ?? ""];
+    };
+
+    it("a drag holds the modal pair and the gold until the input settles, while --accent-view and --seal-ink track every frame; the settled tokens are byte-equal to a direct mint", async () => {
+        const { accent, ambient, scope } = mount();
+        const first = offScreen();
+        expect(first).toEqual(direct(accent.value, ambient.value));
+        const writes = vi.spyOn(CSSStyleDeclaration.prototype, "setProperty");
+
+        let frames = 0;
+        for (let hue = 40; hue <= 200; hue += 8) {
+            accent.value = `oklch(0.7 0.15 ${hue})`;
+            ambient.value = 0.5 + hue / 2000;
+            await nextTick();
+            frames++;
+            const surfL = resolveSurfaceLightnessLive("resting", ambient.value, isDark.value);
+            expect(token("--accent-view")).toBe(resolveViewAccent(accent.value, 0, surfL));
+            expect(token("--seal-ink")).toBe(contrastInkFor(accent.value));
+            expect(offScreen()).toEqual(first);
+            vi.advanceTimersByTime(16);
+        }
+        // Per frame: --accent-view and --seal-ink, nothing else.
+        expect(writes.mock.calls.length).toBe(2 * frames);
+        writes.mockRestore();
+
+        vi.runAllTimers();
+        expect(offScreen()).toEqual(direct(accent.value, ambient.value));
+        scope.stop();
+    });
+
+    it("a view change and a scheme flip mint them at once", async () => {
+        const { accent, shift, ambient, scope } = mount();
+        accent.value = "oklch(0.6 0.2 250)";
+        await nextTick();
+        shift.value = 30;
+        await nextTick();
+        expect(offScreen()).toEqual(direct(accent.value, ambient.value, 30));
+        isDark.value = false;
+        await nextTick();
+        expect(offScreen()).toEqual(direct(accent.value, ambient.value, 30));
         scope.stop();
     });
 });

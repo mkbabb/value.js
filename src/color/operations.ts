@@ -306,25 +306,34 @@ export function safeAccentColor(
         if (!raw.ok) return raw;
         return mapColorToGamut(raw.value, options.gamut);
     };
-    const clears = (color: Color<"oklch">): Result<boolean, ColorIssue> => {
-        const rgb = convertColor(color, "rgb");
+    // A candidate's verdict, its painted bytes (`toRgba8`'s quantizer), and
+    // whether the byte arm alone refuses it: every colour that paints those
+    // bytes then refuses too, since the byte arm reads only the bytes.
+    type Probe = Readonly<{
+        color: Color<"oklch">;
+        clears: boolean;
+        bytes: readonly [number, number, number];
+        bytesRefuse: boolean;
+    }>;
+    const byte = (value: number) => roundHalfEven(Math.min(255, Math.max(0, value)));
+    const originL = Math.min(1, Math.max(0, sourceL));
+    const evaluate = (lightness: number): Result<Probe, ColorIssue> => {
+        const color = candidate(lightness);
+        if (!color.ok) return color;
+        const rgb = convertColor(color.value, "rgb");
         if (!rgb.ok) return rgb;
+        const channels = numericSource(rgb.value);
+        if (!channels.ok) return channels;
         const floatRatio = contrast(rgb.value, surfaceRgb.value, false);
         if (!floatRatio.ok) return floatRatio;
         const byteRatio = contrast(rgb.value, surfaceRgb.value, true);
-        return byteRatio.ok
-            ? ok(Math.min(floatRatio.value, byteRatio.value) >= options.minimumRatio)
-            : byteRatio;
-    };
-
-    const originL = Math.min(1, Math.max(0, sourceL));
-    const evaluate = (
-        lightness: number,
-    ): Result<Readonly<{ color: Color<"oklch">; clears: boolean }>, ColorIssue> => {
-        const color = candidate(lightness);
-        if (!color.ok) return color;
-        const result = clears(color.value);
-        return result.ok ? ok({ color: color.value, clears: result.value }) : result;
+        if (!byteRatio.ok) return byteRatio;
+        return ok({
+            color: color.value,
+            clears: Math.min(floatRatio.value, byteRatio.value) >= options.minimumRatio,
+            bytes: [byte(channels.value[0]!), byte(channels.value[1]!), byte(channels.value[2]!)],
+            bytesRefuse: byteRatio.value < options.minimumRatio,
+        });
     };
 
     const original = evaluate(originL);
@@ -339,40 +348,43 @@ export function safeAccentColor(
         return err({ code: "contrast_unreachable" });
     }
 
+    // The WCAG bisection from a clearing pole toward the pick (o1105 U1). A
+    // painted colour is its bytes, so the walk stops once further halvings
+    // cannot change the bytes its answer paints; 32 stays the hard cap. That
+    // holds when the passing and the failing end paint the same bytes, or when
+    // they paint neighbouring bytes (one channel, one step apart) and the
+    // failing end's own bytes refuse: every colour between paints one or the
+    // other, and only the passing end's can clear. The fixed-32 walk's bytes
+    // are the witness (test/safe-accent-byte-stop.test.ts).
+    const settled = (pass: Probe, fail: Probe): boolean => {
+        let steps = 0;
+        for (let i = 0; i < 3; i++) steps += Math.abs(pass.bytes[i]! - fail.bytes[i]!);
+        return steps === 0 || (steps === 1 && fail.bytesRefuse);
+    };
+    const walk = (passL: number, pass: Probe): Result<Color<"oklch">, ColorIssue> => {
+        let failL = originL;
+        let fail = original.value;
+        for (let i = 0; i < 32 && !settled(pass, fail); i++) {
+            const middle = (passL + failL) / 2;
+            const probe = evaluate(middle);
+            if (!probe.ok) return probe;
+            if (probe.value.clears) {
+                passL = middle;
+                pass = probe.value;
+            } else {
+                failL = middle;
+                fail = probe.value;
+            }
+        }
+        return ok(pass.color);
+    };
+
     const candidates: Color<"oklch">[] = [];
-    if (lower.value.clears) {
-        let pass = 0;
-        let fail = originL;
-        let best = lower.value.color;
-        for (let i = 0; i < 32; i++) {
-            const middle = (pass + fail) / 2;
-            const probe = evaluate(middle);
-            if (!probe.ok) return probe;
-            if (probe.value.clears) {
-                pass = middle;
-                best = probe.value.color;
-            } else {
-                fail = middle;
-            }
-        }
-        candidates.push(best);
-    }
-    if (upper.value.clears) {
-        let fail = originL;
-        let pass = 1;
-        let best = upper.value.color;
-        for (let i = 0; i < 32; i++) {
-            const middle = (fail + pass) / 2;
-            const probe = evaluate(middle);
-            if (!probe.ok) return probe;
-            if (probe.value.clears) {
-                pass = middle;
-                best = probe.value.color;
-            } else {
-                fail = middle;
-            }
-        }
-        candidates.push(best);
+    for (const [poleL, pole] of [[0, lower.value], [1, upper.value]] as const) {
+        if (!pole.clears) continue;
+        const best = walk(poleL, pole);
+        if (!best.ok) return best;
+        candidates.push(best.value);
     }
 
     candidates.sort((a, b) => {

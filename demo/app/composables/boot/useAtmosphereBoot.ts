@@ -48,7 +48,7 @@
  *      consistently for every present and future sampling surface.
  */
 
-import { computed, getCurrentScope, onScopeDispose, provide, ref, watch } from "vue";
+import { computed, getCurrentScope, provide, ref, watch } from "vue";
 import type { ComputedRef, Ref, ShallowRef } from "vue";
 
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
@@ -56,13 +56,9 @@ import { plateInkDeparts } from "../../../color-session/ink";
 import { INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import type { PaneConfig } from "../../../shell/useViewManager";
 import { useContrastSafeColor } from "../../../color-session/useContrastSafeColor";
+import { useSettle } from "../../../color-session/useAtmosphereFrameCoalesce";
 import { useViewAccents } from "./useViewAccents";
 import { useAtmosphere } from "./useAtmosphere";
-
-/** OD19 repair 2 (C2-V-01): the quiet interval after the last colour frame
- *  before the ink referent re-publishes (the same interval as the Palettes
- *  ramps' settle, `useViewAccents` RAMP_SETTLE_MS). */
-const INK_SETTLE_MS = 120;
 
 /** X.W11.p4c: the longest the first certification waits for an idle period
  *  after first paint (useOverture's B4 open uses the same bound). */
@@ -168,25 +164,14 @@ export function useAtmosphereBoot(
     // held ground.
     const heldLightness = ref(liveLightness.value);
     const heldPlateReferent = ref(livePlateReferent.value);
-    let inkSettle: ReturnType<typeof setTimeout> | undefined;
+    const settle = useSettle();
     const publishInkAmbient = () => {
-        inkSettle = undefined;
         heldLightness.value = liveLightness.value;
         heldPlateReferent.value = livePlateReferent.value;
     };
-    watch([liveLightness, livePlateReferent, atmosphereColor], ([l, p, colour], old) => {
-        if (!old || colour === old[2]) {
-            clearTimeout(inkSettle);
-            inkSettle = undefined;
-            heldLightness.value = l;
-            heldPlateReferent.value = p;
-            return;
-        }
-        if (inkSettle === undefined && l === heldLightness.value && p === heldPlateReferent.value) return;
-        clearTimeout(inkSettle);
-        inkSettle = setTimeout(publishInkAmbient, INK_SETTLE_MS);
+    watch([liveLightness, livePlateReferent, atmosphereColor], (_, old) => {
+        settle(publishInkAmbient, !old || atmosphereColor.value === old[2]);
     });
-    onScopeDispose(() => clearTimeout(inkSettle));
     const derivedLightness = computed(() => heldLightness.value);
     const plateReferent = computed(() => heldPlateReferent.value);
 

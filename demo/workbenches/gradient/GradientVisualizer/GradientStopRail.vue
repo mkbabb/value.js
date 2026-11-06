@@ -8,7 +8,7 @@
  * the ONE removal owner (its Delete key and the inspector's Remove both land in
  * `requestRemove`) and the seat's polite channel, and hands them to the slot.
  */
-import { ref, computed, watchEffect, useTemplateRef } from "vue";
+import { ref, computed, watch, watchEffect, useTemplateRef } from "vue";
 import { useElementSize } from "@vueuse/core";
 import { clamp, scale } from "@mkbabb/value.js/math";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
@@ -16,6 +16,7 @@ import type { PickerSpace } from "../../../color-session/picker-color";
 import type { GradientStop } from "../model/types";
 import { sampleAt } from "../model/sample";
 import { formatColorLiteral, railPosition } from "../composables/useGradientCSS";
+import { useFrameCoalesce } from "../../../color-session/useAtmosphereFrameCoalesce";
 
 const { stops, railRamp, interpolationSpace, hueMethod, canRemove } = defineProps<{
     stops: GradientStop[];
@@ -54,6 +55,8 @@ function rampColorAt(position: number): string {
 
 const emit = defineEmits<{
     "update:position": [id: string, position: number];
+    /** A pointer drag began (true) or ended (false). */
+    dragging: [live: boolean];
     add: [position: number];
     remove: [id: string];
 }>();
@@ -315,7 +318,8 @@ function onBarPointerDown(e: PointerEvent) {
 function onBarPointerMove(e: PointerEvent) {
     // A live handle drag owns every move, whole: the pointer is captured on the
     // RAIL for the gesture's life (see `onHandlePointerDown`), so its moves land
-    // here and are the drag's alone — one move, one position write (a8).
+    // here and are the drag's alone (a8); they write through `dragWrite`, one
+    // position write per frame.
     if (drag) {
         dragTo(e);
         return;
@@ -345,6 +349,7 @@ function onBarPointerUp(e: PointerEvent) {
  */
 function onBarPointerCancel() {
     pendingAdd = null;
+    dragWrite.cancel();
     drag = null;
     draggingId.value = null;
 }
@@ -402,10 +407,18 @@ function dragTo(e: PointerEvent) {
         if (!travelled) return; // the first write waits for the dead zone
         drag.moved = true;
     }
-    emit("update:position", drag.id, positionFromX(drag.axis, e.clientX - drag.grabDx));
+    dragWrite.push([drag.id, positionFromX(drag.axis, e.clientX - drag.grabDx)]);
 }
 
+/** o1105 U4: a drag writes once per frame, latest wins; release lands the pending
+ *  write (`endDrag`), a cancel drops it (§12). Keyboard steps write directly. */
+const dragWrite = useFrameCoalesce(([id, position]: [string, number]) => {
+    emit("update:position", id, position);
+});
+watch(draggingId, (id) => emit("dragging", id !== null));
+
 function endDrag() {
+    dragWrite.flush();
     // A press that never became a drag ON the already-selected handle is a
     // re-tap: it deselects without moving the stop (Escape's pointer twin).
     if (drag && drag.wasSelected && !drag.moved) selectedId.value = null;
@@ -479,6 +492,29 @@ function onPositionCommit(value: number | null | undefined) {
     moveStop(stop, value);
 }
 
+/** The axis keys' target, shared by a stop and the caret (§5.2); null for any other key. */
+function axisTarget(e: KeyboardEvent, position: number): number | null {
+    const step = e.shiftKey ? PAGE_STEP : STEP;
+    switch (e.key) {
+        case "ArrowLeft":
+        case "ArrowDown":
+            return position - step;
+        case "ArrowRight":
+        case "ArrowUp":
+            return position + step;
+        case "PageDown":
+            return position - PAGE_STEP;
+        case "PageUp":
+            return position + PAGE_STEP;
+        case "Home":
+            return 0;
+        case "End":
+            return 100;
+        default:
+            return null;
+    }
+}
+
 /**
  * The stop's keyboard grammar, in the VISUAL-CONSTITUTION §5.2 rows it answers:
  *
@@ -495,28 +531,7 @@ function onPositionCommit(value: number | null | undefined) {
  * (GRADSTOP-A §6).
  */
 function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
-    const step = e.shiftKey ? PAGE_STEP : STEP;
     switch (e.key) {
-        case "ArrowLeft":
-        case "ArrowDown":
-            moveStop(stop, stop.position - step);
-            break;
-        case "ArrowRight":
-        case "ArrowUp":
-            moveStop(stop, stop.position + step);
-            break;
-        case "PageDown":
-            moveStop(stop, stop.position - PAGE_STEP);
-            break;
-        case "PageUp":
-            moveStop(stop, stop.position + PAGE_STEP);
-            break;
-        case "Home":
-            moveStop(stop, 0);
-            break;
-        case "End":
-            moveStop(stop, 100);
-            break;
         case " ":
             if (isGrabbed(stop.id)) {
                 grabbed.value = null; // drop: the move stands where it is
@@ -541,8 +556,11 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
             }
             break;
         }
-        default:
-            return; // never swallow a key this grammar does not own
+        default: {
+            const target = axisTarget(e, stop.position);
+            if (target === null) return; // never swallow a key this grammar does not own
+            moveStop(stop, target);
+        }
     }
     e.preventDefault();
 }
@@ -554,34 +572,16 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
  * stays the single owner of a pointer press, wherever it lands.
  */
 function onCaretKeydown(e: KeyboardEvent) {
-    const step = e.shiftKey ? PAGE_STEP : STEP;
     switch (e.key) {
-        case "ArrowLeft":
-        case "ArrowDown":
-            caretPos.value = round1(caretPos.value - step);
-            break;
-        case "ArrowRight":
-        case "ArrowUp":
-            caretPos.value = round1(caretPos.value + step);
-            break;
-        case "PageDown":
-            caretPos.value = round1(caretPos.value - PAGE_STEP);
-            break;
-        case "PageUp":
-            caretPos.value = round1(caretPos.value + PAGE_STEP);
-            break;
-        case "Home":
-            caretPos.value = 0;
-            break;
-        case "End":
-            caretPos.value = 100;
-            break;
         case "Enter":
         case " ":
             emit("add", caretPos.value);
             break;
-        default:
-            return;
+        default: {
+            const target = axisTarget(e, caretPos.value);
+            if (target === null) return;
+            caretPos.value = round1(target);
+        }
     }
     e.preventDefault();
 }
