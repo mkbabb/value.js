@@ -591,8 +591,10 @@ test("keyboard grammar is total: an interior stop answers every key, a terminal 
         await expect(seat).toHaveAttribute("aria-valuenow", want);
     }
     // The ordinal rides the VALUE, so a move re-announces it (it used to ride
-    // the NAME alone, which is announced on focus and not on change).
-    await expect(seat).toHaveAttribute("aria-valuetext", "Stop 2 of 3, position 100%");
+    // the NAME alone, which is announced on focus and not on change). The
+    // moved seat is the selected stop, and a slider has no aria-selected, so
+    // the value speaks the selection too (cb5f34bb9).
+    await expect(seat).toHaveAttribute("aria-valuetext", "Stop 2 of 3, position 100%, selected");
 
     // The bound, honestly: the terminal answers the keys that have somewhere to go.
     const terminal = rail.locator("[data-stop-id]").first();

@@ -1,0 +1,70 @@
++ cd /Users/mkbabb/Programming/value.js/.worktrees/x0ht-vis2
++ export VJS_E2E_PORT=8190 VJS_E2E_PERF_PORT=8191
++ VJS_E2E_PORT=8190
++ VJS_E2E_PERF_PORT=8191
++ npm run build
+++ git rev-parse --short HEAD
++ echo '=== HEAD 1c1d1bbaf'
+=== HEAD 1c1d1bbaf
++ npx playwright test --project=visual --workers=1 --reporter=line -g zoom-200-desktop
++ grep -aE 'passed|failed|›.*zoom'
++ tail -12
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+[1A[2K[10/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-users
+[1A[2K[11/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-names
+[1A[2K[12/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-audit
+[1A[2K[13/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-flagged
+[1A[2K[14/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-tags
+[1A[2K[15/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › not-found
+[1A[2K  3 failed
+    [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › palettes 
+    [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › mix 
+    [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › blob 
+  12 passed (1.6m)
++ git revert --no-commit a5a0af8a5
++ echo '=== HEAD minus a5a0af8a5'
+=== HEAD minus a5a0af8a5
++ npx playwright test --project=visual --workers=1 --reporter=line -g zoom-200-desktop
++ grep -aE 'passed|failed|›.*zoom'
++ tail -12
+[1A[2K[5/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › mix
+[1A[2K[6/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › generate
+[1A[2K[7/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › gradient
+[1A[2K[8/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › atmosphere
+[1A[2K[9/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › blob
+[1A[2K[10/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-users
+[1A[2K[11/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-names
+[1A[2K[12/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-audit
+[1A[2K[13/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-flagged
+[1A[2K[14/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-tags
+[1A[2K[15/15] [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › not-found
+[1A[2K  15 passed (1.3m)
++ git revert --abort
++ git status --short
++ head
++ echo '=== mint'
+=== mint
++ node scripts/visual/regenerate-goldens.mjs --accept -g zoom-200-desktop
++ tail -15
+/Users/mkbabb/Programming/value.js/.worktrees/x0ht-vis2/e2e/visual/goldens/darwin/zoom-200-desktop-blob-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png is re-generated, writing actual.
+  ✓   9 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › blob (6.2s)
+  ✓  10 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-users (3.6s)
+  ✓  11 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-names (3.8s)
+  ✓  12 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-audit (3.7s)
+  ✓  13 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-flagged (3.6s)
+  ✓  14 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admin-tags (3.5s)
+  ✓  15 [visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › not-found (3.3s)
+
+  15 passed (1.3m)
+
+  goldens : 211 (109.6 MiB) — all tracked by git
+  manifest: docs/tranches/X/evidence/w1/visual/MANIFEST.json
+  renderer: darwin — ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)
+
++ git status --short
++ head -20
+ M docs/tranches/X/evidence/w1/visual/MANIFEST.json
+ M e2e/visual/goldens/darwin/zoom-200-desktop-blob-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+ M e2e/visual/goldens/darwin/zoom-200-desktop-mix-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+ M e2e/visual/goldens/darwin/zoom-200-desktop-palettes-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+done-rc=0
