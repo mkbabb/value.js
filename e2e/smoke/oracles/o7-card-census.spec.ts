@@ -89,6 +89,24 @@ async function resolveRungTokens(page: import("@playwright/test").Page) {
 
 /** Census one mounted view: every Card's rung stamp + the named fixtures. */
 async function censusView(page: import("@playwright/test").Page) {
+    // The o1105 deck (DESIGN.md §5.7): the riser comes up from scale(0.97) and
+    // the split travels (G9), so a box read mid-swap is the scaled pose (750 →
+    // 727.5 px). The census reads the panes at rest: once every finite
+    // animation and transition in the pane row has finished (event, no timeout;
+    // the infinite breathes never end and are excluded).
+    await page.evaluate(() => {
+        const row = document.querySelector(".pane-container");
+        const finite = document.getAnimations().filter((a) => {
+            const t = (a.effect as KeyframeEffect | null)?.target;
+            return (
+                t instanceof Element &&
+                row != null &&
+                (row.contains(t) || t.contains(row)) &&
+                Number.isFinite(a.effect?.getComputedTiming().endTime)
+            );
+        });
+        return Promise.all(finite.map((a) => a.finished.catch(() => undefined)));
+    });
     return page.evaluate(() => {
         const main = document.querySelector("main");
         // Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`;
