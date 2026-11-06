@@ -54,6 +54,12 @@ async function go(page: Page, route: string) {
             `.pane-container > .pane-wrapper--stage[data-pane="${stage}"] + .pane-wrapper--inspector[data-pane="${inspector}"]`,
         ),
     ).toHaveCount(1, { timeout: 20_000 });
+    // The row's split travels (DESIGN.md §5.7 G9): the tracks are read at rest.
+    await page.waitForFunction(
+        () => document.querySelector(".pane-container")?.getAnimations().length === 0,
+        undefined,
+        { timeout: 5_000 },
+    );
 }
 
 function widths(page: Page) {

@@ -299,16 +299,25 @@ function reportMount(instance: TInstance | null) {
 // single-voiced: an observer or a microtask never sees the departing subtree
 // as ACTIVE. The stamps are cleared on enter because a cancelled leave
 // re-enters the same element (and a KeepAlive-cached pane re-enters later).
+//
+// The leaver also keeps the block size it was DRAWN at: an inline
+// `block-size`, read here while it is still in flow, so no row rule outranks
+// it. Out of flow it is no longer sized by the row, and a companion that
+// follows the row (About beside the picker, a port over 21 sections) would
+// otherwise unroll to its whole content for the length of its discard. The
+// stamp is cleared on enter with the others.
 function hideLeaving(el: Element) {
     el.toggleAttribute("inert", true);
     el.setAttribute("aria-hidden", "true");
     el.setAttribute("data-scene-direction", sceneDirection);
+    if (el instanceof HTMLElement) el.style.blockSize = `${el.offsetHeight}px`;
 }
 
 function showEntering(el: Element) {
     el.toggleAttribute("inert", false);
     el.removeAttribute("aria-hidden");
     el.setAttribute("data-scene-direction", sceneDirection);
+    if (el instanceof HTMLElement) el.style.removeProperty("block-size");
 }
 
 // ── The scene-direction token (X.W5.d · gate D3's direction arm) ───────────
