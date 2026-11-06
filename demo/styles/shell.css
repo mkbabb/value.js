@@ -583,9 +583,29 @@
  * `data-shown` on each region wrapper from that slot's own mount report. The
  * rule is keyed on the stage showing the picker while the inspector shows
  * something other than About (Home is the one picker view whose inspector is
- * About). The settled order is unchanged, and the flip moves to the commit. */
+ * About). The settled order is unchanged, and the flip moves to the commit.
+ *
+ * X·§0ht (b) — IN LANDSCAPE THE STACK KEEPS THE ROW'S ORDER. The subject-first
+ * order is a PORTRAIT answer: there the picker is ~570 px of a ~750 px band
+ * and stood between the user and the route. A landscape phone too narrow for
+ * two tracks (667×375, 740×360) stacks the same two plates, each capped at
+ * one short band (D-19 the stage, D-20 the companion), so subject-first put
+ * the whole stage, sliders included, below the fold (stage 386–673 of 375).
+ * D-19's gestalt is "the picker and its sliders are on the first screen of a
+ * short landscape" (844×390 holds it beside the subject), so in landscape a
+ * subject that ACTS ON the picker's colour (Mix and My Palettes add it) reads
+ * as the row does: the stage first, the subject after it. Blob is the
+ * exception: its subject is the picker's colour PREVIEWED, and its preview
+ * and its last control share the first band (o29 j4 at 720×450), so it keeps
+ * the subject first in either orientation. */
 @container pane-row not (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
-    .pane-container:has(> .pane-wrapper--inspector:not([data-shown="about"]))
+    @media (orientation: portrait) {
+        .pane-container:has(> .pane-wrapper--inspector:not([data-shown="about"]))
+            > .pane-wrapper--stage[data-shown="color-picker"] {
+            order: 1;
+        }
+    }
+    .pane-container:has(> .pane-wrapper--inspector[data-shown="blob"])
         > .pane-wrapper--stage[data-shown="color-picker"] {
         order: 1;
     }

@@ -45,11 +45,21 @@ bridge.onSetTheme((next) => {
             await nextTick();
         };
         type ViewTransitionDoc = Document & {
-            startViewTransition?: (cb: () => Promise<void>) => { updateCallbackDone: Promise<void> };
+            startViewTransition?: (cb: () => Promise<void>) => {
+                updateCallbackDone: Promise<void>;
+                ready: Promise<void>;
+                finished: Promise<void>;
+            };
         };
         const doc = document as ViewTransitionDoc;
         if (scheme() !== next && doc.startViewTransition && !reducedMotion) {
-            await doc.startViewTransition(apply).updateCallbackDone.catch(() => undefined);
+            // A flip the platform aborts (the frame resized or hidden mid-flip)
+            // rejects `ready` with InvalidStateError; the flip itself still
+            // lands, so every promise the transition hands back is settled here.
+            const flip = doc.startViewTransition(apply);
+            flip.ready.catch(() => undefined);
+            flip.finished.catch(() => undefined);
+            await flip.updateCallbackDone.catch(() => undefined);
         } else {
             await apply();
         }

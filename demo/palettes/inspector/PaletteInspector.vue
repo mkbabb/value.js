@@ -50,7 +50,7 @@
                     emphasis="quiet"
                     size="xs"
                     :aria-label="`Colors of ${palette.name}`"
-                    class="shrink-0"
+                    class="palette-card__disclose shrink-0"
                 >
                     <ChevronDown
                         class="palette-card__chevron w-4 h-4 text-muted-foreground"
@@ -585,16 +585,39 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
      * type is untouched; the row's dead space moves to it. (a) The menu pair
      * ends flush with the card's inner edge: its 44 px boxes already inset
      * the ⋯ glyph 14 px from the hairline, so the 4 px end margin was a
-     * second inset. (b) The vote pill sheds its painted inline padding and
-     * its start margin: on a coarse pointer the 44 px target is the pill's
-     * `::after` (PaletteCardMeta D-31), which already grows toward the name
-     * over that space, so the touch target is unchanged while the painted
-     * glyph+count no longer reserves 12 + 4 px of empty plate. Together they
-     * hand the name 20 px: at 390 (card 332) "Daraksha Gradient" (183 px)
-     * fits whole beside its count, the vote and both actions. */
+     * second inset. (b) The vote pill sheds its painted inline padding: on a
+     * coarse pointer the 44 px target is the pill's `::after`
+     * (PaletteCardMeta D-31), which grows toward the name over that space, so
+     * the touch target is unchanged. X·§0ht (a) D-24.r1: the pill KEEPS its
+     * start margin, the head's own gap (0.5rem); without it the colour count
+     * touched the heart ("5♡0"). */
     .palette-card:not([data-layout="aside"]) :deep(.palette-meta__vote) {
-        margin-inline-start: 0;
         padding-inline: 0;
+    }
+    /* X·§0ht (a) D-24.r1 — ON A PHONE THE NAME OUTRANKS THE ROW'S EXTRAS.
+     * (1) The card is its own disclosure: a tap anywhere on it toggles its
+     * colours, so on a coarse pointer the chevron restated the card's verb
+     * in a 44 px box, 13% of a 332 px card and the measure "Daraksha
+     * Gradient" lacked at 375 and 360. It yields; the menu ⋯ keeps its own
+     * target. (2) The Featured badge is its gold glyph alone: no label, no
+     * ring, no pad, no 1lh-round floor. The ringed glyph was a 29 px chip that
+     * took "Neon Cyberpunk"'s last 13 px at 390, and once the chevron yielded
+     * a 430 card's head cleared the label's 16rem and its 100 px chip took
+     * the last 8. The glyph keeps the tier and its "Featured" title. A fine
+     * pointer keeps both (its boxes are 28 px). */
+    @media (pointer: coarse) {
+        .palette-card:not([data-layout="aside"]) .palette-card__disclose {
+            display: none;
+        }
+        .palette-card:not([data-layout="aside"]) :deep(.featured-badge) {
+            min-inline-size: 0;
+            padding: 0;
+            box-shadow: none;
+            background: none;
+        }
+        .palette-card:not([data-layout="aside"]) :deep(.featured-badge .palette-specimen__yield-3) {
+            display: none;
+        }
     }
 }
 

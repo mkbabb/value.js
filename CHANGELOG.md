@@ -1,6 +1,6 @@
 # Changelog
 
-## [4.3.0] — 2026-11-05
+## [4.3.0] — 2026-11-06
 
 This release teaches the CSS parser most of what the newer drafts of CSS Color 5, Values 5, Anchor Positioning and Easing 2 have added, so that a great deal of syntax it used to refuse now reads the way a browser reads it. A few results do change, and each entry below says how. The ones most likely to matter to you are that a relative colour with an absolute origin now resolves to a real colour, that `xyz-d50` and `display-p3-linear` colours keep the space you wrote, that a unicode range is now written in its canonical spelling, and that `anchor()`, `anchor-size()`, `calc-size()` and `linear()` now refuse arguments their specifications do not allow. I checked every new case against the Web Platform Tests for these specifications; the handful that still disagree are colour cases, mostly relative colours built from trigonometric functions, and I plan to take them up next.
 

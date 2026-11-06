@@ -1,0 +1,36 @@
+{"tag":"after-r2","verdict":{"d24":true,"mixLand":true,"field":true,"mix":true}}
+browse 360 dark 360  [["Neon Cyberpunk",163,163,"badge14","gap16","nochev",93,"20.352px"]]
+browse 360 light 360  [["Neon Cyberpunk",163,163,"badge14","gap16","nochev",93,"20.352px"]]
+browse 375 dark 375  [["Neon Cyberpunk",163,163,"badge14","gap31","nochev",93,"20.352px"]]
+browse 375 light 375  [["Neon Cyberpunk",163,163,"badge14","gap31","nochev",93,"20.352px"]]
+browse 390 dark 390  [["Neon Cyberpunk",163,163,"badge14","gap46","nochev",93,"20.352px"]]
+browse 390 light 390  [["Neon Cyberpunk",163,163,"badge14","gap46","nochev",93,"20.352px"]]
+browse 430 dark 430  [["Neon Cyberpunk",163,163,"badge14","gap86","nochev",93,"20.352px"]]
+browse 430 light 430  [["Neon Cyberpunk",163,163,"badge14","gap86","nochev",93,"20.352px"]]
+land 667 375 / dark {"st":83,"sb":370,"it":386,"sc":[154,328],"seen":true,"sp":2.058,"docW":667,"ok":true}
+land 667 375 / light {"st":83,"sb":370,"it":386,"sc":[154,328],"seen":true,"sp":2.058,"docW":667,"ok":true}
+land 667 375 /mix dark {"st":83,"sb":370,"it":386,"sc":[154,328],"seen":true,"sp":2.058,"docW":667,"ok":true}
+land 667 375 /mix light {"st":83,"sb":370,"it":386,"sc":[154,328],"seen":true,"sp":2.058,"docW":667,"ok":true}
+land 740 360 / dark {"st":82,"sb":354,"it":370,"sc":[138,312],"seen":true,"sp":2.058,"docW":740,"ok":true}
+land 740 360 / light {"st":82,"sb":354,"it":370,"sc":[138,312],"seen":true,"sp":2.058,"docW":740,"ok":true}
+land 740 360 /mix dark {"st":82,"sb":354,"it":370,"sc":[138,312],"seen":true,"sp":2.058,"docW":740,"ok":true}
+land 740 360 /mix light {"st":82,"sb":354,"it":370,"sc":[138,312],"seen":true,"sp":2.058,"docW":740,"ok":true}
+land 844 390 / dark {"st":83,"sb":385,"it":83,"sc":[182,347],"seen":true,"sp":2.058,"docW":844,"ok":true}
+land 844 390 / light {"st":83,"sb":385,"it":83,"sc":[182,347],"seen":true,"sp":2.058,"docW":844,"ok":true}
+land 844 390 /mix dark {"st":83,"sb":385,"it":83,"sc":[182,347],"seen":true,"sp":2.058,"docW":844,"ok":true}
+land 844 390 /mix light {"st":83,"sb":385,"it":83,"sc":[182,347],"seen":true,"sp":2.058,"docW":844,"ok":true}
+land 932 430 / dark {"st":83,"sb":425,"it":83,"sc":[222,388],"seen":true,"sp":2.058,"docW":932,"ok":true}
+land 932 430 / light {"st":83,"sb":425,"it":83,"sc":[222,388],"seen":true,"sp":2.058,"docW":932,"ok":true}
+land 932 430 /mix dark {"st":83,"sb":425,"it":83,"sc":[222,388],"seen":true,"sp":2.058,"docW":932,"ok":true}
+land 932 430 /mix light {"st":83,"sb":425,"it":83,"sc":[222,388],"seen":true,"sp":2.058,"docW":932,"ok":true}
+field 390 dark {"typed":"zzqq-not-a-colour","focused":true,"badge":true,"sw":179,"cw":94,"sl":81,"to":"clip","last":true,"inkFrac":1,"after":{"text":"efflorescence","sl":0},"ok":true}
+field 390 dark {"typed":"oklch(70% 0.1 nonsense)","focused":true,"badge":true,"sw":237,"cw":94,"sl":138,"to":"clip","last":true,"inkFrac":0.99,"after":{"text":"efflorescence","sl":0},"ok":true}
+field 390 light {"typed":"zzqq-not-a-colour","focused":true,"badge":true,"sw":179,"cw":94,"sl":81,"to":"clip","last":true,"inkFrac":1,"after":{"text":"efflorescence","sl":0},"ok":true}
+field 390 light {"typed":"oklch(70% 0.1 nonsense)","focused":true,"badge":true,"sw":237,"cw":94,"sl":138,"to":"clip","last":true,"inkFrac":0.99,"after":{"text":"efflorescence","sl":0},"ok":true}
+field 360 dark {"typed":"zzqq-not-a-colour","focused":true,"badge":true,"sw":179,"cw":82,"sl":93,"to":"clip","last":true,"inkFrac":1,"after":{"text":"efflorescence","sl":0},"ok":true}
+field 360 dark {"typed":"oklch(70% 0.1 nonsense)","focused":true,"badge":true,"sw":237,"cw":82,"sl":150,"to":"clip","last":true,"inkFrac":0.99,"after":{"text":"efflorescence","sl":0},"ok":true}
+field 1440 dark {"typed":"zzqq-not-a-colour","focused":true,"badge":true,"sw":206,"cw":180,"sl":21,"to":"clip","last":true,"inkFrac":0.99,"after":{"text":"efflorescence","sl":0},"ok":true}
+field 1440 dark {"typed":"oklch(70% 0.1 nonsense)","focused":true,"badge":true,"sw":273,"cw":180,"sl":88,"to":"clip","last":true,"inkFrac":0.99,"after":{"text":"efflorescence","sl":0},"ok":true}
+mix {"flow":true,"rep":0,"target":7,"done":1668,"rafAtDone":3,"ink":1668,"rafIn3500":13,"errs":["WebSocket connection to 'ws://vj.test:5393/?token=17GcP8E_YIce' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED","WebSocket connection to 'ws://localhost:5393/?token=17GcP8E_YIce' failed: Error in connection establishment: net::ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS","[vite] failed to connect to websocket.\nyour current setup:\n  (browser) vj.test:5393/ <--[HTTP]--> localhost:5393/ (server)\n  (browser) vj.test:5393/ <--[WebSocket (failing)]--> localhost:5393/ (server","Failed to send error to Vite server: TypeError: Cannot read properties of undefined (reading 'send')\n    at Object.send (http://vj.test:5393/@vite/client:444:7)\n    at Object.send (http://vj.test:5393"],"ok":true}
+mix {"flow":true,"rep":1,"target":7,"done":1669,"rafAtDone":3,"ink":1669,"rafIn3500":13,"errs":["WebSocket connection to 'ws://vj.test:5393/?token=17GcP8E_YIce' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED","WebSocket connection to 'ws://localhost:5393/?token=17GcP8E_YIce' failed: Error in connection establishment: net::ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS","[vite] failed to connect to websocket.\nyour current setup:\n  (browser) vj.test:5393/ <--[HTTP]--> localhost:5393/ (server)\n  (browser) vj.test:5393/ <--[WebSocket (failing)]--> localhost:5393/ (server","Failed to send error to Vite server: TypeError: Cannot read properties of undefined (reading 'send')\n    at Object.send (http://vj.test:5393/@vite/client:444:7)\n    at Object.send (http://vj.test:5393"],"ok":true}
+mix {"flow":true,"rep":2,"target":7,"done":1668,"rafAtDone":3,"ink":1668,"rafIn3500":13,"errs":["WebSocket connection to 'ws://vj.test:5393/?token=17GcP8E_YIce' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED","WebSocket connection to 'ws://localhost:5393/?token=17GcP8E_YIce' failed: Error in connection establishment: net::ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS","[vite] failed to connect to websocket.\nyour current setup:\n  (browser) vj.test:5393/ <--[HTTP]--> localhost:5393/ (server)\n  (browser) vj.test:5393/ <--[WebSocket (failing)]--> localhost:5393/ (server","Failed to send error to Vite server: TypeError: Cannot read properties of undefined (reading 'send')\n    at Object.send (http://vj.test:5393/@vite/client:444:7)\n    at Object.send (http://vj.test:5393"],"ok":true}
