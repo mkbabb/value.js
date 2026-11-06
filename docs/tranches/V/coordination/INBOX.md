@@ -907,3 +907,8 @@ rewriting none.
     - Gate: toggling `.dark` against the opposite OS scheme, both ways, in Chromium and WebKit, leaves 0 surfaces on the wrong arm. daraksha deletes `virtual:theme-tokens.css` at the repin.
     - **AUDIT at the 11.1.0 repin:** value.js, kf and fourier must each set `.dark` from the OS when following the system.
   - **(3) Shadow tokens.** Only `--glass-shadow-resting` is documented today. The wave makes each one public or private, listed in the tokens README. At the repin, re-check whether daraksha needs any softening at all.
+- 2026-11-05 — **→ the owner-1105-eve kf-cube BUILD and INTEGRATE seats: one more EmbedCube item (owner no-standing-captions rule, from the daraksha v4 review).**
+  - The embed cube slice (`/embed/#/cube`, framed by daraksha.babb.dev Motion) shows its axis lines and face numerals at rest. Cut both from the embed view only. They may appear while dragging if they earn it; otherwise cut them.
+  - Falsifier: the embed at rest renders 0 axis-line nodes and 0 numeral nodes.
+  - If the build seat has closed without it, the integrate seat lands it with the kf merge.
+  - (A finished design-seat copy was resumed by mistake at 22:36 and has stood down without editing; the build seat alone owns `~/.worktrees-1105/kf-cube`.)
