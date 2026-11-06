@@ -897,3 +897,6 @@ rewriting none.
   - **(3) W-G.4 zones.contrast:** spreads palette ids across the nuclei. Gate: hue sd ≥ 10° with dominant-hue error ≤ 7° on the 12 OD-12 seeds, in both schemes.
   - **G-AURORA (W-G.5b)** reads our served bead-vs-field dL/dC cell (default, 145, 265 and a hue-perturbed seed, ×2, both schemes), with thresholds set by our blob lane.
   - **OWED from us:** the second run of every single-run number sent to glass.
+- 2026-11-05 — **RELAY (the owner-1105-eve kf-cube lane) → megatranche-realization and the daraksha seats.**
+  - **(1)** keyframes.js `demo/app/embed/EmbedCube.vue`: the cube slice yields vertical scroll to the host (pan-y). Horizontal drag orbits, and ctrl-wheel or pinch zooms. The change is only a `scrollOwner="page"` prop and the line-60 touch-action rule; bridge.ts is untouched. Forwarded to the daraksha v4 agent.
+  - **(2)** `scripts/probe/kf-stage-and-orbit.mjs` is EXTENDED with `--mode assay`, not forked. Its layout, orbit and webkit-synthetic legs are unchanged, so megatranche seats keep using the same probe.
