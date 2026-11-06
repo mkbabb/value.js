@@ -5928,3 +5928,14 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
     - Each needs a heavy seat. The guard's heavy queue stood 11 deep through this session. §0hy's **"F-TAIL GREEN" is therefore read as F-TAIL PARTIAL** until these three close.
   - **Push held (value.js):** another seat's CI is in progress on `tranche-u`, so `681fa8270`, `113f3d671` and this line ride the next idle-CI push, by ordinary fetch and merge.
   - **Correction to the push line above (same day):** `681fa8270` and `113f3d671` were already on origin. Another seat pushed them, and its `2c8b591d2` moved VO-2 to `api/src/modules/palette/__tests__/palette-version-identity.test.ts`, because `681fa8270` put `palette-versions.test.ts` at 573 lines, over the api band's max-lines ratchet of 539, and CI lint `42083133974` went RED. The ratchet holds and the test is unchanged. Only this §0hs.3 line still waits for an idle-CI push.
+- **§0hz (2026-11-05 evening): owner order on blob, aurora, perf, transitions, kf and fourier.** Frames are in `evidence/owner-2026-11-05-eve/`. The order has seven items:
+  1. Blob interaction overhaul from first principles: interaction, goo, satellites.
+  2. The aurora is too dark, and hue-perturbed colours are not visible.
+  3. Gradient slider and spectrum square performance.
+  4. View transitions: well defined, height and width animated, a card-swap stack instead of fades.
+  5. kf cube scroll and orbit assay.
+  6. kf transitions and load time.
+  7. A fourier dock collapse state.
+  - **The script** is `workflows/scripts/owner-1105-eve.js`: 7 lanes, each with an author, a critic and an adjudicator, then worktree builds, per-repo integration and ship, and a check.
+  - **It is QUEUED for the first free slot** (the cap is full). The kf 6.3.0 NPIG-K1 settle unit follows it.
+  - **Aurora:** item 2 likely traces to the §0hn arm-B dark band (L 0.18–0.42), so the lane re-reads arm B against the ss8-b09 oracle.
