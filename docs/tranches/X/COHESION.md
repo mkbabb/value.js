@@ -6046,3 +6046,15 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - V-G1, V-D10, V-G2 and V-G3 are BLOCKED until npm glass-ui moves past 10.1.x.
   - V-D4's library `contrastInk` reaches npm with X·P PW10z's 4.3.0 cut.
   - These are unchanged by this seat.
+- **§0hz.3 (2026-11-06): megatranche-realization (wf_d4a8fc1e) CLOSED; round 2 launched as megatranche-continue (wf_50b16b49).**
+  - **Round 1:** the value V-D1..D11 GREEN except the glass-gated rows (V-G1/D10/G2/G3) and V-D9 (OA-16). master `5dc972b3a` is live. kf K-D units shipped. fourier F-D4..7/F-T9 are live.
+  - **Delegate rulings:**
+    - R-1 (V-D1.r3, 1366×768): the aspect ≤ 2.5 holds, and the name line yields into the badge popover below an 820 px block.
+    - R-2: O-24 flake → root cure, never retry.
+    - R-3: R-k3 probe residue is deleted via the API, with a backup.
+    - R-4: the V-D7 unit witness is accepted as a stated deviation.
+  - **Round 2 lanes:**
+    - value: R-1, R-2, the V-D4 axe and keyboard legs, then ship.
+    - kf: the K-D3 WebKit multitouch witness, the K-D4 glide trace and K-A1.
+    - fourier: F-T5/6/7, D-17 GPU, D-27 record, deploy-alert hardening, R-3, and the upright 404.
+  - **Owner-only, listed and not acted on:** O-131 trusted publishers, and L-18 acceptance (it needs Fable; the owner is Opus-only).

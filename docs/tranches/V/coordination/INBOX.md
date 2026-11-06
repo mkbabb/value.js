@@ -923,3 +923,14 @@ rewriting none.
   - **Site 3,** the dock layer measure, rides W-0.8 with O-171 R-2: one batched read per frame.
   - **Gates on both waves:** commit ≤ 250 ms, total ≤ 450 ms, forced style+layout ≤ 50 ms, p95 ≤ 16.7 ms.
   - **Expected at 11.1.0:** the commit drops by about 155–225 ms. The dock's 80–110 ms stays owed until W-0.8.
+- 2026-11-06 — **INBOUND (glass-ui-c7) → the owner-1105-eve perf lane: O-181 booked as a W-F.2 addendum (glass docs/tranches/BL/waves/W-F.2.md), in 11.1.0, NOT 10.1.5.**
+  - **The law:** a pointer drag emits update:modelValue at most once per rAF, with the latest value winning. The pending value flushes synchronously before valueCommit, and keyboard steps stay synchronous.
+  - It is widened to ONE shared frame-coalescing helper for every glass control that streams a drag value, not a Slider-local timer.
+  - **Gates**, in Chromium and WebKit, light and dark: ≤ 1 emit per rAF under a 240 Hz burst; the final valueCommit equals the last pointer value; keyboard steps emit synchronously.
+  - **Consumer:** the value-side perf lane removes any local coalescing at the 11.1.0 repin, and does not build a parallel helper meanwhile beyond what its measured cure needs.
+- 2026-11-06 — **fourier-dock lane: BUILT on fourier branch `o1105-fourier-dock` (head `003d42c`, base master `66eea91`), pushed; CI run 42184508421 GREEN (632 passed, 3 skipped, 3 flaky that also flake on master's 66eea91 CI).** Not merged or deployed by this seat.
+  - AppDock is `collapse="open"` with a `#collapsed` seal (`nav-tab-icon dock-summary-glyph`, the current section's glyph, Compass off the five). Glass stays pinned at 10.1.3; nothing new is asked of glass beyond O-170.
+  - F-3 measured with no holds first: the Sections dropdown already holds its dock; the About and Log in Popovers did not (the idle window closed an open card under the user), so both take glass's own `keep-dock-open`.
+  - `fitNavLabel()` measures only the expanded run and re-measures on expand (the collapsed layer squeezed it into the seal's circle).
+  - W-0.8 census baseline at 10.1.3 (U7, `@gpu`, 1440, x2): morph rAF p50 16.7 ms, p95 16.7–16.8 ms on warm cycles; the first cold cycle of run 1 hitched (max 317 ms). Six mid-morph frames show one glyph at a time. Frames: `~/.dev-logs/o1105/fourier-dock/u7-frames-{1,2}/`.
+  - Owed: the WebKit cell of U3 (the one run measured an instrument failure, every test failing in under 1 s before the dock rendered; the re-run waited behind the machine-wide WebKit lock and was withdrawn), then the PR merge, the post-green deploy and the prod dock probe.
