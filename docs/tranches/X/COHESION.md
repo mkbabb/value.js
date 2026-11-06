@@ -5856,6 +5856,14 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **The 66 css-color misses** (24 trig relative colours and others) go to the lockstep programme's consumers lane.
   - **`.rd`** keeps waiting for a quiet window.
 - **The xp-w9-w10-continue workflow is DONE.** bbnf-lang 0.3.0 and value.js 4.2.1 are on npm, both with SLSA provenance; parse-that and bbnf-lang now have their own publish workflows.
+- **§0hy.1 (2026-11-05/06): ESC-W10-1 applied; tranche-u pushed; 4.3.0 NOT cut — tranche-u CI is not GREEN for reasons outside this train; `.rd` OWED.**
+  - **E-6 as config + test:** `50eeb196e` adds `test/css/e6-ceilings.json` (grammar.js 15,200 / color.js 6,100 gz, citing §0hy) and `test/css/e6-size.test.ts` (esbuild `--minify --loader=js`, then gzip; ≤ ceiling per file). Falsified at 15,180 → RED, restored → GREEN. CI then read grammar.js at **15,207** gz (producer 22/24 on ci `42087330848`): `node:zlib` on Linux Node is Chromium's zlib fork, whose deflate differs from the reference zlib the ceilings were read with. Cured at the instrument, `76eaa27c2`: the test gzips through **pako 2.1.0** (exact dev dep, `@types/pako` 2.0.4), a pure-JS port of reference zlib, which gives 15,181 / 6,054 on every host (equal to the Mac `gzip` reading). No ceiling moved.
+  - **Release prep:** `d5a8fbc0c` sets version 4.3.0 and the CHANGELOG `[4.3.0] — 2026-11-05` (an intro in Mike's voice naming the behaviour changes, plus a Changed note on the parser's size).
+  - **Two CI defects the push surfaced, cured at root:** `2c8b591d2` moves `681fa8270`'s G-F7-4 test into `palette-version-identity.test.ts`, because `palette-versions.test.ts` reached 573 lines against the api test band's 539 ratchet (lint RED on `42083133974`; the pin only descends). `cbf59ebe8` pays `verify-packed-surface.mjs`'s two-edit ratchet for `.m10`'s `xyzD50` and `displayP3Linear` (90 runtime exports, 90 smoke invocations, 132 achromatic rows PASS on the packed 4.3.0 tarball).
+  - **Push law kept:** waited out foreign runs `42019540010`, `42061055948` (cancelled by its own seat's push), `42062472872` and webkit-hosted `42062472847`, then pushed by ordinary merge `fc994cfa4` (made through `merge-tree` + `commit-tree`, because the shared index holds another seat's staged files; their staging was left untouched). A rerun I started on `42096527743` was cancelled at once when a foreign run (`42118472640`) was found in progress, so no foreign run was cancelled by this seat.
+  - **CI reading:** at `cbf59ebe8` (`42096527743`): producer 22/24, api, lhci, oracle slate, boot-smoke and **visual GREEN, no re-mint needed**; e2e-smoke RED on one unheld row, `views/mix.spec.ts:28` (3/3 retries; the same mix bytes passed at `7183085b2`), root-caused and cured by the §0ht (d) seat at `88f1354bf`. The run cannot be retried. Later heads carry other seats' in-flight demo work and are RED on rows this train did not touch: `7183085b2` (`42118472640`) o24 LCP identity; `1c1d1bbaf` (`42134437448`) visual zoom-200 ×3 and e2e o29 j4 + o24, which the §0ht (b) seat is curing (`1b249bf9a`, local, not yet pushed).
+  - **Held, OWED:** the §0ga master merge, the `v4.3.0` tag, `release.yml` with provenance, the keyframes.js bump (it pins `@mkbabb/value.js` 4.2.0 exact as a runtime dependency, so a kf patch is owed), the daraksha bump (`package.json` pins value.js 4.2.0 and keyframes.js 6.2.1), and the sci-report-ef / glass-ui-c7 notices. They open at the first tranche-u ci 8/8 GREEN on a head that holds `cbf59ebe8`.
+  - **`.rd` OWED:** the 1-minute load was polled every 10 min from 15:48Z to 23:49Z (44 samples: min 6.97, median 15.47, max 30.02; `evidence/0hy1/rd-load-trace-2026-11-05.txt`). One sample was under 8 (21:08Z, 6.97), and the next one read 8.68 with sibling fleets busy, so there was no quiet window to hold a sitting, and L-G1 was not read. No cell is claimed.
 
 ### §0hx.12 — the sk-v27 lockstep programme plan, pointer (2026-11-05)
 - The plan of record for the §0hx owner order is in bbnf-lang, branch `sk-v27`: `restart/skinny/tranches/sk-v27/PLAN.md` and `LEDGER.md`. It has seven waves (LW1..LW7) across the TOPO, COMP, PERF, RX, PP, CON and USE lanes. Each wave ends at a lockstep gate: the cross-repo build, TS↔Rust parity, the consumer gates (V-C, MIRROR, E-6, kf, fourier), the benefit table and the competition re-read. Releases cascade bbnf-lang → parse-that → value.js → keyframes.js. LW1 (truth seal and custody) starts now; LW2 onward waits on owner rulings X-1..X-5 and X-7. The parse-that pointer is `docs/tranches/SK-V27.md` on branch `sk-v27`. This line touches no value.js source.
@@ -5928,3 +5936,113 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
     - Each needs a heavy seat. The guard's heavy queue stood 11 deep through this session. §0hy's **"F-TAIL GREEN" is therefore read as F-TAIL PARTIAL** until these three close.
   - **Push held (value.js):** another seat's CI is in progress on `tranche-u`, so `681fa8270`, `113f3d671` and this line ride the next idle-CI push, by ordinary fetch and merge.
   - **Correction to the push line above (same day):** `681fa8270` and `113f3d671` were already on origin. Another seat pushed them, and its `2c8b591d2` moved VO-2 to `api/src/modules/palette/__tests__/palette-version-identity.test.ts`, because `681fa8270` put `palette-versions.test.ts` at 573 lines, over the api band's max-lines ratchet of 539, and CI lint `42083133974` went RED. The ratchet holds and the test is unchanged. Only this §0hs.3 line still waits for an idle-CI push.
+- **§0hz (2026-11-05 evening): owner order on blob, aurora, perf, transitions, kf and fourier.** Frames are in `evidence/owner-2026-11-05-eve/`. The order has seven items:
+  1. Blob interaction overhaul from first principles: interaction, goo, satellites.
+  2. The aurora is too dark, and hue-perturbed colours are not visible.
+  3. Gradient slider and spectrum square performance.
+  4. View transitions: well defined, height and width animated, a card-swap stack instead of fades.
+  5. kf cube scroll and orbit assay.
+  6. kf transitions and load time.
+  7. A fourier dock collapse state.
+  - **The script** is `workflows/scripts/owner-1105-eve.js`: 7 lanes, each with an author, a critic and an adjudicator, then worktree builds, per-repo integration and ship, and a check.
+  - **It is QUEUED for the first free slot** (the cap is full). The kf 6.3.0 NPIG-K1 settle unit follows it.
+  - **Aurora:** item 2 likely traces to the §0hn arm-B dark band (L 0.18–0.42), so the lane re-reads arm B against the ss8-b09 oracle.
+- **§0hz.1 (2026-11-05): bbnf lockstep waves 0–1 closed as a workflow (wf_950f38d8); the LG-1 gate is NOT closed.**
+  - The plan (bbnf-lang `sk-v27` `restart/skinny/tranches/sk-v27/PLAN.md`) has 7 waves and 7 lanes.
+  - Rulings X-1..X-10 are ruled by the delegate in `RULINGS.md` `0c0a8b2a0`: §2 defaults confirmed, and X-10 = AST-equal 100 % with byte-identical ≥ 98 %.
+  - LW1 lanes: COMP 2/4, PERF 3/3 (canada 1.56× withdrawn as uncommitted), RX 4/4, PP 3/3, CON 5/5, USE 4/5 (USE-5 born-RED). TOPO never ran.
+  - Integration is on `sk-v27-lw1-gate`, with draft PRs bbnf-lang #8, parse-that #3 and pprint #2.
+  - The xpTail seat landed the E-6 ceilings test `50eeb196e` but did NOT cut 4.3.0, because tranche-u CI was not green. `.rd` is owed for want of a quiet window.
+  - **Next, queued for the first free slot:** a workflow `bbnf-lockstep-lw1-close` covering TOPO-0..5, COMP-2/4, the LG-1 gate on CI, then the 4.3.0 cut once tranche-u is green.
+- **§0hz.daraksha-v4 (2026-11-05): proportion, shadows, fourier, transitions, full-screen** — daraksha master `cc5a4a4..bb25ea4` (e8b3bcc frames · 7cc0fc0/719c708 glass SPRING_PRESETS springs + crossing pages · 7b3ea84 name drawn φ⁴ s then alive + pointer give, Latin caption cut · 9f7f9b3 shadows on glass elevation tokens, no gilt glows/sheen · 82a470a surah head Arabic-only + glass Popover gloss · 0975118 light mode: color-scheme + glass light-dark() tokens bound to the `.dark` class · 8498db5/bb25ea4 smoke); CI 42151370629 GREEN, deploy 42152282434 GREEN; prod ×2: tab-press settle 1614 → 230/233 ms p50 (max 244/251), blank frames 56 → 0; shadows 7 el/18 layers α1 blur 20 → 2/8 α≤0.10 blur 8; name pointer give 0 → ~4.6k px, back to rest ≤ 600 ms, hidden-tab draws 0, idle script p95 0.4 ms (ANGLE-Metal M5 witness); light/dark surfaces L 0.971/0.165, dock label contrast ≥ 11.4. Evidence `~/.dev-logs/daraksha-v4/runs/`.
+- **§0hz.kf-cube (2026-11-05): cube scroll and orbit assay** — receipts.
+  - **Shipped:** keyframes.js `8d8df34d` (the cure) and `3874887a` (probe: the host leg reads prod) on `o1105-kf-cube`, merged to master `8312d496` and `5c10fef4` (ordinary merges; master had not moved). CI `42165993744` and deploy-pages `42166478740` GREEN.
+  - **Cures:** the whole stage is the orbit's surface (a grab or wheel beside the die drives it by the wheel's own law, 2|d|/R); a double-tap rolls only on the die; ctrl-wheel zoom is summed per frame at Chromium's own pinch gear s·exp(−ΣΔy/100), capped ±0.25 a frame; a mouse notch glides out on the coast's decay; the state is the one truth; the frame's centre is the rest centre and the pan renders in the stage plane (G⁻¹·t had local depth under `.graph`'s perspective: 1.15× past the clamp); the embed yields vertical scroll to its host (`scrollOwner="page"`, pan-y, a touch drag the die's only once sideways, the slice root's `overscroll-behavior: auto` so scroll chains out) and stands bare at rest.
+  - **Prod fdb5987f RED ×2 → prod 8312d496 GREEN ×2 (Chromium, `kf-stage-and-orbit.mjs --mode assay`):** grab map over V 20/81 and 25/81 → 81/81 both; off-die 0° → gain 0.999 of a centre grab; notch 1 frame 43.5° → 62 frames, max 2.9–3.0° a frame, total 40.000°, two stacked 80.000°; ctrl-wheel coalesce spread 2.3 % → 0; CDP pinch 2× / 0.5× → 1.110 / 0.901 → 2.000 / 0.500 (trace ΣΔy −69.31 = −100·ln 2, max |Δy| 3.6 per event); three +250 px pans 147 px past V → −0.2 px, a drag at the panned centre rolls 0.000°; double-tap off/on 0/0 → 0/1; embed at rest 6 numerals + 3 axis lines → 0 + 0; embed host (fulfilled on daraksha.babb.dev): 390 vertical swipe host Δ 111 vs control 110 with the die 0°, horizontal 119° with host 0, 1440 wheel host Δ 200 with the die 0°.
+  - **Rulings:** one notch is capped at 40°: k = 9/s moves 13.9 % of a notch in the first 60 Hz frame, so ≤ 6° a frame needs ≤ 43°, and a 100 px notch at R 160 is 72°. The seam gate is restated as TANGENTIAL ±5 % (0.998): a radial move inside the rim carries Shoemake's own 1/√(1−r²) gain (8.5× at R − 2) that the off-die drive does not imitate, and the mode is chosen once per grab, so no gesture crosses the seam. The coalesce falsifier is under the cap (4 × −5 and 2 × −10 against 1 × −20).
+  - **No cure owed:** U7 coast ratio reads 0.55 / 0.46 / 0.34 for 100 / 120 / 160 ms flicks at both 60 and 120 Hz on prod before and after (the design seat's 0.22 was an untimed Playwright fling). U0 scroll: the 390 controls port p95 9.4–10.0 ms with the die playing or at rest; at 1440 no port scrolls. Drag frame p95 9.6–9.8 ms.
+  - **Unit falsifiers** (`test/demo/scenes/orbital-wheel-and-surface.test.ts` + legs in `orbital-arcball`, `cube-roll-and-prestart`): RED ×2 on fdb5987f, 18 of 51; GREEN ×2. check, lint GREEN; vitest `--maxWorkers=2` ×2 2460 GREEN, and CI GREEN. A later local rerun hit the shared `node_modules` failing `playback-ribbon-contract` at import on fdb5987f too (environmental, CI GREEN).
+  - **WebKit NOT witnessed:** the `--engine webkit` legs (base RED, prod ×2, orbit) waited on the machine's one WebKit lock from 23:31 to 01:05 while other seats' queues held it, and were stood down unrun. OWED: `guarded --exclusive webkit -- node scripts/probe/kf-stage-and-orbit.mjs --engine webkit --base https://keyframes.babb.dev/ --mode assay` ×2 and `--mode orbit`, parity with the Chromium cells (the CDP legs do not run there).
+  - **Owner-hand rows, unwitnessed until read:** a real-trackpad wheel log; macOS Safari pinch single-apply; iOS two-finger pinch and twist on the embed under pan-y.
+  - **Relay:** the embed change widened by `embed.css` (`overscroll-behavior: auto` on the slice root) beyond the relayed `scrollOwner` prop; daraksha seats take it at their next read of the slice.
+- **§0hz.paper (2026-11-05): fourier /paper figure flash** — cause: two mechanisms. (1) Inline in the virtual window's `v-for`, `<PaperSection>`'s slot read the loop variable, so Vue compiled it DYNAMIC; every scroll step that moved the window re-rendered every mounted section, and latex-paper's `#figure` outlet (`:is="() => slot(...)"`, a new component type per render) destroyed and recreated each on-screen `<img>`. (2) A section re-entering the window mounts a fresh `<img>` with `loading="lazy"` + `decoding="async"`, which may paint blank until it decodes. Cure: fourier `66eea91` (section extracted to `PaperWindowSection.vue`, slots STABLE, so scrolling never re-renders a mounted section; figure `<img>` eager + `decoding="sync"`; new e2e falsifier `e2e/paper-figure-flash.spec.ts`, RED on the base build, GREEN on the fix, GREEN in CI 42154439754). `5ac382a` (symmetric 720px overscan) was reverted by `11f6eea`: on prod it caused a deterministic ~825px content jump on the ascent at 1440 (a section mounted beyond content-visibility's relevance margin measures the 1200px placeholder). latex-paper `680f562` pushed to master: the stable outlet with a patch changeset; the npm release needs the owner's auth. Receipts, from a headless wheel scroll down, up and down over the whole paper at 1440 and 390, light and dark, `~/.dev-logs/fourier-paper-flash/`; numbers are on-screen `<img>` remounts / not-ready figure frames on the re-scroll / painted-blank figure frames in the CDP screencast: prod before 2226 / 55 / 16; local base 2224 / 61 / 18; local fix 0 / 1 / 2 ×2 (the local server sends `Cache-Control: no-cache`); prod after `11f6eea` (CI 42168527051, PaperView-7iHZzaAC.js) 0 / 1 / 0 and 0 / 0 / 0. Open: on an ascent at 390, a figure re-entering from above can still miss 1 frame (f05/f02). The cure is in latex-paper's `useVirtualSectionWindow`: measure a section only once it has rendered, and give a remounted section its cached height as `contain-intrinsic-size`. Then the overscan above can widen without the jump.
+- **§0hz.2 (2026-11-06): sk-v27 LG-1** — receipts: LG-1 read on CI, still NOT CLOSED. Record: bbnf-lang `sk-v27-lw1-gate` `b133466de` (LEDGER §5 LG-1 rows; `evidence/LW1.LG1/`); parse-that `sk-v27` `0f6c598` (`docs/tranches/SK-V27.md`). No draft PR left draft; nothing merged to any master.
+  - **Cured at root:** bbnf-lang clippy `-D warnings` 600 → 0 (emitter `89d22e569`, hand `6e69422f3`, generated runtimes through their templates `b79098ab6`; no lint threshold widened); the LSP no longer dies on `value = epsilon;` (span_range honours compound bounds; the two completion tests had hung to timeout, RED ×2 on CI → GREEN ×2); the iai job GREEN on CI (`42180110018`); parse-that JSON strings are their content again (`957bf74`, json_test RED ×2 → corpus-only failures ×2, 37/37 ×2 with the corpus) and its prose doctest is fenced.
+  - **CI at `c087f267f` (run `42180110012`):** hermetic, extension and iai GREEN; nextest fails exactly 48, the same set as locally: 47 corpus-reading tests and `substrate_audit` (32).
+  - **Still RED, with what blocks each:**
+    - LG-a: parse-that #3 and pprint #2 cannot fetch bbnf-lang's private `docs/precepts` submodule. Needs owner ruling R-a, or X-5 with PP-07.
+    - The bbnf-lang master: the corpus tests need owner ruling R-c, then LW2.TOPO-6. The substrate audit needs its census fates (LW1.COMP-1).
+    - `is-ancestor af15f63e0 origin/master` is false: PR #9 waits on a GREEN master.
+    - parse-that `test_nested_media`: about 1.36 MiB of debug stack per at-rule level; measured, still open.
+    - The born-RED re-read ×2 has not been done.
+    - LG-f breach: four short probes ran outside `guarded`; the census is clean.
+  - **No value.js file changed** except this line.
+
+### §0hs.1 — the §0hw value adversarial check, repaired (2026-11-05)
+- **Commit `7183085b2`** (tranche-u; parent `cbf59ebe8`). Built and gated in a clean worktree holding only this diff, because other seats had uncommitted work in the shared checkout. The commit went in through a private index, so their staged and unstaged files were not touched; their `MixResultDisplay.vue` hunks (§0ht (d)) stay theirs.
+- **Finding 1, C3: CURED AT THE INSTRUMENT, ERRATUM BANKED.**
+  - `bench/retired.ts` now answers the realpath of the retired cache.
+  - `stylesheet.measure.test.ts` refuses to measure when the hybrid's grammar mock did not apply.
+  - Falsifier: a symlinked worktree at `b290662b4`.
+    - Before the cure: `DEFECT 1312 · VALUE_GRAMMAR 0`, RED ×2.
+    - The guard alone, without the realpath fix: the file refuses ("mock was not applied").
+    - After the cure: `AGREE 30246 · VALUE_GRAMMAR 1729 · BOTH_REFUSE 30 · DEFECT 0`, GREEN ×2.
+  - `bench/records/rc-p-4.2.0/c3-ERRATUM.txt` banks the erratum, with the adversarial check's real-cache runs beside it (`c3-equivalence-realpath-run{1,2}.txt`).
+  - **RC-P(4.2.0) C3 is TRUE.** RC-P(4.2.0) reads 6/6 TRUE. §0hw.12's route of C3 to X·P `.rd` is withdrawn by this addendum.
+- **Finding 2, the second serializer: CURED.**
+  - PaletteColorStrip's composed `to right`/`to bottom` head now goes through `stopsToGradient` (`90deg`/`180deg`).
+  - useGradientCSS's rail and interval ramps now go through `stopsToGradient`, which gains:
+    - an optional `interpolation` clause;
+    - `<angle>`-only directions;
+    - `calc()` stop positions in its totality filter.
+  - The two literal transparent heads became an honest `none`.
+  - The literal-only grep is joined by a composed-head law, which reads every demo `.ts` and every `.vue` `<script>` with comments stripped. It was RED ×2 (2 files) before the cure and is GREEN after.
+- **PCS-10: CURED.**
+  - One truncation policy, `color-chips/compact.ts`: every colour when it fits, otherwise capacity − 1 swatches and `+k`, so drawn + k always equals the count. A `+1` is never drawn.
+  - `CompactPalette` takes its capacity from its own container. Its geometry is two registered, inherited lengths, `--compact-size` and `--compact-step`.
+  - Adopters:
+    - AdminFlaggedPanel's cluster. The silent `slice(0, 5)` became 4 + `+5`.
+    - The mix result's swatches. They used to wrap without bound; now they sit in one row with `+k`, and the strip under them still paints every colour.
+    - PreviewStrip. The fade on the 7th segment became 6 segments + `+k`.
+  - PaletteSpecimen/PaletteColorStrip never truncates: past 100 colours it summarises, so it has no `+k` to draw. The consume map in `color-chips/index.ts` records this.
+  - Falsifiers:
+    - Unit: RED at HEAD source, GREEN after.
+    - e2e `admin/vd3-compact-palette.spec.ts` at 390: RED ×2 (5 drawn of 9, no `+k`), GREEN ×2.
+  - Frame read: admin flagged 390. Nine Hues shows 4 discs + `+5`; Three Hues shows 3.
+- **V-D1.r2: CURED.**
+  - At lg the picker is capped at `--scene-band-block`. The cap is a definite length: under `min(100%, …)` the grid row sized from the uncapped contribution, 745 px.
+  - The spectrum plane is the card's elastic member: `flex: 0 1 auto`, with a floor of `min(20svh, 100cqi / φ√φ)`. The 34svh budget is retired, in foundation.css and in the DESIGN §3.1 row.
+  - New cell in `w12-about-clip.spec.ts` that seeds the approved name:
+    - Before: 1280×800 825, 1423×825 838, RED ×2.
+    - After: 800 and 825, GREEN ×2. The plane is 2.40 and 2.21.
+  - Frame read: 1280×800 light. "Efflorescence" sits under the readout and the card ends inside the viewport.
+- **V-D4 legs: RUN.**
+  - axe-core 4.14.0, exact devDependency, runs over the label at 1440 light and dark.
+  - The keyboard leg checks that every `:hover`-painted element has a Tab stop and that every Tab stop shows a ring. It resolves nested `&` selectors.
+  - Before, at `ed73b1ebc^`: RED ×2 (6 bare svg; the conversion rows `div.flex.flex-wrap` were hover-only). After: GREEN ×2.
+  - **axe itself reported 0 violations before and after.** The svg RED is the in-page leg, because axe does not rule an svg with no role.
+- **V-D7 deviation, named.** PLAN's e2e `pane-boundary.spec.ts` (`?__throw=`) is replaced by the unit witness `pane-boundary.test.ts`, 9/9.
+- **Gates** (clean worktree `cbf59ebe8` + this diff): typecheck 0, lint 0, vitest 1920/1920 ×2, e2e 85/85 ×2 (V-D4, w12-about-clip, od19 32/32, vd3-chip-plate, ss8-z1, ss8-b19, o14, o20, mix, gradient, admin compact and populated), visual 216/216 with no golden moved.
+- **Not this seat's:** in the shared checkout, `views/mix.spec.ts` fails ×2 under another seat's uncommitted §0ht (d) `@leave` hunk in `MixResultDisplay.vue`. With only this diff on HEAD, mix passes ×2.
+- **O-24 is a pre-existing race, not this diff.** `smoke-perf/o24-lcp-identity` was the single non-manifest RED on tranche-u ci `42118472640` at `7183085b2`. Run ×6 locally on the built bundle at 1280×720, it fails 3/6 at base `cbf59ebe8` and 2/6 with this diff. With the window lengthened to 9 s, both trees show the late `dock-plate` candidate at 3–8 s, flipping the identity. Not cured here; named for its owner.
+- **CI hygiene, owned.** A re-run of this seat's run cancelled another seat's tranche-u run `42134437448` (the concurrency group is per ref). It was re-run at once, and this seat's own re-run was cancelled. The merge was then gated through draft PR #1, a separate group: ci `42149003773` 8/8 GREEN on tree `d6de6b7eb`. GitHub marked #1 "merged" when master took its head, and the gate branch is deleted.
+- **SHIP.**
+  - §0ga merge `5dc972b3a` = `65d1f400d` + `7183085b2`. Its tree `d6de6b7eb` is exactly the tree the PR gate ran.
+  - Master ci `42162920142` 8/8 GREEN.
+  - deploy-pages `42171950909` success; prod bundle `index-D8e2XLJQ.js`.
+  - `api.color.babb.dev/health`: ok, commit `5dc972b3a`, mongo ok.
+  - This seat did not merge tranche-u's later §0ht commits (`2f1718909`..`1c1d1bbaf`). Their tranche-u ci `42134437448` reads RED: visual zoom-200-desktop palettes/mix/blob, and `o29` j4 short landscape 720×450. Those REDs are that seat's, at the 720×450 landscape.
+- **Prod reads ×2** (`~/.dev-logs/x-0hw-repair/prod/after-r{2,3}/`, byte-identical apart from the bundle field; the API's real name line "Efflorescence" is present in every cell):
+  - **1280×800:** before 825, now **800**; plane 2.401.
+  - **1423×825:** before 838, now **825**; plane 2.213.
+  - **1366×768:** before 817, now **768**; plane **2.797**.
+  - 1440×900, 1800×1000, 2560×1440 and 3440×1440 hold **2.059** unchanged.
+  - 844×390 is 2.051 and 390×844 is 1.935.
+  - No horizontal overflow in any cell.
+  - Frame read: prod 1280×800 light.
+- **Named for the owner (design ruling, not cured): 1366×768 now fits the viewport at aspect 2.797, above the OD-19 2.5 bar.** The design's floor is 20svh; holding 2.5 there would overflow the page by about 25 px (593/2.5 = 237 against 212). The one-viewport law (X.W12.c) and the ≤ 2.5 bar cannot both hold at 768 px with the name line. The owner chooses which one yields there (**V-D1.r3**).
+- **Remaining under the §0hw inventory:**
+  - V-D9 is BLOCKED on OA-16.
+  - V-G1, V-D10, V-G2 and V-G3 are BLOCKED until npm glass-ui moves past 10.1.x.
+  - V-D4's library `contrastInk` reaches npm with X·P PW10z's 4.3.0 cut.
+  - These are unchanged by this seat.

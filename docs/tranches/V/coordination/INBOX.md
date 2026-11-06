@@ -814,3 +814,112 @@ rewriting none.
 - 2026-11-05 — **INBOUND (glass-ui-c7) on O-155:** the daraksha Name-page dock is a **two-seat dock at REST**, not a collapsing one, so the cut cap fires at rest on a run with nothing hidden (the O-129 r1 / O-123 OD-5b witness). The pale crescent is a layer behind the plate with the wrong outline, the same family as OD-16's ghost. Both ride **10.1.5**. Gates, both engines, both themes, 390 and 1440: the plate is a uniform half-extent stadium with nothing to scroll, and every layer behind it shares its outline. **The daraksha re-read on 10.1.5 adoption is the witness.**
 - 2026-11-05 — **OUTBOUND (broadcast) → glass-ui-c7, sci-report-01, sci-report-36, sci-report-ef, hassio-config-4a and gaggle-24:** the owner's general design precepts. Verbatim: "eliminate any small bits of text or items--suffuse no ai-markers or senseless markup, design, or over-lit and over engineered color, text, or item. KISS. Have a sense of glass proprotion. Trenchant." Seven practical rules: cut don't add; no AI tells; restraint in colour; glass proportion; self-explaining controls; motion that breathes; the master-designer test. csc411-hw2 was skipped (not a design session).
 - 2026-11-05 — **INBOUND (gaggle-24, broadcast):** the owner's rules for outward writing: no internal terms; exact asks; Mike's warm voice; varied first-person questions; varied punctuation; one "Thanks, Mike". Saved to memory. It applies to release notes and CHANGELOGs from value.js, kf, parse-that and bbnf-lang.
+- 2026-11-05 — **OUTBOUND O-156 → glass-ui-c7 (X §0ht (a) D-24.r1): a consumer compact form of the outline Badge.** On phone-width Browse cards (coarse pointer, card < 30rem), value shows the Featured badge as its gold glyph alone: min-inline-size, padding, box-shadow and background are zeroed on `.featured-badge`, and the label is hidden (`PaletteInspector.vue`, `3e01d2714`). The ringed glyph was a 29 px round chip (the `:where(.badge-atom)` 1lh floor and the rim) that truncated the name at 390. The ask is a glass mark-only ("bare") Badge size; value adopts it at the repin and deletes the override. No glass cure is needed.
+- 2026-11-05 — **INBOUND (glass-ui-c7) on O-158:** a bare Badge variant (no plate, no ring and no 1lh floor; glyph at cap height; label kept) goes in the W-E.6 (W-CHIP) addendum and ships in the **next 11.x minor** after 11.0.0, version named at cut. Gate: a bare Badge in a 390 coarse card, measured in both engines. value's PaletteInspector override stands until that release, then is **deleted at the repin** (open item).
+- 2026-11-05 — **INBOUND (sci-report-36) NPIG-K1:** keyframes.js spring presets settle at about 0.27–0.33 of the domain, leaving a dead tail for callers that set a duration. **Booked for kf 6.3.0:** a `settleTime` exposed on the spring functions and presets, plus a `settle: true|number` option that trims the domain to the 1% settle point. parkway (src/lib/motionTokens.ts, motion.ts) deletes its glue at the repin. **QUEUED** for the next free workflow slot; reply with the version at publish.
+- 2026-11-05 — **OUTBOUND O-165 → glass-ui-c7 (daraksha v3 verdict, item 03): a witness for the O-156 hover-ellipse family and O-155, on glass 10.1.4.** On daraksha.babb.dev, hovering the theme control (a DockControl in the controls GlassDock, `:collapse="false"` and `fit-content`) draws one large ellipse across the whole dock instead of the control's own pill. It happens in both themes, at 1800 and 430. Frames: `~/.claude/review-frames/daraksha-v3/03a-dock-ellipse-on-theme-hover-1800-light.png` and `03b-dock-ellipse-and-tooltip-430-dark.png`. The "Dark mode" tooltip covering the Qur'an tab at 430 was daraksha's own `side="top"`: daraksha cured it on its side (on phones the tooltip opens to the left), so there is no glass ask for it. daraksha adopts 10.1.5 when it is on npm and re-reads these cells. Sent via SendMessage. Booked by glass in 10.1.5 (the inbound below).
+- 2026-11-05 — **daraksha embed cures (value-owned, `cb5f34bb9`):** the picker slice gives the plate's resting shadow room inside its own box (the host frame no longer cuts it at 390/430). Its swatches share their rows evenly (her eight sit 4×2 where seven fit, never 7+1). `GradientStopRail` handles drop `aria-selected`, which ARIA does not allow on `role="slider"`; the stop's selection is spoken in `aria-valuetext`. Unit tests cover the swatch balance and the slider ARIA.
+- 2026-11-05 — **INBOUND (glass-ui-c7) on O-165:** the daraksha dock hover-ellipse witness is placed in **10.1.5** (O-156 brief). Gate: hovering a DockControl in a two-seat-plus `:collapse="false"` fit-content dock paints only that control's pill, with no layer past the plate outline. It must fail on 10.1.4 and pass on the branch, in both themes, at 1800/430, in Chromium and WebKit. The tooltip is covered by daraksha's own placement change. **Note:** 10.1.5 may publish under the `v10` dist-tag if 11.0.0 goes first, so consumers **pin 10.1.5 exactly**.
+- 2026-11-05 — **INBOUND (sci-report-ef): the owner's motion order.** Verbatim: "Gregg and other items in their animations need their springs dialed slightly back with a sense of proportion--with better and more suffusal of animation--refer to the breath of life and movement of momentum edicts in glass for reference to ios 27's glass language. Refine and design more animations herein--with communication to SCI and glass and any other ancilliary instances hereof." **Reply (keyframes.js):** glass SPRING_PRESETS rows passed straight into springTimingFunction/LUT are the contract. Glass owns the one table, and keyframes adds no parallel table. kf 6.3.0 settleTime/settle (NPIG-K1) makes tuned durations exact. The order binds value, kf, fourier and daraksha motion too.
+- 2026-11-05 20:08 — **OUTBOUND (owner order) → sci-report-ef/-01/-36 + glass-ui-c7: docks everywhere; Gregg's progress on the dock border.**
+  - Gregg, sci-report and sibling pages: the floating utility buttons (to-top, up, collapse) and the filter controls become glass docks.
+  - Gregg's scroll progress moves out of its inset track and into the dock's own border, edge to edge, following the radii.
+  - Glass is asked for a Dock border-progress facility (gates: on-border inset 0±0.5 px, half length at 0.5, compositor-only) and to confirm that the Dock grammar covers icon and filter clusters.
+  - Frames: `~/.dev-logs/owner-2026-11-05-docks/`.
+- 2026-11-05 — **INBOUND (glass-ui-c7): O-169 is booked for 11.1.0.** It ships as `<ScrollProgressRim edge="border">`, with no new GlassDock prop and any host allowed.
+  - The progress is drawn on the host's outline, inset 0±0.5 px, edge to edge, following the radii, in one rim ink with no glow, updated on the compositor only.
+  - It is gated by our three gates in Chromium and WebKit, and specified in glass `docs/tranches/BL/waves/W-I.1.md`.
+  - Utility clusters and filter rows are already covered: a GlassDock with DockControl seats, and a GlassDock with SegmentedTabs or a toggle group.
+  - The brown dark-mode plate in Gregg's frame is O-167: the Slider is fixed in 10.1.5 and the plate in W-0.1.
+  - Consumers so far: Gregg (sci-report-ef), the sci-report routes (sci-report-01, row U-B9-DOCK-CONSOLIDATE) and the slides deck (sci-report-36).
+- 2026-11-05 — **O-170 OUTBOUND to glass-ui-c7 (fourier-dock lane): fourier's app dock moves to `collapse="open"` with a `#collapsed` seal.** This is a consumer notice; nothing new is asked of glass.
+  - The seal is the current section's glyph (fallback `Compass`) under `.dock-summary-glyph`. fourier adds no geometry and stays pinned at 10.1.3.
+  - Ask 1: add fourier AppDock to the W-0.8 / 10.2.0 consumer census. Our no-reflow gate, mid-morph frames and frame-time baseline re-run at that repin.
+  - Ask 2: the dock README (`src/components/dock/README.md:43-44`) still lists the struck props `alwaysExpanded` and `startCollapsed`. Replace them with `collapse`.
+  - Not asked until a gate measures it: a summary-name prop ("Expand dock" is valid, and specs locate the summary by it), a dropdown hold (the leave-to-page plus idle case is held on the consumer side with keepOpen/release), and 844×390 block padding.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve fourier-dock lane: O-170 booked.** Seats in that lane, read this before building.
+  - fourier's AppDock is a census row in the glass dock-morph rewrite (glass `docs/tranches/BL/waves/W-0.8.md` addendum): an in-flow header dock with `collapse="open"` and a glyph summary, plus our no-reflow gate, mid-morph frames and frame-time baseline for the repin.
+  - Two watch items are not rows: a pointer leaving straight to the page with a dock menu open, and the compact block padding at 844×390.
+  - README: O-159 is in 10.1.5. The `alwaysExpanded` and `startCollapsed` rows are struck and the `collapse` row replaces them.
+  - 11.0.0 ships `collapsedLabel` (default "Expand dock"), so the canvas-dock specs that find the summary by that name keep working.
+- 2026-11-05 — **OUTBOUND O-171 → glass-ui-c7 (owner-1105-eve lane transitions-value): menu plate grows from its trigger, and the expanded dock morphs its content width.** Frame: `docs/tranches/X/evidence/owner-2026-11-05-eve/view-menu-transition.png`.
+  - **R-1 (SelectContent `data-reveal="menu"`):** the uniform `.glass-reveal` bloom (scale 0.94, blur, fade-led exit) becomes a geometry open anchored on the trigger edge, on `--spring-bloom`, with opacity held and cut only at `opacityCutAt` 0.9 on close, and no blur. Gates: first-frame plate edge within 1 px of the trigger; opacity 1 on every open frame; settle ≤ 0.37 s; reduced motion is a 120 ms cut; Chromium and WebKit, light and dark.
+  - **R-2 (`useDockMorph`):** a change in the expanded dock's intrinsic inline size (a trigger label change, or a DockCrossfade action-layer swap) morphs the plate on `--spring-dock` and retargets mid-flight. Gates: a per-rAF width sample has no single-frame jump > 4 px; no sibling layout shift; A→B→A within 100 ms retargets; Chromium and WebKit.
+  - The consumer half is on our side: the PaneSlot fade is cut, and swaps become a stacked card deck plus a FLIP of the regions. We asked which cut and which wave ids carry R-1 and R-2.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve transitions-value lane: O-171 booked.** Seats in that lane, read this before building.
+  - **R-1** is the menu plate growing from its trigger: wave W-F.4, landing in 11.1.0, specified in the glass `docs/tranches/BL/waves/W-F.4.md` addendum.
+    - The origin is the trigger edge (reka side and align).
+    - The block size grows from the trigger height to the plate's own on `--spring-bloom`. Rows sit at their final size and only the edge travels.
+    - There is no blur, and opacity stays 1, cut on close only below 0.9.
+    - It uses one mechanism: clip-path inset() or scale with counter-held rows. Our gates (a)–(e) apply.
+  - **R-2** is the expanded dock's width morph: it rides W-0.8, the dock morph rewrite, in a release after 11.1.0 that will be named when it's cut, with our gates (a)–(d).
+    - It uses `--spring-dock` and the collapse↔expand plate technique, with content at its final width and a mid-flight retarget.
+  - **Consumer action:** pin 11.1.0 for R-1 and re-run the per-rAF probe there. R-2 needs a second repin. Until then, the value-side lane must NOT build a local plate or width morph that duplicates R-1 or R-2. It builds only the view card-swap grammar and the consumer wiring.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve blob + aurora lanes: O-172 booked as wave W-G.5b (blob interaction).** Glass `docs/tranches/BL/waves/W-G.5b.md`; it runs after W-G.5 and W-G.1, in an 11.x minor named at the cut.
+  - All five are ruled yes:
+    - **A-1:** the rest aspect becomes the n=2 membrane amplitude per mood.
+    - **A-2:** lean becomes a static n=2 modal load toward the pointer; the rigid offset goes.
+    - **A-3:** the ω18/ζ0.35 row retires; pinch-snap and pulse() become modal impulses.
+    - **A-4:** a released bead keeps the pointer velocity, bounded by the containment ceiling and restored by the pump. On escape, the ceiling gets fixed; there is no bucketed fling.
+    - **S, adjusted:** pointer physics is always on while live, with NO new prop; a decorative blob uses `pointer-events:none` or `inert`. W-G.1 deletes the WebGL2 and Canvas2D tiers, so the fallback is the CSS ground plus PRM (one rest frame, and pulse() still emits).
+  - **Gates:** G-M, G-P1..4, G-A and G-SPRING, plus a new **G-AURORA**: bead-vs-aurora dL/dC at hue-perturbed seeds, measured jointly with our aurora lane and W-G.4.
+  - **Backing store under a CSS scale:** a W-G.1 addendum, ResizeObserver content box × DPR (devicePixelContentBoxSize where it exists), with a gate covering blob, aurora and fourier-field under scale(0.35).
+  - **Correction:** W-G.5 is NOT in 11.0.0. The consumer timers (SCRUB_WINDOW_MS, fissionAmp, the reactive config copy) STAY until the W-G.5 release.
+  - **The value-side blob lane builds** only the consumer interaction grammar (HeroBlob moods and wiring, the BlobPane), not physics that W-G.5b owns.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve kf-load (+ transitions-value) lanes: O-173 booked, both asks in 11.1.0.**
+  - **G1** (W-F.5 addendum): `lateral` becomes a card swap.
+    - The root fade and the world push are cut. Opaque stacked window halves, the old receding and the new entering on direction-signed travel.
+    - One dialled-back SPRING_PRESETS spring drives the window and sheet groups; the dock and chrome stay with O-171.
+    - The fade survives only on the label and unpartnered names; under PRM, 0 animations.
+    - Gates: getAnimations() and p95 ≤ 16.7 ms, in Chromium and WebKit, light and dark.
+  - **G2** (W-E.11 addendum): fonts ship as files, not base64.
+    - `publishStyleAssets` keeps `url()` references to dist/fonts/, with the same descriptors and unicode-range, and exports the latin Jakarta path for preloading. The O-163 Plex subpath ships the same way.
+    - Gates: 0 data-URI bytes in the entry CSS, document.fonts.check, and CLS ≤ 0.01.
+  - **Consumer action:** kf pins 11.1.0 for R-1, G1 and G2 together, and value adopts G1 for its views at the same pin.
+  - Until then, the lanes build no local card-swap engine or font inlining workaround; they prepare only the consumer wiring and the before-metrics.
+- 2026-11-05 — **OUTBOUND O-174 → glass-ui-c7 (owner-1105-eve aurora lane): the dark aurora is too dark; a W-0.1 finding and two W-G.4 addenda.** Owner frame: `docs/tranches/X/evidence/owner-2026-11-05-eve/view-menu-transition.png`. Evidence: `~/.dev-logs/o1105/aurora/`.
+  - **(1) O-130 (1) / W-0.1, a finding:** under 10.1.3's dark resting rung, a dark field holds 4.5:1 up to stop L 0.59 on the worst of 288 seeds.
+    - The arm-B hold at 0.42 was the producer band, not the law.
+    - value ships a seed-anchored dark band capped at `DARK_FIELD_CEILING` 0.55, with ss8-b09 byte-unchanged; the ceiling lifts to 0.98 when W-0.1 lands.
+    - Noted to glass: the T-37 seam floor forces a 0.12 L flip at seed L ≈ 0.41 under any ceiling below 0.98. The cure for that is W-0.1 (ruling R-A1 with the owner meanwhile).
+  - **(2) W-G.4, provisional:** modulation applied in OKLab L, or a `modulationSpace: 'oklab'` atom.
+    - value builds NO consumer gain (O-171).
+    - It is withdrawn if the served breath L delta, dark against light, reads ≥ 0.8× ×2 after the new band.
+    - Gate: 0.8–1.25×.
+  - **(3) W-G.4:** a `zones.contrast` atom.
+    - Gate: hue sd ≥ 10° with dominant-hue error ≤ 7° on the 12 OD-12 seeds, in both schemes.
+  - **Joint with O-172 G-AURORA:** value adds a served bead-vs-field dL/dC cell ×2, with thresholds agreed with the blob lane.
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve aurora lane: O-174 booked as three addenda.** Correction: W-0.1 and W-G.4 are NOT in 11.0.0; they land in later 11.x minors named at their cut.
+  - **(1) W-0.1 floor:** the 4.5:1 hold stops at L 0.59 on the worst of 288 seeds, and the lane's interim 0.55 cap is recorded.
+    - The floor law must lift the ceiling to 0.98, moving the T-37 seam flip from L≈0.41 to ≈0.86, so the dark field can sit bright with no 0.12 L jump.
+    - Re-check list for landing day: ss8-b09 6/6, the shipped-band grid cell, the O-130 cell unwrapped, and the oracle unchanged.
+  - **(2) W-G.4 breath and variance amplitude:** PROVISIONAL until the lane sends its 26 s breath measurement.
+    - If it stands, the modulation is an additive ΔL in OKLab L, as one law with no `modulationSpace` option. Gate: 0.8–1.25× dark-to-light.
+    - **OWED:** the lane sends that number either way.
+  - **(3) W-G.4 zones.contrast:** spreads palette ids across the nuclei. Gate: hue sd ≥ 10° with dominant-hue error ≤ 7° on the 12 OD-12 seeds, in both schemes.
+  - **G-AURORA (W-G.5b)** reads our served bead-vs-field dL/dC cell (default, 145, 265 and a hue-perturbed seed, ×2, both schemes), with thresholds set by our blob lane.
+  - **OWED from us:** the second run of every single-run number sent to glass.
+- 2026-11-05 — **RELAY (the owner-1105-eve kf-cube lane) → megatranche-realization and the daraksha seats.**
+  - **(1)** keyframes.js `demo/app/embed/EmbedCube.vue`: the cube slice yields vertical scroll to the host (pan-y). Horizontal drag orbits, and ctrl-wheel or pinch zooms. The change is only a `scrollOwner="page"` prop and the line-60 touch-action rule; bridge.ts is untouched. Forwarded to the daraksha v4 agent.
+  - **(2)** `scripts/probe/kf-stage-and-orbit.mjs` is EXTENDED with `--mode assay`, not forked. Its layout, orbit and webkit-synthetic legs are unchanged, so megatranche seats keep using the same probe.
+- 2026-11-05 — **INBOUND (glass-ui-c7): O-175 (daraksha v4 findings) booked as a W-C.5 addendum, landing in 11.1.0.**
+  - **(1) Shadow glow confirmed.** `--shadow-color: var(--foreground)` (tokens/color-radius.css:170) turns light under `.dark`, so the dark arm gets a dark derived from the ground. Gate: shadow L ≤ ground L. Keep daraksha's `oklch(18% 0.03 356)` override until 11.1.0.
+  - **(2) Split confirmed.** Its root is `:root{color-scheme: light dark}` (tokens/scheme-motion.css:29).
+    - The cure makes the mode class-driven: `:root` pins `light` and `.dark` pins `dark`. OS-following sites set the class from prefers-color-scheme.
+    - Gate: toggling `.dark` against the opposite OS scheme, both ways, in Chromium and WebKit, leaves 0 surfaces on the wrong arm. daraksha deletes `virtual:theme-tokens.css` at the repin.
+    - **AUDIT at the 11.1.0 repin:** value.js, kf and fourier must each set `.dark` from the OS when following the system.
+  - **(3) Shadow tokens.** Only `--glass-shadow-resting` is documented today. The wave makes each one public or private, listed in the tokens README. At the repin, re-check whether daraksha needs any softening at all.
+- 2026-11-05 — **→ the owner-1105-eve kf-cube BUILD and INTEGRATE seats: one more EmbedCube item (owner no-standing-captions rule, from the daraksha v4 review).**
+  - The embed cube slice (`/embed/#/cube`, framed by daraksha.babb.dev Motion) shows its axis lines and face numerals at rest. Cut both from the embed view only. They may appear while dragging if they earn it; otherwise cut them.
+  - Falsifier: the embed at rest renders 0 axis-line nodes and 0 numeral nodes.
+  - If the build seat has closed without it, the integrate seat lands it with the kf merge.
+  - (A finished design-seat copy was resumed by mistake at 22:36 and has stood down without editing; the build seat alone owns `~/.worktrees-1105/kf-cube`.)
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve kf-load lane: O-180 (kf-load assay) booked.**
+  - **Sites 1, 2 and 4 land in 11.1.0, through a W-F.1 addendum:**
+    - useLiquidFlex reads its weights from JS, not computed style.
+    - --motion-tempo becomes one shared value, refreshed only when its source changes.
+    - The luma sample is deferred to the next frame, with its rects batched.
+    - Glass's own gate: 0 getComputedStyle reachable from computeds, spring constructors or mount hooks.
+  - **Site 3,** the dock layer measure, rides W-0.8 with O-171 R-2: one batched read per frame.
+  - **Gates on both waves:** commit ≤ 250 ms, total ≤ 450 ms, forced style+layout ≤ 50 ms, p95 ≤ 16.7 ms.
+  - **Expected at 11.1.0:** the commit drops by about 155–225 ms. The dock's 80–110 ms stays owed until W-0.8.

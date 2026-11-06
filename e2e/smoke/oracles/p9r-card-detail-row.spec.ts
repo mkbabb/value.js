@@ -26,7 +26,10 @@ for (const [label, width, height] of [
         const main = mainPane(page);
         const card = main.getByRole("article").first();
         await expect(card).toBeVisible({ timeout: 60_000 });
-        await card.getByRole("button", { name: /^Colors of / }).click();
+        // X·§0ht (a) D-24.r1: the card is its own disclosure (below 30rem of
+        // card the chevron yields to the name), so the oracle opens it by the
+        // card's own verb at both widths.
+        await card.locator("[data-palette-name]").click();
         const detail = card.locator(".palette-card__detail");
         await expect(card.locator("[data-palette-swatches]")).toBeVisible();
         // the disclosure's open morph settles before the geometry read

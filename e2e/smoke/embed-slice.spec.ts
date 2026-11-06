@@ -76,11 +76,13 @@ test("the picker slice is ready, themed and sized, and speaks only to its host",
     expect(ready.data.height as number).toBeGreaterThan(200);
 
     const frame = sliceFrame();
-    // The app's own plate, field and console; her eight swatches; her name.
+    // The app's own plate, field and console; her eight swatches, the first pressed; no standing caption.
     await expect(frame.locator(".picker-plate")).toBeVisible();
     await expect(frame.locator(".spectrum-picker")).toBeVisible();
     await expect(frame.getByRole("group", { name: "Colours" }).getByRole("button")).toHaveCount(8);
-    await expect(frame.getByTestId("embed-color-name")).toHaveText("Efflorescence");
+    await expect(frame.getByRole("button", { name: "Efflorescence" })).toHaveAttribute("aria-pressed", "true");
+    // No caption: the name is the swatch's accessible name and title, never text on the plate.
+    await expect(frame.getByText("Efflorescence", { exact: true })).toHaveCount(0);
     // The ground is transparent, and the frame's scheme is the host's.
     expect(await frame.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgba(0, 0, 0, 0)");
     expect(await frame.evaluate(() => document.documentElement.classList.contains("dark"))).toBe(true);
@@ -88,7 +90,7 @@ test("the picker slice is ready, themed and sized, and speaks only to its host",
 
     // A swatch press reports the colour to the host.
     await frame.getByRole("button", { name: "Curry Leaf" }).click();
-    await expect(frame.getByTestId("embed-color-name")).toHaveText("Curry Leaf");
+    await expect(frame.getByRole("button", { name: "Curry Leaf" })).toHaveAttribute("aria-pressed", "true");
     await expect.poll(async () => (await msgs()).filter((m) => m.data.type === "color").length).toBeGreaterThan(0);
 
     // set-theme flips the slice and is acknowledged.

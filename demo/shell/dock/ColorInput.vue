@@ -258,6 +258,10 @@ const onInputBlur = () => {
     // while focused, leaving stale text without this snap-back.
     if (!proposeMode && inputColorRef.value) {
         inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
+        // X·§0ht (c): the edit scroll would outlive the edit, and the repainted
+        // caption ellipsized against it showed "…" alone; at rest it reads
+        // from its start.
+        inputColorRef.value.scrollLeft = 0;
         clearParseError();
     }
 };
@@ -429,6 +433,16 @@ defineExpose({
 .color-input {
     align-self: stretch;
     align-content: center;
+}
+/* X·§0ht (c) — WHILE EDITED, THE RUN SCROLLS TO ITS CARET; IT NEVER ELIDES.
+ * Chrome computes the ellipsis at the box's end in unscrolled coordinates and
+ * then applies the edit scroll, so a focused run longer than the field (the
+ * caret at its end) painted only that "…", pushed to the start, over an empty
+ * box: at 390 "zzqq-not-a-colour" read as "…". Focused, the overflow clips
+ * and the field scrolls to the caret, so the user sees what they typed; at
+ * rest the caption ellipsizes from its start (onInputBlur). */
+.color-input:focus {
+    text-overflow: clip;
 }
 
 .color-input-error {

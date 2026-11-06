@@ -17,7 +17,8 @@ import { formatCssCaption } from "../../color-session/format-color";
  * anchor the canvas convergence lands on). On settle the ghost flips live and
  * the SAME seed fills in: the silhouette the pigment poured into is the
  * silhouette the result wears. The swap rides `vj-morph` (one surface, new
- * content — the family law).
+ * content — the family law): the content enters on it at the settle, and the
+ * well, under the dissolving pool, has no leave beat (X·§0ht (d)).
  */
 const { result, ghost = false } = defineProps<{
     result: MixResult;
@@ -60,7 +61,11 @@ async function onCopy() {
         <!-- X.W12.u2 (UIA-V-137): every Mix section head (Selected · From palettes · Result) speaks ONE voice; X-DS pass 1 (V1C-04) makes it the app's Fraunces section head. -->
         <h3 class="font-display text-subheading">Result</h3>
 
-        <Transition name="vj-morph" mode="out-in">
+        <!-- X·§0ht (d): the swap has no leave beat (scoped style below), so
+             the content mounts in the settle's own patch. Out-in, it waited
+             for the well's leave: two frames and a transition, 2.2 s at
+             550 ms frames, the CI-only mix.spec RED. -->
+        <Transition name="vj-morph">
             <!-- The awaiting well: the convergence target, announced before
                  the drops arrive. Same seed as the landed dot — one shape. -->
             <div v-if="ghost" key="well" class="flex items-center gap-3">
@@ -159,6 +164,12 @@ async function onCopy() {
 </template>
 
 <style scoped>
+/* X·§0ht (d) — THE WELL HAS NO LEAVE BEAT. The canvas pool dissolves over it
+ * (MIX_EPILOGUE_MS), so the leaving well leaves the plate at once and the
+ * inked content morphs in in its place: the plate never holds both. */
+.mix-plate > .vj-morph-leave-active {
+    display: none;
+}
 /* The destination at reduced presence while the drops are in flight; full
  * presence as the pool dissolves into the inked plate. */
 .mix-plate {
