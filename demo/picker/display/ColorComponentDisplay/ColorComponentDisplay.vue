@@ -49,6 +49,9 @@
                 >,</span>
             </span>
         </template>
+        <!-- The tuple's trailing mark (the host's): the picker seats the
+             colour badge here, on the readout's own baseline. -->
+        <slot />
     </CardTitle>
 </template>
 

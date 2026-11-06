@@ -61,7 +61,44 @@
                     :formatted="currentColorComponentsFormatted"
                     :space="model.selectedColorSpace"
                     @input="onComponentInput"
-                />
+                >
+                    <!-- V-D1.r3 (delegate ruling R-1): on a short desktop
+                         block the name yields its line. The spectrum's
+                         aspect bar (≤ 2.5) and the one-viewport law both
+                         hold at 1366×768 only without that 33 px row, so the
+                         name waits behind the colour's badge — a disc of the
+                         colour itself on the readout's baseline — in glass's
+                         popover: hover, keyboard focus or tap (the owner's
+                         gloss rule). Same mount gate as the line (D-32). -->
+                    <Popover
+                        v-if="nameLineMounted && currentColorName && nameYields"
+                        v-model:open="nameGlossOpen"
+                        trigger="hover"
+                    >
+                        <PopoverTrigger as-child>
+                            <button
+                                type="button"
+                                class="picker-color-badge"
+                                data-testid="picker-color-badge"
+                                :aria-label="`Colour name: ${currentColorName}`"
+                                :style="{ '--picker-color-badge-fill': cssColorOpaque }"
+                                @focus="onBadgeFocus"
+                                @blur="nameGlossOpen = false"
+                            ></button>
+                        </PopoverTrigger>
+                        <PopoverContent
+                            side="bottom"
+                            :side-offset="8"
+                            class="picker-color-gloss-panel"
+                            aria-label="Colour name"
+                        >
+                            <p
+                                class="picker-color-gloss"
+                                data-testid="picker-color-gloss"
+                            >{{ currentColorName }}</p>
+                        </PopoverContent>
+                    </Popover>
+                </ColorComponentDisplay>
 
                 <!-- The colour's NAME (owner 2026-10-19), IFF it has one: a
                      CSS keyword or an approved name within ΔE_OK 0.02 of the
@@ -77,7 +114,7 @@
                      render and the hydrating render agree (no line), and the
                      line appears on the mount's own update. -->
                 <p
-                    v-if="nameLineMounted && currentColorName"
+                    v-if="nameLineMounted && currentColorName && !nameYields"
                     class="picker-color-name"
                     data-testid="picker-color-name"
                 >{{ currentColorName }}</p>
@@ -154,7 +191,8 @@ import {
     useTemplateRef,
     watch,
 } from "vue";
-import { useMagicKeys } from "@vueuse/core";
+import { useMagicKeys, useMediaQuery } from "@vueuse/core";
+import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import { useIdleReady } from "@mkbabb/glass-ui/dom";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
 import { serializePickerColor } from "../color-session/picker-color";
@@ -421,6 +459,19 @@ onDeactivated(() => {
 
 // X·§0hm D-32 — the name line renders from the mount on (template note).
 const nameLineMounted = ref(false);
+
+// V-D1.r3 (R-1) — the name yields its line on a short desktop block: from lg
+// the picker fits the viewport (X.W12.c), and below 820 px of block the line
+// costs the spectrum its ≤ 2.5 aspect. Below lg the plate scrolls its own body
+// (D-19), so neither law is in tension and the line stands.
+const nameYields = useMediaQuery("(min-width: 1024px) and (max-height: 819.98px)");
+const nameGlossOpen = ref(false);
+
+/** Keyboard focus opens the gloss; a tap's focus is left to the tap (the
+ *  coarse arm toggles on click, and opening here first would close it). */
+function onBadgeFocus(event: FocusEvent) {
+    if ((event.target as HTMLElement).matches(":focus-visible")) nameGlossOpen.value = true;
+}
 
 onMounted(() => {
     nameLineMounted.value = true;

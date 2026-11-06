@@ -20,7 +20,15 @@ describe("D-32 — the name line renders from the plate's mount on", () => {
     it("the line's v-if reads the mount flag before the name", () => {
         const line = sfc.match(/<p\s+v-if="([^"]+)"\s+class="picker-color-name"/);
         expect(line, "the name line").not.toBeNull();
-        expect(line![1]).toBe("nameLineMounted && currentColorName");
+        expect(line![1]).toMatch(/^nameLineMounted && currentColorName\b/);
+    });
+
+    // V-D1.r3: where the line yields, the name moves into the badge's gloss,
+    // which is client-only by the same gate.
+    it("the badge's gloss reads the mount flag before the name", () => {
+        const gloss = sfc.match(/<Popover\s+v-if="([^"]+)"/);
+        expect(gloss, "the name gloss").not.toBeNull();
+        expect(gloss![1]).toMatch(/^nameLineMounted && currentColorName\b/);
     });
 
     it("the flag starts false and only onMounted sets it", () => {
