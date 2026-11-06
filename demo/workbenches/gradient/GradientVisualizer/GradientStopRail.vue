@@ -281,9 +281,10 @@ function stopName(index: number): string {
  * position (GRADSTOP-A §14), so it belongs to the thing that is re-announced
  * whenever the position moves.
  */
+/** ARIA gives a slider no selected state, so selection is spoken in the value text. */
 function stopValueText(stop: GradientStop, index: number): string {
-    const text = `Stop ${index + 1} of ${stops.length}, position ${formatPercent(stop.position)}%`;
-    return isGrabbed(stop.id) ? `${text}, grabbed` : text;
+    const states = [selectedId.value === stop.id && "selected", isGrabbed(stop.id) && "grabbed"].filter(Boolean);
+    return [`Stop ${index + 1} of ${stops.length}, position ${formatPercent(stop.position)}%`, ...states].join(", ");
 }
 
 const selectedStop = computed(
@@ -666,7 +667,6 @@ function onCaretKeydown(e: KeyboardEvent) {
                 :aria-valuenow="stop.position"
                 :aria-valuetext="stopValueText(stop, index)"
                 :aria-label="stopName(index)"
-                :aria-selected="selectedId === stop.id"
                 class="rail-handle absolute rounded-full cursor-grab active:cursor-grabbing"
                 :class="[selectedId === stop.id ? 'z-10' : 'z-0']"
                 :style="{

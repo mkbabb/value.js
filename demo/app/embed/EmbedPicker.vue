@@ -13,7 +13,14 @@
                     <SpectrumCanvas />
                     <ComponentSliders />
                 </div>
-                <div v-if="stops.length > 0" class="embed-swatches" role="group" aria-label="Colours">
+                <div
+                    v-if="stops.length > 0"
+                    ref="swatchRow"
+                    class="embed-swatches"
+                    role="group"
+                    aria-label="Colours"
+                    :style="{ '--cols': String(columns) }"
+                >
                     <SwatchButton
                         v-for="(stop, i) in stops"
                         :key="i"
@@ -31,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, provide, shallowRef, watch } from "vue";
+import { computed, onBeforeUnmount, provide, ref, shallowRef, useTemplateRef, watch } from "vue";
 import { Card, CardContent, CardHeader } from "@mkbabb/glass-ui/card";
 import { createDefaultColorModel, type ColorModel } from "../../color-session/color-model";
 import { COLOR_MODEL_KEY } from "../../color-session/keys";
@@ -42,6 +49,7 @@ import SpectrumCanvas from "../../picker/controls/SpectrumCanvas/SpectrumCanvas.
 import ComponentSliders from "../../picker/controls/ComponentSliders/ComponentSliders.vue";
 import SwatchButton from "../../shared/ui/SwatchButton.vue";
 import type { SliceStop } from "./params";
+import { balancedColumns } from "./balance";
 import "../../picker/seat.css";
 import "../../picker/header.css";
 
@@ -77,17 +85,42 @@ const currentName = computed(() => {
     return stop?.name ? displayName(stop.name) : null;
 });
 
+// The swatches share their rows evenly: the row's width and the first
+// swatch's size decide how many fit, and the count is spread over the rows.
+const swatchRow = useTemplateRef<HTMLElement>("swatchRow");
+const columns = ref(stops.length);
+let rowObserver: ResizeObserver | null = null;
+watch(
+    swatchRow,
+    (row) => {
+        rowObserver?.disconnect();
+        if (!row || typeof ResizeObserver === "undefined") return;
+        rowObserver = new ResizeObserver(([entry]) => {
+            const cell = (row.firstElementChild as HTMLElement | null)?.offsetWidth ?? 0;
+            const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+            columns.value = balancedColumns(stops.length, entry?.contentRect.width ?? row.clientWidth, cell, gap);
+        });
+        rowObserver.observe(row);
+    },
+    { flush: "post" },
+);
+onBeforeUnmount(() => rowObserver?.disconnect());
+
 // The picked colour, one message per frame (the pipeline's frame-coalesced colour).
 watch(cssColorOpaqueFrame, (css) => emit("color", css));
 </script>
 
 <style scoped>
+/* The plate's resting shadow (glass --shadow-lg) falls inside the slice's own
+   box: the frame's edge is never the shadow's edge. */
 .embed-picker {
     inline-size: 100%;
+    box-sizing: border-box;
+    padding: 0.25rem 0.75rem 1.5rem;
 }
 .embed-swatches {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), auto);
     justify-content: center;
     gap: 0.5rem;
     margin-block-start: 1.25rem;
