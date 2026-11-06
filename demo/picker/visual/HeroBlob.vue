@@ -1,19 +1,27 @@
 <template>
-    <!-- Explicit inert ornament root: the caller's anchor lands here and the
-         fixed footprint never intercepts the card. Omitting pressLabel keeps
-         the producer on its decorative canvas path—no button, focus target,
-         pointer host, Tooltip, or duplicate Copy ownership. -->
+    <!-- The ornament root: the caller's anchor lands here and the fixed
+         footprint never intercepts the card. On the picker the hero is
+         decorative (glass ruling S, O-172): no pressLabel, so the producer
+         renders no button, focus target or pointer host. /blob is the stage
+         that shows the blob, so there the producer's clipped press surface
+         (its own pointer-events:auto) is the one interactive child, and the
+         root leaves the accessibility tree open for it. -->
     <!-- T.W4.5 R2 — @animationend: the caller's `.hero-blob-anchor` class
          (and with it the W2-4 `blob-emerge` beat) lands on THIS root, so the
          emerge pose's end fires here; onEmergeEnd re-measures the engine's
          backing store against the settled box (see the script block). -->
-    <div class="pointer-events-none" aria-hidden="true" @animationend="onEmergeEnd">
+    <div
+        class="pointer-events-none"
+        :aria-hidden="pressLabel ? undefined : 'true'"
+        @animationend="onEmergeEnd"
+    >
         <!-- W6-4 (S.W6): the FOOTPRINT is the caller's law — the pane slot's
              anchor class sets `--blob-fp`; Blob only consumes it. -->
         <Blob
             ref="blobRef"
             :color="cssColorOpaque"
             :config="heroConfig"
+            :press-label="pressLabel"
             class="w-(--blob-fp)"
         />
     </div>
@@ -31,6 +39,7 @@ import {
     useTemplateRef,
     watch,
 } from "vue";
+import { useRoute } from "vue-router";
 import { Blob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/blob";
 import type { BlobConfig } from "@mkbabb/glass-ui/blob";
 import { BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
@@ -57,6 +66,11 @@ import { resolveSurfaceLightnessLive } from "../../color-session/useContrastSafe
 const { cssColorOpaque, cssColorOpaqueFrame, savedColorStrings } = inject(COLOR_MODEL_KEY)!;
 
 const blobRef = useTemplateRef<InstanceType<typeof Blob>>("blobRef");
+
+// o1105 V-2a: the /blob view presses the bead (the producer's button → pulse()).
+// An empty label is the producer's decorative path (it trims the label).
+const route = useRoute();
+const pressLabel = computed(() => (route.name === "blob" ? "Pulse blob" : ""));
 
 // --- W6-4: the HERO config register (the consumer contract, genesis §3.0) ---
 // The app-wide 8-atom config (provided by useAtmosphere via BLOB_CONFIG_KEY)
