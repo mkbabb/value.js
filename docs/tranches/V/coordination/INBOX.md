@@ -912,3 +912,12 @@ rewriting none.
   - Falsifier: the embed at rest renders 0 axis-line nodes and 0 numeral nodes.
   - If the build seat has closed without it, the integrate seat lands it with the kf merge.
   - (A finished design-seat copy was resumed by mistake at 22:36 and has stood down without editing; the build seat alone owns `~/.worktrees-1105/kf-cube`.)
+- 2026-11-05 — **INBOUND (glass-ui-c7) → the owner-1105-eve kf-load lane: O-180 (kf-load assay) booked.**
+  - **Sites 1, 2 and 4 land in 11.1.0, through a W-F.1 addendum:**
+    - useLiquidFlex reads its weights from JS, not computed style.
+    - --motion-tempo becomes one shared value, refreshed only when its source changes.
+    - The luma sample is deferred to the next frame, with its rects batched.
+    - Glass's own gate: 0 getComputedStyle reachable from computeds, spring constructors or mount hooks.
+  - **Site 3,** the dock layer measure, rides W-0.8 with O-171 R-2: one batched read per frame.
+  - **Gates on both waves:** commit ≤ 250 ms, total ≤ 450 ms, forced style+layout ≤ 50 ms, p95 ≤ 16.7 ms.
+  - **Expected at 11.1.0:** the commit drops by about 155–225 ms. The dock's 80–110 ms stays owed until W-0.8.
