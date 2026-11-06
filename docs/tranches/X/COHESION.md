@@ -5965,3 +5965,72 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **WebKit NOT witnessed:** the `--engine webkit` legs (base RED, prod ×2, orbit) waited on the machine's one WebKit lock from 23:31 to 01:05 while other seats' queues held it, and were stood down unrun. OWED: `guarded --exclusive webkit -- node scripts/probe/kf-stage-and-orbit.mjs --engine webkit --base https://keyframes.babb.dev/ --mode assay` ×2 and `--mode orbit`, parity with the Chromium cells (the CDP legs do not run there).
   - **Owner-hand rows, unwitnessed until read:** a real-trackpad wheel log; macOS Safari pinch single-apply; iOS two-finger pinch and twist on the embed under pan-y.
   - **Relay:** the embed change widened by `embed.css` (`overscroll-behavior: auto` on the slice root) beyond the relayed `scrollOwner` prop; daraksha seats take it at their next read of the slice.
+
+### §0hs.1 — the §0hw value adversarial check, repaired (2026-11-05)
+- **Commit `7183085b2`** (tranche-u; parent `cbf59ebe8`). Built and gated in a clean worktree holding only this diff, because other seats had uncommitted work in the shared checkout. The commit went in through a private index, so their staged and unstaged files were not touched; their `MixResultDisplay.vue` hunks (§0ht (d)) stay theirs.
+- **Finding 1, C3: CURED AT THE INSTRUMENT, ERRATUM BANKED.**
+  - `bench/retired.ts` now answers the realpath of the retired cache.
+  - `stylesheet.measure.test.ts` refuses to measure when the hybrid's grammar mock did not apply.
+  - Falsifier: a symlinked worktree at `b290662b4`.
+    - Before the cure: `DEFECT 1312 · VALUE_GRAMMAR 0`, RED ×2.
+    - The guard alone, without the realpath fix: the file refuses ("mock was not applied").
+    - After the cure: `AGREE 30246 · VALUE_GRAMMAR 1729 · BOTH_REFUSE 30 · DEFECT 0`, GREEN ×2.
+  - `bench/records/rc-p-4.2.0/c3-ERRATUM.txt` banks the erratum, with the adversarial check's real-cache runs beside it (`c3-equivalence-realpath-run{1,2}.txt`).
+  - **RC-P(4.2.0) C3 is TRUE.** RC-P(4.2.0) reads 6/6 TRUE. §0hw.12's route of C3 to X·P `.rd` is withdrawn by this addendum.
+- **Finding 2, the second serializer: CURED.**
+  - PaletteColorStrip's composed `to right`/`to bottom` head now goes through `stopsToGradient` (`90deg`/`180deg`).
+  - useGradientCSS's rail and interval ramps now go through `stopsToGradient`, which gains:
+    - an optional `interpolation` clause;
+    - `<angle>`-only directions;
+    - `calc()` stop positions in its totality filter.
+  - The two literal transparent heads became an honest `none`.
+  - The literal-only grep is joined by a composed-head law, which reads every demo `.ts` and every `.vue` `<script>` with comments stripped. It was RED ×2 (2 files) before the cure and is GREEN after.
+- **PCS-10: CURED.**
+  - One truncation policy, `color-chips/compact.ts`: every colour when it fits, otherwise capacity − 1 swatches and `+k`, so drawn + k always equals the count. A `+1` is never drawn.
+  - `CompactPalette` takes its capacity from its own container. Its geometry is two registered, inherited lengths, `--compact-size` and `--compact-step`.
+  - Adopters:
+    - AdminFlaggedPanel's cluster. The silent `slice(0, 5)` became 4 + `+5`.
+    - The mix result's swatches. They used to wrap without bound; now they sit in one row with `+k`, and the strip under them still paints every colour.
+    - PreviewStrip. The fade on the 7th segment became 6 segments + `+k`.
+  - PaletteSpecimen/PaletteColorStrip never truncates: past 100 colours it summarises, so it has no `+k` to draw. The consume map in `color-chips/index.ts` records this.
+  - Falsifiers:
+    - Unit: RED at HEAD source, GREEN after.
+    - e2e `admin/vd3-compact-palette.spec.ts` at 390: RED ×2 (5 drawn of 9, no `+k`), GREEN ×2.
+  - Frame read: admin flagged 390. Nine Hues shows 4 discs + `+5`; Three Hues shows 3.
+- **V-D1.r2: CURED.**
+  - At lg the picker is capped at `--scene-band-block`. The cap is a definite length: under `min(100%, …)` the grid row sized from the uncapped contribution, 745 px.
+  - The spectrum plane is the card's elastic member: `flex: 0 1 auto`, with a floor of `min(20svh, 100cqi / φ√φ)`. The 34svh budget is retired, in foundation.css and in the DESIGN §3.1 row.
+  - New cell in `w12-about-clip.spec.ts` that seeds the approved name:
+    - Before: 1280×800 825, 1423×825 838, RED ×2.
+    - After: 800 and 825, GREEN ×2. The plane is 2.40 and 2.21.
+  - Frame read: 1280×800 light. "Efflorescence" sits under the readout and the card ends inside the viewport.
+- **V-D4 legs: RUN.**
+  - axe-core 4.14.0, exact devDependency, runs over the label at 1440 light and dark.
+  - The keyboard leg checks that every `:hover`-painted element has a Tab stop and that every Tab stop shows a ring. It resolves nested `&` selectors.
+  - Before, at `ed73b1ebc^`: RED ×2 (6 bare svg; the conversion rows `div.flex.flex-wrap` were hover-only). After: GREEN ×2.
+  - **axe itself reported 0 violations before and after.** The svg RED is the in-page leg, because axe does not rule an svg with no role.
+- **V-D7 deviation, named.** PLAN's e2e `pane-boundary.spec.ts` (`?__throw=`) is replaced by the unit witness `pane-boundary.test.ts`, 9/9.
+- **Gates** (clean worktree `cbf59ebe8` + this diff): typecheck 0, lint 0, vitest 1920/1920 ×2, e2e 85/85 ×2 (V-D4, w12-about-clip, od19 32/32, vd3-chip-plate, ss8-z1, ss8-b19, o14, o20, mix, gradient, admin compact and populated), visual 216/216 with no golden moved.
+- **Not this seat's:** in the shared checkout, `views/mix.spec.ts` fails ×2 under another seat's uncommitted §0ht (d) `@leave` hunk in `MixResultDisplay.vue`. With only this diff on HEAD, mix passes ×2.
+- **O-24 is a pre-existing race, not this diff.** `smoke-perf/o24-lcp-identity` was the single non-manifest RED on tranche-u ci `42118472640` at `7183085b2`. Run ×6 locally on the built bundle at 1280×720, it fails 3/6 at base `cbf59ebe8` and 2/6 with this diff. With the window lengthened to 9 s, both trees show the late `dock-plate` candidate at 3–8 s, flipping the identity. Not cured here; named for its owner.
+- **CI hygiene, owned.** A re-run of this seat's run cancelled another seat's tranche-u run `42134437448` (the concurrency group is per ref). It was re-run at once, and this seat's own re-run was cancelled. The merge was then gated through draft PR #1, a separate group: ci `42149003773` 8/8 GREEN on tree `d6de6b7eb`. GitHub marked #1 "merged" when master took its head, and the gate branch is deleted.
+- **SHIP.**
+  - §0ga merge `5dc972b3a` = `65d1f400d` + `7183085b2`. Its tree `d6de6b7eb` is exactly the tree the PR gate ran.
+  - Master ci `42162920142` 8/8 GREEN.
+  - deploy-pages `42171950909` success; prod bundle `index-D8e2XLJQ.js`.
+  - `api.color.babb.dev/health`: ok, commit `5dc972b3a`, mongo ok.
+  - This seat did not merge tranche-u's later §0ht commits (`2f1718909`..`1c1d1bbaf`). Their tranche-u ci `42134437448` reads RED: visual zoom-200-desktop palettes/mix/blob, and `o29` j4 short landscape 720×450. Those REDs are that seat's, at the 720×450 landscape.
+- **Prod reads ×2** (`~/.dev-logs/x-0hw-repair/prod/after-r{2,3}/`, byte-identical apart from the bundle field; the API's real name line "Efflorescence" is present in every cell):
+  - **1280×800:** before 825, now **800**; plane 2.401.
+  - **1423×825:** before 838, now **825**; plane 2.213.
+  - **1366×768:** before 817, now **768**; plane **2.797**.
+  - 1440×900, 1800×1000, 2560×1440 and 3440×1440 hold **2.059** unchanged.
+  - 844×390 is 2.051 and 390×844 is 1.935.
+  - No horizontal overflow in any cell.
+  - Frame read: prod 1280×800 light.
+- **Named for the owner (design ruling, not cured): 1366×768 now fits the viewport at aspect 2.797, above the OD-19 2.5 bar.** The design's floor is 20svh; holding 2.5 there would overflow the page by about 25 px (593/2.5 = 237 against 212). The one-viewport law (X.W12.c) and the ≤ 2.5 bar cannot both hold at 768 px with the name line. The owner chooses which one yields there (**V-D1.r3**).
+- **Remaining under the §0hw inventory:**
+  - V-D9 is BLOCKED on OA-16.
+  - V-G1, V-D10, V-G2 and V-G3 are BLOCKED until npm glass-ui moves past 10.1.x.
+  - V-D4's library `contrastInk` reaches npm with X·P PW10z's 4.3.0 cut.
+  - These are unchanged by this seat.
