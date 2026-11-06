@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Copy, Check, Save, RotateCcw } from "@lucide/vue";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
-import { computed, TransitionGroup } from "vue";
+import { computed } from "vue";
 import { useClipboard } from "@mkbabb/glass-ui/dom";
 import { WatercolorDot } from "../../shared/ui/watercolor-dot";
-import { stopsToGradient } from "../../shared/ui/color-chips";
+import { CompactPalette, stopsToGradient } from "../../shared/ui/color-chips";
 import type { MixResult } from "./composables/useMixingState";
 import { formatCssCaption } from "../../color-session/format-color";
 
@@ -97,24 +97,25 @@ async function onCopy() {
 
                 <!-- Palette result -->
                 <template v-if="result.type === 'palette' && result.colors">
-                    <TransitionGroup
-                        name="vj-enter"
-                        tag="div"
-                        class="swatch-row flex flex-wrap gap-2"
+                    <!-- V-D3 · BC-PCS-10: the result's swatches are the ONE
+                         compact render — one row, as many 40 px dots as the
+                         plate holds, then `+k` (the retired row wrapped
+                         without bound). The strip below paints every colour. -->
+                    <CompactPalette
+                        class="mix-result__swatches"
+                        :colors="result.colors.map((c) => c.css)"
+                        transition="vj-enter"
                     >
-                        <span
-                            v-for="(color, i) in result.colors"
-                            :key="i"
-                            class="inline-flex w-10 h-10 shrink-0"
-                            :title="formatCssCaption(color.css)"
-                        >
-                            <WatercolorDot
-                                :color="color.css"
-                                class="w-full h-full"
-                                :seed="i === 0 ? 'mix-result' : `mix-result-${i}`"
-                            />
-                        </span>
-                    </TransitionGroup>
+                        <template #swatch="{ color, index }">
+                            <span class="inline-flex w-full h-full" :title="formatCssCaption(color)">
+                                <WatercolorDot
+                                    :color="color"
+                                    class="w-full h-full"
+                                    :seed="index === 0 ? 'mix-result' : `mix-result-${index}`"
+                                />
+                            </span>
+                        </template>
+                    </CompactPalette>
                     <!-- Gradient preview (decorative) -->
                     <!-- W5-a11y: gradient strip is decorative -->
                     <div
@@ -165,5 +166,10 @@ async function onCopy() {
 }
 .mix-plate--ghost {
     opacity: 0.55;
+}
+/* The result's seats: 40 px dots on the 8 px row gap the wrap used. */
+.mix-result__swatches {
+    --compact-size: 2.5rem;
+    --compact-step: 3rem;
 }
 </style>

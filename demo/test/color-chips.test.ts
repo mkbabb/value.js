@@ -11,9 +11,12 @@
  *     omits alpha 1 (R-14).
  */
 import { describe, expect, it } from "vitest";
+import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import * as chips from "../shared/ui/color-chips";
+import { serializeIntervalRamp, serializeRailRamp } from "../workbenches/gradient/composables/useGradientCSS";
+import { parseGradientCSS } from "../workbenches/gradient/composables/gradientParse";
 import { colorToCss, parseColorIn } from "../color-session/color-utils";
 
 const ROOT = join(import.meta.dirname, "..", "..");
@@ -54,6 +57,46 @@ describe("color-chips · the one serializer home", () => {
         for (const f of sites) {
             expect(readFileSync(join(ROOT, f), "utf8"), f).not.toContain("linear-gradient(to right");
         }
+    });
+
+    it("R-18/R-19 (adversarial finding 2): no demo script composes its own `linear-gradient` head", () => {
+        // The literal-only grep above cannot see a COMPOSED head
+        // (`linear-gradient(${dir}, …)` with `dir = "to right"`) or a second
+        // `90deg` head. This law reads every tracked demo `.ts` and every
+        // `.vue` <script> block, comments stripped, and refuses any
+        // `linear-gradient(` whose first argument is an angle, a `to <side>`
+        // keyword or an interpolation: the one place that writes a strip head
+        // is `stopsToGradient`.
+        const HOME = "demo/shared/ui/color-chips/sample.ts";
+        // The SV plate is not a strip of stops: two crossed layers (white →
+        // hue under a black `to top` veil), the spectrum's own paint.
+        const PLATE = "demo/picker/controls/SpectrumCanvas/composables/useSpectrumPlateStyle.ts";
+        const files = execFileSync("git", ["-C", ROOT, "ls-files", "demo/*.ts", "demo/*.vue"], { encoding: "utf8" })
+            .split("\n")
+            .filter((f) => f && !f.startsWith("demo/test/") && f !== HOME && f !== PLATE);
+        const HEAD = /linear-gradient\(\s*(?:\$\{|-?[\d.]+(?:deg|turn|rad|grad)|to\s|in\s)/;
+        const minted: string[] = [];
+        for (const f of files) {
+            let text = readFileSync(join(ROOT, f), "utf8");
+            if (f.endsWith(".vue")) text = [...text.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]).join("\n");
+            text = text.replace(/\/\*[\s\S]*?\*\//g, "").replace(/(^|[^:"'`])\/\/.*$/gm, "$1");
+            if (HEAD.test(text)) minted.push(f);
+        }
+        expect(minted).toEqual([]);
+    });
+
+    it("R-18/R-19: the gradient workbench's ramps ride the one serializer, with the model's space clause", () => {
+        const parsed = parseGradientCSS("linear-gradient(90deg in oklab, red 0%, blue 100%)");
+        if (!parsed.ok) throw new Error(parsed.reason);
+        const model = { ...parsed.model, interpolationSpace: "oklab" as const, hueMethod: "shorter" as const };
+        const rail = serializeRailRamp(model);
+        expect(rail.startsWith("linear-gradient(90deg in oklab, ")).toBe(true);
+        expect(rail).toContain("calc(var(--rail-inset) + var(--rail-track) * ");
+        // Every rail stop survives the totality filter (a `calc()` position is
+        // a position, not part of the colour).
+        expect(rail.split("calc(").length - 1).toBeGreaterThanOrEqual(2);
+        expect(serializeIntervalRamp(model, 0)!.startsWith("linear-gradient(90deg in oklab, ")).toBe(true);
+        expect(serializeRailRamp({ ...model, stops: [] })).toBe("none");
     });
 
     it("R-14: the colour serializer already omits alpha 1", () => {

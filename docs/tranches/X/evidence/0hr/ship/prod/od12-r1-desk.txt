@@ -1,0 +1,16 @@
+efflorescence  light  dom L0.772 C0.111 h11.11 (41%) dEdom 0.0288 hue 7.3 dEarea 0.0435 medL 0.7362 | ground1 dE 0.0486 snap 0
+efflorescence  light* dom L0.772 C0.111 h11.084 (41%) dEdom 0.0287 hue 7.3 dEarea 0.0449 medL 0.7377 | ground1 dE 0.0486 snap 0
+gulabi         light  dom L0.885 C0.042 h12.69 (51%) dEdom 0.0201 hue 8.2 dEarea 0.0187 medL 0.8851 | ground1 dE 0.0619 snap 0
+haldi          light  dom L0.849 C0.105 h77.796 (42%) dEdom 0.0471 hue 2.3 dEarea 0.0286 medL 0.8279 | ground1 dE 0.0391 snap 0
+zari           light  dom L0.787 C0.14 h89.894 (46%) dEdom 0.0328 hue 1 dEarea 0.051 medL 0.7622 | ground1 dE 0.0342 snap 0
+sheesham       light  dom L0.565 C0.118 h52.015 (37%) dEdom 0.0377 hue 5.5 dEarea 0.0506 medL 0.5838 | ground1 dE 0.0366 snap 0
+tulsi          light  dom L0.743 C0.064 h143.607 (37%) dEdom 0.0254 hue 1.6 dEarea 0.048 medL 0.7621 | ground1 dE 0.0325 snap 0
+tulsi          light* dom L0.788 C0.063 h146.137 (46%) dEdom 0.0249 hue 1.5 dEarea 0.046 medL 0.7596 | ground1 dE 0.0325 snap 0
+curry-leaf     light  dom L0.467 C0.114 h150.87 (46%) dEdom 0.0451 hue 1.7 dEarea 0.0602 medL 0.4788 | ground1 dE 0.0337 snap 0
+jamun          light  dom L0.406 C0.138 h350.572 (46%) dEdom 0.0415 hue 7.1 dEarea 0.0481 medL 0.4171 | ground1 dE 0.036 snap 0
+rebeccapurple  light  dom L0.445 C0.194 h297.989 (46%) dEdom 0.0391 hue 7.4 dEarea 0.0393 medL 0.4601 | ground1 dE 0.0389 snap 0
+teal           light  dom L0.6 C0.099 h193.717 (38%) dEdom 0.0574 hue 1.2 dEarea 0.0772 medL 0.6144 | ground1 dE 0.0336 snap 0
+teal           light* dom L0.6 C0.099 h193.721 (38%) dEdom 0.0573 hue 1.2 dEarea 0.0764 medL 0.6143 | ground1 dE 0.0336 snap 0
+tomato         light  dom L0.689 C0.171 h25.873 (39%) dEdom 0.0352 hue 7.2 dEarea 0.0431 medL 0.7051 | ground1 dE 0.0512 snap 0
+skyblue        light  dom L0.831 C0.088 h227.849 (37%) dEdom 0.0179 hue 1.8 dEarea 0.0135 medL 0.8193 | ground1 dE 0.0331 snap 0
+GATE {"worstDEdom":0.0574,"worstDEarea":0.0772,"worstHue":8.2,"medianHue":5.5,"worstReseed":0.0025,"worstSnap":0,"pass":false} reseed [{"name":"efflorescence","scheme":"light","dMedL":0.0015},{"name":"tulsi","scheme":"light","dMedL":0.0025},{"name":"teal","scheme":"light","dMedL":0.0001}]

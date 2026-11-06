@@ -8,6 +8,7 @@
 import type { CssList, CssScalar, CssValue } from "../../value";
 import { failure, notText, success } from "../result";
 import type { CssTimingFunction, KeyframeSelector, ParseResult } from "../types";
+import { keepsCalcSize } from "./calc";
 import { FAIL, parser } from "./load";
 import type { Refused, SelectorNode, TimingNode, ValueNode } from "./value";
 import { keyframeSelector } from "./value";
@@ -39,7 +40,12 @@ function valueResult<T extends CssValue>(source: string, node: ValueNode): Parse
 export function parseCssValue(source: string): ParseResult<CssValue> {
     if (typeof source !== "string") return notText();
     const node = valueTop(source);
-    return node === FAIL ? failure(source, "css_syntax", ["scalar"]) : valueResult(source, node as ValueNode);
+    if (node === FAIL) return failure(source, "css_syntax", ["scalar"]);
+    //  css-values-5 §5.1: `calc-size()` and `size` are checked over the whole value (X.P.W10 `.k10`); a
+    //  custom property's value is any token sequence, so `parseCustomPropertyValue` does not check them.
+    return /size/i.test(source) && (node as ValueNode).kind !== "refused" && !keepsCalcSize(node as CssValue)
+        ? failure(source, "css_syntax", ["<calc-size()>"])
+        : valueResult(source, node as ValueNode);
 }
 
 /**

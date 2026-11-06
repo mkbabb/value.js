@@ -42,14 +42,16 @@ const expected = {
     // beside `parseCssColor`, each with its smoke case below.
     // 4.3.0 (X realization V-D4.2 · BC-CNL-4) adds `contrastInk`, the ink
     // Result the demo's `contrastInkFor` consumes, with its smoke case below.
+    // 4.3.0 (X.P W10 `.m10`) also adds the `xyzD50` and `displayP3Linear`
+    // factories, the colour model's two new spaces, each with its smoke case.
     color: [
         "NAMED_COLORS", "a98Rgb", "checkCategoricalPalette", "contrastInk", "contrastRatio", "convertColor",
-        "deltaEOK", "displayP3", "hsl", "hsv", "hwb",
+        "deltaEOK", "displayP3", "displayP3Linear", "hsl", "hsv", "hwb",
         "ictcp", "interpolateHue", "isAnyColor", "jzazbz", "kelvin", "lab", "lch",
         "linearSrgb", "mapColorToGamut", "mixColors", "mixColorsInto", "oklab", "oklch",
         "parseCssColor", "prophotoRgb", "rec2020", "rgb", "safeAccentColor", "sampleColorRamp",
         "serializeCssColor", "simulateColorVision",
-        "toHex", "toRgba8", "toRgba8Into", "xyz",
+        "toHex", "toRgba8", "toRgba8Into", "xyz", "xyzD50",
     ],
     value: ["isLayoutTrackingUnit"],
     css: [
@@ -148,6 +150,7 @@ export const SMOKE = {
         convertColor: () => unwrap(color.convertColor(RGB, "oklch")).channels,
         deltaEOK: () => expect(Math.abs(unwrap(color.deltaEOK(unwrap(color.rgb(0, 0, 0)), WHITE)) - 1) <= 1e-12, "deltaEOK(black, white) is not unit scale"),
         displayP3: () => unwrap(color.displayP3(0.1, 0.2, 0.3)).channels,
+        displayP3Linear: () => expect(unwrap(color.displayP3Linear(0.1, 0.2, 0.3)).space === "display-p3-linear", "displayP3Linear did not build a display-p3-linear colour"),
         hsl: () => unwrap(color.hsl(210, 0.5, 0.4)).channels,
         contrastInk: () => expect(unwrap(color.contrastInk(unwrap(color.oklch(0.25, 0.08, 250)))).channels[0] === 1, "contrastInk did not choose white on a dark fill"),
         hsv: () => unwrap(color.hsv(210, 0.5, 0.4)).channels,
@@ -191,6 +194,7 @@ export const SMOKE = {
             return expect(out[0] === 12 && out[1] === 34 && out[2] === 56 && out[3] === 255, "toRgba8Into did not write the ImageData quad");
         },
         xyz: () => unwrap(color.xyz(0.2, 0.3, 0.4)).channels,
+        xyzD50: () => expect(unwrap(color.xyzD50(0.2, 0.3, 0.4)).space === "xyz-d50", "xyzD50 did not build an xyz-d50 colour"),
     },
     value: {
         isLayoutTrackingUnit: () => expect(value.isLayoutTrackingUnit("%") !== value.isLayoutTrackingUnit("px"), "isLayoutTrackingUnit does not discriminate % from px"),

@@ -60,13 +60,20 @@ ifSemi     = /(?:\s|\/\*[\s\S]*?\*\/)*;(?:\s|\/\*[\s\S]*?\*\/)*/ ;
 badTerm    = /[^\s(),\/:;"']+|;/ ;
 
 // var() / env(): the fallback is a `<declaration-value>?` (css-variables-1 §2), which may end in a
-// comma or be empty — `var(--a, red,)` and `var(--a,)` are valid; the trailing comma carries no item.
-varCall    = /(?:var|env)(?=\()/i , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> varBody << close ;
-varBody    = commaList << ( /\s*,/ ? ) ;
+// comma or be empty — `var(--a, red,)` and `var(--a,)` are valid; `var(--a,)`'s comma keeps an EMPTY
+// fallback (it substitutes nothing, where no fallback leaves the declaration invalid). An argument list
+// the component values do not read (`var(--x ())`, `var({--x})`) is css-variables-2's free-form
+// `<declaration-value>` name, checked only at substitution: `varRaw` keeps its text as authored, and
+// the action holds it to css-values-5's {}-wrapping rule; `varBody` never opens on `{` (X.P.W10 `.v10`).
+varCall    = /(?:var|env)(?=\()/i , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> ( ( varBody << close ) | ( varRaw << ")" ) ) ;
+varBody    = /(?!\{)/ >> commaList , /\s*,/ ? ;
+varRaw     = balanced ;
 
 // A colour function is a colour, never a generic call: `rgb(1)` is a malformed colour.
-colorCall  = relativeColor | rgbFn | hslFn | hwbFn | labFn | lchFn | oklabFn | oklchFn | colorFn | hex ;
-colorHead  = /(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(/i ;
+// A relative colour (`rgb(from …)`, css-color-5 §4) in a value list is a call kept in its specified
+// form (COHESION §0hv DR-c), checked as a colour by its action; `parseCssColor` resolves it (X.P.W10 `.r10`).
+colorCall  = rgbFn | hslFn | hwbFn | labFn | lchFn | oklabFn | oklchFn | colorFn | hex ;
+colorHead  = /(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\((?!\s*from(?![\w-]))/i ;
 call       = ( callName - ( colorHead | /(?:url|type)\(/i ) ) , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> ( commaList ? ) << close ;
 callName   = /(?:--[\w-]*|[a-zA-Z_-][\w-]*)(?=\()/ ;
 
@@ -140,12 +147,14 @@ operator   = /<=|>=|==|!=|[+*<>=:]|-(?![\w\u0080-\uffff\\-])/ ;
 // escape of one to six digits with one optional whitespace it consumes (`\31 st`), or any other
 // escaped code point (§4.3.7). The escape is kept as authored. X.P.W8 `.g`.
 // Its first alternative reads a css-syntax-3 §7.1 `<urange>` (css-fonts-4 §4.5 `unicode-range`):
-// `U+` (either case), one to six hex digits or `?` wildcards, and an optional `-` and one to six hex
-// digits (`U+0025-00FF`, `U+4??`), kept as authored; its action (`src/css/bbnf/value.ts` `urangeValue`)
-// refuses a non-trailing or ranged `?`, a start above the end and an end above U+10FFFF. One
+// `U+` (either case), hex digits or `?` wildcards, and an optional `-` and hex digits (`U+0025-00FF`,
+// `U+4??`), with comments between its tokens (css-syntax-3 §4: a comment is no token, so §7.1 reads the
+// text around it; X.P.W10 `.s10`). Its action (`src/css/bbnf/value.ts` `urangeValue`) counts one to six
+// digits a side, refuses a non-trailing or ranged `?`, a start above the end and an end above U+10FFFF,
+// and spells the range canonically (CSSOM: upper-case, no leading zeros, `?` expanded). One
 // alternation, not a rule of its own: a separate `urange` rule measured +74 to +93 B gzip against the
 // E-6 ceiling, this +26. X.P.W8 `.f`.
-identTerm  = /[uU]\+[\da-fA-F?]{1,6}(?:-[\da-fA-F]{1,6})?(?![\w?\\-])|(?:[-_a-zA-Z\u0080-\uffff]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))(?:[-_a-zA-Z\d\u0080-\uffff]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))*(?![\w(\\-])/ ;
+identTerm  = /[uU](?:\/\*[\s\S]*?\*\/)*\+(?:[\da-fA-F?]|\/\*[\s\S]*?\*\/)+(?:-(?:[\da-fA-F]|\/\*[\s\S]*?\*\/)+)?(?![\w?\\-])|(?:[-_a-zA-Z\u0080-\uffff]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))(?:[-_a-zA-Z\d\u0080-\uffff]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))*(?![\w(\\-])/ ;
 // css-grid-2 §7.2 `<line-names> = '[' <custom-ident>* ']'` (`grid-template-columns: [rail] 1fr [end]`):
 // a `[]` simple block (css-syntax-3 §5.4.8) holding only whitespace-separated identifiers — never a
 // general `[]` block (`[1px]`, `[a, b]`, `["a"]`, `[[a]]` stay refused). One term, whose action spells
@@ -166,8 +175,12 @@ selectorNamed    = /(?:entry|exit|cover|contain)(?![\w-])/i , ( sp1 >> percentag
 // ── <easing-function> ─────────────────────────────────────────────────────────────
 timingFunction = sp >> ( cubicBezier | stepsFn | linearFn | timingKeyword ) << sp ;
 timingKeyword  = /(?:linear|ease-in-out|ease-in|ease-out|ease|step-start|step-end)(?![\w(-])/i ;
-cubicBezier    = /cubic-bezier\(\s*/i >> number , comma >> number , comma >> number , comma >> number << close ;
-stepsFn        = /steps\(\s*/i >> number , ( comma >> stepPosition ) ? << close ;
+// Each argument is a `<number>`, `<integer>` or `<percentage>` or a math function of that type
+// (css-easing-2 §2–§4 over css-values-4 §10); a timing argument is always absolute, so the action
+// resolves it at parse, rounding an `<integer>` and clamping its range (§10.9). X.P.W10 `.t10`.
+tArg           = mathFn | number | percentage ;
+cubicBezier    = /cubic-bezier\(\s*/i >> tArg , comma >> tArg , comma >> tArg , comma >> tArg << close ;
+stepsFn        = /steps\(\s*/i >> tArg , ( comma >> stepPosition ) ? << close ;
 stepPosition   = /(?:jump-start|jump-end|jump-none|jump-both|start|end)(?![\w-])/i ;
 linearFn       = /linear\(\s*/i >> linearStop , ( comma >> linearStop ) * << close ;
-linearStop     = number , ( sp1 >> percentage ) ? , ( sp1 >> percentage ) ? ;
+linearStop     = tArg , ( sp1 >> tArg ) ? , ( sp1 >> tArg ) ? ;

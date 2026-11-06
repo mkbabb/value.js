@@ -1,0 +1,17 @@
+   × var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > keeps an empty fallback as an empty value 5ms
+   × var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var(--x ())" is a pending-substitution value, kept as authored 0ms
+   × var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var(--x () )" is a pending-substitution value, kept as authored 0ms
+   × var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var(--x (),)" is a pending-substitution value, kept as authored 0ms
+   × var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var({--x})" is a pending-substitution value, kept as authored 0ms
+   × var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var({--x}, 10px)" is a pending-substitution value, kept as authored 0ms
+   × var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var({--x, --y})" is a pending-substitution value, kept as authored 0ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/css/bbnf-var-arguments.test.ts > var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > keeps an empty fallback as an empty value
+ FAIL  test/css/bbnf-var-arguments.test.ts > var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var(--x ())" is a pending-substitution value, kept as authored
+ FAIL  test/css/bbnf-var-arguments.test.ts > var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var(--x () )" is a pending-substitution value, kept as authored
+ FAIL  test/css/bbnf-var-arguments.test.ts > var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var(--x (),)" is a pending-substitution value, kept as authored
+ FAIL  test/css/bbnf-var-arguments.test.ts > var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var({--x})" is a pending-substitution value, kept as authored
+ FAIL  test/css/bbnf-var-arguments.test.ts > var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var({--x}, 10px)" is a pending-substitution value, kept as authored
+ FAIL  test/css/bbnf-var-arguments.test.ts > var() arguments (css-variables-1 §2, css-variables-2, css-values-5) > "var({--x, --y})" is a pending-substitution value, kept as authored
+ Test Files  1 failed (1)
+      Tests  7 failed | 10 passed (17)

@@ -1,0 +1,7 @@
+E-6 grammar.js variants (minified / gz, esbuild stdin), base .s10 = 83,976 / 15,072
+A  lookahead {, three alternatives, varRaw = own regex : 84,822 / 15,181
+A2 A with varRaw = balanced                             : 84,777 / 15,178
+B  (landed) two alternatives, varBody (?!{), balanced     : 84,599 / 15,157
+C  empty fallback only, no raw reading (fails 7 falsifiers): 84,132 / 15,071
+D  B with one shared close                               : 84,565 / 15,164 (whitespace lost)
+E  B with varRaw = blockRun                              : 84,874 / 15,188

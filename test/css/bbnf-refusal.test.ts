@@ -38,7 +38,7 @@ describe("a refusal publishes one frozen diagnostic", () => {
 
     it.each([
         ["parseCssColor", parseCssColor, "rgb(1)"],
-        ["parseCssColor", parseCssColor, "rgb(from red r g b)"],
+        ["parseCssColor", parseCssColor, "rgb(from currentcolor r g b)"],
         ["parseCssValue", parseCssValue, "rgb(1) 2px"],
         ["parseKeyframeSelector", parseKeyframeSelector, "150%"],
         ["parseTimingFunction", parseTimingFunction, "cubic-bezier(2, 0, 0, 1)"],

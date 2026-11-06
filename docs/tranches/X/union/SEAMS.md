@@ -867,3 +867,14 @@ rider and is worth the executing seat's attention: **the S-19 defect — a recei
 door rather than at the fact — was committed twice by the file that convicts it.** Posture is
 unchanged: **planning-only, status `planned` everywhere, no VERIFIED stamp in any voice, no
 sibling edited, the owner's begin-word still the only execution key.**
+
+---
+
+## ADDENDUM 2026-11-05 — SS-4 RECIPROCAL TO F.W7 (§13.6 item 2) (X·F F-T8 · COHESION §0hs.3; E-3: appended, nothing above edited)
+
+F-W7 §13.6 item 2 asked SS-4, from its end, to state two facts. Stated here as SS-4's reading:
+
+1. **The trie question was flagged inline and RULED, never presumed.** It was flagged in `contract/OWNER-RULINGS-F.W5.md` §1 (the F.W5 → SS-4 row above) and ruled **F-TRIE (AGAINST)** at COHESION §0j.D. F.W7 landed it as a terminal kill (F-W7 §13.2), with zero design bytes.
+2. **TA-4 was re-scoped explicitly, by F-SS4REST R1.** value.js's palette kind is out of the diff clause, and F.W7 is re-scoped to one object kind in its own text (F-W7 §13.3). The verdict for any value-side diff probe is *"N/A — RE-SCOPED (F-SS4REST R1)"*.
+
+SS-4's half of G-F7-11 is therefore **discharged from this end**. The value-side acts (VO-1 ⊕ VO-2) belong to the value.js API row, which states its own reciprocal in `coordination/value-to-fourier-cosign-J-diff-shape-v2.md` §6.

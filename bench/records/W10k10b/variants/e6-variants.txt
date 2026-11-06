@@ -1,0 +1,3 @@
+X.P.W10 .k10 (b) E-6 variants (minified gzip B, grammar.js / color.js), against .k10a 15,158 / 6,028
+  treeFn rule in mathFn (own text action)      15,239 / 6,106
+  folded into calcConstant (landed)            15,181 / 6,054

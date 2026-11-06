@@ -1,0 +1,10 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/css/bbnf-calc-size.test.ts (36 tests) 10ms
+
+ Test Files  1 passed (1)
+      Tests  36 passed (36)
+   Start at  09:39:54
+   Duration  651ms (transform 153ms, setup 30ms, collect 201ms, tests 10ms, environment 219ms, prepare 47ms)
+

@@ -1,0 +1,246 @@
+{
+  "label": "prod-r2",
+  "at": "2026-11-05T14:46:56.164Z",
+  "cells": [
+    {
+      "name": "prod-r2-morph-844x390-light",
+      "pass": true,
+      "card": {
+        "left": 16,
+        "top": 76,
+        "right": 246,
+        "bottom": 370.375
+      },
+      "info": {
+        "left": 17,
+        "top": 305,
+        "right": 245,
+        "bottom": 369.375
+      },
+      "rail": {
+        "left": 16,
+        "top": 76,
+        "right": 246,
+        "bottom": 370.375
+      },
+      "slider": {
+        "left": 356.328125,
+        "top": 334.3125,
+        "right": 356.328125,
+        "bottom": 354.3125
+      },
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "name": "prod-r2-morph-390x844-light",
+      "pass": true,
+      "card": {
+        "left": 16,
+        "top": 175.578125,
+        "right": 374,
+        "bottom": 583.078125
+      },
+      "info": {
+        "left": 17,
+        "top": 532.578125,
+        "right": 373,
+        "bottom": 582.078125
+      },
+      "rail": {
+        "left": 0,
+        "top": 171.578125,
+        "right": 390,
+        "bottom": 587.078125
+      },
+      "slider": {
+        "left": 73.265625,
+        "top": 752.3125,
+        "right": 73.265625,
+        "bottom": 772.3125
+      },
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "name": "prod-r2-morph-430x932-light",
+      "pass": true,
+      "card": {
+        "left": 16,
+        "top": 175.78125,
+        "right": 414,
+        "bottom": 623.5625
+      },
+      "info": {
+        "left": 17,
+        "top": 572.78125,
+        "right": 413,
+        "bottom": 622.5625
+      },
+      "rail": {
+        "left": 0,
+        "top": 171.78125,
+        "right": 430,
+        "bottom": 627.5625
+      },
+      "slider": {
+        "left": 78.59375,
+        "top": 792.921875,
+        "right": 78.59375,
+        "bottom": 812.921875
+      },
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "name": "prod-r2-morph-1440x900-light",
+      "pass": true,
+      "card": {
+        "left": 160,
+        "top": 191.890625,
+        "right": 576,
+        "bottom": 676.046875
+      },
+      "info": {
+        "left": 161,
+        "top": 606.890625,
+        "right": 575,
+        "bottom": 675.046875
+      },
+      "rail": {
+        "left": 160,
+        "top": 191.890625,
+        "right": 576,
+        "bottom": 676.046875
+      },
+      "slider": {
+        "left": 640.71875,
+        "top": 334.71875,
+        "right": 640.71875,
+        "bottom": 354.71875
+      },
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "name": "prod-r2-morph-844x390-dark",
+      "pass": true,
+      "card": {
+        "left": 16,
+        "top": 76,
+        "right": 246,
+        "bottom": 370.375
+      },
+      "info": {
+        "left": 17,
+        "top": 305,
+        "right": 245,
+        "bottom": 369.375
+      },
+      "rail": {
+        "left": 16,
+        "top": 76,
+        "right": 246,
+        "bottom": 370.375
+      },
+      "slider": {
+        "left": 356.328125,
+        "top": 334.3125,
+        "right": 356.328125,
+        "bottom": 354.3125
+      },
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "name": "prod-r2-morph-390x844-dark",
+      "pass": true,
+      "card": {
+        "left": 16,
+        "top": 175.578125,
+        "right": 374,
+        "bottom": 583.078125
+      },
+      "info": {
+        "left": 17,
+        "top": 532.578125,
+        "right": 373,
+        "bottom": 582.078125
+      },
+      "rail": {
+        "left": 0,
+        "top": 171.578125,
+        "right": 390,
+        "bottom": 587.078125
+      },
+      "slider": {
+        "left": 73.265625,
+        "top": 752.3125,
+        "right": 73.265625,
+        "bottom": 772.3125
+      },
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "name": "prod-r2-morph-430x932-dark",
+      "pass": true,
+      "card": {
+        "left": 16,
+        "top": 175.78125,
+        "right": 414,
+        "bottom": 623.5625
+      },
+      "info": {
+        "left": 17,
+        "top": 572.78125,
+        "right": 413,
+        "bottom": 622.5625
+      },
+      "rail": {
+        "left": 0,
+        "top": 171.78125,
+        "right": 430,
+        "bottom": 627.5625
+      },
+      "slider": {
+        "left": 78.59375,
+        "top": 792.921875,
+        "right": 78.59375,
+        "bottom": 812.921875
+      },
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "name": "prod-r2-morph-1440x900-dark",
+      "pass": true,
+      "card": {
+        "left": 160,
+        "top": 191.890625,
+        "right": 576,
+        "bottom": 676.046875
+      },
+      "info": {
+        "left": 161,
+        "top": 606.890625,
+        "right": 575,
+        "bottom": 675.046875
+      },
+      "rail": {
+        "left": 160,
+        "top": 191.890625,
+        "right": 576,
+        "bottom": 676.046875
+      },
+      "slider": {
+        "left": 640.71875,
+        "top": 334.71875,
+        "right": 640.71875,
+        "bottom": 354.71875
+      },
+      "overflow": 0,
+      "clipped": 0
+    }
+  ]
+}

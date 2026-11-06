@@ -1,0 +1,51 @@
+=== check-1 10:40:24 load: 13.34 14.54 14.78
+exit 0
+=== e6-1 10:40:25 load: 13.34 14.54 14.78
+grammar 84412 / 15181
+color 29620 / 6054
+=== self-contained-1 10:40:26 load: 13.34 14.54 14.78
+grammar from@mkbabb=0 import=0
+color from@mkbabb=0 import=0
+=== test-css-1 10:40:26 load: 13.34 14.54 14.78
+exit 0
+ Test Files  31 passed (31)
+      Tests  510 passed (510)
+=== mirror-1 10:40:39 load: 13.48 14.51 14.77
+exit 0
+28
+=== vc-1 10:40:44 load: 16.16 15.05 14.96
+exit 1
+V-C RED: 66 unruled misses, 0 stale ruled rows, 0 unruled files, 0 stale files
+=== check-2 10:40:49 load: 17.67 15.38 15.07
+exit 0
+=== e6-2 10:40:49 load: 17.67 15.38 15.07
+grammar 84412 / 15181
+color 29620 / 6054
+=== self-contained-2 10:40:52 load: 17.67 15.38 15.07
+grammar from@mkbabb=0 import=0
+color from@mkbabb=0 import=0
+=== test-css-2 10:40:52 load: 17.67 15.38 15.07
+exit 0
+ Test Files  31 passed (31)
+      Tests  510 passed (510)
+=== mirror-2 10:41:03 load: 18.97 15.80 15.23
+exit 0
+26
+=== vc-2 10:41:07 load: 18.97 15.80 15.23
+exit 1
+V-C RED: 66 unruled misses, 0 stale ruled rows, 0 unruled files, 0 stale files
+=== build-paired 10:41:09 load: 18.01 15.65 15.18
+exit 0
+=== equiv-1 10:41:09 load: 18.01 15.65 15.18
+exit 1
+identical 3344 · gone 0 · moved 3 · new 6833
+=== equiv-2 10:41:15 load: 17.61 15.61 15.17
+exit 1
+identical 3344 · gone 0 · moved 3 · new 6833
+equiv ×2 cmp-identical
+=== audit 10:41:22 load: 16.92 15.50 15.13
+exit 0
+10:41  up 16:01, 3 users, load averages: 14.21 14.98 14.96
+=== L-G3 10:41:51 load: 14.21 14.98 14.96
+       0
+=== done 10:41:52 load: 14.21 14.98 14.96

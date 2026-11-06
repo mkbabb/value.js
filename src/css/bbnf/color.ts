@@ -23,16 +23,18 @@
 import type { Result } from "../../foundation/result";
 import type { ColorIssue } from "../../color/index";
 import {
-    a98Rgb, displayP3, hsl, hwb, lab, lch, linearSrgb, oklab, oklch, prophotoRgb, rec2020, rgb, xyz,
+    a98Rgb, displayP3, displayP3Linear, hsl, hwb, lab, lch, linearSrgb, oklab, oklch, prophotoRgb, rec2020, rgb, xyz, xyzD50,
 } from "../../color/index";
-import { adaptXyzD50ToD65 } from "../../color/anchors";
 import type { Alpha, Channel } from "../../value";
 import { NAMED_COLORS } from "../named-colors";
 import type { CssColor } from "../types";
 import type { Actions } from "./generated/grammar";
-import type { NoneToken, Numeric } from "./math";
+import type { Env, NoneToken, Numeric, Quantity } from "./math";
+import { bindUnder, quantity } from "./math";
+import type { AnyColor, SpaceId } from "../../color/index";
+import { convertColor } from "../../color/index";
 import type { HueMethod, MixItem } from "./mix";
-import { displayP3LinearToXyz, resolveColorMix } from "./mix";
+import { resolveColorMix } from "./mix";
 
 export type ColorNode =
     | Readonly<{ kind: "color"; color: CssColor }>
@@ -157,10 +159,6 @@ export function keywordColor(token: string): ColorNode {
 function predefined(space: string, parts: Channels): ColorNode {
     const R3: readonly [Reading, Reading, Reading] = [COLOR_FN, COLOR_FN, COLOR_FN];
     const scaled = (k: number) => (x: Channel): Channel => (x === "none" ? x : x * k);
-    const concrete = (convert: (v: readonly [number, number, number]) => readonly [number, number, number]): Factory =>
-        (a, b, c, alpha) => (a === "none" || b === "none" || c === "none"
-            ? { ok: false, error: { code: "color_missing_channel" } }
-            : xyz(...convert([a, b, c]), alpha));
     switch (space.toLowerCase()) {
         case "srgb": return build(parts, R3, ALPHA, (a, b, c, alpha) => rgb(scaled(255)(a), scaled(255)(b), scaled(255)(c), alpha));
         case "srgb-linear": return build(parts, R3, ALPHA, linearSrgb);
@@ -170,13 +168,73 @@ function predefined(space: string, parts: Channels): ColorNode {
         case "rec2020": return build(parts, R3, ALPHA, rec2020);
         case "xyz":
         case "xyz-d65": return build(parts, R3, ALPHA, xyz);
-        //  The two spaces `CssColorSpace` has no member for are written as the exact `xyz` they
-        //  name; a `none` there has no `xyz` channel to stay missing in, so it is refused
-        //  ("concrete xyz-d50", the contract value.js already carries for xyz-d50).
-        case "xyz-d50": return build(parts, R3, ALPHA, concrete(adaptXyzD50ToD65));
-        default: return build(parts, R3, ALPHA, concrete(([a, b, c]) => displayP3LinearToXyz([a, b, c])));
+        //  css-color-4 §10.8 / §10.5: each its own model member, so a `none` channel stays missing (X.P.W10 `.m10`).
+        case "xyz-d50": return build(parts, R3, ALPHA, xyzD50);
+        default: return build(parts, R3, ALPHA, displayP3Linear);
     }
 }
+
+/**
+ * A relative colour's function (css-color-5 §4.1): the space its origin converts to, its channel keywords
+ * with the factor each keyword's value carries (§4.1: hsl/hwb's percentages resolve to <number>s 0..100,
+ * sRGB's `color()` channels to 0..1), and the readings and factory its own function would apply.
+ */
+type RelativeFn = Readonly<{ space: SpaceId; names: readonly [string, string, string]; scale: readonly [number, number, number]; build: (parts: Channels) => ColorNode }>;
+const relative = (space: SpaceId, names: string, readings: readonly [Reading, Reading, Reading], factory: Factory, scale: readonly [number, number, number] = [1, 1, 1]): RelativeFn =>
+    ({ space, names: names.split(" ") as unknown as [string, string, string], scale, build: (parts) => build(parts, readings, ALPHA, factory) });
+//  A relative sRGB-family colour is not clamped to the sRGB gamut: its origin may lie outside it, and it
+//  serializes as `color(srgb …)` there (css-color-5 §4.2; WPT color-computed-relative-color.html).
+const RGB_OPEN: Reading = { percent: 255, number: 1 };
+const UNIT_OPEN: Reading = { percent: 1, numberIsPercent: true };
+const RELATIVE: Readonly<Record<string, RelativeFn>> = {
+    rgb: relative("rgb", "r g b", [RGB_OPEN, RGB_OPEN, RGB_OPEN], rgb),
+    hsl: relative("hsl", "h s l", [HUE, UNIT_OPEN, UNIT_OPEN], hsl, [1, 100, 100]),
+    hwb: relative("hwb", "h w b", [HUE, UNIT_OPEN, UNIT_OPEN], hwb, [1, 100, 100]),
+    lab: relative("lab", "l a b", [LAB_L, LAB_AB, LAB_AB], lab),
+    lch: relative("lch", "l c h", [LAB_L, LCH_C, HUE], lch),
+    oklab: relative("oklab", "l a b", [OK_L, OK_AB, OK_AB], oklab),
+    oklch: relative("oklch", "l c h", [OK_L, OK_C, HUE], oklch),
+};
+/** `color(from <color> <space> …)`: the model space each predefined space is held in (`predefined`). */
+const PREDEFINED_SPACE: Readonly<Record<string, SpaceId>> = {
+    srgb: "rgb", "srgb-linear": "srgb-linear", "display-p3": "display-p3", "display-p3-linear": "display-p3-linear",
+    "a98-rgb": "a98-rgb", "prophoto-rgb": "prophoto-rgb", rec2020: "rec2020", xyz: "xyz", "xyz-d65": "xyz", "xyz-d50": "xyz-d50",
+};
+
+/**
+ * css-color-5 §4 — a relative colour, resolved at parse when its origin is absolute (COHESION §0hv DR-c):
+ * the origin converts to the function's space, a missing channel reads 0, its channels and `alpha` bind
+ * the keywords, and each component (a literal, `none`, a keyword or a calculation over them) is read as
+ * the function itself reads it. A context origin (`currentcolor`, a system colour, `var()`,
+ * `light-dark()`) keeps `color_context_required`; a refused origin refuses (X.P.W10 `.r10`).
+ */
+function relativeColor([head, origin, [space, ...comps]]: readonly [string, ColorNode | Numeric, readonly [string | undefined, Component, Component, Component, Component | undefined]]): ColorNode {
+    const from = asColorNode(origin);
+    if (from.kind !== "color") return from;
+    const fnName = (/^\w+/.exec(head)?.[0] ?? "").toLowerCase().replace(/a$/, "");
+    const predefinedSpace = space === undefined ? undefined : PREDEFINED_SPACE[space.toLowerCase()];
+    const fn: RelativeFn | undefined = fnName === "color"
+        ? (predefinedSpace === undefined || space === undefined ? undefined : relative(predefinedSpace, predefinedSpace.startsWith("xyz") ? "x y z" : "r g b", [COLOR_FN, COLOR_FN, COLOR_FN],
+            (a, b, c, alpha) => { const made = predefined(space, [num(a), num(b), num(c), num(alpha)]); return made.kind === "color" ? { ok: true, value: made.color } : { ok: false, error: { code: "color_invalid_input" } }; },
+            predefinedSpace === "rgb" ? [1 / 255, 1 / 255, 1 / 255] : [1, 1, 1]))
+        : RELATIVE[fnName];
+    if (fn === undefined) return invalid("<color>");
+    const zeroed = { ...from.color, channels: from.color.channels.map((v) => (v === "none" ? 0 : v)) } as unknown as AnyColor;
+    const converted = convertColor(zeroed, fn.space);
+    if (!converted.ok) return invalid("<color>");
+    const values = converted.value.channels.map((v, i) => (v === "none" ? 0 : (v as number) * (fn.scale[i] ?? 1)));
+    const bound = new Map<string, Quantity>(fn.names.map((n, i) => [n, quantity("number", values[i] ?? 0)]));
+    bound.set("alpha", quantity("number", from.color.alpha === "none" ? 0 : from.color.alpha));
+    //  A channel the origin is missing reads 0 (css-color-5 §4.1; WPT color-computed-relative-color.html),
+    //  and an omitted alpha is the origin's (`/ alpha`).
+    const env: Env = (name) => bound.get(name);
+    const read = (c: Component): Component => (c.kind === "none" ? c : bindUnder(c, env));
+    const alpha = comps[3] ?? bound.get("alpha");
+    return fn.build([read(comps[0]), read(comps[1]), read(comps[2]), alpha === undefined ? undefined : read(alpha)]);
+}
+
+/** A channel the `color()` factory reads as authored: a number as a `<number>` component. */
+const num = (v: Channel | Alpha): Component => (v === "none" ? { kind: "none" } : quantity("number", v));
 
 /** A colour position's node: a bare `var()` (an unresolved numeric) is a context colour. */
 export function asColorNode(node: ColorNode | Numeric): ColorNode {
@@ -241,9 +299,7 @@ export const colorActions = {
     colorFn: { kind: "map", fn: ([space, a, b, c, alpha]: readonly [string, ...Channels]) => predefined(space, [a, b, c, alpha]) },
     hex: { kind: "map", fn: hexColor },
     colorKeyword: { kind: "map", fn: keywordColor },
-    //  A relative colour depends on its origin, so it is a context colour — unless the origin is refused.
-    relativeColor: { kind: "map", fn: ([, origin]: readonly [string, ColorNode | Numeric, unknown]): ColorNode =>
-        (origin.kind === "invalid" ? origin : CONTEXT_NODE) },
+    relativeColor: { kind: "map", fn: relativeColor },
     lightDark: { kind: "map", fn: ([light, dark]: readonly [ColorNode | Numeric, ColorNode | Numeric]): ColorNode =>
         [asColorNode(light), asColorNode(dark)].find((n) => n.kind === "invalid") ?? CONTEXT_NODE },
     mixPolar: { kind: "map", fn: ([space, hue]: readonly [string, string | undefined]): MixMethodNode =>

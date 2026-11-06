@@ -1,0 +1,8 @@
+{
+    "note": "E-6: the emitted-parser size ceilings, in bytes of minified gzip (esbuild --minify --loader=js, then gzip at its default level). Each ceiling is a measured figure rounded up to 50 B; a crossing is escalated and ruled, never shaved. Ruled 2026-11-05, COHESION §0hy (ESC-W10-1): measured 15,181 / 6,054 at the X.P.W10 close.",
+    "ruling": "COHESION §0hy",
+    "files": {
+        "src/css/bbnf/generated/grammar.js": { "gz": 15200 },
+        "src/css/bbnf/generated/color.js": { "gz": 6100 }
+    }
+}

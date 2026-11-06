@@ -1,0 +1,19 @@
+   × tree-counting functions in a colour (css-values-5 §8) > color(srgb calc(0.1 * sibling-index()) 0.5 0.5) answers color_context_required 5ms
+   × tree-counting functions in a colour (css-values-5 §8) > color(srgb 0.5 0.5 0.5 / calc(0.1 * sibling-count())) answers color_context_required 1ms
+   × tree-counting functions in a colour (css-values-5 §8) > oklch(0.5 calc(0.05 * sibling-count()) 180) answers color_context_required 0ms
+   × tree-counting functions in a colour (css-values-5 §8) > oklch(0.5 0.2 calc(30deg * sibling-index())) answers color_context_required 0ms
+   × tree-counting functions in a colour (css-values-5 §8) > rgb(calc(10 * sibling-index()) 0 0) answers color_context_required 0ms
+   × tree-counting functions in a colour (css-values-5 §8) > hsl(calc(sibling-index() * 10deg) 50% 50%) answers color_context_required 0ms
+   × tree-counting functions in a colour (css-values-5 §8) > oklch(0.5 0.2 calc(30deg * SIBLING-INDEX( ))) answers color_context_required 0ms
+   × tree-counting functions in a colour (css-values-5 §8) > in a value list the colour keeps value.js's context contract 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/css/bbnf-tree-counting.test.ts > tree-counting functions in a colour (css-values-5 §8) > color(srgb calc(0.1 * sibling-index()) 0.5 0.5) answers color_context_required
+ FAIL  test/css/bbnf-tree-counting.test.ts > tree-counting functions in a colour (css-values-5 §8) > color(srgb 0.5 0.5 0.5 / calc(0.1 * sibling-count())) answers color_context_required
+ FAIL  test/css/bbnf-tree-counting.test.ts > tree-counting functions in a colour (css-values-5 §8) > oklch(0.5 calc(0.05 * sibling-count()) 180) answers color_context_required
+ FAIL  test/css/bbnf-tree-counting.test.ts > tree-counting functions in a colour (css-values-5 §8) > oklch(0.5 0.2 calc(30deg * sibling-index())) answers color_context_required
+ FAIL  test/css/bbnf-tree-counting.test.ts > tree-counting functions in a colour (css-values-5 §8) > rgb(calc(10 * sibling-index()) 0 0) answers color_context_required
+ FAIL  test/css/bbnf-tree-counting.test.ts > tree-counting functions in a colour (css-values-5 §8) > hsl(calc(sibling-index() * 10deg) 50% 50%) answers color_context_required
+ FAIL  test/css/bbnf-tree-counting.test.ts > tree-counting functions in a colour (css-values-5 §8) > oklch(0.5 0.2 calc(30deg * SIBLING-INDEX( ))) answers color_context_required
+ FAIL  test/css/bbnf-tree-counting.test.ts > tree-counting functions in a colour (css-values-5 §8) > in a value list the colour keeps value.js's context contract
+ Test Files  1 failed (1)
+      Tests  8 failed | 1 passed (9)

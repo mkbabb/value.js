@@ -66,6 +66,8 @@ export interface SpaceEntry<K extends DisplayColorSpace = DisplayColorSpace> {
     readonly doc: SpaceDoc | null;
     /** Offered as an interpolation space (gradients, mixing). */
     readonly interpolatable: boolean;
+    /** `false`: read when a colour arrives in it (typed or pasted), never offered as a selector row. */
+    readonly listed?: false;
 }
 
 /**
@@ -445,6 +447,62 @@ export const SPACE_CATALOG = {
         },
     },
 
+    "xyz-d50": {
+        id: "xyz-d50",
+        label: "XYZ D50",
+        channels: channelsOf("xyz-d50"),
+        doc: null,
+        interpolatable: false,
+        listed: false,
+        info: {
+            name: "XYZ (D50)",
+            definition:
+                "CIE 1931 XYZ relative to the D50 white point, the connection space of ICC colour management and of CIE Lab.",
+            created: "1931",
+            deviceDependency: "Device-independent",
+            whitePoint: "D50",
+            gamut: "Unlimited",
+            components: ["X", "Y", "Z"],
+            perceptualUniformity: "No",
+            hueLinearity: "No",
+            lightnessSeparation: "Partial (Y component represents luminance)",
+            applications: ["ICC profile connection", "Print colour management", "Lab conversions"],
+            industries: ["Print", "Color management", "Photography"],
+            conversions: [
+                ["XYZ D50", "XYZ"],
+                ["XYZ D50", "Lab"],
+            ],
+            notes: "CSS Color 4 color(xyz-d50 …). value.js reads it as its own space; it reaches D65 XYZ by a Bradford chromatic adaptation.",
+        },
+    },
+    "display-p3-linear": {
+        id: "display-p3-linear",
+        label: "Display P3 Linear",
+        channels: channelsOf("display-p3-linear"),
+        doc: null,
+        interpolatable: false,
+        listed: false,
+        info: {
+            name: "Linear Display P3",
+            definition:
+                "The Display P3 primaries and D65 white point with the transfer function removed: channel values are linear in light intensity.",
+            created: "2015",
+            deviceDependency: "Device-dependent (P3 primaries)",
+            whitePoint: "D65",
+            gamut: "Same as Display P3",
+            components: ["Red (linear)", "Green (linear)", "Blue (linear)"],
+            perceptualUniformity: "No",
+            hueLinearity: "No",
+            lightnessSeparation: "No",
+            applications: ["Wide-gamut compositing", "Gamut conversion pipelines"],
+            industries: ["Computer graphics", "Display engineering"],
+            conversions: [
+                ["Display P3 Linear", "XYZ"],
+                ["Display P3 Linear", "Display P3"],
+            ],
+            notes: "CSS Color 4 color(display-p3-linear …): Display P3 without its sRGB-shaped transfer curve, the space to blend wide-gamut light in.",
+        },
+    },
     "display-p3": {
         id: "display-p3",
         label: "Display P3",
@@ -679,7 +737,7 @@ export const SPACE_CATALOG = {
  * that `Object.entries` would hand it, and never a cast at the render boundary.
  */
 export const SPACE_CATALOG_ENTRIES: readonly SpaceEntry[] =
-    Object.values(SPACE_CATALOG);
+    Object.values(SPACE_CATALOG).filter((entry: SpaceEntry) => entry.listed !== false);
 
 /** The catalog label for one space — the one home for display names. */
 export function spaceLabel(space: DisplayColorSpace): string {

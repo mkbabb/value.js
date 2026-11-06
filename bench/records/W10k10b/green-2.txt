@@ -1,0 +1,10 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/css/bbnf-tree-counting.test.ts (9 tests) 6ms
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  09:43:32
+   Duration  1.18s (transform 265ms, setup 54ms, collect 404ms, tests 6ms, environment 441ms, prepare 54ms)
+

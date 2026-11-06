@@ -18,6 +18,15 @@
  * every chip stamps its stop list there, and the e2e reads it. It is a
  * named contract (demo/DESIGN.md §4.2), not scaffolding.
  *
+ * THE COMPACT RENDER (X realization V-D3 · BC-PCS-10): every render that
+ * shows a palette in less room than it needs follows ONE truncation policy
+ * (`./compact` — every colour when it fits, otherwise capacity − 1 and `+k`):
+ * `CompactPalette` (the swatch row: AdminFlaggedPanel's cluster, the mix
+ * result's swatches) and PreviewStrip (the plate's 7 segments). The palette
+ * card's strip (`PaletteColorStrip`, via PaletteSpecimen — the mix source
+ * rows' face) never truncates: past its band threshold it SUMMARIZES every
+ * colour in one gradient, so it has no `+k` to show.
+ *
  * THE RESTRAINT TABLE (F7 — which dropdowns get NO previews): the dock
  * view-select (T-10 governs it); gradient TYPE (geometry); mix
  * size-mismatch strategy (count semantics); sort/filter/user-sort menus
@@ -27,6 +36,8 @@
  * would be FALSE there). Triggers stay text-only everywhere: menus
  * preview, triggers name (the "in proportion" half).
  */
+export { default as CompactPalette } from "./CompactPalette.vue";
+export { compactCapacity, compactWindow } from "./compact";
 export { default as PreviewRamp } from "./PreviewRamp.vue";
 export { default as PreviewStrip } from "./PreviewStrip.vue";
 export {

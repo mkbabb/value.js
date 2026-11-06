@@ -28,6 +28,7 @@ export type {
 export {
     a98Rgb,
     displayP3,
+    displayP3Linear,
     hsl,
     hsv,
     hwb,
@@ -44,6 +45,7 @@ export {
     rec2020,
     rgb,
     xyz,
+    xyzD50,
 } from "./model";
 export {
     contrastInk,

@@ -21,7 +21,8 @@ calcProduct = calcValue , ( calcMulOp , calcValue ) * ;
 calcMulOp   = /\s*[*\/]\s*/ ;
 calcValue   = mathFn | calcGroup | calcConstant | percentage | angle | number | dimension | calcKeyword ;
 calcGroup   = /\(\s*/ >> calcSum << close ;
-calcConstant = /(?:-?infinity|nan|pi|e)(?![\w-])/i ;
+// … and css-values-5 §8's tree-counting functions, an <integer> only the element knows (X.P.W10 `.k10`).
+calcConstant = /(?:-?infinity|nan|pi|e)(?![\w-])|sibling-(?:index|count)\(\s*\)/i ;
 // A bare keyword inside a calculation: a relative colour's channel name (`r`, `alpha`, …).
 // Outside a relative colour it names nothing and the colour is refused as syntax.
 calcKeyword = /[a-zA-Z][\w-]*(?![\w(-])/ ;

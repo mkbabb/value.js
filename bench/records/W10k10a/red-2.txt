@@ -1,0 +1,40 @@
+   × calc-size() (css-values-5 §5.1) > calc-size(any, size) is refused, css_syntax <calc-size()> 3ms
+   × calc-size() (css-values-5 §5.1) > calc-size(any, fit-content) is refused, css_syntax <calc-size()> 1ms
+   × calc-size() (css-values-5 §5.1) > calc-size(auto, auto) is refused, css_syntax <calc-size()> 1ms
+   × calc-size() (css-values-5 §5.1) > sign(size) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc(50px * sign(size)) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(any, calc-size(10px, sign(size) * size)) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(any, calc-size(any, 10px)) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc(calc-size(auto, size)) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc(50px * sign(calc-size(auto, size))) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > min(calc-size(auto, 0px), calc-size(auto, size)) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc(12% + calc-size(any, 31%)) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(30px) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(any) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(calc-size(any, 30px)) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(auto, size, 1px) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(0, 0px) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(0px, 0) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(0, 0) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(size, 10px) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(10px + size, 1px) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(auto, 1s) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > calc-size(1deg, size) is refused, css_syntax <calc-size()> 0ms
+   × calc-size() (css-values-5 §5.1) > is checked in every item of a list 0ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 23 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc-size(any, size) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc-size(any, fit-content) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc-size(auto, auto) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > sign(size) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc(50px * sign(size)) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc-size(any, calc-size(10px, sign(size) * size)) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc-size(any, calc-size(any, 10px)) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc(calc-size(auto, size)) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc(50px * sign(calc-size(auto, size))) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > min(calc-size(auto, 0px), calc-size(auto, size)) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc(12% + calc-size(any, 31%)) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc-size(30px) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc-size(any) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc-size(calc-size(any, 30px)) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc-size(auto, size, 1px) is refused, css_syntax <calc-size()>
+ FAIL  test/css/bbnf-calc-size.test.ts > calc-size() (css-values-5 §5.1) > calc-size(0, 0px) is refused, css_syntax <calc-size()>

@@ -80,6 +80,8 @@ export const colorSpaceInfo: Readonly<
 
     xyz: { components: { x: "X", y: "Y", z: "Z" } },
 
+    "xyz-d50": { components: { x: "X", y: "Y", z: "Z" } },
+
     kelvin: { components: { kelvin: "Temperature (K)" } },
 
     "srgb-linear": {
@@ -91,6 +93,14 @@ export const colorSpaceInfo: Readonly<
     },
 
     "display-p3": { components: { r: "Red", g: "Green", b: "Blue" } },
+
+    "display-p3-linear": {
+        components: {
+            r: "Red (linear)",
+            g: "Green (linear)",
+            b: "Blue (linear)",
+        },
+    },
 
     "a98-rgb": { components: { r: "Red", g: "Green", b: "Blue" } },
 

@@ -1,0 +1,10 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/css/bbnf-anchor-signature.test.ts (47 tests) 14ms
+
+ Test Files  1 passed (1)
+      Tests  47 passed (47)
+   Start at  09:49:46
+   Duration  1.77s (transform 331ms, setup 67ms, collect 515ms, tests 14ms, environment 486ms, prepare 64ms)
+

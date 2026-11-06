@@ -29,7 +29,7 @@ import type { CssColor, CssColorSpace, KeyframeSelector } from "./types";
 
 const CSS_COLOR_SPACES = new Set<CssColorSpace>([
     "rgb", "hsl", "hwb", "lab", "lch", "oklab", "oklch", "xyz",
-    "srgb-linear", "display-p3", "a98-rgb", "prophoto-rgb", "rec2020",
+    "srgb-linear", "display-p3", "a98-rgb", "prophoto-rgb", "rec2020", "xyz-d50", "display-p3-linear",
 ]);
 
 const format = (value: Channel): string => value === "none"

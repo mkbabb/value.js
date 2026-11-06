@@ -2,6 +2,7 @@ import {
     a98Rgb,
     convertColor,
     displayP3,
+    displayP3Linear,
     hsl,
     hsv,
     hwb,
@@ -21,6 +22,7 @@ import {
     serializeCssColor,
     toRgba8,
     xyz,
+    xyzD50,
     type Alpha,
     type AnyColor,
     type Channel,
@@ -65,6 +67,8 @@ export const PICKER_CHANNELS = Object.freeze({
     rec2020: [unit("r"), unit("g"), unit("b")],
     ictcp: [unit("i"), unit("ct", -0.5, 0.5), unit("cp", -0.5, 0.5)],
     jzazbz: [unit("jz", 0, 0.222), unit("az", -0.5, 0.5), unit("bz", -0.5, 0.5)],
+    "xyz-d50": [percent("x"), percent("y"), percent("z")],
+    "display-p3-linear": [unit("r"), unit("g"), unit("b")],
 } satisfies Record<SpaceId, readonly ChannelMeta[]>);
 
 export const PICKER_SPACE_NAMES: Readonly<Record<SpaceId, string>> = Object.freeze({
@@ -85,6 +89,8 @@ export const PICKER_SPACE_NAMES: Readonly<Record<SpaceId, string>> = Object.free
     rec2020: "Rec. 2020",
     ictcp: "ICtCp",
     jzazbz: "Jzazbz",
+    "xyz-d50": "XYZ D50",
+    "display-p3-linear": "Display P3 Linear",
 });
 
 export const CSS_PICKER_SPACES: ReadonlySet<SpaceId> = new Set<CssColorSpace>([
@@ -194,6 +200,8 @@ function buildColor(space: SpaceId, channels: readonly Channel[], alpha: Alpha):
         case "rec2020": return valueOrThrow(rec2020(c(0), c(1), c(2), alpha));
         case "ictcp": return valueOrThrow(ictcp(c(0), c(1), c(2), alpha));
         case "jzazbz": return valueOrThrow(jzazbz(c(0), c(1), c(2), alpha));
+        case "xyz-d50": return valueOrThrow(xyzD50(c(0), c(1), c(2), alpha));
+        case "display-p3-linear": return valueOrThrow(displayP3Linear(c(0), c(1), c(2), alpha));
     }
 }
 

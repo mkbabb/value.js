@@ -10,7 +10,7 @@
 // so a reader never sees a partial tree. The blob is pinned, so the incumbent cannot drift.
 
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, mkdtempSync, renameSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, realpathSync, renameSync, rmSync } from "node:fs";
 import path from "node:path";
 
 import type { CssList, CssScalar, CssValue } from "../src/value";
@@ -32,7 +32,15 @@ export type HandParser = Readonly<{
     parseTimingFunction(source: string): ParseResult<CssTimingFunction>;
 }>;
 
-/** Materializes `src/` at `RETIRED_AT` (once per host); answers the path of one of its modules. */
+/**
+ * Materializes `src/` at `RETIRED_AT` (once per host); answers the REAL path of one of its modules.
+ *
+ * The path is canonical (`realpathSync`) because vite loads a module by its realpath while
+ * `vi.doMock` keys on the id it is given: in a checkout whose `node_modules` is a symlink (a git
+ * worktree sharing the primary's), a symlinked path would mock a module nothing loads, and the
+ * stylesheet differential's HYBRID would silently be the retired layer (X §0hw adversarial check,
+ * finding 1: RC-P(4.2.0) C3 read DEFECT 1304 from the instrument, not the parser).
+ */
 export function retiredModule(relative: string): string {
     const git = (...args: string[]) => execFileSync("git", ["-C", REPO, ...args], { encoding: "utf8" }).trim();
     const blob = git("rev-parse", `${RETIRED_AT}:src/css/grammar.ts`);
@@ -52,7 +60,7 @@ export function retiredModule(relative: string): string {
             rmSync(staging, { recursive: true, force: true });
         }
     }
-    return path.join(root, "src", relative);
+    return path.join(realpathSync(root), "src", relative);
 }
 
 /** The retired hand parser's six entries. */

@@ -1,0 +1,10 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/css/bbnf-progress-no-clamp.test.ts (10 tests) 16ms
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  09:46:59
+   Duration  833ms (transform 229ms, setup 52ms, collect 305ms, tests 16ms, environment 233ms, prepare 46ms)
+

@@ -39,9 +39,11 @@ export function serializeStop(stop: AnyColor): string {
     return colorToCss(stop, "oklch");
 }
 
-/** A stop's colour, with its trailing `<length-percentage>` positions removed. */
+/** A stop's colour, with its trailing `<length-percentage>` positions removed:
+ *  a bare `<percentage>`, or a `calc(…)` (one level of nested `var()`/`(…)`,
+ *  the gradient rail's `railPosition` form). */
 function stopColour(stop: string): string {
-    return stop.trim().replace(/(\s+-?[\d.]+%)+$/, "");
+    return stop.trim().replace(/(\s+(-?[\d.]+%|calc\((?:[^()]|\([^()]*\))*\)))+$/, "");
 }
 
 /** A stop is paintable when its colour parses as one whole CSS `<color>`. */
@@ -51,12 +53,17 @@ function paintable(stop: string): boolean {
 
 /**
  * THE ONE GRADIENT SERIALIZER (X realization V-D3 · BC-R-18/19). Every
- * horizontal ramp in the demo — the preview ramp, the component-slider
- * tracks, the palette rails, the mix result strip — composes its
- * `linear-gradient` here, in one notation: `90deg`, stops as given (each
- * site's stops are already the paint: library-sampled OKLCh, or hard
- * two-position bands). No `in <space>` clause is added: a clause would
- * change the paint of stops whose default interpolation the sites rely on.
+ * strip in the demo — the preview ramp, the component-slider tracks, the
+ * palette rails, the mix result strip, the palette colour strip's summary,
+ * the gradient workbench's rail and interval ramps — composes its
+ * `linear-gradient` here, in one notation: an angle (`90deg`; a vertical
+ * strip `180deg`, never a `to <side>` keyword), stops as given (each site's
+ * stops are already the paint: library-sampled OKLCh, or hard two-position
+ * bands). An `in <space>` clause is printed only when the caller names one
+ * (`interpolation`, the css-color-4 `<color-interpolation-method>`): the
+ * gradient workbench's ramps blend adjacent samples in the model's space;
+ * every other site relies on the default interpolation, which a clause would
+ * change.
  *
  * TOTALITY (BC-R-26): unpaintable stops are dropped before composing, so
  * one bad stop never nulls the whole `background-image`. Fewer than
@@ -65,11 +72,16 @@ function paintable(stop: string): boolean {
  */
 export function stopsToGradient(
     stops: readonly string[],
-    { direction = "90deg", minStops = 2 }: { direction?: string; minStops?: number } = {},
+    {
+        direction = "90deg",
+        interpolation = "",
+        minStops = 2,
+    }: { direction?: `${number}deg`; interpolation?: string; minStops?: number } = {},
 ): string | null {
     const kept = stops.filter(paintable);
     if (kept.length < minStops) return null;
-    return `linear-gradient(${direction}, ${kept.join(", ")})`;
+    const head = interpolation ? `${direction} ${interpolation}` : direction;
+    return `linear-gradient(${head}, ${kept.join(", ")})`;
 }
 
 /**

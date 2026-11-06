@@ -1,0 +1,276 @@
+{
+  "label": "r2",
+  "at": "2026-11-05T06:27:50.806Z",
+  "rows": {
+    "D-8": {
+      "seriesOverflow": 0,
+      "pillInsideCard": true,
+      "pass": true
+    },
+    "D-21": {
+      "plateBlock": 358,
+      "labelPx": 12.179,
+      "valuePx": 14,
+      "pass": true
+    },
+    "D-22": {
+      "firstLineBottom": 565.5,
+      "dockShort": {
+        "padBlock": "calc(.25rem * 1)",
+        "paddingTop": "4px",
+        "height": 48
+      },
+      "dockTall": {
+        "padBlock": "calc(.5rem * 1)",
+        "paddingTop": "8px",
+        "height": 56
+      },
+      "pass": true
+    },
+    "D-25": {
+      "topDelta": 0,
+      "footDelta": 0,
+      "asideHeight": 900,
+      "pass": true
+    },
+    "D-27": {
+      "cells": 27,
+      "bad": [
+        {
+          "route": "/",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/paper",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/paper",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/paper",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/w",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/w",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/w",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/gallery",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/gallery",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/gallery",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/equation",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/equation",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/equation",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 429 (Too Many Requests)"
+          ],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/morph",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/morph",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/morph",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/nope",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/nope",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/nope",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/s/unknown-share",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/s/unknown-share",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/s/unknown-share",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/v/unknown-visualization",
+          "vp": "390x844",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/v/unknown-visualization",
+          "vp": "844x390",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "jakarta": false
+        },
+        {
+          "route": "/v/unknown-visualization",
+          "vp": "1440x900",
+          "csp": [],
+          "errors": [
+            "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+          ],
+          "fraunces": true,
+          "jakarta": false
+        }
+      ],
+      "pass": false
+    }
+  }
+}

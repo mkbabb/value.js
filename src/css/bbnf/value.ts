@@ -6,12 +6,15 @@
 // which answers it as the `ParseResult` failure it names. Every node is built frozen: a published
 // result is immutable, and nothing walks it again (`../result`).
 
+import { serializeCssValue } from "../serialize";
+import { parseCssColor } from "./color-parse";
 import type { CssCall, CssEmpty, CssScalar, CssValue } from "../../value";
 import { NAMED_COLORS } from "../named-colors";
 import type { CssLinearStop, CssTimingFunction, JumpPosition, KeyframeSelector, ParseIssue } from "../types";
 import type { ColorNode, MixMethodNode } from "./color";
 import { keywordColor } from "./color";
-import { isCalculation, substitutes } from "./calc";
+import { baseOf, isCalculation, substitutes } from "./calc";
+import { keepsAnchorSignature } from "./anchor";
 import { isMixItem, keepsSignature } from "./color5";
 import { keepsImageSignature } from "./image";
 import { keepsPaletteSignature } from "./palette";
@@ -90,7 +93,7 @@ function listOf(separator: "comma" | "slash" | "space") {
 
 /** Functions whose argument list may be empty, and those that must be (css-values-5 §7). */
 const ZERO_ARGUMENT = /^(?:sibling-index|sibling-count)$/i;
-const MAY_BE_EMPTY = /^(?:--.*|scroll|view)$/i;
+const MAY_BE_EMPTY = /^(?:--.*|scroll|view|anchor-size)$/i;
 
 const NO_ARGS: readonly CssValue[] = Object.freeze([]);
 const callNode = (name: string, args: readonly CssValue[]): CssCall => Object.freeze({ kind: "call", name, args });
@@ -103,8 +106,35 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
     const call = callNode(name, body.kind === "list" && body.separator === "comma" ? body.items : Object.freeze([body]));
     //  `alpha()` and `contrast-color()` keep their css-color-5 signatures (`./color5`; X.P.W8 `.t`).
     //  The css-images-4 image functions keep theirs (`./image`; X.P.W8 `.i`), css-fonts-4 `palette-mix()`
-    //  its (`./palette`; X.P.W8 `.f`).
-    return keepsSignature(call) && keepsImageSignature(call) && keepsPaletteSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
+    //  its (`./palette`; X.P.W8 `.f`), `anchor()` / `anchor-size()` theirs (`./anchor`; X.P.W10 `.k10`).
+    return keepsSignature(call) && keepsImageSignature(call) && keepsPaletteSignature(call) && keepsLinearSignature(call) && keepsRelativeColor(call) && keepsAnchorSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
+}
+
+/**
+ * css-color-5 §4 — a relative colour (`rgb(from <color> …)`) in a value list keeps its specified form
+ * (COHESION §0hv DR-c); it must still be a colour `parseCssColor` reads (resolved, or
+ * `color_context_required` for a context origin), else it is refused (X.P.W10 `.r10`).
+ */
+function keepsRelativeColor(call: CssCall): boolean {
+    const first = call.args[0];
+    const lead = first?.kind === "list" ? first.items[0]?.kind === "list" ? first.items[0].items[0] : first.items[0] : first;
+    if (!/^(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)$/i.test(call.name) || lead?.kind !== "scalar" || lead.payload.type !== "keyword" || !/^from$/i.test(lead.payload.value)) return true;
+    const text = serializeCssValue(call);
+    const read = text.ok ? parseCssColor(text.value) : null;
+    return read !== null && (read.ok || read.diagnostics[0]?.code === "color_context_required");
+}
+
+/**
+ * css-easing-2 §3 `linear( <linear-stop># )` in a value list: at least two stops, each a `<number>` and then
+ * at most two `<percentage>`s, a literal or a math function of that type (`./calc` `baseOf`). `linear()` names
+ * an easing function wherever it stands; a call holding a substitution function is unchecked (X.P.W10 `.t10`).
+ */
+function keepsLinearSignature(call: CssCall): boolean {
+    if (!/^linear$/i.test(call.name) || substitutes(call)) return true;
+    return call.args.length > 1 && call.args.every((stop) => {
+        const [output, ...inputs] = stop.kind === "list" && stop.separator === "space" ? stop.items : [stop];
+        return output !== undefined && baseOf(output) === "number" && inputs.length < 3 && inputs.every((p) => baseOf(p) === "percent");
+    });
 }
 
 //  A separator is its text, or `undefined` where `termSep` matched empty (`red:` stands against its `:`).
@@ -237,16 +267,19 @@ const lineNamesValue = (token: string): CssScalar => {
 
 /**
  * A `<urange>` (css-syntax-3 §7.1; css-fonts-4 §4.5 `unicode-range`), read by `value.bbnf` `identTerm`'s
- * first alternative: the token as authored (`U+0025-00FF`). Refused when a `?` wildcard is not trailing
- * or stands in a range's start, or when the start exceeds the end or the end exceeds U+10FFFF (a `?`
- * reads `0` in the start, `F` in the end). X.P.W8 `.f`.
+ * first alternative, its comments dropped (css-syntax-3 §4). Refused unless each side holds one to six
+ * digits, a `?` wildcard trails and never stands in a range, and start ≤ end ≤ U+10FFFF (a `?` reads `0`
+ * in the start, `F` in the end). Spelled as CSSOM serializes a `<urange>`: `U+`, upper-case hex without
+ * leading zeros, and `-end` when the end differs (`u+0a??` → `U+A00-AFF`). X.P.W8 `.f`; X.P.W10 `.s10`.
  */
 function urangeValue(token: string): ValueNode {
-    const [lo, hi] = token.slice(2).split("-") as [string, string?];
+    const [lo, hi] = token.replace(/\/\*[\s\S]*?\*\//g, "").slice(2).split("-") as [string, string?];
     const start = parseInt(lo.replace(/\?/g, "0"), 16);
     const end = parseInt((hi ?? lo).replace(/\?/g, "F"), 16);
-    return /^[\da-f]*\?*$/i.test(lo) && !(hi && lo.includes("?")) && start <= end && end <= 0x10ffff
-        ? keyword(token)
+    const hex = (n: number) => n.toString(16).toUpperCase();
+    return /^[\da-f]{0,6}$/i.test(lo.replace(/\?+$/, "")) && lo.length <= 6 && (hi === undefined || /^[\da-f]{1,6}$/i.test(hi))
+        && !(hi && lo.includes("?")) && start <= end && end <= 0x10ffff
+        ? keyword(`U+${hex(start)}${end === start ? "" : `-${hex(end)}`}`)
         : refused("css_syntax", "<urange>");
 }
 
@@ -284,7 +317,16 @@ function namedSelector([rawName, offset]: readonly [string, Numeric | undefined]
 
 export type TimingNode = CssTimingFunction | Refused;
 const timingRefused = Object.freeze(refused("css_syntax", "timing function")); // shared: frozen once
-const numberOf = (q: Numeric | undefined): number | null => (q?.kind === "quantity" && q.type === "number" ? q.value : null);
+/**
+ * A timing argument of `type` (`tArg`: a literal, or a math function of that type — css-easing-2 §2–§4
+ * over css-values-4 §10; X.P.W10 `.t10`), or `null`. A math function's NaN is censored to 0 (§10.9).
+ */
+const ofType = (q: Numeric | undefined, type: "number" | "percentage"): number | null =>
+    q?.kind === "quantity" && q.type === type ? (q.math && Number.isNaN(q.value) ? 0 : q.value) : null;
+const numberOf = (q: Numeric | undefined): number | null => ofType(q, "number");
+/** A math function's value is range-clamped at computed-value time, never refused at parse (§10.9). */
+const clampIf = (q: Numeric | undefined, value: number, lo: number, hi: number): number =>
+    q?.kind === "quantity" && q.math ? Math.min(hi, Math.max(lo, value)) : value;
 
 /**
  * `steps()`' position keywords (css-easing-2 §4), `start`/`end` as their `jump-` spellings, keyed by
@@ -305,14 +347,19 @@ function timingKeyword(token: string): TimingNode {
 }
 
 function cubicBezier(args: readonly [Numeric, Numeric, Numeric, Numeric]): TimingNode {
-    const [x1, y1, x2, y2] = args.map(numberOf);
-    if (x1 == null || y1 == null || x2 == null || y2 == null) return timingRefused;
+    const [a, b, c, d] = args.map(numberOf);
+    if (a == null || b == null || c == null || d == null) return timingRefused;
+    const x1 = clampIf(args[0], a, 0, 1), y1 = b, x2 = clampIf(args[2], c, 0, 1), y2 = d;
     return x1 >= 0 && x1 <= 1 && x2 >= 0 && x2 <= 1 ? Object.freeze({ kind: "cubic-bezier", x1, y1, x2, y2 }) : timingRefused;
 }
 
 function stepsFn([countQ, rawPosition]: readonly [Numeric, string | undefined]): TimingNode {
-    const count = numberOf(countQ);
+    const authored = numberOf(countQ);
     const position = JUMP_ALIASES.get((rawPosition ?? "jump-end").toLowerCase());
+    //  A math function's `<integer>` rounds to the nearest integer, a tie toward +∞, then clamps to the
+    //  range `steps()` admits (css-values-4 §10.9): `steps(calc(5 / 2))` is `steps(3)`.
+    const count = authored !== null && countQ?.kind === "quantity" && countQ.math
+        ? Math.max(position === "jump-none" ? 2 : 1, Math.round(authored)) : authored;
     return count !== null && Number.isInteger(count) && count > 0 && position !== undefined && !(position === "jump-none" && count < 2)
         ? Object.freeze({ kind: "steps", count, position })
         : timingRefused;
@@ -322,9 +369,9 @@ function stepsFn([countQ, rawPosition]: readonly [Numeric, string | undefined]):
 function linearStop([outputQ, ...slots]: readonly [Numeric, Numeric | undefined, Numeric | undefined]): CssLinearStop | Refused {
     const output = numberOf(outputQ);
     if (output === null) return timingRefused;
-    const inputs = slots.filter((q): q is Numeric => q !== undefined);
-    const positions = inputs.map((q) => (q.kind === "quantity" && q.type === "percentage" ? q.value / 100 : NaN));
-    return Object.freeze({ output, input: Object.freeze(positions) as [] | [number] | [number, number] });
+    const positions = slots.filter((q): q is Numeric => q !== undefined).map((q) => ofType(q, "percentage"));
+    if (positions.some((p) => p === null)) return timingRefused;
+    return Object.freeze({ output, input: Object.freeze((positions as number[]).map((p) => p / 100)) as [] | [number] | [number, number] });
 }
 
 function linearFn([first, rest]: readonly [CssLinearStop | Refused, readonly (CssLinearStop | Refused)[]]): TimingNode {
@@ -337,6 +384,46 @@ function linearFn([first, rest]: readonly [CssLinearStop | Refused, readonly (Cs
 const EMPTY: CssEmpty = Object.freeze({ kind: "list", separator: "space", items: Object.freeze([]) as readonly [] });
 
 /**
+ * The top-level comma parts of a `varRaw` text (strings and `()`/`{}` blocks read whole), or `null` when
+ * the text is no `<declaration-value>`: an unmatched `}`, or a top-level `;` or `!` (css-syntax-3 §5.4.6).
+ */
+function rawParts(text: string): string[] | null {
+    const parts: string[] = [];
+    let depth = 0, from = 0, quote = "";
+    for (let i = 0; i < text.length; i++) {
+        const ch = text.charAt(i);
+        if (quote) { if (ch === quote) quote = ""; continue; }
+        if (ch === "\"" || ch === "'") quote = ch;
+        else if (ch === "(" || ch === "{") depth++;
+        else if (ch === ")" || ch === "}") { if (--depth < 0) return null; }
+        else if (depth === 0 && (ch === ";" || ch === "!")) return null;
+        else if (ch === "," && depth === 0) { parts.push(text.slice(from, i)); from = i + 1; }
+    }
+    return depth === 0 ? [...parts, text.slice(from)] : null;
+}
+
+/**
+ * `var()` / `env()` (css-variables-1 §2/§3; css-variables-2 #funcdef-var). The component-value reading
+ * (`varBody`) is the call it always was, and a name followed by a lone comma keeps an EMPTY fallback. A
+ * `var()` text it does not read (`varRaw`) is the free-form `<declaration-value>` name, kept as authored:
+ * its name part must hold a token, and a `{}` block in it must be the whole part (css-values-5
+ * #component-function-commas; `var({--x})`), else it is refused (X.P.W10 `.v10`).
+ */
+function varValue([name, body]: readonly [string, readonly [ValueNode, string | undefined] | string | undefined]): ValueNode {
+    if (body === undefined) return refused("css_syntax", `<${name.toLowerCase()}()>`);
+    if (typeof body !== "string") {
+        const [list, comma] = body;
+        const single = !(list.kind === "list" && list.separator === "comma");
+        return callValue([name, comma !== undefined && single && !isRefused(list) ? Object.freeze({ kind: "list", separator: "comma", items: Object.freeze([list, EMPTY]) }) as ValueNode : list]);
+    }
+    //  Only `var()` takes the free-form name (css-variables-2); `env()`'s is a `<custom-ident>` (css-env-1).
+    const first = /^var$/i.test(name) ? rawParts(body)?.[0]?.trim() ?? "" : "";
+    const inner = first.slice(1, -1);
+    const ok = first !== "" && (first.startsWith("{") ? first.endsWith("}") && inner.trim() !== "" && !/[{}]/.test(inner) : !/[{}]/.test(first));
+    return ok ? callNode(name, Object.freeze([keyword(body)])) : refused("css_syntax", `<${name.toLowerCase()}()>`);
+}
+
+/**
  * `value.bbnf`'s semantic actions, by production. Each receives its rule's value where the grammar
  * puts it (positional sequences: an unmatched optional keeps its `undefined` slot).
  */
@@ -344,7 +431,7 @@ export const valueActions = {
     numeric: { kind: "groups", fn: numericScalar },
     string: { kind: "map", fn: keyword },
     operator: { kind: "map", fn: keyword },
-    identTerm: { kind: "map", fn: (token: string) => (/^u\+/i.test(token) ? urangeValue(token) : identScalar(token, keywordColor)) },
+    identTerm: { kind: "map", fn: (token: string) => (/^u(?:\/\*[\s\S]*?\*\/)*\+/i.test(token) ? urangeValue(token) : identScalar(token, keywordColor)) },
     colorCall: { kind: "map", fn: colorScalar },
     //  `color-mix()` / `light-dark()` stand in a scalar position as colours (their node, unwrapped).
     scalarTerm: { kind: "map", fn: (v: ValueNode | ColorNode) =>
@@ -352,7 +439,8 @@ export const valueActions = {
     call: { kind: "map", fn: callValue },
     ifCall: { kind: "map", fn: ifValue },
     mixCall: { kind: "map", fn: mixValue },
-    varCall: { kind: "map", fn: callValue },
+    varCall: { kind: "map", fn: varValue },
+    varRaw: { kind: "text", fn: (text: string): string => text },
     urlCall: { kind: "map", fn: urlValue },
     urlString: { kind: "map", fn: urlStringValue },
     typeCall: { kind: "groups", fn: leafCallValue },

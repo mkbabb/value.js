@@ -14,11 +14,10 @@
 //
 // SCOPE is decided by the INPUT's own bytes, one named reason each, and every class's count is
 // asserted so a drift in either direction is loud:
-//   concrete  a `none` CHANNEL in `color(xyz-d50 …)` / `color(display-p3-linear …)` — `CssColorSpace` has no
-//             member for either space, so each is written as the exact `xyz` it names; a `none`
-//             has no `xyz` channel to stay missing in and is refused (the "concrete xyz-d50"
-//             contract value.js carries, extended to the second such space)
-//   relative  `from` — relative colour syntax: parsed, and answered `color_context_required`
+//   (X.P.W10 `.m10` retired the "concrete" class: `xyz-d50` and `display-p3-linear` are model members of
+//   their own, so a `none` channel in them stays missing and every such case is in scope.)
+//   relative  `from` — relative colour syntax: resolved from an absolute origin (X.P.W10 `.r10`, DR-c);
+//             a context origin answers `color_context_required`
 //   context   `currentcolor` · `light-dark()` · `var()` · a font/viewport-relative length inside a
 //             calculation — not absolute at parse time (css-color-5 §2; css-values-4 §10), so the
 //             answer is `color_context_required`, asserted
@@ -26,6 +25,7 @@
 
 import { describe, expect, it } from "vitest";
 
+import { convertColor } from "../../src/color/index";
 import { parseCssColor } from "../../src/css/bbnf/index";
 import { normalizeMixPercentages, resolveColorMix } from "../../src/css/bbnf/mix";
 import type { CssColor, ParseResult } from "../../src/css/types";
@@ -36,8 +36,7 @@ const parse = (source: string): ParseResult<CssColor> => parseCssColor(source);
 const codeOf = (r: ParseResult<CssColor>): string => (r.ok ? "ok" : r.diagnostics[0].code);
 
 const scopeOf = (s: string): string =>
-    /color\(\s*(?:xyz-d50|display-p3-linear)\s[^/)]*none/i.test(s) ? "concrete"
-        : /\bfrom\b/i.test(s) ? "relative"
+    /\bfrom\b/i.test(s) ? "relative"
             : /currentcolor|light-dark\(|var\(|\d(?:r?em|ex|ch|v[wh])\b/i.test(s) ? "context"
                 : "in";
 
@@ -97,16 +96,16 @@ describe("color-mix() — WPT color-computed-color-mix-function.html (the resolv
 
     it("reads 958 cases; the out-of-scope ones are exactly the named classes", () => {
         expect(cases.length).toBe(958);
-        expect(tally(cases.map((c) => scopeOf(c.input)))).toEqual({ in: 931, concrete: 26, context: 1 });
+        expect(tally(cases.map((c) => scopeOf(c.input)))).toEqual({ in: 957, context: 1 });
     });
 
     it("every in-scope case computes to the WPT expectation within its 0.01 epsilon", () => {
         expect(computedMisses(cases)).toEqual([]);
     });
 
-    it("the concrete class is refused as syntax; the context class answers color_context_required", () => {
+    it("the context class answers color_context_required", () => {
         const verdicts = cases.filter((c) => scopeOf(c.input) !== "in").map((c) => `${scopeOf(c.input)}:${codeOf(parse(c.input))}`);
-        expect(tally(verdicts)).toEqual({ "concrete:css_syntax": 26, "context:color_context_required": 1 });
+        expect(tally(verdicts)).toEqual({ "context:color_context_required": 1 });
     });
 });
 
@@ -115,8 +114,7 @@ describe("color-mix() — WPT color-valid / color-invalid-color-mix-function.htm
         const cases = loadWptCases("color-valid-color-mix-function.html");
         expect(cases.length).toBe(677);
         expect(tally(cases.map((c) => `${scopeOf(c.input)}:${codeOf(parse(c.input))}`))).toEqual({
-            "in:ok": 661,
-            "concrete:css_syntax": 12,
+            "in:ok": 673,
             "context:color_context_required": 4,
         });
     });
@@ -183,11 +181,14 @@ describe("light-dark() — css-color-5 §2: parsed, and not an absolute colour",
         expect(codes("color-mix(in srgb, light-dark(white, black), red)")).toEqual(["color_context_required"]);
     });
 
-    it("relative colour is a parsed production with value.js's context contract; a malformed one is syntax", () => {
-        expect(codes("rgb(from red r g b)")).toEqual(["color_context_required"]);
-        expect(codes("oklch(from #123456 calc(l * 0.8) c h / alpha)")).toEqual(["color_context_required"]);
-        expect(codes("color(from red srgb r g b)")).toEqual(["color_context_required"]);
-        expect(codes("color-mix(in srgb, rgb(from red r g b), blue)")).toEqual(["color_context_required"]);
+    // X.P.W10 `.r10` (§0hv DR-c): an absolute origin resolves at parse; a context origin keeps the contract.
+    it("relative colour resolves from an absolute origin, answers value.js's context contract from a context one; a malformed one is syntax", () => {
+        expect(codes("rgb(from red r g b)")).toEqual([]);
+        expect(codes("oklch(from #123456 calc(l * 0.8) c h / alpha)")).toEqual([]);
+        expect(codes("color(from red srgb r g b)")).toEqual([]);
+        expect(codes("color-mix(in srgb, rgb(from red r g b), blue)")).toEqual([]);
+        expect(codes("rgb(from currentcolor r g b)")).toEqual(["color_context_required"]);
+        expect(codes("color-mix(in srgb, rgb(from light-dark(red, blue) r g b), blue)")).toEqual(["color_context_required"]);
         expect(codes("rgb(from bogus r g b)")).toEqual(["css_syntax"]);
         expect(codes("rgb(from red r g)")).toEqual(["css_syntax"]);
     });
@@ -287,14 +288,16 @@ describe("css-color-4 §4 — math functions in every component (SC-1), resolved
     });
 });
 
-describe("color(display-p3-linear …) (SC-2) — admitted, written as the exact xyz it names", () => {
+describe("color(display-p3-linear …) (SC-2) — admitted, its own space (X.P.W10 `.m10`)", () => {
     it("reads the linear-light P3 primaries through css-color-4 §18's matrix", () => {
         const r = parse("color(display-p3-linear 1 1 1)");
-        expect(r.ok && r.value.space).toBe("xyz");
+        expect(r.ok && r.value.space).toBe("display-p3-linear");
         const white = parse("color(xyz-d65 0.9504559270516716 1 1.0890577507598784)");
         if (!r.ok || !white.ok) throw new Error("unparsed");
-        r.value.channels.forEach((c, i) => expect(Math.abs((c as number) - (white.value.channels[i] as number))).toBeLessThan(1e-12));
-        expect(codeOf(parse("color(display-p3-linear none 0 0)"))).toBe("css_syntax");
+        const asXyz = convertColor(r.value, "xyz");
+        if (!asXyz.ok) throw new Error("unconverted");
+        asXyz.value.channels.forEach((c, i) => expect(Math.abs((c as number) - (white.value.channels[i] as number))).toBeLessThan(1e-12));
+        expect(parse("color(display-p3-linear none 0 0)")).toMatchObject({ ok: true, value: { channels: ["none", 0, 0] } });
         expect(parse("color(display-p3-linear 0 0 0 / none)")).toMatchObject({ ok: true, value: { alpha: "none" } });
     });
 });

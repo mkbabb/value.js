@@ -208,6 +208,55 @@ test.describe("X.W12.c · the About pane is the Picker pane's height", () => {
                         `(Picker pane ${r.picker}px, About pane ${r.about}px)`,
                 ).toBeLessThanOrEqual(r.innerHeight + EPS);
             });
+
+            // (2′) V-D1.r2 (§0hw.14, prod 1280×800 docScroll 825): the same law
+            // with the picker's data-dependent row present. Prod renders the
+            // approved name of the default colour ("Efflorescence") under the
+            // readout; dev and CI have no API, so (2) never saw that row. The
+            // approved list is served here, seeded with the default colour, so
+            // the name line renders exactly as it does on prod.
+            test("no page overflow on the block axis with the approved-name line", async ({ page }) => {
+                await page.route("**/colors/approved**", (route) =>
+                    route.fulfill({
+                        status: 200,
+                        contentType: "application/json",
+                        body: JSON.stringify({
+                            data: [
+                                {
+                                    id: "vd1r2-seed",
+                                    name: "Efflorescence",
+                                    css: "oklch(73% 0.185 2)",
+                                    status: "approved",
+                                    createdAt: "2026-11-05T00:00:00.000Z",
+                                    approvedAt: "2026-11-05T00:00:00.000Z",
+                                },
+                            ],
+                        }),
+                    }),
+                );
+                await page.goto("/#/");
+                await expect(page.getByTestId("picker-color-name")).toHaveText("efflorescence", {
+                    ignoreCase: true,
+                    timeout: 60_000,
+                });
+                const r = await readSettled(page);
+                const plane = await page.evaluate(() => {
+                    const el = document.querySelector<HTMLElement>(".spectrum-picker")!.getBoundingClientRect();
+                    return { w: el.width, h: el.height };
+                });
+                console.log(
+                    `[w12-about-clip] ${vp.name} name-line docScroll=${r.docScroll} inner=${r.innerHeight} picker=${r.picker} plane=${JSON.stringify(plane)}`,
+                );
+                expect(
+                    r.docScroll,
+                    `document scrollHeight ${r.docScroll} vs viewport ${r.innerHeight} with the name line ` +
+                        `(Picker pane ${r.picker}px)`,
+                ).toBeLessThanOrEqual(r.innerHeight + EPS);
+                // The plane gave the row its block size, never its shape away:
+                // φ ≤ w/h ≤ 2.5 (the OD-19 bar).
+                expect(plane.w / plane.h, "spectrum aspect with the name line").toBeGreaterThanOrEqual(1.6);
+                expect(plane.w / plane.h, "spectrum aspect with the name line").toBeLessThanOrEqual(2.5);
+            });
         });
     }
 });

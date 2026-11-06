@@ -1825,3 +1825,108 @@ Under W8.md ADDENDUM 2026-10-15 (e), §Scope 2 and §Scope 4; COHESION §0fg.1�
 | **consumer direction** | **WIDENS** acceptance for `if()` with `;`-separated branches (restoring the pre-`.semi` reading). **NARROWS** it for an `if()` whose argument is not branches (`if(foo)`, `if(red: a)`, a condition holding a comma or slash, a branch after a `;` that has no `:`), refused `css_syntax` `expected "<if()>"`; no corpus or WPT source holds one (L-G2 `new 0`). CHANGELOG `[Unreleased]` records both. |
 
 Correction 2026-10-15 (X.P.W8.ifsemi, same seat; E-3, beside): in the oracle-rows field above, "the 12 `coerceToSyntax` sections" reads **the 11 `coerceToSyntax` sections** — ⟨`grep '^gone' bench/records/W8ifsemi/delta-1.txt | grep -o '"section":"[^"]*"' | sort -u | wc -l`⟩ → `13` = `parseCssValue` + `parseCssValues` + 11, × 2 sources = 26.
+
+## §20-T — X.P.W10.t10: math functions in easing arguments, resolved at parse; a value list's `linear()` checked (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+Under W10.md `.t10` (XP-11) and COHESION §0hv (DR-a, DR-b keep).
+
+| field | reading |
+|---|---|
+| **class** | **W10t-LINEAR** a value list's `linear()` refused unless it keeps css-easing-2 §3 (`linear( [ <number> && <percentage>{0,2} ]# )`, at least two stops), each argument a literal or a math function of that type; unchecked when the call holds a substitution function (css-variables-1 §3). |
+| **spec** | css-easing-2 §2.1, §3 `cubic-bezier()`, §4 `steps()`; css-values-4 §10.9 (a math function's value is rounded to `<integer>` and range-clamped at computed-value time, never refused at parse; NaN censored to 0). |
+| **cure** | `value.bbnf`: `tArg = mathFn \| number \| percentage` in `cubicBezier`, `stepsFn` and `linearStop`. `value.ts`: the timing actions resolve a math argument of the right type (`steps()` rounds, a tie toward +∞, then clamps to ≥ 1, ≥ 2 for `jump-none`; `cubic-bezier()` x clamps into [0, 1]); a literal out of range stays refused; `keepsLinearSignature` checks `linear()` in `callValue`. |
+| **oracle rows** | 3,347 → 9,184 ×2, `cmp`-identical. Against the W9 `.pin` read (`bench/records/W10/base-w9pin-equiv.json.gz`): `identical 3347 · gone 0 · moved 0 · new 5837`; every new row has a `linear(` source: 449 sources × 13 sections (`parseCssValue`, `parseCssValues`, 11 `coerceToSyntax`). **W10t-LINEAR**. |
+| **value differential** | `w6-classes.ts` gains **W10t-LINEAR** (FALSE_REJECT_IN_SHAPE), ordered after W8semi-SEMI: each `linear()` spelled `red`, the rest must agree, and each call alone, with its other ruled constructs (`;`, an empty comma part) repaired by their own classes' edits, must be refused as `<linear()>`. 456 cells per value entry (449 + 7 that also hold a `;` or `,,`); W8semi-SEMI stays 126. MIRROR-DEFECTS 0 every entry ×2. |
+| **consumer direction** | **WIDENS** `parseTimingFunction` (math arguments). **NARROWS** `parseCssValue` for a malformed `linear()` (`css_syntax` `expected "<linear()>"`). |
+
+## §20-M — X.P.W10.m10: `xyz-d50` and `display-p3-linear` as colour-model members (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | **W10m-SPACE** a `color(xyz-d50 …)` / `color(display-p3-linear …)` colour is answered in its own space; the incumbent (and the 4.2 product) wrote it as the `xyz` (D65) colour it names. Retires the "concrete xyz-d50" contract and the ruled class W8t-COLOR-SPACE-NONE (8 rows, deleted: now passing) and 28 W8t-COLOR-SERIALIZATION rows whose reason was the xyz spelling (deleted: now passing). |
+| **spec** | css-color-4 §10.5 (`display-p3-linear`), §10.8 (`xyz-d50`), §13.2 (a missing component stays missing through interpolation), §18 (the matrices). |
+| **cure** | `src/color/model.ts` (`SpaceId`, `SPACE_SCHEMA`, `xyzD50`, `displayP3Linear`), `src/color/anchors.ts` (Bradford D50↔D65; the P3 linear matrix), `src/css/types.ts` `CssColorSpace`, `src/css/serialize.ts`, `src/css/bbnf/color.ts` `predefined` (the `concrete` factory removed), `src/css/bbnf/mix.ts` `toCssColor` (the two spaces no longer re-spelled as `xyz`). No grammar byte. Demo: the two spaces join the picker's channel/name/decimal maps and the space catalog with `listed: false` (read when a colour arrives in them, never a selector row). |
+| **value differential** | `w6-classes.ts` gains **W10m-SPACE** (governs DIVERGENT_VALUE): each such `color()` spelled `red`, the rest must agree, and each call read alone must convert (`convertColor(…, "xyz")`) to the incumbent's `xyz` colour within 1e-12, alpha equal. MIRROR-DEFECTS 0. |
+| **oracle rows** | 9,184 → 9,210: `new 26` against `.t10`, every one a `color(xyz-d50 …)` / `color(display-p3-linear …)` source (4 sources × the colour/value entries, 1 × 10 `coerceToSyntax` sections). **W10m-SPACE**. |
+| **consumer direction** | **WIDENS** (a `none` channel in either space parses; `SpaceId` gains two members). **CHANGES** the answered space for these two `color()` spaces (`xyz` → as authored). An exhaustive `Record<SpaceId, …>` in a consumer needs two entries. |
+
+## §20-S — X.P.W10.s10: `<urange>` spelled canonically and read through comments (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **cure** | `value.bbnf` `identTerm`'s `<urange>` alternative admits comments between `u`, `+` and the digits; `value.ts` `urangeValue` drops them, counts one to six digits a side and answers the CSSOM spelling. Supersedes §19-F's "kept as authored" (`bbnf-fonts.test.ts` assertions updated, commented). |
+| **spec** | css-syntax-3 §4 (a comment is no token), §7.1 `<urange>`; CSSOM serialization of a `<urange>`. |
+| **oracle rows / differential** | L-G2 `new 0` against `.m10` (no oracle source holds a `<urange>` the two arms read apart). MIRROR-DEFECTS 0, no class. |
+| **ruled** | 4 `urange-parsing.html` invalid cases (`u + abc`, `U + a b c`, `u/**/0`, `u-0-1`) are valid generic value lists: **W8g-PROPERTY-GRAMMAR** (DR-a). |
+| **consumer direction** | **CHANGES** the keyword text of a `<urange>` (canonical, not as authored); **WIDENS** to comments inside one. |
+
+## §20-V — X.P.W10.v10: `var()` keeps an empty fallback and reads css-variables-2's free-form name (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | **W10v-VAR** `var(--x,)` keeps an EMPTY fallback (its second argument the empty value); a `var()` argument list the component values do not read is the free-form `<declaration-value>` name, one keyword argument holding the text as authored. The incumbent dropped the comma and refused the free form. |
+| **spec** | css-variables-1 §2 (`<declaration-value>?` fallback), §3; css-variables-2 #funcdef-var (the name is a `<declaration-value>` parsed only after substitution); css-values-5 #component-function-commas (`{}`-wrapping); css-syntax-3 (no top-level `;` or `!` in a `<declaration-value>`). |
+| **cure** | `value.bbnf`: `varCall` reads `varBody << close` (which never opens on `{`) or `varRaw << ")"`; `varBody = commaList , /\s*,/ ?`; `varRaw = balanced`. `value.ts` `varValue`: a lone trailing comma after the name adds the EMPTY fallback; a raw text is held to a non-empty name part, a `{}` block only as the whole part, no top-level `;`/`!`, and `var()` only (`env()`'s name is a `<custom-ident>`, css-env-1). |
+| **variants (E-6 gz)** | `bench/records/W10v10/variants/e6-variants.txt`: three alternatives with an own regex 15,181; with `balanced` 15,178; **two alternatives, landed: 15,157**; one shared close 15,164 (loses authored whitespace); `blockRun` 15,188; the empty fallback alone 15,071 (fails 7 falsifiers). |
+| **value differential** | `w6-classes.ts` **W10v-VAR** (MIS_ACCEPT, DIVERGENT_VALUE): each `var()` spelled `var(--g)`, the rest must agree, and each call read alone must be an EMPTY-fallback or a free-form `var()` node whose keyword is the call's own text. MIRROR-DEFECTS 0. |
+| **oracle rows** | against `.m10`: `new 956 · moved 2 · gone 0`; every new row a `var(`/`env(` source; the 2 moved rows are one prose source holding `var()` whose refusal's diagnostic moves (still refused). **W10v-VAR**. |
+| **ruled** | `W10v-VAR-WHITESPACE` ×3 (`var(--x,)`, `var(--x() )`, `var(--x(),)`: value.js's canonical spacing, DR-b) and `W10v-CUSTOM-COMPONENTS` ×6 (`--var*: blue/pink` read as component values, named colour → `rgb()`, DR-b; css-variables-1 §2 departure named in the row). |
+| **consumer direction** | **WIDENS** (`var()` free-form names; empty fallback kept). A consumer reading `var()`'s arguments sees an EMPTY second argument for `var(--x,)`, and one keyword argument for a free-form name. |
+
+## §20-R — X.P.W10.r10: a relative colour resolves at parse from an absolute origin (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | **DR-c** (COHESION §0hv): `parseCssColor("rgb(from red r g b)")` answers the resolved colour; a context origin (`currentcolor`, a system colour, `var()`, `light-dark()`) keeps `color_context_required`; a refused origin or a malformed relative colour refuses. In a value list (`parseCssValue`) a relative colour keeps its specified form as a call (the substitution functions inside it may be resolved later), validated by reading it through `parseCssColor`. The incumbent answered `color_context_required` for every relative colour. |
+| **spec** | css-color-5 §4 (relative colour syntax), §4.1 (channel keywords; a missing origin channel reads 0, as WPT `color-computed-relative-color.html` expects); css-color-4 §5–§10 (each function reads its own components); css-values-4 §10 (channel keywords inside math). |
+| **cure** | `math.ts`: an unresolved channel keyword carries a `bind(env)`; `fold`, comparisons and `sign()`/`abs()` defer over it and resolve under `bindUnder(q, env)`. `color.ts` `relativeColor`: the origin converts to the function's space (`RELATIVE` table: rgb unclamped 0..255, hsl/hwb in 0..100, lab/lch/oklab/oklch; `color()` by `PREDEFINED_SPACE`), its channels and `alpha` bind the keywords, an omitted alpha is the origin's, and the function's own `build` reads the components. `value.bbnf`: `colorCall` no longer holds `relativeColor`; `colorHead` refuses `(from`, so a relative colour in a value list is a generic call; `value.ts` `keepsRelativeColor` holds it to what `parseCssColor` reads (ok or `color_context_required`). |
+| **value differential** | MIRROR 19/19, MIRROR-DEFECTS 0 (no relative-colour source in the mirror corpus resolves differently from its class). |
+| **oracle rows** | against `.v10`: `new 14 · moved 1 · gone 0`. The 14 new rows are one new corpus source (`color-mix(in oklab, var(--skeleton-ink) 78%, oklch(from var(--accent-live) …))`) read by every entry: `parseCssValue` now keeps it as a call (it holds `var()`), the incumbent refused it. The moved row is a stylesheet whose first diagnostic was `oklch(from var(--foreground) …)` and is now the next refused declaration. Both are the value-list call form. |
+| **ruled** | `W10-SPECIFIED-SERIALIZATION` ×1,376 (valid-relative, valid-color-mix, valid-color-function specified rows: value.js's canonical spelling of the call, DR-b; each row fixpoint-checked, the serialization re-reads to the same value), `W8t-CSS-COLOR-6` ×10 (color-layers), `W8t-COLOR-CONTEXT` ×23 (computed relative colour over `currentcolor`/`light-dark()`: context, value.js's contract). 8 stale rows deleted (opaque-alpha `currentcolor`). |
+| **residual** | css-color MISS 67: 25 refused computed-relative (trig `sin()`/`asin()` not in the colour channel's math; WPT's own `none`-vs-0 inconsistencies), 24 computed-relative serialization (a powerless hue answered as a number where WPT spells `none`), 17 `contrast-color()` computed, 1 `color-mix()` with `em`. Routed: X-P-W10.md addendum. |
+| **consumer direction** | **WIDENS** (`parseCssColor` answers a colour where it answered `color_context_required`). A consumer that treated every relative colour as context-dependent now receives the resolved colour for an absolute origin. |
+
+## §20-Ka — X.P.W10.k10 (a): `calc-size()` checked over a whole value (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | `parseCssValue` refuses (`css_syntax`, expected `<calc-size()>`) a value whose `calc-size()` or `size` breaks css-values-5 §5.1: not two arguments; a basis that is `size`, a `<number>` or a non-length-percentage sum; a `<calc-sum>` that is not length-percentage, names a sizing keyword, or names `size` under an `any` basis; a `calc-size()` inside a math function or another's `<calc-sum>`; a `size` inside a math function outside a `<calc-sum>`. The incumbent read every `calc-size()` as a generic call. |
+| **spec** | css-values-5 §5.1 (`calc-size( <calc-size-basis>, <calc-sum> )`), XP-13 (§0hv RECOMMENDED claim). |
+| **cure** | no grammar byte: `calc.ts` `keepsCalcSize` (a walk with `out` / `math` / `size` positions, typing each sum by `operand`/`sum`); `index.ts` `parseCssValue` runs it when the text holds `size`. `parseCustomPropertyValue` is unchecked (a custom property's value is any token sequence). A value holding a substitution function is unchecked. |
+| **value differential** | MIRROR 0 defects; L-G2 unchanged from `.r10` (no paired source holds `calc-size()`). |
+| **ruled** | `W8g-PROPERTY-GRAMMAR` ×18 (a basis keyword the property does not admit: `max-*: calc-size(auto, …)`, `none`, `content`; bare `size`; interpolate-size's keywords), `W8g-MATH-SERIALIZATION` ×6 (the sum serialized as authored, DR-b). |
+| **consumer direction** | **NARROWS** (`parseCssValue` refuses a malformed `calc-size()` it accepted). |
+
+## §20-Kb — X.P.W10.k10 (b): `sibling-index()` / `sibling-count()` in a colour's channel (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | A colour channel (or alpha) whose math holds `sibling-index()` / `sibling-count()` answers `color_context_required` (the element decides its value), as `var()` does; the incumbent refused it as `css_syntax`. |
+| **spec** | css-values-5 §8 (tree-counting functions, an `<integer>`); css-color-4 §4. |
+| **cure** | `math.bbnf` `calcConstant` also reads `sibling-(?:index|count)\(\s*\)`; `math.ts` answers it `CONTEXT`. |
+| **variants (E-6 gz)** | `bench/records/W10k10b/variants/e6-variants.txt`: an own `treeFn` rule in `mathFn` 15,239 / 6,106; **folded into `calcConstant`, landed: 15,181 / 6,054**. |
+| **value differential** | MIRROR 0 defects; L-G2 unchanged from `.k10a`. |
+| **ruled** | `W8t-COLOR-CONTEXT` ×9 (the colour rows, and `LCH(from var(--accent) … sibling-index())`), `W8v-PROPERTY-TYPE` ×7 (a calculation's type against the property, DR-a), `W8g-MATH-SERIALIZATION` ×7 (DR-b). |
+| **consumer direction** | **REFINES** (a refusal's code moves from `css_syntax` to `color_context_required`). |
+
+## §20-Kc — X.P.W10.k10 (c): `progress(no-clamp …)` (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | `progress()` admits one leading `no-clamp` on its first argument; the incumbent typed `no-clamp 50em` as no calculation and refused the call. |
+| **spec** | css-values-5 progress() (#progress); WPT css/css-values/progress-computed.html. |
+| **cure** | no grammar byte: `calc.ts` `mathType` types `progress()`'s first argument without its leading `no-clamp` (`unclamped`). The call is kept as authored, `no-clamp` included. |
+| **value differential** | MIRROR 0 defects; L-G2 unchanged from `.k10b`. |
+| **ruled** | `W10k-COMPUTED-VALUE` ×34: every `progress-computed.html` case asserts the computed value (the progress resolved to a `<number>`, `em`/`rem`/`lh`/`cqw` resolved against the element), which the element-free `parseCssValue` does not compute (DR-b keeps math as authored). |
+| **consumer direction** | **WIDENS** (`progress(no-clamp …)` parses). |
+
+## §20-Kd — X.P.W10.k10 (d): `anchor()` / `anchor-size()` signatures (SERVED MODEL: claude-opus-5-5 · 2026-11-05) — DATED, BESIDE (E-3)
+
+| field | reading |
+|---|---|
+| **class** | A value-list `anchor()` keeps `<anchor-name>? && <anchor-side>, <length-percentage>?`, an `anchor-size()` `[ <anchor-name> || <anchor-size> ]? , <length-percentage>?` (the comma elided with an omitted first argument: `anchor-size(10px)`); a call that breaks it is refused (`css_syntax`, `<anchor()>` / `<anchor-size()>`). `anchor-size()` may be empty. The incumbent read both as generic calls (and refused `anchor-size()`). |
+| **spec** | css-anchor-position-1 §3.2, §4.1; css-values-4 §2.6 (commas beside an omitted term). |
+| **cure** | no grammar byte: `anchor.ts` `keepsAnchorSignature`, in `value.ts` `callValue`'s signature chain; `MAY_BE_EMPTY` gains `anchor-size`. A call holding a substitution function is unchecked. |
+| **value differential** | MIRROR 0 defects; L-G2 unchanged from `.k10c`. |
+| **ruled** | `W8g-PROPERTY-GRAMMAR` ×6 (a well-formed call in a property that does not admit it, DR-a), `W8g-PROPERTY-SERIALIZATION` ×2,224 (the canonical order `--name side`, a lone math wrapper dropped, `0` → `0px`; value.js keeps authored order, DR-b; each row fixpoint-checked, 0 failures). |
+| **consumer direction** | **NARROWS** (malformed `anchor()` / `anchor-size()` refused) and **WIDENS** (`anchor-size()` empty). |

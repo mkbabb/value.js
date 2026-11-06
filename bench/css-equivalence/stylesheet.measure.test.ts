@@ -32,16 +32,24 @@ import { retiredModule, retiredStylesheet } from "../retired";
 
 const retired = await retiredStylesheet();
 vi.resetModules();
-vi.doMock(retiredModule("css/grammar.ts"), async (importOriginal) => ({
-    ...(await importOriginal<Record<string, unknown>>()),
-    parseCssColor: bbnf.parseCssColor,
-    parseCssScalar: bbnf.parseCssScalar,
-    parseCssValue: bbnf.parseCssValue,
-    parseCssValues: bbnf.parseCssValues,
-    parseKeyframeSelector: bbnf.parseKeyframeSelector,
-    parseTimingFunction: bbnf.parseTimingFunction,
-}));
+// The hybrid is only a hybrid if the mock is applied: the factory records that it ran, and the file
+// refuses to measure otherwise (a mock keyed on an id vite never loads would make the "hybrid" the
+// retired layer, and every value-grammar difference a STYLESHEET DEFECT — X §0hw adversarial check).
+let hybridMocked = false;
+vi.doMock(retiredModule("css/grammar.ts"), async (importOriginal) => {
+    hybridMocked = true;
+    return {
+        ...(await importOriginal<Record<string, unknown>>()),
+        parseCssColor: bbnf.parseCssColor,
+        parseCssScalar: bbnf.parseCssScalar,
+        parseCssValue: bbnf.parseCssValue,
+        parseCssValues: bbnf.parseCssValues,
+        parseKeyframeSelector: bbnf.parseKeyframeSelector,
+        parseTimingFunction: bbnf.parseTimingFunction,
+    };
+});
 const hybrid = await retiredStylesheet();
+if (!hybridMocked) throw new Error("the hybrid's grammar mock was not applied: the retired grammar.ts was loaded by an id the mock does not key");
 type Entry = (source: string) => ParseResult<unknown>;
 const retiredTimeline = (await import(/* @vite-ignore */ retiredModule("css/timeline.ts"))) as Record<"parseAnimationTimeline" | "parseAnimationRange", Entry>;
 const REPO = path.resolve(import.meta.dirname, "..", "..");

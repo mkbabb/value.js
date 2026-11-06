@@ -1,0 +1,13 @@
+   × progress(no-clamp …) (css-values-5) > progress(no-clamp 50em, 10em, 110em) parses and keeps its no-clamp 7ms
+   × progress(no-clamp …) (css-values-5) > calc(progress(no-clamp 100px, 0px, 50px) * 10px + 100px) parses and keeps its no-clamp 2ms
+   × progress(no-clamp …) (css-values-5) > calc(progress(no-clamp abs(5%), hypot(3%, 4%), 10%)) parses and keeps its no-clamp 1ms
+   × progress(no-clamp …) (css-values-5) > calc(progress(no-clamp 100, 0, sign(1rem - 5px))) parses and keeps its no-clamp 1ms
+   × progress(no-clamp …) (css-values-5) > progress(NO-CLAMP 10px, 10px, 10px) parses and keeps its no-clamp 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/css/bbnf-progress-no-clamp.test.ts > progress(no-clamp …) (css-values-5) > progress(no-clamp 50em, 10em, 110em) parses and keeps its no-clamp
+ FAIL  test/css/bbnf-progress-no-clamp.test.ts > progress(no-clamp …) (css-values-5) > calc(progress(no-clamp 100px, 0px, 50px) * 10px + 100px) parses and keeps its no-clamp
+ FAIL  test/css/bbnf-progress-no-clamp.test.ts > progress(no-clamp …) (css-values-5) > calc(progress(no-clamp abs(5%), hypot(3%, 4%), 10%)) parses and keeps its no-clamp
+ FAIL  test/css/bbnf-progress-no-clamp.test.ts > progress(no-clamp …) (css-values-5) > calc(progress(no-clamp 100, 0, sign(1rem - 5px))) parses and keeps its no-clamp
+ FAIL  test/css/bbnf-progress-no-clamp.test.ts > progress(no-clamp …) (css-values-5) > progress(NO-CLAMP 10px, 10px, 10px) parses and keeps its no-clamp
+ Test Files  1 failed (1)
+      Tests  5 failed | 5 passed (10)

@@ -1,0 +1,62 @@
+[
+ {
+  "vp": "1800x1000",
+  "scheme": "dark",
+  "present": true,
+  "invalid": true,
+  "visibleAll": true,
+  "hits": [
+   true,
+   true,
+   true
+  ],
+  "helpOpen": false,
+  "validAfterEdit": true,
+  "ok": true
+ },
+ {
+  "vp": "1800x1000",
+  "scheme": "light",
+  "present": true,
+  "invalid": true,
+  "visibleAll": true,
+  "hits": [
+   true,
+   true,
+   true
+  ],
+  "helpOpen": false,
+  "validAfterEdit": true,
+  "ok": true
+ },
+ {
+  "vp": "390x844",
+  "scheme": "dark",
+  "present": true,
+  "invalid": true,
+  "visibleAll": true,
+  "hits": [
+   true,
+   true,
+   true
+  ],
+  "helpOpen": false,
+  "validAfterEdit": true,
+  "ok": true
+ },
+ {
+  "vp": "390x844",
+  "scheme": "light",
+  "present": true,
+  "invalid": true,
+  "visibleAll": true,
+  "hits": [
+   true,
+   true,
+   true
+  ],
+  "helpOpen": false,
+  "validAfterEdit": true,
+  "ok": true
+ }
+]
