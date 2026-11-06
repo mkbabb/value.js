@@ -24,7 +24,7 @@ import {
  *   (triad 240°,      colorEnergy 0.82) = too strong  ← upper pole
  * The Q2-NOW landing must resolve STRICTLY INSIDE that envelope on every
  * co-varied axis the energy knob drives, with the calibrated base knobs
- * (breath 26 · softmaxBeta 4 · vividness = f(seedC)) surviving the atom
+ * (breath 26 · softmaxBeta 10 · vividness = f(seedC)) surviving the atom
  * resolution (the resolveAtoms(atoms, base) producer seam).
  *
  * This is the NOW-half resolver test; the FULL-composition re-run (hueSpread
