@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, ref } from "vue";
+import { computed, inject, ref, shallowRef, watch } from "vue";
 import {
     Select,
     SelectContent,
@@ -24,7 +24,9 @@ import GradientStopInspector from "./GradientStopInspector.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
 import GradientEasingEditor from "./GradientEasingEditor.vue";
 import { useGradientModel } from "../composables/useGradientModel";
-import type { GradientType } from "../model/types";
+import { useGradientCSS } from "../composables/useGradientCSS";
+import type { GradientModelState, GradientStop, GradientType } from "../model/types";
+import { useSettle } from "../../../color-session/useAtmosphereFrameCoalesce";
 import InterpolationFields from "../../../shared/ui/InterpolationFields.vue";
 import { LIBRARY_PORT_KEY } from "../../../palettes";
 import type { AcceptableValue } from "reka-ui";
@@ -43,7 +45,6 @@ const {
     hueMethod,
     modelState,
     coalescedCSS,
-    simpleCSS,
     railRampCSS,
     mintStop,
     resetStops,
@@ -55,8 +56,30 @@ const {
     applyCSS,
 } = useGradientModel();
 
+// o1105 U4 — THE EDITORS READ THE STOPS ONCE A DRAG SETTLES. A stop drag
+// writes once per frame, and the rail and the render tile follow it live; the
+// code well (a re-highlight), the easing editor and the inspector are not
+// what the hand is watching, so they read a snapshot of the stops taken once
+// the drag settles. Every other edit (a mint, a removal, an easing, a parse,
+// a keyboard step, the inspector's own entry) reaches them at once.
+const railDragging = ref(false);
+const settle = useSettle();
+const editorStops = shallowRef<GradientStop[]>(stops.value);
+watch(stops, () => {
+    settle(() => {
+        editorStops.value = stops.value;
+    }, !railDragging.value);
+});
+const editorState = computed<GradientModelState>(() => ({
+    ...modelState.value,
+    stops: editorStops.value,
+}));
+const { simpleCSS } = useGradientCSS(editorState);
+const editorStop = (id: string | undefined) =>
+    editorStops.value.find((s) => s.id === id) ?? null;
+
 /** The interpolation specimens' operands: this gradient's stops, in order. */
-const operandColors = computed(() => stops.value.map((s) => s.cssColor));
+const operandColors = computed(() => editorStops.value.map((s) => s.cssColor));
 
 // The selected stop is the visualizer's OWN state (X-W6 · X.W6.c — G4d): its
 // one parent binds nothing, so a `defineModel` here was a local ref wearing a
@@ -137,6 +160,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 :hue-method="hueMethod"
                 v-model:selected-id="selectedStopId"
                 @update:position="setStopPosition"
+                @dragging="railDragging = $event"
                 @add="onAddStop"
                 @remove="removeStop"
                 v-slot="seat"
@@ -145,8 +169,8 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                      removal rule and the polite channel; the inspector is its
                      own component, seated in the rail's slot. -->
                 <GradientStopInspector
-                    :stop="seat.selectedStop"
-                    :index="seat.selectedIndex"
+                    :stop="editorStop(seat.selectedStop?.id)"
+                    :index="editorStops.findIndex((s) => s.id === seat.selectedStop?.id)"
                     :count="seat.count"
                     :refusal="seat.removalRefusal"
                     :notice="seat.notice"
@@ -279,8 +303,8 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
             <Separator decorative />
             <h3 class="font-display text-subheading">Easing</h3>
             <GradientEasingEditor
-                :stops="stops"
-                :model-state="modelState"
+                :stops="editorStops"
+                :model-state="editorState"
                 @update-easing="setStopEasing"
             />
         </template>
