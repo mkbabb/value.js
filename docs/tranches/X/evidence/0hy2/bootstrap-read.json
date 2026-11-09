@@ -1,0 +1,7546 @@
+{
+ "reader": "bench/paired/bootstrap.mjs (X.P.W8.lg1)",
+ "arm": "product",
+ "B": 10000,
+ "seed": 20261009,
+ "rows": [
+  {
+   "key": "node|acc|parseCssColor|n31-read1-acc-parseCssColor.json|0",
+   "engine": "node",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "file": "n31-read1-acc-parseCssColor.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.187,
+   "load": [
+    "2:16  up 4 days,  7:36, 3 users, load averages: 7.05 6.59 7.02",
+    "2:16  up 4 days,  7:36, 3 users, load averages: 7.05 6.59 7.02"
+   ],
+   "median": 0.5747,
+   "lb": 0.546,
+   "ub": 0.5878,
+   "ub95": 0.5826,
+   "B": 10000,
+   "seed": 2699816638,
+   "instrumentPaired": 0.575,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseCssScalar|n31-read1-acc-parseCssScalar.json|0",
+   "engine": "node",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "file": "n31-read1-acc-parseCssScalar.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.345,
+   "load": [
+    "2:16  up 4 days,  7:36, 3 users, load averages: 7.05 6.59 7.02",
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.81 6.55 7.01"
+   ],
+   "median": 0.5141,
+   "lb": 0.5024,
+   "ub": 0.5596,
+   "ub95": 0.5596,
+   "B": 10000,
+   "seed": 2623182116,
+   "instrumentPaired": 0.514,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseCssValue|n31-read1-acc-parseCssValue.json|0",
+   "engine": "node",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "file": "n31-read1-acc-parseCssValue.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.333,
+   "load": [
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.81 6.55 7.01",
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.81 6.55 7.01"
+   ],
+   "median": 0.3788,
+   "lb": 0.3507,
+   "ub": 0.4023,
+   "ub95": 0.4023,
+   "B": 10000,
+   "seed": 3269060502,
+   "instrumentPaired": 0.379,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseCssValues|n31-read1-acc-parseCssValues.json|0",
+   "engine": "node",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "file": "n31-read1-acc-parseCssValues.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.509,
+   "load": [
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.81 6.55 7.01",
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.90 6.57 7.01"
+   ],
+   "median": 0.379,
+   "lb": 0.3579,
+   "ub": 0.4075,
+   "ub95": 0.4075,
+   "B": 10000,
+   "seed": 1447665512,
+   "instrumentPaired": 0.379,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseKeyframeSelector|n31-read1-acc-parseKeyframeSelector.json|0",
+   "engine": "node",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "file": "n31-read1-acc-parseKeyframeSelector.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4096,
+   "spread": 1.136,
+   "load": [
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.90 6.57 7.01",
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.90 6.57 7.01"
+   ],
+   "median": 0.6818,
+   "lb": 0.6651,
+   "ub": 0.6909,
+   "ub95": 0.6875,
+   "B": 10000,
+   "seed": 2762016846,
+   "instrumentPaired": 0.682,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseStylesheet|n31-read1-acc-parseStylesheet.json|0",
+   "engine": "node",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "file": "n31-read1-acc-parseStylesheet.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.385,
+   "load": [
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.75 6.54 7.00",
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.75 6.54 7.00"
+   ],
+   "median": 0.5333,
+   "lb": 0.5218,
+   "ub": 0.5428,
+   "ub95": 0.5418,
+   "B": 10000,
+   "seed": 822466782,
+   "instrumentPaired": 0.533,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseTimingFunction|n31-read1-acc-parseTimingFunction.json|0",
+   "engine": "node",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "file": "n31-read1-acc-parseTimingFunction.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 64,
+   "spread": 1.161,
+   "load": [
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.90 6.57 7.01",
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.75 6.54 7.00"
+   ],
+   "median": 0.5694,
+   "lb": 0.561,
+   "ub": 0.5724,
+   "ub95": 0.5718,
+   "B": 10000,
+   "seed": 2535260086,
+   "instrumentPaired": 0.569,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|large-eq|parseStylesheet|n31-read1-large-eq-parseStylesheet.json|0",
+   "engine": "node",
+   "entry": "parseStylesheet",
+   "class": "large-eq",
+   "file": "n31-read1-large-eq-parseStylesheet.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.371,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.58 6.52 6.98",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.58 6.52 6.98"
+   ],
+   "median": 0.5752,
+   "lb": 0.5653,
+   "ub": 0.6201,
+   "ub95": 0.617,
+   "B": 10000,
+   "seed": 3502233802,
+   "instrumentPaired": 0.575,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseCssColor|n31-read1-rej-parseCssColor.json|0",
+   "engine": "node",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "file": "n31-read1-rej-parseCssColor.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.248,
+   "load": [
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.75 6.54 7.00",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.75 6.54 7.00"
+   ],
+   "median": 0.6487,
+   "lb": 0.6342,
+   "ub": 0.6876,
+   "ub95": 0.6831,
+   "B": 10000,
+   "seed": 990800850,
+   "instrumentPaired": 0.649,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseCssScalar|n31-read1-rej-parseCssScalar.json|0",
+   "engine": "node",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "file": "n31-read1-rej-parseCssScalar.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.195,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.69 6.54 6.99",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.69 6.54 6.99"
+   ],
+   "median": 0.5446,
+   "lb": 0.5334,
+   "ub": 0.5511,
+   "ub95": 0.5506,
+   "B": 10000,
+   "seed": 3205844996,
+   "instrumentPaired": 0.545,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseCssValue|n31-read1-rej-parseCssValue.json|0",
+   "engine": "node",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "file": "n31-read1-rej-parseCssValue.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.423,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.69 6.54 6.99",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.63 6.53 6.99"
+   ],
+   "median": 0.4586,
+   "lb": 0.424,
+   "ub": 0.4713,
+   "ub95": 0.4683,
+   "B": 10000,
+   "seed": 1299136922,
+   "instrumentPaired": 0.459,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseCssValues|n31-read1-rej-parseCssValues.json|0",
+   "engine": "node",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "file": "n31-read1-rej-parseCssValues.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.376,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.63 6.53 6.99",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.63 6.53 6.99"
+   ],
+   "median": 0.4334,
+   "lb": 0.4208,
+   "ub": 0.4758,
+   "ub95": 0.4754,
+   "B": 10000,
+   "seed": 1465134464,
+   "instrumentPaired": 0.433,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseKeyframeSelector|n31-read1-rej-parseKeyframeSelector.json|0",
+   "engine": "node",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "file": "n31-read1-rej-parseKeyframeSelector.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.21,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.63 6.53 6.99",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.58 6.52 6.98"
+   ],
+   "median": 0.7225,
+   "lb": 0.7152,
+   "ub": 0.7291,
+   "ub95": 0.7245,
+   "B": 10000,
+   "seed": 55192974,
+   "instrumentPaired": 0.723,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseStylesheet|n31-read1-rej-parseStylesheet.json|0",
+   "engine": "node",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "file": "n31-read1-rej-parseStylesheet.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.308,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.58 6.52 6.98",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.58 6.52 6.98"
+   ],
+   "median": 0.4678,
+   "lb": 0.4543,
+   "ub": 0.4784,
+   "ub95": 0.4784,
+   "B": 10000,
+   "seed": 3458787282,
+   "instrumentPaired": 0.468,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseTimingFunction|n31-read1-rej-parseTimingFunction.json|0",
+   "engine": "node",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "file": "n31-read1-rej-parseTimingFunction.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.234,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.58 6.52 6.98",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.58 6.52 6.98"
+   ],
+   "median": 0.7251,
+   "lb": 0.7124,
+   "ub": 0.7473,
+   "ub95": 0.7344,
+   "B": 10000,
+   "seed": 13544074,
+   "instrumentPaired": 0.725,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseCssColor|n31-read2-acc-parseCssColor.json|0",
+   "engine": "node",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "file": "n31-read2-acc-parseCssColor.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.249,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.22 6.44 6.95",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.20 6.43 6.95"
+   ],
+   "median": 0.5732,
+   "lb": 0.5654,
+   "ub": 0.6164,
+   "ub95": 0.5958,
+   "B": 10000,
+   "seed": 107428825,
+   "instrumentPaired": 0.573,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseCssScalar|n31-read2-acc-parseCssScalar.json|0",
+   "engine": "node",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "file": "n31-read2-acc-parseCssScalar.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.271,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.20 6.43 6.95",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.20 6.43 6.95"
+   ],
+   "median": 0.5439,
+   "lb": 0.5096,
+   "ub": 0.5639,
+   "ub95": 0.5639,
+   "B": 10000,
+   "seed": 2256959653,
+   "instrumentPaired": 0.544,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseCssValue|n31-read2-acc-parseCssValue.json|0",
+   "engine": "node",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "file": "n31-read2-acc-parseCssValue.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.548,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.20 6.43 6.95",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.18 6.43 6.94"
+   ],
+   "median": 0.3818,
+   "lb": 0.3664,
+   "ub": 0.4153,
+   "ub95": 0.4035,
+   "B": 10000,
+   "seed": 3124419753,
+   "instrumentPaired": 0.382,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseCssValues|n31-read2-acc-parseCssValues.json|0",
+   "engine": "node",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "file": "n31-read2-acc-parseCssValues.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.566,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.18 6.43 6.94",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.18 6.43 6.94"
+   ],
+   "median": 0.3978,
+   "lb": 0.3651,
+   "ub": 0.4266,
+   "ub95": 0.4219,
+   "B": 10000,
+   "seed": 659328301,
+   "instrumentPaired": 0.398,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseKeyframeSelector|n31-read2-acc-parseKeyframeSelector.json|0",
+   "engine": "node",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "file": "n31-read2-acc-parseKeyframeSelector.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4096,
+   "spread": 1.206,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.18 6.43 6.94",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.33 6.45 6.95"
+   ],
+   "median": 0.69,
+   "lb": 0.6827,
+   "ub": 0.7061,
+   "ub95": 0.7061,
+   "B": 10000,
+   "seed": 269112693,
+   "instrumentPaired": 0.69,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseStylesheet|n31-read2-acc-parseStylesheet.json|0",
+   "engine": "node",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "file": "n31-read2-acc-parseStylesheet.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.516,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.33 6.45 6.95",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.22 6.43 6.94"
+   ],
+   "median": 0.5322,
+   "lb": 0.5079,
+   "ub": 0.5419,
+   "ub95": 0.54,
+   "B": 10000,
+   "seed": 2025724405,
+   "instrumentPaired": 0.532,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|acc|parseTimingFunction|n31-read2-acc-parseTimingFunction.json|0",
+   "engine": "node",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "file": "n31-read2-acc-parseTimingFunction.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 64,
+   "spread": 1.252,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.33 6.45 6.95",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.33 6.45 6.95"
+   ],
+   "median": 0.5797,
+   "lb": 0.5688,
+   "ub": 0.5846,
+   "ub95": 0.5846,
+   "B": 10000,
+   "seed": 3162937241,
+   "instrumentPaired": 0.58,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|large-eq|parseStylesheet|n31-read2-large-eq-parseStylesheet.json|0",
+   "engine": "node",
+   "entry": "parseStylesheet",
+   "class": "large-eq",
+   "file": "n31-read2-large-eq-parseStylesheet.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.549,
+   "load": [
+    "2:17  up 4 days,  7:37, 3 users, load averages: 7.10 6.62 6.99",
+    "2:17  up 4 days,  7:37, 3 users, load averages: 7.10 6.62 6.99"
+   ],
+   "median": 0.5954,
+   "lb": 0.5674,
+   "ub": 0.6166,
+   "ub95": 0.6048,
+   "B": 10000,
+   "seed": 887810715,
+   "instrumentPaired": 0.595,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseCssColor|n31-read2-rej-parseCssColor.json|0",
+   "engine": "node",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "file": "n31-read2-rej-parseCssColor.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.232,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.22 6.43 6.94",
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.22 6.43 6.94"
+   ],
+   "median": 0.645,
+   "lb": 0.6281,
+   "ub": 0.6712,
+   "ub95": 0.6545,
+   "B": 10000,
+   "seed": 3045095057,
+   "instrumentPaired": 0.645,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseCssScalar|n31-read2-rej-parseCssScalar.json|0",
+   "engine": "node",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "file": "n31-read2-rej-parseCssScalar.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.345,
+   "load": [
+    "2:17  up 4 days,  7:36, 3 users, load averages: 6.22 6.43 6.94",
+    "2:17  up 4 days,  7:37, 3 users, load averages: 6.22 6.43 6.94"
+   ],
+   "median": 0.5553,
+   "lb": 0.5297,
+   "ub": 0.5676,
+   "ub95": 0.5656,
+   "B": 10000,
+   "seed": 3839006489,
+   "instrumentPaired": 0.555,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseCssValue|n31-read2-rej-parseCssValue.json|0",
+   "engine": "node",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "file": "n31-read2-rej-parseCssValue.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.57,
+   "load": [
+    "2:17  up 4 days,  7:37, 3 users, load averages: 6.68 6.52 6.96",
+    "2:17  up 4 days,  7:37, 3 users, load averages: 6.68 6.52 6.96"
+   ],
+   "median": 0.4537,
+   "lb": 0.4252,
+   "ub": 0.4771,
+   "ub95": 0.4753,
+   "B": 10000,
+   "seed": 2782535625,
+   "instrumentPaired": 0.454,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseCssValues|n31-read2-rej-parseCssValues.json|0",
+   "engine": "node",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "file": "n31-read2-rej-parseCssValues.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.52,
+   "load": [
+    "2:17  up 4 days,  7:37, 3 users, load averages: 6.68 6.52 6.96",
+    "2:17  up 4 days,  7:37, 3 users, load averages: 7.11 6.61 6.99"
+   ],
+   "median": 0.4736,
+   "lb": 0.4443,
+   "ub": 0.496,
+   "ub95": 0.496,
+   "B": 10000,
+   "seed": 1881950513,
+   "instrumentPaired": 0.474,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseKeyframeSelector|n31-read2-rej-parseKeyframeSelector.json|0",
+   "engine": "node",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "file": "n31-read2-rej-parseKeyframeSelector.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.138,
+   "load": [
+    "2:17  up 4 days,  7:37, 3 users, load averages: 7.11 6.61 6.99",
+    "2:17  up 4 days,  7:37, 3 users, load averages: 7.11 6.61 6.99"
+   ],
+   "median": 0.7237,
+   "lb": 0.7188,
+   "ub": 0.7295,
+   "ub95": 0.7291,
+   "B": 10000,
+   "seed": 796649793,
+   "instrumentPaired": 0.724,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseStylesheet|n31-read2-rej-parseStylesheet.json|0",
+   "engine": "node",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "file": "n31-read2-rej-parseStylesheet.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.39,
+   "load": [
+    "2:17  up 4 days,  7:37, 3 users, load averages: 7.11 6.61 6.99",
+    "2:17  up 4 days,  7:37, 3 users, load averages: 7.10 6.62 6.99"
+   ],
+   "median": 0.4756,
+   "lb": 0.465,
+   "ub": 0.4848,
+   "ub95": 0.4848,
+   "B": 10000,
+   "seed": 1296081253,
+   "instrumentPaired": 0.476,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "node|rej|parseTimingFunction|n31-read2-rej-parseTimingFunction.json|0",
+   "engine": "node",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "file": "n31-read2-rej-parseTimingFunction.json",
+   "idx": 0,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.143,
+   "load": [
+    "2:17  up 4 days,  7:37, 3 users, load averages: 7.11 6.61 6.99",
+    "2:17  up 4 days,  7:37, 3 users, load averages: 7.11 6.61 6.99"
+   ],
+   "median": 0.7419,
+   "lb": 0.7114,
+   "ub": 0.7465,
+   "ub95": 0.7465,
+   "B": 10000,
+   "seed": 3046736505,
+   "instrumentPaired": 0.742,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseCssColor|w9lg1-chromium-n31-eq.json|0",
+   "engine": "chromium",
+   "entry": "parseCssColor",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.11,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.33 5.53 6.21",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.33 5.53 6.21"
+   ],
+   "median": 0.5667,
+   "lb": 0.5619,
+   "ub": 0.57,
+   "ub95": 0.57,
+   "B": 10000,
+   "seed": 2029124418,
+   "instrumentPaired": 0.567,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseCssScalar|w9lg1-chromium-n31-eq.json|1",
+   "engine": "chromium",
+   "entry": "parseCssScalar",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 1,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.08,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.33 5.53 6.21",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.33 5.53 6.21"
+   ],
+   "median": 0.5065,
+   "lb": 0.5013,
+   "ub": 0.5124,
+   "ub95": 0.5118,
+   "B": 10000,
+   "seed": 9877014,
+   "instrumentPaired": 0.506,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseCssValue|w9lg1-chromium-n31-eq.json|2",
+   "engine": "chromium",
+   "entry": "parseCssValue",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 2,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.11,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.33 5.53 6.21",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.22 5.52 6.20"
+   ],
+   "median": 0.3333,
+   "lb": 0.3268,
+   "ub": 0.3386,
+   "ub95": 0.3386,
+   "B": 10000,
+   "seed": 4185005586,
+   "instrumentPaired": 0.333,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseCssValues|w9lg1-chromium-n31-eq.json|3",
+   "engine": "chromium",
+   "entry": "parseCssValues",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 3,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.094,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.22 5.52 6.20",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.22 5.52 6.20"
+   ],
+   "median": 0.3346,
+   "lb": 0.3333,
+   "ub": 0.3393,
+   "ub95": 0.3385,
+   "B": 10000,
+   "seed": 4085852626,
+   "instrumentPaired": 0.335,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseKeyframeSelector|w9lg1-chromium-n31-eq.json|4",
+   "engine": "chromium",
+   "entry": "parseKeyframeSelector",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 4,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4096,
+   "spread": 1.164,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.22 5.52 6.20",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.21 5.52 6.20"
+   ],
+   "median": 0.7061,
+   "lb": 0.7022,
+   "ub": 0.7096,
+   "ub95": 0.7096,
+   "B": 10000,
+   "seed": 596514323,
+   "instrumentPaired": 0.706,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseTimingFunction|w9lg1-chromium-n31-eq.json|5",
+   "engine": "chromium",
+   "entry": "parseTimingFunction",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 5,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 128,
+   "spread": 1.122,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.21 5.52 6.20",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.21 5.52 6.20"
+   ],
+   "median": 0.6667,
+   "lb": 0.6645,
+   "ub": 0.669,
+   "ub95": 0.669,
+   "B": 10000,
+   "seed": 175549237,
+   "instrumentPaired": 0.667,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseStylesheet|w9lg1-chromium-n31-eq.json|6",
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 6,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.154,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.21 5.52 6.20",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.21 5.52 6.20"
+   ],
+   "median": 0.5,
+   "lb": 0.4947,
+   "ub": 0.5053,
+   "ub95": 0.504,
+   "B": 10000,
+   "seed": 437430554,
+   "instrumentPaired": 0.5,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseCssColor|w9lg1-chromium-n31-eq.json|7",
+   "engine": "chromium",
+   "entry": "parseCssColor",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 7,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.153,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 6.21 5.52 6.20",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 5.95 5.48 6.18"
+   ],
+   "median": 0.4509,
+   "lb": 0.444,
+   "ub": 0.4562,
+   "ub95": 0.4559,
+   "B": 10000,
+   "seed": 4020063831,
+   "instrumentPaired": 0.451,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseCssScalar|w9lg1-chromium-n31-eq.json|8",
+   "engine": "chromium",
+   "entry": "parseCssScalar",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 8,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.116,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 5.95 5.48 6.18",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 5.95 5.48 6.18"
+   ],
+   "median": 0.368,
+   "lb": 0.3633,
+   "ub": 0.3698,
+   "ub95": 0.369,
+   "B": 10000,
+   "seed": 3466091601,
+   "instrumentPaired": 0.368,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseCssValue|w9lg1-chromium-n31-eq.json|9",
+   "engine": "chromium",
+   "entry": "parseCssValue",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 9,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.073,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 5.95 5.48 6.18",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 5.95 5.48 6.18"
+   ],
+   "median": 0.4448,
+   "lb": 0.4403,
+   "ub": 0.45,
+   "ub95": 0.448,
+   "B": 10000,
+   "seed": 1569129667,
+   "instrumentPaired": 0.445,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseCssValues|w9lg1-chromium-n31-eq.json|10",
+   "engine": "chromium",
+   "entry": "parseCssValues",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 10,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.129,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 5.87 5.47 6.17",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 5.87 5.47 6.17"
+   ],
+   "median": 0.4451,
+   "lb": 0.44,
+   "ub": 0.45,
+   "ub95": 0.4499,
+   "B": 10000,
+   "seed": 804597006,
+   "instrumentPaired": 0.445,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseKeyframeSelector|w9lg1-chromium-n31-eq.json|11",
+   "engine": "chromium",
+   "entry": "parseKeyframeSelector",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 11,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.125,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 5.87 5.47 6.17",
+    "3:36  up 4 days,  8:55, 3 users, load averages: 5.87 5.47 6.17"
+   ],
+   "median": 0.6861,
+   "lb": 0.685,
+   "ub": 0.6886,
+   "ub95": 0.6886,
+   "B": 10000,
+   "seed": 1436279453,
+   "instrumentPaired": 0.686,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseTimingFunction|w9lg1-chromium-n31-eq.json|12",
+   "engine": "chromium",
+   "entry": "parseTimingFunction",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 12,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.091,
+   "load": [
+    "3:36  up 4 days,  8:55, 3 users, load averages: 5.87 5.47 6.17",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.72 5.45 6.16"
+   ],
+   "median": 0.6563,
+   "lb": 0.6528,
+   "ub": 0.6592,
+   "ub95": 0.6592,
+   "B": 10000,
+   "seed": 3511848555,
+   "instrumentPaired": 0.656,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseStylesheet|w9lg1-chromium-n31-eq.json|13",
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 13,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.129,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.72 5.45 6.16",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.72 5.45 6.16"
+   ],
+   "median": 0.4505,
+   "lb": 0.4468,
+   "ub": 0.4538,
+   "ub95": 0.4538,
+   "B": 10000,
+   "seed": 2226620166,
+   "instrumentPaired": 0.451,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseCssScalar|w9lg1-chromium-n31-eq.json|14",
+   "engine": "chromium",
+   "entry": "parseCssScalar",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 14,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.128,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.72 5.45 6.16",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.90 5.49 6.17"
+   ],
+   "median": 0.6408,
+   "lb": 0.6358,
+   "ub": 0.6484,
+   "ub95": 0.6471,
+   "B": 10000,
+   "seed": 1185413976,
+   "instrumentPaired": 0.641,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseCssValue|w9lg1-chromium-n31-eq.json|15",
+   "engine": "chromium",
+   "entry": "parseCssValue",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 15,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.289,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.90 5.49 6.17",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.90 5.49 6.17"
+   ],
+   "median": 0.3374,
+   "lb": 0.3333,
+   "ub": 0.3415,
+   "ub95": 0.3415,
+   "B": 10000,
+   "seed": 2401793928,
+   "instrumentPaired": 0.337,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseCssValues|w9lg1-chromium-n31-eq.json|16",
+   "engine": "chromium",
+   "entry": "parseCssValues",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 16,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.093,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.90 5.49 6.17",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.90 5.49 6.17"
+   ],
+   "median": 0.337,
+   "lb": 0.3358,
+   "ub": 0.3434,
+   "ub95": 0.3397,
+   "B": 10000,
+   "seed": 2748303644,
+   "instrumentPaired": 0.337,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseKeyframeSelector|w9lg1-chromium-n31-eq.json|17",
+   "engine": "chromium",
+   "entry": "parseKeyframeSelector",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 17,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4096,
+   "spread": 1.108,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.90 5.49 6.17",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.75 5.47 6.15"
+   ],
+   "median": 0.83,
+   "lb": 0.8268,
+   "ub": 0.8327,
+   "ub95": 0.83,
+   "B": 10000,
+   "seed": 4035535435,
+   "instrumentPaired": 0.83,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseTimingFunction|w9lg1-chromium-n31-eq.json|18",
+   "engine": "chromium",
+   "entry": "parseTimingFunction",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 18,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 128,
+   "spread": 1.048,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.75 5.47 6.15",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.75 5.47 6.15"
+   ],
+   "median": 0.7029,
+   "lb": 0.6982,
+   "ub": 0.7082,
+   "ub95": 0.708,
+   "B": 10000,
+   "seed": 3456857777,
+   "instrumentPaired": 0.703,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseStylesheet|w9lg1-chromium-n31-eq.json|19",
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 19,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.074,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 5.75 5.47 6.15",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 6.89 5.71 6.24"
+   ],
+   "median": 0.4921,
+   "lb": 0.4832,
+   "ub": 0.4987,
+   "ub95": 0.4974,
+   "B": 10000,
+   "seed": 4027057464,
+   "instrumentPaired": 0.492,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc-eq|parseCssColor|w9lg1-chromium-n31-eq.json|20",
+   "engine": "chromium",
+   "entry": "parseCssColor",
+   "class": "acc-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 20,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.102,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 6.89 5.71 6.24",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 6.89 5.71 6.24"
+   ],
+   "median": 0.7458,
+   "lb": 0.7404,
+   "ub": 0.7542,
+   "ub95": 0.7511,
+   "B": 10000,
+   "seed": 2666215162,
+   "instrumentPaired": 0.746,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseCssScalar|w9lg1-chromium-n31-eq.json|21",
+   "engine": "chromium",
+   "entry": "parseCssScalar",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 21,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.08,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 6.89 5.71 6.24",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 6.89 5.71 6.24"
+   ],
+   "median": 0.373,
+   "lb": 0.3705,
+   "ub": 0.3785,
+   "ub95": 0.3785,
+   "B": 10000,
+   "seed": 4195508428,
+   "instrumentPaired": 0.373,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseCssValue|w9lg1-chromium-n31-eq.json|22",
+   "engine": "chromium",
+   "entry": "parseCssValue",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 22,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.152,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 6.89 5.71 6.24",
+    "3:36  up 4 days,  8:56, 3 users, load averages: 6.82 5.71 6.23"
+   ],
+   "median": 0.4429,
+   "lb": 0.4379,
+   "ub": 0.4469,
+   "ub95": 0.446,
+   "B": 10000,
+   "seed": 1471683438,
+   "instrumentPaired": 0.443,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseCssValues|w9lg1-chromium-n31-eq.json|23",
+   "engine": "chromium",
+   "entry": "parseCssValues",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 23,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.214,
+   "load": [
+    "3:36  up 4 days,  8:56, 3 users, load averages: 6.82 5.71 6.23",
+    "3:37  up 4 days,  8:56, 3 users, load averages: 6.82 5.71 6.23"
+   ],
+   "median": 0.4545,
+   "lb": 0.4492,
+   "ub": 0.4596,
+   "ub95": 0.4582,
+   "B": 10000,
+   "seed": 3196957580,
+   "instrumentPaired": 0.455,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseKeyframeSelector|w9lg1-chromium-n31-eq.json|24",
+   "engine": "chromium",
+   "entry": "parseKeyframeSelector",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 24,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.113,
+   "load": [
+    "3:37  up 4 days,  8:56, 3 users, load averages: 6.82 5.71 6.23",
+    "3:37  up 4 days,  8:56, 3 users, load averages: 6.75 5.72 6.23"
+   ],
+   "median": 0.6944,
+   "lb": 0.6903,
+   "ub": 0.6981,
+   "ub95": 0.6978,
+   "B": 10000,
+   "seed": 3734142601,
+   "instrumentPaired": 0.694,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseTimingFunction|w9lg1-chromium-n31-eq.json|25",
+   "engine": "chromium",
+   "entry": "parseTimingFunction",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 25,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.124,
+   "load": [
+    "3:37  up 4 days,  8:56, 3 users, load averages: 6.75 5.72 6.23",
+    "3:37  up 4 days,  8:56, 3 users, load averages: 6.75 5.72 6.23"
+   ],
+   "median": 0.6611,
+   "lb": 0.6564,
+   "ub": 0.6676,
+   "ub95": 0.6658,
+   "B": 10000,
+   "seed": 978985889,
+   "instrumentPaired": 0.661,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseStylesheet|w9lg1-chromium-n31-eq.json|26",
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 26,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.076,
+   "load": [
+    "3:37  up 4 days,  8:56, 3 users, load averages: 6.75 5.72 6.23",
+    "3:37  up 4 days,  8:56, 3 users, load averages: 7.09 5.80 6.26"
+   ],
+   "median": 0.5053,
+   "lb": 0.5027,
+   "ub": 0.5093,
+   "ub95": 0.5081,
+   "B": 10000,
+   "seed": 2209694934,
+   "instrumentPaired": 0.505,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej-eq|parseCssColor|w9lg1-chromium-n31-eq.json|27",
+   "engine": "chromium",
+   "entry": "parseCssColor",
+   "class": "rej-eq",
+   "file": "w9lg1-chromium-n31-eq.json",
+   "idx": 27,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.215,
+   "load": [
+    "3:37  up 4 days,  8:56, 3 users, load averages: 7.09 5.80 6.26",
+    "3:37  up 4 days,  8:56, 3 users, load averages: 7.09 5.80 6.26"
+   ],
+   "median": 0.4464,
+   "lb": 0.441,
+   "ub": 0.4498,
+   "ub95": 0.4498,
+   "B": 10000,
+   "seed": 622012231,
+   "instrumentPaired": 0.446,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseCssColor|w9lg1-chromium-n31-main.json|0",
+   "engine": "chromium",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.106,
+   "load": [
+    "2:47  up 4 days,  8:07, 3 users, load averages: 11.33 12.07 10.24",
+    "2:47  up 4 days,  8:07, 3 users, load averages: 11.33 12.07 10.24"
+   ],
+   "median": 0.5044,
+   "lb": 0.5,
+   "ub": 0.5092,
+   "ub95": 0.5089,
+   "B": 10000,
+   "seed": 4286400852,
+   "instrumentPaired": 0.504,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseCssScalar|w9lg1-chromium-n31-main.json|1",
+   "engine": "chromium",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 1,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.134,
+   "load": [
+    "2:47  up 4 days,  8:07, 3 users, load averages: 11.33 12.07 10.24",
+    "2:47  up 4 days,  8:07, 3 users, load averages: 10.82 11.95 10.21"
+   ],
+   "median": 0.4664,
+   "lb": 0.4568,
+   "ub": 0.469,
+   "ub95": 0.4684,
+   "B": 10000,
+   "seed": 3734537478,
+   "instrumentPaired": 0.466,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseCssValue|w9lg1-chromium-n31-main.json|2",
+   "engine": "chromium",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 2,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.187,
+   "load": [
+    "2:47  up 4 days,  8:07, 3 users, load averages: 10.82 11.95 10.21",
+    "2:47  up 4 days,  8:07, 3 users, load averages: 10.82 11.95 10.21"
+   ],
+   "median": 0.3234,
+   "lb": 0.319,
+   "ub": 0.3269,
+   "ub95": 0.3261,
+   "B": 10000,
+   "seed": 2608035400,
+   "instrumentPaired": 0.323,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseCssValues|w9lg1-chromium-n31-main.json|3",
+   "engine": "chromium",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 3,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.193,
+   "load": [
+    "2:47  up 4 days,  8:07, 3 users, load averages: 10.82 11.95 10.21",
+    "2:47  up 4 days,  8:07, 3 users, load averages: 10.82 11.95 10.21"
+   ],
+   "median": 0.3161,
+   "lb": 0.3136,
+   "ub": 0.3209,
+   "ub95": 0.32,
+   "B": 10000,
+   "seed": 2414764630,
+   "instrumentPaired": 0.316,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseKeyframeSelector|w9lg1-chromium-n31-main.json|4",
+   "engine": "chromium",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 4,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4096,
+   "spread": 1.103,
+   "load": [
+    "2:47  up 4 days,  8:07, 3 users, load averages: 10.82 11.95 10.21",
+    "2:47  up 4 days,  8:07, 3 users, load averages: 11.64 12.10 10.27"
+   ],
+   "median": 0.7176,
+   "lb": 0.7148,
+   "ub": 0.7199,
+   "ub95": 0.719,
+   "B": 10000,
+   "seed": 2845890877,
+   "instrumentPaired": 0.718,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseTimingFunction|w9lg1-chromium-n31-main.json|5",
+   "engine": "chromium",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 5,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 64,
+   "spread": 1.109,
+   "load": [
+    "2:47  up 4 days,  8:07, 3 users, load averages: 11.64 12.10 10.27",
+    "2:47  up 4 days,  8:07, 3 users, load averages: 11.64 12.10 10.27"
+   ],
+   "median": 0.5923,
+   "lb": 0.589,
+   "ub": 0.6009,
+   "ub95": 0.6,
+   "B": 10000,
+   "seed": 1713082919,
+   "instrumentPaired": 0.592,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseStylesheet|w9lg1-chromium-n31-main.json|6",
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 6,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.19,
+   "load": [
+    "2:47  up 4 days,  8:07, 3 users, load averages: 11.64 12.10 10.27",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.34 12.03 10.26"
+   ],
+   "median": 0.506,
+   "lb": 0.5038,
+   "ub": 0.5139,
+   "ub95": 0.5133,
+   "B": 10000,
+   "seed": 3370548476,
+   "instrumentPaired": 0.506,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseCssColor|w9lg1-chromium-n31-main.json|7",
+   "engine": "chromium",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 7,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.22,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.34 12.03 10.26",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.34 12.03 10.26"
+   ],
+   "median": 0.556,
+   "lb": 0.5429,
+   "ub": 0.5652,
+   "ub95": 0.5642,
+   "B": 10000,
+   "seed": 4207415493,
+   "instrumentPaired": 0.556,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseCssScalar|w9lg1-chromium-n31-main.json|8",
+   "engine": "chromium",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 8,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.132,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.34 12.03 10.26",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.34 12.03 10.26"
+   ],
+   "median": 0.4598,
+   "lb": 0.454,
+   "ub": 0.4667,
+   "ub95": 0.4647,
+   "B": 10000,
+   "seed": 3616414065,
+   "instrumentPaired": 0.46,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseCssValue|w9lg1-chromium-n31-main.json|9",
+   "engine": "chromium",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 9,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.08,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.34 12.03 10.26",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 10.84 11.91 10.23"
+   ],
+   "median": 0.4458,
+   "lb": 0.4407,
+   "ub": 0.4495,
+   "ub95": 0.4485,
+   "B": 10000,
+   "seed": 3364289757,
+   "instrumentPaired": 0.446,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseCssValues|w9lg1-chromium-n31-main.json|10",
+   "engine": "chromium",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 10,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.112,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 10.84 11.91 10.23",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 10.84 11.91 10.23"
+   ],
+   "median": 0.4564,
+   "lb": 0.4515,
+   "ub": 0.4603,
+   "ub95": 0.4589,
+   "B": 10000,
+   "seed": 269499530,
+   "instrumentPaired": 0.456,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseKeyframeSelector|w9lg1-chromium-n31-main.json|11",
+   "engine": "chromium",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 11,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.098,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 10.84 11.91 10.23",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 10.45 11.81 10.21"
+   ],
+   "median": 0.7034,
+   "lb": 0.6905,
+   "ub": 0.7055,
+   "ub95": 0.7047,
+   "B": 10000,
+   "seed": 886901147,
+   "instrumentPaired": 0.703,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseTimingFunction|w9lg1-chromium-n31-main.json|12",
+   "engine": "chromium",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 12,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.12,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 10.45 11.81 10.21",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 10.45 11.81 10.21"
+   ],
+   "median": 0.6782,
+   "lb": 0.6683,
+   "ub": 0.685,
+   "ub95": 0.6839,
+   "B": 10000,
+   "seed": 2048530605,
+   "instrumentPaired": 0.678,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseStylesheet|w9lg1-chromium-n31-main.json|13",
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 13,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.119,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 10.45 11.81 10.21",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 10.45 11.81 10.21"
+   ],
+   "median": 0.4557,
+   "lb": 0.4515,
+   "ub": 0.4609,
+   "ub95": 0.4596,
+   "B": 10000,
+   "seed": 3208289340,
+   "instrumentPaired": 0.456,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|large-eq|parseStylesheet|w9lg1-chromium-n31-main.json|14",
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "large-eq",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 14,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 16,
+   "spread": 1.122,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.13 11.93 10.26",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.13 11.93 10.26"
+   ],
+   "median": 0.5566,
+   "lb": 0.5414,
+   "ub": 0.5647,
+   "ub95": 0.5642,
+   "B": 10000,
+   "seed": 3311656458,
+   "instrumentPaired": 0.557,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseCssScalar|w9lg1-chromium-n31-main.json|15",
+   "engine": "chromium",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 15,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.182,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.13 11.93 10.26",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.13 11.93 10.26"
+   ],
+   "median": 0.4571,
+   "lb": 0.451,
+   "ub": 0.4613,
+   "ub95": 0.4608,
+   "B": 10000,
+   "seed": 3244129943,
+   "instrumentPaired": 0.457,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseCssValue|w9lg1-chromium-n31-main.json|16",
+   "engine": "chromium",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 16,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.111,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 11.13 11.93 10.26",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 12.00 12.10 10.32"
+   ],
+   "median": 0.3172,
+   "lb": 0.3136,
+   "ub": 0.3198,
+   "ub95": 0.3197,
+   "B": 10000,
+   "seed": 948631603,
+   "instrumentPaired": 0.317,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseCssValues|w9lg1-chromium-n31-main.json|17",
+   "engine": "chromium",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 17,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.23,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 12.00 12.10 10.32",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 12.00 12.10 10.32"
+   ],
+   "median": 0.3171,
+   "lb": 0.3154,
+   "ub": 0.3196,
+   "ub95": 0.3195,
+   "B": 10000,
+   "seed": 3792611007,
+   "instrumentPaired": 0.317,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseKeyframeSelector|w9lg1-chromium-n31-main.json|18",
+   "engine": "chromium",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 18,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4096,
+   "spread": 1.273,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 12.00 12.10 10.32",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 13.04 12.31 10.41"
+   ],
+   "median": 0.7333,
+   "lb": 0.7287,
+   "ub": 0.7411,
+   "ub95": 0.7385,
+   "B": 10000,
+   "seed": 2000087808,
+   "instrumentPaired": 0.733,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseTimingFunction|w9lg1-chromium-n31-main.json|19",
+   "engine": "chromium",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 19,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 64,
+   "spread": 1.223,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 13.04 12.31 10.41",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 13.04 12.31 10.41"
+   ],
+   "median": 0.5963,
+   "lb": 0.5933,
+   "ub": 0.6,
+   "ub95": 0.5994,
+   "B": 10000,
+   "seed": 4105111408,
+   "instrumentPaired": 0.596,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseStylesheet|w9lg1-chromium-n31-main.json|20",
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 20,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.278,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 13.04 12.31 10.41",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 13.92 12.51 10.49"
+   ],
+   "median": 0.5155,
+   "lb": 0.5092,
+   "ub": 0.5217,
+   "ub95": 0.5183,
+   "B": 10000,
+   "seed": 2107034706,
+   "instrumentPaired": 0.516,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|acc|parseCssColor|w9lg1-chromium-n31-main.json|21",
+   "engine": "chromium",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 21,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.462,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 13.92 12.51 10.49",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 13.92 12.51 10.49"
+   ],
+   "median": 0.5077,
+   "lb": 0.5018,
+   "ub": 0.5146,
+   "ub95": 0.5117,
+   "B": 10000,
+   "seed": 3537380219,
+   "instrumentPaired": 0.508,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseCssScalar|w9lg1-chromium-n31-main.json|22",
+   "engine": "chromium",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 22,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.328,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 13.92 12.51 10.49",
+    "2:48  up 4 days,  8:07, 3 users, load averages: 14.73 12.70 10.57"
+   ],
+   "median": 0.4626,
+   "lb": 0.4533,
+   "ub": 0.4665,
+   "ub95": 0.4665,
+   "B": 10000,
+   "seed": 1945979221,
+   "instrumentPaired": 0.463,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseCssValue|w9lg1-chromium-n31-main.json|23",
+   "engine": "chromium",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 23,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.224,
+   "load": [
+    "2:48  up 4 days,  8:07, 3 users, load averages: 14.73 12.70 10.57",
+    "2:48  up 4 days,  8:08, 3 users, load averages: 14.73 12.70 10.57"
+   ],
+   "median": 0.4486,
+   "lb": 0.4432,
+   "ub": 0.4533,
+   "ub95": 0.4533,
+   "B": 10000,
+   "seed": 2215098491,
+   "instrumentPaired": 0.449,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseCssValues|w9lg1-chromium-n31-main.json|24",
+   "engine": "chromium",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 24,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.105,
+   "load": [
+    "2:48  up 4 days,  8:08, 3 users, load averages: 14.73 12.70 10.57",
+    "2:48  up 4 days,  8:08, 3 users, load averages: 15.39 12.87 10.64"
+   ],
+   "median": 0.4514,
+   "lb": 0.4455,
+   "ub": 0.4555,
+   "ub95": 0.4545,
+   "B": 10000,
+   "seed": 2183680093,
+   "instrumentPaired": 0.451,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseKeyframeSelector|w9lg1-chromium-n31-main.json|25",
+   "engine": "chromium",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 25,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.112,
+   "load": [
+    "2:48  up 4 days,  8:08, 3 users, load averages: 15.39 12.87 10.64",
+    "2:48  up 4 days,  8:08, 3 users, load averages: 15.39 12.87 10.64"
+   ],
+   "median": 0.6963,
+   "lb": 0.6725,
+   "ub": 0.7029,
+   "ub95": 0.7029,
+   "B": 10000,
+   "seed": 2698912052,
+   "instrumentPaired": 0.696,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseTimingFunction|w9lg1-chromium-n31-main.json|26",
+   "engine": "chromium",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 26,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.119,
+   "load": [
+    "2:48  up 4 days,  8:08, 3 users, load averages: 15.39 12.87 10.64",
+    "2:48  up 4 days,  8:08, 3 users, load averages: 16.00 13.04 10.71"
+   ],
+   "median": 0.6837,
+   "lb": 0.6774,
+   "ub": 0.693,
+   "ub95": 0.6923,
+   "B": 10000,
+   "seed": 2014955246,
+   "instrumentPaired": 0.684,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseStylesheet|w9lg1-chromium-n31-main.json|27",
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 27,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.071,
+   "load": [
+    "2:48  up 4 days,  8:08, 3 users, load averages: 16.00 13.04 10.71",
+    "2:48  up 4 days,  8:08, 3 users, load averages: 16.00 13.04 10.71"
+   ],
+   "median": 0.4528,
+   "lb": 0.444,
+   "ub": 0.4583,
+   "ub95": 0.4583,
+   "B": 10000,
+   "seed": 723661543,
+   "instrumentPaired": 0.453,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|rej|parseCssColor|w9lg1-chromium-n31-main.json|28",
+   "engine": "chromium",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 28,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.191,
+   "load": [
+    "2:48  up 4 days,  8:08, 3 users, load averages: 16.00 13.04 10.71",
+    "2:48  up 4 days,  8:08, 3 users, load averages: 16.00 13.04 10.71"
+   ],
+   "median": 0.5434,
+   "lb": 0.5375,
+   "ub": 0.5464,
+   "ub95": 0.5464,
+   "B": 10000,
+   "seed": 2561499400,
+   "instrumentPaired": 0.543,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "chromium|large-eq|parseStylesheet|w9lg1-chromium-n31-main.json|29",
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "large-eq",
+   "file": "w9lg1-chromium-n31-main.json",
+   "idx": 29,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 16,
+   "spread": 1.14,
+   "load": [
+    "2:48  up 4 days,  8:08, 3 users, load averages: 16.00 13.04 10.71",
+    "2:48  up 4 days,  8:08, 3 users, load averages: 16.32 13.15 10.77"
+   ],
+   "median": 0.5536,
+   "lb": 0.5444,
+   "ub": 0.561,
+   "ub95": 0.5577,
+   "B": 10000,
+   "seed": 1048199654,
+   "instrumentPaired": 0.554,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseCssColor|w9lg1-firefox-n31-acc.json|0",
+   "engine": "firefox",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 16,
+   "spread": 1.352,
+   "load": [
+    "6:27  up 4 days, 11:46, 3 users, load averages: 5.40 5.46 5.62",
+    "6:28  up 4 days, 11:47, 3 users, load averages: 6.44 5.69 5.69"
+   ],
+   "median": 0.8247,
+   "lb": 0.8194,
+   "ub": 0.827,
+   "ub95": 0.8269,
+   "B": 10000,
+   "seed": 1591544626,
+   "instrumentPaired": 0.825,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseCssScalar|w9lg1-firefox-n31-acc.json|1",
+   "engine": "firefox",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 1,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 16,
+   "spread": 1.812,
+   "load": [
+    "6:28  up 4 days, 11:47, 3 users, load averages: 6.44 5.69 5.69",
+    "6:28  up 4 days, 11:48, 3 users, load averages: 7.08 5.96 5.79"
+   ],
+   "median": 0.6939,
+   "lb": 0.6907,
+   "ub": 0.6962,
+   "ub95": 0.6946,
+   "B": 10000,
+   "seed": 3939497206,
+   "instrumentPaired": 0.694,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseCssValue|w9lg1-firefox-n31-acc.json|2",
+   "engine": "firefox",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 2,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.352,
+   "load": [
+    "6:28  up 4 days, 11:48, 3 users, load averages: 7.08 5.96 5.79",
+    "6:29  up 4 days, 11:49, 3 users, load averages: 7.76 6.31 5.93"
+   ],
+   "median": 0.468,
+   "lb": 0.4645,
+   "ub": 0.4747,
+   "ub95": 0.4717,
+   "B": 10000,
+   "seed": 3636464082,
+   "instrumentPaired": 0.468,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseCssValues|w9lg1-firefox-n31-acc.json|3",
+   "engine": "firefox",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 3,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.288,
+   "load": [
+    "6:29  up 4 days, 11:49, 3 users, load averages: 7.76 6.31 5.93",
+    "6:30  up 4 days, 11:49, 3 users, load averages: 13.05 7.64 6.42"
+   ],
+   "median": 0.4898,
+   "lb": 0.4826,
+   "ub": 0.4936,
+   "ub95": 0.4933,
+   "B": 10000,
+   "seed": 2470080082,
+   "instrumentPaired": 0.49,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseKeyframeSelector|w9lg1-firefox-n31-acc.json|4",
+   "engine": "firefox",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 4,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8192,
+   "spread": 1.224,
+   "load": [
+    "6:30  up 4 days, 11:49, 3 users, load averages: 13.05 7.64 6.42",
+    "6:30  up 4 days, 11:50, 3 users, load averages: 12.71 8.25 6.69"
+   ],
+   "median": 0.9011,
+   "lb": 0.8983,
+   "ub": 0.9048,
+   "ub95": 0.904,
+   "B": 10000,
+   "seed": 60422183,
+   "instrumentPaired": 0.901,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseTimingFunction|w9lg1-firefox-n31-acc.json|5",
+   "engine": "firefox",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 5,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 256,
+   "spread": 1.181,
+   "load": [
+    "6:30  up 4 days, 11:50, 3 users, load averages: 12.71 8.25 6.69",
+    "6:31  up 4 days, 11:51, 3 users, load averages: 17.17 9.88 7.37"
+   ],
+   "median": 0.6962,
+   "lb": 0.6916,
+   "ub": 0.7025,
+   "ub95": 0.701,
+   "B": 10000,
+   "seed": 3524565077,
+   "instrumentPaired": 0.696,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseStylesheet|w9lg1-firefox-n31-acc.json|6",
+   "engine": "firefox",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 6,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.374,
+   "load": [
+    "6:31  up 4 days, 11:51, 3 users, load averages: 17.17 9.88 7.37",
+    "6:32  up 4 days, 11:51, 3 users, load averages: 14.68 10.18 7.60"
+   ],
+   "median": 0.732,
+   "lb": 0.7256,
+   "ub": 0.7433,
+   "ub95": 0.7425,
+   "B": 10000,
+   "seed": 3715955690,
+   "instrumentPaired": 0.732,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseCssScalar|w9lg1-firefox-n31-acc.json|7",
+   "engine": "firefox",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 7,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 16,
+   "spread": 1.255,
+   "load": [
+    "6:32  up 4 days, 11:51, 3 users, load averages: 14.68 10.18 7.60",
+    "6:33  up 4 days, 11:52, 3 users, load averages: 14.49 10.87 8.00"
+   ],
+   "median": 0.681,
+   "lb": 0.6779,
+   "ub": 0.6837,
+   "ub95": 0.6823,
+   "B": 10000,
+   "seed": 3905941968,
+   "instrumentPaired": 0.681,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseCssValue|w9lg1-firefox-n31-acc.json|8",
+   "engine": "firefox",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 8,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.354,
+   "load": [
+    "6:33  up 4 days, 11:52, 3 users, load averages: 14.49 10.87 8.00",
+    "6:33  up 4 days, 11:53, 3 users, load averages: 13.81 11.01 8.14"
+   ],
+   "median": 0.476,
+   "lb": 0.4703,
+   "ub": 0.486,
+   "ub95": 0.4799,
+   "B": 10000,
+   "seed": 3804240272,
+   "instrumentPaired": 0.476,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseCssValues|w9lg1-firefox-n31-acc.json|9",
+   "engine": "firefox",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 9,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.166,
+   "load": [
+    "6:33  up 4 days, 11:53, 3 users, load averages: 13.81 11.01 8.14",
+    "6:34  up 4 days, 11:53, 3 users, load averages: 19.83 12.71 8.87"
+   ],
+   "median": 0.4902,
+   "lb": 0.4853,
+   "ub": 0.4925,
+   "ub95": 0.4921,
+   "B": 10000,
+   "seed": 2637856272,
+   "instrumentPaired": 0.49,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseKeyframeSelector|w9lg1-firefox-n31-acc.json|10",
+   "engine": "firefox",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 10,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8192,
+   "spread": 1.104,
+   "load": [
+    "6:34  up 4 days, 11:53, 3 users, load averages: 19.83 12.71 8.87",
+    "6:34  up 4 days, 11:54, 3 users, load averages: 21.34 14.01 9.52"
+   ],
+   "median": 0.8864,
+   "lb": 0.8805,
+   "ub": 0.8904,
+   "ub95": 0.8892,
+   "B": 10000,
+   "seed": 3140231982,
+   "instrumentPaired": 0.886,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseTimingFunction|w9lg1-firefox-n31-acc.json|11",
+   "engine": "firefox",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 11,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 256,
+   "spread": 1.232,
+   "load": [
+    "6:34  up 4 days, 11:54, 3 users, load averages: 21.34 14.01 9.52",
+    "6:35  up 4 days, 11:55, 3 users, load averages: 23.60 15.53 10.30"
+   ],
+   "median": 0.6946,
+   "lb": 0.6906,
+   "ub": 0.6983,
+   "ub95": 0.6983,
+   "B": 10000,
+   "seed": 1539979386,
+   "instrumentPaired": 0.695,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseStylesheet|w9lg1-firefox-n31-acc.json|12",
+   "engine": "firefox",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 12,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.385,
+   "load": [
+    "6:35  up 4 days, 11:55, 3 users, load averages: 23.60 15.53 10.30",
+    "6:36  up 4 days, 11:55, 3 users, load averages: 20.09 16.07 10.82"
+   ],
+   "median": 0.7433,
+   "lb": 0.7307,
+   "ub": 0.7523,
+   "ub95": 0.7505,
+   "B": 10000,
+   "seed": 242306089,
+   "instrumentPaired": 0.743,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|acc|parseCssColor|w9lg1-firefox-n31-acc.json|13",
+   "engine": "firefox",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "file": "w9lg1-firefox-n31-acc.json",
+   "idx": 13,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 16,
+   "spread": 1.236,
+   "load": [
+    "6:36  up 4 days, 11:55, 3 users, load averages: 20.09 16.07 10.82",
+    "6:37  up 4 days, 11:56, 3 users, load averages: 21.01 16.75 11.30"
+   ],
+   "median": 0.8364,
+   "lb": 0.8292,
+   "ub": 0.8464,
+   "ub95": 0.8456,
+   "B": 10000,
+   "seed": 2337838472,
+   "instrumentPaired": 0.836,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseCssColor|w9lg1-firefox-n31-rej.json|0",
+   "engine": "firefox",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.133,
+   "load": [
+    "7:11  up 4 days, 12:30, 3 users, load averages: 7.41 8.58 9.32",
+    "7:12  up 4 days, 12:31, 3 users, load averages: 6.80 8.26 9.17"
+   ],
+   "median": 0.8338,
+   "lb": 0.8316,
+   "ub": 0.8356,
+   "ub95": 0.8356,
+   "B": 10000,
+   "seed": 2005721346,
+   "instrumentPaired": 0.834,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseCssScalar|w9lg1-firefox-n31-rej.json|1",
+   "engine": "firefox",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 1,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.104,
+   "load": [
+    "7:12  up 4 days, 12:31, 3 users, load averages: 6.80 8.26 9.17",
+    "7:12  up 4 days, 12:32, 3 users, load averages: 7.94 8.21 9.09"
+   ],
+   "median": 0.6063,
+   "lb": 0.6045,
+   "ub": 0.6078,
+   "ub95": 0.6075,
+   "B": 10000,
+   "seed": 4152309546,
+   "instrumentPaired": 0.606,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseCssValue|w9lg1-firefox-n31-rej.json|2",
+   "engine": "firefox",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 2,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.181,
+   "load": [
+    "7:12  up 4 days, 12:32, 3 users, load averages: 7.94 8.21 9.09",
+    "7:13  up 4 days, 12:33, 3 users, load averages: 8.02 8.10 8.98"
+   ],
+   "median": 0.7637,
+   "lb": 0.7624,
+   "ub": 0.7671,
+   "ub95": 0.7668,
+   "B": 10000,
+   "seed": 676467514,
+   "instrumentPaired": 0.764,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseCssValues|w9lg1-firefox-n31-rej.json|3",
+   "engine": "firefox",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 3,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.155,
+   "load": [
+    "7:13  up 4 days, 12:33, 3 users, load averages: 8.02 8.10 8.98",
+    "7:14  up 4 days, 12:34, 3 users, load averages: 6.81 7.77 8.81"
+   ],
+   "median": 0.7722,
+   "lb": 0.7694,
+   "ub": 0.7739,
+   "ub95": 0.7739,
+   "B": 10000,
+   "seed": 396229998,
+   "instrumentPaired": 0.772,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseKeyframeSelector|w9lg1-firefox-n31-rej.json|4",
+   "engine": "firefox",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 4,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 16,
+   "spread": 1.117,
+   "load": [
+    "7:14  up 4 days, 12:34, 3 users, load averages: 6.81 7.77 8.81",
+    "7:15  up 4 days, 12:35, 3 users, load averages: 7.19 7.73 8.72"
+   ],
+   "median": 0.9178,
+   "lb": 0.9163,
+   "ub": 0.9201,
+   "ub95": 0.92,
+   "B": 10000,
+   "seed": 4020961859,
+   "instrumentPaired": 0.918,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseTimingFunction|w9lg1-firefox-n31-rej.json|5",
+   "engine": "firefox",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 5,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.222,
+   "load": [
+    "7:15  up 4 days, 12:35, 3 users, load averages: 7.19 7.73 8.72",
+    "7:16  up 4 days, 12:35, 3 users, load averages: 9.12 8.17 8.85"
+   ],
+   "median": 0.7708,
+   "lb": 0.7669,
+   "ub": 0.7747,
+   "ub95": 0.7738,
+   "B": 10000,
+   "seed": 448830405,
+   "instrumentPaired": 0.771,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseStylesheet|w9lg1-firefox-n31-rej.json|6",
+   "engine": "firefox",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 6,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.112,
+   "load": [
+    "7:16  up 4 days, 12:35, 3 users, load averages: 9.12 8.17 8.85",
+    "7:16  up 4 days, 12:36, 3 users, load averages: 9.56 8.47 8.93"
+   ],
+   "median": 0.8633,
+   "lb": 0.8619,
+   "ub": 0.8671,
+   "ub95": 0.8661,
+   "B": 10000,
+   "seed": 1794243914,
+   "instrumentPaired": 0.863,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseCssScalar|w9lg1-firefox-n31-rej.json|7",
+   "engine": "firefox",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 7,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.207,
+   "load": [
+    "7:16  up 4 days, 12:36, 3 users, load averages: 9.56 8.47 8.93",
+    "7:17  up 4 days, 12:36, 3 users, load averages: 9.01 8.45 8.91"
+   ],
+   "median": 0.6092,
+   "lb": 0.6068,
+   "ub": 0.6121,
+   "ub95": 0.6117,
+   "B": 10000,
+   "seed": 4252959164,
+   "instrumentPaired": 0.609,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseCssValue|w9lg1-firefox-n31-rej.json|8",
+   "engine": "firefox",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 8,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.183,
+   "load": [
+    "7:17  up 4 days, 12:36, 3 users, load averages: 9.01 8.45 8.91",
+    "7:18  up 4 days, 12:37, 3 users, load averages: 7.27 8.04 8.73"
+   ],
+   "median": 0.7604,
+   "lb": 0.756,
+   "ub": 0.7629,
+   "ub95": 0.7612,
+   "B": 10000,
+   "seed": 575806120,
+   "instrumentPaired": 0.76,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseCssValues|w9lg1-firefox-n31-rej.json|9",
+   "engine": "firefox",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 9,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.31,
+   "load": [
+    "7:18  up 4 days, 12:37, 3 users, load averages: 7.27 8.04 8.73",
+    "7:19  up 4 days, 12:38, 3 users, load averages: 9.93 8.70 8.93"
+   ],
+   "median": 0.7757,
+   "lb": 0.7708,
+   "ub": 0.7822,
+   "ub95": 0.78,
+   "B": 10000,
+   "seed": 563989804,
+   "instrumentPaired": 0.776,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseKeyframeSelector|w9lg1-firefox-n31-rej.json|10",
+   "engine": "firefox",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 10,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 16,
+   "spread": 1.221,
+   "load": [
+    "7:19  up 4 days, 12:38, 3 users, load averages: 9.93 8.70 8.93",
+    "7:20  up 4 days, 12:39, 3 users, load averages: 10.24 8.90 8.98"
+   ],
+   "median": 0.9154,
+   "lb": 0.9117,
+   "ub": 0.9184,
+   "ub95": 0.917,
+   "B": 10000,
+   "seed": 331561498,
+   "instrumentPaired": 0.915,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseTimingFunction|w9lg1-firefox-n31-rej.json|11",
+   "engine": "firefox",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 11,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.245,
+   "load": [
+    "7:20  up 4 days, 12:39, 3 users, load averages: 10.24 8.90 8.98",
+    "7:20  up 4 days, 12:40, 3 users, load averages: 9.35 8.83 8.95"
+   ],
+   "median": 0.7688,
+   "lb": 0.7677,
+   "ub": 0.7757,
+   "ub95": 0.775,
+   "B": 10000,
+   "seed": 4052391978,
+   "instrumentPaired": 0.769,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseStylesheet|w9lg1-firefox-n31-rej.json|12",
+   "engine": "firefox",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 12,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.181,
+   "load": [
+    "7:20  up 4 days, 12:40, 3 users, load averages: 9.35 8.83 8.95",
+    "7:21  up 4 days, 12:40, 3 users, load averages: 9.63 8.96 9.00"
+   ],
+   "median": 0.8675,
+   "lb": 0.8639,
+   "ub": 0.8691,
+   "ub95": 0.8685,
+   "B": 10000,
+   "seed": 215848329,
+   "instrumentPaired": 0.867,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseCssColor|w9lg1-firefox-n31-rej.json|13",
+   "engine": "firefox",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-rej.json",
+   "idx": 13,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.214,
+   "load": [
+    "7:21  up 4 days, 12:40, 3 users, load averages: 9.63 8.96 9.00",
+    "7:22  up 4 days, 12:41, 3 users, load averages: 9.06 8.93 8.98"
+   ],
+   "median": 0.8331,
+   "lb": 0.8282,
+   "ub": 0.8385,
+   "ub95": 0.8385,
+   "B": 10000,
+   "seed": 2269315288,
+   "instrumentPaired": 0.833,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseKeyframeSelector|w9lg1-firefox-n31-xp2.json|0",
+   "engine": "firefox",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-xp2.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 16,
+   "spread": 1.143,
+   "load": [
+    "2:14  up 4 days,  7:34, 3 users, load averages: 6.35 6.49 7.07",
+    "2:15  up 4 days,  7:35, 3 users, load averages: 6.98 6.59 7.06"
+   ],
+   "median": 0.9237,
+   "lb": 0.9215,
+   "ub": 0.9243,
+   "ub95": 0.9242,
+   "B": 10000,
+   "seed": 961581282,
+   "instrumentPaired": 0.924,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "firefox|rej|parseKeyframeSelector|w9lg1-firefox-n31-xp2.json|1",
+   "engine": "firefox",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "file": "w9lg1-firefox-n31-xp2.json",
+   "idx": 1,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 16,
+   "spread": 1.048,
+   "load": [
+    "2:15  up 4 days,  7:35, 3 users, load averages: 6.98 6.59 7.06",
+    "2:16  up 4 days,  7:36, 3 users, load averages: 6.36 6.45 6.98"
+   ],
+   "median": 0.9186,
+   "lb": 0.9164,
+   "ub": 0.9207,
+   "ub95": 0.9207,
+   "B": 10000,
+   "seed": 911253105,
+   "instrumentPaired": 0.919,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseCssColor|w9lg1-webkit-n31-eq.json|0",
+   "engine": "webkit",
+   "entry": "parseCssColor",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.182,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 4.87 5.34 5.62",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 4.88 5.33 5.62"
+   ],
+   "median": 0.7826,
+   "lb": 0.7826,
+   "ub": 0.8,
+   "ub95": 0.7917,
+   "B": 10000,
+   "seed": 4179365222,
+   "instrumentPaired": 0.783,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseCssScalar|w9lg1-webkit-n31-eq.json|1",
+   "engine": "webkit",
+   "entry": "parseCssScalar",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 1,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.138,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 4.88 5.33 5.62",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 4.88 5.33 5.62"
+   ],
+   "median": 0.7187,
+   "lb": 0.6897,
+   "ub": 0.7273,
+   "ub95": 0.7241,
+   "B": 10000,
+   "seed": 818666830,
+   "instrumentPaired": 0.719,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseCssValue|w9lg1-webkit-n31-eq.json|2",
+   "engine": "webkit",
+   "entry": "parseCssValue",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 2,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.189,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 4.88 5.33 5.62",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 4.81 5.31 5.61"
+   ],
+   "median": 0.4146,
+   "lb": 0.4103,
+   "ub": 0.425,
+   "ub95": 0.4211,
+   "B": 10000,
+   "seed": 2804063754,
+   "instrumentPaired": 0.415,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseCssValues|w9lg1-webkit-n31-eq.json|3",
+   "engine": "webkit",
+   "entry": "parseCssValues",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 3,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.14,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 4.81 5.31 5.61",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 4.81 5.31 5.61"
+   ],
+   "median": 0.4318,
+   "lb": 0.4186,
+   "ub": 0.4419,
+   "ub95": 0.4348,
+   "B": 10000,
+   "seed": 2685958926,
+   "instrumentPaired": 0.432,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseKeyframeSelector|w9lg1-webkit-n31-eq.json|4",
+   "engine": "webkit",
+   "entry": "parseKeyframeSelector",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 4,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4096,
+   "spread": 1.286,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 4.81 5.31 5.61",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.31 5.40 5.64"
+   ],
+   "median": 0.7714,
+   "lb": 0.75,
+   "ub": 0.7778,
+   "ub95": 0.7778,
+   "B": 10000,
+   "seed": 427035931,
+   "instrumentPaired": 0.771,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseTimingFunction|w9lg1-webkit-n31-eq.json|5",
+   "engine": "webkit",
+   "entry": "parseTimingFunction",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 5,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 64,
+   "spread": 1.222,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.31 5.40 5.64",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.31 5.40 5.64"
+   ],
+   "median": 0.5172,
+   "lb": 0.4828,
+   "ub": 0.5185,
+   "ub95": 0.5185,
+   "B": 10000,
+   "seed": 1730172041,
+   "instrumentPaired": 0.517,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseStylesheet|w9lg1-webkit-n31-eq.json|6",
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 6,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.226,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.31 5.40 5.64",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.12 5.36 5.62"
+   ],
+   "median": 0.5313,
+   "lb": 0.5294,
+   "ub": 0.5625,
+   "ub95": 0.5455,
+   "B": 10000,
+   "seed": 3531245442,
+   "instrumentPaired": 0.531,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseCssColor|w9lg1-webkit-n31-eq.json|7",
+   "engine": "webkit",
+   "entry": "parseCssColor",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 7,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.125,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.12 5.36 5.62",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.12 5.36 5.62"
+   ],
+   "median": 0.6765,
+   "lb": 0.6667,
+   "ub": 0.697,
+   "ub95": 0.697,
+   "B": 10000,
+   "seed": 1505392835,
+   "instrumentPaired": 0.676,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseCssScalar|w9lg1-webkit-n31-eq.json|8",
+   "engine": "webkit",
+   "entry": "parseCssScalar",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 8,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.13,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.12 5.36 5.62",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.11 5.36 5.62"
+   ],
+   "median": 0.56,
+   "lb": 0.56,
+   "ub": 0.5833,
+   "ub95": 0.5833,
+   "B": 10000,
+   "seed": 2771567817,
+   "instrumentPaired": 0.56,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseCssValue|w9lg1-webkit-n31-eq.json|9",
+   "engine": "webkit",
+   "entry": "parseCssValue",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 9,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.174,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.11 5.36 5.62",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.11 5.36 5.62"
+   ],
+   "median": 0.7143,
+   "lb": 0.7059,
+   "ub": 0.7292,
+   "ub95": 0.7255,
+   "B": 10000,
+   "seed": 2122476683,
+   "instrumentPaired": 0.714,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseCssValues|w9lg1-webkit-n31-eq.json|10",
+   "engine": "webkit",
+   "entry": "parseCssValues",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 10,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.128,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.11 5.36 5.62",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.10 5.35 5.62"
+   ],
+   "median": 0.7143,
+   "lb": 0.6981,
+   "ub": 0.74,
+   "ub95": 0.7347,
+   "B": 10000,
+   "seed": 2748781778,
+   "instrumentPaired": 0.714,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseKeyframeSelector|w9lg1-webkit-n31-eq.json|11",
+   "engine": "webkit",
+   "entry": "parseKeyframeSelector",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 11,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.143,
+   "load": [
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.10 5.35 5.62",
+    "6:24  up 4 days, 11:43, 3 users, load averages: 5.01 5.33 5.61"
+   ],
+   "median": 0.8636,
+   "lb": 0.8636,
+   "ub": 0.9091,
+   "ub95": 0.875,
+   "B": 10000,
+   "seed": 912425797,
+   "instrumentPaired": 0.864,
+   "instrumentAgrees": true,
+   "below1": 30,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseTimingFunction|w9lg1-webkit-n31-eq.json|12",
+   "engine": "webkit",
+   "entry": "parseTimingFunction",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 12,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.16,
+   "load": [
+    "6:24  up 4 days, 11:44, 3 users, load averages: 5.01 5.33 5.61",
+    "6:24  up 4 days, 11:44, 3 users, load averages: 5.01 5.33 5.61"
+   ],
+   "median": 0.7857,
+   "lb": 0.7692,
+   "ub": 0.8077,
+   "ub95": 0.8077,
+   "B": 10000,
+   "seed": 1629900783,
+   "instrumentPaired": 0.786,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseStylesheet|w9lg1-webkit-n31-eq.json|13",
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 13,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.138,
+   "load": [
+    "6:24  up 4 days, 11:44, 3 users, load averages: 5.01 5.33 5.61",
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.93 5.31 5.60"
+   ],
+   "median": 0.6875,
+   "lb": 0.6774,
+   "ub": 0.7,
+   "ub95": 0.6897,
+   "B": 10000,
+   "seed": 2826178382,
+   "instrumentPaired": 0.688,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseCssScalar|w9lg1-webkit-n31-eq.json|14",
+   "engine": "webkit",
+   "entry": "parseCssScalar",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 14,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.207,
+   "load": [
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.93 5.31 5.60",
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.93 5.31 5.60"
+   ],
+   "median": 0.7273,
+   "lb": 0.7187,
+   "ub": 0.7419,
+   "ub95": 0.7353,
+   "B": 10000,
+   "seed": 2657618016,
+   "instrumentPaired": 0.727,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseCssValue|w9lg1-webkit-n31-eq.json|15",
+   "engine": "webkit",
+   "entry": "parseCssValue",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 15,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.162,
+   "load": [
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.93 5.31 5.60",
+    "6:24  up 4 days, 11:44, 3 users, load averages: 5.02 5.32 5.60"
+   ],
+   "median": 0.4474,
+   "lb": 0.425,
+   "ub": 0.45,
+   "ub95": 0.4474,
+   "B": 10000,
+   "seed": 610531856,
+   "instrumentPaired": 0.447,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseCssValues|w9lg1-webkit-n31-eq.json|16",
+   "engine": "webkit",
+   "entry": "parseCssValues",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 16,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.175,
+   "load": [
+    "6:24  up 4 days, 11:44, 3 users, load averages: 5.02 5.32 5.60",
+    "6:24  up 4 days, 11:44, 3 users, load averages: 5.02 5.32 5.60"
+   ],
+   "median": 0.4634,
+   "lb": 0.4468,
+   "ub": 0.4651,
+   "ub95": 0.4634,
+   "B": 10000,
+   "seed": 3530213400,
+   "instrumentPaired": 0.463,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseKeyframeSelector|w9lg1-webkit-n31-eq.json|17",
+   "engine": "webkit",
+   "entry": "parseKeyframeSelector",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 17,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4096,
+   "spread": 1.161,
+   "load": [
+    "6:24  up 4 days, 11:44, 3 users, load averages: 5.02 5.32 5.60",
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.94 5.30 5.59"
+   ],
+   "median": 0.8438,
+   "lb": 0.8437,
+   "ub": 0.8438,
+   "ub95": 0.8438,
+   "B": 10000,
+   "seed": 1521738371,
+   "instrumentPaired": 0.844,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseTimingFunction|w9lg1-webkit-n31-eq.json|18",
+   "engine": "webkit",
+   "entry": "parseTimingFunction",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 18,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 64,
+   "spread": 1.125,
+   "load": [
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.94 5.30 5.59",
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.94 5.30 5.59"
+   ],
+   "median": 0.56,
+   "lb": 0.56,
+   "ub": 0.5769,
+   "ub95": 0.5769,
+   "B": 10000,
+   "seed": 1525227077,
+   "instrumentPaired": 0.56,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseStylesheet|w9lg1-webkit-n31-eq.json|19",
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 19,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.187,
+   "load": [
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.94 5.30 5.59",
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.78 5.26 5.57"
+   ],
+   "median": 0.5588,
+   "lb": 0.5429,
+   "ub": 0.5758,
+   "ub95": 0.5758,
+   "B": 10000,
+   "seed": 1363798272,
+   "instrumentPaired": 0.559,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc-eq|parseCssColor|w9lg1-webkit-n31-eq.json|20",
+   "engine": "webkit",
+   "entry": "parseCssColor",
+   "class": "acc-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 20,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.238,
+   "load": [
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.78 5.26 5.57",
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.78 5.26 5.57"
+   ],
+   "median": 0.8182,
+   "lb": 0.7917,
+   "ub": 0.8261,
+   "ub95": 0.8261,
+   "B": 10000,
+   "seed": 4211013958,
+   "instrumentPaired": 0.818,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseCssScalar|w9lg1-webkit-n31-eq.json|21",
+   "engine": "webkit",
+   "entry": "parseCssScalar",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 21,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.273,
+   "load": [
+    "6:24  up 4 days, 11:44, 3 users, load averages: 4.78 5.26 5.57",
+    "6:25  up 4 days, 11:44, 3 users, load averages: 4.78 5.26 5.57"
+   ],
+   "median": 0.5833,
+   "lb": 0.5769,
+   "ub": 0.6,
+   "ub95": 0.6,
+   "B": 10000,
+   "seed": 2623484132,
+   "instrumentPaired": 0.583,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseCssValue|w9lg1-webkit-n31-eq.json|22",
+   "engine": "webkit",
+   "entry": "parseCssValue",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 22,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.234,
+   "load": [
+    "6:25  up 4 days, 11:44, 3 users, load averages: 4.78 5.26 5.57",
+    "6:25  up 4 days, 11:44, 3 users, load averages: 4.72 5.24 5.56"
+   ],
+   "median": 0.7143,
+   "lb": 0.7,
+   "ub": 0.7222,
+   "ub95": 0.7222,
+   "B": 10000,
+   "seed": 3193758326,
+   "instrumentPaired": 0.714,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseCssValues|w9lg1-webkit-n31-eq.json|23",
+   "engine": "webkit",
+   "entry": "parseCssValues",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 23,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.167,
+   "load": [
+    "6:25  up 4 days, 11:44, 3 users, load averages: 4.72 5.24 5.56",
+    "6:25  up 4 days, 11:44, 3 users, load averages: 5.06 5.30 5.58"
+   ],
+   "median": 0.7143,
+   "lb": 0.7115,
+   "ub": 0.7308,
+   "ub95": 0.7255,
+   "B": 10000,
+   "seed": 854587728,
+   "instrumentPaired": 0.714,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseKeyframeSelector|w9lg1-webkit-n31-eq.json|24",
+   "engine": "webkit",
+   "entry": "parseKeyframeSelector",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 24,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.217,
+   "load": [
+    "6:25  up 4 days, 11:44, 3 users, load averages: 5.06 5.30 5.58",
+    "6:25  up 4 days, 11:44, 3 users, load averages: 5.06 5.30 5.58"
+   ],
+   "median": 0.8696,
+   "lb": 0.8462,
+   "ub": 0.875,
+   "ub95": 0.875,
+   "B": 10000,
+   "seed": 2741316881,
+   "instrumentPaired": 0.87,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseTimingFunction|w9lg1-webkit-n31-eq.json|25",
+   "engine": "webkit",
+   "entry": "parseTimingFunction",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 25,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.259,
+   "load": [
+    "6:25  up 4 days, 11:44, 3 users, load averages: 5.06 5.30 5.58",
+    "6:25  up 4 days, 11:44, 3 users, load averages: 7.38 5.77 5.75"
+   ],
+   "median": 0.8214,
+   "lb": 0.7931,
+   "ub": 0.8214,
+   "ub95": 0.8214,
+   "B": 10000,
+   "seed": 3526357213,
+   "instrumentPaired": 0.821,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseStylesheet|w9lg1-webkit-n31-eq.json|26",
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 26,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.179,
+   "load": [
+    "6:25  up 4 days, 11:44, 3 users, load averages: 7.38 5.77 5.75",
+    "6:25  up 4 days, 11:44, 3 users, load averages: 7.38 5.77 5.75"
+   ],
+   "median": 0.6875,
+   "lb": 0.6667,
+   "ub": 0.7,
+   "ub95": 0.7,
+   "B": 10000,
+   "seed": 2802568222,
+   "instrumentPaired": 0.688,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej-eq|parseCssColor|w9lg1-webkit-n31-eq.json|27",
+   "engine": "webkit",
+   "entry": "parseCssColor",
+   "class": "rej-eq",
+   "file": "w9lg1-webkit-n31-eq.json",
+   "idx": 27,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.25,
+   "load": [
+    "6:25  up 4 days, 11:44, 3 users, load averages: 7.38 5.77 5.75",
+    "6:25  up 4 days, 11:44, 3 users, load averages: 7.11 5.74 5.74"
+   ],
+   "median": 0.6765,
+   "lb": 0.6571,
+   "ub": 0.6857,
+   "ub95": 0.6765,
+   "B": 10000,
+   "seed": 1604389499,
+   "instrumentPaired": 0.676,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseCssColor|w9lg1-webkit-n31-main.json|0",
+   "engine": "webkit",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 0,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.138,
+   "load": [
+    "5:19  up 4 days, 10:39, 3 users, load averages: 4.15 5.12 5.41",
+    "5:19  up 4 days, 10:39, 3 users, load averages: 4.15 5.12 5.41"
+   ],
+   "median": 0.7097,
+   "lb": 0.7097,
+   "ub": 0.7333,
+   "ub95": 0.7333,
+   "B": 10000,
+   "seed": 4228578448,
+   "instrumentPaired": 0.71,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseCssScalar|w9lg1-webkit-n31-main.json|1",
+   "engine": "webkit",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 1,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.158,
+   "load": [
+    "5:19  up 4 days, 10:39, 3 users, load averages: 4.15 5.12 5.41",
+    "5:19  up 4 days, 10:39, 3 users, load averages: 4.15 5.12 5.41"
+   ],
+   "median": 0.7,
+   "lb": 0.6667,
+   "ub": 0.7,
+   "ub95": 0.7,
+   "B": 10000,
+   "seed": 802761406,
+   "instrumentPaired": 0.7,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseCssValue|w9lg1-webkit-n31-main.json|2",
+   "engine": "webkit",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 2,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.18,
+   "load": [
+    "5:19  up 4 days, 10:39, 3 users, load averages: 4.38 5.15 5.42",
+    "5:19  up 4 days, 10:39, 3 users, load averages: 4.38 5.15 5.42"
+   ],
+   "median": 0.4038,
+   "lb": 0.3962,
+   "ub": 0.4118,
+   "ub95": 0.4074,
+   "B": 10000,
+   "seed": 2710843920,
+   "instrumentPaired": 0.404,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseCssValues|w9lg1-webkit-n31-main.json|3",
+   "engine": "webkit",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 3,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.17,
+   "load": [
+    "5:19  up 4 days, 10:39, 3 users, load averages: 4.38 5.15 5.42",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.51 5.16 5.42"
+   ],
+   "median": 0.4,
+   "lb": 0.3929,
+   "ub": 0.4074,
+   "ub95": 0.4074,
+   "B": 10000,
+   "seed": 305631962,
+   "instrumentPaired": 0.4,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseKeyframeSelector|w9lg1-webkit-n31-main.json|4",
+   "engine": "webkit",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 4,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4096,
+   "spread": 1.303,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.51 5.16 5.42",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.51 5.16 5.42"
+   ],
+   "median": 0.7647,
+   "lb": 0.7297,
+   "ub": 0.7778,
+   "ub95": 0.7778,
+   "B": 10000,
+   "seed": 289418373,
+   "instrumentPaired": 0.765,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseTimingFunction|w9lg1-webkit-n31-main.json|5",
+   "engine": "webkit",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 5,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 32,
+   "spread": 1.25,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.79 5.21 5.43",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.79 5.21 5.43"
+   ],
+   "median": 0.4783,
+   "lb": 0.4762,
+   "ub": 0.5,
+   "ub95": 0.5,
+   "B": 10000,
+   "seed": 3905358683,
+   "instrumentPaired": 0.478,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseStylesheet|w9lg1-webkit-n31-main.json|6",
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 6,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.3,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.79 5.21 5.43",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.79 5.21 5.43"
+   ],
+   "median": 0.5417,
+   "lb": 0.5238,
+   "ub": 0.5714,
+   "ub95": 0.5714,
+   "B": 10000,
+   "seed": 1126138124,
+   "instrumentPaired": 0.542,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseCssColor|w9lg1-webkit-n31-main.json|7",
+   "engine": "webkit",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 7,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.278,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.79 5.21 5.43",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.79 5.21 5.43"
+   ],
+   "median": 0.7895,
+   "lb": 0.7895,
+   "ub": 0.8,
+   "ub95": 0.7895,
+   "B": 10000,
+   "seed": 666697321,
+   "instrumentPaired": 0.789,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseCssScalar|w9lg1-webkit-n31-main.json|8",
+   "engine": "webkit",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 8,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.192,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.73 5.19 5.42",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.73 5.19 5.42"
+   ],
+   "median": 0.6667,
+   "lb": 0.6538,
+   "ub": 0.6923,
+   "ub95": 0.6923,
+   "B": 10000,
+   "seed": 3267873193,
+   "instrumentPaired": 0.667,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseCssValue|w9lg1-webkit-n31-main.json|9",
+   "engine": "webkit",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 9,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.122,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.73 5.19 5.42",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.67 5.17 5.42"
+   ],
+   "median": 0.7037,
+   "lb": 0.6923,
+   "ub": 0.7143,
+   "ub95": 0.7059,
+   "B": 10000,
+   "seed": 2318554597,
+   "instrumentPaired": 0.704,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseCssValues|w9lg1-webkit-n31-main.json|10",
+   "engine": "webkit",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 10,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.14,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.67 5.17 5.42",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.67 5.17 5.42"
+   ],
+   "median": 0.7059,
+   "lb": 0.7,
+   "ub": 0.72,
+   "ub95": 0.717,
+   "B": 10000,
+   "seed": 3324600614,
+   "instrumentPaired": 0.706,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseKeyframeSelector|w9lg1-webkit-n31-main.json|11",
+   "engine": "webkit",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 11,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.143,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.61 5.15 5.41",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.61 5.15 5.41"
+   ],
+   "median": 0.8571,
+   "lb": 0.8261,
+   "ub": 0.8636,
+   "ub95": 0.8636,
+   "B": 10000,
+   "seed": 2548571651,
+   "instrumentPaired": 0.857,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseTimingFunction|w9lg1-webkit-n31-main.json|12",
+   "engine": "webkit",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 12,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.292,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.61 5.15 5.41",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.61 5.15 5.41"
+   ],
+   "median": 0.7857,
+   "lb": 0.7692,
+   "ub": 0.8077,
+   "ub95": 0.8,
+   "B": 10000,
+   "seed": 2429162433,
+   "instrumentPaired": 0.786,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseStylesheet|w9lg1-webkit-n31-main.json|13",
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 13,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.2,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.61 5.15 5.41",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.72 5.16 5.41"
+   ],
+   "median": 0.6774,
+   "lb": 0.6667,
+   "ub": 0.6875,
+   "ub95": 0.6875,
+   "B": 10000,
+   "seed": 2398392092,
+   "instrumentPaired": 0.677,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|large-eq|parseStylesheet|w9lg1-webkit-n31-main.json|14",
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "large-eq",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 14,
+   "rep": 0,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 8,
+   "spread": 1.2,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.72 5.16 5.41",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.72 5.16 5.41"
+   ],
+   "median": 0.4167,
+   "lb": 0.4048,
+   "ub": 0.4286,
+   "ub95": 0.4286,
+   "B": 10000,
+   "seed": 3647407882,
+   "instrumentPaired": 0.417,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseCssScalar|w9lg1-webkit-n31-main.json|15",
+   "engine": "webkit",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 15,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.278,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 4.72 5.16 5.41",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 5.15 5.24 5.44"
+   ],
+   "median": 0.6842,
+   "lb": 0.6667,
+   "ub": 0.7,
+   "ub95": 0.7,
+   "B": 10000,
+   "seed": 4138886783,
+   "instrumentPaired": 0.684,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseCssValue|w9lg1-webkit-n31-main.json|16",
+   "engine": "webkit",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 16,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.187,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 5.15 5.24 5.44",
+    "5:20  up 4 days, 10:39, 3 users, load averages: 5.15 5.24 5.44"
+   ],
+   "median": 0.4038,
+   "lb": 0.3922,
+   "ub": 0.4082,
+   "ub95": 0.4082,
+   "B": 10000,
+   "seed": 597734987,
+   "instrumentPaired": 0.404,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseCssValues|w9lg1-webkit-n31-main.json|17",
+   "engine": "webkit",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 17,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.148,
+   "load": [
+    "5:20  up 4 days, 10:39, 3 users, load averages: 5.15 5.24 5.44",
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.62 5.34 5.47"
+   ],
+   "median": 0.4,
+   "lb": 0.3898,
+   "ub": 0.4107,
+   "ub95": 0.4098,
+   "B": 10000,
+   "seed": 1484447139,
+   "instrumentPaired": 0.4,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseKeyframeSelector|w9lg1-webkit-n31-main.json|18",
+   "engine": "webkit",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 18,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4096,
+   "spread": 1.324,
+   "load": [
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.62 5.34 5.47",
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.41 5.30 5.46"
+   ],
+   "median": 0.7714,
+   "lb": 0.7568,
+   "ub": 0.7941,
+   "ub95": 0.7838,
+   "B": 10000,
+   "seed": 2468028488,
+   "instrumentPaired": 0.771,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseTimingFunction|w9lg1-webkit-n31-main.json|19",
+   "engine": "webkit",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 19,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 32,
+   "spread": 1.25,
+   "load": [
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.41 5.30 5.46",
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.41 5.30 5.46"
+   ],
+   "median": 0.4762,
+   "lb": 0.4762,
+   "ub": 0.5,
+   "ub95": 0.5,
+   "B": 10000,
+   "seed": 1108426324,
+   "instrumentPaired": 0.476,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseStylesheet|w9lg1-webkit-n31-main.json|20",
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 20,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.2,
+   "load": [
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.41 5.30 5.46",
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.41 5.30 5.46"
+   ],
+   "median": 0.5652,
+   "lb": 0.5238,
+   "ub": 0.5714,
+   "ub95": 0.5714,
+   "B": 10000,
+   "seed": 1059723554,
+   "instrumentPaired": 0.565,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|acc|parseCssColor|w9lg1-webkit-n31-main.json|21",
+   "engine": "webkit",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 21,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.133,
+   "load": [
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.41 5.30 5.46",
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.21 5.26 5.44"
+   ],
+   "median": 0.7273,
+   "lb": 0.7097,
+   "ub": 0.7419,
+   "ub95": 0.7419,
+   "B": 10000,
+   "seed": 1849739471,
+   "instrumentPaired": 0.727,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseCssScalar|w9lg1-webkit-n31-main.json|22",
+   "engine": "webkit",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 22,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.192,
+   "load": [
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.21 5.26 5.44",
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.21 5.26 5.44"
+   ],
+   "median": 0.6786,
+   "lb": 0.6552,
+   "ub": 0.6897,
+   "ub95": 0.6897,
+   "B": 10000,
+   "seed": 4168932749,
+   "instrumentPaired": 0.679,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseCssValue|w9lg1-webkit-n31-main.json|23",
+   "engine": "webkit",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 23,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.18,
+   "load": [
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.21 5.26 5.44",
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.20 5.26 5.44"
+   ],
+   "median": 0.6863,
+   "lb": 0.6786,
+   "ub": 0.7059,
+   "ub95": 0.6981,
+   "B": 10000,
+   "seed": 2727025859,
+   "instrumentPaired": 0.686,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseCssValues|w9lg1-webkit-n31-main.json|24",
+   "engine": "webkit",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 24,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.204,
+   "load": [
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.20 5.26 5.44",
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.02 5.22 5.42"
+   ],
+   "median": 0.7059,
+   "lb": 0.6964,
+   "ub": 0.7308,
+   "ub95": 0.7308,
+   "B": 10000,
+   "seed": 2954904513,
+   "instrumentPaired": 0.706,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseKeyframeSelector|w9lg1-webkit-n31-main.json|25",
+   "engine": "webkit",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 25,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.19,
+   "load": [
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.02 5.22 5.42",
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.02 5.22 5.42"
+   ],
+   "median": 0.8636,
+   "lb": 0.8571,
+   "ub": 0.8696,
+   "ub95": 0.8636,
+   "B": 10000,
+   "seed": 2750062748,
+   "instrumentPaired": 0.864,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseTimingFunction|w9lg1-webkit-n31-main.json|26",
+   "engine": "webkit",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 26,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 2,
+   "spread": 1.24,
+   "load": [
+    "5:20  up 4 days, 10:40, 3 users, load averages: 5.02 5.22 5.42",
+    "5:21  up 4 days, 10:40, 3 users, load averages: 5.02 5.21 5.42"
+   ],
+   "median": 0.7778,
+   "lb": 0.75,
+   "ub": 0.8077,
+   "ub95": 0.8077,
+   "B": 10000,
+   "seed": 650739018,
+   "instrumentPaired": 0.778,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseStylesheet|w9lg1-webkit-n31-main.json|27",
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 27,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.233,
+   "load": [
+    "5:21  up 4 days, 10:40, 3 users, load averages: 5.02 5.21 5.42",
+    "5:21  up 4 days, 10:40, 3 users, load averages: 5.02 5.21 5.42"
+   ],
+   "median": 0.6857,
+   "lb": 0.6765,
+   "ub": 0.6875,
+   "ub95": 0.6875,
+   "B": 10000,
+   "seed": 4210828743,
+   "instrumentPaired": 0.686,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|rej|parseCssColor|w9lg1-webkit-n31-main.json|28",
+   "engine": "webkit",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 28,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 1,
+   "spread": 1.15,
+   "load": [
+    "5:21  up 4 days, 10:40, 3 users, load averages: 5.02 5.21 5.42",
+    "5:21  up 4 days, 10:40, 3 users, load averages: 5.02 5.21 5.42"
+   ],
+   "median": 0.8182,
+   "lb": 0.8095,
+   "ub": 0.8182,
+   "ub95": 0.8182,
+   "B": 10000,
+   "seed": 2017254060,
+   "instrumentPaired": 0.818,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  },
+  {
+   "key": "webkit|large-eq|parseStylesheet|w9lg1-webkit-n31-main.json|29",
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "large-eq",
+   "file": "w9lg1-webkit-n31-main.json",
+   "idx": 29,
+   "rep": 1,
+   "attempt": 0,
+   "rounds": 31,
+   "k": 4,
+   "spread": 1.263,
+   "load": [
+    "5:21  up 4 days, 10:40, 3 users, load averages: 5.42 5.29 5.45",
+    "5:21  up 4 days, 10:40, 3 users, load averages: 5.42 5.29 5.45"
+   ],
+   "median": 0.45,
+   "lb": 0.45,
+   "ub": 0.4545,
+   "ub95": 0.45,
+   "B": 10000,
+   "seed": 1384090342,
+   "instrumentPaired": 0.45,
+   "instrumentAgrees": true,
+   "below1": 31,
+   "verdict": "GREEN"
+  }
+ ],
+ "gate": [
+  {
+   "cell": "node|acc|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5747,
+      "ub": 0.5878,
+      "verdict": "GREEN",
+      "file": "n31-read1-acc-parseCssColor.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5732,
+      "ub": 0.6164,
+      "verdict": "GREEN",
+      "file": "n31-read2-acc-parseCssColor.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|acc|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5141,
+      "ub": 0.5596,
+      "verdict": "GREEN",
+      "file": "n31-read1-acc-parseCssScalar.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5439,
+      "ub": 0.5639,
+      "verdict": "GREEN",
+      "file": "n31-read2-acc-parseCssScalar.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|acc|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.3788,
+      "ub": 0.4023,
+      "verdict": "GREEN",
+      "file": "n31-read1-acc-parseCssValue.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.3818,
+      "ub": 0.4153,
+      "verdict": "GREEN",
+      "file": "n31-read2-acc-parseCssValue.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|acc|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.379,
+      "ub": 0.4075,
+      "verdict": "GREEN",
+      "file": "n31-read1-acc-parseCssValues.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.3978,
+      "ub": 0.4266,
+      "verdict": "GREEN",
+      "file": "n31-read2-acc-parseCssValues.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|acc|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6818,
+      "ub": 0.6909,
+      "verdict": "GREEN",
+      "file": "n31-read1-acc-parseKeyframeSelector.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.69,
+      "ub": 0.7061,
+      "verdict": "GREEN",
+      "file": "n31-read2-acc-parseKeyframeSelector.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|acc|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5333,
+      "ub": 0.5428,
+      "verdict": "GREEN",
+      "file": "n31-read1-acc-parseStylesheet.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5322,
+      "ub": 0.5419,
+      "verdict": "GREEN",
+      "file": "n31-read2-acc-parseStylesheet.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|acc|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5694,
+      "ub": 0.5724,
+      "verdict": "GREEN",
+      "file": "n31-read1-acc-parseTimingFunction.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5797,
+      "ub": 0.5846,
+      "verdict": "GREEN",
+      "file": "n31-read2-acc-parseTimingFunction.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|large-eq|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5752,
+      "ub": 0.6201,
+      "verdict": "GREEN",
+      "file": "n31-read1-large-eq-parseStylesheet.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5954,
+      "ub": 0.6166,
+      "verdict": "GREEN",
+      "file": "n31-read2-large-eq-parseStylesheet.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|rej|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6487,
+      "ub": 0.6876,
+      "verdict": "GREEN",
+      "file": "n31-read1-rej-parseCssColor.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.645,
+      "ub": 0.6712,
+      "verdict": "GREEN",
+      "file": "n31-read2-rej-parseCssColor.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|rej|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5446,
+      "ub": 0.5511,
+      "verdict": "GREEN",
+      "file": "n31-read1-rej-parseCssScalar.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5553,
+      "ub": 0.5676,
+      "verdict": "GREEN",
+      "file": "n31-read2-rej-parseCssScalar.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|rej|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4586,
+      "ub": 0.4713,
+      "verdict": "GREEN",
+      "file": "n31-read1-rej-parseCssValue.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4537,
+      "ub": 0.4771,
+      "verdict": "GREEN",
+      "file": "n31-read2-rej-parseCssValue.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|rej|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4334,
+      "ub": 0.4758,
+      "verdict": "GREEN",
+      "file": "n31-read1-rej-parseCssValues.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4736,
+      "ub": 0.496,
+      "verdict": "GREEN",
+      "file": "n31-read2-rej-parseCssValues.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|rej|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7225,
+      "ub": 0.7291,
+      "verdict": "GREEN",
+      "file": "n31-read1-rej-parseKeyframeSelector.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7237,
+      "ub": 0.7295,
+      "verdict": "GREEN",
+      "file": "n31-read2-rej-parseKeyframeSelector.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|rej|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4678,
+      "ub": 0.4784,
+      "verdict": "GREEN",
+      "file": "n31-read1-rej-parseStylesheet.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4756,
+      "ub": 0.4848,
+      "verdict": "GREEN",
+      "file": "n31-read2-rej-parseStylesheet.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "node|rej|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7251,
+      "ub": 0.7473,
+      "verdict": "GREEN",
+      "file": "n31-read1-rej-parseTimingFunction.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7419,
+      "ub": 0.7465,
+      "verdict": "GREEN",
+      "file": "n31-read2-rej-parseTimingFunction.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc-eq|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5667,
+      "ub": 0.57,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7458,
+      "ub": 0.7542,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc-eq|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5065,
+      "ub": 0.5124,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6408,
+      "ub": 0.6484,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc-eq|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.3333,
+      "ub": 0.3386,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.3374,
+      "ub": 0.3415,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc-eq|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.3346,
+      "ub": 0.3393,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.337,
+      "ub": 0.3434,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc-eq|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7061,
+      "ub": 0.7096,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.83,
+      "ub": 0.8327,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc-eq|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6667,
+      "ub": 0.669,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7029,
+      "ub": 0.7082,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc-eq|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5,
+      "ub": 0.5053,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4921,
+      "ub": 0.4987,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej-eq|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4509,
+      "ub": 0.4562,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4464,
+      "ub": 0.4498,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej-eq|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.368,
+      "ub": 0.3698,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.373,
+      "ub": 0.3785,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej-eq|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4448,
+      "ub": 0.45,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4429,
+      "ub": 0.4469,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej-eq|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4451,
+      "ub": 0.45,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4545,
+      "ub": 0.4596,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej-eq|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6861,
+      "ub": 0.6886,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6944,
+      "ub": 0.6981,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej-eq|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6563,
+      "ub": 0.6592,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6611,
+      "ub": 0.6676,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej-eq|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4505,
+      "ub": 0.4538,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5053,
+      "ub": 0.5093,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5044,
+      "ub": 0.5092,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5077,
+      "ub": 0.5146,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4664,
+      "ub": 0.469,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4571,
+      "ub": 0.4613,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.3234,
+      "ub": 0.3269,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.3172,
+      "ub": 0.3198,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.3161,
+      "ub": 0.3209,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.3171,
+      "ub": 0.3196,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7176,
+      "ub": 0.7199,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7333,
+      "ub": 0.7411,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5923,
+      "ub": 0.6009,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5963,
+      "ub": 0.6,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|acc|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.506,
+      "ub": 0.5139,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5155,
+      "ub": 0.5217,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.556,
+      "ub": 0.5652,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5434,
+      "ub": 0.5464,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4598,
+      "ub": 0.4667,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4626,
+      "ub": 0.4665,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4458,
+      "ub": 0.4495,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4486,
+      "ub": 0.4533,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4564,
+      "ub": 0.4603,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4514,
+      "ub": 0.4555,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7034,
+      "ub": 0.7055,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6963,
+      "ub": 0.7029,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6782,
+      "ub": 0.685,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6837,
+      "ub": 0.693,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|rej|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4557,
+      "ub": 0.4609,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4528,
+      "ub": 0.4583,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "chromium|large-eq|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5566,
+      "ub": 0.5647,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5536,
+      "ub": 0.561,
+      "verdict": "GREEN",
+      "file": "w9lg1-chromium-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|acc|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8247,
+      "ub": 0.827,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8364,
+      "ub": 0.8464,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|acc|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6939,
+      "ub": 0.6962,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.681,
+      "ub": 0.6837,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|acc|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.468,
+      "ub": 0.4747,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.476,
+      "ub": 0.486,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|acc|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4898,
+      "ub": 0.4936,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4902,
+      "ub": 0.4925,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|acc|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.9011,
+      "ub": 0.9048,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8864,
+      "ub": 0.8904,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|acc|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6962,
+      "ub": 0.7025,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6946,
+      "ub": 0.6983,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|acc|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.732,
+      "ub": 0.7433,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7433,
+      "ub": 0.7523,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-acc.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|rej|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8338,
+      "ub": 0.8356,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8331,
+      "ub": 0.8385,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|rej|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6063,
+      "ub": 0.6078,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6092,
+      "ub": 0.6121,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|rej|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7637,
+      "ub": 0.7671,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7604,
+      "ub": 0.7629,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|rej|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7722,
+      "ub": 0.7739,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7757,
+      "ub": 0.7822,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|rej|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.9178,
+      "ub": 0.9201,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 2,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.9154,
+      "ub": 0.9184,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 2,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|rej|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7708,
+      "ub": 0.7747,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7688,
+      "ub": 0.7757,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "firefox|rej|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8633,
+      "ub": 0.8671,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8675,
+      "ub": 0.8691,
+      "verdict": "GREEN",
+      "file": "w9lg1-firefox-n31-rej.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc-eq|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7826,
+      "ub": 0.8,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8182,
+      "ub": 0.8261,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc-eq|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7187,
+      "ub": 0.7273,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7273,
+      "ub": 0.7419,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc-eq|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4146,
+      "ub": 0.425,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4474,
+      "ub": 0.45,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc-eq|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4318,
+      "ub": 0.4419,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4634,
+      "ub": 0.4651,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc-eq|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7714,
+      "ub": 0.7778,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8438,
+      "ub": 0.8438,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc-eq|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5172,
+      "ub": 0.5185,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.56,
+      "ub": 0.5769,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc-eq|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5313,
+      "ub": 0.5625,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5588,
+      "ub": 0.5758,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej-eq|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6765,
+      "ub": 0.697,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6765,
+      "ub": 0.6857,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej-eq|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.56,
+      "ub": 0.5833,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5833,
+      "ub": 0.6,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej-eq|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7143,
+      "ub": 0.7292,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7143,
+      "ub": 0.7222,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej-eq|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7143,
+      "ub": 0.74,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7143,
+      "ub": 0.7308,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej-eq|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8636,
+      "ub": 0.9091,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8696,
+      "ub": 0.875,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej-eq|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7857,
+      "ub": 0.8077,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8214,
+      "ub": 0.8214,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej-eq|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6875,
+      "ub": 0.7,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6875,
+      "ub": 0.7,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-eq.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7097,
+      "ub": 0.7333,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7273,
+      "ub": 0.7419,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7,
+      "ub": 0.7,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6842,
+      "ub": 0.7,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4038,
+      "ub": 0.4118,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4038,
+      "ub": 0.4082,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4,
+      "ub": 0.4074,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4,
+      "ub": 0.4107,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7647,
+      "ub": 0.7778,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7714,
+      "ub": 0.7941,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4783,
+      "ub": 0.5,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4762,
+      "ub": 0.5,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|acc|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5417,
+      "ub": 0.5714,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.5652,
+      "ub": 0.5714,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej|parseCssColor",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7895,
+      "ub": 0.8,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8182,
+      "ub": 0.8182,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej|parseCssScalar",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6667,
+      "ub": 0.6923,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6786,
+      "ub": 0.6897,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej|parseCssValue",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7037,
+      "ub": 0.7143,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6863,
+      "ub": 0.7059,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej|parseCssValues",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7059,
+      "ub": 0.72,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7059,
+      "ub": 0.7308,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej|parseKeyframeSelector",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8571,
+      "ub": 0.8636,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.8636,
+      "ub": 0.8696,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej|parseTimingFunction",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7857,
+      "ub": 0.8077,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.7778,
+      "ub": 0.8077,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|rej|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6774,
+      "ub": 0.6875,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.6857,
+      "ub": 0.6875,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  },
+  {
+   "cell": "webkit|large-eq|parseStylesheet",
+   "rounds": 31,
+   "reps": [
+    {
+     "rep": 0,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.4167,
+      "ub": 0.4286,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    },
+    {
+     "rep": 1,
+     "rounds": 31,
+     "ofRecord": {
+      "median": 0.45,
+      "ub": 0.4545,
+      "verdict": "GREEN",
+      "file": "w9lg1-webkit-n31-main.json"
+     },
+     "attempts": 1,
+     "strict": true
+    }
+   ],
+   "verdict": "GREEN",
+   "strictAllAttempts": true
+  }
+ ]
+}
