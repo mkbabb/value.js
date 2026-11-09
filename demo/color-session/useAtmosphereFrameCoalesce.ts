@@ -1,4 +1,5 @@
-import { computed, getCurrentScope, onScopeDispose, ref, watch, type ComputedRef } from "vue";
+import { computed, getCurrentScope, onScopeDispose, readonly, ref, watch, type ComputedRef, type Ref } from "vue";
+import { useEventListener } from "@vueuse/core";
 
 /**
  * The drag clock's two schedulers: one write per animation frame, and one
@@ -27,6 +28,12 @@ import { computed, getCurrentScope, onScopeDispose, ref, watch, type ComputedRef
  * newer call replaces a pending one. Tokens that are off screen during a drag
  * mint on it, reading the latest inputs, so the settled tokens are byte-equal
  * to a per-frame mint. There is no release hook: settle is trailing only.
+ *
+ * `useColourLive` — whether a continuous input is driving the colour (o1105-r2
+ * perf). A colour frame under a held pointer, or a second frame inside
+ * {@link SETTLE_MS} of the one before, turns it on; {@link SETTLE_MS} of quiet
+ * turns it off. A click picks on release, one frame, so it never turns it on:
+ * a swatch click still breathes, a drag tracks.
  *
  * Call each synchronously within a setup/effect scope.
  */
@@ -92,4 +99,48 @@ export function useSettle(ms: number = SETTLE_MS) {
             run();
         }, ms);
     };
+}
+
+export function useColourLive(frame: Readonly<Ref<string>>, ms: number = SETTLE_MS) {
+    const live = ref(false);
+    const settle = useSettle(ms);
+    // A colour frame under a held pointer is a drag at any frame rate (a slow
+    // device spaces its frames past SETTLE_MS); the interval test covers a
+    // held key.
+    let pressed = false;
+    if (typeof window !== "undefined") {
+        const opts = { capture: true, passive: true } as const;
+        useEventListener(window, "pointerdown", () => (pressed = true), opts);
+        for (const type of ["pointerup", "pointercancel"] as const) {
+            useEventListener(window, type, () => (pressed = false), opts);
+        }
+    }
+    const end = () => {
+        live.value = false;
+    };
+    let last = -Infinity;
+    watch(frame, () => {
+        const now = performance.now();
+        if (pressed || now - last < ms) live.value = true;
+        last = now;
+        settle(end, false);
+    });
+    return readonly(live);
+}
+
+/**
+ * `source`, held while `live` is on: a token whose readers sit on a ground the
+ * drag moves (the dock band's inks) keeps its settled value through the drag
+ * and takes the latest once it ends. Re-minted per colour frame, such a token
+ * restarted its readers' colour transitions on every frame, so they ran, and
+ * restyled, for the whole drag (o1105-r2 perf). The referent precedent is
+ * OD19-V3: the ink ambient already holds while the colour moves.
+ */
+export function useHeldWhileLive<T>(source: Readonly<Ref<T>>, live: Readonly<Ref<boolean>>) {
+    let held = source.value;
+    return computed(() => {
+        const value = source.value;
+        if (!live.value) held = value;
+        return held;
+    });
 }

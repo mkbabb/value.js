@@ -12,9 +12,8 @@
  *     Q5 RULED: ONLY Palettes is chromatic in the nav — the dropdown entry
  *     and the Palettes title consume these three stops via the ONE
  *     `.palettes-ramp-text` recipe; resolver: `@composables/color/palettes-ramp`);
- *   - `--seal-ink` — the SEEDS.md w7 rider: the collapsed seal's icon ink,
- *     WCAG-derived from the WAX color via the library's `contrast-color()`
- *     leaf (the Dock writer consumes it).
+ *   (`--seal-ink`, the collapsed seal's icon ink, is written by the Dock on
+ *   the seal, its one reader — o1105-r2 perf.)
  *
  * THE T-10 EXCISE (T.W6 · W6-4 — the owner overrule of W7-4's color-wheel
  * legend, R1): the NINE per-view static tokens (`--accent-view-<id>`), their
@@ -34,14 +33,13 @@
  * the registered `--accent-view` locally).
  *
  * Recompute cadence: the accent seed is the rAF-COALESCED colour (W3-1), so
- * a slider drag costs at most one `--accent-view` and one `--seal-ink` resolve
- * per frame — the same clock the aurora/blob derives already ride; the
+ * a slider drag costs at most one `--accent-view` resolve per frame — the same clock the aurora/blob derives already ride; the
  * off-screen tokens (the ramps, the modal accent pair, the seal's gold) trail
  * the drag (OD19-V3 · o1105 U2).
  */
 
 import { computed, watch } from "vue";
-import type { ComputedRef } from "vue";
+import type { ComputedRef, Ref } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 
 import type { PaneConfig } from "../../../shell/viewSchema";
@@ -62,10 +60,10 @@ import {
     GRAPHICS_CONTRAST_FLOOR,
 } from "../../../color-session/ink";
 import { resolveViewAccent } from "../../../color-session/view-accent";
-import { useSettle } from "../../../color-session/useAtmosphereFrameCoalesce";
+import { useHeldWhileLive, useSettle } from "../../../color-session/useAtmosphereFrameCoalesce";
 
 export interface UseViewAccentsOptions {
-    /** The rAF-coalesced live OPAQUE colour — the seal-ink (wax) source. */
+    /** The rAF-coalesced live OPAQUE colour — the wax the seal gold certifies on. */
     cssColorOpaque: ComputedRef<string>;
     /** The contrast-guarded live accent — the rotation base. */
     safeAccentCss: ComputedRef<string>;
@@ -87,10 +85,13 @@ export interface UseViewAccentsOptions {
      * when the shell is hydrated and at once otherwise. Absent: at once.
      */
     certifyInks?: (start: () => void) => void;
+    /** o1105-r2 perf: true while a drag drives the colour (`pipeline.colourLive`). */
+    colourLive: Readonly<Ref<boolean>>;
 }
 
-export function useViewAccents(options: UseViewAccentsOptions): void {
+export function useViewAccents(options: UseViewAccentsOptions) {
     const {
+        colourLive,
         cssColorOpaque,
         safeAccentCss,
         currentConfig,
@@ -162,10 +163,17 @@ export function useViewAccents(options: UseViewAccentsOptions): void {
     );
     // X.W11.p4c: every watcher below certifies (a WCAG walk), so it starts
     // through `certifyInks` — after first paint on a hydrated shell.
+    // The current view's accent, live: it tracks every colour frame.
+    const viewAccentCss = computed(() =>
+        resolveViewAccent(
+            safeAccentCss.value,
+            currentConfig.value.accentHueShift ?? 0,
+            surfaceL.value,
+        ),
+    );
     certifyInks(() => {
         // OD19-V3 · o1105 U2: `--accent-view` (the trigger/seal's live voice,
-        // `--primary`) and `--seal-ink` (the wax's glyph) track every colour
-        // frame. The ramps, the modal accent pair and the admin seal's gold
+        // `--primary`) tracks every colour frame. The ramps, the modal accent pair and the admin seal's gold
         // are NOT on screen during a picker drag (the view menu and any dialog
         // are closed, the Palettes title is another view, the gold is the
         // admin seal's), yet each mint is a WCAG walk: on the drag clock they
@@ -216,27 +224,22 @@ export function useViewAccents(options: UseViewAccentsOptions): void {
                 modalL,
                 cssColorOpaque,
             ],
-            ([css, surfL, shift, dark], old) => {
-                const resolved = resolveViewAccent(css, shift ?? 0, surfL);
-                if (resolved) {
-                    document.documentElement.style.setProperty("--accent-view", resolved);
-                }
+            ([, , shift, dark], old) => {
                 settle(mintOffScreen, !old || old[2] !== shift || old[3] !== dark);
             },
             { immediate: true },
         );
-
-        // The seal ink — keyed by the WAX (the live opaque colour), not the
-        // guarded accent: the seal's WatercolorDot paints the raw pick.
+        // o1105-r2 perf: the root holds through a drag; the live value reaches
+        // the accent's painted readers where they stand (useAtmosphereBoot).
         watch(
-            cssColorOpaque,
-            (css) => {
-                const ink = contrastInkFor(css);
-                if (ink) {
-                    document.documentElement.style.setProperty("--seal-ink", ink);
+            useHeldWhileLive(viewAccentCss, colourLive),
+            (resolved) => {
+                if (resolved) {
+                    document.documentElement.style.setProperty("--accent-view", resolved);
                 }
             },
             { immediate: true },
         );
     });
+    return { viewAccentCss };
 }

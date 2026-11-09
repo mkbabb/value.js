@@ -56,7 +56,7 @@ import { plateInkDeparts } from "../../../color-session/ink";
 import { INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import type { PaneConfig } from "../../../shell/useViewManager";
 import { useContrastSafeColor } from "../../../color-session/useContrastSafeColor";
-import { useSettle } from "../../../color-session/useAtmosphereFrameCoalesce";
+import { useHeldWhileLive, useSettle } from "../../../color-session/useAtmosphereFrameCoalesce";
 import { useViewAccents } from "./useViewAccents";
 import { useAtmosphere } from "./useAtmosphere";
 
@@ -75,6 +75,41 @@ function stampRootToken(token: string, ink: Readonly<Ref<string>>) {
     );
 }
 
+/**
+ * o1105-r2 perf: the live accent, written where it is painted. A root write
+ * restyled the whole document on every colour frame of a drag; the elements
+ * that paint the live accent mark themselves `data-accent-reader`. While the
+ * colour is live the root holds and each reader takes the live pair (and the
+ * `--primary` the root derives from it) on itself; when the drag settles the
+ * root takes the latest value and the readers' copies go in the same flush, so
+ * the inherited value is unchanged and nothing transitions.
+ */
+const ACCENT_READER_TOKENS = ["--accent-live", "--accent-view", "--primary"] as const;
+function writeAccentReaders(
+    live: Readonly<Ref<boolean>>,
+    accent: Readonly<Ref<string>>,
+    viewAccent: Readonly<Ref<string | null | undefined>>,
+) {
+    let readers: HTMLElement[] = [];
+    watch([live, accent, viewAccent], ([on, css, view]) => {
+        if (!on) {
+            for (const el of readers) ACCENT_READER_TOKENS.forEach((t) => el.style.removeProperty(t));
+            readers = [];
+            return;
+        }
+        if (!readers.length) {
+            readers = [...document.querySelectorAll<HTMLElement>("[data-accent-reader]")];
+        }
+        for (const el of readers) {
+            el.style.setProperty("--accent-live", css);
+            if (view) {
+                el.style.setProperty("--accent-view", view);
+                el.style.setProperty("--primary", view);
+            }
+        }
+    });
+}
+
 export function useAtmosphereBoot(
     atmosphereCanvas: Readonly<ShallowRef<HTMLCanvasElement | null>>,
     // W3-1 (S.W3): the rAF-COALESCED opaque colour (`pipeline.cssColorOpaqueFrame`),
@@ -87,8 +122,18 @@ export function useAtmosphereBoot(
     // prerendered shell (App's `HYDRATES_SHELL`, client side). Its first frame
     // paints the stylesheet's pre-certified inks, so the certification leaves
     // the boot task (see `certifyInks` below).
-    { certifyAfterPaint = false }: { certifyAfterPaint?: boolean } = {},
+    // o1105-r2 perf: `pipeline.colourLive`, true while a drag drives the
+    // colour. Mirrored as `data-colour-live` on the root (twice per drag, never
+    // per frame), so the colour's transitions snap while it is driven; the
+    // per-frame token writers below write where their readers are.
+    {
+        certifyAfterPaint = false,
+        colourLive = ref(false),
+    }: { certifyAfterPaint?: boolean; colourLive?: Readonly<Ref<boolean>> } = {},
 ) {
+    watch(colourLive, (live) => {
+        document.documentElement.toggleAttribute("data-colour-live", live);
+    });
     // X.W11.p4c (COHESION §0go.2(b)) — INK CERTIFICATION LEAVES THE BOOT TASK.
     // Every root ink token below (and the per-view accents) is a WCAG walk;
     // stamped in setup, the walks ran inside the hydration task (the measured
@@ -144,6 +189,7 @@ export function useAtmosphereBoot(
     } = useAtmosphere(
         atmosphereCanvas,
         atmosphereColor,
+        colourLive,
     );
 
     // OD19 repair 2 (C2-V-01 · OD19-V3): THE INK REFERENT SETTLES OFF THE DRAG
@@ -208,7 +254,7 @@ export function useAtmosphereBoot(
     provide(INK_AMBIENT_KEY, derivedLightness);
     provide(INK_PLATE_REFERENT_KEY, plateReferent);
     certifyInks(() => {
-        stampRootToken("--accent-live", safeAccentCss);
+        stampRootToken("--accent-live", useHeldWhileLive(safeAccentCss, colourLive));
         // X-DS pass 4 (V4C-01): the PRIMARY plate ink rides the same instance
         // and the same referent, so the page makes ONE polarity decision per
         // plate. `--ink-muted` is a step of this pole, never an independent flip.
@@ -255,17 +301,19 @@ export function useAtmosphereBoot(
     });
 
     // 3 — the per-view accent (W7-4): the library-resolved static tokens —
-    //     `--accent-view-<id>` × 9 + `--accent-view` + `--seal-ink` — written
+    //     `--accent-view-<id>` × 9 + `--accent-view` — written
     //     per accent change on the same rAF-coalesced clock. M-15: the WCAG
     //     referent is the atmosphere's live derived lightness, never the
     //     BG_LIGHTNESS constants (retired from this path).
-    useViewAccents({
+    const { viewAccentCss } = useViewAccents({
         cssColorOpaque: atmosphereColor,
         safeAccentCss,
         currentConfig,
         derivedLightness,
         certifyInks,
+        colourLive,
     });
+    writeAccentReaders(colourLive, safeAccentCss, viewAccentCss);
 
     return { auroraCssGradient, auroraArrived };
 }
