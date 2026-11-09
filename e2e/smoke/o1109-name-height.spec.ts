@@ -154,7 +154,7 @@ for (const scheme of ["light", "dark"] as const) {
                 test("the sweep holds every height and every pane rect; no name is clipped", async ({ page }) => {
                     test.setTimeout(120_000);
                     await seedNames(page);
-                    const [first] = SWEEP;
+                    const first = SWEEP[0]!;
                     await page.goto(`/#/?space=oklch&color=${encodeURIComponent(first[0])}`);
                     await expect(page.locator(".picker-header")).toBeVisible({ timeout: 60_000 });
                     const out = process.env.O1109_NAME_OUT;
