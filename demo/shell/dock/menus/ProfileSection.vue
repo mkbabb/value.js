@@ -3,7 +3,8 @@ import { computed, defineAsyncComponent, inject, ref, useTemplateRef, watch } fr
 import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle, Shield,
 } from "@lucide/vue";
-import { DockControl, DockTrigger } from "@mkbabb/glass-ui/dock";
+import { DockControl } from "@mkbabb/glass-ui/dock";
+import { DockTrigger } from "@mkbabb/glass-ui/dock-trigger";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem,

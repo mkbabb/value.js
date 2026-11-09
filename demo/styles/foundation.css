@@ -58,13 +58,15 @@
  *                    MUST be processed by the consumer's Tailwind compiler
  *                    (its semantics depend on Tailwind v4 `@theme` + `@source`).
  *
- *   `./styles.css` — Compiled SFC-scoped surface (dist/glass-ui.css):
- *                    Vue <style scoped> output (data-v-* attribute selectors)
- *                    for glass-ui's components. Pre-compiled; consumed as-is.
+ *   `./styles.css` — Compiled surface (dist/component-styles.css). Since
+ *                    glass 11.0.0 it holds only the three shared registers
+ *                    (track-well, track-flow, value-marks); each component's
+ *                    own rules load with its chunk (`dist/<chunk>.css`), and
+ *                    dist/glass-ui.css is gone.
  *
  * The two are complementary, not substitutes: the Tailwind-source path carries
- * design-system tokens + font-face + utilities; the compiled path carries
- * SFC-scoped component CSS. Both are needed for a faithful glass-ui render.
+ * design-system tokens + font-face + utilities; the compiled path carries the
+ * shared registers. Both are needed for a faithful glass-ui render.
  */
 @import "@mkbabb/glass-ui/styles";
 @import "@mkbabb/glass-ui/styles.css";
