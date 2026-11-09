@@ -2,6 +2,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 import { regionSettled } from "./fixtures/settle";
+import { decodePng } from "./fixtures/frame-diff";
 
 /**
  * X.W12.c · OA-5 / OA-21 — THE ABOUT PANE IS THE PICKER PANE'S HEIGHT, AND IT
@@ -208,54 +209,268 @@ test.describe("X.W12.c · the About pane is the Picker pane's height", () => {
                         `(Picker pane ${r.picker}px, About pane ${r.about}px)`,
                 ).toBeLessThanOrEqual(r.innerHeight + EPS);
             });
+        });
+    }
+});
 
-            // (2′) V-D1.r2 (§0hw.14, prod 1280×800 docScroll 825): the same law
-            // with the picker's data-dependent row present. Prod renders the
-            // approved name of the default colour ("Efflorescence") under the
-            // readout; dev and CI have no API, so (2) never saw that row. The
-            // approved list is served here, seeded with the default colour, so
-            // the name line renders exactly as it does on prod.
-            test("no page overflow on the block axis with the approved-name line", async ({ page }) => {
-                await page.route("**/colors/approved**", (route) =>
-                    route.fulfill({
-                        status: 200,
-                        contentType: "application/json",
-                        body: JSON.stringify({
-                            data: [
-                                {
-                                    id: "vd1r2-seed",
-                                    name: "Efflorescence",
-                                    css: "oklch(73% 0.185 2)",
-                                    status: "approved",
-                                    createdAt: "2026-11-05T00:00:00.000Z",
-                                    approvedAt: "2026-11-05T00:00:00.000Z",
-                                },
-                            ],
-                        }),
-                    }),
-                );
+// V-D1.r2 + V-D1.r3 (delegate ruling R-1, 2026-11-06) — the page fits AND the
+// spectrum keeps its shape with the colour's NAME present. Prod renders the
+// approved name of the default colour ("Efflorescence"); dev and CI have no
+// API, so the approved list is served here, seeded with the default colour.
+// At 1366×768 the standing name line cost the plane its aspect (2.797 > 2.5:
+// 593 px of inline over 212 px of block); the ruling holds the bar and moves
+// the name, below 820 px of block, into the colour badge's glass popover.
+// Per cell: docScroll ≤ viewport, 1.6 ≤ w/h ≤ 2.5, and the name is reachable —
+// standing, or by hover, by keyboard focus and by tap.
+// V-D1.r4 (§0hz.mt2.value.r): the bar holds at a browser's REAL block too —
+// a 1366×768 laptop shows 1366×657 inside its window (prod, before: 4.425),
+// and 1280×720 is the smoke suite's own default (2.965). Where the plate's
+// rows outgrow the block, the plate scrolls its own body and every control
+// is reached inside it, never below the viewport.
+const NAME_CELLS = [
+    { name: "1440x900", width: 1440, height: 900 },
+    { name: "2846x1650-eq", width: 1423, height: 825 },
+    { name: "1280x800", width: 1280, height: 800 },
+    { name: "1366x768", width: 1366, height: 768 },
+    { name: "1536x730", width: 1536, height: 730 },
+    { name: "1280x720", width: 1280, height: 720 },
+    { name: "1366x657", width: 1366, height: 657 },
+    { name: "1280x648", width: 1280, height: 648 },
+] as const;
+
+/** WCAG relative luminance of an 8-bit sRGB sample. */
+function luminance([r, g, b]: [number, number, number]): number {
+    const lin = (c: number) => {
+        const v = c / 255;
+        return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+    };
+    return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+}
+function contrast(a: [number, number, number], b: [number, number, number]): number {
+    const [la, lb] = [luminance(a), luminance(b)];
+    return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+}
+const NAME = "Efflorescence";
+
+async function seedName(page: Page) {
+    await page.route("**/colors/approved**", (route) =>
+        route.fulfill({
+            status: 200,
+            contentType: "application/json",
+            body: JSON.stringify({
+                data: [
+                    {
+                        id: "vd1r2-seed",
+                        name: NAME,
+                        css: "oklch(73% 0.185 2)",
+                        status: "approved",
+                        createdAt: "2026-11-05T00:00:00.000Z",
+                        approvedAt: "2026-11-05T00:00:00.000Z",
+                    },
+                ],
+            }),
+        }),
+    );
+}
+
+/** The name's surface once the approved list landed: its line, or its badge. */
+async function nameSurface(page: Page): Promise<"line" | "badge"> {
+    const line = page.getByTestId("picker-color-name");
+    const badge = page.getByTestId("picker-color-badge");
+    await expect(line.or(badge)).toBeVisible({ timeout: 60_000 });
+    return (await badge.isVisible()) ? "badge" : "line";
+}
+
+test.describe("V-D1.r3 · the name and the spectrum share a short block", () => {
+    for (const vp of NAME_CELLS) {
+        test.describe(vp.name, () => {
+            test.use({ viewport: { width: vp.width, height: vp.height }, colorScheme: "dark" });
+
+            test("fits, keeps the aspect, and the name is reachable by hover and focus", async ({ page }) => {
+                await seedName(page);
                 await page.goto("/#/");
-                await expect(page.getByTestId("picker-color-name")).toHaveText("efflorescence", {
-                    ignoreCase: true,
-                    timeout: 60_000,
-                });
+                const surface = await nameSurface(page);
                 const r = await readSettled(page);
                 const plane = await page.evaluate(() => {
-                    const el = document.querySelector<HTMLElement>(".spectrum-picker")!.getBoundingClientRect();
-                    return { w: el.width, h: el.height };
+                    const el = document.querySelector<HTMLElement>(".spectrum-picker")!;
+                    return { w: el.offsetWidth, h: el.offsetHeight };
                 });
                 console.log(
-                    `[w12-about-clip] ${vp.name} name-line docScroll=${r.docScroll} inner=${r.innerHeight} picker=${r.picker} plane=${JSON.stringify(plane)}`,
+                    `[vd1r3] ${vp.name} surface=${surface} docScroll=${r.docScroll} inner=${r.innerHeight} plane=${plane.w}x${plane.h} aspect=${(plane.w / plane.h).toFixed(3)}`,
+                );
+                expect(r.docScroll, `docScroll ${r.docScroll} vs viewport ${r.innerHeight}`).toBeLessThanOrEqual(
+                    r.innerHeight + EPS,
+                );
+                expect(plane.w / plane.h, `spectrum w/h ${plane.w}×${plane.h}`).toBeGreaterThanOrEqual(1.6);
+                expect(plane.w / plane.h, `spectrum w/h ${plane.w}×${plane.h}`).toBeLessThanOrEqual(2.5);
+                // Every control is reached inside the viewport: the last
+                // channel's slider, brought into view, sits above the fold
+                // and the document still does not scroll.
+                const last = page
+                    .getByRole("region", { name: "Picker", exact: true })
+                    .getByRole("slider")
+                    .last();
+                await last.scrollIntoViewIfNeeded();
+                const lastBox = (await last.boundingBox())!;
+                expect(lastBox.y + lastBox.height, "the last slider's bottom").toBeLessThanOrEqual(
+                    r.innerHeight + EPS,
                 );
                 expect(
-                    r.docScroll,
-                    `document scrollHeight ${r.docScroll} vs viewport ${r.innerHeight} with the name line ` +
-                        `(Picker pane ${r.picker}px)`,
+                    await page.evaluate(() => document.documentElement.scrollHeight),
+                    "docScroll after reaching the last control",
                 ).toBeLessThanOrEqual(r.innerHeight + EPS);
-                // The plane gave the row its block size, never its shape away:
-                // φ ≤ w/h ≤ 2.5 (the OD-19 bar).
-                expect(plane.w / plane.h, "spectrum aspect with the name line").toBeGreaterThanOrEqual(1.6);
-                expect(plane.w / plane.h, "spectrum aspect with the name line").toBeLessThanOrEqual(2.5);
+                // and nothing the plate scrolled paints under an unveiled
+                // header: the readout clears the field unless glass has
+                // condensed (and veiled) the header.
+                const under = await page.evaluate(() => {
+                    const header = document.querySelector<HTMLElement>(".picker-header")!;
+                    const readout = document.querySelector(".readout")!.getBoundingClientRect();
+                    const field = document.querySelector(".spectrum-picker")!.getBoundingClientRect();
+                    return {
+                        condensed: header.dataset.condensed === "true",
+                        overlap: Math.max(0, readout.bottom - field.top),
+                    };
+                });
+                if (!under.condensed) {
+                    expect(under.overlap, "the readout over the field, unveiled").toBeLessThanOrEqual(EPS);
+                }
+                // Below 820 px of block the line yields; at and above it stands.
+                expect(surface, "the name's surface").toBe(vp.height < 820 ? "badge" : "line");
+                if (surface === "line") {
+                    await expect(page.getByTestId("picker-color-name")).toHaveText(NAME, { ignoreCase: true });
+                    return;
+                }
+                const badge = page.getByTestId("picker-color-badge");
+                const gloss = page.getByTestId("picker-color-gloss");
+                await expect(badge).toHaveAccessibleName(`Colour name: ${NAME}`);
+                // hover
+                await badge.hover();
+                await expect(gloss).toHaveText(NAME);
+                const out = process.env.W12_ABOUT_OUT;
+                if (out) {
+                    mkdirSync(out, { recursive: true });
+                    await gloss.evaluate((el) =>
+                        Promise.all(
+                            (el.closest("[data-slot]") ?? el)
+                                .getAnimations({ subtree: true })
+                                .map((a) => a.finished),
+                        ),
+                    );
+                    await page.screenshot({ path: `${out}/name-gloss-${vp.name}.png` });
+                }
+                await page.mouse.move(2, vp.height - 2);
+                await expect(gloss).toBeHidden();
+                // keyboard focus: Tab onto the badge from the cell before it
+                await page.getByRole("textbox", { name: /component value/ }).last().focus();
+                await page.keyboard.press("Tab");
+                await expect(badge).toBeFocused();
+                await expect(gloss).toHaveText(NAME);
+                await page.keyboard.press("Shift+Tab");
+                await expect(gloss).toBeHidden();
+            });
+
+            // V-D1.r4 (§0hz.mt2.value.r) — the gloss is dismissible (WCAG
+            // 1.4.13): Escape closes it however it opened and it stays closed
+            // while focus rests (the hover arm's focus timer re-opened it,
+            // prod ×2); and the badge is the tuple's mark, not a word of the
+            // readout heading. (One leg per test: under CI's software GL the
+            // three legs and the ring's capture ran past one test's budget.)
+            test("the gloss dismisses on Escape; the heading is the tuple", async ({ page }) => {
+                if (vp.height >= 820) return;
+                await seedName(page);
+                await page.goto("/#/");
+                expect(await nameSurface(page)).toBe("badge");
+                await regionSettled(page.getByRole("region", { name: "Picker", exact: true }));
+                const badge = page.getByTestId("picker-color-badge");
+                const gloss = page.getByTestId("picker-color-gloss");
+                // hover, then Escape
+                await badge.hover();
+                await expect(gloss).toHaveText(NAME);
+                await page.keyboard.press("Escape");
+                await expect.soft(gloss, "Escape closes the hovered gloss").toBeHidden();
+                await page.mouse.move(2, vp.height - 2);
+                await expect(gloss).toBeHidden();
+                // keyboard focus, then Escape at once — and it stays closed
+                await page.getByRole("textbox", { name: /component value/ }).last().focus();
+                await page.keyboard.press("Tab");
+                await expect(badge).toBeFocused();
+                await expect(gloss).toHaveText(NAME);
+                await page.keyboard.press("Escape");
+                await page.waitForTimeout(1_000);
+                await expect.soft(gloss, "the gloss stays dismissed while focus rests").toBeHidden();
+                await expect(badge).toBeFocused();
+                // the heading's name is the tuple alone
+                await expect(page.locator(".readout")).toHaveAccessibleName("73.0 % 0.2 2.0 deg");
+            });
+
+            // V-D1.r4 — the badge's focus ring is whole ink at the 3:1
+            // graphics floor against the plate it sits on.
+            test("the badge's focus ring is whole against the plate", async ({ page }) => {
+                if (vp.height >= 820) return;
+                await seedName(page);
+                await page.goto("/#/");
+                expect(await nameSurface(page)).toBe("badge");
+                await regionSettled(page.getByRole("region", { name: "Picker", exact: true }));
+                const badge = page.getByTestId("picker-color-badge");
+                await page.getByRole("textbox", { name: /component value/ }).last().focus();
+                await page.keyboard.press("Tab");
+                await expect(badge).toBeFocused();
+                // sample the ring's middle row against the plate beyond it
+                const ring = await badge.evaluate((el) => {
+                    const cs = getComputedStyle(el);
+                    return {
+                        width: Number.parseFloat(cs.outlineWidth),
+                        offset: Number.parseFloat(cs.outlineOffset),
+                        style: cs.outlineStyle,
+                    };
+                });
+                expect(ring.style, "the focus ring is a solid outline").toBe("solid");
+                const box = (await badge.boundingBox())!;
+                const pad = Math.ceil(ring.offset + ring.width + 6);
+                const clip = {
+                    x: Math.floor(box.x - pad),
+                    y: Math.floor(box.y - pad),
+                    width: Math.ceil(box.width + 2 * pad),
+                    height: Math.ceil(box.height + 2 * pad),
+                };
+                const img = decodePng(await page.screenshot({ clip }));
+                const at = (x: number, y: number) => {
+                    const i = (Math.round(y) * img.width + Math.round(x)) * img.channels;
+                    return [img.data[i] ?? 0, img.data[i + 1] ?? 0, img.data[i + 2] ?? 0] as [number, number, number];
+                };
+                const cx = box.x + box.width / 2 - clip.x;
+                const cy = box.y + box.height / 2 - clip.y;
+                const mid = box.width / 2 + ring.offset + ring.width / 2;
+                const beyond = box.width / 2 + ring.offset + ring.width + 3;
+                const ratios = [
+                    contrast(at(cx, cy - mid), at(cx, cy - beyond)),
+                    contrast(at(cx + mid, cy), at(cx + beyond, cy)),
+                ];
+                console.log(`[vd1r4-ring] ${vp.name} ring=${JSON.stringify(ring)} contrast=${ratios.map((c) => c.toFixed(2))}`);
+                expect(Math.min(...ratios), "the ring against the plate").toBeGreaterThanOrEqual(3);
+            });
+
+            test("the name is reachable by tap", async ({ browser }) => {
+                const ctx = await browser.newContext({
+                    viewport: { width: vp.width, height: vp.height },
+                    hasTouch: true,
+                    colorScheme: "dark",
+                });
+                try {
+                    const page = await ctx.newPage();
+                    await seedName(page);
+                    await page.goto("/#/");
+                    const surface = await nameSurface(page);
+                    expect(surface, "the name's surface").toBe(vp.height < 820 ? "badge" : "line");
+                    if (surface === "line") return;
+                    await regionSettled(page.getByRole("region", { name: "Picker", exact: true }));
+                    const coarse = await page.evaluate(() => matchMedia("(pointer: coarse)").matches);
+                    expect(coarse, "the touch context is a coarse pointer").toBe(true);
+                    await page.getByTestId("picker-color-badge").tap();
+                    await expect(page.getByTestId("picker-color-gloss")).toHaveText(NAME);
+                } finally {
+                    await ctx.close();
+                }
             });
         });
     }

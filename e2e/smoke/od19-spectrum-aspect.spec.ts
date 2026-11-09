@@ -9,8 +9,8 @@
  * 3.741 at 844×390 (20dvh = 78 hits the 6rem floor) and 2.648 / 2.385 at 1440+.
  *
  * Gate, per cell: 1.6 ≤ w/h ≤ 2.5 everywhere, and w/h ≤ φ·√φ + 0.01 (2.068)
- * wherever the plane sits at its flattest bound. Cells: 8 viewports × picker
- * and mix × light and dark.
+ * wherever the plane sits at its flattest bound. Cells: 10 viewports × picker
+ * and mix × light and dark (1366×657 and 1280×720 since V-D1.r4).
  */
 import { test, expect } from "@playwright/test";
 
@@ -19,6 +19,10 @@ const VIEWPORTS: [number, number][] = [
     [430, 932],
     [844, 390],
     [1024, 768],
+    // V-D1.r4: a desktop window's real block (1366×768 less its browser
+    // chrome; the smoke suite's own default).
+    [1366, 657],
+    [1280, 720],
     [1440, 900],
     [1800, 1000],
     [2560, 1440],

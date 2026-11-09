@@ -6,7 +6,7 @@
 
 - **`safeAccentColor` stops its search at the byte, and is about twice as fast where it walks.** Its two WCAG bisections ran a fixed 32 halvings each. A colour on screen is its `toRgba8` bytes, so the walk now stops once the passing and the failing ends paint the same bytes, or paint neighbouring bytes whose own byte ratio already fails the floor; 32 is still the most it takes. Over a seeded corpus of 40,000 accents, surfaces and floors, every answer paints the same bytes as before, clears the same floor and refuses in the same cases. The answer's lightness can differ from 4.3.0's below one byte step, so its `serializeCssColor` text can differ in the trailing digits while the colour painted is the same. `contrastInk` and every caller of `safeAccentColor` gain the same speed.
 
-## [4.3.0] — 2026-11-05
+## [4.3.0] — 2026-11-06
 
 This release teaches the CSS parser most of what the newer drafts of CSS Color 5, Values 5, Anchor Positioning and Easing 2 have added, so that a great deal of syntax it used to refuse now reads the way a browser reads it. A few results do change, and each entry below says how. The ones most likely to matter to you are that a relative colour with an absolute origin now resolves to a real colour, that `xyz-d50` and `display-p3-linear` colours keep the space you wrote, that a unicode range is now written in its canonical spelling, and that `anchor()`, `anchor-size()`, `calc-size()` and `linear()` now refuse arguments their specifications do not allow. I checked every new case against the Web Platform Tests for these specifications; the handful that still disagree are colour cases, mostly relative colours built from trigonometric functions, and I plan to take them up next.
 
