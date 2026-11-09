@@ -33,13 +33,13 @@
         }
       },
       "goldenCount": 211,
-      "totalBytes": 114981400,
+      "totalBytes": 119549637,
       "goldens": [
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-audit-admin-audit-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-audit-admin-audit-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 159414,
-          "sha256": "4b325165f32d52e308ed4249e6bd9cbdd8208ebd94b1e30455a8fd2222d78903"
+          "bytes": 188781,
+          "sha256": "9e76b46687b766c7052115edb41878e76576b1918445f27befad33e9fad68f86"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-audit-admin-audit-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -50,8 +50,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-audit-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-audit-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 315873,
-          "sha256": "a91ee0e16cb0fc9d4fce83a907d5f255b3a9965d160c87dbe86fc47305e89be7"
+          "bytes": 347812,
+          "sha256": "c336db2251ef87058c522425b098c59b4eae110039de056754396c4f2366a92c"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-audit-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -62,8 +62,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-audit-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-audit-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 876394,
-          "sha256": "e9d4667b779bda924edb9578888a9bd6a08f2eb1c89d10ce1b68055a2b4c5a1c"
+          "bytes": 1049492,
+          "sha256": "c372b2c1b950541bb47cc14fe65c5a4020ab2da529da247b64fe11b460720b6d"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-audit-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -74,8 +74,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-flagged-admin-flagged-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-flagged-admin-flagged-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 154834,
-          "sha256": "a6e0c6b50300e3584c75026ab993ca826b4e6013b00e94d7691569f020dcd807"
+          "bytes": 184404,
+          "sha256": "b48604003f2e91a124b97d3013cf26deb31f836928a593c625f4bbee9d4a1989"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-flagged-admin-flagged-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -86,8 +86,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-flagged-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-flagged-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 289171,
-          "sha256": "86146173e6888d2fd2ed4348045aa5e1c34fefd6771bcd2abef2667c0e5c9239"
+          "bytes": 344588,
+          "sha256": "d5934bb9cfafa38960b9db0fa074e963ba9275dd58ea1e06429441ab46a10cdb"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-flagged-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -98,8 +98,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-flagged-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-flagged-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 830133,
-          "sha256": "1fe5e9af80661ed8b8e67a4fa889b739966645e189b4599b4ab62ea732adee22"
+          "bytes": 1062082,
+          "sha256": "d7894246a9611634958b9acbde1c46966250940cceb73ffe4a25515f78277e89"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-flagged-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -110,8 +110,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-names-admin-names-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-names-admin-names-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 172692,
-          "sha256": "f375aef53ebffcba77820dcd90c7edd8516f2273d660768591f20ef6bb478a22"
+          "bytes": 207916,
+          "sha256": "765d361bfbadd6cd63a6663ad289c285815b3b5572d57324620c645fd7e99d51"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-names-admin-names-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -122,8 +122,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-names-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-names-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 337689,
-          "sha256": "304cca4eb0d7628072346ac126e0b176a0fe4807117f2af21af7e3c33c666f9d"
+          "bytes": 383896,
+          "sha256": "80717cd0b33ef1f2a2f31e920bb064adf397c26e3501c3f6c6c046085b4b41c8"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-names-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -134,8 +134,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-names-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-names-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 944191,
-          "sha256": "46064b20d8acaa822815157dd257b927faf5aff5f31553f068dc3ef675daea15"
+          "bytes": 1100672,
+          "sha256": "6a5a81311a07e7037517334dd1028512b8f63852e520af1baa4291c7db02e258"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-names-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -146,8 +146,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-tags-admin-tags-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-tags-admin-tags-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 175833,
-          "sha256": "fb658cc923f17917be8801d539debccb16e4cfa543c253b6044c2c384c6eb578"
+          "bytes": 207318,
+          "sha256": "12643e1aee5e0929c3eb19f011fb6bc9dac1491c0a5f41d72f3b57f74f454cfb"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-tags-admin-tags-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -158,8 +158,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-tags-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-tags-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 318772,
-          "sha256": "1aef51bd151db6f2b23740d2bca358f572b99cb92e869c7312f46ccd56c003bc"
+          "bytes": 353488,
+          "sha256": "b953f519189325a7a826cf5491acfee0c32252fe4749b9234cca9115b10baf92"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-tags-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -170,8 +170,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-tags-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-tags-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 880550,
-          "sha256": "856b527bfe28274ea07d2a842fcfeaa6fc24cd8bd843f85f1683bcf3015fc506"
+          "bytes": 1056686,
+          "sha256": "66dad14aaf4d61b57005c695ce20e3605a458bf53ce1670dffcd05dd066471c8"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-tags-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -182,8 +182,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-users-admin-users-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-users-admin-users-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 176533,
-          "sha256": "782c682e7197d6f98d0bca34b96033ce8f38529ad264f5096d83d07e63644d6d"
+          "bytes": 206339,
+          "sha256": "8a855eceeb0d666c8313a2db6d4bdcece61bb3224a117062c501700c881c6d6c"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-users-admin-users-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -194,8 +194,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-users-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-users-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 341048,
-          "sha256": "2e2fa0b7a1db28e4747a6b1b01973a55ec6bc8b87706c43cc51f1c1a79bf8fda"
+          "bytes": 376584,
+          "sha256": "bed1f726f4b6bdb5a6c1965090aa9e07b6aa2d22048b3295576ec64e90022244"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-users-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -206,8 +206,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-users-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-admin-admin-users-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 922766,
-          "sha256": "96736f1f9673cc61e1a32793ebb6c9bce3296bdcc93070242a5036124a9e0916"
+          "bytes": 1084080,
+          "sha256": "ef430006ffa338971f7939c7a507e9ac82e9d634a171923b8c4c4eff002960f9"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-users-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -218,8 +218,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-atmosphere-atmosphere-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-atmosphere-atmosphere-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 293933,
-          "sha256": "8a26c5674fdc2915d2310482d6e2e9544c8edc089c435c5894f20847109f7f42"
+          "bytes": 311353,
+          "sha256": "e07b944cc46f1b0ed086bba9a4f9af24e07e1ade65917bb0522d9453a5379750"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-atmosphere-atmosphere-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -230,8 +230,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-atmosphere-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-atmosphere-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 482024,
-          "sha256": "61cef043d25e5c8b7da8f2fea3b4ad251e383eb732c0b35802c818f68e76aa6b"
+          "bytes": 537606,
+          "sha256": "48ae5c73ae127d547d69a5ae27090a4292c94d37a3368a904e08f5beb2f22f16"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-atmosphere-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -242,8 +242,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-atmosphere-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-atmosphere-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 989393,
-          "sha256": "36965229974728fabd0b3aa8ddfdf5171495c0617081b5aa3f342d4e76a66da6"
+          "bytes": 1312400,
+          "sha256": "2c0870fcf3360e08fda0dea6da01166c6caeaa3e1bc1e3d586db7e95d7461a81"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-atmosphere-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -254,8 +254,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-blob-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-blob-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 517628,
-          "sha256": "895bd57933c2b12be0459b0aea7806b236565425494649399efbf83fb4795480"
+          "bytes": 551334,
+          "sha256": "da5fa11a288d10387206774a785c8b35e07079878297e587fdc3b9304b2bfd9b"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-blob-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -266,8 +266,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-blob-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-blob-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1233967,
-          "sha256": "64581512e2c654dc83f65a9b98a12710961eb12b16ec9a9ba5db51d6db14db5c"
+          "bytes": 1462091,
+          "sha256": "00829b2c6ddbfb7db585e8a0fc565a651fb3ae41d3cf0dc1f90762a715f6be6f"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-blob-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -278,8 +278,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-blob-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-blob-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 489128,
-          "sha256": "ee0e1bd121b47ad5eaa4080141ae3c152980df32d6d2ebca1654533439e5633f"
+          "bytes": 517642,
+          "sha256": "ec10080d0ac0e466a16eaf11dea71ee4a86a9df3222e9dc5fa831a6833fcc114"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-blob-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -290,8 +290,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-browse-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-browse-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 407078,
-          "sha256": "86aa7698acc947e460a8f874a40c2597a3311a696b9c30ebe02ee058be043d92"
+          "bytes": 452918,
+          "sha256": "23409ef354f9d617545fa6ddfed61e554a128c29b69c51c4e34d82de6b5fe883"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-browse-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -302,8 +302,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-browse-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-browse-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 994401,
-          "sha256": "56b6dc0c484edf48bcecd3a3a4a268a349da229447776405d8008fb27da61967"
+          "bytes": 1215456,
+          "sha256": "28ebc38b7d26f32ed47773bc1c6813e586bc1a841945aec7bb6da1acf292ced4"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-browse-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -314,8 +314,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-browse-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-browse-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 334807,
-          "sha256": "1db343ac53b1c64495b8cf5e03141c6b0fe8873c3613da2c5b18176f98388118"
+          "bytes": 362941,
+          "sha256": "1fa41f3c219cf04f534c88a89fd1e85217f61a2c806e6619324cd8381e4c4076"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-browse-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -326,8 +326,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-extract-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-extract-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 460486,
-          "sha256": "d94692d74d32938947ec77ea90c45ef161044eec83b791aa5d71ca7f589b6f0b"
+          "bytes": 515902,
+          "sha256": "284c601213a41026ec44d28eb806ce4ee633ee3d602f1271499feb681b421d10"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-extract-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -338,8 +338,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-extract-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-extract-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1072506,
-          "sha256": "612d02369754110aec910cf1be464297fc1c672a9755c327cb391d2dc2cf0d8b"
+          "bytes": 1278769,
+          "sha256": "de2561921031d054c81200cf392a12ae31334a913779f05aa4428097a930ba78"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-extract-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -350,8 +350,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-extract-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-extract-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 357612,
-          "sha256": "5e97761026f2819e9f7e9a3d238587b71ecb4d2e9086dd304eef96d3cae1515f"
+          "bytes": 389693,
+          "sha256": "50f8c75e5d7e612a01bd23670f3de49d44fd60352c50de5a9f1431f3c7f8c014"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-extract-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -362,8 +362,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-generate-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-generate-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 469741,
-          "sha256": "bd35c5010d6a7b9034e6ff91cbfb5752d0e88932ae62a73468cce733d5bbfd16"
+          "bytes": 515332,
+          "sha256": "2e1fd7f73d099d1de4d320996a9fe76e349dad0a24007ec768836ff640b3e689"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-generate-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -374,8 +374,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-generate-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-generate-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1070592,
-          "sha256": "2a22212104eb6e5fc8f7e2262d3f36346b66aa189a645807e6bfd7d964c80b40"
+          "bytes": 1303436,
+          "sha256": "6bbc0854670315f4ff4e06d012063d3cf1f35d341d9c938c6a9ce6f37a4b0844"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-generate-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -386,8 +386,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-generate-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-generate-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 350087,
-          "sha256": "84f562168e6cd3e818a4c153b967c1fe66228aa14bb8cebbf1a8ee3615504bf6"
+          "bytes": 372948,
+          "sha256": "39234219373eb22418d69a8310fde846663030ef5bb1cd38ae04c1de661d5df4"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-generate-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -398,8 +398,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-gradient-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-gradient-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 653964,
-          "sha256": "c2fd9618d136751e0b8d5e52823cc53700284856378bfa93b31ff7785a85b5f2"
+          "bytes": 704577,
+          "sha256": "5faf77e8ed71dd91acf4c7afa8b52e099d25c1261aa8e3f84ea14d287e4f7f71"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-gradient-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -410,8 +410,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-gradient-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-gradient-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1425325,
-          "sha256": "74f56b9e6deaf7e48fbfb7c326f78e3993a2123d77b4fa2b6c1084aad8c74fae"
+          "bytes": 1606825,
+          "sha256": "cfb3d3a6f22edbe7d057b95cd0c050da4efc2f96374b253439948507633102ff"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-gradient-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -422,8 +422,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-gradient-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-gradient-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 490393,
-          "sha256": "c4c751984c7f147db4f0b7ae9569d6ac403b50ed75c4bdce5159f04b0d587829"
+          "bytes": 529428,
+          "sha256": "bfbc995a81d09db63adb031b394cd12cdd8eea3f6ac36becfca2b0cf5687bbed"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-gradient-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -434,44 +434,44 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-mix-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 536891,
-          "sha256": "b717096291cab82ab4b92c315affd40c72934be475b48a0727090eb2a11643b7"
+          "bytes": 568803,
+          "sha256": "3c65ac27f8b7ecf8949d4259013a6ceb974756f6c489cf28a888e8d2f0b34425"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 583101,
-          "sha256": "2b546b08773b09aa4fff6692965870c98a0b4012c80fd82d783f99fe6d9587d6"
+          "bytes": 583220,
+          "sha256": "501c93ff86668101e0d69627d3703597a2d72ea63e310e4d4a2c88edb66499d2"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-mix-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1185487,
-          "sha256": "b8d1dd92bd4a836c0de55154350b120d2124e21ceb85f639c0337cb1abc20970"
+          "bytes": 1432699,
+          "sha256": "651a17a02b257e600be106b78abd0fd0a22cdfeaf6711c74afb967cd2cb90f40"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-mix-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1285534,
-          "sha256": "843bdfb6019d24c8607c466a8bd776b86f99e3157302ad4fab2428a080b8f516"
+          "bytes": 1285892,
+          "sha256": "72c4cf6a96cdab444d7e1e8ee0fc1b1e9a4115415ee31fda530f583bb72d34fd"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-mix-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 436216,
-          "sha256": "9edbb69c7e51f612e8101b4e81c330eeb0998c6c9f8e3e1fbf365603f349d822"
+          "bytes": 466002,
+          "sha256": "de13a02d3f37fede54566b3c53af0f1ad915b7826c1908ce385e456e412bc5b4"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-mix-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 480366,
-          "sha256": "6d352aacc17dbeb74902b912935dffe075ec4aa029aae24cab8a520fe2a1e2bc"
+          "bytes": 480471,
+          "sha256": "919419ed572e3415133b2a12d54cae12b73a79a1a70d9212b13be23957a1b517"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-not-found-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-not-found-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 305390,
-          "sha256": "c45d7000f3a2b0a153cb41115a3ae2f26c409469c705e00356604406804db3d9"
+          "bytes": 295152,
+          "sha256": "3269a286998bd1ec88aa841a635599c39d12a6c6146524669d238025235d9423"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-not-found-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -482,8 +482,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-not-found-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-not-found-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1264643,
-          "sha256": "d3f3b23493ba7ab62b9ad4e78f5f56ba18420e4c28bfab955dbddc4885515486"
+          "bytes": 1025237,
+          "sha256": "c71a5460963b52ec83c1840dea01bb98acbc97e5ca11589699f81a0f4d29f058"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-not-found-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -494,8 +494,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-not-found-not-found-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-not-found-not-found-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 148945,
-          "sha256": "8aca3f0d280d97fa8b80acb7e87991426982134d0e2731e0e472aed534303a85"
+          "bytes": 177868,
+          "sha256": "62077734fc99fa903880b0e0272fd92e37e4d7af5109ee0480eabf8961e060ac"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-not-found-not-found-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -506,8 +506,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-palettes-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-palettes-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 461563,
-          "sha256": "2146eb160757d7e7b21ef7cfc3e9079f1d6d24010d4334163bfbf79f66643694"
+          "bytes": 505805,
+          "sha256": "d40deeca32b7692587aa23ab8e3cfc61d35706c49b097feb8830fac884e59f19"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-palettes-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -518,8 +518,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-palettes-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-palettes-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1107407,
-          "sha256": "8c67d8839996ca14b7dd330c4d2e53517848ef5f68a929f08c74c886a7591c2c"
+          "bytes": 1388378,
+          "sha256": "07d0c876074e09b6e7f7b8422ca4122ac36d9fb9404e469f2418821cd99199ca"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-palettes-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -530,8 +530,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-palettes-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-palettes-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 385168,
-          "sha256": "7e0f78ab2aaa6f61ab036b2b58ab85b36e473db3431ad3044ac09490454ebb32"
+          "bytes": 414647,
+          "sha256": "c831495d7af6fd23bbbec956071f4c33734bc7d3468217b6c5d9bd40e0320c8f"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-palettes-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -542,8 +542,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-picker-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-picker-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 576042,
-          "sha256": "562492459198565a7cde32955dd4b1988ebad87cab05101f93fca001c4aaf116"
+          "bytes": 610747,
+          "sha256": "5fde5a9c6f7785240a74a59fe5638d771d78bfcfbd71df888f44079012bf0a22"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-picker-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -554,8 +554,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-picker-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-picker-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1282205,
-          "sha256": "00d51e2eda22759212e9a02d9ed85fb07154d971fdfc19bdfbdcebe7e81a43b9"
+          "bytes": 1521709,
+          "sha256": "3430cf3d86b7d9b2787adeef74e20e0aa7cd7bfdc921c0935fb4d8eabf8e7c47"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-picker-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -578,8 +578,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-picker-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-picker-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 494666,
-          "sha256": "5fcc8f39709863f5b0082aa15e8d08f233ebd0a22d49a0b308fbd0c92a00478d"
+          "bytes": 516209,
+          "sha256": "b480520dd795895a31e46f6ae7049d6b2fd3e16acde826f622e24ea6c32d4584"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-picker-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf-tile-1-of-2.png",
@@ -668,8 +668,8 @@
         {
           "path": "e2e/visual/goldens/darwin/forced-colors-desktop-mix-both-1024-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "forced-colors-desktop-mix-both-1024-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 255250,
-          "sha256": "d6e15001ceab7a9279252d89d478d433810ff130071665f6d54761aad67a5e4a"
+          "bytes": 255286,
+          "sha256": "c95115e8b7043f2640cb403e8529ff883afa2a58afdd9a1636073d4982182781"
         },
         {
           "path": "e2e/visual/goldens/darwin/forced-colors-desktop-not-found-both-1024-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -764,8 +764,8 @@
         {
           "path": "e2e/visual/goldens/darwin/keyboard-focus-desktop-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "keyboard-focus-desktop-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 579209,
-          "sha256": "941aa658e079ec266fc748337b7fe78dac1e6056de67cccedc2d0870c85b3ec8"
+          "bytes": 579273,
+          "sha256": "e32dc901cbc89118764c98bd5f34ef3bb543c6b5714d05f96236e46997e2b764"
         },
         {
           "path": "e2e/visual/goldens/darwin/keyboard-focus-desktop-not-found-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -788,8 +788,8 @@
         {
           "path": "e2e/visual/goldens/darwin/overlay-dock-view-select-open-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "overlay-dock-view-select-open-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 607325,
-          "sha256": "7935460f28bf265232eb73e375539ced4ea7f1c68cdfcb5fbe1309b8d7d0d1c3"
+          "bytes": 639056,
+          "sha256": "50b84e204f590db4ba472f1f3ae36d7439ae2fc6b309171385bf1ab8580cdd98"
         },
         {
           "path": "e2e/visual/goldens/darwin/overlay-dock-view-select-open-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -800,8 +800,8 @@
         {
           "path": "e2e/visual/goldens/darwin/palette-card-hover-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "palette-card-hover-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 531885,
-          "sha256": "1e01d67fb29941ac5fdf69f8ace2ffd4c2c4dfbb3a082fd0ebf6925767133e80"
+          "bytes": 566451,
+          "sha256": "c89c968733a3185264c8e65e9ef0eaa57d8e1c1c255c5bb33936b0e4a270df11"
         },
         {
           "path": "e2e/visual/goldens/darwin/palette-card-hover-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -812,8 +812,8 @@
         {
           "path": "e2e/visual/goldens/darwin/palette-card-hover-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "palette-card-hover-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1229278,
-          "sha256": "17ca1bac934ce04f9cd81566964dbb9cc604e36623ad4175b670f1b939b6b908"
+          "bytes": 1455518,
+          "sha256": "34c871c9d51fc5b632b91d637b84d6334f3adbd50cbfa9588e53fde324a68dcf"
         },
         {
           "path": "e2e/visual/goldens/darwin/palette-card-hover-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -824,8 +824,8 @@
         {
           "path": "e2e/visual/goldens/darwin/palette-card-hover-palettes-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "palette-card-hover-palettes-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 467076,
-          "sha256": "20f456adda364b8da39d350a0a235dd9b0d13f0fa006e155c59779d3a19c5912"
+          "bytes": 488663,
+          "sha256": "08516a1f54c46b88d19df32a09d80472f9eb4cf53deb1db228810f8fca265cb1"
         },
         {
           "path": "e2e/visual/goldens/darwin/palette-card-hover-palettes-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -836,8 +836,8 @@
         {
           "path": "e2e/visual/goldens/darwin/palette-card-rest-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "palette-card-rest-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 519372,
-          "sha256": "4a75322eed1c7fd4a9a5b8792aef2c4ec32157d361b2c510b4fa56115557e0ed"
+          "bytes": 555695,
+          "sha256": "9a5bdf149bdfdb659d99533ff034a86720c482081a0244645a2a4d9bf64d3091"
         },
         {
           "path": "e2e/visual/goldens/darwin/palette-card-rest-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -848,8 +848,8 @@
         {
           "path": "e2e/visual/goldens/darwin/palette-card-rest-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "palette-card-rest-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1159955,
-          "sha256": "837222aae3573550b508529668e219655bfcbacc2db4bc01019d79b12489027d"
+          "bytes": 1401598,
+          "sha256": "39be69c6aed5ca82ec3106339b20a0015f79bb52834e065ebbdb11eb9d633f58"
         },
         {
           "path": "e2e/visual/goldens/darwin/palette-card-rest-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -860,8 +860,8 @@
         {
           "path": "e2e/visual/goldens/darwin/palette-card-rest-palettes-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "palette-card-rest-palettes-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 460106,
-          "sha256": "6a976607c0c889ae4d100baaf0f9f645f5c1b2d967b3238292500693a5312e7a"
+          "bytes": 484450,
+          "sha256": "30768573ac67111fa1bffafaf6825ae5f00cde4828ab918941ea30caeb25f03f"
         },
         {
           "path": "e2e/visual/goldens/darwin/palette-card-rest-palettes-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -956,8 +956,8 @@
         {
           "path": "e2e/visual/goldens/darwin/reduced-motion-desktop-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "reduced-motion-desktop-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 583390,
-          "sha256": "5d768a209fd0de1e9c3f5da9e58c39b6460b2a777ac137e77faa460794aa2675"
+          "bytes": 583437,
+          "sha256": "52ec3dad36ede6cdb2a0062b4856ec38b565ee3b073781afbc8477e26cced7d1"
         },
         {
           "path": "e2e/visual/goldens/darwin/reduced-motion-desktop-not-found-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -1046,8 +1046,8 @@
         {
           "path": "e2e/visual/goldens/darwin/rtl-desktop-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "rtl-desktop-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 584666,
-          "sha256": "0ae7668f78578e34d5040516d638d4df7e99fb1643adced68f72579539fbd3f9"
+          "bytes": 584729,
+          "sha256": "49f0a0ee5a0cab6b8034e8d04a97125e61da9124f90385afae4946caa35086ab"
         },
         {
           "path": "e2e/visual/goldens/darwin/rtl-desktop-not-found-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -1136,8 +1136,8 @@
         {
           "path": "e2e/visual/goldens/darwin/rtl-mobile-mix-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "rtl-mobile-mix-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 480091,
-          "sha256": "325de5900d7f38aced5d08cfe6be6bb9285899a44c3501053dac0cd1191d4b34"
+          "bytes": 480247,
+          "sha256": "c96e20658ef56cc366c0237e0f750ec4a2cc838c541b32509ae519ec6a971b43"
         },
         {
           "path": "e2e/visual/goldens/darwin/rtl-mobile-not-found-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -1172,8 +1172,8 @@
         {
           "path": "e2e/visual/goldens/darwin/seeded-admin-admin-names-populated-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "seeded-admin-admin-names-populated-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 435747,
-          "sha256": "52b6af33507416f606895496bd8d2244dc9550440f6175a0c398cfa109155422"
+          "bytes": 465301,
+          "sha256": "854cd20f8f56bb7fb31d41be0ebdfbc5edc14e5bd657046bea735c369f6b914c"
         },
         {
           "path": "e2e/visual/goldens/darwin/seeded-admin-admin-names-populated-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -1184,8 +1184,8 @@
         {
           "path": "e2e/visual/goldens/darwin/seeded-fixture-browse-mid-fetch-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "seeded-fixture-browse-mid-fetch-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 488150,
-          "sha256": "18c066998fa9ef204cf32b177c81812c637fdc2983ad049c213c38a2f3b491d7"
+          "bytes": 528479,
+          "sha256": "6a6399fe82e7860bf9ef82cf36fc0221a38c7c5f9dee5066be1b980108a6bb89"
         },
         {
           "path": "e2e/visual/goldens/darwin/seeded-fixture-browse-mid-fetch-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -1196,8 +1196,8 @@
         {
           "path": "e2e/visual/goldens/darwin/seeded-storage-palettes-populated-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "seeded-storage-palettes-populated-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 519372,
-          "sha256": "4a75322eed1c7fd4a9a5b8792aef2c4ec32157d361b2c510b4fa56115557e0ed"
+          "bytes": 555695,
+          "sha256": "9a5bdf149bdfdb659d99533ff034a86720c482081a0244645a2a4d9bf64d3091"
         },
         {
           "path": "e2e/visual/goldens/darwin/seeded-storage-palettes-populated-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -1280,8 +1280,8 @@
         {
           "path": "e2e/visual/goldens/darwin/zoom-200-desktop-mix-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "zoom-200-desktop-mix-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 432468,
-          "sha256": "d5983d0edc7644e6f0ab02657b0e696baf1a956fe72518a7daa97a1f857ccea1"
+          "bytes": 432653,
+          "sha256": "17bae7b13673d253624453733585a345cd4eefadd1b8dcb57a98e940323aef39"
         },
         {
           "path": "e2e/visual/goldens/darwin/zoom-200-desktop-not-found-both-720x450-2-light-emulated-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
