@@ -461,6 +461,31 @@ test("the seat rail frees the meniscus: every rail ordinal mints, at any rail wi
     // ANY rail width: the desktop cell and the narrow cell, same census.
     for (const width of [1440, 390]) {
         await page.setViewportSize({ width, height: 844 });
+        // The resize moves the row's split, which travels (G9, o1105:
+        // `.pane-container` transitions grid-template-columns), so the rail is
+        // read at rest: a mid-travel rail is 785.58 px wide (total 786, 785
+        // columns), at rest 784.34. Wait until a frame finds no finite
+        // animation running in the row.
+        await page.evaluate(async () => {
+            const frame = () => new Promise<void>((r) => requestAnimationFrame(() => r()));
+            for (;;) {
+                await frame();
+                await frame();
+                const row = document.querySelector(".pane-container");
+                const running = document.getAnimations().filter((a) => {
+                    const t = (a.effect as KeyframeEffect | null)?.target;
+                    return (
+                        a.playState === "running" &&
+                        t instanceof Element &&
+                        row != null &&
+                        (row.contains(t) || t.contains(row)) &&
+                        Number.isFinite(a.effect?.getComputedTiming().endTime)
+                    );
+                });
+                if (running.length === 0) return;
+                await Promise.all(running.map((a) => a.finished.catch(() => undefined)));
+            }
+        });
         await rail.scrollIntoViewIfNeeded();
         const c = await census(rail);
         expect(c.addable).toBe(c.total);
