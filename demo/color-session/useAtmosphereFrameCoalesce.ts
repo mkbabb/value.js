@@ -32,7 +32,7 @@ import { useEventListener } from "@vueuse/core";
  * `useColourLive` — whether a continuous input is driving the colour (o1105-r2
  * perf). A colour frame under a held pointer, or a second frame inside
  * {@link SETTLE_MS} of the one before, turns it on; {@link SETTLE_MS} of quiet
- * turns it off. A click picks on release, one frame, so it never turns it on:
+ * with no pointer held turns it off. A click picks on release, one frame, so it never turns it on:
  * a swatch click still breathes, a drag tracks.
  *
  * Call each synchronously within a setup/effect scope.
@@ -107,17 +107,21 @@ export function useColourLive(frame: Readonly<Ref<string>>, ms: number = SETTLE_
     // A colour frame under a held pointer is a drag at any frame rate (a slow
     // device spaces its frames past SETTLE_MS); the interval test covers a
     // held key.
+    // A held pointer keeps it on through a pause: the drag ends on release.
     let pressed = false;
+    const end = () => {
+        if (!pressed) live.value = false;
+    };
     if (typeof window !== "undefined") {
         const opts = { capture: true, passive: true } as const;
         useEventListener(window, "pointerdown", () => (pressed = true), opts);
         for (const type of ["pointerup", "pointercancel"] as const) {
-            useEventListener(window, type, () => (pressed = false), opts);
+            useEventListener(window, type, () => {
+                pressed = false;
+                if (live.value) settle(end, false);
+            }, opts);
         }
     }
-    const end = () => {
-        live.value = false;
-    };
     let last = -Infinity;
     watch(frame, () => {
         const now = performance.now();

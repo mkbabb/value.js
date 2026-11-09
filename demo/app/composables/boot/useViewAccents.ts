@@ -225,10 +225,15 @@ export function useViewAccents(options: UseViewAccentsOptions) {
                 cssColorOpaque,
             ],
             ([, , shift, dark], old) => {
-                settle(mintOffScreen, !old || old[2] !== shift || old[3] !== dark);
+                const now = !old || old[2] !== shift || old[3] !== dark;
+                // o1105-r2 perf: a pause inside a drag is not a settle.
+                if (now || !colourLive.value) settle(mintOffScreen, now);
             },
             { immediate: true },
         );
+        watch(colourLive, (live) => {
+            if (!live) settle(mintOffScreen, true);
+        });
         // o1105-r2 perf: the root holds through a drag; the live value reaches
         // the accent's painted readers where they stand (useAtmosphereBoot).
         watch(
