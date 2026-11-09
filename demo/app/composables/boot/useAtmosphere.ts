@@ -39,8 +39,7 @@ import {
     DEFAULT_AURORA_ATOMS,
     SOFTWARE_RASTER_KEY,
 } from "../../../scenes/atmosphere/aurora-atoms";
-import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
-import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
+import { provideHeroBlobConfig } from "../../../picker/visual/heroBlobConfig";
 import { GROUND_STORE_KEY, buildGroundRecord, type GroundRecord } from "./ground";
 import { fieldAtomsFor, groundStopsFor } from "./seeded-ground";
 
@@ -327,32 +326,9 @@ export function useAtmosphere(
         { immediate: true },
     );
 
-    // --- Blob config ---
-    // The 8-atom nested config — structuredClone so the reactive copy owns
-    // deep atoms (the aurora precedent above does the same).
-    const blobConfig = reactive(structuredClone(BLOB_CONFIG_DEFAULTS));
-    provide(BLOB_CONFIG_KEY, blobConfig);
-
-    // --- Live-palette coupling — the hero blob IS the palette made flesh ---
-    // The active picker color seeds a harmonious OKLCh ramp (≤4 stops) that
-    // flows straight into the blob's spatial multi-stop color field. glass-ui's
-    // Blob deep-watches `config.color.paletteStops`, so a colour change
-    // repaints free.
-    watch(
-        atmosphereColor,
-        (css) => {
-            try {
-                blobConfig.color.paletteStops = deriveBlobPalette(css, {
-                    stopCount: 4,
-                    harmony: "analogous",
-                    chromaCeiling: 0.16,
-                }).map(oklchStopToHex);
-            } catch {
-                // A transient un-parseable colour string leaves the last good ramp.
-            }
-        },
-        { immediate: true },
-    );
+    // --- Blob config --- the hero blob IS the palette made flesh (one source,
+    // shared with the embed's picker slice).
+    provideHeroBlobConfig(atmosphereColor);
 
     return { auroraCssGradient, auroraArrived, derivedLightness, plateReferent };
 }

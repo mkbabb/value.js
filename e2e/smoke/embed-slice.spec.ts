@@ -76,13 +76,22 @@ test("the picker slice is ready, themed and sized, and speaks only to its host",
     expect(ready.data.height as number).toBeGreaterThan(200);
 
     const frame = sliceFrame();
-    // The app's own plate, field and console; her eight swatches, the first pressed; no standing caption.
+    // The app's own picker, whole: its space selector, hero readout, field,
+    // console and hero blob; her eight swatches, the first pressed.
     await expect(frame.locator(".picker-plate")).toBeVisible();
+    await expect(frame.getByRole("combobox", { name: "Select color space" })).toHaveCount(1);
+    await expect(frame.locator(".readout")).toHaveCount(1);
     await expect(frame.locator(".spectrum-picker")).toBeVisible();
-    await expect(frame.getByRole("group", { name: "Colours" }).getByRole("button")).toHaveCount(8);
+    await expect(frame.locator(".hero-blob-anchor canvas")).toHaveCount(1);
+    const swatches = frame.getByRole("group", { name: "Colours" }).getByRole("button");
+    await expect(swatches).toHaveCount(8);
     await expect(frame.getByRole("button", { name: "Efflorescence" })).toHaveAttribute("aria-pressed", "true");
-    // No caption: the name is the swatch's accessible name and title, never text on the plate.
-    await expect(frame.getByText("Efflorescence", { exact: true })).toHaveCount(0);
+    // The swatches are the app's living watercolour: solid, animated, each its own seed.
+    const dots = frame.locator(".embed-swatches [data-testid=watercolor-swatch]");
+    await expect(dots).toHaveCount(8);
+    await expect(frame.locator(".embed-swatches .watercolor-animated[data-variant=solid]")).toHaveCount(8);
+    const seeds = await frame.locator(".embed-swatches feTurbulence").evaluateAll((els) => new Set(els.map((e) => e.getAttribute("seed"))).size);
+    expect(seeds).toBe(8);
     // The ground is transparent, and the frame's scheme is the host's.
     expect(await frame.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgba(0, 0, 0, 0)");
     expect(await frame.evaluate(() => document.documentElement.classList.contains("dark"))).toBe(true);
