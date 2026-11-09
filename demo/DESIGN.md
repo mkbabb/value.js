@@ -433,7 +433,7 @@ physical constant (1px hairline, hit-target floor, 60fps budget) is a defect"_.
 | **spacing (φ)**             | `--phi-0..4` = `0.382 · 0.618 · 1 · 1.618 · 2.618 rem` (`demo/styles/foundation.css`, "φ ladder", demo-owned)                                             | base × φⁿ, n = −2..2; neighbouring rungs are φ apart                                                     |
 | **spacing (producer atom)** | `--space-atom` · `--space-body` · … (glass, two values each across the 768px breakpoint)                                                                  | glass §Token Architecture → layout/sizing                                                                |
 | **type**                    | `--type-heading: 1.618rem` → `--type-title: 2.058rem` → `--type-display-*` (glass, as shipped)                                                            | each rung = previous × √φ (glass §Typography → Size tokens); display rungs are viewport-fluid `clamp()`s |
-| **radius**                  | `--radius-card` = `--radius-2xl` = `1rem`; `--radius-panel` = `--radius-xl` = `12px`; `--radius-media` = `--radius` = `0.625rem`; `--radius-pill: 9999px` | glass §Border Radius; nested radii are concentric (law P-3)                                              |
+| **radius**                  | `--radius-card` = `--radius-2xl` = `1rem`; `--radius-panel` = `--radius-xl` = `12px`; `--radius-media` = `--radius` = `0.625rem`; `--radius-pill: 1rem` (glass 11.0.0: a stadium up to a 32px box, 16px corners above it); `--radius-circle: 50%` | glass §Border Radius; nested radii are concentric (law P-3)                                              |
 | **aspect (spectrum)**       | `--spectrum-aspect-min: 1.618034` · `--spectrum-aspect-max: 2.058171` (`demo/styles/foundation.css`, V-D1)                                               | φ ≤ w/h ≤ φ·√φ; the plane's block size is `clamp(100cqi / max, 20svh, 100cqi / min)` in its figure; at lg the picker card is bounded by `--scene-band-block` and the plane is its elastic member (`flex: 0 1 auto`, floor `min(20svh, 100cqi / max)`), so a data-dependent row never scrolls the one-viewport shell (V-D1.r2, superseding §0hw.13's 34svh budget)     |
 | **motion weight**           | `--motion-weight: 0.618` at rest, `0` under reduce                                                                                                        | 1/φ (glass §L4)                                                                                          |
 
@@ -511,7 +511,7 @@ Role-bearing tokens (glass §Border Radius → Semantic roles):
 - `rounded-pill` / `rounded-full`: chips, slug pills, the dock control.
 - `rounded-panel` (12px): popovers, the bulk-action toolbar, the eyedropper overlay.
 
-Pill radius (`--radius-pill: 9999px`) is the dock control's signature shape
+Pill radius (`--radius-pill`, `1rem` since glass 11.0.0, so a box taller than 32px shows 16px corners) is the dock control's signature shape
 (`--radius-dock = var(--radius-pill)` in glass-ui), the slug-pill recipe, and the touch-gate
 outline on slider tracks. Never hand-roll `rounded-full` or `rounded-[9999px]` when a role token
 applies. Markdown `<pre>` and `<img>` carry their own radii in `Markdown.vue`'s scoped style, for

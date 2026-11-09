@@ -1,5 +1,5 @@
 <template>
-    <DropdownMenu :open="menuOpen" @update:open="$emit('updateOpen', $event)">
+    <DropdownMenu :open="menuOpen" modal @update:open="$emit('updateOpen', $event)">
         <DropdownMenuTrigger as-child>
             <slot name="trigger" />
         </DropdownMenuTrigger>

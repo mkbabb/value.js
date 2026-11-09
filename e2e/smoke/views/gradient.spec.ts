@@ -633,13 +633,17 @@ test("gradient selector aurora", async ({ page }) => {
         }
     };
     walk(join(pkg, "dist"));
+    // Every aurora keyframe is counted for the census, but only a strip-scale
+    // motion (the same FIT ladder the export legs use) is a fit. glass 11.0.0
+    // published its first, `aurora-ground-in-<scope>`: the static ground's
+    // one-shot opacity arrival (dist/aurora.css), not a motion a ramp composes.
     const auroraKeyframes = cssFiles.flatMap((f) =>
         [...readFileSync(f, "utf8").matchAll(/@keyframes\s+([\w-]*aurora[\w-]*)/gi)].map((m) => m[1]!),
     );
     const fitting = [
         ...exported.filter((n) => FIT.test(n)),
         ...Object.keys(manifest.exports).filter((k) => FIT.test(k)),
-        ...auroraKeyframes,
+        ...auroraKeyframes.filter((k) => FIT.test(k)),
     ];
 
     await page.goto("/#/gradient");
@@ -727,12 +731,13 @@ test("gradient selector aurora", async ({ page }) => {
         // is re-run beside it as a dated addendum whenever the installed glass
         // moves. Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`),
         // X.W11.v1c to glass 10.1.1 (`f77db7842`), and X.W11.v1e to glass
-        // 10.1.2 (`6e91083c2`).
+        // 10.1.2 (`6e91083c2`), 10.1.3 (X.W11.n1) and 11.0.0 (§0hz.glass11.color).
         const censusAddenda = [
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-16.md",
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-27.md",
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-29.md",
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-31.md",
+            "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-11-09.md",
         ].map((f) => join(process.cwd(), f));
         const ask = [askPath, ...censusAddenda]
             .map((f) => readFileSync(f, "utf8"))

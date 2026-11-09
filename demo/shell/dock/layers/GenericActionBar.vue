@@ -188,7 +188,7 @@ const failedMessage = computed(() =>
 
         <!-- X.W12U.m3 (X-13-RUN): the seats the run cannot hold, in the face's
              menu — the same names, states and dispatch as their seats. -->
-        <DropdownMenu v-if="menuSeats.length > 0" v-model:open="menuOpen">
+        <DropdownMenu v-if="menuSeats.length > 0" v-model:open="menuOpen" modal>
             <DropdownMenuTrigger as-child>
                 <DockControl class="shrink-0" aria-label="More actions">
                     <Ellipsis class="w-6 h-6" />

@@ -22,8 +22,11 @@ import { meanRGB, rgbDistance, screenshotPixels } from "./gradient-pixels";
  * 2 · The owned paint stack (computed contract): ramp = layer-1
  *     `linear-gradient(90deg,…)`, no-repeat, border-box origin AND clip,
  *     over the alpha-checker layer — the geometry that makes 1 hold.
- * 3 · Pill silhouette (T-46): border-radius ≥ half the rail height — the
- *     glass-ui slider-track rounding register.
+ * 3 · Silhouette (T-46, "rounded like our glass-ui elements"): the rail's
+ *     corner IS glass's `--radius-pill` register, resolved in the rail's own
+ *     cascade and clamped at half the height as the browser clamps it. Since
+ *     glass 11.0.0 the register is 1rem (a stadium only up to a 32px box), so
+ *     the assertion reads the register instead of a hard-coded stadium.
  * 4 · Ruler grammar: exactly TWO terminal caps at the inset track's 0/100,
  *     every iso-ΔE rung strictly interior — the termination law visible.
  */
@@ -109,18 +112,35 @@ test("the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+
     expect(consoleErrors).toEqual([]);
 });
 
-test("pill silhouette (T-46): the rail rounds on the glass-ui slider-track register", async ({
+test("silhouette (T-46): the rail rounds on the glass-ui slider-track register", async ({
     page,
 }) => {
     const consoleErrors = setupEnvNoise(page);
     const main = await openGradient(page);
     const rail = bar(main);
 
-    const { radius, height } = await rail.evaluate((el) => ({
-        radius: parseFloat(getComputedStyle(el).borderTopLeftRadius),
-        height: el.getBoundingClientRect().height,
-    }));
-    expect(radius).toBeGreaterThanOrEqual(height / 2);
+    const { radii, register, height } = await rail.evaluate((el) => {
+        const cs = getComputedStyle(el);
+        // The register, resolved in the rail's own cascade (a probe child).
+        const probe = document.createElement("span");
+        probe.style.borderTopLeftRadius = "var(--radius-pill)";
+        el.appendChild(probe);
+        const register = parseFloat(getComputedStyle(probe).borderTopLeftRadius);
+        probe.remove();
+        return {
+            radii: [
+                cs.borderTopLeftRadius,
+                cs.borderTopRightRadius,
+                cs.borderBottomRightRadius,
+                cs.borderBottomLeftRadius,
+            ].map((v) => parseFloat(v)),
+            register,
+            height: el.getBoundingClientRect().height,
+        };
+    });
+    expect(register, "glass publishes --radius-pill").toBeGreaterThan(0);
+    // The used corner is min(register, h/2): the browser's own clamp.
+    for (const r of radii) expect(Math.min(r, height / 2)).toBeCloseTo(Math.min(register, height / 2), 1);
 
     expect(consoleErrors).toEqual([]);
 });

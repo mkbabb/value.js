@@ -1,5 +1,5 @@
 <template>
-    <DropdownMenu v-bind="popups.bind('sort')">
+    <DropdownMenu v-bind="popups.bind('sort')" modal>
         <DropdownMenuTrigger as-child>
             <!-- S.W5-4: the triplicated hand-rolled icon-trigger recipe dies
                  onto the sanctioned glass-ui atom (+ the missing name). -->
