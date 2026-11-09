@@ -386,8 +386,11 @@ const sceneActionTarget: ColorSceneTarget = {
     paletteActive,
     reset: () => emit("reset"),
     copy: () => {
-        updateModel({ inputColor: formatCssCaption(formattedCurrentColor.value) });
-        void writeClipboard(formattedCurrentColor.value);
+        // O-1109: the clipboard takes the text the field shows, not the
+        // address's twelve-decimal spelling.
+        const text = formatCssCaption(formattedCurrentColor.value);
+        updateModel({ inputColor: text });
+        void writeClipboard(text);
     },
     random: () => setCurrentColor(generateRandomColor(model.value.selectedColorSpace)),
 };

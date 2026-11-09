@@ -32,7 +32,13 @@ import {
     formatExact,
 } from "../../color-session/format-color";
 import { canonicalColor } from "../../palettes/export/canonical";
-import { PICKER_CHANNELS } from "../../color-session/picker-color";
+import {
+    PICKER_CHANNELS,
+    convertPickerColor,
+    pickerColorToHex,
+    serializePickerColor,
+} from "../../color-session/picker-color";
+import { composeTitle } from "../../app/router/useDocumentTitle";
 
 function color(result: { ok: true; value: AnyColor } | { ok: false }): AnyColor {
     if (!result.ok) throw new Error("fixture colour failed to construct");
@@ -173,7 +179,7 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         ["B10", "workbenches/generate/GenerateControls.vue", "`Copy ${formatCssCaption(css)}`", 1],
         ["B11", MSS, "`Add color ${formatCssCaption(color.css)} from ${palette.name}`", 1],
         // §5 — the model write-back (1)
-        ["WB", "picker/ColorPicker.vue", "updateModel({ inputColor: formatCssCaption(formattedCurrentColor.value) })", 1],
+        ["WB", "picker/ColorPicker.vue", "const text = formatCssCaption(formattedCurrentColor.value)", 1],
     ];
 
     it("the census is the OM-14 denominator: 16 text + 10 ARIA + 1 write-back = 27 (UIA-V-12 retired one text site)", () => {
@@ -219,4 +225,58 @@ describe("G17 — the compact-count sites read through the facility", () => {
             expect(bytes).toMatch(/import \{[^}]*\bformatCount\b[^}]*\} from "(?:\.\.\/)+color-session\/format-color"/);
         });
     }
+});
+
+/**
+ * O-1109 title — the owner read `oklch(49.72025568…` beside the favicon. The tab
+ * title takes the colour off the address, which carries the round-trip spelling
+ * (twelve decimals); the title is a caption, so it reads through the caption
+ * register like every other place a colour is read as text.
+ *
+ * The sweep: seeded colours, every picker space plus hex, spelled the way the
+ * address spells them, then titled. No numeral in a title may carry more than
+ * the caption policy's four significant digits.
+ */
+describe("O-1109 — the document title reads the colour in the caption register", () => {
+    const significant = (numeral: string): number =>
+        numeral.replace(/^[-+]/, "").replace(".", "").replace(/^0+/, "").length;
+    let seed = 0x1109;
+    const next = (): number => {
+        seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+        return seed / 2 ** 32;
+    };
+
+    it("a colour sweep over every space titles at four significant digits", () => {
+        const spaces = Object.keys(PICKER_CHANNELS) as (keyof typeof PICKER_CHANNELS)[];
+        let titled = 0;
+        for (let i = 0; i < 24; i++) {
+            const source = color(oklch(0.2 + next() * 0.7, next() * 0.3, next() * 360, next() < 0.5 ? 1 : next()));
+            for (const space of spaces) {
+                const address = serializePickerColor(convertPickerColor(source, space));
+                const title = composeTitle("picker", address);
+                for (const numeral of title.match(/-?\d+(?:\.\d+)?/g) ?? []) {
+                    expect(significant(numeral), `${space}: ${title}`).toBeLessThanOrEqual(4);
+                }
+                expect(title).toBe(`${formatCssCaption(address)} — Color Picker`);
+                titled++;
+            }
+            const hex = pickerColorToHex(source);
+            expect(composeTitle("picker", hex)).toBe(`${hex} — Color Picker`);
+        }
+        expect(titled).toBe(24 * spaces.length);
+    });
+
+    it("the owner's frame: the full-precision oklch reads short", () => {
+        expect(
+            composeTitle("picker", "oklch(49.720255681234% 0.203398722211 7.712345678901deg)"),
+        ).toBe("oklch(49.72% 0.2034 7.712deg) — Color Picker");
+    });
+
+    it("a named colour keeps its name; a pane title keeps its pane", () => {
+        expect(composeTitle("picker", "tomato")).toBe("tomato — Color Picker");
+        expect(formatCssCaption("tomato")).toBe("tomato");
+        expect(composeTitle("gradient", "oklch(0.623456789012 0.123456789012 210.456789012345)")).toContain(
+            "oklch(62.35% 0.1235 210.5deg) · ",
+        );
+    });
 });
