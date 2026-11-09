@@ -1,0 +1,110 @@
+[
+ {
+  "tag": "touch390",
+  "scheme": "light",
+  "featured": [
+   {
+    "head": "- 'article \"Palette: Neon Cyberpunk\"':",
+    "nameHas": false,
+    "bodyHas": false
+   }
+  ],
+  "card": "Neon Cyberpunk",
+  "discloseCount": 0,
+  "ae0": null,
+  "open": true,
+  "ae1": null,
+  "ae2": null,
+  "ok": false
+ },
+ {
+  "tag": "touch390",
+  "scheme": "dark",
+  "featured": [
+   {
+    "head": "- 'article \"Palette: Neon Cyberpunk\"':",
+    "nameHas": false,
+    "bodyHas": false
+   }
+  ],
+  "card": "Neon Cyberpunk",
+  "discloseCount": 0,
+  "ae0": null,
+  "open": true,
+  "ae1": null,
+  "ae2": null,
+  "ok": false
+ },
+ {
+  "tag": "touch430",
+  "scheme": "light",
+  "featured": [
+   {
+    "head": "- 'article \"Palette: Neon Cyberpunk\"':",
+    "nameHas": false,
+    "bodyHas": false
+   }
+  ],
+  "card": "Neon Cyberpunk",
+  "discloseCount": 0,
+  "ae0": null,
+  "open": true,
+  "ae1": null,
+  "ae2": null,
+  "ok": false
+ },
+ {
+  "tag": "touch430",
+  "scheme": "dark",
+  "featured": [
+   {
+    "head": "- 'article \"Palette: Neon Cyberpunk\"':",
+    "nameHas": false,
+    "bodyHas": false
+   }
+  ],
+  "card": "Neon Cyberpunk",
+  "discloseCount": 0,
+  "ae0": null,
+  "open": true,
+  "ae1": null,
+  "ae2": null,
+  "ok": false
+ },
+ {
+  "tag": "mouse390",
+  "scheme": "light",
+  "featured": [
+   {
+    "head": "- 'article \"Palette: Neon Cyberpunk\"':",
+    "nameHas": false,
+    "bodyHas": false
+   }
+  ],
+  "card": "Neon Cyberpunk",
+  "discloseCount": 1,
+  "ae0": "false",
+  "open": true,
+  "ae1": "true",
+  "ae2": "false",
+  "ok": false
+ },
+ {
+  "tag": "mouse390",
+  "scheme": "dark",
+  "featured": [
+   {
+    "head": "- 'article \"Palette: Neon Cyberpunk\"':",
+    "nameHas": false,
+    "bodyHas": false
+   }
+  ],
+  "card": "Neon Cyberpunk",
+  "discloseCount": 1,
+  "ae0": "false",
+  "open": true,
+  "ae1": "true",
+  "ae2": "false",
+  "ok": false
+ }
+]
