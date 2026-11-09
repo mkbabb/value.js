@@ -104,6 +104,8 @@ const {
 </script>
 
 <style scoped>
+@reference "../../styles/foundation.css";
+
 .palette-specimen {
     display: contents;
 }
@@ -154,12 +156,13 @@ const {
 .palette-specimen__yield-4 {
     display: none;
 }
-.palette-specimen__yield-3 {
-    display: none;
-}
-@container specimen-head (min-width: 16rem) {
+/* X·§0ht.a11y: priority 3 (the Featured label) yields to the EYE only — the
+ * clip pattern (`sr-only`), so the badge keeps its name in the accessibility
+ * tree (its glyph is aria-hidden). Out of flow, so the head's measure is the
+ * same as display: none's. */
+@container specimen-head (width < 16rem) {
     .palette-specimen__yield-3 {
-        display: inline;
+        @apply sr-only;
     }
 }
 @container specimen-head (min-width: 20rem) {
