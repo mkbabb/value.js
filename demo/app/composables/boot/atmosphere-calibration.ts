@@ -14,7 +14,8 @@
  * this module):
  *   · colorEnergy 0.76        — the energy step (aurora-atoms.ts; saturation
  *                               ≈1.12, below the 0.82 pole's register)
- *   · softmaxBeta 3 → 4       — zones resolve as COMPOSITION, not blur (F-9)
+ *   · softmaxBeta 3 → 10      — zones resolve as COMPOSITION, not blur (F-9;
+ *                               4 until o1105, which read it as a flat wash)
  *   · breathPeriod 40 → 26s   — the breath crosses the perceptual floor (F-8)
  *   · vividness = smoothstep(0.02, 0.10, seedC) — a gray pick keeps a sage
  *     WHISPER (C≈0.03–0.05), never the marigold shout (F-11: the producer's
@@ -22,8 +23,9 @@
  *     vividness 1)
  *
  * Q2-FULL (P1-GATED, re-judged at W7 — deliberately NOT landed here):
- * chroma-adaptive hueSpread [24°,64°] · the +165° counterpoint stop ·
- * drift ×1.6. The POINTER retune is DEFERRED until P1's honesty fix lands
+ * chroma-adaptive hueSpread [24°,64°] · the +165° counterpoint stop.
+ * (Drift ×1.6 landed at o1105 with the orbit reach; see CALIBRATED_DRIFT_*.)
+ * The POINTER retune is DEFERRED until P1's honesty fix lands
  * (F-10 — two of three axes are structurally dead shader paths on smooth;
  * never calibrate against dead axes).
  *
@@ -63,8 +65,36 @@ import { clamp } from "@mkbabb/value.js/math";
  *  sub-JND (the O-26 calm band). */
 export const CALIBRATED_BREATH_PERIOD = 26;
 
-/** Structure: zones resolve as composition, not blur (F-9's two-tone wash). */
-export const CALIBRATED_SOFTMAX_BETA = 4;
+/** Structure: zones resolve as composition, not blur (F-9's two-tone wash).
+ *  At 4 the six r = 0.5 nuclei overlapped so far that the softmax averaged the
+ *  ramp to its middle: the served field read L sd 0.03 and a flat wash, with
+ *  nothing for drift to move (o1105). At 10 each zone holds its own stop. */
+export const CALIBRATED_SOFTMAX_BETA = 10;
+
+/** Life: the producer's "drifting" register moves a nucleus 0.045 uv round a
+ *  ~30 s orbit, so even with resolved zones a 1.5 s glance moves almost no
+ *  pixel (o1105: movedFrac ≤ 0.002 on prod, every seed, both schemes). The
+ *  backdrop keeps the register the atoms chose and scales it: the nuclei
+ *  wander to the schema's 0.08 uv orbit (REACH) and the drift clocks run
+ *  ×1.6 (TEMPO, the Q2-FULL figure), one orbit in ~19 s. "still" stays still
+ *  (0 × gain); reduced motion freezes the clock upstream of these terms. */
+export const CALIBRATED_DRIFT_REACH = 1.75;
+export const CALIBRATED_DRIFT_TEMPO = 1.6;
+
+/** Scale the resolved drift register by REACH (nuclei orbit radius) and TEMPO
+ *  (the nuclei, palette and warp clocks). Pure. */
+function calibrateDrift(config: AuroraConfig): AuroraConfig {
+    return {
+        ...config,
+        nucleiDrift: config.nucleiDrift * CALIBRATED_DRIFT_TEMPO,
+        paletteDrift: config.paletteDrift * CALIBRATED_DRIFT_TEMPO,
+        warpDrift: config.warpDrift * CALIBRATED_DRIFT_TEMPO,
+        nuclei: config.nuclei.map((n) => ({
+            ...n,
+            driftRadius: n.driftRadius * CALIBRATED_DRIFT_REACH,
+        })),
+    };
+}
 
 /** The vividness ride-down band: below C 0.02 a pick is achromatic (vividness
  *  0 — sage whisper only); above 0.10 fully chromatic (the floor may sing). */
@@ -112,7 +142,7 @@ export function resolveCalibratedAtmosphere(atoms: AuroraAtoms): AuroraConfig {
         softmaxBeta: CALIBRATED_SOFTMAX_BETA,
         vividness: vividnessForSeedChroma(seedChroma(atoms.seed)),
     };
-    return resolveAtoms(atoms, base);
+    return calibrateDrift(resolveAtoms(atoms, base));
 }
 
 // --- T.W8 · P9-R3 / T-37 — THE DERIVE-SEAM GUARANTEE ---------------------------
@@ -179,16 +209,20 @@ const SEED_BAND_WIDTH = DERIVE_L_SPREAD / 2;
  * jump 2 × the floor somewhere (glass W-0.1 lifts the dark ceiling to 0.98,
  * where the step sits by the near-white seeds, as in light). At 0.98 the
  * slide never fires and the band narrows instead (L > 0.92 has no room above
- * and the guard below flips the field under the wax). Undefined for an
+ * and the guard below flips the field under the wax). Over a lightness
+ * `floor` (0.02 in light; the dark field's is `DARK_FIELD_FLOOR`) a band
+ * that would sink under it rises onto it, which only widens the seam (the
+ * mean moves up, away from a seed already below it). Undefined for an
  * un-parseable seed.
  */
 export function seedAnchoredLBand(
     seed: AuroraAtoms["seed"],
     ceiling = 0.98,
+    floor = 0.02,
 ): readonly [number, number] | undefined {
     const L = seedLightness(seed);
     if (L == null) return undefined;
-    let c = L + DERIVE_SEAM_FLOOR;
+    let c = Math.max(L + DERIVE_SEAM_FLOOR, floor + SEED_BAND_WIDTH / 2);
     if (ceiling < 0.98 && c + SEED_BAND_WIDTH / 2 > ceiling) {
         c = ceiling - SEED_BAND_WIDTH / 2;
         if (Math.abs(c - L) < DERIVE_SEAM_FLOOR) c = L - DERIVE_SEAM_FLOOR;
