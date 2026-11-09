@@ -16,13 +16,19 @@ import { detectRenderer, isSoftwareGL } from "./perf/frame-budget";
  *     never steps by more than a quarter of its whole travel in one frame
  *     (before: one step of 100 %); a pane returned from the KeepAlive cache (A → B → A) rests at
  *     its region's origin with no transform.
+ *   · G9 (round 2) — a hop that moves the split or the scene's height
+ *     travels: `.pane-container` takes more than two heights when its height
+ *     changes by more than 48 px (before: exactly two, 716 → 572 and 1296 →
+ *     961), the stage region's width never covers more than 60 % of a >100 px
+ *     travel in one 60 Hz frame (before: 651 → 450 in one), and a leaver keeps
+ *     the block size it was drawn at (before: About unrolled to ~6.6k px).
  * The before arm (out-in, opacity-led) is RED on U1's opacity rows and on U2's
  * plate step (428 px in one frame at 1440); the record is the lane's `~/.dev-logs/o1105/transitions-value`.
  */
 
 type Kid = { id: number; op: number; pos: string; h: number; leave: boolean; edge: number | null };
 type Region = { role: string; oh: number; kids: Kid[] };
-type Sample = { t: number; sw: number; iw: number; w: Region[] };
+type Sample = { t: number; sw: number; iw: number; ph: number; w: Region[]; stw: number | null };
 
 async function hop(page: Page, hash: string): Promise<Sample[]> {
     return page.evaluate(async (hash) => {
@@ -43,6 +49,8 @@ async function hop(page: Page, hash: string): Promise<Sample[]> {
             t: performance.now(),
             sw: document.documentElement.scrollWidth,
             iw: window.innerWidth,
+            ph: document.querySelector<HTMLElement>(".pane-container")!.getBoundingClientRect().height,
+            stw: document.querySelector<HTMLElement>(".pane-wrapper--stage")?.getBoundingClientRect().width ?? null,
             w: [...document.querySelectorAll<HTMLElement>(".pane-container > .pane-wrapper")].map((w) => ({
                 role: /pane-wrapper--(\w+)/.exec(w.className)?.[1] ?? "",
                 oh: w.offsetHeight,
@@ -99,6 +107,36 @@ function deckFaults(samples: Sample[]) {
     return [...new Set(faults)];
 }
 
+/** G9: the scene's height and the row's split travel; a leaver keeps its drawn block size. */
+function sizeFaults(samples: Sample[]) {
+    const faults: string[] = [];
+    const hs = samples.map((s) => Math.round(s.ph));
+    if (Math.abs(hs[hs.length - 1]! - hs[0]!) > 48 && new Set(hs).size <= 2)
+        faults.push(`pane-container height snapped ${hs[0]} → ${hs[hs.length - 1]} (${new Set(hs).size} values)`);
+    // the width step is scaled to one 60 Hz frame of elapsed time, as
+    // `plateSteps` is: a long software-GL frame is frame production, a snap
+    // is a discontinuity at any frame rate
+    const ws = samples.filter((s) => s.stw != null).map((s) => [s.t, s.stw!] as const);
+    const xs = ws.map(([, x]) => x);
+    const travel = xs.length ? Math.max(...xs) - Math.min(...xs) : 0;
+    let step = 0;
+    for (let i = 1; i < ws.length; i++) {
+        const dt = Math.max(1000 / 60, ws[i]![0] - ws[i - 1]![0]);
+        step = Math.max(step, (Math.abs(ws[i]![1] - ws[i - 1]![1]) * (1000 / 60)) / dt);
+    }
+    if (travel > 100 && step > 0.6 * travel) faults.push(`stage width stepped ${step.toFixed(0)} of ${travel.toFixed(0)} px in one frame`);
+    const drawn = new Map<number, number>();
+    for (const s of samples)
+        for (const w of s.w)
+            for (const k of w.kids) {
+                if (!k.leave) drawn.set(k.id, k.h);
+                // 48 px of slack: the row's split may still be travelling between
+                // the last in-flow frame and the leave (an unroll is thousands)
+                else if (drawn.has(k.id) && k.h > drawn.get(k.id)! + 48) faults.push(`${w.role}: leaver grew ${drawn.get(k.id)} → ${k.h}`);
+            }
+    return [...new Set(faults)];
+}
+
 /**
  * Per plate (by identity): its whole travel and its largest single-frame step,
  * the step scaled to one 60 Hz frame of elapsed time (a 50 ms frame on a
@@ -125,7 +163,7 @@ for (const [width, height] of [
     [1440, 900],
     [390, 844],
 ] as const) {
-    test(`O1105 deck · ${width}: stacked card swap — no empty or summed region, opacity held, no side scroll`, async ({ page }) => {
+    test(`O1105 deck · ${width}: stacked card swap — no empty or summed region, opacity held, no side scroll, sizes travel`, async ({ page }) => {
         test.setTimeout(180_000);
         await page.setViewportSize({ width, height });
         await page.goto("/#/");
@@ -134,8 +172,9 @@ for (const [width, height] of [
         await page.waitForTimeout(1500);
 
         for (const hash of ["#/palettes", "#/mix", "#/gradient"]) {
-            const faults = deckFaults(await hop(page, hash));
-            expect(faults, `${width} → ${hash}`).toEqual([]);
+            const samples = await hop(page, hash);
+            expect(deckFaults(samples), `${width} → ${hash}`).toEqual([]);
+            expect(sizeFaults(samples), `${width} → ${hash} (G9)`).toEqual([]);
         }
         // dual → single: the survivor's plate opens; it never jumps.
         const single = await hop(page, "#/atmosphere");
