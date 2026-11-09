@@ -93,19 +93,30 @@ async function censusView(page: import("@playwright/test").Page) {
     // the split travels (G9), so a box read mid-swap is the scaled pose (750 →
     // 727.5 px). The census reads the panes at rest: once every finite
     // animation and transition in the pane row has finished (event, no timeout;
-    // the infinite breathes never end and are excluded).
-    await page.evaluate(() => {
-        const row = document.querySelector(".pane-container");
-        const finite = document.getAnimations().filter((a) => {
-            const t = (a.effect as KeyframeEffect | null)?.target;
-            return (
-                t instanceof Element &&
-                row != null &&
-                (row.contains(t) || t.contains(row)) &&
-                Number.isFinite(a.effect?.getComputedTiming().endTime)
-            );
-        });
-        return Promise.all(finite.map((a) => a.finished.catch(() => undefined)));
+    // the infinite breathes never end and are excluded). The swap's beats
+    // start across frames (the riser mounts, then the split's transition
+    // starts on the next style pass), so one snapshot of the running
+    // animations can miss the riser; the read repeats, a frame apart, until a
+    // frame finds none running.
+    await page.evaluate(async () => {
+        const frame = () => new Promise<void>((r) => requestAnimationFrame(() => r()));
+        for (;;) {
+            await frame();
+            await frame();
+            const row = document.querySelector(".pane-container");
+            const finite = document.getAnimations().filter((a) => {
+                const t = (a.effect as KeyframeEffect | null)?.target;
+                return (
+                    a.playState === "running" &&
+                    t instanceof Element &&
+                    row != null &&
+                    (row.contains(t) || t.contains(row)) &&
+                    Number.isFinite(a.effect?.getComputedTiming().endTime)
+                );
+            });
+            if (finite.length === 0) return;
+            await Promise.all(finite.map((a) => a.finished.catch(() => undefined)));
+        }
     });
     return page.evaluate(() => {
         const main = document.querySelector("main");
