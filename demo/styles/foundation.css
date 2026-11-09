@@ -600,6 +600,9 @@
      * φ ≤ w/h ≤ φ·√φ — the plane is never a strip and never a square. */
     --spectrum-aspect-min: 1.618034;
     --spectrum-aspect-max: 2.058171;
+    /* The flattest the plane may give to at lg (delegate ruling R-1: the
+     * aspect bar). Past it the plate scrolls its body (SpectrumCanvas). */
+    --spectrum-aspect-bar: 2.5;
     --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
