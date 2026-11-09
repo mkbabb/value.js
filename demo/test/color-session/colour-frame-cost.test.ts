@@ -82,7 +82,6 @@ describe("OD19-V3 — the Palettes ramps leave the drag clock", () => {
         const accent = ref("oklch(0.7 0.15 30)");
         const shift = ref(0);
         const ambient = ref(0.5);
-        const live = ref(false);
         const scope = effectScope();
         scope.run(() =>
             useViewAccents({
@@ -90,10 +89,9 @@ describe("OD19-V3 — the Palettes ramps leave the drag clock", () => {
                 safeAccentCss: computed(() => accent.value),
                 currentConfig: computed(() => ({ accentHueShift: shift.value }) as never),
                 derivedLightness: computed(() => ambient.value),
-                colourLive: live,
             }),
         );
-        return { accent, shift, ambient, live, scope };
+        return { accent, shift, ambient, scope };
     }
 
     const expected = (css: string, ambient: number) => {
@@ -202,9 +200,8 @@ describe("OD19-V3 — one colour frame certifies each question once", () => {
  * Neither is on screen during a picker drag (the modal is closed; the gold
  * glyph is the admin seal's), yet each is a WCAG walk per colour frame. They
  * mint with the ramps once the input settles, and at once on the first run, a
- * view change or a scheme flip. `--accent-view` keeps the frame clock (the
- * seal ink is the Dock's, written on the seal). Settled tokens are byte-equal
- * to a direct mint.
+ * view change or a scheme flip. `--accent-view` and `--seal-ink` keep the
+ * frame clock. Settled tokens are byte-equal to a direct mint.
  */
 describe("o1105 U2 — the off-screen accents settle with the ramps", () => {
     beforeEach(() => vi.useFakeTimers());
@@ -220,7 +217,6 @@ describe("o1105 U2 — the off-screen accents settle with the ramps", () => {
         const accent = ref("oklch(0.7 0.15 30)");
         const shift = ref(0);
         const ambient = ref(0.5);
-        const live = ref(false);
         const scope = effectScope();
         scope.run(() =>
             useViewAccents({
@@ -228,10 +224,9 @@ describe("o1105 U2 — the off-screen accents settle with the ramps", () => {
                 safeAccentCss: computed(() => accent.value),
                 currentConfig: computed(() => ({ accentHueShift: shift.value }) as never),
                 derivedLightness: computed(() => ambient.value),
-                colourLive: live,
             }),
         );
-        return { accent, shift, ambient, live, scope };
+        return { accent, shift, ambient, scope };
     }
 
     /** What a per-frame mint writes for the off-screen tokens. */
@@ -242,7 +237,7 @@ describe("o1105 U2 — the off-screen accents settle with the ramps", () => {
         return [modal, contrastInkFor(modal) ?? "", gold ?? ""];
     };
 
-    it("a drag holds the modal pair and the gold until the input settles, while --accent-view tracks every frame; the settled tokens are byte-equal to a direct mint", async () => {
+    it("a drag holds the modal pair and the gold until the input settles, while --accent-view and --seal-ink track every frame; the settled tokens are byte-equal to a direct mint", async () => {
         const { accent, ambient, scope } = mount();
         const first = offScreen();
         expect(first).toEqual(direct(accent.value, ambient.value));
@@ -256,11 +251,12 @@ describe("o1105 U2 — the off-screen accents settle with the ramps", () => {
             frames++;
             const surfL = resolveSurfaceLightnessLive("resting", ambient.value, isDark.value);
             expect(token("--accent-view")).toBe(resolveViewAccent(accent.value, 0, surfL));
+            expect(token("--seal-ink")).toBe(contrastInkFor(accent.value));
             expect(offScreen()).toEqual(first);
             vi.advanceTimersByTime(16);
         }
-        // Per frame: --accent-view, nothing else.
-        expect(writes.mock.calls.length).toBe(frames);
+        // Per frame: --accent-view and --seal-ink, nothing else.
+        expect(writes.mock.calls.length).toBe(2 * frames);
         writes.mockRestore();
 
         vi.runAllTimers();
@@ -278,29 +274,6 @@ describe("o1105 U2 — the off-screen accents settle with the ramps", () => {
         isDark.value = false;
         await nextTick();
         expect(offScreen()).toEqual(direct(accent.value, ambient.value, 30));
-        scope.stop();
-    });
-
-    // o1105-r2 perf: under a drag the root holds; the live value reaches the
-    // painted readers on themselves (useAtmosphereBoot), so a frame writes no
-    // root token. The settle hands the root the latest value.
-    it("while the colour is live the root --accent-view holds, and takes the latest value when the drag ends", async () => {
-        const { accent, ambient, live, scope } = mount();
-        const before = token("--accent-view");
-        live.value = true;
-        await nextTick();
-        const writes = vi.spyOn(CSSStyleDeclaration.prototype, "setProperty");
-        for (let hue = 40; hue <= 120; hue += 8) {
-            accent.value = `oklch(0.7 0.15 ${hue})`;
-            await nextTick();
-            expect(token("--accent-view")).toBe(before);
-        }
-        expect(writes.mock.calls.filter(([k]) => k === "--accent-view")).toHaveLength(0);
-        writes.mockRestore();
-        live.value = false;
-        await nextTick();
-        const surfL = resolveSurfaceLightnessLive("resting", ambient.value, isDark.value);
-        expect(token("--accent-view")).toBe(resolveViewAccent(accent.value, 0, surfL));
         scope.stop();
     });
 });

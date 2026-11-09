@@ -72,7 +72,6 @@
              re-ruling. -->
         <div
             data-slot="empty-state-trio"
-            data-accent-reader
             class="flex items-end gap-2"
             aria-hidden="true"
         >

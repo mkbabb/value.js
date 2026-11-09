@@ -114,7 +114,6 @@
                                 icon-only
                                 size="lg"
                                 class="add-slot-ghost shrink-0 cursor-pointer"
-                                data-accent-reader
                                 :aria-label="`Add current color ${formatCssCaption(cssColorOpaque)} to palette`"
                                 @click="addCurrentColor"
                             >

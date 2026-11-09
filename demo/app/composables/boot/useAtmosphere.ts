@@ -19,7 +19,7 @@
  */
 
 import { computed, reactive, ref, watch, provide } from "vue";
-import type { ComputedRef, Ref, ShallowRef } from "vue";
+import type { ComputedRef, ShallowRef } from "vue";
 import { useEventListener } from "@vueuse/core";
 import {
     useAurora,
@@ -60,8 +60,6 @@ export function useAtmosphere(
     // to one derive/frame (the tranche's #1 perf fix, perf-transitions P0-1).
     // The seed still tracks (S-18): the last colour of every frame wins.
     atmosphereColor: ComputedRef<string>,
-    // o1105-r2 perf: true while a drag drives the colour (`pipeline.colourLive`).
-    colourLive: Readonly<Ref<boolean>> = ref(false),
 ) {
     // The config source MUST NOT throw inside useAurora's deep-watch: a thrown
     // getter dead-faults the reactive effect (the white-screen class inv-N-1
@@ -198,30 +196,15 @@ export function useAtmosphere(
             safeSetItem("local", GROUND_STORE_KEY, JSON.stringify(record)),
         200,
     );
-    //
-    // o1105-r2 perf: under a drag the stops are written on `.ground-breath`
-    // alone, the plate that paints the ramp over the body. A root write
-    // restyled the whole document on every colour frame. The root (and the
-    // body under the plate, the meta, the record) take the settled stops once
-    // the drag ends, and the plate's own copy is dropped in the same task, so
-    // its inherited value is unchanged and nothing transitions.
-    const GROUND_TOKENS = ["--saved-bg-0", "--saved-bg-1", "--saved-bg-2", "--saved-bg-3", "--saved-bg"];
     watch(
-        [resolvedPalette, isDark, colourLive],
-        ([palette, dark, live]) => {
+        [resolvedPalette, isDark],
+        ([palette, dark]) => {
             if (!palette?.length) return;
             const stops = groundStopsFor(palette);
-            const base = stops[0];
-            if (!base) return; // unreachable (normalized to 4) — type honesty
-            const plate = document.querySelector<HTMLElement>(".ground-breath")?.style;
-            if (live && plate) {
-                stops.forEach((stop, i) => plate.setProperty(`--saved-bg-${i}`, stop));
-                plate.setProperty("--saved-bg", base);
-                return;
-            }
             const root = document.documentElement.style;
             stops.forEach((stop, i) => root.setProperty(`--saved-bg-${i}`, stop));
-            GROUND_TOKENS.forEach((token) => plate?.removeProperty(token));
+            const base = stops[0];
+            if (!base) return; // unreachable (normalized to 4) — type honesty
             // The solid base-stop fallback var (unregistered consumers +
             // the no-gradient degradation path).
             root.setProperty("--saved-bg", base);

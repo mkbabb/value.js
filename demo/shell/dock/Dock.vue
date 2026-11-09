@@ -19,15 +19,14 @@ import ApiStatusChip from "../../shared/ui/api-status/ApiStatusChip.vue";
 import { useMediaQuery, useMutationObserver } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../useViewManager";
 import { SESSION_PORT_KEY } from "../../palettes";
-import { COLOR_MODEL_KEY, CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
-import { useHeldWhileLive } from "../../color-session/useAtmosphereFrameCoalesce";
+import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { usePopupMutex } from "../../shared/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
 import { injectDockCommands } from "../useSceneActions";
 import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { goldIdentityCss, useChromeAccentFn } from "../../color-session/useContrastSafeColor";
-import { contrastInkFor, GRAPHICS_CONTRAST_FLOOR, TEXT_CONTRAST_FLOOR } from "../../color-session/ink";
+import { GRAPHICS_CONTRAST_FLOOR, TEXT_CONTRAST_FLOOR } from "../../color-session/ink";
 import type { EditTarget } from "../../color-session/color-model";
 
 const { linkCopied, editTarget } = defineProps<{
@@ -141,11 +140,6 @@ const {
     plateCss: bandPlateCss,
 } = useChromeAccentFn(dockPlate);
 const { isDark } = useGlobalDark();
-// o1105-r2 perf: true while a drag drives the colour. The band's inks hold
-// through it (the band's ground is the field the drag moves; its referent
-// already holds, OD19-V3), so the controls' colour transitions are not
-// restarted, and run, on every frame of the drag; they mint once it settles.
-const colourLive = inject(COLOR_MODEL_KEY)!.colourLive;
 const bandGoldStyle = computed(() => {
     const gold = goldIdentityCss(isDark.value);
     const word = bandIdentityCss(gold, TEXT_CONTRAST_FLOOR);
@@ -160,7 +154,6 @@ const bandGoldStyle = computed(() => {
 const toolsInk = computed(
     () => bandSafeCss(safeAccent.value, TEXT_CONTRAST_FLOOR) ?? safeAccent.value,
 );
-const heldGoldStyle = useHeldWhileLive(bandGoldStyle, colourLive);
 // X-DS pass 19 (V19C-02): the dock's PLAIN words read the band's plate ink,
 // the same instrument and scope as the gold above. glass seats its dock ink on
 // `.glass-dock` itself (`--dock-fg-on-aurora` and `--muted-foreground` from
@@ -183,15 +176,6 @@ const bandInkStyle = computed(() => {
               "--focus-ring-color": ring,
           }
         : undefined;
-});
-
-const heldInkStyle = useHeldWhileLive(bandInkStyle, colourLive);
-// The seal's glyph ink, certified on the wax (the live colour) and written on
-// the seal, its one reader (o1105-r2 perf: a root token restyled the document
-// on every colour frame of a drag).
-const sealInkStyle = computed(() => {
-    const ink = contrastInkFor(cssColorOpaque.value);
-    return ink ? { "--seal-ink": ink } : undefined;
 });
 
 watch(
@@ -289,12 +273,12 @@ watch(
     <div
         ref="dockHost"
         :class="dockSettle && 'dock-settle'"
-        :style="heldGoldStyle"
+        :style="bandGoldStyle"
         @animationend="onSettleEnd"
     >
         <GlassDock
             ref="dockRef"
-            :style="heldInkStyle"
+            :style="bandInkStyle"
             :background-canvas="fieldCanvas"
             :collapse="isDesktop ? 'open' : false"
             :fit-content="true"
@@ -470,7 +454,7 @@ watch(
                      the producer's collapse↔expand cross-fade — no element
                      ever animates live→view-hue. -->
             <template #collapsed>
-                <div class="dock-seal" :style="sealInkStyle">
+                <div class="dock-seal">
                     <!-- UIA-V-6: the ink is the wax's SIBLING, stacked over it in the
                          seal's one grid cell. The dot renders no slot (span > svg
                          filter host only), so the slotted icon never rendered and
@@ -504,7 +488,7 @@ watch(
          A2-VA-L1-9). -->
     <!-- SS-8 B06 · SS8-0162: the lamp sits on the same band as the dock's
          words, so it reads the same plate-certified band ink. -->
-    <ApiStatusChip seat="dock" :style="heldInkStyle" />
+    <ApiStatusChip seat="dock" :style="bandInkStyle" />
 </template>
 
 <style scoped>

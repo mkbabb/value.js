@@ -18,9 +18,6 @@ export interface UseWatercolorBlobOptions {
     range?: [number, number];
     /** Extra seed string mixed into the hash for unique shapes. */
     seed?: string;
-    /** True while a drag drives the colour: the silhouette holds, and takes
-     *  the settled colour's shape once it turns false. */
-    live?: Readonly<Ref<boolean>> | undefined;
 }
 
 /**
@@ -84,21 +81,13 @@ export function useWatercolorBlob(
     const initial = randomRadii(rng, range[0], range[1]);
     borderRadius.value = radiiToCSS(initial);
 
-    // Re-seed when color changes (non-animated mode). Under a drag the shape
-    // holds: re-seeded per colour frame, each frame restarted the 0.6 s radius
-    // transition under the SVG filter, so the dot re-rasterised its filter on
-    // every frame of the drag (o1105-r2 perf). It morphs once, on the settle.
+    // Re-seed when color changes (non-animated mode).
     if (!animate) {
         if (typeof color !== "function") {
-            const { live } = options;
-            const reseed = () => {
-                const r = mulberry32(hashString(getColor() + seed));
+            watch(color, (c) => {
+                const r = mulberry32(hashString(c + seed));
                 borderRadius.value = radiiToCSS(randomRadii(r, range[0], range[1]));
-            };
-            watch(color, () => {
-                if (!live?.value) reseed();
             });
-            if (live) watch(live, (on) => on || reseed());
         }
         return { borderRadius, transform };
     }

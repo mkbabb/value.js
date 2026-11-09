@@ -36,7 +36,6 @@
              rotation utility — re-adding one would shadow the shipped fix. -->
         <SelectTrigger
             aria-label="Select color space"
-            data-accent-reader
             :class="[
                 'space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]',
                 inline ? 'space-trigger--inline' : '',
@@ -61,7 +60,7 @@
         <SelectContent
             align="start"
             class="max-w-(--reka-select-content-available-width)"
-            style="--select-dot-color: var(--accent-live)"
+            :style="{ '--select-dot-color': safeAccent }"
         >
             <SelectGroup>
                 <!-- X.W12.t · UIA-V-66 / UIA-V-212 — glass's own row: its
@@ -100,7 +99,7 @@
                                  defect). The dead `tag` prop — WatercolorDot
                                  declares no such prop — is deleted. -->
                             <WatercolorDot
-                                :color="dotColor"
+                                :color="cssColor"
                                 :seed="row.entry.id"
                                 class="specimen-dot shrink-0"
                                 :class="space === row.entry.id ? '' : 'specimen-dot-idle'"
@@ -149,9 +148,10 @@ import { resolveColorSpace } from "../../color-session/color-model";
 import type { DisplayColorSpace } from "../../color-session/color-model";
 import { SPACE_CATALOG, SPACE_CATALOG_ENTRIES } from "../../color-session/space-catalog";
 import { SPECIMEN_CHAR_BUDGET, formatSpecimen } from "../../color-session/format-color";
-import { COLOR_MODEL_KEY } from "../../color-session/keys";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 
-const { inline = false } = defineProps<{
+const { cssColor, inline = false } = defineProps<{
+    cssColor: string;
     /** The ONE sanctioned host axis (T.W4-1 · S-21 restated): `inline` hosts
      *  (the About sentence) ink `1em` and ride the sentence's rung + shrink;
      *  the default is the picker plate's explicit display-3 rung (Q11a). */
@@ -174,14 +174,17 @@ onDeactivated(() => {
     openModel.value = false;
 });
 
+const safeAccent = inject(SAFE_ACCENT_KEY)!;
+
 // The color-model injection (the S-1 parity half): since S.W2's transposition
 // App provides the ONE pipeline app-wide (COLOR_MODEL_KEY, App.vue), so BOTH
 // hosts — the picker and About — resolve the same instance ambiently and the
 // specimen rows carry the live per-space conversion identically. The default
 // stays null-tolerant: a future host outside any provider renders the catalog
 // without the conversion line rather than crashing. (Adjudicated deliberate —
-// ColorSpaceSelector L-5(b), not a masking fallback.) The selection dot reads
-// the safe accent from its root token (`--accent-live`), like the title.
+// ColorSpaceSelector L-5(b): SAFE_ACCENT_KEY and COLOR_MODEL_KEY carry
+// different criticality, and this asymmetry is the house contract, not a
+// masking fallback.)
 const colorModel = inject(COLOR_MODEL_KEY, null);
 
 /**
@@ -198,14 +201,6 @@ const colorModel = inject(COLOR_MODEL_KEY, null);
  * (and the SelectValue text) stay; only the live conversion line waits for
  * the menu that shows it.
  */
-// o1105-r2 perf: the rows' dots likewise take the live colour only while the
-// menu is open; closed, they hold the colour they last showed. The colour is
-// read here, from the pipeline, not passed as a prop: a live prop re-rendered
-// this component and its eighteen rows in both hosts on every frame of a drag
-// (the top Vue patch cost of a drag at 4x CPU), with the menu closed.
-const dotColor = computed<string>((shown) =>
-    openModel.value || shown === undefined ? (colorModel?.cssColor.value ?? "currentColor") : shown,
-);
 const rows = computed(() => {
     const color = colorModel && openModel.value ? colorModel.model.value.color : null;
     return SPACE_CATALOG_ENTRIES.map((entry) => ({
@@ -332,11 +327,6 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
      * chevron"): glass's chevron reads its alpha from this token (0.5 at
      * 7.0.0), so the caret draws in the title's own ink, not a faint tint. */
     --select-chevron-opacity: 1;
-}
-/* o1105-r2 perf: the title ink tracks the colour under a drag and snaps; the
-   fade is for a discrete pick. */
-:root[data-colour-live] .space-trigger {
-    transition: none;
 }
 
 /* The inline host (About): the trigger rides its SENTENCE — size 1em means
