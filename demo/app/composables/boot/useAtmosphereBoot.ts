@@ -216,12 +216,7 @@ export function useAtmosphereBoot(
         heldPlateReferent.value = livePlateReferent.value;
     };
     watch([liveLightness, livePlateReferent, atmosphereColor], (_, old) => {
-        const now = !old || atmosphereColor.value === old[2];
-        // o1105-r2 perf: a pause inside a drag is not a settle.
-        if (now || !colourLive.value) settle(publishInkAmbient, now);
-    });
-    watch(colourLive, (live) => {
-        if (!live) settle(publishInkAmbient, true);
+        settle(publishInkAmbient, !old || atmosphereColor.value === old[2]);
     });
     const derivedLightness = computed(() => heldLightness.value);
     const plateReferent = computed(() => heldPlateReferent.value);
