@@ -133,11 +133,14 @@ jobs:
               run: |
                   set -euo pipefail
                   PACKAGE_VERSION="${GITHUB_REF_NAME#v}"
-                  for attempt in {1..12}; do
+                  # The registry answers a fresh version only once it has processed the upload ("may take a
+                  # few minutes", npm's own notice). v4.3.0 (run 42250700476) published at 16:22:35 and was
+                  # first readable after 16:24:29, past the old 2-minute bound, so the bound is 10 minutes.
+                  for attempt in {1..60}; do
                       if npm view "@mkbabb/value.js@${PACKAGE_VERSION}" version --json > registry-version.json; then
                           break
                       fi
-                      if [[ "$attempt" == 12 ]]; then
+                      if [[ "$attempt" == 60 ]]; then
                           exit 1
                       fi
                       sleep 10
