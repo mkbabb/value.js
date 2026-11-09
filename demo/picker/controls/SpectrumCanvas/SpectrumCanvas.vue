@@ -320,16 +320,21 @@ onUnmounted(releaseCapture);
     }
 }
 
-/* o1105 U3: the thumb's travel box, moved by its transform (useSpectrumPlateStyle). */
+/* o1105 U3: the thumb's travel box, moved by its transform (useSpectrumPlateStyle).
+   The plate is physical (saturation runs left to right in every direction, as the
+   pointer map reads it), so the thumb's origin is the physical top-left: a logical
+   start would sit it on the right edge under dir="rtl" and the transform would
+   carry it off the plate (R-21 physical-inset pin). */
 .spectrum-travel {
-    inset-inline: 0;
+    left: 0;
+    right: 0;
     inset-block: calc(var(--spectrum-dot-size) / 2);
     will-change: transform;
 }
 .spectrum-dot {
     position: absolute;
-    inset-inline-start: 0;
-    inset-block-start: 0;
+    left: 0;
+    top: 0;
     width: var(--spectrum-dot-size);
     height: var(--spectrum-dot-size);
     border: 2px solid var(--dot-border, var(--background));

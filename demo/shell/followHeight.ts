@@ -7,7 +7,10 @@
 // swap that changes the scene's height glides from the drawn height to the
 // new one, and a change mid-flight retargets from the live value (G7). The
 // first measurement lands at once (auto → px does not interpolate), and
-// under reduced motion the container is left at `auto`.
+// under reduced motion the container is left at `auto` with no
+// `data-follow-height`: its rows keep the layout they had before G9, so a
+// scene that has no block size of its own (below) is never measured into
+// `max-content` rows it would collapse in.
 //
 // A scene whose regions have no block size of their own (the five admin
 // consoles: an `h-full` shell around a `min-h-0` scroller) is sized by the
@@ -32,8 +35,11 @@ export function useFollowHeight(container: Ref<HTMLElement | null>) {
         if (c === null || !follow) return;
         if (reduce?.matches) {
             c.style.height = "";
+            c.toggleAttribute("data-follow-height", false);
             return;
         }
+        if (!c.hasAttribute("data-follow-height"))
+            c.toggleAttribute("data-follow-height", true);
         let end = 0;
         for (const w of c.children)
             if (w instanceof HTMLElement)
