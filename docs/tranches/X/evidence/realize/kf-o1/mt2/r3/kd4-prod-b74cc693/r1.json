@@ -1,0 +1,56 @@
+{
+ "base": "https://keyframes.babb.dev/",
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "at": "2026-11-09T07:37:14.016Z",
+ "fails": [],
+ "cells": [
+  {
+   "id": "cube@390x844",
+   "rungOpen": "open",
+   "rungBack": "peek",
+   "glide": 94,
+   "frames": 510,
+   "p50": 8.3,
+   "p95": 9.6,
+   "max": 17.1,
+   "cls": 0,
+   "rectDelta": 0
+  },
+  {
+   "id": "spring@390x844",
+   "rungOpen": "open",
+   "rungBack": "peek",
+   "glide": 100,
+   "frames": 456,
+   "p50": 8.3,
+   "p95": 9.4,
+   "max": 10.3,
+   "cls": 0,
+   "rectDelta": 0
+  },
+  {
+   "id": "cube@844x390",
+   "rungOpen": "open",
+   "rungBack": "peek",
+   "glide": 84.4,
+   "frames": 491,
+   "p50": 8.3,
+   "p95": 9.6,
+   "max": 10.3,
+   "cls": 0,
+   "rectDelta": 0
+  },
+  {
+   "id": "spring@844x390",
+   "rungOpen": "open",
+   "rungBack": "peek",
+   "glide": 84.4,
+   "frames": 454,
+   "p50": 8.3,
+   "p95": 9.7,
+   "max": 10.4,
+   "cls": 0,
+   "rectDelta": 0
+  }
+ ]
+}

@@ -1,0 +1,130 @@
+{
+ "base": "https://keyframes.babb.dev/",
+ "engine": "webkit",
+ "input": "synthetic",
+ "at": "2026-11-09T09:54:32.326Z",
+ "out": [
+  {
+   "cell": "assay-grab-1440",
+   "grabHit": 81,
+   "of": 81,
+   "touchEmu": false
+  },
+  {
+   "cell": "assay-grab-390",
+   "grabHit": 81,
+   "of": 81,
+   "touchEmu": true
+  },
+  {
+   "cell": "assay-seam-1440",
+   "R": 270,
+   "seamTangential": 0.9986597627075203,
+   "seamRadial": 0.1042842422391988,
+   "inT": 1.6991439999999995,
+   "outT": 1.6968667438459064,
+   "inR": 16.27155326374365,
+   "outR": 1.6968666021642689
+  },
+  {
+   "cell": "assay-offdie-1440",
+   "centreDeg": 8.492072,
+   "offDieDeg": 8.484338281398028,
+   "offDieGain": 0.9990893013387107,
+   "offDieWheelDeg": 8.484338281398037
+  },
+  {
+   "cell": "assay-notch-1440",
+   "one": {
+    "framesSpanned": 50,
+    "maxStepDeg": 3.4457870000000033,
+    "maxDtMs": 13,
+    "worst": {
+     "ratio": 0.9333334447149015,
+     "stepDeg": 3.4427529999999966,
+     "dtMs": 10,
+     "barDeg": 3.688663488375935
+    },
+    "totalDeg": 40.00000000000001
+   },
+   "two": {
+    "framesSpanned": 55,
+    "maxStepDeg": 5.890335999999999,
+    "maxDtMs": 13,
+    "worst": {
+     "ratio": 1.578663507889658,
+     "stepDeg": 5.264142000000007,
+     "dtMs": 9,
+     "barDeg": 3.334556080945369
+    },
+    "totalDeg": 79.99999999999999
+   },
+   "plantMs": 0
+  },
+  {
+   "cell": "assay-coalesce-1440",
+   "k1": 1.221403,
+   "k2": 1.221403,
+   "k4": 1.221403,
+   "coalesceSpread": 0
+  },
+  {
+   "cell": "assay-pan-1440",
+   "pans": [
+    {
+     "dieX": 1207.4781494140625,
+     "Vr": 1396.796875,
+     "past": -189.3187255859375
+    },
+    {
+     "dieX": 1396.59375,
+     "Vr": 1396.796875,
+     "past": -0.203125
+    },
+    {
+     "dieX": 1396.59375,
+     "Vr": 1396.796875,
+     "past": -0.203125
+    }
+   ],
+   "maxPast": -0.203125,
+   "dragDeg": 8.491215999999998,
+   "rollDeg": 0.0009825712117713247
+  },
+  {
+   "cell": "assay-dbltap-1440",
+   "offDieRolls": 0,
+   "onDieRolls": 1
+  },
+  {
+   "cell": "assay-dragframe-1440",
+   "dragP50": 10,
+   "dragP95": 12
+  },
+  {
+   "cell": "assay-scroll-1440-playing",
+   "ports": 0
+  },
+  {
+   "cell": "assay-scroll-1440-rest",
+   "ports": 0
+  },
+  {
+   "cell": "assay-embed-rest",
+   "numerals": 0,
+   "axisLines": 0
+  },
+  {
+   "cell": "assay-embedhost-1440",
+   "wheel": {
+    "hostDy": 200,
+    "dieDeg": 0,
+    "expect": 200
+   },
+   "drag": {
+    "hostDy": 0,
+    "dieDeg": 16.734081000000003
+   }
+  }
+ ]
+}
