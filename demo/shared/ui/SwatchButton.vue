@@ -22,6 +22,7 @@
             :color="color"
             :variant="ghost ? 'ghost' : 'solid'"
             v-bind="seed !== undefined ? { seed } : {}"
+            :animate="animate"
             class="w-full h-full"
         />
         <Check
@@ -61,6 +62,7 @@ const {
     seed,
     ghost = false,
     done = false,
+    animate = false,
 } = defineProps<{
     color: string;
     size?: SwatchSize;
@@ -70,5 +72,9 @@ const {
     ghost?: boolean;
     /** The verb's verdict: lays the check over the face. */
     done?: boolean;
+    /** The dot's living register: its seeded compositor wobble (still under
+     *  reduced motion). Off by default; a host that shows colours as specimens
+     *  (the embed's picker slice) turns it on. */
+    animate?: boolean;
 }>();
 </script>
