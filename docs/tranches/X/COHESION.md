@@ -6234,3 +6234,30 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **Held rows.** o29:395 and webgl-blob-idle ×2 still read red at 11.0.0, although their expiry says "expires at the glass 11.0.0 repin". o21:287 read GREEN ×2 locally and flaky on CI (ADOPTION NOTICE). Both are left for the row owners.
   - **Machine.** Four of the five heavy guard slots are held by 6–12 h audit servers, so every gate ran `--light` with `--maxWorkers=2` / `--workers=1`. The guard reported the kernel zone leak ARMED (kext nfs). Owner decides on a reboot.
   - Scratch `~/.dev-logs/sites-audit/color/glass11/` (RED and GREEN logs, `widgets.mjs`, `prod-pre/`, `cand/`, `cmp-*.png`, `cand-preset-open.png`).
+- **§0hz.glass11.fourier (2026-11-09)** — glass 11.0.0 is adopted on `glass11-fourier` (PR mkbabb/fourier-analysis#15, now a DRAFT) but has NOT shipped. CI is RED because of glass 11's root `scrollbar-gutter: stable` on renderers with classic scrollbars. Prod and the 4412 audit server both stay on `8ddfdf66`.
+  - **Pin.** `@mkbabb/glass-ui` is pinned to exactly `11.0.0`. value.js 4.2.0, keyframes.js 6.3.0, latex-paper 0.3.1 and pencil-boil declare no glass dependency or peer, so neither package needs republishing.
+  - **Migration at root (`29030ef`, `a156fba`).**
+    - (a) Five `DockTrigger` imports move from `/dock` to `/dock-trigger`.
+    - (b) The 40 px about avatar now uses `--radius-circle`, because `--radius-pill` is 1rem in 11.0.0.
+    - (c) `--scale-hover-dock` had no readers in fourier.
+    - (d) reka-ui `^2.9.10` → `^2.10.1`. glass 11's DialogOverlay reads `DialogRootContext.unmountOnHide`, which exists only from reka 2.10.0. On 2.9.10 every modal Dialog threw on open (`Cannot read properties of undefined (reading 'value')`), and toasts never mounted. **Producer row:** glass declares `reka-ui: ^2.0`, so its floor should be `^2.10`.
+    - (e) `AppDock` used to fit the nav label on the expand flip, while glass 11 still held the morphing box at its reserved `--dock-expanded-px`. Every longer trial name therefore overflowed, and the label was dropped for good. It now fits on the settled expanded run, using GlassDock's exposed `isTransitioning`.
+    - The 10.1.5 cures (O-155/O-165, O-167, O-182) are not in 11.0.0; they are not faked.
+  - **Falsifier.**
+    - **Unmigrated on 11.0.0:** vue-tsc failed with 5 TS2305 errors and vite build failed (`"DockTrigger" is not exported by dist/dock.js`), so the e2e webServer cannot start. Unit tests passed 118/118 because they cover pure functions only.
+    - **Imports only (before d and e):** the 6-spec smoke (97 tests, chromium + mobile-chromium) had 8 failures: fullscreen ×2, export, toasts ×3, U4 label ×2.
+    - **Master on 10.1.3:** the same smoke passed 97/97.
+    - **Migrated:** tsc 0, unit 118/118 ×2, eslint 0, oxlint 0, node:test 0, smoke 97/97 ×2 (local macOS, overlay scrollbars).
+  - **Visual read (macOS).** 16 cells: dock, nav menu, logo popover and equation sliders at 1440/390 in light and dark. Pre-bump prod is in `frames/pre-prod/`; the migrated local preview is in `frames/post-local/`. Geometry is identical: same dock and menu boxes, same positions. The changes are the producer-declared dock corner (pill → 16 px) and the avatar, which keeps its circle. The one console line is a prod compute 429 caused by the probe.
+  - **CI `42690571820` on `a156fba`: e2e RED, with 12 failed and 1 flaky out of 626 passed.** Everything else is green. The CI frames show a ~15 px right gutter on non-scrolling pages, and the failures trace to it:
+    - fd14 /morph 844×390 ×2 (`scrollWidth − clientWidth = −15`)
+    - misc D-21 morph stage 343 vs 357
+    - paper search panel 352 vs bar 358
+    - au1 strip centre off by 3.5
+    - s128 phone nav label dropped at 390 (less room)
+    - g97 filter drawer outside-tap at 390 (cause not yet confirmed)
+    - five visual-checkpoint linux goldens, each ~1 px wider plus radius pixels
+    - od19 admin tab at 453 ms against a 450 ms bar (noise)
+  - **OWNER/PRODUCER RULING NEEDED.** Fourier can keep glass's root gutter and rebaseline the layout specs and goldens to the narrower width, or glass can offer a way out for apps that don't scroll the root. A local `scrollbar-gutter: auto` would be a shim, and glass's html scroll lock depends on the gutter, so I haven't added one. PR comment `6751362232` says this.
+  - **Machine.** The heavy slots were held by 720-min audit servers, so the e2e smoke and probes ran in the browser pool. The guard reported the kernel zone leak ARMED (kext nfs, inuse ~29.7k). The owner decides on a reboot.
+  - Scratch is in `~/.dev-logs/sites-audit/fourier/glass11/`: red-*/green-*/smoke-*.log, ci-fail.log, ci-artifact/, frames/{pre-prod,post-local}/, probe/glass-probe.mjs and smoke-playwright.sh.
