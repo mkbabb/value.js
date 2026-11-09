@@ -6,7 +6,7 @@
         :data-selected="expanded ? '' : undefined"
         role="article"
         tabindex="0"
-        :aria-label="`Palette: ${palette.name}`"
+        :aria-label="`Palette: ${palette.name}${palette.tier === 'featured' ? ', Featured' : ''}`"
         :aria-current="expanded ? 'true' : undefined"
         v-bind="pressHandlers"
         :style="press.pressStyle.value"
@@ -486,6 +486,8 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
 
 
 <style scoped>
+@reference "../../styles/foundation.css";
+
 /* X.W7.c — the inspector ROOT owns its geometry, its cast and its hover register
  * (root-styling law: no consumer passes a shadow or hover override).
  *
@@ -604,10 +606,16 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
      * took "Neon Cyberpunk"'s last 13 px at 390, and once the chevron yielded
      * a 430 card's head cleared the label's 16rem and its 100 px chip took
      * the last 8. The glyph keeps the tier and its "Featured" title. A fine
-     * pointer keeps both (its boxes are 28 px). */
+     * pointer keeps both (its boxes are 28 px).
+     * X·§0ht.a11y: both yield to the EYE only (`sr-only`, the clip pattern),
+     * never to the accessibility tree. The chevron is the card's one
+     * `aria-expanded`, so a reader still hears the card open and close with
+     * the tap; the label keeps the badge's "Featured" name (the glyph is
+     * aria-hidden and a span's title names nothing). Out of flow, so the
+     * row's measure is unchanged. */
     @media (pointer: coarse) {
         .palette-card:not([data-layout="aside"]) .palette-card__disclose {
-            display: none;
+            @apply sr-only;
         }
         .palette-card:not([data-layout="aside"]) :deep(.featured-badge) {
             min-inline-size: 0;
@@ -616,7 +624,7 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
             background: none;
         }
         .palette-card:not([data-layout="aside"]) :deep(.featured-badge .palette-specimen__yield-3) {
-            display: none;
+            @apply sr-only;
         }
     }
 }
