@@ -6261,3 +6261,39 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **OWNER/PRODUCER RULING NEEDED.** Fourier can keep glass's root gutter and rebaseline the layout specs and goldens to the narrower width, or glass can offer a way out for apps that don't scroll the root. A local `scrollbar-gutter: auto` would be a shim, and glass's html scroll lock depends on the gutter, so I haven't added one. PR comment `6751362232` says this.
   - **Machine.** The heavy slots were held by 720-min audit servers, so the e2e smoke and probes ran in the browser pool. The guard reported the kernel zone leak ARMED (kext nfs, inuse ~29.7k). The owner decides on a reboot.
   - Scratch is in `~/.dev-logs/sites-audit/fourier/glass11/`: red-*/green-*/smoke-*.log, ci-fail.log, ci-artifact/, frames/{pre-prod,post-local}/, probe/glass-probe.mjs and smoke-playwright.sh.
+
+- **§0hz.glass11.keyframes (2026-11-09)** — keyframes.js adopts glass-ui 11.0.0. Merged `d4f6cb3d` (PR #17), deployed, prod read ×2, and the local audit server refreshed.
+  - **Pins.** `@mkbabb/glass-ui` 10.1.3 → `11.0.0` exact (devDependency). `reka-ui` ^2.9.9 → `^2.10.1`, locked at 2.10.1, which is glass 11's own lock. value.js 4.2.0 carries glass only as a devDependency, so nothing transitive changes and no package publish is needed (keyframes.js stays 6.4.0).
+  - **What broke on the bare bump (falsifier).**
+    - `npm run check`: RED, 3× TS2305 "no exported member 'DockTrigger'" (ChromeDock, MbabbMenu, TransportDock).
+    - Dock and menu unit tests: RED, 24 failed / 32 passed of 56. The baseline on 10.1.3 is 31/31 across the same four real-glass files.
+    - Migrated imports alone still left 16 failing, all on `ModalOverlay` `unmountOnHide` of undefined. reka 2.9.9's DialogRoot context has no `unmountOnHide`.
+  - **Cures at root.**
+    - DockTrigger now imports from `@mkbabb/glass-ui/dock-trigger`, and the four transport test seats mock that subpath.
+    - reka-ui goes to 2.10.1, which brings the 56 tests to 56/56.
+    - The critical inline sheet's `--radius-pill` moves 9999px → 1rem to mirror the producer. That sheet is unlayered and outlives first paint, so it would have pinned the old pill.
+    - Circles that read the pill now read `--radius-circle`: the progress and curve balls (36 px, up to 38 px), the 40 px spring target ring, and the heatmap pip and marker.
+    - The glass pin witness test now reads 11.0.0 with its registry integrity.
+    - `.btn-playback` no longer paints a corner. Its unlayered pill outranked the Reverse cell's `rounded-full` and squared the 36 px ball, which the visual read caught.
+    - `--scale-hover-dock` had no reader here, so there was nothing to delete.
+    - Commits `61630f30`, `318be59a`, `5ba12f21`, and merge `bf285233` (origin/master at `1fda8492` brought in before the merge).
+  - **Glass finding (relay, same as daraksha).** glass 11.0.0's peer `reka-ui: ^2.0` admits 2.9.x, where modal overlays throw on render. The floor should be `^2.10`.
+  - **Gates.**
+    - PR CI GREEN ×2 on each tree: `42677164425` att 1+2 (`318be59a`), `42689635969` att 1+2 (`5ba12f21`), `42699992551` att 1+2 (`bf285233`, the merge tree). Each covers library gates and the demo browser roster (the smoke).
+    - The first PR run, `42676275202`, was RED on the 10.1.3 pin witness, and `318be59a` fixed it.
+    - Master push CI `42701599805` GREEN.
+    - Locally (guarded --light): check, check:lib and lint GREEN, and the targeted 56 GREEN. The full local suite never left the heavy queue, which 720-min audit servers were holding, so CI carries the ×2.
+  - **Ship.** deploy-pages `42702422230` GREEN → https://4c8887ef.keyframes-8uq.pages.dev. keyframes.babb.dev serves `index-BauUcOy_.js`, the same as that deploy.
+  - **Prod read ×2 at `d4f6cb3d`.**
+    - r1: 28/28 cells (7 routes × 1440/390 × light/dark) all 200, 0 console errors, no horizontal scroll.
+    - r2: the glass visual read (dock rest and hover, scene list, @mbabb menu, slider) at 1440/390 in both schemes, 0 errors, no horizontal scroll.
+  - **Visual read vs pre-bump prod (b74cc69).** After the `.btn-playback` cure, nothing regressed on the keyframes side. Every remaining change is one the 11.0.0 MIGRATION names:
+    - The expanded chrome dock's corner goes from a pill to 16 px.
+    - The collapsed transport dock's cut cap now rests on `--radius-dock` (1rem), so it reads as a rounded square with one cut corner where it was a near-circle. Its `.glass-dock` computes `50%` with an `:empty` summary, so the square comes from the cap, not the plate.
+    - At 390 the Scene select opens as a bottom sheet (`data-form="sheet"`).
+    - A glass Slider wasn't on screen in the cube cells. The kf scrub ball stays round.
+    - The hover ellipse, the Slider thumb, fill and drag, and the dark dock halo are untouched. Those wait for 11.0.1.
+  - **Relay to glass (owner/producer call).** A one-cell collapsed dock whose only content is `#persistent` (empty summary) now shows a rounded-square cut cap, not a circle. MIGRATION says "a dock of one cell is still a circle".
+  - **Local audit server.** http://127.0.0.1:4411/ from `~/.audit-local/keyframes`, detached at `d4f6cb3d`. Guarded 13708 (vite 13758), --light, 720 min. The old server, 70464, was stopped first. Its asset set equals prod's. `~/.audit-local/SERVERS.md` is updated, and 4411 was already in keep-ports.
+  - **Machine.** The guard reports the kernel zone leak ARMED (kext nfs, in-use ~29.7k). The owner decides on a reboot.
+  - Scratch is in `~/.dev-logs/sites-audit/keyframes/glass11/`: red/, green1/, frames/{pre-prod,post-local,post-local2,prod-g11-r1,prod-g11-r2}/, m-*.png montages, and probe/{visual-probe.mjs,read28-probe.mjs,dom.mjs}.
