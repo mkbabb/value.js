@@ -372,12 +372,10 @@ test.describe("V-D1.r3 · the name and the spectrum share a short block", () => 
             // V-D1.r4 (§0hz.mt2.value.r) — the gloss is dismissible (WCAG
             // 1.4.13): Escape closes it however it opened and it stays closed
             // while focus rests (the hover arm's focus timer re-opened it,
-            // prod ×2); the badge's focus ring is whole ink at the 3:1
-            // graphics floor against the plate it sits on; and the badge is
-            // the tuple's mark, not a word of the readout heading.
-            test("the gloss dismisses on Escape; the ring is whole; the heading is the tuple", async ({
-                page,
-            }) => {
+            // prod ×2); and the badge is the tuple's mark, not a word of the
+            // readout heading. (One leg per test: under CI's software GL the
+            // three legs and the ring's capture ran past one test's budget.)
+            test("the gloss dismisses on Escape; the heading is the tuple", async ({ page }) => {
                 if (vp.height >= 820) return;
                 await seedName(page);
                 await page.goto("/#/");
@@ -401,7 +399,23 @@ test.describe("V-D1.r3 · the name and the spectrum share a short block", () => 
                 await page.waitForTimeout(1_000);
                 await expect.soft(gloss, "the gloss stays dismissed while focus rests").toBeHidden();
                 await expect(badge).toBeFocused();
-                // the ring: sample its middle row against the plate beyond it
+                // the heading's name is the tuple alone
+                await expect(page.locator(".readout")).toHaveAccessibleName("73.0 % 0.2 2.0 deg");
+            });
+
+            // V-D1.r4 — the badge's focus ring is whole ink at the 3:1
+            // graphics floor against the plate it sits on.
+            test("the badge's focus ring is whole against the plate", async ({ page }) => {
+                if (vp.height >= 820) return;
+                await seedName(page);
+                await page.goto("/#/");
+                expect(await nameSurface(page)).toBe("badge");
+                await regionSettled(page.getByRole("region", { name: "Picker", exact: true }));
+                const badge = page.getByTestId("picker-color-badge");
+                await page.getByRole("textbox", { name: /component value/ }).last().focus();
+                await page.keyboard.press("Tab");
+                await expect(badge).toBeFocused();
+                // sample the ring's middle row against the plate beyond it
                 const ring = await badge.evaluate((el) => {
                     const cs = getComputedStyle(el);
                     return {
@@ -410,7 +424,7 @@ test.describe("V-D1.r3 · the name and the spectrum share a short block", () => 
                         style: cs.outlineStyle,
                     };
                 });
-                expect.soft(ring.style, "the focus ring is a solid outline").toBe("solid");
+                expect(ring.style, "the focus ring is a solid outline").toBe("solid");
                 const box = (await badge.boundingBox())!;
                 const pad = Math.ceil(ring.offset + ring.width + 6);
                 const clip = {
@@ -433,9 +447,7 @@ test.describe("V-D1.r3 · the name and the spectrum share a short block", () => 
                     contrast(at(cx + mid, cy), at(cx + beyond, cy)),
                 ];
                 console.log(`[vd1r4-ring] ${vp.name} ring=${JSON.stringify(ring)} contrast=${ratios.map((c) => c.toFixed(2))}`);
-                expect.soft(Math.min(...ratios), "the ring against the plate").toBeGreaterThanOrEqual(3);
-                // the heading's name is the tuple alone
-                await expect(page.locator(".readout")).toHaveAccessibleName("73.0 % 0.2 2.0 deg");
+                expect(Math.min(...ratios), "the ring against the plate").toBeGreaterThanOrEqual(3);
             });
 
             test("the name is reachable by tap", async ({ browser }) => {
