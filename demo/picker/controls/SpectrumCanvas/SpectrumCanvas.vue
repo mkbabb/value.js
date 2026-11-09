@@ -1,6 +1,6 @@
 <template>
     <!-- Direct saturation/value field. -->
-    <figure class="spectrum-figure m-0 min-w-0 w-full flex flex-col lg:min-h-0 @container">
+    <figure class="spectrum-figure m-0 min-w-0 w-full flex flex-col @container">
         <!-- W5-a11y: 2D saturation×lightness picker — not a linear slider,
              so role="img" with a reactive descriptive label, not role="slider". -->
         <div
@@ -292,9 +292,31 @@ onUnmounted(() => {
  * scene band (ColorPicker.vue), the column chain down to this figure may
  * shrink (`min-block-size: 0`), and the plane takes its aspect-bound size as
  * its basis and gives back block size when the card's other rows need it,
- * down to the 20svh breath. Where the card fits (1440×900 and taller) nothing
+ * down to the ruled bar. Where the card fits (1440×900 and taller) nothing
  * shrinks and the aspect bound holds unchanged. Below lg the page scrolls,
- * and the aspect bound is whole. */
+ * and the aspect bound is whole.
+ *
+ * V-D1.r4 (§0hz.mt2.value.r): the give's floor was `min(20svh, …)`, a
+ * viewport term, so a desktop window's real block flattened the plane past
+ * the bar (prod: 4.425 at 1366×657, 2.965 at 1280×720). The floor is the bar
+ * itself now (`--spectrum-aspect-bar`, R-1), and where the card's rows still
+ * outgrow the block the plate scrolls its own body (ColorPicker.vue), as it
+ * does below lg. The floor sits on the FIGURE, the box the column shrinks: a
+ * column flexbox reads its children's preferred size as their minimum, so a
+ * floor on the plane alone let the figure collapse past it and the plane ran
+ * over the sliders. The figure's measure is the picker body's (seat.css makes
+ * the body the query container at lg); the plane is that less the stamp. The
+ * floor is rounded up to the whole pixel the plane lays out in, so a
+ * sub-pixel never crosses the bar (593 / 237.2 lays out as 237). */
+.spectrum-figure {
+    @variant lg {
+        min-block-size: round(
+            up,
+            calc((100cqi - var(--spectrum-stamp)) / var(--spectrum-aspect-bar)),
+            1px
+        );
+    }
+}
 .spectrum-picker {
     block-size: clamp(
         calc(100cqi / var(--spectrum-aspect-max)),
@@ -303,7 +325,6 @@ onUnmounted(() => {
     );
     @variant lg {
         flex: 0 1 auto;
-        min-block-size: min(20svh, calc(100cqi / var(--spectrum-aspect-max)));
     }
 }
 @media (pointer: coarse) {

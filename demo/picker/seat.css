@@ -121,6 +121,12 @@
  * subtraction), and the spectrum plane is the elastic member that yields the
  * difference (SpectrumCanvas.vue). Below lg the page scrolls by design. */
 @media (width >= 64rem) {
+    /* V-D1.r4: the body is the query container the spectrum figure's floor
+     * reads (SpectrumCanvas.vue), so the floor follows the figure's own
+     * measure. */
+    .picker-body {
+        container-type: inline-size;
+    }
     .picker-shell {
         /* A definite length, never `min(100%, …)`: the grid row sizes from
          * this item's contribution, where a percentage of the indefinite row
