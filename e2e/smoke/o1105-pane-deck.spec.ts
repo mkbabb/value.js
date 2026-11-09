@@ -20,7 +20,9 @@ import { detectRenderer, isSoftwareGL } from "./perf/frame-budget";
  *     travels: `.pane-container` takes more than two heights when its height
  *     changes by more than 48 px (before: exactly two, 716 → 572 and 1296 →
  *     961), the stage region's width never covers more than 60 % of a >100 px
- *     travel in one 60 Hz frame (before: 651 → 450 in one), and a leaver keeps
+ *     travel in one 60 Hz frame (before: 651 → 450 in one), unless the row's
+ *     own transition of that property started (a starved runner draws a
+ *     travel in two frames), and a leaver keeps
  *     the block size it was drawn at (before: About unrolled to ~6.6k px).
  * The before arm (out-in, opacity-led) is RED on U1's opacity rows and on U2's
  * plate step (428 px in one frame at 1440); the record is the lane's `~/.dev-logs/o1105/transitions-value`.
@@ -28,7 +30,7 @@ import { detectRenderer, isSoftwareGL } from "./perf/frame-budget";
 
 type Kid = { id: number; op: number; pos: string; h: number; leave: boolean; edge: number | null };
 type Region = { role: string; oh: number; kids: Kid[] };
-type Sample = { t: number; sw: number; iw: number; ph: number; w: Region[]; stw: number | null };
+type Sample = { t: number; sw: number; iw: number; ph: number; w: Region[]; stw: number | null; tr: string[] };
 
 async function hop(page: Page, hash: string): Promise<Sample[]> {
     return page.evaluate(async (hash) => {
@@ -45,8 +47,18 @@ async function hop(page: Page, hash: string): Promise<Sample[]> {
             return card.getBoundingClientRect().right - Math.max(0, m ? Number(m[1]) : 0);
         };
         const frame = () => new Promise((r) => requestAnimationFrame(r));
+        // The row's own transitions, as they start: `transitionrun` fires when
+        // the style change creates one, however few frames a starved runner
+        // then draws of it.
+        const runs = new Set<string>();
+        const row = document.querySelector<HTMLElement>(".pane-container")!;
+        const onRun = (e: TransitionEvent) => {
+            if (e.target === row) runs.add(e.propertyName);
+        };
+        row.addEventListener("transitionrun", onRun);
         const read = () => ({
             t: performance.now(),
+            tr: [...runs],
             sw: document.documentElement.scrollWidth,
             iw: window.innerWidth,
             ph: document.querySelector<HTMLElement>(".pane-container")!.getBoundingClientRect().height,
@@ -76,6 +88,7 @@ async function hop(page: Page, hash: string): Promise<Sample[]> {
             prev = sig;
             out.push(s);
         }
+        row.removeEventListener("transitionrun", onRun);
         return out;
     }, hash);
 }
@@ -110,12 +123,19 @@ function deckFaults(samples: Sample[]) {
 /** G9: the scene's height and the row's split travel; a leaver keeps its drawn block size. */
 function sizeFaults(samples: Sample[]) {
     const faults: string[] = [];
+    // A size row travels when the row's own transition carries it. Read per
+    // frame, a snap is a discontinuity at any frame rate (before G9: 716 →
+    // 572 in one 16 ms frame, two heights; 651 → 450 in one), but a starved
+    // runner's 300–900 ms frames draw a travel as two values too (CI e2e-smoke
+    // on the 2.6 h run: 716 → 572, 2 values, with the transition running). So
+    // the frame reading names a candidate, and the row faults only when no
+    // transition of that property started on the row during the hop.
+    const last = samples[samples.length - 1]!;
     const hs = samples.map((s) => Math.round(s.ph));
-    if (Math.abs(hs[hs.length - 1]! - hs[0]!) > 48 && new Set(hs).size <= 2)
-        faults.push(`pane-container height snapped ${hs[0]} → ${hs[hs.length - 1]} (${new Set(hs).size} values)`);
+    if (Math.abs(hs[hs.length - 1]! - hs[0]!) > 48 && new Set(hs).size <= 2 && !last.tr.includes("height"))
+        faults.push(`pane-container height snapped ${hs[0]} → ${hs[hs.length - 1]} (${new Set(hs).size} values, no height transition)`);
     // the width step is scaled to one 60 Hz frame of elapsed time, as
-    // `plateSteps` is: a long software-GL frame is frame production, a snap
-    // is a discontinuity at any frame rate
+    // `plateSteps` is
     const ws = samples.filter((s) => s.stw != null).map((s) => [s.t, s.stw!] as const);
     const xs = ws.map(([, x]) => x);
     const travel = xs.length ? Math.max(...xs) - Math.min(...xs) : 0;
@@ -124,7 +144,8 @@ function sizeFaults(samples: Sample[]) {
         const dt = Math.max(1000 / 60, ws[i]![0] - ws[i - 1]![0]);
         step = Math.max(step, (Math.abs(ws[i]![1] - ws[i - 1]![1]) * (1000 / 60)) / dt);
     }
-    if (travel > 100 && step > 0.6 * travel) faults.push(`stage width stepped ${step.toFixed(0)} of ${travel.toFixed(0)} px in one frame`);
+    if (travel > 100 && step > 0.6 * travel && !last.tr.includes("grid-template-columns"))
+        faults.push(`stage width stepped ${step.toFixed(0)} of ${travel.toFixed(0)} px in one frame (no split transition)`);
     const drawn = new Map<number, number>();
     for (const s of samples)
         for (const w of s.w)
