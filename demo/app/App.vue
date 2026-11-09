@@ -469,7 +469,10 @@ const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
     currentConfig,
     // X.W11.p4c (COHESION §0go.2(b)): a hydrated shell paints its first frame
     // with the stylesheet's pre-certified inks; certification follows it.
-    { certifyAfterPaint: HYDRATES_SHELL && !import.meta.env.SSR },
+    {
+        certifyAfterPaint: HYDRATES_SHELL && !import.meta.env.SSR,
+        colourLive: pipeline.colourLive,
+    },
 );
 // X.W11.p3b (COHESION §0gl.12): the CSS-substrate gradient exists only on a
 // device the WebGL field cannot serve — a property of the visitor, not of the

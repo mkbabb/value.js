@@ -48,7 +48,6 @@
                     <ColorSpaceSelector
                         :model-value="model.selectedColorSpace"
                         v-model:open="selectedColorSpaceOpen"
-                        :css-color="cssColor"
                         @update:model-value="
                             (colorSpace) =>
                                 updateModel({ selectedColorSpace: colorSpace })
@@ -254,7 +253,6 @@ const paletteManager = inject(COLOR_TARGET_PORT_KEY);
 
 const {
     updateModel,
-    cssColor,
     cssColorOpaque,
     colorComponents,
     currentColorComponentsFormatted,

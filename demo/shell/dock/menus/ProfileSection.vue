@@ -84,7 +84,7 @@ function openRepository(): void {
                      the chrome rung (D6, T.W3-5). -->
                 <DockTrigger
                     for="dropdown"
-                    class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
+                    class="live-ink gap-1.5 text-mono-small font-bold whitespace-nowrap"
                     :style="{ color: triggerInk }"
                     data-o18="profile-trigger"
                 >
@@ -178,7 +178,7 @@ function openRepository(): void {
                  corners; the accent rides the ink channel alone. -->
             <DockControl
                 shape="tab"
-                class="gap-1.5 text-small font-display"
+                class="live-ink gap-1.5 text-small font-display"
                 :style="{ color: triggerInk }"
                 @click="emit('startSlugEdit')"
             >
@@ -248,3 +248,12 @@ function openRepository(): void {
         </DropdownMenu>
     </div>
 </template>
+
+<style scoped>
+/* o1105-r2 perf: the ink is the live colour, so under a drag it tracks it and
+   snaps. The control's colour fade, restarted on every colour frame, ran (and
+   restyled) for the whole drag. */
+:root[data-colour-live] .live-ink {
+    transition: none;
+}
+</style>
