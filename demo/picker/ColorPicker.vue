@@ -17,11 +17,13 @@
                  edge), and the header is glass `<CardHeader shrink>`, whose
                  real-box discrete condense (hysteresis threshold + sufficiency
                  gate, `[data-condensed]`) retires the local useHeaderCondense
-                 fork and its sentinel. The picker scrolls only below `lg`; from
-                 `lg` it fits, so the host is `display: contents` there — no box,
-                 so no clip, no mask, no scroll, and the header never condenses
-                 (the X-DS V6C-01 scroll truth, now glass's `scrollTop` read). -->
-            <div class="card-scroll-host picker-scroll-host flex flex-col min-h-0 min-w-0 lg:contents">
+                 fork and its sentinel. V-D1.r4: the host is a box at every
+                 width. From `lg` the plate fits wherever the spectrum's give
+                 (down to the aspect bar) covers the block, so nothing scrolls
+                 and the header never condenses (glass's sufficiency gate);
+                 on a shorter desktop block the plate scrolls its own body, as
+                 below `lg` (the X-DS V6C-01 scroll truth, glass's `scrollTop`). -->
+            <div class="card-scroll-host picker-scroll-host flex flex-col min-h-0 min-w-0 lg:flex-1">
             <!-- The header is a DISPLAY surface (space title + hero numbers →
                  Fraunces); horizontal padding rides `cqi` against the pane-slot
                  container, not viewport breakpoints (R.W3 Lane A / A4) — and is
@@ -71,8 +73,9 @@
                          gloss rule). Same mount gate as the line (D-32). -->
                     <Popover
                         v-if="nameLineMounted && currentColorName && nameYields"
-                        v-model:open="nameGlossOpen"
+                        :open="nameGlossOpen"
                         trigger="hover"
+                        @update:open="setNameGloss"
                     >
                         <PopoverTrigger as-child>
                             <button
@@ -82,7 +85,9 @@
                                 :aria-label="`Colour name: ${currentColorName}`"
                                 :style="{ '--picker-color-badge-fill': cssColorOpaque }"
                                 @focus="onBadgeFocus"
-                                @blur="nameGlossOpen = false"
+                                @blur="releaseNameGloss"
+                                @pointerenter="glossDismissed = false"
+                                @keydown.esc="dismissNameGloss"
                             ></button>
                         </PopoverTrigger>
                         <PopoverContent
@@ -90,6 +95,7 @@
                             :side-offset="8"
                             class="picker-color-gloss-panel"
                             aria-label="Colour name"
+                            @escape-key-down="dismissNameGloss"
                         >
                             <p
                                 class="picker-color-gloss"
@@ -464,10 +470,33 @@ const nameLineMounted = ref(false);
 // (D-19), so neither law is in tension and the line stands.
 const nameYields = useMediaQuery("(min-width: 1024px) and (max-height: 819.98px)");
 const nameGlossOpen = ref(false);
+// V-D1.r4 (WCAG 1.4.13, dismissible): Escape closes the gloss and it stays
+// closed until the badge is engaged anew (a fresh focus or pointer entry).
+// The hover arm (reka's HoverCard) also opens on focus, after its open delay,
+// and its dismissal does not cancel that pending open: an Escape inside the
+// delay was undone 250 ms later (prod ×2). The dismissal is the picker's
+// state, so a late open from the arm is refused here.
+let glossDismissed = false;
+
+function setNameGloss(open: boolean) {
+    if (open && glossDismissed) return;
+    nameGlossOpen.value = open;
+}
+
+function dismissNameGloss() {
+    glossDismissed = true;
+    nameGlossOpen.value = false;
+}
+
+function releaseNameGloss() {
+    glossDismissed = false;
+    nameGlossOpen.value = false;
+}
 
 /** Keyboard focus opens the gloss; a tap's focus is left to the tap (the
  *  coarse arm toggles on click, and opening here first would close it). */
 function onBadgeFocus(event: FocusEvent) {
+    glossDismissed = false;
     if ((event.target as HTMLElement).matches(":focus-visible")) nameGlossOpen.value = true;
 }
 
@@ -523,7 +552,8 @@ onUnmounted(() => {
  * band, so portrait phones (569 px in a ~750 px band), tablets and desktop are
  * unchanged; there the plate scrolls its own body, the header condenses, and
  * the sliders are reached inside the plate, never below the viewport. From lg
- * the plate fits by construction (the host is `display: contents`). */
+ * the grid bounds the plate, and the host scrolls whatever the spectrum's
+ * give cannot absorb (V-D1.r4). */
 @variant max-lg {
     .picker-plate {
         max-block-size: var(--scene-band-block);

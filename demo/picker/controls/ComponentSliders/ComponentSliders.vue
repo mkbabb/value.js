@@ -370,16 +370,17 @@ useSliderAnnouncements({
  * divergent spacing regime with a hard `<lg` band switch (natural ~24px
  * desktop rows vs a 44px mobile min-height — a 1.83× discontinuity). It is
  * retired for ONE container-scaled law serving BOTH breakpoints: the row
- * block-size and the inter-row gap ride clamp()s of the pane container, so the
+ * block-size and the inter-row gap ride clamp()s of the pane container (its
+ * inline size as `--pane-inline`, published by the picker body: seat.css), so the
  * rhythm is a smooth function of width, never two hand-tuned states. The clamp
  * constants are the roster bracket (the owner's two shots — desktop-tight /
  * mobile-spaced — are the poles). Offered to the ConfigSliderPane population
  * (M-34) so the whole app has ONE rhythm source. */
 .channel-rows {
-    row-gap: clamp(0.375rem, 1.5cqi, 0.5rem);
+    row-gap: clamp(0.375rem, calc(var(--pane-inline) * 0.015), 0.5rem);
 }
 .channel-strip {
-    min-block-size: clamp(2rem, 7cqi, 2.625rem);
+    min-block-size: clamp(2rem, calc(var(--pane-inline) * 0.07), 2.625rem);
 }
 
 /* THE 44px TOUCH RUNG — preserved by HIT-AREA EXTENSION, not row inflation
