@@ -46,6 +46,12 @@
  * than the verb that fills it); dark steps toward the page background instead. */
 .dark .skeleton-ink-register {
     --skeleton-ink-pole: var(--background);
+    /* o1109 canon V11: the plates lost their paper grain, and the grain was
+     * part of the dark ground the edge rung was certified on. On the plain
+     * dark plate the cream ghost read ΔL 0.028 at its pulse trough (390, third
+     * row) against the 0.03 register floor (SS8-0483), so dark steps a quarter
+     * past the edge rung. Light is unchanged. */
+    --ink-seam: calc(var(--ink-edge) * 1.25);
 }
 
 /* The SPECIMEN ink walk (S.W5-1's `specimen` register, FINALLY consumed —
