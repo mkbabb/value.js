@@ -82,6 +82,8 @@ describe("V.W20 Picker Blob semantics", () => {
         expect(source).toMatch(
             /softwareRaster && route\?\.name !== "blob" \? "" : "Pulse blob"/,
         );
+        // The route is optional: the embed's picker slice mounts no router.
+        expect(source).toContain("inject(routeLocationKey, null)");
         expect(template).not.toMatch(/<Tooltip|tabindex=|<button\b/);
         // The one handler is on the producer's click: the satellite scatter.
         expect(template.match(/@(\w+)=/g)).toEqual(["@animationend=", "@click="]);
