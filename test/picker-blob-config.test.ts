@@ -80,7 +80,7 @@ describe("V.W20 Picker Blob semantics", () => {
 
         expect(template).toContain(`:aria-hidden="pressLabel ? undefined : 'true'"`);
         expect(source).toMatch(
-            /softwareRaster && route\.name !== "blob" \? "" : "Pulse blob"/,
+            /softwareRaster && route\?\.name !== "blob" \? "" : "Pulse blob"/,
         );
         expect(template).not.toMatch(/<Tooltip|tabindex=|<button\b/);
         // The one handler is on the producer's click: the satellite scatter.
