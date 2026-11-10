@@ -6298,3 +6298,93 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **Local audit server.** http://127.0.0.1:4411/ from `~/.audit-local/keyframes`, detached at `d4f6cb3d`. Guarded 13708 (vite 13758), --light, 720 min. The old server, 70464, was stopped first. Its asset set equals prod's. `~/.audit-local/SERVERS.md` is updated, and 4411 was already in keep-ports.
   - **Machine.** The guard reports the kernel zone leak ARMED (kext nfs, in-use ~29.7k). The owner decides on a reboot.
   - Scratch is in `~/.dev-logs/sites-audit/keyframes/glass11/`: red/, green1/, frames/{pre-prod,post-local,post-local2,prod-g11-r1,prod-g11-r2}/, m-*.png montages, and probe/{visual-probe.mjs,read28-probe.mjs,dom.mjs}.
+- **§0hz.o1109 (2026-11-09)** — the six 11-09 daraksha branches are integrated on `o1109-integrate` (PR mkbabb/daraksha#5, head `17d0104`) but **NOT shipped**. Two things hold it: CI fails the route budget, and the machine guard refused all further heavy and browser runs at 22:14 (kernel zone `data.kalloc.1024` at 8.00M). The owner needs to reboot. master, prod and the 4413 audit server stay at `b4deefe`.
+  - **Merges** (ordinary, off origin/master `b4deefe`): dock `1fd1266`, transitions `52fd08c`, name `735317d`, reader `90c906d`, motion `a14f1d8`, colour `1d24c03`. Two conflicts, fixed at the source:
+    - `SiteDock.vue`: with one dock there is one view-transition name, `site-dock` (L6 had named two plates).
+    - `NameDock.vue`: L5 nested a second GlassDock inside the site dock. The owner's "ONE dock" ruling contradicts that, and L2's `one` leg counts it. The time slider (Play/Pause, scrubber, Again) is now the name page's layer of the one dock and collapses with it. The smoke test changed to match (`17d0104`).
+  - **Gates on the merged tree.**
+    - typecheck, lint, build: GREEN.
+    - vitest: 116/116.
+    - privacy: GREEN.
+    - budget: **RED**. NamePage eager JS is 125.5 KB and ScripturePage 123.0 KB, against 120. The app chunk grew from 97.9 to 108.1 KB, and the one-dock work alone adds it: o1109-dock's own CI `42736719207` already failed the same budget (123.2 / 121.5), and L2 did not report that. I misread the local budget run as passing; CI `42748264089` / `42748232497` caught it. A cure at the source still needs to be found (what in the one dock is loaded eagerly); raising the budget would be a workaround.
+    - The other lane branches' CI reds (name `42716844409`, reader `42723329722`, transitions `42719324095`) are the motion smoke against the new paused kf die. L3's smoke change covers that, and it is in the merge.
+  - **Lane falsifiers, round 1 of 2** (local preview of the merged dist):
+    - dock: GREEN on one, icons, collapsed, rounded, layers, animated, side, ellipse, overlap and axe. collapsed-g2 (O-194), plate-rest and prm are RED, as L2 reported; they wait on glass 11.1.0 and O-195.
+    - name: firstpaint, ltr, lockstep and slider all GREEN (worst gap 0.0052; the slider seeks to 0.497 and its collapsed dock is 102 px).
+    - reader: hover-ink (0 px outside the box, all 10 cells), en-gold, credit-off-surface and reader-motion all GREEN.
+    - colour: picker-parity, dots-alive and no-overflow all GREEN.
+    - transitions: the probe broke on the new layered dock, not on the site. It was fixed, but the guard refused the rerun.
+    - motion: refused by the guard.
+    - Round 2 and the e2e smoke never ran.
+  - **Not done, waiting on the reboot:** the budget cure, round 2 of the probes, motion and transitions, the e2e smoke, then CI GREEN, merge, deploy-pages, prod read ×2 with frames, and the 4413 refresh.
+  - The owner's "the name animation has not changed at all" is still true on prod for this reason: L5's work is on this branch, not yet on master.
+  - Scratch: `~/.dev-logs/owner-1109/integrate/` (wt/, probes/, runs/, static/vitest/build logs).
+  - **Re-check, 2026-11-09 22:2x: still NOT shipped. Both holds stand.**
+    - **Guard:** heavy and browser runs are still REFUSED, with the kernel zone `data.kalloc.1024` at 8.10M and rising about 230 a second. Light runs are admitted. No build, falsifier, prod read or iOS Simulator witness was run. PR #5 stays open at `17d0104`, and master, prod and 4413 stay at `b4deefe`.
+    - **Budget cause, measured** (esbuild, minified, gzip -9, against glass 11.0.0 in the merged tree): the app chunk grew from 100.0 to 110.2 KB gz.
+      - glass `DockLayerGroup` +5.8 KB over `GlassDock`+`DockControl` (16.3 → 22.1). It always calls `useSelectionGroup` (2.1), `useDragMorph` (3.3), `useDockCtaReceive` (1.4) and `useIntersectionPause` (0.9), even with `:show-switcher="false"`.
+      - lucide `createLucideIcon` and the 5 page icons, now in the shell: about 2 KB.
+      - `routeTransition`: about 0.7.
+      - The 114-name surah index, which the shell holds only for the reader's tab title: 2.9.
+      - The cure is upstream: a switcher-less layer group should cost only its crossfade. Asked of glass-ui-5c on 11-09 (DockLayerGroup switcher split, version to be named; daraksha pins it exactly, with no local shim). With it, NamePage comes to about 119.7 and ScripturePage to about 117.2.
+      - Moving the surah title into the reader would take about 2.9 more off the Name, Colour and Motion routes. That margin is wanted.
+      - Raising `ROUTE_KB` is not done: that would be a workaround.
+    - **Held on glass:** the switcher split, O-193 ellipse (11.0.1), O-194 collapsed persistent seat (11.1.0), O-195 fuse/fission (spec pending), O-196 scrubber grab, the reduced-motion snap, and the trailing gap.
+    - **Next:** reboot; then glass's split, the budget re-read, lane round 2 with motion and transitions, the e2e smoke, PR #5 CI GREEN, merge, deploy-pages, prod ×2 with a real-touch iOS Simulator run, and the 4413/4411 refresh.
+- **§0hz.canon.daraksha (2026-11-09)** — the restraint canon's daraksha units are built and pass their own gates on `o1109-canon` (PR mkbabb/daraksha#4: `6a5691f`, `49a7160`). **Not shipped.** CI's only consistent failure is the motion smoke test, which owner-1109-daraksha-motion owns (L3). Prod, master and the 4413 audit server stay at `b4deefe`.
+  - **Built.**
+    - D2: the surah button loses `aria-label="Surah"`, so its name is what it shows (الضحى 93).
+    - D3: the surah number uses a new `--gilt-text` token. On ivory it is the body gold at the deep stop's lightness, with the same hue and chroma. Contrast goes from 3.27:1 to at least 4.5:1, measured in pixels on the dock's glass. At night it stays the body gold, which already passed.
+    - D4: Focus, Verses and Page are now icons with names and tooltips. The text menu is one icon named Text at every width; it used to say More at 390.
+    - D5: the phrase tray drops the Latin verse number and keeps the Arabic mark. The tray already left its verse's line clear; a guard checks that.
+    - D6: `public/_headers` puts `no-transform` on the pages only. `/assets`, `/quran`, `/fonts`, `/theme.js` and `/favicon.svg` drop it with `!`. Pages applies `!` in file order, and only to earlier rules (checked with `wrangler pages dev`). check-live now fails if a built asset comes back uncompressed. Prod still serves `/assets/app-C9fpPf13.js` with no content-encoding until this ships.
+  - **Held.**
+    - D1 waits on glass ask G8. glass Command highlights the selected row on open without scrolling to it, because reka scrolls only after the first highlight. Its test is `test.fixme` and was RED ×2.
+    - D7 comes with value V2.
+  - **Gates.**
+    - `e2e/canon.spec.ts` and `test/headers.test.ts`: RED ×2 on `b4deefe` and GREEN ×2 on the branch (1440 and 390).
+    - Locally: typecheck, lint and build pass. The 1440/390 smoke passes 35, with motion failing 2.
+    - PR CI runs `42746991630` and `42747007195`: every gate is green except the motion "square" smoke at all four sizes, plus one colour flake on the second run. The same motion failure shows on o1109-dock, o1109-reader and o1109-transitions. It comes from the live keyframes slice, and L3 is rewriting that test.
+  - **To ship.** Merge #4 once master's motion smoke is green, then deploy-pages, prod ×2 (`npm run check:live` now includes the compression check), and refresh 4413.
+  - **Merge note for L2 (o1109-dock).** Both branches edit the Text trigger in `src/scripture/ReaderDock.vue`, so the second to land resolves it. Keep the icon trigger, `aria-label="Text"`, and the icon views.
+  - Receipts are in `~/.dev-logs/feedback-canon/daraksha-canon-receipts/`: red-e2e-{1,2}, green-e2e-{1,2}, green-unit-{1,2}, smoke-local, build and frames/.
+
+- **§0hz.canon.keyframes** (2026-11-09; the restraint precept, owner order 17:21 + 17:24). keyframes.js PR #20 (`o1109-canon-kf`, `56b23e1e`) merged to master as `19fde34d`. PR CI `42748396552` was green: library gates, and the demo browser roster on CI. Master CI and deploy-pages at `19fde34d` were green. Prod serves `index-CICtAE0q.js`, the same entry as the local build.
+  - **Built.**
+    - K1: the Easing stage's "ease" h2 is gone.
+    - K6: the catalogue uses glass's default tabs.
+    - K7: the captions are cut:
+      - "Sampled curve" and its sweep/ζ/peak line
+      - "time · N stops"
+      - "spring-chased…"
+      - "x · y ∈ [-1, 1]"
+      - "drag me"
+      - "single-target only"
+      - the Layer caption
+      - "N items · N ms"
+      - the home's "from the dock above, then press Play below." ("or drag M. cubert" stays)
+    - K7 also removes the SETTLED/TRACKING badge and its CSS (the spring keeps an sr-only `role=status`), makes the rail hint sr-only, and removes the empty Timeline's second Import.
+    - K8: the Timeline imports the scene's emitted @keyframes on a fresh visit.
+    - K9: no demo-set semibold; `.param-value` is set at `--control-label`.
+    - K10: `demo/utils/formatNumber.ts` is the one formatter. It drops trailing zeros, never signs zero, uses U+2212, and holds the sign column with a figure space.
+    - K12: the ribbon's per-frame time readout is now the scrubber's value text.
+    - K16: in the short-viewport block the top dock anchor equals the bottom margin term.
+  - **Glass (sent to glass-ui-5c, not shimmed).** These units are glass-owned:
+    - K1: EasingPicker's own preset Select, and "Custom" on a seeded named curve.
+    - K2: the staircase is drawn in Bezier mode.
+    - K3: waits on the G12 answer.
+    - K4: the sheet handle has no focus ring.
+    - K9: `.text-subheading` and the ConfiguratorLayer label are 600.
+    - K12: the slider range and thumb write `style` every frame.
+    - K15: the first-detent shift of `.controls-drawer-content` (prod CLS 0.018 and 0.004).
+  - **Not built.**
+    - K14: refuted on reading the build. The chunk named `keyboard-*.js` holds the app's `@state` and the kf-engine accessor, not keyboard code. Its `import.then` long task is the mount continuation after `warmKfEngine`, so there is nothing to make lazy.
+    - K13: not reproduced. →Home's longest frame on prod was 52 ms and 74 ms (1440, CPU ×1), against the < 100 ms bar.
+    - K5 and K11: need browser frames that the kernel-zone gate stopped (below).
+  - **Gates.**
+    - `test/demo/restraint-canon.test.ts`: RED ×2 on base (21 of 23 failing) and GREEN ×2 on the branch.
+    - Prod probe RED ×2 before the merge (`~/.dev-logs/feedback-canon/kf-apply/prod-r{1,2}.json`): cube playing 120 and 41.9 layouts/s with the ribbon `OUTPUT` rewritten each frame; 667×375 docks top 2 / bottom 16; spring, square and home text hits; easing h2 "ease".
+    - Locally: check, lint, and vitest `--maxWorkers=2` (2508 passing).
+    - Prod after the deploy: a curl text census ×2 (`prod-text.sh`) found 0 of the 9 cut strings, kept "drag M. cubert", and found all 4 positive controls.
+  - **Open.** The local browser GREEN ×2 and the prod browser ×2 for K12 and K16 did not run. `guarded` refused every browser and heavy run: "kernel zone data.kalloc.1024 at 8.02M … reboot the Mac". The owner needs to reboot. After that, run `~/.dev-logs/feedback-canon/kf-apply/probe.mjs` against prod ×2.
+  - The audit server at 4411 now serves `19fde34d`.
