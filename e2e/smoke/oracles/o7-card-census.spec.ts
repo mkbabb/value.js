@@ -94,8 +94,8 @@ async function censusView(page: import("@playwright/test").Page) {
         // Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`;
         // X-W7L C-CARD-STAMP): glass 8.0.0 retired the `data-tier` stamp — the
         // rung is the `glass-<tier>` class — and struck the `grain` prop with
-        // its `data-grain` stamp; a card arms grain with glass's
-        // `paper-grain-overlay`, whose `::after` paints the paper relief.
+        // its `data-grain` stamp; glass's `paper-grain-overlay` would paint the
+        // paper relief on `::after`, and no card wears it now.
         const tierOf = (el: Element) =>
             /\bglass-(resting|quiet|floating|overlay)\b/.exec(el.className.toString())?.[1] ??
             "(none)";
@@ -228,7 +228,9 @@ for (const scheme of ["light", "dark"] as const) {
             const census = await censusView(page);
 
             // RUNG-1 MEMBERSHIP: every mounted pane/picker Card resolves to
-            // the picker's register — tier=resting, grain on, stamp present.
+            // the picker's register — tier=resting, stamp present, and NO
+            // paper grain (owner restraint 2026-11-09: "do not re-add paper
+            // grain").
             expect(
                 census.cards.length,
                 `${view}: census walked zero cards`,
@@ -238,8 +240,8 @@ for (const scheme of ["light", "dark"] as const) {
                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
                     .toBe("resting");
                 expect
-                    .soft(card.grain, `${view} (${scheme}): grain not on`)
-                    .toBe("true");
+                    .soft(card.grain, `${view} (${scheme}): paper grain painted`)
+                    .toBe("false");
                 expect
                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
                     .toBe(true);

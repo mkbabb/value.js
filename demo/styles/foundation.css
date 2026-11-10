@@ -707,7 +707,14 @@
      * (D1). This is the ONE knob (`--shadow-color` + the dark cartoon rung),
      * never a producer fork. (Pole A — the stone caster at 50% — is retired
      * by the ruling.) */
-    --shadow-color: color-mix(in oklab, var(--foreground) 34%, var(--background));
+    /* Owner restraint 2026-11-09 (C-5 "No muted colors"): the mid-tone
+     * takes the page's hue, a fifth of the live accent mixed in, so the dark
+     * slab is a deep tint of the colour on the page, never a neutral grey. */
+    --shadow-color: color-mix(
+        in oklab,
+        var(--accent-live) 20%,
+        color-mix(in oklab, var(--foreground) 34%, var(--background))
+    );
 
     /* The dark cartoon stamp, opaque; --shadow-card resolves through it via
      * the var() reference set in :root. (The 10px hover rung and its

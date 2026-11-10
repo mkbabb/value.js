@@ -348,6 +348,11 @@ useSliderAnnouncements({
      * opaque cartoon plate — needs `ColorPicker.vue` (out of this lane's tree),
      * booked as the picker-plate half. */
     --glass-veil-tier: var(--glass-veil-wash);
+    /* No blur inside the plate (restraint, 2026-11-09: never a blur inside a
+     * blur; foundation.css already says the well carries none). The veil is
+     * its tint alone. */
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
 }
 
 /* ── THE METER (W4-3) — the strip's persistent live reading ──────────────

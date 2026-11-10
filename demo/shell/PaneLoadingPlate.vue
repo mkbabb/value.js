@@ -31,7 +31,7 @@
              continuation (PaneSlot.vue header). -->
         <Card
             tier="resting"
-            class="paper-grain-overlay w-full flex-1 min-w-0 flex flex-col gap-4 px-4 sm:px-6 py-6"
+            class="w-full flex-1 min-w-0 flex flex-col gap-4 px-4 sm:px-6 py-6"
         >
             <Skeleton shimmer class="h-7 w-2/5 rounded-md" aria-hidden="true" />
             <Skeleton shimmer class="h-4 w-3/4 rounded-md" aria-hidden="true" />

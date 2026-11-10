@@ -28,14 +28,11 @@ export function useSpectrumPlateStyle(opts: {
     const spectrumStyle = computed(() => {
         const hue = clamp(channelNumber(HSVCurrentColor.value, "h"), 0, 360);
 
-        const shadowStr = cssColorOpaque.value;
-
         return {
             background: `
         linear-gradient(to top, #000, transparent),
         linear-gradient(90deg, #fff, hsl(${hue}deg, 100%, 50%))
       `,
-            "--spectrum-shadow": shadowStr,
             // X.W11.p3b (COHESION §0gl.12): `touch-action` is NOT computed
             // here. It derives from the visitor's pointer class, which the
             // prerendered first view cannot know, so it lives in CSS
