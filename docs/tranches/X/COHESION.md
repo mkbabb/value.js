@@ -6298,3 +6298,24 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **Local audit server.** http://127.0.0.1:4411/ from `~/.audit-local/keyframes`, detached at `d4f6cb3d`. Guarded 13708 (vite 13758), --light, 720 min. The old server, 70464, was stopped first. Its asset set equals prod's. `~/.audit-local/SERVERS.md` is updated, and 4411 was already in keep-ports.
   - **Machine.** The guard reports the kernel zone leak ARMED (kext nfs, in-use ~29.7k). The owner decides on a reboot.
   - Scratch is in `~/.dev-logs/sites-audit/keyframes/glass11/`: red/, green1/, frames/{pre-prod,post-local,post-local2,prod-g11-r1,prod-g11-r2}/, m-*.png montages, and probe/{visual-probe.mjs,read28-probe.mjs,dom.mjs}.
+- **§0hz.o1109 (2026-11-09)** — the six 11-09 daraksha branches are integrated on `o1109-integrate` (PR mkbabb/daraksha#5, head `17d0104`) but **NOT shipped**. Two things hold it: CI fails the route budget, and the machine guard refused all further heavy and browser runs at 22:14 (kernel zone `data.kalloc.1024` at 8.00M). The owner needs to reboot. master, prod and the 4413 audit server stay at `b4deefe`.
+  - **Merges** (ordinary, off origin/master `b4deefe`): dock `1fd1266`, transitions `52fd08c`, name `735317d`, reader `90c906d`, motion `a14f1d8`, colour `1d24c03`. Two conflicts, fixed at the source:
+    - `SiteDock.vue`: with one dock there is one view-transition name, `site-dock` (L6 had named two plates).
+    - `NameDock.vue`: L5 nested a second GlassDock inside the site dock. The owner's "ONE dock" ruling contradicts that, and L2's `one` leg counts it. The time slider (Play/Pause, scrubber, Again) is now the name page's layer of the one dock and collapses with it. The smoke test changed to match (`17d0104`).
+  - **Gates on the merged tree.**
+    - typecheck, lint, build: GREEN.
+    - vitest: 116/116.
+    - privacy: GREEN.
+    - budget: **RED**. NamePage eager JS is 125.5 KB and ScripturePage 123.0 KB, against 120. The app chunk grew from 97.9 to 108.1 KB, and the one-dock work alone adds it: o1109-dock's own CI `42736719207` already failed the same budget (123.2 / 121.5), and L2 did not report that. I misread the local budget run as passing; CI `42748264089` / `42748232497` caught it. A cure at the source still needs to be found (what in the one dock is loaded eagerly); raising the budget would be a workaround.
+    - The other lane branches' CI reds (name `42716844409`, reader `42723329722`, transitions `42719324095`) are the motion smoke against the new paused kf die. L3's smoke change covers that, and it is in the merge.
+  - **Lane falsifiers, round 1 of 2** (local preview of the merged dist):
+    - dock: GREEN on one, icons, collapsed, rounded, layers, animated, side, ellipse, overlap and axe. collapsed-g2 (O-194), plate-rest and prm are RED, as L2 reported; they wait on glass 11.1.0 and O-195.
+    - name: firstpaint, ltr, lockstep and slider all GREEN (worst gap 0.0052; the slider seeks to 0.497 and its collapsed dock is 102 px).
+    - reader: hover-ink (0 px outside the box, all 10 cells), en-gold, credit-off-surface and reader-motion all GREEN.
+    - colour: picker-parity, dots-alive and no-overflow all GREEN.
+    - transitions: the probe broke on the new layered dock, not on the site. It was fixed, but the guard refused the rerun.
+    - motion: refused by the guard.
+    - Round 2 and the e2e smoke never ran.
+  - **Not done, waiting on the reboot:** the budget cure, round 2 of the probes, motion and transitions, the e2e smoke, then CI GREEN, merge, deploy-pages, prod read ×2 with frames, and the 4413 refresh.
+  - The owner's "the name animation has not changed at all" is still true on prod for this reason: L5's work is on this branch, not yet on master.
+  - Scratch: `~/.dev-logs/owner-1109/integrate/` (wt/, probes/, runs/, static/vitest/build logs).
