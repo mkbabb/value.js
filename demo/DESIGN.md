@@ -875,7 +875,7 @@ the standing example (COHESION §0el).
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | Pane swap ENTER (R2)                | the shuffled deck on the pane wrappers (`demo/styles/animations.css`; §5.7)                                                            | transform `--spring-panel` @ `--spring-panel-duration`, from the under pose (forward) or the flung pose (back); opacity held at 1       | landed (O1109)         |
 | Pane swap LEAVE (R3)                | same block, leave-active; out of flow                                                                                                  | forward: the fling, transform `--ease-in` @ `--spring-world-exit-duration`, no opacity leg; back: the sink on `--spring-panel`, opacity cut over its last 10 % | landed (O1109)         |
-| Region FLIP (G3)                    | `demo/shell/flipRegions.ts`, from App.vue's one `flip`                                                                                 | `translate` and the survivor's plate `clip-path`, both `--spring-panel` @ `--spring-panel-duration`                                   | landed (O1105)         |
+| Region FLIP (G3)                    | `demo/shell/flipRegions.ts`, from App.vue's one `flip`                                                                                 | `translate` on `--ease-out` (no overshoot into the dock band, o1109c) and the plate `clip-path` on `--spring-panel`, both @ `--spring-panel-duration` | landed (O1105)         |
 | Row split + scene height (G9)       | `.pane-container` (`animations.css`), height held by `demo/shell/followHeight.ts`                                                      | `grid-template-columns` and `height`, both `--spring-panel` @ `--spring-panel-duration`                                                | landed (O1105 r2)      |
 | Swap containment                    | the pane wrappers, `*-active` window only                                                                                              | `will-change: transform` + `contain: layout paint` for the swap's duration (X.W5.d2)                                                    | landed                 |
 | Specimen press (R4)                 | `demo/palettes/inspector/PaletteInspector.vue`                                                                                         | the producer press drive, `useLiquidPress` (the shared press spring clock, card amplitude). There is no cast (V1-02)                    | landed                 |
@@ -979,7 +979,10 @@ because `out-in` had serialised it into a full-viewport exit and then a re-entry
 co-mounts the two cards, so the fling and the rise are one gesture again. Each role names its
 discard side once on its wrapper (`--deck-x/-y`, `--deck-turn`: stage −x, inspector +x, action +y),
 and the deck has two poses: **flung** (`translate(±110 %)` of the card's own size, `rotate(±3deg)`)
-and **under** (`translateY(0.75rem) rotate(∓1deg) scale(0.95)`, askew the other way).
+and **under** (`translateY(0.75rem) rotate(∓1deg) scale(0.95)`, askew the other way). The flung
+pose turns about the card's top corner on the side that would otherwise rise (clockwise: the left;
+anticlockwise: the right), so no corner climbs above its region into the dock band (o1109c: about
+the centre, the 3deg turn lifted a 900 px card's corner ~23 px into the band at 1440).
 
 - **Forward.** The top card (z 2) is flung off its role's side on `--ease-in` at
   `--spring-world-exit-duration` (0.25 s). An exit is never a spring. The next card comes up from
@@ -1003,7 +1006,7 @@ block size is never 0 and never the sum of two panes. The leaver keeps the block
 at (PaneSlot `hideLeaving`), so a companion that follows the row does not unroll its whole content
 while it is discarded. Every commit that can move a region (a slot's
 pane commit, and the scene's region set changing) runs through App.vue's one `flip`. A region that
-moves translates from where it was drawn. A region that widens on a dual → single hop opens its
+moves translates from where it was drawn, on `--ease-out` at the panel clock: a stacked reorder travels ~600 px, and the panel spring's overshoot on that travel carried the region into the dock band (o1109c). A region that widens on a dual → single hop opens its
 plate and its T-45 blur carrier with `clip-path: inset()` from the old edge to the new. The content
 reflows once, at the commit; the plate edge travels. Only the wrapper is written, and every write clears when its
 transition ends or is cancelled, so a KeepAlive-cached pane never carries a FLIP away.

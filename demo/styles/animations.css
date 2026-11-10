@@ -329,6 +329,16 @@
         transition: transform var(--spring-world-exit-duration) var(--ease-in);
     }
 
+    /* The flung pose turns about the card's top corner on the side that
+     * would otherwise rise (a clockwise turn lifts the left corner, so it
+     * pivots there; anticlockwise, the right): no corner of the card climbs
+     * above its region's top. About the centre, a 3deg turn on a 900 px
+     * card lifted the corner ~23 px into the dock band above (o1109c). */
+    .pane-wrapper > .vj-enter-leave-active:not([data-scene-direction="back"]),
+    .pane-wrapper > [data-scene-direction="back"].vj-enter-enter-active {
+        transform-origin: calc((1 - var(--deck-turn)) * 50%) 0;
+    }
+
     /* back: the card is dealt back on top from where it was flung… */
     .pane-wrapper > [data-scene-direction="back"].vj-enter-enter-from {
         transform: var(--deck-flung);
