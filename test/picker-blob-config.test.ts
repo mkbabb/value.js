@@ -26,20 +26,44 @@ describe("V.W29 Picker Blob fixed-footprint paint mass", () => {
     // 1 and each atom IS its register literal; the witness reads that literal
     // through the one scale, and the scale's definition is pinned so no other
     // multiplier rides the register.
-    it("changes the sole body-radius authority while preserving the morphology tuple", () => {
-        const radii = [
-            ...source.matchAll(/^\s*bodyRadius:\s*heroScale\("bodyRadius",\s*([\d.]+)\),$/gm),
-        ].map(([, value]) => Number(value));
-
-        expect(radii).toEqual([0.325]);
-        expect(2 * radii[0]!).toBeCloseTo(0.65, 12);
-        expect(source).toMatch(/^\s*orbitRadius:\s*heroScale\("orbitRadius",\s*0\.4\),$/m);
-        expect(source).toMatch(/^\s*satelliteRadius:\s*heroScale\("satelliteRadius",\s*0\.09\),$/m);
-        expect(source).toMatch(/^\s*eccentricity:\s*heroScale\("eccentricity",\s*0\.03\),$/m);
+    //
+    // o1109 (the owner, 2026-11-09: "satellite blobs and goo morphing needs to
+    // be more pronounced, less shaded"): the body yields to 0.27 so four
+    // satellites stand past the skin inside the wrapper's containment
+    // (|uv| ≤ 0.5). The rendered half is e2e/smoke/o1109-blob-goo.spec.ts.
+    it("pins the satellite-show register and keeps every satellite inside the wrapper", () => {
+        const atom = (key: string) => {
+            const m = source.match(new RegExp(`^\\s*${key}:[^\\n]*heroScale\\("${key}",\\s*([\\d.]+)\\)`, "m"));
+            return m ? Number(m[1]) : NaN;
+        };
+        const body = atom("bodyRadius");
+        const orbit = atom("orbitRadius");
+        const sat = atom("satelliteRadius");
+        expect(body).toBe(0.27);
+        expect(orbit).toBe(0.39);
+        expect(sat).toBe(0.12);
+        expect(atom("eccentricity")).toBe(0.03);
+        expect(atom("satelliteCount")).toBe(4);
+        // The producer shader carries at most 4 satellites.
+        expect(source).toMatch(/satelliteCount: Math\.min\(4, Math\.round\(heroScale\("satelliteCount", 4\)\)\)/);
+        // An orbiting satellite paints at 0.75 opacity, which the producer's
+        // field reads as a disc 0.075 smaller. Its outer base radius
+        // (orbit × 1.05) plus that disc stays inside the wrapper's containment,
+        // and its orbit stands past the body's skin.
+        const visible = sat - 0.075;
+        expect(orbit * 1.05 + visible).toBeLessThan(0.5);
+        expect(orbit).toBeGreaterThan(body + visible);
         expect(source).toMatch(
             /hero \* \(appBlobConfig\.geometry\[key\] \/ BLOB_CONFIG_DEFAULTS\.geometry\[key\]\)/,
         );
-        expect(source.match(/\bheroScale\(/g)).toHaveLength(4);
+        expect(source.match(/\bheroScale\(/g)).toHaveLength(5);
+    });
+
+    it("paints the body: a mostly flat morph and no contact shadow", () => {
+        expect(source).toMatch(/^const HERO_MORPH_T = 0\.3;$/m);
+        expect(source).toMatch(/morphT: HERO_MORPH_T \* appBlobConfig\.morphT,/);
+        expect(source).toMatch(/fissionAmp: HERO_FISSION_AMP, shadow: false/);
+        expect(source).toMatch(/^const HERO_FISSION_AMP = 0\.8;$/m);
     });
 });
 
