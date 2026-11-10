@@ -3,7 +3,6 @@
         follow
         :gutter="false"
         card-class="about-card"
-        description="The math, the science, the art, the beauty of color spaces."
     >
         <!-- X.W12.c (OA-5 / OA-21) — THE ABOUT PANE FOLLOWS THE ROW. The card is
              the Picker pane's height: `pane-row-follow` is the shell's row
@@ -87,13 +86,12 @@
                 data-guide-section
                 :data-guide-state="activeSpace.doc ? 'authored' : 'none-authored'"
             >
-                <h2 class="font-display text-title mb-phi-3">Detailed Guide</h2>
+                <h2 class="font-display text-(length:--type-title) mb-phi-3">Detailed Guide</h2>
                 <Markdown
                     v-if="activeSpace.doc"
                     :key="activeSpace.id"
                     :module="activeSpace.doc"
                     :cssColor="cssColor"
-                    :colorSpaceName="activeSpace.label"
                 />
                 <p v-else class="text-small text-muted-foreground" data-guide-empty-state>
                     No long-form guide is written for {{ activeSpace.label }} yet — its

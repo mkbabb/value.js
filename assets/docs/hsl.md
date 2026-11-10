@@ -4,15 +4,15 @@ import { Katex } from "../../demo/scenes/about/katex";
 
 ### Historical Context
 
-HSL was developed in the 1970s as part of computer graphics research—an attempt to give humans a more intuitive handle on color than raw RGB triplets. It separates **hue** (the color itself) from **saturation** (intensity) and **lightness** (brightness), mapping neatly onto how people talk about color in practice.
+HSL was developed in the 1970s as part of computer graphics research—an attempt to give humans a more intuitive handle on color than raw RGB triplets. It separates hue (the color itself) from saturation (intensity) and lightness (brightness), mapping neatly onto how people talk about color in practice.
 
 ---
 
 ## Key Characteristics
 
-1. **Cylindrical representation**: hue as angle, saturation as radius, lightness as height. Visualized as a double-cone or cylinder.
-2. **Intuitive adjustment**: changing one component produces predictable variations—useful for deriving palettes and tints/shades.
-3. **Same gamut as sRGB**: HSL is a coordinate transform of RGB, not an expansion.
+1. Cylindrical representation: hue as angle, saturation as radius, lightness as height. Visualized as a double-cone or cylinder.
+2. Intuitive adjustment: changing one component produces predictable variations—useful for deriving palettes and tints/shades.
+3. Same gamut as sRGB: HSL is a coordinate transform of RGB, not an expansion.
 
 ### Advantages
 
@@ -33,15 +33,15 @@ HSL was developed in the 1970s as part of computer graphics research—an attemp
 
 ### Components
 
-1. **`H` (Hue)**:
+1. `H` (Hue):
    0° to 360° (normalized to 0–1)
 
    The color wheel: 0°/360° red, 60° yellow, 120° green, 180° cyan, 240° blue, 300° magenta.
 
-2. **`S` (Saturation)**:
+2. `S` (Saturation):
    0 (grayscale) to 1 (fully saturated)
 
-3. **`L` (Lightness)**:
+3. `L` (Lightness):
    0 (black) to 1 (white)
 
    0.5 is the "pure" color—fully saturated at medium brightness.
@@ -72,7 +72,7 @@ where <Katex expression="(r_1, g_1, b_1)" :display-mode="false" /> is selected f
 
 ## Applications
 
-1. **CSS color specification**: `hsl()` is widely used in stylesheets for readable color declarations.
-2. **UI color pickers**: the cylindrical model maps naturally to sliders and wheels.
-3. **Palette generation**: systematic hue rotation with fixed S and L produces harmonious schemes.
-4. **Image processing**: hue rotation and saturation adjustment are straightforward operations.
+1. CSS color specification: `hsl()` is widely used in stylesheets for readable color declarations.
+2. UI color pickers: the cylindrical model maps naturally to sliders and wheels.
+3. Palette generation: systematic hue rotation with fixed S and L produces harmonious schemes.
+4. Image processing: hue rotation and saturation adjustment are straightforward operations.

@@ -6,7 +6,7 @@ import { Katex } from "../../demo/scenes/about/katex";
 
 Color temperature is rooted in black-body radiation: heat an ideal radiator and its emitted light traces a curve from deep red through white to blue as temperature rises. The concept dates to Lord Kelvin's 19th-century thermodynamics work and was formalized for colorimetry in the early 20th century.
 
-This is a **single-dimensional** color space—one number, `1000K` to `40000K`, mapping to a point on the Planckian locus in the CIE chromaticity diagram. It can't represent colors off that curve (no greens, magentas, or saturated colors in general). Conversions to RGB use the **Tanner Helland approximation**, a polynomial fit to the black-body spectrum.
+This is a single-dimensional color space—one number, `1000K` to `40000K`, mapping to a point on the Planckian locus in the CIE chromaticity diagram. It can't represent colors off that curve (no greens, magentas, or saturated colors in general). Conversions to RGB use the Tanner Helland approximation, a polynomial fit to the black-body spectrum.
 
 ---
 
@@ -14,20 +14,20 @@ This is a **single-dimensional** color space—one number, `1000K` to `40000K`, 
 
 ### Component
 
-1. **`kelvin` (Color Temperature)**:
+1. `kelvin` (Color Temperature):
    1000 K (reddish-orange) to 40000 K (blue)
 
    Lower values are warm; higher values are cool. The entire space is a single axis.
 
 ### Common Reference Points
 
-- **1900K**: Candlelight
-- **2700K**: Incandescent/warm white bulb
-- **3200K**: Halogen lamp/studio tungsten
-- **4100K**: Moonlight
-- **5000K–5500K**: Direct noon sunlight/photography "daylight"
-- **6500K**: D65 standard daylight/overcast sky
-- **15000K–27000K**: Clear blue sky
+- 1900K: Candlelight
+- 2700K: Incandescent/warm white bulb
+- 3200K: Halogen lamp/studio tungsten
+- 4100K: Moonlight
+- 5000K–5500K: Direct noon sunlight/photography "daylight"
+- 6500K: D65 standard daylight/overcast sky
+- 15000K–27000K: Clear blue sky
 
 ---
 
@@ -68,8 +68,8 @@ Inverts the polynomial fits to estimate the closest color temperature for a give
 
 ## Common Applications
 
-1. **Photography and cinematography**: White balance settings—match the camera to the scene's color temperature.
-2. **Lighting industry**: Bulb and LED specifications use correlated color temperature (CCT) to describe appearance.
-3. **Display calibration**: Screen color temperature adjustment for different viewing conditions or time-of-day shifting (e.g., Night Shift, f.lux).
-4. **Smart lighting**: Tunable-white fixtures shift CCT for circadian rhythm support.
-5. **Astronomy**: Stellar classification by photospheric temperature.
+1. Photography and cinematography: White balance settings—match the camera to the scene's color temperature.
+2. Lighting industry: Bulb and LED specifications use correlated color temperature (CCT) to describe appearance.
+3. Display calibration: Screen color temperature adjustment for different viewing conditions or time-of-day shifting (e.g., Night Shift, f.lux).
+4. Smart lighting: Tunable-white fixtures shift CCT for circadian rhythm support.
+5. Astronomy: Stellar classification by photospheric temperature.

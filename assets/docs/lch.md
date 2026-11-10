@@ -10,10 +10,10 @@ CIELCh is Lab in polar coordinates. The [CIE](https://en.wikipedia.org/wiki/Inte
 
 ## Key Characteristics
 
-1. **Cylindrical Lab.** Same underlying data as Lab, just re-expressed in polar form.
-2. **Perceptually uniform.** Equal numeric distances still correspond to roughly equal perceived differences.
-3. **Intuitive axes.** Lightness, chroma, and hue map directly to how people think about color.
-4. **Device-independent.** Like Lab, LCh describes color itself, not device output.
+1. Cylindrical Lab. Same underlying data as Lab, just re-expressed in polar form.
+2. Perceptually uniform. Equal numeric distances still correspond to roughly equal perceived differences.
+3. Intuitive axes. Lightness, chroma, and hue map directly to how people think about color.
+4. Device-independent. Like Lab, LCh describes color itself, not device output.
 
 ## Advantages
 
@@ -35,11 +35,11 @@ CIELCh is Lab in polar coordinates. The [CIE](https://en.wikipedia.org/wiki/Inte
 
 ### Components
 
-1. **`L` (Lightness)**: 0 (black) to 100 (diffuse white). Identical to Lab's `L*`.
+1. `L` (Lightness): 0 (black) to 100 (diffuse white). Identical to Lab's `L*`.
 
-2. **`C` (Chroma)**: 0 (achromatic) upward; highly saturated colors can exceed 100. This is the radial distance from the neutral axis in the `a*b*` plane.
+2. `C` (Chroma): 0 (achromatic) upward; highly saturated colors can exceed 100. This is the radial distance from the neutral axis in the `a*b*` plane.
 
-3. **`H` (Hue)**: The angle in the `a*b*` plane:
+3. `H` (Hue): The angle in the `a*b*` plane:
    - 0 = reddish (+a\* direction)
    - 90 = yellowish (+b\* direction)
    - 180 = greenish (-a\* direction)
@@ -67,8 +67,8 @@ Polar back to Cartesian—recover `a*` and `b*` from chroma and hue:
 
 ## Applications
 
-1. **Color harmonies.** Rotate hue at fixed lightness and chroma to generate complementary, triadic, or analogous palettes.
-2. **Accessible contrast.** Adjust `L` independently to hit WCAG contrast ratios without disturbing hue or saturation.
-3. **Design systems.** Build color scales by stepping through `L` or `C` at regular intervals.
-4. **Perceptual gradients.** Interpolating in LCh avoids the muddy midpoints common in RGB blends.
-5. **Print workflows.** Predict perceptual appearance across media without device-dependent guesswork.
+1. Color harmonies. Rotate hue at fixed lightness and chroma to generate complementary, triadic, or analogous palettes.
+2. Accessible contrast. Adjust `L` independently to hit WCAG contrast ratios without disturbing hue or saturation.
+3. Design systems. Build color scales by stepping through `L` or `C` at regular intervals.
+4. Perceptual gradients. Interpolating in LCh avoids the muddy midpoints common in RGB blends.
+5. Print workflows. Predict perceptual appearance across media without device-dependent guesswork.

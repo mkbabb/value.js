@@ -10,10 +10,10 @@ Developed by Björn Ottosson in 2020, OKLab addresses the perceptual non-uniform
 
 ## Key Characteristics
 
-1. **Perceptual uniformity** superior to Lab—equal Euclidean distances correspond more faithfully to equal perceived color differences.
-2. **Hue linearity**: mixtures of two colors maintain consistent hue, a property Lab struggles with in the blue-purple region.
-3. **Consistent lightness**: the `L` component tracks human brightness perception across the full gamut.
-4. **Computational efficiency**: the conversion path (XYZ → LMS cube root → linear transform) is leaner than Lab's piecewise `f(t)` function.
+1. Perceptual uniformity superior to Lab—equal Euclidean distances correspond more faithfully to equal perceived color differences.
+2. Hue linearity: mixtures of two colors maintain consistent hue, a property Lab struggles with in the blue-purple region.
+3. Consistent lightness: the `L` component tracks human brightness perception across the full gamut.
+4. Computational efficiency: the conversion path (XYZ → LMS cube root → linear transform) is leaner than Lab's piecewise `f(t)` function.
 
 ### Advantages
 
@@ -38,13 +38,13 @@ OKLab encompasses all perceivable colors, larger than any RGB or CMYK gamut. Out
 
 ### Components
 
-1. **`L` (Lightness)**:
+1. `L` (Lightness):
    0 (black) to 1 (white)
 
-2. **`a` (Green-Red axis)**:
+2. `a` (Green-Red axis):
    <Katex expression="a < 0" :display-mode="false" /> (green) to <Katex expression="a > 0" :display-mode="false" /> (red)
 
-3. **`b` (Blue-Yellow axis)**:
+3. `b` (Blue-Yellow axis):
    <Katex expression="b < 0" :display-mode="false" /> (blue) to <Katex expression="b > 0" :display-mode="false" /> (yellow)
 
 ### Representation
@@ -71,8 +71,8 @@ The inverse: undo the linear transform, cube to reverse the perceptual compressi
 
 ## Applications
 
-1. **Color interpolation**: the default interpolation space in CSS Color Level 4's `color-mix()`.
-2. **Palette generation**: perceptually balanced palettes with consistent lightness steps.
-3. **Gamut mapping**: value.js uses OKLab as the working space for Ottosson's analytical sRGB gamut mapping algorithm.
-4. **Image processing**: color grading, correction, and manipulation benefit from the improved uniformity.
-5. **Accessible design**: consistent lightness makes it easier to maintain contrast ratios across hue variations.
+1. Color interpolation: the default interpolation space in CSS Color Level 4's `color-mix()`.
+2. Palette generation: perceptually balanced palettes with consistent lightness steps.
+3. Gamut mapping: value.js uses OKLab as the working space for Ottosson's analytical sRGB gamut mapping algorithm.
+4. Image processing: color grading, correction, and manipulation benefit from the improved uniformity.
+5. Accessible design: consistent lightness makes it easier to maintain contrast ratios across hue variations.
