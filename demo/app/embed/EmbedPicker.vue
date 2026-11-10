@@ -1,55 +1,50 @@
 <template>
-    <!-- The picker slice: the app's own plate, field and channel console, and
-         the host's swatches. No readout, no menus, no caption. -->
-    <div class="pane-shell embed-picker">
-        <Card tier="resting" class="picker-plate paper-grain-overlay relative flex flex-col rounded-card min-w-0">
-            <!-- No standing caption: the pressed swatch names the colour (its
-                 accessible name and title), so the plate holds only the field,
-                 the console and the swatches. -->
-            <CardContent class="flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-[clamp(0.75rem,4cqi,1.5rem)] pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0">
-                <div class="picker-body flex flex-col">
-                    <SpectrumCanvas />
-                    <ComponentSliders />
-                </div>
-                <div
-                    v-if="stops.length > 0"
-                    ref="swatchRow"
-                    class="embed-swatches"
-                    role="group"
-                    aria-label="Colours"
-                    :style="{ '--cols': String(columns) }"
-                >
-                    <SwatchButton
-                        v-for="(stop, i) in stops"
-                        :key="i"
-                        :color="stop.css"
-                        size="md"
-                        :aria-label="stop.name ? displayName(stop.name) : stop.css"
-                        :title="stop.name ? displayName(stop.name) : undefined"
-                        :aria-pressed="i === currentIndex"
-                        @click="pick(stop.css)"
-                    />
-                </div>
-            </CardContent>
-        </Card>
+    <!-- The picker slice: the app's own picker, whole (its space selector, hero
+         readout, name line, field, channel console and hero blob), and the
+         host's colours under it as the app's own watercolour swatches. -->
+    <div class="embed-picker">
+        <ColorPicker />
+        <div
+            v-if="stops.length > 0"
+            ref="swatchRow"
+            class="embed-swatches"
+            role="group"
+            aria-label="Colours"
+            :style="{ '--cols': String(columns) }"
+        >
+            <SwatchButton
+                v-for="(stop, i) in stops"
+                :key="i"
+                :color="stop.css"
+                :seed="stop.name ?? stop.css"
+                size="lg"
+                animate
+                :done="i === currentIndex"
+                :aria-label="stop.name ? displayName(stop.name) : stop.css"
+                :title="stop.name ? displayName(stop.name) : undefined"
+                :aria-pressed="i === currentIndex"
+                @click="pick(stop.css)"
+            />
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, provide, ref, shallowRef, useTemplateRef, watch } from "vue";
-import { Card, CardContent } from "@mkbabb/glass-ui/card";
+import { computed, inject, onBeforeUnmount, provide, ref, shallowRef, useTemplateRef, watch } from "vue";
+import { resolveRenderMode } from "@mkbabb/glass-ui/aurora";
 import { createDefaultColorModel, type ColorModel } from "../../color-session/color-model";
-import { COLOR_MODEL_KEY } from "../../color-session/keys";
+import { COLOR_MODEL_KEY, INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
+import { useContrastSafeColor } from "../../color-session/useContrastSafeColor";
 import { useColorPipeline } from "../../color-session/useColorPipeline";
 import { namedColorEntry, nearestNamedColor, type NamedColorEntry } from "../../color-session/named-color-snap";
-import { usePointerDebug, POINTER_DEBUG_KEY } from "../../picker/debug/usePointerDebug";
-import SpectrumCanvas from "../../picker/controls/SpectrumCanvas/SpectrumCanvas.vue";
-import ComponentSliders from "../../picker/controls/ComponentSliders/ComponentSliders.vue";
+import { SOFTWARE_RASTER_KEY } from "../../scenes/atmosphere/aurora-atoms";
+import { VIEW_MANAGER_KEY } from "../../shell/useViewManager";
+import { VIEW_MAP, type ViewId } from "../../shell/viewSchema";
+import { provideHeroBlobConfig } from "../../picker/visual/heroBlobConfig";
+import ColorPicker from "../../picker/ColorPicker.vue";
 import SwatchButton from "../../shared/ui/SwatchButton.vue";
 import type { SliceStop } from "./params";
 import { balancedColumns } from "./balance";
-import "../../picker/seat.css";
-import "../../picker/header.css";
 
 const { stops } = defineProps<{ stops: SliceStop[] }>();
 const emit = defineEmits<{ color: [css: string] }>();
@@ -59,13 +54,29 @@ const emit = defineEmits<{ color: [css: string] }>();
 const model = shallowRef<ColorModel>(createDefaultColorModel());
 const pipeline = useColorPipeline(model);
 provide(COLOR_MODEL_KEY, pipeline);
-provide(POINTER_DEBUG_KEY, usePointerDebug());
 
-const { parseColor, setCurrentColor, cssColorOpaqueFrame } = pipeline;
+const { applyExternalColor, cssColorOpaque, cssColorOpaqueFrame } = pipeline;
 
-function pick(css: string) {
-    setCurrentColor(parseColor(css), model.value.selectedColorSpace);
-}
+// What the app's shell gives the picker, given here by the slice: the hero
+// blob's palette-coupled config, the bead's raster tier, the accent certified
+// against the host's ground, and a view manager that stands on the picker.
+provideHeroBlobConfig(cssColorOpaqueFrame);
+provide(SOFTWARE_RASTER_KEY, resolveRenderMode("auto") === "css");
+const ground = inject(INK_AMBIENT_KEY)!;
+const { safeAccentCss } = useContrastSafeColor(cssColorOpaque, ground, inject(INK_PLATE_REFERENT_KEY, ground));
+provide(SAFE_ACCENT_KEY, safeAccentCss);
+provide(VIEW_MANAGER_KEY, {
+    currentView: computed<ViewId>(() => "picker"),
+    previousView: ref<ViewId | null>(null),
+    currentConfig: computed(() => VIEW_MAP.picker),
+    switchView: () => undefined,
+    goBack: () => undefined,
+    viewMap: VIEW_MAP,
+});
+
+// A press is an external colour, as the app's palettes apply one: the colour
+// and the picker's input line both take it.
+const pick = (css: string) => applyExternalColor(css);
 if (stops[0]) pick(stops[0].css);
 
 // The swatch the colour sits on (the app's own name-snap margin): it is the one pressed.
@@ -110,7 +121,8 @@ watch(cssColorOpaqueFrame, (css) => emit("color", css));
    this padding, so the frame cut it into a hard dark sliver at the plate's
    bottom-right corner, worst where the slice is framed wide. In the slice the
    plate rests on glass's --shadow-sm alone (0 2px 8px), which the padding
-   holds, and the host gives the elevation. */
+   holds, and the host gives the elevation. The top padding seats the hero
+   blob, which rides the plate's corner as it does in the app. */
 .embed-picker {
     inline-size: 100%;
     box-sizing: border-box;

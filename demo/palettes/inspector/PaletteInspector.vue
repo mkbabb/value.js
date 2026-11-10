@@ -198,6 +198,7 @@ import PaletteCardMeta from "./PaletteCardMeta.vue";
 import PaletteCardSwatches from "./PaletteCardSwatches.vue";
 import PaletteNameInput from "../../shared/ui/PaletteNameInput.vue";
 import ActionFeedback from "../../shared/ui/ActionFeedback.vue";
+import { formatCssCaption } from "../../color-session/format-color";
 
 const props = withDefaults(
     defineProps<{
@@ -468,7 +469,7 @@ function onPopoverEdit(color: PaletteColor, index: number) {
 
 function onPopoverCopy(css: string) {
     closePopover();
-    void copyWithVerdict(css, css);
+    void copyWithVerdict(css, formatCssCaption(css));
 }
 
 /**

@@ -5,6 +5,7 @@ import { EDIT_TARGET_KEY } from "../../../../color-session/keys";
 import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import { CURRENT_PALETTE_ID } from "../../../constants";
 import { usePopupMutex } from "../../../../shared/usePopupMutex";
+import { formatCssCaption } from "../../../../color-session/format-color";
 
 export interface SwatchActionsDeps {
     savedColorStrings: Ref<string[]>;
@@ -100,8 +101,8 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
         closeCurrentSwatchPopover();
         const result = await writeClipboard(css);
         copyFeedback.value = result.ok
-            ? { message: `Copied ${css}`, variant: "success", visible: true }
-            : { message: `Could not copy ${css}`, variant: "error", visible: true };
+            ? { message: `Copied ${formatCssCaption(css)}`, variant: "success", visible: true }
+            : { message: `Could not copy ${formatCssCaption(css)}`, variant: "error", visible: true };
     }
 
     function onCurrentSwatchRemove(css: string, index: number) {
