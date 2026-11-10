@@ -25,9 +25,8 @@ import { openView, mainPane } from "../fixtures/dock";
  * encoded, never silent). A `data-surface="veil"` card is a NESTED IN-PLATE
  * FIXTURE, not a pane plate: the rung-1 sweep exempts it and the veil row
  * asserts its OWN identity POSITIVELY instead (quiet tier · rim/border
- * STRIPPED · the quiet backdrop-blur that IS the veil's definition — the
- * producer recipe, so the RC-3 no-blur clause is the WELL's rung law, not
- * this fixture's · seated INSIDE a resting plate, never a pane root · off
+ * STRIPPED · no backdrop-blur since o1109 canon V12, never a blur inside the
+ * plate's blur · seated INSIDE a resting plate, never a pane root · off
  * the well token). The gate is re-aimed, never weakened.
  *
  * Membership is asserted by IDENTITY, never by a fixed alpha: Cards via the
@@ -252,8 +251,8 @@ for (const scheme of ["light", "dark"] as const) {
             // console is the ONE veil seat; the picker pane mounts on Home
             // by construction (presence asserted there), and WHEREVER a veil
             // card mounts it must wear the producer veil identity (quiet
-            // tier · rim/border stripped · the quiet blur that IS the veil's
-            // definition), sit INSIDE a rung-1 plate (an in-plate fixture,
+            // tier · rim/border stripped · no blur of its own since o1109
+            // canon V12), sit INSIDE a rung-1 plate (an in-plate fixture,
             // never a pane root), and be OFF the well token (the re-seat is
             // real, not a re-paint).
             if (view === "Home") {
@@ -266,12 +265,14 @@ for (const scheme of ["light", "dark"] as const) {
                 expect
                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
                     .toBe("quiet");
+                // o1109 canon V12 (restraint: never a blur inside a blur): the
+                // veil is its tint alone, so it carries no backdrop blur.
                 expect
                     .soft(
                         veil.backdrop,
-                        `${view} (${scheme}): the veil's quiet blur is dead (its own definition)`,
+                        `${view} (${scheme}): the veil blurs inside its plate`,
                     )
-                    .not.toBe("none");
+                    .toBe("none");
                 expect
                     .soft(
                         veil.shadow,

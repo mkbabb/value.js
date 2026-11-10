@@ -56,22 +56,41 @@ async function holdAudit(page: Page, body = audit()) {
 const PANE = (id: string) => `[data-pane="admin-${id}"]`;
 
 /** The Audit shadows (held first load) and then the released rows, measured. */
+/**
+ * The pane's entrance scales its plate in, and a read mid-entrance measures the
+ * rows through the transform (the gaps read 9.5, -0.2 and 6.1 px across three
+ * attempts on one tree). Read once two consecutive reads agree.
+ */
+async function settled<T>(read: () => Promise<T>): Promise<T> {
+    let last = await read();
+    await expect.poll(async () => {
+        const next = await read();
+        const same = JSON.stringify(next) === JSON.stringify(last);
+        last = next;
+        return same;
+    }, { timeout: 10_000, intervals: [150] }).toBe(true);
+    return last;
+}
+
 async function shadowsVsRows(page: Page) {
     const release = await holdAudit(page);
     await page.goto("/#/admin/audit");
     const status = page.locator(`${PANE("audit")} [role="status"][aria-label="Loading audit log"]`);
     await status.waitFor();
-    const skel = await status.evaluate((st) => {
+    const readSkel = () => status.evaluate((st) => {
         const k = [...st.children].map((e) => e.getBoundingClientRect());
         return { h: k.map((b) => b.height), gaps: k.slice(1).map((b, i) => b.top - k[i]!.bottom) };
     });
+    // The pane's entrance scales its plate in; a read mid-entrance measures the
+    // shadows through the transform. Read once two frames agree.
+    const skel = await settled(readSkel);
     release();
     const firstRow = page.locator(`${PANE("audit")} .min-w-0.flex.items-center.rounded-md.border-card-edge`).first();
     await firstRow.waitFor();
-    const rows = await page.locator(`${PANE("audit")} .min-w-0.flex.items-center.rounded-md.border-card-edge`).evaluateAll((es) => {
+    const rows = await settled(() => page.locator(`${PANE("audit")} .min-w-0.flex.items-center.rounded-md.border-card-edge`).evaluateAll((es) => {
         const k = es.map((e) => e.getBoundingClientRect());
         return { h: k.map((b) => b.height), gaps: k.slice(1).map((b, i) => b.top - k[i]!.bottom) };
-    });
+    }));
     console.log("SS8-0514", JSON.stringify({ skel, rows }));
     return { skel, rows };
 }
