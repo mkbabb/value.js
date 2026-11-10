@@ -6348,3 +6348,43 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **To ship.** Merge #4 once master's motion smoke is green, then deploy-pages, prod ×2 (`npm run check:live` now includes the compression check), and refresh 4413.
   - **Merge note for L2 (o1109-dock).** Both branches edit the Text trigger in `src/scripture/ReaderDock.vue`, so the second to land resolves it. Keep the icon trigger, `aria-label="Text"`, and the icon views.
   - Receipts are in `~/.dev-logs/feedback-canon/daraksha-canon-receipts/`: red-e2e-{1,2}, green-e2e-{1,2}, green-unit-{1,2}, smoke-local, build and frames/.
+
+- **§0hz.canon.keyframes** (2026-11-09; the restraint precept, owner order 17:21 + 17:24). keyframes.js PR #20 (`o1109-canon-kf`, `56b23e1e`) merged to master as `19fde34d`. PR CI `42748396552` was green: library gates, and the demo browser roster on CI. Master CI and deploy-pages at `19fde34d` were green. Prod serves `index-CICtAE0q.js`, the same entry as the local build.
+  - **Built.**
+    - K1: the Easing stage's "ease" h2 is gone.
+    - K6: the catalogue uses glass's default tabs.
+    - K7: the captions are cut:
+      - "Sampled curve" and its sweep/ζ/peak line
+      - "time · N stops"
+      - "spring-chased…"
+      - "x · y ∈ [-1, 1]"
+      - "drag me"
+      - "single-target only"
+      - the Layer caption
+      - "N items · N ms"
+      - the home's "from the dock above, then press Play below." ("or drag M. cubert" stays)
+    - K7 also removes the SETTLED/TRACKING badge and its CSS (the spring keeps an sr-only `role=status`), makes the rail hint sr-only, and removes the empty Timeline's second Import.
+    - K8: the Timeline imports the scene's emitted @keyframes on a fresh visit.
+    - K9: no demo-set semibold; `.param-value` is set at `--control-label`.
+    - K10: `demo/utils/formatNumber.ts` is the one formatter. It drops trailing zeros, never signs zero, uses U+2212, and holds the sign column with a figure space.
+    - K12: the ribbon's per-frame time readout is now the scrubber's value text.
+    - K16: in the short-viewport block the top dock anchor equals the bottom margin term.
+  - **Glass (sent to glass-ui-5c, not shimmed).** These units are glass-owned:
+    - K1: EasingPicker's own preset Select, and "Custom" on a seeded named curve.
+    - K2: the staircase is drawn in Bezier mode.
+    - K3: waits on the G12 answer.
+    - K4: the sheet handle has no focus ring.
+    - K9: `.text-subheading` and the ConfiguratorLayer label are 600.
+    - K12: the slider range and thumb write `style` every frame.
+    - K15: the first-detent shift of `.controls-drawer-content` (prod CLS 0.018 and 0.004).
+  - **Not built.**
+    - K14: refuted on reading the build. The chunk named `keyboard-*.js` holds the app's `@state` and the kf-engine accessor, not keyboard code. Its `import.then` long task is the mount continuation after `warmKfEngine`, so there is nothing to make lazy.
+    - K13: not reproduced. →Home's longest frame on prod was 52 ms and 74 ms (1440, CPU ×1), against the < 100 ms bar.
+    - K5 and K11: need browser frames that the kernel-zone gate stopped (below).
+  - **Gates.**
+    - `test/demo/restraint-canon.test.ts`: RED ×2 on base (21 of 23 failing) and GREEN ×2 on the branch.
+    - Prod probe RED ×2 before the merge (`~/.dev-logs/feedback-canon/kf-apply/prod-r{1,2}.json`): cube playing 120 and 41.9 layouts/s with the ribbon `OUTPUT` rewritten each frame; 667×375 docks top 2 / bottom 16; spring, square and home text hits; easing h2 "ease".
+    - Locally: check, lint, and vitest `--maxWorkers=2` (2508 passing).
+    - Prod after the deploy: a curl text census ×2 (`prod-text.sh`) found 0 of the 9 cut strings, kept "drag M. cubert", and found all 4 positive controls.
+  - **Open.** The local browser GREEN ×2 and the prod browser ×2 for K12 and K16 did not run. `guarded` refused every browser and heavy run: "kernel zone data.kalloc.1024 at 8.02M … reboot the Mac". The owner needs to reboot. After that, run `~/.dev-logs/feedback-canon/kf-apply/probe.mjs` against prod ×2.
+  - The audit server at 4411 now serves `19fde34d`.
