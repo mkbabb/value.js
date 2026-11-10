@@ -12,7 +12,7 @@ import { regionSettled } from "./fixtures/settle";
  * unnamed one took it away: the header, the plate, the scene and (where the
  * document scrolls) the page all moved with the colour.
  *
- *   VJS_E2E_PORT=… npx playwright test e2e/smoke/o1109-name-height.spec.ts --project=smoke
+ *   VJS_E2E_PORT=… npx playwright test e2e/smoke/o1109b-name-height.spec.ts --project=smoke
  *
  * Per cell (360 · 390 · 430 · 820 · 1440, light and dark), the colour walks
  * a sweep of unnamed, keyword-named and approved-named colours in one
@@ -147,7 +147,7 @@ async function waitForName(page: Page, name: string | null) {
 }
 
 for (const scheme of ["light", "dark"] as const) {
-    test.describe(`o1109 · a colour's name never moves the page (${scheme})`, () => {
+    test.describe(`o1109b · a colour's name never moves the page (${scheme})`, () => {
         for (const cell of CELLS) {
             test.describe(cell.name, () => {
                 test.use({ viewport: { width: cell.width, height: cell.height }, colorScheme: scheme });

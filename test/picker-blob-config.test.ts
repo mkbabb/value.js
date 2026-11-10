@@ -30,7 +30,7 @@ describe("V.W29 Picker Blob fixed-footprint paint mass", () => {
     // o1109 (the owner, 2026-11-09: "satellite blobs and goo morphing needs to
     // be more pronounced, less shaded"): the body yields to 0.27 so four
     // satellites stand past the skin inside the wrapper's containment
-    // (|uv| ≤ 0.5). The rendered half is e2e/smoke/o1109-blob-goo.spec.ts.
+    // (|uv| ≤ 0.5). The rendered half is e2e/smoke/o1109a-blob-goo.spec.ts.
     it("pins the satellite-show register and keeps every satellite inside the wrapper", () => {
         const atom = (key: string) => {
             const m = source.match(new RegExp(`^\\s*${key}:[^\\n]*heroScale\\("${key}",\\s*([\\d.]+)\\)`, "m"));

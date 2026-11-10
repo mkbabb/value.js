@@ -225,7 +225,7 @@ async function sampleWindow(page: Page, canvas: ReturnType<Page["locator"]>) {
 
 for (const scheme of SCHEMES) {
     for (const width of WIDTHS) {
-        test(`o1109 blob goo · ${width} ${scheme}: satellites pronounced, body painted`, async ({ page }) => {
+        test(`o1109a blob goo · ${width} ${scheme}: satellites pronounced, body painted`, async ({ page }) => {
             test.setTimeout(90_000);
             await page.setViewportSize({ width, height: width >= 820 ? 900 : 844 });
             await page.emulateMedia({ colorScheme: scheme });
@@ -248,7 +248,7 @@ for (const scheme of SCHEMES) {
     }
 }
 
-test("o1109 blob goo · reduced motion: one static frame, satellites still read", async ({ page }) => {
+test("o1109a blob goo · reduced motion: one static frame, satellites still read", async ({ page }) => {
     test.setTimeout(90_000);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.emulateMedia({ reducedMotion: "reduce", colorScheme: "dark" });
